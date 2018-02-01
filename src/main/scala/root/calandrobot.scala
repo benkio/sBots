@@ -21,49 +21,36 @@ object CalandroBot extends TelegramBot
 
   val rootPath = Paths.get("").toAbsolutePath()
 
-  onCommand("/porcoladro", "/porcoladro@CalandroBot") { implicit msg =>
-    sendAudioCalandrico("PorcoLadro.mp3")
-  }
+  val commands : List[(String, String)] =
+    List(("porcoladro"          , "PorcoLadro.mp3"),
+         ("unoduetre"           , "unoduetre.mp3"),
+         ("ancorauna"           , "AncoraUnaDoveLaMetto.mp3"),
+         ("lacipolla"           , "CipollaCalandrica.mp3"),
+         ("lavorogiusto"        , "IlLavoroVaPagato.mp3"),
+         ("motivazioniinternet" , "InternetMotivazioniCalandriche.mp3"),
+         ("cazzomene"           , "IoSonVaccinato.mp3"),
+         ("arrivoarrivo"        , "SubmissionCalandra.mp3"),
+         ("vaginadepilata"      , "VaginaDepilataCalandra.mp3"),
+         ("whawha_fallout4"     , "waawahaawha.mp3"),
+         ("whawha_short"        , "wwhaaawhaaa Singolo.mp3"),
+         ("daccordissimo"       , "d_accordissimo.mp3"),
+         ("stocazzo"            , "stocazzo.mp3"),
+         ("cazzodibudda"        , "cazzoDiBudda.mp3"),
+         ("personapulita"       , "personaPulita.mp3"),
+         ("losquirt"            , "loSquirt.mp3"),
+         ("fuoridalmondo"       , "fuoriDalMondo.mp3"),
+         ("qualitaOlive"        , "qualitáOlive.mp3"),
+         ("gioielli"            , "gioielli.mp3"),
+         ("risata"              , "risata.mp3"))
 
-  onCommand("/unoduetre") { implicit msg =>
-    sendAudioCalandrico("unoduetre.mp3")
-  }
+  val messageReplies : List[(String, Message => Unit)] =
+    List(("sbrighi", (m : Message) => request(SendMessage(m.source, "Passo")) ))
 
-  onCommand("/ancorauna") { implicit msg =>
-    sendAudioCalandrico("AncoraUnaDoveLaMetto.mp3")
-  }
-
-  onCommand("/lacipolla") { implicit msg =>
-    sendAudioCalandrico("CipollaCalandrica.mp3")
-  }
-
-  onCommand("/lavorogiusto") { implicit msg =>
-    sendAudioCalandrico("IlLavoroVaPagato.mp3")
-  }
-
-  onCommand("/motivazioniinternet") { implicit msg =>
-    sendAudioCalandrico("InternetMotivazioniCalandriche.mp3")
-  }
-
-  onCommand("/cazzomene") { implicit msg =>
-    sendAudioCalandrico("IoSonVaccinato.mp3")
-  }
-
-  onCommand("/arrivoarrivo") { implicit msg =>
-    sendAudioCalandrico("SubmissionCalandra.mp3")
-  }
-
-  onCommand("/vaginadepilata") { implicit msg =>
-    sendAudioCalandrico("VaginaDepilataCalandra.mp3")
-  }
-
-  onCommand("/whawha_fallout4") { implicit msg =>
-    sendAudioCalandrico("waawahaawha.mp3")
-  }
-
-  onCommand("/whawha_short") { implicit msg =>
-    sendAudioCalandrico("wwhaaawhaaa Singolo.mp3")
-  }
+  commands.foreach(t => {
+                     onCommand(t._1) { implicit msg =>
+                       sendAudioCalandrico(t._2)
+                     }
+                   })
 
   def sendAudioCalandrico(filename : String)(implicit msg : Message) = {
     uploadingAudio
@@ -74,4 +61,10 @@ object CalandroBot extends TelegramBot
 
   def buildPath(filename : String) : Path =
     Paths.get(rootPath.toString(), "src", "main", "resources", filename)
+
+  override def receiveMessage(message: Message) = {
+    if (message.text.isDefined) {
+      messageReplies.filter(t => message.text.get.toLowerCase() contains t._1).foreach(_._2(message))
+    }
+  }
 }
