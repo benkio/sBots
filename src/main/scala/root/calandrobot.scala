@@ -11,7 +11,8 @@ import scala.io.Source
 object CalandroBot extends TelegramBot
     with Polling
     with Commands
-    with ChatActions{
+    with ChatActions
+    with Messages{
 
   lazy val token = scala.util.Properties
     .envOrNone("BOT_TOKEN")
@@ -62,9 +63,9 @@ object CalandroBot extends TelegramBot
   def buildPath(filename : String) : Path =
     Paths.get(rootPath.toString(), "src", "main", "resources", filename)
 
-  override def receiveMessage(message: Message) = {
+  onMessage((message : Message) =>
     if (message.text.isDefined) {
       messageReplies.filter(t => message.text.get.toLowerCase() contains t._1).foreach(_._2(message))
     }
-  }
+  )
 }
