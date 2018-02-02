@@ -68,4 +68,5 @@ object CalandroBot extends TelegramBot
       messageReplies.filter(t => message.text.get.toLowerCase() contains t._1).foreach(_._2(message))
     }
   )
+
 }
