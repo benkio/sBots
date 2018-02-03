@@ -44,8 +44,17 @@ object CalandroBot extends TelegramBot
          ("gioielli"            , "gioielli.mp3"),
          ("risata"              , "risata.mp3"))
 
-  val messageReplies : List[(String, Message => Unit)] =
-    List(("sbrighi", (m : Message) => request(SendMessage(m.source, "Passo")) ))
+  val messageReplies : List[(List[String], Message => Unit)] =
+    List((List("sbrighi"), (m : Message) => reply("Passo")(m)),
+         (List("gay", "frocio", "culattone", "ricchione"), (m : Message) => reply("CHE SCHIFO!!!")(m)),
+         (List("caldo", "scotta"), (m : Message) => reply("Come i carbofreni della Brembo!!")(m)),
+         (List("ciao", "buongiorno", "salve"), (m : Message) => reply("Buongiorno Signori")(m)),
+         (List("film"), (m : Message) => reply("Lo riguardo volentieri")(m)),
+         (List("stasera"), (m : Message) => reply("Facciamo qualcosa tutti assieme?")(m)),
+         (List("hd"), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine  ")(m)),
+         (List("qualità"), (m : Message) => reply("A 48x masterizza meglio")(m)),
+         (List("macchina"), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(m)),
+         (List("figa"), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(m)))
 
   commands.foreach(t => {
                      onCommand(t._1) { implicit msg =>
@@ -65,7 +74,10 @@ object CalandroBot extends TelegramBot
 
   onMessage((message : Message) =>
     if (message.text.isDefined) {
-      messageReplies.filter(t => message.text.get.toLowerCase() contains t._1).foreach(_._2(message))
+      messageReplies.filter(t =>
+        t._1.exists( k =>
+          message.text.get.toLowerCase() contains k))
+        .foreach(_._2(message))
     }
   )
 
