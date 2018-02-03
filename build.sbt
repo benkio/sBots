@@ -12,11 +12,11 @@ lazy val root = (project in file(".")).
       scalaTest % Test,
       "info.mukel" %% "telegrambot4s" % "3.0.12",
       "org.slf4j" % "slf4j-api" % "1.7.25",
-      "org.slf4j" % "log4j-over-slf4j" % "1.7.1"
+      "org.slf4j" % "log4j-over-slf4j" % "1.7.1",
+      "io.github.todokr" %% "emojipolation" % "0.2.0"
     ),
     herokuAppName in Compile := "CalandroBot",
     mainClass := Some("root.main")
   )
 
 enablePlugins(JavaServerAppPackaging)
-

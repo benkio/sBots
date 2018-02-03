@@ -7,6 +7,7 @@ import info.mukel.telegrambot4s._, api._, methods._, models._, declarative._
 import java.nio.file.Path
 import java.nio.file.Paths
 import scala.io.Source
+import io.github.todokr.Emojipolation._
 
 object CalandroBot extends TelegramBot
     with Polling
@@ -54,7 +55,8 @@ object CalandroBot extends TelegramBot
          (List("hd"), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine  ")(m)),
          (List("qualità"), (m : Message) => reply("A 48x masterizza meglio")(m)),
          (List("macchina"), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(m)),
-         (List("figa"), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(m)))
+         (List("figa"), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(m)),
+         (List("ambulanza", emoji":ambulance:"), (m : Message) => reply(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:")(m)))
 
   commands.foreach(t => {
                      onCommand(t._1) { implicit msg =>
