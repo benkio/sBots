@@ -43,7 +43,14 @@ object CalandroBot extends TelegramBot
          ("fuoridalmondo"       , "fuoriDalMondo.mp3"),
          ("qualitaOlive"        , "qualitáOlive.mp3"),
          ("gioielli"            , "gioielli.mp3"),
-         ("risata"              , "risata.mp3"))
+         ("risata"              , "risata.mp3"),
+         ("sonocosternato", "sonoCosternato.mp3"),
+         ("demenza", "laDemenzaDiUnUomo.mp3"),
+         ("wha", "whaSecco.mp3"),
+         ("imparatounafava", "imparatoUnaFava.mp3"),
+         ("lesbiche", "SieteLesbiche.mp3"),
+         ("firstlesson", "firstLessonPlease.mp3"),
+         ("noprogrammato", "noGrazieProgrammato.mp3"))
 
   val messageReplies : List[(List[String], Message => Unit)] =
     List((List("sbrighi"), (m : Message) => reply("Passo")(m)),
