@@ -59,11 +59,12 @@ object CalandroBot extends TelegramBot
          (List("ciao", "buongiorno", "salve"), (m : Message) => reply("Buongiorno Signori")(m)),
          (List("film"), (m : Message) => reply("Lo riguardo volentieri")(m)),
          (List("stasera"), (m : Message) => reply("Facciamo qualcosa tutti assieme?")(m)),
-         (List("hd"), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine  ")(m)),
+         (List("hd", "nitido", "nitidezza", "alta definizione"), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine  ")(m)),
          (List("qualità"), (m : Message) => reply("A 48x masterizza meglio")(m)),
-         (List("macchina"), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(m)),
+         (List("macchina", "automobile"), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(m)),
          (List("figa"), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(m)),
-         (List("ambulanza", emoji":ambulance:"), (m : Message) => reply(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:")(m)))
+         (List("ambulanza", emoji":ambulance:"), (m : Message) => reply(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:")(m)),
+         (List("pc", "computer"), (m : Message) => reply("Il fisso performa meglio rispetto al portatile!!!")(m)))
 
   commands.foreach(t => {
                      onCommand(t._1) { implicit msg =>
