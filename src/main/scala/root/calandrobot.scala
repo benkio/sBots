@@ -9,6 +9,22 @@ import java.nio.file.Paths
 import scala.io.Source
 import io.github.todokr.Emojipolation._
 
+trait MessageMatches
+
+object ContainsOnce extends MessageMatches
+object ContainsAll extends MessageMatches
+
+object MessageMatches {
+  def getHandler(keys : List[String],
+                 messageText : String,
+                 handler : Message => Unit,
+                 matcher : MessageMatches = ContainsOnce) : Option[Message => Unit] = matcher match {
+    case ContainsOnce if (keys.exists(k => messageText.toLowerCase() contains k)) => Some(handler)
+    case ContainsAll if (keys.forall(k => messageText.toLowerCase() contains k)) => Some(handler)
+    case _ => None
+  }
+}
+
 object CalandroBot extends TelegramBot
     with Polling
     with Commands
@@ -52,19 +68,19 @@ object CalandroBot extends TelegramBot
          ("firstlesson"         , "firstLessonPlease.mp3"),
          ("noprogrammato"       , "noGrazieProgrammato.mp3"))
 
-  val messageReplies : List[(List[String], Message => Unit)] =
-    List((List("sbrighi"), (m : Message) => reply("Passo")(m)),
-         (List("gay", "frocio", "culattone", "ricchione"), (m : Message) => reply("CHE SCHIFO!!!")(m)),
-         (List("caldo", "scotta"), (m : Message) => reply("Come i carbofreni della Brembo!!")(m)),
-         (List("ciao", "buongiorno", "salve"), (m : Message) => reply("Buongiorno Signori")(m)),
-         (List("film"), (m : Message) => reply("Lo riguardo volentieri")(m)),
-         (List("stasera"), (m : Message) => reply("Facciamo qualcosa tutti assieme?")(m)),
-         (List("hd", "nitido", "nitidezza", "alta definizione"), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine  ")(m)),
-         (List("qualità"), (m : Message) => reply("A 48x masterizza meglio")(m)),
-         (List("macchina", "automobile"), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(m)),
-         (List("figa"), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(m)),
-         (List("ambulanza", emoji":ambulance:"), (m : Message) => reply(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:")(m)),
-         (List("pc", "computer"), (m : Message) => reply("Il fisso performa meglio rispetto al portatile!!!")(m)))
+  val messageReplies : List[(List[String], Message => Unit, MessageMatches)] =
+    List((List("sbrighi"                                       ), (m : Message) => reply("Passo")(                                                                                                                                        m), ContainsOnce),
+         (List("gay", "frocio", "culattone", "ricchione"       ), (m : Message) => reply("CHE SCHIFO!!!")(                                                                                                                                m), ContainsOnce),
+         (List("caldo", "scotta"                               ), (m : Message) => reply("Come i carbofreni della Brembo!!")(                                                                                                             m), ContainsOnce),
+         (List("ciao", "buongiorno", "salve"                   ), (m : Message) => reply("Buongiorno Signori")(                                                                                                                           m), ContainsOnce),
+         (List("film"                                          ), (m : Message) => reply("Lo riguardo volentieri")(                                                                                                                       m), ContainsOnce),
+         (List("stasera", "?"                                  ), (m : Message) => reply("Facciamo qualcosa tutti assieme?")(                                                                                                             m), ContainsAll),
+         (List("hd", "nitido", "nitidezza", "alta definizione" ), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine  ")(                                                                                          m), ContainsOnce),
+         (List("qualità"                                       ), (m : Message) => reply("A 48x masterizza meglio")(                                                                                                                      m), ContainsOnce),
+         (List("macchina", "automobile"                        ), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(                                                                                                  m), ContainsOnce),
+         (List("figa"                                          ), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(                                                                                             m), ContainsOnce),
+         (List("ambulanza", emoji":ambulance:"                 ), (m : Message) => reply(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:")( m), ContainsOnce),
+         (List("pc", "computer"                                ), (m : Message) => reply("Il fisso performa meglio rispetto al portatile!!!")(                                                                                            m), ContainsOnce))
 
   commands.foreach(t => {
                      onCommand(t._1) { implicit msg =>
@@ -84,10 +100,9 @@ object CalandroBot extends TelegramBot
 
   onMessage((message : Message) =>
     message.text.map { m =>
-      messageReplies.filter(t =>
-        t._1.exists( k =>
-          m.toLowerCase() contains k))
-        .foreach(_._2(message))
+      messageReplies
+        .flatMap(t => MessageMatches.getHandler(t._1, m, t._2, t._3).toList)
+        .foreach(_(message))
     }
   )
 }
