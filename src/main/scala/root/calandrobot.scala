@@ -24,7 +24,7 @@ object CalandroBot extends TelegramBot
   val rootPath = Paths.get("").toAbsolutePath()
 
   val commands : List[(String, String)] =
-    List(("porcoladro"          , "PorcoLadro.mp3"),
+    List (("porcoladro"         , "PorcoLadro.mp3"),
          ("unoduetre"           , "unoduetre.mp3"),
          ("ancorauna"           , "AncoraUnaDoveLaMetto.mp3"),
          ("lacipolla"           , "CipollaCalandrica.mp3"),
@@ -44,13 +44,13 @@ object CalandroBot extends TelegramBot
          ("qualitaOlive"        , "qualitáOlive.mp3"),
          ("gioielli"            , "gioielli.mp3"),
          ("risata"              , "risata.mp3"),
-         ("sonocosternato", "sonoCosternato.mp3"),
-         ("demenza", "laDemenzaDiUnUomo.mp3"),
-         ("wha", "whaSecco.mp3"),
-         ("imparatounafava", "imparatoUnaFava.mp3"),
-         ("lesbiche", "SieteLesbiche.mp3"),
-         ("firstlesson", "firstLessonPlease.mp3"),
-         ("noprogrammato", "noGrazieProgrammato.mp3"))
+         ("sonocosternato"      , "sonoCosternato.mp3"),
+         ("demenza"             , "laDemenzaDiUnUomo.mp3"),
+         ("wha"                 , "whaSecco.mp3"),
+         ("imparatounafava"     , "imparatoUnaFava.mp3"),
+         ("lesbiche"            , "SieteLesbiche.mp3"),
+         ("firstlesson"         , "firstLessonPlease.mp3"),
+         ("noprogrammato"       , "noGrazieProgrammato.mp3"))
 
   val messageReplies : List[(List[String], Message => Unit)] =
     List((List("sbrighi"), (m : Message) => reply("Passo")(m)),
@@ -83,12 +83,11 @@ object CalandroBot extends TelegramBot
     Paths.get(rootPath.toString(), "src", "main", "resources", filename)
 
   onMessage((message : Message) =>
-    if (message.text.isDefined) {
+    message.text.map { m =>
       messageReplies.filter(t =>
         t._1.exists( k =>
-          message.text.get.toLowerCase() contains k))
+          m.toLowerCase() contains k))
         .foreach(_._2(message))
     }
   )
-
 }
