@@ -104,6 +104,10 @@ object CalandroBot extends TelegramBot
         .flatMap(t => MessageMatches.getHandler(t._1, m, t._2, t._3).toList)
         .foreach(_(message))
     }
-    // TODO: Add the message character count to notify the sender about the "Calandric Message"
+    // TODO: Add the message character count to notify the sender about the
+    // "Calandric Message" Just use the normal reply and the incoming message ID:
+    // https://github.com/bot4s/telegram/blob/master/core/src/main/scala/info/mukel/telegrambot4s/models/Message.scala#L54 
+    // in the reply method:
+    // https://github.com/bot4s/telegram/blob/master/core/src/main/scala/info/mukel/telegrambot4s/api/declarative/Messages.scala#L60 
   )
 }
