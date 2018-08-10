@@ -75,7 +75,7 @@ object CalandroBot extends TelegramBot
          (List("ciao", "buongiorno", "salve"                   ), (m : Message) => reply("Buongiorno Signori")(                                                                                                                           m), ContainsOnce),
          (List("film"                                          ), (m : Message) => reply("Lo riguardo volentieri")(                                                                                                                       m), ContainsOnce),
          (List("stasera", "?"                                  ), (m : Message) => reply("Facciamo qualcosa tutti assieme?")(                                                                                                             m), ContainsAll),
-         (List("hd", "nitido", "nitidezza", "alta definizione" ), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine  ")(                                                                                          m), ContainsOnce),
+         (List(" hd", "nitido", "nitidezza", "alta definizione"), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine")(                                                                                          m), ContainsOnce),
          (List("qualità"                                       ), (m : Message) => reply("A 48x masterizza meglio")(                                                                                                                      m), ContainsOnce),
          (List("macchina", "automobile"                        ), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(                                                                                                  m), ContainsOnce),
          (List(" figa ", " fregna ", " gnocca ", " patacca "   ), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(                                                                                             m), ContainsOnce),
@@ -104,5 +104,6 @@ object CalandroBot extends TelegramBot
         .flatMap(t => MessageMatches.getHandler(t._1, m, t._2, t._3).toList)
         .foreach(_(message))
     }
+    // TODO: Add the message character count to notify the sender about the "Calandric Message"
   )
 }
