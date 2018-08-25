@@ -144,7 +144,7 @@ object CalandroBot extends TelegramBot
     * @param messageId if of the message
     */
   def textLengthExceedHandler(textLength : Int, messageId : Int) : MessageHandler = (m : Message) =>
-  reply(s"""WARNING: The length of this message exceed the "Calandric" Limit of 280 chars($textLength / 280), beware of your calandric level!""",
+  reply(s"""wawaaa rischio calandrico in aumento($textLength / 280)""",
         replyToMessageId = Some(messageId))(m)
 
   onMessage((message : Message) =>
