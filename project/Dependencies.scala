@@ -3,7 +3,7 @@ import sbt._
 object Dependencies {
 
   lazy val scalaTestVersion             = "3.0.4"
-  lazy val telegramBot4sVersion         = "3.0.12"
+  lazy val telegramBot4sVersion         = "3.0.16"
   lazy val slf4sVersion                 = "1.7.25"
   lazy val emojiManipulatorVersion      = "0.2.0"
   lazy val logbackClassicVersion        = "1.2.3"
