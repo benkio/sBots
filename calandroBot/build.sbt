@@ -5,7 +5,8 @@ javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint")
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
-                  organization := "benkio",
+
+      organization := "benkio",
                   scalaVersion := "2.12.8",
                   version      := "0.1.0-SNAPSHOT"
                 )),
@@ -16,8 +17,6 @@ lazy val root = (project in file(".")).
       slf4s,
       logbackClassic,
       emojiManipulator,
-      awsLambdaGiavaCore,
-      awsLambdaGiavaEvents
     ),
     mainClass := Some("root.main")
   )
