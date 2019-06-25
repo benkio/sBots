@@ -6,6 +6,7 @@ package root
 import info.mukel.telegrambot4s._, api._, methods._, models._, declarative._
 import java.nio.file.Path
 import java.nio.file.Paths
+import java.nio.file.Files
 import scala.io.Source
 import scala.concurrent.Future
 import io.github.todokr.Emojipolation._
@@ -68,21 +69,40 @@ object RichardPHJBensonBot extends TelegramBot
     request(SendAudio(msg.source, mp3))
   }
 
+  def sendGifBenson(filename : String)(implicit msg : Message) : Future[Message] = {
+    uploadingDocument
+    val path = buildPath(filename)
+    val byteArray : Array[Byte] = Files.readAllBytes(path)
+    val gif = InputFile("benson.gif", byteArray)
+    request(SendDocument(msg.source, gif))
+
+  }
+
   // Message Replies ////////////////////////////////////////////////////////////
+
+
+  val messageRepliesAudio = List(
+      (List("napoli"), (m : Message)                   => sendAudioBenson("vivaNapoli.mp3")(m), ContainsOnce),
+      (List("maledetto"), (m : Message)                => sendAudioBenson("maledetto.mp3")(m), ContainsOnce),
+      (List("aiuto", "aiutatemi"), (m : Message)       => sendAudioBenson("aiuto.mp3")(m), ContainsOnce),
+      (List("ritornata"), (m : Message)                => sendAudioBenson("ritornata.mp3")(m), ContainsOnce),
+      (List("ma che cazzo sto dicendo"), (m : Message) => sendAudioBenson("machecazzostodicendo.mp3")(m), ContainsAll),
+      (List("questa volta no"), (m : Message)          => sendAudioBenson("questavoltano.mp3")(m), ContainsAll),
+      (List("poveri cretini"), (m : Message)           => sendAudioBenson("povericretini.mp3")(m), ContainsAll),
+      (List("ho capito"), (m : Message)                => sendAudioBenson("hocapito.mp3")(m), ContainsAll),
+      (List("feelings"), (m : Message)                => sendAudioBenson("feelings.mp3")(m), ContainsAll),
+      (List("avete capito"), (m : Message)             => sendAudioBenson("avetecapito.mp3")(m), ContainsAll)
+  )
+
+  val messageRepliesGifs = List(
+    (List("bravo"), (m : Message)                    => sendGifBenson("bravo.gif")(m), ContainsOnce),
+    (List("masgus"), (m : Message)                   => sendGifBenson("masgus.gif")(m), ContainsOnce)
+  )
 
   // Map contains the list of keywords to match, the related messageHandler and
   // the Message matches.
   val messageReplies : List[(List[String], MessageHandler, MessageMatches)] =
-    List((List("napoli"), (m : Message) => sendAudioBenson("vivaNapoli.mp3")(m), ContainsOnce),
-      (List("maledetto"), (m : Message) => sendAudioBenson("maledetto.mp3")(m), ContainsOnce),
-      (List("aiuto"), (m : Message) => sendAudioBenson("aiuto.mp3")(m), ContainsOnce),
-      (List("ritornata"), (m : Message) => sendAudioBenson("ritornata.mp3")(m), ContainsOnce),
-      (List("ma che cazzo sto dicendo"), (m : Message) => sendAudioBenson("machecazzostodicendo.mp3")(m), ContainsAll),
-      (List("questa volta no"), (m : Message) => sendAudioBenson("questavoltano.mp3")(m), ContainsAll),
-      (List("poveri cretini"), (m : Message) => sendAudioBenson("povericretini.mp3")(m), ContainsAll),
-      (List("ho capito"), (m : Message) => sendAudioBenson("hocapito.mp3")(m), ContainsAll),
-      (List("avete capito"), (m : Message) => sendAudioBenson("avetecapito.mp3")(m), ContainsAll)
-    )
+    messageRepliesAudio ++ messageRepliesGifs
 
   onMessage((message : Message) =>
      message.text.map { m =>
