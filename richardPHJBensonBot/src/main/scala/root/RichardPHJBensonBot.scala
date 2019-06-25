@@ -73,7 +73,11 @@ object RichardPHJBensonBot extends TelegramBot
   // Map contains the list of keywords to match, the related messageHandler and
   // the Message matches.
   val messageReplies : List[(List[String], MessageHandler, MessageMatches)] =
-    List((List("napoli"), (m : Message) => sendAudioBenson("vivaNapoli.mp3")(m), ContainsOnce))
+    List((List("napoli"), (m : Message) => sendAudioBenson("vivaNapoli.mp3")(m), ContainsOnce),
+      (List("maledetto"), (m : Message) => sendAudioBenson("maledetto.mp3")(m), ContainsOnce),
+      (List("aiuto"), (m : Message) => sendAudioBenson("aiuto.mp3")(m), ContainsOnce),
+      (List("avete capito"), (m : Message) => sendAudioBenson("avetecapito.mp3")(m), ContainsAll)
+    )
 
   onMessage((message : Message) =>
      message.text.map { m =>
