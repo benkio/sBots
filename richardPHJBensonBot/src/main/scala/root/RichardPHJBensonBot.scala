@@ -76,6 +76,11 @@ object RichardPHJBensonBot extends TelegramBot
     List((List("napoli"), (m : Message) => sendAudioBenson("vivaNapoli.mp3")(m), ContainsOnce),
       (List("maledetto"), (m : Message) => sendAudioBenson("maledetto.mp3")(m), ContainsOnce),
       (List("aiuto"), (m : Message) => sendAudioBenson("aiuto.mp3")(m), ContainsOnce),
+      (List("ritornata"), (m : Message) => sendAudioBenson("ritornata.mp3")(m), ContainsOnce),
+      (List("ma che cazzo sto dicendo"), (m : Message) => sendAudioBenson("machecazzostodicendo.mp3")(m), ContainsAll),
+      (List("questa volta no"), (m : Message) => sendAudioBenson("questavoltano.mp3")(m), ContainsAll),
+      (List("poveri cretini"), (m : Message) => sendAudioBenson("povericretini.mp3")(m), ContainsAll),
+      (List("ho capito"), (m : Message) => sendAudioBenson("hocapito.mp3")(m), ContainsAll),
       (List("avete capito"), (m : Message) => sendAudioBenson("avetecapito.mp3")(m), ContainsAll)
     )
 
