@@ -90,19 +90,37 @@ object RichardPHJBensonBot extends TelegramBot
       (List("questa volta no"), (m : Message)          => sendAudioBenson("questavoltano.mp3")(m), ContainsAll),
       (List("poveri cretini"), (m : Message)           => sendAudioBenson("povericretini.mp3")(m), ContainsAll),
       (List("ho capito"), (m : Message)                => sendAudioBenson("hocapito.mp3")(m), ContainsAll),
-      (List("feelings"), (m : Message)                => sendAudioBenson("feelings.mp3")(m), ContainsAll),
+      (List("feelings"), (m : Message)                 => sendAudioBenson("feelings.mp3")(m), ContainsAll),
       (List("avete capito"), (m : Message)             => sendAudioBenson("avetecapito.mp3")(m), ContainsAll)
   )
 
   val messageRepliesGifs = List(
     (List("bravo"), (m : Message)                    => sendGifBenson("bravo.gif")(m), ContainsOnce),
-    (List("masgus"), (m : Message)                   => sendGifBenson("masgus.gif")(m), ContainsOnce)
+    (List("masgus"), (m : Message)                   => sendGifBenson("masgus.gif")(m), ContainsOnce),
+    (List("capolavoro"), (m : Message)               => sendGifBenson("capolavoro.gif")(m), ContainsOnce),
+    (List("mare di cazzate"), (m : Message)          => sendGifBenson("nonépossibile.gif")(m), ContainsOnce),
+    (List("porca miseria"), (m : Message)            => sendGifBenson("porcamiseria.gif")(m), ContainsOnce),
+    (List("schifoso"), (m : Message)                 => sendGifBenson("schifoso.gif")(m), ContainsOnce),
+    (List("fammi questa cortesia"), (m : Message)    => sendGifBenson("fammiquestacortesia.gif")(m), ContainsOnce),
+    (List("ma vattene affanculo"), (m : Message)     => sendGifBenson("mavatteneaffanculo.gif")(m), ContainsOnce),
+    (List("rimpinzati"), (m : Message)               => sendGifBenson("rimpinzati.gif")(m), ContainsOnce),
+    (List("fancedo soffrire"), (m : Message)         => sendGifBenson("facendosoffrire.gif")(m), ContainsOnce),
+    (List("mi sto sentendo male"), (m : Message)     => sendGifBenson("mistosentendomale.gif")(m), ContainsOnce),
+    (List("mi fa stare male"), (m : Message)         => sendGifBenson("mifastaremale.gif")(m), ContainsOnce),
+    (List("lunghezza d'onda"), (m : Message)         => sendGifBenson("lunghezzadonda.gif")(m), ContainsOnce)
+  )
+
+  val messageRepliesSpecial = List(
+    (List("basta"), (m : Message)                   => {
+      sendGifBenson("basta.gif")(m)
+      sendAudioBenson("basta.mp3")(m)
+    }, ContainsOnce)
   )
 
   // Map contains the list of keywords to match, the related messageHandler and
   // the Message matches.
   val messageReplies : List[(List[String], MessageHandler, MessageMatches)] =
-    messageRepliesAudio ++ messageRepliesGifs
+    messageRepliesAudio ++ messageRepliesGifs ++ messageRepliesSpecial
 
   onMessage((message : Message) =>
      message.text.map { m =>
