@@ -85,7 +85,7 @@ object RichardPHJBensonBot extends TelegramBot
       (List("napoli"), (m : Message)                   => sendAudioBenson("vivaNapoli.mp3")(m), ContainsOnce),
       (List("maledetto"), (m : Message)                => sendAudioBenson("maledetto.mp3")(m), ContainsOnce),
       (List("aiuto", "aiutatemi"), (m : Message)       => sendAudioBenson("aiuto.mp3")(m), ContainsOnce),
-      (List("ritornata"), (m : Message)                => sendAudioBenson("ritornata.mp3")(m), ContainsOnce),
+      (List("ritornata", "ritornato"), (m : Message)   => sendAudioBenson("ritornata.mp3")(m), ContainsOnce),
       (List("ma che cazzo sto dicendo"), (m : Message) => sendAudioBenson("machecazzostodicendo.mp3")(m), ContainsAll),
       (List("questa volta no"), (m : Message)          => sendAudioBenson("questavoltano.mp3")(m), ContainsAll),
       (List("poveri cretini"), (m : Message)           => sendAudioBenson("povericretini.mp3")(m), ContainsAll),
@@ -96,7 +96,7 @@ object RichardPHJBensonBot extends TelegramBot
 
   val messageRepliesGifs = List(
     (List("bravo"), (m : Message)                    => sendGifBenson("bravo.gif")(m), ContainsOnce),
-    (List("masgus"), (m : Message)                   => sendGifBenson("masgus.gif")(m), ContainsOnce),
+    (List("masgus", "ma sgus"), (m : Message)                   => sendGifBenson("masgus.gif")(m), ContainsOnce),
     (List("capolavoro"), (m : Message)               => sendGifBenson("capolavoro.gif")(m), ContainsOnce),
     (List("mare di cazzate"), (m : Message)          => sendGifBenson("nonépossibile.gif")(m), ContainsOnce),
     (List("porca miseria"), (m : Message)            => sendGifBenson("porcamiseria.gif")(m), ContainsOnce),
