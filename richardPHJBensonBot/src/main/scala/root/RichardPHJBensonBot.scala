@@ -104,7 +104,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("fammi questa cortesia"), (m : Message)    => sendGifBenson("fammiquestacortesia.gif")(m), ContainsOnce),
     (List("ma vattene affanculo"), (m : Message)     => sendGifBenson("mavatteneaffanculo.gif")(m), ContainsOnce),
     (List("rimpinzati"), (m : Message)               => sendGifBenson("rimpinzati.gif")(m), ContainsOnce),
-    (List("fancedo soffrire"), (m : Message)         => sendGifBenson("facendosoffrire.gif")(m), ContainsOnce),
+    (List("facendo soffrire"), (m : Message)         => sendGifBenson("facendosoffrire.gif")(m), ContainsOnce),
     (List("mi sto sentendo male"), (m : Message)     => sendGifBenson("mistosentendomale.gif")(m), ContainsOnce),
     (List("mi fa stare male"), (m : Message)         => sendGifBenson("mifastaremale.gif")(m), ContainsOnce),
     (List("lunghezza d'onda"), (m : Message)         => sendGifBenson("lunghezzadonda.gif")(m), ContainsOnce)
