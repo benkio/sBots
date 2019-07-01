@@ -82,18 +82,18 @@ object RichardPHJBensonBot extends TelegramBot
 
 
   val messageRepliesAudio = List(
-    (List("maledetto"), (m : Message)                => sendAudioBenson("maledetto.mp3")(m), ContainsOnce),
-    (List("aiuto", "aiutatemi"), (m : Message)       => sendAudioBenson("aiuto.mp3")(m), ContainsOnce),
-    (List("ritornata", "ritornato"), (m : Message)   => sendAudioBenson("ritornata.mp3")(m), ContainsOnce),
-    (List("ma che cazzo sto dicendo"), (m : Message) => sendAudioBenson("machecazzostodicendo.mp3")(m), ContainsAll),
-    (List("poveri cretini"), (m : Message)           => sendAudioBenson("povericretini.mp3")(m), ContainsAll),
-    (List("ho capito"), (m : Message)                => sendAudioBenson("hocapito.mp3")(m), ContainsAll),
-    (List("feelings"), (m : Message)                 => sendAudioBenson("feelings.mp3")(m), ContainsAll),
-    (List("avete capito"), (m : Message)             => sendAudioBenson("avetecapito.mp3")(m), ContainsAll),
-    (List("due ossa"), (m : Message)                 => sendAudioBenson("dueossa.mp3")(m), ContainsAll),
-    (List("schifo"), (m : Message)                   => sendAudioBenson("schifo.mp3")(m), ContainsAll),
-    (List("pappalardo"), (m : Message)               => sendAudioBenson("pappalardo.mp3")(m), ContainsAll),
-    (List("attenzione"), (m : Message)               => sendAudioBenson("attenzione.mp3")(m), ContainsAll)
+    (List("maledetto"), (m : Message)                       => sendAudioBenson("maledetto.mp3")(m), ContainsOnce),
+    (List("aiuto", "aiutatemi", "aiutatelo"), (m : Message) => sendAudioBenson("aiuto.mp3")(m), ContainsOnce),
+    (List("ritornata", "ritornato"), (m : Message)          => sendAudioBenson("ritornata.mp3")(m), ContainsOnce),
+    (List("ma che cazzo sto dicendo"), (m : Message)        => sendAudioBenson("machecazzostodicendo.mp3")(m), ContainsAll),
+    (List("poveri cretini"), (m : Message)                  => sendAudioBenson("povericretini.mp3")(m), ContainsAll),
+    (List("ho capito"), (m : Message)                       => sendAudioBenson("hocapito.mp3")(m), ContainsAll),
+    (List("feelings"), (m : Message)                        => sendAudioBenson("feelings.mp3")(m), ContainsAll),
+    (List("avete capito"), (m : Message)                    => sendAudioBenson("avetecapito.mp3")(m), ContainsAll),
+    (List("due ossa"), (m : Message)                        => sendAudioBenson("dueossa.mp3")(m), ContainsAll),
+    (List("schifo"), (m : Message)                          => sendAudioBenson("schifo.mp3")(m), ContainsAll),
+    (List("pappalardo"), (m : Message)                      => sendAudioBenson("pappalardo.mp3")(m), ContainsAll),
+    (List("attenzione"), (m : Message)                      => sendAudioBenson("attenzione.mp3")(m), ContainsAll)
   )
 
   val messageRepliesGifs = List(
