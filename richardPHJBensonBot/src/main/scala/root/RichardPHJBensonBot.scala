@@ -143,6 +143,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("ostina", "foto vecchie", "ostini"), (m : Message)                                       => sendGifBenson("ostina.gif")(m), ContainsOnce),
     (List("sapere", "sapevo", "sapesse", "saperlo", "non lo so", "aristotele"), (m : Message)      => sendGifBenson("sodinonsapere.gif")(m), ContainsOnce),
     (List("vecchio", "vecchia"), (m : Message)                                                     => sendGifBenson("vecchio.gif")(m), ContainsOnce)
+    (List("pagare", "paga", "soldi", "bollette", "tasse",  "bolletta", "tassa"),(m : Message)     => sendGifBenson("cacciaisoldi.gif")(m), ContainsOnce)
   )
 
   val messageRepliesSpecial = List(
