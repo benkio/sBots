@@ -85,8 +85,10 @@ object RichardPHJBensonBot extends TelegramBot
   val messageRepliesAudio : List[(List[String], MessageHandler, MessageMatches)] = List(
     (List("maledetto")                            , "maledetto.mp3"            , ContainsOnce) ,
     (List("aiuto" , "aiutatemi" , "aiutatelo")    , "aiuto.mp3"                , ContainsOnce) ,
+    (List("assolo")    , "assolo.mp3"                , ContainsOnce) ,
     (List("ritornata" , "ritornato")              , "ritornata.mp3"            , ContainsOnce) ,
     (List("merda")                                , "merda.mp3"                , ContainsOnce) ,
+    (List("cobelini", "cobbolidi", "elfi", "eoni", "nani", "mandragola", "fico sacro", "betulla", "canfura", "ossa dei morti", "erbe", "radici", "messico")                                , "figuremitologiche.mp3"                , ContainsOnce) ,
     (List("ma che cazzo sto dicendo")             , "machecazzostodicendo.mp3" , ContainsAll)  ,
     (List("poveri cretini")                       , "povericretini.mp3"        , ContainsAll)  ,
     (List("ho capito")                            , "hocapito.mp3"             , ContainsAll)  ,
@@ -96,6 +98,10 @@ object RichardPHJBensonBot extends TelegramBot
     (List("schifo")                               , "schifo.mp3"               , ContainsAll)  ,
     (List("pappalardo")                           , "pappalardo.mp3"           , ContainsAll)  ,
     (List("attenzione")                           , "attenzione.mp3"           , ContainsAll)  ,
+    (List("ordine")                           , "ordine.mp3"           , ContainsAll)  ,
+    (List("sera")                           , "sera.mp3"           , ContainsAll)  ,
+    (List("venerd")                           , "venerdi.mp3"           , ContainsAll)  ,
+    (List("oppura", "oppure")                           , "oppura.mp3"           , ContainsAll)  ,
     (List("pollo")                                , "pollo.mp3"                , ContainsAll)
   ).map {
     case (words, mp3file, matcher) =>
@@ -105,6 +111,9 @@ object RichardPHJBensonBot extends TelegramBot
   val messageRepliesGifs = List(
     (List("bravo"                                                                  ), "bravo.gif",              ContainsOnce ),
     (List("capolavoro"                                                             ), "capolavoro.gif",         ContainsOnce ),
+    (List("metal"                                                             ), "metal.gif",         ContainsOnce ),
+    (List("allucinante"                                                             ), "allucinante.gif",         ContainsOnce ),
+
     (List("mare di cazzate"                                                        ), "nonépossibile.gif",      ContainsOnce ),
     (List("porca miseria"                                                          ), "porcamiseria.gif",       ContainsOnce ),
     (List("schifoso"                                                               ), "schifoso.gif",           ContainsOnce ),
@@ -118,7 +127,6 @@ object RichardPHJBensonBot extends TelegramBot
     (List("paradosso"                                                              ), "paradosso.gif",          ContainsOnce ),
     (List("deficienza", "deficiente"                                               ), "deficienza.gif",         ContainsOnce ),
     (List("querelare"                                                              ), "querelare.gif",          ContainsOnce ),
-    (List("pigliando per il culo", "prendendo per il culo"                         ), "pigliandoperilculo.gif", ContainsOnce ),
     (List("non voglio nessuno"                                                     ), "nonvoglionessuno.gif",   ContainsOnce ),
     (List("cesso", "bagno"                                                         ), "alcesso.gif",            ContainsOnce ),
     (List("ciao a tutti", "ciao", "come state", "belle gioie"                      ), "ciaocomestate.gif",      ContainsOnce ),
@@ -129,13 +137,11 @@ object RichardPHJBensonBot extends TelegramBot
     (List("non ci credete", "stronzata", "stronzate"                               ), "noncicredete.gif",       ContainsOnce ),
     (List("sto diventando pazzo", "sto diventando matto"                           ), "stodiventandopazzo.gif", ContainsOnce ),
     (List("mi pare logico", "calcolo", "matematica"                                ), "miparelogico.gif",       ContainsOnce ),
-    (List("ti dovresti vergognare", "vergogna"                                     ), "paradosso.gif",          ContainsOnce ),
+    (List("paradosso"                                     ), "paradosso.gif",          ContainsOnce ),
     (List("sorca", "lecciso", "figa"                                               ), "sorcalecciso.gif",       ContainsOnce ),
-    (List("vergogna"                                                               ), "vergogna.gif",           ContainsOnce ),
-    (List("ammazza", "frocio"                                                      ), "frocio.gif",             ContainsOnce ),
-    (List("non li sopporto"                                                        ), "nonlisopporto.gif",      ContainsOnce ),
+    (List("non li sopporto", "che si deve fare"                                                        ), "nonlisopporto.gif",      ContainsOnce ),
     (List("ok", "good", "show", "friends"                                          ), "okgoodshowfriends.gif",  ContainsOnce ),
-    (List("deluso", "mi sta deludendo"                                             ), "deluso.gif",             ContainsOnce ),
+    (List("delus", "delud"                                             ), "deluso.gif",             ContainsOnce ),
     (List("chi cazzo sei"                                                          ), "chicazzosei.gif",        ContainsOnce ),
     (List("non me ne fotte", "chissenefrega", "non mi importa", "non mi interessa" ), "nonmenefotte.gif",       ContainsOnce ),
     (List("feste"                                                                  ), "feste.gif",              ContainsOnce ),
@@ -144,6 +150,13 @@ object RichardPHJBensonBot extends TelegramBot
     (List("vecchio", "vecchia"                                                     ), "vecchio.gif",            ContainsOnce ),
     (List("pagare", "paga", "soldi", "bollette", "tasse",  "bolletta", "tassa"     ),"cacciaisoldi.gif",        ContainsOnce ),
     (List("venite qua"                                                             ), "venitequa.gif",          ContainsOnce ),
+    (List("lasciami in pace"                                          ), "lasciamiinpace.gif",          ContainsOnce ),
+    (List("mortacci vostri"                                                             ), "mortaccivostri.gif",          ContainsOnce ),
+    (List("danz", "macabr", "ballar" ), "danzamacabra.gif",          ContainsOnce ),
+
+    (List("sei cambiat"                                                             ), "seicambiata.gif",          ContainsOnce ),
+    (List("levati"                                                             ), "levatidaicoglioni.gif",          ContainsOnce ),
+    (List("discapito"                                                             ), "discapito.gif",          ContainsOnce ),
     (List("sarete coglioni voi"                                                    ), "saretecoglionivoi.gif",  ContainsOnce )
   ) map {
     case (words, gifFile, matcher) =>
@@ -153,15 +166,25 @@ object RichardPHJBensonBot extends TelegramBot
   val messageRepliesSpecial = List(
     (List("basta"                         ), "basta.gif", "basta.mp3",                             ContainsOnce ),
     (List("spaventare"                    ), "tidevispaventare.gif", "tidevispaventare.mp3",       ContainsOnce ),
-    (List("questa volta no"               ), "questavoltano.mp3", "questavoltano.gif",             ContainsAll  ),
+    (List("questa volta no"               ), "questavoltano.gif", "questavoltano.mp3",             ContainsAll  ),
+    (List("vergogna" ), "vergogna.gif", "vergogna.mp3",          ContainsOnce ),
+    (List("trasform", "cristo canaro"     ), "trasformista.gif", "trasformista.mp3",             ContainsAll  ),
     (List("masgus", "ma sgus", "ma scusa" ), "masgus.gif", "masgus.mp3",                           ContainsOnce ),
     (List("grazie", "gianni"              ), "grazie.gif", "grazie.mp3",                           ContainsOnce ),
     (List("me ne vado"                    ), "menevado.gif", "menevado.mp3",                       ContainsOnce ),
     (List("incontr"                       ), "incontrateperstrada.gif", "incontrateperstrada.mp3", ContainsOnce ),
+    (List("lavora", "vecchiaccia", "pelle dura", "creatura" ), "lavoratu.gif", "lavoratu.mp3", ContainsOnce ),
     (List("infernali"                     ), "infernali.gif", "infernali.mp3",                     ContainsOnce ),
+    (List("per il culo"                   ), "pigliandoperilculo.gif", "pigliandoperilculo.mp3"  ,ContainsOnce ),
+    (List(emoji":lol:", emoji":rofl:"     ), "risata.gif", "risata.mp3",ContainsOnce ),
+    (List("ammazza", "frocio" ), "frocio.gif", "frocio.mp3",             ContainsOnce ),
     (List("fammi questa cortesia"         ), "fammiquestacortesia.gif", "fammiquestacortesia.mp3", ContainsOnce ),
     (List("non mi sta bene"               ), "nonmistabene.gif", "nonmistabene.mp3",               ContainsOnce ),
-    (List("napoli"                        ), "vivaNapoli.mp3", "vivanapoli.gif",                   ContainsOnce )
+    (List("labbra", "labbro"               ), "labbra.gif", "labbra.mp3",               ContainsOnce ),
+    (List("la vita"                       ), "vitanemico.gif", "vitanemico.mp3",ContainsOnce ),
+    (List("permettere"                       ), "permettere.gif", "permettere.mp3",ContainsOnce ),
+    (List("le note"                       ), "note.gif", "note.mp3",ContainsOnce ),
+    (List("napoli"                        ), "vivaNapoli.gif", "vivanapoli.mp3",                   ContainsOnce )
   ) map {
     case (words, gifFile, mp3file, matcher) =>
       (words, MessageHandler((m : Message) => {
