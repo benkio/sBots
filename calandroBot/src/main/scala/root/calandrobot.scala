@@ -4,9 +4,10 @@
 package root
 
 import info.mukel.telegrambot4s._, api._, methods._, models._, declarative._
-import java.nio.file.Path
-import java.nio.file.Paths
+import java.nio.file.{Path, Paths, Files}
+import java.util.stream.Collectors
 import scala.io.Source
+import scala.util.Random
 import scala.concurrent.Future
 import io.github.todokr.Emojipolation._
 
@@ -68,6 +69,14 @@ object CalandroBot extends TelegramBot
     request(SendAudio(msg.source, mp3))
   }
 
+  def sendRandomCard(implicit msg : Message) = {
+    val cardDir : java.util.List[Path] = Files.walk(buildPath("cards")).collect(Collectors.toList());
+    val numberOfCards = cardDir.size
+    val selectedCardIndex = Random.nextInt(numberOfCards)
+    val card = InputFile(cardDir.get(selectedCardIndex))
+    request(SendPhoto(msg.source, card))
+  }
+
   // Mapping from command name to filename
   val commands : List[(String, String)] =
     List (("porcoladro"         , "PorcoLadro.mp3"),
@@ -104,6 +113,9 @@ object CalandroBot extends TelegramBot
                      }
                    })
 
+  onCommand("randomcard") { implicit msg =>
+    sendRandomCard
+  }
   // Message Replies ////////////////////////////////////////////////////////////
 
   // Map contains the list of keywords to match, the related messageHandler and
