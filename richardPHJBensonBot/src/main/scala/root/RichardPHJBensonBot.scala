@@ -160,6 +160,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("vecchio", "vecchia"                  ), "vecchio.gif",            ContainsOnce),
     (List("pagare", "paga", "soldi", "bollette",
       "tasse",  "bolletta", "tassa"             ),"cacciaisoldi.gif",        ContainsOnce),
+    (List("pare", "sti cazzi"                   ), "comevipare.gif",         ContainsOnce),
     (List("venite qua"                          ), "venitequa.gif",          ContainsOnce),
     (List("lasciami in pace"                    ), "lasciamiinpace.gif",     ContainsOnce),
     (List("mortacci vostri"                     ), "mortaccivostri.gif",     ContainsOnce),
