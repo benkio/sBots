@@ -105,7 +105,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("ordine"                            ), "ordine.mp3",               ContainsAll),
     (List("sera"                              ), "sera.mp3",                 ContainsAll),
     (List("venerd"                            ), "venerdi.mp3",              ContainsAll),
-    (List("oppura", "oppure"                  ), "oppura.mp3",               ContainsAll),
+    (List("oppura", "oppure"                  ), "oppura.mp3",               ContainsOnce),
     (List("pollo"                             ), "pollo.mp3",                ContainsAll)
   ).map {
     case (words, mp3file, matcher) =>
