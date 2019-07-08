@@ -168,6 +168,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("sei cambiat"                         ), "seicambiata.gif",        ContainsOnce),
     (List("levati"                              ), "levatidaicoglioni.gif",  ContainsOnce),
     (List("discapito"                           ), "discapito.gif",          ContainsOnce),
+    (List("peggio del peggio"                     ), "peggiodelpeggio.gif",    ContainsOnce),
     (List("sarete coglioni voi"                 ), "saretecoglionivoi.gif",  ContainsOnce)
   ) map {
     case (words, gifFile, matcher) =>
