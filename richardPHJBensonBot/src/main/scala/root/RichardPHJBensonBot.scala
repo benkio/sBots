@@ -92,7 +92,7 @@ object RichardPHJBensonBot extends TelegramBot
       "nani", "la mandragola",
       "fico sacro", " la betulla", "la canfora",
       "le ossa dei morti"                        ), "figuremitologiche.mp3",    ContainsOnce),
-    (List("ma che cazzo sto dicendo"             ), "machecazzostodicendo.mp3", ContainsAll),
+    (List("ma che cazzo sto dicendo", "il martell"), "machecazzostodicendo.mp3", ContainsOnce),
     (List("poveri cretini"                       ), "povericretini.mp3",        ContainsAll),
     (List("ho capito"                            ), "hocapito.mp3",             ContainsAll),
     (List("feelings"                             ), "feelings.mp3",             ContainsAll),
