@@ -105,7 +105,9 @@ object RichardPHJBensonBot extends TelegramBot
     (List("una sera"                             ), "sera.mp3",                 ContainsAll),
     (List("il venerdì"                           ), "venerdi.mp3",              ContainsAll),
     (List("oppura"                               ), "oppura.mp3",               ContainsOnce),
-    (List("volevo un pollo"                      ), "pollo.mp3",                ContainsAll)
+    (List("volevo un pollo"                      ), "pollo.mp3",                ContainsAll),
+    (List("canzonette", "balera", "sagra",
+      "condominiali", "piazza"                   ), "canzonette.mp3",           ContainsOnce)
   ).map {
     case (words, mp3file, matcher) =>
       (words, MessageHandler((m : Message) => sendAudioBenson(mp3file)(m)), matcher)
@@ -130,6 +132,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("pensa alla deficienza",
       "ma si può dire una cosa del genere"      ), "deficienza.gif",         ContainsOnce),
     (List("querelare"                           ), "querelare.gif",          ContainsOnce),
+    (List("cantate", "arigliano"                ), "arigliano.gif",          ContainsOnce),
     (List("non voglio nessuno"                  ), "nonvoglionessuno.gif",   ContainsOnce),
     (List("andati al cesso", "diecimila volte"  ), "alcesso.gif",            ContainsOnce),
     (List("ciao a tutti",
