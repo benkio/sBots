@@ -27,9 +27,9 @@ object MessageMatches {
     * @return the messageReplies handling the request
     */
   def getHandler(keys : List[String],
-                 messageText : String,
-                 handler : CalandroBot.MessageHandler,
-                 matcher : MessageMatches = ContainsOnce) : Option[CalandroBot.MessageHandler] = matcher match {
+    messageText : String,
+    handler : CalandroBot.MessageHandler,
+    matcher : MessageMatches = ContainsOnce) : Option[CalandroBot.MessageHandler] = matcher match {
     case ContainsOnce if (keys.exists(k => messageText.toLowerCase() contains k)) => Some(handler)
     case ContainsAll if (keys.forall(k => messageText.toLowerCase() contains k)) => Some(handler)
     case _ => None
@@ -80,38 +80,38 @@ object CalandroBot extends TelegramBot
   // Mapping from command name to filename
   val commands : List[(String, String)] =
     List (("porcoladro"         , "PorcoLadro.mp3"),
-          ("unoduetre"           , "unoduetre.mp3"),
-          ("ancorauna"           , "AncoraUnaDoveLaMetto.mp3"),
-          ("lacipolla"           , "CipollaCalandrica.mp3"),
-          ("lavorogiusto"        , "IlLavoroVaPagato.mp3"),
-          ("motivazioniinternet" , "InternetMotivazioniCalandriche.mp3"),
-          ("cazzomene"           , "IoSonVaccinato.mp3"),
-          ("arrivoarrivo"        , "SubmissionCalandra.mp3"),
-          ("vaginadepilata"      , "VaginaDepilataCalandra.mp3"),
-          ("whawha_fallout4"     , "waawahaawha.mp3"),
-          ("whawha_short"        , "wwhaaawhaaa Singolo.mp3"),
-          ("daccordissimo"       , "d_accordissimo.mp3"),
-          ("stocazzo"            , "stocazzo.mp3"),
-          ("cazzodibudda"        , "cazzoDiBudda.mp3"),
-          ("personapulita"       , "personaPulita.mp3"),
-          ("losquirt"            , "loSquirt.mp3"),
-          ("fuoridalmondo"       , "fuoriDalMondo.mp3"),
-          ("qualitaOlive"        , "qualitáOlive.mp3"),
-          ("gioielli"            , "gioielli.mp3"),
-          ("risata"              , "risata.mp3"),
-          ("sonocosternato"      , "sonoCosternato.mp3"),
-          ("demenza"             , "laDemenzaDiUnUomo.mp3"),
-          ("wha"                 , "whaSecco.mp3"),
-          ("imparatounafava"     , "imparatoUnaFava.mp3"),
-          ("lesbiche"            , "SieteLesbiche.mp3"),
-          ("firstlesson"         , "firstLessonPlease.mp3"),
-          ("noprogrammato"       , "noGrazieProgrammato.mp3"))
+      ("unoduetre"           , "unoduetre.mp3"),
+      ("ancorauna"           , "AncoraUnaDoveLaMetto.mp3"),
+      ("lacipolla"           , "CipollaCalandrica.mp3"),
+      ("lavorogiusto"        , "IlLavoroVaPagato.mp3"),
+      ("motivazioniinternet" , "InternetMotivazioniCalandriche.mp3"),
+      ("cazzomene"           , "IoSonVaccinato.mp3"),
+      ("arrivoarrivo"        , "SubmissionCalandra.mp3"),
+      ("vaginadepilata"      , "VaginaDepilataCalandra.mp3"),
+      ("whawha_fallout4"     , "waawahaawha.mp3"),
+      ("whawha_short"        , "wwhaaawhaaa Singolo.mp3"),
+      ("daccordissimo"       , "d_accordissimo.mp3"),
+      ("stocazzo"            , "stocazzo.mp3"),
+      ("cazzodibudda"        , "cazzoDiBudda.mp3"),
+      ("personapulita"       , "personaPulita.mp3"),
+      ("losquirt"            , "loSquirt.mp3"),
+      ("fuoridalmondo"       , "fuoriDalMondo.mp3"),
+      ("qualitaOlive"        , "qualitáOlive.mp3"),
+      ("gioielli"            , "gioielli.mp3"),
+      ("risata"              , "risata.mp3"),
+      ("sonocosternato"      , "sonoCosternato.mp3"),
+      ("demenza"             , "laDemenzaDiUnUomo.mp3"),
+      ("wha"                 , "whaSecco.mp3"),
+      ("imparatounafava"     , "imparatoUnaFava.mp3"),
+      ("lesbiche"            , "SieteLesbiche.mp3"),
+      ("firstlesson"         , "firstLessonPlease.mp3"),
+      ("noprogrammato"       , "noGrazieProgrammato.mp3"))
 
   commands.foreach(t => {
-                     onCommand(t._1) { implicit msg =>
-                       sendAudioCalandrico(t._2)
-                     }
-                   })
+    onCommand(t._1) { implicit msg =>
+      sendAudioCalandrico(t._2)
+    }
+  })
 
   onCommand("randomcard") { implicit msg =>
     sendRandomCard
@@ -122,17 +122,20 @@ object CalandroBot extends TelegramBot
   // the Message matches.
   val messageReplies : List[(List[String], MessageHandler, MessageMatches)] =
     List((List("sbrighi"                                       ), (m : Message) => reply("Passo")(                                                                                                                                        m), ContainsOnce),
-         (List("gay", "frocio", "culattone", "ricchione"       ), (m : Message) => reply("CHE SCHIFO!!!")(                                                                                                                                m), ContainsOnce),
-         (List("caldo", "scotta"                               ), (m : Message) => reply("Come i carbofreni della Brembo!!")(                                                                                                             m), ContainsOnce),
-         (List("ciao", "buongiorno", "salve"                   ), (m : Message) => reply("Buongiorno Signori")(                                                                                                                           m), ContainsOnce),
-         (List("film"                                          ), (m : Message) => reply("Lo riguardo volentieri")(                                                                                                                       m), ContainsOnce),
-         (List("stasera", "?"                                  ), (m : Message) => reply("Facciamo qualcosa tutti assieme?")(                                                                                                             m), ContainsAll),
-         (List(" hd", "nitido", "nitidezza", "alta definizione"), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine")(                                                                                          m), ContainsOnce),
-         (List("qualità"                                       ), (m : Message) => reply("A 48x masterizza meglio")(                                                                                                                      m), ContainsOnce),
-         (List("macchina", "automobile"                        ), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(                                                                                                  m), ContainsOnce),
-         (List(" figa ", " fregna ", " gnocca ", " patacca "   ), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(                                                                                             m), ContainsOnce),
-         (List("ambulanza", emoji":ambulance:"                 ), (m : Message) => reply(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:")( m), ContainsOnce),
-         (List("pc", "computer"                                ), (m : Message) => reply("Il fisso performa meglio rispetto al portatile!!!")(                                                                                            m), ContainsOnce))
+      (List("gay", "frocio", "culattone", "ricchione"       ), (m : Message) => reply("CHE SCHIFO!!!")(                                                                                                                                m), ContainsOnce),
+      (List("caldo", "scotta"                               ), (m : Message) => reply("Come i carbofreni della Brembo!!")(                                                                                                             m), ContainsOnce),
+      (List("ciao", "buongiorno", "salve"                   ), (m : Message) => reply("Buongiorno Signori")(                                                                                                                           m), ContainsOnce),
+      (List("film"                                          ), (m : Message) => reply("Lo riguardo volentieri")(                                                                                                                       m), ContainsOnce),
+      (List("stasera", "?"                                  ), (m : Message) => reply("Facciamo qualcosa tutti assieme?")(                                                                                                             m), ContainsAll),
+      (List(" hd", "nitido", "nitidezza", "alta definizione"), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine")(                                                                                          m), ContainsOnce),
+      (List("qualità"                                       ), (m : Message) => reply("A 48x masterizza meglio")(                                                                                                                      m), ContainsOnce),
+      (List("macchina", "automobile"                        ), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(                                                                                                  m), ContainsOnce),
+      (List(" figa ", " fregna ", " gnocca ", " patacca "   ), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(                                                                                             m), ContainsOnce),
+      (List("ambulanza", emoji":ambulance:"                 ), (m : Message) => reply(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:")( m), ContainsOnce),
+      (List("pc", "computer"                                ), (m : Message) => reply("Il fisso performa meglio rispetto al portatile!!!")(                                                                                            m), ContainsOnce),
+      (List("videogioc", emoji":video_game:"                                     ), (m : Message) => reply(s"Io non lo compro per i giochi!! (giochi per il mio pc #${Random.nextInt(Int.MaxValue)})")(                                                                                            m), ContainsOnce),
+      (List(" hs", "hearthstone"                            ), (m : Message) => reply("BASTA CON QUESTI TAUNT!!!")(                                                                                            m), ContainsOnce)
+    )
 
   /**
     * countHandler
@@ -157,7 +160,7 @@ object CalandroBot extends TelegramBot
     */
   def textLengthExceedHandler(textLength : Int, messageId : Int) : MessageHandler = (m : Message) =>
   reply(s"""wawaaa rischio calandrico in aumento($textLength / 280)""",
-        replyToMessageId = Some(messageId))(m)
+    replyToMessageId = Some(messageId))(m)
 
   onMessage((message : Message) =>
     message.text.map { m =>
