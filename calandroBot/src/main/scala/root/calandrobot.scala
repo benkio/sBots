@@ -133,7 +133,7 @@ object CalandroBot extends TelegramBot
       (List(" figa ", " fregna ", " gnocca ", " patacca "   ), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(                                                                                             m), ContainsOnce),
       (List("ambulanza", emoji":ambulance:"                 ), (m : Message) => reply(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:")( m), ContainsOnce),
       (List("pc", "computer"                                ), (m : Message) => reply("Il fisso performa meglio rispetto al portatile!!!")(                                                                                            m), ContainsOnce),
-      (List("videogioc", emoji":video_game:"                                     ), (m : Message) => reply(s"Io non lo compro per i giochi!! (giochi per il mio pc #${Random.nextInt(Int.MaxValue)})")(                                                                                            m), ContainsOnce),
+      (List("videogioc", emoji":video_game:"                                     ), (m : Message) => reply(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!")(                                                                                            m), ContainsOnce),
       (List(" hs", "hearthstone"                            ), (m : Message) => reply("BASTA CON QUESTI TAUNT!!!")(                                                                                            m), ContainsOnce)
     )
 
