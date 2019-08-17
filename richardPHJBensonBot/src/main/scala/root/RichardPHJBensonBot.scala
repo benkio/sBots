@@ -173,7 +173,9 @@ object RichardPHJBensonBot extends TelegramBot
     (List("levati dai coglioni"                 ), "levatidaicoglioni.gif",  ContainsOnce),
     (List("mio discapito"                       ), "discapito.gif",          ContainsOnce),
     (List("peggio del peggio"                   ), "peggiodelpeggio.gif",    ContainsOnce),
-    (List("sarete coglioni voi"                 ), "saretecoglionivoi.gif",  ContainsOnce)
+    (List("sarete coglioni voi"                 ), "saretecoglionivoi.gif",  ContainsOnce),
+    (List("cosa squallida", "abbia mai sentito" ), "squallida.gif",          ContainsOnce),
+    (List("la verità"                           ), "verità.gif",             ContainsOnce)
   ) map {
     case (words, gifFile, matcher) =>
       (words, MessageHandler((m : Message) => sendGifBenson(gifFile)(m)), matcher)
