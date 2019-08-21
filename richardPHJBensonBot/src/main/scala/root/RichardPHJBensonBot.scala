@@ -82,7 +82,7 @@ object RichardPHJBensonBot extends TelegramBot
   // Message Replies ////////////////////////////////////////////////////////////
 
 
-  val messageRepliesAudio : List[(List[String], MessageHandler, MessageMatches)] = List(
+  val messageRepliesAudioData : List[(List[String], String, MessageMatches)] = List(
     (List("sarai maledetto"                      ), "maledetto.mp3",            ContainsOnce),
     (List("io ti aiuto"                          ), "aiuto.mp3",                ContainsOnce),
     (List("assolo", "chitarra", "ghidarra"       ), "assolo.mp3",               ContainsOnce),
@@ -108,12 +108,15 @@ object RichardPHJBensonBot extends TelegramBot
     (List("volevo un pollo"                      ), "pollo.mp3",                ContainsAll),
     (List("canzonette", "balera", "sagra",
       "condominiali", "piazza"                   ), "canzonette.mp3",           ContainsOnce)
-  ).map {
-    case (words, mp3file, matcher) =>
-      (words, MessageHandler((m : Message) => sendAudioBenson(mp3file)(m)), matcher)
-  }
+  )
+  
+  val messageRepliesAudio : List[(List[String], MessageHandler, MessageMatches)] =
+    messageRepliesAudioData.map {
+      case (words, mp3file, matcher) =>
+        (words, MessageHandler((m : Message) => sendAudioBenson(mp3file)(m)), matcher)
+    }
 
-  val messageRepliesGifs = List(
+  val messageRepliesGifsData : List[(List[String], String, MessageMatches)]  = List(
     (List("bravo!!!", "bravooo"                 ), "bravo.gif",              ContainsOnce),
     (List("capolavoro"                          ), "capolavoro.gif",         ContainsOnce),
     (List(" metal"                              ), "metal.gif",              ContainsOnce),
@@ -180,12 +183,15 @@ object RichardPHJBensonBot extends TelegramBot
       "sarete cojoni voi"                       ), "saretecoglionivoi.gif",  ContainsOnce),
     (List("cosa squallida", "abbia mai sentito" ), "squallida.gif",          ContainsOnce),
     (List("la verità"                           ), "verità.gif",             ContainsOnce)
-  ) map {
-    case (words, gifFile, matcher) =>
-      (words, MessageHandler((m : Message) => sendGifBenson(gifFile)(m)), matcher)
-  }
+  ) 
+  
+  val messageRepliesGifs : List[(List[String], MessageHandler, MessageMatches)] =
+    messageRepliesGifsData map {
+      case (words, gifFile, matcher) =>
+        (words, MessageHandler((m : Message) => sendGifBenson(gifFile)(m)), matcher)
+    }
 
-  val messageRepliesSpecial = List(
+  val messageRepliesSpecialData : List[(List[String], String, String, MessageMatches)] = List(
     (List("basta!!!"                                                       ), "basta.gif", "basta.mp3",                             ContainsOnce),
     (List("ti devi spaventare"                                             ), "tidevispaventare.gif", "tidevispaventare.mp3",       ContainsOnce),
     (List("questa volta no"                                                ), "questavoltano.gif", "questavoltano.mp3",             ContainsAll),
@@ -208,13 +214,16 @@ object RichardPHJBensonBot extends TelegramBot
     (List("permettere"                                                     ), "permettere.gif", "permettere.mp3",                   ContainsOnce),
     (List("le note"                                                        ), "note.gif", "note.mp3",                               ContainsOnce),
     (List("viva napoli"                                                    ), "vivaNapoli.gif", "vivanapoli.mp3",                   ContainsOnce)
-  ) map {
-    case (words, gifFile, mp3file, matcher) =>
-      (words, MessageHandler((m : Message) => {
-        sendAudioBenson(mp3file)(m)
-        sendGifBenson(gifFile)(m)
-      }), matcher)
-  }
+  )
+  
+  val messageRepliesSpecial : List[(List[String], MessageHandler, MessageMatches)] =  
+    messageRepliesSpecialData map {
+      case (words, gifFile, mp3file, matcher) =>
+       (words, MessageHandler((m : Message) => {
+         sendAudioBenson(mp3file)(m)
+         sendGifBenson(gifFile)(m)
+       }), matcher)
+    }
 
   // Map contains the list of keywords to match, the related messageHandler and
   // the Message matches.
