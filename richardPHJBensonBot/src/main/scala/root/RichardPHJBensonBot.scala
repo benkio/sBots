@@ -175,7 +175,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("sorriso", emoji":smile:"             ), "sorriso.gif",              ContainsOnce),
     (List("lasciami in pace", "stronz"          ), "lasciamiinpace.gif",       ContainsOnce),
     (List("mortacci vostri"                     ), "mortaccivostri.gif",       ContainsOnce),
-    (List("danza macabra"                       ), "danzamacabra.gif",         ContainsOnce),
+    (List("danza", "macabra", "ball"            ), "danzamacabra.gif",         ContainsOnce),
     (List("sei cambiat", "sei gambiat"          ), "seicambiata.gif",          ContainsOnce),
     (List("levati dai coglioni"                 ), "levatidaicoglioni.gif",    ContainsOnce),
     (List("mio discapito", "disgabido"          ), "discapito.gif",            ContainsOnce),
@@ -191,7 +191,8 @@ object RichardPHJBensonBot extends TelegramBot
     (List("baci", "limonare", "peggio cose"     ), "bacio.gif",                ContainsOnce),
     (List("esperiment", "1, 2, 3",
       "uno, due, tre"                           ), "esperimento.gif",          ContainsOnce),
-    (List("giudica"                             ), "giudicate.gif",            ContainsOnce)
+    (List("giudica"                             ), "giudicate.gif",            ContainsOnce),
+    (List("ester", "esposito"                   ), "ester.gif",                ContainsOnce)
   )
 
   val messageRepliesGifs : List[(List[String], MessageHandler, MessageMatches)] =
