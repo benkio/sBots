@@ -109,7 +109,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("canzonette", "balera", "sagra",
       "condominiali", "piazza"                   ), "canzonette.mp3",           ContainsOnce)
   )
-  
+
   val messageRepliesAudio : List[(List[String], MessageHandler, MessageMatches)] =
     messageRepliesAudioData.map {
       case (words, mp3file, matcher) =>
@@ -185,9 +185,15 @@ object RichardPHJBensonBot extends TelegramBot
     (List("cosa squallida", "abbia mai sentito" ), "squallida.gif",            ContainsOnce),
     (List("la verità"                           ), "verità.gif",               ContainsOnce),
     (List("ti dovresti vergognare"              ), "tidovrestivergognare.gif", ContainsOnce),
-    (List("oddio mio no", "dio mio no"          ), "oddiomio.gif",             ContainsOnce)
-  ) 
-  
+    (List("oddio mio no", "dio mio no"          ), "oddiomio.gif",             ContainsOnce),
+    (List("destino", "incontrare"               ), "destino.gif",              ContainsOnce),
+    (List("meridionale", "terron"               ), "meridionale.gif",          ContainsOnce),
+    (List("baci", "limonare", "peggio cose"     ), "bacio.gif",                ContainsOnce),
+    (List("esperiment", "1, 2, 3",
+      "uno, due, tre"                           ), "esperimento.gif",          ContainsOnce),
+    (List("giudica"                             ), "giudicate.gif",            ContainsOnce)
+  )
+
   val messageRepliesGifs : List[(List[String], MessageHandler, MessageMatches)] =
     messageRepliesGifsData map {
       case (words, gifFile, matcher) =>
@@ -218,8 +224,8 @@ object RichardPHJBensonBot extends TelegramBot
     (List("le note"                                                        ), "note.gif", "note.mp3",                               ContainsOnce),
     (List("viva napoli"                                                    ), "vivaNapoli.gif", "vivanapoli.mp3",                   ContainsOnce)
   )
-  
-  val messageRepliesSpecial : List[(List[String], MessageHandler, MessageMatches)] =  
+
+  val messageRepliesSpecial : List[(List[String], MessageHandler, MessageMatches)] =
     messageRepliesSpecialData map {
       case (words, gifFile, mp3file, matcher) =>
        (words, MessageHandler((m : Message) => {
