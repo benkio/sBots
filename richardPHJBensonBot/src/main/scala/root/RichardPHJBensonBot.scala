@@ -167,7 +167,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("pagare", "paga", "soldi", "bollette",
       "tasse",  "bolletta", "tassa"             ),"cacciaisoldi.gif",          ContainsOnce),
     (List("fate come vi pare", "sti cazzi",
-    "sti gazzi"                                 ), "comevipare.gif",           ContainsOnce),
+      "sti gazzi"                                 ), "comevipare.gif",           ContainsOnce),
     (List("venite qua"                          ), "venitequa.gif",            ContainsOnce),
     (List("sputo"                               ), "sputo.gif",                ContainsOnce),
     (List("certo", "escerto", "critiche",
@@ -210,7 +210,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("masgus", "ma sgus", "ma scusa"                                  ), "masgus.gif", "masgus.mp3",                           ContainsOnce),
     (List("grazie", "gianni", "ciaoo"                                      ), "grazie.gif", "grazie.mp3",                           ContainsOnce),
     (List("me ne vado"                                                     ), "menevado.gif", "menevado.mp3",                       ContainsOnce),
-    (List("voi dovete stare attenti"                                       ), "incontrateperstrada.gif", "incontrateperstrada.mp3", ContainsOnce),
+    (List("stare attenti", "per strada"                                    ), "incontrateperstrada.gif", "incontrateperstrada.mp3", ContainsOnce),
     (List("lavora tu vecchiaccia", "hai la pelle dura", "io sono creatura" ), "lavoratu.gif", "lavoratu.mp3",                       ContainsOnce),
     (List("infernali!!!!", "infernaliii"                                   ), "infernali.gif", "infernali.mp3",                     ContainsOnce),
     (List("per il culo"                                                    ), "pigliandoperilculo.gif", "pigliandoperilculo.mp3",   ContainsOnce),
@@ -229,10 +229,10 @@ object RichardPHJBensonBot extends TelegramBot
   val messageRepliesSpecial : List[(List[String], MessageHandler, MessageMatches)] =
     messageRepliesSpecialData map {
       case (words, gifFile, mp3file, matcher) =>
-       (words, MessageHandler((m : Message) => {
-         sendAudioBenson(mp3file)(m)
-         sendGifBenson(gifFile)(m)
-       }), matcher)
+        (words, MessageHandler((m : Message) => {
+          sendAudioBenson(mp3file)(m)
+          sendGifBenson(gifFile)(m)
+        }), matcher)
     }
 
   // Map contains the list of keywords to match, the related messageHandler and
