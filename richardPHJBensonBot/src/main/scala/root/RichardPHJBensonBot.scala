@@ -183,7 +183,7 @@ object RichardPHJBensonBot extends TelegramBot
     (List("sarete coglioni voi",
       "sarete cojoni voi"                       ), "saretecoglionivoi.gif",    ContainsOnce),
     (List("cosa squallida", "abbia mai sentito" ), "squallida.gif",            ContainsOnce),
-    (List("la verità"                           ), "verità.gif",               ContainsOnce),
+    (List("la verità"                           ), "verita.gif",               ContainsOnce),
     (List("ti dovresti vergognare"              ), "tidovrestivergognare.gif", ContainsOnce),
     (List("oddio mio no", "dio mio no"          ), "oddiomio.gif",             ContainsOnce),
     (List("destino", "incontrare"               ), "destino.gif",              ContainsOnce),
