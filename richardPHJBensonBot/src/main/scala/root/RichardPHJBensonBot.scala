@@ -180,7 +180,7 @@ object RichardPHJBensonBot extends TelegramBot
       "fuori dai coglioni"                      ), "levatidaicoglioni.gif",    ContainsOnce),
     (List("mio discapito", "disgabido"          ), "discapito.gif",            ContainsOnce),
     (List("peggio del peggio"                   ), "peggiodelpeggio.gif",      ContainsOnce),
-    (List("non sono coglione", "non sono mica coglione", "sarete coglioni voi"
+    (List("non sono coglione", "non sono mica coglione", "sarete coglioni voi",
       "sarete cojoni voi"                       ), "saretecoglionivoi.gif",    ContainsOnce),
     (List("cosa squallida", "abbia mai sentito" ), "squallida.gif",            ContainsOnce),
     (List("la verità"                           ), "verita.gif",               ContainsOnce),
