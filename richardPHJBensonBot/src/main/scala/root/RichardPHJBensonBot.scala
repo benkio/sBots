@@ -83,7 +83,7 @@ object RichardPHJBensonBot extends TelegramBot
 
 
   val messageRepliesAudioData : List[(List[String], String, MessageMatches)] = List(
-    (List("sarai maledetto", "tu sia maledetto"  ), "maledetto.mp3",            ContainsOnce),
+    (List("maledetto"                            ), "maledetto.mp3",            ContainsOnce),
     (List("io ti aiuto"                          ), "aiuto.mp3",                ContainsOnce),
     (List("assolo", "chitarra", "ghidarra"       ), "assolo.mp3",               ContainsOnce),
     (List("ci sei ritornata" , "ci sei ritornato"), "ritornata.mp3",            ContainsOnce),
@@ -173,6 +173,7 @@ object RichardPHJBensonBot extends TelegramBot
       "non me ne frega un cazzo"                ), "escerto.gif",              ContainsOnce),
     (List("sorriso", emoji":smile:"             ), "sorriso.gif",              ContainsOnce),
     (List("lasciami in pace", "stronz"          ), "lasciamiinpace.gif",       ContainsOnce),
+    (List("pure bona"                           ), "bona.gif",              ContainsOnce),
     (List("mortacci vostri"                     ), "mortaccivostri.gif",       ContainsOnce),
     (List(" danza", "macabra", " ball"          ), "danzamacabra.gif",         ContainsOnce),
     (List("sei cambiat", "sei gambiat"          ), "seicambiata.gif",          ContainsOnce),
@@ -202,7 +203,7 @@ object RichardPHJBensonBot extends TelegramBot
     }
 
   val messageRepliesSpecialData : List[(List[String], String, String, MessageMatches)] = List(
-    (List("basta!!!"                                                       ), "basta.gif", "basta.mp3",                             ContainsOnce),
+    (List("basta!!!", "bastaaa"                                            ), "basta.gif", "basta.mp3",                             ContainsOnce),
     (List("ti devi spaventare"                                             ), "tidevispaventare.gif", "tidevispaventare.mp3",       ContainsOnce),
     (List("questa volta no"                                                ), "questavoltano.gif", "questavoltano.mp3",             ContainsAll),
     (List("una vergogna"                                                   ), "vergogna.gif", "vergogna.mp3",                       ContainsOnce),
