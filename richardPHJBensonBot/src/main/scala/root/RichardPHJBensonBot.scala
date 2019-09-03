@@ -3,250 +3,144 @@
 ///////////////////////////////////////////////////////////////////////////////
 package root
 
-import info.mukel.telegrambot4s._, api._, methods._, models._, declarative._
-import java.nio.file.Path
-import java.nio.file.Paths
-import java.nio.file.Files
-import scala.io.Source
+import root.infrastructure._
+
 import scala.concurrent.Future
 import io.github.todokr.Emojipolation._
 
-// Types for managing the matching of words
-trait MessageMatches
+object RichardPHJBensonBot extends BotSkeleton {
 
-object ContainsOnce extends MessageMatches
-object ContainsAll extends MessageMatches
-
-object MessageMatches {
-  /**
-    * getHandler
-    * @param keys List of keys to check for existance in the input text
-    * @param messageText Input Text
-    * @param handler How to handle the input text in case of match
-    * @param matcher Drive the logic in which the match should be performed
-    * @return the messageReplies handling the request
-    */
-  def getHandler(keys : List[String],
-    messageText : String,
-    handler : MessageHandler,
-    matcher : MessageMatches = ContainsOnce) : Option[MessageHandler] = matcher match {
-    case ContainsOnce if (keys.exists(k => messageText.toLowerCase() contains k)) => Some(handler)
-    case ContainsAll if (keys.forall(k => messageText.toLowerCase() contains k)) => Some(handler)
-    case _ => None
-  }
-}
-
-//wrapper around the handler
-case class MessageHandler(handler: Message => Future[Message])
-
-object RichardPHJBensonBot extends TelegramBot
-    with Polling
-    with Commands
-    with ChatActions
-    with Messages {
-
-  // Configuration Stuff //////////////////////////////////////////////////////
-  lazy val token = scala.util.Properties
-    .envOrNone("BOT_TOKEN")
-    .getOrElse(Source.fromResource("bot.token").getLines().mkString)
-  override val ignoreCommandReceiver = true
-  val rootPath = Paths.get("").toAbsolutePath()
-
-  def buildPath(filename : String) : Path =
-    Paths.get(rootPath.toString(), "src", "main", "resources", filename)
-
-  // Commands & Audio Replies /////////////////////////////////////////////////
-
-  /*
-   * sendAudioBenson
-   * @param filename filename of the audio in the resources
-   * @param msg message to reply to
-   * @return Send the audio
-   */
-  def sendAudioBenson(filename : String)(implicit msg : Message) : Future[Message] = {
-    uploadingAudio
-    val path = buildPath(filename)
-    val mp3 = InputFile(path)
-    request(SendAudio(msg.source, mp3))
-  }
-
-  def sendGifBenson(filename : String)(implicit msg : Message) : Future[Message] = {
-    uploadingDocument
-    val path = buildPath(filename)
-    val byteArray : Array[Byte] = Files.readAllBytes(path)
-    val gif = InputFile("benson.gif", byteArray)
-    request(SendDocument(msg.source, gif))
-
-  }
-
-  // Message Replies ////////////////////////////////////////////////////////////
-
-
-  val messageRepliesAudioData : List[(List[String], String, MessageMatches)] = List(
-    (List("maledetto"                            ), "maledetto.mp3",            ContainsOnce),
-    (List("io ti aiuto"                          ), "aiuto.mp3",                ContainsOnce),
-    (List("assolo", "chitarra", "ghidarra"       ), "assolo.mp3",               ContainsOnce),
-    (List("ci sei ritornata" , "ci sei ritornato"), "ritornata.mp3",            ContainsOnce),
-    (List("anche la merda", "senza culo"         ), "merda.mp3",                ContainsOnce),
-    (List("cobelini", "cobbolidi", "elfi",
+  val messageRepliesAudioData : List[ReplyBundle] = List(
+    ReplyBundle(List("maledetto"                              ), Mp3Files(List( "maledetto.mp3"))),
+    ReplyBundle(List("io ti aiuto"                            ), Mp3Files(List( "aiuto.mp3"))),
+    ReplyBundle(List("assolo", "chitarra", "ghidarra"         ), Mp3Files(List( "assolo.mp3"))),
+    ReplyBundle(List("ci sei ritornata" , "ci sei ritornato"  ), Mp3Files(List( "ritornata.mp3"))),
+    ReplyBundle(List("anche la merda", "senza culo"           ), Mp3Files(List( "merda.mp3"))),
+    ReplyBundle(List("cobelini", "cobbolidi", "elfi",
       "nani", "la mandragola",
       "fico sacro", " la betulla", "la canfora",
-      "le ossa dei morti"                        ), "figuremitologiche.mp3",    ContainsOnce),
-    (List("ma che cazzo sto dicendo", "il martell"), "machecazzostodicendo.mp3",ContainsOnce),
-    (List("attenzione!!!", "attenzioneee"        ), "attenzione.mp3",           ContainsOnce),
-    (List("poveri cretini", "poveri ignoranti"   ), "povericretini.mp3",        ContainsOnce),
-    (List("ho capito", "ho gabido"               ), "hocapito.mp3",             ContainsOnce),
-    (List("avete capito", "avete gabido"         ), "avetecapito.mp3",          ContainsOnce),
-    (List("feelings"                             ), "feelings.mp3",             ContainsAll),
-    (List("due ossa"                             ), "dueossa.mp3",              ContainsAll),
-    (List("proprio schifo"                       ), "schifo.mp3",               ContainsAll),
-    (List("pappalardo"                           ), "pappalardo.mp3",           ContainsAll),
-    (List("è un ordine"                          ), "ordine.mp3",               ContainsAll),
-    (List("una sera"                             ), "sera.mp3",                 ContainsAll),
-    (List("il venerdì"                           ), "venerdi.mp3",              ContainsAll),
-    (List("oppura"                               ), "oppura.mp3",               ContainsOnce),
-    (List("volevo un pollo"                      ), "pollo.mp3",                ContainsAll),
-    (List("canzonette", "balera", "sagra",
-      "condominiali", "piazza"                   ), "canzonette.mp3",           ContainsOnce)
+      "le ossa dei morti"                                     ), Mp3Files(List( "figuremitologiche.mp3"))),
+    ReplyBundle(List("ma che cazzo sto dicendo", "il martell" ), Mp3Files(List( "machecazzostodicendo.mp3"))),
+    ReplyBundle(List("attenzione!!!", "attenzioneee"          ), Mp3Files(List( "attenzione.mp3"))),
+    ReplyBundle(List("poveri cretini", "poveri ignoranti"     ), Mp3Files(List( "povericretini.mp3"))),
+    ReplyBundle(List("ho capito", "ho gabido"                 ), Mp3Files(List( "hocapito.mp3"))),
+    ReplyBundle(List("avete capito", "avete gabido"           ), Mp3Files(List( "avetecapito.mp3"))),
+    ReplyBundle(List("feelings"                               ), Mp3Files(List( "feelings.mp3"))),
+    ReplyBundle(List("due ossa"                               ), Mp3Files(List( "dueossa.mp3"))),
+    ReplyBundle(List("proprio schifo"                         ), Mp3Files(List( "schifo.mp3"))),
+    ReplyBundle(List("pappalardo"                             ), Mp3Files(List( "pappalardo.mp3"))),
+    ReplyBundle(List("è un ordine"                            ), Mp3Files(List( "ordine.mp3"))),
+    ReplyBundle(List("una sera"                               ), Mp3Files(List( "sera.mp3"))),
+    ReplyBundle(List("il venerdì"                             ), Mp3Files(List( "venerdi.mp3"))),
+    ReplyBundle(List("oppura"                                 ), Mp3Files(List( "oppura.mp3"))),
+    ReplyBundle(List("volevo un pollo"                        ), Mp3Files(List( "pollo.mp3"))),
+    ReplyBundle(List("canzonette", "balera", "sagra",
+      "condominiali", "piazza"                                ), Mp3Files(List( "canzonette.mp3")))
   )
 
-  val messageRepliesAudio : List[(List[String], MessageHandler, MessageMatches)] =
-    messageRepliesAudioData.map {
-      case (words, mp3file, matcher) =>
-        (words, MessageHandler((m : Message) => sendAudioBenson(mp3file)(m)), matcher)
-    }
-
-  val messageRepliesGifsData : List[(List[String], String, MessageMatches)]  = List(
-    (List("bravo!!!", "bravooo"                 ), "bravo.gif",                ContainsOnce),
-    (List("capolavoro"                          ), "capolavoro.gif",           ContainsOnce),
-    (List(" metal"                              ), "metal.gif",                ContainsOnce),
-    (List("allucinante"                         ), "allucinante.gif",          ContainsOnce),
-    (List("mare di cazzate", "non è possibile"  ), "nonépossibile.gif",        ContainsOnce),
-    (List("porca miseria"                       ), "porcamiseria.gif",         ContainsOnce),
-    (List("schifoso!!!", "schifosooo"           ), "schifoso.gif",             ContainsOnce),
-    (List("vattene affanculo",
-      "vattene a fanculo"                       ), "mavatteneaffanculo.gif",   ContainsOnce),
-    (List("rimpinzati",
-      "cioccolata", "pandori", "gioggolada"     ), "rimpinzati.gif",           ContainsOnce),
-    (List("facendo soffrire"                    ), "facendosoffrire.gif",      ContainsOnce),
-    (List("sentendo male"                       ), "mistosentendomale.gif",    ContainsOnce),
-    (List("stare male"                          ), "mifastaremale.gif",        ContainsOnce),
-    (List("lunghezza d'onda"                    ), "lunghezzadonda.gif",       ContainsOnce),
-    (List("delirio"                             ), "delirio.gif",              ContainsOnce),
-    (List("paradosso"                           ), "paradosso.gif",            ContainsOnce),
-    (List("pensa alla deficienza",
-      "ma si può dire una cosa del genere"      ), "deficienza.gif",           ContainsOnce),
-    (List("querelare", "guerelare"              ), "querelare.gif",            ContainsOnce),
-    (List("cantate", "arigliano"                ), "arigliano.gif",            ContainsOnce),
-    (List("non voglio nessuno"                  ), "nonvoglionessuno.gif",     ContainsOnce),
-    (List("andati al cesso", "diecimila volte"  ), "alcesso.gif",              ContainsOnce),
-    (List("ciao a tutti",
-      "come state", "belle gioie"               ), "ciaocomestate.gif",        ContainsOnce),
-    (List("non manca niente", "c'é tutto"       ), "nonmancaniente.gif",       ContainsOnce),
-    (List("in fila"                             ), "mettitiinfila.gif",        ContainsOnce),
-    (List("non male"                            ), "nonmale.gif",              ContainsOnce),
-    (List("perché si sente"                     ), "sisente.gif",              ContainsOnce),
-    (List("non ci credete?", "grande stronzata",
-      "grande stronzate"                        ), "noncicredete.gif",         ContainsOnce),
-    (List("colpa vostra", "pazzo", "matto"      ), "stodiventandopazzo.gif",   ContainsOnce),
-    (List("mi pare logico", "calcolo",
-      "matematica", "loggigo"                   ), "miparelogico.gif",         ContainsOnce),
-    (List("sorca", "lecciso", "figa"            ), "sorcalecciso.gif",         ContainsOnce),
-    (List("non li sopporto", "che si deve fare" ), "nonlisopporto.gif",        ContainsOnce),
-    (List("ok", "good", "show", "friends"       ), "okgoodshowfriends.gif",    ContainsOnce),
-    (List("delus", "delud"                      ), "deluso.gif",               ContainsOnce),
-    (List("chi cazzo sei"                       ), "chicazzosei.gif",          ContainsOnce),
-    (List("non me ne fotte", "chissenefrega",
-      "non mi interessa"                        ), "nonmenefotte.gif",         ContainsOnce),
-    (List("feste"                               ), "feste.gif",                ContainsOnce),
-    (List("si ostina", "foto vecchie"           ), "ostina.gif",               ContainsOnce),
-    (List("non sapere", "aristotele",
-      "aristodele"                              ), "sodinonsapere.gif",        ContainsOnce),
-    (List("vecchio", "vecchia"                  ), "vecchio.gif",              ContainsOnce),
-    (List("pagare", "paga", "soldi", "bollette",
-      "tasse",  "bolletta", "tassa"             ),"cacciaisoldi.gif",          ContainsOnce),
-    (List("fate come vi pare", "sti cazzi",
-      "sti gazzi"                               ), "comevipare.gif",           ContainsOnce),
-    (List("venite qua"                          ), "venitequa.gif",            ContainsOnce),
-    (List("sputo", "sputa"                      ), "sputo.gif",                ContainsOnce),
-    (List("certo", "escerto", "critiche",
-      "non me ne frega un cazzo"                ), "escerto.gif",              ContainsOnce),
-    (List("sorriso", emoji":smile:"             ), "sorriso.gif",              ContainsOnce),
-    (List("lasciami in pace", "stronz"          ), "lasciamiinpace.gif",       ContainsOnce),
-    (List("sono arrivato", "arivado", "piacere" ), "arivado.gif",              ContainsOnce),
-    (List("pure bona"                           ), "bona.gif",              ContainsOnce),
-    (List("mortacci vostri"                     ), "mortaccivostri.gif",       ContainsOnce),
-    (List(" danza", "macabra", " ball"          ), "danzamacabra.gif",         ContainsOnce),
-    (List("sei cambiat", "sei gambiat"          ), "seicambiata.gif",          ContainsOnce),
-    (List("levati dai coglioni",
-      "fuori dai coglioni"                      ), "levatidaicoglioni.gif",    ContainsOnce),
-    (List("mio discapito", "disgabido"          ), "discapito.gif",            ContainsOnce),
-    (List("peggio del peggio"                   ), "peggiodelpeggio.gif",      ContainsOnce),
-    (List("non sono coglione", "non sono mica coglione", "sarete coglioni voi",
-      "sarete cojoni voi"                       ), "saretecoglionivoi.gif",    ContainsOnce),
-    (List("cosa squallida", "abbia mai sentito" ), "squallida.gif",            ContainsOnce),
-    (List("la verità"                           ), "verita.gif",               ContainsOnce),
-    (List("ti dovresti vergognare"              ), "tidovrestivergognare.gif", ContainsOnce),
-    (List("oddio mio no", "dio mio no"          ), "oddiomio.gif",             ContainsOnce),
-    (List("destino", "incontrare"               ), "destino.gif",              ContainsOnce),
-    (List("meridionale", "terron"               ), "meridionale.gif",          ContainsOnce),
-    (List("baci", "limonare", "peggio cose"     ), "bacio.gif",                ContainsOnce),
-    (List("esperiment", "1, 2, 3",
-      "uno, due, tre"                           ), "esperimento.gif",          ContainsOnce),
-    (List("giudica"                             ), "giudicate.gif",            ContainsOnce),
-    (List("ester", "esposito"                   ), "ester.gif",                ContainsOnce)
+  val messageRepliesGifsData : List[ReplyBundle]  = List(
+    ReplyBundle(List("bravo!!!", "bravooo"                 ), GifFiles(List( "bravo.gif"))),
+    ReplyBundle(List("capolavoro"                          ), GifFiles(List( "capolavoro.gif"))),
+    ReplyBundle(List(" metal"                              ), GifFiles(List( "metal.gif"))),
+    ReplyBundle(List("allucinante"                         ), GifFiles(List( "allucinante.gif"))),
+    ReplyBundle(List("mare di cazzate", "non è possibile"  ), GifFiles(List( "nonépossibile.gif"))),
+    ReplyBundle(List("porca miseria"                       ), GifFiles(List( "porcamiseria.gif"))),
+    ReplyBundle(List("schifoso!!!", "schifosooo"           ), GifFiles(List( "schifoso.gif"))),
+    ReplyBundle(List("vattene affanculo",
+      "vattene a fanculo"                                  ), GifFiles(List( "mavatteneaffanculo.gif"))),
+    ReplyBundle(List("rimpinzati",
+      "cioccolata", "pandori", "gioggolada"                ), GifFiles(List( "rimpinzati.gif"))),
+    ReplyBundle(List("facendo soffrire"                    ), GifFiles(List( "facendosoffrire.gif"))),
+    ReplyBundle(List("sentendo male"                       ), GifFiles(List( "mistosentendomale.gif"))),
+    ReplyBundle(List("stare male"                          ), GifFiles(List( "mifastaremale.gif"))),
+    ReplyBundle(List("lunghezza d'onda"                    ), GifFiles(List( "lunghezzadonda.gif"))),
+    ReplyBundle(List("delirio"                             ), GifFiles(List( "delirio.gif"))),
+    ReplyBundle(List("paradosso"                           ), GifFiles(List( "paradosso.gif"))),
+    ReplyBundle(List("pensa alla deficienza",
+      "ma si può dire una cosa del genere"                 ), GifFiles(List( "deficienza.gif"))),
+    ReplyBundle(List("querelare", "guerelare"              ), GifFiles(List( "querelare.gif"))),
+    ReplyBundle(List("cantate", "arigliano"                ), GifFiles(List( "arigliano.gif"))),
+    ReplyBundle(List("non voglio nessuno"                  ), GifFiles(List( "nonvoglionessuno.gif"))),
+    ReplyBundle(List("andati al cesso", "diecimila volte"  ), GifFiles(List( "alcesso.gif"))),
+    ReplyBundle(List("ciao a tutti",
+      "come state", "belle gioie"                          ), GifFiles(List( "ciaocomestate.gif"))),
+    ReplyBundle(List("non manca niente", "c'é tutto"       ), GifFiles(List( "nonmancaniente.gif"))),
+    ReplyBundle(List("in fila"                             ), GifFiles(List( "mettitiinfila.gif"))),
+    ReplyBundle(List("non male"                            ), GifFiles(List( "nonmale.gif"))),
+    ReplyBundle(List("perché si sente"                     ), GifFiles(List( "sisente.gif"))),
+    ReplyBundle(List("non ci credete?", "grande stronzata",
+      "grande stronzate"                                   ), GifFiles(List( "noncicredete.gif"))),
+    ReplyBundle(List("colpa vostra", "pazzo", "matto"      ), GifFiles(List( "stodiventandopazzo.gif"))),
+    ReplyBundle(List("mi pare logico", "calcolo",
+      "matematica", "loggigo"                              ), GifFiles(List( "miparelogico.gif"))),
+    ReplyBundle(List("sorca", "lecciso", "figa"            ), GifFiles(List( "sorcalecciso.gif"))),
+    ReplyBundle(List("non li sopporto", "che si deve fare" ), GifFiles(List( "nonlisopporto.gif"))),
+    ReplyBundle(List("ok", "good", "show", "friends"       ), GifFiles(List( "okgoodshowfriends.gif"))),
+    ReplyBundle(List("delus", "delud"                      ), GifFiles(List( "deluso.gif"))),
+    ReplyBundle(List("chi cazzo sei"                       ), GifFiles(List( "chicazzosei.gif"))),
+    ReplyBundle(List("non me ne fotte", "chissenefrega",
+      "non mi interessa"                                   ), GifFiles(List( "nonmenefotte.gif"))),
+    ReplyBundle(List("feste"                               ), GifFiles(List( "feste.gif"))),
+    ReplyBundle(List("si ostina", "foto vecchie"           ), GifFiles(List( "ostina.gif"))),
+    ReplyBundle(List("non sapere", "aristotele",
+      "aristodele"                                         ), GifFiles(List( "sodinonsapere.gif"))),
+    ReplyBundle(List("vecchio", "vecchia"                  ), GifFiles(List( "vecchio.gif"))),
+    ReplyBundle(List("pagare", "paga", "soldi", "bollette",
+      "tasse",  "bolletta", "tassa"                        ), GifFiles(List("cacciaisoldi.gif"))),
+    ReplyBundle(List("fate come vi pare", "sti cazzi",
+      "sti gazzi"                                          ), GifFiles(List( "comevipare.gif"))),
+    ReplyBundle(List("venite qua"                          ), GifFiles(List( "venitequa.gif"))),
+    ReplyBundle(List("sputo", "sputa"                      ), GifFiles(List( "sputo.gif"))),
+    ReplyBundle(List("certo", "escerto", "critiche",
+      "non me ne frega un cazzo"                           ), GifFiles(List( "escerto.gif"))),
+    ReplyBundle(List("sorriso", emoji":smile:"             ), GifFiles(List( "sorriso.gif"))),
+    ReplyBundle(List("lasciami in pace", "stronz"          ), GifFiles(List( "lasciamiinpace.gif"))),
+    ReplyBundle(List("sono arrivato", "arivado", "piacere" ), GifFiles(List( "arivado.gif"))),
+    ReplyBundle(List("pure bona"                           ), GifFiles(List( "bona.gif"))),
+    ReplyBundle(List("mortacci vostri"                     ), GifFiles(List( "mortaccivostri.gif"))),
+    ReplyBundle(List(" danza", "macabra", " ball"          ), GifFiles(List( "danzamacabra.gif"))),
+    ReplyBundle(List("sei cambiat", "sei gambiat"          ), GifFiles(List( "seicambiata.gif"))),
+    ReplyBundle(List("levati dai coglioni",
+      "fuori dai coglioni"                                 ), GifFiles(List( "levatidaicoglioni.gif"))),
+    ReplyBundle(List("mio discapito", "disgabido"          ), GifFiles(List( "discapito.gif"))),
+    ReplyBundle(List("peggio del peggio"                   ), GifFiles(List( "peggiodelpeggio.gif"))),
+    ReplyBundle(List("non sono coglione", "non sono mica coglione", "sarete coglioni voi",
+      "sarete cojoni voi"                                  ), GifFiles(List( "saretecoglionivoi.gif"))),
+    ReplyBundle(List("cosa squallida", "abbia mai sentito" ), GifFiles(List( "squallida.gif"))),
+    ReplyBundle(List("la verità"                           ), GifFiles(List( "verita.gif"))),
+    ReplyBundle(List("ti dovresti vergognare"              ), GifFiles(List( "tidovrestivergognare.gif"))),
+    ReplyBundle(List("oddio mio no", "dio mio no"          ), GifFiles(List( "oddiomio.gif"))),
+    ReplyBundle(List("destino", "incontrare"               ), GifFiles(List( "destino.gif"))),
+    ReplyBundle(List("meridionale", "terron"               ), GifFiles(List( "meridionale.gif"))),
+    ReplyBundle(List("baci", "limonare", "peggio cose"     ), GifFiles(List( "bacio.gif"))),
+    ReplyBundle(List("esperiment", "1, 2, 3",
+      "uno, due, tre"                                      ), GifFiles(List( "esperimento.gif"))),
+    ReplyBundle(List("giudica"                             ), GifFiles(List( "giudicate.gif"))),
+    ReplyBundle(List("ester", "esposito"                   ), GifFiles(List( "ester.gif")))
   )
 
-  val messageRepliesGifs : List[(List[String], MessageHandler, MessageMatches)] =
-    messageRepliesGifsData map {
-      case (words, gifFile, matcher) =>
-        (words, MessageHandler((m : Message) => sendGifBenson(gifFile)(m)), matcher)
-    }
-
-  val messageRepliesSpecialData : List[(List[String], String, String, MessageMatches)] = List(
-    (List("basta!!!", "bastaaa"                                            ), "basta.gif", "basta.mp3",                             ContainsOnce),
-    (List("ti devi spaventare"                                             ), "tidevispaventare.gif", "tidevispaventare.mp3",       ContainsOnce),
-    (List("questa volta no"                                                ), "questavoltano.gif", "questavoltano.mp3",             ContainsAll),
-    (List("una vergogna"                                                   ), "vergogna.gif", "vergogna.mp3",                       ContainsOnce),
-    (List("mi devo trasformare", "cristo canaro"                           ), "trasformista.gif", "trasformista.mp3",               ContainsOnce),
-    (List("masgus", "ma sgus", "ma scusa"                                  ), "masgus.gif", "masgus.mp3",                           ContainsOnce),
-    (List("grazie", "gianni", "ciaoo"                                      ), "grazie.gif", "grazie.mp3",                           ContainsOnce),
-    (List("me ne vado"                                                     ), "menevado.gif", "menevado.mp3",                       ContainsOnce),
-    (List("stare attenti", "per strada"                                    ), "incontrateperstrada.gif", "incontrateperstrada.mp3", ContainsOnce),
-    (List("lavora tu vecchiaccia", "hai la pelle dura", "io sono creatura" ), "lavoratu.gif", "lavoratu.mp3",                       ContainsOnce),
-    (List("infernali!!!!", "infernaliii"                                   ), "infernali.gif", "infernali.mp3",                     ContainsOnce),
-    (List("per il culo"                                                    ), "pigliandoperilculo.gif", "pigliandoperilculo.mp3",   ContainsOnce),
-    (List(emoji":lol:", emoji":rofl:"                                      ), "risata.gif", "risata.mp3",                           ContainsOnce),
-    (List("ammazza che sei", "quasi un frocio"                             ), "frocio.gif", "frocio.mp3",                           ContainsOnce),
-    (List("fammi questa cortesia"                                          ), "fammiquestacortesia.gif", "fammiquestacortesia.mp3", ContainsOnce),
-    (List("non mi sta bene"                                                ), "nonmistabene.gif", "nonmistabene.mp3",               ContainsOnce),
-    (List("sai fare le labbra", "manco le labbra",
-      "neanche le labbra"                                                  ), "labbra.gif", "labbra.mp3",                           ContainsOnce),
-    (List("la vita è il nemico"                                            ), "vitanemico.gif", "vitanemico.mp3",                   ContainsOnce),
-    (List("permettere"                                                     ), "permettere.gif", "permettere.mp3",                   ContainsOnce),
-    (List("le note"                                                        ), "note.gif", "note.mp3",                               ContainsOnce),
-    (List("viva napoli"                                                    ), "vivaNapoli.gif", "vivanapoli.mp3",                   ContainsOnce)
-  )
-
-  val messageRepliesSpecial : List[(List[String], MessageHandler, MessageMatches)] =
-    messageRepliesSpecialData map {
-      case (words, gifFile, mp3file, matcher) =>
-        (words, MessageHandler((m : Message) => {
-          sendAudioBenson(mp3file)(m)
-          sendGifBenson(gifFile)(m)
-        }), matcher)
-    }
-
-  // Map contains the list of keywords to match, the related messageHandler and
-  // the Message matches.
-  val messageReplies : List[(List[String], MessageHandler, MessageMatches)] =
-    messageRepliesAudio ++ messageRepliesGifs ++ messageRepliesSpecial
-
-  onMessage((message : Message) =>
-    message.text.map { m =>
-      messageReplies
-        .flatMap(t => MessageMatches.getHandler(t._1, m, t._2, t._3).toList)
-        .foreach(_.handler(message))
-    }
+  val messageRepliesSpecialData : List[ReplyBundle] = List(
+    ReplyBundle(List("basta!!!", "bastaaa"                                            ),MultimediaFiles(List("basta.mp3"),List("basta.gif"))),
+    ReplyBundle(List("ti devi spaventare"                                             ), MultimediaFiles(List( "tidevispaventare.mp3"),List("tidevispaventare.gif"))),
+    ReplyBundle(List("questa volta no"                                                ), MultimediaFiles(List( "questavoltano.mp3"),List("questavoltano.gif"))),
+    ReplyBundle(List("una vergogna"                                                   ), MultimediaFiles(List( "vergogna.mp3"),List("vergogna.gif"))),
+    ReplyBundle(List("mi devo trasformare", "cristo canaro"                           ), MultimediaFiles(List( "trasformista.mp3"),List("trasformista.gif"))),
+    ReplyBundle(List("masgus", "ma sgus", "ma scusa"                                  ), MultimediaFiles(List( "masgus.mp3"),List("masgus.gif"))),
+    ReplyBundle(List("grazie", "gianni", "ciaoo"                                      ), MultimediaFiles(List( "grazie.mp3"),List("grazie.gif"))),
+    ReplyBundle(List("me ne vado"                                                     ), MultimediaFiles(List( "menevado.mp3"),List("menevado.gif"))),
+    ReplyBundle(List("stare attenti", "per strada"                                    ), MultimediaFiles(List( "incontrateperstrada.mp3"),List("incontrateperstrada.gif"))),
+    ReplyBundle(List("lavora tu vecchiaccia", "hai la pelle dura", "io sono creatura" ), MultimediaFiles(List( "lavoratu.mp3"),List("lavoratu.gif"))),
+    ReplyBundle(List("infernali!!!!", "infernaliii"                                   ), MultimediaFiles(List( "infernali.mp3"),List("infernali.gif"))),
+    ReplyBundle(List("per il culo"                                                    ), MultimediaFiles(List( "pigliandoperilculo.mp3"),List("pigliandoperilculo.gif"))),
+    ReplyBundle(List(emoji":lol:", emoji":rofl:"                                      ), MultimediaFiles(List( "risata.mp3"),List("risata.gif"))),
+    ReplyBundle(List("ammazza che sei", "quasi un frocio"                             ), MultimediaFiles(List( "frocio.mp3"),List("frocio.gif"))),
+    ReplyBundle(List("fammi questa cortesia"                                          ), MultimediaFiles(List( "fammiquestacortesia.mp3"),List("fammiquestacortesia.gif"))),
+    ReplyBundle(List("non mi sta bene"                                                ), MultimediaFiles(List( "nonmistabene.mp3"),List("nonmistabene.gif"))),
+    ReplyBundle(List("sai fare le labbra", "manco le labbra",
+      "neanche le labbra"                                                  ), MultimediaFiles(List( "labbra.mp3"),List("labbra.gif"))),
+    ReplyBundle(List("la vita è il nemico"                                            ), MultimediaFiles(List( "vitanemico.mp3"),List("vitanemico.gif"))),
+    ReplyBundle(List("permettere"                                                     ), MultimediaFiles(List( "permettere.mp3"),List("permettere.gif"))),
+    ReplyBundle(List("le note"                                                        ), MultimediaFiles(List( "note.mp3"),List("note.gif"))),
+    ReplyBundle(List("viva napoli"                                                    ), MultimediaFiles(List( "vivanapoli.mp3"),List("vivaNapoli.gif")))
   )
 }
