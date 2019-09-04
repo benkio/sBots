@@ -18,11 +18,9 @@ class RichardPHJBensonBotSpec extends WordSpec {
   "messageRepliesAudioData" should {
     "never raise an exception" when {
       "try to open the file in resounces" in {
-        for {
-          rb <- RichardPHJBensonBot.messageRepliesAudioData
-          val mediaFiles = rb.files.asInstanceOf[Mp3Files]
-          f <- mediaFiles.files
-        } yield testFilename(f)
+        RichardPHJBensonBot.messageRepliesAudioData
+          .flatMap(_.mp3files)
+          .foreach((mp3 : Mp3File) => testFilename(mp3.filename))
       }
     }
   }
@@ -30,11 +28,9 @@ class RichardPHJBensonBotSpec extends WordSpec {
   "messageRepliesGifsData" should {
     "never raise an exception" when {
       "try to open the file in resounces" in {
-        for {
-          rb <- RichardPHJBensonBot.messageRepliesGifsData
-          val mediaFiles = rb.files.asInstanceOf[GifFiles]
-          f <- mediaFiles.files
-        } yield testFilename(f)
+        RichardPHJBensonBot.messageRepliesGifsData
+          .flatMap(_.giffiles)
+          .foreach((gif : GifFile) => testFilename(gif.filename))
       }
     }
   }
@@ -44,12 +40,11 @@ class RichardPHJBensonBotSpec extends WordSpec {
       "try to open the file in resounces" in {
         for {
           rb <- RichardPHJBensonBot.messageRepliesSpecialData
-          val mediaFiles = rb.files.asInstanceOf[MultimediaFiles]
-          f1 <- mediaFiles.mp3Files
-          f2 <- mediaFiles.gifFiles
+          f1 <- rb.mp3files
+          f2 <- rb.giffiles
         } yield {
-          testFilename(f1)
-          testFilename(f2)
+          testFilename(f1.filename)
+          testFilename(f2.filename)
         }
 
       }

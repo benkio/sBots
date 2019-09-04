@@ -14,8 +14,8 @@ object MessageMatches {
 
   def getHandler(keys : List[String],
     messageText : String,
-    messageReply: Message => Future[List[Message]],
-    matcher : MessageMatches = ContainsOnce) : Option[Message => Future[List[Message]]] =
+    messageReply: Future[List[Message]],
+    matcher : MessageMatches = ContainsOnce) : Option[Future[List[Message]]] =
     matcher match {
       case ContainsOnce if (keys.exists(k => messageText.toLowerCase() contains k)) => Some(messageReply)
       case ContainsAll if (keys.forall(k => messageText.toLowerCase() contains k)) => Some(messageReply)

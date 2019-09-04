@@ -6,7 +6,8 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.nio.file.Files
 import root.infrastructure.botCapabilities.ResourcesAccess
-import root.infrastructure.MediaFiles.MediaAction
+import root.infrastructure.MediaFile.MediaAction
+import root.infrastructure.ReplyBundleRefined._
 import scala.concurrent.Future
 
 
@@ -20,24 +21,22 @@ trait BotSkeleton extends TelegramBot
 
   override val ignoreCommandReceiver = true
 
-  implicit val sendAudioBenson: MediaAction[Mp3Files] =
-    (mediaFiles: Mp3Files) => (msg : Message) =>
-  Future.traverse(mediaFiles.files)(filename => {
+  implicit val sendAudioBenson: MediaAction[Mp3File] =
+    (mediaFile: Mp3File) => (msg : Message) => {
     uploadingAudio(msg)
-    val path = buildPath(filename)
+    val path = buildPath(mediaFile.filename)
     val mp3 = InputFile(path)
     request(SendAudio(msg.source, mp3))
-  })
+  }
 
-  implicit val sendGifBenson : MediaAction[GifFiles] =
-    (mediaFiles : GifFiles) => ( msg : Message) =>
-  Future.traverse(mediaFiles.files)(filename => {
+  implicit val sendGifBenson : MediaAction[GifFile] =
+    (mediaFile : GifFile) => ( msg : Message) => {
     uploadingDocument(msg)
-    val path = buildPath(filename)
+    val path = buildPath(mediaFile.filename)
     val byteArray : Array[Byte] = Files.readAllBytes(path)
     val gif = InputFile("benson.gif", byteArray)
     request(SendDocument(msg.source, gif))
-  })
+  }
 
   val messageRepliesAudioData : List[ReplyBundle]
   val messageRepliesGifsData : List[ReplyBundle]
@@ -46,28 +45,18 @@ trait BotSkeleton extends TelegramBot
   lazy val messageRepliesData : List[ReplyBundle] =
     messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
 
-  lazy val messageRepliesDataRefined : List[ReplyBundleRefined] =
-    refineReplyBundle(messageRepliesData)
-
-  def refineReplyBundle(bundles : List[ReplyBundle]) : List[ReplyBundleRefined] =
-    bundles.map((rb : ReplyBundle) =>
-      ReplyBundleRefined(
-        rb.triggers,
-        MediaFiles.toMessageReply(rb.files),
-        rb.matcher)
-    )
-
+   def messageRepliesDataRefined(implicit message : Message) : List[ReplyBundleRefined] =
+    messageRepliesData.map(refineReplyBundle(_))
 
   onMessage((message : Message) =>
     message.text.map { m =>
-      messageRepliesDataRefined
+      messageRepliesDataRefined(message)
         .flatMap(mrdr => MessageMatches.getHandler(
           mrdr.triggers,
           m,
           mrdr.messageReply,
           mrdr.matcher).toList
         )
-        .foreach(_(message))
     }
   )
 }
