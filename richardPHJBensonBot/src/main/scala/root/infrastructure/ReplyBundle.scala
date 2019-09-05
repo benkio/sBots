@@ -1,6 +1,6 @@
 package root.infrastructure
 
-import info.mukel.telegrambot4s._, api._, methods._, models._, declarative._
+import info.mukel.telegrambot4s._, models._
 
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -20,8 +20,8 @@ object MediaFile {
     gifAction : MediaAction[GifFile],
     m : Message
   ) : Future[Message] = f match {
-    case mp3 @ Mp3File(x) => audioAction(mp3)(m)
-    case gif @ GifFile(x) => gifAction(gif)(m)
+    case mp3 @ Mp3File(_) => audioAction(mp3)(m)
+    case gif @ GifFile(_) => gifAction(gif)(m)
   }
 }
 
@@ -29,6 +29,7 @@ case class ReplyBundle(
   triggers: List[String],
   mp3files: List[Mp3File] = List.empty[Mp3File],
   giffiles: List[GifFile] = List.empty[GifFile],
+  text : List[String] = List.empty[String],
   matcher: MessageMatches = ContainsOnce
 )
 
@@ -36,7 +37,7 @@ case class ReplyBundleRefined(
   triggers: List[String],
   messageReply: Future[List[Message]],
   matcher: MessageMatches = ContainsOnce
-)(implicit message : Message)
+)
 
 object ReplyBundleRefined {
 

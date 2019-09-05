@@ -1,14 +1,10 @@
 package root.infrastructure
 
 import info.mukel.telegrambot4s._, api._, methods._, models._, declarative._
-import root.infrastructure._
-import java.nio.file.Path
-import java.nio.file.Paths
 import java.nio.file.Files
 import root.infrastructure.botCapabilities.ResourcesAccess
 import root.infrastructure.MediaFile.MediaAction
 import root.infrastructure.ReplyBundleRefined._
-import scala.concurrent.Future
 
 
 trait BotSkeleton extends TelegramBot
@@ -49,9 +45,9 @@ trait BotSkeleton extends TelegramBot
     messageRepliesData.map(refineReplyBundle(_))
 
   onMessage((message : Message) =>
-    message.text.map { m =>
+    message.text.foreach { m =>
       messageRepliesDataRefined(message)
-        .flatMap(mrdr => MessageMatches.getHandler(
+        .flatMap(mrdr => MessageMatches.doesMatch(
           mrdr.triggers,
           m,
           mrdr.messageReply,

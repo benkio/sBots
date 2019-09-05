@@ -5,7 +5,6 @@ package root
 
 import root.infrastructure._
 
-import scala.concurrent.Future
 import io.github.todokr.Emojipolation._
 
 object RichardPHJBensonBot extends BotSkeleton {
