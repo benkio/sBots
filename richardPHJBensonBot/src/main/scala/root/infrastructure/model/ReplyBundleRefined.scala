@@ -23,9 +23,7 @@ object ReplyBundleRefined {
   ) : ReplyBundleRefined =
     ReplyBundleRefined(
       replyBundle.triggers,
-      Future.traverse(
-        replyBundle.mp3files ++ replyBundle.giffiles
-      )(MediaFile.toMessageReply(_)),
+      Future.traverse(replyBundle.mediafiles)(MediaFile.toMessageReply(_)),
       replyBundle.matcher
     )
 
