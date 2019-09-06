@@ -13,9 +13,15 @@ final case class Text(
 
 sealed trait MediaFile extends Reply
 
-final case class Mp3File(filename : String) extends MediaFile
-final case class GifFile(filename : String) extends MediaFile
-final case class PhotoFile(filename : String) extends MediaFile
+final case class Mp3File(filename : String) extends MediaFile {
+  require(filename.takeRight(4).equals(".mp3"))
+}
+final case class GifFile(filename : String) extends MediaFile {
+  require(filename.takeRight(4).equals(".gif"))
+}
+final case class PhotoFile(filename : String) extends MediaFile {
+  require(List(".jpg", ".png").contains(filename.takeRight(4)))
+}
 
 object MediaFile {
 
