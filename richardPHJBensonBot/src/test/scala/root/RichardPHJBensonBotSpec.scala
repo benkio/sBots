@@ -3,7 +3,7 @@ package root
 import org.scalatest._
 import java.nio.file.Files
 
-import root.infrastructure.model.{GifFile, Mp3File}
+import root.infrastructure.model.{GifFile, MediaFile, Mp3File}
 
 class RichardPHJBensonBotSpec extends WordSpec {
 
@@ -20,8 +20,8 @@ class RichardPHJBensonBotSpec extends WordSpec {
     "never raise an exception" when {
       "try to open the file in resounces" in {
         RichardPHJBensonBot.messageRepliesAudioData
-          .flatMap(_.mp3files)
-          .foreach((mp3 : Mp3File) => testFilename(mp3.filename))
+          .flatMap(_.mediafiles)
+          .foreach((mp3 : MediaFile) => testFilename(mp3.filename))
       }
     }
   }
@@ -30,8 +30,8 @@ class RichardPHJBensonBotSpec extends WordSpec {
     "never raise an exception" when {
       "try to open the file in resounces" in {
         RichardPHJBensonBot.messageRepliesGifsData
-          .flatMap(_.giffiles)
-          .foreach((gif : GifFile) => testFilename(gif.filename))
+          .flatMap(_.mediafiles)
+          .foreach((gif : MediaFile) => testFilename(gif.filename))
       }
     }
   }
@@ -41,11 +41,9 @@ class RichardPHJBensonBotSpec extends WordSpec {
       "try to open the file in resounces" in {
         for {
           rb <- RichardPHJBensonBot.messageRepliesSpecialData
-          f1 <- rb.mp3files
-          f2 <- rb.giffiles
+          f1 <- rb.mediafiles
         } yield {
           testFilename(f1.filename)
-          testFilename(f2.filename)
         }
 
       }

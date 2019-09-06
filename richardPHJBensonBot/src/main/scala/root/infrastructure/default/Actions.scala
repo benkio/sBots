@@ -5,35 +5,43 @@ import methods._
 import models._
 import java.nio.file.{Files, Path}
 
-import info.mukel.telegrambot4s.api.{BotBase, ChatActions, RequestHandler}
+import info.mukel.telegrambot4s.api.declarative.Messages
+import info.mukel.telegrambot4s.api.{ChatActions, RequestHandler}
 import root.infrastructure.botCapabilities.ResourcesAccess
 import root.infrastructure.default.Actions.Action
-import root.infrastructure.model.{GifFile, Mp3File, PhotoFile, Reply}
+import root.infrastructure.model._
 
 import scala.concurrent.Future
 
-trait DefaultActions extends BotBase with ChatActions with ResourcesAccess {
+trait DefaultActions extends Messages with ChatActions with ResourcesAccess {
 
-  implicit val sendPhoto : Action[PhotoFile] =
+  implicit val sendPhoto: Action[PhotoFile] =
     Actions.sendPhoto(
       buildPath _,
       uploadingPhoto(_),
       request
     )
 
-  implicit val sendAudio : Action[Mp3File] =
+  implicit val sendAudio: Action[Mp3File] =
     Actions.sendAudio(
       buildPath _,
       uploadingAudio(_),
       request
     )
 
-  implicit val sendGif : Action[GifFile] =
+  implicit val sendGif: Action[GifFile] =
     Actions.sendGif(
       buildPath _,
       uploadingDocument(_),
       request
     )
+
+  implicit val sendReply: Action[Text] =
+    Actions.sendReply(
+      typing(_),
+      request
+    )
+
 }
 
 object Actions {
@@ -75,4 +83,23 @@ object Actions {
       request(SendDocument(msg.source, gif))
     }
 
+  def sendReply(typing: Message => Future[Boolean],
+              request: RequestHandler
+             ): Action[Text] =
+    (t: Text) => (msg: Message) => {
+      typing(msg)
+      val replyToMessageId : Option[Int] =
+        if (t.replyToMessage) Some(msg.messageId) else None
+      request(
+        SendMessage(
+          msg.source,
+          t.text,
+          None,
+          None,
+          None,
+          replyToMessageId,
+          None
+        )
+      )
+    }
 }
