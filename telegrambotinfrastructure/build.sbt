@@ -1,4 +1,3 @@
-import Dependencies._
 import Settings._
 
 lazy val TelegramBotInfrastructure = (project in file("TelegramBotInfrastructure")).

@@ -2,6 +2,9 @@ import Dependencies._
 
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint")
 
+// unmanagedBase := baseDirectory.value / "lib"
+// resolvers += Resolver.mavenLocal
+
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
@@ -16,7 +19,8 @@ lazy val root = (project in file(".")).
       telegramBot4s,
       slf4s,
       logbackClassic,
-      emojiManipulator,
+      emojiManipulator
+//      telegramBotInfrastructure
     ),
     mainClass := Some("root.main"),
     scalacOptions ++= Seq(

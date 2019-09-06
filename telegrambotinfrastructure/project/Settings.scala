@@ -1,13 +1,14 @@
 import sbt._
 import Keys._
 import sbtassembly.AssemblyPlugin.autoImport._
+import Dependencies._
 
 object Settings {
 
 
   lazy val settings = Seq(
     organization := "com.benkio",
-    version := "0.0.1" + sys.props.getOrElse("buildNumber", default="0-SNAPSHOT"),
+    version := "0.0.1",
     scalaVersion := "2.12.9",
     publishMavenStyle := true,
     publishArtifact in Test := false
@@ -27,6 +28,7 @@ object Settings {
     assemblyJarName in assembly := "TelegramBotInfrastructure-" + version.value + ".jar",
     test in assembly := {},
     target in assembly := file(baseDirectory.value + "/../bin/"),
+    libraryDependencies := TelegramBotInfrastructureDependencies,
     assemblyOption in assembly := (assemblyOption in assembly).value.copy(
       includeScala = false,
       includeDependency=true),

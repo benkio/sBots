@@ -3,9 +3,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 package root
 
-import root.infrastructure._
+import com.benkio.telegramBotInfrastructure._
 import io.github.todokr.Emojipolation._
-import root.infrastructure.model.{MediaFile, ReplyBundle, ReplyBundleMessage}
+import com.benkio.telegramBotInfrastructure.model.{MediaFile, ReplyBundle, ReplyBundleMessage}
 
 object RichardPHJBensonBot extends BotSkeleton {
 
