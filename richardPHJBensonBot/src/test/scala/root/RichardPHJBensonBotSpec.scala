@@ -2,14 +2,15 @@ package root
 
 import org.scalatest._
 import java.nio.file.Files
-import root.infrastructure._
+
+import root.infrastructure.model.{GifFile, Mp3File}
 
 class RichardPHJBensonBotSpec extends WordSpec {
 
   def testFilename(filename : String) = {
     try {
       val path = RichardPHJBensonBot.buildPath(filename)
-      val byteArray : Array[Byte] = Files.readAllBytes(path)
+      val _ : Array[Byte] = Files.readAllBytes(path)
     } catch {
       case e : Exception => fail(s"$filename should not throw an exception: $e")
     }

@@ -1,38 +1,25 @@
 package root.infrastructure
 
-import info.mukel.telegrambot4s._, api._, methods._, models._, declarative._
-import java.nio.file.Files
-import root.infrastructure.botCapabilities.ResourcesAccess
-import root.infrastructure.MediaFile.MediaAction
-import root.infrastructure.ReplyBundleRefined._
+import info.mukel.telegrambot4s._
+import api._
+import declarative._
 
+import info.mukel.telegrambot4s.models.Message
+import root.infrastructure.botCapabilities.ResourcesAccess
+import root.infrastructure.model.ReplyBundleRefined._
+import root.infrastructure.default.DefaultActions
+import root.infrastructure.model.ReplyBundleRefined
+import root.infrastructure.model.ReplyBundle
 
 trait BotSkeleton extends TelegramBot
     with Polling
     with Commands
-    with ChatActions
+    with DefaultActions
     with Messages
     with ResourcesAccess
     with Configurations {
 
   override val ignoreCommandReceiver = true
-
-  implicit val sendAudioBenson: MediaAction[Mp3File] =
-    (mediaFile: Mp3File) => (msg : Message) => {
-    uploadingAudio(msg)
-    val path = buildPath(mediaFile.filename)
-    val mp3 = InputFile(path)
-    request(SendAudio(msg.source, mp3))
-  }
-
-  implicit val sendGifBenson : MediaAction[GifFile] =
-    (mediaFile : GifFile) => ( msg : Message) => {
-    uploadingDocument(msg)
-    val path = buildPath(mediaFile.filename)
-    val byteArray : Array[Byte] = Files.readAllBytes(path)
-    val gif = InputFile("benson.gif", byteArray)
-    request(SendDocument(msg.source, gif))
-  }
 
   val messageRepliesAudioData : List[ReplyBundle]
   val messageRepliesGifsData : List[ReplyBundle]
@@ -41,7 +28,7 @@ trait BotSkeleton extends TelegramBot
   lazy val messageRepliesData : List[ReplyBundle] =
     messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
 
-   def messageRepliesDataRefined(implicit message : Message) : List[ReplyBundleRefined] =
+  def messageRepliesDataRefined(implicit message : Message) : List[ReplyBundleRefined] =
     messageRepliesData.map(refineReplyBundle(_))
 
   onMessage((message : Message) =>

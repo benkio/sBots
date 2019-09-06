@@ -4,8 +4,8 @@
 package root
 
 import root.infrastructure._
-
 import io.github.todokr.Emojipolation._
+import root.infrastructure.model.{GifFile, Mp3File, ReplyBundle}
 
 object RichardPHJBensonBot extends BotSkeleton {
 
