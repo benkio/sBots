@@ -3,7 +3,7 @@ package root
 import org.scalatest._
 import java.nio.file.Files
 
-import root.infrastructure.model.{GifFile, MediaFile, Mp3File}
+import root.infrastructure.model.MediaFile
 
 class RichardPHJBensonBotSpec extends WordSpec {
 
