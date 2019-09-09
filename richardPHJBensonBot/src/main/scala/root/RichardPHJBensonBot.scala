@@ -5,11 +5,11 @@ package root
 
 import com.benkio.telegramBotInfrastructure._
 import io.github.todokr.Emojipolation._
-import com.benkio.telegramBotInfrastructure.model.{MediaFile, ReplyBundle, ReplyBundleMessage}
+import com.benkio.telegramBotInfrastructure.model.{MediaFile, ReplyBundleMessage}
 
 object RichardPHJBensonBot extends BotSkeleton {
 
-  val messageRepliesAudioData : List[ReplyBundle] = List(
+  val messageRepliesAudioData : List[ReplyBundleMessage] = List(
     ReplyBundleMessage(List("maledetto"                              ), List(MediaFile("maledetto.mp3"))),
     ReplyBundleMessage(List("io ti aiuto"                            ), List(MediaFile("aiuto.mp3"))),
     ReplyBundleMessage(List("assolo", "chitarra", "ghidarra"         ), List(MediaFile("assolo.mp3"))),
@@ -37,7 +37,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       "condominiali", "piazza"                                ), List(MediaFile("canzonette.mp3")))
   )
 
-  val messageRepliesGifsData : List[ReplyBundle]  = List(
+  val messageRepliesGifsData : List[ReplyBundleMessage]  = List(
     ReplyBundleMessage(List("vattene affanculo",
       "vattene a fanculo"                                  ), List(MediaFile("mavatteneaffanculo.gif"))),
     ReplyBundleMessage(List("rimpinzati",
@@ -118,7 +118,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(List("ester", "esposito"                   ), List(MediaFile("ester.gif")))
   )
 
-  val messageRepliesSpecialData : List[ReplyBundle] = List(
+  val messageRepliesSpecialData : List[ReplyBundleMessage] = List(
     ReplyBundleMessage(List("basta!!!", "bastaaa"                                            ), List(MediaFile("basta.mp3"), MediaFile("basta.gif"))),
     ReplyBundleMessage(List("ti devi spaventare"                                             ), List(MediaFile("tidevispaventare.mp3"), MediaFile("tidevispaventare.gif"))),
     ReplyBundleMessage(List("questa volta no"                                                ), List(MediaFile("questavoltano.mp3"), MediaFile("questavoltano.gif"))),
@@ -142,4 +142,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(List("le note"                                                        ), List(MediaFile("note.mp3"), MediaFile("note.gif"))),
     ReplyBundleMessage(List("viva napoli"                                                    ), List(MediaFile("vivanapoli.mp3"), MediaFile("vivaNapoli.gif")))
   )
+
+  override lazy val messageRepliesData : List[ReplyBundleMessage] =
+    messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
 }

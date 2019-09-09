@@ -6,7 +6,7 @@ import declarative._
 import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourcesAccess
 import com.benkio.telegramBotInfrastructure.default.DefaultActions
-import com.benkio.telegramBotInfrastructure.model.{Reply, ReplyBundle, ReplyBundleMessage}
+import com.benkio.telegramBotInfrastructure.model.{Reply, ReplyBundle, ReplyBundleMessage, ReplyBundleCommand}
 
 import scala.concurrent.Future
 
@@ -20,29 +20,34 @@ trait BotSkeleton extends TelegramBot
 
   override val ignoreCommandReceiver = true
 
-  val messageRepliesAudioData : List[ReplyBundle]
-  val messageRepliesGifsData : List[ReplyBundle]
-  val messageRepliesSpecialData : List[ReplyBundle]
+  // Reply to Messages ////////////////////////////////////////////////////////
 
-  lazy val messageRepliesData : List[ReplyBundle] =
-    messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
+  lazy val messageRepliesData : List[ReplyBundleMessage] = List.empty[ReplyBundleMessage]
 
   onMessage((message : Message) => {
     message.text.foreach { m =>
       messageRepliesData
-        .filter {
-          case mrd: ReplyBundleMessage =>
-            MessageMatches.doesMatch(
-              mrd.triggers,
-              m,
-              mrd.matcher
-            )
-          case _ => false
-        }
-        .foreach(replyBundle => for {
-          m1 <- Future.traverse(replyBundle.mediafiles)(Reply.toMessageReply(_)(sendAudio, sendGif, sendPhoto, sendReply, message))
-          m2 <- Future.traverse(replyBundle.text)(Reply.toMessageReply(_)(sendAudio, sendGif, sendPhoto, sendReply, message))
-        } yield m1 ++ m2)
+        .filter((mrd: ReplyBundleMessage) =>
+          MessageMatches.doesMatch(
+            mrd.triggers,
+            m,
+            mrd.matcher
+          )
+        )
+        .foreach(ReplyBundle.computeReplyBundle(_, message))
     }
   })
+
+  // Reply to Commands ////////////////////////////////////////////////////////
+
+  val commandRepliesData : List[ReplyBundleCommand] = List.empty[ReplyBundleCommand]
+
+  commandRepliesData
+    .foreach(rb =>
+      rb.triggers.foreach { c =>
+        onCommand(c) { implicit msg =>
+          ReplyBundle.computeReplyBundle(rb, msg)
+        }
+      })
+
 }

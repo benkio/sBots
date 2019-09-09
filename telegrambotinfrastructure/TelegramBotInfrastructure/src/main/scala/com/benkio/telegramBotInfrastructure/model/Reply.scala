@@ -39,12 +39,11 @@ object MediaFile {
 
 object Reply {
 
-  def toMessageReply(f : Reply)(
+  def toMessageReply(f : Reply, m : Message)(
     implicit audioAction : Action[Mp3File],
     gifAction : Action[GifFile],
     photoAction : Action[PhotoFile],
-    textAction : Action[Text],
-    m : Message
+    textAction : Action[Text]
   ) : Future[Message] = f match {
     case mp3 @ Mp3File(_) => audioAction(mp3)(m)
     case gif @ GifFile(_) => gifAction(gif)(m)
