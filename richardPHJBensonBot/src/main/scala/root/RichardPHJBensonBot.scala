@@ -76,7 +76,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(List("facendo soffrire"                    ), List(MediaFile("facendosoffrire.gif"))),
     ReplyBundleMessage(List("sentendo male"                       ), List(MediaFile("mistosentendomale.gif"))),
     ReplyBundleMessage(List("stare male"                          ), List(MediaFile("mifastaremale.gif"))),
-    ReplyBundleMessage(List("lunghezza d'onda"                    ), List(MediaFile("lunghezzadonda.gif"))),
+    ReplyBundleMessage(List("lunghezza d'onda", "brave persone"   ), List(MediaFile("lunghezzadonda.gif"))),
     ReplyBundleMessage(List("delirio"                             ), List(MediaFile("delirio.gif"))),
     ReplyBundleMessage(List("paradosso"                           ), List(MediaFile("paradosso.gif"))),
     ReplyBundleMessage(List("querelare", "guerelare"              ), List(MediaFile("querelare.gif"))),
