@@ -7,25 +7,25 @@ import com.benkio.telegramBotInfrastructure.default.Actions.Action
 
 sealed trait ReplyBundle {
 
-  def triggers : List[String]
+  def trigger : Trigger
   def mediafiles : List[MediaFile]
-  def text : List[Text]
+  def text : TextReply
   def replySelection : ReplySelection
 }
 
 final case class ReplyBundleMessage(
-  triggers: List[String],
+  trigger: MessageTrigger,
   mediafiles: List[MediaFile] = List.empty[MediaFile],
-  text : List[Text] = List.empty[Text],
+  text : TextReply = TextReply(List.empty[String]),
   replyMessageId : Option[Int] = None,
   matcher: MessageMatches = ContainsOnce,
   replySelection : ReplySelection = SelectAll
 ) extends ReplyBundle
 
 final case class ReplyBundleCommand(
-  triggers : List[String],
+  trigger : CommandTrigger,
   mediafiles: List[MediaFile],
-  text : List[Text],
+  text : TextReply = TextReply(List.empty[String]),
   replySelection : ReplySelection = SelectAll
 ) extends ReplyBundle
 
@@ -35,10 +35,10 @@ object ReplyBundle {
     implicit audioAction : Action[Mp3File],
     gifAction : Action[GifFile],
     photoAction : Action[PhotoFile],
-    textAction : Action[Text],
+    textAction : Action[TextReply],
     ec : ExecutionContext
   ) : Future[List[Message]] = {
-    val replies : List[Reply] = replyBundle.replySelection.logic(replyBundle.mediafiles ++ replyBundle.text)
+    val replies : List[Reply] = replyBundle.replySelection.logic(replyBundle.mediafiles :+ replyBundle.text)
     Future.traverse(replies)(Reply.toMessageReply(_, message))
   }
 

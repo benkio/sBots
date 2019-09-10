@@ -29,7 +29,7 @@ trait BotSkeleton extends TelegramBot
       messageRepliesData
         .filter((mrd: ReplyBundleMessage) =>
           MessageMatches.doesMatch(
-            mrd.triggers,
+            mrd.trigger,
             m,
             mrd.matcher
           )
@@ -44,10 +44,9 @@ trait BotSkeleton extends TelegramBot
 
   commandRepliesData
     .foreach(rb =>
-      rb.triggers.foreach { c =>
-        onCommand(c) { implicit msg =>
-          ReplyBundle.computeReplyBundle(rb, msg)
-        }
-      })
+      onCommand(rb.trigger.command) { implicit msg =>
+        ReplyBundle.computeReplyBundle(rb, msg)
+      }
+    )
 
 }

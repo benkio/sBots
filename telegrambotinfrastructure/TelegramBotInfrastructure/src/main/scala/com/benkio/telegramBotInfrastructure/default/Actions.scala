@@ -36,7 +36,7 @@ trait DefaultActions extends Messages with ChatActions with ResourcesAccess {
       request
     )
 
-  implicit val sendReply: Action[Text] =
+  implicit val sendReply: Action[TextReply] =
     Actions.sendReply(
       typing(_),
       request
@@ -85,15 +85,15 @@ object Actions {
 
   def sendReply(typing: Message => Future[Boolean],
               request: RequestHandler
-             ): Action[Text] =
-    (t: Text) => (msg: Message) => {
+             ): Action[TextReply] =
+    (t: TextReply) => (msg: Message) => {
       typing(msg)
       val replyToMessageId : Option[Int] =
         if (t.replyToMessage) Some(msg.messageId) else None
       request(
         SendMessage(
           msg.source,
-          t.text,
+          t.text.fold("")(_ + "\n" + _),
           None,
           None,
           None,

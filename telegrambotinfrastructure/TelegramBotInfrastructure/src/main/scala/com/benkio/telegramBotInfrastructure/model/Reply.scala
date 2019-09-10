@@ -7,8 +7,8 @@ import scala.concurrent.Future
 
 sealed trait Reply
 
-final case class Text(
-  text: String,
+final case class TextReply(
+  text: List[String],
   replyToMessage: Boolean= false
 ) extends Reply
 
@@ -43,12 +43,12 @@ object Reply {
     implicit audioAction : Action[Mp3File],
     gifAction : Action[GifFile],
     photoAction : Action[PhotoFile],
-    textAction : Action[Text]
+    textAction : Action[TextReply]
   ) : Future[Message] = f match {
     case mp3 @ Mp3File(_) => audioAction(mp3)(m)
     case gif @ GifFile(_) => gifAction(gif)(m)
     case photo @ PhotoFile(_) => photoAction(photo)(m)
-    case text @ Text(_,_) => textAction(text)(m)
+    case text @ TextReply(_,_) => textAction(text)(m)
   }
 
 }
