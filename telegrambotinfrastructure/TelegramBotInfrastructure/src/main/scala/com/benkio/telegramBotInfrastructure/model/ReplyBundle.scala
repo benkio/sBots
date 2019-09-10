@@ -10,6 +10,7 @@ sealed trait ReplyBundle {
   def triggers : List[String]
   def mediafiles : List[MediaFile]
   def text : List[Text]
+  def replySelection : ReplySelection
 }
 
 final case class ReplyBundleMessage(
@@ -17,13 +18,15 @@ final case class ReplyBundleMessage(
   mediafiles: List[MediaFile] = List.empty[MediaFile],
   text : List[Text] = List.empty[Text],
   replyMessageId : Option[Int] = None,
-  matcher: MessageMatches = ContainsOnce
+  matcher: MessageMatches = ContainsOnce,
+  replySelection : ReplySelection = SelectAll
 ) extends ReplyBundle
 
 final case class ReplyBundleCommand(
   triggers : List[String],
   mediafiles: List[MediaFile],
   text : List[Text],
+  replySelection : ReplySelection = SelectAll
 ) extends ReplyBundle
 
 object ReplyBundle {
@@ -34,8 +37,9 @@ object ReplyBundle {
     photoAction : Action[PhotoFile],
     textAction : Action[Text],
     ec : ExecutionContext
-  ) : Future[List[Message]] = for {
-    m1 <- Future.traverse(replyBundle.mediafiles)(Reply.toMessageReply(_, message))
-    m2 <- Future.traverse(replyBundle.text)(Reply.toMessageReply(_, message))
-  } yield m1 ++ m2
+  ) : Future[List[Message]] = {
+    val replies : List[Reply] = replyBundle.replySelection.logic(replyBundle.mediafiles ++ replyBundle.text)
+    Future.traverse(replies)(Reply.toMessageReply(_, message))
+  }
+
 }
