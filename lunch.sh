@@ -2,7 +2,8 @@ cd ./telegrambotinfrastructure/
 
 sbt assembly
 
-mv ./bin/TelegramBotInfrastructure-0.0.1.jar ../richardPHJBensonBot/lib/
+cp ./bin/TelegramBotInfrastructure-0.0.1.jar ../richardPHJBensonBot/lib/
+mv ./bin/TelegramBotInfrastructure-0.0.1.jar ../calandroBot/lib/
 
 cd ..
 

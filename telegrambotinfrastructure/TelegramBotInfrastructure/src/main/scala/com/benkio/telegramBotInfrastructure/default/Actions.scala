@@ -93,7 +93,7 @@ object Actions {
       request(
         SendMessage(
           msg.source,
-          t.text.fold("")(_ + "\n" + _),
+          t.text(msg).fold("")(_ + "\n" + _),
           None,
           None,
           None,

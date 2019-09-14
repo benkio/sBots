@@ -40,7 +40,7 @@ trait BotSkeleton extends TelegramBot
 
   // Reply to Commands ////////////////////////////////////////////////////////
 
-  val commandRepliesData : List[ReplyBundleCommand] = List.empty[ReplyBundleCommand]
+  lazy val commandRepliesData : List[ReplyBundleCommand] = List.empty[ReplyBundleCommand]
 
   commandRepliesData
     .foreach(rb =>

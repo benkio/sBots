@@ -3,172 +3,68 @@
 ///////////////////////////////////////////////////////////////////////////////
 package root
 
-import info.mukel.telegrambot4s._, api._, methods._, models._, declarative._
-import java.nio.file.{Path, Paths, Files}
-import java.util.stream.Collectors
-import scala.io.Source
-import scala.util.Random
-import scala.concurrent.Future
+import info.mukel.telegrambot4s.models.Message
+import com.benkio.telegramBotInfrastructure._
 import io.github.todokr.Emojipolation._
-
-// Types for managing the matching of words
-trait MessageMatches
-
-object ContainsOnce extends MessageMatches
-object ContainsAll extends MessageMatches
-
-object MessageMatches {
-  /**
-    * getHandler
-    * @param keys List of keys to check for existance in the input text
-    * @param messageText Input Text
-    * @param handler How to handle the input text in case of match
-    * @param matcher Drive the logic in which the match should be performed
-    * @return the messageReplies handling the request
-    */
-  def getHandler(keys : List[String],
-    messageText : String,
-    handler : CalandroBot.MessageHandler,
-    matcher : MessageMatches = ContainsOnce) : Option[CalandroBot.MessageHandler] = matcher match {
-    case ContainsOnce if (keys.exists(k => messageText.toLowerCase() contains k)) => Some(handler)
-    case ContainsAll if (keys.forall(k => messageText.toLowerCase() contains k)) => Some(handler)
-    case _ => None
-  }
+import com.benkio.telegramBotInfrastructure.model.{
+  MediaFile,
+  ReplyBundleMessage,
+  ReplyBundleCommand,
+  TextReply,
+  MessageLengthTrigger,
+  CommandTrigger,
+  TextTrigger
 }
+import scala.util.Random
 
-object CalandroBot extends TelegramBot
-    with Polling
-    with Commands
-    with ChatActions
-    with Messages{
+object CalandroBot extends BotSkeleton {
 
-  type MessageHandler = Message => Future[Message]
+  override lazy val commandRepliesData : List[ReplyBundleCommand] = List(
+    ReplyBundleCommand(CommandTrigger("porcoladro"          ), List(MediaFile("PorcoLadro.mp3"))),
+    ReplyBundleCommand(CommandTrigger("unoduetre"           ), List(MediaFile("unoduetre.mp3"))),
+    ReplyBundleCommand(CommandTrigger("ancorauna"           ), List(MediaFile("AncoraUnaDoveLaMetto.mp3"))),
+    ReplyBundleCommand(CommandTrigger("lacipolla"           ), List(MediaFile("CipollaCalandrica.mp3"))),
+    ReplyBundleCommand(CommandTrigger("lavorogiusto"        ), List(MediaFile("IlLavoroVaPagato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("motivazioniinternet" ), List(MediaFile("InternetMotivazioniCalandriche.mp3"))),
+    ReplyBundleCommand(CommandTrigger("cazzomene"           ), List(MediaFile("IoSonVaccinato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("arrivoarrivo"        ), List(MediaFile("SubmissionCalandra.mp3"))),
+    ReplyBundleCommand(CommandTrigger("vaginadepilata"      ), List(MediaFile("VaginaDepilataCalandra.mp3"))),
+    ReplyBundleCommand(CommandTrigger("whawha_fallout4"     ), List(MediaFile("waawahaawha.mp3"))),
+    ReplyBundleCommand(CommandTrigger("whawha_short"        ), List(MediaFile("wwhaaawhaaa Singolo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("daccordissimo"       ), List(MediaFile("d_accordissimo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("stocazzo"            ), List(MediaFile("stocazzo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("cazzodibudda"        ), List(MediaFile("cazzoDiBudda.mp3"))),
+    ReplyBundleCommand(CommandTrigger("personapulita"       ), List(MediaFile("personaPulita.mp3"))),
+    ReplyBundleCommand(CommandTrigger("losquirt"            ), List(MediaFile("loSquirt.mp3"))),
+    ReplyBundleCommand(CommandTrigger("fuoridalmondo"       ), List(MediaFile("fuoriDalMondo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("qualitaOlive"        ), List(MediaFile("qualitáOlive.mp3"))),
+    ReplyBundleCommand(CommandTrigger("gioielli"            ), List(MediaFile("gioielli.mp3"))),
+    ReplyBundleCommand(CommandTrigger("risata"              ), List(MediaFile("risata.mp3"))),
+    ReplyBundleCommand(CommandTrigger("sonocosternato"      ), List(MediaFile("sonoCosternato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("demenza"             ), List(MediaFile("laDemenzaDiUnUomo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("wha"                 ), List(MediaFile("whaSecco.mp3"))),
+    ReplyBundleCommand(CommandTrigger("imparatounafava"     ), List(MediaFile("imparatoUnaFava.mp3"))),
+    ReplyBundleCommand(CommandTrigger("lesbiche"            ), List(MediaFile("SieteLesbiche.mp3"))),
+    ReplyBundleCommand(CommandTrigger("firstlesson"         ), List(MediaFile("firstLessonPlease.mp3"))),
+    ReplyBundleCommand(CommandTrigger("noprogrammato"       ), List(MediaFile("noGrazieProgrammato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("randomcard"          ), directoryFiles("cards").map(MediaFile(_)))
+  )
 
-  // Configuration Stuff //////////////////////////////////////////////////////
-  lazy val token = scala.util.Properties
-    .envOrNone("BOT_TOKEN")
-    .getOrElse(Source.fromResource("bot.token").getLines().mkString)
-  override val ignoreCommandReceiver = true
-  val rootPath = Paths.get("").toAbsolutePath()
-
-  def buildPath(filename : String) : Path =
-    Paths.get(rootPath.toString(), "src", "main", "resources", filename)
-
-  // Commands & Audio Replies /////////////////////////////////////////////////
-
-  /*
-   * sendAudioCalandrico
-   * @param filename filename of the audio in the resources
-   * @param msg message to reply to
-   * @return Send the audio
-   */
-  def sendAudioCalandrico(filename : String)(implicit msg : Message) = {
-    uploadingAudio
-    val path = buildPath(filename)
-    val mp3 = InputFile(path)
-    request(SendAudio(msg.source, mp3))
-  }
-
-  def sendRandomCard(implicit msg : Message) = {
-    val cardDir : java.util.List[Path] = Files.walk(buildPath("cards")).collect(Collectors.toList());
-    val numberOfCards = cardDir.size
-    val selectedCardIndex = Random.nextInt(numberOfCards)
-    val card = InputFile(cardDir.get(selectedCardIndex))
-    request(SendPhoto(msg.source, card))
-  }
-
-  // Mapping from command name to filename
-  val commands : List[(String, String)] =
-    List (("porcoladro"         , "PorcoLadro.mp3"),
-      ("unoduetre"           , "unoduetre.mp3"),
-      ("ancorauna"           , "AncoraUnaDoveLaMetto.mp3"),
-      ("lacipolla"           , "CipollaCalandrica.mp3"),
-      ("lavorogiusto"        , "IlLavoroVaPagato.mp3"),
-      ("motivazioniinternet" , "InternetMotivazioniCalandriche.mp3"),
-      ("cazzomene"           , "IoSonVaccinato.mp3"),
-      ("arrivoarrivo"        , "SubmissionCalandra.mp3"),
-      ("vaginadepilata"      , "VaginaDepilataCalandra.mp3"),
-      ("whawha_fallout4"     , "waawahaawha.mp3"),
-      ("whawha_short"        , "wwhaaawhaaa Singolo.mp3"),
-      ("daccordissimo"       , "d_accordissimo.mp3"),
-      ("stocazzo"            , "stocazzo.mp3"),
-      ("cazzodibudda"        , "cazzoDiBudda.mp3"),
-      ("personapulita"       , "personaPulita.mp3"),
-      ("losquirt"            , "loSquirt.mp3"),
-      ("fuoridalmondo"       , "fuoriDalMondo.mp3"),
-      ("qualitaOlive"        , "qualitáOlive.mp3"),
-      ("gioielli"            , "gioielli.mp3"),
-      ("risata"              , "risata.mp3"),
-      ("sonocosternato"      , "sonoCosternato.mp3"),
-      ("demenza"             , "laDemenzaDiUnUomo.mp3"),
-      ("wha"                 , "whaSecco.mp3"),
-      ("imparatounafava"     , "imparatoUnaFava.mp3"),
-      ("lesbiche"            , "SieteLesbiche.mp3"),
-      ("firstlesson"         , "firstLessonPlease.mp3"),
-      ("noprogrammato"       , "noGrazieProgrammato.mp3"))
-
-  commands.foreach(t => {
-    onCommand(t._1) { implicit msg =>
-      sendAudioCalandrico(t._2)
-    }
-  })
-
-  onCommand("randomcard") { implicit msg =>
-    sendRandomCard
-  }
-  // Message Replies ////////////////////////////////////////////////////////////
-
-  // Map contains the list of keywords to match, the related messageHandler and
-  // the Message matches.
-  val messageReplies : List[(List[String], MessageHandler, MessageMatches)] =
-    List((List("sbrighi"                                       ), (m : Message) => reply("Passo")(                                                                                                                                        m), ContainsOnce),
-      (List("gay", "frocio", "culattone", "ricchione"       ), (m : Message) => reply("CHE SCHIFO!!!")(                                                                                                                                m), ContainsOnce),
-      (List("caldo", "scotta"                               ), (m : Message) => reply("Come i carbofreni della Brembo!!")(                                                                                                             m), ContainsOnce),
-      (List("ciao", "buongiorno", "salve"                   ), (m : Message) => reply("Buongiorno Signori")(                                                                                                                           m), ContainsOnce),
-      (List("film"                                          ), (m : Message) => reply("Lo riguardo volentieri")(                                                                                                                       m), ContainsOnce),
-      (List("stasera", "?"                                  ), (m : Message) => reply("Facciamo qualcosa tutti assieme?")(                                                                                                             m), ContainsAll),
-      (List(" hd", "nitido", "nitidezza", "alta definizione"), (m : Message) => reply("Eh sì, vedi...si nota l'indecisione dell'immagine")(                                                                                          m), ContainsOnce),
-      (List("qualità"                                       ), (m : Message) => reply("A 48x masterizza meglio")(                                                                                                                      m), ContainsOnce),
-      (List("macchina", "automobile"                        ), (m : Message) => reply("Hai visto l'ultima puntata di \"Top Gear\"?")(                                                                                                  m), ContainsOnce),
-      (List(" figa ", " fregna ", " gnocca ", " patacca "   ), (m : Message) => reply("Io so come fare con le donne...ho letto tutto...")(                                                                                             m), ContainsOnce),
-      (List("ambulanza", emoji":ambulance:"                 ), (m : Message) => reply(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:")( m), ContainsOnce),
-      (List("pc", "computer"                                ), (m : Message) => reply("Il fisso performa meglio rispetto al portatile!!!")(                                                                                            m), ContainsOnce),
-      (List("videogioc", emoji":video_game:"                                     ), (m : Message) => reply(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!")(                                                                                            m), ContainsOnce),
-      (List(" hs", "hearthstone"                            ), (m : Message) => reply("BASTA CON QUESTI TAUNT!!!")(                                                                                            m), ContainsOnce)
-    )
-
-  /**
-    * countHandler
-    * @param textLength Length of the input text message
-    * @param messageId id of the message
-    * @return The message handler for the input message
-    */
-  def countHandler(textLength : Int, messageId : Int) : MessageHandler =
-    if (textLengthCondition(textLength)) textLengthExceedHandler(textLength, messageId)
-    else (m : Message) => Future.successful(m)
-
-  /**
-    * textLengthCondition
-    * @param textLength length of the message
-    * @return If the message match the condition
-    */
-  def textLengthCondition(textLength : Int) : Boolean = textLength > 280
-  /**
-    * textLengthExceedHandler
-    * @param textLength length of the message
-    * @param messageId if of the message
-    */
-  def textLengthExceedHandler(textLength : Int, messageId : Int) : MessageHandler = (m : Message) =>
-  reply(s"""wawaaa rischio calandrico in aumento($textLength / 280)""",
-    replyToMessageId = Some(messageId))(m)
-
-  onMessage((message : Message) =>
-    message.text.map { m =>
-      messageReplies
-        .flatMap(t => MessageMatches.getHandler(t._1, m, t._2, t._3).toList)
-        .foreach(_(message))
-
-      countHandler(m.length, message.messageId)(message)
-    }
+  override lazy val messageRepliesData : List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(TextTrigger(List("sbrighi"                                       )), text = TextReply(List("Passo"), false)),
+    ReplyBundleMessage(TextTrigger(List("gay", "frocio", "culattone", "ricchione"       )), text = TextReply(List("CHE SCHIFO!!!"), false)),
+    ReplyBundleMessage(TextTrigger(List("caldo", "scotta"                               )), text = TextReply(List("Come i carbofreni della Brembo!!"), false)),
+    ReplyBundleMessage(TextTrigger(List("ciao", "buongiorno", "salve"                   )), text = TextReply(List("Buongiorno Signori"), false)),
+    ReplyBundleMessage(TextTrigger(List("film"                                          )), text = TextReply(List("Lo riguardo volentieri"), false)),
+    ReplyBundleMessage(TextTrigger(List("stasera", "?"                                  )), text = TextReply(List("Facciamo qualcosa tutti assieme?"), false), matcher = ContainsAll),
+    ReplyBundleMessage(TextTrigger(List(" hd", "nitido", "nitidezza", "alta definizione")), text = TextReply(List("Eh sì, vedi...si nota l'indecisione dell'immagine"), false)),
+    ReplyBundleMessage(TextTrigger(List("qualità"                                       )), text = TextReply(List("A 48x masterizza meglio"), false)),
+    ReplyBundleMessage(TextTrigger(List("macchina", "automobile"                        )), text = TextReply(List("Hai visto l'ultima puntata di \"Top Gear\"?"), false)),
+    ReplyBundleMessage(TextTrigger(List(" figa ", " fregna ", " gnocca ", " patacca "   )), text = TextReply(List("Io so come fare con le donne...ho letto tutto..."), false)),
+    ReplyBundleMessage(TextTrigger(List("ambulanza", emoji":ambulance:"                 )), text = TextReply(List(emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:"), false)),
+    ReplyBundleMessage(TextTrigger(List("pc", "computer"                                )), text = TextReply(List("Il fisso performa meglio rispetto al portatile!!!"), false)),
+    ReplyBundleMessage(TextTrigger(List("videogioc", emoji":video_game:"                )), text = TextReply(List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"), false)),
+    ReplyBundleMessage(TextTrigger(List(" hs", "hearthstone"                            )), text = TextReply(List("BASTA CON QUESTI TAUNT!!!"), false)),
+    ReplyBundleMessage(MessageLengthTrigger(280                                          ), text = TextReply((msg : Message) => List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)"""), true))
   )
 }

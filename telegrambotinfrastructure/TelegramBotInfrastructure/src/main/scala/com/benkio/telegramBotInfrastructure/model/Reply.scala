@@ -8,9 +8,19 @@ import scala.concurrent.Future
 sealed trait Reply
 
 final case class TextReply(
-  text: List[String],
-  replyToMessage: Boolean= false
+  text: Message => List[String],
+  replyToMessage: Boolean = false
 ) extends Reply
+
+object TextReply {
+
+  def apply(text : List[String], replyToMessage : Boolean) : TextReply =
+    TextReply((m : Message) => text, replyToMessage)
+
+
+  def apply(text : Message => List[String], replyToMessage : Boolean) : TextReply =
+    TextReply(text, replyToMessage)
+}
 
 sealed trait MediaFile extends Reply {
   def filename : String
