@@ -153,7 +153,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("permettere"                                                     )), List(MediaFile("permettere.mp3"), MediaFile("permettere.gif"))),
     ReplyBundleMessage(TextTrigger(List("le note"                                                        )), List(MediaFile("note.mp3"), MediaFile("note.gif"))),
     ReplyBundleMessage(TextTrigger(List("terribile"                                                      )), List(MediaFile("terribile.mp3"), MediaFile("terribile.gif"))),
-    ReplyBundleMessage(TextTrigger(List("viva napoli"                                                    )), List(MediaFile("vivanapoli.mp3"), MediaFile("vivaNapoli.gif")))
+    ReplyBundleMessage(TextTrigger(List("viva napoli"                                                    )), List(MediaFile("vivaNapoli.mp3"), MediaFile("vivaNapoli.gif")))
   )
 
   override lazy val messageRepliesData : List[ReplyBundleMessage] =
