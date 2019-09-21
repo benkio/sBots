@@ -27,8 +27,6 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("ma che cazzo sto dicendo", "il martell" )), List(MediaFile("machecazzostodicendo.mp3"))),
     ReplyBundleMessage(TextTrigger(List("attenzione!!!", "attenzioneee"          )), List(MediaFile("attenzione.mp3"))),
     ReplyBundleMessage(TextTrigger(List("poveri cretini", "poveri ignoranti"     )), List(MediaFile("povericretini.mp3"))),
-    ReplyBundleMessage(TextTrigger(List("ho capito", "ho gabido"                 )), List(MediaFile("hocapito.mp3"))),
-    ReplyBundleMessage(TextTrigger(List("avete capito", "avete gabido"           )), List(MediaFile("avetecapito.mp3"))),
     ReplyBundleMessage(TextTrigger(List("feelings"                               )), List(MediaFile("feelings.mp3"))),
     ReplyBundleMessage(TextTrigger(List("due ossa"                               )), List(MediaFile("dueossa.mp3"))),
     ReplyBundleMessage(TextTrigger(List("proprio schifo"                         )), List(MediaFile("schifo.mp3"))),
@@ -129,6 +127,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       "attrice"                                                               )), List(MediaFile("faccioLaParte.gif"))),
     ReplyBundleMessage(TextTrigger(List("assolutamente no", "non mi lamento"  )), List(MediaFile("nonMiLamento.gif"))),
     ReplyBundleMessage(TextTrigger(List("fine"                                )), List(MediaFile("inizioDellaFine.gif"))),
+    ReplyBundleMessage(TextTrigger(List("il senso"                            )), List(MediaFile("ilSensoCapito.gif"))),
     ReplyBundleMessage(TextTrigger(List(" ester ", "esposito"                 )), List(MediaFile("ester.gif"))),
     ReplyBundleMessage(TextTrigger(List("abituato", "abiduado", "propriollà",
       "propriolla"                                                            )), List(MediaFile("propriolla.gif")))
@@ -156,7 +155,13 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("permettere"                                                     )), List(MediaFile("permettere.mp3"), MediaFile("permettere.gif"))),
     ReplyBundleMessage(TextTrigger(List("le note"                                                        )), List(MediaFile("note.mp3"), MediaFile("note.gif"))),
     ReplyBundleMessage(TextTrigger(List("terribile"                                                      )), List(MediaFile("terribile.mp3"), MediaFile("terribile.gif"))),
-    ReplyBundleMessage(TextTrigger(List("viva napoli"                                                    )), List(MediaFile("vivaNapoli.mp3"), MediaFile("vivaNapoli.gif")))
+    ReplyBundleMessage(TextTrigger(List("viva napoli"                                                    )), List(MediaFile("vivaNapoli.mp3"), MediaFile("vivaNapoli.gif"))),
+    ReplyBundleMessage(TextTrigger(List(" capito ", " gabido "                                               )),
+      List(
+        MediaFile("hocapito.mp3"), MediaFile("avetecapito.mp3"), MediaFile("AveteCapitoComeSempre.gif"),
+        MediaFile("NonAveteCapitoUnCazzo.gif"), MediaFile("voiNonAveteCapitoUnCazzo.gif"), MediaFile("ilSensoCapito.gif"),
+        MediaFile("capitoDoveStiamo.gif")
+      ), replySelection = RandomSelection),
   )
 
   override lazy val messageRepliesData : List[ReplyBundleMessage] =
