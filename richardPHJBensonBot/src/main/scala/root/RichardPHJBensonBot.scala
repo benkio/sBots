@@ -156,12 +156,12 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("le note"                                                        )), List(MediaFile("note.mp3"), MediaFile("note.gif"))),
     ReplyBundleMessage(TextTrigger(List("terribile"                                                      )), List(MediaFile("terribile.mp3"), MediaFile("terribile.gif"))),
     ReplyBundleMessage(TextTrigger(List("viva napoli"                                                    )), List(MediaFile("vivaNapoli.mp3"), MediaFile("vivaNapoli.gif"))),
-    ReplyBundleMessage(TextTrigger(List(" capito ", " gabido "                                               )),
+    ReplyBundleMessage(TextTrigger(List("capito ", " gabido"                                           )),
       List(
         MediaFile("hocapito.mp3"), MediaFile("avetecapito.mp3"), MediaFile("AveteCapitoComeSempre.gif"),
         MediaFile("NonAveteCapitoUnCazzo.gif"), MediaFile("voiNonAveteCapitoUnCazzo.gif"), MediaFile("ilSensoCapito.gif"),
         MediaFile("capitoDoveStiamo.gif")
-      ), replySelection = RandomSelection),
+      ), replySelection = RandomSelection)
   )
 
   override lazy val messageRepliesData : List[ReplyBundleMessage] =

@@ -50,9 +50,9 @@ object Actions {
     T => Message => Future[Message]
 
   def sendPhoto(buildPath: String => Path,
-                uploadingPhoto: Message => Future[Boolean],
-                request: RequestHandler
-               ): Action[PhotoFile] =
+    uploadingPhoto: Message => Future[Boolean],
+    request: RequestHandler
+  ): Action[PhotoFile] =
     (mediaFile: PhotoFile) => (msg: Message) => {
       uploadingPhoto(msg)
       val path = buildPath(mediaFile.filename)
@@ -61,9 +61,9 @@ object Actions {
     }
 
   def sendAudio(buildPath: String => Path,
-                uploadingAudio: Message => Future[Boolean],
-                request: RequestHandler
-               ): Action[Mp3File] =
+    uploadingAudio: Message => Future[Boolean],
+    request: RequestHandler
+  ): Action[Mp3File] =
     (mediaFile: Mp3File) => (msg: Message) => {
       uploadingAudio(msg)
       val path = buildPath(mediaFile.filename)
@@ -72,9 +72,9 @@ object Actions {
     }
 
   def sendGif(buildPath: String => Path,
-              uploadingDocument: Message => Future[Boolean],
-              request: RequestHandler
-             ): Action[GifFile] =
+    uploadingDocument: Message => Future[Boolean],
+    request: RequestHandler
+  ): Action[GifFile] =
     (mediaFile: GifFile) => (msg: Message) => {
       uploadingDocument(msg)
       val path = buildPath(mediaFile.filename)
@@ -84,22 +84,30 @@ object Actions {
     }
 
   def sendReply(typing: Message => Future[Boolean],
-              request: RequestHandler
-             ): Action[TextReply] =
+    request: RequestHandler
+  ): Action[TextReply] =
     (t: TextReply) => (msg: Message) => {
-      typing(msg)
       val replyToMessageId : Option[Int] =
         if (t.replyToMessage) Some(msg.messageId) else None
-      request(
-        SendMessage(
-          msg.source,
-          t.text(msg).fold("")(_ + "\n" + _),
-          None,
-          None,
-          None,
-          replyToMessageId,
-          None
+      val replyContent = t.text(msg).fold("")(_ + "\n" + _)
+      if (!replyContent.isEmpty) {
+        typing(msg)
+        request(
+          SendMessage(
+            msg.source,
+            replyContent,
+            None,
+            None,
+            None,
+            replyToMessageId,
+            None
+          )
         )
-      )
+      } else
+          Future.successful[Message](Message(
+            messageId = 0,
+            date = 0,
+            chat = Chat(id = 0, `type` = ChatType.Private)
+          ))
     }
 }
