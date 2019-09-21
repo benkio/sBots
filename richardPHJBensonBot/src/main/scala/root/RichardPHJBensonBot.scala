@@ -8,7 +8,8 @@ import io.github.todokr.Emojipolation._
 import com.benkio.telegramBotInfrastructure.model.{
   MediaFile,
   ReplyBundleMessage,
-  TextTrigger
+  TextTrigger,
+  RandomSelection
 }
 
 object RichardPHJBensonBot extends BotSkeleton {
@@ -120,7 +121,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("baci", "limonare", "peggio cose"     )), List(MediaFile("bacio.gif"))),
     ReplyBundleMessage(TextTrigger(List("solo uno parló", "criticato",
       "gridigado"                                                             )), List(MediaFile("fuCriticato.gif"))),
-    ReplyBundleMessage(TextTrigger(List("giudica"                             )), List(MediaFile("giudicate.gif"))),
+    ReplyBundleMessage(TextTrigger(List("giudica"                             )), List(MediaFile("giudicate.gif"), MediaFile("comeFaiAGiudicare.gif")), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List("a quel punto"                        )), List(MediaFile("quelPunto.gif"))),
     ReplyBundleMessage(TextTrigger(List("errori"                              )), List(MediaFile("maierrori.gif"))),
     ReplyBundleMessage(TextTrigger(List("quattro", "4", "in tempo"            )), List(MediaFile("quattroSolo.gif"))),
@@ -128,7 +129,9 @@ object RichardPHJBensonBot extends BotSkeleton {
       "attrice"                                                               )), List(MediaFile("faccioLaParte.gif"))),
     ReplyBundleMessage(TextTrigger(List("assolutamente no", "non mi lamento"  )), List(MediaFile("nonMiLamento.gif"))),
     ReplyBundleMessage(TextTrigger(List("fine"                                )), List(MediaFile("inizioDellaFine.gif"))),
-    ReplyBundleMessage(TextTrigger(List(" ester ", "esposito"                 )), List(MediaFile("ester.gif")))
+    ReplyBundleMessage(TextTrigger(List(" ester ", "esposito"                 )), List(MediaFile("ester.gif"))),
+    ReplyBundleMessage(TextTrigger(List("abituato", "abiduado", "propriollà",
+      "propriolla"                                                            )), List(MediaFile("propriolla.gif")))
    )
 
   val messageRepliesSpecialData : List[ReplyBundleMessage] = List(
