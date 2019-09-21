@@ -128,7 +128,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       "attrice"                                                               )), List(MediaFile("faccioLaParte.gif"))),
     ReplyBundleMessage(TextTrigger(List("assolutamente no", "non mi lamento"  )), List(MediaFile("nonMiLamento.gif"))),
     ReplyBundleMessage(TextTrigger(List("fine"                                )), List(MediaFile("inizioDellaFine.gif"))),
-    ReplyBundleMessage(TextTrigger(List("ester", "esposito"                   )), List(MediaFile("ester.gif")))
+    ReplyBundleMessage(TextTrigger(List(" ester ", "esposito"                 )), List(MediaFile("ester.gif")))
    )
 
   val messageRepliesSpecialData : List[ReplyBundleMessage] = List(
@@ -146,7 +146,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("per il culo"                                                    )), List(MediaFile("pigliandoperilculo.mp3"), MediaFile("pigliandoperilculo.gif"))),
     ReplyBundleMessage(TextTrigger(List(emoji":lol:", emoji":rofl:"                                      )), List(MediaFile("risata.mp3"), MediaFile("risata.gif"))),
     ReplyBundleMessage(TextTrigger(List("ammazza che sei", "quasi un frocio"                             )), List(MediaFile("frocio.mp3"), MediaFile("frocio.gif"))),
-    ReplyBundleMessage(TextTrigger(List("cortesia"                                          )), List(MediaFile("fammiquestacortesia.mp3"), MediaFile("fammiquestacortesia.gif"))),
+    ReplyBundleMessage(TextTrigger(List("cortesia"                                                       )), List(MediaFile("fammiquestacortesia.mp3"), MediaFile("fammiquestacortesia.gif"))),
     ReplyBundleMessage(TextTrigger(List("non mi sta bene"                                                )), List(MediaFile("nonmistabene.mp3"), MediaFile("nonmistabene.gif"))),
     ReplyBundleMessage(TextTrigger(List("sai fare le labbra", "manco le labbra", "neanche le labbra"     )), List(MediaFile("labbra.mp3"), MediaFile("labbra.gif"))),
     ReplyBundleMessage(TextTrigger(List("la vita è il nemico"                                            )), List(MediaFile("vitanemico.mp3"), MediaFile("vitanemico.gif"))),
