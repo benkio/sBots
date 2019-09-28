@@ -101,7 +101,6 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("vecchio", "vecchia"                  )), List(MediaFile("vecchio.gif"))),
     ReplyBundleMessage(TextTrigger(List("venite qua"                          )), List(MediaFile("venitequa.gif"))),
     ReplyBundleMessage(TextTrigger(List("sputo", "sputa"                      )), List(MediaFile("sputo.gif"))),
-    ReplyBundleMessage(TextTrigger(List("sorriso", emoji":smile:"             )), List(MediaFile("sorriso.gif"))),
     ReplyBundleMessage(TextTrigger(List("lasciami in pace", "stronz"          )), List(MediaFile("lasciamiinpace.gif"))),
     ReplyBundleMessage(TextTrigger(List("sono arrivato", "arivado", "piacere" )), List(MediaFile("arivado.gif"))),
     ReplyBundleMessage(TextTrigger(List("pure bona"                           )), List(MediaFile("bona.gif"))),
@@ -146,7 +145,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("lavora tu vecchiaccia", "hai la pelle dura", "io sono creatura" )), List(MediaFile("lavoratu.mp3"), MediaFile("lavoratu.gif"))),
     ReplyBundleMessage(TextTrigger(List("infernali!!!!", "infernaliii"                                   )), List(MediaFile("infernali.mp3"), MediaFile("infernali.gif"))),
     ReplyBundleMessage(TextTrigger(List("per il culo"                                                    )), List(MediaFile("pigliandoperilculo.mp3"), MediaFile("pigliandoperilculo.gif"))),
-    ReplyBundleMessage(TextTrigger(List(emoji":lol:", emoji":rofl:"                                      )), List(MediaFile("risata.mp3"), MediaFile("risata.gif"))),
+    ReplyBundleMessage(TextTrigger(List(emoji":lol:", emoji":rofl:", "sorriso", emoji":smile:"           )), List(MediaFile("risata.mp3"), MediaFile("risata.gif"), MediaFile("sorriso2.gif"), MediaFile("sorriso3.gif"), MediaFile("sorriso.gif")), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List("ammazza che sei", "quasi un frocio"                             )), List(MediaFile("frocio.mp3"), MediaFile("frocio.gif"))),
     ReplyBundleMessage(TextTrigger(List("cortesia"                                                       )), List(MediaFile("fammiquestacortesia.mp3"), MediaFile("fammiquestacortesia.gif"))),
     ReplyBundleMessage(TextTrigger(List("non mi sta bene"                                                )), List(MediaFile("nonmistabene.mp3"), MediaFile("nonmistabene.gif"))),
@@ -156,9 +155,9 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("le note"                                                        )), List(MediaFile("note.mp3"), MediaFile("note.gif"))),
     ReplyBundleMessage(TextTrigger(List("terribile"                                                      )), List(MediaFile("terribile.mp3"), MediaFile("terribile.gif"))),
     ReplyBundleMessage(TextTrigger(List("viva napoli"                                                    )), List(MediaFile("vivaNapoli.mp3"), MediaFile("vivaNapoli.gif"))),
-    ReplyBundleMessage(TextTrigger(List("capito ", " gabido"                                           )),
+    ReplyBundleMessage(TextTrigger(List("capito ", " gabido"                                             )),
       List(
-        MediaFile("hocapito.mp3"), MediaFile("avetecapito.mp3"), MediaFile("AveteCapitoComeSempre.gif"),
+        MediaFile("hocapito.mp3"), MediaFile("avetecapito.mp3"), MediaFile("capito.mp3"), MediaFile("AveteCapitoComeSempre.gif"),
         MediaFile("NonAveteCapitoUnCazzo.gif"), MediaFile("voiNonAveteCapitoUnCazzo.gif"), MediaFile("ilSensoCapito.gif"),
         MediaFile("capitoDoveStiamo.gif")
       ), replySelection = RandomSelection)
