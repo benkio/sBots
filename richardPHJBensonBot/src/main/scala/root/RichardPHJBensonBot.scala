@@ -8,20 +8,31 @@ import io.github.todokr.Emojipolation._
 import com.benkio.telegramBotInfrastructure.model.{
   MediaFile,
   ReplyBundleMessage,
+  ReplyBundleCommand,
   TextTrigger,
+  CommandTrigger,
+  TextReply,
   RandomSelection
 }
 
 object RichardPHJBensonBot extends BotSkeleton {
 
   val messageRepliesAudioData : List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(TextTrigger(List("sono finito", "ultimo stadio",
+      "stanco", "non vedo"                                                       )), List(MediaFile("stanco.mp3"))),
+    ReplyBundleMessage(TextTrigger(List("negozio", "pantaloni", "shopping"       )), List(MediaFile("pantaloni.mp3"))),
+    ReplyBundleMessage(TextTrigger(List("mignotta", "puttana", "troia"           )), List(MediaFile("mignotta.mp3"))),
+    ReplyBundleMessage(TextTrigger(List("brutto frocio"                          )), List(MediaFile("bruttofrocio.mp3"))),
+    ReplyBundleMessage(TextTrigger(List("questo ragazzo", "eccitare",
+      "lucio dalla"                                                              )), List(MediaFile("luciodalla.mp3"))),
+    ReplyBundleMessage(TextTrigger(List("chiesa", "preghiera", "non credo"       )), List(MediaFile("chiesa.mp3"))),
     ReplyBundleMessage(TextTrigger(List("maledetto"                              )), List(MediaFile("maledetto.mp3"))),
     ReplyBundleMessage(TextTrigger(List("io ti aiuto"                            )), List(MediaFile("aiuto.mp3"))),
     ReplyBundleMessage(TextTrigger(List("assolo", "chitarra", "ghidarra"         )), List(MediaFile("assolo.mp3"))),
     ReplyBundleMessage(TextTrigger(List("ci sei ritornata" , "ci sei ritornato"  )), List(MediaFile("ritornata.mp3"))),
     ReplyBundleMessage(TextTrigger(List("anche la merda", "senza culo"           )), List(MediaFile("merda.mp3"))),
     ReplyBundleMessage(TextTrigger(List("cobelini", "cobbolidi", "elfi",
-      "nani", "la mandragola",
+      "nani", "la mandragola", "gobellini",
       "fico sacro", " la betulla", "la canfora",
       "le ossa dei morti"                                                        )), List(MediaFile("figuremitologiche.mp3"))),
     ReplyBundleMessage(TextTrigger(List("ma che cazzo sto dicendo", "il martell" )), List(MediaFile("machecazzostodicendo.mp3"))),
@@ -41,8 +52,7 @@ object RichardPHJBensonBot extends BotSkeleton {
   )
 
   val messageRepliesGifsData : List[ReplyBundleMessage]  = List(
-    ReplyBundleMessage(TextTrigger(List("vattene affanculo",
-      "vattene a fanculo"                                  )), List(MediaFile("mavatteneaffanculo.gif"))),
+    ReplyBundleMessage(TextTrigger(List("hollywood"        )), List(MediaFile("hollywood.gif"))),
     ReplyBundleMessage(TextTrigger(List("rimpinzati",
       "cioccolata", "pandori", "gioggolada"                )), List(MediaFile("rimpinzati.gif"))),
     ReplyBundleMessage(TextTrigger(List("pensa alla deficienza",
@@ -51,8 +61,6 @@ object RichardPHJBensonBot extends BotSkeleton {
       "tasse",  "bolletta", "tassa"                        )), List(MediaFile("cacciaisoldi.gif"))),
     ReplyBundleMessage(TextTrigger(List("fate come vi pare", "sti cazzi",
       "sti gazzi"                                          )), List(MediaFile("comevipare.gif"))),
-    ReplyBundleMessage(TextTrigger(List("ciao a tutti",
-      "come state", "belle gioie"                          )), List(MediaFile("ciaocomestate.gif"))),
     ReplyBundleMessage(TextTrigger(List("non sapere", "aristotele",
       "aristodele"                                         )), List(MediaFile("sodinonsapere.gif"))),
     ReplyBundleMessage(TextTrigger(List("non ci credete?", "grande stronzata",
@@ -121,7 +129,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("giudica"                             )), List(MediaFile("giudicate.gif"), MediaFile("comeFaiAGiudicare.gif")), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List("a quel punto"                        )), List(MediaFile("quelPunto.gif"))),
     ReplyBundleMessage(TextTrigger(List("errori"                              )), List(MediaFile("maierrori.gif"))),
-    ReplyBundleMessage(TextTrigger(List("quattro", "4", "in tempo"            )), List(MediaFile("quattroSolo.gif"))),
+    ReplyBundleMessage(TextTrigger(List("quattro", " 4 ", "in tempo"            )), List(MediaFile("quattroSolo.gif"))),
     ReplyBundleMessage(TextTrigger(List("la parte", "recitare", "attore",
       "attrice"                                                               )), List(MediaFile("faccioLaParte.gif"))),
     ReplyBundleMessage(TextTrigger(List("assolutamente no", "non mi lamento"  )), List(MediaFile("nonMiLamento.gif"))),
@@ -133,6 +141,7 @@ object RichardPHJBensonBot extends BotSkeleton {
    )
 
   val messageRepliesSpecialData : List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(TextTrigger(List("vattene affanculo", "vattene a fanculo"                         )), List(MediaFile("mavatteneaffanculo.gif"), MediaFile("mavatteneaffanculo.mp3"))),
     ReplyBundleMessage(TextTrigger(List("basta!!!", "bastaaa"                                            )), List(MediaFile("basta.mp3"), MediaFile("basta.gif"))),
     ReplyBundleMessage(TextTrigger(List("ti devi spaventare"                                             )), List(MediaFile("tidevispaventare.mp3"), MediaFile("tidevispaventare.gif"))),
     ReplyBundleMessage(TextTrigger(List("questa volta no"                                                )), List(MediaFile("questavoltano.mp3"), MediaFile("questavoltano.gif"))),
@@ -155,7 +164,10 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("le note"                                                        )), List(MediaFile("note.mp3"), MediaFile("note.gif"))),
     ReplyBundleMessage(TextTrigger(List("terribile"                                                      )), List(MediaFile("terribile.mp3"), MediaFile("terribile.gif"))),
     ReplyBundleMessage(TextTrigger(List("viva napoli"                                                    )), List(MediaFile("vivaNapoli.mp3"), MediaFile("vivaNapoli.gif"))),
-    ReplyBundleMessage(TextTrigger(List("capito ", " gabido"                                             )),
+    ReplyBundleMessage(TextTrigger(List("ciao a tutti",
+      "come state", "belle gioie"                                                                        )), List(MediaFile("ciaocomestate.gif"), MediaFile("ciaocomestate.mp3"))),
+    ReplyBundleMessage(TextTrigger(List("capito ", " gabido"," capito", "gabido ", " capissi",
+      "capissi "                                                                                         )),
       List(
         MediaFile("hocapito.mp3"), MediaFile("avetecapito.mp3"), MediaFile("capito.mp3"), MediaFile("AveteCapitoComeSempre.gif"),
         MediaFile("NonAveteCapitoUnCazzo.gif"), MediaFile("voiNonAveteCapitoUnCazzo.gif"), MediaFile("ilSensoCapito.gif"),
@@ -165,4 +177,18 @@ object RichardPHJBensonBot extends BotSkeleton {
 
   override lazy val messageRepliesData : List[ReplyBundleMessage] =
     messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
+
+  override lazy val commandRepliesData : List[ReplyBundleCommand] = List(
+    ReplyBundleCommand(CommandTrigger("triggerlist"),
+      text = TextReply(_ =>
+        messageRepliesData
+          .map(_.trigger match {
+            case TextTrigger(lt) => lt
+            case _ => List.empty[String]
+          })
+          .fold(List.empty[String])((la, lb) =>
+            List(la.mkString(" - ") ++ "\n" ++ lb.mkString(" - "))
+          )
+      ,false))
+  )
 }

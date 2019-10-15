@@ -3,9 +3,12 @@ package root
 import org.scalatest._
 import java.nio.file.Files
 
-import com.benkio.telegramBotInfrastructure.model.MediaFile
+import com.benkio.telegramBotInfrastructure.model.{
+  MediaFile,
+  TextTrigger
+}
 
-class RichardPHJBensonBotSpec extends WordSpec {
+class RichardPHJBensonBotSpec extends WordSpec with Matchers {
 
   def testFilename(filename : String) = {
     try {
@@ -46,6 +49,23 @@ class RichardPHJBensonBotSpec extends WordSpec {
           testFilename(f1.filename)
         }
 
+      }
+    }
+  }
+
+  "commandRepliesData" should {
+    "return a list of all triggers" when {
+      "called" in {
+        RichardPHJBensonBot.commandRepliesData.length shouldEqual 1
+        RichardPHJBensonBot.messageRepliesData
+          .flatMap(
+            _.trigger match {
+              case TextTrigger(lt) => lt
+              case _ => ""
+            }
+          ).forall(s =>
+            RichardPHJBensonBot.commandRepliesData.head.text.text(null).contains(s)
+          )
       }
     }
   }

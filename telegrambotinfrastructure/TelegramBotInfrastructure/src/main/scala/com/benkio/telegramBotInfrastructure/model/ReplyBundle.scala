@@ -23,7 +23,7 @@ final case class ReplyBundleMessage(
 
 final case class ReplyBundleCommand(
   trigger : CommandTrigger,
-  mediafiles: List[MediaFile],
+  mediafiles: List[MediaFile] = List.empty[MediaFile],
   text : TextReply = TextReply((m : Message) => List.empty[String], false),
   replySelection : ReplySelection = SelectAll
 ) extends ReplyBundle
