@@ -33,7 +33,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("anche la merda", "senza culo"           )), List(MediaFile("merda.mp3"))),
     ReplyBundleMessage(TextTrigger(List("cobelini", "cobbolidi", "elfi",
       "nani", "la mandragola", "gobellini",
-      "fico sacro", " la betulla", "la canfora",
+      "fico sacro", "la betulla", "la canfora",
       "le ossa dei morti"                                                        )), List(MediaFile("figuremitologiche.mp3"))),
     ReplyBundleMessage(TextTrigger(List("ma che cazzo sto dicendo", "il martell" )), List(MediaFile("machecazzostodicendo.mp3"))),
     ReplyBundleMessage(TextTrigger(List("attenzione!!!", "attenzioneee"          )), List(MediaFile("attenzione.mp3"))),
