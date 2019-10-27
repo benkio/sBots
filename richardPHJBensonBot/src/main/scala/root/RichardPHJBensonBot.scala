@@ -135,7 +135,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("la parte", "recitare", "attore",
       "attrice"                                                               )), List(MediaFile("faccioLaParte.gif"))),
     ReplyBundleMessage(TextTrigger(List("assolutamente no", "non mi lamento"  )), List(MediaFile("nonMiLamento.gif"))),
-    ReplyBundleMessage(TextTrigger(List("fine"                                )), List(MediaFile("inizioDellaFine.gif"))),
+    ReplyBundleMessage(TextTrigger(List("inizio della fine"                                )), List(MediaFile("inizioDellaFine.gif"))),
     ReplyBundleMessage(TextTrigger(List("il senso"                            )), List(MediaFile("ilSensoCapito.gif"))),
     ReplyBundleMessage(TextTrigger(List(" ester ", "esposito"                 )), List(MediaFile("ester.gif"))),
     ReplyBundleMessage(TextTrigger(List("abituato", "abiduado", "propriollà",
