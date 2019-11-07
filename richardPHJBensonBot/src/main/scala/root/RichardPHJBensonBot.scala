@@ -28,7 +28,6 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("chiesa", "preghiera", "non credo"       )), List(MediaFile("chiesa.mp3"))),
     ReplyBundleMessage(TextTrigger(List("maledetto"                              )), List(MediaFile("maledetto.mp3"))),
     ReplyBundleMessage(TextTrigger(List("io ti aiuto"                            )), List(MediaFile("aiuto.mp3"))),
-    ReplyBundleMessage(TextTrigger(List("assolo", "chitarra", "ghidarra"         )), List(MediaFile("assolo.mp3"))),
     ReplyBundleMessage(TextTrigger(List("ci sei ritornata" , "ci sei ritornato"  )), List(MediaFile("ritornata.mp3"))),
     ReplyBundleMessage(TextTrigger(List("anche la merda", "senza culo"           )), List(MediaFile("merda.mp3"))),
     ReplyBundleMessage(TextTrigger(List("cobelini", "cobbolidi", "elfi",
@@ -52,7 +51,10 @@ object RichardPHJBensonBot extends BotSkeleton {
   )
 
   val messageRepliesGifsData : List[ReplyBundleMessage]  = List(
-    ReplyBundleMessage(TextTrigger(List("hollywood"        )), List(MediaFile("hollywood.gif"))),
+    ReplyBundleMessage(TextTrigger(List("hollywood"         )), List(MediaFile("hollywood.gif"))),
+    ReplyBundleMessage(TextTrigger(List("uno scherzo"         )), List(MediaFile("scherzo.gif"))),
+    ReplyBundleMessage(TextTrigger(List("vi calpesto",
+      "ultimi degli ultimi", "vermi", "strisciate"          )), List(MediaFile("viCalpesto.gif"))),
     ReplyBundleMessage(TextTrigger(List("rimpinzati",
       "cioccolata", "pandori", "gioggolada"                )), List(MediaFile("rimpinzati.gif"))),
     ReplyBundleMessage(TextTrigger(List("pensa alla deficienza",
@@ -169,12 +171,24 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("viva napoli"                                                    )), List(MediaFile("vivaNapoli.mp3"), MediaFile("vivaNapoli.gif"))),
     ReplyBundleMessage(TextTrigger(List("ciao a tutti",
       "come state", "belle gioie"                                                                        )), List(MediaFile("ciaocomestate.gif"), MediaFile("ciaocomestate.mp3"))),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          "assolo", "chitarra", "ghidarra")
+      ),
+      List(
+        MediaFile("assolo.mp3"), MediaFile("chitarra1.gif"), MediaFile("chitarra2.gif")
+      ), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List("capito ", " gabido"," capito", "gabido ", " capissi",
       "capissi "                                                                                         )),
       List(
         MediaFile("hocapito.mp3"), MediaFile("avetecapito.mp3"), MediaFile("capito.mp3"), MediaFile("AveteCapitoComeSempre.gif"),
         MediaFile("NonAveteCapitoUnCazzo.gif"), MediaFile("voiNonAveteCapitoUnCazzo.gif"), MediaFile("ilSensoCapito.gif"),
         MediaFile("capitoDoveStiamo.gif")
+      ), replySelection = RandomSelection),
+    ReplyBundleMessage(TextTrigger(List( "schifosi"                                                                                         )),
+      List(
+        MediaFile("viCalpesto.gif"), MediaFile("schifosi.mp3"), MediaFile("schifosi.gif")
       ), replySelection = RandomSelection)
   )
 
