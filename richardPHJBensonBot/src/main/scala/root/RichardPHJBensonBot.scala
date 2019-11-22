@@ -404,7 +404,7 @@ List(MediaFile("canzonette.mp3")))
             case _ => List.empty[String]
           })
           .fold(List.empty[String])((la, lb) =>
-            List(la.mkString(" - ") ++ "\n" ++ lb.mkString(" - "))
+            List(la.mkString("[", " - ", "]") ++ "\n" ++ lb.mkString("[", " - ", "]"))
           ), false))
   )
 }
