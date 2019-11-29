@@ -9,7 +9,7 @@ object Settings {
   lazy val settings = Seq(
     organization := "com.benkio",
     version := "0.0.1",
-    scalaVersion := "2.12.9",
+    scalaVersion := "2.12.10",
     publishMavenStyle := true,
     publishArtifact in Test := false
   )
