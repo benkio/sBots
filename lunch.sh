@@ -43,5 +43,4 @@ echo "test & run"
 (cd ./calandroBot/; sbt test) &
 (cd ./richardPHJBensonBot/; sbt test) &
 (cd ./calandroBot/; sbt run) &
-# (cd ./djJacobBot/; sbt run) &
 (cd ./richardPHJBensonBot/; sbt run)
