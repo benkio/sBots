@@ -48,6 +48,7 @@ object CalandroBot extends BotSkeleton {
     ReplyBundleCommand(CommandTrigger("lesbiche"            ), List(MediaFile("SieteLesbiche.mp3"))),
     ReplyBundleCommand(CommandTrigger("firstlesson"         ), List(MediaFile("firstLessonPlease.mp3"))),
     ReplyBundleCommand(CommandTrigger("noprogrammato"       ), List(MediaFile("noGrazieProgrammato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("fiammeinferno"       ), List(MediaFile("fiamme.mp3"))),
     ReplyBundleCommand(CommandTrigger("randomcard"          ), directoryFiles("cards").map(MediaFile(_)), replySelection = RandomSelection)
   )
 
