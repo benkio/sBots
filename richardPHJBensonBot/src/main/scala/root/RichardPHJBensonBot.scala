@@ -443,12 +443,21 @@ List(MediaFile("canzonette.mp3")))
       trigger = CommandTrigger("triggerlist"),
       text = TextReply(_ =>
         messageRepliesData
+          .take(messageRepliesData.length/2)
           .map(_.trigger match {
-            case TextTrigger(lt) => lt
-            case _ => List.empty[String]
+            case TextTrigger(lt) => lt.mkString("[", " - ", "]")
+            case _ => ""
           })
-          .fold(List.empty[String])((la, lb) =>
-            List(la.mkString("[", " - ", "]") ++ "\n" ++ lb.mkString("[", " - ", "]"))
-          ), false))
+          , false)),
+    ReplyBundleCommand(
+      trigger = CommandTrigger("triggerlist"),
+      text = TextReply(_ =>
+        messageRepliesData
+          .drop(messageRepliesData.length/2)
+          .map(_.trigger match {
+            case TextTrigger(lt) => lt.mkString("[", " - ", "]")
+            case _ => ""
+          })
+          , false))
   )
 }
