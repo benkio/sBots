@@ -18,6 +18,8 @@ trait BotSkeleton extends TelegramBot
     with ResourcesAccess
     with Configurations {
 
+  val ignoreMessagePrefix = "!"
+
   override val ignoreCommandReceiver = true
 
   // Reply to Messages ////////////////////////////////////////////////////////
@@ -29,9 +31,9 @@ trait BotSkeleton extends TelegramBot
       messageRepliesData
         .filter((mrd: ReplyBundleMessage) =>
           MessageMatches.doesMatch(
-            mrd.trigger,
+            mrd,
             m,
-            mrd.matcher
+            ignoreMessagePrefix
           )
         )
         .foreach(ReplyBundle.computeReplyBundle(_, message))

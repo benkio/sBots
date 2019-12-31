@@ -73,6 +73,10 @@ List(MediaFile("canzonette.mp3")))
   val messageRepliesGifsData : List[ReplyBundleMessage]  = List(
     ReplyBundleMessage(TextTrigger(List("hollywood"                           )),
       List(MediaFile("hollywood.gif")                                         )),
+    ReplyBundleMessage(TextTrigger(List("bebop", "be bop", "aluba", "my baby" )),
+      List(MediaFile("bebop.gif")                                         )),
+    ReplyBundleMessage(TextTrigger(List("succh", "olio di croce"              )),
+      List(MediaFile("olioDiCroce.gif")                                       )),
     ReplyBundleMessage(TextTrigger(List("c'ha ragione", "o no?"               )),
       List(MediaFile("ragione.gif")                                           )),
     ReplyBundleMessage(TextTrigger(List("micetta"                             )),
@@ -255,17 +259,22 @@ List(MediaFile("canzonette.mp3")))
     ReplyBundleMessage(TextTrigger(List("bastone infernale", "un'arma"        )),
       List(MediaFile("bastone1.gif"), MediaFile("bastone2.gif"                )), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List("droga"                               )),
-      List(MediaFile("drogatiRockettari1.gif"),
+      List(
+        MediaFile("drogatiRockettari1.gif"),
         MediaFile("drogatiRockettari2.gif"),
         MediaFile("drogatiPiloti.gif"                                         )), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List("rockettari", "rocchettari",
       "stillati"                                                              )),
-      List(MediaFile("drogatiRockettari1.gif"),
+      List(
+        MediaFile("drogatiRockettari1.gif"),
         MediaFile("drogatiRockettari2.gif"                                    )), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List("sguardo"                             )),
-      List(MediaFile("sguardo1.gif"),
+      List(
+        MediaFile("sguardo1.gif"),
         MediaFile("sguardo2.gif"),
-      MediaFile("sguardo3.gif"                                                )), replySelection = RandomSelection),
+        MediaFile("sguardo3.gif"),
+        MediaFile("sguardo4.gif")
+      ), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List("a quel punto"                        )),
       List(MediaFile("quelPunto.gif")                                         )),
     ReplyBundleMessage(TextTrigger(List("errori"                              )),
@@ -353,7 +362,7 @@ List(MediaFile("canzonette.mp3")))
         MediaFile("risata.gif"),
         MediaFile("sorriso2.gif"),
         MediaFile("sorriso3.gif"),
-        MediaFile("sorriso.gif"                                                  )
+        MediaFile("sorriso.gif")
       ), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List(
       "ammazza che sei", "quasi un frocio"                                       )),
@@ -425,7 +434,8 @@ List(MediaFile("canzonette.mp3")))
         MediaFile("NonAveteCapitoUnCazzo.gif"),
         MediaFile("voiNonAveteCapitoUnCazzo.gif"),
         MediaFile("ilSensoCapito.gif"),
-        MediaFile("capitoDoveStiamo.gif")
+        MediaFile("capitoDoveStiamo.gif"),
+        MediaFile("nonHoCapito.gif")
       ), replySelection = RandomSelection),
     ReplyBundleMessage(TextTrigger(List( "schifosi"                              )),
       List(
