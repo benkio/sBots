@@ -18,9 +18,9 @@ object MessageMatches {
   def doesMatch(
     replyMessageBundle : ReplyBundleMessage,
     messageText : String,
-    ignoreMessagePrefix : String) : Boolean =
+    ignoreMessagePrefix : Option[String]) : Boolean =
     (ignoreMessagePrefix, replyMessageBundle.matcher, replyMessageBundle.trigger) match {
-      case (prefix, _, _) if (messageText.startsWith(prefix)) => false
+      case (Some(prefix), _, _) if (messageText.startsWith(prefix)) => false
       case (_, ContainsOnce, TextTrigger(triggers)) if (triggers.exists(k => messageText.toLowerCase() contains k)) => true
       case (_, ContainsAll, TextTrigger(triggers)) if (triggers.forall(k => messageText.toLowerCase() contains k)) => true
       case (_, _, MessageLengthTrigger(messageLength)) if (messageText.size >= messageLength) => true

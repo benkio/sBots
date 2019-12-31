@@ -18,7 +18,7 @@ trait BotSkeleton extends TelegramBot
     with ResourcesAccess
     with Configurations {
 
-  val ignoreMessagePrefix = "!"
+  val ignoreMessagePrefix : Option[String] = Some("!")
 
   override val ignoreCommandReceiver = true
 
