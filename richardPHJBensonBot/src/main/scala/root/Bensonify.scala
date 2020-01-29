@@ -11,8 +11,9 @@ object Bensonify {
   )
 
   def compute(input : String) : String =
-    input.toList.foldLeft("")((acc, c) =>
-      acc + patterns.get(c.toString).getOrElse(c)
-    )
+    patterns.foldLeft(input) {
+      case (acc, (patternKey, patternValue)) =>
+        acc.replace(patternKey, patternValue)
+    }
 
 }
