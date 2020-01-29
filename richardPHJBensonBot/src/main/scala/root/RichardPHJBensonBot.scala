@@ -421,6 +421,13 @@ object RichardPHJBensonBot extends BotSkeleton {
             }),
         false
       )
+    ),
+    ReplyBundleCommand(
+      trigger = CommandTrigger("bensonify"),
+      text = TextReply(
+        msg => msg.text.map(t => List(Bensonify.compute(t))).getOrElse(List("E PAAAARRRRRLAAAAAAAAA!!!!")),
+        false
+      )
     )
   )
 }

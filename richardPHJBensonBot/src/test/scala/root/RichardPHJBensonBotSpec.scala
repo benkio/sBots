@@ -56,7 +56,7 @@ class RichardPHJBensonBotSpec extends WordSpec with Matchers {
   "commandRepliesData" should {
     "return a list of all triggers" when {
       "called" in {
-        RichardPHJBensonBot.commandRepliesData.length shouldEqual 2
+        RichardPHJBensonBot.commandRepliesData.length shouldEqual 3
         RichardPHJBensonBot.messageRepliesData
           .flatMap(
             _.trigger match {
@@ -64,8 +64,16 @@ class RichardPHJBensonBotSpec extends WordSpec with Matchers {
               case _ => ""
             }
           ).forall(s =>
-            RichardPHJBensonBot.commandRepliesData.flatMap(_.text.text(null)).contains(s)
+            RichardPHJBensonBot.commandRepliesData.init.flatMap(_.text.text(null)).contains(s)
           )
+
+        // RichardPHJBensonBot.commandRepliesData
+        //   .last
+        //   .text.text(Message(
+        //     messageId = 0,
+        //     date = 0,
+        //     chat = Chat(id = 0, `type` = ChatType.Private)
+        //   )) shouldEqual List("E PAAAARRRRRLAAAAAAAAA!!!!")
       }
     }
   }
