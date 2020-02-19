@@ -11,9 +11,10 @@ object Bensonify {
   )
 
   def compute(input : String) : String =
-    patterns.foldLeft(input) {
-      case (acc, (patternKey, patternValue)) =>
-        acc.replace(patternKey, patternValue)
-    }
+    (patterns.map{ case (k,v) => (k.toUpperCase, v.toUpperCase)} ++ patterns)
+      .foldLeft(input) {
+        case (acc, (patternKey, patternValue)) =>
+          acc.replace(patternKey, patternValue)
+      }
 
 }
