@@ -10,13 +10,15 @@ echo "#                     Welcome to the bot starting script                  
 echo "#                                                                              #"
 echo "################################################################################"
 RECOMPILE=false
-
+TEST=false
 while getopts dr option
 do
     case "${option}"
     in
         r) RECOMPILE=true
            echo "selected the Recompile option";;
+        t) TEST=true
+           echo "selected the Test option";;
         ?) echo "no options selected"
     esac
 done
@@ -38,9 +40,14 @@ then
     echo "Finish the recompilation of the infrastructure"
 fi
 
-echo "test & run"
+if [ "$TEST" = true ] ;
+then
+    echo "Running Tests"
+    (cd ./calandroBot/; sbt test) &
+    (cd ./richardPHJBensonBot/; sbt test) &
+fi
 
-(cd ./calandroBot/; sbt test) &
-(cd ./richardPHJBensonBot/; sbt test) &
+echo "run"
+
 (cd ./calandroBot/; sbt run) &
 (cd ./richardPHJBensonBot/; sbt run)
