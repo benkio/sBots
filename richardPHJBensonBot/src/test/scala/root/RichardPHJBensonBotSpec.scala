@@ -3,19 +3,17 @@ package root
 import org.scalatest._
 import java.nio.file.Files
 
-import com.benkio.telegramBotInfrastructure.model.{
-  MediaFile,
-  TextTrigger
-}
+import com.benkio.telegramBotInfrastructure.model.MediaFile
+import com.benkio.telegramBotInfrastructure.model.TextTrigger
 
 class RichardPHJBensonBotSpec extends WordSpec with Matchers {
 
-  def testFilename(filename : String) = {
+  def testFilename(filename: String) = {
     try {
-      val path = RichardPHJBensonBot.buildPath(filename)
-      val _ : Array[Byte] = Files.readAllBytes(path)
+      val path           = RichardPHJBensonBot.buildPath(filename)
+      val _: Array[Byte] = Files.readAllBytes(path)
     } catch {
-      case e : Exception => fail(s"$filename should not throw an exception: $e")
+      case e: Exception => fail(s"$filename should not throw an exception: $e")
     }
   }
 
@@ -24,7 +22,7 @@ class RichardPHJBensonBotSpec extends WordSpec with Matchers {
       "try to open the file in resounces" in {
         RichardPHJBensonBot.messageRepliesAudioData
           .flatMap(_.mediafiles)
-          .foreach((mp3 : MediaFile) => testFilename(mp3.filename))
+          .foreach((mp3: MediaFile) => testFilename(mp3.filename))
       }
     }
   }
@@ -34,7 +32,7 @@ class RichardPHJBensonBotSpec extends WordSpec with Matchers {
       "try to open the file in resounces" in {
         RichardPHJBensonBot.messageRepliesGifsData
           .flatMap(_.mediafiles)
-          .foreach((gif : MediaFile) => testFilename(gif.filename))
+          .foreach((gif: MediaFile) => testFilename(gif.filename))
       }
     }
   }
@@ -61,11 +59,10 @@ class RichardPHJBensonBotSpec extends WordSpec with Matchers {
           .flatMap(
             _.trigger match {
               case TextTrigger(lt) => lt
-              case _ => ""
+              case _               => ""
             }
-          ).forall(s =>
-            RichardPHJBensonBot.commandRepliesData.init.flatMap(_.text.text(null)).contains(s)
           )
+          .forall(s => RichardPHJBensonBot.commandRepliesData.init.flatMap(_.text.text(null)).contains(s))
 
         // RichardPHJBensonBot.commandRepliesData
         //   .last
