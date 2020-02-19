@@ -425,8 +425,10 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleCommand(
       trigger = CommandTrigger("bensonify"),
       text = TextReply(
-        msg => msg.text.map(t => List(Bensonify.compute(t))).getOrElse(List("E PAAAARRRRRLAAAAAAAAA!!!!")),
-        false
+        msg => msg.text
+          .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
+          .map(t => List(Bensonify.compute(t.drop(11)))).getOrElse(List("E PARLAAAAAAA!!!!")),
+        true
       )
     )
   )
