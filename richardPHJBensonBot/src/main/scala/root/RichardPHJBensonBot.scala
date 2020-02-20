@@ -29,6 +29,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("chiesa", "preghiera", "non credo")), List(MediaFile("chiesa.mp3"))),
     ReplyBundleMessage(TextTrigger(List("maledetto")), List(MediaFile("maledetto.mp3"))),
     ReplyBundleMessage(TextTrigger(List("io ti aiuto")), List(MediaFile("aiuto.mp3"))),
+    ReplyBundleMessage(TextTrigger(List("faccio schifo")), List(MediaFile("faccioSchifo.mp3"))),
     ReplyBundleMessage(TextTrigger(List("ci sei ritornata", "ci sei ritornato")), List(MediaFile("ritornata.mp3"))),
     ReplyBundleMessage(TextTrigger(List("anche la merda", "senza culo")), List(MediaFile("merda.mp3"))),
     ReplyBundleMessage(
