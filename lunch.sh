@@ -11,7 +11,7 @@ echo "#                                                                         
 echo "################################################################################"
 RECOMPILE=false
 TEST=false
-while getopts dr option
+while getopts dtr option
 do
     case "${option}"
     in
