@@ -6,9 +6,10 @@ import declarative._
 import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourcesAccess
 import com.benkio.telegramBotInfrastructure.default.DefaultActions
-import com.benkio.telegramBotInfrastructure.model.{Reply, ReplyBundle, ReplyBundleMessage, ReplyBundleCommand}
+import com.benkio.telegramBotInfrastructure.model.{Reply, ReplyBundle, ReplyBundleMessage, ReplyBundleCommand, Timeout}
 
 import scala.concurrent.Future
+import scala.concurrent.duration._
 
 trait BotSkeleton extends TelegramBot
     with Polling
@@ -22,22 +23,26 @@ trait BotSkeleton extends TelegramBot
 
   override val ignoreCommandReceiver = true
 
+  val inputTimeout : Option[Duration] = Some(5.minute)
+
   // Reply to Messages ////////////////////////////////////////////////////////
 
   lazy val messageRepliesData : List[ReplyBundleMessage] = List.empty[ReplyBundleMessage]
 
   onMessage((message : Message) => {
-    message.text.foreach { m =>
-      messageRepliesData
-        .filter((mrd: ReplyBundleMessage) =>
-          MessageMatches.doesMatch(
-            mrd,
-            m,
-            ignoreMessagePrefix
-          )
-        )
-        .foreach(ReplyBundle.computeReplyBundle(_, message))
-    }
+    if (Timeout.isWithinTimeout(message.date, inputTimeout))
+      message
+        .text.foreach { m =>
+          messageRepliesData
+            .filter((mrd: ReplyBundleMessage) =>
+              MessageMatches.doesMatch(
+                mrd,
+                m,
+                ignoreMessagePrefix
+              )
+            )
+            .foreach(ReplyBundle.computeReplyBundle(_, message))
+        }
   })
 
   // Reply to Commands ////////////////////////////////////////////////////////
