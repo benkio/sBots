@@ -67,6 +67,9 @@ object RichardPHJBensonBot extends BotSkeleton {
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(TextTrigger(List("hollywood")), List(MediaFile("hollywood.gif"))),
+    ReplyBundleMessage(TextTrigger(List("calcolo", "matematica")), List(MediaFile("miparelogico.gif"))),
+    ReplyBundleMessage(TextTrigger(List("tucul")), List(MediaFile("tucul.gif"))),
+    ReplyBundleMessage(TextTrigger(List(";)", "occhiolino", "wink", emoji":wink:")), List(MediaFile("occhiolino.gif"))),
     ReplyBundleMessage(TextTrigger(List("soffro")), List(MediaFile("soffro.gif"))),
     ReplyBundleMessage(
       TextTrigger(List("indispettirmi", "oltrepassare", "divento cattivo")),
@@ -132,8 +135,9 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("noncicredete.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List("mi pare logico", "calcolo", "matematica", "loggigo")),
-      List(MediaFile("miparelogico.gif"))
+      TextTrigger(List("mi pare logico", "mi sembra logico", "loggigo")),
+      List(MediaFile("miparelogico.gif"), MediaFile("sembraLogico.gif")),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(List("non me ne fotte", "chissenefrega", "non mi interessa")),
@@ -342,7 +346,8 @@ object RichardPHJBensonBot extends BotSkeleton {
         MediaFile("risata.gif"),
         MediaFile("sorriso2.gif"),
         MediaFile("sorriso3.gif"),
-        MediaFile("sorriso.gif")
+        MediaFile("sorriso.gif"),
+        MediaFile("sorrisoSognante.gif")
       ),
       replySelection = RandomSelection
     ),
