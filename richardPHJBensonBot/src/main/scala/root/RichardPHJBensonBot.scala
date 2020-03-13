@@ -137,7 +137,10 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("noncicredete.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List("mi pare logico", "mi sembra logico", "loggigo")),
+      TextTrigger(List(
+        "mi pare logico", "mi sembra logico",
+        "me pare logico", "me sembra logico",
+        "loggigo", "logigo")),
       List(MediaFile("miparelogico.gif"), MediaFile("sembraLogico.gif")),
       replySelection = RandomSelection
     ),
