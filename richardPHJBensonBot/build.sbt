@@ -1,5 +1,7 @@
 import Dependencies._
 
+enablePlugins(JavaServerAppPackaging)
+
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint")
 
 lazy val root = (project in file(".")).
