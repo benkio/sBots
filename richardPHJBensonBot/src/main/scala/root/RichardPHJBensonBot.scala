@@ -15,8 +15,6 @@ import com.benkio.telegramBotInfrastructure.model.RandomSelection
 
 object RichardPHJBensonBot extends BotSkeleton {
 
-  StayAliveHttpClient.stayAlive.unsafeToFuture
-
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(List("sono finito", "ultimo stadio", "stanco", "non vedo")),
