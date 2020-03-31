@@ -34,6 +34,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List("faccio schifo")), List(MediaFile("faccioSchifo.mp3"))),
     ReplyBundleMessage(TextTrigger(List("ci sei ritornata", "ci sei ritornato")), List(MediaFile("ritornata.mp3"))),
     ReplyBundleMessage(TextTrigger(List("anche la merda", "senza culo")), List(MediaFile("merda.mp3"))),
+    ReplyBundleMessage(TextTrigger(List("che succede")), List(MediaFile("cheSuccede.mp3"))),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -173,17 +174,6 @@ object RichardPHJBensonBot extends BotSkeleton {
         )
       ),
       List(MediaFile("saretecoglionivoi.gif"))
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List("esperiment", "1, 2, 3", "uno, due, tre")
-      ),
-      List(
-        MediaFile("esperimento.gif"),
-        MediaFile("esperimento2.gif"),
-        MediaFile("esperimento3.gif"),
-      ),
-      replySelection = RandomSelection
     ),
     ReplyBundleMessage(TextTrigger(List("bravo!!!", "bravooo")), List(MediaFile("bravo.gif"))),
     ReplyBundleMessage(TextTrigger(List("capolavoro")), List(MediaFile("capolavoro.gif"))),
@@ -421,6 +411,18 @@ object RichardPHJBensonBot extends BotSkeleton {
         MediaFile("capitoDoveStiamo.gif"),
         MediaFile("nonHoCapito.gif"),
         MediaFile("comeAlSolitoNonAveteCapito.gif")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List("esperiment", "1, 2, 3", "uno, due, tre")
+      ),
+      List(
+        MediaFile("esperimento.mp3"),
+        MediaFile("esperimento.gif"),
+        MediaFile("esperimento2.gif"),
+        MediaFile("esperimento3.gif"),
       ),
       replySelection = RandomSelection
     ),
