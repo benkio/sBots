@@ -281,7 +281,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       TextTrigger(
         List(
           StringTextTriggerValue("non ci credete?"),
-          RegexTextTriggerValue("grande s[dt]ronzat[ea]".r)
+          RegexTextTriggerValue("grande s[dt]ronza[dt][ea]".r)
         )
       ),
       List(MediaFile("noncicredete.gif"))
@@ -289,7 +289,6 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue(raw"m[ei] \([pb]are|sembra\) lo[g]+i[cg]o".r),
           RegexTextTriggerValue("lo[g]+i[cg]o".r)
         )
       ),
@@ -658,7 +657,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("lavoratu.mp3"), MediaFile("lavoratu.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("infernal[i]+[!]+".r))),
+      TextTrigger(List(RegexTextTriggerValue("infern[a]+l[i]+[!]*".r))),
       List(MediaFile("infernali.mp3"), MediaFile("infernali.gif"))
     ),
     ReplyBundleMessage(
@@ -717,7 +716,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("note.mp3"), MediaFile("note.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("te[r]{2,}[i]+b[i]+l[e]+".r))),
+      TextTrigger(List(RegexTextTriggerValue("te[r]+[i]+[b]+[i]+l[e]+".r))),
       List(MediaFile("terribile.mp3"), MediaFile("terribile.gif"))
     ),
     ReplyBundleMessage(
@@ -735,7 +734,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("ciaocomestate.gif"), MediaFile("ciaocomestate.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("bast[a]+[!]+".r))),
+      TextTrigger(List(RegexTextTriggerValue("bast[a]+[!]*".r))),
       List(
         MediaFile("basta.mp3"),
         MediaFile("basta.gif"),
@@ -757,7 +756,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("[ ]?capito | capito[ ]?".r),
+          RegexTextTriggerValue("[ ]?ca[bp]i[dt]o | ca[bp]i[dt]o[ ]?".r),
           RegexTextTriggerValue("[ ]?capissi | capissi[ ]?".r),
           StringTextTriggerValue("gabido"),
         )
