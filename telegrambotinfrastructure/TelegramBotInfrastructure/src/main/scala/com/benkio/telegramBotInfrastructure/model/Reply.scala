@@ -2,7 +2,6 @@ package com.benkio.telegramBotInfrastructure.model
 
 import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure.default.Actions.Action
-
 import scala.concurrent.Future
 
 sealed trait Reply

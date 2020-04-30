@@ -6,14 +6,7 @@ package root
 import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure._
 import io.github.todokr.Emojipolation._
-import com.benkio.telegramBotInfrastructure.model.MediaFile
-import com.benkio.telegramBotInfrastructure.model.ReplyBundleMessage
-import com.benkio.telegramBotInfrastructure.model.ReplyBundleCommand
-import com.benkio.telegramBotInfrastructure.model.TextReply
-import com.benkio.telegramBotInfrastructure.model.RandomSelection
-import com.benkio.telegramBotInfrastructure.model.MessageLengthTrigger
-import com.benkio.telegramBotInfrastructure.model.CommandTrigger
-import com.benkio.telegramBotInfrastructure.model.TextTrigger
+import com.benkio.telegramBotInfrastructure.model._
 import scala.util.Random
 
 object CalandroBot extends BotSkeleton {
@@ -55,46 +48,46 @@ object CalandroBot extends BotSkeleton {
   )
 
   override lazy val messageRepliesData: List[ReplyBundleMessage] = List(
-    ReplyBundleMessage(TextTrigger(List("sbrighi")), text = TextReply((m: Message) => List("Passo"), false)),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("sbrighi"))), text = TextReply((m: Message) => List("Passo"), false)),
     ReplyBundleMessage(
-      TextTrigger(List("gay", "frocio", "culattone", "ricchione")),
+      TextTrigger(List(StringTextTriggerValue("gay"), StringTextTriggerValue("frocio"), StringTextTriggerValue("culattone"), StringTextTriggerValue("ricchione"))),
       text = TextReply((m: Message) => List("CHE SCHIFO!!!"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List("caldo", "scotta")),
+      TextTrigger(List(StringTextTriggerValue("caldo"), StringTextTriggerValue("scotta"))),
       text = TextReply((m: Message) => List("Come i carbofreni della Brembo!!"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List("ciao", "buongiorno", "salve")),
+      TextTrigger(List(StringTextTriggerValue("ciao"), StringTextTriggerValue("buongiorno"), StringTextTriggerValue("salve"))),
       text = TextReply((m: Message) => List("Buongiorno Signori"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List("film")),
+      TextTrigger(List(StringTextTriggerValue("film"))),
       text = TextReply((m: Message) => List("Lo riguardo volentieri"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List("stasera", "?")),
+      TextTrigger(List(StringTextTriggerValue("stasera"), StringTextTriggerValue("?"))),
       text = TextReply((m: Message) => List("Facciamo qualcosa tutti assieme?"), false),
       matcher = ContainsAll
     ),
     ReplyBundleMessage(
-      TextTrigger(List(" hd", "nitido", "nitidezza", "alta definizione")),
+      TextTrigger(List(StringTextTriggerValue(" hd"), StringTextTriggerValue("nitido"), StringTextTriggerValue("nitidezza"), StringTextTriggerValue("alta definizione"))),
       text = TextReply((m: Message) => List("Eh sì, vedi...si nota l'indecisione dell'immagine"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List("qualità")),
+      TextTrigger(List(StringTextTriggerValue("qualità"))),
       text = TextReply((m: Message) => List("A 48x masterizza meglio"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List("macchina", "automobile")),
+      TextTrigger(List(StringTextTriggerValue("macchina"), StringTextTriggerValue("automobile"))),
       text = TextReply((m: Message) => List("Hai visto l'ultima puntata di \"Top Gear\"?"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List(" figa ", " fregna ", " gnocca ", " patacca ")),
+      TextTrigger(List(StringTextTriggerValue(" figa "), StringTextTriggerValue(" fregna "), StringTextTriggerValue(" gnocca "), StringTextTriggerValue(" patacca "))),
       text = TextReply((m: Message) => List("Io so come fare con le donne...ho letto tutto..."), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List("ambulanza", emoji":ambulance:")),
+      TextTrigger(List(StringTextTriggerValue("ambulanza"), StringTextTriggerValue(emoji":ambulance:"))),
       text = TextReply(
         (m: Message) =>
           List(
@@ -104,11 +97,11 @@ object CalandroBot extends BotSkeleton {
       )
     ),
     ReplyBundleMessage(
-      TextTrigger(List("pc", "computer")),
+      TextTrigger(List(StringTextTriggerValue("pc"), StringTextTriggerValue("computer"))),
       text = TextReply((m: Message) => List("Il fisso performa meglio rispetto al portatile!!!"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List("videogioc", emoji":video_game:")),
+      TextTrigger(List(StringTextTriggerValue("videogioc"), StringTextTriggerValue(emoji":video_game:"))),
       text = TextReply(
         (m: Message) =>
           List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
@@ -116,7 +109,7 @@ object CalandroBot extends BotSkeleton {
       )
     ),
     ReplyBundleMessage(
-      TextTrigger(List(" hs", "hearthstone")),
+      TextTrigger(List(StringTextTriggerValue(" hs"), StringTextTriggerValue("hearthstone"))),
       text = TextReply((m: Message) => List("BASTA CON QUESTI TAUNT!!!"), false)
     ),
     ReplyBundleMessage(
