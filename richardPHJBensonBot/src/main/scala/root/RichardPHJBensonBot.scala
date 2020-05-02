@@ -323,8 +323,8 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue(raw"\(non|mica\) so[no]? co\(gl|j\)ione".r),
-          RegexTextTriggerValue(raw"sarete co\(gl|j\)ioni voi".r)
+          RegexTextTriggerValue("(non|mica) so(no)? (un |n )?co(gl|j)ione".r),
+          RegexTextTriggerValue("sarete co(gl|j)ioni voi".r)
         )
       ),
       List(MediaFile("saretecoglionivoi.gif"))
@@ -528,7 +528,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("ro[ckg]+e[td]+ari".r),
+          RegexTextTriggerValue("ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r),
           StringTextTriggerValue("stillati")
         )
       ),
