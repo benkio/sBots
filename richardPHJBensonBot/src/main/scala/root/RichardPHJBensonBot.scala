@@ -203,7 +203,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List( RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r))
+        List(RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r))
       ),
       List(MediaFile("chitarrista.gif"))
     ),
@@ -549,7 +549,11 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("errori"))), List(MediaFile("maierrori.gif"))),
     ReplyBundleMessage(
       TextTrigger(
-        List(StringTextTriggerValue("quattro"), RegexTextTriggerValue("[ ]?4 | 4[ ]?".r), StringTextTriggerValue("in tempo"))
+        List(
+          StringTextTriggerValue("quattro"),
+          RegexTextTriggerValue("[ ]?4 | 4[ ]?".r),
+          StringTextTriggerValue("in tempo")
+        )
       ),
       List(MediaFile("quattroSolo.gif"))
     ),
@@ -639,7 +643,9 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("masgus.mp3"), MediaFile("masgus.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("gianni"), StringTextTriggerValue("grazie"), RegexTextTriggerValue("cia[o]+".r))),
+      TextTrigger(
+        List(StringTextTriggerValue("gianni"), StringTextTriggerValue("grazie"), RegexTextTriggerValue("cia[o]+".r))
+      ),
       List(MediaFile("grazie.mp3"), MediaFile("grazie.gif"))
     ),
     ReplyBundleMessage(
@@ -837,8 +843,11 @@ object RichardPHJBensonBot extends BotSkeleton {
       text = TextReply(
         msg =>
           msg.text
-            .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
-            .map(t => List(Bensonify.compute(t.drop(11))))
+            .filterNot(t => t.trim == "/bensonify " || t.trim == "/bensonify@RichardPHJBensonBot ")
+            .map(t => {
+              val (_, inputTrimmed) = t.span(_ != ' ')
+              List(Bensonify.compute(inputTrimmed))
+            })
             .getOrElse(List("E PARLAAAAAAA!!!!")),
         true
       )
