@@ -843,7 +843,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       text = TextReply(
         msg =>
           msg.text
-            .filterNot(t => t.trim == "/bensonify " || t.trim == "/bensonify@RichardPHJBensonBot ")
+            .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
             .map(t => {
               val (_, inputTrimmed) = t.span(_ != ' ')
               List(Bensonify.compute(inputTrimmed))
