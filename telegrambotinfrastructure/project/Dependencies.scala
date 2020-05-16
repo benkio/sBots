@@ -4,7 +4,7 @@ import Keys._
 object Dependencies {
 
   lazy val dependenciesVersion = new {
-    val scalaTest            = "3.0.0"
+    val scalaTest            = "3.1.1"
     val scalaCheck           = "1.13.4"
     val telegramBot4sVersion = "3.0.16"
   }

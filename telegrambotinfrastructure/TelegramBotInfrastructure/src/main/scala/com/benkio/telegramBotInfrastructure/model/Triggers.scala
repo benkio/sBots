@@ -2,7 +2,6 @@ package com.benkio.telegramBotInfrastructure.model
 
 import scala.util.matching.Regex
 
-
 sealed trait TextTriggerValue
 
 object TextTriggerValue {
