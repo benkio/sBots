@@ -3,10 +3,12 @@ package com.benkio.telegramBotInfrastructure.default
 import info.mukel.telegrambot4s._
 import methods._
 import models._
-import java.nio.file.{Files, Path}
+import java.nio.file.Files
+import java.nio.file.Path
 
 import info.mukel.telegrambot4s.api.declarative.Messages
-import info.mukel.telegrambot4s.api.{ChatActions, RequestHandler}
+import info.mukel.telegrambot4s.api.ChatActions
+import info.mukel.telegrambot4s.api.RequestHandler
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourcesAccess
 import com.benkio.telegramBotInfrastructure.default.Actions.Action
 import com.benkio.telegramBotInfrastructure.model._
@@ -49,65 +51,72 @@ object Actions {
   type Action[T <: Reply] =
     T => Message => Future[Message]
 
-  def sendPhoto(buildPath: String => Path,
-    uploadingPhoto: Message => Future[Boolean],
-    request: RequestHandler
+  def sendPhoto(
+      buildPath: String => Path,
+      uploadingPhoto: Message => Future[Boolean],
+      request: RequestHandler
   ): Action[PhotoFile] =
-    (mediaFile: PhotoFile) => (msg: Message) => {
-      uploadingPhoto(msg)
-      val path = buildPath(mediaFile.filename)
-      val photo = InputFile(path)
-      request(SendPhoto(msg.source, photo))
-    }
+    (mediaFile: PhotoFile) =>
+      (msg: Message) => {
+        uploadingPhoto(msg)
+        val path  = buildPath(mediaFile.filename)
+        val photo = InputFile(path)
+        request(SendPhoto(msg.source, photo))
+      }
 
-  def sendAudio(buildPath: String => Path,
-    uploadingAudio: Message => Future[Boolean],
-    request: RequestHandler
+  def sendAudio(
+      buildPath: String => Path,
+      uploadingAudio: Message => Future[Boolean],
+      request: RequestHandler
   ): Action[Mp3File] =
-    (mediaFile: Mp3File) => (msg: Message) => {
-      uploadingAudio(msg)
-      val path = buildPath(mediaFile.filename)
-      val mp3 = InputFile(path)
-      request(SendAudio(msg.source, mp3))
-    }
+    (mediaFile: Mp3File) =>
+      (msg: Message) => {
+        uploadingAudio(msg)
+        val path = buildPath(mediaFile.filename)
+        val mp3  = InputFile(path)
+        request(SendAudio(msg.source, mp3))
+      }
 
-  def sendGif(buildPath: String => Path,
-    uploadingDocument: Message => Future[Boolean],
-    request: RequestHandler
+  def sendGif(
+      buildPath: String => Path,
+      uploadingDocument: Message => Future[Boolean],
+      request: RequestHandler
   ): Action[GifFile] =
-    (mediaFile: GifFile) => (msg: Message) => {
-      uploadingDocument(msg)
-      val path = buildPath(mediaFile.filename)
-      val byteArray: Array[Byte] = Files.readAllBytes(path)
-      val gif = InputFile("botGif.gif", byteArray)
-      request(SendDocument(msg.source, gif))
-    }
+    (mediaFile: GifFile) =>
+      (msg: Message) => {
+        uploadingDocument(msg)
+        val path                   = buildPath(mediaFile.filename)
+        val byteArray: Array[Byte] = Files.readAllBytes(path)
+        val gif                    = InputFile("botGif.gif", byteArray)
+        request(SendDocument(msg.source, gif))
+      }
 
-  def sendReply(typing: Message => Future[Boolean],
-    request: RequestHandler
-  ): Action[TextReply] =
-    (t: TextReply) => (msg: Message) => {
-      val replyToMessageId : Option[Int] =
-        if (t.replyToMessage) Some(msg.messageId) else None
-      val replyContent = t.text(msg).fold("")(_ + "\n" + _)
-      if (!replyContent.isEmpty) {
-        typing(msg)
-        request(
-          SendMessage(
-            msg.source,
-            replyContent,
-            None,
-            None,
-            None,
-            replyToMessageId,
-            None
+  def sendReply(typing: Message => Future[Boolean], request: RequestHandler): Action[TextReply] =
+    (t: TextReply) =>
+      (msg: Message) => {
+        val replyToMessageId: Option[Int] =
+          if (t.replyToMessage) Some(msg.messageId) else None
+        val replyContent = t.text(msg).fold("")(_ + "\n" + _)
+        if (!replyContent.isEmpty) {
+          typing(msg)
+          request(
+            SendMessage(
+              msg.source,
+              replyContent,
+              None,
+              None,
+              None,
+              replyToMessageId,
+              None
+            )
           )
-        )
-      } else
-          Future.successful[Message](Message(
-            messageId = 0,
-            date = 0,
-            chat = Chat(id = 0, `type` = ChatType.Private)
-          ))
-    }
+        } else
+          Future.successful[Message](
+            Message(
+              messageId = 0,
+              date = 0,
+              chat = Chat(id = 0, `type` = ChatType.Private)
+            )
+          )
+      }
 }

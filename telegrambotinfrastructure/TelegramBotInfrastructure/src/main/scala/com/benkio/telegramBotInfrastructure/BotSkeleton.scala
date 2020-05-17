@@ -6,12 +6,17 @@ import declarative._
 import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourcesAccess
 import com.benkio.telegramBotInfrastructure.default.DefaultActions
-import com.benkio.telegramBotInfrastructure.model.{Reply, ReplyBundle, ReplyBundleMessage, ReplyBundleCommand, Timeout}
+import com.benkio.telegramBotInfrastructure.model.Reply
+import com.benkio.telegramBotInfrastructure.model.ReplyBundle
+import com.benkio.telegramBotInfrastructure.model.ReplyBundleMessage
+import com.benkio.telegramBotInfrastructure.model.ReplyBundleCommand
+import com.benkio.telegramBotInfrastructure.model.Timeout
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
-trait BotSkeleton extends TelegramBot
+trait BotSkeleton
+    extends TelegramBot
     with Polling
     with Commands
     with DefaultActions
@@ -19,35 +24,34 @@ trait BotSkeleton extends TelegramBot
     with ResourcesAccess
     with Configurations {
 
-  val ignoreMessagePrefix : Option[String] = Some("!")
+  val ignoreMessagePrefix: Option[String] = Some("!")
 
   override val ignoreCommandReceiver = true
 
-  val inputTimeout : Option[Duration] = Some(5.minute)
+  val inputTimeout: Option[Duration] = Some(5.minute)
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  lazy val messageRepliesData : List[ReplyBundleMessage] = List.empty[ReplyBundleMessage]
+  lazy val messageRepliesData: List[ReplyBundleMessage] = List.empty[ReplyBundleMessage]
 
-  onMessage((message : Message) => {
+  onMessage((message: Message) => {
     if (Timeout.isWithinTimeout(message.date, inputTimeout))
-      message
-        .text.foreach { m =>
-          messageRepliesData
-            .filter((mrd: ReplyBundleMessage) =>
-              MessageMatches.doesMatch(
-                mrd,
-                m,
-                ignoreMessagePrefix
-              )
+      message.text.foreach { m =>
+        messageRepliesData
+          .filter((mrd: ReplyBundleMessage) =>
+            MessageMatches.doesMatch(
+              mrd,
+              m,
+              ignoreMessagePrefix
             )
-            .foreach(ReplyBundle.computeReplyBundle(_, message))
-        }
+          )
+          .foreach(ReplyBundle.computeReplyBundle(_, message))
+      }
   })
 
   // Reply to Commands ////////////////////////////////////////////////////////
 
-  lazy val commandRepliesData : List[ReplyBundleCommand] = List.empty[ReplyBundleCommand]
+  lazy val commandRepliesData: List[ReplyBundleCommand] = List.empty[ReplyBundleCommand]
 
   commandRepliesData
     .foreach(rb =>

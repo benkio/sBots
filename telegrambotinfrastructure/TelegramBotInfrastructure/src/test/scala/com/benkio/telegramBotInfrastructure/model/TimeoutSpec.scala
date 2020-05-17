@@ -10,7 +10,7 @@ class TimeoutSpec extends WordSpec with Matchers {
     "return true" when {
       "the input date is within the current instant - duration" in {
         val inputDate: Int = Instant.now().getEpochSecond().toInt - 10
-        val inputTimeout = Some(20 seconds)
+        val inputTimeout   = Some(20 seconds)
         Timeout.isWithinTimeout(inputDate, inputTimeout) shouldBe true
       }
     }
