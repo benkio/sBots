@@ -67,18 +67,20 @@ class ReplySpec extends WordSpec with Matchers {
   }
 }
 class ReplySpecAsync extends AsyncWordSpec with Matchers {
+
+  implicit val audioAction: Action[Mp3File] =
+    (mp3: Mp3File) => (m: Message) => Future.successful(m.copy(text = Some("Mp3")))
+  implicit val gifAction: Action[GifFile] =
+    (gif: GifFile) => (m: Message) => Future.successful(m.copy(text = Some("Gif")))
+  implicit val photoAction: Action[PhotoFile] =
+    (photo: PhotoFile) => (m: Message) => Future.successful(m.copy(text = Some("Photo")))
+  implicit val textAction: Action[TextReply] =
+    (textReply: TextReply) => (m: Message) => Future.successful(m.copy(text = Some("Text")))
+
+
   "ToMessageReply" should {
     "apply the right action" when {
       "the specific MediaFile is provided" in {
-        implicit val audioAction: Action[Mp3File] =
-          (mp3: Mp3File) => (m: Message) => Future.successful(m.copy(text = Some("Mp3")))
-        implicit val gifAction: Action[GifFile] =
-          (gif: GifFile) => (m: Message) => Future.successful(m.copy(text = Some("Gif")))
-        implicit val photoAction: Action[PhotoFile] =
-          (photo: PhotoFile) => (m: Message) => Future.successful(m.copy(text = Some("Photo")))
-        implicit val textAction: Action[TextReply] =
-          (textReply: TextReply) => (m: Message) => Future.successful(m.copy(text = Some("Text")))
-
         val input: List[Reply] = List(
           Mp3File("audio.mp3"),
           PhotoFile("picture.jpg"),
