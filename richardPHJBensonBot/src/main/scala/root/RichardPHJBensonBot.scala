@@ -104,6 +104,7 @@ object RichardPHJBensonBot extends BotSkeleton {
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("menzion"))), List(MediaFile("nonMiMenzionareQuestaParola.gif"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("hollywood"))), List(MediaFile("hollywood.gif"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("chi è"))), List(MediaFile("questaPersonaScusate.gif"))),
     ReplyBundleMessage(
