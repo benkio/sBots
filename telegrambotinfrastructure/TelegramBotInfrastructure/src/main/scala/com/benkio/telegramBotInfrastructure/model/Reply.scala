@@ -29,11 +29,11 @@ final case class PhotoFile private[model] (filename: String) extends MediaFile {
 
 object MediaFile {
 
-  def apply(filename: String): Option[MediaFile] = filename match {
-    case s if s.endsWith(".mp3")                         => Some(Mp3File(s))
-    case s if s.endsWith(".gif")                         => Some(GifFile(s))
-    case s if List(".jpg", ".png").exists(s.endsWith(_)) => Some(PhotoFile(s))
-    case _                                               => None
+  def apply(filename: String): MediaFile = filename match {
+    case s if s.endsWith(".mp3")                         => Mp3File(s)
+    case s if s.endsWith(".gif")                         => GifFile(s)
+    case s if List(".jpg", ".png").exists(s.endsWith(_)) => PhotoFile(s)
+    case _                                               => throw new IllegalArgumentException(s"filename extension not recognized: $filename \n allowed extensions: mp3, gif, jpg, png")
   }
 }
 

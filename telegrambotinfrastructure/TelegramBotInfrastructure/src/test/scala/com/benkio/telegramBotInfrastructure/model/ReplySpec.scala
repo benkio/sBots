@@ -45,15 +45,16 @@ class ReplySpec extends WordSpec with Matchers {
   "MediaFile apply" should {
     "create the right MediaFile" when {
       "a valid filename with allowed extension is provided" in {
-        MediaFile("audio.mp3") shouldEqual Some(Mp3File("audio.mp3"))
-        MediaFile("picture.jpg") shouldEqual Some(PhotoFile("picture.jpg"))
-        MediaFile("picture.png") shouldEqual Some(PhotoFile("picture.png"))
-        MediaFile("a.gif") shouldEqual Some(GifFile("a.gif"))
+        MediaFile("audio.mp3") shouldEqual Mp3File("audio.mp3")
+        MediaFile("picture.jpg") shouldEqual PhotoFile("picture.jpg")
+        MediaFile("picture.png") shouldEqual PhotoFile("picture.png")
+        MediaFile("a.gif") shouldEqual GifFile("a.gif")
       }
     }
     "Not create the Mediafile" when {
       "a filename with an unknown extension is provided" in {
-        MediaFile("test.fuck") shouldEqual None
+        the [IllegalArgumentException] thrownBy MediaFile("test.fuck") should have message "filename extension not recognized: test.fuck \n allowed extensions: mp3, gif, jpg, png"
+
       }
     }
   }
