@@ -5,23 +5,15 @@ import methods._
 import models._
 import java.nio.file.Files
 import java.nio.file.Path
-
 import info.mukel.telegrambot4s.api.declarative.Messages
 import info.mukel.telegrambot4s.api.ChatActions
 import info.mukel.telegrambot4s.api.RequestHandler
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourcesAccess
 import com.benkio.telegramBotInfrastructure.default.Actions.Action
 import com.benkio.telegramBotInfrastructure.model._
-
 import scala.concurrent.Future
-
 import org.scalatest._
 import java.util.concurrent._
-import org.scalatest._
-import info.mukel.telegrambot4s._
-import methods._
-import models._
-import com.benkio.telegramBotInfrastructure.default.Actions.Action
 
 class ReplySpec extends WordSpec with Matchers {
 
@@ -76,7 +68,6 @@ class ReplySpecAsync extends AsyncWordSpec with Matchers {
     (photo: PhotoFile) => (m: Message) => Future.successful(m.copy(text = Some("Photo")))
   implicit val textAction: Action[TextReply] =
     (textReply: TextReply) => (m: Message) => Future.successful(m.copy(text = Some("Text")))
-
 
   "ToMessageReply" should {
     "apply the right action" when {
