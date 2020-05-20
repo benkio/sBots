@@ -26,6 +26,10 @@ do
     esac
 done
 
+(cd ./calandroBot/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt) &
+(cd ./richardPHJBensonBot/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt) &
+    (cd ./telegrambotinfrastructure/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt)
+
 if [[ "$RECOMPILE" == true || "$SIMULATION" == true ]] ;
 then
     echo "Recompiling the infrastructure"

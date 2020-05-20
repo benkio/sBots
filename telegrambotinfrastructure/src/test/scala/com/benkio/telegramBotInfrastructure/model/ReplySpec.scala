@@ -8,7 +8,6 @@ import java.nio.file.Path
 import info.mukel.telegrambot4s.api.declarative.Messages
 import info.mukel.telegrambot4s.api.ChatActions
 import info.mukel.telegrambot4s.api.RequestHandler
-import com.benkio.telegramBotInfrastructure.botCapabilities.ResourcesAccess
 import com.benkio.telegramBotInfrastructure.default.Actions.Action
 import com.benkio.telegramBotInfrastructure.model._
 import scala.concurrent.Future
@@ -53,7 +52,8 @@ class ReplySpec extends WordSpec with Matchers {
     }
     "Not create the Mediafile" when {
       "a filename with an unknown extension is provided" in {
-        the [IllegalArgumentException] thrownBy MediaFile("test.fuck") should have message "filename extension not recognized: test.fuck \n allowed extensions: mp3, gif, jpg, png"
+        (the[IllegalArgumentException] thrownBy MediaFile("test.fuck") should have)
+          .message("filename extension not recognized: test.fuck \n allowed extensions: mp3, gif, jpg, png")
 
       }
     }

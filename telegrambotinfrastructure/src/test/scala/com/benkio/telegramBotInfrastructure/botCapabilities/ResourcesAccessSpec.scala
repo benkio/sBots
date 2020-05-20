@@ -5,14 +5,14 @@ import java.nio.file._
 
 class ResourcesAccessSpec extends WordSpec with Matchers {
 
-  val resourcesAccess = new ResourcesAccess {}
-  val rootPath = Paths.get("").toAbsolutePath()
-  val testfile = "testFile"
+  val resourcesAccessFileSystem = ResourceAccess.fileSystem
+  val rootPath                  = Paths.get("").toAbsolutePath()
+  val testfile                  = "testFile"
 
   "ResourcesAccess - buildPath" should {
     "return the expected path" when {
       "the filename is provided" in {
-        val result = resourcesAccess.buildPath(testfile)
+        val result = resourcesAccessFileSystem.buildPath(testfile)
         result.toString shouldEqual (rootPath + "/src/main/resources/" + testfile)
       }
     }

@@ -34,7 +34,10 @@ object MediaFile {
     case s if s.endsWith(".mp3")                         => Mp3File(s)
     case s if s.endsWith(".gif")                         => GifFile(s)
     case s if List(".jpg", ".png").exists(s.endsWith(_)) => PhotoFile(s)
-    case _                                               => throw new IllegalArgumentException(s"filename extension not recognized: $filename \n allowed extensions: mp3, gif, jpg, png")
+    case _ =>
+      throw new IllegalArgumentException(
+        s"filename extension not recognized: $filename \n allowed extensions: mp3, gif, jpg, png"
+      )
   }
 }
 

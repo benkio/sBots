@@ -1,8 +1,6 @@
-///////////////////////////////////////////////////////////////////////////////
-//             Bot Calandico, contains all the calandric frases              //
-///////////////////////////////////////////////////////////////////////////////
 package root
 
+import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
 import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure._
 import io.github.todokr.Emojipolation._
@@ -42,15 +40,25 @@ object CalandroBot extends BotSkeleton {
     ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("fiamme.mp3"))),
     ReplyBundleCommand(
       CommandTrigger("randomcard"),
-      directoryFiles("cards").map(MediaFile(_)),
+      ResourceSource.selectResourceAccess(resourceSource).getResourcesByKind("cards"),
       replySelection = RandomSelection
     )
   )
 
   override lazy val messageRepliesData: List[ReplyBundleMessage] = List(
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("sbrighi"))), text = TextReply((m: Message) => List("Passo"), false)),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("gay"), StringTextTriggerValue("frocio"), StringTextTriggerValue("culattone"), StringTextTriggerValue("ricchione"))),
+      TextTrigger(List(StringTextTriggerValue("sbrighi"))),
+      text = TextReply((m: Message) => List("Passo"), false)
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("gay"),
+          StringTextTriggerValue("frocio"),
+          StringTextTriggerValue("culattone"),
+          StringTextTriggerValue("ricchione")
+        )
+      ),
       text = TextReply((m: Message) => List("CHE SCHIFO!!!"), false)
     ),
     ReplyBundleMessage(
@@ -58,7 +66,9 @@ object CalandroBot extends BotSkeleton {
       text = TextReply((m: Message) => List("Come i carbofreni della Brembo!!"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("ciao"), StringTextTriggerValue("buongiorno"), StringTextTriggerValue("salve"))),
+      TextTrigger(
+        List(StringTextTriggerValue("ciao"), StringTextTriggerValue("buongiorno"), StringTextTriggerValue("salve"))
+      ),
       text = TextReply((m: Message) => List("Buongiorno Signori"), false)
     ),
     ReplyBundleMessage(
@@ -71,7 +81,14 @@ object CalandroBot extends BotSkeleton {
       matcher = ContainsAll
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue(" hd"), StringTextTriggerValue("nitido"), StringTextTriggerValue("nitidezza"), StringTextTriggerValue("alta definizione"))),
+      TextTrigger(
+        List(
+          StringTextTriggerValue(" hd"),
+          StringTextTriggerValue("nitido"),
+          StringTextTriggerValue("nitidezza"),
+          StringTextTriggerValue("alta definizione")
+        )
+      ),
       text = TextReply((m: Message) => List("Eh sì, vedi...si nota l'indecisione dell'immagine"), false)
     ),
     ReplyBundleMessage(
@@ -83,7 +100,14 @@ object CalandroBot extends BotSkeleton {
       text = TextReply((m: Message) => List("Hai visto l'ultima puntata di \"Top Gear\"?"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue(" figa "), StringTextTriggerValue(" fregna "), StringTextTriggerValue(" gnocca "), StringTextTriggerValue(" patacca "))),
+      TextTrigger(
+        List(
+          StringTextTriggerValue(" figa "),
+          StringTextTriggerValue(" fregna "),
+          StringTextTriggerValue(" gnocca "),
+          StringTextTriggerValue(" patacca ")
+        )
+      ),
       text = TextReply((m: Message) => List("Io so come fare con le donne...ho letto tutto..."), false)
     ),
     ReplyBundleMessage(

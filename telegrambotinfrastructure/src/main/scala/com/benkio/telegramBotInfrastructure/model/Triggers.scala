@@ -15,7 +15,7 @@ object TextTriggerValue {
 case class StringTextTriggerValue(trigger: String) extends TextTriggerValue {
   override def toString: String = trigger
 }
-case class RegexTextTriggerValue(trigger: Regex)   extends TextTriggerValue {
+case class RegexTextTriggerValue(trigger: Regex) extends TextTriggerValue {
   override def toString: String = trigger.toString
 }
 

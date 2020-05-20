@@ -1,5 +1,6 @@
 package root
 
+import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
 import org.scalatest._
 import java.nio.file.Files
 
@@ -8,14 +9,10 @@ import com.benkio.telegramBotInfrastructure.model.TextTrigger
 
 class RichardPHJBensonBotSpec extends WordSpec with Matchers {
 
-  def testFilename(filename: String) = {
-    try {
-      val path           = RichardPHJBensonBot.buildPath(filename)
-      val _: Array[Byte] = Files.readAllBytes(path)
-    } catch {
-      case e: Exception => fail(s"$filename should not throw an exception: $e")
-    }
-  }
+  def testFilename(filename: String) =
+    if (ResourceSource.selectResourceAccess(RichardPHJBensonBot.resourceSource).getResource(filename).isEmpty)
+      fail(s"$filename cannot be found")
+    else succeed
 
   "messageRepliesAudioData" should {
     "never raise an exception" when {
