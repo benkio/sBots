@@ -343,7 +343,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("allucinante"))), List(MediaFile("allucinante.gif"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("mare di cazzate"), StringTextTriggerValue("non è possibile"))),
-      List(MediaFile("nonépossibile.gif"))
+      List(MediaFile("nonPossibile.gif"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("porca miseria"))), List(MediaFile("porcamiseria.gif"))),
     ReplyBundleMessage(
