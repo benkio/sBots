@@ -27,7 +27,7 @@ object Settings {
   lazy val TelegramBotInfrastructureSettings = Seq(
     assemblyJarName in assembly := "TelegramBotInfrastructure-" + version.value + ".jar",
     test in assembly := {},
-    target in assembly := file(baseDirectory.value + "/../bin/"),
+    target in assembly := file(baseDirectory.value + "/bin/"),
     libraryDependencies := TelegramBotInfrastructureDependencies,
     assemblyOption in assembly := (assemblyOption in assembly).value.copy(
       includeScala = false,

@@ -1,6 +1,5 @@
 package com.benkio.telegramBotInfrastructure
 
-import com.benkio.telegramBotInfrastructure.ContainsAll
 import com.benkio.telegramBotInfrastructure.model._
 import org.scalatest._
 
