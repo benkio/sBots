@@ -13,6 +13,7 @@ final case class TextReply(
 
 sealed trait MediaFile extends Reply {
   def filename: String
+  def extension: String = filename.takeRight(4)
 }
 
 final case class Mp3File private[model] (filename: String) extends MediaFile {
