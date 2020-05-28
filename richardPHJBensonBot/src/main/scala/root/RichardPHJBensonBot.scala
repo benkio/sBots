@@ -4,10 +4,13 @@
 package root
 
 import com.benkio.telegramBotInfrastructure._
+import com.benkio.telegramBotInfrastructure.botCapabilities._
 import io.github.todokr.Emojipolation._
 import com.benkio.telegramBotInfrastructure.model._
 
 object RichardPHJBensonBot extends BotSkeleton {
+
+  override val resourceSource: ResourceSource = All("rphjb.db")
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(

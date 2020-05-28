@@ -1,6 +1,6 @@
 package com.benkio.telegramBotInfrastructure
 
-import com.benkio.telegramBotInfrastructure.botCapabilities.All
+import com.benkio.telegramBotInfrastructure.botCapabilities.FileSystem
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
 import info.mukel.telegrambot4s._
 import api._
@@ -18,12 +18,11 @@ import scala.concurrent.duration._
 
 trait BotSkeleton extends TelegramBot with Polling with Commands with DefaultActions with Configurations {
 
-  val resourceSource: ResourceSource      = All
+  // Configuration values /////////////////////////////////////////////////////
+  val resourceSource: ResourceSource      = FileSystem
   val ignoreMessagePrefix: Option[String] = Some("!")
-
-  override val ignoreCommandReceiver = true
-
-  val inputTimeout: Option[Duration] = Some(5.minute)
+  override val ignoreCommandReceiver      = true
+  val inputTimeout: Option[Duration]      = Some(5.minute)
 
   // Reply to Messages ////////////////////////////////////////////////////////
 

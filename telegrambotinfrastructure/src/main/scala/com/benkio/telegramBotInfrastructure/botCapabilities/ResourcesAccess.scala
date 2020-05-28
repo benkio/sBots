@@ -10,16 +10,16 @@ import scala.collection.JavaConversions._
 
 sealed trait ResourceSource
 
-case object FileSystem extends ResourceSource
-case object Database   extends ResourceSource
-case object All        extends ResourceSource
+case object FileSystem              extends ResourceSource
+case class Database(dbName: String) extends ResourceSource
+case class All(dbName: String)      extends ResourceSource
 
 object ResourceSource {
   def selectResourceAccess[A <: ResourceSource](source: A): ResourceAccess[ResourceSource] =
     source match {
-      case _: All.type        => ResourceAccess.all
+      case All(dbName)        => ResourceAccess.all(dbName)
+      case Database(dbName)   => ResourceAccess.database(dbName)
       case _: FileSystem.type => ResourceAccess.fileSystem
-      case _: Database.type   => ResourceAccess.database
     }
 }
 
@@ -47,20 +47,78 @@ object ResourceAccess {
         .map((fl: Path) => MediaFile(criteria + "/" + fl.getFileName.toString))
 
   }
-  val database = new ResourceAccess[Database.type] {
-    def getResource(resourceName: String): Array[Byte]        = ???
-    def getResourcesByKind(criteria: String): List[MediaFile] = ???
+  def database(dbName: String) = new ResourceAccess[Database] {
+    import java.sql.Connection
+    import java.sql.DriverManager
+    import java.sql.SQLException
+    import java.sql.PreparedStatement
+    import java.sql.ResultSet
+    import scala.collection.mutable.ArrayBuffer
+
+    Class.forName("org.sqlite.JDBC");
+    val dbPath = "jdbc:sqlite:" + Paths.get("").toAbsolutePath() + "/" + dbName
+    def withConnection[A](dbComputation: Connection => A): A = {
+      var conn: Connection = null
+      try {
+        conn = DriverManager.getConnection(dbPath)
+        val result = dbComputation(conn)
+        result
+      } catch {
+        case e: SQLException => {
+          println(e.getMessage)
+          println("Exception: " + e)
+          throw e
+        }
+      } finally {
+        try {
+          if (conn != null) {
+            conn.close()
+          }
+        } catch {
+          case ex: SQLException => {
+            println(ex.getMessage)
+            println("Connection Close: " + ex)
+            throw ex
+          }
+        }
+      }
+    }
+
+    def getResource(resourceName: String): Array[Byte] = {
+      val compute: Connection => Array[Byte] = conn => {
+        val query: String                = "SELECT file_data FROM Mediafile"
+        val statement: PreparedStatement = conn.prepareStatement(query)
+        val rs: ResultSet                = statement.executeQuery()
+        rs.next
+        rs.getBytes("file_data")
+      }
+      withConnection(compute)
+    }
+    def getResourcesByKind(criteria: String): List[MediaFile] = {
+      val compute: Connection => List[MediaFile] = conn => {
+        val query: String                = "SELECT file_name FROM Mediafile WHERE file_type == " + criteria
+        val statement: PreparedStatement = conn.prepareStatement(query)
+        val rs: ResultSet                = statement.executeQuery()
+        var result: ArrayBuffer[String]  = ArrayBuffer.empty[String]
+        while (rs.next) {
+          val name: String = rs.getString("file_data")
+          result += name
+        }
+        result.toList.map(n => MediaFile(n))
+      }
+      withConnection(compute)
+    }
   }
-  val all = new ResourceAccess[All.type] {
+  def all(dbName: String) = new ResourceAccess[All] {
 
     def getResource(resourceName: String): Array[Byte] =
       Try(fileSystem.getResource(resourceName))
-        .orElse(Try(database.getResource(resourceName)))
+        .orElse(Try(database(dbName).getResource(resourceName)))
         .getOrElse(Array.empty)
 
     def getResourcesByKind(criteria: String): List[MediaFile] =
       Try(fileSystem.getResourcesByKind(criteria))
-        .orElse(Try(database.getResourcesByKind(criteria)))
+        .orElse(Try(database(dbName).getResourcesByKind(criteria)))
         .getOrElse(List.empty)
   }
 }
