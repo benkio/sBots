@@ -18,10 +18,7 @@ lazy val root = (project in file(".")).
       telegramBot4s,
       slf4s,
       logbackClassic,
-      emojiManipulator,
-      http4sClient,
-      cats,
-      catsEffect
+      emojiManipulator
     ),
     mainClass := Some("root.main")
   )
