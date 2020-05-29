@@ -35,8 +35,8 @@ object ResourceAccess {
     def getResource(resourceName: String): Array[Byte] =
       Files.readAllBytes(buildPath(resourceName))
 
-    def buildPath(filename: String): Path =
-      Paths.get(rootPath.toString(), "src", "main", "resources", filename)
+    def buildPath(subResourceFilePath: String): Path =
+      Paths.get(rootPath.toString(), "src", "main", "resources", subResourceFilePath)
 
     def getResourcesByKind(criteria: String): List[MediaFile] =
       Files
@@ -44,7 +44,7 @@ object ResourceAccess {
         .collect(Collectors.toList())
         .toList
         .tail
-        .map((fl: Path) => MediaFile(criteria + "/" + fl.getFileName.toString))
+        .map((fl: Path) => MediaFile(buildPath(criteria) + "/" + fl.getFileName.toString))
 
   }
   def database(dbName: String) = new ResourceAccess[Database] {
@@ -86,7 +86,7 @@ object ResourceAccess {
 
     def getResource(resourceName: String): Array[Byte] = {
       val compute: Connection => Array[Byte] = conn => {
-        val query: String                = "SELECT file_data FROM Mediafile"
+        val query: String                = s"SELECT file_data FROM Mediafile WHERE file_name LIKE '$resourceName'"
         val statement: PreparedStatement = conn.prepareStatement(query)
         val rs: ResultSet                = statement.executeQuery()
         rs.next
@@ -96,18 +96,36 @@ object ResourceAccess {
     }
     def getResourcesByKind(criteria: String): List[MediaFile] = {
       val compute: Connection => List[MediaFile] = conn => {
-        val query: String                = "SELECT file_name FROM Mediafile WHERE file_type == " + criteria
+        val query: String                = "SELECT file_name FROM Mediafile WHERE file_type LIKE '" + criteria + "'"
         val statement: PreparedStatement = conn.prepareStatement(query)
         val rs: ResultSet                = statement.executeQuery()
         var result: ArrayBuffer[String]  = ArrayBuffer.empty[String]
         while (rs.next) {
-          val name: String = rs.getString("file_data")
+          val name: String = rs.getString("file_name")
           result += name
         }
         result.toList.map(n => MediaFile(n))
       }
       withConnection(compute)
     }
+
+    // def insertResourcesToDB(resourceSubFolder: String): Unit = {
+    //   val compute: Connection => Unit = conn => {
+    //     val files = ResourceAccess.fileSystem.getResourcesByKind(resourceSubFolder)
+
+    //     files.foreach { mediafile =>
+    //       val bytes: Array[Byte] = Files.readAllBytes(Paths.get(mediafile.filepath))
+    //       val ps                 = conn.prepareStatement("INSERT INTO Mediafile (file_name, file_type, file_data) VALUES (?, ?, ?)")
+    //       ps.setString(1, mediafile.filename)
+    //       ps.setString(2, mediafile.extension)
+    //       ps.setBytes(3, bytes)
+    //       val s = ps.executeUpdate()
+    //       if (s > 0) println("Operation Successful")
+    //       ps.close()
+    //     }
+    //   }
+    //   withConnection(compute)
+    // }
   }
   def all(dbName: String) = new ResourceAccess[All] {
 

@@ -78,8 +78,8 @@ object Actions {
     (mediaFile: MediaFile) =>
       (msg: Message) => {
         uploadingDocument(msg)
-        val byteArray: Array[Byte] = getResourceData(mediaFile.filename)
-        val inputFile              = InputFile("richardReply" + mediaFile.extension, byteArray)
+        val byteArray: Array[Byte] = getResourceData(mediaFile.filepath)
+        val inputFile              = InputFile(mediaFile.filepath, byteArray)
         requestHandler(requestBuilder(msg.source, inputFile))
       }
 

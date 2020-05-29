@@ -1,6 +1,6 @@
 package root
 
-import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
+import com.benkio.telegramBotInfrastructure.botCapabilities._
 import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure._
 import io.github.todokr.Emojipolation._
@@ -8,6 +8,8 @@ import com.benkio.telegramBotInfrastructure.model._
 import scala.util.Random
 
 object CalandroBot extends BotSkeleton {
+
+  override val resourceSource: ResourceSource = All("calandro.db")
 
   override lazy val commandRepliesData: List[ReplyBundleCommand] = List(
     ReplyBundleCommand(CommandTrigger("porcoladro"), List(MediaFile("PorcoLadro.mp3"))),
@@ -40,7 +42,7 @@ object CalandroBot extends BotSkeleton {
     ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("fiamme.mp3"))),
     ReplyBundleCommand(
       CommandTrigger("randomcard"),
-      ResourceSource.selectResourceAccess(resourceSource).getResourcesByKind("cards"),
+      ResourceSource.selectResourceAccess(All("calandro.db")).getResourcesByKind(".jpg"),
       replySelection = RandomSelection
     )
   )
