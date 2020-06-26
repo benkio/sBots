@@ -53,7 +53,7 @@ class ReplySpec extends WordSpec with Matchers {
     "Not create the Mediafile" when {
       "a filename with an unknown extension is provided" in {
         (the[IllegalArgumentException] thrownBy MediaFile("test.fuck") should have)
-          .message("filename extension not recognized: test.fuck \n allowed extensions: mp3, gif, jpg, png")
+          .message("filepath extension not recognized: test.fuck \n allowed extensions: mp3, gif, jpg, png")
 
       }
     }

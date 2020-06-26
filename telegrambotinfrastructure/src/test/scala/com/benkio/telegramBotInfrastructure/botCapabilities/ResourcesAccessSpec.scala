@@ -13,7 +13,7 @@ class ResourcesAccessSpec extends WordSpec with Matchers {
     "return the expected path" when {
       "the filename is provided" in {
         val result = resourcesAccessFileSystem.buildPath(testfile)
-        result.toString shouldEqual (rootPath + "/src/main/resources/" + testfile)
+        result shouldEqual Paths.get(rootPath.toString, "src", "main", "resources", testfile)
       }
     }
   }
