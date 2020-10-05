@@ -577,8 +577,9 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("la parte"),
-          StringTextTriggerValue("recitare"),
+          StringTextTriggerValue("faccio la parte"),
+          StringTextTriggerValue(" recit"),
+          StringTextTriggerValue(" fing"),
           RegexTextTriggerValue("a[t]{2,}[o]+re".r),
           StringTextTriggerValue("attrice")
         )
