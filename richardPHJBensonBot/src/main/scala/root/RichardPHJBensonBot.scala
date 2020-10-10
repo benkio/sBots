@@ -108,6 +108,232 @@ object RichardPHJBensonBot extends BotSkeleton {
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("spalle"),
+          StringTextTriggerValue("braccia"),
+          RegexTextTriggerValue("t[ie] strozzo".r)
+        )
+      ),
+      List(MediaFile("faccioVedereSpalleBraccia.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("graffi")
+        )
+      ),
+      List(MediaFile("graffi.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("mi piaccio"),
+          StringTextTriggerValue("impazzire"),
+        )
+      ),
+      List(MediaFile("miPiaccio.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("pelle d'oca"),
+          StringTextTriggerValue("sussult"),
+          StringTextTriggerValue("brivid")
+        )
+      ),
+      List(MediaFile("brivido.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("che siamo noi"),
+          StringTextTriggerValue("pezzi di merda"),
+        )
+      ),
+      List(MediaFile("pezziDiMerda.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("urlo"),
+          StringTextTriggerValue("disper"),
+        )
+      ),
+      List(
+        MediaFile("tuffo.gif"),
+        MediaFile("urlo.gif"),
+        MediaFile("urlo2.gif"),
+        MediaFile("urloCanaro.gif")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("rispondere")
+        )
+      ),
+      List(MediaFile("rispondere.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("cuore in mano"),
+          StringTextTriggerValue("mano nella mano"),
+          StringTextTriggerValue("pelle contro la pelle")
+        )
+      ),
+      List(MediaFile("cuoreInMano.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("stato brado")
+        )
+      ),
+      List(MediaFile("statoBrado.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("pronto dimmi")
+        )
+      ),
+      List(MediaFile("prontoDimmi.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("port[a]+".r)
+        )
+      ),
+      List(MediaFile("porta.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("prendo quello che cazzo c'è da prendere"),
+          StringTextTriggerValue("prendo il motorino"),
+          StringTextTriggerValue("prendo la macchina"),
+          StringTextTriggerValue("prendo l'auto"),
+        )
+      ),
+      List(MediaFile("prendoIlNecessario.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("nella gola")
+        )
+      ),
+      List(MediaFile("nellaGola.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("siamo qua")
+        )
+      ),
+      List(MediaFile("siamoQua.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("cucciolo")
+        )
+      ),
+      List(MediaFile("cucciolo.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("applau")
+        )
+      ),
+      List(MediaFile("applauso.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("Che c'hai")
+        )
+      ),
+      List(MediaFile("cheCHai.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("stringere i denti"),
+          StringTextTriggerValue("andare avanti"),
+        )
+      ),
+      List(MediaFile("andareAvanti.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("06"),
+          StringTextTriggerValue("prefisso")
+        )
+      ),
+      List(MediaFile("06.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("abbiamo vinto")
+        )
+      ),
+      List(MediaFile("abbiamoVinto.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("telefonata pilotata"),
+          StringTextTriggerValue("falsità")
+        )
+      ),
+      List(MediaFile("telefonataPilotata.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("è vero")
+        )
+      ),
+      List(MediaFile("vero.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("quante ore"),
+          StringTextTriggerValue("quanto tempo")
+        )
+      ),
+      List(MediaFile("quanteOre.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("guerra")
+        )
+      ),
+      List(MediaFile("guerraTotale.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("entrat[oa]".r)
+        )
+      ),
+      List(MediaFile("comeHaFattoAEntrare.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("donna cane"))),
+      List(MediaFile("donnaCane.gif"))
+    ),
+    ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("menzion"))),
       List(MediaFile("nonMiMenzionareQuestaParola.gif"))
     ),
@@ -155,8 +381,21 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("mannaggiaLaSalute.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("mi rompi il cazzo"), StringTextTriggerValue("mi dai fastidio"))),
+      TextTrigger(
+        List(
+          StringTextTriggerValue("mi rompi il cazzo"),
+          StringTextTriggerValue("mi dai fastidio")
+        )
+      ),
       List(MediaFile("miRompiErCazzo.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("dare fastidio")
+        )
+      ),
+      List(MediaFile("dareFastidio.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -320,7 +559,11 @@ object RichardPHJBensonBot extends BotSkeleton {
           StringTextTriggerValue("non mi interessa")
         )
       ),
-      List(MediaFile("nonmenefotte.gif"))
+      List(
+        MediaFile("nonmenefotte.gif"),
+        MediaFile("nonMeNeFrega.gif"),
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -334,7 +577,9 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("escerto.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("levati dai coglioni"), StringTextTriggerValue("fuori dai coglioni"))),
+      TextTrigger(
+        List(RegexTextTriggerValue("levati[/. ]*dai coglioni".r), RegexTextTriggerValue("fuori[/. ]*dai coglioni".r))
+      ),
       List(MediaFile("levatidaicoglioni.gif"))
     ),
     ReplyBundleMessage(
@@ -345,6 +590,22 @@ object RichardPHJBensonBot extends BotSkeleton {
         )
       ),
       List(MediaFile("saretecoglionivoi.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("più co(gl|j)ione".r)
+        )
+      ),
+      List(MediaFile("piuCoglione.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("dice co(gl|j)ione".r)
+        )
+      ),
+      List(MediaFile("coglione.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("bravo!!!"), StringTextTriggerValue("bravooo"))),
@@ -361,7 +622,15 @@ object RichardPHJBensonBot extends BotSkeleton {
       TextTrigger(List(StringTextTriggerValue("mare di cazzate"), StringTextTriggerValue("non è possibile"))),
       List(MediaFile("nonPossibile.gif"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("porca miseria"))), List(MediaFile("porcamiseria.gif"))),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("porca miseria"),
+          StringTextTriggerValue("incazzare")
+        )
+      ),
+      List(MediaFile("porcamiseria.gif"))
+    ),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("schifos(o|!)+".r))),
       List(MediaFile("schifoso.gif"))
@@ -403,7 +672,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("in fila"))), List(MediaFile("mettitiinfila.gif"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("non male"))), List(MediaFile("nonmale.gif"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("perché si sente"))), List(MediaFile("sisente.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("si sente"))), List(MediaFile("sisente.gif"))),
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue("colpa vostra"), StringTextTriggerValue("pazzo"), StringTextTriggerValue("matto"))
@@ -430,7 +699,11 @@ object RichardPHJBensonBot extends BotSkeleton {
       TextTrigger(
         List(StringTextTriggerValue("good"), StringTextTriggerValue("show"), StringTextTriggerValue("friends"))
       ),
-      List(MediaFile("okgoodshowfriends.gif"))
+      List(
+        MediaFile("okgoodshowfriends.gif"),
+        MediaFile("okgoodshowfriends2.gif")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("delu[sd]".r))),
@@ -492,7 +765,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("peggiodelpeggio.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("cosa squallida"), StringTextTriggerValue("abbia mai sentito"))),
+      TextTrigger(List(StringTextTriggerValue("squallida"), StringTextTriggerValue("abbia mai sentito"))),
       List(MediaFile("squallida.gif"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("la verità"))), List(MediaFile("verita.gif"))),
@@ -503,6 +776,10 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("[od]?dio mio[,]? no".r))),
       List(MediaFile("oddiomio.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(RegexTextTriggerValue("nooo[o]*".r))),
+      List(MediaFile("no.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("destino"), StringTextTriggerValue("incontrare"))),
@@ -534,7 +811,11 @@ object RichardPHJBensonBot extends BotSkeleton {
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("bastone infernale"), StringTextTriggerValue("un'arma"))),
-      List(MediaFile("bastone1.gif"), MediaFile("bastone2.gif")),
+      List(
+        MediaFile("bastone1.gif"),
+        MediaFile("bastone2.gif"),
+        MediaFile("bastone3.gif")
+      ),
       replySelection = RandomSelection
     ),
     ReplyBundleMessage(
@@ -555,10 +836,11 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("sguardo"))),
       List(
-        MediaFile("sguardo1.gif"),
+        MediaFile("sguardo.gif"),
         MediaFile("sguardo2.gif"),
         MediaFile("sguardo3.gif"),
-        MediaFile("sguardo4.gif")
+        MediaFile("sguardo4.gif"),
+        MediaFile("sguardoCanaro.gif")
       ),
       replySelection = RandomSelection
     ),
@@ -597,7 +879,11 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("il senso"))), List(MediaFile("ilSensoCapito.gif"))),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("[ ]?ester | ester[ ]?".r), StringTextTriggerValue("esposito"))),
-      List(MediaFile("ester.gif"))
+      List(
+        MediaFile("ester.gif"),
+        MediaFile("ester2.gif"),
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -617,7 +903,15 @@ object RichardPHJBensonBot extends BotSkeleton {
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("feelings"))),
-      List(MediaFile("feelings.mp3"), MediaFile("feelings.gif"))
+      List(MediaFile("feelings.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("feelings"))),
+      List(
+        MediaFile("feelings.gif"),
+        MediaFile("feelings2.gif"),
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("me ne vado"))),
@@ -648,7 +942,8 @@ object RichardPHJBensonBot extends BotSkeleton {
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("una vergogna"))),
-      List(MediaFile("vergogna.mp3"), MediaFile("vergogna.gif"))
+      List(MediaFile("vergogna.mp3"), MediaFile("vergogna.gif"), MediaFile("vergogna2.gif")),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("mi devo trasformare"), StringTextTriggerValue("cristo canaro"))),
@@ -701,7 +996,6 @@ object RichardPHJBensonBot extends BotSkeleton {
         MediaFile("risata.mp3"),
         MediaFile("risata.gif"),
         MediaFile("sorriso2.gif"),
-        MediaFile("sorriso3.gif"),
         MediaFile("sorriso.gif"),
         MediaFile("sorrisoSognante.gif")
       ),
@@ -712,12 +1006,17 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("frocio.mp3"), MediaFile("frocio.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("cortesia"))),
+      TextTrigger(List(RegexTextTriggerValue("(fammi|chiedere)? (una|questa)? cortesia".r))),
       List(MediaFile("fammiquestacortesia.mp3"), MediaFile("fammiquestacortesia.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("non mi sta bene"))),
-      List(MediaFile("nonmistabene.mp3"), MediaFile("nonmistabene.gif"))
+      List(
+        MediaFile("nonmistabene.mp3"),
+        MediaFile("nonmistabene.gif"),
+        MediaFile("nonMiStaBene2.gif")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
