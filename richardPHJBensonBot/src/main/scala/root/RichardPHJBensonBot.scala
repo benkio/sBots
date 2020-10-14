@@ -205,7 +205,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("( port[a]+|port[a]+ )".r)
+          RegexTextTriggerValue(" port[a]+( |$)".r)
         )
       ),
       List(MediaFile("porta.gif"))
