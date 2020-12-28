@@ -13,6 +13,21 @@ object RichardPHJBensonBot extends BotSkeleton {
   override val resourceSource: ResourceSource = All("rphjb.db")
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("continua"))), List(MediaFile("continua.mp3"))),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("zucchero"))),
+      List(MediaFile("ChitarraZuggherada.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("au[ ]?de".r),
+          StringTextTriggerValue("time"),
+          StringTextTriggerValue("tempo")
+        )
+      ),
+      List(MediaFile("auDeUirbiTaim.mp3"))
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -108,6 +123,7 @@ object RichardPHJBensonBot extends BotSkeleton {
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("scivola"))), List(MediaFile("siScivola.mp3"))),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -697,16 +713,6 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("nonlisopporto.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(
-        List(StringTextTriggerValue("good"), StringTextTriggerValue("show"), StringTextTriggerValue("friends"))
-      ),
-      List(
-        MediaFile("okgoodshowfriends.gif"),
-        MediaFile("okgoodshowfriends2.gif")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("delu[sd]".r))),
       List(MediaFile("deluso.gif"))
     ),
@@ -899,6 +905,17 @@ object RichardPHJBensonBot extends BotSkeleton {
 
   val messageRepliesSpecialData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
+      TextTrigger(
+        List(StringTextTriggerValue("good"), StringTextTriggerValue("show"), StringTextTriggerValue("friends"))
+      ),
+      List(
+        MediaFile("okgoodshowfriends.gif"),
+        MediaFile("okgoodshowfriends2.gif"),
+        MediaFile("letSGoodStateBene.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("vattene affanculo"), StringTextTriggerValue("vattene a fanculo"))),
       List(MediaFile("mavatteneaffanculo.gif"), MediaFile("mavatteneaffanculo.mp3"))
     ),
@@ -977,8 +994,9 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("lavoratu.mp3"), MediaFile("lavoratu.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("infern[a]+l[i]+[!]*".r))),
-      List(MediaFile("infernali.mp3"), MediaFile("infernali.gif"))
+      TextTrigger(List(RegexTextTriggerValue("infern[a]+l[ie]+[!]*".r))),
+      List(MediaFile("infernali.mp3"), MediaFile("infernali.gif"), MediaFile("infernale.mp3")),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("per il culo"))),
@@ -1058,6 +1076,14 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("ciaocomestate.gif"), MediaFile("ciaocomestate.mp3"))
     ),
     ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("state bene")
+        )
+      ),
+      List(MediaFile("letSGoodStateBene.mp3"))
+    ),
+    ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("bast[a]+[!]*".r))),
       List(
         MediaFile("basta.mp3"),
@@ -1073,7 +1099,8 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(
         MediaFile("assolo.mp3"),
         MediaFile("chitarra1.gif"),
-        MediaFile("chitarra2.gif")
+        MediaFile("chitarra2.gif"),
+        MediaFile("ChitarraZuggherada.mp3")
       ),
       replySelection = RandomSelection
     ),
@@ -1120,6 +1147,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(
         MediaFile("viCalpesto.gif"),
         MediaFile("schifosi.mp3"),
+        MediaFile("schifosi2.mp3"),
         MediaFile("schifosi.gif")
       ),
       replySelection = RandomSelection
