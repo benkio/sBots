@@ -430,7 +430,7 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("olioDiCroce.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("c'ha ragione"), StringTextTriggerValue("o no?"))),
+      TextTrigger(List(StringTextTriggerValue("c'ha [pure ]?ragione"), StringTextTriggerValue("o no?"))),
       List(MediaFile("ragione.gif"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("micetta"))), List(MediaFile("micetta.gif"))),
