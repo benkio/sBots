@@ -522,7 +522,8 @@ object RichardPHJBensonBot extends BotSkeleton {
       TextTrigger(
         List(
           StringTextTriggerValue("pagare"),
-          StringTextTriggerValue("paga"),
+          StringTextTriggerValue(" paga"),
+          StringTextTriggerValue("paga "),
           StringTextTriggerValue("soldi"),
           StringTextTriggerValue("bollette"),
           StringTextTriggerValue("tasse"),
