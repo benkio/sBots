@@ -27,6 +27,7 @@ do
 done
 
 (cd ./calandroBot/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt) &
+(cd ./aBarberoBot/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt) &
 (cd ./richardPHJBensonBot/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt) &
     (cd ./telegrambotinfrastructure/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt)
 
@@ -39,8 +40,10 @@ then
 
     echo "Moving the library to the bots lib folders"
     cp ./bin/TelegramBotInfrastructure-0.0.1.jar ../richardPHJBensonBot/lib/
+    cp ./bin/TelegramBotInfrastructure-0.0.1.jar ../aBarberoBotBot/lib/
     mv ./bin/TelegramBotInfrastructure-0.0.1.jar ../calandroBot/lib/
     ls -l ../calandroBot/lib/ #to see the content of the lib folder
+    ls -l ../aBarberoBotBot/lib/ #to see the content of the lib folder
     ls -l ../richardPHJBensonBot/lib/ #to see the content of the lib folder
 
     cd ..
@@ -51,6 +54,7 @@ if [[ "$TEST" == true || "$SIMULATION" == true ]] ;
 then
     echo "Running Tests"
     (cd ./calandroBot/; sbt --supershell=false test) &
+    (cd ./aBarberoBot/; sbt --supershell=false test) &
     (cd ./richardPHJBensonBot/; sbt --supershell=false test) &
     (cd ./telegrambotinfrastructure/; sbt --supershell=false test)
 fi
@@ -60,6 +64,7 @@ then
     echo "run"
 
     (cd ./calandroBot/; sbt --supershell=false run) &
+    (cd ./aBarberoBot/; sbt --supershell=false run) &
     (cd ./richardPHJBensonBot/; sbt --supershell=false run)
 
 fi
