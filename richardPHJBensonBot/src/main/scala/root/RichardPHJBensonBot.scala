@@ -173,7 +173,8 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("urlo"),
+          StringTextTriggerValue(" urlo"),
+          StringTextTriggerValue("urlo "),
           StringTextTriggerValue("disper"),
         )
       ),
