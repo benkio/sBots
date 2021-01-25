@@ -116,15 +116,6 @@ object ABarberoBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("allarme"),
-          StringTextTriggerValue("priori")
-        )
-      ),
-      List(MediaFile("priori.mp3"))
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
           StringTextTriggerValue("latino")
         )
       ),
