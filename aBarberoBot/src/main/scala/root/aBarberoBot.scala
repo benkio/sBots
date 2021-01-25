@@ -85,7 +85,6 @@ object ABarberoBot extends BotSkeleton {
       TextTrigger(List(StringTextTriggerValue("ascia"), StringTextTriggerValue("sangue"))),
       List(MediaFile("sangue.mp3"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("sgozza"))), List(MediaFile("sgozzamento.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("spranga"))), List(MediaFile("spranga.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("stupidi"))), List(MediaFile("stupidi.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("subito"))), List(MediaFile("subito.mp3"))),
@@ -129,10 +128,16 @@ object ABarberoBot extends BotSkeleton {
       TextTrigger(List(StringTextTriggerValue("in un attimo"), StringTextTriggerValue("in piazza"))),
       List(MediaFile("inPiazza.gif"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("in due pezzi"))), List(MediaFile("inDuePezzi.gif")))
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("in due pezzi"))), List(MediaFile("inDuePezzi.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("giusto"))), List(MediaFile("giusto.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("gli altri"))), List(MediaFile("gliAltri.gif")))
   )
 
   val messageRepliesSpecialData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("sgozza"))),
+      List(MediaFile("sgozzamento.mp3"), MediaFile("sgozzamento.gif"))
+    ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("bruciargli"), StringTextTriggerValue("la casa"))),
       List(MediaFile("bruciare.mp3"), MediaFile("bruciare.gif"))
