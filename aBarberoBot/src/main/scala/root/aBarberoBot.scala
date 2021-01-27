@@ -20,7 +20,13 @@ object ABarberoBot extends BotSkeleton {
       List(MediaFile("capitaOmicidio.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("cavallo"), StringTextTriggerValue("ammazz"))),
+      TextTrigger(
+        List(
+          StringTextTriggerValue("cavallo"),
+          RegexTextTriggerValue("tiriamo(lo)? giù".r),
+          StringTextTriggerValue("ammazziamolo")
+        )
+      ),
       List(MediaFile("ammazziamolo.mp3"))
     ),
     ReplyBundleMessage(
@@ -60,8 +66,7 @@ object ABarberoBot extends BotSkeleton {
         List(
           StringTextTriggerValue("monsignore"),
           StringTextTriggerValue("vescovo"),
-          StringTextTriggerValue("in cul"),
-          StringTextTriggerValue("a tutti")
+          StringTextTriggerValue("in culo")
         )
       ),
       List(MediaFile("monsu.mp3"))
@@ -96,11 +101,110 @@ object ABarberoBot extends BotSkeleton {
       TextTrigger(List(StringTextTriggerValue("peste"), StringTextTriggerValue("yersinia"))),
       List(MediaFile("yersinia.mp3"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("zagaglia"))), List(MediaFile("zagaglia.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("zazzera"))), List(MediaFile("zazzera.mp3")))
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("troppo facile"),
+          StringTextTriggerValue("easy")
+        )
+      ),
+      List(MediaFile("troppoFacile.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("trappola"),
+          StringTextTriggerValue("tranello"),
+          StringTextTriggerValue("inganno")
+        )
+      ),
+      List(MediaFile("trappola.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("faida"),
+          StringTextTriggerValue("vendetta"),
+          StringTextTriggerValue("rappresaglia"),
+          StringTextTriggerValue("ritorsione")
+        )
+      ),
+      List(MediaFile("faida.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("chi(s| )se( )?ne( )?frega".r)
+        )
+      ),
+      List(MediaFile("chissenefrega.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("buonasera"))),
+      List(MediaFile("buonasera.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("a morte"),
+          RegexTextTriggerValue("(si| si|si ){2,}".r)
+        )
+      ),
+      List(MediaFile("sisiAMorte.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("francesi"))),
+      List(MediaFile("francesi.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("viva il popolo"),
+          StringTextTriggerValue("comunis")
+        )
+      ),
+      List(MediaFile("vivaIlPopolo.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("fare qualcosa"))),
+      List(MediaFile("fareQualcosa.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(StringTextTriggerValue("(no|nessun|non c'è) problem(a)?"), StringTextTriggerValue("ammazziamo tutti"))
+      ),
+      List(MediaFile("ammazziamoTuttiNoProblem.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("certo "), StringTextTriggerValue(" certo"))),
+      List(MediaFile("certo.gif"))
+    ),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("rogo"))), List(MediaFile("rogo.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("semplific"))), List(MediaFile("semplifico.gif"))),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("bere"), RegexTextTriggerValue("taglia(re)? la gola".r))),
+      List(MediaFile("taglioGolaBereSangue.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(RegexTextTriggerValue("spacco la (testa|faccia)".r))),
+      List(MediaFile("spaccoLaTesta.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(RegexTextTriggerValue("dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r))),
+      List(MediaFile("orifizioPosteriore.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("faccia tosta"), StringTextTriggerValue("furfante"))),
+      List(MediaFile("furfante.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("basta "), StringTextTriggerValue(" basta"))),
+      List(MediaFile("basta.gif"))
+    ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("tutti insieme"), StringTextTriggerValue("ghigliottina"))),
       List(MediaFile("ghigliottinaTuttiInsieme.gif"))
@@ -112,10 +216,6 @@ object ABarberoBot extends BotSkeleton {
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("si fa così"))), List(MediaFile("siFaCosi.gif"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("spranga"))), List(MediaFile("spranga.gif"))),
-    ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana)".r))),
-      List(MediaFile("figlioDi.gif"))
-    ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("rapire"), StringTextTriggerValue("riscatto"))),
       List(MediaFile("riscatto.gif"))
@@ -135,6 +235,14 @@ object ABarberoBot extends BotSkeleton {
 
   val messageRepliesSpecialData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
+      TextTrigger(List(RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana|troia)".r))),
+      List(
+        MediaFile("figlioDi.gif"),
+        MediaFile("figlioDi2.gif")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("sgozza"))),
       List(MediaFile("sgozzamento.mp3"), MediaFile("sgozzamento.gif"))
     ),
@@ -151,6 +259,10 @@ object ABarberoBot extends BotSkeleton {
         List(StringTextTriggerValue("allarme"), StringTextTriggerValue("priori"), StringTextTriggerValue("carne"))
       ),
       List(MediaFile("priori.mp3"), MediaFile("priori.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("zagaglia"), StringTextTriggerValue("nemico"))),
+      List(MediaFile("zagaglia.mp3"), MediaFile("zagaglia.gif"))
     )
   )
 
