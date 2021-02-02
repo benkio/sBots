@@ -1199,6 +1199,38 @@ object RichardPHJBensonBot extends BotSkeleton {
             .getOrElse(List("E PARLAAAAAAA!!!!")),
         true
       )
+    ),
+    ReplyBundleMessage(
+      trigger = CommandTrigger("instructions"),
+      text = TextReply(
+        _ =>
+        s"""
+---- Instruzioni Per il Bot di Benson ----
+
+Il bot reagisce automaticamente ai messaggi in base ai triggher che si
+possono trovare dal comando:
+
+/triggerlist
+
+ATTENZIONE: tale comando inviera una lunga lista. Consultarlo
+privatamente nella chat del bot.
+
+Questo bot consente di convertire le frasi come le direbbe Richard
+attraverso il comando:
+
+/bensonify «Frase»
+
+la frase e' necessaria, altrimenti il bot vi risponderà in malomodo.
+
+Infine, se si vuole disabilitare il bot per un particolare messaggio,
+ad esempio per un messaggio lungo che potrebbe causare vari triggher
+in una volta, e' possibile farlo iniziando il messaggio con il
+carattere '!':
+
+! «Messaggio»
+""",
+        false
+      )
     )
   )
 }
