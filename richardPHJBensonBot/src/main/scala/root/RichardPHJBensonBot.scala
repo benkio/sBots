@@ -1200,11 +1200,10 @@ object RichardPHJBensonBot extends BotSkeleton {
         true
       )
     ),
-    ReplyBundleMessage(
+    ReplyBundleCommand(
       trigger = CommandTrigger("instructions"),
       text = TextReply(
-        _ =>
-        s"""
+        _ => List(s"""
 ---- Instruzioni Per il Bot di Benson ----
 
 Il bot reagisce automaticamente ai messaggi in base ai triggher che si
@@ -1212,7 +1211,7 @@ possono trovare dal comando:
 
 /triggerlist
 
-ATTENZIONE: tale comando inviera una lunga lista. Consultarlo
+ATTENZIONE: tale comando invierà una lunga lista. Consultarlo
 privatamente nella chat del bot.
 
 Questo bot consente di convertire le frasi come le direbbe Richard
@@ -1220,15 +1219,15 @@ attraverso il comando:
 
 /bensonify «Frase»
 
-la frase e' necessaria, altrimenti il bot vi risponderà in malomodo.
+la frase è necessaria, altrimenti il bot vi risponderà in malomodo.
 
 Infine, se si vuole disabilitare il bot per un particolare messaggio,
 ad esempio per un messaggio lungo che potrebbe causare vari triggher
-in una volta, e' possibile farlo iniziando il messaggio con il
+in una volta, è possibile farlo iniziando il messaggio con il
 carattere '!':
 
 ! «Messaggio»
-""",
+"""),
         false
       )
     )
