@@ -51,7 +51,7 @@ class RichardPHJBensonBotSpec extends WordSpec with Matchers {
   "commandRepliesData" should {
     "return a list of all triggers" when {
       "called" in {
-        RichardPHJBensonBot.commandRepliesData.length shouldEqual 3
+        RichardPHJBensonBot.commandRepliesData.length shouldEqual 4
         RichardPHJBensonBot.messageRepliesData
           .flatMap(
             _.trigger match {
