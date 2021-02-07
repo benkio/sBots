@@ -13,6 +13,25 @@ object ABarberoBot extends BotSkeleton {
   override val resourceSource: ResourceSource = FileSystem
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("chiese"),
+          StringTextTriggerValue("castelli"),
+          StringTextTriggerValue("villaggi"),
+          StringTextTriggerValue("assedi")
+        )
+      ),
+      List(MediaFile("assedi.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("furore"), StringTextTriggerValue("città"))),
+      List(MediaFile("furore.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("demoni"), StringTextTriggerValue("scatenat"))),
+      List(MediaFile("demoni.mp3"))
+    ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("sensei"))), List(MediaFile("sensei.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("miserabile"))), List(MediaFile("miserabile.mp3"))),
     ReplyBundleMessage(
@@ -105,6 +124,16 @@ object ABarberoBot extends BotSkeleton {
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("grandioso"),
+          StringTextTriggerValue("magnifico"),
+          StringTextTriggerValue("capolavoro")
+        )
+      ),
+      List(MediaFile("capolavoro.gif"))
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(

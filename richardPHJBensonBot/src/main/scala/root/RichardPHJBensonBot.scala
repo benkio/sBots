@@ -13,6 +13,18 @@ object RichardPHJBensonBot extends BotSkeleton {
   override val resourceSource: ResourceSource = All("rphjb.db")
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("panna"),
+          StringTextTriggerValue("anguille"),
+          StringTextTriggerValue("polipi"),
+          StringTextTriggerValue("cetrioli"),
+          StringTextTriggerValue("suonare")
+        )
+      ),
+      List(MediaFile("problema.mp3"))
+    ), //also in special list
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("continua"))), List(MediaFile("continua.mp3"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("zucchero"))),
@@ -435,10 +447,6 @@ object RichardPHJBensonBot extends BotSkeleton {
       List(MediaFile("ragione.gif"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("micetta"))), List(MediaFile("micetta.gif"))),
-    ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("vabbè"), StringTextTriggerValue("problema"))),
-      List(MediaFile("vabbeProblema.gif"))
-    ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("altri generi musicali"))),
       List(MediaFile("generiMusicali.gif"))
@@ -906,6 +914,14 @@ object RichardPHJBensonBot extends BotSkeleton {
   )
 
   val messageRepliesSpecialData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("problema"))),
+      List(
+        MediaFile("vabbeProblema.gif"),
+        MediaFile("problema.mp3"),
+      ),
+      replySelection = RandomSelection
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue("good"), StringTextTriggerValue("show"), StringTextTriggerValue("friends"))
