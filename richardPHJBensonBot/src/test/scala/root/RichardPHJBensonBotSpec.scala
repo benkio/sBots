@@ -59,7 +59,12 @@ class RichardPHJBensonBotSpec extends WordSpec with Matchers {
               case _               => ""
             }
           )
-          .forall(s => RichardPHJBensonBot.commandRepliesData.init.flatMap(_.text.text(null)).contains(s))
+          .forall(s =>
+            RichardPHJBensonBot.commandRepliesData
+              .filter(_.trigger.command != "bensonify")
+              .flatMap(_.text.text(null))
+              .contains(s)
+          )
 
         // RichardPHJBensonBot.commandRepliesData
         //   .last
