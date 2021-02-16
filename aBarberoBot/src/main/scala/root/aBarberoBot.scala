@@ -124,6 +124,23 @@ object ABarberoBot extends BotSkeleton {
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("paura"))), List(MediaFile("paura.gif"))),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("sega"), StringTextTriggerValue("dov'è"))),
+      List(MediaFile("sega.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("potere"),
+          StringTextTriggerValue("incarichi"),
+          StringTextTriggerValue("poltrone"),
+          StringTextTriggerValue("appalti"),
+          StringTextTriggerValue("spartir")
+        )
+      ),
+      List(MediaFile("potere.gif"))
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
