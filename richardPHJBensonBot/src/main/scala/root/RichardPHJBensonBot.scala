@@ -708,7 +708,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(StringTextTriggerValue("sorca"), StringTextTriggerValue("lecciso"), StringTextTriggerValue("figa"))
+        List(StringTextTriggerValue("sorca"), StringTextTriggerValue("lecciso"), StringTextTriggerValue(" figa"), StringTextTriggerValue("figa "))
       ),
       List(MediaFile("sorcalecciso.gif"))
     ),
