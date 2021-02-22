@@ -106,7 +106,9 @@ object ABarberoBot extends BotSkeleton {
       List(MediaFile("re.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("ascia"), StringTextTriggerValue("sangue"))),
+      TextTrigger(List(StringTextTriggerValue(" ascia"),
+        StringTextTriggerValue(" ascia"),
+        StringTextTriggerValue("sangue"))),
       List(MediaFile("sangue.mp3"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("spranga"))), List(MediaFile("spranga.mp3"))),
