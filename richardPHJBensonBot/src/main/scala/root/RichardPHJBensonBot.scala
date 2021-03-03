@@ -14,16 +14,15 @@ object RichardPHJBensonBot extends BotSkeleton {
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
-      TextTrigger(List(
-        RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r)
-      )),
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r)
+        )
+      ),
       List(MediaFile("menoVolume.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(
-        StringTextTriggerValue("sono"),
-        StringTextTriggerValue("ultimo"))
-      ),
+      TextTrigger(List(StringTextTriggerValue("sono"), StringTextTriggerValue("ultimo"))),
       List(MediaFile("sonoUltimo.mp3")),
       matcher = ContainsAll
     ),

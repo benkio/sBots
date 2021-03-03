@@ -40,7 +40,7 @@ then
 
     echo "Moving the library to the bots lib folders"
     cp ./bin/TelegramBotInfrastructure-0.0.1.jar ../richardPHJBensonBot/lib/
-    cp ./bin/TelegramBotInfrastructure-0.0.1.jar ../aBarberoBotBot/lib/
+    cp ./bin/TelegramBotInfrastructure-0.0.1.jar ../aBarberoBot/lib/
     mv ./bin/TelegramBotInfrastructure-0.0.1.jar ../calandroBot/lib/
     ls -l ../calandroBot/lib/ #to see the content of the lib folder
     ls -l ../aBarberoBot/lib/ #to see the content of the lib folder
