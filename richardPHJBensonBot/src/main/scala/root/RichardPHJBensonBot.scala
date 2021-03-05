@@ -317,7 +317,11 @@ object RichardPHJBensonBot extends BotSkeleton {
           StringTextTriggerValue("cucciolo")
         )
       ),
-      List(MediaFile("cucciolo.gif"))
+      List(
+        MediaFile("cucciolo.gif"),
+        MediaFile("cucciolo2.gif"),
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
