@@ -16,6 +16,36 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("musica tecnica"),
+          StringTextTriggerValue("rock"),
+          StringTextTriggerValue("antonacci"),
+          StringTextTriggerValue("grignani"),
+          StringTextTriggerValue("jovanotti"),
+        )
+      ),
+      List(MediaFile("rock.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("conosce(nza|re)".r),
+          StringTextTriggerValue("il sapere"),
+          StringTextTriggerValue("veri valori"),
+        )
+      ),
+      List(MediaFile("conoscere.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("stori(a|e)".r)
+        )
+      ),
+      List(MediaFile("storie.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r)
         )
       ),
@@ -106,7 +136,8 @@ object RichardPHJBensonBot extends BotSkeleton {
           StringTextTriggerValue("cobelini"),
           StringTextTriggerValue("cobbolidi"),
           StringTextTriggerValue("elfi"),
-          StringTextTriggerValue("nani"),
+          StringTextTriggerValue(" nani"),
+          StringTextTriggerValue("nani "),
           StringTextTriggerValue("la mandragola"),
           StringTextTriggerValue("gobellini"),
           StringTextTriggerValue("fico sacro"),
@@ -461,7 +492,7 @@ object RichardPHJBensonBot extends BotSkeleton {
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("micetta"))), List(MediaFile("micetta.gif"))),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("altri generi musicali"))),
+      TextTrigger(List(StringTextTriggerValue("generi musicali"), RegexTextTriggerValue("solo il me(t|d)al".r))),
       List(MediaFile("generiMusicali.gif"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("ti distruggo"))), List(MediaFile("tiDistruggo.gif"))),
