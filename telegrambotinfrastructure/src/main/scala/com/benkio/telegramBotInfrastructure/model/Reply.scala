@@ -1,10 +1,12 @@
 package com.benkio.telegramBotInfrastructure.model
 
-import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure.default.Actions.Action
 import scala.concurrent.Future
+import telegramium.bots.Message
 
-sealed trait Reply
+sealed trait Reply {
+  val replyToMessage: Boolean
+}
 
 final case class TextReply(
     text: Message => List[String],
@@ -17,15 +19,15 @@ sealed trait MediaFile extends Reply {
   def extension: String = filename.takeRight(4)
 }
 
-final case class Mp3File private[model] (filepath: String) extends MediaFile {
+final case class Mp3File private[model](filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(filepath.endsWith(".mp3"))
 }
 
-final case class GifFile private[model] (filepath: String) extends MediaFile {
+final case class GifFile private[model](filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(filepath.endsWith(".gif"))
 }
 
-final case class PhotoFile private[model] (filepath: String) extends MediaFile {
+final case class PhotoFile private[model](filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(List(".jpg", ".png").exists(filepath.endsWith(_)))
 }
 
@@ -40,20 +42,4 @@ object MediaFile {
         s"filepath extension not recognized: $filepath \n allowed extensions: mp3, gif, jpg, png"
       )
   }
-}
-
-object Reply {
-
-  def toMessageReply(f: Reply, m: Message)(
-      implicit audioAction: Action[Mp3File],
-      gifAction: Action[GifFile],
-      photoAction: Action[PhotoFile],
-      textAction: Action[TextReply]
-  ): Future[Message] = f match {
-    case mp3 @ Mp3File(_)       => audioAction(mp3)(m)
-    case gif @ GifFile(_)       => gifAction(gif)(m)
-    case photo @ PhotoFile(_)   => photoAction(photo)(m)
-    case text @ TextReply(_, _) => textAction(text)(m)
-  }
-
 }

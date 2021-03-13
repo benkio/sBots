@@ -2,21 +2,23 @@ package com.benkio.telegramBotInfrastructure
 
 import com.benkio.telegramBotInfrastructure.botCapabilities.FileSystem
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
-import info.mukel.telegrambot4s._
-import api._
-import declarative._
-import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure.default.DefaultActions
 import com.benkio.telegramBotInfrastructure.model.Reply
 import com.benkio.telegramBotInfrastructure.model.ReplyBundle
 import com.benkio.telegramBotInfrastructure.model.ReplyBundleMessage
 import com.benkio.telegramBotInfrastructure.model.ReplyBundleCommand
 import com.benkio.telegramBotInfrastructure.model.Timeout
+import telegramium.bots.high._
+import telegramium.bots.Message
+import telegramium.bots.high.implicits._
+import cats.effect._
+import cats._
+import cats.implicits._
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
-trait BotSkeleton extends TelegramBot with Polling with Commands with DefaultActions with Configurations {
+class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends LongPollBot[F](api) with DefaultActions with Configurations {
 
   // Configuration values /////////////////////////////////////////////////////
   val resourceSource: ResourceSource      = FileSystem
@@ -27,31 +29,30 @@ trait BotSkeleton extends TelegramBot with Polling with Commands with DefaultAct
   // Reply to Messages ////////////////////////////////////////////////////////
 
   lazy val messageRepliesData: List[ReplyBundleMessage] = List.empty[ReplyBundleMessage]
-
-  onMessage((message: Message) => {
-    if (Timeout.isWithinTimeout(message.date, inputTimeout))
-      message.text.foreach { m =>
-        messageRepliesData
-          .filter((mrd: ReplyBundleMessage) =>
-            MessageMatches.doesMatch(
-              mrd,
-              m,
-              ignoreMessagePrefix
-            )
-          )
-          .foreach(ReplyBundle.computeReplyBundle(_, message))
-      }
-  })
-
-  // Reply to Commands ////////////////////////////////////////////////////////
-
   lazy val commandRepliesData: List[ReplyBundleCommand] = List.empty[ReplyBundleCommand]
 
-  commandRepliesData
-    .foreach(rb =>
-      onCommand(rb.trigger.command) { implicit msg =>
-        ReplyBundle.computeReplyBundle(rb, msg)
-      }
+  // Bot logic //////////////////////////////////////////////////////////////////////////////
+
+  val messageLogic: (Message,String) => Option[F[Unit]] = (msg : Message, text : String) =>
+  messageRepliesData.find(MessageMatches.doesMatch(_, text, ignoreMessagePrefix))
+    .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout))
+    .map(rbm =>
+      ReplyBundle.computeReplyBundle(rbm, msg).void
     )
 
+  val commandLogic: (Message,String) => Option[F[Unit]] = (msg : Message, text : String) =>
+  commandRepliesData.find(rbc => text.startsWith("/" + rbc.trigger.command)).map(
+    ReplyBundle.computeReplyBundle(_, msg).void
+  )
+
+  val botLogic : (Message,String) => Option[F[Unit]] = (msg : Message, text : String) =>
+  SemigroupK[Option].combineK(messageLogic(msg,text),commandLogic(msg,text))
+
+  override def onMessage(msg: Message): F[Unit] = {
+    val x : Option[F[Unit]] = (for {
+      text <- msg.text
+      executeLogic <- botLogic(msg, text)
+    } yield Sync[F].unit)
+    x.getOrElse(Monad[F].unit)
+  }
 }
