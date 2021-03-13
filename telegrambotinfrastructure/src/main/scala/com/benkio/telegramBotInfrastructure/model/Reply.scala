@@ -1,7 +1,5 @@
 package com.benkio.telegramBotInfrastructure.model
 
-import com.benkio.telegramBotInfrastructure.default.Actions.Action
-import scala.concurrent.Future
 import telegramium.bots.Message
 
 sealed trait Reply {
@@ -19,15 +17,15 @@ sealed trait MediaFile extends Reply {
   def extension: String = filename.takeRight(4)
 }
 
-final case class Mp3File private[model](filepath: String, replyToMessage: Boolean = false) extends MediaFile {
+final case class Mp3File private[model] (filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(filepath.endsWith(".mp3"))
 }
 
-final case class GifFile private[model](filepath: String, replyToMessage: Boolean = false) extends MediaFile {
+final case class GifFile private[model] (filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(filepath.endsWith(".gif"))
 }
 
-final case class PhotoFile private[model](filepath: String, replyToMessage: Boolean = false) extends MediaFile {
+final case class PhotoFile private[model] (filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(List(".jpg", ".png").exists(filepath.endsWith(_)))
 }
 

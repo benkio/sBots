@@ -1,13 +1,10 @@
 package com.benkio.telegramBotInfrastructure
 
 import com.benkio.telegramBotInfrastructure.model.TextTriggerValue
-import scala.util.matching.Regex
-import com.benkio.telegramBotInfrastructure.model.MessageTrigger
 import com.benkio.telegramBotInfrastructure.model.ReplyBundleMessage
 import com.benkio.telegramBotInfrastructure.model.TextTrigger
 import com.benkio.telegramBotInfrastructure.model.MessageLengthTrigger
 
-// Types for managing the matching of words
 trait MessageMatches
 
 object ContainsOnce extends MessageMatches

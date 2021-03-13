@@ -1,12 +1,11 @@
 package com.benkio.telegramBotInfrastructure.botCapabilities
 
 import com.benkio.telegramBotInfrastructure.model.MediaFile
+import scala.collection.JavaConverters
 import scala.util._
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.nio.file.Files
-import java.util.stream.Collectors
-import scala.collection.JavaConversions._
 
 sealed trait ResourceSource
 
@@ -39,9 +38,10 @@ object ResourceAccess {
       Paths.get(rootPath.toString(), "src", "main", "resources", subResourceFilePath)
 
     def getResourcesByKind(criteria: String): List[MediaFile] =
-      Files
-        .walk(buildPath(criteria))
-        .collect(Collectors.toList())
+      JavaConverters
+        .asScalaIterator(
+          Files.walk(buildPath(criteria)).iterator
+        )
         .toList
         .tail
         .map((fl: Path) => MediaFile(buildPath(criteria) + "/" + fl.getFileName.toString))
@@ -99,7 +99,7 @@ object ResourceAccess {
         val query: String                = "SELECT file_name FROM Mediafile WHERE file_type LIKE '" + criteria + "'"
         val statement: PreparedStatement = conn.prepareStatement(query)
         val rs: ResultSet                = statement.executeQuery()
-        var result: ArrayBuffer[String]  = ArrayBuffer.empty[String]
+        val result: ArrayBuffer[String]  = ArrayBuffer.empty[String]
         while (rs.next) {
           val name: String = rs.getString("file_name")
           result += name
