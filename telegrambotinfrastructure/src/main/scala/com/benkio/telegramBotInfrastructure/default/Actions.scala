@@ -2,11 +2,10 @@ package com.benkio.telegramBotInfrastructure.default
 
 import com.benkio.telegramBotInfrastructure.default.Actions.Action
 import com.benkio.telegramBotInfrastructure.model._
-import telegramium.bots.Message
 import cats.effect.Sync
 import cats.implicits._
 import telegramium.bots.high._
-import telegramium.bots.InputLinkFile
+import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 import telegramium.bots.ChatIntId
 import telegramium.bots.high.implicits._
@@ -21,17 +20,17 @@ trait DefaultActions {
           replyToMessage = if (reply.replyToMessage) Some(msg.messageId) else None
           message <- (reply match {
             case mp3: Mp3File =>
-              Methods.sendAudio(ChatIntId(msg.chat.id), InputLinkFile(mp3.filepath), replyToMessageId = replyToMessage)
+              Methods.sendAudio(ChatIntId(msg.chat.id), InputPartFile(mp3.filepath), replyToMessageId = replyToMessage)
             case gif: GifFile =>
               Methods.sendAnimation(
                 ChatIntId(msg.chat.id),
-                InputLinkFile(gif.filepath),
+                InputPartFile(gif.filepath),
                 replyToMessageId = replyToMessage
               )
             case photo: PhotoFile =>
               Methods.sendPhoto(
                 ChatIntId(msg.chat.id),
-                InputLinkFile(photo.filepath),
+                InputPartFile(photo.filepath),
                 replyToMessageId = replyToMessage
               )
             case text: TextReply =>

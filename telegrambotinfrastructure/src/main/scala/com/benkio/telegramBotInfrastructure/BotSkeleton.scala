@@ -17,8 +17,7 @@ import scala.concurrent.duration._
 
 class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F])
     extends LongPollBot[F](api)
-    with DefaultActions
-    with Configurations {
+    with DefaultActions {
 
   // Configuration values /////////////////////////////////////////////////////
   val resourceSource: ResourceSource      = FileSystem

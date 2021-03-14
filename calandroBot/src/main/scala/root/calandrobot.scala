@@ -1,13 +1,18 @@
 package root
 
 import com.benkio.telegramBotInfrastructure.botCapabilities._
-import info.mukel.telegrambot4s.models.Message
 import com.benkio.telegramBotInfrastructure._
-import io.github.todokr.Emojipolation._
+import cats.effect._
 import com.benkio.telegramBotInfrastructure.model._
 import scala.util.Random
+import telegramium.bots.high._
+import telegramium.bots.high.implicits._
+import telegramium.bots.Message
+import cats._
+import com.lightbend.emoji.ShortCodes.Implicits._
+import com.lightbend.emoji.ShortCodes.Defaults._
 
-object CalandroBot extends BotSkeleton {
+class CalandroBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends BotSkeleton {
 
   override val resourceSource: ResourceSource = All("calandro.db")
 
@@ -113,11 +118,11 @@ object CalandroBot extends BotSkeleton {
       text = TextReply((m: Message) => List("Io so come fare con le donne...ho letto tutto..."), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("ambulanza"), StringTextTriggerValue(emoji":ambulance:"))),
+      TextTrigger(List(StringTextTriggerValue("ambulanza"), StringTextTriggerValue(e":ambulance:"))),
       text = TextReply(
         (m: Message) =>
           List(
-            emoji":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:"
+            e":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:"
           ),
         false
       )
@@ -127,7 +132,7 @@ object CalandroBot extends BotSkeleton {
       text = TextReply((m: Message) => List("Il fisso performa meglio rispetto al portatile!!!"), false)
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("videogioc"), StringTextTriggerValue(emoji":video_game:"))),
+      TextTrigger(List(StringTextTriggerValue("videogioc"), StringTextTriggerValue(e":video_game:"))),
       text = TextReply(
         (m: Message) =>
           List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),

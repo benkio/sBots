@@ -22,7 +22,7 @@ class ReplySelectionSpec extends AnyWordSpec with Matchers {
   }
   "SelectAll logic" should {
     "always return the same input" in {
-      SelectAll.logic[IO](input).unsafeRunSync shouldEqual input
+      SelectAll.logic[IO](input).unsafeRunSync() shouldEqual input
     }
   }
 }

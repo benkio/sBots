@@ -3,19 +3,22 @@ package com.benkio.telegramBotInfrastructure.model
 import cats.effect._
 import org.scalatest._
 import com.benkio.telegramBotInfrastructure.default.Actions.Action
-import telegramium.bots.{Chat, Message}
+import telegramium.bots.Chat
+import telegramium.bots.Message
 import matchers.should._
 import org.scalatest.wordspec.AnyWordSpec
 
 class ReplyBundleSpec extends AnyWordSpec with Matchers {
 
   implicit val replyAction: Action[Reply, IO] =
-    (r : Reply) => (m: Message) => IO.pure(r match {
-      case _ : Mp3File => m.copy(text = Some("Mp3"))
-      case _ : GifFile => m.copy(text = Some("Gif"))
-      case _ : PhotoFile => m.copy(text = Some("Photo"))
-      case _ : TextReply => m.copy(text = Some("Text"))
-    })
+    (r: Reply) =>
+      (m: Message) =>
+        IO.pure(r match {
+          case _: Mp3File   => m.copy(text = Some("Mp3"))
+          case _: GifFile   => m.copy(text = Some("Gif"))
+          case _: PhotoFile => m.copy(text = Some("Photo"))
+          case _: TextReply => m.copy(text = Some("Text"))
+        })
 
   "computeReplyBundle" should {
     "return the expected message" when {
@@ -38,7 +41,7 @@ class ReplyBundleSpec extends AnyWordSpec with Matchers {
           chat = Chat(id = 0, `type` = "test")
         )
 
-        val result : List[Message] = ReplyBundle.computeReplyBundle(replyBundleInput, message).unsafeRunSync()
+        val result: List[Message] = ReplyBundle.computeReplyBundle(replyBundleInput, message).unsafeRunSync()
 
         result.length shouldBe 5
         result should contain(message.copy(text = Some("Mp3")))

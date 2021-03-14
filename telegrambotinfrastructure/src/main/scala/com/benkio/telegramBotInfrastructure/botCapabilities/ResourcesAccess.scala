@@ -1,11 +1,10 @@
 package com.benkio.telegramBotInfrastructure.botCapabilities
 
 import com.benkio.telegramBotInfrastructure.model.MediaFile
-import scala.collection.JavaConverters
+import scala.jdk.CollectionConverters._
 import scala.util._
-import java.nio.file.Path
-import java.nio.file.Paths
-import java.nio.file.Files
+import java.nio.file.{Paths, Files, Path}
+import java.io.{FileOutputStream, File}
 
 sealed trait ResourceSource
 
@@ -23,28 +22,34 @@ object ResourceSource {
 }
 
 trait ResourceAccess[+A <: ResourceSource] {
-  def getResource(resourceName: String): Array[Byte]
+  def getResourceByteArray(resourceName: String): Array[Byte]
   def getResourcesByKind(criteria: String): List[MediaFile]
+  def getResourceFile(resourceName: String): File = {
+    val tempFile = File.createTempFile("", resourceName, null)
+    val fos = new FileOutputStream(tempFile)
+    fos.write(getResourceByteArray(resourceName))
+    tempFile
+  }
 }
 
 object ResourceAccess {
   val fileSystem = new ResourceAccess[FileSystem.type] {
     val rootPath = Paths.get("").toAbsolutePath()
 
-    def getResource(resourceName: String): Array[Byte] =
+    def getResourceByteArray(resourceName: String): Array[Byte] =
       Files.readAllBytes(buildPath(resourceName))
 
     def buildPath(subResourceFilePath: String): Path =
       Paths.get(rootPath.toString(), "src", "main", "resources", subResourceFilePath)
 
     def getResourcesByKind(criteria: String): List[MediaFile] =
-      JavaConverters
-        .asScalaIterator(
-          Files.walk(buildPath(criteria)).iterator
-        )
+      Files
+        .walk(buildPath(criteria))
+        .iterator
+        .asScala
         .toList
         .tail
-        .map((fl: Path) => MediaFile(buildPath(criteria) + "/" + fl.getFileName.toString))
+        .map((fl: Path) => MediaFile(buildPath(criteria).toString + "/" + fl.getFileName.toString))
 
   }
   def database(dbName: String) = new ResourceAccess[Database] {
@@ -84,7 +89,7 @@ object ResourceAccess {
       }
     }
 
-    def getResource(resourceName: String): Array[Byte] = {
+    def getResourceByteArray(resourceName: String): Array[Byte] = {
       val compute: Connection => Array[Byte] = conn => {
         val query: String                = s"SELECT file_data FROM Mediafile WHERE file_name LIKE '$resourceName'"
         val statement: PreparedStatement = conn.prepareStatement(query)
@@ -129,9 +134,9 @@ object ResourceAccess {
   }
   def all(dbName: String) = new ResourceAccess[All] {
 
-    def getResource(resourceName: String): Array[Byte] =
-      Try(fileSystem.getResource(resourceName))
-        .orElse(Try(database(dbName).getResource(resourceName)))
+    def getResourceByteArray(resourceName: String): Array[Byte] =
+      Try(fileSystem.getResourceByteArray(resourceName))
+        .orElse(Try(database(dbName).getResourceByteArray(resourceName)))
         .getOrElse(Array.empty)
 
     def getResourcesByKind(criteria: String): List[MediaFile] =

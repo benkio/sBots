@@ -3,8 +3,9 @@ package root
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
 import org.scalatest._
 import java.nio.file.Files
-
 import com.benkio.telegramBotInfrastructure.model.MediaFile
+import matchers.should._
+import org.scalatest.wordspec.AnyWordSpec
 
 class CalandroBotSpec extends AnyWordSpec {
 
