@@ -15,9 +15,7 @@ import cats.implicits._
 
 import scala.concurrent.duration._
 
-class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F])
-    extends LongPollBot[F](api)
-    with DefaultActions {
+class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends LongPollBot[F](api) with DefaultActions {
 
   // Configuration values /////////////////////////////////////////////////////
   val resourceSource: ResourceSource      = FileSystem
@@ -31,27 +29,29 @@ class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F])
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  val messageLogic: (Message, String) => Option[F[Unit]] = (msg: Message, text: String) =>
+  val messageLogic: (Message, String) => Option[F[List[Message]]] = (msg: Message, text: String) =>
     messageRepliesData
       .find(MessageMatches.doesMatch(_, text, ignoreMessagePrefix))
       .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout))
-      .map(rbm => ReplyBundle.computeReplyBundle(rbm, msg).void)
+      .map(rbm =>
+        ReplyBundle.computeReplyBundle(rbm, msg)
+      )
 
-  val commandLogic: (Message, String) => Option[F[Unit]] = (msg: Message, text: String) =>
+  val commandLogic: (Message, String) => Option[F[List[Message]]] = (msg: Message, text: String) =>
     commandRepliesData
       .find(rbc => text.startsWith("/" + rbc.trigger.command))
       .map(
-        ReplyBundle.computeReplyBundle(_, msg).void
+        ReplyBundle.computeReplyBundle(_, msg)
       )
 
-  val botLogic: (Message, String) => Option[F[Unit]] = (msg: Message, text: String) =>
+  val botLogic: (Message, String) => Option[F[List[Message]]] = (msg: Message, text: String) =>
     SemigroupK[Option].combineK(messageLogic(msg, text), commandLogic(msg, text))
 
   override def onMessage(msg: Message): F[Unit] = {
     val x: Option[F[Unit]] = (for {
       text <- msg.text
-      _    <- botLogic(msg, text)
-    } yield Sync[F].unit)
+      theENd    <- botLogic(msg, text)
+    } yield theENd.void)
     x.getOrElse(Monad[F].unit)
   }
 }

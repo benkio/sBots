@@ -1,5 +1,12 @@
 package root
 
+import telegramium.bots.high._
+import telegramium.bots.high.implicits._
+import org.http4s.client.blaze._
+import org.http4s.client._
+import cats.effect._
+import scala.concurrent.ExecutionContext
+import com.benkio.telegramBotInfrastructure.Configurations
 import com.benkio.telegramBotInfrastructure.botCapabilities._
 import com.benkio.telegramBotInfrastructure._
 import cats.effect._
@@ -7,8 +14,10 @@ import com.benkio.telegramBotInfrastructure.model._
 import scala.util.Random
 import telegramium.bots.high._
 import telegramium.bots.high.implicits._
+import telegramium.bots.ChatIntId
 import telegramium.bots.Message
 import cats._
+import cats.implicits._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji.ShortCodes.Defaults._
 
@@ -151,4 +160,21 @@ class CalandroBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends B
       )
     )
   )
+
+  // override def onMessage(msg: Message): F[Unit] =
+  //   Methods.sendMessage(chatId = ChatIntId(msg.chat.id), text = "Hello, world!").exec.void
+}
+
+object CalandroBot extends Configurations {
+
+  def buildBot(executorContext: ExecutionContext)(
+      implicit concurrentEffectIO: ConcurrentEffect[IO],
+      contextShiftIO: ContextShift[IO],
+      timetIO: Timer[IO]
+  ): CalandroBot[IO] = ???
+  // BlazeClientBuilder[IO](executorContext).resource
+  //   .use { client =>
+  //       implicit val api: Api[IO] = BotApi(client, baseUrl = s"https://api.telegram.org/bot$token")
+  //       new CalandroBot[IO]()
+  //   }
 }

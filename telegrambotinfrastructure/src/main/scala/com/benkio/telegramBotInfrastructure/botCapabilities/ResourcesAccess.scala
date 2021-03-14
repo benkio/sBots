@@ -3,8 +3,11 @@ package com.benkio.telegramBotInfrastructure.botCapabilities
 import com.benkio.telegramBotInfrastructure.model.MediaFile
 import scala.jdk.CollectionConverters._
 import scala.util._
-import java.nio.file.{Paths, Files, Path}
-import java.io.{FileOutputStream, File}
+import java.nio.file.Paths
+import java.nio.file.Files
+import java.nio.file.Path
+import java.io.FileOutputStream
+import java.io.File
 
 sealed trait ResourceSource
 
@@ -26,7 +29,7 @@ trait ResourceAccess[+A <: ResourceSource] {
   def getResourcesByKind(criteria: String): List[MediaFile]
   def getResourceFile(resourceName: String): File = {
     val tempFile = File.createTempFile("", resourceName, null)
-    val fos = new FileOutputStream(tempFile)
+    val fos      = new FileOutputStream(tempFile)
     fos.write(getResourceByteArray(resourceName))
     tempFile
   }

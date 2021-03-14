@@ -13,7 +13,9 @@ object main extends IOApp with Configurations {
     BlazeClientBuilder[IO](global).resource
       .use { client =>
         implicit val api: Api[IO] = BotApi(client, baseUrl = s"https://api.telegram.org/bot$token")
-        new CalandroBot[IO].start()
+        new CalandroBot[IO]().start()
       }
       .as(ExitCode.Success)
+
+  //CalandroBot.buildBot(global).map(_.start()).as(ExitCode.Success)
 }
