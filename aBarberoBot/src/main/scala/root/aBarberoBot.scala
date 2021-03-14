@@ -3,12 +3,17 @@
 ///////////////////////////////////////////////////////////////////////////////
 package root
 
-import com.benkio.telegramBotInfrastructure._
+import org.http4s.client.blaze._
+import scala.concurrent.ExecutionContext
+import com.benkio.telegramBotInfrastructure.Configurations
 import com.benkio.telegramBotInfrastructure.botCapabilities._
-import io.github.todokr.Emojipolation._
+import com.benkio.telegramBotInfrastructure._
+import cats.effect._
 import com.benkio.telegramBotInfrastructure.model._
+import telegramium.bots.high._
+import cats._
 
-object ABarberoBot extends BotSkeleton {
+class ABarberoBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends BotSkeleton {
 
   override val resourceSource: ResourceSource = FileSystem
 
@@ -332,4 +337,17 @@ object ABarberoBot extends BotSkeleton {
       )
     )
   )
+}
+
+object ABarberoBot extends Configurations {
+
+  def buildBot[F[_]: Timer: Parallel: ContextShift: ConcurrentEffect, A](
+      executorContext: ExecutionContext,
+      action: ABarberoBot[F] => F[A]
+  ): F[A] =
+    BlazeClientBuilder[F](executorContext).resource
+      .use { client =>
+        implicit val api: Api[F] = BotApi(client, baseUrl = s"https://api.telegram.org/bot$token")
+        action(new ABarberoBot[F]())
+      }
 }

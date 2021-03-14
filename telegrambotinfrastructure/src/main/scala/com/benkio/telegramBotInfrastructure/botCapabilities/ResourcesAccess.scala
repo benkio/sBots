@@ -27,10 +27,10 @@ object ResourceSource {
 trait ResourceAccess[+A <: ResourceSource] {
   def getResourceByteArray(resourceName: String): Array[Byte]
   def getResourcesByKind(criteria: String): List[MediaFile]
-  def getResourceFile(resourceName: String): File = {
-    val tempFile = File.createTempFile(resourceName, "", null)
+  def getResourceFile(mediaFile: MediaFile): File = {
+    val tempFile = File.createTempFile(mediaFile.filename, mediaFile.extension, null)
     val fos      = new FileOutputStream(tempFile)
-    fos.write(getResourceByteArray(resourceName))
+    fos.write(getResourceByteArray(mediaFile.filepath))
     tempFile
   }
 }

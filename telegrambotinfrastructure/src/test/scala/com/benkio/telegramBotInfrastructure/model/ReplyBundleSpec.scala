@@ -32,6 +32,7 @@ class ReplyBundleSpec extends AnyWordSpec with Matchers {
 
         val replyBundleInput: ReplyBundleMessage = ReplyBundleMessage(
           trigger = TextTrigger(List(StringTextTriggerValue("test"))),
+          text = TextReply(_ => List("some text that will be overwritten by the implicit")),
           mediafiles = inputMediafile
         )
 
@@ -45,8 +46,8 @@ class ReplyBundleSpec extends AnyWordSpec with Matchers {
 
         result.length shouldBe 5
         result should contain(message.copy(text = Some("Mp3")))
-        result should contain(message.copy(text = Some("Gif")))
         result should contain(message.copy(text = Some("Photo")))
+        result should contain(message.copy(text = Some("Gif")))
         result should contain(message.copy(text = Some("Text")))
       }
     }

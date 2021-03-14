@@ -16,7 +16,7 @@ trait DefaultActions {
 
   val resourceSource: ResourceSource
 
-  lazy val getResourceData: String => File = ResourceSource.selectResourceAccess(resourceSource).getResourceFile _
+  lazy val getResourceData: MediaFile => File = ResourceSource.selectResourceAccess(resourceSource).getResourceFile _
 
   implicit def sendReply[F[_]: Sync](implicit api: telegramium.bots.high.Api[F]): Action[Reply, F] =
     (reply: Reply) =>
@@ -28,19 +28,19 @@ trait DefaultActions {
             case mp3: Mp3File =>
               Methods.sendAudio(
                 ChatIntId(msg.chat.id),
-                InputPartFile(getResourceData(mp3.filepath)),
+                InputPartFile(getResourceData(mp3)),
                 replyToMessageId = replyToMessage
               )
             case gif: GifFile =>
               Methods.sendAnimation(
                 ChatIntId(msg.chat.id),
-                InputPartFile(getResourceData(gif.filepath)),
+                InputPartFile(getResourceData(gif)),
                 replyToMessageId = replyToMessage
               )
             case photo: PhotoFile =>
               Methods.sendPhoto(
                 ChatIntId(msg.chat.id),
-                InputPartFile(getResourceData(photo.filepath)),
+                InputPartFile(getResourceData(photo)),
                 replyToMessageId = replyToMessage
               )
             case text: TextReply =>
