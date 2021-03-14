@@ -2,8 +2,10 @@ package com.benkio.telegramBotInfrastructure
 
 import com.benkio.telegramBotInfrastructure.model._
 import org.scalatest._
+import matchers.should._
+import org.scalatest.wordspec.AnyWordSpec
 
-class MessageMatchesSpec extends WordSpec with Matchers {
+class MessageMatchesSpec extends AnyWordSpec with Matchers {
 
   val inputMediafile: List[MediaFile] = List(
     Mp3File("audio.mp3"),

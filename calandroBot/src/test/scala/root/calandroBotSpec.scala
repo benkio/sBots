@@ -6,7 +6,7 @@ import java.nio.file.Files
 
 import com.benkio.telegramBotInfrastructure.model.MediaFile
 
-class CalandroBotSpec extends WordSpec {
+class CalandroBotSpec extends AnyWordSpec {
 
   def testFilename(filename: String) =
     if (ResourceSource

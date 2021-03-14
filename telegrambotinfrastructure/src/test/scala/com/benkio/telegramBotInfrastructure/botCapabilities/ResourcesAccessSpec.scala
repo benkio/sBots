@@ -2,8 +2,11 @@ package com.benkio.telegramBotInfrastructure.botCapabilities
 
 import org.scalatest._
 import java.nio.file._
+import scala.language.reflectiveCalls
+import matchers.should._
+import org.scalatest.wordspec.AnyWordSpec
 
-class ResourcesAccessSpec extends WordSpec with Matchers {
+class ResourcesAccessSpec extends AnyWordSpec with Matchers {
 
   val resourcesAccessFileSystem = ResourceAccess.fileSystem
   val rootPath                  = Paths.get("").toAbsolutePath()

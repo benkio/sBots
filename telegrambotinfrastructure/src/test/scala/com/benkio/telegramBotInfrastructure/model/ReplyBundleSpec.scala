@@ -1,23 +1,21 @@
 package com.benkio.telegramBotInfrastructure.model
 
-import info.mukel.telegrambot4s._
-import methods._
-import models._
+import cats.effect._
 import org.scalatest._
 import com.benkio.telegramBotInfrastructure.default.Actions.Action
-import info.mukel.telegrambot4s.models.Message
-import scala.concurrent.Future
+import telegramium.bots.{Chat, Message}
+import matchers.should._
+import org.scalatest.wordspec.AnyWordSpec
 
-class ReplyBundleSpec extends AsyncWordSpec with Matchers {
+class ReplyBundleSpec extends AnyWordSpec with Matchers {
 
-  implicit val audioAction: Action[Mp3File] =
-    (mp3: Mp3File) => (m: Message) => Future.successful(m.copy(text = Some("Mp3")))
-  implicit val gifAction: Action[GifFile] =
-    (gif: GifFile) => (m: Message) => Future.successful(m.copy(text = Some("Gif")))
-  implicit val photoAction: Action[PhotoFile] =
-    (photo: PhotoFile) => (m: Message) => Future.successful(m.copy(text = Some("Photo")))
-  implicit val textAction: Action[TextReply] =
-    (textReply: TextReply) => (m: Message) => Future.successful(m.copy(text = Some("Text")))
+  implicit val replyAction: Action[Reply, IO] =
+    (r : Reply) => (m: Message) => IO.pure(r match {
+      case _ : Mp3File => m.copy(text = Some("Mp3"))
+      case _ : GifFile => m.copy(text = Some("Gif"))
+      case _ : PhotoFile => m.copy(text = Some("Photo"))
+      case _ : TextReply => m.copy(text = Some("Text"))
+    })
 
   "computeReplyBundle" should {
     "return the expected message" when {
@@ -37,18 +35,16 @@ class ReplyBundleSpec extends AsyncWordSpec with Matchers {
         val message = Message(
           messageId = 0,
           date = 0,
-          chat = Chat(id = 0, `type` = ChatType.Private)
+          chat = Chat(id = 0, `type` = "test")
         )
 
-        val result = ReplyBundle.computeReplyBundle(replyBundleInput, message)
+        val result : List[Message] = ReplyBundle.computeReplyBundle(replyBundleInput, message).unsafeRunSync()
 
-        result.map { listMessages =>
-          listMessages.length shouldBe 5
-          listMessages should contain(message.copy(text = Some("Mp3")))
-          listMessages should contain(message.copy(text = Some("Gif")))
-          listMessages should contain(message.copy(text = Some("Photo")))
-          listMessages should contain(message.copy(text = Some("Text")))
-        }
+        result.length shouldBe 5
+        result should contain(message.copy(text = Some("Mp3")))
+        result should contain(message.copy(text = Some("Gif")))
+        result should contain(message.copy(text = Some("Photo")))
+        result should contain(message.copy(text = Some("Text")))
       }
     }
   }

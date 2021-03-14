@@ -1,8 +1,10 @@
 package com.benkio.telegramBotInfrastructure.model
 
 import org.scalatest._
+import matchers.should._
+import org.scalatest.wordspec.AnyWordSpec
 
-class TriggersSpec extends WordSpec with Matchers {
+class TriggersSpec extends AnyWordSpec with Matchers {
 
   "matchValue" should {
     "return true" when {

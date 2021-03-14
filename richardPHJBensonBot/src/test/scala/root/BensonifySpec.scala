@@ -2,7 +2,7 @@ package root
 
 import org.scalatest._
 
-class BensonifySpec extends WordSpec with Matchers {
+class BensonifySpec extends AnyWordSpec with Matchers {
 
   "Bensonify" should {
     "convert propertly" when {

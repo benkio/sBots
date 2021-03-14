@@ -7,7 +7,7 @@ import java.nio.file.Files
 import com.benkio.telegramBotInfrastructure.model.MediaFile
 import com.benkio.telegramBotInfrastructure.model.TextTrigger
 
-class RichardPHJBensonBotSpec extends WordSpec with Matchers {
+class RichardPHJBensonBotSpec extends AnyWordSpec with Matchers {
 
   def testFilename(filename: String) =
     if (ResourceSource.selectResourceAccess(RichardPHJBensonBot.resourceSource).getResource(filename).isEmpty)
