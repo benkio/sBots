@@ -33,9 +33,7 @@ class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends L
     messageRepliesData
       .find(MessageMatches.doesMatch(_, text, ignoreMessagePrefix))
       .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout))
-      .map(rbm =>
-        ReplyBundle.computeReplyBundle(rbm, msg)
-      )
+      .map(rbm => ReplyBundle.computeReplyBundle(rbm, msg))
 
   val commandLogic: (Message, String) => Option[F[List[Message]]] = (msg: Message, text: String) =>
     commandRepliesData
@@ -49,8 +47,8 @@ class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends L
 
   override def onMessage(msg: Message): F[Unit] = {
     val x: Option[F[Unit]] = (for {
-      text <- msg.text
-      theENd    <- botLogic(msg, text)
+      text   <- msg.text
+      theENd <- botLogic(msg, text)
     } yield theENd.void)
     x.getOrElse(Monad[F].unit)
   }

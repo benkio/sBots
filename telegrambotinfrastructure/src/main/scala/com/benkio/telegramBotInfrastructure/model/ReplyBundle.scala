@@ -35,10 +35,14 @@ object ReplyBundle {
   def computeReplyBundle[F[_]](replyBundle: ReplyBundle, message: Message)(
       implicit replyAction: Action[Reply, F],
       syncF: Sync[F]
-  ): F[List[Message]] =
+  ): F[List[Message]] = {
+    val dataToSend =
+      if (replyBundle.text.text(message).isEmpty)
+        replyBundle.mediafiles
+      else replyBundle.mediafiles :+ replyBundle.text
     for {
-      replies <- replyBundle.replySelection.logic(replyBundle.mediafiles :+ replyBundle.text)
+      replies <- replyBundle.replySelection.logic(dataToSend)
       result  <- replies.traverse[F, Message](replyAction(_)(message))
     } yield result
-
+  }
 }

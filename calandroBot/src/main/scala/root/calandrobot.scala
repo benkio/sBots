@@ -1,10 +1,7 @@
 package root
 
-import telegramium.bots.high._
-import telegramium.bots.high.implicits._
+import com.lightbend.emoji._
 import org.http4s.client.blaze._
-import org.http4s.client._
-import cats.effect._
 import scala.concurrent.ExecutionContext
 import com.benkio.telegramBotInfrastructure.Configurations
 import com.benkio.telegramBotInfrastructure.botCapabilities._
@@ -13,11 +10,8 @@ import cats.effect._
 import com.benkio.telegramBotInfrastructure.model._
 import scala.util.Random
 import telegramium.bots.high._
-import telegramium.bots.high.implicits._
-import telegramium.bots.ChatIntId
 import telegramium.bots.Message
 import cats._
-import cats.implicits._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji.ShortCodes.Defaults._
 
@@ -64,7 +58,7 @@ class CalandroBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends B
   override lazy val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("sbrighi"))),
-      text = TextReply((m: Message) => List("Passo"), false)
+      text = TextReply(_ => List("Passo"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -75,25 +69,25 @@ class CalandroBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends B
           StringTextTriggerValue("ricchione")
         )
       ),
-      text = TextReply((m: Message) => List("CHE SCHIFO!!!"), false)
+      text = TextReply(_ => List("CHE SCHIFO!!!"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("caldo"), StringTextTriggerValue("scotta"))),
-      text = TextReply((m: Message) => List("Come i carbofreni della Brembo!!"), false)
+      text = TextReply(_ => List("Come i carbofreni della Brembo!!"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue("ciao"), StringTextTriggerValue("buongiorno"), StringTextTriggerValue("salve"))
       ),
-      text = TextReply((m: Message) => List("Buongiorno Signori"), false)
+      text = TextReply(_ => List("Buongiorno Signori"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("film"))),
-      text = TextReply((m: Message) => List("Lo riguardo volentieri"), false)
+      text = TextReply(_ => List("Lo riguardo volentieri"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("stasera"), StringTextTriggerValue("?"))),
-      text = TextReply((m: Message) => List("Facciamo qualcosa tutti assieme?"), false),
+      text = TextReply(_ => List("Facciamo qualcosa tutti assieme?"), false),
       matcher = ContainsAll
     ),
     ReplyBundleMessage(
@@ -105,52 +99,56 @@ class CalandroBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends B
           StringTextTriggerValue("alta definizione")
         )
       ),
-      text = TextReply((m: Message) => List("Eh sì, vedi...si nota l'indecisione dell'immagine"), false)
+      text = TextReply(_ => List("Eh sì, vedi...si nota l'indecisione dell'immagine"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("qualità"))),
-      text = TextReply((m: Message) => List("A 48x masterizza meglio"), false)
+      text = TextReply(_ => List("A 48x masterizza meglio"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("macchina"), StringTextTriggerValue("automobile"))),
-      text = TextReply((m: Message) => List("Hai visto l'ultima puntata di \"Top Gear\"?"), false)
+      text = TextReply(_ => List("Hai visto l'ultima puntata di \"Top Gear\"?"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue(" figa "),
-          StringTextTriggerValue(" fregna "),
-          StringTextTriggerValue(" gnocca "),
-          StringTextTriggerValue(" patacca ")
+          RegexTextTriggerValue("( )?figa( )?".r),
+          RegexTextTriggerValue("( )?fregna( )?".r),
+          RegexTextTriggerValue("( )?gnocca( )?".r),
+          RegexTextTriggerValue("( )?patacca( )?".r)
         )
       ),
-      text = TextReply((m: Message) => List("Io so come fare con le donne...ho letto tutto..."), false)
+      text = TextReply(_ => List("Io so come fare con le donne...ho letto tutto..."), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("ambulanza"), StringTextTriggerValue(e":ambulance:"))),
       text = TextReply(
-        (m: Message) =>
+        _ =>
           List(
-            e":triumph: :horns_sign: :hand_with_index_and_middle_fingers_crossed: :hand_with_index_and_middle_fingers_crossed: :horns_sign: :triumph:"
+            Emoji(0x1F624).toString      // 😤
+              ++ Emoji(0x1F918).toString // 🤘
+              ++ Emoji(0x1F91E).toString // 🤞
+              ++ Emoji(0x1F91E).toString // 🤞
+              ++ Emoji(0x1F918).toString // 🤘
+              ++ Emoji(0x1F624).toString // 😤
           ),
         false
       )
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("pc"), StringTextTriggerValue("computer"))),
-      text = TextReply((m: Message) => List("Il fisso performa meglio rispetto al portatile!!!"), false)
+      text = TextReply(_ => List("Il fisso performa meglio rispetto al portatile!!!"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("videogioc"), StringTextTriggerValue(e":video_game:"))),
       text = TextReply(
-        (m: Message) =>
-          List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
+        _ => List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
         false
       )
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue(" hs"), StringTextTriggerValue("hearthstone"))),
-      text = TextReply((m: Message) => List("BASTA CON QUESTI TAUNT!!!"), false)
+      text = TextReply(_ => List("BASTA CON QUESTI TAUNT!!!"), false)
     ),
     ReplyBundleMessage(
       MessageLengthTrigger(280),
@@ -160,21 +158,17 @@ class CalandroBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends B
       )
     )
   )
-
-  // override def onMessage(msg: Message): F[Unit] =
-  //   Methods.sendMessage(chatId = ChatIntId(msg.chat.id), text = "Hello, world!").exec.void
 }
 
 object CalandroBot extends Configurations {
 
-  def buildBot(executorContext: ExecutionContext)(
-      implicit concurrentEffectIO: ConcurrentEffect[IO],
-      contextShiftIO: ContextShift[IO],
-      timetIO: Timer[IO]
-  ): CalandroBot[IO] = ???
-  // BlazeClientBuilder[IO](executorContext).resource
-  //   .use { client =>
-  //       implicit val api: Api[IO] = BotApi(client, baseUrl = s"https://api.telegram.org/bot$token")
-  //       new CalandroBot[IO]()
-  //   }
+  def buildBot[F[_]: Timer: Parallel: ContextShift: ConcurrentEffect, A](
+      executorContext: ExecutionContext,
+      action: CalandroBot[F] => F[A]
+  ): F[A] =
+    BlazeClientBuilder[F](executorContext).resource
+      .use { client =>
+        implicit val api: Api[F] = BotApi(client, baseUrl = s"https://api.telegram.org/bot$token")
+        action(new CalandroBot[F]())
+      }
 }

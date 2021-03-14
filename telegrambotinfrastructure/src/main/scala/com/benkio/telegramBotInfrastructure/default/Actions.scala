@@ -20,10 +20,10 @@ trait DefaultActions {
 
   implicit def sendReply[F[_]: Sync](implicit api: telegramium.bots.high.Api[F]): Action[Reply, F] =
     (reply: Reply) =>
-      (msg: Message) =>
+      (msg: Message) => {
+        val replyToMessage = if (reply.replyToMessage) Some(msg.messageId) else None
         for {
-          _ <- Methods.sendChatAction().exec
-          replyToMessage = if (reply.replyToMessage) Some(msg.messageId) else None
+          //_ <- Methods.sendChatAction().exec
           message <- (reply match {
             case mp3: Mp3File =>
               Methods.sendAudio(
@@ -51,6 +51,7 @@ trait DefaultActions {
               )
           }).exec
         } yield message
+      }
 
 }
 

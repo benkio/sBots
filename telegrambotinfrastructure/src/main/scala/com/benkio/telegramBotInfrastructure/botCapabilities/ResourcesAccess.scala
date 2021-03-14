@@ -28,7 +28,7 @@ trait ResourceAccess[+A <: ResourceSource] {
   def getResourceByteArray(resourceName: String): Array[Byte]
   def getResourcesByKind(criteria: String): List[MediaFile]
   def getResourceFile(resourceName: String): File = {
-    val tempFile = File.createTempFile("", resourceName, null)
+    val tempFile = File.createTempFile(resourceName, "", null)
     val fos      = new FileOutputStream(tempFile)
     fos.write(getResourceByteArray(resourceName))
     tempFile
@@ -73,8 +73,6 @@ object ResourceAccess {
         result
       } catch {
         case e: SQLException => {
-          println(e.getMessage)
-          println("Exception: " + e)
           throw e
         }
       } finally {
@@ -84,8 +82,6 @@ object ResourceAccess {
           }
         } catch {
           case ex: SQLException => {
-            println(ex.getMessage)
-            println("Connection Close: " + ex)
             throw ex
           }
         }

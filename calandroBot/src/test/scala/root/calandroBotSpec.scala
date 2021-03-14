@@ -1,19 +1,12 @@
 package root
 
-import telegramium.bots.high._
-import telegramium.bots.high.implicits._
-import org.http4s.client.blaze._
-import org.http4s.client._
 import cats.effect._
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.ExecutionContext
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
 import org.scalatest._
-import java.nio.file.Files
 import com.benkio.telegramBotInfrastructure.model.ReplyBundleMessage
 import com.benkio.telegramBotInfrastructure.model.MediaFile
 import com.benkio.telegramBotInfrastructure.model.ReplyBundleCommand
-import matchers.should._
 import org.scalatest.wordspec.AnyWordSpec
 
 class CalandroBotSpec extends AnyWordSpec {
@@ -27,8 +20,10 @@ class CalandroBotSpec extends AnyWordSpec {
       List[ReplyBundleMessage]
   ) =
     CalandroBot
-      .buildBot(global)
-      .map(bot => (bot.resourceSource, bot.commandRepliesData, bot.messageRepliesData))
+      .buildBot(
+        global,
+        (bot: CalandroBot[IO]) => IO.pure((bot.resourceSource, bot.commandRepliesData, bot.messageRepliesData))
+      )
       .unsafeRunSync()
 
   def testFilename(filename: String): Assertion =
