@@ -121,10 +121,10 @@ object CalandroBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("( )?figa( )?".r),
+          RegexTextTriggerValue(" figa ".r),
           RegexTextTriggerValue("( )?fregna( )?".r),
           RegexTextTriggerValue("( )?gnocca( )?".r),
-          RegexTextTriggerValue("( )?patacca( )?".r)
+          RegexTextTriggerValue(" patacca ".r)
         )
       ),
       text = TextReply(_ => List("Io so come fare con le donne...ho letto tutto..."), false)
