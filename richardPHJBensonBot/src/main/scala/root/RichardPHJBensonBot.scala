@@ -93,7 +93,7 @@ object RichardPHJBensonBot extends Configurations {
         List(
           RegexTextTriggerValue("au[ ]?de".r),
           StringTextTriggerValue("time"),
-          StringTextTriggerValue("tempo")
+          RegexTextTriggerValue("uir[ ]?bi[ ]?taim".r)
         )
       ),
       List(MediaFile("auDeUirbiTaim.mp3"))
@@ -934,7 +934,7 @@ object RichardPHJBensonBot extends Configurations {
       TextTrigger(
         List(
           StringTextTriggerValue("quattro"),
-          StringTextTriggerValue("in tempo")
+          StringTextTriggerValue("faccio in tempo")
         )
       ),
       List(MediaFile("quattroSolo.gif"))
