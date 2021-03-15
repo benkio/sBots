@@ -7,7 +7,8 @@ import cats.implicits._
 import telegramium.bots.high._
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
-import telegramium.bots.{ChatId, ChatIntId}
+import telegramium.bots.ChatId
+import telegramium.bots.ChatIntId
 import telegramium.bots.high.implicits._
 import java.io.File
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
@@ -22,38 +23,53 @@ trait DefaultActions {
     (reply: Reply) =>
       (msg: Message) => {
         val replyToMessage = if (reply.replyToMessage) Some(msg.messageId) else None
-        val chatId : ChatId = ChatIntId(msg.chat.id)
-          reply match {
-            case mp3: Mp3File => for {
+        val chatId: ChatId = ChatIntId(msg.chat.id)
+        reply match {
+          case mp3: Mp3File =>
+            for {
               _ <- Methods.sendChatAction(chatId, "upload_voice").exec
-              message <- Methods.sendAudio(
-                chatId,
-                InputPartFile(getResourceData(mp3)),
-                replyToMessageId = replyToMessage
-              ).exec
+              message <- Methods
+                .sendAudio(
+                  chatId,
+                  InputPartFile(getResourceData(mp3)),
+                  replyToMessageId = replyToMessage
+                )
+                .exec
             } yield message
-            case gif: GifFile => for {
+          case gif: GifFile =>
+            for {
               _ <- Methods.sendChatAction(chatId, "upload_document").exec
-message <- Methods.sendAnimation(
-                chatId,
-                InputPartFile(getResourceData(gif)),
-                replyToMessageId = replyToMessage
-              ).exec}yield message
-            case photo: PhotoFile => for {
+              message <- Methods
+                .sendAnimation(
+                  chatId,
+                  InputPartFile(getResourceData(gif)),
+                  replyToMessageId = replyToMessage
+                )
+                .exec
+            } yield message
+          case photo: PhotoFile =>
+            for {
               _ <- Methods.sendChatAction(chatId, "upload_photo").exec
-message <- Methods.sendPhoto(
-                chatId,
-                InputPartFile(getResourceData(photo)),
-                replyToMessageId = replyToMessage
-              ).exec} yield message
-            case text: TextReply => for {
+              message <- Methods
+                .sendPhoto(
+                  chatId,
+                  InputPartFile(getResourceData(photo)),
+                  replyToMessageId = replyToMessage
+                )
+                .exec
+            } yield message
+          case text: TextReply =>
+            for {
               _ <- Methods.sendChatAction(chatId, "typing").exec
-              message <- Methods.sendMessage(
-                chatId,
-                text.text(msg).fold("")(_ + "\n" + _),
-                replyToMessageId = replyToMessage
-              ).exec} yield message
-          }
+              message <- Methods
+                .sendMessage(
+                  chatId,
+                  text.text(msg).fold("")(_ + "\n" + _),
+                  replyToMessageId = replyToMessage
+                )
+                .exec
+            } yield message
+        }
       }
 }
 
