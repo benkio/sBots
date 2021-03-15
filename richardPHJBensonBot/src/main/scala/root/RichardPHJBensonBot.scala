@@ -800,7 +800,9 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("ostina.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("vecchi[ao]".r))),
+      TextTrigger(List(
+        RegexTextTriggerValue("(è|diventa) vecchi[ao]".r),
+      )),
       List(MediaFile("vecchio.gif"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("venite qua"))), List(MediaFile("venitequa.gif"))),
