@@ -133,7 +133,7 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("chiesa.mp3"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("maledetto"))), List(MediaFile("maledetto.mp3"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("magari"))), List(MediaFile("magari.mp3"))),
+    ReplyBundleMessage(TextTrigger(List(RegexTextTriggerValue("(..magari|magari..)".r))), List(MediaFile("magari.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("io ti aiuto"))), List(MediaFile("aiuto.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("faccio schifo"))), List(MediaFile("faccioSchifo.mp3"))),
     ReplyBundleMessage(
