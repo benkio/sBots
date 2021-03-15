@@ -658,9 +658,8 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("certo"),
-          StringTextTriggerValue("escerto"),
-          StringTextTriggerValue("critiche"),
+          RegexTextTriggerValue("e(s|c)certo".r),
+          StringTextTriggerValue("accetto le critiche"),
           StringTextTriggerValue("non me ne frega un cazzo")
         )
       ),
@@ -1061,7 +1060,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(StringTextTriggerValue("gianni"), StringTextTriggerValue("grazie"), RegexTextTriggerValue("cia[o]+".r))
+        List(StringTextTriggerValue("grazie gianni"), RegexTextTriggerValue("cia[o]{3,}".r))
       ),
       List(MediaFile("grazie.mp3"), MediaFile("grazie.gif"))
     ),
@@ -1170,7 +1169,7 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("letSGoodStateBene.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("bast[a]+[!]*".r))),
+      TextTrigger(List(RegexTextTriggerValue("bast[a]{3,}[!]*".r))),
       List(
         MediaFile("basta.mp3"),
         MediaFile("basta.gif"),
