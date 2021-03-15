@@ -934,7 +934,6 @@ object RichardPHJBensonBot extends Configurations {
       TextTrigger(
         List(
           StringTextTriggerValue("quattro"),
-          RegexTextTriggerValue("[ ]?4 | 4[ ]?".r),
           StringTextTriggerValue("in tempo")
         )
       ),
@@ -1093,7 +1092,7 @@ object RichardPHJBensonBot extends Configurations {
           StringTextTriggerValue(e":lol:"),
           StringTextTriggerValue(e":rofl:"),
           StringTextTriggerValue("sorriso"),
-          StringTextTriggerValue(e":smile:")
+          RegexTextTriggerValue("(ah|ha){3,}".r)
         )
       ),
       List(
