@@ -1,6 +1,8 @@
 package root
 
 import org.scalatest._
+import org.scalatest.wordspec.AnyWordSpec
+import matchers.should._
 
 class BensonifySpec extends AnyWordSpec with Matchers {
 
@@ -23,7 +25,6 @@ class BensonifySpec extends AnyWordSpec with Matchers {
           case (case1, expected) =>
             Bensonify.compute(case1) shouldEqual expected
         }
-
       }
     }
   }

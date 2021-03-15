@@ -2,15 +2,18 @@ package root
 
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
 import org.scalatest._
-import java.nio.file.Files
-
-import com.benkio.telegramBotInfrastructure.model.MediaFile
+import matchers.should._
 import com.benkio.telegramBotInfrastructure.model.TextTrigger
+import com.benkio.telegramBotInfrastructure.model.MediaFile
+import org.scalatest.wordspec.AnyWordSpec
 
 class RichardPHJBensonBotSpec extends AnyWordSpec with Matchers {
 
-  def testFilename(filename: String) =
-    if (ResourceSource.selectResourceAccess(RichardPHJBensonBot.resourceSource).getResource(filename).isEmpty)
+  def testFilename(filename: String): Assertion =
+    if (ResourceSource
+          .selectResourceAccess(RichardPHJBensonBot.resourceSource)
+          .getResourceByteArray(filename)
+          .isEmpty)
       fail(s"$filename cannot be found")
     else succeed
 
@@ -66,7 +69,7 @@ class RichardPHJBensonBotSpec extends AnyWordSpec with Matchers {
               .contains(s)
           )
 
-        // RichardPHJBensonBot.commandRepliesData
+        // commandRepliesData
         //   .last
         //   .text.text(Message(
         //     messageId = 0,

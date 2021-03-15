@@ -3,7 +3,7 @@ import sbt._
 object Dependencies {
 
   lazy val scalaTestVersion             = "3.2.5"
-  lazy val telegramiumVersion           = "4.51.0"
+  lazy val telegramiumVersion           = "4.51.1"
   lazy val catsEffectVersion            = "2.3.1"
   lazy val catsCoreVersion              = "2.4.2"
 

@@ -17,9 +17,18 @@ import com.lightbend.emoji.ShortCodes.Defaults._
 
 class CalandroBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends BotSkeleton {
 
-  override val resourceSource: ResourceSource = All("calandro.db")
+  override val resourceSource: ResourceSource = CalandroBot.resourceSource
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = List(
+  override lazy val commandRepliesData: List[ReplyBundleCommand] = CalandroBot.commandRepliesData
+
+  override lazy val messageRepliesData: List[ReplyBundleMessage] = CalandroBot.messageRepliesData
+}
+
+object CalandroBot extends Configurations {
+
+  val resourceSource: ResourceSource = All("calandro.db")
+
+  val commandRepliesData: List[ReplyBundleCommand] = List(
     ReplyBundleCommand(CommandTrigger("porcoladro"), List(MediaFile("PorcoLadro.mp3"))),
     ReplyBundleCommand(CommandTrigger("unoduetre"), List(MediaFile("unoduetre.mp3"))),
     ReplyBundleCommand(CommandTrigger("ancorauna"), List(MediaFile("AncoraUnaDoveLaMetto.mp3"))),
@@ -55,7 +64,7 @@ class CalandroBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends B
     )
   )
 
-  override lazy val messageRepliesData: List[ReplyBundleMessage] = List(
+  val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("sbrighi"))),
       text = TextReply(_ => List("Passo"), false)
@@ -158,9 +167,6 @@ class CalandroBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends B
       )
     )
   )
-}
-
-object CalandroBot extends Configurations {
 
   def buildBot[F[_]: Timer: Parallel: ContextShift: ConcurrentEffect, A](
       executorContext: ExecutionContext,

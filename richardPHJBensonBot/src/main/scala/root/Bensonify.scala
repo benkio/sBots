@@ -2,7 +2,7 @@ package root
 
 object Bensonify {
 
-  val patterns: Map[String, String] = Map(
+  val patterns: List[(String, String)] = List(
     "t"  -> "d",
     "rr" -> "r",
     "c"  -> "g",

@@ -1,6 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-//             Bot of Alessandro Barbero, contains all the Barbero's frases  //
-///////////////////////////////////////////////////////////////////////////////
 package root
 
 import org.http4s.client.blaze._
@@ -15,7 +12,17 @@ import cats._
 
 class ABarberoBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends BotSkeleton {
 
-  override val resourceSource: ResourceSource = FileSystem
+  override val resourceSource: ResourceSource = ABarberoBot.resourceSource
+
+  override lazy val messageRepliesData: List[ReplyBundleMessage] =
+    ABarberoBot.messageRepliesData
+
+  override lazy val commandRepliesData: List[ReplyBundleCommand] = ABarberoBot.commandRepliesData
+}
+
+object ABarberoBot extends Configurations {
+
+  val resourceSource: ResourceSource = FileSystem
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
@@ -319,10 +326,10 @@ class ABarberoBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends B
     )
   )
 
-  override lazy val messageRepliesData: List[ReplyBundleMessage] =
+  val messageRepliesData: List[ReplyBundleMessage] =
     messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = List(
+  val commandRepliesData: List[ReplyBundleCommand] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
       text = TextReply(
@@ -337,9 +344,6 @@ class ABarberoBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends B
       )
     )
   )
-}
-
-object ABarberoBot extends Configurations {
 
   def buildBot[F[_]: Timer: Parallel: ContextShift: ConcurrentEffect, A](
       executorContext: ExecutionContext,

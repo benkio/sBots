@@ -1,16 +1,31 @@
-///////////////////////////////////////////////////////////////////////////////
-//             Bot di Richard Benson, contains all the Benson's frases       //
-///////////////////////////////////////////////////////////////////////////////
 package root
 
-import com.benkio.telegramBotInfrastructure._
+import org.http4s.client.blaze._
+import scala.concurrent.ExecutionContext
+import com.benkio.telegramBotInfrastructure.Configurations
 import com.benkio.telegramBotInfrastructure.botCapabilities._
-import io.github.todokr.Emojipolation._
+import com.benkio.telegramBotInfrastructure._
+import cats.effect._
 import com.benkio.telegramBotInfrastructure.model._
 
-object RichardPHJBensonBot extends BotSkeleton {
+import com.lightbend.emoji.ShortCodes.Implicits._
+import com.lightbend.emoji.ShortCodes.Defaults._
+import telegramium.bots.high._
+import cats._
 
-  override val resourceSource: ResourceSource = All("rphjb.db")
+class RichardPHJBensonBot[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends BotSkeleton {
+
+  override val resourceSource: ResourceSource = RichardPHJBensonBot.resourceSource
+
+  override lazy val messageRepliesData: List[ReplyBundleMessage] =
+    RichardPHJBensonBot.messageRepliesData
+
+  override lazy val commandRepliesData: List[ReplyBundleCommand] = RichardPHJBensonBot.commandRepliesData
+}
+
+object RichardPHJBensonBot extends Configurations {
+
+  val resourceSource: ResourceSource = All("rphjb.db")
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
@@ -438,7 +453,7 @@ object RichardPHJBensonBot extends BotSkeleton {
           StringTextTriggerValue(";)"),
           StringTextTriggerValue("occhiolino"),
           StringTextTriggerValue("wink"),
-          StringTextTriggerValue(emoji":wink:")
+          StringTextTriggerValue(e":wink:")
         )
       ),
       List(MediaFile("occhiolino.gif"))
@@ -1076,10 +1091,10 @@ object RichardPHJBensonBot extends BotSkeleton {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue(emoji":lol:"),
-          StringTextTriggerValue(emoji":rofl:"),
+          StringTextTriggerValue(e":lol:"),
+          StringTextTriggerValue(e":rofl:"),
           StringTextTriggerValue("sorriso"),
-          StringTextTriggerValue(emoji":smile:")
+          StringTextTriggerValue(e":smile:")
         )
       ),
       List(
@@ -1225,10 +1240,10 @@ object RichardPHJBensonBot extends BotSkeleton {
     )
   )
 
-  override lazy val messageRepliesData: List[ReplyBundleMessage] =
+  val messageRepliesData: List[ReplyBundleMessage] =
     messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = List(
+  val commandRepliesData: List[ReplyBundleCommand] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
       text = TextReply(
@@ -1301,4 +1316,14 @@ carattere '!':
       )
     )
   )
+
+  def buildBot[F[_]: Timer: Parallel: ContextShift: ConcurrentEffect, A](
+      executorContext: ExecutionContext,
+      action: RichardPHJBensonBot[F] => F[A]
+  ): F[A] =
+    BlazeClientBuilder[F](executorContext).resource
+      .use { client =>
+        implicit val api: Api[F] = BotApi(client, baseUrl = s"https://api.telegram.org/bot$token")
+        action(new RichardPHJBensonBot[F]())
+      }
 }
