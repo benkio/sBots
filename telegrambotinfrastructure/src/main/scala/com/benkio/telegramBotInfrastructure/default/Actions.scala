@@ -24,10 +24,10 @@ trait DefaultActions {
       (msg: Message) => {
         val replyToMessage = if (reply.replyToMessage) Some(msg.messageId) else None
         val chatId: ChatId = ChatIntId(msg.chat.id)
-        reply match {
+        (reply match {
           case mp3: Mp3File =>
             for {
-              _ <- Methods.sendChatAction(chatId, "upload_voice").exec
+              _ <- Methods.sendChatAction(chatId, "upload_voice").exec.attemptT
               message <- Methods
                 .sendAudio(
                   chatId,
@@ -35,10 +35,11 @@ trait DefaultActions {
                   replyToMessageId = replyToMessage
                 )
                 .exec
+                .attemptT
             } yield message
           case gif: GifFile =>
             for {
-              _ <- Methods.sendChatAction(chatId, "upload_document").exec
+              _ <- Methods.sendChatAction(chatId, "upload_document").exec.attemptT
               message <- Methods
                 .sendAnimation(
                   chatId,
@@ -46,10 +47,11 @@ trait DefaultActions {
                   replyToMessageId = replyToMessage
                 )
                 .exec
+                .attemptT
             } yield message
           case photo: PhotoFile =>
             for {
-              _ <- Methods.sendChatAction(chatId, "upload_photo").exec
+              _ <- Methods.sendChatAction(chatId, "upload_photo").exec.attemptT
               message <- Methods
                 .sendPhoto(
                   chatId,
@@ -57,10 +59,11 @@ trait DefaultActions {
                   replyToMessageId = replyToMessage
                 )
                 .exec
+                .attemptT
             } yield message
           case text: TextReply =>
             for {
-              _ <- Methods.sendChatAction(chatId, "typing").exec
+              _ <- Methods.sendChatAction(chatId, "typing").exec.attemptT
               message <- Methods
                 .sendMessage(
                   chatId,
@@ -68,7 +71,13 @@ trait DefaultActions {
                   replyToMessageId = replyToMessage
                 )
                 .exec
+                .attemptT
             } yield message
+        }).value.map {
+          case Right(x) => x
+          case Left(e) =>
+            println(s"********ERROR OCCURRED********\n ${e.getMessage}")
+            msg
         }
       }
 }
