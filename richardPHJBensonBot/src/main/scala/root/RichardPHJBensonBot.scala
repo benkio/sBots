@@ -134,7 +134,12 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("maledetto"))), List(MediaFile("maledetto.mp3"))),
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("(..magari|magari..)".r))),
+      TextTrigger(
+        List(
+          StringTextTriggerValue("..magari"),
+          StringTextTriggerValue("magari.."),
+        )
+      ),
       List(MediaFile("magari.mp3"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("io ti aiuto"))), List(MediaFile("aiuto.mp3"))),
