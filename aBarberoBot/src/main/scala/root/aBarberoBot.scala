@@ -138,6 +138,26 @@ object ABarberoBot extends Configurations {
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(StringTextTriggerValue("seziona"), StringTextTriggerValue("cadaveri"), StringTextTriggerValue("morti"))
+      ),
+      List(MediaFile("cadaveri.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("strappa"),
+          StringTextTriggerValue("gli arti"),
+          StringTextTriggerValue("le braccia")
+        )
+      ),
+      List(MediaFile("strappare.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("saltare la testa"), StringTextTriggerValue("questa macchina"))),
+      List(MediaFile("saltareLaTesta.gif"))
+    ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("paura"))), List(MediaFile("paura.gif"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("sega"), StringTextTriggerValue("dov'è"))),
