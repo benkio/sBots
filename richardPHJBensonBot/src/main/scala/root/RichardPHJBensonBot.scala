@@ -202,6 +202,11 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("ultimi"))),
+      List(MediaFile("viCalpesto.gif"),MediaFile("ultimi.gif")),
+      replySelection = RandomSelection
+    ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("scivola"))), List(MediaFile("siScivola.mp3"))),
     ReplyBundleMessage(
       TextTrigger(
@@ -572,7 +577,6 @@ object RichardPHJBensonBot extends Configurations {
       TextTrigger(
         List(
           StringTextTriggerValue("vi calpesto"),
-          StringTextTriggerValue("ultimi degli ultimi"),
           StringTextTriggerValue("vermi"),
           StringTextTriggerValue("strisciate")
         )
