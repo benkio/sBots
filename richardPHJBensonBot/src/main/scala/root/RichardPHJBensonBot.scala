@@ -204,7 +204,7 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("ultimi"))),
-      List(MediaFile("viCalpesto.gif"),MediaFile("ultimi.gif")),
+      List(MediaFile("viCalpesto.gif"), MediaFile("ultimi.gif")),
       replySelection = RandomSelection
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("scivola"))), List(MediaFile("siScivola.mp3"))),
