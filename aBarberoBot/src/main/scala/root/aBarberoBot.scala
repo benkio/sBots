@@ -26,7 +26,7 @@ object ABarberoBot extends Configurations {
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("\\becco[h]*\\b".r))),
+      TextTrigger(List(RegexTextTriggerValue("\\becco[h]?\\b".r))),
       List(MediaFile("ecco.mp3"))
     ),
     ReplyBundleMessage(
