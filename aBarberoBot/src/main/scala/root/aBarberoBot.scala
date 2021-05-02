@@ -328,7 +328,8 @@ object ABarberoBot extends Configurations {
       TextTrigger(List(RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana|troia)".r))),
       List(
         MediaFile("figlioDi.gif"),
-        MediaFile("figlioDi2.gif")
+        MediaFile("figlioDi2.gif"),
+        MediaFile("figlioDi3.mp3")
       ),
       replySelection = RandomSelection
     ),
