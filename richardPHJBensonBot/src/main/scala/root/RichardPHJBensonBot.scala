@@ -31,6 +31,15 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("finire male"),
+          StringTextTriggerValue("tocca benson")
+        )
+      ),
+      List(MediaFile("finireMale.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           StringTextTriggerValue("musica tecnica"),
           StringTextTriggerValue("rock"),
           StringTextTriggerValue("antonacci"),
@@ -202,6 +211,14 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("questo è matto")
+        )
+      ),
+      List(MediaFile("mattoRagazzi.gif"))
+    ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("ultimi"))),
       List(MediaFile("viCalpesto.gif"), MediaFile("ultimi.gif")),
@@ -776,7 +793,11 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("si sente"))), List(MediaFile("sisente.gif"))),
     ReplyBundleMessage(
       TextTrigger(
-        List(StringTextTriggerValue("colpa vostra"), StringTextTriggerValue("pazzo"), StringTextTriggerValue("matto"))
+        List(
+          StringTextTriggerValue("colpa vostra"),
+          StringTextTriggerValue("pazzo"),
+          RegexTextTriggerValue("(divento|diventare|sono) matto".r)
+        )
       ),
       List(MediaFile("stodiventandopazzo.gif"))
     ),
