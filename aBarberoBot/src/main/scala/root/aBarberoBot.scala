@@ -294,7 +294,7 @@ object ABarberoBot extends Configurations {
       List(MediaFile("furfante.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("basta "), StringTextTriggerValue(" basta"))),
+      TextTrigger(List(StringTextTriggerValue("basta!"))),
       List(MediaFile("basta.gif"))
     ),
     ReplyBundleMessage(
