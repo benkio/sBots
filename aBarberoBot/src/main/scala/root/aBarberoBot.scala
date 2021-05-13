@@ -26,6 +26,10 @@ object ABarberoBot extends Configurations {
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("wikipedia"))),
+      List(MediaFile("wikipedia.mp3"))
+    ),
+    ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("\\beccoh\\b".r))),
       List(MediaFile("ecco.mp3"))
     ),

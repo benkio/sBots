@@ -31,6 +31,15 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("sborrata"),
+          StringTextTriggerValue("scopare")
+        )
+      ),
+      List(MediaFile("sborrata.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           StringTextTriggerValue("finire male"),
           StringTextTriggerValue("tocca benson")
         )

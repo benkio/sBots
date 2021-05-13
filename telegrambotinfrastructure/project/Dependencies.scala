@@ -4,10 +4,10 @@ import Keys._
 object Dependencies {
 
   lazy val dependenciesVersion = new {
-    val catsVersion          = "2.1.1"
-    val scalaTestVersion     = "3.2.5"
-    val telegramiumVersion   = "4.51.1"
-    val sqliteJdbcVersion    = "3.31.1"
+    val catsVersion          = "2.2.0"
+    val scalaTestVersion     = "3.2.7"
+    val telegramiumVersion   = "4.52.2"
+    val sqliteJdbcVersion    = "3.34.0"
     val randomVersion        = "0.0.2"
   }
   lazy val libs = new  {
