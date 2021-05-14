@@ -14,10 +14,10 @@ class ReplyBundleSpec extends AnyWordSpec with Matchers {
     (r: Reply) =>
       (m: Message) =>
         IO.pure(r match {
-          case _: Mp3File   => m.copy(text = Some("Mp3"))
-          case _: GifFile   => m.copy(text = Some("Gif"))
-          case _: PhotoFile => m.copy(text = Some("Photo"))
-          case _: TextReply => m.copy(text = Some("Text"))
+          case _: Mp3File   => List(m.copy(text = Some("Mp3")))
+          case _: GifFile   => List(m.copy(text = Some("Gif")))
+          case _: PhotoFile => List(m.copy(text = Some("Photo")))
+          case _: TextReply => List(m.copy(text = Some("Text")))
         })
 
   "computeReplyBundle" should {
@@ -32,7 +32,7 @@ class ReplyBundleSpec extends AnyWordSpec with Matchers {
 
         val replyBundleInput: ReplyBundleMessage = ReplyBundleMessage(
           trigger = TextTrigger(List(StringTextTriggerValue("test"))),
-          text = TextReply(_ => List("some text that will be overwritten by the implicit")),
+          text = TextReply(_ => List(List("some text that will be overwritten by the implicit"))),
           mediafiles = inputMediafile
         )
 

@@ -31,6 +31,18 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("non ci credete?"),
+          RegexTextTriggerValue("grande s[dt]ronza[dt][ea]".r)
+        )
+      ),
+      List(
+        MediaFile("noncicredete.gif"),
+        MediaFile("nonCiCredete.mp3"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           StringTextTriggerValue("sborrata"),
           StringTextTriggerValue("scopare")
         )
@@ -623,7 +635,7 @@ object RichardPHJBensonBot extends Configurations {
       TextTrigger(
         List(
           StringTextTriggerValue("pensa alla deficienza"),
-          StringTextTriggerValue("ma si può dire una cosa del genere")
+          RegexTextTriggerValue("ma si può dire una cosa (del genere|così)".r),
         )
       ),
       List(MediaFile("deficienza.gif"))
@@ -660,15 +672,6 @@ object RichardPHJBensonBot extends Configurations {
         )
       ),
       List(MediaFile("sodinonsapere.gif"))
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("non ci credete?"),
-          RegexTextTriggerValue("grande s[dt]ronza[dt][ea]".r)
-        )
-      ),
-      List(MediaFile("noncicredete.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -1287,30 +1290,25 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesData: List[ReplyBundleMessage] =
     messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
 
+  val messageReplyDataStringChunks = {
+    val (triggers, lastTriggers) = messageRepliesData
+      .map(_.trigger match {
+        case TextTrigger(lt) => lt.mkString("[", " - ", "]")
+        case _               => ""
+      })
+      .foldLeft((List.empty[List[String]], List.empty[String])) {
+        case ((acc, candidate), triggerString) =>
+          if ((candidate :+ triggerString).mkString("\n").length > 4090) (acc :+ candidate, List(triggerString))
+          else (acc, candidate :+ triggerString)
+      }
+    triggers :+ lastTriggers
+  }
+
   val commandRepliesData: List[ReplyBundleCommand] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
       text = TextReply(
-        _ =>
-          messageRepliesData
-            .take(messageRepliesData.length / 2)
-            .map(_.trigger match {
-              case TextTrigger(lt) => lt.mkString("[", " - ", "]")
-              case _               => ""
-            }),
-        false
-      )
-    ),
-    ReplyBundleCommand(
-      trigger = CommandTrigger("triggerlist"),
-      text = TextReply(
-        _ =>
-          messageRepliesData
-            .drop(messageRepliesData.length / 2)
-            .map(_.trigger match {
-              case TextTrigger(lt) => lt.mkString("[", " - ", "]")
-              case _               => ""
-            }),
+        _ => messageReplyDataStringChunks,
         false
       )
     ),
@@ -1322,19 +1320,19 @@ object RichardPHJBensonBot extends Configurations {
             .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
             .map(t => {
               val (_, inputTrimmed) = t.span(_ != ' ')
-              List(Bensonify.compute(inputTrimmed))
+              List(List(Bensonify.compute(inputTrimmed)))
             })
-            .getOrElse(List("E PARLAAAAAAA!!!!")),
+            .getOrElse(List(List("E PARLAAAAAAA!!!!"))),
         true
       )
     ),
     ReplyBundleCommand(
       trigger = CommandTrigger("instructions"),
       text = TextReply(
-        _ => List(s"""
+        _ => List(List(s"""
 ---- Instruzioni Per il Bot di Benson ----
 
-Il bot reagisce automaticamente ai messaggi in base ai triggher che si
+Il bot reagisce automaticamente ai messaggi in base ai trigger che si
 possono trovare dal comando:
 
 /triggerlist
@@ -1350,12 +1348,12 @@ attraverso il comando:
 la frase è necessaria, altrimenti il bot vi risponderà in malomodo.
 
 Infine, se si vuole disabilitare il bot per un particolare messaggio,
-ad esempio per un messaggio lungo che potrebbe causare vari triggher
+ad esempio per un messaggio lungo che potrebbe causare vari trigger
 in una volta, è possibile farlo iniziando il messaggio con il
 carattere '!':
 
 ! «Messaggio»
-"""),
+""")),
         false
       )
     )

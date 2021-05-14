@@ -67,7 +67,7 @@ object CalandroBot extends Configurations {
   val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("sbrighi"))),
-      text = TextReply(_ => List("Passo"), false)
+      text = TextReply(_ => List(List("Passo")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -78,25 +78,25 @@ object CalandroBot extends Configurations {
           StringTextTriggerValue("ricchione")
         )
       ),
-      text = TextReply(_ => List("CHE SCHIFO!!!"), false)
+      text = TextReply(_ => List(List("CHE SCHIFO!!!")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("caldo"), StringTextTriggerValue("scotta"))),
-      text = TextReply(_ => List("Come i carbofreni della Brembo!!"), false)
+      text = TextReply(_ => List(List("Come i carbofreni della Brembo!!")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue("ciao"), StringTextTriggerValue("buongiorno"), StringTextTriggerValue("salve"))
       ),
-      text = TextReply(_ => List("Buongiorno Signori"), false)
+      text = TextReply(_ => List(List("Buongiorno Signori")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("film"))),
-      text = TextReply(_ => List("Lo riguardo volentieri"), false)
+      text = TextReply(_ => List(List("Lo riguardo volentieri")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("stasera"), StringTextTriggerValue("?"))),
-      text = TextReply(_ => List("Facciamo qualcosa tutti assieme?"), false),
+      text = TextReply(_ => List(List("Facciamo qualcosa tutti assieme?")), false),
       matcher = ContainsAll
     ),
     ReplyBundleMessage(
@@ -108,15 +108,15 @@ object CalandroBot extends Configurations {
           StringTextTriggerValue("alta definizione")
         )
       ),
-      text = TextReply(_ => List("Eh sì, vedi...si nota l'indecisione dell'immagine"), false)
+      text = TextReply(_ => List(List("Eh sì, vedi...si nota l'indecisione dell'immagine")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("qualità"))),
-      text = TextReply(_ => List("A 48x masterizza meglio"), false)
+      text = TextReply(_ => List(List("A 48x masterizza meglio")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("macchina"), StringTextTriggerValue("automobile"))),
-      text = TextReply(_ => List("Hai visto l'ultima puntata di \"Top Gear\"?"), false)
+      text = TextReply(_ => List(List("Hai visto l'ultima puntata di \"Top Gear\"?")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -127,42 +127,46 @@ object CalandroBot extends Configurations {
           RegexTextTriggerValue(" patacca ".r)
         )
       ),
-      text = TextReply(_ => List("Io so come fare con le donne...ho letto tutto..."), false)
+      text = TextReply(_ => List(List("Io so come fare con le donne...ho letto tutto...")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("ambulanza"), StringTextTriggerValue(e":ambulance:"))),
       text = TextReply(
         _ =>
           List(
-            Emoji(0x1F624).toString      // 😤
-              ++ Emoji(0x1F918).toString // 🤘
-              ++ Emoji(0x1F91E).toString // 🤞
-              ++ Emoji(0x1F91E).toString // 🤞
-              ++ Emoji(0x1F918).toString // 🤘
-              ++ Emoji(0x1F624).toString // 😤
+            List(
+              Emoji(0x1F624).toString      // 😤
+                ++ Emoji(0x1F918).toString // 🤘
+                ++ Emoji(0x1F91E).toString // 🤞
+                ++ Emoji(0x1F91E).toString // 🤞
+                ++ Emoji(0x1F918).toString // 🤘
+                ++ Emoji(0x1F624).toString // 😤
+            )
           ),
         false
       )
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("pc"), StringTextTriggerValue("computer"))),
-      text = TextReply(_ => List("Il fisso performa meglio rispetto al portatile!!!"), false)
+      text = TextReply(_ => List(List("Il fisso performa meglio rispetto al portatile!!!")), false)
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("videogioc"), StringTextTriggerValue(e":video_game:"))),
       text = TextReply(
-        _ => List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
+        _ =>
+          List(List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!")),
         false
       )
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue(" hs"), StringTextTriggerValue("hearthstone"))),
-      text = TextReply(_ => List("BASTA CON QUESTI TAUNT!!!"), false)
+      text = TextReply(_ => List(List("BASTA CON QUESTI TAUNT!!!")), false)
     ),
     ReplyBundleMessage(
       MessageLengthTrigger(280),
       text = TextReply(
-        (msg: Message) => List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)"""),
+        (msg: Message) =>
+          List(List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)""")),
         true
       )
     )

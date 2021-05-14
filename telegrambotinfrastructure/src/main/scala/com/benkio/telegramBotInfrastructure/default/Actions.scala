@@ -36,7 +36,7 @@ trait DefaultActions {
                 )
                 .exec
                 .attemptT
-            } yield message
+            } yield List(message)
           case gif: GifFile =>
             for {
               _ <- Methods.sendChatAction(chatId, "upload_document").exec.attemptT
@@ -48,7 +48,7 @@ trait DefaultActions {
                 )
                 .exec
                 .attemptT
-            } yield message
+            } yield List(message)
           case photo: PhotoFile =>
             for {
               _ <- Methods.sendChatAction(chatId, "upload_photo").exec.attemptT
@@ -60,29 +60,33 @@ trait DefaultActions {
                 )
                 .exec
                 .attemptT
-            } yield message
+            } yield List(message)
           case text: TextReply =>
             for {
               _ <- Methods.sendChatAction(chatId, "typing").exec.attemptT
-              message <- Methods
-                .sendMessage(
-                  chatId,
-                  text.text(msg).fold("")(_ + "\n" + _),
-                  replyToMessageId = replyToMessage
+              messages <- text
+                .text(msg)
+                .traverse(m =>
+                  Methods
+                    .sendMessage(
+                      chatId,
+                      m.fold("")(_ + "\n" + _),
+                      replyToMessageId = replyToMessage
+                    )
+                    .exec
                 )
-                .exec
                 .attemptT
-            } yield message
+            } yield messages
         }).value.map {
           case Right(x) => x
           case Left(e) =>
             println(s"********ERROR OCCURRED********\n ${e.getMessage}")
-            msg
+            List(msg)
         }
       }
 }
 
 object Actions {
   type Action[T <: Reply, F[_]] =
-    T => Message => F[Message]
+    T => Message => F[List[Message]]
 }

@@ -135,7 +135,7 @@ object ABarberoBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(StringTextTriggerValue(" ascia"), StringTextTriggerValue("ascia "), StringTextTriggerValue("sangue"))
+        List(RegexTextTriggerValue("\\bascia\\b".r), StringTextTriggerValue("sangue"))
       ),
       List(MediaFile("sangue.mp3"))
     ),
@@ -366,17 +366,25 @@ object ABarberoBot extends Configurations {
   val messageRepliesData: List[ReplyBundleMessage] =
     messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
 
+  val messageReplyDataStringChunks = {
+    val (triggers, lastTriggers) = messageRepliesData
+      .map(_.trigger match {
+        case TextTrigger(lt) => lt.mkString("[", " - ", "]")
+        case _               => ""
+      })
+      .foldLeft((List.empty[List[String]], List.empty[String])) {
+        case ((acc, candidate), triggerString) =>
+          if ((candidate :+ triggerString).mkString("\n").length > 4090) (acc :+ candidate, List(triggerString))
+          else (acc, candidate :+ triggerString)
+      }
+    triggers :+ lastTriggers
+  }
+
   val commandRepliesData: List[ReplyBundleCommand] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
       text = TextReply(
-        _ =>
-          messageRepliesData
-            .take(messageRepliesData.length)
-            .map(_.trigger match {
-              case TextTrigger(lt) => lt.mkString("[", " - ", "]")
-              case _               => ""
-            }),
+        _ => messageReplyDataStringChunks,
         false
       )
     )
