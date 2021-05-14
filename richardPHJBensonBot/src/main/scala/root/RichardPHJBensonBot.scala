@@ -563,7 +563,7 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("discotecaLaziale.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("piloti d'aereo"), StringTextTriggerValue("disasti aerei"))),
+      TextTrigger(List(StringTextTriggerValue("piloti d'aereo"), StringTextTriggerValue("disastri aerei"))),
       List(MediaFile("drogatiPiloti.gif"))
     ),
     ReplyBundleMessage(
