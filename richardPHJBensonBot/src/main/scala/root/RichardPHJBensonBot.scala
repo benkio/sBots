@@ -122,7 +122,7 @@ object RichardPHJBensonBot extends Configurations {
       TextTrigger(
         List(
           RegexTextTriggerValue("au[ ]?de".r),
-          StringTextTriggerValue("time"),
+          RegexTextTriggerValue("\\btime\\b".r),
           RegexTextTriggerValue("uir[ ]?bi[ ]?taim".r)
         )
       ),
