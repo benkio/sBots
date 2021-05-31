@@ -31,6 +31,205 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("che cazzo era quella roba"),
+          StringTextTriggerValue("che cazzo mi avete dato"),
+          RegexTextTriggerValue("girar(e|a)? la testa".r),
+          RegexTextTriggerValue("insieme alla (c|g)o(c|g)a (c|g)ola".r)
+        )
+      ),
+      List(
+        MediaFile("cheCazzoEraQuellaRoba.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("dovrei lavarmelo di più"),
+          StringTextTriggerValue("il cazzo me lo pulisci un'altra volta"),
+        )
+      ),
+      List(
+        MediaFile("lavareCazzo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("giù( giù)+".r))
+      ),
+      List(
+        MediaFile("giuGiuGiu.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("viale zara"),
+          RegexTextTriggerValue("cas(a|e) chius(a|e)".r)
+        )
+      ),
+      List(
+        MediaFile("vialeZara.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("tocca il culo"))),
+      List(MediaFile("miToccaIlCulo.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("negli occhiali"),
+        StringTextTriggerValue("sulla spalla"),
+      )),
+      List(MediaFile("pannaOcchialiSpalla.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("state zitti"))),
+      List(MediaFile("stateZittiZozziUltimi.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("solo io")
+      )),
+      List(
+        MediaFile("soloIo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("vaniglia"),
+        StringTextTriggerValue("pandoro"),
+        RegexTextTriggerValue("crema alla [gc]io[gc]+ola[dt]a".r),
+      )),
+      List(
+        MediaFile("zuccheroVanigliaCremaCioccolataPandoro.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("saranno cazzi vostri")
+      )),
+      List(MediaFile("sarannoCazziVostri.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        RegexTextTriggerValue("poteri (ter[r]+ib[b]+ili|demoniaci)".r)
+      )),
+      List(MediaFile("poteriDemoniaci.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        RegexTextTriggerValue("sono( pure)? italiane".r),
+        RegexTextTriggerValue("non so(no)? ungheresi".r)
+      )),
+      List(MediaFile("italianeUngheresi.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("colpevole")
+      )),
+      List(MediaFile("ilColpevole.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("vi spacco il culo")
+      )),
+      List(MediaFile("viSpaccoIlCulo.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("sindaco")
+      )),
+      List(MediaFile("sindaco.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        RegexTextTriggerValue("si leva (sta roba|sto schifo)".r),
+        StringTextTriggerValue("questo schifo")
+      )),
+      List(MediaFile("questoSchifo.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("preservativo")
+      )),
+      List(MediaFile("preservativo.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(RegexTextTriggerValue("io nooo[o]*".r))),
+      List(MediaFile("ioNo.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("cristo pinocchio"),
+        RegexTextTriggerValue("(strade|vie) inferiori".r),
+      )),
+      List(
+        MediaFile("cristoPinocchio.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("giuda"),
+        StringTextTriggerValue("chi è cristo"),
+        StringTextTriggerValue("si è fatto fregare"),
+        StringTextTriggerValue("bacio di un frocio"),
+      )),
+      List(
+        MediaFile("chiECristo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("cameriera"),
+        StringTextTriggerValue("moglie"),
+        StringTextTriggerValue("si sposa"),
+        StringTextTriggerValue("matrimonio")
+      )),
+      List(
+        MediaFile("cameriera.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("korn"),
+        StringTextTriggerValue("giovanni battista"),
+        StringTextTriggerValue("acque del giordano"),
+        StringTextTriggerValue("battezzato"),
+        StringTextTriggerValue("battesimo")
+      )),
+      List(
+        MediaFile("battesimo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        RegexTextTriggerValue("\\bpasqua\\b".r)
+      )),
+      List(
+        MediaFile("auguriPasqua.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("a stronzo"),
+        RegexTextTriggerValue("stronz[o]{3,}".r)
+      )),
+      List(
+        MediaFile("AStronzo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("ancora voi")
+      )),
+      List(
+        MediaFile("ancoraVoi.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           StringTextTriggerValue("non ci credete?"),
           RegexTextTriggerValue("grande s[dt]ronza[dt][ea]".r)
         )
@@ -104,7 +303,6 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("panna"),
           StringTextTriggerValue("anguille"),
           StringTextTriggerValue("polipi"),
           StringTextTriggerValue("cetrioli"),
@@ -112,12 +310,8 @@ object RichardPHJBensonBot extends Configurations {
         )
       ),
       List(MediaFile("problema.mp3"))
-    ), //also in special list
+    ), // also in special list
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("continua"))), List(MediaFile("continua.mp3"))),
-    ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("zucchero"))),
-      List(MediaFile("ChitarraZuggherada.mp3"))
-    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -133,8 +327,7 @@ object RichardPHJBensonBot extends Configurations {
         List(
           StringTextTriggerValue("sono finito"),
           StringTextTriggerValue("ultimo stadio"),
-          StringTextTriggerValue("stanco"),
-          StringTextTriggerValue("non vedo")
+          StringTextTriggerValue("stanco")
         )
       ),
       List(MediaFile("stanco.mp3"))
@@ -210,7 +403,9 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("povericretini.mp3"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("due ossa"))), List(MediaFile("dueossa.mp3"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("proprio schifo"))), List(MediaFile("schifo.mp3"))),
+    ReplyBundleMessage(TextTrigger(List(
+      RegexTextTriggerValue("mi fai( proprio)? schifo".r)
+    )), List(MediaFile("schifo.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("pappalardo"))), List(MediaFile("pappalardo.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("è un ordine"))), List(MediaFile("ordine.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("una sera"))), List(MediaFile("sera.mp3"))),
@@ -242,7 +437,11 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("ultimi"))),
-      List(MediaFile("viCalpesto.gif"), MediaFile("ultimi.gif")),
+      List(
+        MediaFile("viCalpesto.gif"),
+        MediaFile("ultimi.gif"),
+        MediaFile("stateZittiZozziUltimi.mp3"),
+      ),
       replySelection = RandomSelection
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("scivola"))), List(MediaFile("siScivola.mp3"))),
@@ -606,10 +805,6 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("non sai molto"))), List(MediaFile("nonSaiMolto.gif"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("divert"))), List(MediaFile("diverti.gif"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("e parla"))), List(MediaFile("parla.gif"))),
-    ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("quello che dico io"))),
-      List(MediaFile("quelloCheDicoIo.gif"))
-    ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("uno scherzo"))), List(MediaFile("scherzo.gif"))),
     ReplyBundleMessage(
       TextTrigger(
@@ -693,6 +888,7 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("nonmenefotte.gif"),
         MediaFile("nonMeNeFrega.gif"),
+        MediaFile("eNonMeNeFotteUnCazzo.mp3"),
       ),
       replySelection = RandomSelection
     ),
@@ -862,7 +1058,7 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("sputo.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("lasciami in pace"), RegexTextTriggerValue("stronz[oa]".r))),
+      TextTrigger(List(StringTextTriggerValue("lasciami in pace"), RegexTextTriggerValue("\\bstronza\\b".r))),
       List(MediaFile("lasciamiinpace.gif"))
     ),
     ReplyBundleMessage(
@@ -875,10 +1071,6 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("arivado.gif"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("pure bona"))), List(MediaFile("bona.gif"))),
-    ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("mortacci vostri"))),
-      List(MediaFile("mortaccivostri.gif"))
-    ),
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue(" danza"), StringTextTriggerValue("macabra"), StringTextTriggerValue(" ball"))
@@ -1030,6 +1222,26 @@ object RichardPHJBensonBot extends Configurations {
 
   val messageRepliesSpecialData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("quello che dico io")
+      )),
+      List(
+        MediaFile("quelloCheDicoIo.gif"),
+        MediaFile("fannoQuelloCheDicoIo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(
+        StringTextTriggerValue("zucchero")
+      )),
+      List(
+        MediaFile("ChitarraZuggherada.mp3"),
+        MediaFile("zucchero.mp3"),
+        MediaFile("zuccheroVanigliaCremaCioccolataPandoro.mp3"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("problema"))),
       List(
         MediaFile("vabbeProblema.gif"),
@@ -1075,9 +1287,17 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(StringTextTriggerValue("mignotta"), StringTextTriggerValue("puttana"), StringTextTriggerValue("troia"))
+        List(
+          StringTextTriggerValue("mignotta"),
+          StringTextTriggerValue("puttana"),
+          StringTextTriggerValue("troia"))
       ),
-      List(MediaFile("mignotta.mp3"), MediaFile("mignotta.gif"))
+      List(
+        MediaFile("mignotta.mp3"),
+        MediaFile("mignotta.gif"),
+        MediaFile("vialeZara.mp3")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("ti devi spaventare"))),
@@ -1249,6 +1469,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("hocapito.mp3"),
         MediaFile("avetecapito.mp3"),
         MediaFile("capito.mp3"),
+        MediaFile("nonHannoCapitoUnCazzo.mp3"),
         MediaFile("AveteCapitoComeSempre.gif"),
         MediaFile("NonAveteCapitoUnCazzo.gif"),
         MediaFile("voiNonAveteCapitoUnCazzo.gif"),
@@ -1281,10 +1502,44 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("viCalpesto.gif"),
         MediaFile("schifosi.mp3"),
         MediaFile("schifosi2.mp3"),
+        MediaFile("schifosi3.mp3"),
+        MediaFile("stateZittiZozziUltimi.mp3"),
         MediaFile("schifosi.gif")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("mortacci vostri"))),
+      List(
+        MediaFile("mortaccivostri.gif"),
+        MediaFile("stateZittiZozziUltimi.mp3"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("non vedo")
+        )
+      ),
+      List(
+        MediaFile("stanco.mp3"),
+        MediaFile("pannaOcchialiSpalla.mp3"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("panna")
+        )
+      ),
+      List(
+        MediaFile("problema.mp3"),
+        MediaFile("pannaOcchialiSpalla.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
   val messageRepliesData: List[ReplyBundleMessage] =
@@ -1316,13 +1571,13 @@ object RichardPHJBensonBot extends Configurations {
       trigger = CommandTrigger("bensonify"),
       text = TextReply(
         msg =>
-          msg.text
-            .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
-            .map(t => {
-              val (_, inputTrimmed) = t.span(_ != ' ')
-              List(List(Bensonify.compute(inputTrimmed)))
-            })
-            .getOrElse(List(List("E PARLAAAAAAA!!!!"))),
+        msg.text
+          .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
+          .map(t => {
+            val (_, inputTrimmed) = t.span(_ != ' ')
+            List(List(Bensonify.compute(inputTrimmed)))
+          })
+          .getOrElse(List(List("E PARLAAAAAAA!!!!"))),
         true
       )
     ),
@@ -1360,8 +1615,8 @@ carattere '!':
   )
 
   def buildBot[F[_]: Timer: Parallel: ContextShift: ConcurrentEffect, A](
-      executorContext: ExecutionContext,
-      action: RichardPHJBensonBot[F] => F[A]
+    executorContext: ExecutionContext,
+    action: RichardPHJBensonBot[F] => F[A]
   ): F[A] =
     BlazeClientBuilder[F](executorContext).resource
       .use { client =>
