@@ -30,6 +30,14 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
+        List(StringTextTriggerValue("completamente nudo"))
+      ),
+      List(
+        MediaFile("completamenteNudo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
         List(
           StringTextTriggerValue("che cazzo era quella roba"),
           StringTextTriggerValue("che cazzo mi avete dato"),
