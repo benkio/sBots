@@ -252,7 +252,7 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("a stronzo"),
+          RegexTextTriggerValue("a( )?s[s]+tronzo".r),
           RegexTextTriggerValue("stronz[o]{3,}".r)
         )
       ),
