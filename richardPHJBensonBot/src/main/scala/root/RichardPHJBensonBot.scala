@@ -1250,7 +1250,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("il senso"))), List(MediaFile("ilSensoCapito.gif"))),
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("[ ]?ester | ester[ ]?".r), StringTextTriggerValue("esposito"))),
+      TextTrigger(List(RegexTextTriggerValue("\\bester\\b".r), StringTextTriggerValue("esposito"))),
       List(
         MediaFile("ester.gif"),
         MediaFile("ester2.gif"),
