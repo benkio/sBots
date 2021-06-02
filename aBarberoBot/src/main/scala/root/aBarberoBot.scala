@@ -276,7 +276,7 @@ object ABarberoBot extends Configurations {
       List(MediaFile("ammazziamoTuttiNoProblem.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("certo "), StringTextTriggerValue(" certo"))),
+      TextTrigger(List(RegexTextTriggerValue("\\bcerto\\b".r))),
       List(MediaFile("certo.gif"))
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("rogo"))), List(MediaFile("rogo.gif"))),
