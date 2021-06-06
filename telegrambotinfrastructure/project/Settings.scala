@@ -8,7 +8,7 @@ object Settings {
   lazy val settings = Seq(
     organization := "com.benkio",
     version := "1.0.0",
-    scalaVersion := "2.13.5",
+    scalaVersion := "2.13.6",
     publishMavenStyle := true,
     publishArtifact in Test := false,
     scalacOptions ++= Seq(
@@ -68,7 +68,7 @@ object Settings {
     assemblyOption in assembly := (assemblyOption in assembly).value.copy(
       includeScala = false,
       includeDependency=true),
-    assemblyMergeStrategy in assembly := {
+    assembly / assemblyMergeStrategy := {
       case PathList("META-INF", xs@_*) => MergeStrategy.discard
       case n if n.startsWith("reference.conf") => MergeStrategy.concat
       case _ => MergeStrategy.first

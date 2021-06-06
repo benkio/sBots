@@ -1600,10 +1600,9 @@ object RichardPHJBensonBot extends Configurations {
         case TextTrigger(lt) => lt.mkString("[", " - ", "]")
         case _               => ""
       })
-      .foldLeft((List.empty[List[String]], List.empty[String])) {
-        case ((acc, candidate), triggerString) =>
-          if ((candidate :+ triggerString).mkString("\n").length > 4090) (acc :+ candidate, List(triggerString))
-          else (acc, candidate :+ triggerString)
+      .foldLeft((List.empty[List[String]], List.empty[String])) { case ((acc, candidate), triggerString) =>
+        if ((candidate :+ triggerString).mkString("\n").length > 4090) (acc :+ candidate, List(triggerString))
+        else (acc, candidate :+ triggerString)
       }
     triggers :+ lastTriggers
   }

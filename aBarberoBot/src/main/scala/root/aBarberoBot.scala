@@ -26,6 +26,25 @@ object ABarberoBot extends Configurations {
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("secolo"))),
+      List(MediaFile("secolo.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("streghe"),
+          StringTextTriggerValue("maghi"),
+          StringTextTriggerValue("draghi"),
+          StringTextTriggerValue("roghi"),
+        )
+      ),
+      List(MediaFile("draghi.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("crociate"))),
+      List(MediaFile("crociate.mp3"))
+    ),
+    ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("wikipedia"))),
       List(MediaFile("wikipedia.mp3"))
     ),
@@ -372,10 +391,9 @@ object ABarberoBot extends Configurations {
         case TextTrigger(lt) => lt.mkString("[", " - ", "]")
         case _               => ""
       })
-      .foldLeft((List.empty[List[String]], List.empty[String])) {
-        case ((acc, candidate), triggerString) =>
-          if ((candidate :+ triggerString).mkString("\n").length > 4090) (acc :+ candidate, List(triggerString))
-          else (acc, candidate :+ triggerString)
+      .foldLeft((List.empty[List[String]], List.empty[String])) { case ((acc, candidate), triggerString) =>
+        if ((candidate :+ triggerString).mkString("\n").length > 4090) (acc :+ candidate, List(triggerString))
+        else (acc, candidate :+ triggerString)
       }
     triggers :+ lastTriggers
   }

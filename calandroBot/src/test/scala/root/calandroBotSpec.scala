@@ -8,10 +8,12 @@ import org.scalatest.wordspec.AnyWordSpec
 class CalandroBotSpec extends AnyWordSpec {
 
   def testFilename(filename: String): Assertion =
-    if (ResourceSource
-          .selectResourceAccess(CalandroBot.resourceSource)
-          .getResourceByteArray(filename)
-          .isEmpty)
+    if (
+      ResourceSource
+        .selectResourceAccess(CalandroBot.resourceSource)
+        .getResourceByteArray(filename)
+        .isEmpty
+    )
       fail(s"$filename cannot be found")
     else succeed
 

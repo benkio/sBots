@@ -46,10 +46,10 @@ class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F]) extends L
     SemigroupK[Option].combineK(messageLogic(msg, text), commandLogic(msg, text))
 
   override def onMessage(msg: Message): F[Unit] = {
-    val x: Option[F[Unit]] = (for {
+    val x: Option[F[Unit]] = for {
       text   <- msg.text
       theENd <- botLogic(msg, text)
-    } yield theENd.void)
+    } yield theENd.void
     x.getOrElse(Monad[F].unit)
   }
 }

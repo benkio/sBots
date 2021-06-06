@@ -135,12 +135,12 @@ object CalandroBot extends Configurations {
         _ =>
           List(
             List(
-              Emoji(0x1F624).toString      // 😤
-                ++ Emoji(0x1F918).toString // 🤘
-                ++ Emoji(0x1F91E).toString // 🤞
-                ++ Emoji(0x1F91E).toString // 🤞
-                ++ Emoji(0x1F918).toString // 🤘
-                ++ Emoji(0x1F624).toString // 😤
+              Emoji(0x1f624).toString      // 😤
+                ++ Emoji(0x1f918).toString // 🤘
+                ++ Emoji(0x1f91e).toString // 🤞
+                ++ Emoji(0x1f91e).toString // 🤞
+                ++ Emoji(0x1f918).toString // 🤘
+                ++ Emoji(0x1f624).toString // 😤
             )
           ),
         false

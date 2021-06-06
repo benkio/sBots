@@ -14,8 +14,8 @@ class ReplySelectionSpec extends AnyWordSpec with Matchers {
     "be a function returning a list of one element" when {
       "a list of multiple element is provided" in {
         val result = RandomSelection.logic[IO](input).unsafeRunSync()
-        inside(result) {
-          case (mediaFile: MediaFile) :: Nil => List("a.mp3", "b.gif", "c.jpg") should contain(mediaFile.filename)
+        inside(result) { case (mediaFile: MediaFile) :: Nil =>
+          List("a.mp3", "b.gif", "c.jpg") should contain(mediaFile.filename)
         }
       }
     }

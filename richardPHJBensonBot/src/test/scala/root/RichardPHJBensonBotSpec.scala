@@ -10,10 +10,12 @@ import org.scalatest.wordspec.AnyWordSpec
 class RichardPHJBensonBotSpec extends AnyWordSpec with Matchers {
 
   def testFilename(filename: String): Assertion =
-    if (ResourceSource
-          .selectResourceAccess(RichardPHJBensonBot.resourceSource)
-          .getResourceByteArray(filename)
-          .isEmpty)
+    if (
+      ResourceSource
+        .selectResourceAccess(RichardPHJBensonBot.resourceSource)
+        .getResourceByteArray(filename)
+        .isEmpty
+    )
       fail(s"$filename cannot be found")
     else succeed
 

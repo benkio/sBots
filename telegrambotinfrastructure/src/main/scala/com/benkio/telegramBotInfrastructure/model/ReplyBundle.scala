@@ -32,8 +32,8 @@ final case class ReplyBundleCommand(
 
 object ReplyBundle {
 
-  def computeReplyBundle[F[_]](replyBundle: ReplyBundle, message: Message)(
-      implicit replyAction: Action[Reply, F],
+  def computeReplyBundle[F[_]](replyBundle: ReplyBundle, message: Message)(implicit
+      replyAction: Action[Reply, F],
       syncF: Sync[F]
   ): F[List[Message]] = {
     val dataToSend =

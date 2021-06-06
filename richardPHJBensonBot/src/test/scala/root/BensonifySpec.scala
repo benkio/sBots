@@ -21,9 +21,8 @@ class BensonifySpec extends AnyWordSpec with Matchers {
         "ULTIMI"     -> "ULDIMI"
       )
       "A bunch of special cases are provided" in {
-        (cases ++ upperCases).foreach {
-          case (case1, expected) =>
-            Bensonify.compute(case1) shouldEqual expected
+        (cases ++ upperCases).foreach { case (case1, expected) =>
+          Bensonify.compute(case1) shouldEqual expected
         }
       }
     }
