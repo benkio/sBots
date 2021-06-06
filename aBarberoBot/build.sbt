@@ -16,7 +16,6 @@ lazy val root = (project in file(".")).
       scalaTest % Test,
       telegramiumCore,
       telegramiumHigh,
-      cats,
       catsEffect
     ),
     mainClass := Some("root.main"),

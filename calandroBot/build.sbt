@@ -17,7 +17,6 @@ lazy val root = (project in file(".")).
       lightbendEmoji,
       telegramiumCore,
       telegramiumHigh,
-      cats,
       catsEffect
     ),
     mainClass := Some("root.main"),
