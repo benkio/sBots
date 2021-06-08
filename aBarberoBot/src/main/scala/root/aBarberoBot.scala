@@ -37,7 +37,11 @@ object ABarberoBot extends Configurations {
       List(MediaFile("ferroFuocoAcquaBollenteAceto.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("secolo"))),
+      TextTrigger(
+        List(
+          StringTextTriggerValue("secolo")
+        )
+      ),
       List(MediaFile("secolo.mp3"))
     ),
     ReplyBundleMessage(
@@ -52,7 +56,11 @@ object ABarberoBot extends Configurations {
       List(MediaFile("draghi.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("crociate"))),
+      TextTrigger(
+        List(
+          StringTextTriggerValue("crociate")
+        )
+      ),
       List(MediaFile("crociate.mp3"))
     ),
     ReplyBundleMessage(
