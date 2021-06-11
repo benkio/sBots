@@ -1,4 +1,4 @@
-package root
+package com.benkio
 
 import cats.effect._
 import scala.concurrent.ExecutionContext.Implicits.global

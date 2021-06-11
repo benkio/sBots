@@ -40,4 +40,18 @@ object Dependencies {
     libs.catsEffect
   )
 
+  val ABarberoBotDependencies: Seq[ModuleID] = Seq(
+    libs.test,
+    libs.telegramiumCore,
+    libs.telegramiumHigh,
+    libs.catsEffect
+  )
+
+  val RichardPHJBensonBotDependencies: Seq[ModuleID] = Seq(
+    libs.test,
+    libs.lightbendEmoji,
+    libs.telegramiumCore,
+    libs.telegramiumHigh,
+    libs.catsEffect
+  )
 }

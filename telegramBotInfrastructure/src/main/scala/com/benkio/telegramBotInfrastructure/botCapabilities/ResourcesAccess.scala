@@ -37,7 +37,7 @@ trait ResourceAccess[+A <: ResourceSource] {
 
 object ResourceAccess {
   val fileSystem = new ResourceAccess[FileSystem.type] {
-    val rootPath = new java.io.File(".").getCanonicalPath//Paths.get("").toAbsolutePath()
+    val rootPath = new java.io.File(".").getCanonicalPath //Paths.get("").toAbsolutePath()
 
     def getResourceByteArray(resourceName: String): Array[Byte] =
       Files.readAllBytes(buildPath(resourceName))

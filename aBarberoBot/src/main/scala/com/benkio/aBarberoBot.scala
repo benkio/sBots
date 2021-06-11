@@ -1,4 +1,4 @@
-package root
+package com.benkio
 
 import org.http4s.client.blaze._
 import scala.concurrent.ExecutionContext

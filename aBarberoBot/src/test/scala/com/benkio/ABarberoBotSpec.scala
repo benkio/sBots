@@ -1,4 +1,4 @@
-package root
+package com.benkio
 
 import com.benkio.telegramBotInfrastructure.botCapabilities.ResourceSource
 import org.scalatest._
