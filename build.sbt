@@ -16,14 +16,14 @@ lazy val global = project
    // multi2
   )
 
-lazy val telegramBotInfrastructure = project
-  .in(file("telegramBotInfrastructure"))
+lazy val telegramBotInfrastructure =
+  Project("telegramBotInfrastructure", file("telegramBotInfrastructure"))
   .settings(Settings.settings: _*)
   .settings(Settings.TelegramBotInfrastructureSettings: _*)
   .disablePlugins(AssemblyPlugin)
 
-lazy val calandroBot = project
-  .in(file("calandroBot"))
+lazy val calandroBot =
+  Project("calandroBot", file("calandroBot"))
   .settings(Settings.settings: _*)
   .settings(Settings.CalandroBotSettings: _*)
   .dependsOn(telegramBotInfrastructure)
