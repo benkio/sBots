@@ -1,25 +1,16 @@
+import sbt._
+import Keys._
+import sbtassembly.AssemblyPlugin.autoImport._
 import Dependencies._
 
-javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint")
-resolvers += Resolver.typesafeIvyRepo("releases")
+object Settings {
 
-lazy val root = (project in file(".")).
-  settings(
-    inThisBuild(List(
-
-      organization := "benkio",
-                  scalaVersion := "2.13.6",
-                  version      := "0.1.0-SNAPSHOT"
-                )),
-    name := "CalandroBot",
-    libraryDependencies ++= Seq (
-      scalaTest % Test,
-      lightbendEmoji,
-      telegramiumCore,
-      telegramiumHigh,
-      catsEffect
-    ),
-    mainClass := Some("root.main"),
+  lazy val settings = Seq(
+    organization := "com.benkio",
+    version := "1.0.0",
+    scalaVersion := "2.13.6",
+    publishMavenStyle := true,
+    Test / publishArtifact := false,
     scalacOptions ++= Seq(
       "-deprecation",                      // Emit warning and location for usages of deprecated APIs.
       "-encoding", "utf-8",                // Specify character encoding used by source files.
@@ -59,8 +50,15 @@ lazy val root = (project in file(".")).
     )
   )
 
-assembly / assemblyMergeStrategy := {
-  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-  case PathList("reference.conf") => MergeStrategy.concat
-  case x => MergeStrategy.first
+  lazy val TelegramBotInfrastructureSettings = Seq(
+    name := "TelegramBotInfrastructure",
+    libraryDependencies := TelegramBotInfrastructureDependencies
+  )
+
+  lazy val CalandroBotSettings = Seq(
+    name := "CalandroBot",
+    libraryDependencies := CalandroBotDependencies,
+    mainClass := Some("root.main"),
+    Test / resourceDirectory := (Compile / resourceDirectory).value
+  )
 }

@@ -1,4 +1,4 @@
-package root
+package com.benkio
 
 import com.lightbend.emoji._
 import org.http4s.client.blaze._
