@@ -54,4 +54,8 @@ object Dependencies {
     libs.telegramiumHigh,
     libs.catsEffect
   )
+
+  val MainDependencies: Seq[ModuleID] = Seq(
+    libs.catsEffect
+  )
 }

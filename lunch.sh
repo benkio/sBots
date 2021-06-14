@@ -9,15 +9,12 @@ echo "##########################################################################
 echo "#                     Welcome to the bot starting script                       #"
 echo "#                                                                              #"
 echo "################################################################################"
-RECOMPILE=false  # Recompile the infrastructure and put it to the dependent project as an external lib
 TEST=false       # Run sbt test on the dependent libs and infrastructure
-SIMULATION=false # RECOMPILE + TEST, but not sbt run
+SIMULATION=false # TEST, but not sbt run
 while getopts dtrs option
 do
     case "${option}"
     in
-        r) RECOMPILE=true
-           echo "selected the Recompile option";;
         t) TEST=true
            echo "selected the Test option";;
         s) SIMULATION=true
@@ -26,45 +23,23 @@ do
     esac
 done
 
-(cd ./calandroBot/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt) &
-(cd ./aBarberoBot/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt) &
-(cd ./richardPHJBensonBot/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt) &
-    (cd ./telegrambotinfrastructure/; sbt --supershell=false scalafmt && sbt --supershell=false test:scalafmt)
-
-if [[ "$RECOMPILE" == true || "$SIMULATION" == true ]] ;
-then
-    echo "Recompiling the infrastructure"
-    cd ./telegrambotinfrastructure/
-
-    sbt --supershell=false assembly
-
-    echo "Moving the library to the bots lib folders"
-    cp ./bin/TelegramBotInfrastructure-1.0.0.jar ../richardPHJBensonBot/lib/
-    cp ./bin/TelegramBotInfrastructure-1.0.0.jar ../aBarberoBot/lib/
-    mv ./bin/TelegramBotInfrastructure-1.0.0.jar ../calandroBot/lib/
-    ls -l ../calandroBot/lib/ #to see the content of the lib folder
-    ls -l ../aBarberoBot/lib/ #to see the content of the lib folder
-    ls -l ../richardPHJBensonBot/lib/ #to see the content of the lib folder
-
-    cd ..
-    echo "Finish the recompilation of the infrastructure"
-fi
+sbt --supershell=false calandroBot/scalafmtAll & sbt --supershell=false aBarberoBot/scalafmtAll & sbt --supershell=false richardPHJBensonBot/scalafmtAll & sbt --supershell=false telegramBotInfrastructure/scalafmtAll
 
 if [[ "$TEST" == true || "$SIMULATION" == true ]] ;
 then
     echo "Running Tests"
-    (cd ./calandroBot/; sbt --supershell=false test) &
-    (cd ./aBarberoBot/; sbt --supershell=false test) &
-    (cd ./richardPHJBensonBot/; sbt --supershell=false test) &
-    (cd ./telegrambotinfrastructure/; sbt --supershell=false test)
+    sbt --supershell=false calandroBot/test &
+    sbt --supershell=false aBarberoBot/test &
+    sbt --supershell=false richardPHJBensonBot/test &
+    sbt --supershell=false telegramBotInfrastructure/test
 fi
 
 if [ "$SIMULATION" = false ] ;
 then
     echo "run"
 
-    (cd ./calandroBot/; sbt --supershell=false run) &
-    (cd ./aBarberoBot/; sbt --supershell=false run) &
-    (cd ./richardPHJBensonBot/; sbt --supershell=false run)
+    sbt --supershell=false calandroBot/run &
+    sbt --supershell=false aBarberoBot/run &
+    sbt --supershell=false richardPHJBensonBot/run
 
 fi
