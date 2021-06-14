@@ -8,6 +8,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.io.FileOutputStream
 import java.io.File
+import cats.effect._
 
 sealed trait ResourceSource
 
@@ -16,7 +17,7 @@ case class Database(subModuleDirectory: String, dbName: String) extends Resource
 case class All(subModuleDirectory: String, dbName: String)      extends ResourceSource
 
 object ResourceSource {
-  def selectResourceAccess[A <: ResourceSource](source: A): ResourceAccess[ResourceSource] =
+  def selectResourceAccess[A <: ResourceSource](source: A): ResourceAccess =
     source match {
       case All(subModuleDirectory, dbName)      => ResourceAccess.all(subModuleDirectory, dbName)
       case Database(subModuleDirectory, dbName) => ResourceAccess.database(subModuleDirectory, dbName)
@@ -24,23 +25,34 @@ object ResourceSource {
     }
 }
 
-trait ResourceAccess[+A <: ResourceSource] {
-  def getResourceByteArray(resourceName: String): Array[Byte]
+trait ResourceAccess {
+  def getResourceByteArray(resourceName: String): Resource[IO, Array[Byte]]
   def getResourcesByKind(criteria: String): List[MediaFile]
-  def getResourceFile(mediaFile: MediaFile): File = {
-    val tempFile = File.createTempFile(mediaFile.filename, mediaFile.extension, null)
-    val fos      = new FileOutputStream(tempFile)
-    fos.write(getResourceByteArray(mediaFile.filepath))
-    tempFile
+  def getResourceFile(mediaFile: MediaFile): Resource[IO, File] = {
+    for {
+      fileContent <- getResourceByteArray(mediaFile.filepath)
+      tempFile = File.createTempFile(mediaFile.filename, mediaFile.extension, null)
+      fos <- Resource.make(IO(new FileOutputStream(tempFile)))(fos => IO(fos.close()))
+    } yield {
+      fos.write(fileContent)
+      tempFile
+    }
   }
 }
 
-object ResourceAccess {
+object ResourceAccess  {
   def fileSystem(subModuleDirectory: String) = new ResourceAccess[FileSystem] {
     val rootPath = Paths.get(subModuleDirectory).toAbsolutePath()
 
     def getResourceByteArray(resourceName: String): Array[Byte] =
-      Files.readAllBytes(buildPath(resourceName))
+      Resource.make(new FileInputStream(File(buildPath(resourceName))))(fis => fis.close()).evalMap(fis =>
+        for (
+          nextByte <- IO(fis.read())
+          if readByte != -1
+        ) {
+          
+        }
+      )
 
     def buildPath(subResourceFilePath: String): Path =
       Paths.get(rootPath.toString(), "src", "main", "resources", subResourceFilePath)
@@ -131,7 +143,7 @@ object ResourceAccess {
     //   withConnection(compute)
     // }
   }
-  def all(subModuleDirectory: String, dbName: String) = new ResourceAccess[All] {
+  def all(subModuleDirectory: String, dbName: String) = new ResourceAccess {
 
     def getResourceByteArray(resourceName: String): Array[Byte] =
       Try(fileSystem(subModuleDirectory).getResourceByteArray(resourceName))
