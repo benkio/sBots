@@ -51,14 +51,3 @@ lazy val main = project
     aBarberoBot,
     richardPHJBensonBot
   )
-
-lazy val assemblySettings = Seq(
-  assembly / assemblyJarName := name.value + ".jar",
-  assembly / assemblyMergeStrategy := {
-    case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-    case "application.conf"            => MergeStrategy.concat
-    case x =>
-      val oldStrategy = (assembly / assemblyMergeStrategy).value
-      oldStrategy(x)
-  }
-)

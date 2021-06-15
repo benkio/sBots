@@ -58,7 +58,7 @@ class CalandroBot[F[_]]()(implicit
       Effect
         .toIOFromRunAsync(
           ResourceSource
-            .selectResourceAccess(All("calandroBot", "calandro.db"))
+            .selectResourceAccess(All("", "calandro.db"))
             .getResourcesByKind("cards")
             .use[F, List[MediaFile]](x => effectF.pure(x))
         )
@@ -72,7 +72,7 @@ class CalandroBot[F[_]]()(implicit
 
 object CalandroBot extends Configurations {
 
-  val resourceSource: ResourceSource = All("calandroBot", "calandro.db")
+  val resourceSource: ResourceSource = All("", "calandro.db")
 
   val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(

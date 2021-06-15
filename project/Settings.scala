@@ -10,6 +10,8 @@ object Settings {
     version := "1.0.0",
     scalaVersion := "2.13.6",
     publishMavenStyle := true,
+    fork := true,
+    run / javaOptions += "-Xmx256m",
     Test / publishArtifact := false,
     scalacOptions ++= Seq(
       "-deprecation",                      // Emit warning and location for usages of deprecated APIs.
@@ -50,6 +52,15 @@ object Settings {
     )
   )
 
+
+  lazy val assemblySettings = Seq(
+    assembly / assemblyJarName := name.value + ".jar",
+    assembly / assemblyMergeStrategy := {
+      case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+      case x => MergeStrategy.first
+    }
+  )
+
   lazy val TelegramBotInfrastructureSettings = Seq(
     name := "TelegramBotInfrastructure",
     libraryDependencies := TelegramBotInfrastructureDependencies
@@ -60,26 +71,26 @@ object Settings {
     libraryDependencies := CalandroBotDependencies,
     mainClass := Some("com.benkio.calandrobot.CalandroBotMain"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  )
+  )++ assemblySettings
 
   lazy val ABarberoBotSettings = Seq(
     name := "ABarberoBot",
     libraryDependencies := ABarberoBotDependencies,
     mainClass := Some("com.benkio.abarberobot.ABarberoBotMain"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  )
+  )++ assemblySettings
 
   lazy val RichardPHJBensonBotSettings = Seq(
     name := "RichardPHJBensonBot",
     libraryDependencies := RichardPHJBensonBotDependencies,
     mainClass := Some("com.benkio.richardphjbensonbot.RichardPHJBensonBotMain"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  )
+  ) ++ assemblySettings
+    
 
   lazy val MainSettings = Seq(
     name := "main",
     libraryDependencies := MainDependencies,
     mainClass := Some("com.benkio.main.Main")
   )
-
 }
