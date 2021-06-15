@@ -14,13 +14,8 @@ import cats.implicits._
 
 import scala.concurrent.duration._
 
-abstract class BotSkeleton[F[_] >: IO[_]]()(implicit
-  api: Api[F],
-  syncF: Sync[F],
-  timerF: Timer[F],
-  parallelF: Parallel[F]
-)
-    extends LongPollBot[F](api)
+abstract class BotSkeleton()(implicit api: Api[IO], parallel: Parallel[IO], time: Timer[IO])
+    extends LongPollBot[IO](api)
     with DefaultActions {
 
   // Configuration values /////////////////////////////////////////////////////
@@ -35,27 +30,27 @@ abstract class BotSkeleton[F[_] >: IO[_]]()(implicit
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  val messageLogic: (Message, String) => Option[F[List[Message]]] = (msg: Message, text: String) =>
+  val messageLogic: (Message, String) => Option[IO[List[Message]]] = (msg: Message, text: String) =>
     messageRepliesData
       .find(MessageMatches.doesMatch(_, text, ignoreMessagePrefix))
       .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout))
-      .map(rbm => ReplyBundle.computeReplyBundle[F](rbm, msg))
+      .map(rbm => ReplyBundle.computeReplyBundle[IO](rbm, msg))
 
-  val commandLogic: (Message, String) => Option[F[List[Message]]] = (msg: Message, text: String) =>
+  val commandLogic: (Message, String) => Option[IO[List[Message]]] = (msg: Message, text: String) =>
     commandRepliesData
       .find(rbc => text.startsWith("/" + rbc.trigger.command))
       .map(
-        ReplyBundle.computeReplyBundle[F](_, msg)
+        ReplyBundle.computeReplyBundle[IO](_, msg)
       )
 
-  val botLogic: (Message, String) => Option[F[List[Message]]] = (msg: Message, text: String) =>
+  val botLogic: (Message, String) => Option[IO[List[Message]]] = (msg: Message, text: String) =>
     SemigroupK[Option].combineK(messageLogic(msg, text), commandLogic(msg, text))
 
-  override def onMessage(msg: Message): F[Unit] = {
-    val x: Option[F[Unit]] = for {
+  override def onMessage(msg: Message): IO[Unit] = {
+    val x: Option[IO[Unit]] = for {
       text   <- msg.text
       theENd <- botLogic(msg, text)
     } yield theENd.void
-    x.getOrElse(Monad[F].unit)
+    x.getOrElse(Monad[IO].unit)
   }
 }

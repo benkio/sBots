@@ -15,12 +15,7 @@ import cats._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji.ShortCodes.Defaults._
 
-class CalandroBot[F[_] >: IO[_]]()(implicit
-  api: Api[F],
-  syncF: Sync[F],
-  timerF: Timer[F],
-  parallelF: Parallel[F]
-) extends BotSkeleton[F]()(api, syncF, timerF, parallelF) {
+class CalandroBot extends BotSkeleton[IO] {
 
   override val resourceSource: ResourceSource = CalandroBot.resourceSource
 

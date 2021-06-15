@@ -19,7 +19,7 @@ trait DefaultActions {
 
   lazy val getResourceData: MediaFile => Resource[IO, File] = ResourceSource.selectResourceAccess(resourceSource).getResourceFile _
 
-  implicit def sendReply[F[_] >: IO[_]](implicit api: telegramium.bots.high.Api[F], sync: Sync[F]): Action[Reply, F] =
+  implicit def sendReply[F[_]](implicit api: telegramium.bots.high.Api[F], sync: Sync[F]): Action[Reply, F] =
     (reply: Reply) =>
   (msg: Message) => {
     val replyToMessage = if (reply.replyToMessage) Some(msg.messageId) else None
