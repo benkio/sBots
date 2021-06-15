@@ -13,12 +13,12 @@ import com.lightbend.emoji.ShortCodes.Defaults._
 import telegramium.bots.high._
 import cats._
 
-class RichardPHJBensonBot[F[_] >: IO[_]]()(implicit
-  api: Api[F],
-  syncF: Sync[F],
-  timerF: Timer[F],
-  parallelF: Parallel[F]
-) extends BotSkeleton[F]()(api, syncF, timerF, parallelF) {
+class RichardPHJBensonBot[F[_]]()(implicit
+    timerF: Timer[F],
+    parallelF: Parallel[F],
+    effectF: Effect[F],
+    api: telegramium.bots.high.Api[F]
+) extends BotSkeleton[F]()(timerF, parallelF, effectF, api) {
 
   override val resourceSource: ResourceSource = RichardPHJBensonBot.resourceSource
 

@@ -3,6 +3,7 @@ package com.benkio.richardphjbensonbot
 import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
 import org.scalatest._
 import matchers.should._
+import cats.effect._
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import org.scalatest.wordspec.AnyWordSpec
@@ -11,9 +12,14 @@ class RichardPHJBensonBotSpec extends AnyWordSpec with Matchers {
 
   def testFilename(filename: String): Assertion =
     if (
-      ResourceSource
-        .selectResourceAccess(RichardPHJBensonBot.resourceSource)
-        .getResourceByteArray(filename)
+      Effect
+        .toIOFromRunAsync(
+          ResourceSource
+            .selectResourceAccess(RichardPHJBensonBot.resourceSource)
+            .getResourceByteArray[IO](filename)
+            .use[IO, Array[Byte]](IO.pure)
+        )
+        .unsafeRunSync()
         .isEmpty
     )
       fail(s"$filename cannot be found")

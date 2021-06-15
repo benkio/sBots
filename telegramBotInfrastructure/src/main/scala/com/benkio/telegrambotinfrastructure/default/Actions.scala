@@ -17,77 +17,87 @@ trait DefaultActions {
 
   val resourceSource: ResourceSource
 
-  lazy val getResourceData: MediaFile => Resource[IO, File] = ResourceSource.selectResourceAccess(resourceSource).getResourceFile _
+  def getResourceData[F[_]](implicit F: Effect[F]): MediaFile => Resource[F, File] =
+    ResourceSource.selectResourceAccess(resourceSource).getResourceFile[F] _
 
-  implicit def sendReply[F[_]](implicit api: telegramium.bots.high.Api[F], sync: Sync[F]): Action[Reply, F] =
+  implicit def sendReply[F[_]](implicit
+      api: telegramium.bots.high.Api[F],
+      effect: Effect[F]
+  ): Action[Reply, F] =
     (reply: Reply) =>
-  (msg: Message) => {
-    val replyToMessage = if (reply.replyToMessage) Some(msg.messageId) else None
-    val chatId: ChatId = ChatIntId(msg.chat.id)
-      (reply match {
-        case mp3: Mp3File =>
-          for {
-            _ <- Methods.sendChatAction(chatId, "upload_voice").exec.attemptT
-            message <-
-            getResourceData(mp3).use[F, Message](mp3File =>
-              Methods
-                .sendAudio(
-                  chatId,
-                  InputPartFile(mp3File),
-                  replyToMessageId = replyToMessage
+      (msg: Message) => {
+        val replyToMessage = if (reply.replyToMessage) Some(msg.messageId) else None
+        val chatId: ChatId = ChatIntId(msg.chat.id)
+        (reply match {
+          case mp3: Mp3File =>
+            for {
+              _ <- Methods.sendChatAction(chatId, "upload_voice").exec.attemptT
+              message <-
+                getResourceData[F](effect)(mp3)
+                  .use[F, Message](mp3File =>
+                    Methods
+                      .sendAudio(
+                        chatId,
+                        InputPartFile(mp3File),
+                        replyToMessageId = replyToMessage
+                      )
+                      .exec
+                  )(effect)
+                  .attemptT
+            } yield List(message)
+          case gif: GifFile =>
+            for {
+              _ <- Methods.sendChatAction(chatId, "upload_document").exec.attemptT
+              message <- getResourceData(effect)(gif)
+                .use[F, Message](gifFile =>
+                  Methods
+                    .sendAnimation(
+                      chatId,
+                      InputPartFile(gifFile),
+                      replyToMessageId = replyToMessage
+                    )
+                    .exec
+                )(effect)
+                .attemptT
+            } yield List(message)
+          case photo: PhotoFile =>
+            for {
+              _ <- Methods.sendChatAction(chatId, "upload_photo").exec.attemptT
+              message <- getResourceData(effect)(photo)
+                .use[F, Message](photoFile =>
+                  Methods
+                    .sendPhoto(
+                      chatId,
+                      InputPartFile(photoFile),
+                      replyToMessageId = replyToMessage
+                    )
+                    .exec
+                )(effect)
+                .attemptT
+            } yield List(message)
+          case text: TextReply =>
+            for {
+              _ <- Methods.sendChatAction(chatId, "typing").exec.attemptT
+              messages <- text
+                .text(msg)
+                .traverse(m =>
+                  Methods
+                    .sendMessage(
+                      chatId,
+                      m.fold("")(_ + "\n" + _),
+                      replyToMessageId = replyToMessage
+                    )
+                    .exec
                 )
-                .exec
-            )(sync).attemptT
-          } yield List(message)
-        case gif: GifFile =>
-          for {
-            _ <- Methods.sendChatAction(chatId, "upload_document").exec.attemptT
-            message <- getResourceData(gif).use[F, Message](gifFile =>
-              Methods
-                .sendAnimation(
-                  chatId,
-                  InputPartFile(gifFile),
-                  replyToMessageId = replyToMessage
-                )
-                .exec
-            )(sync).attemptT
-          } yield List(message)
-        case photo: PhotoFile =>
-          for {
-            _ <- Methods.sendChatAction(chatId, "upload_photo").exec.attemptT
-            message <- getResourceData(photo).use[F, Message](photoFile =>
-              Methods
-                .sendPhoto(
-                  chatId,
-                  InputPartFile(photoFile),
-                  replyToMessageId = replyToMessage
-                )
-                .exec
-            )(sync).attemptT
-          } yield List(message)
-        case text: TextReply =>
-          for {
-            _ <- Methods.sendChatAction(chatId, "typing").exec.attemptT
-            messages <- text
-            .text(msg)
-            .traverse(m =>
-              Methods
-                .sendMessage(
-                  chatId,
-                  m.fold("")(_ + "\n" + _),
-                  replyToMessageId = replyToMessage
-                )
-                .exec
-            )
-            .attemptT
-          } yield messages
-      }).value.map {
-        case Right(x) => x
-        case Left(e) =>
-          println(s"********ERROR OCCURRED********\n ${e.getMessage}")
-          List(msg)
+                .attemptT
+            } yield messages
+        }).value.map {
+          case Right(x) => x
+          case Left(e) =>
+            println(s"********ERROR OCCURRED********\n ${e.getMessage}")
+            List(msg)
+        }
       }
-  }
 }
 
 object Actions {

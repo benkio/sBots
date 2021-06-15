@@ -10,12 +10,12 @@ import com.benkio.telegrambotinfrastructure.model._
 import telegramium.bots.high._
 import cats._
 
-class ABarberoBot[F[_] >: IO[_]]()(implicit
-  api: Api[F],
-  syncF: Sync[F],
-  timerF: Timer[F],
-  parallelF: Parallel[F]
-) extends BotSkeleton[F]()(api, syncF, timerF, parallelF) {
+class ABarberoBot[F[_]]()(implicit
+    timerF: Timer[F],
+    parallelF: Parallel[F],
+    effectF: Effect[F],
+    api: telegramium.bots.high.Api[F]
+) extends BotSkeleton[F]()(timerF, parallelF, effectF, api) {
 
   override val resourceSource: ResourceSource = ABarberoBot.resourceSource
 
@@ -432,16 +432,14 @@ object ABarberoBot extends Configurations {
     )
   )
 
-  def buildBot[F[_] >: IO[_], A](
-    executorContext: ExecutionContext,
-    action: ABarberoBot[F] => F[A]
+  def buildBot[F[_], A](
+      executorContext: ExecutionContext,
+      action: ABarberoBot[F] => F[A]
   )(implicit
-//    api: Api[F],
-//    syncF: Sync[F],
-    timerF: Timer[F],
-    parallelF: Parallel[F],
-    contextShiftF: ContextShift[F],
-    concurrentEffectF : ConcurrentEffect[F]
+      timerF: Timer[F],
+      parallelF: Parallel[F],
+      contextShiftF: ContextShift[F],
+      concurrentEffectF: ConcurrentEffect[F]
   ): F[A] =
     BlazeClientBuilder[F](executorContext).resource
       .use { client =>

@@ -15,20 +15,16 @@ import cats._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji.ShortCodes.Defaults._
 
-class CalandroBot extends BotSkeleton[IO] {
+class CalandroBot[F[_]]()(implicit
+    timerF: Timer[F],
+    parallelF: Parallel[F],
+    effectF: Effect[F],
+    api: telegramium.bots.high.Api[F]
+) extends BotSkeleton[F]()(timerF, parallelF, effectF, api) {
 
   override val resourceSource: ResourceSource = CalandroBot.resourceSource
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = CalandroBot.commandRepliesData
-
-  override lazy val messageRepliesData: List[ReplyBundleMessage] = CalandroBot.messageRepliesData
-}
-
-object CalandroBot extends Configurations {
-
-  val resourceSource: ResourceSource = All("calandroBot", "calandro.db")
-
-  val commandRepliesData: List[ReplyBundleCommand] = List(
+  override lazy val commandRepliesData: List[ReplyBundleCommand] = List(
     ReplyBundleCommand(CommandTrigger("porcoladro"), List(MediaFile("PorcoLadro.mp3"))),
     ReplyBundleCommand(CommandTrigger("unoduetre"), List(MediaFile("unoduetre.mp3"))),
     ReplyBundleCommand(CommandTrigger("ancorauna"), List(MediaFile("AncoraUnaDoveLaMetto.mp3"))),
@@ -59,10 +55,24 @@ object CalandroBot extends Configurations {
     ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("fiamme.mp3"))),
     ReplyBundleCommand(
       CommandTrigger("randomcard"),
-      ResourceSource.selectResourceAccess(All("calandroBot", "calandro.db")).getResourcesByKind(".jpg"),
+      Effect
+        .toIOFromRunAsync(
+          ResourceSource
+            .selectResourceAccess(All("calandroBot", "calandro.db"))
+            .getResourcesByKind("cards")
+            .use[F, List[MediaFile]](x => effectF.pure(x))
+        )
+        .unsafeRunSync(),
       replySelection = RandomSelection
     )
   )
+
+  override lazy val messageRepliesData: List[ReplyBundleMessage] = CalandroBot.messageRepliesData
+}
+
+object CalandroBot extends Configurations {
+
+  val resourceSource: ResourceSource = All("calandroBot", "calandro.db")
 
   val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
@@ -172,9 +182,14 @@ object CalandroBot extends Configurations {
     )
   )
 
-  def buildBot[F[_]: Timer: Parallel: ContextShift: ConcurrentEffect, A](
+  def buildBot[F[_], A](
       executorContext: ExecutionContext,
       action: CalandroBot[F] => F[A]
+  )(implicit
+      timerF: Timer[F],
+      parallelF: Parallel[F],
+      contextShiftF: ContextShift[F],
+      concurrentEffectF: ConcurrentEffect[F]
   ): F[A] =
     BlazeClientBuilder[F](executorContext).resource
       .use { client =>
