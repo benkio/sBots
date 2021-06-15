@@ -32,7 +32,7 @@ final case class ReplyBundleCommand(
 
 object ReplyBundle {
 
-  def computeReplyBundle[F[_]](replyBundle: ReplyBundle, message: Message)(implicit
+  def computeReplyBundle[F[_] >: IO[_]](replyBundle: ReplyBundle, message: Message)(implicit
       replyAction: Action[Reply, F],
       syncF: Sync[F]
   ): F[List[Message]] = {

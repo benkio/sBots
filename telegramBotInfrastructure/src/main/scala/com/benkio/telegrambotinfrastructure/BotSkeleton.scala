@@ -14,7 +14,12 @@ import cats.implicits._
 
 import scala.concurrent.duration._
 
-abstract class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F])
+abstract class BotSkeleton[F[_] >: IO[_]]()(implicit
+  api: Api[F],
+  syncF: Sync[F],
+  timerF: Timer[F],
+  parallelF: Parallel[F]
+)
     extends LongPollBot[F](api)
     with DefaultActions {
 
@@ -34,13 +39,13 @@ abstract class BotSkeleton[F[_]: Sync: Timer: Parallel]()(implicit api: Api[F])
     messageRepliesData
       .find(MessageMatches.doesMatch(_, text, ignoreMessagePrefix))
       .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout))
-      .map(rbm => ReplyBundle.computeReplyBundle(rbm, msg))
+      .map(rbm => ReplyBundle.computeReplyBundle[F](rbm, msg))
 
   val commandLogic: (Message, String) => Option[F[List[Message]]] = (msg: Message, text: String) =>
     commandRepliesData
       .find(rbc => text.startsWith("/" + rbc.trigger.command))
       .map(
-        ReplyBundle.computeReplyBundle(_, msg)
+        ReplyBundle.computeReplyBundle[F](_, msg)
       )
 
   val botLogic: (Message, String) => Option[F[List[Message]]] = (msg: Message, text: String) =>

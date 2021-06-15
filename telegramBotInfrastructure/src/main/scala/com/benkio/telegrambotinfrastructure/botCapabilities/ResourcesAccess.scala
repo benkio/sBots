@@ -2,13 +2,13 @@ package com.benkio.telegrambotinfrastructure.botCapabilities
 
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import scala.jdk.CollectionConverters._
-import scala.util._
 import java.nio.file.Paths
 import java.nio.file.Files
 import java.nio.file.Path
 import java.io.{FileOutputStream, FileInputStream, File, ByteArrayOutputStream}
 import cats.effect._
 import cats._
+import cats.implicits._
 
 sealed trait ResourceSource
 
@@ -27,7 +27,7 @@ object ResourceSource {
 
 trait ResourceAccess {
   def getResourceByteArray(resourceName: String): Resource[IO, Array[Byte]]
-  def getResourcesByKind(criteria: String): List[MediaFile]
+  def getResourcesByKind(criteria: String): Resource[IO, List[MediaFile]]
   def getResourceFile(mediaFile: MediaFile): Resource[IO, File] = {
     for {
       fileContent <- getResourceByteArray(mediaFile.filepath)
@@ -59,102 +59,92 @@ object ResourceAccess  {
     def buildPath(subResourceFilePath: String): Path =
       Paths.get(rootPath.toString(), "src", "main", "resources", subResourceFilePath)
 
-    def getResourcesByKind(criteria: String): List[MediaFile] =
-      Files
-        .walk(buildPath(criteria))
-        .iterator
-        .asScala
-        .toList
-        .tail
-        .map((fl: Path) => MediaFile(buildPath(criteria).toString + "/" + fl.getFileName.toString))
+    def getResourcesByKind(criteria: String): Resource[IO, List[MediaFile]] =
+      Resource.pure[IO, List[MediaFile]](
+        Files
+          .walk(buildPath(criteria))
+          .iterator
+          .asScala
+          .toList
+          .tail
+          .map((fl: Path) => MediaFile(buildPath(criteria).toString + "/" + fl.getFileName.toString)))
 
   }
-  // def database(subModuleDirectory: String, dbName: String) = new ResourceAccess[Database] {
-  //   import java.sql.Connection
-  //   import java.sql.DriverManager
-  //   import java.sql.SQLException
-  //   import java.sql.PreparedStatement
-  //   import java.sql.ResultSet
-  //   import scala.collection.mutable.ArrayBuffer
+  def database(subModuleDirectory: String, dbName: String) = new ResourceAccess {
+    import java.sql.Connection
+    import java.sql.DriverManager
+    import java.sql.PreparedStatement
+    import java.sql.ResultSet
+    import scala.collection.mutable.ArrayBuffer
 
-  //   Class.forName("org.sqlite.JDBC");
-  //   val dbPath = "jdbc:sqlite:" + Paths.get(subModuleDirectory).toAbsolutePath() + "/" + dbName
-  //   def withConnection[A](dbComputation: Connection => A): A = {
-  //     var conn: Connection = null
-  //     try {
-  //       conn = DriverManager.getConnection(dbPath)
-  //       val result = dbComputation(conn)
-  //       result
-  //     } catch {
-  //       case e: SQLException => {
-  //         throw e
-  //       }
-  //     } finally {
-  //       try {
-  //         if (conn != null) {
-  //           conn.close()
-  //         }
-  //       } catch {
-  //         case ex: SQLException => {
-  //           throw ex
-  //         }
-  //       }
-  //     }
-  //   }
+    Class.forName("org.sqlite.JDBC");
+    val dbPath = "jdbc:sqlite:" + Paths.get(subModuleDirectory).toAbsolutePath() + "/" + dbName
+    def withConnection[A](dbComputation: Connection => IO[A]): Resource[IO, A] =
+      Resource.make(IO(DriverManager.getConnection(dbPath)))(conn => IO(conn.close())).evalMap(
+        dbComputation
+      )
 
-  //   def getResourceByteArray(resourceName: String): Array[Byte] = {
-  //     val compute: Connection => Array[Byte] = conn => {
-  //       val query: String                = s"SELECT file_data FROM Mediafile WHERE file_name LIKE '$resourceName'"
-  //       val statement: PreparedStatement = conn.prepareStatement(query)
-  //       val rs: ResultSet                = statement.executeQuery()
-  //       rs.next
-  //       rs.getBytes("file_data")
-  //     }
-  //     withConnection(compute)
-  //   }
-  //   def getResourcesByKind(criteria: String): List[MediaFile] = {
-  //     val compute: Connection => List[MediaFile] = conn => {
-  //       val query: String                = "SELECT file_name FROM Mediafile WHERE file_type LIKE '" + criteria + "'"
-  //       val statement: PreparedStatement = conn.prepareStatement(query)
-  //       val rs: ResultSet                = statement.executeQuery()
-  //       val result: ArrayBuffer[String]  = ArrayBuffer.empty[String]
-  //       while (rs.next) {
-  //         val name: String = rs.getString("file_name")
-  //         result += name
-  //       }
-  //       result.toList.map(n => MediaFile(n))
-  //     }
-  //     withConnection(compute)
-  //   }
+    def getResourceByteArray(resourceName: String): Resource[IO, Array[Byte]] = {
+      val compute: Connection => IO[Array[Byte]] = conn => {
+        val query: String                = s"SELECT file_data FROM Mediafile WHERE file_name LIKE '$resourceName'"
+        IO(conn.prepareStatement(query)).flatMap((statement: PreparedStatement) =>
+          IO(statement.executeQuery()).flatMap((rs: ResultSet) =>
+            IO(rs.next) >> IO(rs.getBytes("file_data"))
+          )
+        )
+      }
+      withConnection(compute)
+    }
 
-  //   // def insertResourcesToDB(resourceSubFolder: String): Unit = {
-  //   //   val compute: Connection => Unit = conn => {
-  //   //     val files = ResourceAccess.fileSystem.getResourcesByKind(resourceSubFolder)
+    def getResourcesByKind(criteria: String): Resource[IO, List[MediaFile]] = {
+      val compute: Connection => IO[List[MediaFile]] = conn => {
+        val query: String                = "SELECT file_name FROM Mediafile WHERE file_type LIKE '" + criteria + "'"
+        val result: ArrayBuffer[String]  = ArrayBuffer.empty[String]
+        IO(conn.prepareStatement(query)).flatMap((statement: PreparedStatement) =>
+          IO(statement.executeQuery()).flatMap((rs: ResultSet) =>
+            Monad[IO].iterateWhileM(rs.next)(_ =>
+              IO(result += rs.getString("file_name")) >> IO(rs.next)
+            )(_ == true).map(_ => result.toList.map(n => MediaFile(n)))
+          )
+        )
+      }
+      withConnection(compute)
+    }
 
-  //   //     files.foreach { mediafile =>
-  //   //       val bytes: Array[Byte] = Files.readAllBytes(Paths.get(mediafile.filepath))
-  //   //       val ps                 = conn.prepareStatement("INSERT INTO Mediafile (file_name, file_type, file_data) VALUES (?, ?, ?)")
-  //   //       ps.setString(1, mediafile.filename)
-  //   //       ps.setString(2, mediafile.extension)
-  //   //       ps.setBytes(3, bytes)
-  //   //       val s = ps.executeUpdate()
-  //   //       if (s > 0) println("Operation Successful")
-  //   //       ps.close()
-  //   //     }
-  //   //   }
-  //   //   withConnection(compute)
-  //   // }
-  // }
-  // def all(subModuleDirectory: String, dbName: String) = new ResourceAccess {
+    // def insertResourcesToDB(resourceSubFolder: String): Unit = {
+    //   val compute: Connection => Unit = conn => {
+    //     val files = ResourceAccess.fileSystem.getResourcesByKind(resourceSubFolder)
 
-  //   def getResourceByteArray(resourceName: String): Array[Byte] =
-  //     Try(fileSystem(subModuleDirectory).getResourceByteArray(resourceName))
-  //       .orElse(Try(database(subModuleDirectory, dbName).getResourceByteArray(resourceName)))
-  //       .getOrElse(Array.empty)
+    //     files.foreach { mediafile =>
+    //       val bytes: Array[Byte] = Files.readAllBytes(Paths.get(mediafile.filepath))
+    //       val ps                 = conn.prepareStatement("INSERT INTO Mediafile (file_name, file_type, file_data) VALUES (?, ?, ?)")
+    //       ps.setString(1, mediafile.filename)
+    //       ps.setString(2, mediafile.extension)
+    //       ps.setBytes(3, bytes)
+    //       val s = ps.executeUpdate()
+    //       if (s > 0) println("Operation Successful")
+    //       ps.close()
+    //     }
+    //   }
+    //   withConnection(compute)
+    // }
+  }
+  def all(subModuleDirectory: String, dbName: String) = new ResourceAccess {
 
-  //   def getResourcesByKind(criteria: String): List[MediaFile] =
-  //     Try(fileSystem(subModuleDirectory).getResourcesByKind(criteria))
-  //       .orElse(Try(database(subModuleDirectory, dbName).getResourcesByKind(criteria)))
-  //       .getOrElse(List.empty)
-  // }
+    def getResourceByteArray(resourceName: String): Resource[IO,Array[Byte]] =
+      Resource.catsEffectMonadErrorForResource(IO.ioEffect).handleError[Array[Byte]](
+        Resource.catsEffectMonadErrorForResource(IO.ioEffect).handleErrorWith[Array[Byte]](
+          fileSystem(subModuleDirectory).getResourceByteArray(resourceName))(_ =>
+          database(subModuleDirectory, dbName).getResourceByteArray(resourceName)
+        )
+      )(_ => Array.empty)
+
+    def getResourcesByKind(criteria: String): Resource[IO, List[MediaFile]] =
+      Resource.catsEffectMonadErrorForResource(IO.ioEffect).handleError[List[MediaFile]](
+        Resource.catsEffectMonadErrorForResource(IO.ioEffect).handleErrorWith[List[MediaFile]](
+          fileSystem(subModuleDirectory).getResourcesByKind(criteria))(_ =>
+          database(subModuleDirectory, dbName).getResourcesByKind(criteria)
+        )
+      )(_ => List.empty)
+  }
 }

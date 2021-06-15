@@ -5,8 +5,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import com.benkio.telegrambotinfrastructure.Configurations
 
 object ABarberoBotMain extends IOApp with Configurations {
-  def run(args: List[String]): cats.effect.IO[cats.effect.ExitCode] =
+  def run(args: List[String]): IO[cats.effect.ExitCode] =
     ABarberoBot
-      .buildBot(global, (cb: ABarberoBot[IO]) => cb.start())
+      .buildBot[IO, Unit](global, (cb: ABarberoBot[IO]) => cb.start())
       .as(ExitCode.Success)
 }
