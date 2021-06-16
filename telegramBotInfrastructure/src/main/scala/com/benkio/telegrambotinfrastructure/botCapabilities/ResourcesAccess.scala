@@ -49,13 +49,13 @@ object ResourceAccess {
       fis  <- Resource.make(F.delay(getClass().getResourceAsStream("/" + resourceName)))(fis => F.delay(fis.close()))
       bais <- Resource.make(F.delay(new ByteArrayOutputStream()))(bais => F.delay(bais.close()))
     } yield (fis, bais)).evalMap { case (fis, bais) =>
-        val tempArray = new Array[Byte](16384)
-        for {
-          firstChunk <- F.delay(fis.read(tempArray, 0, tempArray.length))
-          _ <- Monad[F].iterateWhileM(firstChunk)(chunk =>
-            F.delay(bais.write(tempArray, 0, chunk)) *> F.delay(fis.read(tempArray, 0, tempArray.length))
-          )(_ != -1)
-        } yield bais.toByteArray()
+      val tempArray = new Array[Byte](16384)
+      for {
+        firstChunk <- F.delay(fis.read(tempArray, 0, tempArray.length))
+        _ <- Monad[F].iterateWhileM(firstChunk)(chunk =>
+          F.delay(bais.write(tempArray, 0, chunk)) *> F.delay(fis.read(tempArray, 0, tempArray.length))
+        )(_ != -1)
+      } yield bais.toByteArray()
     }
 
     def getResourcesByKind[F[_]: Effect](criteria: String): Resource[F, List[MediaFile]] = {
@@ -63,10 +63,10 @@ object ResourceAccess {
       val result: ArrayBuffer[String] = new ArrayBuffer();
 
       // from https://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file
-      if(jarFile.isFile()) {  // Run with JAR file
-        val jar = new JarFile(jarFile)
+      if (jarFile.isFile()) { // Run with JAR file
+        val jar     = new JarFile(jarFile)
         val entries = jar.entries() //gives ALL entries in jar
-        while(entries.hasMoreElements()) {
+        while (entries.hasMoreElements()) {
           val name = entries.nextElement().getName()
           if (name.startsWith(criteria + "/") && name.length > (criteria.length + 1)) { //filter according to the path
             result += name
@@ -87,12 +87,10 @@ object ResourceAccess {
           }
         }
       }
-      println("result: " + result.mkString(",")) 
-      Resource.pure[F, ArrayBuffer[String]](result)
-        .map(arrayBuffer =>
-          arrayBuffer.toList.map(s => MediaFile(s)
-          )
-        )
+      println("result: " + result.mkString(","))
+      Resource
+        .pure[F, ArrayBuffer[String]](result)
+        .map(arrayBuffer => arrayBuffer.toList.map(s => MediaFile(s)))
     }
   }
   def database(dbName: String) = new ResourceAccess {
