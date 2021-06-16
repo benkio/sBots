@@ -42,7 +42,7 @@ class CalandroBot[F[_]]()(implicit
     ReplyBundleCommand(CommandTrigger("personapulita"), List(MediaFile("personaPulita.mp3"))),
     ReplyBundleCommand(CommandTrigger("losquirt"), List(MediaFile("loSquirt.mp3"))),
     ReplyBundleCommand(CommandTrigger("fuoridalmondo"), List(MediaFile("fuoriDalMondo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("qualitaOlive"), List(MediaFile("qualitaOlive.mp3"))),
+    ReplyBundleCommand(CommandTrigger("qualitaolive"), List(MediaFile("qualitaOlive.mp3"))),
     ReplyBundleCommand(CommandTrigger("gioielli"), List(MediaFile("gioielli.mp3"))),
     ReplyBundleCommand(CommandTrigger("risata"), List(MediaFile("risata.mp3"))),
     ReplyBundleCommand(CommandTrigger("sonocosternato"), List(MediaFile("sonoCosternato.mp3"))),
@@ -58,7 +58,7 @@ class CalandroBot[F[_]]()(implicit
       Effect
         .toIOFromRunAsync(
           ResourceSource
-            .selectResourceAccess(All("", "calandro.db"))
+            .selectResourceAccess(All("calandro.db"))
             .getResourcesByKind("cards")
             .use[F, List[MediaFile]](x => effectF.pure(x))
         )
@@ -72,7 +72,7 @@ class CalandroBot[F[_]]()(implicit
 
 object CalandroBot extends Configurations {
 
-  val resourceSource: ResourceSource = All("", "calandro.db")
+  val resourceSource: ResourceSource = All("calandro.db")
 
   val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(

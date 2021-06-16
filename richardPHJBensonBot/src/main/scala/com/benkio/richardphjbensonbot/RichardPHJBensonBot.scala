@@ -30,7 +30,7 @@ class RichardPHJBensonBot[F[_]]()(implicit
 
 object RichardPHJBensonBot extends Configurations {
 
-  val resourceSource: ResourceSource = All("", "rphjb.db")
+  val resourceSource: ResourceSource = All("rphjb.db")
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(

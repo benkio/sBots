@@ -27,7 +27,7 @@ class ABarberoBot[F[_]]()(implicit
 
 object ABarberoBot extends Configurations {
 
-  val resourceSource: ResourceSource = FileSystem("")
+  val resourceSource: ResourceSource = FileSystem
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(

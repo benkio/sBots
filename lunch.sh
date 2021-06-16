@@ -36,10 +36,13 @@ fi
 
 if [ "$SIMULATION" = false ] ;
 then
-    echo "run"
+    echo "assembly"
 
-    sbt --supershell=false calandroBot/run &
-    sbt --supershell=false aBarberoBot/run &
-    sbt --supershell=false richardPHJBensonBot/run
+    sbt --supershell=false calandroBot/assembly &
+    sbt --supershell=false aBarberoBot/assembly &
+    sbt --supershell=false richardPHJBensonBot/assembly
 
+    (cd ./calandroBot/target/scala-2.13/; java -jar CalandroBot.jar) &
+    (cd ./aBarberoBot/target/scala-2.13/; java -jar ABarberoBot.jar) &
+    (cd ./richardPHJBensonBot/target/scala-2.13/; java -jar RichardPHJBensonBot.jar)
 fi
