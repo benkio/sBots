@@ -670,6 +670,22 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          RegexTextTriggerValue("(af+)?fanculo(,)? per contesia".r)
+        )
+      ),
+      List(MediaFile("fanculoPerCortesia.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("gli autori")
+        )
+      ),
+      List(MediaFile("autori.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           StringTextTriggerValue("questo è matto")
         )
       ),
@@ -1459,7 +1475,11 @@ object RichardPHJBensonBot extends Configurations {
       replySelection = RandomSelection
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("vattene affanculo"), StringTextTriggerValue("vattene a fanculo"))),
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("vattene (af)?fanculo".r)
+        )
+      ),
       List(MediaFile("maVatteneAffanculo.gif"), MediaFile("maVatteneAffanculo.mp3"))
     ),
     ReplyBundleMessage(
