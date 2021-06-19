@@ -23,15 +23,12 @@ do
     esac
 done
 
-sbt --supershell=false calandroBot/scalafmtAll & sbt --supershell=false aBarberoBot/scalafmtAll & sbt --supershell=false richardPHJBensonBot/scalafmtAll & sbt --supershell=false telegramBotInfrastructure/scalafmtAll
+sbt --supershell=false scalafmtAll
 
 if [[ "$TEST" == true || "$SIMULATION" == true ]] ;
 then
     echo "Running Tests"
-    sbt --supershell=false calandroBot/test &
-    sbt --supershell=false aBarberoBot/test &
-    sbt --supershell=false richardPHJBensonBot/test &
-    sbt --supershell=false telegramBotInfrastructure/test
+    sbt --supershell=false test
 fi
 
 if [ "$SIMULATION" = false ] ;
