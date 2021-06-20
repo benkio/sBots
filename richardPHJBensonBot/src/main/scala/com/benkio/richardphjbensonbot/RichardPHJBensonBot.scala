@@ -541,7 +541,7 @@ object RichardPHJBensonBot extends Configurations {
           StringTextTriggerValue("anguille"),
           StringTextTriggerValue("polipi"),
           StringTextTriggerValue("cetrioli"),
-          StringTextTriggerValue("suonare")
+          RegexTextTriggerValue(".*problema.*suonare.*".r)
         )
       ),
       List(MediaFile("problema.mp3"))
