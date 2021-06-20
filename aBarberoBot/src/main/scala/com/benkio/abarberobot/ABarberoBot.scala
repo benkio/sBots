@@ -432,6 +432,9 @@ object ABarberoBot extends Configurations {
     )
   )
 
+  def token[F[_]](implicit effectF: Effect[F]): Resource[F, String] =
+    ResourceAccess.fileSystem.getResourceByteArray[F]("aBarberoBot.token").map(_.map(_.toChar).mkString)
+
   def buildBot[F[_], A](
       executorContext: ExecutionContext,
       action: ABarberoBot[F] => F[A]
@@ -440,10 +443,11 @@ object ABarberoBot extends Configurations {
       parallelF: Parallel[F],
       contextShiftF: ContextShift[F],
       concurrentEffectF: ConcurrentEffect[F]
-  ): F[A] =
-    BlazeClientBuilder[F](executorContext).resource
-      .use { client =>
-        implicit val api: Api[F] = BotApi(client, baseUrl = s"https://api.telegram.org/bot$token")
-        action(new ABarberoBot[F]())
-      }
+  ): F[A] = (for {
+    client <- BlazeClientBuilder[F](executorContext).resource
+    tk     <- token[F]
+  } yield (client, tk)).use(client_tk => {
+    implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
+    action(new ABarberoBot[F]())
+  })
 }

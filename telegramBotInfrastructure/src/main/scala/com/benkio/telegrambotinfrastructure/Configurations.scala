@@ -1,12 +1,9 @@
 package com.benkio.telegrambotinfrastructure
 
-import scala.io.Source
+import cats.effect.Effect
+import cats.effect.Resource
 
 trait Configurations {
-
   // Configuration Stuff //////////////////////////////////////////////////////
-  lazy val token = scala.util.Properties
-    .envOrNone("BOT_TOKEN")
-    .getOrElse(Source.fromResource("bot.token").getLines().mkString)
-
+  def token[F[_]](implicit effectF: Effect[F]): Resource[F, String]
 }

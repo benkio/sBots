@@ -9,7 +9,6 @@ scalaVersion := "2.13.6"
 lazy val global = project
   .in(file("."))
   .settings(Settings.settings: _*)
-  .disablePlugins(AssemblyPlugin)
   .aggregate(
     main,
     telegramBotInfrastructure,

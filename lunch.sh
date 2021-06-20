@@ -35,11 +35,7 @@ if [ "$SIMULATION" = false ] ;
 then
     echo "assembly"
 
-    sbt --supershell=false calandroBot/assembly &
-    sbt --supershell=false aBarberoBot/assembly &
-    sbt --supershell=false richardPHJBensonBot/assembly
+    sbt --supershell=false main/assembly
 
-    (cd ./calandroBot/target/scala-2.13/; java -jar CalandroBot.jar) &
-    (cd ./aBarberoBot/target/scala-2.13/; java -jar ABarberoBot.jar) &
-    (cd ./richardPHJBensonBot/target/scala-2.13/; java -jar RichardPHJBensonBot.jar)
+    (cd ./main/target/scala-2.13/; java -jar main.jar)
 fi

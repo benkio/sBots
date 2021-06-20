@@ -92,5 +92,5 @@ object Settings {
     name := "main",
     libraryDependencies := MainDependencies,
     mainClass := Some("com.benkio.main.Main")
-  )
+  ) ++ assemblySettings
 }

@@ -1484,13 +1484,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("feelings"))),
-      List(MediaFile("feelings.mp3"))
-    ),
-    ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("feelings"))),
       List(
         MediaFile("feelings.gif"),
         MediaFile("feelings2.gif"),
+        MediaFile("feelings.mp3")
       ),
       replySelection = RandomSelection
     ),
@@ -1929,14 +1926,22 @@ carattere '!':
       )
     )
   )
+  def token[F[_]](implicit effectF: Effect[F]): Resource[F, String] =
+    ResourceAccess.fileSystem.getResourceByteArray[F]("richardPHJBensonBot.token").map(_.map(_.toChar).mkString)
 
-  def buildBot[F[_]: Timer: Parallel: ContextShift: ConcurrentEffect, A](
+  def buildBot[F[_], A](
       executorContext: ExecutionContext,
       action: RichardPHJBensonBot[F] => F[A]
-  ): F[A] =
-    BlazeClientBuilder[F](executorContext).resource
-      .use { client =>
-        implicit val api: Api[F] = BotApi(client, baseUrl = s"https://api.telegram.org/bot$token")
-        action(new RichardPHJBensonBot[F]())
-      }
+  )(implicit
+      timerF: Timer[F],
+      parallelF: Parallel[F],
+      contextShiftF: ContextShift[F],
+      concurrentEffectF: ConcurrentEffect[F]
+  ): F[A] = (for {
+    client <- BlazeClientBuilder[F](executorContext).resource
+    tk     <- token[F]
+  } yield (client, tk)).use(client_tk => {
+    implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
+    action(new RichardPHJBensonBot[F]())
+  })
 }
