@@ -1,17 +1,16 @@
 package com.benkio.richardphjbensonbot
 
+import cats._
+import cats.effect._
+import com.benkio.telegrambotinfrastructure.Configurations
+import com.benkio.telegrambotinfrastructure._
+import com.benkio.telegrambotinfrastructure.botCapabilities._
+import com.benkio.telegrambotinfrastructure.model._
+import com.lightbend.emoji.ShortCodes.Defaults._
+import com.lightbend.emoji.ShortCodes.Implicits._
 import org.http4s.client.blaze._
 import scala.concurrent.ExecutionContext
-import com.benkio.telegrambotinfrastructure.Configurations
-import com.benkio.telegrambotinfrastructure.botCapabilities._
-import com.benkio.telegrambotinfrastructure._
-import cats.effect._
-import com.benkio.telegrambotinfrastructure.model._
-
-import com.lightbend.emoji.ShortCodes.Implicits._
-import com.lightbend.emoji.ShortCodes.Defaults._
 import telegramium.bots.high._
-import cats._
 
 class RichardPHJBensonBot[F[_]]()(implicit
     timerF: Timer[F],
@@ -1942,6 +1941,6 @@ carattere '!':
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new RichardPHJBensonBot[F]())
+    action(new RichardPHJBensonBot[F]())  
   })
 }

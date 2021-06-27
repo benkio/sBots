@@ -1,19 +1,19 @@
 package com.benkio.calandrobot
 
+import cats._
+import cats.effect._
+import com.benkio.telegrambotinfrastructure.Configurations
+import com.benkio.telegrambotinfrastructure._
+import com.benkio.telegrambotinfrastructure.botCapabilities._
+import com.benkio.telegrambotinfrastructure.model._
+import com.lightbend.emoji.ShortCodes.Defaults._
+import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
 import org.http4s.client.blaze._
 import scala.concurrent.ExecutionContext
-import com.benkio.telegrambotinfrastructure.Configurations
-import com.benkio.telegrambotinfrastructure.botCapabilities._
-import com.benkio.telegrambotinfrastructure._
-import cats.effect._
-import com.benkio.telegrambotinfrastructure.model._
 import scala.util.Random
-import telegramium.bots.high._
 import telegramium.bots.Message
-import cats._
-import com.lightbend.emoji.ShortCodes.Implicits._
-import com.lightbend.emoji.ShortCodes.Defaults._
+import telegramium.bots.high._
 
 class CalandroBot[F[_]]()(implicit
     timerF: Timer[F],

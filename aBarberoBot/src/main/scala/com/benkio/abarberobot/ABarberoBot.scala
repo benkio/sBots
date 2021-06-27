@@ -1,14 +1,14 @@
 package com.benkio.abarberobot
 
+import cats._
+import cats.effect._
+import com.benkio.telegrambotinfrastructure.Configurations
+import com.benkio.telegrambotinfrastructure._
+import com.benkio.telegrambotinfrastructure.botCapabilities._
+import com.benkio.telegrambotinfrastructure.model._
 import org.http4s.client.blaze._
 import scala.concurrent.ExecutionContext
-import com.benkio.telegrambotinfrastructure.Configurations
-import com.benkio.telegrambotinfrastructure.botCapabilities._
-import com.benkio.telegrambotinfrastructure._
-import cats.effect._
-import com.benkio.telegrambotinfrastructure.model._
 import telegramium.bots.high._
-import cats._
 
 class ABarberoBot[F[_]]()(implicit
     timerF: Timer[F],
