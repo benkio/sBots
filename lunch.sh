@@ -27,13 +27,13 @@ sbt --supershell=false scalafmtAll
 
 if [[ "$TEST" == true || "$SIMULATION" == true ]] ;
 then
-    echo "Running Tests"
+    echo "-------------------------Running Tests-------------------------"
     sbt --supershell=false test
 fi
 
 if [ "$SIMULATION" = false ] ;
 then
-    echo "assembly"
+    echo "-------------------------assembly-------------------------"
 
     sbt --supershell=false main/assembly
 
