@@ -1941,6 +1941,6 @@ carattere '!':
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new RichardPHJBensonBot[F]())  
+    action(new RichardPHJBensonBot[F]())
   })
 }

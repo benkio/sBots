@@ -44,7 +44,7 @@ class CalandroBot[F[_]]()(implicit
     ReplyBundleCommand(CommandTrigger("fuoridalmondo"), List(MediaFile("fuoriDalMondo.mp3"))),
     ReplyBundleCommand(CommandTrigger("qualitaolive"), List(MediaFile("qualitaOlive.mp3"))),
     ReplyBundleCommand(CommandTrigger("gioielli"), List(MediaFile("gioielli.mp3"))),
-    ReplyBundleCommand(CommandTrigger("risata"), List(MediaFile("risata.mp3"))),
+    ReplyBundleCommand(CommandTrigger("risata"), List(MediaFile("risataCalandrica.mp3"))),
     ReplyBundleCommand(CommandTrigger("sonocosternato"), List(MediaFile("sonoCosternato.mp3"))),
     ReplyBundleCommand(CommandTrigger("demenza"), List(MediaFile("laDemenzaDiUnUomo.mp3"))),
     ReplyBundleCommand(CommandTrigger("wha"), List(MediaFile("whaSecco.mp3"))),
