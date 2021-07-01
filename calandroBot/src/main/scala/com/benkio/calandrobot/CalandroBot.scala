@@ -25,34 +25,34 @@ class CalandroBot[F[_]]()(implicit
   override val resourceSource: ResourceSource = CalandroBot.resourceSource
 
   override lazy val commandRepliesData: List[ReplyBundleCommand] = List(
-    ReplyBundleCommand(CommandTrigger("porcoladro"), List(MediaFile("PorcoLadro.mp3"))),
-    ReplyBundleCommand(CommandTrigger("unoduetre"), List(MediaFile("unoduetre.mp3"))),
-    ReplyBundleCommand(CommandTrigger("ancorauna"), List(MediaFile("AncoraUnaDoveLaMetto.mp3"))),
-    ReplyBundleCommand(CommandTrigger("lacipolla"), List(MediaFile("CipollaCalandrica.mp3"))),
-    ReplyBundleCommand(CommandTrigger("lavorogiusto"), List(MediaFile("IlLavoroVaPagato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("motivazioniinternet"), List(MediaFile("InternetMotivazioniCalandriche.mp3"))),
-    ReplyBundleCommand(CommandTrigger("cazzomene"), List(MediaFile("IoSonVaccinato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("arrivoarrivo"), List(MediaFile("SubmissionCalandra.mp3"))),
-    ReplyBundleCommand(CommandTrigger("vaginadepilata"), List(MediaFile("VaginaDepilataCalandra.mp3"))),
-    ReplyBundleCommand(CommandTrigger("whawha_fallout4"), List(MediaFile("waawahaawha.mp3"))),
-    ReplyBundleCommand(CommandTrigger("whawha_short"), List(MediaFile("wwhaaawhaaa Singolo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("daccordissimo"), List(MediaFile("d_accordissimo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("stocazzo"), List(MediaFile("stocazzo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("cazzodibudda"), List(MediaFile("cazzoDiBudda.mp3"))),
-    ReplyBundleCommand(CommandTrigger("personapulita"), List(MediaFile("personaPulita.mp3"))),
-    ReplyBundleCommand(CommandTrigger("losquirt"), List(MediaFile("loSquirt.mp3"))),
-    ReplyBundleCommand(CommandTrigger("fuoridalmondo"), List(MediaFile("fuoriDalMondo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("qualitaolive"), List(MediaFile("qualitaOlive.mp3"))),
-    ReplyBundleCommand(CommandTrigger("gioielli"), List(MediaFile("gioielli.mp3"))),
-    ReplyBundleCommand(CommandTrigger("risata"), List(MediaFile("risataCalandrica.mp3"))),
-    ReplyBundleCommand(CommandTrigger("sonocosternato"), List(MediaFile("sonoCosternato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("demenza"), List(MediaFile("laDemenzaDiUnUomo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("wha"), List(MediaFile("whaSecco.mp3"))),
-    ReplyBundleCommand(CommandTrigger("imparatounafava"), List(MediaFile("imparatoUnaFava.mp3"))),
-    ReplyBundleCommand(CommandTrigger("lesbiche"), List(MediaFile("SieteLesbiche.mp3"))),
-    ReplyBundleCommand(CommandTrigger("firstlesson"), List(MediaFile("firstLessonPlease.mp3"))),
-    ReplyBundleCommand(CommandTrigger("noprogrammato"), List(MediaFile("noGrazieProgrammato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("fiamme.mp3"))),
+    ReplyBundleCommand(CommandTrigger("porcoladro"), List(MediaFile("cala_PorcoLadro.mp3"))),
+    ReplyBundleCommand(CommandTrigger("unoduetre"), List(MediaFile("cala_Unoduetre.mp3"))),
+    ReplyBundleCommand(CommandTrigger("ancorauna"), List(MediaFile("cala_AncoraUnaDoveLaMetto.mp3"))),
+    ReplyBundleCommand(CommandTrigger("lacipolla"), List(MediaFile("cala_CipollaCalandrica.mp3"))),
+    ReplyBundleCommand(CommandTrigger("lavorogiusto"), List(MediaFile("cala_IlLavoroVaPagato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("motivazioniinternet"), List(MediaFile("cala_InternetMotivazioniCalandriche.mp3"))),
+    ReplyBundleCommand(CommandTrigger("cazzomene"), List(MediaFile("cala_IoSonVaccinato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("arrivoarrivo"), List(MediaFile("cala_SubmissionCalandra.mp3"))),
+    ReplyBundleCommand(CommandTrigger("vaginadepilata"), List(MediaFile("cala_VaginaDepilataCalandra.mp3"))),
+    ReplyBundleCommand(CommandTrigger("whawha_fallout4"), List(MediaFile("cala_Waawahaawha.mp3"))),
+    ReplyBundleCommand(CommandTrigger("whawha_short"), List(MediaFile("cala_Wwhaaawhaaa Singolo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("daccordissimo"), List(MediaFile("cala_D_accordissimo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("stocazzo"), List(MediaFile("cala_Stocazzo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("cazzodibudda"), List(MediaFile("cala_CazzoDiBudda.mp3"))),
+    ReplyBundleCommand(CommandTrigger("personapulita"), List(MediaFile("cala_PersonaPulita.mp3"))),
+    ReplyBundleCommand(CommandTrigger("losquirt"), List(MediaFile("cala_LoSquirt.mp3"))),
+    ReplyBundleCommand(CommandTrigger("fuoridalmondo"), List(MediaFile("cala_FuoriDalMondo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("qualitaolive"), List(MediaFile("cala_QualitaOlive.mp3"))),
+    ReplyBundleCommand(CommandTrigger("gioielli"), List(MediaFile("cala_Gioielli.mp3"))),
+    ReplyBundleCommand(CommandTrigger("risata"), List(MediaFile("cala_RisataCalandrica.mp3"))),
+    ReplyBundleCommand(CommandTrigger("sonocosternato"), List(MediaFile("cala_SonoCosternato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("demenza"), List(MediaFile("cala_LaDemenzaDiUnUomo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("wha"), List(MediaFile("cala_WhaSecco.mp3"))),
+    ReplyBundleCommand(CommandTrigger("imparatounafava"), List(MediaFile("cala_ImparatoUnaFava.mp3"))),
+    ReplyBundleCommand(CommandTrigger("lesbiche"), List(MediaFile("cala_SieteLesbiche.mp3"))),
+    ReplyBundleCommand(CommandTrigger("firstlesson"), List(MediaFile("cala_FirstLessonPlease.mp3"))),
+    ReplyBundleCommand(CommandTrigger("noprogrammato"), List(MediaFile("cala_NoGrazieProgrammato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("cala_Fiamme.mp3"))),
     ReplyBundleCommand(
       CommandTrigger("randomcard"),
       Effect
@@ -182,7 +182,7 @@ object CalandroBot extends Configurations {
     )
   )
   def token[F[_]](implicit effectF: Effect[F]): Resource[F, String] =
-    ResourceAccess.fileSystem.getResourceByteArray[F]("CalandroBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fileSystem.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
   def buildBot[F[_], A](
       executorContext: ExecutionContext,
