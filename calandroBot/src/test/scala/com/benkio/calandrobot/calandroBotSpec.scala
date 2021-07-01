@@ -24,18 +24,17 @@ class CalandroBotSpec extends AnyWordSpec {
       .filterOrElse(_.nonEmpty, (x: Array[Byte]) => x)
       .fold(_ => fail(s"$filename cannot be found"), _ => succeed)
 
-
   "commandRepliesData" should {
     "never raise an exception" when {
       "try to open the file in resounces" in {
         CalandroBot.buildBot[IO, Unit](
           scala.concurrent.ExecutionContext.global,
           bot =>
-          IO(
-            bot.commandRepliesData
-              .flatMap(_.mediafiles)
-              .foreach((mf: MediaFile) => testFilename(mf.filename))
-          )
+            IO(
+              bot.commandRepliesData
+                .flatMap(_.mediafiles)
+                .foreach((mf: MediaFile) => testFilename(mf.filename))
+            )
         )
       }
     }

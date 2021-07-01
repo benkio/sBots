@@ -23,7 +23,6 @@ class ABarberoBotSpec extends AnyWordSpec with Matchers {
       .filterOrElse(_.nonEmpty, (x: Array[Byte]) => x)
       .fold(_ => fail(s"$filename cannot be found"), _ => succeed)
 
-
   "messageRepliesAudioData" should {
     "never raise an exception" when {
       "try to open the file in resounces" in {

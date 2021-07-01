@@ -30,7 +30,10 @@ class CalandroBot[F[_]]()(implicit
     ReplyBundleCommand(CommandTrigger("ancorauna"), List(MediaFile("cala_AncoraUnaDoveLaMetto.mp3"))),
     ReplyBundleCommand(CommandTrigger("lacipolla"), List(MediaFile("cala_CipollaCalandrica.mp3"))),
     ReplyBundleCommand(CommandTrigger("lavorogiusto"), List(MediaFile("cala_IlLavoroVaPagato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("motivazioniinternet"), List(MediaFile("cala_InternetMotivazioniCalandriche.mp3"))),
+    ReplyBundleCommand(
+      CommandTrigger("motivazioniinternet"),
+      List(MediaFile("cala_InternetMotivazioniCalandriche.mp3"))
+    ),
     ReplyBundleCommand(CommandTrigger("cazzomene"), List(MediaFile("cala_IoSonVaccinato.mp3"))),
     ReplyBundleCommand(CommandTrigger("arrivoarrivo"), List(MediaFile("cala_SubmissionCalandra.mp3"))),
     ReplyBundleCommand(CommandTrigger("vaginadepilata"), List(MediaFile("cala_VaginaDepilataCalandra.mp3"))),

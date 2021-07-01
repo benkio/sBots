@@ -367,7 +367,10 @@ object ABarberoBot extends Configurations {
       TextTrigger(List(StringTextTriggerValue("in un attimo"), StringTextTriggerValue("in piazza"))),
       List(MediaFile("abar_InPiazza.gif"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("in due pezzi"))), List(MediaFile("abar_InDuePezzi.gif"))),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("in due pezzi"))),
+      List(MediaFile("abar_InDuePezzi.gif"))
+    ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("giusto"))), List(MediaFile("abar_Giusto.gif"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("gli altri"))), List(MediaFile("abar_GliAltri.gif")))
   )
