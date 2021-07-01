@@ -436,7 +436,7 @@ object ABarberoBot extends Configurations {
   )
 
   def token[F[_]](implicit effectF: Effect[F]): Resource[F, String] =
-    ResourceAccess.fileSystem.getResourceByteArray[F]("aBarberoBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fileSystem.getResourceByteArray[F]("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
 
   def buildBot[F[_], A](
       executorContext: ExecutionContext,
