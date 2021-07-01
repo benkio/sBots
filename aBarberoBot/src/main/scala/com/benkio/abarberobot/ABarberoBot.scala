@@ -39,7 +39,7 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("aceto")
         )
       ),
-      List(MediaFile("ferroFuocoAcquaBollenteAceto.mp3"))
+      List(MediaFile("abar_FerroFuocoAcquaBollenteAceto.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -47,7 +47,7 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("secolo")
         )
       ),
-      List(MediaFile("secolo.mp3"))
+      List(MediaFile("abar_Secolo.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -58,7 +58,7 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("roghi"),
         )
       ),
-      List(MediaFile("draghi.mp3"))
+      List(MediaFile("abar_Draghi.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -66,21 +66,21 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("crociate")
         )
       ),
-      List(MediaFile("crociate.mp3"))
+      List(MediaFile("abar_Crociate.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("wikipedia"))),
-      List(MediaFile("wikipedia.mp3"))
+      List(MediaFile("abar_Wikipedia.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("\\beccoh\\b".r))),
-      List(MediaFile("ecco.mp3"))
+      List(MediaFile("abar_Ecco.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue("maglio"), StringTextTriggerValue("sbriciola"), StringTextTriggerValue("schiaccia"))
       ),
-      List(MediaFile("maglio.mp3"))
+      List(MediaFile("abar_Maglio.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -91,21 +91,21 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("assedi")
         )
       ),
-      List(MediaFile("assedi.mp3"))
+      List(MediaFile("abar_Assedi.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("furore"), StringTextTriggerValue("città"))),
-      List(MediaFile("furore.mp3"))
+      List(MediaFile("abar_Furore.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("demoni"), StringTextTriggerValue("scatenat"))),
-      List(MediaFile("demoni.mp3"))
+      List(MediaFile("abar_Demoni.mp3"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("sensei"))), List(MediaFile("sensei.mp3"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("miserabile"))), List(MediaFile("miserabile.mp3"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("sensei"))), List(MediaFile("abar_Sensei.mp3"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("miserabile"))), List(MediaFile("abar_Miserabile.mp3"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("omicidio"), StringTextTriggerValue("cosa che capita"))),
-      List(MediaFile("capitaOmicidio.mp3"))
+      List(MediaFile("abar_CapitaOmicidio.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -115,7 +115,7 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("ammazziamolo")
         )
       ),
-      List(MediaFile("ammazziamolo.mp3"))
+      List(MediaFile("abar_Ammazziamolo.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -125,11 +125,11 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("fuoco")
         )
       ),
-      List(MediaFile("bbq.mp3"))
+      List(MediaFile("abar_Bbq.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("genitali"), StringTextTriggerValue("cosi e coglioni"))),
-      List(MediaFile("cosi.mp3"))
+      List(MediaFile("abar_Cosi.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -139,17 +139,17 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("la vogliamo")
         )
       ),
-      List(MediaFile("guerra.mp3"))
+      List(MediaFile("abar_Guerra.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue("cagarelli"), StringTextTriggerValue("feci"), StringTextTriggerValue("cacca"))
       ),
-      List(MediaFile("homines.mp3"))
+      List(MediaFile("abar_Homines.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("tedesco"), StringTextTriggerValue("kraft"))),
-      List(MediaFile("kraft.mp3"))
+      List(MediaFile("abar_Kraft.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -159,41 +159,41 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("in culo")
         )
       ),
-      List(MediaFile("monsu.mp3"))
+      List(MediaFile("abar_Monsu.mp3"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("ottimismo"))), List(MediaFile("ottimismo.mp3"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("ottimismo"))), List(MediaFile("abar_Ottimismo.mp3"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("latino"))),
-      List(MediaFile("homines.mp3"), MediaFile("vagdavercustis.mp3"), MediaFile("yersinia.mp3")),
+      List(MediaFile("abar_Homines.mp3"), MediaFile("abar_Vagdavercustis.mp3"), MediaFile("abar_Yersinia.mp3")),
       replySelection = RandomSelection
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("radetzky"))), List(MediaFile("radetzky.mp3"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("radetzky"))), List(MediaFile("abar_Radetzky.mp3"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("interrogateli"), StringTextTriggerValue("tortura"))),
-      List(MediaFile("reinterrogateli.mp3"))
+      List(MediaFile("abar_Reinterrogateli.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue(" re "), StringTextTriggerValue("decapita"))),
-      List(MediaFile("re.mp3"))
+      List(MediaFile("abar_Re.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(
         List(RegexTextTriggerValue("\\bascia\\b".r), StringTextTriggerValue("sangue"))
       ),
-      List(MediaFile("sangue.mp3"))
+      List(MediaFile("abar_Sangue.mp3"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("spranga"))), List(MediaFile("spranga.mp3"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("stupidi"))), List(MediaFile("stupidi.mp3"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("subito"))), List(MediaFile("subito.mp3"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("spranga"))), List(MediaFile("abar_Spranga.mp3"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("stupidi"))), List(MediaFile("abar_Stupidi.mp3"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("subito"))), List(MediaFile("abar_Subito.mp3"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("vagdavercustis"))),
-      List(MediaFile("vagdavercustis.mp3"))
+      List(MediaFile("abar_Vagdavercustis.mp3"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("peste"), StringTextTriggerValue("yersinia"))),
-      List(MediaFile("yersinia.mp3"))
+      List(MediaFile("abar_Yersinia.mp3"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("zazzera"))), List(MediaFile("zazzera.mp3")))
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("zazzera"))), List(MediaFile("abar_Zazzera.mp3")))
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
@@ -201,7 +201,7 @@ object ABarberoBot extends Configurations {
       TextTrigger(
         List(StringTextTriggerValue("seziona"), StringTextTriggerValue("cadaveri"), StringTextTriggerValue("morti"))
       ),
-      List(MediaFile("cadaveri.gif"))
+      List(MediaFile("abar_Cadaveri.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -211,16 +211,16 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("le braccia")
         )
       ),
-      List(MediaFile("strappare.gif"))
+      List(MediaFile("abar_Strappare.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("saltare la testa"), StringTextTriggerValue("questa macchina"))),
-      List(MediaFile("saltareLaTesta.gif"))
+      List(MediaFile("abar_SaltareLaTesta.gif"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("paura"))), List(MediaFile("paura.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("paura"))), List(MediaFile("abar_Paura.gif"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("sega"), StringTextTriggerValue("dov'è"))),
-      List(MediaFile("sega.gif"))
+      List(MediaFile("abar_Sega.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -232,7 +232,7 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("spartir")
         )
       ),
-      List(MediaFile("potere.gif"))
+      List(MediaFile("abar_Potere.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -242,7 +242,7 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("capolavoro")
         )
       ),
-      List(MediaFile("capolavoro.gif"))
+      List(MediaFile("abar_Capolavoro.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -251,7 +251,7 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("easy")
         )
       ),
-      List(MediaFile("troppoFacile.gif"))
+      List(MediaFile("abar_TroppoFacile.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -261,7 +261,7 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("inganno")
         )
       ),
-      List(MediaFile("trappola.gif"))
+      List(MediaFile("abar_Trappola.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -272,7 +272,7 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("ritorsione")
         )
       ),
-      List(MediaFile("faida.gif"))
+      List(MediaFile("abar_Faida.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -280,11 +280,11 @@ object ABarberoBot extends Configurations {
           RegexTextTriggerValue("chi(s| )se( )?ne( )?frega".r)
         )
       ),
-      List(MediaFile("chissenefrega.gif"))
+      List(MediaFile("abar_Chissenefrega.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("buonasera"))),
-      List(MediaFile("buonasera.gif"))
+      List(MediaFile("abar_Buonasera.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -293,11 +293,11 @@ object ABarberoBot extends Configurations {
           RegexTextTriggerValue("(si| si|si ){2,}".r)
         )
       ),
-      List(MediaFile("sisiAMorte.gif"))
+      List(MediaFile("abar_SisiAMorte.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("francesi"))),
-      List(MediaFile("francesi.gif"))
+      List(MediaFile("abar_Francesi.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -306,103 +306,103 @@ object ABarberoBot extends Configurations {
           StringTextTriggerValue("comunis")
         )
       ),
-      List(MediaFile("vivaIlPopolo.gif"))
+      List(MediaFile("abar_VivaIlPopolo.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("fare qualcosa"))),
-      List(MediaFile("fareQualcosa.gif"))
+      List(MediaFile("abar_FareQualcosa.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue("(no|nessun|non c'è) problem(a)?"), StringTextTriggerValue("ammazziamo tutti"))
       ),
-      List(MediaFile("ammazziamoTuttiNoProblem.gif"))
+      List(MediaFile("abar_AmmazziamoTuttiNoProblem.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("\\bcerto\\b".r))),
-      List(MediaFile("certo.gif"))
+      List(MediaFile("abar_Certo.gif"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("rogo"))), List(MediaFile("rogo.gif"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("semplific"))), List(MediaFile("semplifico.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("rogo"))), List(MediaFile("abar_Rogo.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("semplific"))), List(MediaFile("abar_Semplifico.gif"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("bere"), RegexTextTriggerValue("taglia(re)? la gola".r))),
-      List(MediaFile("taglioGolaBereSangue.gif"))
+      List(MediaFile("abar_TaglioGolaBereSangue.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("spacco la (testa|faccia)".r))),
-      List(MediaFile("spaccoLaTesta.gif"))
+      List(MediaFile("abar_SpaccoLaTesta.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r))),
-      List(MediaFile("orifizioPosteriore.gif"))
+      List(MediaFile("abar_OrifizioPosteriore.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("faccia tosta"), StringTextTriggerValue("furfante"))),
-      List(MediaFile("furfante.gif"))
+      List(MediaFile("abar_Furfante.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("basta!"))),
-      List(MediaFile("basta.gif"))
+      List(MediaFile("abar_Basta.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("tutti insieme"), StringTextTriggerValue("ghigliottina"))),
-      List(MediaFile("ghigliottinaTuttiInsieme.gif"))
+      List(MediaFile("abar_GhigliottinaTuttiInsieme.gif"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("economisti"))), List(MediaFile("economisti.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("economisti"))), List(MediaFile("abar_Economisti.gif"))),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("vieni (un po' )?qui".r))),
-      List(MediaFile("vieniQui.gif"))
+      List(MediaFile("abar_VieniQui.gif"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("si fa così"))), List(MediaFile("siFaCosi.gif"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("spranga"))), List(MediaFile("spranga.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("si fa così"))), List(MediaFile("abar_SiFaCosi.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("spranga"))), List(MediaFile("abar_Spranga.gif"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("rapire"), StringTextTriggerValue("riscatto"))),
-      List(MediaFile("riscatto.gif"))
+      List(MediaFile("abar_Riscatto.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue(" n[o]+!".r), RegexTextTriggerValue("non (lo )?vogli(a|o)".r))),
-      List(MediaFile("no.gif"))
+      List(MediaFile("abar_No.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("in un attimo"), StringTextTriggerValue("in piazza"))),
-      List(MediaFile("inPiazza.gif"))
+      List(MediaFile("abar_InPiazza.gif"))
     ),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("in due pezzi"))), List(MediaFile("inDuePezzi.gif"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("giusto"))), List(MediaFile("giusto.gif"))),
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("gli altri"))), List(MediaFile("gliAltri.gif")))
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("in due pezzi"))), List(MediaFile("abar_InDuePezzi.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("giusto"))), List(MediaFile("abar_Giusto.gif"))),
+    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("gli altri"))), List(MediaFile("abar_GliAltri.gif")))
   )
 
   val messageRepliesSpecialData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana|troia)".r))),
       List(
-        MediaFile("figlioDi.gif"),
-        MediaFile("figlioDi2.gif"),
-        MediaFile("figlioDi3.mp3")
+        MediaFile("abar_FiglioDi.gif"),
+        MediaFile("abar_FiglioDi2.gif"),
+        MediaFile("abar_FiglioDi3.mp3")
       ),
       replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("sgozza"))),
-      List(MediaFile("sgozzamento.mp3"), MediaFile("sgozzamento.gif"))
+      List(MediaFile("abar_Sgozzamento.mp3"), MediaFile("abar_Sgozzamento.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("bruciargli"), StringTextTriggerValue("la casa"))),
-      List(MediaFile("bruciare.mp3"), MediaFile("bruciare.gif"))
+      List(MediaFile("abar_Bruciare.mp3"), MediaFile("abar_Bruciare.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("a pezzi"), StringTextTriggerValue("a pezzettini"))),
-      List(MediaFile("aPezzettini.mp3"), MediaFile("aPezzettini.gif"))
+      List(MediaFile("abar_APezzettini.mp3"), MediaFile("abar_APezzettini.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue("allarme"), StringTextTriggerValue("priori"), StringTextTriggerValue("carne"))
       ),
-      List(MediaFile("priori.mp3"), MediaFile("priori.gif"))
+      List(MediaFile("abar_Priori.mp3"), MediaFile("abar_Priori.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("zagaglia"), StringTextTriggerValue("nemico"))),
-      List(MediaFile("zagaglia.mp3"), MediaFile("zagaglia.gif"))
+      List(MediaFile("abar_Zagaglia.mp3"), MediaFile("abar_Zagaglia.gif"))
     )
   )
 
