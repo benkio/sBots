@@ -11,19 +11,17 @@ import org.scalatest.wordspec.AnyWordSpec
 class RichardPHJBensonBotSpec extends AnyWordSpec with Matchers {
 
   def testFilename(filename: String): Assertion =
-    if (
       Effect
         .toIOFromRunAsync(
           ResourceSource
             .selectResourceAccess(RichardPHJBensonBot.resourceSource)
             .getResourceByteArray[IO](filename)
             .use[IO, Array[Byte]](IO.pure)
+            .attempt
         )
         .unsafeRunSync()
-        .isEmpty
-    )
-      fail(s"$filename cannot be found")
-    else succeed
+        .filterOrElse(_.nonEmpty, (x: Array[Byte]) => x)
+        .fold(_ => fail(s"$filename cannot be found"), _ => succeed)
 
   "messageRepliesAudioData" should {
     "never raise an exception" when {
