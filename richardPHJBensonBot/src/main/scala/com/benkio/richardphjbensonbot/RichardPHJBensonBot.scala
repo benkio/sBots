@@ -35,6 +35,36 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r)
+        )
+      ),
+      List(
+        MediaFile("rphjb_Scusa.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("lo sapevo")
+        )
+      ),
+      List(
+        MediaFile("rphjb_LoSapevoIo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("mi auguro")
+        )
+      ),
+      List(
+        MediaFile("rphjb_IoMiAuguro.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           StringTextTriggerValue("non leggo")
         )
       ),
@@ -1256,7 +1286,7 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("rphjb_Alcesso.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("non manca niente"), StringTextTriggerValue("c'é tutto"))),
+      TextTrigger(List(StringTextTriggerValue("non manca niente"), StringTextTriggerValue("c'è tutto"))),
       List(MediaFile("rphjb_NonMancaNiente.gif"))
     ),
     ReplyBundleMessage(
