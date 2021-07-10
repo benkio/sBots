@@ -14,7 +14,8 @@ lazy val global = project
     telegramBotInfrastructure,
     calandroBot,
     aBarberoBot,
-    richardPHJBensonBot
+    richardPHJBensonBot,
+    xahBot
   )
 
 lazy val telegramBotInfrastructure =
@@ -41,6 +42,12 @@ lazy val richardPHJBensonBot =
     .settings(Settings.RichardPHJBensonBotSettings: _*)
     .dependsOn(telegramBotInfrastructure)
 
+lazy val xahBot =
+  Project("xahBot", file("xahBot"))
+    .settings(Settings.settings: _*)
+    .settings(Settings.XahBotSettings: _*)
+    .dependsOn(telegramBotInfrastructure)
+
 lazy val main = project
   .in(file("main"))
   .settings(Settings.settings: _*)
@@ -48,5 +55,6 @@ lazy val main = project
   .dependsOn(
     calandroBot,
     aBarberoBot,
-    richardPHJBensonBot
+    richardPHJBensonBot,
+    xahBot
   )
