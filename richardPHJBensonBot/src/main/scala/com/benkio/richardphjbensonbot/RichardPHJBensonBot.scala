@@ -1666,7 +1666,8 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_Risata.gif"),
         MediaFile("rphjb_Sorriso2.gif"),
         MediaFile("rphjb_Sorriso.gif"),
-        MediaFile("rphjb_SorrisoSognante.gif")
+        MediaFile("rphjb_SorrisoSognante.gif"),
+        MediaFile("rphjb_Risata2.mp3")
       ),
       replySelection = RandomSelection
     ),
