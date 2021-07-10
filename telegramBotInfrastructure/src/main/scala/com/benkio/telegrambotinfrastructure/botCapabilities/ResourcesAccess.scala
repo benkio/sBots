@@ -2,15 +2,19 @@ package com.benkio.telegrambotinfrastructure.botCapabilities
 
 import scala.collection.mutable.ArrayBuffer
 import java.util.jar.JarFile
-import java.net.URISyntaxException
-import com.benkio.telegrambotinfrastructure.model.MediaFile
-import java.nio.file.Paths
-import java.io.FileOutputStream
-import java.io.File
+import scala.jdk.CollectionConverters._
 import java.io.ByteArrayOutputStream
+import java.io.FileInputStream
 import cats.effect._
 import cats._
 import cats.implicits._
+
+import com.benkio.telegrambotinfrastructure.model.MediaFile
+import java.nio.file.Paths
+import java.nio.file.Files
+import java.nio.file.Path
+import java.io.FileOutputStream
+import java.io.File
 
 sealed trait ResourceSource
 
@@ -45,18 +49,25 @@ trait ResourceAccess {
 object ResourceAccess {
   val fileSystem = new ResourceAccess {
 
-    def getResourceByteArray[F[_]](resourceName: String)(implicit F: Effect[F]): Resource[F, Array[Byte]] = (for {
-      fis  <- Resource.make(F.delay(getClass().getResourceAsStream("/" + resourceName)))(fis => F.delay(fis.close()))
-      bais <- Resource.make(F.delay(new ByteArrayOutputStream()))(bais => F.delay(bais.close()))
-    } yield (fis, bais)).evalMap { case (fis, bais) =>
-      val tempArray = new Array[Byte](16384)
-      for {
-        firstChunk <- F.delay(fis.read(tempArray, 0, tempArray.length))
-        _ <- Monad[F].iterateWhileM(firstChunk)(chunk =>
-          F.delay(bais.write(tempArray, 0, chunk)) *> F.delay(fis.read(tempArray, 0, tempArray.length))
-        )(_ != -1)
-      } yield bais.toByteArray()
-    }
+    def getResourceByteArray[F[_]](resourceName: String)(implicit F: Effect[F]): Resource[F, Array[Byte]] =
+      (for {
+        fis <- Resource.make(F.delay {
+          val stream = getClass().getResourceAsStream("/" + resourceName)
+          if (stream == null) new FileInputStream(resourceName) else stream
+        })(fis => F.delay(fis.close()))
+        bais <- Resource.make(F.delay(new ByteArrayOutputStream()))(bais => F.delay(bais.close()))
+      } yield (fis, bais)).evalMap { case (fis, bais) =>
+        val tempArray = new Array[Byte](16384)
+        for {
+          firstChunk <- F.delay(fis.read(tempArray, 0, tempArray.length))
+          _ <- Monad[F].iterateWhileM(firstChunk)(chunk =>
+            F.delay(bais.write(tempArray, 0, chunk)) *> F.delay(fis.read(tempArray, 0, tempArray.length))
+          )(_ != -1)
+        } yield bais.toByteArray()
+      }
+
+    def buildPath(subResourceFilePath: String): Path =
+      Paths.get(Paths.get("").toAbsolutePath().toString(), "src", "main", "resources", subResourceFilePath)
 
     def getResourcesByKind[F[_]: Effect](criteria: String): Resource[F, List[MediaFile]] = {
       val jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())
@@ -73,24 +84,20 @@ object ResourceAccess {
           }
         }
         jar.close()
-      } else { // Run with IDE
-        val url = getClass().getResource("/" + criteria)
-        if (url != null) {
-          try {
-            val apps = new File(url.toURI())
-            for (app <- apps.listFiles()) {
-              result += app.getPath()
-            }
-          } catch {
-            case _: URISyntaxException => ???
-            // never happens
-          }
-        }
       }
-      println("result: " + result.mkString(","))
+
       Resource
-        .pure[F, ArrayBuffer[String]](result)
-        .map(arrayBuffer => arrayBuffer.toList.map(s => MediaFile(s)))
+        .pure[F, List[MediaFile]](
+          if (result.size == 0)
+            Files
+              .walk(buildPath(criteria))
+              .iterator
+              .asScala
+              .toList
+              .tail
+              .map((fl: Path) => MediaFile(buildPath(criteria).toString + "/" + fl.getFileName.toString))
+          else result.toList.map(s => MediaFile(s))
+        )
     }
   }
   def database(dbName: String) = new ResourceAccess {
