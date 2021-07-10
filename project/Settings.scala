@@ -52,7 +52,6 @@ object Settings {
     )
   )
 
-
   lazy val assemblySettings = Seq(
     assembly / assemblyJarName := name.value + ".jar",
     assembly / assemblyMergeStrategy := {
@@ -86,7 +85,13 @@ object Settings {
     mainClass := Some("com.benkio.richardphjbensonbot.RichardPHJBensonBotMain"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
-    
+
+  lazy val XahBotSettings = Seq(
+    name := "XahBot",
+    libraryDependencies := XahBotDependencies,
+    mainClass := Some("com.benkio.xahbot.XahBotMain"),
+    Test / resourceDirectory := (Compile / resourceDirectory).value
+  )++ assemblySettings
 
   lazy val MainSettings = Seq(
     name := "main",

@@ -56,6 +56,14 @@ object Dependencies {
     libs.catsEffect
   )
 
+  val XahBotDependencies: Seq[ModuleID] = Seq(
+    libs.test,
+    libs.telegramiumCore,
+    libs.telegramiumHigh,
+    libs.catsEffect
+  )
+
+
   val MainDependencies: Seq[ModuleID] = Seq(
     libs.catsEffect
   )
