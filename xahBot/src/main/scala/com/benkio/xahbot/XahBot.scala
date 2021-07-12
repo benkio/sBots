@@ -41,13 +41,13 @@ class XahBot[F[_]]()(implicit
       replySelection = RandomSelection
     ),
     ReplyBundleCommand(
-      CommandTrigger("fak"),
-      getRandomMediaFile("Fak"),
+      CommandTrigger("fakhead"),
+      getRandomMediaFile("Fakhead"),
       replySelection = RandomSelection
     ),
     ReplyBundleCommand(
-      CommandTrigger("fakhead"),
-      getRandomMediaFile("Fakhead"),
+      CommandTrigger("fak"),
+      getRandomMediaFile("Fak"),
       replySelection = RandomSelection
     ),
     ReplyBundleCommand(
