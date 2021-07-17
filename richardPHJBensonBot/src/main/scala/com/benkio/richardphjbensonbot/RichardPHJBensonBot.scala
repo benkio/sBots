@@ -35,6 +35,23 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("caprette"),
+          StringTextTriggerValue("acidi"),
+          StringTextTriggerValue("pomodori"),
+          StringTextTriggerValue("legumi"),
+          StringTextTriggerValue("ratti"),
+          StringTextTriggerValue("topi"),
+          StringTextTriggerValue("ragni"),
+          StringTextTriggerValue("male il collo"),
+        )
+      ),
+      List(
+        MediaFile("rphjb_ListaMaleCollo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r)
         )
       ),
