@@ -1793,6 +1793,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_IlSensoCapito.gif"),
         MediaFile("rphjb_CapitoDoveStiamo.gif"),
         MediaFile("rphjb_NonHoCapito.gif"),
+        MediaFile("rphjb_AveteCapitoEh.gif"),
         MediaFile("rphjb_ComeAlSolitoNonAveteCapito.gif"),
         MediaFile("rphjb_CapitoDoveStiamo.mp3"),
         MediaFile("rphjb_CapisciRidotti.mp3")
