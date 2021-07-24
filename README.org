@@ -1,0 +1,46 @@
+* My Telegram Bot
+
+  A repository containing the bots developed in Scala.
+
+** Installation
+
+   Details regarding the installation and run of the bots
+
+*** Prerequisites
+
+    Download the Data. Ask benkio: [[https://benkio.github.io][benkio.github.io]]
+
+*** Installation
+
+**** Clone the Repository
+
+#+begin_src bash
+  git clone git@github.com:benkio/myTelegramBot.git
+#+end_src
+
+**** Move the Data into Resources Directory
+
+     Earch bot contains a ~resources~ folder. You need to uncompress
+     the data and put the files in each of the bot's resource
+     folders. Put particular attention to the ~.token~ file
+     contanining the telegram key specific to each bot.
+
+**** Compile and Test
+
+     Just run the following commands in a shell, at the bot folder
+     level, to check if everything is fine.
+
+#+begin_src bash
+  sbt compile
+  sbt test:compile
+  sbt test
+#+end_src
+
+*** Run the Bots
+
+    To run the bot locally just run
+
+#+begin_src bash
+  ./lunch.sh # I know it's lunch not launch :)
+#+end_src
+
