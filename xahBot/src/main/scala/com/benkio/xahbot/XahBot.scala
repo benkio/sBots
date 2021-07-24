@@ -6,7 +6,7 @@ import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import cats.effect._
 import cats._
-import org.http4s.client.blaze._
+import org.http4s.blaze.client._
 import scala.concurrent.ExecutionContext
 import telegramium.bots.high._
 

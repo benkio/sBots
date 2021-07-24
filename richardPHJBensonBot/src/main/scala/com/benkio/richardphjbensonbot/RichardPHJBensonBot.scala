@@ -8,7 +8,7 @@ import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
-import org.http4s.client.blaze._
+import org.http4s.blaze.client._
 import scala.concurrent.ExecutionContext
 import telegramium.bots.high._
 
@@ -32,6 +32,16 @@ object RichardPHJBensonBot extends Configurations {
   val resourceSource: ResourceSource = All("rphjb.db")
 
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("tastierista")
+        ),
+      ),
+      List(
+        MediaFile("rphjb_Tastierista.mp3")
+      )
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -566,7 +576,11 @@ object RichardPHJBensonBot extends Configurations {
           RegexTextTriggerValue("stori(a|e)".r)
         )
       ),
-      List(MediaFile("rphjb_Storie.mp3"))
+      List(
+        MediaFile("rphjb_Storie.mp3"),
+        MediaFile("rphjb_Storie2.mp3"),
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
