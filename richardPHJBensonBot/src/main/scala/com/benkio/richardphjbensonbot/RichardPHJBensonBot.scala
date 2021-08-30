@@ -1536,7 +1536,6 @@ object RichardPHJBensonBot extends Configurations {
         List(
           StringTextTriggerValue("roba tagliata male"),
           StringTextTriggerValue("one television"),
-          RegexTextTriggerValue("roc(g|k) machine".r),
           RegexTextTriggerValue("devo fare (un po'|un attimo) (di|de) esercitazione".r)
         ),
       ),
