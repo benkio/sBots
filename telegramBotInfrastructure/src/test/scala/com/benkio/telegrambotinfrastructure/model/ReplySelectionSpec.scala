@@ -8,14 +8,15 @@ import org.scalatest.wordspec.AnyWordSpec
 
 class ReplySelectionSpec extends AnyWordSpec with Matchers {
 
-  val input: List[MediaFile] = List(Mp3File("a.mp3"), GifFile("b.gif"), PhotoFile("c.jpg"))
+  val input: List[MediaFile] =
+    List(Mp3File("a.mp3"), GifFile("b.gif"), PhotoFile("c.jpg"), PhotoFile("d.png"), VideoFile("e.mp4"))
 
   "RandomSelection logic" should {
     "be a function returning a list of one element" when {
       "a list of multiple element is provided" in {
         val result = RandomSelection.logic[IO](input).unsafeRunSync()
         inside(result) { case (mediaFile: MediaFile) :: Nil =>
-          List("a.mp3", "b.gif", "c.jpg") should contain(mediaFile.filename)
+          List("a.mp3", "b.gif", "c.jpg", "d.png", "e.mp4") should contain(mediaFile.filename)
         }
       }
     }

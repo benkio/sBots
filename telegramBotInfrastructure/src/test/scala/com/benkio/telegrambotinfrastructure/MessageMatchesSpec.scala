@@ -11,6 +11,7 @@ class MessageMatchesSpec extends AnyWordSpec with Matchers {
     Mp3File("audio.mp3"),
     PhotoFile("picture.jpg"),
     PhotoFile("picture.png"),
+    VideoFile("video.mp4"),
     GifFile("a.gif")
   )
 

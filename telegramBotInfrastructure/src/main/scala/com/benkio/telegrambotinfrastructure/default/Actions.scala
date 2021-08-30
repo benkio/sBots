@@ -75,6 +75,21 @@ trait DefaultActions {
                 )(effect)
                 .attemptT
             } yield List(message)
+          case video: VideoFile =>
+            for {
+              _ <- Methods.sendChatAction(chatId, "upload_video").exec.attemptT
+              message <- getResourceData(effect)(video)
+                .use[F, Message](videoFile =>
+                  Methods
+                    .sendVideo(
+                      chatId,
+                      InputPartFile(videoFile),
+                      replyToMessageId = replyToMessage
+                    )
+                    .exec
+                )(effect)
+                .attemptT
+            } yield List(message)
           case text: TextReply =>
             for {
               _ <- Methods.sendChatAction(chatId, "typing").exec.attemptT
