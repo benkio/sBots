@@ -722,23 +722,7 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("è un ordine"))), List(MediaFile("rphjb_Ordine.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("una sera"))), List(MediaFile("rphjb_Sera.mp3"))),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("il venerdì"))), List(MediaFile("rphjb_Venerdi.mp3"))),
-    ReplyBundleMessage(TextTrigger(List(RegexTextTriggerValue("oppur[ae]".r))), List(MediaFile("rphjb_Oppura.mp3"))),
-    ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("volevo un pollo"))),
-      List(MediaFile("rphjb_Pollo.mp3"))
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("canzonette"),
-          StringTextTriggerValue("balera"),
-          StringTextTriggerValue("sagra"),
-          StringTextTriggerValue("condominiali"),
-          StringTextTriggerValue("piazza")
-        )
-      ),
-      List(MediaFile("rphjb_Canzonette.mp3"))
-    )
+    ReplyBundleMessage(TextTrigger(List(RegexTextTriggerValue("oppur[ae]".r))), List(MediaFile("rphjb_Oppura.mp3")))
   )
 
   val messageRepliesGifsData: List[ReplyBundleMessage] = List(
@@ -833,6 +817,7 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_Tuffo.gif"),
         MediaFile("rphjb_Urlo.gif"),
+        MediaFile("rphjb_Urlo3.gif"),
         MediaFile("rphjb_Urlo2.gif"),
         MediaFile("rphjb_UrloCanaro.gif")
       ),
@@ -1147,6 +1132,15 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("che si deve fà"),
+          StringTextTriggerValue("campà"),
+        )
+      ),
+      List(MediaFile("rphjb_Campa.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           StringTextTriggerValue("vi calpesto"),
           StringTextTriggerValue("vermi"),
           StringTextTriggerValue("strisciate")
@@ -1285,6 +1279,23 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("facendo soffrire"))),
       List(MediaFile("rphjb_FacendoSoffrire.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("dovete soffrire"))),
+      List(MediaFile("rphjb_DoveteSoffrire.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("sarete puniti"))),
+      List(MediaFile("rphjb_SaretePuniti.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("cantanti"),
+          StringTextTriggerValue("serie z")
+        )
+      ),
+      List(MediaFile("rphjb_CantantiSerieZ.gif"))
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("sentendo male"))),
@@ -1545,6 +1556,28 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("canzonette"),
+          StringTextTriggerValue("balera"),
+          StringTextTriggerValue("sagra"),
+          StringTextTriggerValue("condominiali"),
+          StringTextTriggerValue("piazza")
+        )
+      ),
+      List(
+        MediaFile("rphjb_Canzonette.mp3"),
+        MediaFile("rphjb_Canzonette.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("un pollo"))),
+      List(
+        MediaFile("rphjb_Pollo.mp3"),
+        MediaFile("rphjb_Pollo.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           StringTextTriggerValue("quello che dico io")
         )
       ),
@@ -1772,6 +1805,8 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_Basta.mp3"),
         MediaFile("rphjb_Basta2.mp3"),
         MediaFile("rphjb_Basta.gif"),
+        MediaFile("rphjb_Basta2.gif"),
+        MediaFile("rphjb_Basta3.gif"),
         MediaFile("rphjb_BastaSedia.gif")
       ),
       replySelection = RandomSelection
@@ -1838,7 +1873,8 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_Schifosi2.mp3"),
         MediaFile("rphjb_Schifosi3.mp3"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
-        MediaFile("rphjb_Schifosi.gif")
+        MediaFile("rphjb_Schifosi.gif"),
+        MediaFile("rphjb_Schifosi2.gif")
       ),
       replySelection = RandomSelection
     ),
