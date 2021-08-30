@@ -196,7 +196,7 @@ object ABarberoBot extends Configurations {
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("zazzera"))), List(MediaFile("abar_Zazzera.mp3")))
   )
 
-  val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+  val messageRepliesGifData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
         List(StringTextTriggerValue("seziona"), StringTextTriggerValue("cadaveri"), StringTextTriggerValue("morti"))
@@ -410,7 +410,7 @@ object ABarberoBot extends Configurations {
   )
 
   val messageRepliesData: List[ReplyBundleMessage] =
-    messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
+    messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesSpecialData
 
   val messageReplyDataStringChunks = {
     val (triggers, lastTriggers) = messageRepliesData

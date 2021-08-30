@@ -33,12 +33,22 @@ class RichardPHJBensonBotSpec extends AnyWordSpec with Matchers {
     }
   }
 
-  "messageRepliesGifsData" should {
+  "messageRepliesGifData" should {
     "never raise an exception" when {
       "try to open the file in resounces" in {
-        RichardPHJBensonBot.messageRepliesGifsData
+        RichardPHJBensonBot.messageRepliesGifData
           .flatMap(_.mediafiles)
           .foreach((gif: MediaFile) => testFilename(gif.filename))
+      }
+    }
+  }
+
+  "messageRepliesVideosData" should {
+    "never raise an exception" when {
+      "try to open the file in resounces" in {
+        RichardPHJBensonBot.messageRepliesVideoData
+          .flatMap(_.mediafiles)
+          .foreach((video: MediaFile) => testFilename(video.filename))
       }
     }
   }

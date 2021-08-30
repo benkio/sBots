@@ -33,10 +33,10 @@ class ABarberoBotSpec extends AnyWordSpec with Matchers {
     }
   }
 
-  "messageRepliesGifsData" should {
+  "messageRepliesGifData" should {
     "never raise an exception" when {
       "try to open the file in resounces" in {
-        ABarberoBot.messageRepliesGifsData
+        ABarberoBot.messageRepliesGifData
           .flatMap(_.mediafiles)
           .foreach((gif: MediaFile) => testFilename(gif.filename))
       }

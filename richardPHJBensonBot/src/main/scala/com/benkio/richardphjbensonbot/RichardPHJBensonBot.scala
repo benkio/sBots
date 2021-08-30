@@ -245,15 +245,6 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("gira(ndo)? la testa".r),
-          StringTextTriggerValue("lampi negli occhi")
-        )
-      ),
-      List(MediaFile("rphjb_GirandoLaTesta.mp3"))
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
           RegexTextTriggerValue("(mi sento|sto) meglio".r)
         )
       ),
@@ -282,19 +273,6 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_CompletamenteNudo.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("che cazzo era quella roba"),
-          StringTextTriggerValue("che cazzo mi avete dato"),
-          RegexTextTriggerValue("girar(e|a)? la testa".r),
-          RegexTextTriggerValue("insieme alla (c|g)o(c|g)a (c|g)ola".r)
-        )
-      ),
-      List(
-        MediaFile("rphjb_CheCazzoEraQuellaRoba.mp3")
       )
     ),
     ReplyBundleMessage(
@@ -725,7 +703,7 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(TextTrigger(List(RegexTextTriggerValue("oppur[ae]".r))), List(MediaFile("rphjb_Oppura.mp3")))
   )
 
-  val messageRepliesGifsData: List[ReplyBundleMessage] = List(
+  val messageRepliesGifData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -1552,7 +1530,39 @@ object RichardPHJBensonBot extends Configurations {
     )
   )
 
+  val messageRepliesVideoData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("roba tagliata male"),
+          StringTextTriggerValue("one television"),
+          RegexTextTriggerValue("roc(g|k) machine".r),
+          RegexTextTriggerValue("devo fare (un po'|un attimo) (di|de) esercitazione".r)
+        ),
+      ),
+      List(
+        MediaFile("rphjb_RockMachineIntro.mp4")
+      )
+    )
+  )
+
   val messageRepliesSpecialData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("che (cazzo)? era quella roba".r),
+          RegexTextTriggerValue("che (cazzo)? mi avete dato".r),
+          StringTextTriggerValue("lampi negli occhi"),
+          RegexTextTriggerValue("gira(re|ra|rà|ndo)? la testa".r),
+          RegexTextTriggerValue("insieme alla (c|g)o(c|g)a (c|g)ola".r)
+        )
+      ),
+      List(
+        MediaFile("rphjb_CheCazzoEraQuellaRoba.mp3"),
+        MediaFile("rphjb_RockMachineIntro.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -2007,7 +2017,7 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesData: List[ReplyBundleMessage] =
-    messageRepliesAudioData ++ messageRepliesGifsData ++ messageRepliesSpecialData
+    messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesVideoData ++ messageRepliesSpecialData
 
   val messageReplyDataStringChunks = {
     val (triggers, lastTriggers) = messageRepliesData
