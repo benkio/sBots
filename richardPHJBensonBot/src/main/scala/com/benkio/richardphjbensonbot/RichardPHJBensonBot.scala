@@ -1543,7 +1543,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_RockMachineIntro.mp4")
       )
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         List(
           StringTextTriggerValue("poesia"),

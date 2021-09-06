@@ -128,10 +128,6 @@ object ABarberoBot extends Configurations {
       List(MediaFile("abar_Bbq.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("genitali"), StringTextTriggerValue("cosi e coglioni"))),
-      List(MediaFile("abar_Cosi.mp3"))
-    ),
-    ReplyBundleMessage(
       TextTrigger(
         List(
           StringTextTriggerValue("guerra"),
@@ -148,10 +144,6 @@ object ABarberoBot extends Configurations {
       List(MediaFile("abar_Homines.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("tedesco"), StringTextTriggerValue("kraft"))),
-      List(MediaFile("abar_Kraft.mp3"))
-    ),
-    ReplyBundleMessage(
       TextTrigger(
         List(
           StringTextTriggerValue("monsignore"),
@@ -164,7 +156,12 @@ object ABarberoBot extends Configurations {
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("ottimismo"))), List(MediaFile("abar_Ottimismo.mp3"))),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("latino"))),
-      List(MediaFile("abar_Homines.mp3"), MediaFile("abar_Vagdavercustis.mp3"), MediaFile("abar_Yersinia.mp3")),
+      List(
+        MediaFile("abar_Homines.mp3"),
+        MediaFile("abar_Vagdavercustis.mp3"),
+        MediaFile("abar_Yersinia.mp3"),
+        MediaFile("abar_Culagium.mp3")
+      ),
       replySelection = RandomSelection
     ),
     ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("radetzky"))), List(MediaFile("abar_Radetzky.mp3"))),
@@ -376,6 +373,22 @@ object ABarberoBot extends Configurations {
   )
 
   val messageRepliesSpecialData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("tedesco"))),
+      List(
+        MediaFile("abar_Kraft.mp3"),
+        MediaFile("abar_Von_Hohenheim.mp3"),
+        MediaFile("abar_Haushofer.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("genitali"), StringTextTriggerValue("cosi e coglioni"))),
+      List(
+        MediaFile("abar_Cosi.mp3"),
+        MediaFile("abar_Sottaceto.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
     ReplyBundleMessage(
       TextTrigger(List(RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana|troia)".r))),
       List(
