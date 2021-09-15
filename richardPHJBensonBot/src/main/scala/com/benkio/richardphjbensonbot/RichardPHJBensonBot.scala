@@ -584,7 +584,16 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(MediaFile("rphjb_Problema.mp3"))
     ), // also in special list
-    ReplyBundleMessage(TextTrigger(List(StringTextTriggerValue("continua"))), List(MediaFile("rphjb_Continua.mp3"))),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("\bcontinua\b".r)
+        )
+      ),
+      List(
+        MediaFile("rphjb_Continua.mp3")
+      )
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -1444,7 +1453,7 @@ object RichardPHJBensonBot extends Configurations {
       replySelection = RandomSelection
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("droga"))),
+      TextTrigger(List(StringTextTriggerValue("drogati"))),
       List(
         MediaFile("rphjb_DrogatiRockettari1.gif"),
         MediaFile("rphjb_DrogatiRockettari2.gif"),
@@ -1534,7 +1543,7 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("roba tagliata male"),
+          RegexTextTriggerValue("(roba|droga) tagliata male".r),
           StringTextTriggerValue("one television"),
           RegexTextTriggerValue("devo fare (un po'|un attimo) (di|de) esercitazione".r)
         ),
@@ -1560,8 +1569,8 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("che (cazzo)? era quella roba".r),
-          RegexTextTriggerValue("che (cazzo)? mi avete dato".r),
+          RegexTextTriggerValue("che (cazzo )?era quella roba".r),
+          RegexTextTriggerValue("che (cazzo |cazzo di roba )?mi avete dato".r),
           StringTextTriggerValue("lampi negli occhi"),
           RegexTextTriggerValue("gira(re|ra|rà|ndo)? la testa".r),
           RegexTextTriggerValue("insieme alla (c|g)o(c|g)a (c|g)ola".r)
@@ -1578,9 +1587,9 @@ object RichardPHJBensonBot extends Configurations {
         List(
           StringTextTriggerValue("canzonette"),
           StringTextTriggerValue("balera"),
-          StringTextTriggerValue("sagra"),
-          StringTextTriggerValue("condominiali"),
-          StringTextTriggerValue("piazza")
+          StringTextTriggerValue("sagra dell'uva"),
+          StringTextTriggerValue("feste condominiali"),
+          StringTextTriggerValue("feste di piazza")
         )
       ),
       List(
