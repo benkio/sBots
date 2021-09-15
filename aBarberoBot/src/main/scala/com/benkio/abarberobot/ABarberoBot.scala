@@ -196,6 +196,14 @@ object ABarberoBot extends Configurations {
   val messageRepliesGifData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
+        List(
+          StringTextTriggerValue("ha ragione")
+        )
+      ),
+      List(MediaFile("abar_HaRagione.gif"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
         List(StringTextTriggerValue("seziona"), StringTextTriggerValue("cadaveri"), StringTextTriggerValue("morti"))
       ),
       List(MediaFile("abar_Cadaveri.gif"))
