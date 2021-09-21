@@ -1,10 +1,12 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import org.scalatest._
+import org.scalatest.wordspec.AnyWordSpec
+
 import java.time.Instant
 import scala.concurrent.duration._
-import org.scalatest._
+
 import matchers.should._
-import org.scalatest.wordspec.AnyWordSpec
 
 class TimeoutSpec extends AnyWordSpec with Matchers {
 

@@ -1,6 +1,7 @@
 package com.benkio.richardphjbensonbot
 
 import cats.effect._
+
 import scala.concurrent.ExecutionContext.Implicits.global
 
 object RichardPHJBensonBotMain extends IOApp {

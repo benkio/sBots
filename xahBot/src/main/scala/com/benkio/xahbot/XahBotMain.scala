@@ -1,6 +1,7 @@
 package com.benkio.xahbot
 
 import cats.effect._
+
 import scala.concurrent.ExecutionContext.Implicits.global
 
 object XahBotMain extends IOApp {

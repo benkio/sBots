@@ -1,6 +1,7 @@
 package com.benkio.calandrobot
 
 import cats.effect._
+
 import scala.concurrent.ExecutionContext.Implicits.global
 
 object CalandroBotMain extends IOApp {

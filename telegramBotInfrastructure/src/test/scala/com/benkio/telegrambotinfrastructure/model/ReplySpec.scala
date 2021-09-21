@@ -1,8 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import org.scalatest._
-import matchers.should._
 import org.scalatest.wordspec.AnyWordSpec
+
+import matchers.should._
 
 class ReplySpec extends AnyWordSpec with Matchers {
 

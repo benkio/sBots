@@ -2,8 +2,9 @@ package com.benkio.telegrambotinfrastructure
 
 import com.benkio.telegrambotinfrastructure.model._
 import org.scalatest._
-import matchers.should._
 import org.scalatest.wordspec.AnyWordSpec
+
+import matchers.should._
 
 class MessageMatchesSpec extends AnyWordSpec with Matchers {
 

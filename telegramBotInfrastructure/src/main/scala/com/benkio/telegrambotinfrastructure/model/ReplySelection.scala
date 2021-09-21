@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import io.chrisdavenport.random.Random
 import cats.effect._
 import cats.implicits._
+import io.chrisdavenport.random.Random
 
 sealed trait ReplySelection {
   def logic[F[_]: Sync](replies: List[Reply]): F[List[Reply]]

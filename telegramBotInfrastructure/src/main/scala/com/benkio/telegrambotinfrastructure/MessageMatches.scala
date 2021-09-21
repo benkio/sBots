@@ -1,9 +1,9 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
+import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 
 trait MessageMatches
 

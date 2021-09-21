@@ -2,6 +2,7 @@ package com.benkio.richardphjbensonbot
 
 import org.scalatest._
 import org.scalatest.wordspec.AnyWordSpec
+
 import matchers.should._
 
 class BensonifySpec extends AnyWordSpec with Matchers {

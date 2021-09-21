@@ -2,10 +2,10 @@ package com.benkio.telegrambotinfrastructure.model
 
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.ContainsOnce
 import com.benkio.telegrambotinfrastructure.MessageMatches
 import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 
 sealed trait ReplyBundle {
 

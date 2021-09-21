@@ -1,12 +1,13 @@
 package com.benkio.richardphjbensonbot
 
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
-import org.scalatest._
-import matchers.should._
 import cats.effect._
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
 import com.benkio.telegrambotinfrastructure.model.MediaFile
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import org.scalatest._
 import org.scalatest.wordspec.AnyWordSpec
+
+import matchers.should._
 
 class RichardPHJBensonBotSpec extends AnyWordSpec with Matchers {
 
