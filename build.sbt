@@ -4,6 +4,12 @@ name := "telegramBots"
 organization := "com.benkio"
 scalaVersion := "2.13.6"
 
+Global / onChangedBuildSource := ReloadOnSourceChanges
+
+ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.5.0"
+
+addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
+
 // PROJECTS
 
 lazy val global = project
