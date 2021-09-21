@@ -5,10 +5,10 @@ object Dependencies {
 
   lazy val dependenciesVersion = new {
     val catsVersion           = "2.6.1"
-    val catsEffectVersion     = "2.5.1"
+    val catsEffectVersion     = "2.5.4"
     val scalaTestVersion      = "3.2.9"
     val telegramiumVersion    = "6.53.0"
-    val sqliteJdbcVersion     = "3.34.0"
+    val sqliteJdbcVersion     = "3.36.0.3"
     val randomVersion         = "0.0.2"
     val lightbendEmojiVersion = "1.2.3"
   }
