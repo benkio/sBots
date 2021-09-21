@@ -1,4 +1,5 @@
 import sbt._
+
 import Keys._
 import sbtassembly.AssemblyPlugin.autoImport._
 import Dependencies._
@@ -6,12 +7,12 @@ import Dependencies._
 object Settings {
 
   lazy val settings = Seq(
-    organization := "com.benkio",
-    version := "1.0.0",
-    scalaVersion := "2.13.6",
+    organization      := "com.benkio",
+    version           := "1.0.0",
+    scalaVersion      := "2.13.6",
     publishMavenStyle := true,
     semanticdbEnabled := true,
-    fork := true,
+    fork              := true,
     run / javaOptions += "-Xmx256m",
     Test / publishArtifact := false
   )
@@ -25,41 +26,41 @@ object Settings {
   )
 
   lazy val TelegramBotInfrastructureSettings = Seq(
-    name := "TelegramBotInfrastructure",
+    name                := "TelegramBotInfrastructure",
     libraryDependencies := TelegramBotInfrastructureDependencies
   )
 
   lazy val CalandroBotSettings = Seq(
-    name := "CalandroBot",
-    libraryDependencies := CalandroBotDependencies,
-    mainClass := Some("com.benkio.calandrobot.CalandroBotMain"),
+    name                     := "CalandroBot",
+    libraryDependencies      := CalandroBotDependencies,
+    mainClass                := Some("com.benkio.calandrobot.CalandroBotMain"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
   lazy val ABarberoBotSettings = Seq(
-    name := "ABarberoBot",
-    libraryDependencies := ABarberoBotDependencies,
-    mainClass := Some("com.benkio.abarberobot.ABarberoBotMain"),
+    name                     := "ABarberoBot",
+    libraryDependencies      := ABarberoBotDependencies,
+    mainClass                := Some("com.benkio.abarberobot.ABarberoBotMain"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
   lazy val RichardPHJBensonBotSettings = Seq(
-    name := "RichardPHJBensonBot",
-    libraryDependencies := RichardPHJBensonBotDependencies,
-    mainClass := Some("com.benkio.richardphjbensonbot.RichardPHJBensonBotMain"),
+    name                     := "RichardPHJBensonBot",
+    libraryDependencies      := RichardPHJBensonBotDependencies,
+    mainClass                := Some("com.benkio.richardphjbensonbot.RichardPHJBensonBotMain"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
   lazy val XahBotSettings = Seq(
-    name := "XahBot",
-    libraryDependencies := XahBotDependencies,
-    mainClass := Some("com.benkio.xahbot.XahBotMain"),
+    name                     := "XahBot",
+    libraryDependencies      := XahBotDependencies,
+    mainClass                := Some("com.benkio.xahbot.XahBotMain"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
   lazy val MainSettings = Seq(
-    name := "main",
+    name                := "main",
     libraryDependencies := MainDependencies,
-    mainClass := Some("com.benkio.main.Main")
+    mainClass           := Some("com.benkio.main.Main")
   ) ++ assemblySettings
 }
