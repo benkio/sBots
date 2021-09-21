@@ -1,6 +1,6 @@
 import Settings._
 
-name := "telegramBots"
+name         := "telegramBots"
 organization := "com.benkio"
 scalaVersion := "2.13.6"
 
