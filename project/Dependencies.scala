@@ -8,7 +8,7 @@ object Dependencies {
     val catsEffectVersion     = "2.5.1"
     val scalaTestVersion      = "3.2.9"
     val telegramiumVersion    = "6.53.0"
-    val sqliteJdbcVersion     = "3.34.0"
+    val sqliteJdbcVersion     = "3.36.0.3"
     val randomVersion         = "0.0.2"
     val lightbendEmojiVersion = "1.2.3"
   }
