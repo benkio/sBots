@@ -1,14 +1,15 @@
 package com.benkio.xahbot
 
-import com.benkio.telegrambotinfrastructure.Configurations
-import com.benkio.telegrambotinfrastructure._
+import cats._
+import cats.effect._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
-import cats.effect._
-import cats._
+import com.benkio.telegrambotinfrastructure.Configurations
+import com.benkio.telegrambotinfrastructure._
 import org.http4s.blaze.client._
-import scala.concurrent.ExecutionContext
 import telegramium.bots.high._
+
+import scala.concurrent.ExecutionContext
 
 class XahBot[F[_]]()(implicit
     timerF: Timer[F],

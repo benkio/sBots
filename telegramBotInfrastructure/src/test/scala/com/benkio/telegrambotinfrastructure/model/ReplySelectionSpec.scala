@@ -1,10 +1,11 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.effect._
-import org.scalatest._
 import org.scalatest.Inside._
-import matchers.should._
+import org.scalatest._
 import org.scalatest.wordspec.AnyWordSpec
+
+import matchers.should._
 
 class ReplySelectionSpec extends AnyWordSpec with Matchers {
 

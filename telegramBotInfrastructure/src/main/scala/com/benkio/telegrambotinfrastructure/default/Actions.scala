@@ -1,17 +1,18 @@
 package com.benkio.telegrambotinfrastructure.default
 
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.model._
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.model._
 import telegramium.bots.high._
-import telegramium.bots.InputPartFile
-import telegramium.bots.Message
+import telegramium.bots.high.implicits._
 import telegramium.bots.ChatId
 import telegramium.bots.ChatIntId
-import telegramium.bots.high.implicits._
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
+
 import java.io.File
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
 
 trait DefaultActions {
 

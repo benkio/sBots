@@ -1,10 +1,12 @@
 package com.benkio.telegrambotinfrastructure.botCapabilities
 
 import org.scalatest._
+import org.scalatest.wordspec.AnyWordSpec
+
 import java.nio.file._
 import scala.language.reflectiveCalls
+
 import matchers.should._
-import org.scalatest.wordspec.AnyWordSpec
 
 class ResourcesAccessSpec extends AnyWordSpec with Matchers {
 

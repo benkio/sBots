@@ -1,6 +1,7 @@
 package com.benkio.abarberobot
 
 import cats.effect._
+
 import scala.concurrent.ExecutionContext.Implicits.global
 
 object ABarberoBotMain extends IOApp {

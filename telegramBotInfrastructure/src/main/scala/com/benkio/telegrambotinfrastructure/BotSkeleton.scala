@@ -1,16 +1,16 @@
 package com.benkio.telegrambotinfrastructure
 
+import cats._
+import cats.effect._
+import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
 import com.benkio.telegrambotinfrastructure.default.DefaultActions
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Timeout
-import telegramium.bots.high._
 import telegramium.bots.Message
-import cats.effect._
-import cats._
-import cats.implicits._
+import telegramium.bots.high._
 
 import scala.concurrent.duration._
 

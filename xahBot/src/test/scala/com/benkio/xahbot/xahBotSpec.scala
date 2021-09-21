@@ -1,9 +1,9 @@
 package com.benkio.xahbot
 
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
-import org.scalatest._
 import cats.effect._
+import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
 import com.benkio.telegrambotinfrastructure.model.MediaFile
+import org.scalatest._
 import org.scalatest.wordspec.AnyWordSpec
 
 class XahBotSpec extends AnyWordSpec {

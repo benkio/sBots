@@ -1,12 +1,13 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.effect._
-import org.scalatest._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import org.scalatest._
+import org.scalatest.wordspec.AnyWordSpec
 import telegramium.bots.Chat
 import telegramium.bots.Message
+
 import matchers.should._
-import org.scalatest.wordspec.AnyWordSpec
 
 class ReplyBundleSpec extends AnyWordSpec with Matchers {
 
