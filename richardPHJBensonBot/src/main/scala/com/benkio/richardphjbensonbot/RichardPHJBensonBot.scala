@@ -698,7 +698,7 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("mi fai( proprio)? schifo".r)
+          RegexTextTriggerValue("m[ie] fai( proprio)? schifo".r)
         )
       ),
       List(MediaFile("rphjb_Schifo.mp3"))
