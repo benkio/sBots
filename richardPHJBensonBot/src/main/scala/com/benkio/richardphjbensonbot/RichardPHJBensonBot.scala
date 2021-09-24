@@ -588,7 +588,7 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("\bcontinua\b".r)
+          RegexTextTriggerValue("\\bcontinua\\b".r)
         )
       ),
       List(
