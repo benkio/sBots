@@ -5,10 +5,11 @@ import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import org.scalatest._
 import org.scalatest.wordspec.AnyWordSpec
+import cats.effect.Temporal
 
 class XahBotSpec extends AnyWordSpec {
 
-  implicit val timerIO: Timer[IO]               = IO.timer(scala.concurrent.ExecutionContext.global)
+  implicit val timerIO: Temporal[IO]               = IO.timer(scala.concurrent.ExecutionContext.global)
   implicit val contextshiftIO: ContextShift[IO] = IO.contextShift(scala.concurrent.ExecutionContext.global)
 
   def testFilename(filename: String): Assertion =

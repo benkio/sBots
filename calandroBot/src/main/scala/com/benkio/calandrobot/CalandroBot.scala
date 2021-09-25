@@ -16,12 +16,7 @@ import telegramium.bots.high._
 import scala.concurrent.ExecutionContext
 import scala.util.Random
 
-class CalandroBot[F[_]]()(implicit
-    timerF: Timer[F],
-    parallelF: Parallel[F],
-    effectF: Effect[F],
-    api: telegramium.bots.high.Api[F]
-) extends BotSkeleton[F]()(timerF, parallelF, effectF, api) {
+class CalandroBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
 
   override val resourceSource: ResourceSource = CalandroBot.resourceSource
 
@@ -59,19 +54,15 @@ class CalandroBot[F[_]]()(implicit
     ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("cala_Fiamme.mp3"))),
     ReplyBundleCommand(
       CommandTrigger("randomcard"),
-      Effect
-        .toIOFromRunAsync(
-          ResourceSource
-            .selectResourceAccess(All("calandro.db"))
-            .getResourcesByKind("cards")
-            .use[F, List[MediaFile]](x => effectF.pure(x))
-        )
-        .unsafeRunSync(),
-      replySelection = RandomSelection
-    )
+      ResourceSource
+        .selectResourceAccess(All("calandro.db"))
+        .getResourcesByKind("cards")
+        .use[List[MediaFile]](x => Async[F].pure(x)),
+    replySelection = RandomSelection
   )
+)
 
-  override lazy val messageRepliesData: List[ReplyBundleMessage] = CalandroBot.messageRepliesData
+override lazy val messageRepliesData: List[ReplyBundleMessage] = CalandroBot.messageRepliesData
 }
 
 object CalandroBot extends Configurations {
@@ -147,16 +138,16 @@ object CalandroBot extends Configurations {
       TextTrigger(List(StringTextTriggerValue("ambulanza"), StringTextTriggerValue(e":ambulance:"))),
       text = TextReply(
         _ =>
+        List(
           List(
-            List(
-              Emoji(0x1f624).toString      // 😤
-                ++ Emoji(0x1f918).toString // 🤘
-                ++ Emoji(0x1f91e).toString // 🤞
-                ++ Emoji(0x1f91e).toString // 🤞
-                ++ Emoji(0x1f918).toString // 🤘
-                ++ Emoji(0x1f624).toString // 😤
-            )
-          ),
+            Emoji(0x1f624).toString      // 😤
+              ++ Emoji(0x1f918).toString // 🤘
+              ++ Emoji(0x1f91e).toString // 🤞
+              ++ Emoji(0x1f91e).toString // 🤞
+              ++ Emoji(0x1f918).toString // 🤘
+              ++ Emoji(0x1f624).toString // 😤
+          )
+        ),
         false
       )
     ),
@@ -168,7 +159,7 @@ object CalandroBot extends Configurations {
       TextTrigger(List(StringTextTriggerValue("videogioc"), StringTextTriggerValue(e":video_game:"))),
       text = TextReply(
         _ =>
-          List(List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!")),
+        List(List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!")),
         false
       )
     ),
@@ -180,27 +171,22 @@ object CalandroBot extends Configurations {
       MessageLengthTrigger(280),
       text = TextReply(
         (msg: Message) =>
-          List(List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)""")),
+        List(List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)""")),
         true
       )
     )
   )
-  def token[F[_]](implicit effectF: Effect[F]): Resource[F, String] =
+  def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fileSystem.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
-  def buildBot[F[_], A](
-      executorContext: ExecutionContext,
-      action: CalandroBot[F] => F[A]
-  )(implicit
-      timerF: Timer[F],
-      parallelF: Parallel[F],
-      contextShiftF: ContextShift[F],
-      concurrentEffectF: ConcurrentEffect[F]
+  def buildBot[F[_]: Parallel: Async, A](
+    executorContext: ExecutionContext,
+    action: CalandroBot[F] => F[A]
   ): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new CalandroBot[F]())
+    action(new CalandroBot[F])
   })
 }

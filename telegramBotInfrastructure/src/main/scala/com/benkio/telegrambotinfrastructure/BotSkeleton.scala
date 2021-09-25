@@ -14,7 +14,7 @@ import telegramium.bots.high._
 
 import scala.concurrent.duration._
 
-abstract class BotSkeleton[F[_]: Timer: Parallel: Effect]()(implicit api: Api[F])
+abstract class BotSkeleton[F[_]: Parallel: Async](implicit api: Api[F])
     extends LongPollBot[F](api)
     with DefaultActions {
 

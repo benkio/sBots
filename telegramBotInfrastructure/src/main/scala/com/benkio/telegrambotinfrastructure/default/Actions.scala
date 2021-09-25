@@ -18,12 +18,11 @@ trait DefaultActions {
 
   val resourceSource: ResourceSource
 
-  def getResourceData[F[_]](implicit F: Effect[F]): MediaFile => Resource[F, File] =
+  def getResourceData[F[_]: Async]: MediaFile => Resource[F, File] =
     ResourceSource.selectResourceAccess(resourceSource).getResourceFile[F] _
 
-  implicit def sendReply[F[_]](implicit
-      api: telegramium.bots.high.Api[F],
-      effect: Effect[F]
+  implicit def sendReply[F[_]: Async](implicit
+      api: telegramium.bots.high.Api[F]
   ): Action[Reply, F] =
     (reply: Reply) =>
       (msg: Message) => {
@@ -34,8 +33,9 @@ trait DefaultActions {
             for {
               _ <- Methods.sendChatAction(chatId, "upload_voice").exec.attemptT
               message <-
-                getResourceData[F](effect)(mp3)
-                  .use[F, Message](mp3File =>
+                getResourceData[F]
+                  .apply(mp3)
+                  .use[Message](mp3File =>
                     Methods
                       .sendAudio(
                         chatId,
@@ -43,14 +43,15 @@ trait DefaultActions {
                         replyToMessageId = replyToMessage
                       )
                       .exec
-                  )(effect)
+                  )
                   .attemptT
             } yield List(message)
           case gif: GifFile =>
             for {
               _ <- Methods.sendChatAction(chatId, "upload_document").exec.attemptT
-              message <- getResourceData(effect)(gif)
-                .use[F, Message](gifFile =>
+              message <- getResourceData[F]
+                .apply(gif)
+                .use[Message](gifFile =>
                   Methods
                     .sendAnimation(
                       chatId,
@@ -58,14 +59,15 @@ trait DefaultActions {
                       replyToMessageId = replyToMessage
                     )
                     .exec
-                )(effect)
+                )
                 .attemptT
             } yield List(message)
           case photo: PhotoFile =>
             for {
               _ <- Methods.sendChatAction(chatId, "upload_photo").exec.attemptT
-              message <- getResourceData(effect)(photo)
-                .use[F, Message](photoFile =>
+              message <- getResourceData[F]
+                .apply(photo)
+                .use[Message](photoFile =>
                   Methods
                     .sendPhoto(
                       chatId,
@@ -73,14 +75,15 @@ trait DefaultActions {
                       replyToMessageId = replyToMessage
                     )
                     .exec
-                )(effect)
+                )
                 .attemptT
             } yield List(message)
           case video: VideoFile =>
             for {
               _ <- Methods.sendChatAction(chatId, "upload_video").exec.attemptT
-              message <- getResourceData(effect)(video)
-                .use[F, Message](videoFile =>
+              message <- getResourceData[F]
+                .apply(video)
+                .use[Message](videoFile =>
                   Methods
                     .sendVideo(
                       chatId,
@@ -88,7 +91,7 @@ trait DefaultActions {
                       replyToMessageId = replyToMessage
                     )
                     .exec
-                )(effect)
+                )
                 .attemptT
             } yield List(message)
           case text: TextReply =>
