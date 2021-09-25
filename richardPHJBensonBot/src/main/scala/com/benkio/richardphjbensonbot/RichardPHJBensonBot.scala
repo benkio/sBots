@@ -1902,6 +1902,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_Schifosi.mp3"),
         MediaFile("rphjb_Schifosi2.mp3"),
         MediaFile("rphjb_Schifosi3.mp3"),
+        MediaFile("rphjb_Schifosi3.gif"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
         MediaFile("rphjb_Schifosi.gif"),
         MediaFile("rphjb_Schifosi2.gif")
