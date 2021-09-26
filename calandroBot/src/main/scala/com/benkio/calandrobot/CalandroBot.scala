@@ -2,6 +2,7 @@ package com.benkio.calandrobot
 
 import cats._
 import cats.effect._
+import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
@@ -20,7 +21,7 @@ class CalandroBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
 
   override val resourceSource: ResourceSource = CalandroBot.resourceSource
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = List(
+  lazy val commandRepliesData: List[ReplyBundleCommand] = List(
     ReplyBundleCommand(CommandTrigger("porcoladro"), List(MediaFile("cala_PorcoLadro.mp3"))),
     ReplyBundleCommand(CommandTrigger("unoduetre"), List(MediaFile("cala_Unoduetre.mp3"))),
     ReplyBundleCommand(CommandTrigger("ancorauna"), List(MediaFile("cala_AncoraUnaDoveLaMetto.mp3"))),
@@ -51,18 +52,27 @@ class CalandroBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
     ReplyBundleCommand(CommandTrigger("lesbiche"), List(MediaFile("cala_SieteLesbiche.mp3"))),
     ReplyBundleCommand(CommandTrigger("firstlesson"), List(MediaFile("cala_FirstLessonPlease.mp3"))),
     ReplyBundleCommand(CommandTrigger("noprogrammato"), List(MediaFile("cala_NoGrazieProgrammato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("cala_Fiamme.mp3"))),
-    ReplyBundleCommand(
-      CommandTrigger("randomcard"),
-      ResourceSource
-        .selectResourceAccess(All("calandro.db"))
-        .getResourcesByKind("cards")
-        .use[List[MediaFile]](x => Async[F].pure(x)),
-    replySelection = RandomSelection
+    ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("cala_Fiamme.mp3")))
   )
-)
 
-override lazy val messageRepliesData: List[ReplyBundleMessage] = CalandroBot.messageRepliesData
+  private val randomCardReplyBundleF: F[ReplyBundleCommand] =
+    ResourceSource
+      .selectResourceAccess(All("calandro.db"))
+      .getResourcesByKind("cards")
+      .use[ReplyBundleCommand](mediaFile =>
+        ReplyBundleCommand(
+          CommandTrigger("randomcard"),
+          mediaFile,
+          replySelection = RandomSelection
+        ).pure[F]
+      )
+
+  override lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] = CalandroBot.messageRepliesData.pure[F]
+
+  override lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] =
+    randomCardReplyBundleF.map(
+      commandRepliesData :+ _
+    )
 }
 
 object CalandroBot extends Configurations {
@@ -138,16 +148,16 @@ object CalandroBot extends Configurations {
       TextTrigger(List(StringTextTriggerValue("ambulanza"), StringTextTriggerValue(e":ambulance:"))),
       text = TextReply(
         _ =>
-        List(
           List(
-            Emoji(0x1f624).toString      // 😤
-              ++ Emoji(0x1f918).toString // 🤘
-              ++ Emoji(0x1f91e).toString // 🤞
-              ++ Emoji(0x1f91e).toString // 🤞
-              ++ Emoji(0x1f918).toString // 🤘
-              ++ Emoji(0x1f624).toString // 😤
-          )
-        ),
+            List(
+              Emoji(0x1f624).toString      // 😤
+                ++ Emoji(0x1f918).toString // 🤘
+                ++ Emoji(0x1f91e).toString // 🤞
+                ++ Emoji(0x1f91e).toString // 🤞
+                ++ Emoji(0x1f918).toString // 🤘
+                ++ Emoji(0x1f624).toString // 😤
+            )
+          ),
         false
       )
     ),
@@ -159,7 +169,7 @@ object CalandroBot extends Configurations {
       TextTrigger(List(StringTextTriggerValue("videogioc"), StringTextTriggerValue(e":video_game:"))),
       text = TextReply(
         _ =>
-        List(List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!")),
+          List(List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!")),
         false
       )
     ),
@@ -171,7 +181,7 @@ object CalandroBot extends Configurations {
       MessageLengthTrigger(280),
       text = TextReply(
         (msg: Message) =>
-        List(List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)""")),
+          List(List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)""")),
         true
       )
     )
@@ -180,8 +190,8 @@ object CalandroBot extends Configurations {
     ResourceAccess.fileSystem.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
   def buildBot[F[_]: Parallel: Async, A](
-    executorContext: ExecutionContext,
-    action: CalandroBot[F] => F[A]
+      executorContext: ExecutionContext,
+      action: CalandroBot[F] => F[A]
   ): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]

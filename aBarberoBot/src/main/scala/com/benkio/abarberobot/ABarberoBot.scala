@@ -2,6 +2,7 @@ package com.benkio.abarberobot
 
 import cats._
 import cats.effect._
+import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
@@ -15,10 +16,10 @@ class ABarberoBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
 
   override val resourceSource: ResourceSource = ABarberoBot.resourceSource
 
-  override lazy val messageRepliesData: List[ReplyBundleMessage] =
-    ABarberoBot.messageRepliesData
+  override lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] =
+    ABarberoBot.messageRepliesData.pure[F]
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = ABarberoBot.commandRepliesData
+  override lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] = ABarberoBot.commandRepliesData.pure[F]
 }
 
 object ABarberoBot extends Configurations {
@@ -429,7 +430,7 @@ object ABarberoBot extends Configurations {
   val messageRepliesData: List[ReplyBundleMessage] =
     messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesSpecialData
 
-  val messageReplyDataStringChunks = {
+  val messageReplyDataStringChunks: List[List[String]] = {
     val (triggers, lastTriggers) = messageRepliesData
       .map(_.trigger match {
         case TextTrigger(lt) => lt.mkString("[", " - ", "]")

@@ -2,6 +2,7 @@ package com.benkio.richardphjbensonbot
 
 import cats._
 import cats.effect._
+import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
@@ -13,15 +14,14 @@ import telegramium.bots.high._
 
 import scala.concurrent.ExecutionContext
 
-
 class RichardPHJBensonBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
 
   override val resourceSource: ResourceSource = RichardPHJBensonBot.resourceSource
 
-  override lazy val messageRepliesData: List[ReplyBundleMessage] =
-    RichardPHJBensonBot.messageRepliesData
+  override lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] =
+    RichardPHJBensonBot.messageRepliesData.pure[F]
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = RichardPHJBensonBot.commandRepliesData
+  override lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] = RichardPHJBensonBot.commandRepliesData.pure[F]
 }
 
 object RichardPHJBensonBot extends Configurations {
