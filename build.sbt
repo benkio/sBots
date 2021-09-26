@@ -7,6 +7,7 @@ scalaVersion := "2.13.6"
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.5.0"
+ThisBuild / scalacOptions += "-P:semanticdb:synthetics:on"
 
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
 

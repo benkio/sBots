@@ -2,6 +2,7 @@ package com.benkio.xahbot
 
 import cats._
 import cats.effect._
+import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
@@ -11,135 +12,110 @@ import telegramium.bots.high._
 
 import scala.concurrent.ExecutionContext
 
-class XahBot[F[_]]()(implicit
-    timerF: Timer[F],
-    parallelF: Parallel[F],
-    effectF: Effect[F],
-    api: telegramium.bots.high.Api[F]
-) extends BotSkeleton[F]()(timerF, parallelF, effectF, api) {
+class XahBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
 
   override val resourceSource: ResourceSource = XahBot.resourceSource
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = List(
-    ReplyBundleCommand(
-      CommandTrigger("ass"),
-      getRandomMediaFile("Ass"),
-      replySelection = RandomSelection
+  override lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] = List(
+    buildRandomReplyBundleCommand(
+      "ass",
+      "Ass",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("ccpp"),
-      getRandomMediaFile("CC++"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "ccpp",
+      "CC++",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("crap"),
-      getRandomMediaFile("Crap"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "crap",
+      "Crap",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("emacs"),
-      getRandomMediaFile("Emacs"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "emacs",
+      "Emacs",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("fakhead"),
-      getRandomMediaFile("Fakhead"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "fakhead",
+      "Fakhead",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("fak"),
-      getRandomMediaFile("Fak"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "fak",
+      "Fak",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("idiocy"),
-      getRandomMediaFile("Idiocy"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "idiocy",
+      "Idiocy",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("idiot"),
-      getRandomMediaFile("Idiots"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "idiot",
+      "Idiots",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("laugh"),
-      getRandomMediaFile("Laugh"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "laugh",
+      "Laugh",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("linux"),
-      getRandomMediaFile("Linux"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "linux",
+      "Linux",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("millennial"),
-      getRandomMediaFile("Millennial"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "millennial",
+      "Millennial",
     ),
-    ReplyBundleCommand(
-      CommandTrigger("opensource"),
-      getRandomMediaFile("OpenSource"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "opensource",
+      "OpenSource"
     ),
-    ReplyBundleCommand(
-      CommandTrigger("python"),
-      getRandomMediaFile("Python"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "python",
+      "Python"
     ),
-    ReplyBundleCommand(
-      CommandTrigger("rantcompilation"),
-      getRandomMediaFile("RantCompilation"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "rantcompilation",
+      "RantCompilation"
     ),
-    ReplyBundleCommand(
-      CommandTrigger("sucks"),
-      getRandomMediaFile("Sucks"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "sucks",
+      "Sucks"
     ),
-    ReplyBundleCommand(
-      CommandTrigger("unix"),
-      getRandomMediaFile("Unix"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "unix",
+      "Unix"
     ),
-    ReplyBundleCommand(
-      CommandTrigger("wtf"),
-      getRandomMediaFile("WTF"),
-      replySelection = RandomSelection
+    buildRandomReplyBundleCommand(
+      "wtf",
+      "WTF"
     )
-  )
+  ).sequence
 
-  override lazy val messageRepliesData: List[ReplyBundleMessage] = List.empty
+  override lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] = List.empty.pure[F]
 
-  def getRandomMediaFile(directory: String): List[MediaFile] =
-    Effect
-      .toIOFromRunAsync(
-        ResourceSource
-          .selectResourceAccess(XahBot.resourceSource)
-          .getResourcesByKind(directory)
-          .use[F, List[MediaFile]](x => effectF.pure(x))
+  def buildRandomReplyBundleCommand(command: String, directory: String): F[ReplyBundleCommand] =
+    ResourceSource
+      .selectResourceAccess(XahBot.resourceSource)
+      .getResourcesByKind(directory)
+      .use[ReplyBundleCommand](mediaFile =>
+        ReplyBundleCommand(
+          CommandTrigger(command),
+          mediaFile,
+          replySelection = RandomSelection
+        ).pure[F]
       )
-      .unsafeRunSync()
 }
 
 object XahBot extends Configurations {
 
   val resourceSource: ResourceSource = FileSystem
 
-  def token[F[_]](implicit effectF: Effect[F]): Resource[F, String] =
+  def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fileSystem.getResourceByteArray[F]("xah_XahBot.token").map(_.map(_.toChar).mkString)
-  def buildBot[F[_], A](
+  def buildBot[F[_]: Parallel: Async, A](
       executorContext: ExecutionContext,
       action: XahBot[F] => F[A]
-  )(implicit
-      timerF: Timer[F],
-      parallelF: Parallel[F],
-      contextShiftF: ContextShift[F],
-      concurrentEffectF: ConcurrentEffect[F]
   ): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new XahBot[F]())
+    action(new XahBot[F])
   })
 }

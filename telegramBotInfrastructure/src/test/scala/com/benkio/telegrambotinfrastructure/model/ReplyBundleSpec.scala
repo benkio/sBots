@@ -2,14 +2,11 @@ package com.benkio.telegrambotinfrastructure.model
 
 import cats.effect._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import org.scalatest._
-import org.scalatest.wordspec.AnyWordSpec
+import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
-import matchers.should._
-
-class ReplyBundleSpec extends AnyWordSpec with Matchers {
+class ReplyBundleSpec extends CatsEffectSuite {
 
   implicit val replyAction: Action[Reply, IO] =
     (r: Reply) =>
@@ -22,38 +19,34 @@ class ReplyBundleSpec extends AnyWordSpec with Matchers {
           case _: TextReply => List(m.copy(text = Some("Text")))
         })
 
-  "computeReplyBundle" should {
-    "return the expected message" when {
-      "the ReplyBundle and Message is provided" in {
-        val inputMediafile: List[MediaFile] = List(
-          Mp3File("audio.mp3"),
-          PhotoFile("picture.jpg"),
-          PhotoFile("picture.png"),
-          GifFile("a.gif"),
-          VideoFile("video.mp4")
-        )
+  test("computeReplyBundle should return the expected message when the ReplyBundle and Message is provided") {
+    val inputMediafile: List[MediaFile] = List(
+      Mp3File("audio.mp3"),
+      PhotoFile("picture.jpg"),
+      PhotoFile("picture.png"),
+      GifFile("a.gif"),
+      VideoFile("video.mp4")
+    )
 
-        val replyBundleInput: ReplyBundleMessage = ReplyBundleMessage(
-          trigger = TextTrigger(List(StringTextTriggerValue("test"))),
-          text = TextReply(_ => List(List("some text that will be overwritten by the implicit"))),
-          mediafiles = inputMediafile
-        )
+    val replyBundleInput: ReplyBundleMessage = ReplyBundleMessage(
+      trigger = TextTrigger(List(StringTextTriggerValue("test"))),
+      text = TextReply(_ => List(List("some text that will be overwritten by the implicit"))),
+      mediafiles = inputMediafile
+    )
 
-        val message = Message(
-          messageId = 0,
-          date = 0,
-          chat = Chat(id = 0, `type` = "test")
-        )
+    val message = Message(
+      messageId = 0,
+      date = 0,
+      chat = Chat(id = 0, `type` = "test")
+    )
 
-        val result: List[Message] = ReplyBundle.computeReplyBundle(replyBundleInput, message).unsafeRunSync()
+    val result: IO[List[Message]] = ReplyBundle.computeReplyBundle(replyBundleInput, message)
 
-        result.length shouldBe 6
-        result should contain(message.copy(text = Some("Mp3")))
-        result should contain(message.copy(text = Some("Photo")))
-        result should contain(message.copy(text = Some("Gif")))
-        result should contain(message.copy(text = Some("Text")))
-        result should contain(message.copy(text = Some("Video")))
-      }
-    }
+    assertIO(result.map(_.length), 6)
+    assertIO(result.map(_.contains(message.copy(text = Some("Mp3")))), true)
+    assertIO(result.map(_.contains(message.copy(text = Some("Photo")))), true)
+    assertIO(result.map(_.contains(message.copy(text = Some("Gif")))), true)
+    assertIO(result.map(_.contains(message.copy(text = Some("Text")))), true)
+    assertIO(result.map(_.contains(message.copy(text = Some("Video")))), true)
   }
 }

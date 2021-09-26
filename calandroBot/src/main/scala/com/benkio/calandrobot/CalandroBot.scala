@@ -2,6 +2,7 @@ package com.benkio.calandrobot
 
 import cats._
 import cats.effect._
+import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
@@ -16,16 +17,11 @@ import telegramium.bots.high._
 import scala.concurrent.ExecutionContext
 import scala.util.Random
 
-class CalandroBot[F[_]]()(implicit
-    timerF: Timer[F],
-    parallelF: Parallel[F],
-    effectF: Effect[F],
-    api: telegramium.bots.high.Api[F]
-) extends BotSkeleton[F]()(timerF, parallelF, effectF, api) {
+class CalandroBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
 
   override val resourceSource: ResourceSource = CalandroBot.resourceSource
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = List(
+  lazy val commandRepliesData: List[ReplyBundleCommand] = List(
     ReplyBundleCommand(CommandTrigger("porcoladro"), List(MediaFile("cala_PorcoLadro.mp3"))),
     ReplyBundleCommand(CommandTrigger("unoduetre"), List(MediaFile("cala_Unoduetre.mp3"))),
     ReplyBundleCommand(CommandTrigger("ancorauna"), List(MediaFile("cala_AncoraUnaDoveLaMetto.mp3"))),
@@ -56,22 +52,27 @@ class CalandroBot[F[_]]()(implicit
     ReplyBundleCommand(CommandTrigger("lesbiche"), List(MediaFile("cala_SieteLesbiche.mp3"))),
     ReplyBundleCommand(CommandTrigger("firstlesson"), List(MediaFile("cala_FirstLessonPlease.mp3"))),
     ReplyBundleCommand(CommandTrigger("noprogrammato"), List(MediaFile("cala_NoGrazieProgrammato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("cala_Fiamme.mp3"))),
-    ReplyBundleCommand(
-      CommandTrigger("randomcard"),
-      Effect
-        .toIOFromRunAsync(
-          ResourceSource
-            .selectResourceAccess(All("calandro.db"))
-            .getResourcesByKind("cards")
-            .use[F, List[MediaFile]](x => effectF.pure(x))
-        )
-        .unsafeRunSync(),
-      replySelection = RandomSelection
-    )
+    ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("cala_Fiamme.mp3")))
   )
 
-  override lazy val messageRepliesData: List[ReplyBundleMessage] = CalandroBot.messageRepliesData
+  private val randomCardReplyBundleF: F[ReplyBundleCommand] =
+    ResourceSource
+      .selectResourceAccess(All("calandro.db"))
+      .getResourcesByKind("cards")
+      .use[ReplyBundleCommand](mediaFile =>
+        ReplyBundleCommand(
+          CommandTrigger("randomcard"),
+          mediaFile,
+          replySelection = RandomSelection
+        ).pure[F]
+      )
+
+  override lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] = CalandroBot.messageRepliesData.pure[F]
+
+  override lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] =
+    randomCardReplyBundleF.map(
+      commandRepliesData :+ _
+    )
 }
 
 object CalandroBot extends Configurations {
@@ -185,22 +186,17 @@ object CalandroBot extends Configurations {
       )
     )
   )
-  def token[F[_]](implicit effectF: Effect[F]): Resource[F, String] =
+  def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fileSystem.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
-  def buildBot[F[_], A](
+  def buildBot[F[_]: Parallel: Async, A](
       executorContext: ExecutionContext,
       action: CalandroBot[F] => F[A]
-  )(implicit
-      timerF: Timer[F],
-      parallelF: Parallel[F],
-      contextShiftF: ContextShift[F],
-      concurrentEffectF: ConcurrentEffect[F]
   ): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new CalandroBot[F]())
+    action(new CalandroBot[F])
   })
 }

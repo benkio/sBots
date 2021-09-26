@@ -2,6 +2,7 @@ package com.benkio.richardphjbensonbot
 
 import cats._
 import cats.effect._
+import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
@@ -13,19 +14,14 @@ import telegramium.bots.high._
 
 import scala.concurrent.ExecutionContext
 
-class RichardPHJBensonBot[F[_]]()(implicit
-    timerF: Timer[F],
-    parallelF: Parallel[F],
-    effectF: Effect[F],
-    api: telegramium.bots.high.Api[F]
-) extends BotSkeleton[F]()(timerF, parallelF, effectF, api) {
+class RichardPHJBensonBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
 
   override val resourceSource: ResourceSource = RichardPHJBensonBot.resourceSource
 
-  override lazy val messageRepliesData: List[ReplyBundleMessage] =
-    RichardPHJBensonBot.messageRepliesData
+  override lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] =
+    RichardPHJBensonBot.messageRepliesData.pure[F]
 
-  override lazy val commandRepliesData: List[ReplyBundleCommand] = RichardPHJBensonBot.commandRepliesData
+  override lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] = RichardPHJBensonBot.commandRepliesData.pure[F]
 }
 
 object RichardPHJBensonBot extends Configurations {
@@ -2107,22 +2103,17 @@ carattere '!':
       )
     )
   )
-  def token[F[_]](implicit effectF: Effect[F]): Resource[F, String] =
+  def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fileSystem.getResourceByteArray[F]("rphjb_RichardPHJBensonBot.token").map(_.map(_.toChar).mkString)
 
-  def buildBot[F[_], A](
+  def buildBot[F[_]: Parallel: Async, A](
       executorContext: ExecutionContext,
       action: RichardPHJBensonBot[F] => F[A]
-  )(implicit
-      timerF: Timer[F],
-      parallelF: Parallel[F],
-      contextShiftF: ContextShift[F],
-      concurrentEffectF: ConcurrentEffect[F]
   ): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new RichardPHJBensonBot[F]())
+    action(new RichardPHJBensonBot[F])
   })
 }

@@ -2,7 +2,8 @@ package com.benkio.telegrambotinfrastructure.model
 
 import cats.effect._
 import cats.implicits._
-import io.chrisdavenport.random.Random
+
+import scala.util.Random
 
 sealed trait ReplySelection {
   def logic[F[_]: Sync](replies: List[Reply]): F[List[Reply]]
@@ -14,7 +15,7 @@ case object SelectAll extends ReplySelection {
 case object RandomSelection extends ReplySelection {
   def logic[F[_]: Sync](replies: List[Reply]) =
     for {
-      randomNumGen <- Random.scalaUtilRandom
-      randomVal    <- randomNumGen.betweenInt(0, replies.size)
+      randomNumGen <- Sync[F].delay(new Random())
+      randomVal    <- Sync[F].delay(randomNumGen.between(0, replies.size))
     } yield List(replies(randomVal))
 }
