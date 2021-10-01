@@ -32,6 +32,9 @@ final case class ReplyBundleCommand(
 
 object ReplyBundle {
 
+  implicit val ordering: Ordering[ReplyBundle] =
+    Trigger.ordering.contramap(_.trigger)
+
   def computeReplyBundle[F[_]](replyBundle: ReplyBundle, message: Message)(implicit
       replyAction: Action[Reply, F],
       syncF: Sync[F]

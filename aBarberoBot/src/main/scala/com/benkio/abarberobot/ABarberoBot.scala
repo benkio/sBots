@@ -428,7 +428,7 @@ object ABarberoBot extends Configurations {
   )
 
   val messageRepliesData: List[ReplyBundleMessage] =
-    messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesSpecialData
+    (messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesSpecialData).sorted(ReplyBundle.ordering).reverse
 
   val messageReplyDataStringChunks: List[List[String]] = {
     val (triggers, lastTriggers) = messageRepliesData

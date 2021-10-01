@@ -2045,7 +2045,9 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesData: List[ReplyBundleMessage] =
-    messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesVideoData ++ messageRepliesSpecialData
+    (messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesVideoData ++ messageRepliesSpecialData)
+      .sorted(ReplyBundle.ordering)
+      .reverse
 
   val messageReplyDataStringChunks = {
     val (triggers, lastTriggers) = messageRepliesData
