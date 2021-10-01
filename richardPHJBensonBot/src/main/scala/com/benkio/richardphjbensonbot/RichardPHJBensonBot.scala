@@ -2030,6 +2030,17 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_Incazzo2.mp3")
       ),
       replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("dove stiamo")
+        )
+      ),
+      List(
+        MediaFile("rphjb_CapitoDoveStiamo.mp3"),
+        MediaFile("rphjb_CapitoDoveStiamo.gif")
+      )
     )
   )
 
