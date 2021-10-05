@@ -1559,6 +1559,16 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_PoesiaMadre.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("w[e]+[l]+[a]+".r)
+        )
+      ),
+      List(
+        MediaFile("rphjb_WelaMyFriends.mp4")
+      )
     )
   )
 
@@ -1639,9 +1649,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_OkGoodShowFriends.gif"),
-        MediaFile("rphjb_OkGoodShowFriends2.gif"),
         MediaFile("rphjb_LetSGoodStateBene.mp3"),
-        MediaFile("rphjb_WelaLetsGoodMyFriends.mp3")
+        MediaFile("rphjb_WelaMyFriends.mp4")
       ),
       replySelection = RandomSelection
     ),
