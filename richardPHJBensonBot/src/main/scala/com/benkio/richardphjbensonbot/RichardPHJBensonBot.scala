@@ -713,6 +713,17 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("schifose"),
+          StringTextTriggerValue("ultime")
+        )
+      ),
+      List(
+        MediaFile("rphjb_SchifoseUltime.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           RegexTextTriggerValue("(af+)?fanculo(,)? per contesia".r)
         )
       ),
@@ -1537,6 +1548,38 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("\\bamore\\b")
+        )
+      ),
+      List(
+        MediaFile("rphjb_amore.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("buon compleanno")
+        )
+      ),
+      List(
+        MediaFile("rphjb_Compleanno.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("ringraziare"),
+          StringTextTriggerValue("gianni neri"),
+          StringTextTriggerValue("traffico")
+        )
+      ),
+      List(
+        MediaFile("rphjb_RingraziareGianniTraffico.mp4")
+      )
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(

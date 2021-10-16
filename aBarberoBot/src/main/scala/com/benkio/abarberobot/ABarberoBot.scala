@@ -30,14 +30,22 @@ object ABarberoBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("ferro"),
-          StringTextTriggerValue("fuoco"),
-          StringTextTriggerValue("acqua bollente"),
-          StringTextTriggerValue("aceto")
+          RegexTextTriggerValue("\\bpratica\\b".r)
         )
       ),
-      List(MediaFile("abar_FerroFuocoAcquaBollenteAceto.mp3"))
+      List(MediaFile("abar_PraticaPocoPatriotticah.mp3"))
     ),
+    ReplyBundleMessage(
+        TextTrigger(
+          List(
+            StringTextTriggerValue("ferro"),
+            StringTextTriggerValue("fuoco"),
+            StringTextTriggerValue("acqua bollente"),
+            StringTextTriggerValue("aceto")
+          )
+        ),
+        List(MediaFile("abar_FerroFuocoAcquaBollenteAceto.mp3"))
+      ),
     ReplyBundleMessage(
       TextTrigger(
         List(
