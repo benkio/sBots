@@ -4,9 +4,9 @@ import cats.effect._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
-object XahBotMain extends IOApp {
+object XahBotMainPolling extends IOApp {
   def run(args: List[String]): IO[cats.effect.ExitCode] =
     XahBot
-      .buildBot[IO, Unit](global, (xl: XahBot[IO]) => xl.start())
+      .buildPollingBot[IO, Unit](global, (xl: XahBotPolling[IO]) => xl.start())
       .as(ExitCode.Success)
 }

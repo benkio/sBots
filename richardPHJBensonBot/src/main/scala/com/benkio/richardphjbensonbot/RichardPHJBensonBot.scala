@@ -14,14 +14,17 @@ import telegramium.bots.high._
 
 import scala.concurrent.ExecutionContext
 
-class RichardPHJBensonBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
+class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with RichardPHJBensonBot
+
+trait RichardPHJBensonBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = RichardPHJBensonBot.resourceSource
 
-  override lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] =
+  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] =
     RichardPHJBensonBot.messageRepliesData.pure[F]
 
-  override lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] = RichardPHJBensonBot.commandRepliesData.pure[F]
+  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] =
+    RichardPHJBensonBot.commandRepliesData.pure[F]
 }
 
 object RichardPHJBensonBot extends Configurations {
@@ -2171,14 +2174,14 @@ carattere '!':
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fileSystem.getResourceByteArray[F]("rphjb_RichardPHJBensonBot.token").map(_.map(_.toChar).mkString)
 
-  def buildBot[F[_]: Parallel: Async, A](
+  def buildPollingBot[F[_]: Parallel: Async, A](
       executorContext: ExecutionContext,
-      action: RichardPHJBensonBot[F] => F[A]
+      action: RichardPHJBensonBotPolling[F] => F[A]
   ): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new RichardPHJBensonBot[F])
+    action(new RichardPHJBensonBotPolling[F])
   })
 }

@@ -15,9 +15,19 @@ import telegramium.bots.high._
 
 import scala.concurrent.duration._
 
-abstract class BotSkeleton[F[_]: Parallel: Async](implicit api: Api[F])
+abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F])
     extends LongPollBot[F](api)
-    with DefaultActions {
+    with BotSkeleton {
+  override def onMessage(msg: Message): F[Unit] = {
+    val x: OptionT[F, Unit] = for {
+      text <- OptionT.fromOption[F](msg.text)
+      _    <- OptionT(botLogic[F](Async[F], api)(msg, text))
+    } yield ()
+    x.getOrElse(())
+  }
+}
+
+trait BotSkeleton extends DefaultActions {
 
   // Configuration values /////////////////////////////////////////////////////
   val resourceSource: ResourceSource
@@ -26,23 +36,23 @@ abstract class BotSkeleton[F[_]: Parallel: Async](implicit api: Api[F])
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] = List.empty[ReplyBundleMessage].pure[F]
-  lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] = List.empty[ReplyBundleCommand].pure[F]
+  def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] = List.empty[ReplyBundleMessage].pure[F]
+  def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]]       = List.empty[ReplyBundleCommand].pure[F]
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  val messageLogic: (Message, String) => F[Option[List[Message]]] = (msg: Message, text: String) =>
+  def messageLogic[F[_]: Async: Api]: (Message, String) => F[Option[List[Message]]] = (msg: Message, text: String) =>
     for {
-      messageRepliesData <- messageRepliesDataF
+      messageRepliesData <- messageRepliesDataF[F]
       replies <- messageRepliesData
         .find(MessageMatches.doesMatch(_, text, ignoreMessagePrefix))
         .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout))
         .traverse(ReplyBundle.computeReplyBundle[F](_, msg))
     } yield replies
 
-  val commandLogic: (Message, String) => F[Option[List[Message]]] = (msg: Message, text: String) =>
+  def commandLogic[F[_]: Async: Api]: (Message, String) => F[Option[List[Message]]] = (msg: Message, text: String) =>
     for {
-      commandRepliesData <- commandRepliesDataF
+      commandRepliesData <- commandRepliesDataF[F]
       commands <- commandRepliesData
         .find(rbc => text.startsWith("/" + rbc.trigger.command))
         .traverse(
@@ -50,17 +60,9 @@ abstract class BotSkeleton[F[_]: Parallel: Async](implicit api: Api[F])
         )
     } yield commands
 
-  val botLogic: (Message, String) => F[Option[List[Message]]] = (msg: Message, text: String) =>
+  def botLogic[F[_]: Async: Api]: (Message, String) => F[Option[List[Message]]] = (msg: Message, text: String) =>
     for {
-      messagesOpt <- messageLogic(msg, text)
-      commandsOpt <- commandLogic(msg, text)
+      messagesOpt <- messageLogic[F](Async[F], implicitly[Api[F]])(msg, text)
+      commandsOpt <- commandLogic[F](Async[F], implicitly[Api[F]])(msg, text)
     } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
-
-  override def onMessage(msg: Message): F[Unit] = {
-    val x: OptionT[F, Unit] = for {
-      text <- OptionT.fromOption[F](msg.text)
-      _    <- OptionT(botLogic(msg, text))
-    } yield ()
-    x.getOrElse(())
-  }
 }

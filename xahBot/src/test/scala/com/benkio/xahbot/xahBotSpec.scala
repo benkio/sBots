@@ -15,11 +15,11 @@ class XahBotSpec extends CatsEffectSuite {
       .use[Unit](fileBytes => assert(fileBytes.nonEmpty).pure[IO])
 
   test("commandRepliesData should never raise an exception when try to open the file in resounces") {
-    XahBot.buildBot[IO, Unit](
+    XahBot.buildPollingBot[IO, Unit](
       scala.concurrent.ExecutionContext.global,
       bot =>
         for {
-          commandRepliesData <- bot.commandRepliesDataF
+          commandRepliesData <- bot.commandRepliesDataF[IO]
         } yield commandRepliesData
           .flatMap(_.mediafiles)
           .foreach((mf: MediaFile) => testFilename(mf.filename))

@@ -12,11 +12,13 @@ import telegramium.bots.high._
 
 import scala.concurrent.ExecutionContext
 
-class XahBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
+class XahBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with XahBot
+
+trait XahBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = XahBot.resourceSource
 
-  override lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] = List(
+  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] = List(
     buildRandomReplyBundleCommand(
       "ass",
       "Ass",
@@ -85,14 +87,14 @@ class XahBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
       "wtf",
       "WTF"
     )
-  ).sequence
+  ).sequence[F, ReplyBundleCommand]
 
-  override lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] = List.empty.pure[F]
+  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] = List.empty.pure[F]
 
-  def buildRandomReplyBundleCommand(command: String, directory: String): F[ReplyBundleCommand] =
+  def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand] =
     ResourceSource
       .selectResourceAccess(XahBot.resourceSource)
-      .getResourcesByKind(directory)
+      .getResourcesByKind[F](directory)
       .use[ReplyBundleCommand](mediaFile =>
         ReplyBundleCommand(
           CommandTrigger(command),
@@ -108,14 +110,14 @@ object XahBot extends Configurations {
 
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fileSystem.getResourceByteArray[F]("xah_XahBot.token").map(_.map(_.toChar).mkString)
-  def buildBot[F[_]: Parallel: Async, A](
+  def buildPollingBot[F[_]: Parallel: Async, A](
       executorContext: ExecutionContext,
-      action: XahBot[F] => F[A]
+      action: XahBotPolling[F] => F[A]
   ): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new XahBot[F])
+    action(new XahBotPolling[F])
   })
 }

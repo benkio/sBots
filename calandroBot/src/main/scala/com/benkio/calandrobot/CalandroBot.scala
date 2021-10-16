@@ -17,45 +17,13 @@ import telegramium.bots.high._
 import scala.concurrent.ExecutionContext
 import scala.util.Random
 
-class CalandroBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
+class CalandroBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with CalandroBot
+
+trait CalandroBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = CalandroBot.resourceSource
 
-  lazy val commandRepliesData: List[ReplyBundleCommand] = List(
-    ReplyBundleCommand(CommandTrigger("porcoladro"), List(MediaFile("cala_PorcoLadro.mp3"))),
-    ReplyBundleCommand(CommandTrigger("unoduetre"), List(MediaFile("cala_Unoduetre.mp3"))),
-    ReplyBundleCommand(CommandTrigger("ancorauna"), List(MediaFile("cala_AncoraUnaDoveLaMetto.mp3"))),
-    ReplyBundleCommand(CommandTrigger("lacipolla"), List(MediaFile("cala_CipollaCalandrica.mp3"))),
-    ReplyBundleCommand(CommandTrigger("lavorogiusto"), List(MediaFile("cala_IlLavoroVaPagato.mp3"))),
-    ReplyBundleCommand(
-      CommandTrigger("motivazioniinternet"),
-      List(MediaFile("cala_InternetMotivazioniCalandriche.mp3"))
-    ),
-    ReplyBundleCommand(CommandTrigger("cazzomene"), List(MediaFile("cala_IoSonVaccinato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("arrivoarrivo"), List(MediaFile("cala_SubmissionCalandra.mp3"))),
-    ReplyBundleCommand(CommandTrigger("vaginadepilata"), List(MediaFile("cala_VaginaDepilataCalandra.mp3"))),
-    ReplyBundleCommand(CommandTrigger("whawha_fallout4"), List(MediaFile("cala_Waawahaawha.mp3"))),
-    ReplyBundleCommand(CommandTrigger("whawha_short"), List(MediaFile("cala_Wwhaaawhaaa Singolo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("daccordissimo"), List(MediaFile("cala_D_accordissimo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("stocazzo"), List(MediaFile("cala_Stocazzo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("cazzodibudda"), List(MediaFile("cala_CazzoDiBudda.mp3"))),
-    ReplyBundleCommand(CommandTrigger("personapulita"), List(MediaFile("cala_PersonaPulita.mp3"))),
-    ReplyBundleCommand(CommandTrigger("losquirt"), List(MediaFile("cala_LoSquirt.mp3"))),
-    ReplyBundleCommand(CommandTrigger("fuoridalmondo"), List(MediaFile("cala_FuoriDalMondo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("qualitaolive"), List(MediaFile("cala_QualitaOlive.mp3"))),
-    ReplyBundleCommand(CommandTrigger("gioielli"), List(MediaFile("cala_Gioielli.mp3"))),
-    ReplyBundleCommand(CommandTrigger("risata"), List(MediaFile("cala_RisataCalandrica.mp3"))),
-    ReplyBundleCommand(CommandTrigger("sonocosternato"), List(MediaFile("cala_SonoCosternato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("demenza"), List(MediaFile("cala_LaDemenzaDiUnUomo.mp3"))),
-    ReplyBundleCommand(CommandTrigger("wha"), List(MediaFile("cala_WhaSecco.mp3"))),
-    ReplyBundleCommand(CommandTrigger("imparatounafava"), List(MediaFile("cala_ImparatoUnaFava.mp3"))),
-    ReplyBundleCommand(CommandTrigger("lesbiche"), List(MediaFile("cala_SieteLesbiche.mp3"))),
-    ReplyBundleCommand(CommandTrigger("firstlesson"), List(MediaFile("cala_FirstLessonPlease.mp3"))),
-    ReplyBundleCommand(CommandTrigger("noprogrammato"), List(MediaFile("cala_NoGrazieProgrammato.mp3"))),
-    ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("cala_Fiamme.mp3")))
-  )
-
-  private val randomCardReplyBundleF: F[ReplyBundleCommand] =
+  private def randomCardReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
     ResourceSource
       .selectResourceAccess(All("calandro.db"))
       .getResourcesByKind("cards")
@@ -67,11 +35,12 @@ class CalandroBot[F[_]: Parallel: Async: Api] extends BotSkeleton[F] {
         ).pure[F]
       )
 
-  override lazy val messageRepliesDataF: F[List[ReplyBundleMessage]] = CalandroBot.messageRepliesData.pure[F]
+  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] =
+    CalandroBot.messageRepliesData.pure[F]
 
-  override lazy val commandRepliesDataF: F[List[ReplyBundleCommand]] =
-    randomCardReplyBundleF.map(
-      commandRepliesData :+ _
+  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] =
+    randomCardReplyBundleF[F].map(
+      CalandroBot.commandRepliesData :+ _
     )
 }
 
@@ -186,17 +155,52 @@ object CalandroBot extends Configurations {
       )
     )
   )
+
+  val commandRepliesData: List[ReplyBundleCommand] = List(
+    ReplyBundleCommand(CommandTrigger("porcoladro"), List(MediaFile("cala_PorcoLadro.mp3"))),
+    ReplyBundleCommand(CommandTrigger("unoduetre"), List(MediaFile("cala_Unoduetre.mp3"))),
+    ReplyBundleCommand(CommandTrigger("ancorauna"), List(MediaFile("cala_AncoraUnaDoveLaMetto.mp3"))),
+    ReplyBundleCommand(CommandTrigger("lacipolla"), List(MediaFile("cala_CipollaCalandrica.mp3"))),
+    ReplyBundleCommand(CommandTrigger("lavorogiusto"), List(MediaFile("cala_IlLavoroVaPagato.mp3"))),
+    ReplyBundleCommand(
+      CommandTrigger("motivazioniinternet"),
+      List(MediaFile("cala_InternetMotivazioniCalandriche.mp3"))
+    ),
+    ReplyBundleCommand(CommandTrigger("cazzomene"), List(MediaFile("cala_IoSonVaccinato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("arrivoarrivo"), List(MediaFile("cala_SubmissionCalandra.mp3"))),
+    ReplyBundleCommand(CommandTrigger("vaginadepilata"), List(MediaFile("cala_VaginaDepilataCalandra.mp3"))),
+    ReplyBundleCommand(CommandTrigger("whawha_fallout4"), List(MediaFile("cala_Waawahaawha.mp3"))),
+    ReplyBundleCommand(CommandTrigger("whawha_short"), List(MediaFile("cala_Wwhaaawhaaa Singolo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("daccordissimo"), List(MediaFile("cala_D_accordissimo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("stocazzo"), List(MediaFile("cala_Stocazzo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("cazzodibudda"), List(MediaFile("cala_CazzoDiBudda.mp3"))),
+    ReplyBundleCommand(CommandTrigger("personapulita"), List(MediaFile("cala_PersonaPulita.mp3"))),
+    ReplyBundleCommand(CommandTrigger("losquirt"), List(MediaFile("cala_LoSquirt.mp3"))),
+    ReplyBundleCommand(CommandTrigger("fuoridalmondo"), List(MediaFile("cala_FuoriDalMondo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("qualitaolive"), List(MediaFile("cala_QualitaOlive.mp3"))),
+    ReplyBundleCommand(CommandTrigger("gioielli"), List(MediaFile("cala_Gioielli.mp3"))),
+    ReplyBundleCommand(CommandTrigger("risata"), List(MediaFile("cala_RisataCalandrica.mp3"))),
+    ReplyBundleCommand(CommandTrigger("sonocosternato"), List(MediaFile("cala_SonoCosternato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("demenza"), List(MediaFile("cala_LaDemenzaDiUnUomo.mp3"))),
+    ReplyBundleCommand(CommandTrigger("wha"), List(MediaFile("cala_WhaSecco.mp3"))),
+    ReplyBundleCommand(CommandTrigger("imparatounafava"), List(MediaFile("cala_ImparatoUnaFava.mp3"))),
+    ReplyBundleCommand(CommandTrigger("lesbiche"), List(MediaFile("cala_SieteLesbiche.mp3"))),
+    ReplyBundleCommand(CommandTrigger("firstlesson"), List(MediaFile("cala_FirstLessonPlease.mp3"))),
+    ReplyBundleCommand(CommandTrigger("noprogrammato"), List(MediaFile("cala_NoGrazieProgrammato.mp3"))),
+    ReplyBundleCommand(CommandTrigger("fiammeinferno"), List(MediaFile("cala_Fiamme.mp3")))
+  )
+
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fileSystem.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
-  def buildBot[F[_]: Parallel: Async, A](
+  def buildPollingBot[F[_]: Parallel: Async, A](
       executorContext: ExecutionContext,
-      action: CalandroBot[F] => F[A]
+      action: CalandroBotPolling[F] => F[A]
   ): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new CalandroBot[F])
+    action(new CalandroBotPolling[F])
   })
 }
