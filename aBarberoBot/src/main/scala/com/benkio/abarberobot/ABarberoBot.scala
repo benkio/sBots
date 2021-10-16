@@ -36,16 +36,16 @@ object ABarberoBot extends Configurations {
       List(MediaFile("abar_PraticaPocoPatriotticah.mp3"))
     ),
     ReplyBundleMessage(
-        TextTrigger(
-          List(
-            StringTextTriggerValue("ferro"),
-            StringTextTriggerValue("fuoco"),
-            StringTextTriggerValue("acqua bollente"),
-            StringTextTriggerValue("aceto")
-          )
-        ),
-        List(MediaFile("abar_FerroFuocoAcquaBollenteAceto.mp3"))
+      TextTrigger(
+        List(
+          StringTextTriggerValue("ferro"),
+          StringTextTriggerValue("fuoco"),
+          StringTextTriggerValue("acqua bollente"),
+          StringTextTriggerValue("aceto")
+        )
       ),
+      List(MediaFile("abar_FerroFuocoAcquaBollenteAceto.mp3"))
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(

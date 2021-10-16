@@ -1551,7 +1551,7 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("\\bamore\\b")
+          RegexTextTriggerValue("\\bamore\\b".r)
         )
       ),
       List(
