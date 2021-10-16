@@ -11,7 +11,8 @@ echo "#                                                                         
 echo "################################################################################"
 TEST=false       # Run sbt test on the dependent libs and infrastructure
 SIMULATION=false # TEST, but not sbt run
-while getopts dtrs option
+WEBHOOK=false    # Runs the webhook instead of the polling one
+while getopts dtsw option
 do
     case "${option}"
     in
@@ -19,6 +20,8 @@ do
            echo "selected the Test option";;
         s) SIMULATION=true
            echo "selected the Simulation option";;
+        w) WEBHOOK=true
+           echo "selected the webhook opton";;
         ?) echo "no options selected"
     esac
 done
@@ -33,9 +36,18 @@ fi
 
 if [ "$SIMULATION" = false ] ;
 then
-    echo "-------------------------assembly-------------------------"
+    echo "-------------------------Assembly-------------------------"
 
     sbt --supershell=false main/assembly
 
-    (cd ./main/target/scala-2.13/; java -jar main.jar)
+    if [ "$WEBHOOK" = false ] ;
+    then
+        echo "-------------------------Run Polling Bots-------------------------"
+        (cd ./main/target/scala-2.13/; java -cp main.jar com.benkio.main.MainPolling)
+    else
+        echo "-------------------------Run Webhook Bots-------------------------"
+        (cd ./main/target/scala-2.13/; java -cp main.jar com.benkio.main.MainWebhook)
+    fi
+
+
 fi

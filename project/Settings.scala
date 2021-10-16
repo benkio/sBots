@@ -60,7 +60,6 @@ object Settings {
 
   lazy val MainSettings = Seq(
     name                := "main",
-    libraryDependencies := MainDependencies,
-    mainClass           := Some("com.benkio.main.Main")
+    libraryDependencies := MainDependencies
   ) ++ assemblySettings
 }
