@@ -8,6 +8,7 @@ import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
 import com.benkio.telegrambotinfrastructure._
 import org.http4s.blaze.client._
+import org.http4s.client.Client
 import telegramium.bots.high._
 
 import scala.concurrent.ExecutionContext
@@ -471,9 +472,8 @@ object ABarberoBot extends Configurations {
     ResourceAccess.fileSystem.getResourceByteArray[F]("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
-      executorContext: ExecutionContext,
       action: ABarberoBotPolling[F] => F[A]
-  ): F[A] = (for {
+  )(implicit executorContext: ExecutionContext): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
@@ -482,14 +482,10 @@ object ABarberoBot extends Configurations {
   })
 
   def buildWebhookBot[F[_]: Async, A](
-      executorContext: ExecutionContext,
-      serverHost: String,
-      action: ABarberoBotWebhook[F] => F[A]
-  ): F[A] = (for {
-    client <- BlazeClientBuilder[F](executorContext).resource
-    tk     <- token[F]
-  } yield (client, tk)).use(client_tk => {
-    val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new ABarberoBotWebhook[F](api, serverHost, s"/${client_tk._2}"))
-  })
+      httpClient: Client[F],
+      serverHost: String
+  ): Resource[F, ABarberoBotWebhook[F]] = for {
+    tk <- token[F]
+    api: Api[F] = BotApi(httpClient, baseUrl = s"https://api.telegram.org/bot$tk")
+  } yield new ABarberoBotWebhook[F](api, serverHost, s"/$tk")
 }

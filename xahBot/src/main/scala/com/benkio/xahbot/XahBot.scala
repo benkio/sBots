@@ -8,6 +8,7 @@ import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
 import com.benkio.telegrambotinfrastructure._
 import org.http4s.blaze.client._
+import org.http4s.client.Client
 import telegramium.bots.high._
 
 import scala.concurrent.ExecutionContext
@@ -115,9 +116,8 @@ object XahBot extends Configurations {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fileSystem.getResourceByteArray[F]("xah_XahBot.token").map(_.map(_.toChar).mkString)
   def buildPollingBot[F[_]: Parallel: Async, A](
-      executorContext: ExecutionContext,
       action: XahBotPolling[F] => F[A]
-  ): F[A] = (for {
+  )(implicit executorContext: ExecutionContext): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
@@ -126,15 +126,11 @@ object XahBot extends Configurations {
   })
 
   def buildWebhookBot[F[_]: Async, A](
-      executorContext: ExecutionContext,
-      serverHost: String,
-      action: XahBotWebhook[F] => F[A]
-  ): F[A] = (for {
-    client <- BlazeClientBuilder[F](executorContext).resource
-    tk     <- token[F]
-  } yield (client, tk)).use(client_tk => {
-    val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new XahBotWebhook[F](api, serverHost, s"/${client_tk._2}"))
-  })
+      httpClient: Client[F],
+      serverHost: String
+  ): Resource[F, XahBotWebhook[F]] = for {
+    tk <- token[F]
+    api: Api[F] = BotApi(httpClient, baseUrl = s"https://api.telegram.org/bot$tk")
+  } yield new XahBotWebhook[F](api, serverHost, s"/$tk")
 
 }

@@ -11,6 +11,7 @@ import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
 import org.http4s.blaze.client._
+import org.http4s.client.Client
 import telegramium.bots.Message
 import telegramium.bots.high._
 
@@ -198,9 +199,8 @@ object CalandroBot extends Configurations {
     ResourceAccess.fileSystem.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
-      executorContext: ExecutionContext,
       action: CalandroBotPolling[F] => F[A]
-  ): F[A] = (for {
+  )(implicit executorContext: ExecutionContext): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
@@ -209,14 +209,10 @@ object CalandroBot extends Configurations {
   })
 
   def buildWebhookBot[F[_]: Async, A](
-      executorContext: ExecutionContext,
+      httpClient: Client[F],
       serverHost: String,
-      action: CalandroBotWebhook[F] => F[A]
-  ): F[A] = (for {
-    client <- BlazeClientBuilder[F](executorContext).resource
-    tk     <- token[F]
-  } yield (client, tk)).use(client_tk => {
-    val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new CalandroBotWebhook[F](api, serverHost, s"/${client_tk._2}"))
-  })
+  ): Resource[F, CalandroBotWebhook[F]] = for {
+    tk <- token[F]
+    api: Api[F] = BotApi(httpClient, baseUrl = s"https://api.telegram.org/bot$tk")
+  } yield new CalandroBotWebhook[F](api, serverHost, s"/$tk")
 }

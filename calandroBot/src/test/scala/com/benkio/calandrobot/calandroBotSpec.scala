@@ -15,15 +15,13 @@ class CalandroBotSpec extends CatsEffectSuite {
       .use[Unit](fileBytes => assert(fileBytes.nonEmpty).pure[IO])
 
   test("commandRepliesData should never raise an exception when try to open the file in resounces") {
-    CalandroBot.buildPollingBot[IO, Unit](
-      scala.concurrent.ExecutionContext.global,
-      bot =>
-        bot
-          .commandRepliesDataF[IO]
-          .map(
-            _.flatMap(_.mediafiles)
-              .foreach((mf: MediaFile) => testFilename(mf.filename))
-          )
+    CalandroBot.buildPollingBot[IO, Unit](bot =>
+      bot
+        .commandRepliesDataF[IO]
+        .map(
+          _.flatMap(_.mediafiles)
+            .foreach((mf: MediaFile) => testFilename(mf.filename))
+        )
     )
   }
 

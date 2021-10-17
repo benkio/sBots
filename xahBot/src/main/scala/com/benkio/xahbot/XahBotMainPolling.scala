@@ -7,6 +7,6 @@ import scala.concurrent.ExecutionContext.Implicits.global
 object XahBotMainPolling extends IOApp {
   def run(args: List[String]): IO[cats.effect.ExitCode] =
     XahBot
-      .buildPollingBot[IO, Unit](global, (xl: XahBotPolling[IO]) => xl.start())
+      .buildPollingBot[IO, Unit]((xl: XahBotPolling[IO]) => xl.start())
       .as(ExitCode.Success)
 }

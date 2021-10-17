@@ -10,6 +10,7 @@ import com.benkio.telegrambotinfrastructure._
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import org.http4s.blaze.client._
+import org.http4s.client.Client
 import telegramium.bots.high._
 
 import scala.concurrent.ExecutionContext
@@ -2179,9 +2180,8 @@ carattere '!':
     ResourceAccess.fileSystem.getResourceByteArray[F]("rphjb_RichardPHJBensonBot.token").map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
-      executorContext: ExecutionContext,
       action: RichardPHJBensonBotPolling[F] => F[A]
-  ): F[A] = (for {
+  )(implicit executorContext: ExecutionContext): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
@@ -2190,14 +2190,10 @@ carattere '!':
   })
 
   def buildWebhookBot[F[_]: Async, A](
-      executorContext: ExecutionContext,
+      httpClient: Client[F],
       serverHost: String,
-      action: RichardPHJBensonBotWebhook[F] => F[A]
-  ): F[A] = (for {
-    client <- BlazeClientBuilder[F](executorContext).resource
-    tk     <- token[F]
-  } yield (client, tk)).use(client_tk => {
-    val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
-    action(new RichardPHJBensonBotWebhook[F](api, serverHost, s"/${client_tk._2}"))
-  })
+  ): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
+    tk <- token[F]
+    api: Api[F] = BotApi(httpClient, baseUrl = s"https://api.telegram.org/bot$tk")
+  } yield new RichardPHJBensonBotWebhook[F](api, serverHost, s"/$tk")
 }
