@@ -14,6 +14,10 @@ import scala.concurrent.ExecutionContext
 
 class ABarberoBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with ABarberoBot
 
+class ABarberoBotWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
+    extends BotSkeletonWebhook[F](api, url, path)
+    with ABarberoBot
+
 trait ABarberoBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = ABarberoBot.resourceSource

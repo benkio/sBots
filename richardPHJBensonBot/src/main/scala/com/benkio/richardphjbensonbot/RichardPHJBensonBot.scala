@@ -16,6 +16,10 @@ import scala.concurrent.ExecutionContext
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with RichardPHJBensonBot
 
+class RichardPHJBensonBotWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
+    extends BotSkeletonWebhook[F](api, url, path)
+    with RichardPHJBensonBot
+
 trait RichardPHJBensonBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = RichardPHJBensonBot.resourceSource

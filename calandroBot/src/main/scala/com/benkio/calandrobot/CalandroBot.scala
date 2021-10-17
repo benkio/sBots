@@ -19,6 +19,10 @@ import scala.util.Random
 
 class CalandroBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with CalandroBot
 
+class CalandroBotWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
+    extends BotSkeletonWebhook[F](api, url, path)
+    with CalandroBot
+
 trait CalandroBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = CalandroBot.resourceSource

@@ -14,6 +14,10 @@ import scala.concurrent.ExecutionContext
 
 class XahBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with XahBot
 
+class XahBotWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
+    extends BotSkeletonWebhook[F](api, url, path)
+    with XahBot
+
 trait XahBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = XahBot.resourceSource
