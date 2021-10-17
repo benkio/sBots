@@ -27,6 +27,18 @@ abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F])
   }
 }
 
+abstract class BotSkeletonWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
+    extends WebhookBot[F](api, url, path)
+    with BotSkeleton {
+  override def onMessage(msg: Message): F[Unit] = {
+    val x: OptionT[F, Unit] = for {
+      text <- OptionT.fromOption[F](msg.text)
+      _    <- OptionT(botLogic[F](Async[F], api)(msg, text))
+    } yield ()
+    x.getOrElse(())
+  }
+}
+
 trait BotSkeleton extends DefaultActions {
 
   // Configuration values /////////////////////////////////////////////////////
