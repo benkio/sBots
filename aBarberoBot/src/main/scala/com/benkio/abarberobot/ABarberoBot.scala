@@ -480,4 +480,16 @@ object ABarberoBot extends Configurations {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
     action(new ABarberoBotPolling[F])
   })
+
+  def buildWebhookBot[F[_]: Async, A](
+      executorContext: ExecutionContext,
+      serverHost: String,
+      action: ABarberoBotWebhook[F] => F[A]
+  ): F[A] = (for {
+    client <- BlazeClientBuilder[F](executorContext).resource
+    tk     <- token[F]
+  } yield (client, tk)).use(client_tk => {
+    val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
+    action(new ABarberoBotWebhook[F](api, serverHost, s"/${client_tk._2}"))
+  })
 }

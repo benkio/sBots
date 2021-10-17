@@ -2188,4 +2188,16 @@ carattere '!':
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
     action(new RichardPHJBensonBotPolling[F])
   })
+
+  def buildWebhookBot[F[_]: Async, A](
+      executorContext: ExecutionContext,
+      serverHost: String,
+      action: RichardPHJBensonBotWebhook[F] => F[A]
+  ): F[A] = (for {
+    client <- BlazeClientBuilder[F](executorContext).resource
+    tk     <- token[F]
+  } yield (client, tk)).use(client_tk => {
+    val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
+    action(new RichardPHJBensonBotWebhook[F](api, serverHost, s"/${client_tk._2}"))
+  })
 }
