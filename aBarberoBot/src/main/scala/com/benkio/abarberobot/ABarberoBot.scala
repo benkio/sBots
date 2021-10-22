@@ -37,6 +37,28 @@ object ABarberoBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("pestifero"),
+          StringTextTriggerValue("maledetto")
+        )
+      ),
+      List(MediaFile("abar_Pestifero.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("distrutto"),
+          StringTextTriggerValue("mangiato dai topi"),
+          StringTextTriggerValue("bruciato"),
+          StringTextTriggerValue("sepolto"),
+          StringTextTriggerValue("nel fiume"),
+          StringTextTriggerValue("innondazione")
+        )
+      ),
+      List(MediaFile("abar_Distrutto.mp3"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           RegexTextTriggerValue("\\bpratica\\b".r)
         )
       ),
