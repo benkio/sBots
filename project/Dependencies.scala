@@ -12,6 +12,7 @@ object Dependencies {
     val lightbendEmojiVersion = "1.2.3"
     val munit                 = "0.7.29"
     val munitCatsEffect       = "1.0.6"
+    val pureConfig            = "0.17.0"
   }
   lazy val libs = new {
     val munit           = "org.scalameta" %% "munit"               % dependenciesVersion.munit           % Test
@@ -22,7 +23,9 @@ object Dependencies {
     val cats            = "org.typelevel"         %% "cats-core"        % dependenciesVersion.catsVersion
     val sqliteJdbc      = "org.xerial"             % "sqlite-jdbc"      % dependenciesVersion.sqliteJdbcVersion
     val lightbendEmoji  = "com.lightbend"         %% "emoji"            % dependenciesVersion.lightbendEmojiVersion
+    val pureConfig      = "com.github.pureconfig" %% "pureconfig" % dependenciesVersion.pureConfig
   }
+
 
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] = Seq(
     libs.munit,
@@ -69,6 +72,7 @@ object Dependencies {
   )
 
   val MainDependencies: Seq[ModuleID] = Seq(
-    libs.catsEffect
+    libs.catsEffect,
+    libs.pureConfig
   )
 }
