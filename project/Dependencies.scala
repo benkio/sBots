@@ -23,9 +23,8 @@ object Dependencies {
     val cats            = "org.typelevel"         %% "cats-core"        % dependenciesVersion.catsVersion
     val sqliteJdbc      = "org.xerial"             % "sqlite-jdbc"      % dependenciesVersion.sqliteJdbcVersion
     val lightbendEmoji  = "com.lightbend"         %% "emoji"            % dependenciesVersion.lightbendEmojiVersion
-    val pureConfig      = "com.github.pureconfig" %% "pureconfig" % dependenciesVersion.pureConfig
+    val pureConfig      = "com.github.pureconfig" %% "pureconfig"       % dependenciesVersion.pureConfig
   }
-
 
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] = Seq(
     libs.munit,

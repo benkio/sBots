@@ -208,11 +208,15 @@ object CalandroBot extends Configurations {
     action(new CalandroBotPolling[F])
   })
 
-  def buildWebhookBot[F[_]: Async, A](
+  def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
-      serverHost: String,
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   ): Resource[F, CalandroBotWebhook[F]] = for {
     tk <- token[F]
     api: Api[F] = BotApi(httpClient, baseUrl = s"https://api.telegram.org/bot$tk")
-  } yield new CalandroBotWebhook[F](api, serverHost, s"/$tk")
+  } yield new CalandroBotWebhook[F](
+    api = api,
+    url = webhookBaseUrl,
+    path = s"/$tk"
+  )
 }

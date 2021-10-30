@@ -503,11 +503,15 @@ object ABarberoBot extends Configurations {
     action(new ABarberoBotPolling[F])
   })
 
-  def buildWebhookBot[F[_]: Async, A](
+  def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
-      serverHost: String
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   ): Resource[F, ABarberoBotWebhook[F]] = for {
     tk <- token[F]
     api: Api[F] = BotApi(httpClient, baseUrl = s"https://api.telegram.org/bot$tk")
-  } yield new ABarberoBotWebhook[F](api, serverHost, s"/$tk")
+  } yield new ABarberoBotWebhook[F](
+    api = api,
+    url = webhookBaseUrl,
+    path = s"/$tk"
+  )
 }

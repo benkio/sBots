@@ -125,12 +125,17 @@ object XahBot extends Configurations {
     action(new XahBotPolling[F])
   })
 
-  def buildWebhookBot[F[_]: Async, A](
+  def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
-      serverHost: String
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   ): Resource[F, XahBotWebhook[F]] = for {
     tk <- token[F]
-    api: Api[F] = BotApi(httpClient, baseUrl = s"https://api.telegram.org/bot$tk")
-  } yield new XahBotWebhook[F](api, serverHost, s"/$tk")
+    baseUrl     = s"https://api.telegram.org/bot$tk"
+    api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
+  } yield new XahBotWebhook[F](
+    api = api,
+    url = webhookBaseUrl,
+    path = s"/$tk"
+  )
 
 }
