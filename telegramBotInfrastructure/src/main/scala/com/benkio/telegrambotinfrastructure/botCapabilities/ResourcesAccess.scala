@@ -76,10 +76,10 @@ object ResourceAccess {
       // from https://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file
       if (jarFile.isFile()) { // Run with JAR file
         val jar     = new JarFile(jarFile)
-        val entries = jar.entries() //gives ALL entries in jar
+        val entries = jar.entries() // gives ALL entries in jar
         while (entries.hasMoreElements()) {
           val name = entries.nextElement().getName()
-          if (name.startsWith(criteria + "/") && name.length > (criteria.length + 1)) { //filter according to the path
+          if (name.startsWith(criteria + "/") && name.length > (criteria.length + 1)) { // filter according to the path
             result += name
           }
         }
