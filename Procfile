@@ -1,1 +1,1 @@
-web: java -cp main/target/scala-2.13/classes/ com.benkio.main.MainWebhook
+web: java -cp main/target/scala-2.13/main.jar com.benkio.main.MainWebhook
