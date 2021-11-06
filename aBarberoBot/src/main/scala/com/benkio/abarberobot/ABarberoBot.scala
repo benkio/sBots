@@ -508,10 +508,12 @@ object ABarberoBot extends Configurations {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   ): Resource[F, ABarberoBotWebhook[F]] = for {
     tk <- token[F]
-    api: Api[F] = BotApi(httpClient, baseUrl = s"https://api.telegram.org/bot$tk")
+    baseUrl     = s"https://api.telegram.org/bot$tk"
+    path        = s"/$tk"
+    api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
   } yield new ABarberoBotWebhook[F](
     api = api,
-    url = webhookBaseUrl,
+    url = webhookBaseUrl + path,
     path = s"/$tk"
   )
 }

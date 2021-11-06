@@ -213,10 +213,12 @@ object CalandroBot extends Configurations {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   ): Resource[F, CalandroBotWebhook[F]] = for {
     tk <- token[F]
-    api: Api[F] = BotApi(httpClient, baseUrl = s"https://api.telegram.org/bot$tk")
+    baseUrl     = s"https://api.telegram.org/bot$tk"
+    path        = s"/$tk"
+    api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
   } yield new CalandroBotWebhook[F](
     api = api,
-    url = webhookBaseUrl,
+    url = webhookBaseUrl + path,
     path = s"/$tk"
   )
 }

@@ -131,11 +131,12 @@ object XahBot extends Configurations {
   ): Resource[F, XahBotWebhook[F]] = for {
     tk <- token[F]
     baseUrl     = s"https://api.telegram.org/bot$tk"
+    path        = s"/$tk"
     api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
   } yield new XahBotWebhook[F](
     api = api,
-    url = webhookBaseUrl,
-    path = s"/$tk"
+    url = webhookBaseUrl + path,
+    path = path
   )
 
 }

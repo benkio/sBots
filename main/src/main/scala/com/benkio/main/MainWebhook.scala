@@ -39,6 +39,5 @@ object MainWebhook extends IOApp {
       port = config.port,
       host = config.hostUrl
     )
-    _ = println("test2")
   } yield server).useForever *> ExitCode.Success.pure[IO]
 }
