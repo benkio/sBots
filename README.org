@@ -44,25 +44,27 @@
   ./lunch.sh # I know it's lunch not launch :)
 #+end_src
 
-*** Deploy on Heroku
+*** TODO Deploy on Heroku
 
-- Check `application.conf`
-- Create a fat jar
+**** TODO Method 1
+   - Check `application.conf`
+   - Create a fat jar
 
-#+begin_src bash
-  sbt main/assembly
-#+end_src
+   #+begin_src bash
+     sbt main/assembly
+   #+end_src
 
-- Be sure is <500MB (heroku free tier)
-- Upload it to [[http://transfer.sh/][transfer.sh]]
-- Enter heroku dyno with `heroku run bash`
-- Download the jar with curl
-- Run the java with `java -cp main.jar com.benkio.main.MainWebhook`
+   - Be sure is <500MB (heroku free tier)
+   - Upload it to [[http://transfer.sh/][transfer.sh]]
+   - Enter heroku dyno with `heroku run bash`
+   - Download the jar with curl
+   - Run the java with `java -cp main.jar com.benkio.main.MainWebhook`
 
-sbt main/assebly
-cd main
-docker build .
-heroku login
-heroku container:login
-heroku container:push web
-heroku container:release web
+**** TODO Method 2
+  sbt main/assebly
+  cd main
+  docker build .
+  heroku login
+  heroku container:login
+  heroku container:push web
+  heroku container:release web
