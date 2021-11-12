@@ -91,6 +91,10 @@ trait XahBot extends BotSkeleton {
     buildRandomReplyBundleCommand(
       "wtf",
       "WTF"
+    ),
+    buildRandomReplyBundleCommand(
+      "extra",
+      "Extra"
     )
   ).sequence[F, ReplyBundleCommand]
 
