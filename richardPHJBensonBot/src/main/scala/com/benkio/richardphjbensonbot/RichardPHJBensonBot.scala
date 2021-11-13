@@ -1532,7 +1532,7 @@ object RichardPHJBensonBot extends Configurations {
       TextTrigger(
         List(
           RegexTextTriggerValue("\\bbeat\\b".r),
-          RegexTextTriggerValue("(e poi[ ,]?){2,}".r)
+          RegexTextTriggerValue("(e poi[ ,]?[ ]?){2,}".r)
         )
       ),
       List(MediaFile("rphjb_AssoloBeat.mp4"))
