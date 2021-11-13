@@ -26,7 +26,7 @@ do
     esac
 done
 
-sbt --supershell=false scalafmtAll
+sbt --supershell=false fix
 
 if [[ "$TEST" == true || "$SIMULATION" == true ]] ;
 then
