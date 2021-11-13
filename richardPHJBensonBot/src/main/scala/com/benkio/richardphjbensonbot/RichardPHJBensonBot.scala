@@ -424,10 +424,6 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("rphjb_Preservativo.mp3"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(RegexTextTriggerValue("io nooo[o]*".r))),
-      List(MediaFile("rphjb_IoNo.mp3"))
-    ),
-    ReplyBundleMessage(
       TextTrigger(
         List(
           StringTextTriggerValue("cristo pinocchio"),
@@ -584,16 +580,6 @@ object RichardPHJBensonBot extends Configurations {
         )
       ),
       List(MediaFile("rphjb_Problema.mp3"))
-    ), // also in special list
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bcontinua\\b".r)
-        )
-      ),
-      List(
-        MediaFile("rphjb_Continua.mp3")
-      )
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -714,6 +700,18 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesGifData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("\\bcontinua\\b".r)
+        )
+      ),
+      List(
+        MediaFile("rphjb_Continua.mp3"),
+        MediaFile("rphjb_Continua.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -1091,10 +1089,6 @@ object RichardPHJBensonBot extends Configurations {
       List(MediaFile("rphjb_Guardi.gif"))
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("non è roba per me"))),
-      List(MediaFile("rphjb_RobaPerMe.gif"))
-    ),
-    ReplyBundleMessage(
       TextTrigger(
         List(RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r))
       ),
@@ -1142,7 +1136,10 @@ object RichardPHJBensonBot extends Configurations {
           RegexTextTriggerValue("aris[dt]o[dt]ele".r)
         )
       ),
-      List(MediaFile("rphjb_SoDiNonSapere.gif"))
+      List(
+        MediaFile("rphjb_SoDiNonSapere.gif"),
+        MediaFile("rphjb_SoDiNonSapere.mp4")
+      )
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -1473,7 +1470,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("inizio della fine"))),
-      List(MediaFile("rphjb_InizioDellaFine.gif"))
+      List(
+        MediaFile("rphjb_InizioDellaFine.gif"),
+        MediaFile("rphjb_InizioDellaFine.mp4")
+      )
     ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("il senso"))),
@@ -1502,14 +1502,33 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r),
-          StringTextTriggerValue("impazzisce totalmente")
+          RegexTextTriggerValue("fregare come un co(gl|j)ione".r),
+          RegexTextTriggerValue("Ges[uùù]".r)
+        )
+      ),
+      List(MediaFile("rphjb_GesuCoglione.mp4"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("con questa tecnica")
         )
       ),
       List(
-        MediaFile("rphjb_RottoIlCa.mp4")
+        MediaFile("rphjb_ConQuestaTecnica.mp4")
       )
-    ),
+    )
+      ReplyBundleMessage(
+        TextTrigger(
+          List(
+            RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r),
+            StringTextTriggerValue("impazzisce totalmente")
+          )
+        ),
+        List(
+          MediaFile("rphjb_RottoIlCa.mp4")
+        )
+      ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -1607,6 +1626,22 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesMixData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("non è roba per me"))),
+      List(
+        MediaFile("rphjb_RobaPerMe.gif"),
+        MediaFile("rphjb_RobaPerMe.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(List(RegexTextTriggerValue("io nooo[o]*".r))),
+      List(
+        MediaFile("rphjb_IoNo.mp3"),
+        MediaFile("rphjb_GesuCoglione.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
     ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("bastone infernale"), StringTextTriggerValue("un'arma"))),
       List(
@@ -1910,6 +1945,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_NonMiStaBene2.mp3"),
         MediaFile("rphjb_NonMiStaBene.gif"),
         MediaFile("rphjb_NonMiStaBene2.gif")
+          MediaFile("rphjb_NonMiStaBene.mp4"),
       ),
       replySelection = RandomSelection
     ),
@@ -1962,6 +1998,7 @@ object RichardPHJBensonBot extends Configurations {
       TextTrigger(List(RegexTextTriggerValue("bast[a]{3,}[!]*".r))),
       List(
         MediaFile("rphjb_Basta.mp3"),
+        MediaFile("rphjb_Basta.mp4"),
         MediaFile("rphjb_Basta2.mp3"),
         MediaFile("rphjb_Basta.gif"),
         MediaFile("rphjb_Basta2.gif"),
@@ -2039,7 +2076,8 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_Schifosi3.gif"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
         MediaFile("rphjb_Schifosi.gif"),
-        MediaFile("rphjb_Schifosi2.gif")
+        MediaFile("rphjb_Schifosi2.gif"),
+        MediaFile("rphjb_ConQuestaTecnica.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2048,6 +2086,7 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_MortacciVostri.gif"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
+        MediaFile("rphjb_ConQuestaTecnica.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2219,13 +2258,13 @@ object RichardPHJBensonBot extends Configurations {
       trigger = CommandTrigger("bensonify"),
       text = TextReply(
         msg =>
-          msg.text
-            .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
-            .map(t => {
-              val (_, inputTrimmed) = t.span(_ != ' ')
-              List(List(Bensonify.compute(inputTrimmed)))
-            })
-            .getOrElse(List(List("E PARLAAAAAAA!!!!"))),
+        msg.text
+          .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
+          .map(t => {
+            val (_, inputTrimmed) = t.span(_ != ' ')
+            List(List(Bensonify.compute(inputTrimmed)))
+          })
+          .getOrElse(List(List("E PARLAAAAAAA!!!!"))),
         true
       )
     ),
@@ -2265,7 +2304,7 @@ carattere '!':
     ResourceAccess.fileSystem.getResourceByteArray[F]("rphjb_RichardPHJBensonBot.token").map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
-      action: RichardPHJBensonBotPolling[F] => F[A]
+    action: RichardPHJBensonBotPolling[F] => F[A]
   )(implicit executorContext: ExecutionContext): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
@@ -2275,8 +2314,8 @@ carattere '!':
   })
 
   def buildWebhookBot[F[_]: Async](
-      httpClient: Client[F],
-      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
+    httpClient: Client[F],
+    webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
   ): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
     tk <- token[F]
     baseUrl     = s"https://api.telegram.org/bot$tk"
