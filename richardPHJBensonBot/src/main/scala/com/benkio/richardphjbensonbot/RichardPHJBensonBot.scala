@@ -1412,15 +1412,6 @@ object RichardPHJBensonBot extends Configurations {
       replySelection = RandomSelection
     ),
     ReplyBundleMessage(
-      TextTrigger(List(StringTextTriggerValue("bastone infernale"), StringTextTriggerValue("un'arma"))),
-      List(
-        MediaFile("rphjb_Bastone1.gif"),
-        MediaFile("rphjb_Bastone2.gif"),
-        MediaFile("rphjb_Bastone3.gif")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
       TextTrigger(List(StringTextTriggerValue("drogati"))),
       List(
         MediaFile("rphjb_DrogatiRockettari1.gif"),
@@ -1508,6 +1499,17 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r),
+          StringTextTriggerValue("impazzisce totalmente")
+        )
+      ),
+      List(
+        MediaFile("rphjb_RottoIlCa.mp4")
+      )
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -1605,6 +1607,16 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesMixData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(List(StringTextTriggerValue("bastone infernale"), StringTextTriggerValue("un'arma"))),
+      List(
+        MediaFile("rphjb_Bastone1.gif"),
+        MediaFile("rphjb_Bastone2.gif"),
+        MediaFile("rphjb_Bastone3.gif"),
+        MediaFile("rphjb_BastoneInfernale.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -1964,6 +1976,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Assolo.mp3"),
+        MediaFile("rphjb_Assolo.mp4"),
+        MediaFile("rphjb_Assolo2.mp4"),
         MediaFile("rphjb_AssoloBeat.mp4"),
         MediaFile("rphjb_AssoloSubdolo.mp4"),
         MediaFile("rphjb_Chitarra1.gif"),
