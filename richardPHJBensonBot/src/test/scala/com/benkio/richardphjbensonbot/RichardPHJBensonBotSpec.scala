@@ -33,9 +33,9 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
       .foreach((video: MediaFile) => testFilename(video.filename))
   }
 
-  test("messageRepliesSpecialData should never raise an exception when try to open the file in resounces") {
+  test("messageRepliesMixData should never raise an exception when try to open the file in resounces") {
     for {
-      rb <- RichardPHJBensonBot.messageRepliesSpecialData
+      rb <- RichardPHJBensonBot.messageRepliesMixData
       f1 <- rb.mediafiles
     } yield {
       testFilename(f1.filename)
