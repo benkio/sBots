@@ -1517,18 +1517,18 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_ConQuestaTecnica.mp4")
       )
-    )
-      ReplyBundleMessage(
-        TextTrigger(
-          List(
-            RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r),
-            StringTextTriggerValue("impazzisce totalmente")
-          )
-        ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
         List(
-          MediaFile("rphjb_RottoIlCa.mp4")
+          RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r),
+          StringTextTriggerValue("impazzisce totalmente")
         )
       ),
+      List(
+        MediaFile("rphjb_RottoIlCa.mp4")
+      )
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -1944,8 +1944,8 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_NonMiStaBene.mp3"),
         MediaFile("rphjb_NonMiStaBene2.mp3"),
         MediaFile("rphjb_NonMiStaBene.gif"),
-        MediaFile("rphjb_NonMiStaBene2.gif")
-          MediaFile("rphjb_NonMiStaBene.mp4"),
+        MediaFile("rphjb_NonMiStaBene2.gif"),
+        MediaFile("rphjb_NonMiStaBene.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2258,13 +2258,13 @@ object RichardPHJBensonBot extends Configurations {
       trigger = CommandTrigger("bensonify"),
       text = TextReply(
         msg =>
-        msg.text
-          .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
-          .map(t => {
-            val (_, inputTrimmed) = t.span(_ != ' ')
-            List(List(Bensonify.compute(inputTrimmed)))
-          })
-          .getOrElse(List(List("E PARLAAAAAAA!!!!"))),
+          msg.text
+            .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
+            .map(t => {
+              val (_, inputTrimmed) = t.span(_ != ' ')
+              List(List(Bensonify.compute(inputTrimmed)))
+            })
+            .getOrElse(List(List("E PARLAAAAAAA!!!!"))),
         true
       )
     ),
@@ -2304,7 +2304,7 @@ carattere '!':
     ResourceAccess.fileSystem.getResourceByteArray[F]("rphjb_RichardPHJBensonBot.token").map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
-    action: RichardPHJBensonBotPolling[F] => F[A]
+      action: RichardPHJBensonBotPolling[F] => F[A]
   )(implicit executorContext: ExecutionContext): F[A] = (for {
     client <- BlazeClientBuilder[F](executorContext).resource
     tk     <- token[F]
@@ -2314,8 +2314,8 @@ carattere '!':
   })
 
   def buildWebhookBot[F[_]: Async](
-    httpClient: Client[F],
-    webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
+      httpClient: Client[F],
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
   ): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
     tk <- token[F]
     baseUrl     = s"https://api.telegram.org/bot$tk"
