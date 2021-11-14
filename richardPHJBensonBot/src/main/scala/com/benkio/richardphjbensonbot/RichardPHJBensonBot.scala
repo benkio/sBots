@@ -2253,7 +2253,8 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_InizioDellaFine.gif"),
         MediaFile("rphjb_InizioDellaFine.mp4")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
