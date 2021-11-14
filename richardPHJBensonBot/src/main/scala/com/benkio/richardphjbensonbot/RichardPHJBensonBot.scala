@@ -486,7 +486,8 @@ object RichardPHJBensonBot extends Configurations {
         )
       ),
       List(
-        MediaFile("rphjb_ChiECristo.mp3")
+        MediaFile("rphjb_ChiECristo.mp3"),
+        MediaFile("rphjb_GiudaFrocio.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -959,18 +960,6 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_SiScivola.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("spalle"),
-          StringTextTriggerValue("braccia"),
-          RegexTextTriggerValue("t[ie] strozzo".r)
-        )
-      ),
-      List(
-        MediaFile("rphjb_FaccioVedereSpalleBraccia.gif")
       )
     ),
     ReplyBundleMessage(
@@ -1909,7 +1898,8 @@ object RichardPHJBensonBot extends Configurations {
         )
       ),
       List(
-        MediaFile("rphjb_SorcaLecciso.gif")
+        MediaFile("rphjb_SorcaLecciso.gif"),
+        MediaFile("rphjb_FigaLarga.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -2296,6 +2286,26 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("big money")
+        )
+      ),
+      List(
+        MediaFile("rphjb_BigMoney.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("in cantina")
+        )
+      ),
+      List(
+        MediaFile("rphjb_InCantina.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           RegexTextTriggerValue("fregare come un co(gl|j)ione".r),
           RegexTextTriggerValue("Ges[uùù]".r)
         )
@@ -2424,6 +2434,20 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesMixData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("spalle"),
+          StringTextTriggerValue("braccia"),
+          RegexTextTriggerValue("t[ie] strozzo".r)
+        )
+      ),
+      List(
+        MediaFile("rphjb_FaccioVedereSpalleBraccia.gif"),
+        MediaFile("rphjb_FaccioVedereSpalleBraccia.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -2574,6 +2598,7 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Canzonette.mp3"),
+        MediaFile("rphjb_Canzonette.mp4"),
         MediaFile("rphjb_Canzonette.gif")
       ),
       replySelection = RandomSelection
@@ -2586,6 +2611,7 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Pollo.mp3"),
+        MediaFile("rphjb_Pollo.mp4"),
         MediaFile("rphjb_Pollo.gif")
       ),
       replySelection = RandomSelection
@@ -2598,7 +2624,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_QuelloCheDicoIo.gif"),
-        MediaFile("rphjb_FannoQuelloCheDicoIo.mp3")
+        MediaFile("rphjb_FannoQuelloCheDicoIo.mp3"),
+        MediaFile("rphjb_FannoQuelloCheDicoIo.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2610,6 +2637,7 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
+        MediaFile("rphjb_ChitarraZuccherada.mp4"),
         MediaFile("rphjb_Zucchero.mp3"),
         MediaFile("rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3"),
       ),
@@ -2716,6 +2744,7 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_MaCheCazzoStoDicendo.mp3"),
+        MediaFile("rphjb_MaCheCazzoStoDicendo.mp4"),
         MediaFile("rphjb_MaCheCazzoStoDicendo.gif")
       ),
       replySelection = RandomSelection
@@ -2999,7 +3028,8 @@ object RichardPHJBensonBot extends Configurations {
       TextTrigger(
         List(
           StringTextTriggerValue("assolo"),
-          RegexTextTriggerValue("[gc]hi[td]arra".r)
+          RegexTextTriggerValue("[gc]hi[td]arra".r),
+          RegexTextTriggerValue("(as)?solo di basso".r)
         )
       ),
       List(
@@ -3010,7 +3040,8 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_AssoloSubdolo.mp4"),
         MediaFile("rphjb_Chitarra1.gif"),
         MediaFile("rphjb_Chitarra2.gif"),
-        MediaFile("rphjb_ChitarraZuggherada.mp3")
+        MediaFile("rphjb_ChitarraZuggherada.mp3"),
+        MediaFile("rphjb_AssoloBasso.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -3044,12 +3075,13 @@ object RichardPHJBensonBot extends Configurations {
       TextTrigger(
         List(
           StringTextTriggerValue("esperiment"),
-          StringTextTriggerValue("1, 2, 3"),
-          StringTextTriggerValue("uno, due, tre")
+          RegexTextTriggerValue("1(,)? 2(,)? 3".r),
+          RegexTextTriggerValue("uno(,)? due(,)? tre".r)
         )
       ),
       List(
         MediaFile("rphjb_Esperimento.mp3"),
+        MediaFile("rphjb_Esperimento.mp4"),
         MediaFile("rphjb_Esperimento.gif"),
         MediaFile("rphjb_Esperimento2.gif"),
         MediaFile("rphjb_Esperimento3.gif"),
@@ -3069,6 +3101,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_Schifosi2.mp3"),
         MediaFile("rphjb_Schifosi3.mp3"),
         MediaFile("rphjb_Schifosi3.gif"),
+        MediaFile("rphjb_SchifosoUltimi.mp4"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
         MediaFile("rphjb_Schifosi.gif"),
         MediaFile("rphjb_Schifosi2.gif"),
@@ -3123,6 +3156,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_Applauso.gif"),
         MediaFile("rphjb_Applauso.mp3"),
         MediaFile("rphjb_Applauso2.mp3"),
+        MediaFile("rphjb_ApplausoPiuForte.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -3151,7 +3185,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_ChiCacciaISoldi.gif"),
-        MediaFile("rphjb_ChiCacciaISoldi.mp3")
+        MediaFile("rphjb_ChiCacciaISoldi.mp3"),
+        MediaFile("rphjb_BigMoney.mp4")
       ),
       replySelection = RandomSelection
     ),
