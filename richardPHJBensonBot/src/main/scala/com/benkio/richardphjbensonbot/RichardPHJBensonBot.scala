@@ -2236,7 +2236,7 @@ object RichardPHJBensonBot extends Configurations {
         )
       ),
       List(
-        MediaFile("rphbj_MadreTorturaParrucca.mp4")
+        MediaFile("rphjb_MadreTorturaParrucca.mp4")
       ),
     ),
     ReplyBundleMessage(
@@ -2362,16 +2362,6 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_AssoloBeat.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bamore\\b".r)
-        )
-      ),
-      List(
-        MediaFile("rphjb_amore.mp4")
       )
     ),
     ReplyBundleMessage(

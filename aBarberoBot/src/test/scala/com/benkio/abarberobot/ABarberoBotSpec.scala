@@ -1,39 +1,38 @@
 package com.benkio.abarberobot
 
-import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
+import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import munit.CatsEffectSuite
 
 class ABarberoBotSpec extends CatsEffectSuite {
 
-  def testFilename(filename: String): IO[Unit] =
-    ResourceSource
-      .selectResourceAccess(ABarberoBot.resourceSource)
-      .getResourceByteArray[IO](filename)
-      .use[Unit](fileBytes => assert(fileBytes.nonEmpty).pure[IO])
-
   test("messageRepliesAudioData should never raise an exception when try to open the file in resounces") {
-    ABarberoBot.messageRepliesAudioData
+    val result = ABarberoBot.messageRepliesAudioData
       .flatMap(_.mediafiles)
-      .foreach((mp3: MediaFile) => testFilename(mp3.filename))
+      .traverse((mp3: MediaFile) => ResourceAccessSpec.testFilename(mp3.filename, ABarberoBot.resourceSource))
+      .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
   }
 
   test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
-    ABarberoBot.messageRepliesGifData
+    val result = ABarberoBot.messageRepliesGifData
       .flatMap(_.mediafiles)
-      .foreach((gif: MediaFile) => testFilename(gif.filename))
+      .traverse((gif: MediaFile) => ResourceAccessSpec.testFilename(gif.filename, ABarberoBot.resourceSource))
+      .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
   }
 
   test("messageRepliesSpecialData should never raise an exception when try to open the file in resounces") {
-    for {
-      rb <- ABarberoBot.messageRepliesSpecialData
-      f1 <- rb.mediafiles
-    } yield {
-      testFilename(f1.filename)
-    }
+    val result = ABarberoBot.messageRepliesSpecialData
+      .flatMap(_.mediafiles)
+      .traverse(mf => ResourceAccessSpec.testFilename(mf.filename, ABarberoBot.resourceSource))
+      .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
   }
 
   test("commandRepliesData should return a list of all triggers when called") {

@@ -1,45 +1,50 @@
 package com.benkio.richardphjbensonbot
 
-import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
+import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import munit.CatsEffectSuite
 
 class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
-  def testFilename(filename: String): IO[Unit] =
-    ResourceSource
-      .selectResourceAccess(RichardPHJBensonBot.resourceSource)
-      .getResourceByteArray[IO](filename)
-      .use[Unit]((fileBytes: Array[Byte]) => assert(fileBytes.nonEmpty).pure[IO])
-
   test("messageRepliesAudioData should never raise an exception when try to open the file in resounces") {
-    RichardPHJBensonBot.messageRepliesAudioData
+    val result = RichardPHJBensonBot.messageRepliesAudioData
       .flatMap(_.mediafiles)
-      .foreach((mp3: MediaFile) => testFilename(mp3.filename))
+      .traverse((mp3: MediaFile) => ResourceAccessSpec.testFilename(mp3.filename, RichardPHJBensonBot.resourceSource))
+      .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
   }
 
   test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
-    RichardPHJBensonBot.messageRepliesGifData
+    val result = RichardPHJBensonBot.messageRepliesGifData
       .flatMap(_.mediafiles)
-      .foreach((gif: MediaFile) => testFilename(gif.filename))
+      .traverse((gif: MediaFile) => ResourceAccessSpec.testFilename(gif.filename, RichardPHJBensonBot.resourceSource))
+      .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
   }
 
   test("messageRepliesVideosData should never raise an exception when try to open the file in resounces") {
-    RichardPHJBensonBot.messageRepliesVideoData
+    val result = RichardPHJBensonBot.messageRepliesVideoData
       .flatMap(_.mediafiles)
-      .foreach((video: MediaFile) => testFilename(video.filename))
+      .traverse((video: MediaFile) =>
+        ResourceAccessSpec.testFilename(video.filename, RichardPHJBensonBot.resourceSource)
+      )
+      .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
   }
 
   test("messageRepliesMixData should never raise an exception when try to open the file in resounces") {
-    for {
-      rb <- RichardPHJBensonBot.messageRepliesMixData
-      f1 <- rb.mediafiles
-    } yield {
-      testFilename(f1.filename)
-    }
+    val result =
+      RichardPHJBensonBot.messageRepliesMixData
+        .flatMap(_.mediafiles)
+        .traverse(mf => ResourceAccessSpec.testFilename(mf.filename, RichardPHJBensonBot.resourceSource))
+        .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
   }
 
   test("commandRepliesData should return a list of all triggers when called") {

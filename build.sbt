@@ -35,25 +35,25 @@ lazy val calandroBot =
   Project("calandroBot", file("calandroBot"))
     .settings(Settings.settings: _*)
     .settings(Settings.CalandroBotSettings: _*)
-    .dependsOn(telegramBotInfrastructure)
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val aBarberoBot =
   Project("aBarberoBot", file("aBarberoBot"))
     .settings(Settings.settings: _*)
     .settings(Settings.ABarberoBotSettings: _*)
-    .dependsOn(telegramBotInfrastructure)
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val richardPHJBensonBot =
   Project("richardPHJBensonBot", file("richardPHJBensonBot"))
     .settings(Settings.settings: _*)
     .settings(Settings.RichardPHJBensonBotSettings: _*)
-    .dependsOn(telegramBotInfrastructure)
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val xahBot =
   Project("xahBot", file("xahBot"))
     .settings(Settings.settings: _*)
     .settings(Settings.XahBotSettings: _*)
-    .dependsOn(telegramBotInfrastructure)
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val main = project
   .in(file("main"))

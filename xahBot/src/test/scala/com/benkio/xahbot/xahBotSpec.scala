@@ -1,26 +1,23 @@
 package com.benkio.xahbot
 
-import cats.effect._
+import cats.effect.IO
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
+import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import munit.CatsEffectSuite
 
 class XahBotSpec extends CatsEffectSuite {
 
-  def testFilename(filename: String): IO[Unit] =
-    ResourceSource
-      .selectResourceAccess(XahBot.resourceSource)
-      .getResourceByteArray[IO](filename)
-      .use[Unit](fileBytes => assert(fileBytes.nonEmpty).pure[IO])
-
   test("commandRepliesData should never raise an exception when try to open the file in resounces") {
-    XahBot.buildPollingBot[IO, Unit](bot =>
+    val result = XahBot.buildPollingBot[IO, Boolean](bot =>
       for {
         commandRepliesData <- bot.commandRepliesDataF[IO]
-      } yield commandRepliesData
-        .flatMap(_.mediafiles)
-        .foreach((mf: MediaFile) => testFilename(mf.filename))
+        result <- commandRepliesData
+          .flatMap(_.mediafiles)
+          .traverse((mf: MediaFile) => ResourceAccessSpec.testFilename(mf.filepath, XahBot.resourceSource))
+          .map(_.foldLeft(true)(_ && _))
+      } yield result
     )
+    assertIO(result, true)
   }
 }

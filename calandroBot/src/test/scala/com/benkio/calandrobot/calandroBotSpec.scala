@@ -2,32 +2,32 @@ package com.benkio.calandrobot
 
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
+import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import munit.CatsEffectSuite
 
 class CalandroBotSpec extends CatsEffectSuite {
 
-  def testFilename(filename: String): IO[Unit] =
-    ResourceSource
-      .selectResourceAccess(CalandroBot.resourceSource)
-      .getResourceByteArray[IO](filename)
-      .use[Unit](fileBytes => assert(fileBytes.nonEmpty).pure[IO])
-
   test("commandRepliesData should never raise an exception when try to open the file in resounces") {
-    CalandroBot.buildPollingBot[IO, Unit](bot =>
+    val result = CalandroBot.buildPollingBot[IO, Boolean](bot =>
       bot
         .commandRepliesDataF[IO]
-        .map(
+        .flatMap(
           _.flatMap(_.mediafiles)
-            .foreach((mf: MediaFile) => testFilename(mf.filename))
+            .traverse((mf: MediaFile) => ResourceAccessSpec.testFilename(mf.filepath, CalandroBot.resourceSource))
+            .map(_.foldLeft(true)(_ && _))
         )
     )
+
+    assertIO(result, true)
   }
 
   test("messageRepliesData should never raise an exception when try to open the file in resounces") {
-    CalandroBot.messageRepliesData
+    val result = CalandroBot.messageRepliesData
       .flatMap(_.mediafiles)
-      .foreach((mf: MediaFile) => testFilename(mf.filename))
+      .traverse((mf: MediaFile) => ResourceAccessSpec.testFilename(mf.filename, CalandroBot.resourceSource))
+      .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
   }
 }

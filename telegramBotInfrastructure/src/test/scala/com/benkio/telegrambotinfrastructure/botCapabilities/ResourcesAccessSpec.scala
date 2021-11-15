@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.botCapabilities
 
+import cats.effect.IO
 import munit.FunSuite
 
 import java.nio.file._
@@ -15,4 +16,20 @@ class ResourcesAccessSpec extends FunSuite {
     val result = resourcesAccessFileSystem.buildPath(testfile)
     assertEquals(result, Paths.get(rootPath.toString, "src", "main", "resources", testfile))
   }
+}
+
+object ResourceAccessSpec {
+
+  def testFilename(filename: String, resourceSource: ResourceSource): IO[Boolean] =
+    ResourceSource
+      .selectResourceAccess(resourceSource)
+      .getResourceByteArray[IO](filename)
+      .use((fileBytes: Array[Byte]) => {
+        if (fileBytes.nonEmpty) IO(true)
+        else
+          IO {
+            println(s"ERROR: filename $filename is missing!!!!")
+            false
+          }
+      })
 }
