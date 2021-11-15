@@ -599,18 +599,6 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          RegexTextTriggerValue("stori(a|e)".r)
-        )
-      ),
-      List(
-        MediaFile("rphjb_Storie.mp3"),
-        MediaFile("rphjb_Storie2.mp3"),
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
           RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r)
         )
       ),
@@ -641,18 +629,6 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Problema.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          RegexTextTriggerValue("au[ ]?de".r),
-          RegexTextTriggerValue("\\btime\\b".r),
-          RegexTextTriggerValue("uir[ ]?bi[ ]?taim".r)
-        )
-      ),
-      List(
-        MediaFile("rphjb_AuDeUirbiTaim.mp3")
       )
     ),
     ReplyBundleMessage(
@@ -762,17 +738,6 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Ritornata.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("anche la merda"),
-          StringTextTriggerValue("senza culo")
-        )
-      ),
-      List(
-        MediaFile("rphjb_Merda.mp3")
       )
     ),
     ReplyBundleMessage(
@@ -1381,16 +1346,6 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("micetta")
-        )
-      ),
-      List(
-        MediaFile("rphjb_Micetta.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
           StringTextTriggerValue("generi musicali"),
           RegexTextTriggerValue("solo il me(t|d)al".r)
         )
@@ -1647,16 +1602,6 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Metal.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("chiama la polizia")
-        )
-      ),
-      List(
-        MediaFile("rphjb_ChiamaLaPolizia.gif")
       )
     ),
     ReplyBundleMessage(
@@ -2286,6 +2231,59 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
+          StringTextTriggerValue("madre tortura"),
+          RegexTextTriggerValue("(madre )?parrucca".r)
+        )
+      ),
+      List(
+        MediaFile("rphbj_MadreTorturaParrucca.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("[l]+[i]+[b]+[e]+[r]+[i]+".r)
+        )
+      ),
+      List(
+        MediaFile("rphjb_Liberi.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("\\bcinta\\b".r),
+          StringTextTriggerValue("bruce kulick")
+        )
+      ),
+      List(
+        MediaFile("rphjb_CintaProblema.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("sepoltura")
+        )
+      ),
+      List(
+        MediaFile("rphjb_SepolturaRisata.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("\\bcolla\\b".r),
+          StringTextTriggerValue("serpe e serpe")
+        )
+      ),
+      List(
+        MediaFile("rphjb_CollaSerpe.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
           StringTextTriggerValue("big money")
         )
       ),
@@ -2419,7 +2417,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_PoesiaMadre.mp4")
-      )
+      ),
+      matcher = ContainsAll
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -2434,6 +2433,72 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesMixData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("anche la merda"),
+          StringTextTriggerValue("senza culo")
+        )
+      ),
+      List(
+        MediaFile("rphjb_Merda.mp3"),
+        MediaFile("rphbj_AncheLaMerda.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("chiama la polizia")
+        )
+      ),
+      List(
+        MediaFile("rphjb_ChiamaLaPolizia.gif"),
+        MediaFile("rphjb_ChiamaLaPolizia.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("stori(a|e)".r)
+        )
+      ),
+      List(
+        MediaFile("rphjb_Storie.mp3"),
+        MediaFile("rphjb_Storie2.mp3"),
+        MediaFile("rphjb_StorieSonoTanteVecchiaccia.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          RegexTextTriggerValue("au[ ]?de".r),
+          RegexTextTriggerValue("\\btime\\b".r),
+          RegexTextTriggerValue("uir[ ]?bi[ ]?taim".r)
+        )
+      ),
+      List(
+        MediaFile("rphjb_Audeuirbitaim.mp3"),
+        MediaFile("rphjb_Audeuirbitaim.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        List(
+          StringTextTriggerValue("micetta"),
+          StringTextTriggerValue("la morte")
+        )
+      ),
+      List(
+        MediaFile("rphjb_Micetta.gif"),
+        MediaFile("rphjb_LaMorteMicetta.mp4"),
+        MediaFile("rphjb_LaMorte.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
     ReplyBundleMessage(
       TextTrigger(
         List(
@@ -2646,12 +2711,13 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         List(
-          StringTextTriggerValue("problema")
+          RegexTextTriggerValue("\\bproblema\\b".r)
         )
       ),
       List(
         MediaFile("rphjb_VabbeProblema.gif"),
         MediaFile("rphjb_Problema.mp3"),
+        MediaFile("rphjb_CintaProblema.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2731,7 +2797,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_TiDeviSpaventare.mp3"),
-        MediaFile("rphjb_TiDeviSpaventare.gif")
+        MediaFile("rphjb_TiDeviSpaventare.gif"),
+        MediaFile("rphjb_TiDeviSpaventare.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2783,7 +2850,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Trasformista.mp3"),
-        MediaFile("rphjb_Trasformista.gif")
+        MediaFile("rphjb_Trasformista.gif"),
+        MediaFile("rphjb_CristoCanaro.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2806,7 +2874,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Grazie.mp3"),
-        MediaFile("rphjb_Grazie.gif")
+        MediaFile("rphjb_Grazie.gif"),
+        MediaFile("rphjb_Grazie.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2833,7 +2902,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Lavoratu.mp3"),
-        MediaFile("rphjb_Lavoratu.gif")
+        MediaFile("rphjb_Lavoratu.gif"),
+        MediaFile("rphjb_StorieSonoTanteVecchiaccia.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2877,7 +2947,8 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_Sorriso2.gif"),
         MediaFile("rphjb_Sorriso.gif"),
         MediaFile("rphjb_SorrisoSognante.gif"),
-        MediaFile("rphjb_Risata2.mp3")
+        MediaFile("rphjb_Risata2.mp3"),
+        MediaFile("rphjb_SepolturaRisata.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2941,7 +3012,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_VitaNemico.mp3"),
-        MediaFile("rphjb_VitaNemico.gif")
+        MediaFile("rphjb_VitaNemico.gif"),
+        MediaFile("rphjb_VitaNemico.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -3056,6 +3128,7 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_HoCapito.mp3"),
         MediaFile("rphjb_AveteCapito.mp3"),
+        MediaFile("rphjb_AveteCapito.mp4"),
         MediaFile("rphjb_Capito.mp3"),
         MediaFile("rphjb_NonHannoCapitoUnCazzo.mp3"),
         MediaFile("rphjb_AveteCapitoComeSempre.gif"),
@@ -3082,6 +3155,7 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_Esperimento.mp3"),
         MediaFile("rphjb_Esperimento.mp4"),
+        MediaFile("rphjb_Esperimento2.mp4"),
         MediaFile("rphjb_Esperimento.gif"),
         MediaFile("rphjb_Esperimento2.gif"),
         MediaFile("rphjb_Esperimento3.gif"),
@@ -3118,7 +3192,8 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_MortacciVostri.gif"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
-        MediaFile("rphjb_ConQuestaTecnica.mp4")
+        MediaFile("rphjb_ConQuestaTecnica.mp4"),
+        MediaFile("rphjb_MortacciVostri.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -3168,7 +3243,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_VeniteQua.gif"),
-        MediaFile("rphjb_VeniteQua.mp3")
+        MediaFile("rphjb_VeniteQua.mp3"),
+        MediaFile("rphjb_VeniteQua.mp4")
       ),
       replySelection = RandomSelection
     ),
