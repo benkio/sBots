@@ -2214,21 +2214,25 @@ object RichardPHJBensonBot extends Configurations {
 
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
-      TextTrigger(List(
-        StringTextTriggerValue("cervello pensante"),
-        StringTextTriggerValue("questa volta no"),
-        StringTextTriggerValue("stupidità incresciosa")
-      )),
+      TextTrigger(
+        List(
+          StringTextTriggerValue("cervello pensante"),
+          StringTextTriggerValue("questa volta no"),
+          StringTextTriggerValue("stupidità incresciosa")
+        )
+      ),
       List(
         MediaFile("rphjb_CervelloPensante.mp4")
       )
     ),
     ReplyBundleMessage(
-      TextTrigger(List(
-        StringTextTriggerValue("percussionista"),
-        StringTextTriggerValue("batterista"),
-        StringTextTriggerValue("le sigarette")
-      )),
+      TextTrigger(
+        List(
+          StringTextTriggerValue("percussionista"),
+          StringTextTriggerValue("batterista"),
+          StringTextTriggerValue("le sigarette")
+        )
+      ),
       List(
         MediaFile("rphjb_CollaSerpeSigarettePercussionista.mp4")
       )
@@ -2441,7 +2445,7 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesMixData: List[ReplyBundleMessage] = List(
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         List(
           StringTextTriggerValue("cobelini"),
