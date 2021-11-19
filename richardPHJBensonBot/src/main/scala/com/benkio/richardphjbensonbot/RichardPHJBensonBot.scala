@@ -277,9 +277,10 @@ object RichardPHJBensonBot extends Configurations {
         )
       ),
       List(
-        MediaFile("rphjb_AltariFatiscentiRealta.mp3")
+        MediaFile("rphjb_AltariFatiscentiRealta.mp3"),
         MediaFile("rphjb_AltariFatiscentiRealta.mp4")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
