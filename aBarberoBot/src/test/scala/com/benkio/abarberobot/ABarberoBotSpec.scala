@@ -41,8 +41,8 @@ class ABarberoBotSpec extends CatsEffectSuite {
       ABarberoBot.messageRepliesData
         .flatMap(
           _.trigger match {
-            case TextTrigger(lt) => lt.map(_.toString)
-            case _               => List.empty[String]
+            case TextTrigger(lt @ _*) => lt.map(_.toString)
+            case _                    => List.empty[String]
           }
         )
         .forall((s: String) =>

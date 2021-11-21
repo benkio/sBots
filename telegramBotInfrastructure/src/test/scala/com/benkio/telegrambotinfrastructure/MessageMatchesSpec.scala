@@ -14,7 +14,9 @@ class MessageMatchesSpec extends FunSuite {
   )
 
   val replyBundleInput: ReplyBundleMessage = ReplyBundleMessage(
-    trigger = TextTrigger(List(StringTextTriggerValue("test"))),
+    trigger = TextTrigger(
+      StringTextTriggerValue("test")
+    ),
     mediafiles = inputMediafile
   )
 
@@ -44,7 +46,10 @@ class MessageMatchesSpec extends FunSuite {
   }
   test("doesMatch should return false when he input text does not contain(ContainsAll) the triggers") {
     val replyBundleInputLength = replyBundleInput.copy(
-      trigger = TextTrigger(List(StringTextTriggerValue("test"), StringTextTriggerValue("missing"))),
+      trigger = TextTrigger(
+        StringTextTriggerValue("test"),
+        StringTextTriggerValue("missing")
+      ),
       matcher = ContainsAll
     )
     val messageText = "test shortText"
@@ -70,7 +75,10 @@ class MessageMatchesSpec extends FunSuite {
   }
   test("doesMatch should return true when the input text does not contain(ContainsAll) the triggers") {
     val replyBundleInputLength = replyBundleInput.copy(
-      trigger = TextTrigger(List(StringTextTriggerValue("test"), StringTextTriggerValue("missing"))),
+      trigger = TextTrigger(
+        StringTextTriggerValue("test"),
+        StringTextTriggerValue("missing")
+      ),
       matcher = ContainsAll
     )
     val messageText = "test shortText is not missing"
