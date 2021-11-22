@@ -39,9 +39,7 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesAudioData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("state bene")
-        )
+        StringTextTriggerValue("state bene")
       ),
       List(
         MediaFile("rphjb_LetSGoodStateBene.mp3")
@@ -49,9 +47,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("tastierista")
-        ),
+        StringTextTriggerValue("tastierista")
       ),
       List(
         MediaFile("rphjb_Tastierista.mp3")
@@ -59,16 +55,14 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("caprette"),
-          StringTextTriggerValue("acidi"),
-          StringTextTriggerValue("pomodori"),
-          StringTextTriggerValue("legumi"),
-          StringTextTriggerValue("ratti"),
-          StringTextTriggerValue("topi"),
-          StringTextTriggerValue("ragni"),
-          StringTextTriggerValue("male il collo"),
-        )
+        StringTextTriggerValue("caprette"),
+        StringTextTriggerValue("acidi"),
+        StringTextTriggerValue("pomodori"),
+        StringTextTriggerValue("legumi"),
+        StringTextTriggerValue("ratti"),
+        StringTextTriggerValue("topi"),
+        StringTextTriggerValue("ragni"),
+        StringTextTriggerValue("male il collo"),
       ),
       List(
         MediaFile("rphjb_ListaMaleCollo.mp3")
@@ -76,9 +70,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r)
-        )
+        RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r)
       ),
       List(
         MediaFile("rphjb_Scusa.mp3")
@@ -86,9 +78,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("lo sapevo")
-        )
+        StringTextTriggerValue("lo sapevo")
       ),
       List(
         MediaFile("rphjb_LoSapevoIo.mp3")
@@ -96,9 +86,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("mi auguro")
-        )
+        StringTextTriggerValue("mi auguro")
       ),
       List(
         MediaFile("rphjb_IoMiAuguro.mp3")
@@ -106,9 +94,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non leggo")
-        )
+        StringTextTriggerValue("non leggo")
       ),
       List(
         MediaFile("rphjb_NonLeggoQuelloCheScrivete.mp3")
@@ -116,9 +102,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r)
-        )
+        RegexTextTriggerValue("perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r)
       ),
       List(
         MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp3")
@@ -126,9 +110,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("devo sopportare")
-        )
+        StringTextTriggerValue("devo sopportare")
       ),
       List(
         MediaFile("rphjb_DevoSopportare.mp3")
@@ -136,9 +118,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("primo sbaglio")
-        )
+        StringTextTriggerValue("primo sbaglio")
       ),
       List(
         MediaFile("rphjb_PrimoSbaglio.mp3")
@@ -146,9 +126,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non mi ricordo più")
-        )
+        StringTextTriggerValue("non mi ricordo più")
       ),
       List(
         MediaFile("rphjb_NonMiRicordoPiu.mp3")
@@ -156,10 +134,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("pensato a tutto"),
-          StringTextTriggerValue("accontentare tutti")
-        )
+        StringTextTriggerValue("pensato a tutto"),
+        StringTextTriggerValue("accontentare tutti")
       ),
       List(
         MediaFile("rphjb_PensatoATutto.mp3")
@@ -167,10 +143,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("vedere"),
-          StringTextTriggerValue("amico")
-        )
+        StringTextTriggerValue("vedere"),
+        StringTextTriggerValue("amico")
       ),
       List(
         MediaFile("rphjb_VedereAmico.mp3")
@@ -179,9 +153,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("appuntamento")
-        )
+        StringTextTriggerValue("appuntamento")
       ),
       List(
         MediaFile("rphjb_Appuntamento.mp3")
@@ -189,10 +161,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("perchè l'ho fatto"),
-          StringTextTriggerValue("non do spiegazioni")
-        )
+        StringTextTriggerValue("perchè l'ho fatto"),
+        StringTextTriggerValue("non do spiegazioni")
       ),
       List(
         MediaFile("rphjb_PercheLHoFatto.mp3")
@@ -200,10 +170,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non ho detto tutto"),
-          StringTextTriggerValue("ascoltami")
-        )
+        StringTextTriggerValue("non ho detto tutto"),
+        StringTextTriggerValue("ascoltami")
       ),
       List(
         MediaFile("rphjb_NonHoDettoTutto.mp3")
@@ -211,9 +179,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ogni volta")
-        )
+        StringTextTriggerValue("ogni volta")
       ),
       List(
         MediaFile("rphjb_OgniVolta.mp3")
@@ -221,9 +187,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non mi calmo")
-        )
+        StringTextTriggerValue("non mi calmo")
       ),
       List(
         MediaFile("rphjb_NonMiCalmo.mp3")
@@ -231,9 +195,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("devo dire che")
-        )
+        StringTextTriggerValue("devo dire che")
       ),
       List(
         MediaFile("rphjb_DevoDireChe.mp3")
@@ -241,9 +203,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("eccomi qua")
-        )
+        StringTextTriggerValue("eccomi qua")
       ),
       List(
         MediaFile("rphjb_EccomiQua.mp3")
@@ -251,9 +211,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("animali")
-        )
+        StringTextTriggerValue("animali")
       ),
       List(
         MediaFile("rphjb_Animali.mp3")
@@ -261,9 +219,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("(mi sento|sto) meglio".r)
-        )
+        RegexTextTriggerValue("(mi sento|sto) meglio".r)
       ),
       List(
         MediaFile("rphjb_MiSentoMeglio.mp3")
@@ -271,10 +227,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("altari"),
-          StringTextTriggerValue("realtà"),
-        )
+        StringTextTriggerValue("altari"),
+        StringTextTriggerValue("realtà"),
       ),
       List(
         MediaFile("rphjb_AltariFatiscentiRealta.mp3"),
@@ -284,9 +238,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non è vero")
-        )
+        StringTextTriggerValue("non è vero")
       ),
       List(
         MediaFile("rphjb_NonEVero.mp3")
@@ -294,9 +246,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("completamente nudo")
-        )
+        StringTextTriggerValue("completamente nudo")
       ),
       List(
         MediaFile("rphjb_CompletamenteNudo.mp3")
@@ -304,10 +254,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("dovrei lavarmelo di più"),
-          StringTextTriggerValue("il cazzo me lo pulisci un'altra volta"),
-        )
+        StringTextTriggerValue("dovrei lavarmelo di più"),
+        StringTextTriggerValue("il cazzo me lo pulisci un'altra volta"),
       ),
       List(
         MediaFile("rphjb_LavareCazzo.mp3")
@@ -315,7 +263,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(RegexTextTriggerValue("giù( giù)+".r))
+        RegexTextTriggerValue("giù( giù)+".r)
       ),
       List(
         MediaFile("rphjb_GiuGiuGiu.mp3")
@@ -323,10 +271,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("viale zara"),
-          RegexTextTriggerValue("cas(a|e) chius(a|e)".r)
-        )
+        StringTextTriggerValue("viale zara"),
+        RegexTextTriggerValue("cas(a|e) chius(a|e)".r)
       ),
       List(
         MediaFile("rphjb_VialeZara.mp3")
@@ -334,9 +280,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("tocca il culo")
-        )
+        StringTextTriggerValue("tocca il culo")
       ),
       List(
         MediaFile("rphjb_MiToccaIlCulo.mp3")
@@ -344,10 +288,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("negli occhiali"),
-          StringTextTriggerValue("sulla spalla"),
-        )
+        StringTextTriggerValue("negli occhiali"),
+        StringTextTriggerValue("sulla spalla"),
       ),
       List(
         MediaFile("rphjb_PannaOcchialiSpalla.mp3")
@@ -355,9 +297,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("state zitti")
-        )
+        StringTextTriggerValue("state zitti")
       ),
       List(
         MediaFile("rphjb_StateZittiZozziUltimi.mp3")
@@ -365,9 +305,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("solo io")
-        )
+        StringTextTriggerValue("solo io")
       ),
       List(
         MediaFile("rphjb_SoloIo.mp3")
@@ -375,11 +313,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("vaniglia"),
-          StringTextTriggerValue("pandoro"),
-          RegexTextTriggerValue("crema alla [gc]io[gc]+ola[dt]a".r),
-        )
+        StringTextTriggerValue("vaniglia"),
+        StringTextTriggerValue("pandoro"),
+        RegexTextTriggerValue("crema alla [gc]io[gc]+ola[dt]a".r),
       ),
       List(
         MediaFile("rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3")
@@ -387,9 +323,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("saranno cazzi vostri")
-        )
+        StringTextTriggerValue("saranno cazzi vostri")
       ),
       List(
         MediaFile("rphjb_SarannoCazziVostri.mp3")
@@ -397,9 +331,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("poteri (ter[r]+ib[b]+ili|demoniaci)".r)
-        )
+        RegexTextTriggerValue("poteri (ter[r]+ib[b]+ili|demoniaci)".r)
       ),
       List(
         MediaFile("rphjb_PoteriDemoniaci.mp3")
@@ -407,10 +339,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("sono( pure)? italiane".r),
-          RegexTextTriggerValue("non so(no)? ungheresi".r)
-        )
+        RegexTextTriggerValue("sono( pure)? italiane".r),
+        RegexTextTriggerValue("non so(no)? ungheresi".r)
       ),
       List(
         MediaFile("rphjb_ItalianeUngheresi.mp3")
@@ -418,9 +348,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("colpevole")
-        )
+        StringTextTriggerValue("colpevole")
       ),
       List(
         MediaFile("rphjb_IlColpevole.mp3")
@@ -428,9 +356,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("vi spacco il culo")
-        )
+        StringTextTriggerValue("vi spacco il culo")
       ),
       List(
         MediaFile("rphjb_ViSpaccoIlCulo.mp3")
@@ -438,9 +364,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("sindaco")
-        )
+        StringTextTriggerValue("sindaco")
       ),
       List(
         MediaFile("rphjb_Sindaco.mp3")
@@ -448,10 +372,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("si leva (sta roba|sto schifo)".r),
-          StringTextTriggerValue("questo schifo")
-        )
+        RegexTextTriggerValue("si leva (sta roba|sto schifo)".r),
+        StringTextTriggerValue("questo schifo")
       ),
       List(
         MediaFile("rphjb_QuestoSchifo.mp3")
@@ -459,9 +381,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("preservativo")
-        )
+        StringTextTriggerValue("preservativo")
       ),
       List(
         MediaFile("rphjb_Preservativo.mp3")
@@ -469,23 +389,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("cristo pinocchio"),
-          RegexTextTriggerValue("(strade|vie) inferiori".r),
-        )
-      ),
-      List(
-        MediaFile("rphjb_CristoPinocchio.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("giuda"),
-          StringTextTriggerValue("chi è cristo"),
-          StringTextTriggerValue("si è fatto fregare"),
-          StringTextTriggerValue("bacio di un frocio"),
-        )
+        StringTextTriggerValue("giuda"),
+        StringTextTriggerValue("chi è cristo"),
+        StringTextTriggerValue("si è fatto fregare"),
+        StringTextTriggerValue("bacio di un frocio"),
       ),
       List(
         MediaFile("rphjb_ChiECristo.mp3"),
@@ -494,12 +401,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("cameriera"),
-          StringTextTriggerValue("moglie"),
-          StringTextTriggerValue("si sposa"),
-          StringTextTriggerValue("matrimonio")
-        )
+        StringTextTriggerValue("cameriera"),
+        StringTextTriggerValue("moglie"),
+        StringTextTriggerValue("si sposa"),
+        StringTextTriggerValue("matrimonio")
       ),
       List(
         MediaFile("rphjb_Cameriera.mp3")
@@ -507,13 +412,11 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("korn"),
-          StringTextTriggerValue("giovanni battista"),
-          StringTextTriggerValue("acque del giordano"),
-          StringTextTriggerValue("battezzato"),
-          StringTextTriggerValue("battesimo")
-        )
+        StringTextTriggerValue("korn"),
+        StringTextTriggerValue("giovanni battista"),
+        StringTextTriggerValue("acque del giordano"),
+        StringTextTriggerValue("battezzato"),
+        StringTextTriggerValue("battesimo")
       ),
       List(
         MediaFile("rphjb_Battesimo.mp3")
@@ -521,9 +424,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bpasqua\\b".r)
-        )
+        RegexTextTriggerValue("\\bpasqua\\b".r)
       ),
       List(
         MediaFile("rphjb_AuguriPasqua.mp3")
@@ -531,10 +432,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("a( )?s[s]+tronzo".r),
-          RegexTextTriggerValue("stronz[o]{3,}".r)
-        )
+        RegexTextTriggerValue("a( )?s[s]+tronzo".r),
+        RegexTextTriggerValue("stronz[o]{3,}".r)
       ),
       List(
         MediaFile("rphjb_AStronzo.mp3")
@@ -542,9 +441,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ancora voi")
-        )
+        StringTextTriggerValue("ancora voi")
       ),
       List(
         MediaFile("rphjb_AncoraVoi.mp3")
@@ -552,10 +449,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("sborrata"),
-          StringTextTriggerValue("scopare")
-        )
+        StringTextTriggerValue("sborrata"),
+        StringTextTriggerValue("scopare")
       ),
       List(
         MediaFile("rphjb_Sborrata.mp3")
@@ -563,10 +458,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("finire male"),
-          StringTextTriggerValue("tocca benson")
-        )
+        StringTextTriggerValue("finire male"),
+        StringTextTriggerValue("tocca benson")
       ),
       List(
         MediaFile("rphjb_FinireMale.mp3")
@@ -574,13 +467,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("musica tecnica"),
-          StringTextTriggerValue("rock"),
-          StringTextTriggerValue("antonacci"),
-          StringTextTriggerValue("grignani"),
-          StringTextTriggerValue("jovanotti"),
-        )
+        StringTextTriggerValue("musica tecnica"),
+        StringTextTriggerValue("antonacci"),
+        StringTextTriggerValue("grignani"),
+        StringTextTriggerValue("jovanotti"),
       ),
       List(
         MediaFile("rphjb_Rock.mp3")
@@ -588,11 +478,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("conosce(nza|re)".r),
-          StringTextTriggerValue("il sapere"),
-          StringTextTriggerValue("veri valori"),
-        )
+        RegexTextTriggerValue("conosce(nza|re)".r),
+        StringTextTriggerValue("il sapere"),
+        StringTextTriggerValue("veri valori"),
       ),
       List(
         MediaFile("rphjb_Conoscere.mp3")
@@ -600,9 +488,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r)
-        )
+        RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r)
       ),
       List(
         MediaFile("rphjb_MenoVolume.mp3")
@@ -610,10 +496,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("sono"),
-          StringTextTriggerValue("ultimo")
-        )
+        StringTextTriggerValue("sono"),
+        StringTextTriggerValue("ultimo")
       ),
       List(
         MediaFile("rphjb_SonoUltimo.mp3")
@@ -622,12 +506,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("anguille"),
-          StringTextTriggerValue("polipi"),
-          StringTextTriggerValue("cetrioli"),
-          RegexTextTriggerValue(".*problema.*suonare.*".r)
-        )
+        StringTextTriggerValue("anguille"),
+        StringTextTriggerValue("polipi"),
+        StringTextTriggerValue("cetrioli"),
+        RegexTextTriggerValue(".*problema.*suonare.*".r)
       ),
       List(
         MediaFile("rphjb_Problema.mp3")
@@ -635,11 +517,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("sono finito"),
-          StringTextTriggerValue("ultimo stadio"),
-          StringTextTriggerValue("stanco")
-        )
+        StringTextTriggerValue("sono finito"),
+        StringTextTriggerValue("ultimo stadio"),
+        StringTextTriggerValue("stanco")
       ),
       List(
         MediaFile("rphjb_Stanco.mp3")
@@ -647,11 +527,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("negozio"),
-          StringTextTriggerValue("pantaloni"),
-          StringTextTriggerValue("shopping")
-        )
+        StringTextTriggerValue("negozio"),
+        StringTextTriggerValue("pantaloni"),
+        StringTextTriggerValue("shopping")
       ),
       List(
         MediaFile("rphjb_Pantaloni.mp3")
@@ -659,9 +537,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("brutto frocio")
-        )
+        StringTextTriggerValue("brutto frocio")
       ),
       List(
         MediaFile("rphjb_BruttoFrocio.mp3")
@@ -669,11 +545,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("questo ragazzo"),
-          StringTextTriggerValue("eccitare"),
-          StringTextTriggerValue("lucio dalla")
-        )
+        StringTextTriggerValue("questo ragazzo"),
+        StringTextTriggerValue("eccitare"),
+        StringTextTriggerValue("lucio dalla")
       ),
       List(
         MediaFile("rphjb_LucioDalla.mp3")
@@ -681,11 +555,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("chiesa"),
-          StringTextTriggerValue("preghiera"),
-          StringTextTriggerValue("non credo")
-        )
+        StringTextTriggerValue("chiesa"),
+        StringTextTriggerValue("preghiera"),
+        StringTextTriggerValue("non credo")
       ),
       List(
         MediaFile("rphjb_Chiesa.mp3")
@@ -693,9 +565,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("maledetto")
-        )
+        StringTextTriggerValue("maledetto")
       ),
       List(
         MediaFile("rphjb_Maledetto.mp3")
@@ -703,10 +573,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("..magari"),
-          StringTextTriggerValue("magari.."),
-        )
+        StringTextTriggerValue("..magari"),
+        StringTextTriggerValue("magari.."),
       ),
       List(
         MediaFile("rphjb_Magari.mp3")
@@ -714,9 +582,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("io ti aiuto")
-        )
+        StringTextTriggerValue("io ti aiuto")
       ),
       List(
         MediaFile("rphjb_Aiuto.mp3")
@@ -724,9 +590,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("faccio schifo")
-        )
+        StringTextTriggerValue("faccio schifo")
       ),
       List(
         MediaFile("rphjb_FaccioSchifo.mp3")
@@ -734,9 +598,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("ci sei ritornat[ao]".r)
-        )
+        RegexTextTriggerValue("ci sei ritornat[ao]".r)
       ),
       List(
         MediaFile("rphjb_Ritornata.mp3")
@@ -744,9 +606,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("che succede")
-        )
+        StringTextTriggerValue("che succede")
       ),
       List(
         MediaFile("rphjb_CheSuccede.mp3")
@@ -754,10 +614,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("poveri cretini"),
-          StringTextTriggerValue("poveri ignoranti")
-        )
+        StringTextTriggerValue("poveri cretini"),
+        StringTextTriggerValue("poveri ignoranti")
       ),
       List(
         MediaFile("rphjb_PoveriCretini.mp3")
@@ -765,9 +623,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("due ossa")
-        )
+        StringTextTriggerValue("due ossa")
       ),
       List(
         MediaFile("rphjb_DueOssa.mp3")
@@ -775,9 +631,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("m[ie] fai( proprio)? schifo".r)
-        )
+        RegexTextTriggerValue("m[ie] fai( proprio)? schifo".r)
       ),
       List(
         MediaFile("rphjb_Schifo.mp3")
@@ -785,19 +639,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("pappalardo")
-        )
-      ),
-      List(
-        MediaFile("rphjb_Pappalardo.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("è un ordine")
-        )
+        StringTextTriggerValue("è un ordine")
       ),
       List(
         MediaFile("rphjb_Ordine.mp3")
@@ -805,9 +647,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("una sera")
-        )
+        StringTextTriggerValue("una sera")
       ),
       List(
         MediaFile("rphjb_Sera.mp3")
@@ -815,9 +655,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("il venerdì")
-        )
+        StringTextTriggerValue("il venerdì")
       ),
       List(
         MediaFile("rphjb_Venerdi.mp3")
@@ -825,9 +663,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("oppur[ae]".r)
-        )
+        RegexTextTriggerValue("oppur[ae]".r)
       ),
       List(
         MediaFile("rphjb_Oppura.mp3")
@@ -838,9 +674,7 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesGifData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bcontinua\\b".r)
-        )
+        RegexTextTriggerValue("\\bcontinua\\b".r)
       ),
       List(
         MediaFile("rphjb_Continua.mp3"),
@@ -850,10 +684,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("schifose"),
-          StringTextTriggerValue("ultime")
-        )
+        StringTextTriggerValue("schifose"),
+        StringTextTriggerValue("ultime")
       ),
       List(
         MediaFile("rphjb_SchifoseUltime.gif")
@@ -861,9 +693,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("(af+)?fanculo(,)? per contesia".r)
-        )
+        RegexTextTriggerValue("(af+)?fanculo(,)? per contesia".r)
       ),
       List(
         MediaFile("rphjb_FanculoPerCortesia.gif")
@@ -871,9 +701,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("gli autori")
-        )
+        StringTextTriggerValue("gli autori")
       ),
       List(
         MediaFile("rphjb_Autori.gif")
@@ -881,9 +709,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("questo è matto")
-        )
+        StringTextTriggerValue("questo è matto")
       ),
       List(
         MediaFile("rphjb_MattoRagazzi.gif")
@@ -891,9 +717,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("scivola")
-        )
+        StringTextTriggerValue("scivola")
       ),
       List(
         MediaFile("rphjb_SiScivola.mp3")
@@ -901,9 +725,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("graffi")
-        )
+        StringTextTriggerValue("graffi")
       ),
       List(
         MediaFile("rphjb_Graffi.gif")
@@ -911,10 +733,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("mi piaccio"),
-          StringTextTriggerValue("impazzire"),
-        )
+        StringTextTriggerValue("mi piaccio"),
+        StringTextTriggerValue("impazzire"),
       ),
       List(
         MediaFile("rphjb_MiPiaccio.gif")
@@ -922,11 +742,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("pelle d'oca"),
-          StringTextTriggerValue("sussult"),
-          StringTextTriggerValue("brivid")
-        )
+        StringTextTriggerValue("pelle d'oca"),
+        StringTextTriggerValue("sussult"),
+        StringTextTriggerValue("brivid")
       ),
       List(
         MediaFile("rphjb_Brivido.gif")
@@ -934,10 +752,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("che siamo noi"),
-          StringTextTriggerValue("pezzi di merda"),
-        )
+        StringTextTriggerValue("che siamo noi"),
+        StringTextTriggerValue("pezzi di merda"),
       ),
       List(
         MediaFile("rphjb_PezziDiMerda.gif")
@@ -945,11 +761,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue(" urlo"),
-          StringTextTriggerValue("urlo "),
-          StringTextTriggerValue("disper"),
-        )
+        StringTextTriggerValue(" urlo"),
+        StringTextTriggerValue("urlo "),
+        StringTextTriggerValue("disper"),
       ),
       List(
         MediaFile("rphjb_Tuffo.gif"),
@@ -962,9 +776,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("rispondere")
-        )
+        StringTextTriggerValue("rispondere")
       ),
       List(
         MediaFile("rphjb_Rispondere.gif")
@@ -972,11 +784,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("cuore in mano"),
-          StringTextTriggerValue("mano nella mano"),
-          StringTextTriggerValue("pelle contro la pelle")
-        )
+        StringTextTriggerValue("cuore in mano"),
+        StringTextTriggerValue("mano nella mano"),
+        StringTextTriggerValue("pelle contro la pelle")
       ),
       List(
         MediaFile("rphjb_CuoreInMano.gif")
@@ -984,9 +794,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("stato brado")
-        )
+        StringTextTriggerValue("stato brado")
       ),
       List(
         MediaFile("rphjb_StatoBrado.gif")
@@ -994,9 +802,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("pronto dimmi")
-        )
+        StringTextTriggerValue("pronto dimmi")
       ),
       List(
         MediaFile("rphjb_ProntoDimmi.gif")
@@ -1004,9 +810,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue(" port[a]+( |$)".r)
-        )
+        RegexTextTriggerValue(" port[a]+( |$)".r)
       ),
       List(
         MediaFile("rphjb_Porta.gif")
@@ -1014,12 +818,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("prendo quello che cazzo c'è da prendere"),
-          StringTextTriggerValue("prendo il motorino"),
-          StringTextTriggerValue("prendo la macchina"),
-          StringTextTriggerValue("prendo l'auto"),
-        )
+        StringTextTriggerValue("prendo quello che cazzo c'è da prendere"),
+        StringTextTriggerValue("prendo il motorino"),
+        StringTextTriggerValue("prendo la macchina"),
+        StringTextTriggerValue("prendo l'auto"),
       ),
       List(
         MediaFile("rphjb_PrendoIlNecessario.gif")
@@ -1027,9 +829,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("nella gola")
-        )
+        StringTextTriggerValue("nella gola")
       ),
       List(
         MediaFile("rphjb_NellaGola.gif")
@@ -1037,9 +837,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("siamo qua")
-        )
+        StringTextTriggerValue("siamo qua")
       ),
       List(
         MediaFile("rphjb_SiamoQua.gif")
@@ -1047,9 +845,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("cucciolo")
-        )
+        StringTextTriggerValue("cucciolo")
       ),
       List(
         MediaFile("rphjb_Cucciolo.gif"),
@@ -1059,9 +855,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("Che c'hai")
-        )
+        StringTextTriggerValue("Che c'hai")
       ),
       List(
         MediaFile("rphjb_CheCHai.gif")
@@ -1069,10 +863,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("06"),
-          StringTextTriggerValue("prefisso")
-        )
+        StringTextTriggerValue("06"),
+        StringTextTriggerValue("prefisso")
       ),
       List(
         MediaFile("rphjb_06.gif")
@@ -1080,9 +872,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("abbiamo vinto")
-        )
+        StringTextTriggerValue("abbiamo vinto")
       ),
       List(
         MediaFile("rphjb_AbbiamoVinto.gif")
@@ -1090,10 +880,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("telefonata pilotata"),
-          StringTextTriggerValue("falsità")
-        )
+        StringTextTriggerValue("telefonata pilotata"),
+        StringTextTriggerValue("falsità")
       ),
       List(
         MediaFile("rphjb_TelefonataPilotata.gif")
@@ -1101,9 +889,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ed è vero")
-        )
+        StringTextTriggerValue("ed è vero")
       ),
       List(
         MediaFile("rphjb_Vero.gif")
@@ -1111,10 +897,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("quante ore"),
-          StringTextTriggerValue("quanto tempo")
-        )
+        StringTextTriggerValue("quante ore"),
+        StringTextTriggerValue("quanto tempo")
       ),
       List(
         MediaFile("rphjb_QuanteOre.gif")
@@ -1122,9 +906,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("guerra")
-        )
+        StringTextTriggerValue("guerra")
       ),
       List(
         MediaFile("rphjb_GuerraTotale.gif")
@@ -1132,9 +914,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("entrat[oa]".r)
-        )
+        RegexTextTriggerValue("entrat[oa]".r)
       ),
       List(
         MediaFile("rphjb_ComeHaFattoAEntrare.gif")
@@ -1142,9 +922,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("donna cane")
-        )
+        StringTextTriggerValue("donna cane")
       ),
       List(
         MediaFile("rphjb_DonnaCane.gif")
@@ -1152,9 +930,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("menzion")
-        )
+        StringTextTriggerValue("menzion")
       ),
       List(
         MediaFile("rphjb_NonMiMenzionareQuestaParola.gif")
@@ -1162,9 +938,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("hollywood")
-        )
+        StringTextTriggerValue("hollywood")
       ),
       List(
         MediaFile("rphjb_Hollywood.gif")
@@ -1172,11 +946,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("piano superiore"),
-          StringTextTriggerValue("compete"),
-          StringTextTriggerValue("gerarca")
-        )
+        StringTextTriggerValue("piano superiore"),
+        StringTextTriggerValue("compete"),
+        StringTextTriggerValue("gerarca")
       ),
       List(
         MediaFile("rphjb_PianoSuperioreCompete.gif")
@@ -1184,9 +956,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("chi è")
-        )
+        StringTextTriggerValue("chi è")
       ),
       List(
         MediaFile("rphjb_QuestaPersonaScusate.gif")
@@ -1194,10 +964,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("calcolo"),
-          StringTextTriggerValue("matematica")
-        )
+        StringTextTriggerValue("calcolo"),
+        StringTextTriggerValue("matematica")
       ),
       List(
         MediaFile("rphjb_MiPareLogico.gif")
@@ -1205,9 +973,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("tucul")
-        )
+        StringTextTriggerValue("tucul")
       ),
       List(
         MediaFile("rphjb_TuCul.gif")
@@ -1215,12 +981,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue(";)"),
-          StringTextTriggerValue("occhiolino"),
-          StringTextTriggerValue("wink"),
-          StringTextTriggerValue(e":wink:")
-        )
+        StringTextTriggerValue(";)"),
+        StringTextTriggerValue("occhiolino"),
+        StringTextTriggerValue("wink"),
+        StringTextTriggerValue(e":wink:")
       ),
       List(
         MediaFile("rphjb_Occhiolino.gif")
@@ -1228,9 +992,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("soffro")
-        )
+        StringTextTriggerValue("soffro")
       ),
       List(
         MediaFile("rphjb_Soffro.gif")
@@ -1238,11 +1000,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("indispettirmi"),
-          StringTextTriggerValue("oltrepassare"),
-          StringTextTriggerValue("divento cattivo")
-        )
+        StringTextTriggerValue("indispettirmi"),
+        StringTextTriggerValue("oltrepassare"),
+        StringTextTriggerValue("divento cattivo")
       ),
       List(
         MediaFile("rphjb_Indispettirmi.gif")
@@ -1250,10 +1010,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("mannaggia"),
-          StringTextTriggerValue("la salute")
-        )
+        StringTextTriggerValue("mannaggia"),
+        StringTextTriggerValue("la salute")
       ),
       List(
         MediaFile("rphjb_MannaggiaLaSalute.gif")
@@ -1261,10 +1019,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("mi rompi il cazzo"),
-          StringTextTriggerValue("mi dai fastidio")
-        )
+        StringTextTriggerValue("mi rompi il cazzo"),
+        StringTextTriggerValue("mi dai fastidio")
       ),
       List(
         MediaFile("rphjb_MiRompiErCazzo.gif")
@@ -1272,9 +1028,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("dare fastidio")
-        )
+        StringTextTriggerValue("dare fastidio")
       ),
       List(
         MediaFile("rphjb_DareFastidio.gif")
@@ -1282,12 +1036,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("bebop"),
-          StringTextTriggerValue("be bop"),
-          StringTextTriggerValue("aluba"),
-          StringTextTriggerValue("my baby")
-        )
+        StringTextTriggerValue("bebop"),
+        StringTextTriggerValue("be bop"),
+        StringTextTriggerValue("aluba"),
+        StringTextTriggerValue("my baby")
       ),
       List(
         MediaFile("rphjb_Bebop.gif")
@@ -1295,10 +1047,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("succh"),
-          StringTextTriggerValue("olio di croce")
-        )
+        StringTextTriggerValue("succh"),
+        StringTextTriggerValue("olio di croce")
       ),
       List(
         MediaFile("rphjb_OlioDiCroce.gif")
@@ -1306,10 +1056,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("c'ha [pure ]?ragione"),
-          StringTextTriggerValue("o no?")
-        )
+        StringTextTriggerValue("c'ha [pure ]?ragione"),
+        StringTextTriggerValue("o no?")
       ),
       List(
         MediaFile("rphjb_Ragione.gif")
@@ -1317,10 +1065,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("generi musicali"),
-          RegexTextTriggerValue("solo il me(t|d)al".r)
-        )
+        StringTextTriggerValue("generi musicali"),
+        RegexTextTriggerValue("solo il me(t|d)al".r)
       ),
       List(
         MediaFile("rphjb_GeneriMusicali.gif")
@@ -1328,20 +1074,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ti distruggo")
-        )
-      ),
-      List(
-        MediaFile("rphjb_TiDistruggo.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("bassista"),
-          StringTextTriggerValue("slap")
-        )
+        StringTextTriggerValue("bassista"),
+        StringTextTriggerValue("slap")
       ),
       List(
         MediaFile("rphjb_Bassista.gif")
@@ -1349,9 +1083,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("discoteca laziale")
-        )
+        StringTextTriggerValue("discoteca laziale")
       ),
       List(
         MediaFile("rphjb_DiscotecaLaziale.gif")
@@ -1359,10 +1091,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("piloti d'aereo"),
-          StringTextTriggerValue("disastri aerei")
-        )
+        StringTextTriggerValue("piloti d'aereo"),
+        StringTextTriggerValue("disastri aerei")
       ),
       List(
         MediaFile("rphjb_DrogatiPiloti.gif")
@@ -1370,11 +1100,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("timore"),
-          StringTextTriggerValue("paura"),
-          RegexTextTriggerValue("diri[g]+en[dt]i".r),
-        )
+        StringTextTriggerValue("timore"),
+        StringTextTriggerValue("paura"),
+        RegexTextTriggerValue("diri[g]+en[dt]i".r),
       ),
       List(
         MediaFile("rphjb_Dirigenti.gif")
@@ -1382,9 +1110,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("cosa è successo")
-        )
+        StringTextTriggerValue("cosa è successo")
       ),
       List(
         MediaFile("rphjb_CosaSuccesso.gif")
@@ -1392,9 +1118,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("perchè mi guardi")
-        )
+        StringTextTriggerValue("perchè mi guardi")
       ),
       List(
         MediaFile("rphjb_Guardi.gif")
@@ -1402,7 +1126,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r))
+        RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r)
       ),
       List(
         MediaFile("rphjb_Chitarrista.gif")
@@ -1410,9 +1134,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non sai molto")
-        )
+        StringTextTriggerValue("non sai molto")
       ),
       List(
         MediaFile("rphjb_NonSaiMolto.gif")
@@ -1420,9 +1142,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("divert")
-        )
+        StringTextTriggerValue("divert")
       ),
       List(
         MediaFile("rphjb_Diverti.gif")
@@ -1430,9 +1150,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("e parla")
-        )
+        StringTextTriggerValue("e parla")
       ),
       List(
         MediaFile("rphjb_Parla.gif")
@@ -1440,9 +1158,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("uno scherzo")
-        )
+        StringTextTriggerValue("uno scherzo")
       ),
       List(
         MediaFile("rphjb_Scherzo.gif")
@@ -1450,10 +1166,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("che si deve fà"),
-          StringTextTriggerValue("campà"),
-        )
+        StringTextTriggerValue("che si deve fà"),
+        StringTextTriggerValue("campà"),
       ),
       List(
         MediaFile("rphjb_Campa.gif")
@@ -1461,10 +1175,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("pensa alla deficienza"),
-          RegexTextTriggerValue("ma si può dire una cosa (del genere|così)".r),
-        )
+        StringTextTriggerValue("pensa alla deficienza"),
+        RegexTextTriggerValue("ma si può dire una cosa (del genere|così)".r),
       ),
       List(
         MediaFile("rphjb_Deficienza.gif")
@@ -1472,9 +1184,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("lo[g]+i[cg]o".r)
-        )
+        RegexTextTriggerValue("lo[g]+i[cg]o".r)
       ),
       List(
         MediaFile("rphjb_MiPareLogico.gif"),
@@ -1484,11 +1194,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("e(s|c)certo".r),
-          StringTextTriggerValue("accetto le critiche"),
-          StringTextTriggerValue("non me ne frega un cazzo")
-        )
+        RegexTextTriggerValue("e(s|c)certo".r),
+        StringTextTriggerValue("accetto le critiche"),
+        StringTextTriggerValue("non me ne frega un cazzo")
       ),
       List(
         MediaFile("rphjb_Escerto.gif")
@@ -1496,7 +1204,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(RegexTextTriggerValue("levati[/. ]*dai coglioni".r), RegexTextTriggerValue("fuori[/. ]*dai coglioni".r))
+        RegexTextTriggerValue("levati[/. ]*dai coglioni".r),
+        RegexTextTriggerValue("fuori[/. ]*dai coglioni".r)
       ),
       List(
         MediaFile("rphjb_LevatiDaiCoglioni.gif")
@@ -1504,10 +1213,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("(non|mica) so(no)? (un |n )?co(gl|j)ione".r),
-          RegexTextTriggerValue("sarete co(gl|j)ioni voi".r)
-        )
+        RegexTextTriggerValue("(non|mica) so(no)? (un |n )?co(gl|j)ione".r),
+        RegexTextTriggerValue("sarete co(gl|j)ioni voi".r)
       ),
       List(
         MediaFile("rphjb_SareteCoglioniVoi.gif")
@@ -1515,9 +1222,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("più co(gl|j)ione".r)
-        )
+        RegexTextTriggerValue("più co(gl|j)ione".r)
       ),
       List(
         MediaFile("rphjb_PiuCoglione.gif")
@@ -1525,9 +1230,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("dice co(gl|j)ione".r)
-        )
+        RegexTextTriggerValue("dice co(gl|j)ione".r)
       ),
       List(
         MediaFile("rphjb_Coglione.gif")
@@ -1535,10 +1238,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("bravo!!!"),
-          StringTextTriggerValue("bravooo")
-        )
+        StringTextTriggerValue("bravo!!!"),
+        StringTextTriggerValue("bravooo")
       ),
       List(
         MediaFile("rphjb_Bravo.gif")
@@ -1546,9 +1247,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("capolavoro")
-        )
+        StringTextTriggerValue("capolavoro")
       ),
       List(
         MediaFile("rphjb_Capolavoro.gif")
@@ -1556,9 +1255,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue(" metal")
-        )
+        StringTextTriggerValue(" metal")
       ),
       List(
         MediaFile("rphjb_Metal.gif")
@@ -1566,9 +1263,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("allucinante")
-        )
+        StringTextTriggerValue("allucinante")
       ),
       List(
         MediaFile("rphjb_Allucinante.gif")
@@ -1576,10 +1271,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("mare di cazzate"),
-          StringTextTriggerValue("non è possibile")
-        )
+        StringTextTriggerValue("mare di cazzate"),
+        StringTextTriggerValue("non è possibile")
       ),
       List(
         MediaFile("rphjb_NonPossibile.gif")
@@ -1587,10 +1280,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("porca miseria"),
-          StringTextTriggerValue("incazzare")
-        )
+        StringTextTriggerValue("porca miseria"),
+        StringTextTriggerValue("incazzare")
       ),
       List(
         MediaFile("rphjb_PorcaMiseria.gif")
@@ -1598,9 +1289,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("schifos(o|!)+".r)
-        )
+        RegexTextTriggerValue("schifos(o|!)+".r)
       ),
       List(
         MediaFile("rphjb_Schifoso.gif")
@@ -1608,9 +1297,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("facendo soffrire")
-        )
+        StringTextTriggerValue("facendo soffrire")
       ),
       List(
         MediaFile("rphjb_FacendoSoffrire.gif")
@@ -1618,9 +1305,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("dovete soffrire")
-        )
+        StringTextTriggerValue("dovete soffrire")
       ),
       List(
         MediaFile("rphjb_DoveteSoffrire.gif")
@@ -1628,9 +1313,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("sarete puniti")
-        )
+        StringTextTriggerValue("sarete puniti")
       ),
       List(
         MediaFile("rphjb_SaretePuniti.gif")
@@ -1638,10 +1321,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("cantanti"),
-          StringTextTriggerValue("serie z")
-        )
+        StringTextTriggerValue("cantanti"),
+        StringTextTriggerValue("serie z")
       ),
       List(
         MediaFile("rphjb_CantantiSerieZ.gif")
@@ -1649,9 +1330,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("sentendo male")
-        )
+        StringTextTriggerValue("sentendo male")
       ),
       List(
         MediaFile("rphjb_MiStoSentendoMale.gif")
@@ -1659,10 +1338,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("lunghezza d'onda"),
-          StringTextTriggerValue("brave persone")
-        )
+        StringTextTriggerValue("lunghezza d'onda"),
+        StringTextTriggerValue("brave persone")
       ),
       List(
         MediaFile("rphjb_LunghezzaDOnda.gif")
@@ -1670,9 +1347,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("delirio")
-        )
+        StringTextTriggerValue("delirio")
       ),
       List(
         MediaFile("rphjb_Delirio.gif")
@@ -1680,10 +1355,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("querelare"),
-          StringTextTriggerValue("guerelare")
-        )
+        StringTextTriggerValue("querelare"),
+        StringTextTriggerValue("guerelare")
       ),
       List(
         MediaFile("rphjb_Querelare.gif")
@@ -1691,10 +1364,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("cantate"),
-          StringTextTriggerValue("arigliano")
-        )
+        StringTextTriggerValue("cantate"),
+        StringTextTriggerValue("arigliano")
       ),
       List(
         MediaFile("rphjb_Arigliano.gif")
@@ -1702,9 +1373,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non voglio nessuno")
-        )
+        StringTextTriggerValue("non voglio nessuno")
       ),
       List(
         MediaFile("rphjb_NonVoglioNessuno.gif")
@@ -1712,10 +1381,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("andati al cesso"),
-          StringTextTriggerValue("diecimila volte")
-        )
+        StringTextTriggerValue("andati al cesso"),
+        StringTextTriggerValue("diecimila volte")
       ),
       List(
         MediaFile("rphjb_Alcesso.gif")
@@ -1723,10 +1390,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non manca niente"),
-          StringTextTriggerValue("c'è tutto")
-        )
+        StringTextTriggerValue("non manca niente"),
+        StringTextTriggerValue("c'è tutto")
       ),
       List(
         MediaFile("rphjb_NonMancaNiente.gif")
@@ -1734,9 +1399,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("in fila")
-        )
+        StringTextTriggerValue("in fila")
       ),
       List(
         MediaFile("rphjb_MettitiInFila.gif")
@@ -1744,9 +1407,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non male")
-        )
+        StringTextTriggerValue("non male")
       ),
       List(
         MediaFile("rphjb_NonMale.gif")
@@ -1754,9 +1415,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("si sente")
-        )
+        StringTextTriggerValue("si sente")
       ),
       List(
         MediaFile("rphjb_SiSente.gif")
@@ -1764,11 +1423,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("colpa vostra"),
-          StringTextTriggerValue("pazzo"),
-          RegexTextTriggerValue("(divento|diventare|sono) matto".r)
-        )
+        StringTextTriggerValue("colpa vostra"),
+        StringTextTriggerValue("pazzo"),
+        RegexTextTriggerValue("(divento|diventare|sono) matto".r)
       ),
       List(
         MediaFile("rphjb_StoDiventandoPazzo.gif")
@@ -1776,12 +1433,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("sorca"),
-          StringTextTriggerValue("patonza"),
-          StringTextTriggerValue("lecciso"),
-          RegexTextTriggerValue("\\bfiga\\b".r)
-        )
+        StringTextTriggerValue("sorca"),
+        StringTextTriggerValue("patonza"),
+        StringTextTriggerValue("lecciso"),
+        RegexTextTriggerValue("\\bfiga\\b".r)
       ),
       List(
         MediaFile("rphjb_SorcaLecciso.gif"),
@@ -1792,11 +1447,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non li sopporto"),
-          RegexTextTriggerValue("che si deve f(à|are)".r),
-          StringTextTriggerValue("bisogna pure lavorà")
-        )
+        StringTextTriggerValue("non li sopporto"),
+        RegexTextTriggerValue("che si deve f(à|are)".r),
+        StringTextTriggerValue("bisogna pure lavorà")
       ),
       List(
         MediaFile("rphjb_NonLiSopporto.gif")
@@ -1804,9 +1457,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("chi cazzo sei")
-        )
+        StringTextTriggerValue("chi cazzo sei")
       ),
       List(
         MediaFile("rphjb_ChiCazzoSei.gif")
@@ -1814,9 +1465,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("feste")
-        )
+        StringTextTriggerValue("feste")
       ),
       List(
         MediaFile("rphjb_Feste.gif")
@@ -1824,10 +1473,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("si ostina"),
-          StringTextTriggerValue("foto vecchie")
-        )
+        StringTextTriggerValue("si ostina"),
+        StringTextTriggerValue("foto vecchie")
       ),
       List(
         MediaFile("rphjb_Ostina.gif")
@@ -1835,9 +1482,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("(è|diventa) vecchi[ao]".r),
-        )
+        RegexTextTriggerValue("(è|diventa) vecchi[ao]".r),
       ),
       List(
         MediaFile("rphjb_Vecchio.gif")
@@ -1845,9 +1490,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("scatta qualcosa")
-        )
+        StringTextTriggerValue("scatta qualcosa")
       ),
       List(
         MediaFile("rphjb_ScattaQualcosa.gif")
@@ -1855,20 +1498,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("lasciami in pace"),
-          RegexTextTriggerValue("\\bstronza\\b".r)
-        )
-      ),
-      List(
-        MediaFile("rphjb_LasciamiInPace.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        List(
-          StringTextTriggerValue("pure bona")
-        )
+        StringTextTriggerValue("pure bona")
       ),
       List(
         MediaFile("rphjb_Bona.gif")
@@ -1876,11 +1506,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue(" danza"),
-          StringTextTriggerValue("macabra"),
-          StringTextTriggerValue(" ball")
-        )
+        StringTextTriggerValue(" danza"),
+        StringTextTriggerValue("macabra"),
+        StringTextTriggerValue(" ball")
       ),
       List(
         MediaFile("rphjb_DanzaMacabra.gif")
@@ -1888,9 +1516,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("sei [gc]ambiat[oa]".r)
-        )
+        RegexTextTriggerValue("sei [gc]ambiat[oa]".r)
       ),
       List(
         MediaFile("rphjb_SeiCambiata.gif")
@@ -1898,10 +1524,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("mio discapito"),
-          StringTextTriggerValue("disgabido")
-        )
+        StringTextTriggerValue("mio discapito"),
+        StringTextTriggerValue("disgabido")
       ),
       List(
         MediaFile("rphjb_Discapito.gif")
@@ -1909,9 +1533,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("peggio del peggio")
-        )
+        StringTextTriggerValue("peggio del peggio")
       ),
       List(
         MediaFile("rphjb_PeggioDelPeggio.gif")
@@ -1919,10 +1541,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("squallida"),
-          StringTextTriggerValue("abbia mai sentito")
-        )
+        StringTextTriggerValue("squallida"),
+        StringTextTriggerValue("abbia mai sentito")
       ),
       List(
         MediaFile("rphjb_Squallida.gif")
@@ -1930,9 +1550,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("la verità")
-        )
+        StringTextTriggerValue("la verità")
       ),
       List(
         MediaFile("rphjb_Verita.gif")
@@ -1940,9 +1558,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ti dovresti vergognare")
-        )
+        StringTextTriggerValue("ti dovresti vergognare")
       ),
       List(
         MediaFile("rphjb_TiDovrestiVergognare.gif")
@@ -1950,9 +1566,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("nooo[o]*".r)
-        )
+        RegexTextTriggerValue("nooo[o]*".r)
       ),
       List(
         MediaFile("rphjb_No.gif")
@@ -1960,10 +1574,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("destino"),
-          StringTextTriggerValue("incontrare")
-        )
+        StringTextTriggerValue("destino"),
+        StringTextTriggerValue("incontrare")
       ),
       List(
         MediaFile("rphjb_Destino.gif")
@@ -1971,10 +1583,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("meridionale"),
-          StringTextTriggerValue("terron")
-        )
+        StringTextTriggerValue("meridionale"),
+        StringTextTriggerValue("terron")
       ),
       List(
         MediaFile("rphjb_Meridionale.gif")
@@ -1982,11 +1592,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("baci"),
-          StringTextTriggerValue("limonare"),
-          StringTextTriggerValue("peggio cose")
-        )
+        StringTextTriggerValue("baci"),
+        StringTextTriggerValue("limonare"),
+        StringTextTriggerValue("peggio cose")
       ),
       List(
         MediaFile("rphjb_Bacio.gif")
@@ -1994,10 +1602,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("solo uno parló"),
-          RegexTextTriggerValue("[cg]ri[dt]i[gc]a[dt]o".r)
-        )
+        StringTextTriggerValue("solo uno parló"),
+        RegexTextTriggerValue("[cg]ri[dt]i[gc]a[dt]o".r)
       ),
       List(
         MediaFile("rphjb_FuCriticato.gif")
@@ -2005,9 +1611,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("giudica")
-        )
+        StringTextTriggerValue("giudica")
       ),
       List(
         MediaFile("rphjb_Giudicate.gif"),
@@ -2017,9 +1621,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("drogati")
-        )
+        StringTextTriggerValue("drogati")
       ),
       List(
         MediaFile("rphjb_DrogatiRockettari1.gif"),
@@ -2030,10 +1632,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r),
-          StringTextTriggerValue("stillati")
-        )
+        RegexTextTriggerValue("ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r),
+        StringTextTriggerValue("stillati")
       ),
       List(
         MediaFile("rphjb_DrogatiRockettari1.gif"),
@@ -2043,9 +1643,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("sguardo")
-        )
+        StringTextTriggerValue("sguardo")
       ),
       List(
         MediaFile("rphjb_Sguardo.gif"),
@@ -2058,9 +1656,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("a quel punto")
-        )
+        StringTextTriggerValue("a quel punto")
       ),
       List(
         MediaFile("rphjb_QuelPunto.gif")
@@ -2068,9 +1664,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("errori")
-        )
+        StringTextTriggerValue("errori")
       ),
       List(
         MediaFile("rphjb_MaiErrori.gif")
@@ -2078,10 +1672,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("quattro"),
-          StringTextTriggerValue("faccio in tempo")
-        )
+        StringTextTriggerValue("quattro"),
+        StringTextTriggerValue("faccio in tempo")
       ),
       List(
         MediaFile("rphjb_QuattroSolo.gif")
@@ -2089,13 +1681,11 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("faccio la parte"),
-          StringTextTriggerValue(" recit"),
-          StringTextTriggerValue(" fing"),
-          RegexTextTriggerValue("a[t]{2,}[o]+re".r),
-          StringTextTriggerValue("attrice")
-        )
+        StringTextTriggerValue("faccio la parte"),
+        StringTextTriggerValue(" recit"),
+        StringTextTriggerValue(" fing"),
+        RegexTextTriggerValue("a[t]{2,}[o]+re".r),
+        StringTextTriggerValue("attrice")
       ),
       List(
         MediaFile("rphjb_FaccioLaParte.gif")
@@ -2103,10 +1693,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("assolutamente no"),
-          StringTextTriggerValue("non mi lamento")
-        )
+        StringTextTriggerValue("assolutamente no"),
+        StringTextTriggerValue("non mi lamento")
       ),
       List(
         MediaFile("rphjb_NonMiLamento.gif")
@@ -2114,9 +1702,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("inizio della fine")
-        )
+        StringTextTriggerValue("inizio della fine")
       ),
       List(
         MediaFile("rphjb_InizioDellaFine.gif"),
@@ -2126,9 +1712,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("il senso")
-        )
+        StringTextTriggerValue("il senso")
       ),
       List(
         MediaFile("rphjb_IlSensoCapito.gif")
@@ -2136,10 +1720,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bester\\b".r),
-          StringTextTriggerValue("esposito")
-        )
+        RegexTextTriggerValue("\\bester\\b".r),
+        StringTextTriggerValue("esposito")
       ),
       List(
         MediaFile("rphjb_Ester.gif"),
@@ -2149,10 +1731,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("abi[td]ua[td]o".r),
-          RegexTextTriggerValue("proprioll[aà]".r),
-        )
+        RegexTextTriggerValue("abi[td]ua[td]o".r),
+        RegexTextTriggerValue("proprioll[aà]".r),
       ),
       List(
         MediaFile("rphjb_Propriolla.gif")
@@ -2161,13 +1741,67 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("amore nello suonare"),
-          StringTextTriggerValue("uno freddo"),
-          StringTextTriggerValue("buddisti"),
-        )
+        StringTextTriggerValue("plettro"),
+        StringTextTriggerValue("vicoletto"),
+        StringTextTriggerValue("scopata")
+      ),
+      List(
+        MediaFile("rphjb_ChitarraPlettroVicoletto.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("diversi mondi"),
+        StringTextTriggerValue("letti sfatti")
+      ),
+      List(
+        MediaFile("rphjb_LettiSfattiDiversiMondi.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("via delle albizzie"),
+        StringTextTriggerValue("carpenelli")
+      ),
+      List(
+        MediaFile("rphjb_AlbizziePerlaPioggia.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ramarro"),
+        StringTextTriggerValue("yngwie"),
+        StringTextTriggerValue("malmsteen"),
+        StringTextTriggerValue("impellitteri")
+      ),
+      List(
+        MediaFile("rphjb_Ramarro.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(cinque|5) dita".r),
+        StringTextTriggerValue("pugno")
+      ),
+      List(
+        MediaFile("rphjb_CinqueDita.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("vi dovete spaventare")
+      ),
+      List(
+        MediaFile("rphjb_ViDoveteSpaventare.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("amore nello suonare"),
+        StringTextTriggerValue("uno freddo"),
+        StringTextTriggerValue("buddisti"),
       ),
       List(
         MediaFile("rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4")
@@ -2175,9 +1809,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("riciclando il (suo )?peggio".r)
-        )
+        RegexTextTriggerValue("riciclando il (suo )?peggio".r)
       ),
       List(
         MediaFile("rphjb_SteveVaiRiciclando.mp4")
@@ -2185,11 +1817,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("già il titolo"),
-          StringTextTriggerValue("coi due punti"),
-          RegexTextTriggerValue("re[a]?l illusions".r)
-        )
+        StringTextTriggerValue("già il titolo"),
+        StringTextTriggerValue("coi due punti"),
+        RegexTextTriggerValue("re[a]?l illusions".r)
       ),
       List(
         MediaFile("rphjb_RelIllusions.mp4")
@@ -2197,12 +1827,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("trattori"),
-          StringTextTriggerValue("palmizio"),
-          StringTextTriggerValue("meno c'è"),
-          StringTextTriggerValue("meno si rompe")
-        )
+        StringTextTriggerValue("trattori"),
+        StringTextTriggerValue("palmizio"),
+        StringTextTriggerValue("meno c'è"),
+        StringTextTriggerValue("meno si rompe")
       ),
       List(
         MediaFile("rphjb_Palmizio.mp4")
@@ -2210,11 +1838,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("cervello pensante"),
-          StringTextTriggerValue("questa volta no"),
-          StringTextTriggerValue("stupidità incresciosa")
-        )
+        StringTextTriggerValue("cervello pensante"),
+        StringTextTriggerValue("questa volta no"),
+        StringTextTriggerValue("stupidità incresciosa")
       ),
       List(
         MediaFile("rphjb_CervelloPensante.mp4")
@@ -2222,11 +1848,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("percussionista"),
-          StringTextTriggerValue("batterista"),
-          StringTextTriggerValue("le sigarette")
-        )
+        StringTextTriggerValue("percussionista"),
+        StringTextTriggerValue("batterista"),
+        StringTextTriggerValue("le sigarette")
       ),
       List(
         MediaFile("rphjb_CollaSerpeSigarettePercussionista.mp4")
@@ -2234,21 +1858,19 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("perla di pioggia"),
-          StringTextTriggerValue("dove non piove mai")
-        )
+        StringTextTriggerValue("perla di pioggia"),
+        StringTextTriggerValue("dove non piove mai")
       ),
       List(
-        MediaFile("rphjb_PerlaDiPioggia.mp4")
-      )
+        MediaFile("rphjb_PerlaDiPioggia.mp4"),
+        MediaFile("rphjb_AlbizziePerlaPioggia.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("madre tortura"),
-          RegexTextTriggerValue("(madre )?parrucca".r)
-        )
+        StringTextTriggerValue("madre tortura"),
+        RegexTextTriggerValue("(madre )?parrucca".r)
       ),
       List(
         MediaFile("rphjb_MadreTorturaParrucca.mp4")
@@ -2256,9 +1878,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("[l]+[i]+[b]+[e]+[r]+[i]+".r)
-        )
+        RegexTextTriggerValue("[l]+[i]+[b]+[e]+[r]+[i]+".r)
       ),
       List(
         MediaFile("rphjb_Liberi.mp4")
@@ -2266,10 +1886,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bcinta\\b".r),
-          StringTextTriggerValue("bruce kulick")
-        )
+        RegexTextTriggerValue("\\bcinta\\b".r),
+        StringTextTriggerValue("bruce kulick")
       ),
       List(
         MediaFile("rphjb_CintaProblema.mp4")
@@ -2277,9 +1895,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("sepoltura")
-        )
+        StringTextTriggerValue("sepoltura")
       ),
       List(
         MediaFile("rphjb_SepolturaRisata.mp4")
@@ -2287,10 +1903,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bcolla\\b".r),
-          StringTextTriggerValue("serpe e serpe")
-        )
+        RegexTextTriggerValue("\\bcolla\\b".r),
+        StringTextTriggerValue("serpe e serpe")
       ),
       List(
         MediaFile("rphjb_CollaSerpe.mp4"),
@@ -2300,9 +1914,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("big money")
-        )
+        StringTextTriggerValue("big money")
       ),
       List(
         MediaFile("rphjb_BigMoney.mp4")
@@ -2310,9 +1922,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("in cantina")
-        )
+        StringTextTriggerValue("in cantina")
       ),
       List(
         MediaFile("rphjb_InCantina.mp4")
@@ -2320,10 +1930,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("fregare come un co(gl|j)ione".r),
-          RegexTextTriggerValue("Ges[uùù]".r)
-        )
+        RegexTextTriggerValue("fregare come un co(gl|j)ione".r),
+        RegexTextTriggerValue("Ges[uùù]".r)
       ),
       List(
         MediaFile("rphjb_GesuCoglione.mp4")
@@ -2331,9 +1939,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("con questa tecnica")
-        )
+        StringTextTriggerValue("con questa tecnica")
       ),
       List(
         MediaFile("rphjb_ConQuestaTecnica.mp4")
@@ -2341,10 +1947,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r),
-          StringTextTriggerValue("impazzisce totalmente")
-        )
+        RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r),
+        StringTextTriggerValue("impazzisce totalmente")
       ),
       List(
         MediaFile("rphjb_RottoIlCa.mp4")
@@ -2352,9 +1956,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("diventare papa")
-        )
+        StringTextTriggerValue("diventare papa")
       ),
       List(
         MediaFile("rphjb_DiventarePapa.mp4")
@@ -2362,9 +1964,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a pi[uùú] velo[cg]e".r)
-        )
+        RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a pi[uùú] velo[cg]e".r)
       ),
       List(
         MediaFile("rphjb_Arivato.mp4")
@@ -2372,10 +1972,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bbeat\\b".r),
-          RegexTextTriggerValue("(e poi[ ,]?[ ]?){2,}".r)
-        )
+        RegexTextTriggerValue("\\bbeat\\b".r),
+        RegexTextTriggerValue("(e poi[ ,]?[ ]?){2,}".r)
       ),
       List(
         MediaFile("rphjb_AssoloBeat.mp4")
@@ -2383,9 +1981,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("buon compleanno")
-        )
+        StringTextTriggerValue("buon compleanno")
       ),
       List(
         MediaFile("rphjb_Compleanno.mp4")
@@ -2393,11 +1989,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ringraziare"),
-          StringTextTriggerValue("gianni neri"),
-          StringTextTriggerValue("traffico")
-        )
+        StringTextTriggerValue("ringraziare"),
+        StringTextTriggerValue("gianni neri"),
+        StringTextTriggerValue("traffico")
       ),
       List(
         MediaFile("rphjb_RingraziareGianniTraffico.mp4")
@@ -2405,11 +1999,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("(roba|droga) tagliata male".r),
-          StringTextTriggerValue("one television"),
-          RegexTextTriggerValue("devo fare (un po'|un attimo) (di|de) esercitazione".r)
-        ),
+        RegexTextTriggerValue("(roba|droga) tagliata male".r),
+        StringTextTriggerValue("one television"),
+        RegexTextTriggerValue("devo fare (un po'|un attimo) (di|de) esercitazione".r)
       ),
       List(
         MediaFile("rphjb_RockMachineIntro.mp4")
@@ -2417,10 +2009,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("poesia"),
-          StringTextTriggerValue("madre")
-        ),
+        StringTextTriggerValue("poesia"),
+        StringTextTriggerValue("madre")
       ),
       List(
         MediaFile("rphjb_PoesiaMadre.mp4")
@@ -2429,9 +2019,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("w[e]+[l]+[a]+".r)
-        )
+        RegexTextTriggerValue("w[e]+[l]+[a]+".r)
       ),
       List(
         MediaFile("rphjb_WelaMyFriends.mp4")
@@ -2440,19 +2028,91 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesMixData: List[ReplyBundleMessage] = List(
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("rimpinzati"),
-          RegexTextTriggerValue("[gc]io[gc]+ola[dt]a".r),
-          StringTextTriggerValue("pandori"),
-          StringTextTriggerValue("ciambelloni"),
-          StringTextTriggerValue("gli amari"),
-          RegexTextTriggerValue("limoncell[oi]".r),
-          StringTextTriggerValue("il vino"),
-          StringTextTriggerValue("ingrassati"),
-          StringTextTriggerValue("andati al cesso"),
-        )
+        StringTextTriggerValue("rock")
+      ),
+      List(
+        MediaFile("rphjb_PoesiaRock.mp4"),
+        MediaFile("rphjb_Rock.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("albero grande"),
+        RegexTextTriggerValue("anche un('| )amplificatore".r),
+      ),
+      List(
+        MediaFile("rphjb_PoesiaRock.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non sono uno del branco"),
+        StringTextTriggerValue("agende"),
+        StringTextTriggerValue("figli dei figli"),
+        StringTextTriggerValue("quali fiori"),
+        StringTextTriggerValue("diluite le vostre droghe")
+      ),
+      List(
+        MediaFile("rphjb_GerarchieInfernali.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ti distruggo")
+      ),
+      List(
+        MediaFile("rphjb_TiDistruggo.gif"),
+        MediaFile("rphjb_Ramarro.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cristo pinocchio"),
+        StringTextTriggerValue("lumicino"),
+        RegexTextTriggerValue("(strade|vie) inferiori".r)
+      ),
+      List(
+        MediaFile("rphjb_CristoPinocchio.mp3"),
+        MediaFile("rphjb_CristoPinocchio.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("pappalardo")
+      ),
+      List(
+        MediaFile("rphjb_Pappalardo.mp3"),
+        MediaFile("rphjb_Pappalardo.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("lasciami in pace"),
+        RegexTextTriggerValue("\\bstronza\\b".r)
+      ),
+      List(
+        MediaFile("rphjb_LasciamiInPace.gif"),
+        MediaFile("rphjb_LasciamiInPaceStronza.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("rimpinzati"),
+        RegexTextTriggerValue("[gc]io[gc]+ola[dt]a".r),
+        StringTextTriggerValue("pandori"),
+        StringTextTriggerValue("ciambelloni"),
+        StringTextTriggerValue("gli amari"),
+        RegexTextTriggerValue("limoncell[oi]".r),
+        StringTextTriggerValue("il vino"),
+        StringTextTriggerValue("ingrassati"),
+        StringTextTriggerValue("andati al cesso"),
       ),
       List(
         MediaFile("rphjb_Rimpinzati.gif"),
@@ -2460,12 +2120,10 @@ object RichardPHJBensonBot extends Configurations {
       ),
       replySelection = RandomSelection
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("stare male"),
-          StringTextTriggerValue("melensa")
-        )
+        StringTextTriggerValue("stare male"),
+        StringTextTriggerValue("melensa")
       ),
       List(
         MediaFile("rphjb_MiFaStareMale.gif"),
@@ -2473,11 +2131,9 @@ object RichardPHJBensonBot extends Configurations {
       ),
       replySelection = RandomSelection
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r)
-        )
+        RegexTextTriggerValue("[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r)
       ),
       List(
         MediaFile("rphjb_Attenzione.mp3"),
@@ -2485,11 +2141,9 @@ object RichardPHJBensonBot extends Configurations {
       ),
       replySelection = RandomSelection
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("paradosso")
-        )
+        StringTextTriggerValue("paradosso")
       ),
       List(
         MediaFile("rphjb_Paradosso.gif"),
@@ -2497,11 +2151,9 @@ object RichardPHJBensonBot extends Configurations {
       ),
       replySelection = RandomSelection
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("sput[ao]".r)
-        )
+        RegexTextTriggerValue("sput[ao]".r)
       ),
       List(
         MediaFile("rphjb_Sputo.gif"),
@@ -2511,19 +2163,17 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("cobelini"),
-          StringTextTriggerValue("cobbolidi"),
-          StringTextTriggerValue("elfi"),
-          StringTextTriggerValue(" nani"),
-          StringTextTriggerValue("nani "),
-          StringTextTriggerValue("la mandragola"),
-          StringTextTriggerValue("gobellini"),
-          StringTextTriggerValue("fico sacro"),
-          StringTextTriggerValue("la betulla"),
-          StringTextTriggerValue("la canfora"),
-          StringTextTriggerValue("le ossa dei morti")
-        )
+        StringTextTriggerValue("cobelini"),
+        StringTextTriggerValue("cobbolidi"),
+        StringTextTriggerValue("elfi"),
+        StringTextTriggerValue(" nani"),
+        StringTextTriggerValue("nani "),
+        StringTextTriggerValue("la mandragola"),
+        StringTextTriggerValue("gobellini"),
+        StringTextTriggerValue("fico sacro"),
+        StringTextTriggerValue("la betulla"),
+        StringTextTriggerValue("la canfora"),
+        StringTextTriggerValue("le ossa dei morti")
       ),
       List(
         MediaFile("rphjb_FigureMitologiche.mp3"),
@@ -2533,10 +2183,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("anche la merda"),
-          StringTextTriggerValue("senza culo")
-        )
+        StringTextTriggerValue("anche la merda"),
+        StringTextTriggerValue("senza culo")
       ),
       List(
         MediaFile("rphjb_Merda.mp3"),
@@ -2546,9 +2194,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("chiama la polizia")
-        )
+        StringTextTriggerValue("chiama la polizia")
       ),
       List(
         MediaFile("rphjb_ChiamaLaPolizia.gif"),
@@ -2558,9 +2204,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("stori(a|e)".r)
-        )
+        RegexTextTriggerValue("stori(a|e)".r)
       ),
       List(
         MediaFile("rphjb_Storie.mp3"),
@@ -2571,11 +2215,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("au[ ]?de".r),
-          RegexTextTriggerValue("\\btime\\b".r),
-          RegexTextTriggerValue("uir[ ]?bi[ ]?taim".r)
-        )
+        RegexTextTriggerValue("au[ ]?de".r),
+        RegexTextTriggerValue("\\btime\\b".r),
+        RegexTextTriggerValue("uir[ ]?bi[ ]?taim".r)
       ),
       List(
         MediaFile("rphjb_Audeuirbitaim.mp3"),
@@ -2585,10 +2227,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("micetta"),
-          StringTextTriggerValue("la morte")
-        )
+        StringTextTriggerValue("micetta"),
+        StringTextTriggerValue("la morte")
       ),
       List(
         MediaFile("rphjb_Micetta.gif"),
@@ -2599,11 +2239,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("spalle"),
-          StringTextTriggerValue("braccia"),
-          RegexTextTriggerValue("t[ie] strozzo".r)
-        )
+        StringTextTriggerValue("spalle"),
+        StringTextTriggerValue("braccia"),
+        RegexTextTriggerValue("t[ie] strozzo".r)
       ),
       List(
         MediaFile("rphjb_FaccioVedereSpalleBraccia.gif"),
@@ -2613,10 +2251,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non sapere"),
-          RegexTextTriggerValue("aris[dt]o[dt]ele".r)
-        )
+        StringTextTriggerValue("non sapere"),
+        RegexTextTriggerValue("aris[dt]o[dt]ele".r)
       ),
       List(
         MediaFile("rphjb_SoDiNonSapere.gif"),
@@ -2626,9 +2262,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non è roba per me")
-        )
+        StringTextTriggerValue("non è roba per me")
       ),
       List(
         MediaFile("rphjb_RobaPerMe.gif"),
@@ -2638,9 +2272,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("io nooo[o]*".r)
-        )
+        RegexTextTriggerValue("io nooo[o]*".r)
       ),
       List(
         MediaFile("rphjb_IoNo.mp3"),
@@ -2650,10 +2282,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("bastone infernale"),
-          StringTextTriggerValue("un'arma")
-        )
+        StringTextTriggerValue("bastone infernale"),
+        StringTextTriggerValue("un'arma")
       ),
       List(
         MediaFile("rphjb_Bastone1.gif"),
@@ -2665,11 +2295,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("vi calpesto"),
-          StringTextTriggerValue("vermi"),
-          StringTextTriggerValue("strisciate")
-        )
+        StringTextTriggerValue("vi calpesto"),
+        StringTextTriggerValue("vermi"),
+        StringTextTriggerValue("strisciate")
       ),
       List(
         MediaFile("rphjb_ViCalpesto.gif"),
@@ -2679,10 +2307,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("stringere i denti"),
-          StringTextTriggerValue("andare avanti"),
-        )
+        StringTextTriggerValue("stringere i denti"),
+        StringTextTriggerValue("andare avanti"),
       ),
       List(
         MediaFile("rphjb_AndareAvanti.gif"),
@@ -2692,10 +2318,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non ci credete?"),
-          RegexTextTriggerValue("grande s[dt]ronza[dt][ea]".r)
-        )
+        StringTextTriggerValue("non ci credete?"),
+        RegexTextTriggerValue("grande s[dt]ronza[dt][ea]".r)
       ),
       List(
         MediaFile("rphjb_NonCiCredete.gif"),
@@ -2705,11 +2329,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non me ne fotte"),
-          StringTextTriggerValue("chissenefrega"),
-          StringTextTriggerValue("non mi interessa")
-        )
+        StringTextTriggerValue("non me ne fotte"),
+        StringTextTriggerValue("chissenefrega"),
+        StringTextTriggerValue("non mi interessa")
       ),
       List(
         MediaFile("rphjb_NonMeNeFotte.gif"),
@@ -2721,9 +2343,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ultimi")
-        )
+        StringTextTriggerValue("ultimi")
       ),
       List(
         MediaFile("rphjb_ViCalpesto.gif"),
@@ -2735,13 +2355,11 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("che (cazzo )?era quella roba".r),
-          RegexTextTriggerValue("che (cazzo |cazzo di roba )?mi avete dato".r),
-          StringTextTriggerValue("lampi negli occhi"),
-          RegexTextTriggerValue("gira(re|ra|rà|ndo)? la testa".r),
-          RegexTextTriggerValue("insieme alla (c|g)o(c|g)a (c|g)ola".r)
-        )
+        RegexTextTriggerValue("che (cazzo )?era quella roba".r),
+        RegexTextTriggerValue("che (cazzo |cazzo di roba )?mi avete dato".r),
+        StringTextTriggerValue("lampi negli occhi"),
+        RegexTextTriggerValue("gira(re|ra|rà|ndo)? la testa".r),
+        RegexTextTriggerValue("insieme alla (c|g)o(c|g)a (c|g)ola".r)
       ),
       List(
         MediaFile("rphjb_CheCazzoEraQuellaRoba.mp3"),
@@ -2753,13 +2371,11 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("canzonette"),
-          StringTextTriggerValue("balera"),
-          StringTextTriggerValue("sagra dell'uva"),
-          StringTextTriggerValue("feste condominiali"),
-          StringTextTriggerValue("feste di piazza")
-        )
+        StringTextTriggerValue("canzonette"),
+        StringTextTriggerValue("balera"),
+        StringTextTriggerValue("sagra dell'uva"),
+        StringTextTriggerValue("feste condominiali"),
+        StringTextTriggerValue("feste di piazza")
       ),
       List(
         MediaFile("rphjb_Canzonette.mp3"),
@@ -2770,9 +2386,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("un pollo")
-        )
+        StringTextTriggerValue("un pollo")
       ),
       List(
         MediaFile("rphjb_Pollo.mp3"),
@@ -2784,9 +2398,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("quello che dico io")
-        )
+        StringTextTriggerValue("quello che dico io")
       ),
       List(
         MediaFile("rphjb_QuelloCheDicoIo.gif"),
@@ -2797,9 +2409,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("zucchero")
-        )
+        StringTextTriggerValue("zucchero")
       ),
       List(
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
@@ -2811,9 +2421,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bproblema\\b".r)
-        )
+        RegexTextTriggerValue("\\bproblema\\b".r)
       ),
       List(
         MediaFile("rphjb_VabbeProblema.gif"),
@@ -2824,11 +2432,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("good"),
-          StringTextTriggerValue("show"),
-          StringTextTriggerValue("friends")
-        )
+        StringTextTriggerValue("good"),
+        StringTextTriggerValue("show"),
+        StringTextTriggerValue("friends")
       ),
       List(
         MediaFile("rphjb_OkGoodShowFriends.gif"),
@@ -2839,9 +2445,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("vattene (af)?fanculo".r)
-        )
+        RegexTextTriggerValue("vattene (af)?fanculo".r)
       ),
       List(
         MediaFile("rphjb_MaVatteneAffanculo.gif"),
@@ -2851,9 +2455,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("feelings")
-        )
+        StringTextTriggerValue("feelings")
       ),
       List(
         MediaFile("rphjb_Feelings.gif"),
@@ -2865,9 +2467,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("me ne vado")
-        )
+        StringTextTriggerValue("me ne vado")
       ),
       List(
         MediaFile("rphjb_MeNeVado.mp3"),
@@ -2878,11 +2478,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("mignotta"),
-          StringTextTriggerValue("puttana"),
-          StringTextTriggerValue("troia")
-        )
+        StringTextTriggerValue("mignotta"),
+        StringTextTriggerValue("puttana"),
+        StringTextTriggerValue("troia")
       ),
       List(
         MediaFile("rphjb_Mignotta.mp3"),
@@ -2893,9 +2491,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ti devi spaventare")
-        )
+        StringTextTriggerValue("ti devi spaventare")
       ),
       List(
         MediaFile("rphjb_TiDeviSpaventare.mp3"),
@@ -2906,10 +2502,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ma che cazzo sto dicendo"),
-          StringTextTriggerValue("il martell")
-        )
+        StringTextTriggerValue("ma che cazzo sto dicendo"),
+        StringTextTriggerValue("il martell")
       ),
       List(
         MediaFile("rphjb_MaCheCazzoStoDicendo.mp3"),
@@ -2920,9 +2514,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("questa volta no")
-        )
+        StringTextTriggerValue("questa volta no")
       ),
       List(
         MediaFile("rphjb_QuestaVoltaNo.mp3"),
@@ -2932,9 +2524,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("una vergogna")
-        )
+        StringTextTriggerValue("una vergogna")
       ),
       List(
         MediaFile("rphjb_Vergogna.mp3"),
@@ -2946,10 +2536,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("mi devo trasformare"),
-          StringTextTriggerValue("cristo canaro")
-        )
+        StringTextTriggerValue("mi devo trasformare"),
+        StringTextTriggerValue("cristo canaro")
       ),
       List(
         MediaFile("rphjb_Trasformista.mp3"),
@@ -2960,7 +2548,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(RegexTextTriggerValue("ma[ ]?s[cg]us[a]?".r))
+        RegexTextTriggerValue("ma[ ]?s[cg]us[a]?".r)
       ),
       List(
         MediaFile("rphjb_MaSgus.mp3"),
@@ -2970,10 +2558,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("grazie gianni"),
-          RegexTextTriggerValue("cia[o]{3,}".r)
-        )
+        StringTextTriggerValue("grazie gianni"),
+        RegexTextTriggerValue("cia[o]{3,}".r)
       ),
       List(
         MediaFile("rphjb_Grazie.mp3"),
@@ -2984,10 +2570,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("stare attenti"),
-          StringTextTriggerValue("per strada")
-        )
+        StringTextTriggerValue("stare attenti"),
+        StringTextTriggerValue("per strada")
       ),
       List(
         MediaFile("rphjb_IncontratePerStrada.mp3"),
@@ -2997,24 +2581,22 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("lavora tu vecchiaccia"),
-          StringTextTriggerValue("hai la pelle dura"),
-          StringTextTriggerValue("io sono creatura")
-        )
+        StringTextTriggerValue("lavora tu vecchiaccia"),
+        StringTextTriggerValue("hai la pelle dura"),
+        StringTextTriggerValue("io sono creatura")
       ),
       List(
-        MediaFile("rphjb_Lavoratu.mp3"),
-        MediaFile("rphjb_Lavoratu.gif"),
+        MediaFile("rphjb_LavoraTu.mp3"),
+        MediaFile("rphjb_LavoraTu.mp4"),
+        MediaFile("rphjb_LavoraTu2.mp4"),
+        MediaFile("rphjb_LavoraTu.gif"),
         MediaFile("rphjb_StorieSonoTanteVecchiaccia.mp4")
       ),
       replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("infern[a]+l[ie]+[!]*".r)
-        )
+        RegexTextTriggerValue("infern[a]+l[ie]+[!]*".r)
       ),
       List(
         MediaFile("rphjb_Infernali.mp3"),
@@ -3025,9 +2607,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("per il culo")
-        )
+        StringTextTriggerValue("per il culo")
       ),
       List(
         MediaFile("rphjb_PigliandoPerIlCulo.mp3"),
@@ -3037,12 +2617,10 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue(e":lol:"),
-          StringTextTriggerValue(e":rofl:"),
-          StringTextTriggerValue("sorriso"),
-          RegexTextTriggerValue("(ah|ha){3,}".r)
-        )
+        StringTextTriggerValue(e":lol:"),
+        StringTextTriggerValue(e":rofl:"),
+        StringTextTriggerValue("sorriso"),
+        RegexTextTriggerValue("(ah|ha){3,}".r)
       ),
       List(
         MediaFile("rphjb_Risata.mp3"),
@@ -3057,10 +2635,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ammazza che sei"),
-          StringTextTriggerValue("quasi un frocio")
-        )
+        StringTextTriggerValue("ammazza che sei"),
+        StringTextTriggerValue("quasi un frocio")
       ),
       List(
         MediaFile("rphjb_Frocio.mp3"),
@@ -3070,9 +2646,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("(fammi|chiedere)? (una|questa)? cortesia".r)
-        )
+        RegexTextTriggerValue("(fammi|chiedere)? (una|questa)? cortesia".r)
       ),
       List(
         MediaFile("rphjb_FammiQuestaCortesia.mp3"),
@@ -3082,9 +2656,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non mi sta bene")
-        )
+        StringTextTriggerValue("non mi sta bene")
       ),
       List(
         MediaFile("rphjb_NonMiStaBene.mp3"),
@@ -3097,9 +2669,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("le labbra"),
-        )
+        StringTextTriggerValue("le labbra"),
       ),
       List(
         MediaFile("rphjb_Labbra.mp3"),
@@ -3109,9 +2679,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("la vita è il nemico")
-        )
+        StringTextTriggerValue("la vita è il nemico")
       ),
       List(
         MediaFile("rphjb_VitaNemico.mp3"),
@@ -3122,9 +2690,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("permettere")
-        )
+        StringTextTriggerValue("permettere")
       ),
       List(
         MediaFile("rphjb_Permettere.mp3"),
@@ -3134,9 +2700,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("le note")
-        )
+        StringTextTriggerValue("le note")
       ),
       List(
         MediaFile("rphjb_Note.mp3"),
@@ -3146,9 +2710,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("te[r]+[i]+[b]+[i]+l[e]+".r)
-        )
+        RegexTextTriggerValue("te[r]+[i]+[b]+[i]+l[e]+".r)
       ),
       List(
         MediaFile("rphjb_Terribile.mp3"),
@@ -3158,9 +2720,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("viva napoli")
-        )
+        StringTextTriggerValue("viva napoli")
       ),
       List(
         MediaFile("rphjb_VivaNapoli.mp3"),
@@ -3170,11 +2730,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("ciao a tutti"),
-          StringTextTriggerValue("come state"),
-          StringTextTriggerValue("belle gioie")
-        )
+        StringTextTriggerValue("ciao a tutti"),
+        StringTextTriggerValue("come state"),
+        StringTextTriggerValue("belle gioie")
       ),
       List(
         MediaFile("rphjb_CiaoComeState.gif"),
@@ -3184,9 +2742,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("bast[a]{3,}[!]*".r)
-        )
+        RegexTextTriggerValue("bast[a]{3,}[!]*".r)
       ),
       List(
         MediaFile("rphjb_Basta.mp3"),
@@ -3201,11 +2757,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("assolo"),
-          RegexTextTriggerValue("[gc]hi[td]arra".r),
-          RegexTextTriggerValue("(as)?solo di basso".r)
-        )
+        StringTextTriggerValue("assolo"),
+        RegexTextTriggerValue("[gc]hi[td]arra".r),
+        RegexTextTriggerValue("(as)?solo di basso".r)
       ),
       List(
         MediaFile("rphjb_Assolo.mp3"),
@@ -3215,6 +2769,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_AssoloSubdolo.mp4"),
         MediaFile("rphjb_Chitarra1.gif"),
         MediaFile("rphjb_Chitarra2.gif"),
+        MediaFile("rphjb_ChitarraPlettroVicoletto.mp4"),
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
         MediaFile("rphjb_AssoloBasso.mp4")
       ),
@@ -3222,11 +2777,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("[ ]?ca[bp]i[dt]o | ca[bp]i[dt]o[ ]?".r),
-          RegexTextTriggerValue("[ ]?capissi | capissi[ ]?".r),
-          StringTextTriggerValue("gabido"),
-        )
+        RegexTextTriggerValue("[ ]?ca[bp]i[dt]o | ca[bp]i[dt]o[ ]?".r),
+        RegexTextTriggerValue("[ ]?capissi | capissi[ ]?".r),
+        StringTextTriggerValue("gabido"),
       ),
       List(
         MediaFile("rphjb_HoCapito.mp3"),
@@ -3249,11 +2802,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("esperiment"),
-          RegexTextTriggerValue("1(,)? 2(,)? 3".r),
-          RegexTextTriggerValue("uno(,)? due(,)? tre".r)
-        )
+        StringTextTriggerValue("esperiment"),
+        RegexTextTriggerValue("1(,)? 2(,)? 3".r),
+        RegexTextTriggerValue("uno(,)? due(,)? tre".r)
       ),
       List(
         MediaFile("rphjb_Esperimento.mp3"),
@@ -3267,9 +2818,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("schifosi")
-        )
+        StringTextTriggerValue("schifosi")
       ),
       List(
         MediaFile("rphjb_ViCalpesto.gif"),
@@ -3288,9 +2837,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("mortacci vostri")
-        )
+        StringTextTriggerValue("mortacci vostri")
       ),
       List(
         MediaFile("rphjb_MortacciVostri.gif"),
@@ -3303,9 +2850,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("non vedo")
-        )
+        StringTextTriggerValue("non vedo")
       ),
       List(
         MediaFile("rphjb_Stanco.mp3"),
@@ -3315,9 +2860,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("panna")
-        )
+        StringTextTriggerValue("panna")
       ),
       List(
         MediaFile("rphjb_Problema.mp3"),
@@ -3327,9 +2870,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("applau")
-        )
+        StringTextTriggerValue("applau")
       ),
       List(
         MediaFile("rphjb_Applauso.gif"),
@@ -3341,9 +2882,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("venite qua")
-        )
+        StringTextTriggerValue("venite qua")
       ),
       List(
         MediaFile("rphjb_VeniteQua.gif"),
@@ -3354,14 +2893,12 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("\\bpaga(re)?\\b".r),
-          StringTextTriggerValue("soldi"),
-          StringTextTriggerValue("bollette"),
-          StringTextTriggerValue("tasse"),
-          StringTextTriggerValue("bolletta"),
-          StringTextTriggerValue("tassa")
-        )
+        RegexTextTriggerValue("\\bpaga(re)?\\b".r),
+        StringTextTriggerValue("soldi"),
+        StringTextTriggerValue("bollette"),
+        StringTextTriggerValue("tasse"),
+        StringTextTriggerValue("bolletta"),
+        StringTextTriggerValue("tassa")
       ),
       List(
         MediaFile("rphjb_ChiCacciaISoldi.gif"),
@@ -3372,9 +2909,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("[od]?dio mio[,]? no".r)
-        )
+        RegexTextTriggerValue("[od]?dio mio[,]? no".r)
       ),
       List(
         MediaFile("rphjb_OddioMioNo.gif"),
@@ -3385,10 +2920,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("[sono ]?a[r]{1,2}iva[dt]o".r),
-          StringTextTriggerValue("piacere")
-        )
+        RegexTextTriggerValue("[sono ]?a[r]{1,2}iva[dt]o".r),
+        StringTextTriggerValue("piacere")
       ),
       List(
         MediaFile("rphjb_Arivato.gif"),
@@ -3399,9 +2932,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          RegexTextTriggerValue("delu[sd]".r)
-        )
+        RegexTextTriggerValue("delu[sd]".r)
       ),
       List(
         MediaFile("rphjb_Deluso.gif"),
@@ -3411,10 +2942,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("fate come vi pare"),
-          RegexTextTriggerValue("sti [gc]azzi".r)
-        )
+        StringTextTriggerValue("fate come vi pare"),
+        RegexTextTriggerValue("sti [gc]azzi".r)
       ),
       List(
         MediaFile("rphjb_ComeViPare.gif"),
@@ -3424,10 +2953,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("divento una bestia"),
-          StringTextTriggerValue("incazzo")
-        )
+        StringTextTriggerValue("divento una bestia"),
+        StringTextTriggerValue("incazzo")
       ),
       List(
         MediaFile("rphjb_DiventoBestia.mp3"),
@@ -3438,10 +2965,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        List(
-          StringTextTriggerValue("dove stiamo"),
-          StringTextTriggerValue("stiamo nella follia")
-        )
+        StringTextTriggerValue("dove stiamo"),
+        StringTextTriggerValue("stiamo nella follia")
       ),
       List(
         MediaFile("rphjb_CapitoDoveStiamo.mp3"),
@@ -3460,8 +2985,8 @@ object RichardPHJBensonBot extends Configurations {
   val messageReplyDataStringChunks = {
     val (triggers, lastTriggers) = messageRepliesData
       .map(_.trigger match {
-        case TextTrigger(lt) => lt.mkString("[", " - ", "]")
-        case _               => ""
+        case TextTrigger(lt @ _*) => lt.mkString("[", " - ", "]")
+        case _                    => ""
       })
       .foldLeft((List.empty[List[String]], List.empty[String])) { case ((acc, candidate), triggerString) =>
         if ((candidate :+ triggerString).mkString("\n").length > 4090) (acc :+ candidate, List(triggerString))
