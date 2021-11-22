@@ -2,7 +2,7 @@ import Settings._
 
 name         := "telegramBots"
 organization := "com.benkio"
-scalaVersion := "2.13.7"
+scalaVersion := "2.13.6"
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
