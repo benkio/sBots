@@ -1758,7 +1758,7 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("tordando (all')?indietro".r),
+        RegexTextTriggerValue("(tornando|andando) (all')?indietro".r),
         StringTextTriggerValue("innovazione")
       ),
       List(
