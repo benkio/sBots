@@ -13,8 +13,6 @@ import org.http4s.blaze.client._
 import org.http4s.client.Client
 import telegramium.bots.high._
 
-import scala.concurrent.ExecutionContext
-
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with RichardPHJBensonBot
 
 class RichardPHJBensonBotWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
@@ -1743,6 +1741,40 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
+        StringTextTriggerValue("si o no"),
+        RegexTextTriggerValue("non (lo)?so".r)
+      ),
+      List(
+        MediaFile("rphjb_SiONo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("streghe")
+      ),
+      List(
+        MediaFile("rphjb_Streghe.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("tordando (all')?indietro".r),
+        StringTextTriggerValue("innovazione")
+      ),
+      List(
+        MediaFile("rphjb_InnovazioneStiamoTornandoIndietro.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("trovamelo")
+      ),
+      List(
+        MediaFile("rphjb_AngeloTrovamelo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
         StringTextTriggerValue("plettro"),
         StringTextTriggerValue("vicoletto"),
         StringTextTriggerValue("scopata")
@@ -2177,7 +2209,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_FigureMitologiche.mp3"),
-        MediaFile("rphjb_FigureMitologiche.mp4")
+        MediaFile("rphjb_FigureMitologiche.mp4"),
+        MediaFile("rphjb_FigureMitologiche2.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2312,7 +2345,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_AndareAvanti.gif"),
-        MediaFile("rphjb_AndareAvanti.mp3")
+        MediaFile("rphjb_AndareAvanti.mp3"),
+        MediaFile("rphjb_InnovazioneStiamoTornandoIndietro.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2439,7 +2473,8 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_OkGoodShowFriends.gif"),
         MediaFile("rphjb_LetSGoodStateBene.mp3"),
-        MediaFile("rphjb_WelaMyFriends.mp4")
+        MediaFile("rphjb_WelaMyFriends.mp4"),
+        MediaFile("rphjb_LetsGoodMyFriends.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2936,7 +2971,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Deluso.gif"),
-        MediaFile("rphjb_Deluso.mp3")
+        MediaFile("rphjb_Deluso.mp3"),
+        MediaFile("rphjb_DeludendoQuasiTutto.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -3054,8 +3090,8 @@ carattere '!':
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
-  )(implicit executorContext: ExecutionContext): F[A] = (for {
-    client <- BlazeClientBuilder[F](executorContext).resource
+  ): F[A] = (for {
+    client <- BlazeClientBuilder[F].resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
