@@ -11,8 +11,6 @@ import org.http4s.blaze.client._
 import org.http4s.client.Client
 import telegramium.bots.high._
 
-import scala.concurrent.ExecutionContext
-
 class XahBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with XahBot
 
 class XahBotWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
@@ -121,8 +119,8 @@ object XahBot extends Configurations {
     ResourceAccess.fileSystem.getResourceByteArray[F]("xah_XahBot.token").map(_.map(_.toChar).mkString)
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: XahBotPolling[F] => F[A]
-  )(implicit executorContext: ExecutionContext): F[A] = (for {
-    client <- BlazeClientBuilder[F](executorContext).resource
+  ): F[A] = (for {
+    client <- BlazeClientBuilder[F].resource
     tk     <- token[F]
   } yield (client, tk)).use(client_tk => {
     implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")

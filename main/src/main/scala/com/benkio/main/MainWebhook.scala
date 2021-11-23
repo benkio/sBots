@@ -12,12 +12,10 @@ import com.benkio.xahbot.XahBot
 import org.http4s.blaze.client._
 import telegramium.bots.high.WebhookBot
 
-import scala.concurrent.ExecutionContext.global
-
 object MainWebhook extends IOApp {
   def run(args: List[String]): IO[ExitCode] = (for {
     config     <- Resource.eval(Config.loadConfig)
-    httpClient <- BlazeClientBuilder[IO](global).resource
+    httpClient <- BlazeClientBuilder[IO].resource
     xahWebhook <- XahBot.buildWebhookBot[IO](
       httpClient = httpClient,
       webhookBaseUrl = config.webhookBaseUrl

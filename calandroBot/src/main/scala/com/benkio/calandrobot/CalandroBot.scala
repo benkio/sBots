@@ -15,7 +15,6 @@ import org.http4s.client.Client
 import telegramium.bots.Message
 import telegramium.bots.high._
 
-import scala.concurrent.ExecutionContext
 import scala.util.Random
 
 class CalandroBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with CalandroBot
@@ -380,8 +379,8 @@ object CalandroBot extends Configurations {
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]
-  )(implicit executorContext: ExecutionContext): F[A] = (for {
-    client <- BlazeClientBuilder[F](executorContext).resource
+  ): F[A] = (for {
+    client <- BlazeClientBuilder[F].resource
     tk     <- token[F]
   } yield (client, tk))
     .use(client_tk => {
