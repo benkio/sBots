@@ -637,14 +637,6 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("è un ordine")
-      ),
-      List(
-        MediaFile("rphjb_Ordine.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("una sera")
       ),
       List(
@@ -1739,6 +1731,20 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
+        RegexTextTriggerValue("\\brap\\b".r),
+        StringTextTriggerValue("musica italiana"),
+        StringTextTriggerValue("tullio pane"),
+        StringTextTriggerValue("otello profazio"),
+        StringTextTriggerValue("mario lanza"),
+        StringTextTriggerValue("gianni celeste"),
+        StringTextTriggerValue("luciano tajoli")
+      ),
+      List(
+        MediaFile("rphjb_RapMusicaMelodicaListaCantanti.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
         StringTextTriggerValue("eric clapton"),
         RegexTextTriggerValue("uo(m)+ini d'affari".r),
       ),
@@ -2107,6 +2113,15 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesMixData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("è un ordine")
+      ),
+      List(
+        MediaFile("rphjb_Ordine.mp3"),
+        MediaFile("rphjb_Ordine.mp4")
+      )
+    ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("piloti d'aereo"),
