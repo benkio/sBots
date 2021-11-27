@@ -1089,15 +1089,6 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("piloti d'aereo"),
-        StringTextTriggerValue("disastri aerei")
-      ),
-      List(
-        MediaFile("rphjb_DrogatiPiloti.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("timore"),
         StringTextTriggerValue("paura"),
         RegexTextTriggerValue("diri[g]+en[dt]i".r),
@@ -1619,12 +1610,17 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("drogati")
+        StringTextTriggerValue("drogati"),
+        StringTextTriggerValue("sostanze improprie")
       ),
       List(
         MediaFile("rphjb_DrogatiRockettari1.gif"),
+        MediaFile("rphjb_DrogatiRockettari.mp4"),
+        MediaFile("rphjb_EricClaptonDrogaUominiAffari.mp4"),
         MediaFile("rphjb_DrogatiRockettari2.gif"),
-        MediaFile("rphjb_DrogatiPiloti.gif")
+        MediaFile("rphjb_DrogatiPiloti.gif"),
+        MediaFile("rphjb_DrogatiPiloti.mp4"),
+        MediaFile("rphjb_Rampolli.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1635,6 +1631,7 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_DrogatiRockettari1.gif"),
+        MediaFile("rphjb_DrogatiRockettari.mp4"),
         MediaFile("rphjb_DrogatiRockettari2.gif"),
         MediaFile("rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4")
       ),
@@ -1740,6 +1737,27 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("eric clapton"),
+        RegexTextTriggerValue("uo(m)+ini d'affari".r),
+      ),
+      List(
+        MediaFile("rphjb_EricClaptonDrogaUominiAffari.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("rampolli"),
+        StringTextTriggerValue("studi a boston"),
+        StringTextTriggerValue("borghesia alta"),
+        StringTextTriggerValue("idoli delle mamme"),
+        StringTextTriggerValue("figliole")
+      ),
+      List(
+        MediaFile("rphjb_Rampolli.mp4")
+      )
+    ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("capelli corti"),
@@ -2091,11 +2109,23 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesMixData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("rock")
+        StringTextTriggerValue("piloti d'aereo"),
+        StringTextTriggerValue("disastri aerei")
+      ),
+      List(
+        MediaFile("rphjb_DrogatiPiloti.gif"),
+        MediaFile("rphjb_DrogatiPiloti.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\brock\\b".r)
       ),
       List(
         MediaFile("rphjb_PoesiaRock.mp4"),
-        MediaFile("rphjb_Rock.mp3")
+        MediaFile("rphjb_Rock.mp3"),
+        MediaFile("rphjb_EricClaptonDrogaUominiAffari.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2689,6 +2719,7 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_Risata.mp3"),
         MediaFile("rphjb_Risata.gif"),
+        MediaFile("rphjb_OrmaiRisata.mp4"),
         MediaFile("rphjb_Sorriso2.gif"),
         MediaFile("rphjb_Sorriso.gif"),
         MediaFile("rphjb_SorrisoSognante.gif"),
@@ -2888,6 +2919,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_ViCalpesto.gif"),
         MediaFile("rphjb_ViCalpesto.mp4"),
         MediaFile("rphjb_Schifosi.mp3"),
+        MediaFile("rphjb_Schifosi.mp4"),
         MediaFile("rphjb_Schifosi2.mp3"),
         MediaFile("rphjb_Schifosi3.mp3"),
         MediaFile("rphjb_Schifosi3.gif"),
