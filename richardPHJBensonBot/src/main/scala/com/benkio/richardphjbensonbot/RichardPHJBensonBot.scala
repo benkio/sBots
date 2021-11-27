@@ -1635,7 +1635,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_DrogatiRockettari1.gif"),
-        MediaFile("rphjb_DrogatiRockettari2.gif")
+        MediaFile("rphjb_DrogatiRockettari2.gif"),
+        MediaFile("rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1739,6 +1740,17 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("capelli corti"),
+        StringTextTriggerValue("giacca"),
+        StringTextTriggerValue("cravatta"),
+        StringTextTriggerValue("passaporto degli stronzi")
+      ),
+      List(
+        MediaFile("rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4")
+      )
+    ),
     ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("fregat(a|ura)".r)
