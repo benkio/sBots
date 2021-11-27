@@ -1741,6 +1741,23 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
+        RegexTextTriggerValue("fregat(a|ura)".r)
+      ),
+      List(
+        MediaFile("rphjb_FregataFregatura.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bmula\\b".r),
+        StringTextTriggerValue("storia della mula")
+      ),
+      List(
+        MediaFile("rphjb_Mula.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
         StringTextTriggerValue("si o no"),
         RegexTextTriggerValue("non (lo)?so".r)
       ),
