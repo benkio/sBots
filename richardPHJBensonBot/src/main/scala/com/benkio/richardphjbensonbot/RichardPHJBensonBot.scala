@@ -2120,7 +2120,8 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_Ordine.mp3"),
         MediaFile("rphjb_Ordine.mp4")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
