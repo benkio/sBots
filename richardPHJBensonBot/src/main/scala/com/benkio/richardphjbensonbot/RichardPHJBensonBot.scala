@@ -1731,6 +1731,34 @@ object RichardPHJBensonBot extends Configurations {
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage(
       TextTrigger(
+        StringTextTriggerValue("amici veri"),
+        StringTextTriggerValue("soldati")
+      ),
+      List(
+        MediaFile("rphjb_AmiciVeriVecchiSoldati.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("gianni neri")
+      ),
+      List(
+        MediaFile("rphjb_RingraziareGianniTraffico.mp4"),
+        MediaFile("rphjb_GianniNeriCoppiaMiciciale.mp4"),
+        MediaFile("rphjb_GianniNeriCheFineHaiFatto.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("accor(data|dana)".r)
+      ),
+      List(
+        MediaFile("rphjb_Accordana.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
         RegexTextTriggerValue("\\brap\\b".r),
         StringTextTriggerValue("musica italiana"),
         StringTextTriggerValue("tullio pane"),
@@ -2075,7 +2103,6 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ringraziare"),
-        StringTextTriggerValue("gianni neri"),
         StringTextTriggerValue("traffico")
       ),
       List(
@@ -2113,6 +2140,16 @@ object RichardPHJBensonBot extends Configurations {
   )
 
   val messageRepliesMixData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("vivi"),
+        StringTextTriggerValue("morti")
+      ),
+      List(
+        MediaFile("rphjb_ViviMorti.mp4")
+      ),
+      matcher = ContainsAll
+    ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("è un ordine")
@@ -2264,7 +2301,8 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Sputo.gif"),
-        MediaFile("rphjb_Sputo.mp4")
+        MediaFile("rphjb_Sputo.mp4"),
+        MediaFile("rphjb_BicchiereSputoLimitazioniUomoDonna.mp4")
       ),
       replySelection = RandomSelection
     ),
