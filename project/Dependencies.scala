@@ -12,7 +12,7 @@ object Dependencies {
     val lightbendEmojiVersion = "1.2.3"
     val munit                 = "0.7.29"
     val munitCatsEffect       = "1.0.6"
-    val pureConfig            = "0.17.0"
+    val pureConfig            = "0.17.1"
   }
   lazy val libs = new {
     val munit           = "org.scalameta" %% "munit"               % dependenciesVersion.munit           % Test
