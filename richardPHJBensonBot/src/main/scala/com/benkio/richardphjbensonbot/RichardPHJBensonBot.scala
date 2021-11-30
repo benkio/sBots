@@ -1823,7 +1823,7 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("si o no"),
-        RegexTextTriggerValue("non (lo)?so".r)
+        RegexTextTriggerValue("\\bnon (lo)?so\\b".r)
       ),
       List(
         MediaFile("rphjb_SiONo.mp4")
