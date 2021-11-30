@@ -1211,7 +1211,8 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("dice co(gl|j)ione".r)
+        RegexTextTriggerValue("dice co(gl|j)ione".r),
+        RegexTextTriggerValue("co(gl|j)ion([e]{3,}|e[!]{3,})".r)
       ),
       List(
         MediaFile("rphjb_Coglione.gif")
