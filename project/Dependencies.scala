@@ -11,7 +11,7 @@ object Dependencies {
     val sqliteJdbcVersion     = "3.36.0.3"
     val lightbendEmojiVersion = "1.2.3"
     val munit                 = "0.7.29"
-    val munitCatsEffect       = "1.0.6"
+    val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.0"
   }
   lazy val libs = new {
