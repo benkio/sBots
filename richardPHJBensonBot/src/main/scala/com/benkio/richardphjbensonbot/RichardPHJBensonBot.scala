@@ -1952,6 +1952,14 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
+        StringTextTriggerValue("peso di un cervello")
+      ),
+      List(
+        MediaFile("rphjb_VitaNemicoCervello.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
         StringTextTriggerValue("cervello pensante"),
         StringTextTriggerValue("questa volta no"),
         StringTextTriggerValue("stupidità incresciosa")
@@ -2834,7 +2842,8 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_VitaNemico.mp3"),
         MediaFile("rphjb_VitaNemico.gif"),
-        MediaFile("rphjb_VitaNemico.mp4")
+        MediaFile("rphjb_VitaNemico.mp4"),
+        MediaFile("rphjb_VitaNemicoCervello.mp4")
       ),
       replySelection = RandomSelection
     ),
