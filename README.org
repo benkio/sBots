@@ -68,6 +68,7 @@
    - Run the java with `java -cp main.jar com.benkio.main.MainWebhook`
 
 **** Method 2
+#+begin_src bash
   sbt main/assebly
   cd main
   docker build .
@@ -75,6 +76,7 @@
   heroku container:login
   heroku container:push web
   heroku container:release web
+#+end_src
 
 *** Next Development Ideas
 **** Richard Philip Henry John Benson Bot
