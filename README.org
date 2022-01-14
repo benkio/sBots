@@ -10,6 +10,11 @@
 
     Download the Data. Ask benkio: [[https://benkio.github.io][benkio.github.io]]
 
+**** Software
+    - [[https://git-scm.com/][git]]
+    - [[https://www.scala-sbt.org/][sbt - Scala Build Tool]]
+    - [[https://www.scala-lang.org/][scala]]
+
 *** Installation
 
 **** Clone the Repository
@@ -20,9 +25,9 @@
 
 **** Move the Data into Resources Directory
 
-     Earch bot contains a ~resources~ folder. You need to uncompress
-     the data and put the files in each of the bot's resource
-     folders. Put particular attention to the ~.token~ file
+     Earch bot contains a ~resources~ folder. You need to
+     uncompress/move the data and put the files in each of the bot's
+     resource folders. Put particular attention to the ~.token~ file
      contanining the telegram key specific to each bot.
 
 **** Compile and Test
@@ -33,12 +38,14 @@
 #+begin_src bash
   sbt compile
   sbt test:compile
+  sbt fix
   sbt test
 #+end_src
 
 *** Run the Bots
 
-    To run the bot locally just run, long polling
+    To run the bot locally just run, long polling. Under windows use
+    the git bash terminal.
 
 #+begin_src bash
   ./lunch.sh # I know it's lunch not launch :)
