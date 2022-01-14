@@ -51,9 +51,9 @@
   ./lunch.sh # I know it's lunch not launch :)
 #+end_src
 
-*** TODO Deploy on Heroku
+*** Deploy on Heroku (Not working yet)
 
-**** TODO Method 1
+**** Method 1
    - Check `application.conf`
    - Create a fat jar
 
@@ -67,7 +67,7 @@
    - Download the jar with curl
    - Run the java with `java -cp main.jar com.benkio.main.MainWebhook`
 
-**** TODO Method 2
+**** Method 2
   sbt main/assebly
   cd main
   docker build .
@@ -75,3 +75,9 @@
   heroku container:login
   heroku container:push web
   heroku container:release web
+
+*** Next Development Ideas
+**** Richard Philip Henry John Benson Bot
+    - Add all the videos from https://t.me/ilsimposioinfernale
+    - Add a command for Random youtube link: eg. from the channel Brigate Benson
+    - Add a schedule that shares a random youtube show every friday at 22 CET
