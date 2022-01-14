@@ -54,7 +54,7 @@
 *** Deploy on Heroku (Not working yet)
 
 **** Method 1
-   - Check `application.conf`
+   - Check ~application.conf~
    - Create a fat jar
 
    #+begin_src bash
@@ -63,9 +63,9 @@
 
    - Be sure is <500MB (heroku free tier)
    - Upload it to [[http://transfer.sh/][transfer.sh]]
-   - Enter heroku dyno with `heroku run bash`
+   - Enter heroku dyno with ~heroku run bash~
    - Download the jar with curl
-   - Run the java with `java -cp main.jar com.benkio.main.MainWebhook`
+   - Run the java with ~java -cp main.jar com.benkio.main.MainWebhook~
 
 **** Method 2
 #+begin_src bash
