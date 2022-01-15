@@ -1489,7 +1489,8 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_DanzaMacabra.gif"),
         MediaFile("rphjb_DanzaMacabra.mp4")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -1576,7 +1577,8 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_Bacio.gif"),
         MediaFile("rphjb_DanzaMacabra.mp4")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(

@@ -33,28 +33,28 @@ object Settings {
   lazy val CalandroBotSettings = Seq(
     name                     := "CalandroBot",
     libraryDependencies      := CalandroBotDependencies,
-    mainClass                := Some("com.benkio.calandrobot.CalandroBotMain"),
+    mainClass                := Some("com.benkio.calandrobot.CalandroBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
   lazy val ABarberoBotSettings = Seq(
     name                     := "ABarberoBot",
     libraryDependencies      := ABarberoBotDependencies,
-    mainClass                := Some("com.benkio.abarberobot.ABarberoBotMain"),
+    mainClass                := Some("com.benkio.abarberobot.ABarberoBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
   lazy val RichardPHJBensonBotSettings = Seq(
     name                     := "RichardPHJBensonBot",
     libraryDependencies      := RichardPHJBensonBotDependencies,
-    mainClass                := Some("com.benkio.richardphjbensonbot.RichardPHJBensonBotMain"),
+    mainClass                := Some("com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
   lazy val XahBotSettings = Seq(
     name                     := "XahBot",
     libraryDependencies      := XahBotDependencies,
-    mainClass                := Some("com.benkio.xahbot.XahBotMain"),
+    mainClass                := Some("com.benkio.xahbot.XahBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
