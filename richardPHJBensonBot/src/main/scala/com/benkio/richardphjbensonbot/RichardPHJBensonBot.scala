@@ -1115,14 +1115,6 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("non sai molto")
-      ),
-      List(
-        MediaFile("rphjb_NonSaiMolto.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("divert")
       ),
       List(
@@ -1651,14 +1643,6 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("errori")
-      ),
-      List(
-        MediaFile("rphjb_MaiErrori.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("quattro"),
         StringTextTriggerValue("faccio in tempo")
       ),
@@ -1969,8 +1953,7 @@ object RichardPHJBensonBot extends Configurations {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("percussionista"),
-        StringTextTriggerValue("batterista"),
-        StringTextTriggerValue("le sigarette")
+        StringTextTriggerValue("batterista")
       ),
       List(
         MediaFile("rphjb_CollaSerpeSigarettePercussionista.mp4")
@@ -2134,7 +2117,9 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_PoesiaMadre.mp4"),
         MediaFile("rphjb_PoesiaRock.mp4"),
         MediaFile("rphjb_Blues.mp4"),
-        MediaFile("rphjb_PoesiaMaria.mp4")
+        MediaFile("rphjb_PoesiaMaria.mp4"),
+        MediaFile("rphjb_PoesiaArtistiImpiegati.mp4"),
+        MediaFile("rphjb_CanzonettePoesieAuschwitzCervello.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2183,6 +2168,16 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_PetrucciCapelliCorti.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("impiegat[oi]".r),
+      ),
+      List(
+        MediaFile("rphjb_PetrucciCapelliCorti.mp4"),
+        MediaFile("rphjb_PoesiaArtistiImpiegati.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -2247,6 +2242,46 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_DanzaMacabra.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mettetevi in ginocchio"),
+        StringTextTriggerValue("nuovo messia")
+      ),
+      List(
+        MediaFile("rphjb_MetteteviInGinocchio.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("sigarett[ea]".r)
+      ),
+      List(
+        MediaFile("rphjb_Sigarette.mp4"),
+        MediaFile("rphjb_CollaSerpeSigarettePercussionista.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("orecchie sensibili"),
+        StringTextTriggerValue("rumore delle lacrime")
+      ),
+      List(
+        MediaFile("rphjb_OrecchieSensibiliRumoreLacrime.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sapere tutto"),
+        StringTextTriggerValue("se non le sai le cose"),
+        StringTextTriggerValue("jordan rudess"),
+        StringTextTriggerValue("radio rock"),
+        StringTextTriggerValue("informazioni sbagliate")
+      ),
+      List(
+        MediaFile("rphjb_RadioRockErrori.mp4")
       )
     )
   )
@@ -3238,6 +3273,26 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_CapitoDoveStiamo.mp3"),
         MediaFile("rphjb_StiamoNellaFollia.mp4"),
         MediaFile("rphjb_CapitoDoveStiamo.gif")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non sai molto")
+      ),
+      List(
+        MediaFile("rphjb_NonSaiMolto.gif"),
+        MediaFile("rphjb_RadioRockErrori.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("errori")
+      ),
+      List(
+        MediaFile("rphjb_MaiErrori.gif"),
+        MediaFile("rphjb_MaiErrori.mp4")
       ),
       replySelection = RandomSelection
     )
