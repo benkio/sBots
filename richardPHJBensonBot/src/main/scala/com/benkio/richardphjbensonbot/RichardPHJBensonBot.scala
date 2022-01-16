@@ -2283,6 +2283,31 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_RadioRockErrori.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("uccidere")
+      ),
+      List(
+        MediaFile("rphjb_UccidereUnaPersona.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("distruggere il proprio sesso"),
+        StringTextTriggerValue("ammaestrare il dolore")
+      ),
+      List(
+        MediaFile("rphjb_AmmaestrareIlDolore.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("insegnante di [cg]hi[dt]arra".r)
+      ),
+      List(
+        MediaFile("rphjb_InsegnanteDiChitarraModerna.mp4")
+      )
     )
   )
 
@@ -2325,7 +2350,8 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_PoesiaRock.mp4"),
         MediaFile("rphjb_Rock.mp3"),
-        MediaFile("rphjb_EricClaptonDrogaUominiAffari.mp4")
+        MediaFile("rphjb_EricClaptonDrogaUominiAffari.mp4"),
+        MediaFile("rphjb_Rock.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2527,7 +2553,8 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_Micetta.gif"),
         MediaFile("rphjb_LaMorteMicetta.mp4"),
-        MediaFile("rphjb_LaMorte.mp4")
+        MediaFile("rphjb_LaMorte.mp4"),
+        MediaFile("rphjb_InnoAllaMorte.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -2540,6 +2567,7 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_FaccioVedereSpalleBraccia.gif"),
         MediaFile("rphjb_FaccioVedereSpalleBraccia.mp4"),
+        MediaFile("rphjb_UccidereUnaPersona.mp4"),
       ),
       replySelection = RandomSelection
     ),
@@ -3086,6 +3114,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_AveteCapito.mp4"),
         MediaFile("rphjb_Capito.mp3"),
         MediaFile("rphjb_NonHannoCapitoUnCazzo.mp3"),
+        MediaFile("rphjb_NonAveteCapitoUnCazzo.mp4"),
         MediaFile("rphjb_AveteCapitoComeSempre.gif"),
         MediaFile("rphjb_NonAveteCapitoUnCazzo.gif"),
         MediaFile("rphjb_VoiNonAveteCapitoUnCazzo.gif"),
