@@ -311,16 +311,6 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("vaniglia"),
-        StringTextTriggerValue("pandoro"),
-        RegexTextTriggerValue("crema alla [gc]io[gc]+ola[dt]a".r),
-      ),
-      List(
-        MediaFile("rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("saranno cazzi vostri")
       ),
       List(
@@ -418,14 +408,6 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Battesimo.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bpasqua\\b".r)
-      ),
-      List(
-        MediaFile("rphjb_AuguriPasqua.mp3")
       )
     ),
     ReplyBundleMessage(
@@ -2308,6 +2290,16 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_InsegnanteDiChitarraModerna.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("pellegrinaggio"),
+        StringTextTriggerValue("simposio del metallo"),
+        StringTextTriggerValue("istinti musicali"),
+      ),
+      List(
+        MediaFile("rphjb_PellegrinaggioSimposioMetallo.mp4")
+      )
     )
   )
 
@@ -2688,6 +2680,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_CheCazzoEraQuellaRoba.mp3"),
         MediaFile("rphjb_CheCazzoEraQuellaRoba.mp4"),
         MediaFile("rphjb_CheCazzoEraQuellaRoba2.mp4"),
+        MediaFile("rphjb_CheCazzoEraQuellaRoba3.mp4"),
         MediaFile("rphjb_RockMachineIntro.mp4"),
       ),
       replySelection = RandomSelection
@@ -2739,6 +2732,7 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_ChitarraZuccherada.mp4"),
         MediaFile("rphjb_Zucchero.mp3"),
         MediaFile("rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3"),
+        MediaFile("rphjb_AuguriPerPasqua.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -3322,6 +3316,28 @@ object RichardPHJBensonBot extends Configurations {
       List(
         MediaFile("rphjb_MaiErrori.gif"),
         MediaFile("rphjb_MaiErrori.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bpasqua\\b".r)
+      ),
+      List(
+        MediaFile("rphjb_AuguriPasqua.mp3"),
+        MediaFile("rphjb_AuguriPerPasqua.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("vaniglia"),
+        StringTextTriggerValue("pandoro"),
+        RegexTextTriggerValue("crema alla [gc]io[gc]+ola[dt]a".r),
+      ),
+      List(
+        MediaFile("rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3"),
+        MediaFile("rphjb_AuguriPerPasqua.mp4")
       ),
       replySelection = RandomSelection
     )
