@@ -102,10 +102,10 @@ trait XahBot extends BotSkeleton {
     ResourceSource
       .selectResourceAccess(XahBot.resourceSource)
       .getResourcesByKind[F](directory)
-      .use[ReplyBundleCommand](mediaFile =>
+      .use[ReplyBundleCommand](files =>
         ReplyBundleCommand(
           CommandTrigger(command),
-          mediaFile,
+          files.map(f => MediaFile(f.getPath)),
           replySelection = RandomSelection
         ).pure[F]
       )

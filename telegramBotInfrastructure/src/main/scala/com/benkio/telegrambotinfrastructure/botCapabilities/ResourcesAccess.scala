@@ -33,7 +33,7 @@ object ResourceSource {
 
 trait ResourceAccess {
   def getResourceByteArray[F[_]: Async](resourceName: String): Resource[F, Array[Byte]]
-  def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[MediaFile]]
+  def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[File]]
   def getResourceFile[F[_]: Async](mediaFile: MediaFile): Resource[F, File] = {
     for {
       fileContent <- getResourceByteArray(mediaFile.filepath)
@@ -69,7 +69,7 @@ object ResourceAccess {
     def buildPath(subResourceFilePath: String): Path =
       Paths.get(Paths.get("").toAbsolutePath().toString(), "src", "main", "resources", subResourceFilePath)
 
-    def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[MediaFile]] = {
+    def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[File]] = {
       val jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())
       val result: ArrayBuffer[String] = new ArrayBuffer();
 
@@ -87,7 +87,7 @@ object ResourceAccess {
       }
 
       Resource
-        .pure[F, List[MediaFile]](
+        .pure[F, List[File]](
           if (result.size == 0)
             Files
               .walk(buildPath(criteria))
@@ -95,8 +95,8 @@ object ResourceAccess {
               .asScala
               .toList
               .tail
-              .map((fl: Path) => MediaFile(buildPath(criteria).toString + "/" + fl.getFileName.toString))
-          else result.toList.map(s => MediaFile(s))
+              .map((fl: Path) => new File(buildPath(criteria).toString + "/" + fl.getFileName.toString))
+          else result.toList.map(s => new File(s))
         )
     }
   }
@@ -129,8 +129,8 @@ object ResourceAccess {
       withConnection(compute)
     }
 
-    def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[MediaFile]] = {
-      val compute: Connection => F[List[MediaFile]] = conn => {
+    def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[File]] = {
+      val compute: Connection => F[List[File]] = conn => {
         val query: String               = "SELECT file_name FROM Mediafile WHERE file_type LIKE '" + criteria + "'"
         val result: ArrayBuffer[String] = ArrayBuffer.empty[String]
         Async[F]
@@ -145,7 +145,7 @@ object ResourceAccess {
                   )(
                     _ == true
                   )
-                  .map(_ => result.toList.map(n => MediaFile(n)))
+                  .map(_ => result.toList.map(n => new File(n)))
               )
           )
       }
@@ -183,13 +183,13 @@ object ResourceAccess {
             )
         )(_ => Array.empty)
 
-    def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[MediaFile]] =
+    def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[File]] =
       Resource
         .catsEffectMonadErrorForResource(MonadThrow[F])
-        .handleError[List[MediaFile]](
+        .handleError[List[File]](
           Resource
             .catsEffectMonadErrorForResource(MonadThrow[F])
-            .handleErrorWith[List[MediaFile]](fileSystem.getResourcesByKind(criteria))(_ =>
+            .handleErrorWith[List[File]](fileSystem.getResourcesByKind(criteria))(_ =>
               database(dbName).getResourcesByKind(criteria)
             )
         )(_ => List.empty)

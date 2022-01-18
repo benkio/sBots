@@ -31,10 +31,10 @@ trait CalandroBot extends BotSkeleton {
     ResourceSource
       .selectResourceAccess(All("calandro.db"))
       .getResourcesByKind("cards")
-      .use[ReplyBundleCommand](mediaFile =>
+      .use[ReplyBundleCommand](files =>
         ReplyBundleCommand(
           CommandTrigger("randomcard"),
-          mediaFile,
+          files.map(f => MediaFile(f.getPath)),
           replySelection = RandomSelection
         ).pure[F]
       )
