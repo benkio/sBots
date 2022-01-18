@@ -12,6 +12,10 @@ object Settings {
     scalaVersion      := "2.13.8",
     publishMavenStyle := true,
     semanticdbEnabled := true,
+    semanticdbCompilerPlugin := {
+    ("org.scalameta" % "semanticdb-scalac" % "4.4.32")
+      .cross(CrossVersion.full)
+    },
     fork              := true,
     run / javaOptions += "-Xmx256m",
     Test / publishArtifact := false
