@@ -29,7 +29,7 @@ trait CalandroBot extends BotSkeleton {
 
   private def randomCardReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
     ResourceSource
-      .selectResourceAccess(All("calandro.db"))
+      .selectResourceAccess(resourceSource)
       .getResourcesByKind("cards")
       .use[ReplyBundleCommand](files =>
         ReplyBundleCommand(

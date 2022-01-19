@@ -4,6 +4,7 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
+import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
 import com.benkio.telegrambotinfrastructure._
@@ -27,7 +28,20 @@ trait RichardPHJBensonBot extends BotSkeleton {
     RichardPHJBensonBot.messageRepliesData.pure[F]
 
   override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] =
-    RichardPHJBensonBot.commandRepliesData.pure[F]
+    randomYoutubeLinkReplyBundleF.map(rc => rc :: RichardPHJBensonBot.commandRepliesData)
+
+  private def randomYoutubeLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
+    RandomYoutubeLinkCommand
+      .selectRandomYoutubeLinks[F](
+        ResourceSource.selectResourceAccess(resourceSource)
+      )
+      .use[ReplyBundleCommand](messages =>
+        ReplyBundleCommand(
+          trigger = CommandTrigger("randomshow"),
+          text = TextReply(_ => messages.map(List(_)), true),
+          replySelection = RandomSelection,
+        ).pure[F]
+      )
 }
 
 object RichardPHJBensonBot extends Configurations {
