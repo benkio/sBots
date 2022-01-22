@@ -32,7 +32,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
       trigger = TextTrigger(
         StringTextTriggerValue("test")
       ),
-      text = TextReply(_ => List(List("some text that will be overwritten by the implicit"))),
+      text = TextReply(_ => List("some text that will be overwritten by the implicit")),
       mediafiles = inputMediafile
     )
 

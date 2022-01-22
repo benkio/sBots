@@ -3351,15 +3351,16 @@ object RichardPHJBensonBot extends Configurations {
       .sorted(ReplyBundle.ordering)
       .reverse
 
-  val messageReplyDataStringChunks = {
+  val messageReplyDataStringChunks: List[String] = {
     val (triggers, lastTriggers) = messageRepliesData
       .map(_.trigger match {
         case TextTrigger(lt @ _*) => lt.mkString("[", " - ", "]")
         case _                    => ""
       })
-      .foldLeft((List.empty[List[String]], List.empty[String])) { case ((acc, candidate), triggerString) =>
-        if ((candidate :+ triggerString).mkString("\n").length > 4090) (acc :+ candidate, List(triggerString))
-        else (acc, candidate :+ triggerString)
+      .foldLeft((List.empty[String], "")) { case ((acc, candidate), triggerString) =>
+        if ((candidate ++ triggerString).length > 4090)
+          (acc :+ candidate, triggerString)
+        else (acc, candidate ++ triggerString)
       }
     triggers :+ lastTriggers
   }
@@ -3380,16 +3381,16 @@ object RichardPHJBensonBot extends Configurations {
             .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
             .map(t => {
               val (_, inputTrimmed) = t.span(_ != ' ')
-              List(List(Bensonify.compute(inputTrimmed)))
+              List(Bensonify.compute(inputTrimmed))
             })
-            .getOrElse(List(List("E PARLAAAAAAA!!!!"))),
+            .getOrElse(List("E PARLAAAAAAA!!!!")),
         true
       )
     ),
     ReplyBundleCommand(
       trigger = CommandTrigger("instructions"),
       text = TextReply(
-        _ => List(List(s"""
+        _ => List(s"""
 ---- Instruzioni Per il Bot di Benson ----
 
 Il bot reagisce automaticamente ai messaggi in base ai trigger che si
@@ -3413,7 +3414,7 @@ in una volta, è possibile farlo iniziando il messaggio con il
 carattere '!':
 
 ! «Messaggio»
-""")),
+"""),
         false
       )
     )

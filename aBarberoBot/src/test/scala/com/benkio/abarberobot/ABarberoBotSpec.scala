@@ -45,9 +45,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
             case _                    => List.empty[String]
           }
         )
-        .forall((s: String) =>
-          ABarberoBot.commandRepliesData.flatMap(_.text.text(null)).flatten.mkString("\n").contains(s)
-        )
+        .forall((s: String) => ABarberoBot.commandRepliesData.flatMap(_.text.text(null)).mkString("\n").contains(s))
     )
   }
 }

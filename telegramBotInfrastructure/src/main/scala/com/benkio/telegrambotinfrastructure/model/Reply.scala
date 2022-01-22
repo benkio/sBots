@@ -7,7 +7,7 @@ sealed trait Reply {
 }
 
 final case class TextReply(
-    text: Message => List[List[String]],
+    text: Message => List[String],
     replyToMessage: Boolean = false
 ) extends Reply
 

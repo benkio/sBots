@@ -57,13 +57,7 @@ object CalandroBot extends Configurations {
       TextTrigger(
         StringTextTriggerValue("sbrighi")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("Passo")
-          ),
-        false
-      )
+      text = TextReply(_ => List("Passo"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -72,26 +66,14 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue("culattone"),
         StringTextTriggerValue("ricchione")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("CHE SCHIFO!!!")
-          ),
-        false
-      )
+      text = TextReply(_ => List("CHE SCHIFO!!!"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("caldo"),
         StringTextTriggerValue("scotta")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("Come i carbofreni della Brembo!!")
-          ),
-        false
-      )
+      text = TextReply(_ => List("Come i carbofreni della Brembo!!"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -99,38 +81,20 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue("buongiorno"),
         StringTextTriggerValue("salve")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("Buongiorno Signori")
-          ),
-        false
-      )
+      text = TextReply(_ => List("Buongiorno Signori"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("film")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("Lo riguardo volentieri")
-          ),
-        false
-      )
+      text = TextReply(_ => List("Lo riguardo volentieri"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("stasera"),
         StringTextTriggerValue("?")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("Facciamo qualcosa tutti assieme?")
-          ),
-        false
-      ),
+      text = TextReply(_ => List("Facciamo qualcosa tutti assieme?"), false),
       matcher = ContainsAll
     ),
     ReplyBundleMessage(
@@ -140,38 +104,20 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue("nitidezza"),
         StringTextTriggerValue("alta definizione")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("Eh sì, vedi...si nota l'indecisione dell'immagine")
-          ),
-        false
-      )
+      text = TextReply(_ => List("Eh sì, vedi...si nota l'indecisione dell'immagine"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("qualità")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("A 48x masterizza meglio")
-          ),
-        false
-      )
+      text = TextReply(_ => List("A 48x masterizza meglio"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("macchina"),
         StringTextTriggerValue("automobile")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("Hai visto l'ultima puntata di \"Top Gear\"?")
-          ),
-        false
-      )
+      text = TextReply(_ => List("Hai visto l'ultima puntata di \"Top Gear\"?"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -180,13 +126,7 @@ object CalandroBot extends Configurations {
         RegexTextTriggerValue("( )?gnocca( )?".r),
         RegexTextTriggerValue(" patacca ".r)
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("Io so come fare con le donne...ho letto tutto...")
-          ),
-        false
-      )
+      text = TextReply(_ => List("Io so come fare con le donne...ho letto tutto..."), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -196,14 +136,12 @@ object CalandroBot extends Configurations {
       text = TextReply(
         _ =>
           List(
-            List(
-              Emoji(0x1f624).toString      // 😤
-                ++ Emoji(0x1f918).toString // 🤘
-                ++ Emoji(0x1f91e).toString // 🤞
-                ++ Emoji(0x1f91e).toString // 🤞
-                ++ Emoji(0x1f918).toString // 🤘
-                ++ Emoji(0x1f624).toString // 😤
-            )
+            Emoji(0x1f624).toString      // 😤
+              ++ Emoji(0x1f918).toString // 🤘
+              ++ Emoji(0x1f91e).toString // 🤞
+              ++ Emoji(0x1f91e).toString // 🤞
+              ++ Emoji(0x1f918).toString // 🤘
+              ++ Emoji(0x1f624).toString // 😤
           ),
         false
       )
@@ -213,13 +151,7 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue("pc"),
         StringTextTriggerValue("computer")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("Il fisso performa meglio rispetto al portatile!!!")
-          ),
-        false
-      )
+      text = TextReply(_ => List("Il fisso performa meglio rispetto al portatile!!!"), false)
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -227,10 +159,7 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue(e":video_game:")
       ),
       text = TextReply(
-        _ =>
-          List(
-            List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!")
-          ),
+        _ => List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
         false
       )
     ),
@@ -239,21 +168,12 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue(" hs"),
         StringTextTriggerValue("hearthstone")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            List("BASTA CON QUESTI TAUNT!!!")
-          ),
-        false
-      )
+      text = TextReply(_ => List("BASTA CON QUESTI TAUNT!!!"), false)
     ),
     ReplyBundleMessage(
       MessageLengthTrigger(280),
       text = TextReply(
-        (msg: Message) =>
-          List(
-            List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)""")
-          ),
+        (msg: Message) => List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)"""),
         true
       )
     )
