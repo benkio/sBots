@@ -32,14 +32,13 @@ trait RichardPHJBensonBot extends BotSkeleton {
 
   private def randomYoutubeLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
     RandomYoutubeLinkCommand
-      .selectRandomYoutubeLinks[F](
+      .selectRandomYoutubeLink[F](
         ResourceSource.selectResourceAccess(resourceSource)
       )
-      .use[ReplyBundleCommand](messages =>
+      .use[ReplyBundleCommand](message =>
         ReplyBundleCommand(
           trigger = CommandTrigger("randomshow"),
-          text = TextReply(_ => messages.map(List(_)), true),
-          replySelection = RandomSelection,
+          text = TextReply(_ => List(message), true),
         ).pure[F]
       )
 }
