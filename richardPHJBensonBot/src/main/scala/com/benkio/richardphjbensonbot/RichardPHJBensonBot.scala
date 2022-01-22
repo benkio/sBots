@@ -1063,16 +1063,6 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("timore"),
-        StringTextTriggerValue("paura"),
-        RegexTextTriggerValue("diri[g]+en[dt]i".r),
-      ),
-      List(
-        MediaFile("rphjb_Dirigenti.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("cosa è successo")
       ),
       List(
@@ -2943,6 +2933,7 @@ object RichardPHJBensonBot extends Configurations {
       ),
       List(
         MediaFile("rphjb_Risata.mp3"),
+        MediaFile("rphjb_Risata.mp4"),
         MediaFile("rphjb_Risata.gif"),
         MediaFile("rphjb_OrmaiRisata.mp4"),
         MediaFile("rphjb_Sorriso2.gif"),
@@ -3340,7 +3331,19 @@ object RichardPHJBensonBot extends Configurations {
         MediaFile("rphjb_AuguriPerPasqua.mp4")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("timore"),
+        StringTextTriggerValue("paura"),
+        RegexTextTriggerValue("diri[g]+en[dt]i".r),
+      ),
+      List(
+        MediaFile("rphjb_Dirigenti.gif"),
+        MediaFile("rphjb_AncoraNoDirigenti.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
   val messageRepliesData: List[ReplyBundleMessage] =
