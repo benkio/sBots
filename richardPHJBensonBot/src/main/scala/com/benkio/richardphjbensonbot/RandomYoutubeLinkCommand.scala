@@ -13,9 +13,10 @@ object RandomYoutubeLinkCommand {
   lazy val random                = new Random()
 
   def selectRandomYoutubeLink[F[_]: Async](resourceAccess: ResourceAccess): Resource[F, String] = for {
-    sourceFiles         <- resourceAccess.getResourcesByKind[F](youtubeLinkSources)
-    sourceSelectedIndex <- Resource.eval(Async[F].delay(random.between(0, sourceFiles.length)))
-    youtubeLinkReplies = Source.fromFile(sourceFiles(sourceSelectedIndex)).getLines().toList
+    sourceFiles            <- resourceAccess.getResourcesByKind[F](youtubeLinkSources)
+    sourceSelectedIndex    <- Resource.eval(Async[F].delay(random.between(0, sourceFiles.length)))
+    sourceSelectedRawBytes <- resourceAccess.getResourceByteArray(sourceFiles(sourceSelectedIndex).getPath)
+    youtubeLinkReplies = Source.fromRawBytes(sourceSelectedRawBytes).getLines().toList
     lineSelectedIndex <- Resource.eval(Async[F].delay(random.between(0, youtubeLinkReplies.length)))
   } yield youtubeLinkReplies(lineSelectedIndex)
 }
