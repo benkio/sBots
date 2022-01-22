@@ -33,7 +33,8 @@ trait RichardPHJBensonBot extends BotSkeleton {
   private def randomYoutubeLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
     RandomYoutubeLinkCommand
       .selectRandomYoutubeLink[F](
-        ResourceSource.selectResourceAccess(resourceSource)
+        ResourceSource.selectResourceAccess(resourceSource),
+        "rphjb_YoutubeLinkSources"
       )
       .use[ReplyBundleCommand](message =>
         ReplyBundleCommand(
