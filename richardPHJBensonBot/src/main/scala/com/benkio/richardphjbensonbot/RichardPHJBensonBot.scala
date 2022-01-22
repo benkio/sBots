@@ -2752,9 +2752,9 @@ object RichardPHJBensonBot extends Configurations {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("good"),
-        StringTextTriggerValue("show"),
-        StringTextTriggerValue("friends")
+        RegexTextTriggerValue("\\bgood\\b".r),
+        RegexTextTriggerValue("\\bshow\\b".r),
+        RegexTextTriggerValue("\\bfriends\\b".r)
       ),
       List(
         MediaFile("rphjb_OkGoodShowFriends.gif"),
