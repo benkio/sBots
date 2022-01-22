@@ -61,7 +61,6 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
           RichardPHJBensonBot.commandRepliesData
             .filter(_.trigger.command != "bensonify")
             .flatMap(_.text.text(null))
-            .flatten
             .mkString("\n")
             .contains(s)
         )

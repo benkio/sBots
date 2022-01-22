@@ -103,7 +103,7 @@ trait DefaultActions {
                   Methods
                     .sendMessage(
                       chatId,
-                      m.fold("")(_ + "\n" + _),
+                      m,
                       replyToMessageId = replyToMessage
                     )
                     .exec

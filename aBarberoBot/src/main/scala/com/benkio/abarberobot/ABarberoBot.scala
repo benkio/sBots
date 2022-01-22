@@ -750,15 +750,17 @@ object ABarberoBot extends Configurations {
   val messageRepliesData: List[ReplyBundleMessage] =
     (messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesSpecialData).sorted(ReplyBundle.ordering).reverse
 
-  val messageReplyDataStringChunks: List[List[String]] = {
+  val messageReplyDataStringChunks: List[String] = {
     val (triggers, lastTriggers) = messageRepliesData
       .map(_.trigger match {
         case TextTrigger(lt @ _*) => lt.mkString("[", " - ", "]")
         case _                    => ""
       })
-      .foldLeft((List.empty[List[String]], List.empty[String])) { case ((acc, candidate), triggerString) =>
-        if ((candidate :+ triggerString).mkString("\n").length > 4090) (acc :+ candidate, List(triggerString))
-        else (acc, candidate :+ triggerString)
+      .foldLeft((List.empty[String], "")) { case ((acc, candidate), triggerString) =>
+        if ((candidate ++ triggerString).length > 4090)
+          (acc :+ candidate, triggerString)
+        else
+          (acc, candidate ++ triggerString)
       }
     triggers :+ lastTriggers
   }
