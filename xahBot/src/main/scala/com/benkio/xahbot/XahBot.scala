@@ -95,29 +95,29 @@ trait XahBot extends BotSkeleton {
       "Extra"
     ),
     randomLinkReplyBundleF
-  ).sequence[F, ReplyBundleCommand]
+  ).sequence[F, ReplyBundleCommand[F]]
 
   override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] = List.empty.pure[F]
 
-  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
+  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
     RandomLinkCommand
       .selectRandomLink[F](
         ResourceSource.selectResourceAccess(XahBot.resourceSource),
         "xah_LinkSources"
       )
-      .use[ReplyBundleCommand](message =>
+      .use[ReplyBundleCommand[F]](message =>
         ReplyBundleCommand(
           trigger = CommandTrigger("randomshow"),
-          text = TextReply(_ => List(message), true),
+          text = Some(TextReply[F](_ => Applicative[F].pure(List(message)), true)),
         ).pure[F]
       )
 
-  def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand] =
+  def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand[F]] =
     ResourceSource
       .selectResourceAccess(XahBot.resourceSource)
       .getResourcesByKind[F](directory)
-      .use[ReplyBundleCommand](files =>
-        ReplyBundleCommand(
+      .use[ReplyBundleCommand[F]](files =>
+        ReplyBundleCommand[F](
           CommandTrigger(command),
           files.map(f => MediaFile(f.getPath)),
           replySelection = RandomSelection
