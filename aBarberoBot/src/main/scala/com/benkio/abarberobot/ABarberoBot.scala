@@ -24,7 +24,22 @@ trait ABarberoBot extends BotSkeleton {
   override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] =
     ABarberoBot.messageRepliesData.pure[F]
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] = ABarberoBot.commandRepliesData.pure[F]
+  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] =
+    randomLinkReplyBundleF.map(rc => rc :: ABarberoBot.commandRepliesData)
+
+  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
+    RandomLinkCommand
+      .selectRandomLink[F](
+        ResourceSource.selectResourceAccess(resourceSource),
+        "abar_LinkSources"
+      )
+      .use[ReplyBundleCommand](message =>
+        ReplyBundleCommand(
+          trigger = CommandTrigger("randomshow"),
+          text = TextReply(_ => List(message), true),
+        ).pure[F]
+      )
+
 }
 
 object ABarberoBot extends Configurations {
