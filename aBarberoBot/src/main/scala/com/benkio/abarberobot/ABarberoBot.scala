@@ -21,10 +21,10 @@ trait ABarberoBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = ABarberoBot.resourceSource
 
-  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] =
+  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
     ABarberoBot.messageRepliesData.pure[F]
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] =
+  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
     randomLinkReplyBundleF.map(rc => rc :: ABarberoBot.commandRepliesData)
 
   private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =

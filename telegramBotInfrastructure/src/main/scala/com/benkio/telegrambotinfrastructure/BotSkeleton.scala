@@ -48,8 +48,8 @@ trait BotSkeleton extends DefaultActions {
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] = List.empty[ReplyBundleMessage].pure[F]
-  def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]]       = List.empty[ReplyBundleCommand].pure[F]
+  def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] = List.empty[ReplyBundleMessage[F]].pure[F]
+  def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]]       = List.empty[ReplyBundleCommand[F]].pure[F]
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 

@@ -21,7 +21,7 @@ trait XahBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = XahBot.resourceSource
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] = List(
+  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] = List(
     buildRandomReplyBundleCommand(
       "ass",
       "Ass",
@@ -97,7 +97,7 @@ trait XahBot extends BotSkeleton {
     randomLinkReplyBundleF
   ).sequence[F, ReplyBundleCommand]
 
-  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] = List.empty.pure[F]
+  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] = List.empty.pure[F]
 
   private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
     RandomLinkCommand

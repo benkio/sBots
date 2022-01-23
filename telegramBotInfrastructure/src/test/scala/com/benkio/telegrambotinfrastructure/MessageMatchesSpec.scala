@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure
 
 import com.benkio.telegrambotinfrastructure.model._
+import cats.effect.IO
 import munit.FunSuite
 
 class MessageMatchesSpec extends FunSuite {
@@ -13,7 +14,7 @@ class MessageMatchesSpec extends FunSuite {
     GifFile("a.gif")
   )
 
-  val replyBundleInput: ReplyBundleMessage = ReplyBundleMessage(
+  val replyBundleInput: ReplyBundleMessage[IO] = ReplyBundleMessage[IO](
     trigger = TextTrigger(
       StringTextTriggerValue("test")
     ),

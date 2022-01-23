@@ -27,24 +27,24 @@ trait CalandroBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = CalandroBot.resourceSource
 
-  private def randomCardReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
+  private def randomCardReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
     ResourceSource
       .selectResourceAccess(resourceSource)
       .getResourcesByKind("cards")
-      .use[ReplyBundleCommand](files =>
-        ReplyBundleCommand(
+      .use[ReplyBundleCommand[F]](files =>
+        ReplyBundleCommand[F](
           CommandTrigger("randomcard"),
           files.map(f => MediaFile(f.getPath)),
           replySelection = RandomSelection
         ).pure[F]
       )
 
-  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] =
-    CalandroBot.messageRepliesData.pure[F]
+  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
+    CalandroBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] =
+  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
     randomCardReplyBundleF[F].map(
-      CalandroBot.commandRepliesData :+ _
+      CalandroBot.commandRepliesData[F] :+ _
     )
 }
 
@@ -52,12 +52,12 @@ object CalandroBot extends Configurations {
 
   val resourceSource: ResourceSource = All("calandro.db")
 
-  val messageRepliesData: List[ReplyBundleMessage] = List(
+  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("sbrighi")
       ),
-      text = TextReply(_ => List("Passo"), false)
+      text = Some(TextReply[F](_ => Applicative[F].pure(List("Passo")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -66,14 +66,14 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue("culattone"),
         StringTextTriggerValue("ricchione")
       ),
-      text = TextReply(_ => List("CHE SCHIFO!!!"), false)
+      text = Some(TextReply[F](_ => Applicative[F].pure(List("CHE SCHIFO!!!")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("caldo"),
         StringTextTriggerValue("scotta")
       ),
-      text = TextReply(_ => List("Come i carbofreni della Brembo!!"), false)
+      text = Some(TextReply[F](_ => Applicative[F].pure(List("Come i carbofreni della Brembo!!")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -81,20 +81,20 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue("buongiorno"),
         StringTextTriggerValue("salve")
       ),
-      text = TextReply(_ => List("Buongiorno Signori"), false)
+      text = Some(TextReply[F](_ => Applicative[F].pure(List("Buongiorno Signori")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("film")
       ),
-      text = TextReply(_ => List("Lo riguardo volentieri"), false)
+      text = Some(TextReply[F](_ => Applicative[F].pure(List("Lo riguardo volentieri")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("stasera"),
         StringTextTriggerValue("?")
       ),
-      text = TextReply(_ => List("Facciamo qualcosa tutti assieme?"), false),
+      text = Some(TextReply[F](_ => Applicative[F].pure(List("Facciamo qualcosa tutti assieme?")), false)),
       matcher = ContainsAll
     ),
     ReplyBundleMessage(
@@ -104,20 +104,21 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue("nitidezza"),
         StringTextTriggerValue("alta definizione")
       ),
-      text = TextReply(_ => List("Eh sì, vedi...si nota l'indecisione dell'immagine"), false)
+      text =
+        Some(TextReply[F](_ => Applicative[F].pure(List("Eh sì, vedi...si nota l'indecisione dell'immagine")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("qualità")
       ),
-      text = TextReply(_ => List("A 48x masterizza meglio"), false)
+      text = Some(TextReply[F](_ => Applicative[F].pure(List("A 48x masterizza meglio")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("macchina"),
         StringTextTriggerValue("automobile")
       ),
-      text = TextReply(_ => List("Hai visto l'ultima puntata di \"Top Gear\"?"), false)
+      text = Some(TextReply[F](_ => Applicative[F].pure(List("Hai visto l'ultima puntata di \"Top Gear\"?")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -126,24 +127,29 @@ object CalandroBot extends Configurations {
         RegexTextTriggerValue("( )?gnocca( )?".r),
         RegexTextTriggerValue(" patacca ".r)
       ),
-      text = TextReply(_ => List("Io so come fare con le donne...ho letto tutto..."), false)
+      text =
+        Some(TextReply[F](_ => Applicative[F].pure(List("Io so come fare con le donne...ho letto tutto...")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ambulanza"),
         StringTextTriggerValue(e":ambulance:")
       ),
-      text = TextReply(
-        _ =>
-          List(
-            Emoji(0x1f624).toString      // 😤
-              ++ Emoji(0x1f918).toString // 🤘
-              ++ Emoji(0x1f91e).toString // 🤞
-              ++ Emoji(0x1f91e).toString // 🤞
-              ++ Emoji(0x1f918).toString // 🤘
-              ++ Emoji(0x1f624).toString // 😤
-          ),
-        false
+      text = Some(
+        TextReply[F](
+          _ =>
+            Applicative[F].pure(
+              List(
+                Emoji(0x1f624).toString      // 😤
+                  ++ Emoji(0x1f918).toString // 🤘
+                  ++ Emoji(0x1f91e).toString // 🤞
+                  ++ Emoji(0x1f91e).toString // 🤞
+                  ++ Emoji(0x1f918).toString // 🤘
+                  ++ Emoji(0x1f624).toString // 😤
+              )
+            ),
+          false
+        )
       )
     ),
     ReplyBundleMessage(
@@ -151,16 +157,22 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue("pc"),
         StringTextTriggerValue("computer")
       ),
-      text = TextReply(_ => List("Il fisso performa meglio rispetto al portatile!!!"), false)
+      text =
+        Some(TextReply[F](_ => Applicative[F].pure(List("Il fisso performa meglio rispetto al portatile!!!")), false))
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("videogioc"),
         StringTextTriggerValue(e":video_game:")
       ),
-      text = TextReply(
-        _ => List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
-        false
+      text = Some(
+        TextReply[F](
+          _ =>
+            Applicative[F].pure(
+              List(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!")
+            ),
+          false
+        )
       )
     ),
     ReplyBundleMessage(
@@ -168,18 +180,23 @@ object CalandroBot extends Configurations {
         StringTextTriggerValue(" hs"),
         StringTextTriggerValue("hearthstone")
       ),
-      text = TextReply(_ => List("BASTA CON QUESTI TAUNT!!!"), false)
+      text = Some(TextReply[F](_ => Applicative[F].pure(List("BASTA CON QUESTI TAUNT!!!")), false))
     ),
     ReplyBundleMessage(
       MessageLengthTrigger(280),
-      text = TextReply(
-        (msg: Message) => List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)"""),
-        true
+      text = Some(
+        TextReply[F](
+          (msg: Message) =>
+            Applicative[F].pure(
+              List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)""")
+            ),
+          true
+        )
       )
     )
   )
 
-  val commandRepliesData: List[ReplyBundleCommand] = List(
+  def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
       CommandTrigger("porcoladro"),
       List(MediaFile("cala_PorcoLadro.mp3"))

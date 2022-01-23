@@ -2,6 +2,8 @@ package com.benkio.telegrambotinfrastructure.default
 
 import cats.effect._
 import cats.implicits._
+import cats._
+import cats.data.EitherT
 import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model._
@@ -94,11 +96,11 @@ trait DefaultActions {
                 )
                 .attemptT
             } yield List(message)
-          case text: TextReply =>
+          case text: TextReply[F] @unchecked =>
             for {
               _ <- Methods.sendChatAction(chatId, "typing").exec.attemptT
-              messages <- text
-                .text(msg)
+              texts <- EitherT.liftF(text.text(msg))(Functor[F])
+              messages <- texts
                 .traverse(m =>
                   Methods
                     .sendMessage(

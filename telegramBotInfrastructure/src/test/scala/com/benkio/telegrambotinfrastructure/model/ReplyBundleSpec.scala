@@ -16,7 +16,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
           case _: GifFile   => List(m.copy(text = Some("Gif")))
           case _: PhotoFile => List(m.copy(text = Some("Photo")))
           case _: VideoFile => List(m.copy(text = Some("Video")))
-          case _: TextReply => List(m.copy(text = Some("Text")))
+          case _: TextReply[_] => List(m.copy(text = Some("Text")))
         })
 
   test("computeReplyBundle should return the expected message when the ReplyBundle and Message is provided") {
@@ -28,11 +28,11 @@ class ReplyBundleSpec extends CatsEffectSuite {
       VideoFile("video.mp4")
     )
 
-    val replyBundleInput: ReplyBundleMessage = ReplyBundleMessage(
+    val replyBundleInput: ReplyBundleMessage[IO] = ReplyBundleMessage[IO](
       trigger = TextTrigger(
         StringTextTriggerValue("test")
       ),
-      text = TextReply(_ => List("some text that will be overwritten by the implicit")),
+      text = Some(TextReply(_ => IO.pure(List("some text that will be overwritten by the implicit")))),
       mediafiles = inputMediafile
     )
 

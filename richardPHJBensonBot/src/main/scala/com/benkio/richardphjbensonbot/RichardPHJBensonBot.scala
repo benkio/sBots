@@ -24,10 +24,10 @@ trait RichardPHJBensonBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = RichardPHJBensonBot.resourceSource
 
-  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] =
+  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
     RichardPHJBensonBot.messageRepliesData.pure[F]
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] =
+  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
     randomLinkReplyBundleF.map(rc => rc :: RichardPHJBensonBot.commandRepliesData)
 
   private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
