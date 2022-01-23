@@ -12,10 +12,10 @@ class ReplyBundleSpec extends CatsEffectSuite {
     (r: Reply) =>
       (m: Message) =>
         IO.pure(r match {
-          case _: Mp3File   => List(m.copy(text = Some("Mp3")))
-          case _: GifFile   => List(m.copy(text = Some("Gif")))
-          case _: PhotoFile => List(m.copy(text = Some("Photo")))
-          case _: VideoFile => List(m.copy(text = Some("Video")))
+          case _: Mp3File      => List(m.copy(text = Some("Mp3")))
+          case _: GifFile      => List(m.copy(text = Some("Gif")))
+          case _: PhotoFile    => List(m.copy(text = Some("Photo")))
+          case _: VideoFile    => List(m.copy(text = Some("Video")))
           case _: TextReply[_] => List(m.copy(text = Some("Text")))
         })
 

@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model._
 import cats.effect.IO
+import com.benkio.telegrambotinfrastructure.model._
 import munit.FunSuite
 
 class MessageMatchesSpec extends FunSuite {

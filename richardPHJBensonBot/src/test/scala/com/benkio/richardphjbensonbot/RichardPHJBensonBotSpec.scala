@@ -1,5 +1,6 @@
 package com.benkio.richardphjbensonbot
 
+import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
@@ -9,7 +10,8 @@ import munit.CatsEffectSuite
 class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   test("messageRepliesAudioData should never raise an exception when try to open the file in resounces") {
-    val result = RichardPHJBensonBot.messageRepliesAudioData
+    val result = RichardPHJBensonBot
+      .messageRepliesAudioData[IO]
       .flatMap(_.mediafiles)
       .traverse((mp3: MediaFile) => ResourceAccessSpec.testFilename(mp3.filename, RichardPHJBensonBot.resourceSource))
       .map(_.foldLeft(true)(_ && _))
@@ -18,7 +20,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   }
 
   test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
-    val result = RichardPHJBensonBot.messageRepliesGifData
+    val result = RichardPHJBensonBot
+      .messageRepliesGifData[IO]
       .flatMap(_.mediafiles)
       .traverse((gif: MediaFile) => ResourceAccessSpec.testFilename(gif.filename, RichardPHJBensonBot.resourceSource))
       .map(_.foldLeft(true)(_ && _))
@@ -27,7 +30,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   }
 
   test("messageRepliesVideosData should never raise an exception when try to open the file in resounces") {
-    val result = RichardPHJBensonBot.messageRepliesVideoData
+    val result = RichardPHJBensonBot
+      .messageRepliesVideoData[IO]
       .flatMap(_.mediafiles)
       .traverse((video: MediaFile) =>
         ResourceAccessSpec.testFilename(video.filename, RichardPHJBensonBot.resourceSource)
@@ -39,7 +43,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   test("messageRepliesMixData should never raise an exception when try to open the file in resounces") {
     val result =
-      RichardPHJBensonBot.messageRepliesMixData
+      RichardPHJBensonBot
+        .messageRepliesMixData[IO]
         .flatMap(_.mediafiles)
         .traverse(mf => ResourceAccessSpec.testFilename(mf.filename, RichardPHJBensonBot.resourceSource))
         .map(_.foldLeft(true)(_ && _))
@@ -48,9 +53,10 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   }
 
   test("commandRepliesData should return a list of all triggers when called") {
-    assertEquals(RichardPHJBensonBot.commandRepliesData.length, 3)
+    assertEquals(RichardPHJBensonBot.commandRepliesData[IO].length, 3)
     assert(
-      RichardPHJBensonBot.messageRepliesData
+      RichardPHJBensonBot
+        .messageRepliesData[IO]
         .flatMap(
           _.trigger match {
             case TextTrigger(lt @ _*) => lt.map(_.toString)
@@ -58,9 +64,10 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
           }
         )
         .forall(s =>
-          RichardPHJBensonBot.commandRepliesData
+          RichardPHJBensonBot
+            .commandRepliesData[IO]
             .filter(_.trigger.command != "bensonify")
-            .flatMap(_.text.text(null))
+            .flatMap(_.text.text(null).unsafeRunSync())
             .mkString("\n")
             .contains(s)
         )

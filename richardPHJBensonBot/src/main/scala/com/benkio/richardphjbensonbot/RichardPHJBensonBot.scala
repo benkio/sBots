@@ -25,21 +25,21 @@ trait RichardPHJBensonBot extends BotSkeleton {
   override val resourceSource: ResourceSource = RichardPHJBensonBot.resourceSource
 
   override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
-    RichardPHJBensonBot.messageRepliesData.pure[F]
+    RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
-    randomLinkReplyBundleF.map(rc => rc :: RichardPHJBensonBot.commandRepliesData)
+    randomLinkReplyBundleF.map(rc => rc :: RichardPHJBensonBot.commandRepliesData[F])
 
-  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
+  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
     RandomLinkCommand
       .selectRandomLink[F](
         ResourceSource.selectResourceAccess(resourceSource),
         "rphjb_LinkSources"
       )
-      .use[ReplyBundleCommand](message =>
-        ReplyBundleCommand(
+      .use[ReplyBundleCommand[F]](message =>
+        ReplyBundleCommand[F](
           trigger = CommandTrigger("randomshow"),
-          text = TextReply(_ => List(message), true),
+          text = Some(TextReply[F](_ => Applicative[F].pure(List(message)), true)),
         ).pure[F]
       )
 }
@@ -48,7 +48,7 @@ object RichardPHJBensonBot extends Configurations {
 
   val resourceSource: ResourceSource = All("rphjb.db")
 
-  val messageRepliesAudioData: List[ReplyBundleMessage] = List(
+  def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("state bene")
@@ -657,7 +657,7 @@ object RichardPHJBensonBot extends Configurations {
     )
   )
 
-  val messageRepliesGifData: List[ReplyBundleMessage] = List(
+  def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("\\bcontinua\\b".r)
@@ -1697,7 +1697,7 @@ object RichardPHJBensonBot extends Configurations {
     )
   )
 
-  val messageRepliesVideoData: List[ReplyBundleMessage] = List(
+  def messageRepliesVideoData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("amici veri"),
@@ -2307,7 +2307,7 @@ object RichardPHJBensonBot extends Configurations {
     )
   )
 
-  val messageRepliesMixData: List[ReplyBundleMessage] = List(
+  def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("vivi"),
@@ -3360,13 +3360,13 @@ object RichardPHJBensonBot extends Configurations {
     ),
   )
 
-  val messageRepliesData: List[ReplyBundleMessage] =
-    (messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesVideoData ++ messageRepliesMixData)
-      .sorted(ReplyBundle.ordering)
+  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
+    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[F])
+      .sorted(ReplyBundle.ordering[F])
       .reverse
 
-  val messageReplyDataStringChunks: List[String] = {
-    val (triggers, lastTriggers) = messageRepliesData
+  def messageReplyDataStringChunks[F[_]: Applicative]: List[String] = {
+    val (triggers, lastTriggers) = messageRepliesData[F]
       .map(_.trigger match {
         case TextTrigger(lt @ _*) => lt.mkString("[", " - ", "]")
         case _                    => ""
@@ -3379,32 +3379,38 @@ object RichardPHJBensonBot extends Configurations {
     triggers :+ lastTriggers
   }
 
-  val commandRepliesData: List[ReplyBundleCommand] = List(
+  def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
-      text = TextReply(
-        _ => messageReplyDataStringChunks,
-        false
+      text = Some(
+        TextReply[F](
+          _ => Applicative[F].pure(messageReplyDataStringChunks[F]),
+          false
+        )
       )
     ),
     ReplyBundleCommand(
       trigger = CommandTrigger("bensonify"),
-      text = TextReply(
-        msg =>
-          msg.text
-            .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
-            .map(t => {
-              val (_, inputTrimmed) = t.span(_ != ' ')
-              List(Bensonify.compute(inputTrimmed))
-            })
-            .getOrElse(List("E PARLAAAAAAA!!!!")),
-        true
+      text = Some(
+        TextReply[F](
+          msg =>
+            msg.text
+              .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
+              .map(t => {
+                val (_, inputTrimmed) = t.span(_ != ' ')
+                List(Bensonify.compute(inputTrimmed))
+              })
+              .getOrElse(List("E PARLAAAAAAA!!!!"))
+              .pure[F],
+          true
+        )
       )
     ),
     ReplyBundleCommand(
       trigger = CommandTrigger("instructions"),
-      text = TextReply(
-        _ => List(s"""
+      text = Some(
+        TextReply[F](
+          _ => List(s"""
 ---- Instruzioni Per il Bot di Benson ----
 
 Il bot reagisce automaticamente ai messaggi in base ai trigger che si
@@ -3428,8 +3434,9 @@ in una volta, è possibile farlo iniziando il messaggio con il
 carattere '!':
 
 ! «Messaggio»
-"""),
-        false
+""").pure[F],
+          false
+        )
       )
     )
   )

@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.effect._
 import cats._
+import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.ContainsOnce
@@ -26,11 +26,11 @@ final case class ReplyBundleMessage[F[_]](
 
 object ReplyBundleMessage {
   def apply[F[_]: Applicative](
-    trigger: MessageTrigger,
-    mediafiles: List[MediaFile] = List.empty[MediaFile],
-    text: Option[TextReply[F]] = None,
-    matcher: MessageMatches = ContainsOnce,
-    replySelection: ReplySelection = SelectAll
+      trigger: MessageTrigger,
+      mediafiles: List[MediaFile] = List.empty[MediaFile],
+      text: Option[TextReply[F]] = None,
+      matcher: MessageMatches = ContainsOnce,
+      replySelection: ReplySelection = SelectAll
   ): ReplyBundleMessage[F] = ReplyBundleMessage[F](
     trigger = trigger,
     mediafiles = mediafiles,
@@ -49,11 +49,11 @@ final case class ReplyBundleCommand[F[_]](
 
 object ReplyBundleCommand {
   def apply[F[_]: Applicative](
-    trigger: CommandTrigger,
-    mediafiles: List[MediaFile] = List.empty[MediaFile],
-    text: Option[TextReply[F]] = None,
-    replySelection: ReplySelection = SelectAll
-  ) : ReplyBundleCommand[F] = ReplyBundleCommand[F](
+      trigger: CommandTrigger,
+      mediafiles: List[MediaFile] = List.empty[MediaFile],
+      text: Option[TextReply[F]] = None,
+      replySelection: ReplySelection = SelectAll
+  ): ReplyBundleCommand[F] = ReplyBundleCommand[F](
     trigger = trigger,
     mediafiles = mediafiles,
     text = text.getOrElse(TextReply(_ => Applicative[F].pure(List.empty[String]), false)),
@@ -70,12 +70,12 @@ object ReplyBundle {
       replyAction: Action[Reply, F],
       syncF: Sync[F]
   ): F[List[Message]] = for {
-      textReplies <- replyBundle.text.text(message)
-      dataToSend =
+    textReplies <- replyBundle.text.text(message)
+    dataToSend =
       if (textReplies.isEmpty)
-      replyBundle.mediafiles
+        replyBundle.mediafiles
       else replyBundle.mediafiles :+ replyBundle.text
-      replies <- replyBundle.replySelection.logic(dataToSend)
-      result  <- replies.traverse[F, List[Message]](replyAction(_)(message))
-    } yield result.flatten
+    replies <- replyBundle.replySelection.logic(dataToSend)
+    result  <- replies.traverse[F, List[Message]](replyAction(_)(message))
+  } yield result.flatten
 }
