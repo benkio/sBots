@@ -22,21 +22,21 @@ trait ABarberoBot extends BotSkeleton {
   override val resourceSource: ResourceSource = ABarberoBot.resourceSource
 
   override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
-    ABarberoBot.messageRepliesData.pure[F]
+    ABarberoBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
-    randomLinkReplyBundleF.map(rc => rc :: ABarberoBot.commandRepliesData)
+    randomLinkReplyBundleF.map(rc => rc :: ABarberoBot.commandRepliesData[F])
 
-  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
+  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
     RandomLinkCommand
       .selectRandomLink[F](
         ResourceSource.selectResourceAccess(resourceSource),
         "abar_LinkSources"
       )
-      .use[ReplyBundleCommand](message =>
+      .use[ReplyBundleCommand[F]](message =>
         ReplyBundleCommand(
           trigger = CommandTrigger("randomshow"),
-          text = TextReply(_ => List(message), true),
+          text = Some(TextReply[F](_ => Applicative[F].pure(List(message)), true)),
         ).pure[F]
       )
 
@@ -46,7 +46,7 @@ object ABarberoBot extends Configurations {
 
   val resourceSource: ResourceSource = FileSystem
 
-  val messageRepliesAudioData: List[ReplyBundleMessage] = List(
+  def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("pestifero"),
@@ -351,7 +351,7 @@ object ABarberoBot extends Configurations {
     )
   )
 
-  val messageRepliesGifData: List[ReplyBundleMessage] = List(
+  def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ha ragione")
@@ -677,7 +677,7 @@ object ABarberoBot extends Configurations {
     )
   )
 
-  val messageRepliesSpecialData: List[ReplyBundleMessage] = List(
+  def messageRepliesSpecialData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("tedesco")
@@ -762,11 +762,13 @@ object ABarberoBot extends Configurations {
     )
   )
 
-  val messageRepliesData: List[ReplyBundleMessage] =
-    (messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesSpecialData).sorted(ReplyBundle.ordering).reverse
+  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
+    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesSpecialData[F])
+      .sorted(ReplyBundle.ordering[F])
+      .reverse
 
-  val messageReplyDataStringChunks: List[String] = {
-    val (triggers, lastTriggers) = messageRepliesData
+  def messageReplyDataStringChunks[F[_]: Applicative]: List[String] = {
+    val (triggers, lastTriggers) = messageRepliesData[F]
       .map(_.trigger match {
         case TextTrigger(lt @ _*) => lt.mkString("[", " - ", "]")
         case _                    => ""
@@ -780,12 +782,14 @@ object ABarberoBot extends Configurations {
     triggers :+ lastTriggers
   }
 
-  val commandRepliesData: List[ReplyBundleCommand] = List(
+  def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
-      text = TextReply(
-        _ => messageReplyDataStringChunks,
-        false
+      text = Some(
+        TextReply(
+          _ => Applicative[F].pure(messageReplyDataStringChunks[F]),
+          false
+        )
       )
     )
   )
