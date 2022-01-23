@@ -94,16 +94,16 @@ trait XahBot extends BotSkeleton {
       "extra",
       "Extra"
     ),
-    randomYoutubeLinkReplyBundleF
+    randomLinkReplyBundleF
   ).sequence[F, ReplyBundleCommand]
 
   override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] = List.empty.pure[F]
 
-  private def randomYoutubeLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
-    RandomYoutubeLinkCommand
-      .selectRandomYoutubeLink[F](
+  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
+    RandomLinkCommand
+      .selectRandomLink[F](
         ResourceSource.selectResourceAccess(XahBot.resourceSource),
-        "xah_YoutubeLinkSources"
+        "xah_LinkSources"
       )
       .use[ReplyBundleCommand](message =>
         ReplyBundleCommand(

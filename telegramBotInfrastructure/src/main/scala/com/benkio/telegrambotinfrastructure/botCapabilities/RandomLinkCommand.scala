@@ -7,11 +7,11 @@ import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccess
 import scala.io.Source
 import scala.util.Random
 
-object RandomYoutubeLinkCommand {
+object RandomLinkCommand {
 
   lazy val random = new Random()
 
-  def selectRandomYoutubeLink[F[_]: Async](
+  def selectRandomLink[F[_]: Async](
       resourceAccess: ResourceAccess,
       youtubeLinkSources: String
   ): Resource[F, String] = for {

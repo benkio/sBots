@@ -28,13 +28,13 @@ trait RichardPHJBensonBot extends BotSkeleton {
     RichardPHJBensonBot.messageRepliesData.pure[F]
 
   override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] =
-    randomYoutubeLinkReplyBundleF.map(rc => rc :: RichardPHJBensonBot.commandRepliesData)
+    randomLinkReplyBundleF.map(rc => rc :: RichardPHJBensonBot.commandRepliesData)
 
-  private def randomYoutubeLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
-    RandomYoutubeLinkCommand
-      .selectRandomYoutubeLink[F](
+  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand] =
+    RandomLinkCommand
+      .selectRandomLink[F](
         ResourceSource.selectResourceAccess(resourceSource),
-        "rphjb_YoutubeLinkSources"
+        "rphjb_LinkSources"
       )
       .use[ReplyBundleCommand](message =>
         ReplyBundleCommand(
