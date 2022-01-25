@@ -3,6 +3,7 @@ package com.benkio.richardphjbensonbot
 import cats._
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.botCapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model._
@@ -12,7 +13,6 @@ import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import org.http4s.blaze.client._
 import org.http4s.client.Client
-import telegramium.bots.Message
 import telegramium.bots.high._
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with RichardPHJBensonBot
@@ -53,7 +53,7 @@ trait RichardPHJBensonBot extends BotSkeleton {
       text = Some(
         TextReply[F](
           m =>
-            RichardPHJBensonBot.handleCommandWithInput[F](
+            handleCommandWithInput[F](
               m,
               "randomshowkeyword",
               "RichardPHJBensonBot",
@@ -3409,18 +3409,6 @@ object RichardPHJBensonBot extends Configurations {
       }
     triggers :+ lastTriggers
   }
-
-  def handleCommandWithInput[F[_]: Applicative](
-      msg: Message,
-      command: String,
-      botName: String,
-      computation: String => F[List[String]],
-      defaultReply: String
-  ): F[List[String]] =
-    msg.text
-      .filterNot(t => t.trim == s"/$command" || t.trim == s"/$command@$botName")
-      .map(t => computation(t.dropWhile(_ != ' ').tail))
-      .getOrElse(List(defaultReply).pure[F])
 
   def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
