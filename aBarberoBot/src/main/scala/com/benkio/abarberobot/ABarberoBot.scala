@@ -26,7 +26,10 @@ trait ABarberoBot extends BotSkeleton {
     ABarberoBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
-    randomLinkReplyBundleF.map(rc => rc :: ABarberoBot.commandRepliesData[F])
+    List(
+      randomLinkByKeywordReplyBundleF,
+      randomLinkReplyBundleF
+    ).sequence.map(cs => cs ++ ABarberoBot.commandRepliesData[F])
 
   private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
     RandomLinkCommand
@@ -41,6 +44,33 @@ trait ABarberoBot extends BotSkeleton {
           text = Some(TextReply[F](_ => Applicative[F].pure(optMessage.toList), true)),
         ).pure[F]
       )
+
+  private def randomLinkByKeywordReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+    ReplyBundleCommand[F](
+      trigger = CommandTrigger("randomshowkeyword"),
+      text = Some(
+        TextReply[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "randomshowkeyword",
+              "ABarberoBot",
+              keywords =>
+                RandomLinkCommand
+                  .selectRandomLinkByKeyword[F](
+                    keywords,
+                    ResourceSource.selectResourceAccess(resourceSource),
+                    "abar_LinkSources"
+                  )
+                  .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
+                    List(v)
+                  }.pure[F]),
+              s"Inserisci una keyword da cercare tra le puntate/shows"
+            ),
+          true
+        )
+      ),
+    ).pure[F]
 
 }
 

@@ -95,6 +95,7 @@ trait XahBot extends BotSkeleton {
       "extra",
       "Extra"
     ),
+    randomLinkByKeywordReplyBundleF,
     randomLinkReplyBundleF
   ).sequence[F, ReplyBundleCommand[F]]
 
@@ -114,7 +115,7 @@ trait XahBot extends BotSkeleton {
         ).pure[F]
       )
 
-  def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand[F]] =
+  private def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand[F]] =
     ResourceSource
       .selectResourceAccess(XahBot.resourceSource)
       .getResourcesByKind[F](directory)
@@ -125,6 +126,33 @@ trait XahBot extends BotSkeleton {
           replySelection = RandomSelection
         ).pure[F]
       )
+
+  private def randomLinkByKeywordReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+    ReplyBundleCommand[F](
+      trigger = CommandTrigger("randomshowkeyword"),
+      text = Some(
+        TextReply[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "randomshowkeyword",
+              "XahLeeBot",
+              keywords =>
+                RandomLinkCommand
+                  .selectRandomLinkByKeyword[F](
+                    keywords,
+                    ResourceSource.selectResourceAccess(resourceSource),
+                    "xah_LinkSources"
+                  )
+                  .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
+                    List(v)
+                  }.pure[F]),
+              s"Inserisci una keyword da cercare tra le puntate/shows"
+            ),
+          true
+        )
+      ),
+    ).pure[F]
 }
 
 object XahBot extends Configurations {
