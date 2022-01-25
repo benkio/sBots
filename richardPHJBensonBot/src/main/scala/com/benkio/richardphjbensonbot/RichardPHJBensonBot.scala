@@ -32,7 +32,8 @@ trait RichardPHJBensonBot extends BotSkeleton {
 
   private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
     RandomLinkCommand
-      .selectRandomLink[F](
+      .selectRandomLinkByKeyword[F](
+        "",
         ResourceSource.selectResourceAccess(resourceSource),
         "rphjb_LinkSources"
       )

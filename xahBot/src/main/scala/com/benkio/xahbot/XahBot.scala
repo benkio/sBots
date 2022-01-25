@@ -101,7 +101,8 @@ trait XahBot extends BotSkeleton {
 
   private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
     RandomLinkCommand
-      .selectRandomLink[F](
+      .selectRandomLinkByKeyword[F](
+        "",
         ResourceSource.selectResourceAccess(XahBot.resourceSource),
         "xah_LinkSources"
       )

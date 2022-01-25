@@ -29,7 +29,8 @@ trait ABarberoBot extends BotSkeleton {
 
   private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
     RandomLinkCommand
-      .selectRandomLink[F](
+      .selectRandomLinkByKeyword[F](
+        "",
         ResourceSource.selectResourceAccess(resourceSource),
         "abar_LinkSources"
       )
