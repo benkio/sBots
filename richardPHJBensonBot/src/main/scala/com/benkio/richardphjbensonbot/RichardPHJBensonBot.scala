@@ -12,6 +12,7 @@ import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import org.http4s.blaze.client._
 import org.http4s.client.Client
+import telegramium.bots.Message
 import telegramium.bots.high._
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with RichardPHJBensonBot
@@ -28,7 +29,9 @@ trait RichardPHJBensonBot extends BotSkeleton {
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
-    randomLinkReplyBundleF.map(rc => rc :: RichardPHJBensonBot.commandRepliesData[F])
+    List(randomLinkByKeywordReplyBundleF, randomLinkReplyBundleF).sequence.map(cs =>
+      cs ++ RichardPHJBensonBot.commandRepliesData[F]
+    )
 
   private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
     RandomLinkCommand
@@ -37,12 +40,39 @@ trait RichardPHJBensonBot extends BotSkeleton {
         ResourceSource.selectResourceAccess(resourceSource),
         "rphjb_LinkSources"
       )
-      .use[ReplyBundleCommand[F]](message =>
+      .use[ReplyBundleCommand[F]](optMessage =>
         ReplyBundleCommand[F](
           trigger = CommandTrigger("randomshow"),
-          text = Some(TextReply[F](_ => Applicative[F].pure(List(message)), true)),
+          text = Some(TextReply[F](_ => Applicative[F].pure(optMessage.toList), true)),
         ).pure[F]
       )
+
+  private def randomLinkByKeywordReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+    ReplyBundleCommand[F](
+      trigger = CommandTrigger("randomshowkeyword"),
+      text = Some(
+        TextReply[F](
+          m =>
+            RichardPHJBensonBot.handleCommandWithInput[F](
+              m,
+              "randomshowkeyword",
+              "RichardPHJBensonBot",
+              keywords =>
+                RandomLinkCommand
+                  .selectRandomLinkByKeyword[F](
+                    keywords,
+                    ResourceSource.selectResourceAccess(resourceSource),
+                    "rphjb_LinkSources"
+                  )
+                  .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
+                    List(v)
+                  }.pure[F]),
+              s"Inserisci una keyword da cercare tra le puntate/shows"
+            ),
+          true
+        )
+      ),
+    ).pure[F]
 }
 
 object RichardPHJBensonBot extends Configurations {
@@ -3380,6 +3410,18 @@ object RichardPHJBensonBot extends Configurations {
     triggers :+ lastTriggers
   }
 
+  def handleCommandWithInput[F[_]: Applicative](
+      msg: Message,
+      command: String,
+      botName: String,
+      computation: String => F[List[String]],
+      defaultReply: String
+  ): F[List[String]] =
+    msg.text
+      .filterNot(t => t.trim == s"/$command" || t.trim == s"/$command@$botName")
+      .map(t => computation(t.dropWhile(_ != ' ').tail))
+      .getOrElse(List(defaultReply).pure[F])
+
   def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
@@ -3395,14 +3437,13 @@ object RichardPHJBensonBot extends Configurations {
       text = Some(
         TextReply[F](
           msg =>
-            msg.text
-              .filterNot(t => t.trim == "/bensonify" || t.trim == "/bensonify@RichardPHJBensonBot")
-              .map(t => {
-                val (_, inputTrimmed) = t.span(_ != ' ')
-                List(Bensonify.compute(inputTrimmed))
-              })
-              .getOrElse(List("E PARLAAAAAAA!!!!"))
-              .pure[F],
+            handleCommandWithInput[F](
+              msg,
+              "bensonify",
+              "RichardPHJBensonBot",
+              t => List(Bensonify.compute(t)).pure[F],
+              "E PARLAAAAAAA!!!!"
+            ),
           true
         )
       )

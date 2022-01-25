@@ -106,10 +106,10 @@ trait XahBot extends BotSkeleton {
         ResourceSource.selectResourceAccess(XahBot.resourceSource),
         "xah_LinkSources"
       )
-      .use[ReplyBundleCommand[F]](message =>
+      .use[ReplyBundleCommand[F]](optMessage =>
         ReplyBundleCommand(
           trigger = CommandTrigger("randomshow"),
-          text = Some(TextReply[F](_ => Applicative[F].pure(List(message)), true)),
+          text = Some(TextReply[F](_ => Applicative[F].pure(optMessage.toList), true)),
         ).pure[F]
       )
 

@@ -16,7 +16,7 @@ object RandomLinkCommand {
       keyword: String,
       resourceAccess: ResourceAccess,
       youtubeLinkSources: String
-  ): Resource[F, String] = for {
+  ): Resource[F, Option[String]] = for {
     sourceFiles <- resourceAccess.getResourcesByKind[F](youtubeLinkSources)
     sourceRawBytesArray <- sourceFiles.traverse(f =>
       resourceAccess
@@ -25,7 +25,14 @@ object RandomLinkCommand {
     sourceRawBytes = sourceRawBytesArray.foldLeft(Array.empty[Byte]) { case (acc, bs) =>
       acc ++ (('\n'.toByte) +: bs)
     }
-    youtubeLinkReplies = Source.fromRawBytes(sourceRawBytes).getLines().toList.filter(_.contains(keyword))
-    lineSelectedIndex <- Resource.eval(Async[F].delay(random.between(0, youtubeLinkReplies.length)))
-  } yield youtubeLinkReplies(lineSelectedIndex)
+    youtubeLinkReplies = Source
+      .fromRawBytes(sourceRawBytes)
+      .getLines()
+      .toList
+      .filter(_.toLowerCase.contains(keyword.toLowerCase))
+    lineSelectedIndex <-
+      if (!youtubeLinkReplies.isEmpty)
+        Resource.eval(Async[F].delay(random.between(0, youtubeLinkReplies.length)))
+      else Resource.pure[F, Int](-1)
+  } yield if (lineSelectedIndex == -1) None else Some(youtubeLinkReplies(lineSelectedIndex))
 }
