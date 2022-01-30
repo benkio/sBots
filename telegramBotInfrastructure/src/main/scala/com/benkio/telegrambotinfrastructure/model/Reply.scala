@@ -6,8 +6,8 @@ sealed trait Reply {
   val replyToMessage: Boolean
 }
 
-final case class TextReply(
-    text: Message => List[String],
+final case class TextReply[F[_]](
+    text: Message => F[List[String]],
     replyToMessage: Boolean = false
 ) extends Reply
 

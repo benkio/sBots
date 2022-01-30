@@ -3,6 +3,7 @@ package com.benkio.xahbot
 import cats._
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.botCapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.Configurations
@@ -21,7 +22,7 @@ trait XahBot extends BotSkeleton {
 
   override val resourceSource: ResourceSource = XahBot.resourceSource
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand]] = List(
+  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] = List(
     buildRandomReplyBundleCommand(
       "ass",
       "Ass",
@@ -93,22 +94,65 @@ trait XahBot extends BotSkeleton {
     buildRandomReplyBundleCommand(
       "extra",
       "Extra"
-    )
-  ).sequence[F, ReplyBundleCommand]
+    ),
+    randomLinkByKeywordReplyBundleF,
+    randomLinkReplyBundleF
+  ).sequence[F, ReplyBundleCommand[F]]
 
-  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage]] = List.empty.pure[F]
+  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] = List.empty.pure[F]
 
-  def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand] =
+  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+    RandomLinkCommand
+      .selectRandomLinkByKeyword[F](
+        "",
+        ResourceSource.selectResourceAccess(XahBot.resourceSource),
+        "xah_LinkSources"
+      )
+      .use[ReplyBundleCommand[F]](optMessage =>
+        ReplyBundleCommand(
+          trigger = CommandTrigger("randomshow"),
+          text = Some(TextReply[F](_ => Applicative[F].pure(optMessage.toList), true)),
+        ).pure[F]
+      )
+
+  private def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand[F]] =
     ResourceSource
       .selectResourceAccess(XahBot.resourceSource)
       .getResourcesByKind[F](directory)
-      .use[ReplyBundleCommand](files =>
-        ReplyBundleCommand(
+      .use[ReplyBundleCommand[F]](files =>
+        ReplyBundleCommand[F](
           CommandTrigger(command),
           files.map(f => MediaFile(f.getPath)),
           replySelection = RandomSelection
         ).pure[F]
       )
+
+  private def randomLinkByKeywordReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+    ReplyBundleCommand[F](
+      trigger = CommandTrigger("randomshowkeyword"),
+      text = Some(
+        TextReply[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "randomshowkeyword",
+              "XahLeeBot",
+              keywords =>
+                RandomLinkCommand
+                  .selectRandomLinkByKeyword[F](
+                    keywords,
+                    ResourceSource.selectResourceAccess(resourceSource),
+                    "xah_LinkSources"
+                  )
+                  .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
+                    List(v)
+                  }.pure[F]),
+              s"Inserisci una keyword da cercare tra le puntate/shows"
+            ),
+          true
+        )
+      ),
+    ).pure[F]
 }
 
 object XahBot extends Configurations {

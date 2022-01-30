@@ -12,8 +12,8 @@ object ContainsAll  extends MessageMatches
 
 object MessageMatches {
 
-  def doesMatch(
-      replyMessageBundle: ReplyBundleMessage,
+  def doesMatch[F[_]](
+      replyMessageBundle: ReplyBundleMessage[F],
       messageText: String,
       ignoreMessagePrefix: Option[String]
   ): Boolean =
