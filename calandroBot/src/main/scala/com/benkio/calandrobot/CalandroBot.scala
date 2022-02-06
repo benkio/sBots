@@ -5,11 +5,12 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.Configurations
+import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
+import org.http4s.Status
 import org.http4s.blaze.client._
 import org.http4s.client.Client
 import telegramium.bots.Message
@@ -48,7 +49,7 @@ trait CalandroBot extends BotSkeleton {
     )
 }
 
-object CalandroBot extends Configurations {
+object CalandroBot extends BotOps {
 
   val resourceSource: ResourceSource = All("calandro.db")
 
@@ -317,11 +318,17 @@ object CalandroBot extends Configurations {
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]
   ): F[A] = (for {
-    client <- BlazeClientBuilder[F].resource
-    tk     <- token[F]
-  } yield (client, tk))
-    .use(client_tk => {
-      implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
+    httpClient            <- BlazeClientBuilder[F].resource
+    tk                    <- token[F]
+    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
+    _ <- Resource.eval(
+      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
+        new RuntimeException("The delete webhook request failed for calandro bot: " + deleteWebhookResponse.as[String])
+      )
+    )
+  } yield (httpClient, tk))
+    .use(httpClient_tk => {
+      implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")
       action(new CalandroBotPolling[F])
     })
 
@@ -333,6 +340,12 @@ object CalandroBot extends Configurations {
     baseUrl     = s"https://api.telegram.org/bot$tk"
     path        = s"/$tk"
     api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
+    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
+    _ <- Resource.eval(
+      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
+        new RuntimeException("The delete webhook request failed for Calandro bot: " + deleteWebhookResponse.as[String])
+      )
+    )
   } yield new CalandroBotWebhook[F](
     api = api,
     url = webhookBaseUrl + path,

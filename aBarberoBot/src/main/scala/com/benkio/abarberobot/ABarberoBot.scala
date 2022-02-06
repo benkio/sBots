@@ -6,8 +6,9 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.Configurations
+import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
+import org.http4s.Status
 import org.http4s.blaze.client._
 import org.http4s.client.Client
 import telegramium.bots.high._
@@ -74,7 +75,7 @@ trait ABarberoBot extends BotSkeleton {
 
 }
 
-object ABarberoBot extends Configurations {
+object ABarberoBot extends BotOps {
 
   val resourceSource: ResourceSource = FileSystem
 
@@ -832,10 +833,18 @@ object ABarberoBot extends Configurations {
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: ABarberoBotPolling[F] => F[A]
   ): F[A] = (for {
-    client <- BlazeClientBuilder[F].resource
-    tk     <- token[F]
-  } yield (client, tk)).use(client_tk => {
-    implicit val api: Api[F] = BotApi(client_tk._1, baseUrl = s"https://api.telegram.org/bot${client_tk._2}")
+    httpClient            <- BlazeClientBuilder[F].resource
+    tk                    <- token[F]
+    _                     <- Resource.eval(Async[F].delay(println("Deleting Webhooks...")))
+    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
+    _ <- Resource.eval(
+      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
+        new RuntimeException("The delete webhook request failed for barbero bot: " + deleteWebhookResponse.as[String])
+      )
+    )
+    _ <- Resource.eval(Async[F].delay(println("Deleting Webhooks Done")))
+  } yield (httpClient, tk)).use(httpClient_tk => {
+    implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")
     action(new ABarberoBotPolling[F])
   })
 
@@ -847,9 +856,15 @@ object ABarberoBot extends Configurations {
     baseUrl     = s"https://api.telegram.org/bot$tk"
     path        = s"/$tk"
     api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
+    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
+    _ <- Resource.eval(
+      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
+        new RuntimeException("The delete webhook request failed for Barbero bot: " + deleteWebhookResponse.as[String])
+      )
+    )
   } yield new ABarberoBotWebhook[F](
     api = api,
     url = webhookBaseUrl + path,
-    path = s"/$tk"
+    path = path
   )
 }
