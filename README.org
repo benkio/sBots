@@ -44,12 +44,26 @@
 
 *** Run the Bots
 
-    To run the bot locally just run, long polling. Under windows use
-    the git bash terminal.
+**** Long Polling
+       Under windows use the git bash terminal.
 
-#+begin_src bash
-  ./lunch.sh # I know it's lunch not launch :)
-#+end_src
+   #+begin_src bash
+     ./lunch.sh # I know it's lunch not launch :)
+   #+end_src
+
+**** Webhook
+
+***** Localhost
+
+     * Export the webhook host, locally using [[https://ngrok.com/][ngrok]], [[https://github.com/beyondcode/expose][expose]] or [[https://github.com/agrinman/tunnelto][tunnelTo]]
+     * Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from previous step or change it in ~~myTelegramBot/main/src/main/resources/application.conf~
+     * run ~sbt assebly~
+     * run ~java -cp main/target/scala-2.13/main.jar com.benkio.main.MainWebhook~
+
+***** Docker
+
+      TODO: There's already a ~main/Dockerfile~ with the command to run the webhook, but still it needs to be tested and visible from outside
+            Also check [[https://expose.dev/docs/getting-started/installation#as-a-docker-container][expose on docker]]. In order to may make it discoverable from telegram api.
 
 *** Deploy on Heroku (Not working yet)
 
