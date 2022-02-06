@@ -4,9 +4,13 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
+import log.effect.LogWriter
+import log.effect.fs2.SyncLogWriter.consoleLog
 import munit.CatsEffectSuite
 
 class CalandroBotSpec extends CatsEffectSuite {
+
+  implicit val log: LogWriter[IO] = consoleLog
 
   test("commandRepliesData should never raise an exception when try to open the file in resounces") {
     val result = CalandroBot.buildPollingBot[IO, Boolean](bot =>

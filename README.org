@@ -55,10 +55,10 @@
 
 ***** Localhost
 
-     * Export the webhook host, locally using [[https://ngrok.com/][ngrok]], [[https://github.com/beyondcode/expose][expose]] or [[https://github.com/agrinman/tunnelto][tunnelTo]]
-     * Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from previous step or change it in ~~myTelegramBot/main/src/main/resources/application.conf~
-     * run ~sbt assebly~
-     * run ~java -cp main/target/scala-2.13/main.jar com.benkio.main.MainWebhook~
+     - Export the webhook host, locally using [[https://ngrok.com/][ngrok]], [[https://github.com/beyondcode/expose][expose]] or [[https://github.com/agrinman/tunnelto][tunnelTo]]
+     - Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from previous step or change it in ~~myTelegramBot/main/src/main/resources/application.conf~
+     - run ~sbt assembly~
+     - run ~java -cp main/target/scala-2.13/main.jar com.benkio.main.MainWebhook~
 
 ***** Docker
 

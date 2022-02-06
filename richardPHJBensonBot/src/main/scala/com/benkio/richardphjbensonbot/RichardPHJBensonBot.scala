@@ -11,15 +11,18 @@ import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
+import log.effect.LogWriter
 import org.http4s.Status
 import org.http4s.blaze.client._
 import org.http4s.client.Client
 import telegramium.bots.high._
 
-class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with RichardPHJBensonBot
+class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter]
+    extends BotSkeletonPolling[F]
+    with RichardPHJBensonBot
 
-class RichardPHJBensonBotWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
-    extends BotSkeletonWebhook[F](api, url, path)
+class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/")
+    extends BotSkeletonWebhook[F](url, path)
     with RichardPHJBensonBot
 
 trait RichardPHJBensonBot extends BotSkeleton {
@@ -3476,17 +3479,19 @@ carattere '!':
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
-  ): F[A] = (for {
+  )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient            <- BlazeClientBuilder[F].resource
     tk                    <- token[F]
+    _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
         new RuntimeException(
-          "The delete webhook request failed for RichardPHJBenson bot: " + deleteWebhookResponse.as[String]
+          "[RichardPHJBensonBot] The delete webhook request failed: " + deleteWebhookResponse.as[String]
         )
       )
     )
+    _ <- Resource.eval(log.info("[RichardPHJBensonBot] Webhook deleted"))
   } yield (httpClient, tk)).use(httpClient_tk => {
     implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")
     action(new RichardPHJBensonBotPolling[F])
@@ -3495,22 +3500,25 @@ carattere '!':
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
-  ): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
+  )(implicit log: LogWriter[F]): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
     tk <- token[F]
-    baseUrl     = s"https://api.telegram.org/bot$tk"
-    path        = s"/$tk"
-    api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
+    baseUrl = s"https://api.telegram.org/bot$tk"
+    path    = s"/$tk"
+    _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
         new RuntimeException(
-          "The delete webhook request failed for RichardPHJBensonxo bot: " + deleteWebhookResponse.as[String]
+          "[RichardPHJBensonBot] The delete webhook request failed: " + deleteWebhookResponse.as[String]
         )
       )
     )
-  } yield new RichardPHJBensonBotWebhook[F](
-    api = api,
-    url = webhookBaseUrl + path,
-    path = s"/$tk"
-  )
+    _ <- Resource.eval(log.info("[RichardPHJBensonBot] Webhook deleted"))
+  } yield {
+    implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
+    new RichardPHJBensonBotWebhook[F](
+      url = webhookBaseUrl + path,
+      path = s"/$tk"
+    )
+  }
 }

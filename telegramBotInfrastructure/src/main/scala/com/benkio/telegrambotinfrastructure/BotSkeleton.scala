@@ -10,32 +10,35 @@ import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Timeout
+import log.effect.LogWriter
 import telegramium.bots.Message
 import telegramium.bots.high._
 
 import scala.concurrent.duration._
 
-abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F])
+abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F], log: LogWriter[F])
     extends LongPollBot[F](api)
     with BotSkeleton {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
       text <- OptionT.fromOption[F](msg.text)
+      _    <- OptionT.liftF(log.trace(s"A message arrived with content: $text"))
       _    <- OptionT(botLogic[F](Async[F], api)(msg, text))
     } yield ()
-    x.getOrElse(())
+    x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
 }
 
-abstract class BotSkeletonWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
+abstract class BotSkeletonWebhook[F[_]: Async](url: String, path: String = "/")(implicit api: Api[F], log: LogWriter[F])
     extends WebhookBot[F](api, url, path)
     with BotSkeleton {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
       text <- OptionT.fromOption[F](msg.text)
+      _    <- OptionT.liftF(log.trace(s"A message arrived with content: $text"))
       _    <- OptionT(botLogic[F](Async[F], api)(msg, text))
     } yield ()
-    x.getOrElse(())
+    x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
 }
 

@@ -5,73 +5,82 @@ import Keys._
 object Dependencies {
 
   lazy val dependenciesVersion = new {
-    val catsVersion           = "2.7.0"
     val catsEffectVersion     = "3.3.5"
-    val telegramiumVersion    = "7.56.0"
-    val sqliteJdbcVersion     = "3.36.0.3"
+    val catsVersion           = "2.7.0"
     val lightbendEmojiVersion = "1.2.3"
+    val logEffects            = "0.16.1"
     val munit                 = "0.7.29"
     val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.1"
+    val sqliteJdbcVersion     = "3.36.0.3"
+    val telegramiumVersion    = "7.56.0"
   }
+
   lazy val libs = new {
+    val cats            = "org.typelevel" %% "cats-core"           % dependenciesVersion.catsVersion
+    val catsEffect      = "org.typelevel" %% "cats-effect"         % dependenciesVersion.catsEffectVersion
+    val lightbendEmoji  = "com.lightbend" %% "emoji"               % dependenciesVersion.lightbendEmojiVersion
+    val logEffects      = "io.laserdisc"  %% "log-effect-fs2"      % dependenciesVersion.logEffects
     val munit           = "org.scalameta" %% "munit"               % dependenciesVersion.munit           % Test
     val munitCatsEffect = "org.typelevel" %% "munit-cats-effect-3" % dependenciesVersion.munitCatsEffect % "test"
+    val pureConfig      = "com.github.pureconfig" %% "pureconfig"       % dependenciesVersion.pureConfig
+    val sqliteJdbc      = "org.xerial"             % "sqlite-jdbc"      % dependenciesVersion.sqliteJdbcVersion
     val telegramiumCore = "io.github.apimorphism" %% "telegramium-core" % dependenciesVersion.telegramiumVersion
     val telegramiumHigh = "io.github.apimorphism" %% "telegramium-high" % dependenciesVersion.telegramiumVersion
-    val catsEffect      = "org.typelevel"         %% "cats-effect"      % dependenciesVersion.catsEffectVersion
-    val cats            = "org.typelevel"         %% "cats-core"        % dependenciesVersion.catsVersion
-    val sqliteJdbc      = "org.xerial"             % "sqlite-jdbc"      % dependenciesVersion.sqliteJdbcVersion
-    val lightbendEmoji  = "com.lightbend"         %% "emoji"            % dependenciesVersion.lightbendEmojiVersion
-    val pureConfig      = "com.github.pureconfig" %% "pureconfig"       % dependenciesVersion.pureConfig
   }
 
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] = Seq(
+    libs.cats,
+    libs.catsEffect,
+    libs.logEffects,
     libs.munit,
     libs.munitCatsEffect,
-    libs.telegramiumCore,
-    libs.telegramiumHigh,
     libs.sqliteJdbc,
-    libs.catsEffect,
-    libs.cats
+    libs.telegramiumCore,
+    libs.telegramiumHigh
   )
 
   val CalandroBotDependencies: Seq[ModuleID] = Seq(
+    libs.catsEffect,
+    libs.lightbendEmoji,
+    libs.logEffects,
     libs.munit,
     libs.munitCatsEffect,
-    libs.lightbendEmoji,
     libs.telegramiumCore,
-    libs.telegramiumHigh,
-    libs.catsEffect
+    libs.telegramiumHigh
   )
 
   val ABarberoBotDependencies: Seq[ModuleID] = Seq(
+    libs.catsEffect,
+    libs.logEffects,
     libs.munit,
     libs.munitCatsEffect,
     libs.telegramiumCore,
-    libs.telegramiumHigh,
-    libs.catsEffect
+    libs.telegramiumHigh
   )
 
   val RichardPHJBensonBotDependencies: Seq[ModuleID] = Seq(
+    libs.catsEffect,
+    libs.lightbendEmoji,
+    libs.logEffects,
     libs.munit,
     libs.munitCatsEffect,
-    libs.lightbendEmoji,
     libs.telegramiumCore,
-    libs.telegramiumHigh,
-    libs.catsEffect
+    libs.telegramiumHigh
   )
 
   val XahBotDependencies: Seq[ModuleID] = Seq(
+    libs.catsEffect,
+    libs.logEffects,
     libs.munit,
     libs.munitCatsEffect,
     libs.telegramiumCore,
-    libs.telegramiumHigh,
-    libs.catsEffect
+    libs.telegramiumHigh
   )
 
   val MainDependencies: Seq[ModuleID] = Seq(
     libs.catsEffect,
+    libs.logEffects,
     libs.pureConfig
   )
 }

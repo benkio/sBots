@@ -10,6 +10,7 @@ import com.benkio.telegrambotinfrastructure._
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
+import log.effect.LogWriter
 import org.http4s.Status
 import org.http4s.blaze.client._
 import org.http4s.client.Client
@@ -18,10 +19,10 @@ import telegramium.bots.high._
 
 import scala.util.Random
 
-class CalandroBotPolling[F[_]: Parallel: Async: Api] extends BotSkeletonPolling[F] with CalandroBot
+class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with CalandroBot
 
-class CalandroBotWebhook[F[_]: Async](api: Api[F], url: String, path: String = "/")
-    extends BotSkeletonWebhook[F](api, url, path)
+class CalandroBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/")
+    extends BotSkeletonWebhook[F](url, path)
     with CalandroBot
 
 trait CalandroBot extends BotSkeleton {
@@ -317,15 +318,17 @@ object CalandroBot extends BotOps {
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]
-  ): F[A] = (for {
+  )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient            <- BlazeClientBuilder[F].resource
     tk                    <- token[F]
+    _                     <- Resource.eval(log.info("[CalandroBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException("The delete webhook request failed for calandro bot: " + deleteWebhookResponse.as[String])
+        new RuntimeException("[CalandroBot] The delete webhook request failed: " + deleteWebhookResponse.as[String])
       )
     )
+    _ <- Resource.eval(log.info("[CalandroBot] Webhook deleted"))
   } yield (httpClient, tk))
     .use(httpClient_tk => {
       implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")
@@ -335,20 +338,23 @@ object CalandroBot extends BotOps {
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
-  ): Resource[F, CalandroBotWebhook[F]] = for {
+  )(implicit log: LogWriter[F]): Resource[F, CalandroBotWebhook[F]] = for {
     tk <- token[F]
-    baseUrl     = s"https://api.telegram.org/bot$tk"
-    path        = s"/$tk"
-    api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
+    baseUrl = s"https://api.telegram.org/bot$tk"
+    path    = s"/$tk"
+    _                     <- Resource.eval(log.info("[CalandroBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException("The delete webhook request failed for Calandro bot: " + deleteWebhookResponse.as[String])
+        new RuntimeException("[CalandroBot] The delete webhook request failed: " + deleteWebhookResponse.as[String])
       )
     )
-  } yield new CalandroBotWebhook[F](
-    api = api,
-    url = webhookBaseUrl + path,
-    path = s"/$tk"
-  )
+    _ <- Resource.eval(log.info("[CalandroBot] Webhook deleted"))
+  } yield {
+    implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
+    new CalandroBotWebhook[F](
+      url = webhookBaseUrl + path,
+      path = s"/$tk"
+    )
+  }
 }

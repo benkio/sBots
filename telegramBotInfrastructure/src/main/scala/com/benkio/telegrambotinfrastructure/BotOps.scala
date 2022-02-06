@@ -22,7 +22,6 @@ trait BotOps {
         method = Method.POST,
         uri = uri
       )
-    _        <- Resource.eval(Async[F].delay(println("request: " + deleteWebhookRequest)))
     response <- httpClient.run(deleteWebhookRequest)
   } yield response
 }
