@@ -927,14 +927,6 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("guerra")
-      ),
-      List(
-        MediaFile("rphjb_GuerraTotale.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         RegexTextTriggerValue("entrat[oa]".r)
       ),
       List(
@@ -1364,14 +1356,6 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("non voglio nessuno")
-      ),
-      List(
-        MediaFile("rphjb_NonVoglioNessuno.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("andati al cesso"),
         StringTextTriggerValue("diecimila volte")
       ),
@@ -1520,14 +1504,6 @@ object RichardPHJBensonBot extends BotOps {
       ),
       List(
         MediaFile("rphjb_Discapito.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("peggio del peggio")
-      ),
-      List(
-        MediaFile("rphjb_PeggioDelPeggio.gif")
       )
     ),
     ReplyBundleMessage(
@@ -3390,6 +3366,37 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_Dirigenti.gif"),
         MediaFile("rphjb_AncoraNoDirigenti.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("guerra")
+      ),
+      List(
+        MediaFile("rphjb_GuerraTotale.gif"),
+        MediaFile("rphjb_GuerraTotale.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non voglio nessuno"),
+        StringTextTriggerValue("mentre lavoro")
+      ),
+      List(
+        MediaFile("rphjb_NonVoglioNessuno.gif"),
+        MediaFile("rphjb_NonVoglioNessuno.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("peggio del peggio")
+      ),
+      List(
+        MediaFile("rphjb_PeggioDelPeggio.gif"),
+        MediaFile("rphjb_PeggioDelPeggio.mp4")
       ),
       replySelection = RandomSelection
     ),
