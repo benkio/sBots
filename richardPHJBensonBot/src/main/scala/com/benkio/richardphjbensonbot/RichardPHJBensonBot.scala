@@ -1802,8 +1802,7 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("si o no"),
-        RegexTextTriggerValue("\\bnon (lo)?so\\b".r)
+        StringTextTriggerValue("si o no")
       ),
       List(
         MediaFile("rphjb_SiONo.mp4")
