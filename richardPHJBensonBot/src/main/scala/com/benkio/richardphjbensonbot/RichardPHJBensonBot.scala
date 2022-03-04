@@ -689,6 +689,17 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_Oppura.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cosa preferisci"),
+        StringTextTriggerValue("ragazzetta"),
+        StringTextTriggerValue("carne bianca"),
+        StringTextTriggerValue("carne saporita")
+      ),
+      List(
+        MediaFile("rphjb_RagazzettaCarne.mp3")
+      )
     )
   )
 
@@ -3050,6 +3061,7 @@ object RichardPHJBensonBot extends BotOps {
       ),
       List(
         MediaFile("rphjb_Terribile.mp3"),
+        MediaFile("rphjb_Terribile.mp4"),
         MediaFile("rphjb_Terribile.gif")
       ),
       replySelection = RandomSelection
