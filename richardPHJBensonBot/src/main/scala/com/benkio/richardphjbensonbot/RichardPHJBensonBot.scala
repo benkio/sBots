@@ -3095,6 +3095,7 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_Basta.mp3"),
         MediaFile("rphjb_Basta.mp4"),
+        MediaFile("rphjb_Basta2.mp4"),
         MediaFile("rphjb_Basta2.mp3"),
         MediaFile("rphjb_Basta.gif"),
         MediaFile("rphjb_Basta2.gif"),
