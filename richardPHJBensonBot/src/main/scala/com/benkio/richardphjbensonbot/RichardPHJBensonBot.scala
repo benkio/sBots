@@ -725,6 +725,15 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_ViSaluto.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("gigi d'alessio"),
+        StringTextTriggerValue("anna tatangelo")
+      ),
+      List(
+        MediaFile("rphjb_GigiDAlessioAnnaTatangelo.mp3")
+      )
     )
   )
 
