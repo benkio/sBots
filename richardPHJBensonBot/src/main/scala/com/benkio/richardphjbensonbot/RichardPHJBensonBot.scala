@@ -717,6 +717,14 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_NonViDeludero.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("vi saluto")
+      ),
+      List(
+        MediaFile("rphjb_ViSaluto.mp3")
+      )
     )
   )
 
@@ -2921,12 +2929,23 @@ object RichardPHJBensonBot extends BotOps {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("grazie gianni"),
-        RegexTextTriggerValue("cia[o]{3,}".r)
       ),
       List(
         MediaFile("rphjb_Grazie.mp3"),
         MediaFile("rphjb_Grazie.gif"),
         MediaFile("rphjb_Grazie.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("cia[o]{3,}".r)
+      ),
+      List(
+        MediaFile("rphjb_Grazie.mp3"),
+        MediaFile("rphjb_Grazie.gif"),
+        MediaFile("rphjb_Grazie.mp4"),
+        MediaFile("rphjb_ViSaluto.mp3")
       ),
       replySelection = RandomSelection
     ),
