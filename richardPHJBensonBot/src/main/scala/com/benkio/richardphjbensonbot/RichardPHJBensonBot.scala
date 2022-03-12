@@ -2368,6 +2368,14 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_Ridicoli.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(18|diciott['o]?) anni".r)
+      ),
+      List(
+        MediaFile("rphjb_DiciottoAnni.mp4")
+      )
     )
   )
 
@@ -3217,6 +3225,7 @@ object RichardPHJBensonBot extends BotOps {
         MediaFile("rphjb_Esperimento.gif"),
         MediaFile("rphjb_Esperimento2.gif"),
         MediaFile("rphjb_Esperimento3.gif"),
+        MediaFile("rphjb_DiciottoAnni.mp4"),
       ),
       replySelection = RandomSelection
     ),
