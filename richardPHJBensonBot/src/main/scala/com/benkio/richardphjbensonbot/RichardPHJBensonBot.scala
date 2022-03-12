@@ -2360,6 +2360,14 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_PellegrinaggioSimposioMetallo.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ridicoli")
+      ),
+      List(
+        MediaFile("rphjb_Ridicoli.mp4")
+      )
     )
   )
 
