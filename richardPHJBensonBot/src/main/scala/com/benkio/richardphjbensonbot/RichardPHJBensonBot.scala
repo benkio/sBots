@@ -700,6 +700,15 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_RagazzettaCarne.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("fragolina"),
+        StringTextTriggerValue("fichina")
+      ),
+      List(
+        MediaFile("rphjb_FragolinaFichina.mp3")
+      )
     )
   )
 
@@ -1422,11 +1431,12 @@ object RichardPHJBensonBot extends BotOps {
         StringTextTriggerValue("sorca"),
         StringTextTriggerValue("patonza"),
         StringTextTriggerValue("lecciso"),
-        RegexTextTriggerValue("\\bfiga\\b".r)
+        RegexTextTriggerValue("\\bfi[cg]a\\b".r)
       ),
       List(
         MediaFile("rphjb_SorcaLecciso.gif"),
         MediaFile("rphjb_FigaLarga.mp4"),
+        MediaFile("rphjb_FragolinaFichina.mp3"),
         MediaFile("rphjb_Sorca.mp4")
       ),
       replySelection = RandomSelection
