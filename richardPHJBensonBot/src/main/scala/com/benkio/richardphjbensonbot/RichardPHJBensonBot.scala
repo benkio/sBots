@@ -1094,17 +1094,6 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("bebop"),
-        StringTextTriggerValue("be bop"),
-        StringTextTriggerValue("aluba"),
-        StringTextTriggerValue("my baby")
-      ),
-      List(
-        MediaFile("rphjb_Bebop.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("succh"),
         StringTextTriggerValue("olio di croce")
       ),
@@ -3475,6 +3464,19 @@ object RichardPHJBensonBot extends BotOps {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("bebop"),
+        StringTextTriggerValue("be bop"),
+        StringTextTriggerValue("aluba"),
+        StringTextTriggerValue("my baby")
+      ),
+      List(
+        MediaFile("rphjb_Bebop.gif"),
+        MediaFile("rphjb_Bebop.mp4")
+      ),
+      replySelection = RandomSelection
+    )
   )
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
