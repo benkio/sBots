@@ -709,6 +709,14 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_FragolinaFichina.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non vi deluderò")
+      ),
+      List(
+        MediaFile("rphjb_NonViDeludero.mp3")
+      )
     )
   )
 
