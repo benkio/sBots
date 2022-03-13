@@ -734,6 +734,17 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_GigiDAlessioAnnaTatangelo.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("funzioni gene[g]{2,}iative".r),
+        StringTextTriggerValue("non è un uomo"),
+        StringTextTriggerValue("voce da uomo"),
+        RegexTextTriggerValue("è (veramente )?una donna".r)
+      ),
+      List(
+        MediaFile("rphjb_VoceDaUomo.mp3")
+      )
     )
   )
 
