@@ -745,6 +745,24 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_VoceDaUomo.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("culo chiacchierato"),
+        StringTextTriggerValue("rob halford")
+      ),
+      List(
+        MediaFile("rphjb_CuloChiacchierato.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("negri"),
+        StringTextTriggerValue("sezione ritmica")
+      ),
+      List(
+        MediaFile("rphjb_NegriSezioneRitmica.mp3")
+      )
     )
   )
 
@@ -2609,6 +2627,7 @@ object RichardPHJBensonBot extends BotOps {
       ),
       List(
         MediaFile("rphjb_Audeuirbitaim.mp3"),
+        MediaFile("rphjb_Audeuirbitaim2.mp3"),
         MediaFile("rphjb_Audeuirbitaim.mp4"),
       ),
       replySelection = RandomSelection
