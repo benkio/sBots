@@ -2136,7 +2136,9 @@ object RichardPHJBensonBot extends BotOps {
     ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("\\bbeat\\b".r),
-        RegexTextTriggerValue("(e poi[ ,]?[ ]?){2,}".r)
+        RegexTextTriggerValue("(e poi[ ,]?[ ]?){2,}".r),
+        StringTextTriggerValue("qualche volta vedo lei"),
+        StringTextTriggerValue("sfasciavamo tutti gli strumenti"),
       ),
       List(
         MediaFile("rphjb_AssoloBeat.mp4")
