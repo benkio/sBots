@@ -382,6 +382,14 @@ object ABarberoBot extends BotOps {
       List(
         MediaFile("abar_Zazzera.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("metallo")
+      ),
+      List(
+        MediaFile("abar_Metallo.mp3")
+      )
     )
   )
 
