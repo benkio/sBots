@@ -13,7 +13,7 @@ object Dependencies {
     val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.1"
     val sqliteJdbcVersion     = "3.36.0.3"
-    val telegramiumVersion    = "7.57.0"
+    val telegramiumVersion    = "7.60.0"
   }
 
   lazy val libs = new {
