@@ -69,13 +69,13 @@
 
  - create a vm instance in Oracle cloud
  - Get the SSH Private and Public Keys to access it
- - log into ssh vm instace by ssh private key, user and ip. get the last two in the site. Eg command: `ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>
+ - log into ssh vm instace by ssh private key, user and ip. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~
  - Install the jdk 16. Follow this [[https://blogs.oracle.com/developers/post/how-to-install-oracle-java-in-oracle-cloud-infrastructure][tutorial]]
- - Run `sbt "clean; main/assembly"` to create the fat jar
- - Move the fat jar to the vm by `rsync` and `ssh`. Eg. `rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> myTelegramBot/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar`
+ - Run ~sbt "clean; main/assembly"~ to create the fat jar
+ - Move the fat jar to the vm by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> myTelegramBot/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar~
  - Step 3: login to the vm
- - Run the bots. Easier by polling: `java -cp main.jar com.benkio.main.MainPolling`
- - press `Ctrl+Z`, run `bg` and `disown` in order to let previous command run in background
+ - Run the bots. Easier by polling: ~java -cp main.jar com.benkio.main.MainPolling~
+ - press ~Ctrl+Z~, run ~bg~ and ~disown~ in order to let previous command run in background
  - close your terminal and enjoy
 
 *** Deploy on Heroku (Not working yet)
@@ -113,7 +113,7 @@
     - [ ] Slack support
     - [ ] Telegram Webhook (tested locally, not deployed)
     - [ ] Anti-spam filter (https://github.com/benkio/myTelegramBot/issues/45)
-    - [ ] disable `/triggerlist` for groups. maybe with an alternative message telling that when happens
+    - [ ] disable ~/triggerlist~ for groups. maybe with an alternative message telling that when happens
     - [ ] option to disable the bot on forwarded messages (default true)
 **** Richard Philip Henry John Benson Bot
     - [X] Add all the videos from https://t.me/ilsimposioinfernale
