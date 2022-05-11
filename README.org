@@ -69,7 +69,7 @@
 
  - create a vm instance in Oracle cloud
  - Get the SSH Private and Public Keys to access it
- - log into ssh vm instace by ssh private key, user and ip. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~
+ - log into ssh vm instace by ssh private key, user and ip. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~ (~ssh -i ssh-key-2022-04-26.key opc@140.238.155.16~)
  - Install the jdk 16. Follow this [[https://blogs.oracle.com/developers/post/how-to-install-oracle-java-in-oracle-cloud-infrastructure][tutorial]]
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
  - Move the fat jar to the vm by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> myTelegramBot/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar~
