@@ -15,7 +15,7 @@ case object SelectAll extends ReplySelection {
 case object RandomSelection extends ReplySelection {
   def logic[F[_]: Sync](replies: List[Reply]) =
     for {
-      randomNumGen <- Sync[F].delay(new Random())
+      randomNumGen <- Sync[F].delay(new Random)
       randomVal    <- Sync[F].delay(randomNumGen.between(0, replies.size))
     } yield List(replies(randomVal))
 }

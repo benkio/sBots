@@ -55,7 +55,7 @@ object ResourceAccess {
           val stream = getClass().getResourceAsStream("/" + resourceName)
           if (stream == null) new FileInputStream(resourceName) else stream
         })(fis => Async[F].delay(fis.close()))
-        bais <- Resource.make(Async[F].delay(new ByteArrayOutputStream()))(bais => Async[F].delay(bais.close()))
+        bais <- Resource.make(Async[F].delay(new ByteArrayOutputStream))(bais => Async[F].delay(bais.close()))
       } yield (fis, bais)).evalMap { case (fis, bais) =>
         val tempArray = new Array[Byte](16384)
         for {
@@ -71,7 +71,7 @@ object ResourceAccess {
 
     def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[File]] = {
       val jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())
-      val result: ArrayBuffer[String] = new ArrayBuffer();
+      val result: ArrayBuffer[String] = new ArrayBuffer;
 
       // from https://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file
       if (jarFile.isFile()) { // Run with JAR file
@@ -79,7 +79,7 @@ object ResourceAccess {
         val entries = jar.entries() // gives ALL entries in jar
         while (entries.hasMoreElements()) {
           val name = entries.nextElement().getName()
-          if (name.startsWith(criteria + "/") && name.length > (criteria.length + 1)) { // filter according to the path
+          if (name.startsWith(criteria + "/") && name.length > criteria.length + 1) { // filter according to the path
             result += name
           }
         }

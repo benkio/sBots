@@ -14,7 +14,7 @@ object CommandPatterns {
 
   object RandomLinkCommand {
 
-    lazy val random = new Random()
+    lazy val random = new Random
 
     def selectRandomLinkByKeyword[F[_]: Async](
         keywords: String,
@@ -27,7 +27,7 @@ object CommandPatterns {
           .getResourceByteArray(f.getPath)
       )
       sourceRawBytes = sourceRawBytesArray.foldLeft(Array.empty[Byte]) { case (acc, bs) =>
-        acc ++ (('\n'.toByte) +: bs)
+        acc ++ ('\n'.toByte +: bs)
       }
       youtubeLinkReplies = Source
         .fromRawBytes(sourceRawBytes)
