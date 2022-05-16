@@ -3535,7 +3535,11 @@ object RichardPHJBensonBot extends BotOps {
       trigger = CommandTrigger("triggerlist"),
       text = Some(
         TextReply[F](
-          _ => Applicative[F].pure(messageReplyDataStringChunks[F]),
+          m => {
+            if (m.chat.`type` == "private") Applicative[F].pure(messageReplyDataStringChunks[F])
+            else
+              Applicative[F].pure(List("NON TE LO PUOI PERMETTERE!!!(puoi usare questo comando sono in chat privata)"))
+          },
           false
         )
       )
