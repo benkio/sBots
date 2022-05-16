@@ -6,8 +6,7 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
 import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.BotOps
-import com.benkio.telegrambotinfrastructure._
+import com.benkio.telegrambotinfrastructure.{BotOps, _}
 import log.effect.LogWriter
 import org.http4s.Status
 import org.http4s.blaze.client._

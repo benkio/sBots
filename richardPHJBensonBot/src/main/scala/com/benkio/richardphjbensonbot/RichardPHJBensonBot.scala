@@ -5,10 +5,8 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botCapabilities._
-import com.benkio.telegrambotinfrastructure.model.TextReply
-import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.BotOps
-import com.benkio.telegrambotinfrastructure._
+import com.benkio.telegrambotinfrastructure.model.{TextReply, _}
+import com.benkio.telegrambotinfrastructure.{BotOps, _}
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import log.effect.LogWriter

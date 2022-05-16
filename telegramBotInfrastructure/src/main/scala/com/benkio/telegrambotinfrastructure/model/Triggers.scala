@@ -25,6 +25,7 @@ sealed trait MessageTrigger extends Trigger
 
 case class TextTrigger(triggers: TextTriggerValue*) extends MessageTrigger
 case class MessageLengthTrigger(messageLength: Int) extends MessageTrigger
+case class NewMemberTrigger()                        extends MessageTrigger
 case class CommandTrigger(command: String)          extends Trigger
 
 object Trigger {
@@ -36,6 +37,7 @@ object Trigger {
     private def triggerLongestString(trigger: Trigger): Int = trigger match {
       case TextTrigger(lt @ _*)    => lt.map(_.toString).max.length
       case MessageLengthTrigger(_) => 0
+      case NewMemberTrigger()        => 0
       case CommandTrigger(c)       => c.length
     }
   }

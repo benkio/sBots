@@ -6,10 +6,7 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
 import com.benkio.telegrambotinfrastructure.default.DefaultActions
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.Timeout
+import com.benkio.telegrambotinfrastructure.model.{ReplyBundle, ReplyBundleCommand, ReplyBundleMessage, Timeout}
 import log.effect.LogWriter
 import telegramium.bots.Message
 import telegramium.bots.high._
@@ -23,7 +20,7 @@ abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F], l
     val x: OptionT[F, Unit] = for {
       text <- OptionT.fromOption[F](msg.text)
       _    <- OptionT.liftF(log.trace(s"A message arrived with content: $text"))
-      _    <- OptionT(botLogic[F](Async[F], api)(msg, text))
+      _    <- OptionT(botLogic[F](Async[F], api)(msg))
     } yield ()
     x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
@@ -36,7 +33,7 @@ abstract class BotSkeletonWebhook[F[_]: Async](url: String, path: String = "/")(
     val x: OptionT[F, Unit] = for {
       text <- OptionT.fromOption[F](msg.text)
       _    <- OptionT.liftF(log.trace(s"A message arrived with content: $text"))
-      _    <- OptionT(botLogic[F](Async[F], api)(msg, text))
+      _    <- OptionT(botLogic[F](Async[F], api)(msg))
     } yield ()
     x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
@@ -56,28 +53,31 @@ trait BotSkeleton extends DefaultActions {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  def messageLogic[F[_]: Async: Api]: (Message, String) => F[Option[List[Message]]] = (msg: Message, text: String) =>
+  def messageLogic[F[_]: Async: Api]: (Message) => F[Option[List[Message]]] = (msg: Message) =>
     for {
       messageRepliesData <- messageRepliesDataF[F]
       replies <- messageRepliesData
-        .find(MessageMatches.doesMatch(_, text, ignoreMessagePrefix))
+        .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
         .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout))
         .traverse(ReplyBundle.computeReplyBundle[F](_, msg))
     } yield replies
 
-  def commandLogic[F[_]: Async: Api]: (Message, String) => F[Option[List[Message]]] = (msg: Message, text: String) =>
+  def commandLogic[F[_]: Async: Api]: (Message) => F[Option[List[Message]]] = (msg: Message) =>
     for {
       commandRepliesData <- commandRepliesDataF[F]
-      commands <- commandRepliesData
-        .find(rbc => text.startsWith("/" + rbc.trigger.command))
+      commandMatch = for {
+        text <- msg.text
+        result <- commandRepliesData.find(rbc => text.startsWith("/" + rbc.trigger.command))
+      } yield result
+      commands <- commandMatch
         .traverse(
           ReplyBundle.computeReplyBundle[F](_, msg)
         )
     } yield commands
 
-  def botLogic[F[_]: Async: Api]: (Message, String) => F[Option[List[Message]]] = (msg: Message, text: String) =>
+  def botLogic[F[_]: Async: Api]: (Message) => F[Option[List[Message]]] = (msg: Message) =>
     for {
-      messagesOpt <- messageLogic[F](Async[F], implicitly[Api[F]])(msg, text)
-      commandsOpt <- commandLogic[F](Async[F], implicitly[Api[F]])(msg, text)
+      messagesOpt <- messageLogic[F](Async[F], implicitly[Api[F]])(msg)
+      commandsOpt <- commandLogic[F](Async[F], implicitly[Api[F]])(msg)
     } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
 }
