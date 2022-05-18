@@ -35,10 +35,10 @@ object Trigger {
       triggerLongestString(trigger1).compare(triggerLongestString(trigger2))
 
     private def triggerLongestString(trigger: Trigger): Int = trigger match {
-      case TextTrigger(lt @ _*)    => lt.map(_.toString).max.length
-      case MessageLengthTrigger(_) => 0
-      case _: NewMemberTrigger.type   => 0
-      case CommandTrigger(c)       => c.length
+      case TextTrigger(lt @ _*)     => lt.map(_.toString).max.length
+      case MessageLengthTrigger(_)  => 0
+      case _: NewMemberTrigger.type => 0
+      case CommandTrigger(c)        => c.length
     }
   }
 }

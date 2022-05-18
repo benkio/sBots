@@ -3,6 +3,8 @@ package com.benkio.telegrambotinfrastructure
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.model._
 import munit.FunSuite
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 class MessageMatchesSpec extends FunSuite {
 
@@ -25,8 +27,9 @@ class MessageMatchesSpec extends FunSuite {
 
   test("doesMatch should return false when the messageText starts with the ignoreMessagePrefix") {
     val messageText = "!messageIgnored"
+    val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(messageText))
 
-    val result = MessageMatches.doesMatch(replyBundleInput, messageText, ignoreMessagePrefix)
+    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
 
     assert(!result)
   }
@@ -35,17 +38,19 @@ class MessageMatchesSpec extends FunSuite {
       trigger = MessageLengthTrigger(10)
     )
     val messageText = "shortText"
-    val result      = MessageMatches.doesMatch(replyBundleInputLength, messageText, ignoreMessagePrefix)
+    val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(messageText))
+    val result      = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
 
     assert(!result)
   }
   test("doesMatch should return false when the input text does not contain(ContainsOnce) the trigger") {
     val messageText = "text"
-    val result      = MessageMatches.doesMatch(replyBundleInput, messageText, ignoreMessagePrefix)
+    val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(messageText))
+    val result      = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
 
     assert(!result)
   }
-  test("doesMatch should return false when he input text does not contain(ContainsAll) the triggers") {
+  test("doesMatch should return false when the input text does not contain(ContainsAll) the triggers") {
     val replyBundleInputLength = replyBundleInput.copy(
       trigger = TextTrigger(
         StringTextTriggerValue("test"),
@@ -54,7 +59,8 @@ class MessageMatchesSpec extends FunSuite {
       matcher = ContainsAll
     )
     val messageText = "test shortText"
-    val result      = MessageMatches.doesMatch(replyBundleInputLength, messageText, ignoreMessagePrefix)
+    val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(messageText))
+    val result      = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
 
     assert(!result)
   }
@@ -64,13 +70,15 @@ class MessageMatchesSpec extends FunSuite {
       trigger = MessageLengthTrigger(10)
     )
     val messageText = "longerMessage"
-    val result      = MessageMatches.doesMatch(replyBundleInputLength, messageText, ignoreMessagePrefix)
+    val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(messageText))
+    val result      = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
 
     assert(result)
   }
   test("doesMatch should return true when the input text does contain(ContainsOnce) the trigger") {
     val messageText = "test text"
-    val result      = MessageMatches.doesMatch(replyBundleInput, messageText, ignoreMessagePrefix)
+    val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(messageText))
+    val result      = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
 
     assert(result)
   }
@@ -83,7 +91,8 @@ class MessageMatchesSpec extends FunSuite {
       matcher = ContainsAll
     )
     val messageText = "test shortText is not missing"
-    val result      = MessageMatches.doesMatch(replyBundleInputLength, messageText, ignoreMessagePrefix)
+    val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(messageText))
+    val result      = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
 
     assert(result)
   }
