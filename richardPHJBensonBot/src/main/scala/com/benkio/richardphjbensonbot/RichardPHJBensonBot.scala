@@ -384,7 +384,7 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\bcolpevole\b")
+        RegexTextTriggerValue("\\bcolpevole\\b".r)
       ),
       List(
         MediaFile("rphjb_IlColpevole.mp3")
@@ -537,7 +537,7 @@ object RichardPHJBensonBot extends BotOps {
         StringTextTriggerValue("anguille"),
         StringTextTriggerValue("polipi"),
         StringTextTriggerValue("cetrioli"),
-        RegexTextTriggerValue("il problema è uno solo".r)
+        RegexTextTriggerValue("il problema è uno solo".r),
         RegexTextTriggerValue("non riesco a suonare".r)
       ),
       List(
