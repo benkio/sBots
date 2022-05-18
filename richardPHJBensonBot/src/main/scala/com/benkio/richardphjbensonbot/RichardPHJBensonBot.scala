@@ -84,7 +84,7 @@ object RichardPHJBensonBot extends BotOps {
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("state bene")
+        StringTextTriggerValue("come state stasera")
       ),
       List(
         MediaFile("rphjb_LetSGoodStateBene.mp3")
@@ -188,8 +188,7 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("vedere"),
-        StringTextTriggerValue("amico")
+        StringTextTriggerValue("se è un amico")
       ),
       List(
         MediaFile("rphjb_VedereAmico.mp3")
@@ -383,7 +382,7 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("colpevole")
+        RegexTextTriggerValue("\bcolpevole\b")
       ),
       List(
         MediaFile("rphjb_IlColpevole.mp3")
@@ -399,7 +398,7 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("sindaco")
+        StringTextTriggerValue("il sindaco")
       ),
       List(
         MediaFile("rphjb_Sindaco.mp3")
@@ -536,7 +535,8 @@ object RichardPHJBensonBot extends BotOps {
         StringTextTriggerValue("anguille"),
         StringTextTriggerValue("polipi"),
         StringTextTriggerValue("cetrioli"),
-        RegexTextTriggerValue(".*problema.*suonare.*".r)
+        RegexTextTriggerValue("il problema è uno solo".r)
+        RegexTextTriggerValue("non riesco a suonare".r)
       ),
       List(
         MediaFile("rphjb_Problema.mp3")
@@ -1750,8 +1750,7 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bester\\b".r),
-        StringTextTriggerValue("esposito")
+        RegexTextTriggerValue("\\bester\\b".r)
       ),
       List(
         MediaFile("rphjb_Ester.gif"),
@@ -1767,7 +1766,15 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_Propriolla.gif")
       )
-    )
+    ),
+        ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("non vedo questo grande problema".r)
+      ),
+      List(
+        MediaFile("rphjb_VabbeProblema.gif"),
+      ),
+    ),
   )
 
   def messageRepliesVideoData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
@@ -2828,17 +2835,6 @@ object RichardPHJBensonBot extends BotOps {
         MediaFile("rphjb_Zucchero.mp3"),
         MediaFile("rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3"),
         MediaFile("rphjb_AuguriPerPasqua.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bproblema\\b".r)
-      ),
-      List(
-        MediaFile("rphjb_VabbeProblema.gif"),
-        MediaFile("rphjb_Problema.mp3"),
-        MediaFile("rphjb_CintaProblema.mp4")
       ),
       replySelection = RandomSelection
     ),
