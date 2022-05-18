@@ -6,8 +6,12 @@ import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import munit.CatsEffectSuite
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 class RichardPHJBensonBotSpec extends CatsEffectSuite {
+
+  private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
 
   test("messageRepliesAudioData should never raise an exception when try to open the file in resounces") {
     val result = RichardPHJBensonBot
@@ -67,7 +71,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
           RichardPHJBensonBot
             .commandRepliesData[IO]
             .filter(_.trigger.command != "bensonify")
-            .flatMap(_.text.text(null).unsafeRunSync())
+            .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
             .mkString("\n")
             .contains(s)
         )

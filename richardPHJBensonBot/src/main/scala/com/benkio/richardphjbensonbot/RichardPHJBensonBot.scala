@@ -1767,7 +1767,7 @@ object RichardPHJBensonBot extends BotOps {
         MediaFile("rphjb_Propriolla.gif")
       )
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("non vedo questo grande problema".r)
       ),
@@ -1939,15 +1939,6 @@ object RichardPHJBensonBot extends BotOps {
       ),
       List(
         MediaFile("rphjb_Ramarro.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("(cinque|5) dita".r),
-        StringTextTriggerValue("pugno")
-      ),
-      List(
-        MediaFile("rphjb_CinqueDita.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -2392,14 +2383,6 @@ object RichardPHJBensonBot extends BotOps {
       ),
       List(
         MediaFile("rphjb_Ridicoli.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("(18|diciott['o]?) anni".r)
-      ),
-      List(
-        MediaFile("rphjb_DiciottoAnni.mp4")
       )
     )
   )
@@ -3500,6 +3483,27 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_Bebop.gif"),
         MediaFile("rphjb_Bebop.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(18|diciott['o]?) anni".r)
+      ),
+      List(
+        MediaFile("rphjb_DiciottoAnni.mp4"),
+        MediaFile("rphjb_AvremoDiciottanni.gif")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(cinque|5) dita".r),
+        StringTextTriggerValue("pugno")
+      ),
+      List(
+        MediaFile("rphjb_CinqueDita.mp4"),
+        MediaFile("rphjb_CinqueDita.mp3")
       ),
       replySelection = RandomSelection
     )
