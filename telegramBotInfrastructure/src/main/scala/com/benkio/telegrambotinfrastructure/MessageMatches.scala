@@ -15,16 +15,16 @@ object MessageMatches {
       message: Message,
       ignoreMessagePrefix: Option[String]
   ): Boolean =
-    (ignoreMessagePrefix, replyMessageBundle.matcher, replyMessageBundle.trigger) match {
-      case (Some(prefix), _, _) if message.text.isDefined && message.text.get.startsWith(prefix) => false
-      case (_, ContainsOnce, TextTrigger(triggers @ _*))
-          if message.text.isDefined && triggers.exists(TextTriggerValue.matchValue(_, message.text.get.toLowerCase())) =>
+    (ignoreMessagePrefix, replyMessageBundle.matcher, replyMessageBundle.trigger, message.text) match {
+      case (Some(prefix), _, _, Some(messageText)) if  messageText.startsWith(prefix) => false
+      case (_, ContainsOnce, TextTrigger(triggers @ _*), Some(messageText))
+          if triggers.exists(TextTriggerValue.matchValue(_, messageText.toLowerCase())) =>
         true
-      case (_, ContainsAll, TextTrigger(triggers @ _*))
-          if message.text.isDefined && triggers.forall(TextTriggerValue.matchValue(_, message.text.get.toLowerCase())) =>
+      case (_, ContainsAll, TextTrigger(triggers @ _*), Some(messageText))
+          if triggers.forall(TextTriggerValue.matchValue(_, messageText.toLowerCase())) =>
         true
-      case (_, _, MessageLengthTrigger(messageLength)) if message.text.isDefined && message.text.get.size >= messageLength => true
-      case (_, _, NewMemberTrigger()) if message.newChatMembers.nonEmpty => true
+      case (_, _, MessageLengthTrigger(messageLength), Some(messageText)) if messageText.size >= messageLength => true
+      case (_, _, _: NewMemberTrigger.type, _) if message.newChatMembers.nonEmpty => true
       case _                                                                                => false
     }
 }
