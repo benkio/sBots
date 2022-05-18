@@ -64,6 +64,7 @@ class MessageMatchesSpec extends FunSuite {
 
     assert(!result)
   }
+  test("doesMatch should return false when the input message contains empty list of new members in NewMemberTrigger") { ??? }
 
   test("doesMatch should return true when the input text is longer then what specified in MessageLengthTrigger") {
     val replyBundleInputLength = replyBundleInput.copy(
@@ -96,4 +97,5 @@ class MessageMatchesSpec extends FunSuite {
 
     assert(result)
   }
+  test("doesMatch should return true when the input message contains non empty list of new members in NewMemberTrigger") { ??? }
 }
