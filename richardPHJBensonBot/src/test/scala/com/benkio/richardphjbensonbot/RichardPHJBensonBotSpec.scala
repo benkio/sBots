@@ -77,4 +77,6 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
         )
     )
   }
+
+  test("triggerlist command should return the warning message if the input message is not a private chat") { ??? }
 }
