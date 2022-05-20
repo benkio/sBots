@@ -6,8 +6,12 @@ import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import munit.CatsEffectSuite
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 class RichardPHJBensonBotSpec extends CatsEffectSuite {
+
+  private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
 
   test("messageRepliesAudioData should never raise an exception when try to open the file in resounces") {
     val result = RichardPHJBensonBot
@@ -52,7 +56,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
     assertIO(result, true)
   }
 
-  test("commandRepliesData should return a list of all triggers when called") {
+  test("triggerlist should return a list of all triggers when called") {
     assertEquals(RichardPHJBensonBot.commandRepliesData[IO].length, 3)
     assert(
       RichardPHJBensonBot
@@ -66,11 +70,57 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
         .forall(s =>
           RichardPHJBensonBot
             .commandRepliesData[IO]
-            .filter(_.trigger.command != "bensonify")
-            .flatMap(_.text.text(null).unsafeRunSync())
+            .filter(_.trigger.command == "triggerlist")
+            .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
             .mkString("\n")
             .contains(s)
         )
+    )
+  }
+
+  test("triggerlist command should return the warning message if the input message is not a private chat") {
+    val nonPrivateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "group"))
+    val actual = RichardPHJBensonBot
+      .commandRepliesData[IO]
+      .filter(_.trigger.command == "triggerlist")
+      .flatTraverse(_.text.text(nonPrivateTestMessage))
+    assertIO(
+      actual,
+      List("NON TE LO PUOI PERMETTERE!!!(puoi usare questo comando sono in chat privata)")
+    )
+  }
+  test("instructions command should return the expected message") {
+    val actual = RichardPHJBensonBot
+      .commandRepliesData[IO]
+      .filter(_.trigger.command == "instructions")
+      .flatTraverse(_.text.text(privateTestMessage))
+    assertIO(
+      actual,
+      List(s"""
+---- Instruzioni Per il Bot di Benson ----
+
+Il bot reagisce automaticamente ai messaggi in base ai trigger che si
+possono trovare dal comando:
+
+/triggerlist
+
+ATTENZIONE: tale comando invierà una lunga lista. Consultarlo
+privatamente nella chat del bot.
+
+Questo bot consente di convertire le frasi come le direbbe Richard
+attraverso il comando:
+
+/bensonify «Frase»
+
+la frase è necessaria, altrimenti il bot vi risponderà in malomodo.
+
+Infine, se si vuole disabilitare il bot per un particolare messaggio,
+ad esempio per un messaggio lungo che potrebbe causare vari trigger
+in una volta, è possibile farlo iniziando il messaggio con il
+carattere '!':
+
+! «Messaggio»
+""")
     )
   }
 }
