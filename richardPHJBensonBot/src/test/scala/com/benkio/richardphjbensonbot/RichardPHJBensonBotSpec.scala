@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
+import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
@@ -54,6 +55,30 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
         .map(_.foldLeft(true)(_ && _))
 
     assertIO(result, true)
+  }
+
+  test("messageRepliesSpecialData should never raise an exception when try to open the file in resounces") {
+    val result =
+      RichardPHJBensonBot
+        .messageRepliesSpecialData[IO]
+        .flatMap(_.mediafiles)
+        .traverse(mf => ResourceAccessSpec.testFilename(mf.filename, RichardPHJBensonBot.resourceSource))
+        .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
+  }
+
+  test("messageRepliesSpecialData should contain a NewMemberTrigger") {
+    val result =
+      RichardPHJBensonBot
+        .messageRepliesSpecialData[IO]
+        .map(_.trigger match {
+          case NewMemberTrigger => true
+          case _                => false
+        })
+        .exists(identity(_))
+
+    assert(result, true)
   }
 
   test("triggerlist should return a list of all triggers when called") {

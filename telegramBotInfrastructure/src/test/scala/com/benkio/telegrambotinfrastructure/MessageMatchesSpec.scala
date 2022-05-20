@@ -5,6 +5,7 @@ import com.benkio.telegrambotinfrastructure.model._
 import munit.FunSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
+import telegramium.bots.User
 
 class MessageMatchesSpec extends FunSuite {
 
@@ -64,7 +65,15 @@ class MessageMatchesSpec extends FunSuite {
 
     assert(!result)
   }
-  test("doesMatch should return false when the input message contains empty list of new members in NewMemberTrigger") { ??? }
+  test("doesMatch should return false when the input message contains empty list of new members in NewMemberTrigger") {
+    val replyBundleInputNewMembers = replyBundleInput.copy(
+      trigger = NewMemberTrigger
+    )
+    val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = None, newChatMembers = List.empty)
+
+    val result = MessageMatches.doesMatch(replyBundleInputNewMembers, testMessage, ignoreMessagePrefix)
+    assert(!result)
+  }
 
   test("doesMatch should return true when the input text is longer then what specified in MessageLengthTrigger") {
     val replyBundleInputLength = replyBundleInput.copy(
@@ -97,5 +106,17 @@ class MessageMatchesSpec extends FunSuite {
 
     assert(result)
   }
-  test("doesMatch should return true when the input message contains non empty list of new members in NewMemberTrigger") { ??? }
+  test(
+    "doesMatch should return true when the input message contains non empty list of new members in NewMemberTrigger"
+  ) {
+    val replyBundleInputNewMembers = replyBundleInput.copy(
+      trigger = NewMemberTrigger
+    )
+    val newUser = User(id = 1L, isBot = true, firstName = "giuseppeverdioriginale")
+    val testMessage =
+      Message(0, date = 0, chat = Chat(0, `type` = "private"), text = None, newChatMembers = List(newUser))
+
+    val result = MessageMatches.doesMatch(replyBundleInputNewMembers, testMessage, ignoreMessagePrefix)
+    assert(result)
+  }
 }

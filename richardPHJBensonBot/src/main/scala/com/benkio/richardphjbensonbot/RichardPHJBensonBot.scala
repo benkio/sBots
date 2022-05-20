@@ -3511,8 +3511,19 @@ object RichardPHJBensonBot extends BotOps {
     )
   )
 
+  def messageRepliesSpecialData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage(
+      NewMemberTrigger,
+      List(
+        MediaFile("rphjb_QuestaPersonaScusate.gif")
+      )
+    )
+  )
+
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
-    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[F])
+    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
+      F
+    ] ++ messageRepliesSpecialData[F])
       .sorted(ReplyBundle.ordering[F])
       .reverse
 
