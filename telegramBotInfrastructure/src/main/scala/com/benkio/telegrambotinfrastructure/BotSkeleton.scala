@@ -6,7 +6,10 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
 import com.benkio.telegrambotinfrastructure.default.DefaultActions
-import com.benkio.telegrambotinfrastructure.model.{ReplyBundle, ReplyBundleCommand, ReplyBundleMessage, Timeout}
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.Timeout
 import log.effect.LogWriter
 import telegramium.bots.Message
 import telegramium.bots.high._
@@ -66,7 +69,7 @@ trait BotSkeleton extends DefaultActions {
     for {
       commandRepliesData <- commandRepliesDataF[F]
       commandMatch = for {
-        text <- msg.text
+        text   <- msg.text
         result <- commandRepliesData.find(rbc => text.startsWith("/" + rbc.trigger.command))
       } yield result
       commands <- commandMatch
