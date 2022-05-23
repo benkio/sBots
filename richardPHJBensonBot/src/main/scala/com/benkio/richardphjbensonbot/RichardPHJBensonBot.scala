@@ -2386,6 +2386,16 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_Ridicoli.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("l'unico bravo"),
+        RegexTextTriggerValue("scarica d(i |')andrenalina".r),
+        RegexTextTriggerValue("non valgono (un cazzo|niente)".r),
+      ),
+      List(
+        MediaFile("rphjb_UnicoBravo.mp4")
+      )
     )
   )
 
