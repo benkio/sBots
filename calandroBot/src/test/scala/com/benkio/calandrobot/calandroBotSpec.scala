@@ -2,7 +2,7 @@ package com.benkio.calandrobot
 
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
+import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import log.effect.LogWriter
 import log.effect.fs2.SyncLogWriter.consoleLog

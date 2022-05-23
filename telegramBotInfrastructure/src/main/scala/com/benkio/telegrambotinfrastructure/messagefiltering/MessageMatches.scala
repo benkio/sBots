@@ -1,10 +1,6 @@
-package com.benkio.telegrambotinfrastructure
+package com.benkio.telegrambotinfrastructure.messagefiltering
 
-import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
-import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.{MessageLengthTrigger, NewMemberTrigger, ReplyBundleMessage, TextTrigger, TextTriggerValue}
 import telegramium.bots.Message
 
 trait MessageMatches

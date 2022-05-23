@@ -1,11 +1,10 @@
 package com.benkio.telegrambotinfrastructure
 
 import cats.effect.IO
+import com.benkio.telegrambotinfrastructure.messagefiltering._
 import com.benkio.telegrambotinfrastructure.model._
 import munit.FunSuite
-import telegramium.bots.Chat
-import telegramium.bots.Message
-import telegramium.bots.User
+import telegramium.bots.{Chat, Message, User}
 
 class MessageMatchesSpec extends FunSuite {
 

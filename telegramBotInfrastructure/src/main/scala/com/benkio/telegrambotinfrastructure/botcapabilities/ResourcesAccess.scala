@@ -1,17 +1,12 @@
-package com.benkio.telegrambotinfrastructure.botCapabilities
+package com.benkio.telegrambotinfrastructure.botcapabilities
 
 import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
+import java.io.{ByteArrayOutputStream, File, FileInputStream, FileOutputStream}
+import java.nio.file.{Files, Path, Paths}
 import java.util.jar.JarFile
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters._

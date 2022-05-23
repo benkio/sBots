@@ -4,7 +4,7 @@ import cats._
 import cats.data.EitherT
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
+import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceSource
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model._
 import telegramium.bots.high._

@@ -4,12 +4,14 @@ import cats._
 import cats.data.OptionT
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceSource
+import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceSource
 import com.benkio.telegrambotinfrastructure.default.DefaultActions
+import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.messagefiltering.Timeout
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.Timeout
 import log.effect.LogWriter
 import telegramium.bots.Message
 import telegramium.bots.high._
@@ -48,6 +50,7 @@ trait BotSkeleton extends DefaultActions {
   val resourceSource: ResourceSource
   val ignoreMessagePrefix: Option[String] = Some("!")
   val inputTimeout: Option[Duration]      = Some(5.minute)
+  val disableForward: Boolean             = true
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
@@ -61,7 +64,7 @@ trait BotSkeleton extends DefaultActions {
       messageRepliesData <- messageRepliesDataF[F]
       replies <- messageRepliesData
         .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
-        .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout))
+        .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout) && FilteringForward.filter(msg, disableForward))
         .traverse(ReplyBundle.computeReplyBundle[F](_, msg))
     } yield replies
 

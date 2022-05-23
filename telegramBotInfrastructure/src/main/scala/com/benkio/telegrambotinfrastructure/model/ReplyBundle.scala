@@ -4,8 +4,8 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.ContainsOnce
-import com.benkio.telegrambotinfrastructure.MessageMatches
+import com.benkio.telegrambotinfrastructure.messagefiltering.ContainsOnce
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import telegramium.bots.Message
 
 sealed trait ReplyBundle[F[_]] {

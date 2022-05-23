@@ -3,8 +3,9 @@ package com.benkio.richardphjbensonbot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botCapabilities.CommandPatterns._
-import com.benkio.telegrambotinfrastructure.botCapabilities._
+import com.benkio.telegrambotinfrastructure.botcapabilities.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.botcapabilities._
+import com.benkio.telegrambotinfrastructure.messagefiltering._
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.BotOps

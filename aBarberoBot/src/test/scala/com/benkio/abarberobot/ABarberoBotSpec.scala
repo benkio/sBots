@@ -2,7 +2,7 @@ package com.benkio.abarberobot
 
 import cats.effect.IO
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botCapabilities.ResourceAccessSpec
+import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import munit.CatsEffectSuite
