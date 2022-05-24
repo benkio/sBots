@@ -43,7 +43,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
     assertIO(result, true)
   }
 
-  test("commandRepliesData should return a list of all triggers when called") {
+  test("triggerlist should return a list of all triggers when called") {
     assertEquals(ABarberoBot.commandRepliesData[IO].length, 1)
     assert(
       ABarberoBot
@@ -61,6 +61,18 @@ class ABarberoBotSpec extends CatsEffectSuite {
             .mkString("\n")
             .contains(s)
         )
+    )
+  }
+
+  test("triggerlist command should return the warning message if the input message is not a private chat") {
+    val nonPrivateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "group"))
+    val actual = ABarberoBot
+      .commandRepliesData[IO]
+      .filter(_.trigger.command == "triggerlist")
+      .flatTraverse(_.text.text(nonPrivateTestMessage))
+    assertIO(
+      actual,
+      List("puoi usare questo comando sono in chat privata")
     )
   }
 }
