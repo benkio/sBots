@@ -72,7 +72,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
       .flatTraverse(_.text.text(nonPrivateTestMessage))
     assertIO(
       actual,
-      List("puoi usare questo comando sono in chat privata")
+      List("puoi usare questo comando solo in chat privata")
     )
   }
 }

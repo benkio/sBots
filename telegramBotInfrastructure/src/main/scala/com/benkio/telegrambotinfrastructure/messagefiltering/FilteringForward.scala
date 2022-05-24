@@ -4,5 +4,5 @@ import telegramium.bots.Message
 
 object FilteringForward {
   def filter(msg: Message, disableForward: Boolean): Boolean =
-    disableForward == false || msg.forwardFromMessageId.isEmpty
+    disableForward == false || msg.forwardDate.isEmpty
 }

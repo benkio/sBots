@@ -9,38 +9,43 @@ import com.benkio.abarberobot.ABarberoBot
 import com.benkio.calandrobot.CalandroBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.xahbot.XahBot
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
 import log.effect.LogWriter
-import log.effect.fs2.SyncLogWriter.consoleLog
 import org.http4s.blaze.client._
 import telegramium.bots.high.WebhookBot
 
 object MainWebhook extends IOApp {
 
-  implicit val log: LogWriter[IO] = consoleLog
+  def run(args: List[String]): IO[ExitCode] = {
+    implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Warn)
 
-  def run(args: List[String]): IO[ExitCode] = (for {
-    config     <- Resource.eval(Config.loadConfig)
-    httpClient <- BlazeClientBuilder[IO].resource
-    xahWebhook <- XahBot.buildWebhookBot[IO](
-      httpClient = httpClient,
-      webhookBaseUrl = config.webhookBaseUrl
-    )
-    calandroWebhook <- CalandroBot.buildWebhookBot[IO](
-      httpClient = httpClient,
-      webhookBaseUrl = config.webhookBaseUrl
-    )
-    richardPHJBensonWebhook <- RichardPHJBensonBot.buildWebhookBot[IO](
-      httpClient = httpClient,
-      webhookBaseUrl = config.webhookBaseUrl
-    )
-    aBarberoWebhook <- ABarberoBot.buildWebhookBot[IO](
-      httpClient = httpClient,
-      webhookBaseUrl = config.webhookBaseUrl
-    )
-    server <- WebhookBot.compose[IO](
-      bots = List(xahWebhook, calandroWebhook, richardPHJBensonWebhook, aBarberoWebhook),
-      port = config.port,
-      host = config.hostUrl
-    )
-  } yield server).useForever *> ExitCode.Success.pure[IO]
+    val server = for {
+      config     <- Resource.eval(Config.loadConfig)
+      httpClient <- BlazeClientBuilder[IO].resource
+      xahWebhook <- XahBot.buildWebhookBot[IO](
+        httpClient = httpClient,
+        webhookBaseUrl = config.webhookBaseUrl
+      )
+      calandroWebhook <- CalandroBot.buildWebhookBot[IO](
+        httpClient = httpClient,
+        webhookBaseUrl = config.webhookBaseUrl
+      )
+      richardPHJBensonWebhook <- RichardPHJBensonBot.buildWebhookBot[IO](
+        httpClient = httpClient,
+        webhookBaseUrl = config.webhookBaseUrl
+      )
+      aBarberoWebhook <- ABarberoBot.buildWebhookBot[IO](
+        httpClient = httpClient,
+        webhookBaseUrl = config.webhookBaseUrl
+      )
+      server <- WebhookBot.compose[IO](
+        bots = List(xahWebhook, calandroWebhook, richardPHJBensonWebhook, aBarberoWebhook),
+        port = config.port,
+        host = config.hostUrl
+      )
+    } yield server
+
+    server.useForever *> ExitCode.Success.pure[IO]
+  }
 }

@@ -16,7 +16,7 @@ class FilteringForwardSpec extends FunSuite {
       messageId = 0,
       date = 0,
       chat = Chat(id = 0, `type` = "test"),
-      forwardFromMessageId = Some(2)
+      forwardDate = Some(2)
     )
     assert(FilteringForward.filter(msg, false))
     assert(FilteringForward.filter(msg2, false))
@@ -36,7 +36,7 @@ class FilteringForwardSpec extends FunSuite {
       messageId = 0,
       date = 0,
       chat = Chat(id = 0, `type` = "test"),
-      forwardFromMessageId = Some(2)
+      forwardDate = Some(2)
     )
     assert(!FilteringForward.filter(msg, true))
   }

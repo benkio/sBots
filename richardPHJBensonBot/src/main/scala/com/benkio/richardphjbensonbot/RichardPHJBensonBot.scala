@@ -3560,7 +3560,7 @@ object RichardPHJBensonBot extends BotOps {
           m => {
             if (m.chat.`type` == "private") Applicative[F].pure(messageReplyDataStringChunks[F])
             else
-              Applicative[F].pure(List("NON TE LO PUOI PERMETTERE!!!(puoi usare questo comando sono in chat privata)"))
+              Applicative[F].pure(List("NON TE LO PUOI PERMETTERE!!!(puoi usare questo comando solo in chat privata)"))
           },
           false
         )
