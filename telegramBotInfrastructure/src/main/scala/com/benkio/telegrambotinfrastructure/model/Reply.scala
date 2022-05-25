@@ -35,11 +35,11 @@ final case class VideoFile private[model] (filepath: String, replyToMessage: Boo
 
 object MediaFile {
 
-  def apply(filepath: String): MediaFile = filepath match {
-    case s if s.endsWith(".mp3")                         => Mp3File(s)
-    case s if s.endsWith(".gif")                         => GifFile(s)
-    case s if s.endsWith(".mp4")                         => VideoFile(s)
-    case s if List(".jpg", ".png").exists(s.endsWith(_)) => PhotoFile(s)
+  def apply(filepath: String, replyToMessage: Boolean = false): MediaFile = filepath match {
+    case s if s.endsWith(".mp3")                         => Mp3File(s, replyToMessage)
+    case s if s.endsWith(".gif")                         => GifFile(s, replyToMessage)
+    case s if s.endsWith(".mp4")                         => VideoFile(s, replyToMessage)
+    case s if List(".jpg", ".png").exists(s.endsWith(_)) => PhotoFile(s, replyToMessage)
     case _ =>
       throw new IllegalArgumentException(
         s"filepath extension not recognized: $filepath \n allowed extensions: mp3, gif, jpg, png, mp4"

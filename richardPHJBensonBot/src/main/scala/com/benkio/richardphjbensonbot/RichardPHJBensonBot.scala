@@ -3526,7 +3526,7 @@ object RichardPHJBensonBot extends BotOps {
     ReplyBundleMessage(
       NewMemberTrigger,
       List(
-        MediaFile("rphjb_QuestaPersonaScusate.gif")
+        MediaFile("rphjb_QuestaPersonaScusate.gif", true)
       )
     )
   )
