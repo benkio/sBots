@@ -23,10 +23,9 @@ abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F], l
     with BotSkeleton {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
-      _    <- OptionT.liftF(log.trace(s"A message arrived: $msg"))
-      text <- OptionT.fromOption[F](msg.text)
-      _    <- OptionT.liftF(log.info(s"A message arrived with content: $text"))
-      _    <- OptionT(botLogic[F](Async[F], api)(msg))
+      _ <- OptionT.liftF(log.trace(s"A message arrived: $msg"))
+      _ <- OptionT.liftF(log.info(s"A message arrived with content: ${msg.text}"))
+      _ <- OptionT(botLogic[F](Async[F], api)(msg))
     } yield ()
     x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }

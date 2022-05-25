@@ -113,9 +113,19 @@ class MessageMatchesSpec extends FunSuite {
     val replyBundleInputNewMembers = replyBundleInput.copy(
       trigger = NewMemberTrigger
     )
-    val newUser = User(id = 1L, isBot = true, firstName = "giuseppeverdioriginale")
-    val testMessage =
-      Message(0, date = 0, chat = Chat(0, `type` = "private"), text = None, newChatMembers = List(newUser))
+
+    val testMessage = Message(
+      67715,
+      Some(User(23769493, false, "Benkio", None, Some("Benkio"), Some("en"), None, None, None)),
+      None,
+      1653503377,
+      Chat(
+        -444726279,
+        "group",
+        Some("Via delle Albizzie 22"),
+      ),
+      newChatMembers = List(User(87680068, false, "Silvio", None, None, Some("it"), None, None, None)),
+    )
 
     val result = MessageMatches.doesMatch(replyBundleInputNewMembers, testMessage, ignoreMessagePrefix)
     assert(result)
