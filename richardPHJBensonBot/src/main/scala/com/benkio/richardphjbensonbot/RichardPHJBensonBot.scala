@@ -107,8 +107,6 @@ object RichardPHJBensonBot extends BotOps {
         StringTextTriggerValue("acidi"),
         StringTextTriggerValue("pomodori"),
         StringTextTriggerValue("legumi"),
-        StringTextTriggerValue("ratti"),
-        StringTextTriggerValue("topi"),
         StringTextTriggerValue("ragni"),
         StringTextTriggerValue("male il collo"),
       ),
@@ -2397,6 +2395,31 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_UnicoBravo.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("come mi aiuta"),
+      ),
+      List(
+        MediaFile("rphjb_DubbioComeMiAiuta.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bdubbio\\b".r)
+      ),
+      List(
+        MediaFile("rphjb_DubbioComeMiAiuta.mp4"),
+        MediaFile("rphjb_DubbioScantinatiGiocoRattoGatto.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("scantinati"),
+        RegexTextTriggerValue("gioco (io )? del gatto e (voi )? del (ratto|topo)".r)
+      ),
+      List(MediaFile("rphjb_DubbioScantinatiGiocoRattoGatto.mp4"))
     )
   )
 
@@ -3104,6 +3127,7 @@ object RichardPHJBensonBot extends BotOps {
         MediaFile("rphjb_VitaNemico.mp3"),
         MediaFile("rphjb_VitaNemico.gif"),
         MediaFile("rphjb_VitaNemico.mp4"),
+        MediaFile("rphjb_VitaNemico2.mp4"),
         MediaFile("rphjb_VitaNemicoCervello.mp4")
       ),
       replySelection = RandomSelection
@@ -3517,6 +3541,17 @@ object RichardPHJBensonBot extends BotOps {
       List(
         MediaFile("rphjb_CinqueDita.mp4"),
         MediaFile("rphjb_CinqueDita.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ratti"),
+        StringTextTriggerValue("topi")
+      ),
+      List(
+        MediaFile("rphjb_DubbioScantinatiGiocoRattoGatto.mp4"),
+        MediaFile("rphjb_ListaMaleCollo.mp3")
       ),
       replySelection = RandomSelection
     )
