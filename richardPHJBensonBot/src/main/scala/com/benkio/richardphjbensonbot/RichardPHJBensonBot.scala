@@ -642,15 +642,6 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("poveri cretini"),
-        StringTextTriggerValue("poveri ignoranti")
-      ),
-      List(
-        MediaFile("rphjb_PoveriCretini.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("due ossa")
       ),
       List(
@@ -671,14 +662,6 @@ object RichardPHJBensonBot extends BotOps {
       ),
       List(
         MediaFile("rphjb_Sera.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("il venerdì")
-      ),
-      List(
-        MediaFile("rphjb_Venerdi.mp3")
       )
     ),
     ReplyBundleMessage(
@@ -1623,23 +1606,13 @@ object RichardPHJBensonBot extends BotOps {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("baci"),
-        StringTextTriggerValue("limonare"),
-        StringTextTriggerValue("peggio cose")
+        StringTextTriggerValue("limonare")
       ),
       List(
         MediaFile("rphjb_Bacio.gif"),
         MediaFile("rphjb_DanzaMacabra.mp4")
       ),
       replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("solo uno parló"),
-        RegexTextTriggerValue("[cg]ri[dt]i[gc]a[dt]o".r)
-      ),
-      List(
-        MediaFile("rphjb_FuCriticato.gif")
-      )
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -1703,7 +1676,7 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("quattro"),
+        StringTextTriggerValue("quattro solo"),
         StringTextTriggerValue("faccio in tempo")
       ),
       List(
@@ -2420,7 +2393,32 @@ object RichardPHJBensonBot extends BotOps {
         RegexTextTriggerValue("gioco (io )? del gatto e (voi )? del (ratto|topo)".r)
       ),
       List(MediaFile("rphjb_DubbioScantinatiGiocoRattoGatto.mp4"))
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("londra")
+      ),
+      List(MediaFile("rphjb_Londra.mp4"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("latte droga"),
+        StringTextTriggerValue("solo gregge"),
+        StringTextTriggerValue("gregge da discoteca"),
+        StringTextTriggerValue("sputo in un bicchiere"),
+      ),
+      List(MediaFile("rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4"))
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("drogh[ae] (legger[ae]|pesant[ei])".r),
+        StringTextTriggerValue("ammoniaca"),
+        StringTextTriggerValue("veleno per topi"),
+        StringTextTriggerValue("borotalco")
+      ),
+      List(MediaFile("rphjb_DrogheLeggere.mp4"))
+    ),
+    ReplyBundleMessage(TextTrigger(StringTextTriggerValue("peggio cose")), List(MediaFile("rphjb_Venerdi.mp4")))
   )
 
   def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
@@ -2583,7 +2581,7 @@ object RichardPHJBensonBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("sput[ao]".r)
+        RegexTextTriggerValue("\\bsput[ao]\\b".r)
       ),
       List(
         MediaFile("rphjb_Sputo.gif"),
@@ -3554,7 +3552,39 @@ object RichardPHJBensonBot extends BotOps {
         MediaFile("rphjb_ListaMaleCollo.mp3")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("poveri cretini"),
+        StringTextTriggerValue("poveri ignoranti")
+      ),
+      List(
+        MediaFile("rphjb_PoveriCretini.mp3"),
+        MediaFile("rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("solo uno parló"),
+        RegexTextTriggerValue("[cg]ri[dt]i[gc]a[dt]o".r)
+      ),
+      List(
+        MediaFile("rphjb_FuCriticato.gif"),
+        MediaFile("rphjb_FuCriticato.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("il venerdì")
+      ),
+      List(
+        MediaFile("rphjb_Venerdi.mp3"),
+        MediaFile("rphjb_Venerdi.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
   def messageRepliesSpecialData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
