@@ -12,11 +12,16 @@ import telegramium.bots.Message
 
 class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
+  import com.benkio.richardphjbensonbot.data.Audio.messageRepliesAudioData
+  import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData
+  import com.benkio.richardphjbensonbot.data.Gif.messageRepliesGifData
+  import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
+  import com.benkio.richardphjbensonbot.data.Mix.messageRepliesMixData
+
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
 
   test("messageRepliesAudioData should never raise an exception when try to open the file in resounces") {
-    val result = RichardPHJBensonBot
-      .messageRepliesAudioData[IO]
+    val result = messageRepliesAudioData[IO]
       .flatMap(_.mediafiles)
       .traverse((mp3: MediaFile) => ResourceAccessSpec.testFilename(mp3.filename, RichardPHJBensonBot.resourceSource))
       .map(_.foldLeft(true)(_ && _))
@@ -25,8 +30,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   }
 
   test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
-    val result = RichardPHJBensonBot
-      .messageRepliesGifData[IO]
+    val result = messageRepliesGifData[IO]
       .flatMap(_.mediafiles)
       .traverse((gif: MediaFile) => ResourceAccessSpec.testFilename(gif.filename, RichardPHJBensonBot.resourceSource))
       .map(_.foldLeft(true)(_ && _))
@@ -35,8 +39,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   }
 
   test("messageRepliesVideosData should never raise an exception when try to open the file in resounces") {
-    val result = RichardPHJBensonBot
-      .messageRepliesVideoData[IO]
+    val result = messageRepliesVideoData[IO]
       .flatMap(_.mediafiles)
       .traverse((video: MediaFile) =>
         ResourceAccessSpec.testFilename(video.filename, RichardPHJBensonBot.resourceSource)
@@ -48,8 +51,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   test("messageRepliesMixData should never raise an exception when try to open the file in resounces") {
     val result =
-      RichardPHJBensonBot
-        .messageRepliesMixData[IO]
+      messageRepliesMixData[IO]
         .flatMap(_.mediafiles)
         .traverse(mf => ResourceAccessSpec.testFilename(mf.filename, RichardPHJBensonBot.resourceSource))
         .map(_.foldLeft(true)(_ && _))
@@ -59,8 +61,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   test("messageRepliesSpecialData should never raise an exception when try to open the file in resounces") {
     val result =
-      RichardPHJBensonBot
-        .messageRepliesSpecialData[IO]
+      messageRepliesSpecialData[IO]
         .flatMap(_.mediafiles)
         .traverse(mf => ResourceAccessSpec.testFilename(mf.filename, RichardPHJBensonBot.resourceSource))
         .map(_.foldLeft(true)(_ && _))
@@ -70,8 +71,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {
     val result =
-      RichardPHJBensonBot
-        .messageRepliesSpecialData[IO]
+      messageRepliesSpecialData[IO]
         .map(_.trigger match {
           case NewMemberTrigger => true
           case _                => false
