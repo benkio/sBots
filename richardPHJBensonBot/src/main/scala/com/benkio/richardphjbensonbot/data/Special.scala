@@ -5,7 +5,7 @@ import com.benkio.telegrambotinfrastructure.model._
 
 object Special {
 
-    def messageRepliesSpecialData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesSpecialData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       NewMemberTrigger,
       List(

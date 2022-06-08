@@ -675,5 +675,4 @@ object Video {
     ReplyBundleMessage(TextTrigger(StringTextTriggerValue("peggio cose")), List(MediaFile("rphjb_Venerdi.mp4")))
   )
 
-
 }

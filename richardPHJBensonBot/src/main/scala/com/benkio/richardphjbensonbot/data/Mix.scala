@@ -8,7 +8,7 @@ import com.lightbend.emoji.ShortCodes.Implicits._
 
 object Mix {
 
-    def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("vivi"),
