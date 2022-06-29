@@ -2,6 +2,7 @@ package com.benkio.abarberobot
 
 import cats.effect.IO
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccessSpec
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
@@ -12,12 +13,13 @@ import telegramium.bots.Message
 class ABarberoBotSpec extends CatsEffectSuite {
 
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
+  implicit val resourceAccess    = ResourceAccess.fromResources
 
   test("messageRepliesAudioData should never raise an exception when try to open the file in resounces") {
     val result = ABarberoBot
       .messageRepliesAudioData[IO]
       .flatMap(_.mediafiles)
-      .traverse((mp3: MediaFile) => ResourceAccessSpec.testFilename(mp3.filename, ABarberoBot.resourceSource))
+      .traverse((mp3: MediaFile) => ResourceAccessSpec.testFilename(mp3.filename))
       .map(_.foldLeft(true)(_ && _))
 
     assertIO(result, true)
@@ -27,7 +29,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
     val result = ABarberoBot
       .messageRepliesGifData[IO]
       .flatMap(_.mediafiles)
-      .traverse((gif: MediaFile) => ResourceAccessSpec.testFilename(gif.filename, ABarberoBot.resourceSource))
+      .traverse((gif: MediaFile) => ResourceAccessSpec.testFilename(gif.filename))
       .map(_.foldLeft(true)(_ && _))
 
     assertIO(result, true)
@@ -37,7 +39,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
     val result = ABarberoBot
       .messageRepliesSpecialData[IO]
       .flatMap(_.mediafiles)
-      .traverse(mf => ResourceAccessSpec.testFilename(mf.filename, ABarberoBot.resourceSource))
+      .traverse(mf => ResourceAccessSpec.testFilename(mf.filename))
       .map(_.foldLeft(true)(_ && _))
 
     assertIO(result, true)

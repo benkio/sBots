@@ -22,8 +22,6 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String 
 
 trait ABarberoBot extends BotSkeleton {
 
-  override val resourceSource: ResourceSource = ABarberoBot.resourceSource
-
   override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
     ABarberoBot.messageRepliesData[F].pure[F]
 
@@ -37,7 +35,7 @@ trait ABarberoBot extends BotSkeleton {
     RandomLinkCommand
       .selectRandomLinkByKeyword[F](
         "",
-        ResourceSource.selectResourceAccess(resourceSource),
+        resourceAccess,
         "abar_LinkSources"
       )
       .use[ReplyBundleCommand[F]](optMessage =>
@@ -61,7 +59,7 @@ trait ABarberoBot extends BotSkeleton {
                 RandomLinkCommand
                   .selectRandomLinkByKeyword[F](
                     keywords,
-                    ResourceSource.selectResourceAccess(resourceSource),
+                    resourceAccess,
                     "abar_LinkSources"
                   )
                   .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
@@ -77,8 +75,6 @@ trait ABarberoBot extends BotSkeleton {
 }
 
 object ABarberoBot extends BotOps {
-
-  val resourceSource: ResourceSource = FileSystem
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
@@ -842,7 +838,7 @@ object ABarberoBot extends BotOps {
   )
 
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fileSystem.getResourceByteArray[F]("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources.getResourceByteArray[F]("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: ABarberoBotPolling[F] => F[A]

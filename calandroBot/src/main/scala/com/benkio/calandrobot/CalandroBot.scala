@@ -28,11 +28,8 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String 
 
 trait CalandroBot extends BotSkeleton {
 
-  override val resourceSource: ResourceSource = CalandroBot.resourceSource
-
   private def randomCardReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
-    ResourceSource
-      .selectResourceAccess(resourceSource)
+    resourceAccess
       .getResourcesByKind("cards")
       .use[ReplyBundleCommand[F]](files =>
         ReplyBundleCommand[F](
@@ -52,8 +49,6 @@ trait CalandroBot extends BotSkeleton {
 }
 
 object CalandroBot extends BotOps {
-
-  val resourceSource: ResourceSource = All("calandro.db")
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
@@ -315,7 +310,7 @@ object CalandroBot extends BotOps {
   )
 
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fileSystem.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]
