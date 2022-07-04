@@ -4,6 +4,7 @@ name         := "telegramBots"
 organization := "com.benkio"
 scalaVersion := "2.13.8"
 
+enablePlugins(FlywayPlugin)
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.6.0"
