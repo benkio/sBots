@@ -84,6 +84,7 @@ object Dependencies {
   )
 
   val BotDBDependencies: Seq[ModuleID] = Seq(
-    libs.doobie
+    libs.doobie,
+    libs.pureConfig
   )
 }
