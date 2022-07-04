@@ -64,3 +64,8 @@ lazy val main = project
     richardPHJBensonBot,
     xahBot
   )
+
+lazy val BotDB =
+  Project("botDB", file("botDB"))
+    .settings(Settings.settings: _*)
+    .settings(Settings.BotDBSettings)
