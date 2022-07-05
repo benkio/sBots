@@ -676,6 +676,14 @@ object Audio {
       List(
         MediaFile("rphjb_IncrinataLaVoceFrocio.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("io mi ricordo tutto")
+      ),
+      List(
+        MediaFile("rphjb_IoMiRicordoTutto.mp3")
+      )
     )
   )
 }
