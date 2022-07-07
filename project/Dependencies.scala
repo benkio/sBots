@@ -8,8 +8,10 @@ object Dependencies {
     val catsEffectVersion     = "3.3.12"
     val catsVersion           = "2.7.0"
     val doobie                = "1.0.0-RC1"
+    val flyway                = "7.2.0"
     val lightbendEmojiVersion = "1.2.3"
     val logEffects            = "0.16.3"
+    val mysqlConnector        = "8.0.22"
     val munit                 = "0.7.29"
     val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.1"
@@ -20,8 +22,10 @@ object Dependencies {
     val cats            = "org.typelevel" %% "cats-core"           % dependenciesVersion.catsVersion
     val catsEffect      = "org.typelevel" %% "cats-effect"         % dependenciesVersion.catsEffectVersion
     val doobie          =  "org.tpolecat" %% "doobie-core"         % dependenciesVersion.doobie
+    val flyway          = "org.flywaydb"  % "flyway-core"          % dependenciesVersion.flyway
     val lightbendEmoji  = "com.lightbend" %% "emoji"               % dependenciesVersion.lightbendEmojiVersion
     val logEffects      = "io.laserdisc"  %% "log-effect-fs2"      % dependenciesVersion.logEffects
+    val mysqlConnector  = "mysql"         % "mysql-connector-java" % dependenciesVersion.mysqlConnector
     val munit           = "org.scalameta" %% "munit"               % dependenciesVersion.munit           % Test
     val munitCatsEffect = "org.typelevel" %% "munit-cats-effect-3" % dependenciesVersion.munitCatsEffect % "test"
     val pureConfig      = "com.github.pureconfig" %% "pureconfig"       % dependenciesVersion.pureConfig
@@ -85,6 +89,8 @@ object Dependencies {
 
   val BotDBDependencies: Seq[ModuleID] = Seq(
     libs.doobie,
-    libs.pureConfig
+    libs.pureConfig,
+    libs.mysqlConnector,
+    libs.flyway
   )
 }

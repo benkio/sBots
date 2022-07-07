@@ -5,11 +5,15 @@ import pureconfig._
 import pureconfig.generic.auto._
 
 final case class Config(
-  username: String,
-  password: String,
-  host: String,
-  port: Int,
-  migrationLocation: String
+    driver: String,
+    dbName: String,
+    user: String,
+    password: String,
+    host: String,
+    port: Int,
+    url: String,
+    migrationsLocations: List[String],
+    migrationsTable: String
 )
 
 object Config {

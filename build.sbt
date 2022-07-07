@@ -9,6 +9,9 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.6.0"
 
+lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
+
+addCommandAlias("run-db-migrations", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
 
 // PROJECTS
@@ -70,3 +73,7 @@ lazy val BotDB =
   Project("botDB", file("botDB"))
     .settings(Settings.settings: _*)
     .settings(Settings.BotDBSettings)
+    .settings(
+      fullRunTask(runMigrate, Compile, "com.benkio.botDB.Main"),
+      runMigrate / fork := true
+    )

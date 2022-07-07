@@ -1,9 +1,18 @@
 package com.benkio.botDB
 
-import cats.effect.{IO, IOApp}
+import cats.effect.ExitCode
+import cats.effect.IO
+import cats.effect.IOApp
 
-object Main extends IOApp.Simple {
+object Main extends IOApp {
 
-  val run = Config.loadConfig.flatMap(config => IO(println(config)))
-
+  def run(args: List[String]): IO[ExitCode] = {
+    val migrate =
+      for {
+        _   <- IO(println(s"Migrating database configuration"))
+        cfg <- Config.loadConfig
+        _   <- DBMigrations.migrate[IO](cfg)
+      } yield ()
+    migrate.as(ExitCode.Success)
+  }
 }
