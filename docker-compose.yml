@@ -12,20 +12,25 @@ services:
       MYSQL_USER: botUser
       MYSQL_PASSWORD: botPassword
     ports:
-    - "3306:3306"
+      - 3306:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
 
   flyway:
-    image: flyway/flyway:latest
     container_name: flyway
+    # build:
+    #   context: ./botDB/src/main/resources/db/
+    image: flyway/flyway:latest
+    volumes:
+      - ./botDB/src/main/resources/db/migrations/:/flyway/sql
+    command: info repair migrate info
     environment:
       - FLYWAY_USER=botUser
       - FLYWAY_PASSWORD=botPassword
-      - FLYWAY_URL="jdbc:mysql://db:3306/botDB?verifyServerCertificate=false&useSSL=true"
-    command: -locations=filesystem:/flyway/sql -connectRetries=60 migrate
-    volumes:
-      - $PWD/botDB/src/main/resources/db/migrations:/flyway/sql
+      - FLYWAY_URL=jdbc:mysql://db/botDB?allowPublicKeyRetrieval=true
+      - FLYWAY_EDITION=community
     depends_on:
-      - db
-    deploy:
-      restart_policy:
-        condition: on-failure
+      db:
+        condition: service_healthy
