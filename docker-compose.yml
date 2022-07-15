@@ -11,9 +11,26 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: botUser
       MYSQL_PASSWORD: botPassword
-
-  adminer:
-    image: adminer
-    restart: always
     ports:
-      - 8080:8080
+      - 3306:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  flyway:
+    container_name: flyway
+    # build:
+    #   context: ./botDB/src/main/resources/db/
+    image: flyway/flyway:latest
+    volumes:
+      - ./botDB/src/main/resources/db/migrations/:/flyway/sql
+    command: info repair migrate info
+    environment:
+      - FLYWAY_USER=botUser
+      - FLYWAY_PASSWORD=botPassword
+      - FLYWAY_URL=jdbc:mysql://db/botDB?allowPublicKeyRetrieval=true
+      - FLYWAY_EDITION=community
+    depends_on:
+      db:
+        condition: service_healthy
