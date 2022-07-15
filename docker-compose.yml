@@ -11,9 +11,21 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: botUser
       MYSQL_PASSWORD: botPassword
-
-  adminer:
-    image: adminer
-    restart: always
     ports:
-      - 8080:8080
+    - "3306:3306"
+
+  flyway:
+    image: flyway/flyway:latest
+    container_name: flyway
+    environment:
+      - FLYWAY_USER=botUser
+      - FLYWAY_PASSWORD=botPassword
+      - FLYWAY_URL="jdbc:mysql://db:3306/botDB?verifyServerCertificate=false&useSSL=true"
+    command: -locations=filesystem:/flyway/sql -connectRetries=60 migrate
+    volumes:
+      - $PWD/botDB/src/main/resources/db/migrations:/flyway/sql
+    depends_on:
+      - db
+    deploy:
+      restart_policy:
+        condition: on-failure
