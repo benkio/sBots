@@ -19,12 +19,9 @@ services:
       retries: 10
 
   flyway:
-    container_name: flyway
-    # build:
-    #   context: ./botDB/src/main/resources/db/
     image: flyway/flyway:latest
     volumes:
-      - ./botDB/src/main/resources/db/migrations/:/flyway/sql
+      - ./src/main/resources/db/migrations/:/flyway/sql
     command: info repair migrate info
     environment:
       - FLYWAY_USER=botUser
