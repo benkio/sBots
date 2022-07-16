@@ -8,21 +8,20 @@ import scala.language.reflectiveCalls
 
 class ResourcesAccessSpec extends FunSuite {
 
-  val testfile                  = "testFile"
-  val resourcesAccessFileSystem = ResourceAccess.fileSystem
-  val rootPath                  = Paths.get("").toAbsolutePath()
+  val testfile                     = "testFile"
+  val resourcesAccessFromResources = ResourceAccess.fromResources
+  val rootPath                     = Paths.get("").toAbsolutePath()
 
   test("ResourceAccess - buildPath should return the expected path when the filename is provided") {
-    val result = resourcesAccessFileSystem.buildPath(testfile)
+    val result = resourcesAccessFromResources.buildPath(testfile)
     assertEquals(result, Paths.get(rootPath.toString, "src", "main", "resources", testfile))
   }
 }
 
 object ResourceAccessSpec {
 
-  def testFilename(filename: String, resourceSource: ResourceSource): IO[Boolean] =
-    ResourceSource
-      .selectResourceAccess(resourceSource)
+  def testFilename(filename: String)(implicit resourceAccess: ResourceAccess): IO[Boolean] =
+    resourceAccess
       .getResourceByteArray[IO](filename)
       .use((fileBytes: Array[Byte]) => {
         if (fileBytes.nonEmpty) IO(true)

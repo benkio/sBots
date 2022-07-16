@@ -25,8 +25,6 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](url: String, path:
 
 trait RichardPHJBensonBot extends BotSkeleton {
 
-  override val resourceSource: ResourceSource = RichardPHJBensonBot.resourceSource
-
   override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
@@ -39,7 +37,7 @@ trait RichardPHJBensonBot extends BotSkeleton {
     RandomLinkCommand
       .selectRandomLinkByKeyword[F](
         "",
-        ResourceSource.selectResourceAccess(resourceSource),
+        resourceAccess,
         "rphjb_LinkSources"
       )
       .use[ReplyBundleCommand[F]](optMessage =>
@@ -63,7 +61,7 @@ trait RichardPHJBensonBot extends BotSkeleton {
                 RandomLinkCommand
                   .selectRandomLinkByKeyword[F](
                     keywords,
-                    ResourceSource.selectResourceAccess(resourceSource),
+                    resourceAccess,
                     "rphjb_LinkSources"
                   )
                   .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
@@ -84,8 +82,6 @@ object RichardPHJBensonBot extends BotOps {
   import com.benkio.richardphjbensonbot.data.Gif.messageRepliesGifData
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
   import com.benkio.richardphjbensonbot.data.Mix.messageRepliesMixData
-
-  val resourceSource: ResourceSource = All("rphjb.db")
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
@@ -173,7 +169,9 @@ carattere '!':
     )
   )
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fileSystem.getResourceByteArray[F]("rphjb_RichardPHJBensonBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources
+      .getResourceByteArray[F]("rphjb_RichardPHJBensonBot.token")
+      .map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]

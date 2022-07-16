@@ -667,6 +667,23 @@ object Audio {
       List(
         MediaFile("rphjb_NegriSezioneRitmica.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("incrinata la voce"),
+        RegexTextTriggerValue("parlo come un(a specie di)? frocio".r)
+      ),
+      List(
+        MediaFile("rphjb_IncrinataLaVoceFrocio.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("io mi ricordo tutto")
+      ),
+      List(
+        MediaFile("rphjb_IoMiRicordoTutto.mp3")
+      )
     )
   )
 }

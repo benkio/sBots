@@ -5,8 +5,8 @@ import Keys._
 object Dependencies {
 
   lazy val dependenciesVersion = new {
-    val catsEffectVersion     = "3.3.12"
-    val catsVersion           = "2.7.0"
+    val catsEffectVersion     = "3.3.13"
+    val catsVersion           = "2.8.0"
     val doobie                = "1.0.0-RC1"
     val flyway                = "7.2.0"
     val lightbendEmojiVersion = "1.2.3"
@@ -16,7 +16,7 @@ object Dependencies {
     val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.1"
     val testcontainers        = "0.40.9"
-    val telegramiumVersion    = "7.60.0"
+    val telegramiumVersion    = "7.61.0"
   }
 
   lazy val libs = new {

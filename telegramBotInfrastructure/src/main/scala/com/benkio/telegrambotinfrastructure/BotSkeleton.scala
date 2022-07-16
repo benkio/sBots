@@ -4,7 +4,7 @@ import cats._
 import cats.data.OptionT
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceSource
+import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import com.benkio.telegrambotinfrastructure.default.DefaultActions
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
@@ -48,7 +48,7 @@ abstract class BotSkeletonWebhook[F[_]: Async](url: String, path: String = "/")(
 trait BotSkeleton extends DefaultActions {
 
   // Configuration values /////////////////////////////////////////////////////
-  val resourceSource: ResourceSource
+  val resourceAccess: ResourceAccess      = ResourceAccess.fromResources
   val ignoreMessagePrefix: Option[String] = Some("!")
   val inputTimeout: Option[Duration]      = Some(5.minute)
   val disableForward: Boolean             = true

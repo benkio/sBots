@@ -22,8 +22,6 @@ class XahBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/"
 
 trait XahBot extends BotSkeleton {
 
-  override val resourceSource: ResourceSource = XahBot.resourceSource
-
   override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] = List(
     buildRandomReplyBundleCommand(
       "ass",
@@ -107,7 +105,7 @@ trait XahBot extends BotSkeleton {
     RandomLinkCommand
       .selectRandomLinkByKeyword[F](
         "",
-        ResourceSource.selectResourceAccess(XahBot.resourceSource),
+        resourceAccess,
         "xah_LinkSources"
       )
       .use[ReplyBundleCommand[F]](optMessage =>
@@ -118,8 +116,7 @@ trait XahBot extends BotSkeleton {
       )
 
   private def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand[F]] =
-    ResourceSource
-      .selectResourceAccess(XahBot.resourceSource)
+    resourceAccess
       .getResourcesByKind[F](directory)
       .use[ReplyBundleCommand[F]](files =>
         ReplyBundleCommand[F](
@@ -143,7 +140,7 @@ trait XahBot extends BotSkeleton {
                 RandomLinkCommand
                   .selectRandomLinkByKeyword[F](
                     keywords,
-                    ResourceSource.selectResourceAccess(resourceSource),
+                    resourceAccess,
                     "xah_LinkSources"
                   )
                   .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
@@ -159,10 +156,8 @@ trait XahBot extends BotSkeleton {
 
 object XahBot extends BotOps {
 
-  val resourceSource: ResourceSource = FileSystem
-
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fileSystem.getResourceByteArray[F]("xah_XahBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources.getResourceByteArray[F]("xah_XahBot.token").map(_.map(_.toChar).mkString)
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: XahBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {

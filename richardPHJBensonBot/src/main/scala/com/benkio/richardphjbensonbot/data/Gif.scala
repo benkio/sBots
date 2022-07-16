@@ -1008,6 +1008,16 @@ object Gif {
         MediaFile("rphjb_VabbeProblema.gif"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("il bongo"),
+        StringTextTriggerValue("non esiste un basso più pontente al mondo"),
+        StringTextTriggerValue("music man")
+      ),
+      List(
+        MediaFile("rphjb_IlBongo.gif")
+      )
+    )
   )
 
 }
