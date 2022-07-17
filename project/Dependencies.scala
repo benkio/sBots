@@ -34,8 +34,8 @@ object Dependencies {
     val telegramiumHigh = "io.github.apimorphism" %% "telegramium-high" % dependenciesVersion.telegramiumVersion
     val testcontainersMunit =
       "com.dimafeng" %% "testcontainers-scala-munit" % dependenciesVersion.testcontainers % "it, test"
-    val testcontainersCore =
-      "com.dimafeng" %% "testcontainers-scala-core" % dependenciesVersion.testcontainers % "it, test"
+    val testcontainersMysql =
+      "com.dimafeng" %% "testcontainers-scala-mysql" % dependenciesVersion.testcontainers % "it, test"
   }
 
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] = Seq(
@@ -98,6 +98,7 @@ object Dependencies {
     libs.munit,
     libs.mysqlConnector,
     libs.pureConfig,
-    libs.testcontainersMunit
+    libs.testcontainersMunit,
+    libs.testcontainersMysql
   )
 }

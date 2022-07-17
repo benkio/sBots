@@ -1,6 +1,7 @@
 package com.benkio.botDB
 
 import cats.effect.IO
+import doobie.Transactor
 import pureconfig._
 import pureconfig.generic.auto._
 
@@ -13,7 +14,8 @@ final case class Config(
     port: Int,
     url: String,
     migrationsLocations: List[String],
-    migrationsTable: String
+    migrationsTable: String,
+    resourceLocation: String,
 )
 
 object Config {
@@ -26,4 +28,12 @@ object Config {
         err => IO.raiseError[Config](new RuntimeException(err.prettyPrint())),
         value => IO.pure(value)
       )
+
+  def buildTransactor(cfg: Config): Transactor[IO] =
+    Transactor.fromDriverManager[IO](
+      cfg.driver,
+      cfg.url,
+      cfg.user,
+      cfg.password
+    )
 }

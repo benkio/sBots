@@ -8,7 +8,7 @@ import com.benkio.botDB.db.schema.MediaEntity
 class DatabaseRepositoryMock(expectedMediaFilesRef: Ref[IO, List[MediaEntity]]) extends DatabaseRepository[IO] {
   override def insertMedia(mediaEntity: MediaEntity): IO[Unit] =
     expectedMediaFilesRef.get.flatMap(expectedMediaFiles =>
-      if (expectedMediaFiles.contains(mediaEntity)) {
+      if (expectedMediaFiles.map(_.media_name).contains(mediaEntity.media_name)) {
         IO(())
       } else {
         IO.raiseError(

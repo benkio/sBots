@@ -42,7 +42,7 @@ class DBSpec extends CatsEffectSuite with ContainerSuite {
     withContainers { dockerComposeContainer =>
       val connection         = buildDBConnection(dockerComposeContainer)
       val databaseRepository = DatabaseRepository[IO](transactor(connection))
-      assertIO_(databaseRepository.insertMedia(TestData.mediaEntity))
+      assertIO_(databaseRepository.insertMedia(TestData.mediaEntity1))
     }
   }
 }

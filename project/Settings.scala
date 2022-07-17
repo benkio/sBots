@@ -71,6 +71,6 @@ object Settings {
     name                     := "botDB",
     libraryDependencies      := BotDBDependencies,
     mainClass                := Some("com.benkio.botDB.Main"),
-    Test / resourceDirectory := (Compile / resourceDirectory).value
+    // Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ Defaults.itSettings
 }

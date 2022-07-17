@@ -11,6 +11,8 @@ import java.io.File
 
 sealed trait BotDBController[F[_]] {
   def build: Resource[F, Unit]
+
+  def populateMediaTable(): Resource[F, Unit]
 }
 
 object BotDBController {
@@ -27,7 +29,15 @@ object BotDBController {
       migrator = migrator
     )
 
-  def flattenResources(resources: List[File]): List[(File, Option[String])] = ???
+  def flattenResources(resources: List[File]): List[(File, Option[String])] = {
+    val (files, directories) = resources.partition(_.isFile())
+    files.map(f => (f, None)) ++ directories.flatMap(dir =>
+      flattenResources(dir.listFiles().toList).map {
+        case (f, Some(kind)) => (f, Some(s"${dir.getName()}_" + kind))
+        case (f, None)       => (f, Some(s"${dir.getName()}"))
+      }
+    )
+  }
 
   private class BotDBControllerImpl[F[_]: Sync](
       cfg: Config,
@@ -41,7 +51,7 @@ object BotDBController {
     } yield ()
 
     def populateMediaTable(): Resource[F, Unit] = for {
-      resources <- resourceAccess.getResourcesByKind("")
+      resources <- resourceAccess.getResourcesByKind(cfg.resourceLocation)
       files = BotDBController.flattenResources(resources)
       _ <- Resource.eval(files.traverse_ { case (file, kind) =>
         databaseRepository.insertMedia(MediaEntity.fromFile(file, kind))
