@@ -18,10 +18,25 @@ class ITSpec extends FunSuite with TestContainerForAll {
     username = config.user,
     password = config.password,
   )
+
+  def setEnv(key: String, value: String) = {
+    val field = System.getenv().getClass.getDeclaredField("m")
+    field.setAccessible(true)
+    val map = field.get(System.getenv()).asInstanceOf[java.util.Map[java.lang.String, java.lang.String]]
+    map.put(key, value)
+  }
+
+
   test("botDB main should populate the migration with the files in resources") {
     withContainers { mysqlContainer: MySQLContainer =>
+      val testPort = mysqlContainer.container.getMappedPort(config.port)
       println("url: " + mysqlContainer.jdbcUrl)
+      println("port: " + testPort)
+
+      setEnv("DB_PORT", testPort.toString)
+
       Main.run(List.empty).unsafeRunSync()
+
       val transactor = Transactor.fromDriverManager[IO](
         mysqlContainer.driverClassName,
         mysqlContainer.jdbcUrl,
