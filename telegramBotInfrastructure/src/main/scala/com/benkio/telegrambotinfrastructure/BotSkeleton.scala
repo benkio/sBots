@@ -48,10 +48,10 @@ abstract class BotSkeletonWebhook[F[_]: Async](url: String, path: String = "/")(
 trait BotSkeleton extends DefaultActions {
 
   // Configuration values /////////////////////////////////////////////////////
-  val resourceAccess: ResourceAccess      = ResourceAccess.fromResources
-  val ignoreMessagePrefix: Option[String] = Some("!")
-  val inputTimeout: Option[Duration]      = Some(5.minute)
-  val disableForward: Boolean             = true
+  def resourceAccess[F[_]: Sync]: ResourceAccess[F] = ResourceAccess.fromResources[F]
+  val ignoreMessagePrefix: Option[String]           = Some("!")
+  val inputTimeout: Option[Duration]                = Some(5.minute)
+  val disableForward: Boolean                       = true
 
   // Reply to Messages ////////////////////////////////////////////////////////
 

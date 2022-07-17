@@ -310,7 +310,7 @@ object CalandroBot extends BotOps {
   )
 
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources.getResourceByteArray("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]

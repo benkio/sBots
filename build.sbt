@@ -1,4 +1,5 @@
 import Settings._
+
 // import Configs._
 
 name         := "telegramBots"
@@ -16,7 +17,6 @@ addCommandAlias("run-db-migrations", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
 
 // PROJECTS
-
 
 lazy val global = project
   .in(file("."))
@@ -87,3 +87,4 @@ lazy val botDB =
       fullRunTask(runMigrate, Compile, "com.benkio.botDB.Main"),
       runMigrate / fork := true
     )
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")

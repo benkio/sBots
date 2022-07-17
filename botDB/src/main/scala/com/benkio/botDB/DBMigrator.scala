@@ -8,18 +8,24 @@ import org.flywaydb.core.api.configuration.FluentConfiguration
 
 import scala.jdk.CollectionConverters._
 
-object DBMigrations {
+trait DBMigrator[F[_]] {
+  def migrate(config: Config): F[Int]
+}
 
-  def migrate[F[_]: Sync](config: Config): F[Int] =
-    Sync[F].delay {
-      println(
-        "Running migrations from locations: " +
-          config.migrationsLocations.mkString(", ")
-      )
-      val count = unsafeMigrate(config)
-      println(s"Executed $count migrations")
-      count
-    }
+object DBMigrator {
+
+  def migrator[F[_]: Sync] = new DBMigrator[F] {
+    def migrate(config: Config): F[Int] =
+      Sync[F].delay {
+        println(
+          "Running migrations from locations: " +
+            config.migrationsLocations.mkString(", ")
+        )
+        val count = unsafeMigrate(config)
+        println(s"Executed $count migrations")
+        count
+      }
+  }
 
   private def unsafeMigrate(config: Config): Int = {
     val m: FluentConfiguration = Flyway.configure

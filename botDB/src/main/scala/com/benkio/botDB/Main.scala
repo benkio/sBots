@@ -11,8 +11,8 @@ object Main extends IOApp {
       for {
         _   <- IO(println(s"Migrating database configuration"))
         cfg <- Config.loadConfig
-        _   <- DBMigrations.migrate[IO](cfg)
-      } yield ()
+        // _   <- DBMigrations.migrate[IO](cfg)
+      } yield println(cfg)
     migrate.as(ExitCode.Success)
   }
 }
