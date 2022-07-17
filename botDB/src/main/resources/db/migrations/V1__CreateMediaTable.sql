@@ -1,8 +1,8 @@
-CREATE TABLE Media(
-  mediaName VARCHAR(255) PRIMARY KEY,
-  mediaContent LONGBLOB NOT NULL,
-  createdAt TIMESTAMP NOT NULL
+CREATE TABLE media(
+  media_name VARCHAR(255) PRIMARY KEY,
+  media_content LONGBLOB NOT NULL,
+  created_at TIMESTAMP NOT NULL
 );
 
-CREATE UNIQUE INDEX Media__Key
-ON Media(mediaName);
+CREATE UNIQUE INDEX media_key
+ON media(media_name);
