@@ -8,6 +8,7 @@ import com.benkio.botDB.db.schema.MediaEntity
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 
 import java.io.File
+import scala.util.Try
 
 sealed trait BotDBController[F[_]] {
   def build: Resource[F, Unit]
@@ -29,15 +30,16 @@ object BotDBController {
       migrator = migrator
     )
 
-  def flattenResources(resources: List[File]): List[(File, Option[String])] = {
-    val (files, directories) = resources.partition(_.isFile())
-    files.map(f => (f, None)) ++ directories.flatMap(dir =>
-      flattenResources(dir.listFiles().toList).map {
-        case (f, Some(kind)) => (f, Some(s"${dir.getName()}_" + kind))
-        case (f, None)       => (f, Some(s"${dir.getName()}"))
-      }
-    )
-  }
+  def flattenResources(resources: List[File], kind: Option[String] = None): List[(File, Option[String])] = for {
+    r <- resources
+    fk <-
+      if (r.isFile)
+        List((r, kind))
+      else
+        Try(
+          flattenResources(r.listFiles().toList, kind.fold(Some(r.getName))((k: String) => Some(s"${k}_${r.getName}")))
+        ).getOrElse(List.empty)
+  } yield fk
 
   private class BotDBControllerImpl[F[_]: Sync](
       cfg: Config,

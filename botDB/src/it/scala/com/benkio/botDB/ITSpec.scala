@@ -26,7 +26,6 @@ class ITSpec extends FunSuite with TestContainerForAll {
     map.put(key, value)
   }
 
-
   test("botDB main should populate the migration with the files in resources") {
     withContainers { mysqlContainer: MySQLContainer =>
       val testPort = mysqlContainer.container.getMappedPort(config.port)

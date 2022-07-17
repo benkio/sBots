@@ -70,7 +70,6 @@ object Settings {
   lazy val BotDBSettings = Seq(
     name                     := "botDB",
     libraryDependencies      := BotDBDependencies,
-    mainClass                := Some("com.benkio.botDB.Main"),
-    // Test / resourceDirectory := (Compile / resourceDirectory).value
+    mainClass                := Some("com.benkio.botDB.Main")
   ) ++ Defaults.itSettings
 }
