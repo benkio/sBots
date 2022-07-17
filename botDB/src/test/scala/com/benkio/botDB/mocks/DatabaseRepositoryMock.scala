@@ -1,7 +1,7 @@
 package com.benkio.botDB.mocks
 
 import cats.effect.IO
-import com.benkio.botDB.DatabaseRepository
+import com.benkio.botDB.db.DatabaseRepository
 
 import java.io.File
 

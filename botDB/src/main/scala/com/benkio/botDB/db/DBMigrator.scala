@@ -1,4 +1,4 @@
-package com.benkio.botDB
+package com.benkio.botDB.db
 
 import cats.effect.Sync
 import com.benkio.botDB.Config
