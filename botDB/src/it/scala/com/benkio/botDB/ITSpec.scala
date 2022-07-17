@@ -33,6 +33,7 @@ class ITSpec extends FunSuite with TestContainerForAll {
       println("port: " + testPort)
 
       setEnv("DB_PORT", testPort.toString)
+      setEnv("RESOURCE_LOCATION", "/testdata/")
 
       Main.run(List.empty).unsafeRunSync()
 
