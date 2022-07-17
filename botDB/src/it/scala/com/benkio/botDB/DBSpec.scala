@@ -1,11 +1,15 @@
 package com.benkio.botDB
 
+import munit.CatsEffectSuite
+import com.benkio.botDB.db.DatabaseRepository
+import cats.effect.IO
 import com.dimafeng.testcontainers.DockerComposeContainer
 import java.sql.DriverManager
 import java.sql.Connection
-import munit._
 
-class DBSpec extends FunSuite with ContainerSuite {
+import doobie.Transactor
+
+class DBSpec extends CatsEffectSuite with ContainerSuite {
 
   def buildDBConnection(container: DockerComposeContainer): Connection =
     DriverManager.getConnection(
@@ -14,6 +18,9 @@ class DBSpec extends FunSuite with ContainerSuite {
       dbUser,
       dbPassword
     )
+
+  def transactor(c: Connection): Transactor[IO] =
+    Transactor.fromConnection[IO](c)
 
   test("The `media` table should exist and be readable/writable") {
     withContainers { dockerComposeContainer =>
@@ -26,6 +33,16 @@ class DBSpec extends FunSuite with ContainerSuite {
       assertEquals(actualMediaName, "test media.mp3")
       assertEquals(actualMediaCreatedAt, "2008-01-01 00:00:01")
       connection.close()
+    }
+  }
+
+// DatabaseRepository /////////////////////////////////////////////////////////
+
+  test("DatabaseRepository should be able to insert a Media") {
+    withContainers { dockerComposeContainer =>
+      val connection         = buildDBConnection(dockerComposeContainer)
+      val databaseRepository = DatabaseRepository[IO](transactor(connection))
+      assertIO_(databaseRepository.insertMedia(TestData.mediaEntity))
     }
   }
 }

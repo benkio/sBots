@@ -9,7 +9,7 @@ final case class MediaEntity(
     media_name: String,
     kind: Option[String],
     media_content: Array[Byte],
-    changed_at: Timestamp
+    created_at: Timestamp
 )
 
 object MediaEntity {
@@ -18,7 +18,7 @@ object MediaEntity {
     media_name = file.getName(),
     kind = kind,
     media_content = Files.readAllBytes(file.toPath),
-    changed_at = Timestamp.from(Instant.now()),
+    created_at = Timestamp.from(Instant.now()),
   )
 
   // TODO: add the Meta instance to handle Blob

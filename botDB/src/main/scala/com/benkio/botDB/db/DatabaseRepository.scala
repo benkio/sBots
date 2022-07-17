@@ -21,6 +21,6 @@ object DatabaseRepository {
       insertSql(mediaEntity).run.transact(transactor).void
 
     private def insertSql(mediaEntity: MediaEntity): Update0 =
-      sql"REPLACE INTO media (media_name, media_content, changed_at) VALUES ($mediaEntity);".update
+      sql"REPLACE INTO media (media_name, kind, media_content, created_at) VALUES ($mediaEntity);".update
   }
 }
