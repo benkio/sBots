@@ -5,7 +5,7 @@ import Keys._
 object Dependencies {
 
   lazy val dependenciesVersion = new {
-    val catsEffectVersion     = "3.3.13"
+    val catsEffectVersion     = "3.3.14"
     val catsVersion           = "2.8.0"
     val doobie                = "1.0.0-RC1"
     val flyway                = "7.2.0"
