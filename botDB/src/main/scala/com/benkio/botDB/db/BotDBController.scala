@@ -56,7 +56,9 @@ object BotDBController {
       resources <- resourceAccess.getResourcesByKind(cfg.resourceLocation)
       files = BotDBController.flattenResources(resources)
       _ <- Resource.eval(files.traverse_ { case (file, kind) =>
+        Sync[F].delay(println(s"Inserting file $file of kind $kind")) *>
         databaseRepository.insertMedia(MediaEntity.fromFile(file, kind))
+        .productL(Sync[F].delay(println(s"Inserted file $file of kind $kind successfully")))
       })
     } yield ()
   }
