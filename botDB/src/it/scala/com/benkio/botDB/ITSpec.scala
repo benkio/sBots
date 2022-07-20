@@ -3,7 +3,7 @@ package com.benkio.botDB
 import cats.effect.IO
 import doobie.Transactor
 import org.testcontainers.utility.DockerImageName
-import com.dimafeng.testcontainers.MySQLContainer
+import com.dimafeng.testcontainers.PostgreSQLContainer
 import com.benkio.botDB.TestData._
 import com.dimafeng.testcontainers.munit.TestContainerForAll
 import munit._
@@ -12,8 +12,8 @@ import cats.effect.unsafe.implicits.global
 import doobie.implicits._
 
 class ITSpec extends FunSuite with TestContainerForAll {
-  override val containerDef: MySQLContainer.Def = MySQLContainer.Def(
-    dockerImageName = DockerImageName.parse(MySQLContainer.defaultDockerImageName),
+  override val containerDef: PostgreSQLContainer.Def = PostgreSQLContainer.Def(
+    dockerImageName = DockerImageName.parse(PostgreSQLContainer.defaultDockerImageName),
     databaseName = config.dbName,
     username = config.user,
     password = config.password,
@@ -27,9 +27,9 @@ class ITSpec extends FunSuite with TestContainerForAll {
   }
 
   test("botDB main should populate the migration with the files in resources") {
-    withContainers { mysqlContainer: MySQLContainer =>
-      val testPort = mysqlContainer.container.getMappedPort(config.port)
-      println("url: " + mysqlContainer.jdbcUrl)
+    withContainers { postgresContainer: PostgreSQLContainer =>
+      val testPort = postgresContainer.container.getMappedPort(config.port)
+      println("url: " + postgresContainer.jdbcUrl)
       println("port: " + testPort)
 
       setEnv("DB_PORT", testPort.toString)
@@ -38,10 +38,10 @@ class ITSpec extends FunSuite with TestContainerForAll {
       Main.run(List.empty).unsafeRunSync()
 
       val transactor = Transactor.fromDriverManager[IO](
-        mysqlContainer.driverClassName,
-        mysqlContainer.jdbcUrl,
-        mysqlContainer.username,
-        mysqlContainer.password
+        postgresContainer.driverClassName,
+        postgresContainer.jdbcUrl,
+        postgresContainer.username,
+        postgresContainer.password
       )
       val mediaContent = sql"SELECT media_name FROM media;".query[String].to[List].transact(transactor).unsafeRunSync()
       assert(mediaContent.length == 3)

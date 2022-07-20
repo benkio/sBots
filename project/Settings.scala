@@ -68,8 +68,8 @@ object Settings {
   ) ++ assemblySettings
 
   lazy val BotDBSettings = Seq(
-    name                     := "botDB",
-    libraryDependencies      := BotDBDependencies,
-    mainClass                := Some("com.benkio.botDB.Main")
+    name                := "botDB",
+    libraryDependencies := BotDBDependencies,
+    mainClass           := Some("com.benkio.botDB.Main")
   ) ++ Defaults.itSettings
 }

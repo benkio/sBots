@@ -11,7 +11,7 @@ import munit.Suite
 trait ContainerSuite extends Suite with TestContainerForAll {
 
   val dbServiceName: String = "db_1"
-  val dbServicePort: Int    = 3306
+  val dbServicePort: Int    = 5432
   val dbUser: String        = "botUser"
   val dbPassword: String    = "botPassword"
   val dbName: String        = "botDB"

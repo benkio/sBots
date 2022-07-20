@@ -26,13 +26,13 @@ object TestData {
   )
 
   val config: Config = Config(
-    driver = "com.mysql.cj.jdbc.Driver",
+    driver = "org.postgresql.Driver",
     dbName = "botDB",
     user = "botUser",
     password = "botPassword",
     host = "localhost",
-    port = 3306,
-    url = "jdbc:mysql://localhost:3306/botDB",
+    port = 5432,
+    url = "jdbc:postgresql://localhost:5432/botDB",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
     resourceLocation = "/testdata/"

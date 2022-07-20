@@ -4,19 +4,21 @@ version: '3.1'
 services:
 
   db:
-    image: mysql
+    image: postgres
     restart: always
     environment:
-      MYSQL_DATABASE: botDB
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: botUser
-      MYSQL_PASSWORD: botPassword
+      POSTGRES_DB: botDB
+      POSTGRES_USER: botUser
+      POSTGRES_PASSWORD: botPassword
     ports:
-      - 3306:3306
+      - 5432:5432
     healthcheck:
-      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-      timeout: 20s
-      retries: 10
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U botUser --dbname=botDB']
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   flyway:
     image: flyway/flyway:latest
@@ -26,7 +28,7 @@ services:
     environment:
       - FLYWAY_USER=botUser
       - FLYWAY_PASSWORD=botPassword
-      - FLYWAY_URL=jdbc:mysql://db/botDB?allowPublicKeyRetrieval=true
+      - FLYWAY_URL=jdbc:postgresql://db/botDB
       - FLYWAY_EDITION=community
     depends_on:
       db:
