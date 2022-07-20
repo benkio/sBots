@@ -13,7 +13,7 @@ import telegramium.bots.Message
 class ABarberoBotSpec extends CatsEffectSuite {
 
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  implicit val resourceAccess    = ResourceAccess.fromResources
+  implicit val resourceAccess    = ResourceAccess.fromResources[IO]
 
   test("messageRepliesAudioData should never raise an exception when try to open the file in resounces") {
     val result = ABarberoBot

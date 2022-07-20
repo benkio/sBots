@@ -12,7 +12,7 @@ import munit.CatsEffectSuite
 class CalandroBotSpec extends CatsEffectSuite {
 
   implicit val log: LogWriter[IO] = consoleLog
-  implicit val resourceAccess     = ResourceAccess.fromResources
+  implicit val resourceAccess     = ResourceAccess.fromResources[IO]
 
   test("commandRepliesData should never raise an exception when try to open the file in resounces") {
     val result = CalandroBot.buildPollingBot[IO, Boolean](bot =>

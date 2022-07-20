@@ -16,14 +16,14 @@ import java.util.jar.JarFile
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters._
 
-trait ResourceAccess {
-  def getResourceByteArray[F[_]: Async](resourceName: String): Resource[F, Array[Byte]]
-  def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[File]]
-  def getResourceFile[F[_]: Async](mediaFile: MediaFile): Resource[F, File] = {
+trait ResourceAccess[F[_]] {
+  def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]]
+  def getResourcesByKind(criteria: String): Resource[F, List[File]]
+  def getResourceFile(mediaFile: MediaFile)(implicit syncF: Sync[F]): Resource[F, File] = {
     for {
       fileContent <- getResourceByteArray(mediaFile.filepath)
       tempFile = File.createTempFile(mediaFile.filename, mediaFile.extension, null)
-      fos <- Resource.make(Async[F].delay(new FileOutputStream(tempFile)))(fos => Async[F].delay(fos.close()))
+      fos <- Resource.make(syncF.delay(new FileOutputStream(tempFile)))(fos => Sync[F].delay(fos.close()))
     } yield {
       fos.write(fileContent)
       tempFile
@@ -32,21 +32,21 @@ trait ResourceAccess {
 }
 
 object ResourceAccess {
-  val fromResources = new ResourceAccess {
+  def fromResources[F[_]: Sync] = new ResourceAccess[F] {
 
-    def getResourceByteArray[F[_]: Async](resourceName: String): Resource[F, Array[Byte]] =
+    def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       (for {
-        fis <- Resource.make(Async[F].delay {
+        fis <- Resource.make(Sync[F].delay {
           val stream = getClass().getResourceAsStream("/" + resourceName)
           if (stream == null) new FileInputStream(resourceName) else stream
-        })(fis => Async[F].delay(fis.close()))
-        bais <- Resource.make(Async[F].delay(new ByteArrayOutputStream()))(bais => Async[F].delay(bais.close()))
+        })(fis => Sync[F].delay(fis.close()))
+        bais <- Resource.make(Sync[F].delay(new ByteArrayOutputStream()))(bais => Sync[F].delay(bais.close()))
       } yield (fis, bais)).evalMap { case (fis, bais) =>
         val tempArray = new Array[Byte](16384)
         for {
-          firstChunk <- Async[F].delay(fis.read(tempArray, 0, tempArray.length))
+          firstChunk <- Sync[F].delay(fis.read(tempArray, 0, tempArray.length))
           _ <- Monad[F].iterateWhileM(firstChunk)(chunk =>
-            Async[F].delay(bais.write(tempArray, 0, chunk)) *> Async[F].delay(fis.read(tempArray, 0, tempArray.length))
+            Sync[F].delay(bais.write(tempArray, 0, chunk)) *> Sync[F].delay(fis.read(tempArray, 0, tempArray.length))
           )(_ != -1)
         } yield bais.toByteArray()
       }
@@ -54,7 +54,7 @@ object ResourceAccess {
     def buildPath(subResourceFilePath: String): Path =
       Paths.get(Paths.get("").toAbsolutePath().toString(), "src", "main", "resources", subResourceFilePath)
 
-    def getResourcesByKind[F[_]: Async](criteria: String): Resource[F, List[File]] = {
+    def getResourcesByKind(criteria: String): Resource[F, List[File]] = {
       val jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())
       val result: ArrayBuffer[String] = new ArrayBuffer();
 

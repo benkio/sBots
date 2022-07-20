@@ -18,10 +18,10 @@ object CommandPatterns {
 
     def selectRandomLinkByKeyword[F[_]: Async](
         keywords: String,
-        resourceAccess: ResourceAccess,
+        resourceAccess: ResourceAccess[F],
         youtubeLinkSources: String
     ): Resource[F, Option[String]] = for {
-      sourceFiles <- resourceAccess.getResourcesByKind[F](youtubeLinkSources)
+      sourceFiles <- resourceAccess.getResourcesByKind(youtubeLinkSources)
       sourceRawBytesArray <- sourceFiles.traverse(f =>
         resourceAccess
           .getResourceByteArray(f.getPath)

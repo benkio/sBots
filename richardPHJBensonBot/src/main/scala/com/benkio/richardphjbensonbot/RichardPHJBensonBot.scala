@@ -170,7 +170,7 @@ carattere '!':
   )
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources
-      .getResourceByteArray[F]("rphjb_RichardPHJBensonBot.token")
+      .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 
   def buildPollingBot[F[_]: Parallel: Async, A](

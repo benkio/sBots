@@ -117,7 +117,7 @@ trait XahBot extends BotSkeleton {
 
   private def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand[F]] =
     resourceAccess
-      .getResourcesByKind[F](directory)
+      .getResourcesByKind(directory)
       .use[ReplyBundleCommand[F]](files =>
         ReplyBundleCommand[F](
           CommandTrigger(command),
@@ -157,7 +157,7 @@ trait XahBot extends BotSkeleton {
 object XahBot extends BotOps {
 
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources.getResourceByteArray[F]("xah_XahBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources.getResourceByteArray("xah_XahBot.token").map(_.map(_.toChar).mkString)
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: XahBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
