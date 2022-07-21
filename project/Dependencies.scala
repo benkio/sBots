@@ -74,6 +74,7 @@ object Dependencies {
     libs.logEffects,
     libs.munit,
     libs.munitCatsEffect,
+    libs.pureConfig,
     libs.telegramiumCore,
     libs.telegramiumHigh
   )
