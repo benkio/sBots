@@ -158,19 +158,24 @@ object XahBot extends BotOps {
 
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray[F]("xah_XahBot.token").map(_.map(_.toChar).mkString)
-  def buildPollingBot[F[_]: Parallel: Async, A](
-      action: XahBotPolling[F] => F[A]
-  )(implicit log: LogWriter[F]): F[A] = (for {
-    httpClient            <- BlazeClientBuilder[F].resource
+
+  def buildCommonBot[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): Resource[F, String] = for {
     tk                    <- token[F]
-    _                     <- Resource.eval(log.info("[XahBot] Delete Webook..."))
+    _                     <- Resource.eval(log.info("[CalandroBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException("[XahBot] The delete webhook request failed: " + deleteWebhookResponse.as[String])
+        new RuntimeException("[CalandroBot] The delete webhook request failed: " + deleteWebhookResponse.as[String])
       )
     )
-    _ <- Resource.eval(log.info("[XahBot] Webhook deleted"))
+    _ <- Resource.eval(log.info("[CalandroBot] Webhook deleted"))
+  } yield tk
+
+  def buildPollingBot[F[_]: Parallel: Async, A](
+      action: XahBotPolling[F] => F[A]
+  )(implicit log: LogWriter[F]): F[A] = (for {
+    httpClient <- BlazeClientBuilder[F].resource
+    tk         <- buildCommonBot[F](httpClient)
   } yield (httpClient, tk)).use(httpClient_tk => {
     implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")
     action(new XahBotPolling[F])
@@ -180,17 +185,9 @@ object XahBot extends BotOps {
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, XahBotWebhook[F]] = for {
-    tk <- token[F]
+    tk <- buildCommonBot[F](httpClient)
     baseUrl = s"https://api.telegram.org/bot$tk"
     path    = s"/$tk"
-    _                     <- Resource.eval(log.info("[XahBot] Delete webook..."))
-    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
-    _ <- Resource.eval(
-      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException("[XahBot] The delete webhook request failed: " + deleteWebhookResponse.as[String])
-      )
-    )
-    _ <- Resource.eval(log.info("[XahBot] Webhook deleted"))
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
     new XahBotWebhook[F](
