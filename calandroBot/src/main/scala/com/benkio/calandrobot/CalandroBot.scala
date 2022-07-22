@@ -310,7 +310,7 @@ object CalandroBot extends BotOps {
   )
 
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources.getResourceByteArray[F]("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources.getResourceByteArray("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
   def buildCommonBot[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): Resource[F, String] = for {
     tk                    <- token[F]

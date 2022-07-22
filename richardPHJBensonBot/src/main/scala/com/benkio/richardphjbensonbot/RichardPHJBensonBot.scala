@@ -170,7 +170,7 @@ carattere '!':
   )
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources
-      .getResourceByteArray[F]("rphjb_RichardPHJBensonBot.token")
+      .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 
   def buildCommonBot[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): Resource[F, String] = for {

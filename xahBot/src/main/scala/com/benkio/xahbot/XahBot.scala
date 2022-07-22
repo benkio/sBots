@@ -117,7 +117,7 @@ trait XahBot extends BotSkeleton {
 
   private def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand[F]] =
     resourceAccess
-      .getResourcesByKind[F](directory)
+      .getResourcesByKind(directory)
       .use[ReplyBundleCommand[F]](files =>
         ReplyBundleCommand[F](
           CommandTrigger(command),
@@ -195,5 +195,4 @@ object XahBot extends BotOps {
       path = path
     )
   }
-
 }

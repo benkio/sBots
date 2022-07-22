@@ -16,7 +16,7 @@ import telegramium.bots.Message
 
 trait DefaultActions {
 
-  val resourceAccess: ResourceAccess
+  def resourceAccess[F[_]: Sync]: ResourceAccess[F]
 
   implicit def sendReply[F[_]: Async](implicit
       api: telegramium.bots.high.Api[F]
@@ -31,7 +31,7 @@ trait DefaultActions {
               _ <- Methods.sendChatAction(chatId, "upload_voice").exec.attemptT
               message <-
                 resourceAccess
-                  .getResourceFile[F](mp3)
+                  .getResourceFile(mp3)
                   .use[Message](mp3File =>
                     Methods
                       .sendAudio(
@@ -47,7 +47,7 @@ trait DefaultActions {
             for {
               _ <- Methods.sendChatAction(chatId, "upload_document").exec.attemptT
               message <- resourceAccess
-                .getResourceFile[F](gif)
+                .getResourceFile(gif)
                 .use[Message](gifFile =>
                   Methods
                     .sendAnimation(
@@ -63,7 +63,7 @@ trait DefaultActions {
             for {
               _ <- Methods.sendChatAction(chatId, "upload_photo").exec.attemptT
               message <- resourceAccess
-                .getResourceFile[F](photo)
+                .getResourceFile(photo)
                 .use[Message](photoFile =>
                   Methods
                     .sendPhoto(
@@ -79,7 +79,7 @@ trait DefaultActions {
             for {
               _ <- Methods.sendChatAction(chatId, "upload_video").exec.attemptT
               message <- resourceAccess
-                .getResourceFile[F](video)
+                .getResourceFile(video)
                 .use[Message](videoFile =>
                   Methods
                     .sendVideo(
