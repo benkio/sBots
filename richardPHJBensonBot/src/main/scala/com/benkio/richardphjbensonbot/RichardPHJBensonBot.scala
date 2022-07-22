@@ -173,10 +173,7 @@ carattere '!':
       .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 
-  def buildPollingBot[F[_]: Parallel: Async, A](
-      action: RichardPHJBensonBotPolling[F] => F[A]
-  )(implicit log: LogWriter[F]): F[A] = (for {
-    httpClient            <- BlazeClientBuilder[F].resource
+  def buildCommonBot[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): Resource[F, String] = for {
     tk                    <- token[F]
     _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
@@ -188,6 +185,13 @@ carattere '!':
       )
     )
     _ <- Resource.eval(log.info("[RichardPHJBensonBot] Webhook deleted"))
+  } yield tk
+
+  def buildPollingBot[F[_]: Parallel: Async, A](
+      action: RichardPHJBensonBotPolling[F] => F[A]
+  )(implicit log: LogWriter[F]): F[A] = (for {
+    httpClient <- BlazeClientBuilder[F].resource
+    tk         <- buildCommonBot[F](httpClient)
   } yield (httpClient, tk)).use(httpClient_tk => {
     implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")
     action(new RichardPHJBensonBotPolling[F])
@@ -197,19 +201,9 @@ carattere '!':
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
   )(implicit log: LogWriter[F]): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
-    tk <- token[F]
+    tk <- buildCommonBot[F](httpClient)
     baseUrl = s"https://api.telegram.org/bot$tk"
     path    = s"/$tk"
-    _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
-    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
-    _ <- Resource.eval(
-      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException(
-          "[RichardPHJBensonBot] The delete webhook request failed: " + deleteWebhookResponse.as[String]
-        )
-      )
-    )
-    _ <- Resource.eval(log.info("[RichardPHJBensonBot] Webhook deleted"))
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
     new RichardPHJBensonBotWebhook[F](
