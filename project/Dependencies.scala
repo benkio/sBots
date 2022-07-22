@@ -78,7 +78,8 @@ object Dependencies {
     libs.munitCatsEffect,
     libs.pureConfig,
     libs.telegramiumCore,
-    libs.telegramiumHigh
+    libs.telegramiumHigh,
+    libs.testcontainersMunit
   )
 
   val XahBotDependencies: Seq[ModuleID] = Seq(
