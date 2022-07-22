@@ -11,12 +11,14 @@ import java.nio.file.Files
 
 object DBResourceAccess {
 
-  def apply[F[_]: Async](config: Config): ResourceAccess[F] = new DBResourceAccess[F]( Transactor.fromDriverManager[F](
-    driver = config.driver,
-    url    = config.url,
-    user   = config.user,
-    pass   = config.password
-  ))
+  def apply[F[_]: Async](config: Config): ResourceAccess[F] = new DBResourceAccess[F](
+    Transactor.fromDriverManager[F](
+      driver = config.driver,
+      url = config.url,
+      user = config.user,
+      pass = config.password
+    )
+  )
 
   private class DBResourceAccess[F[_]: Async](transactor: Transactor[F]) extends ResourceAccess[F] {
 
@@ -32,16 +34,20 @@ object DBResourceAccess {
       )
     def getResourcesByKind(criteria: String): Resource[F, List[File]] =
       Resource.eval(
-        getByKind(criteria).stream.compile.toList.transact(transactor).map(contents => contents.map {
-          case (fileName, content) => toTempFile(fileName, content)
-        })
+        getByKind(criteria).stream.compile.toList
+          .transact(transactor)
+          .map(contents =>
+            contents.map { case (fileName, content) =>
+              toTempFile(fileName, content)
+            }
+          )
       )
 
   }
 
   def toTempFile(fileName: String, content: Array[Byte]): File = {
     val (name, ext) = fileName.span(_ != '.')
-    val tempFile = File.createTempFile(name, ext)
+    val tempFile    = File.createTempFile(name, ext)
     Files.write(tempFile.toPath(), content)
     tempFile
   }
