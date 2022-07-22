@@ -70,6 +70,8 @@ object Dependencies {
 
   val RichardPHJBensonBotDependencies: Seq[ModuleID] = Seq(
     libs.catsEffect,
+    libs.doobie,
+    libs.doobiePostgres,
     libs.lightbendEmoji,
     libs.logEffects,
     libs.munit,
