@@ -1,6 +1,6 @@
 package com.benkio.richardphjbensonbot
 
-import cats.effect.IO
+import cats._
 import pureconfig._
 import pureconfig.generic.auto._
 
@@ -16,12 +16,12 @@ final case class Config(
 
 object Config {
 
-  def loadConfig: IO[Config] =
+  def loadConfig[F[_]: MonadThrow]: F[Config] =
     ConfigSource.default
       .at("rphjbDB")
       .load[Config]
       .fold(
-        err => IO.raiseError[Config](new RuntimeException(err.prettyPrint())),
-        value => IO.pure(value)
+        err => MonadThrow[F].raiseError[Config](new RuntimeException(err.prettyPrint())),
+        value => MonadThrow[F].pure(value)
       )
 }
