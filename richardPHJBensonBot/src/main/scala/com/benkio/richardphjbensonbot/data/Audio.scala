@@ -257,6 +257,7 @@ object Audio {
       TextTrigger(
         StringTextTriggerValue("negli occhiali"),
         StringTextTriggerValue("sulla spalla"),
+        StringTextTriggerValue("gianguido"),
       ),
       List(
         MediaFile("rphjb_PannaOcchialiSpalla.mp3")
