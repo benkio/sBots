@@ -13,7 +13,7 @@ object Dependencies {
     val logEffects            = "0.16.3"
     val munit                 = "0.7.29"
     val munitCatsEffect       = "1.0.7"
-    val postgresVersion       = "42.2.24"
+    val postgresVersion       = "42.2.25"
     val pureConfig            = "0.17.1"
     val testcontainers        = "0.40.9"
     val telegramiumVersion    = "7.61.0"
