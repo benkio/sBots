@@ -317,10 +317,11 @@ object Mix {
       TextTrigger(
         StringTextTriggerValue("vi calpesto"),
         StringTextTriggerValue("vermi"),
-        StringTextTriggerValue("strisciate")
+        StringTextTriggerValue("strisciate per terra")
       ),
       List(
         MediaFile("rphjb_ViCalpesto.gif"),
+        MediaFile("rphjb_ViCalpesto.mp3"),
         MediaFile("rphjb_ViCalpesto.mp4")
       ),
       replySelection = RandomSelection
@@ -368,6 +369,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_ViCalpesto.gif"),
+        MediaFile("rphjb_ViCalpesto.mp3"),
         MediaFile("rphjb_ViCalpesto.mp4"),
         MediaFile("rphjb_Ultimi.gif"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
@@ -828,7 +830,8 @@ object Mix {
         MediaFile("rphjb_AveteCapitoEh.gif"),
         MediaFile("rphjb_ComeAlSolitoNonAveteCapito.gif"),
         MediaFile("rphjb_CapitoDoveStiamo.mp3"),
-        MediaFile("rphjb_CapisciRidotti.mp3")
+        MediaFile("rphjb_CapisciRidotti.mp3"),
+        MediaFile("rphjb_CapitoCheMagagna.mp3"),
       ),
       replySelection = RandomSelection
     ),
@@ -855,11 +858,13 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_ViCalpesto.gif"),
+        MediaFile("rphjb_ViCalpesto.mp3"),
         MediaFile("rphjb_ViCalpesto.mp4"),
         MediaFile("rphjb_Schifosi.mp3"),
         MediaFile("rphjb_Schifosi.mp4"),
         MediaFile("rphjb_Schifosi2.mp3"),
         MediaFile("rphjb_Schifosi3.mp3"),
+        MediaFile("rphjb_Schifosi4.mp3"),
         MediaFile("rphjb_Schifosi3.gif"),
         MediaFile("rphjb_SchifosoUltimi.mp4"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
@@ -937,6 +942,7 @@ object Mix {
       List(
         MediaFile("rphjb_ChiCacciaISoldi.gif"),
         MediaFile("rphjb_ChiCacciaISoldi.mp3"),
+        MediaFile("rphjb_SoldiButtatiDiscotecaLaziale.mp3"),
         MediaFile("rphjb_BigMoney.mp4")
       ),
       replySelection = RandomSelection
@@ -948,6 +954,7 @@ object Mix {
       List(
         MediaFile("rphjb_OddioMioNo.gif"),
         MediaFile("rphjb_OddioMioNo.mp3"),
+        MediaFile("rphjb_OddioMioNo2.mp3"),
         MediaFile("rphjb_OddioMioNo.mp4")
       ),
       replySelection = RandomSelection
@@ -1169,6 +1176,71 @@ object Mix {
       List(
         MediaFile("rphjb_Venerdi.mp3"),
         MediaFile("rphjb_Venerdi.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("discoteca laziale")
+      ),
+      List(
+        MediaFile("rphjb_DiscotecaLaziale.gif"),
+        MediaFile("rphjb_DiscotecaLaziale.mp3"),
+        MediaFile("rphjb_SoldiButtatiDiscotecaLaziale.mp3"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("calcolo"),
+        StringTextTriggerValue("matematica")
+      ),
+      List(
+        MediaFile("rphjb_MiPareLogico.gif"),
+        MediaFile("rphjb_MiPareLogico.mp3"),
+        MediaFile("rphjb_MatematiciAnaliticiDiNoia.mp3"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("lo[g]+i[cg]o".r)
+      ),
+      List(
+        MediaFile("rphjb_MiPareLogico.gif"),
+        MediaFile("rphjb_MiPareLogico.mp3"),
+        MediaFile("rphjb_SembraLogico.gif")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ti dovresti vergognare")
+      ),
+      List(
+        MediaFile("rphjb_TiDovrestiVergognare.gif"),
+        MediaFile("rphjb_TiDovrestiVergognare.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(non|mica) so(no)? (un |n )?co(gl|j)ione".r),
+        RegexTextTriggerValue("sarete co(gl|j)ioni voi".r)
+      ),
+      List(
+        MediaFile("rphjb_SareteCoglioniVoi.gif"),
+        MediaFile("rphjb_SareteCoglioniVoi.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non li sopporto"),
+        RegexTextTriggerValue("che si deve f(à|are)".r),
+        StringTextTriggerValue("bisogna pure lavorà")
+      ),
+      List(
+        MediaFile("rphjb_NonLiSopporto.gif"),
+        MediaFile("rphjb_NonLiSopporto.mp3")
       ),
       replySelection = RandomSelection
     ),

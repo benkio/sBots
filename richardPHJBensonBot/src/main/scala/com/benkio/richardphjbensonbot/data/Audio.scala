@@ -685,6 +685,84 @@ object Audio {
       List(
         MediaFile("rphjb_IoMiRicordoTutto.mp3")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("che magagna"),
+        StringTextTriggerValue("che fregatura"),
+      ),
+      List(
+        MediaFile("rphjb_CapitoCheMagagna.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("edu falasci"),
+        StringTextTriggerValue("edoardo falaschi"),
+      ),
+      List(
+        MediaFile("rphjb_EduFalasci.mp3"),
+        MediaFile("rphjb_VergognatiMatosFalasci.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("kiko loureiro"),
+        StringTextTriggerValue("che salva la situazione")
+      ),
+      List(
+        MediaFile("rphjb_KikoLoureiroSalvaSituazione.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("luca di noia"),
+        StringTextTriggerValue("geometrici"),
+        StringTextTriggerValue("matematici"),
+        StringTextTriggerValue("analitici"),
+      ),
+      List(
+        MediaFile("rphjb_MatematiciAnaliticiDiNoia.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("andre matos")
+      ),
+      List(
+        MediaFile("rphjb_MatosShaman.mp3"),
+        MediaFile("rphjb_VergognatiMatosFalasci.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("shaman"),
+      ),
+      List(
+        MediaFile("rphjb_MatosShaman.mp3"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("vengognati"),
+      ),
+      List(
+        MediaFile("rphjb_VergognatiMatosFalasci.mp3"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("via zara"),
+        StringTextTriggerValue("sei brava a truccare"),
+        StringTextTriggerValue("non vali niente"),
+        StringTextTriggerValue("sei l'ultima"),
+        RegexTextTriggerValue("manco trucc[aà] sai".r),
+      ),
+      List(
+        MediaFile("rphjb_TruccareViaZara.mp3"),
+      ),
+    ),
   )
 }
