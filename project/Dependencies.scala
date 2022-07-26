@@ -7,8 +7,8 @@ object Dependencies {
   lazy val dependenciesVersion = new {
     val catsEffectVersion     = "3.3.14"
     val catsVersion           = "2.8.0"
+    val flyway                = "7.2.1"
     val doobie                = "1.0.0-RC2"
-    val flyway                = "7.2.0"
     val lightbendEmojiVersion = "1.2.3"
     val logEffects            = "0.16.3"
     val munit                 = "0.7.29"
