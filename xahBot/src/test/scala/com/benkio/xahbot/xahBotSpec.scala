@@ -17,7 +17,7 @@ class XahBotSpec extends CatsEffectSuite {
   test("commandRepliesData should never raise an exception when try to open the file in resounces") {
     val result = XahBot.buildPollingBot[IO, Boolean](bot =>
       for {
-        commandRepliesData <- bot.commandRepliesDataF[IO]
+        commandRepliesData <- bot.commandRepliesDataF
         result <- commandRepliesData
           .flatMap(_.mediafiles)
           .traverse((mf: MediaFile) => ResourceAccessSpec.testFilename(mf.filepath))

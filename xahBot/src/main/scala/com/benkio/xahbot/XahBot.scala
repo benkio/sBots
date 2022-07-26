@@ -14,15 +14,15 @@ import org.http4s.blaze.client._
 import org.http4s.client.Client
 import telegramium.bots.high._
 
-class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with XahBot
+class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with XahBot[F]
 
 class XahBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/")
     extends BotSkeletonWebhook[F](url, path)
-    with XahBot
+    with XahBot[F]
 
-trait XahBot extends BotSkeleton {
+trait XahBot[F[_]] extends BotSkeleton[F] {
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] = List(
+  override def commandRepliesDataF(implicit asyncF: Async[F]): F[List[ReplyBundleCommand[F]]] = List(
     buildRandomReplyBundleCommand(
       "ass",
       "Ass",
@@ -99,9 +99,10 @@ trait XahBot extends BotSkeleton {
     randomLinkReplyBundleF
   ).sequence[F, ReplyBundleCommand[F]]
 
-  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] = List.empty.pure[F]
+  override def messageRepliesDataF(implicit applicativeF: Applicative[F]): F[List[ReplyBundleMessage[F]]] =
+    List.empty.pure[F]
 
-  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+  private def randomLinkReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
     RandomLinkCommand
       .selectRandomLinkByKeyword[F](
         "",
@@ -115,7 +116,9 @@ trait XahBot extends BotSkeleton {
         ).pure[F]
       )
 
-  private def buildRandomReplyBundleCommand[F[_]: Async](command: String, directory: String): F[ReplyBundleCommand[F]] =
+  private def buildRandomReplyBundleCommand(command: String, directory: String)(implicit
+      asyncF: Async[F]
+  ): F[ReplyBundleCommand[F]] =
     resourceAccess
       .getResourcesByKind(directory)
       .use[ReplyBundleCommand[F]](files =>
@@ -126,7 +129,7 @@ trait XahBot extends BotSkeleton {
         ).pure[F]
       )
 
-  private def randomLinkByKeywordReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
     ReplyBundleCommand[F](
       trigger = CommandTrigger("randomshowkeyword"),
       text = Some(

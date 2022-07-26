@@ -20,15 +20,15 @@ import telegramium.bots.high._
 
 import scala.util.Random
 
-class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with CalandroBot
+class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with CalandroBot[F]
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/")
     extends BotSkeletonWebhook[F](url, path)
-    with CalandroBot
+    with CalandroBot[F]
 
-trait CalandroBot extends BotSkeleton {
+trait CalandroBot[F[_]] extends BotSkeleton[F] {
 
-  private def randomCardReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+  private def randomCardReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
     resourceAccess
       .getResourcesByKind("cards")
       .use[ReplyBundleCommand[F]](files =>
@@ -39,11 +39,11 @@ trait CalandroBot extends BotSkeleton {
         ).pure[F]
       )
 
-  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
+  override def messageRepliesDataF(implicit applicativeF: Applicative[F]): F[List[ReplyBundleMessage[F]]] =
     CalandroBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
-    randomCardReplyBundleF[F].map(
+  override def commandRepliesDataF(implicit asyncF: Async[F]): F[List[ReplyBundleCommand[F]]] =
+    randomCardReplyBundleF.map(
       CalandroBot.commandRepliesData[F] :+ _
     )
 }

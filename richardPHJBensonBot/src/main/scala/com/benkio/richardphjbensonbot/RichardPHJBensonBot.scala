@@ -18,27 +18,30 @@ import telegramium.bots.high._
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](rAccess: ResourceAccess[F])
     extends BotSkeletonPolling[F]
-    with RichardPHJBensonBot {
-  override val resourceAccess: ResourceAccess[F] = rAccess
+    with RichardPHJBensonBot[F] {
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
 }
 
-class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess: ResourceAccess[F], path: String = "/")
-    extends BotSkeletonWebhook[F](url, path)
-    with RichardPHJBensonBot {
-  override val resourceAccess: ResourceAccess[F] = rAccess
+class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
+    url: String,
+    rAccess: ResourceAccess[F],
+    path: String = "/"
+) extends BotSkeletonWebhook[F](url, path)
+    with RichardPHJBensonBot[F] {
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
 }
 
-trait RichardPHJBensonBot extends BotSkeleton {
+trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
 
-  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
+  override def messageRepliesDataF(implicit applicativeF: Applicative[F]): F[List[ReplyBundleMessage[F]]] =
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF(implicit asyncF: Async[F]): F[List[ReplyBundleCommand[F]]] =
     List(randomLinkByKeywordReplyBundleF, randomLinkReplyBundleF).sequence.map(cs =>
       cs ++ RichardPHJBensonBot.commandRepliesData[F]
     )
 
-  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+  private def randomLinkReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
     RandomLinkCommand
       .selectRandomLinkByKeyword[F](
         "",
@@ -52,7 +55,7 @@ trait RichardPHJBensonBot extends BotSkeleton {
         ).pure[F]
       )
 
-  private def randomLinkByKeywordReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
     ReplyBundleCommand[F](
       trigger = CommandTrigger("randomshowkeyword"),
       text = Some(
@@ -178,11 +181,13 @@ carattere '!':
       .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 
-  def buildCommonBot[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] =
+  def buildCommonBot[F[_]: Async](
+      httpClient: Client[F]
+  )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] =
     for {
-      tk                    <- token[F]
-      config                <- Resource.eval(Config.loadConfig[F])
-      dbResourceAccess      = DBResourceAccess(config)
+      tk     <- token[F]
+      config <- Resource.eval(Config.loadConfig[F])
+      dbResourceAccess = DBResourceAccess(config)
       _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _ <- Resource.eval(
@@ -198,10 +203,13 @@ carattere '!':
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
-    httpClient <- BlazeClientBuilder[F].resource
-    tk_resourceAccess  <- buildCommonBot[F](httpClient)
+    httpClient        <- BlazeClientBuilder[F].resource
+    tk_resourceAccess <- buildCommonBot[F](httpClient)
   } yield (httpClient, tk_resourceAccess)).use(httpClient_tkResourceAccess => {
-    implicit val api: Api[F] = BotApi(httpClient_tkResourceAccess._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tkResourceAccess._2._1}")
+    implicit val api: Api[F] = BotApi(
+      httpClient_tkResourceAccess._1,
+      baseUrl = s"https://api.telegram.org/bot${httpClient_tkResourceAccess._2._1}"
+    )
     action(new RichardPHJBensonBotPolling[F](rAccess = httpClient_tkResourceAccess._2._2))
   })
 

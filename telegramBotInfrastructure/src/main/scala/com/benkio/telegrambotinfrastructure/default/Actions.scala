@@ -16,11 +16,11 @@ import telegramium.bots.Message
 
 trait DefaultActions[F[_]] {
 
-  val resourceAccess: ResourceAccess[F]
+  def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F]
 
   implicit def sendReply(implicit
       api: telegramium.bots.high.Api[F],
-      async: Async[F],
+      asyncF: Async[F]
   ): Action[Reply, F] =
     (reply: Reply) =>
       (msg: Message) => {

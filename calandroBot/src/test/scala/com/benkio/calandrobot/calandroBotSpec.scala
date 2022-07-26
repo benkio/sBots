@@ -16,8 +16,7 @@ class CalandroBotSpec extends CatsEffectSuite {
 
   test("commandRepliesData should never raise an exception when try to open the file in resounces") {
     val result = CalandroBot.buildPollingBot[IO, Boolean](bot =>
-      bot
-        .commandRepliesDataF[IO]
+      bot.commandRepliesDataF
         .flatMap(
           _.flatMap(_.mediafiles)
             .traverse((mf: MediaFile) => ResourceAccessSpec.testFilename(mf.filepath))
