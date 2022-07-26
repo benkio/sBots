@@ -14,12 +14,13 @@ import telegramium.bots.ChatIntId
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
-trait DefaultActions {
+trait DefaultActions[F[_]] {
 
-  def resourceAccess[F[_]: Sync]: ResourceAccess[F]
+  val resourceAccess: ResourceAccess[F]
 
-  implicit def sendReply[F[_]: Async](implicit
-      api: telegramium.bots.high.Api[F]
+  implicit def sendReply(implicit
+      api: telegramium.bots.high.Api[F],
+      async: Async[F],
   ): Action[Reply, F] =
     (reply: Reply) =>
       (msg: Message) => {

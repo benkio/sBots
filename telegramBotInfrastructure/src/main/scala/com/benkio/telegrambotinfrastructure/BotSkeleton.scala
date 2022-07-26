@@ -1,5 +1,7 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.model.Reply
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import cats._
 import cats.data.OptionT
 import cats.effect._
@@ -20,35 +22,38 @@ import scala.concurrent.duration._
 
 abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F], log: LogWriter[F])
     extends LongPollBot[F](api)
+    with DefaultActions[F]
     with BotSkeleton {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
       _ <- OptionT.liftF(log.trace(s"A message arrived: $msg"))
       _ <- OptionT.liftF(log.info(s"A message arrived with content: ${msg.text}"))
-      _ <- OptionT(botLogic[F](Async[F], api)(msg))
+      _ <- OptionT(botLogic[F](Async[F], implicitly[Action[Reply,F]])(msg))
     } yield ()
     x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
+  val resourceAccess: ResourceAccess[F] = ResourceAccess.fromResources[F]
 }
 
 abstract class BotSkeletonWebhook[F[_]: Async](url: String, path: String = "/")(implicit api: Api[F], log: LogWriter[F])
     extends WebhookBot[F](api, url, path)
+    with DefaultActions[F]
     with BotSkeleton {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
       _    <- OptionT.liftF(log.trace(s"A message arrived: $msg"))
       text <- OptionT.fromOption[F](msg.text)
       _    <- OptionT.liftF(log.info(s"A message arrived with content: $text"))
-      _    <- OptionT(botLogic[F](Async[F], api)(msg))
+      _    <- OptionT(botLogic[F](Async[F], implicitly[Action[Reply,F]])(msg))
     } yield ()
     x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
+  val resourceAccess: ResourceAccess[F] = ResourceAccess.fromResources[F]
 }
 
-trait BotSkeleton extends DefaultActions {
+trait BotSkeleton {
 
   // Configuration values /////////////////////////////////////////////////////
-  def resourceAccess[F[_]: Sync]: ResourceAccess[F] = ResourceAccess.fromResources[F]
   val ignoreMessagePrefix: Option[String]           = Some("!")
   val inputTimeout: Option[Duration]                = Some(5.minute)
   val disableForward: Boolean                       = true
@@ -60,7 +65,9 @@ trait BotSkeleton extends DefaultActions {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  def messageLogic[F[_]: Async: Api]: (Message) => F[Option[List[Message]]] = (msg: Message) =>
+  type BotAction[F[_]] = Action[Reply, F]
+
+  def messageLogic[F[_]: Async: BotAction]: (Message) => F[Option[List[Message]]] = (msg: Message) =>
     for {
       messageRepliesData <- messageRepliesDataF[F]
       replies <- messageRepliesData
@@ -69,7 +76,7 @@ trait BotSkeleton extends DefaultActions {
         .traverse(ReplyBundle.computeReplyBundle[F](_, msg))
     } yield replies
 
-  def commandLogic[F[_]: Async: Api]: (Message) => F[Option[List[Message]]] = (msg: Message) =>
+  def commandLogic[F[_]: Async: BotAction]: (Message) => F[Option[List[Message]]] = (msg: Message) =>
     for {
       commandRepliesData <- commandRepliesDataF[F]
       commandMatch = for {
@@ -82,9 +89,9 @@ trait BotSkeleton extends DefaultActions {
         )
     } yield commands
 
-  def botLogic[F[_]: Async: Api]: (Message) => F[Option[List[Message]]] = (msg: Message) =>
+  def botLogic[F[_]: Async: BotAction]: (Message) => F[Option[List[Message]]] = (msg: Message) =>
     for {
-      messagesOpt <- messageLogic[F](Async[F], implicitly[Api[F]])(msg)
-      commandsOpt <- commandLogic[F](Async[F], implicitly[Api[F]])(msg)
+      messagesOpt <- messageLogic[F](Async[F], implicitly[Action[Reply,F]])(msg)
+      commandsOpt <- commandLogic[F](Async[F], implicitly[Action[Reply,F]])(msg)
     } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
 }
