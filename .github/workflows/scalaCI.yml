@@ -4,7 +4,6 @@ on:
   push:
     branches:
         - master
-        - develop
   pull_request:
     branches:
         - master
@@ -31,6 +30,7 @@ jobs:
       run: sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
   dependenciesUpdate:
     runs-on: ubuntu-latest
+    if: startsWith( github.ref, 'refs/heads/update' )
     steps:
     - name: merge dependency update PRs
       uses: desbo/merge-pr-action@v0.3.2

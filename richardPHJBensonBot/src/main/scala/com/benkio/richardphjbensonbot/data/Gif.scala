@@ -292,15 +292,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("calcolo"),
-        StringTextTriggerValue("matematica")
-      ),
-      List(
-        MediaFile("rphjb_MiPareLogico.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("tucul")
       ),
       List(
@@ -400,14 +391,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("discoteca laziale")
-      ),
-      List(
-        MediaFile("rphjb_DiscotecaLaziale.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("cosa è successo")
       ),
       List(
@@ -474,16 +457,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("lo[g]+i[cg]o".r)
-      ),
-      List(
-        MediaFile("rphjb_MiPareLogico.gif"),
-        MediaFile("rphjb_SembraLogico.gif")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         RegexTextTriggerValue("e(s|c)certo".r),
         StringTextTriggerValue("accetto le critiche"),
         StringTextTriggerValue("non me ne frega un cazzo")
@@ -499,15 +472,6 @@ object Gif {
       ),
       List(
         MediaFile("rphjb_LevatiDaiCoglioni.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("(non|mica) so(no)? (un |n )?co(gl|j)ione".r),
-        RegexTextTriggerValue("sarete co(gl|j)ioni voi".r)
-      ),
-      List(
-        MediaFile("rphjb_SareteCoglioniVoi.gif")
       )
     ),
     ReplyBundleMessage(
@@ -727,16 +691,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("non li sopporto"),
-        RegexTextTriggerValue("che si deve f(à|are)".r),
-        StringTextTriggerValue("bisogna pure lavorà")
-      ),
-      List(
-        MediaFile("rphjb_NonLiSopporto.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("chi cazzo sei")
       ),
       List(
@@ -826,14 +780,6 @@ object Gif {
       ),
       List(
         MediaFile("rphjb_Verita.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("ti dovresti vergognare")
-      ),
-      List(
-        MediaFile("rphjb_TiDovrestiVergognare.gif")
       )
     ),
     ReplyBundleMessage(

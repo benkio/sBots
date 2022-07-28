@@ -53,7 +53,7 @@ object Settings {
     libraryDependencies      := RichardPHJBensonBotDependencies,
     mainClass                := Some("com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
+  ) ++ assemblySettings ++ Defaults.itSettings
 
   lazy val XahBotSettings = Seq(
     name                     := "XahBot",
@@ -71,5 +71,5 @@ object Settings {
     name                := "botDB",
     libraryDependencies := BotDBDependencies,
     mainClass           := Some("com.benkio.botDB.Main")
-  ) ++ Defaults.itSettings
+  ) ++ assemblySettings ++ Defaults.itSettings
 }

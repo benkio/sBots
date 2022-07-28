@@ -18,7 +18,7 @@ import telegramium.bots.high.WebhookBot
 object MainWebhook extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] = {
-    implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Warn)
+    implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
     val server = for {
       config     <- Resource.eval(Config.loadConfig)

@@ -14,24 +14,27 @@ import org.http4s.blaze.client._
 import org.http4s.client.Client
 import telegramium.bots.high._
 
-class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with ABarberoBot
+class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with ABarberoBot[F]
 
 class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/")
     extends BotSkeletonWebhook[F](url, path)
-    with ABarberoBot
+    with ABarberoBot[F]
 
-trait ABarberoBot extends BotSkeleton {
+trait ABarberoBot[F[_]] extends BotSkeleton[F] {
 
-  override def messageRepliesDataF[F[_]: Applicative]: F[List[ReplyBundleMessage[F]]] =
+  override def messageRepliesDataF(implicit
+      applicativeF: Applicative[F],
+      log: LogWriter[F]
+  ): F[List[ReplyBundleMessage[F]]] =
     ABarberoBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF[F[_]: Async]: F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     List(
       randomLinkByKeywordReplyBundleF,
       randomLinkReplyBundleF
     ).sequence.map(cs => cs ++ ABarberoBot.commandRepliesData[F])
 
-  private def randomLinkReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+  private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     RandomLinkCommand
       .selectRandomLinkByKeyword[F](
         "",
@@ -45,7 +48,7 @@ trait ABarberoBot extends BotSkeleton {
         ).pure[F]
       )
 
-  private def randomLinkByKeywordReplyBundleF[F[_]: Async]: F[ReplyBundleCommand[F]] =
+  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     ReplyBundleCommand[F](
       trigger = CommandTrigger("randomshowkeyword"),
       text = Some(

@@ -7,6 +7,7 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model._
+import log.effect.LogWriter
 import telegramium.bots.high._
 import telegramium.bots.high.implicits._
 import telegramium.bots.ChatId
@@ -14,12 +15,14 @@ import telegramium.bots.ChatIntId
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
-trait DefaultActions {
+trait DefaultActions[F[_]] {
 
-  def resourceAccess[F[_]: Sync]: ResourceAccess[F]
+  def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F]
 
-  implicit def sendReply[F[_]: Async](implicit
-      api: telegramium.bots.high.Api[F]
+  implicit def sendReply(implicit
+      api: telegramium.bots.high.Api[F],
+      asyncF: Async[F],
+      log: LogWriter[F]
   ): Action[Reply, F] =
     (reply: Reply) =>
       (msg: Message) => {

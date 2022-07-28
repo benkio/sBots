@@ -2,6 +2,7 @@ package com.benkio.main
 
 import cats.effect.IO
 import pureconfig._
+import pureconfig.generic.auto._
 
 final case class Config(
     webhookBaseUrl: String,
@@ -11,12 +12,9 @@ final case class Config(
 
 object Config {
 
-  implicit val configReader: ConfigReader[Config] =
-    ConfigReader.forProduct3("webhook-base-url", "host-url", "port")(Config.apply)
-
   def loadConfig: IO[Config] =
     ConfigSource.default
-      .at("server")
+      .at("main")
       .load[Config]
       .fold(
         err => IO.raiseError[Config](new RuntimeException(err.prettyPrint())),
