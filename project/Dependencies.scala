@@ -24,6 +24,7 @@ object Dependencies {
     val catsEffect      = "org.typelevel" %% "cats-effect"         % dependenciesVersion.catsEffectVersion
     val doobie          = "org.tpolecat"  %% "doobie-core"         % dependenciesVersion.doobie
     val doobiePostgres  = "org.tpolecat"  %% "doobie-postgres"     % dependenciesVersion.doobie
+    val doobieHikari    = "org.tpolecat"  %% "doobie-hikari"       % dependenciesVersion.doobie
     val flyway          = "org.flywaydb"   % "flyway-core"         % dependenciesVersion.flyway
     val lightbendEmoji  = "com.lightbend" %% "emoji"               % dependenciesVersion.lightbendEmojiVersion
     val logEffects      = "io.laserdisc"  %% "log-effect-fs2"      % dependenciesVersion.logEffects
@@ -72,6 +73,7 @@ object Dependencies {
     libs.catsEffect,
     libs.doobie,
     libs.doobiePostgres,
+    libs.doobieHikari,
     libs.lightbendEmoji,
     libs.logEffects,
     libs.munit,

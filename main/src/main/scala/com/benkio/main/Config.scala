@@ -14,7 +14,7 @@ object Config {
 
   def loadConfig: IO[Config] =
     ConfigSource.default
-      .at("server")
+      .at("main")
       .load[Config]
       .fold(
         err => IO.raiseError[Config](new RuntimeException(err.prettyPrint())),

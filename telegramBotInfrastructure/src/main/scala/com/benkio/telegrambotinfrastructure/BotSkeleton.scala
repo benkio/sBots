@@ -25,7 +25,7 @@ abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F], l
     val x: OptionT[F, Unit] = for {
       _ <- OptionT.liftF(log.trace(s"A message arrived: $msg"))
       _ <- OptionT.liftF(log.info(s"A message arrived with content: ${msg.text}"))
-      _ <- OptionT(botLogic(Async[F], api)(msg))
+      _ <- OptionT(botLogic(Async[F], api, log)(msg))
     } yield ()
     x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
@@ -39,7 +39,7 @@ abstract class BotSkeletonWebhook[F[_]: Async](url: String, path: String = "/")(
       _    <- OptionT.liftF(log.trace(s"A message arrived: $msg"))
       text <- OptionT.fromOption[F](msg.text)
       _    <- OptionT.liftF(log.info(s"A message arrived with content: $text"))
-      _    <- OptionT(botLogic(Async[F], api)(msg))
+      _    <- OptionT(botLogic(Async[F], api, log)(msg))
     } yield ()
     x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
@@ -55,38 +55,41 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  def messageRepliesDataF(implicit applicativeF: Applicative[F]): F[List[ReplyBundleMessage[F]]] =
-    List.empty[ReplyBundleMessage[F]].pure[F]
-  def commandRepliesDataF(implicit asyncF: Async[F]): F[List[ReplyBundleCommand[F]]] =
-    List.empty[ReplyBundleCommand[F]].pure[F]
+  def messageRepliesDataF(implicit applicativeF: Applicative[F], log: LogWriter[F]): F[List[ReplyBundleMessage[F]]] =
+    log.debug("Empty message reply data") *> List.empty[ReplyBundleMessage[F]].pure[F]
+  def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+    log.debug("Empty command reply data") *> List.empty[ReplyBundleCommand[F]].pure[F]
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  def messageLogic(implicit asyncF: Async[F], api: Api[F]): (Message) => F[Option[List[Message]]] = (msg: Message) =>
-    for {
-      messageRepliesData <- messageRepliesDataF
-      replies <- messageRepliesData
-        .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
-        .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout) && FilteringForward.filter(msg, disableForward))
-        .traverse(ReplyBundle.computeReplyBundle[F](_, msg))
-    } yield replies
+  def messageLogic(implicit asyncF: Async[F], api: Api[F], log: LogWriter[F]): (Message) => F[Option[List[Message]]] =
+    (msg: Message) =>
+      for {
+        messageRepliesData <- messageRepliesDataF
+        replies <- messageRepliesData
+          .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
+          .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout) && FilteringForward.filter(msg, disableForward))
+          .traverse(ReplyBundle.computeReplyBundle[F](_, msg))
+      } yield replies
 
-  def commandLogic(implicit asyncF: Async[F], api: Api[F]): (Message) => F[Option[List[Message]]] = (msg: Message) =>
-    for {
-      commandRepliesData <- commandRepliesDataF
-      commandMatch = for {
-        text   <- msg.text
-        result <- commandRepliesData.find(rbc => text.startsWith("/" + rbc.trigger.command))
-      } yield result
-      commands <- commandMatch
-        .traverse(
-          ReplyBundle.computeReplyBundle[F](_, msg)
-        )
-    } yield commands
+  def commandLogic(implicit asyncF: Async[F], api: Api[F], log: LogWriter[F]): (Message) => F[Option[List[Message]]] =
+    (msg: Message) =>
+      for {
+        commandRepliesData <- commandRepliesDataF
+        commandMatch = for {
+          text   <- msg.text
+          result <- commandRepliesData.find(rbc => text.startsWith("/" + rbc.trigger.command))
+        } yield result
+        commands <- commandMatch
+          .traverse(
+            ReplyBundle.computeReplyBundle[F](_, msg)
+          )
+      } yield commands
 
-  def botLogic(implicit asyncF: Async[F], api: Api[F]): (Message) => F[Option[List[Message]]] = (msg: Message) =>
-    for {
-      messagesOpt <- messageLogic(asyncF, api)(msg)
-      commandsOpt <- commandLogic(asyncF, api)(msg)
-    } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
+  def botLogic(implicit asyncF: Async[F], api: Api[F], log: LogWriter[F]): (Message) => F[Option[List[Message]]] =
+    (msg: Message) =>
+      for {
+        messagesOpt <- messageLogic(asyncF, api, log)(msg)
+        commandsOpt <- commandLogic(asyncF, api, log)(msg)
+      } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
 }

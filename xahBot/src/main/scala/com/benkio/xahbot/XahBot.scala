@@ -22,7 +22,7 @@ class XahBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/"
 
 trait XahBot[F[_]] extends BotSkeleton[F] {
 
-  override def commandRepliesDataF(implicit asyncF: Async[F]): F[List[ReplyBundleCommand[F]]] = List(
+  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] = List(
     buildRandomReplyBundleCommand(
       "ass",
       "Ass",
@@ -99,10 +99,13 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
     randomLinkReplyBundleF
   ).sequence[F, ReplyBundleCommand[F]]
 
-  override def messageRepliesDataF(implicit applicativeF: Applicative[F]): F[List[ReplyBundleMessage[F]]] =
-    List.empty.pure[F]
+  override def messageRepliesDataF(implicit
+      applicativeF: Applicative[F],
+      log: LogWriter[F]
+  ): F[List[ReplyBundleMessage[F]]] =
+    log.debug("Empty message reply data") *> List.empty.pure[F]
 
-  private def randomLinkReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
+  private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     RandomLinkCommand
       .selectRandomLinkByKeyword[F](
         "",
@@ -129,7 +132,7 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
         ).pure[F]
       )
 
-  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
+  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     ReplyBundleCommand[F](
       trigger = CommandTrigger("randomshowkeyword"),
       text = Some(

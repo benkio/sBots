@@ -10,6 +10,8 @@ import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
+import doobie._
+import doobie.hikari._
 import log.effect.LogWriter
 import org.http4s.Status
 import org.http4s.blaze.client._
@@ -33,15 +35,18 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
 
-  override def messageRepliesDataF(implicit applicativeF: Applicative[F]): F[List[ReplyBundleMessage[F]]] =
+  override def messageRepliesDataF(implicit
+      applicativeF: Applicative[F],
+      log: LogWriter[F]
+  ): F[List[ReplyBundleMessage[F]]] =
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(implicit asyncF: Async[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     List(randomLinkByKeywordReplyBundleF, randomLinkReplyBundleF).sequence.map(cs =>
       cs ++ RichardPHJBensonBot.commandRepliesData[F]
     )
 
-  private def randomLinkReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
+  private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     RandomLinkCommand
       .selectRandomLinkByKeyword[F](
         "",
@@ -55,7 +60,7 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
         ).pure[F]
       )
 
-  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
+  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     ReplyBundleCommand[F](
       trigger = CommandTrigger("randomshowkeyword"),
       text = Some(
@@ -177,7 +182,8 @@ carattere '!':
     )
   )
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources
+    ResourceAccess
+      .fromResources[F]
       .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 
@@ -187,7 +193,15 @@ carattere '!':
     for {
       tk     <- token[F]
       config <- Resource.eval(Config.loadConfig[F])
-      dbResourceAccess = DBResourceAccess(config)
+      ce     <- ExecutionContexts.fixedThreadPool[F](1) // 20 max connections
+      transactor <- HikariTransactor.newHikariTransactor[F](
+        config.driver,
+        config.url,
+        config.user,
+        config.password,
+        ce
+      )
+      dbResourceAccess = DBResourceAccess(transactor)
       _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _ <- Resource.eval(

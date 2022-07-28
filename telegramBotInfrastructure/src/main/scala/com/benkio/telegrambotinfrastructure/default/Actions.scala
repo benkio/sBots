@@ -7,6 +7,7 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model._
+import log.effect.LogWriter
 import telegramium.bots.high._
 import telegramium.bots.high.implicits._
 import telegramium.bots.ChatId
@@ -20,7 +21,8 @@ trait DefaultActions[F[_]] {
 
   implicit def sendReply(implicit
       api: telegramium.bots.high.Api[F],
-      asyncF: Async[F]
+      asyncF: Async[F],
+      log: LogWriter[F]
   ): Action[Reply, F] =
     (reply: Reply) =>
       (msg: Message) => {

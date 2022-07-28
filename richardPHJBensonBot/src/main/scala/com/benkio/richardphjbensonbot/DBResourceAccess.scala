@@ -5,22 +5,20 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import doobie._
 import doobie.implicits._
+import log.effect.LogWriter
 
 import java.io.File
 import java.nio.file.Files
 
 object DBResourceAccess {
 
-  def apply[F[_]: Async](config: Config): ResourceAccess[F] = new DBResourceAccess[F](
-    Transactor.fromDriverManager[F](
-      driver = config.driver,
-      url = config.url,
-      user = config.user,
-      pass = config.password
+  def apply[F[_]: Async](transactor: Transactor[F])(implicit log: LogWriter[F]): ResourceAccess[F] =
+    new DBResourceAccess[F](
+      transactor,
+      log
     )
-  )
 
-  private class DBResourceAccess[F[_]: Async](transactor: Transactor[F]) extends ResourceAccess[F] {
+  private class DBResourceAccess[F[_]: Async](transactor: Transactor[F], log: LogWriter[F]) extends ResourceAccess[F] {
 
     private def getResourceContent(resourceName: String): Query0[Array[Byte]] =
       sql"SELECT media_content FROM media WHERE media_name = $resourceName".query[Array[Byte]]
@@ -30,7 +28,7 @@ object DBResourceAccess {
 
     def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       Resource.eval(
-        getResourceContent(resourceName).unique.transact(transactor)
+        log.info(s"DB fetching $resourceName") *> getResourceContent(resourceName).unique.transact(transactor)
       )
     def getResourcesByKind(criteria: String): Resource[F, List[File]] =
       Resource.eval(

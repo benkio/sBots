@@ -4,6 +4,7 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.MediaFile
+import log.effect.LogWriter
 
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -19,8 +20,9 @@ import scala.jdk.CollectionConverters._
 trait ResourceAccess[F[_]] {
   def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]]
   def getResourcesByKind(criteria: String): Resource[F, List[File]]
-  def getResourceFile(mediaFile: MediaFile)(implicit syncF: Sync[F]): Resource[F, File] = {
+  def getResourceFile(mediaFile: MediaFile)(implicit syncF: Sync[F], log: LogWriter[F]): Resource[F, File] = {
     for {
+      _           <- Resource.eval(log.info(s"getResourceFile of $mediaFile"))
       fileContent <- getResourceByteArray(mediaFile.filepath)
       tempFile = File.createTempFile(mediaFile.filename, mediaFile.extension, null)
       fos <- Resource.make(syncF.delay(new FileOutputStream(tempFile)))(fos => Sync[F].delay(fos.close()))

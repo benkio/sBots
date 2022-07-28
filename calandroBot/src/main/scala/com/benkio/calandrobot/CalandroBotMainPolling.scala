@@ -16,6 +16,6 @@ object CalandroBotMainPolling extends IOApp {
   }
 
   def run(args: List[String]): IO[ExitCode] =
-    internalRun(LogLevels.Warn)
+    internalRun(LogLevels.Info)
 
 }

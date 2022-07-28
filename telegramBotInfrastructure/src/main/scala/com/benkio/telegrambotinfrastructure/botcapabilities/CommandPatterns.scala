@@ -5,8 +5,11 @@ import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
+import log.effect.LogWriter
 import telegramium.bots.Message
 
+import java.nio.file.Files
+import java.nio.file.Paths
 import scala.io.Source
 import scala.util.Random
 
@@ -20,12 +23,10 @@ object CommandPatterns {
         keywords: String,
         resourceAccess: ResourceAccess[F],
         youtubeLinkSources: String
-    ): Resource[F, Option[String]] = for {
+    )(implicit log: LogWriter[F]): Resource[F, Option[String]] = for {
+      _           <- Resource.eval(log.info(s"selectRandomLinkByKeyword for $keywords - $youtubeLinkSources"))
       sourceFiles <- resourceAccess.getResourcesByKind(youtubeLinkSources)
-      sourceRawBytesArray <- sourceFiles.traverse(f =>
-        resourceAccess
-          .getResourceByteArray(f.getPath)
-      )
+      sourceRawBytesArray = sourceFiles.map(f => Files.readAllBytes(Paths.get(f.getPath)))
       sourceRawBytes = sourceRawBytesArray.foldLeft(Array.empty[Byte]) { case (acc, bs) =>
         acc ++ (('\n'.toByte) +: bs)
       }

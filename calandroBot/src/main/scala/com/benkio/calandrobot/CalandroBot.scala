@@ -39,10 +39,13 @@ trait CalandroBot[F[_]] extends BotSkeleton[F] {
         ).pure[F]
       )
 
-  override def messageRepliesDataF(implicit applicativeF: Applicative[F]): F[List[ReplyBundleMessage[F]]] =
+  override def messageRepliesDataF(implicit
+      applicativeF: Applicative[F],
+      log: LogWriter[F]
+  ): F[List[ReplyBundleMessage[F]]] =
     CalandroBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(implicit asyncF: Async[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     randomCardReplyBundleF.map(
       CalandroBot.commandRepliesData[F] :+ _
     )
