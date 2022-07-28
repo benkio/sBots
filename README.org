@@ -30,6 +30,24 @@
      resource folders. Put particular attention to the ~.token~ file
      contanining the telegram key specific to each bot.
 
+     For the Richard Benson's bot it supports a postgres Database! So
+     you need to provide the credentials for the database into the
+     ~application.conf~ or just setup the specific environment
+     variables.
+
+     Read the following section to know how to setup the database
+
+***** Database Setup
+
+     There's a module called ~botDB~, if opportunately configurade,
+     when launched it applies the migrations and the populate a bot
+     database (Richard's one for now). Just setup the
+     ~application.conf~ correctly with the DB credentials and the
+     location of the files (tipically the resources of the previous
+     section)
+
+     An place where you can store your database for free is [[https://data.heroku.com/][heroku data]].
+
 **** Compile and Test
 
      Just run the following commands in a shell, at the bot folder
@@ -40,6 +58,7 @@
   sbt test:compile
   sbt fix
   sbt test
+  sbt IntegrationTest/test
 #+end_src
 
 *** Run the Bots
@@ -67,43 +86,22 @@
 
 *** Deploy on Oracle Cloud Infrastructure VM
 
- - create a vm instance in Oracle cloud
+**** Setup
+
+ - Create a vm instance in Oracle cloud
  - Get the SSH Private and Public Keys to access it
- - log into ssh vm instace by ssh private key, user and ip. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~ (~ssh -i ssh-key-2022-04-26.key opc@140.238.155.16~)
+ - Login to ssh vm instace by ssh private key, user and ip. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~ (~ssh -i ssh-key-2022-04-26.key opc@140.238.155.16~)
  - Install the jdk 16. Follow this [[https://blogs.oracle.com/developers/post/how-to-install-oracle-java-in-oracle-cloud-infrastructure][tutorial]]
+**** Deploy
+
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
  - Move the fat jar to the vm by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> myTelegramBot/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/mytelegrambot/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
- - Step 3: login to the vm
+ - Login to the vm
+ - Be sure to have the right environment variables. Skip if you
+   changed the ~application.conf~ before running the ~assembly~
  - Run the bots. Easier by polling: ~java -cp main.jar com.benkio.main.MainPolling~
  - press ~Ctrl+Z~, run ~bg~ and ~disown~ in order to let previous command run in background
  - close your terminal and enjoy
-
-*** Deploy on Heroku (Not working yet)
-
-**** Method 1
-   - Check ~application.conf~
-   - Create a fat jar
-
-   #+begin_src bash
-     sbt main/assembly
-   #+end_src
-
-   - Be sure is <500MB (heroku free tier)
-   - Upload it to [[http://transfer.sh/][transfer.sh]]
-   - Enter heroku dyno with ~heroku run bash~
-   - Download the jar with curl
-   - Run the java with ~java -cp main.jar com.benkio.main.MainWebhook~
-
-**** Method 2
-#+begin_src bash
-  sbt main/assebly
-  cd main
-  docker build .
-  heroku login
-  heroku container:login
-  heroku container:push web
-  heroku container:release web
-#+end_src
 
 *** Next Development Ideas
 **** General(Maybe) Development
