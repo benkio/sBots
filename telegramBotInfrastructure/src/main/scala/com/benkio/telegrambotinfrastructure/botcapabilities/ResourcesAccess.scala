@@ -94,9 +94,7 @@ object ResourceAccess {
           )
       } else {
         result.toList.traverse(s =>
-          getResourceByteArray(s).map(content =>
-            toTempFile(s.stripPrefix(s"$criteria/"), content)
-          )
+          getResourceByteArray(s).map(content => toTempFile(s.stripPrefix(s"$criteria/"), content))
         )
       }
     }
