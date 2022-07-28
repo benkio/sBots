@@ -8,7 +8,6 @@ import doobie.implicits._
 import log.effect.LogWriter
 
 import java.io.File
-import java.nio.file.Files
 
 object DBResourceAccess {
 
@@ -36,17 +35,10 @@ object DBResourceAccess {
           .transact(transactor)
           .map(contents =>
             contents.map { case (fileName, content) =>
-              toTempFile(fileName, content)
+              ResourceAccess.toTempFile(fileName, content)
             }
           )
       )
 
-  }
-
-  def toTempFile(fileName: String, content: Array[Byte]): File = {
-    val (name, ext) = fileName.span(_ != '.')
-    val tempFile    = File.createTempFile(name, ext)
-    Files.write(tempFile.toPath(), content)
-    tempFile
   }
 }

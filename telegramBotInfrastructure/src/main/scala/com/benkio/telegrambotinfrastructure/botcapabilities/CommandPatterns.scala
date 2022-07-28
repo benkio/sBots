@@ -9,7 +9,6 @@ import log.effect.LogWriter
 import telegramium.bots.Message
 
 import java.nio.file.Files
-import java.nio.file.Paths
 import scala.io.Source
 import scala.util.Random
 
@@ -26,7 +25,7 @@ object CommandPatterns {
     )(implicit log: LogWriter[F]): Resource[F, Option[String]] = for {
       _           <- Resource.eval(log.info(s"selectRandomLinkByKeyword for $keywords - $youtubeLinkSources"))
       sourceFiles <- resourceAccess.getResourcesByKind(youtubeLinkSources)
-      sourceRawBytesArray = sourceFiles.map(f => Files.readAllBytes(Paths.get(f.getPath)))
+      sourceRawBytesArray = sourceFiles.map(f => Files.readAllBytes(f.toPath))
       sourceRawBytes = sourceRawBytesArray.foldLeft(Array.empty[Byte]) { case (acc, bs) =>
         acc ++ (('\n'.toByte) +: bs)
       }

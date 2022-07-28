@@ -34,6 +34,14 @@ trait ResourceAccess[F[_]] {
 }
 
 object ResourceAccess {
+
+  def toTempFile(fileName: String, content: Array[Byte]): File = {
+    val (name, ext) = fileName.span(_ != '.')
+    val tempFile    = File.createTempFile(name, ext)
+    Files.write(tempFile.toPath(), content)
+    tempFile
+  }
+
   def fromResources[F[_]: Sync] = new ResourceAccess[F] {
 
     def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
@@ -73,9 +81,9 @@ object ResourceAccess {
         jar.close()
       }
 
-      Resource
-        .pure[F, List[File]](
-          if (result.size == 0)
+      if (result.size == 0) {
+        Resource
+          .pure[F, List[File]](
             Files
               .walk(buildPath(criteria))
               .iterator
@@ -83,8 +91,14 @@ object ResourceAccess {
               .toList
               .tail
               .map((fl: Path) => new File(buildPath(criteria).toString + "/" + fl.getFileName.toString))
-          else result.toList.map(s => new File(s))
+          )
+      } else {
+        result.toList.traverse(s =>
+          getResourceByteArray(s).map(content =>
+            toTempFile(s.stripPrefix(s"$criteria/"), content)
+          )
         )
+      }
     }
   }
 }
