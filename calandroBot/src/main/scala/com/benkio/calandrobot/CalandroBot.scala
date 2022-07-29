@@ -80,7 +80,7 @@ object CalandroBot extends BotOps {
       TextTrigger(
         StringTextTriggerValue("ciao"),
         StringTextTriggerValue("buongiorno"),
-        StringTextTriggerValue("salve")
+        RegexTextTriggerValue("\\bsalve\\b".r)
       ),
       text = Some(TextReply[F](_ => Applicative[F].pure(List("Buongiorno Signori")), false))
     ),
@@ -100,9 +100,8 @@ object CalandroBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue(" hd"),
-        StringTextTriggerValue("nitido"),
-        StringTextTriggerValue("nitidezza"),
+        RegexTextTriggerValue("\\bhd\\b".r),
+        RegexTextTriggerValue("nitid(o|ezza)".r),
         StringTextTriggerValue("alta definizione")
       ),
       text =
@@ -123,10 +122,10 @@ object CalandroBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue(" figa ".r),
-        RegexTextTriggerValue("( )?fregna( )?".r),
-        RegexTextTriggerValue("( )?gnocca( )?".r),
-        RegexTextTriggerValue(" patacca ".r)
+        RegexTextTriggerValue("\\bfiga\\b".r),
+        RegexTextTriggerValue("\\bfregna\\b".r),
+        RegexTextTriggerValue("\\bgnocca\\b".r),
+        RegexTextTriggerValue("\\bpatacca\\b".r)
       ),
       text =
         Some(TextReply[F](_ => Applicative[F].pure(List("Io so come fare con le donne...ho letto tutto...")), false))
