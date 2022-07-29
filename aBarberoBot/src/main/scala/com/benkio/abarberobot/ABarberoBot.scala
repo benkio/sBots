@@ -389,6 +389,23 @@ object ABarberoBot extends BotOps {
       List(
         MediaFile("abar_Metallo.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("italiani"),
+        StringTextTriggerValue("arrendetevi")
+      ),
+      List(
+        MediaFile("abar_Taliani.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("c[a]+[z]+[o]+".r)
+      ),
+      List(
+        MediaFile("abar_Cazzo.mp3")
+      )
     )
   )
 
