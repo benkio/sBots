@@ -771,8 +771,10 @@ object Audio {
         StringTextTriggerValue("luca di noia")
       ),
       List(
-        MediaFile("rphjb_LucaDiNoia.mp3")
-      )
+        MediaFile("rphjb_LucaDiNoia.mp3"),
+        MediaFile("rphjb_LucaDiNoia2.mp3"),
+      ),
+      replySelection = RandomSelection
     )
   )
 }
