@@ -764,5 +764,13 @@ object Audio {
         MediaFile("rphjb_TruccareViaZara.mp3"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("luca di noia")
+      ),
+      List(
+        MediaFile("rphjb_LucaDiNoia.mp3")
+      )
+    )
   )
 }
