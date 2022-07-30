@@ -450,9 +450,11 @@ object Audio {
         StringTextTriggerValue("ultimo")
       ),
       List(
-        MediaFile("rphjb_SonoUltimo.mp3")
+        MediaFile("rphjb_SonoUltimo.mp3"),
+        MediaFile("rphjb_SonoIoUltimo.mp3")
       ),
-      matcher = ContainsAll
+      matcher = ContainsAll,
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
