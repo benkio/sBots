@@ -7,6 +7,15 @@ on:
   pull_request:
 
 jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: echo
+      run: |
+        echo "${{ github.head_ref }}"
+        echo "${{ github.ref }}"
+        echo "${{ github.ref_name }}"
   lint:
     runs-on: ubuntu-latest
     steps:
