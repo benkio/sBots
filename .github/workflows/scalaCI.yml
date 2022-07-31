@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run botDB tests
-      run: sbt botDB/IntegrationTest/test
+      run: sbt IntegrationTest/test
   lint:
     runs-on: ubuntu-latest
     steps:

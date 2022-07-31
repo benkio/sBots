@@ -1,12 +1,19 @@
 package com.benkio.richardphjbensonbot
 
-import java.nio.file.Files
+import cats.effect.Resource
+import log.effect.fs2.SyncLogWriter.consoleLog
+import log.effect.LogWriter
+
 import java.sql.DriverManager
 import java.sql.Connection
 import cats.effect.IO
 import com.dimafeng.testcontainers.DockerComposeContainer
 import munit._
 import cats.effect.unsafe.implicits.global
+import doobie.util.ExecutionContexts
+import doobie.hikari.HikariTransactor
+
+import java.nio.file.Files
 
 class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
 
@@ -17,6 +24,7 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
       dbUser,
       dbPassword
     )
+  implicit val log: LogWriter[IO] = consoleLog
 
   def buildConfig(container: DockerComposeContainer): Config =
     Config(
@@ -32,11 +40,22 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
 
   test("getResourceByteArray should return the expected content") {
     withContainers { dockerComposeContainer =>
-      val config         = buildConfig(dockerComposeContainer)
-      val connection     = buildDBConnection(dockerComposeContainer)
-      val resourceAccess = DBResourceAccess[IO](config)
-      ITDBResourceAccessSpec.initDB(connection)
-      val obtained = resourceAccess.getResourceByteArray("test media.mp3")
+      val config     = buildConfig(dockerComposeContainer)
+      val connection = buildDBConnection(dockerComposeContainer)
+      val obtained = for {
+        ce <- ExecutionContexts.fixedThreadPool[IO](1) // 20 max connections
+        transactor <- HikariTransactor.newHikariTransactor[IO](
+          config.driver,
+          config.url,
+          config.user,
+          config.password,
+          ce
+        )
+        resourceAccess = DBResourceAccess[IO](transactor)
+        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
+        result <- resourceAccess.getResourceByteArray("test media.mp3")
+      } yield result
+
       obtained
         .use { byteArray =>
           IO(
@@ -50,9 +69,20 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
     withContainers { dockerComposeContainer =>
       val config         = buildConfig(dockerComposeContainer)
       val connection     = buildDBConnection(dockerComposeContainer)
-      val resourceAccess = DBResourceAccess[IO](config)
-      ITDBResourceAccessSpec.initDB(connection)
-      val obtained = resourceAccess.getResourcesByKind("kind")
+      val obtained = for {
+        ce <- ExecutionContexts.fixedThreadPool[IO](1) // 20 max connections
+        transactor         <- HikariTransactor.newHikariTransactor[IO](
+        config.driver,
+        config.url,
+        config.user,
+        config.password,
+        ce
+      )
+      resourceAccess = DBResourceAccess[IO](transactor)
+       _ <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
+      result <- resourceAccess.getResourcesByKind("kind")
+      } yield result
+
       obtained
         .use { files =>
           IO(
@@ -77,7 +107,7 @@ object ITDBResourceAccessSpec {
   )
 
   // Insert data in the DB
-  def initDB(connection: Connection): Unit = {
+  def initDB(connection: Connection): IO[Unit] = IO {
     connection.createStatement().executeUpdate("DELETE FROM media;")
     inserts.foreach { insert =>
       connection.createStatement().executeUpdate(insert)
