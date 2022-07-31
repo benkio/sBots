@@ -97,8 +97,8 @@
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
  - Move the fat jar to the vm by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> myTelegramBot/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/mytelegrambot/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
  - Login to the vm
- - Be sure to have the right environment variables. Skip if you
-   changed the ~application.conf~ before running the ~assembly~
+ - Be sure to have the right environment variables. IT'S RECOMMENDED TO
+   CHANGE the ~application.conf~ before running the ~assembly~. The environment variables could lose their value somehow.
  - Run the bots. Easier by polling: ~java -cp main.jar com.benkio.main.MainPolling~
  - press ~Ctrl+Z~, run ~bg~ and ~disown~ in order to let previous command run in background
  - close your terminal and enjoy
