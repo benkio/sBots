@@ -27,7 +27,7 @@ jobs:
       run: sbt "botDB/IntegrationTest/test; richardPHJBensonBot/IntegrationTest/test"
   dependenciesUpdate:
     runs-on: ubuntu-latest
-    if: startsWith( github.ref, 'refs/heads/update' )
+    if: ${{ startsWith( github.ref, 'refs/heads/update' ) }}
     steps:
     - name: merge dependency update PRs
       uses: desbo/merge-pr-action@v0.3.2
