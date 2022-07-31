@@ -7,15 +7,6 @@ on:
   pull_request:
 
 jobs:
-  echo:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: echo
-      run: |
-        echo "${{ github.head_ref }}"
-        echo "${{ github.ref }}"
-        echo "${{ github.ref_name }}"
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -40,3 +31,5 @@ jobs:
     steps:
     - name: merge dependency update PRs
       uses: desbo/merge-pr-action@v0.3.2
+      with:
+        GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
