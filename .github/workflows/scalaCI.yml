@@ -6,10 +6,15 @@ on:
         - master
   pull_request:
     branches:
-        - master
-        - develop
+        - *
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Formatting
+      run: sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
   test:
     runs-on: ubuntu-latest
     steps:
@@ -21,13 +26,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run botDB tests
-      run: sbt IntegrationTest/test
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Formatting
-      run: sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
+      run: sbt "botDB/IntegrationTest/test; richardPHJBensonBot/IntegrationTest/test"
   dependenciesUpdate:
     runs-on: ubuntu-latest
     if: startsWith( github.ref, 'refs/heads/update' )
