@@ -15,4 +15,3 @@ jobs:
         uses: scala-steward-org/scala-steward-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          other-args: "commits.message = 'Upgrade ${artifactName} from ${currentVersion} to ${nextVersion}'""
