@@ -15,7 +15,7 @@ object Dependencies {
     val munitCatsEffect       = "1.0.7"
     val postgresVersion       = "42.4.0"
     val pureConfig            = "0.17.1"
-    val testcontainers        = "0.40.9"
+    val testcontainers        = "0.40.10"
     val telegramiumVersion    = "7.61.0"
   }
 
