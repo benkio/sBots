@@ -1244,6 +1244,16 @@ object Mix {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("simposio")
+      ),
+      List(
+        MediaFile("rphjb_PellegrinaggioSimposioMetallo.mp4"),
+        MediaFile("rphjb_InnoSimposio.mp3"),
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }

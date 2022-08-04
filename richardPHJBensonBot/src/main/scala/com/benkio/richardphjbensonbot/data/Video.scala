@@ -598,7 +598,6 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("pellegrinaggio"),
-        StringTextTriggerValue("simposio del metallo"),
         StringTextTriggerValue("istinti musicali"),
       ),
       List(
