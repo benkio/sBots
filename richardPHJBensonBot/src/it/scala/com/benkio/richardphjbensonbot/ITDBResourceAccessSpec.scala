@@ -1,5 +1,6 @@
 package com.benkio.richardphjbensonbot
 
+import doobie.Transactor
 import cats.effect.Resource
 import log.effect.fs2.SyncLogWriter.consoleLog
 import log.effect.LogWriter
@@ -10,8 +11,6 @@ import cats.effect.IO
 import com.dimafeng.testcontainers.DockerComposeContainer
 import munit._
 import cats.effect.unsafe.implicits.global
-import doobie.util.ExecutionContexts
-import doobie.hikari.HikariTransactor
 
 import java.nio.file.Files
 
@@ -42,16 +41,14 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
     withContainers { dockerComposeContainer =>
       val config     = buildConfig(dockerComposeContainer)
       val connection = buildDBConnection(dockerComposeContainer)
+      val transactor = Transactor.fromDriverManager[IO](
+        config.driver,
+        config.url,
+        config.user,
+        config.password,
+      )
+      val resourceAccess = DBResourceAccess[IO](transactor)
       val obtained = for {
-        ce <- ExecutionContexts.fixedThreadPool[IO](1) // 20 max connections
-        transactor <- HikariTransactor.newHikariTransactor[IO](
-          config.driver,
-          config.url,
-          config.user,
-          config.password,
-          ce
-        )
-        resourceAccess = DBResourceAccess[IO](transactor)
         _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
         result <- resourceAccess.getResourceByteArray("test media.mp3")
       } yield result
@@ -67,20 +64,19 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
   }
   test("getResourcesByKind should return the expected list of files with expected content") {
     withContainers { dockerComposeContainer =>
-      val config         = buildConfig(dockerComposeContainer)
-      val connection     = buildDBConnection(dockerComposeContainer)
-      val obtained = for {
-        ce <- ExecutionContexts.fixedThreadPool[IO](1) // 20 max connections
-        transactor         <- HikariTransactor.newHikariTransactor[IO](
+      val config     = buildConfig(dockerComposeContainer)
+      val connection = buildDBConnection(dockerComposeContainer)
+      val transactor = Transactor.fromDriverManager[IO](
         config.driver,
         config.url,
         config.user,
         config.password,
-        ce
       )
-      resourceAccess = DBResourceAccess[IO](transactor)
-       _ <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-      result <- resourceAccess.getResourcesByKind("kind")
+      val resourceAccess = DBResourceAccess[IO](transactor)
+      val obtained = for {
+
+        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
+        result <- resourceAccess.getResourcesByKind("kind")
       } yield result
 
       obtained

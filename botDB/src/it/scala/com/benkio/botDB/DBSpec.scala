@@ -40,10 +40,11 @@ class DBSpec extends CatsEffectSuite with ContainerSuite {
     withContainers { dockerComposeContainer =>
       val connection = buildDBConnection(dockerComposeContainer)
       connection.createStatement().executeUpdate(DBSpec.timeoutSQL)
-      val resultSet = connection.createStatement().executeQuery("SELECT chat_id, timeout_value, last_interaction FROM timeout")
+      val resultSet =
+        connection.createStatement().executeQuery("SELECT chat_id, timeout_value, last_interaction FROM timeout")
       resultSet.next()
-      val actualChatId      = resultSet.getString("chat_id")
-      val actualTimeoutValue      = resultSet.getString("timeout_value")
+      val actualChatId                 = resultSet.getString("chat_id")
+      val actualTimeoutValue           = resultSet.getString("timeout_value")
       val actualTimeoutLastInteraction = resultSet.getString("last_interaction")
       assertEquals(actualChatId, "123456789")
       assertEquals(actualTimeoutValue, "1000")

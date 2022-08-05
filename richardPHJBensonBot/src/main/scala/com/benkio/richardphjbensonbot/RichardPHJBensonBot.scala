@@ -11,7 +11,6 @@ import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie._
-import doobie.hikari._
 import log.effect.LogWriter
 import org.http4s.Status
 import org.http4s.blaze.client._
@@ -194,12 +193,11 @@ carattere '!':
       tk     <- token[F]
       config <- Resource.eval(Config.loadConfig[F])
       ce     <- ExecutionContexts.fixedThreadPool[F](1) // 20 max connections
-      transactor <- HikariTransactor.newHikariTransactor[F](
+      transactor = Transactor.fromDriverManager[F](
         config.driver,
         config.url,
         config.user,
-        config.password,
-        ce
+        config.password
       )
       dbResourceAccess = DBResourceAccess(transactor)
       _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
