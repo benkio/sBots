@@ -14,11 +14,12 @@ import telegramium.bots.ChatStrId
 
 import java.sql.Timestamp
 import java.time.Instant
-import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
 
 sealed trait DBTimeout[F[_]] {
   def getOrDefault(chatId: ChatId): F[DBTimeout.Timeout]
   def setTimeout(chatId: ChatId, timeout: FiniteDuration): F[Unit]
+  def logLastInteraction(chatId: ChatId): F[Unit]
 }
 
 object DBTimeout {
@@ -56,13 +57,23 @@ object DBTimeout {
     private def setTimeoutSql(chatId: ChatId, timeout: FiniteDuration): Update0 =
       sql"INSERT INTO timeout (chat_id, timeout_value, last_interaction) VALUES (${chatId.show}, ${timeout.toMillis}, NOW()::timestamp) ON CONFLICT (chat_id) DO UPDATE SET timeout_value = EXCLUDED.timeout_value, last_interaction = EXCLUDED.last_interaction".update
 
+    private def logLastInteractionSql(chatId: ChatId): Update0 =
+      sql"UPDATE timeout SET last_interaction = NOW()::timestamp WHERE chat_id = ${chatId.show}".update
+
     def getOrDefault(chatId: ChatId): F[DBTimeout.Timeout] =
-      log.info(s"DB fetching timeout for $chatId") *>
+      log.info(s"DB fetching timeout for ${chatId.show}") *>
         getOrDefaultSql(chatId).option.transact(transactor).map(_.getOrElse(defaultTimeout(chatId)))
 
     def setTimeout(chatId: ChatId, timeout: FiniteDuration): F[Unit] =
-      log.info(s"DB setting timeout for $chatId to value $timeout") *>
+      log.info(s"DB setting timeout for ${chatId.show} to value $timeout") *>
         setTimeoutSql(chatId, timeout).run.transact(transactor).void
+
+    def logLastInteraction(chatId: ChatId): F[Unit] =
+      log.info(s"DB logging the last interaction for chat ${chatId.show}") *>
+        logLastInteractionSql(chatId).run
+          .transact(transactor)
+          .onSqlException(setTimeout(chatId, 0.seconds))
+          .void
   }
 
 }

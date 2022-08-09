@@ -174,7 +174,7 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
         .unsafeRunSync()
     }
   }
-  test("DBTimeout.setTimeout should update the timeout if the chat id is not present in the database") {
+  test("DBTimeout.setTimeout should update the timeout if the chat id is present in the database") {
     withContainers { dockerComposeContainer =>
       val config     = buildConfig(dockerComposeContainer)
       val connection = buildDBConnection(dockerComposeContainer)
@@ -196,6 +196,66 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
           IO {
             assertEquals(timeout.chat_id, "1")
             assertEquals(timeout.timeout_value, "2000")
+          }
+        }
+        .unsafeRunSync()
+    }
+  }
+  test("DBTimeout.logLastInteraction should insert the timeout if the chat id is not present in the database") {
+    withContainers { dockerComposeContainer =>
+      val config     = buildConfig(dockerComposeContainer)
+      val connection = buildDBConnection(dockerComposeContainer)
+      val transactor = Transactor.fromDriverManager[IO](
+        config.driver,
+        config.url,
+        config.user,
+        config.password,
+      )
+      val dbTimeout = DBTimeout[IO](transactor)
+      val chatId    = ChatIntId(2)
+      val actual = for {
+        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
+        _      <- Resource.eval(dbTimeout.logLastInteraction(chatId))
+        result <- Resource.eval(dbTimeout.getOrDefault(chatId))
+      } yield result
+      actual
+        .use { timeout =>
+          IO {
+            assertEquals(timeout.chat_id, "2")
+            assertEquals(timeout.timeout_value, "0")
+          }
+        }
+        .unsafeRunSync()
+    }
+  }
+  test(
+    "DBTimeout.logLastInteraction should update the timeout last interaction if the chat id is present in the database"
+  ) {
+    withContainers { dockerComposeContainer =>
+      val config     = buildConfig(dockerComposeContainer)
+      val connection = buildDBConnection(dockerComposeContainer)
+      val transactor = Transactor.fromDriverManager[IO](
+        config.driver,
+        config.url,
+        config.user,
+        config.password,
+      )
+      val dbTimeout = DBTimeout[IO](transactor)
+      val chatId    = ChatIntId(1)
+      val actual = for {
+        _           <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
+        prevResult  <- Resource.eval(dbTimeout.getOrDefault(chatId))
+        _           <- Resource.eval(dbTimeout.logLastInteraction(chatId))
+        afterResult <- Resource.eval(dbTimeout.getOrDefault(chatId))
+      } yield (prevResult, afterResult)
+      actual
+        .use { case (prevTimeout, afterTimeout) =>
+          IO {
+            assertEquals(prevTimeout.chat_id, "1")
+            assertEquals(prevTimeout.timeout_value, "15000")
+            assertEquals(afterTimeout.chat_id, "1")
+            assertEquals(afterTimeout.timeout_value, "15000")
+            assert(prevTimeout.last_interaction.before(afterTimeout.last_interaction))
           }
         }
         .unsafeRunSync()
