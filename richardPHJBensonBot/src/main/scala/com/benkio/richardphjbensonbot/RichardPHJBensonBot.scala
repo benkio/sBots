@@ -15,21 +15,43 @@ import log.effect.LogWriter
 import org.http4s.Status
 import org.http4s.blaze.client._
 import org.http4s.client.Client
+import telegramium.bots.Message
 import telegramium.bots.high._
 
-class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](rAccess: ResourceAccess[F])
-    extends BotSkeletonPolling[F]
+class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    rAccess: ResourceAccess[F],
+    dbTimeout: DBTimeout[F]
+) extends BotSkeletonPolling[F]
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
+    dbTimeout.logLastInteraction(m.chat.id)
+  override def filteringMatchesMessages(implicit
+      applicativeF: Applicative[F]
+  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    (_, m) =>
+      for {
+        timeout <- dbTimeout.getOrDefault(m.chat.id)
+      } yield Timeout.isExpired(timeout)
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     url: String,
     rAccess: ResourceAccess[F],
+    dbTimeout: DBTimeout[F],
     path: String = "/"
 ) extends BotSkeletonWebhook[F](url, path)
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
+    dbTimeout.logLastInteraction(m.chat.id)
+  override def filteringMatchesMessages(implicit
+      applicativeF: Applicative[F]
+  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    (_, m) =>
+      for {
+        timeout <- dbTimeout.getOrDefault(m.chat.id)
+      } yield Timeout.isExpired(timeout)
 }
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
@@ -186,9 +208,11 @@ carattere '!':
       .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 
+  final case class BotSetup[F[_]](token: String, resourceAccess: ResourceAccess[F], dbTimeout: DBTimeout[F])
+
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
-  )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] =
+  )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] =
     for {
       tk     <- token[F]
       config <- Resource.eval(Config.loadConfig[F])
@@ -200,6 +224,7 @@ carattere '!':
         config.password
       )
       dbResourceAccess = DBResourceAccess(transactor)
+      dbTimeout        = DBTimeout(transactor)
       _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _ <- Resource.eval(
@@ -210,34 +235,37 @@ carattere '!':
         )
       )
       _ <- Resource.eval(log.info("[RichardPHJBensonBot] Webhook deleted"))
-    } yield (tk, dbResourceAccess)
+    } yield BotSetup(tk, dbResourceAccess, dbTimeout)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
-    httpClient        <- BlazeClientBuilder[F].resource
-    tk_resourceAccess <- buildCommonBot[F](httpClient)
-  } yield (httpClient, tk_resourceAccess)).use(httpClient_tkResourceAccess => {
-    implicit val api: Api[F] = BotApi(
-      httpClient_tkResourceAccess._1,
-      baseUrl = s"https://api.telegram.org/bot${httpClient_tkResourceAccess._2._1}"
-    )
-    action(new RichardPHJBensonBotPolling[F](rAccess = httpClient_tkResourceAccess._2._2))
-  })
+    httpClient <- BlazeClientBuilder[F].resource
+    botSetup   <- buildCommonBot[F](httpClient)
+  } yield (httpClient, botSetup)).use {
+    case (httpClient, BotSetup(token, resourceAccess, dbTimeout)) => {
+      implicit val api: Api[F] = BotApi(
+        httpClient,
+        baseUrl = s"https://api.telegram.org/bot$token"
+      )
+      action(new RichardPHJBensonBotPolling[F](rAccess = resourceAccess, dbTimeout = dbTimeout))
+    }
+  }
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
   )(implicit log: LogWriter[F]): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
-    tk_resourceAccess <- buildCommonBot[F](httpClient)
-    baseUrl = s"https://api.telegram.org/bot${tk_resourceAccess._1}"
-    path    = s"/${tk_resourceAccess._1}"
+    botSetup <- buildCommonBot[F](httpClient)
+    baseUrl = s"https://api.telegram.org/bot${botSetup.token}"
+    path    = s"/${botSetup.token}"
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
     new RichardPHJBensonBotWebhook[F](
       url = webhookBaseUrl + path,
-      path = s"/${tk_resourceAccess._1}",
-      rAccess = tk_resourceAccess._2
+      path = s"/${botSetup.token}",
+      rAccess = botSetup.resourceAccess,
+      dbTimeout = botSetup.dbTimeout
     )
   }
 }

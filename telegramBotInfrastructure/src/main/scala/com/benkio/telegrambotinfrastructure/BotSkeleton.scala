@@ -54,8 +54,8 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
   val ignoreMessagePrefix: Option[String]                                 = Some("!")
   val inputTimeout: Option[Duration]                                      = Some(5.minute)
   val disableForward: Boolean                                             = true
-  val filteringMatchesMessages: (ReplyBundleMessage[F], Message) => Boolean =
-    (_: ReplyBundleMessage[F], _: Message) => true
+  def filteringMatchesMessages(implicit applicativeF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    (_: ReplyBundleMessage[F], _: Message) => applicativeF.pure(true)
   def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = _ => Sync[F].unit
 
   // Reply to Messages ////////////////////////////////////////////////////////
@@ -74,8 +74,10 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
         replies <- messageRepliesData
           .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
           .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout) && FilteringForward.filter(msg, disableForward))
-          .filter(filteringMatchesMessages(_, msg))
-          .traverse(ReplyBundle.computeReplyBundle[F](_, msg))
+          .traverse(replyBundle =>
+            ReplyBundle
+              .computeReplyBundle[F](replyBundle, msg, filteringMatchesMessages(Applicative[F])(replyBundle, msg))
+          )
       } yield replies
 
   def commandLogic(implicit asyncF: Async[F], api: Api[F], log: LogWriter[F]): (Message) => F[Option[List[Message]]] =
@@ -88,7 +90,7 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
         } yield result
         commands <- commandMatch
           .traverse(
-            ReplyBundle.computeReplyBundle[F](_, msg)
+            ReplyBundle.computeReplyBundle[F](_, msg, Applicative[F].pure(true))
           )
       } yield commands
 

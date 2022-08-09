@@ -66,15 +66,20 @@ object ReplyBundle {
   implicit def ordering[F[_]]: Ordering[ReplyBundle[F]] =
     Trigger.ordering.contramap(_.trigger)
 
-  def computeReplyBundle[F[_]](replyBundle: ReplyBundle[F], message: Message)(implicit
+  private def replyBundleToData[F[_]](replyBundle: ReplyBundle[F], textReplies: List[String], f: Boolean): List[Reply] =
+    (textReplies, f) match {
+      case (_, false) => List.empty
+      case (Nil, _)   => replyBundle.mediafiles
+      case _          => replyBundle.mediafiles :+ replyBundle.text
+    }
+
+  def computeReplyBundle[F[_]](replyBundle: ReplyBundle[F], message: Message, filter: F[Boolean])(implicit
       replyAction: Action[Reply, F],
       syncF: Sync[F]
   ): F[List[Message]] = for {
+    f           <- filter
     textReplies <- replyBundle.text.text(message)
-    dataToSend =
-      if (textReplies.isEmpty)
-        replyBundle.mediafiles
-      else replyBundle.mediafiles :+ replyBundle.text
+    dataToSend = replyBundleToData[F](replyBundle, textReplies, f)
     replies <- replyBundle.replySelection.logic(dataToSend)
     result  <- replies.traverse[F, List[Message]](replyAction(_)(message))
   } yield result.flatten

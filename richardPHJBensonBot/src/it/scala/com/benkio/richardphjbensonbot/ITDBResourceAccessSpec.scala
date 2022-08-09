@@ -1,6 +1,5 @@
 package com.benkio.richardphjbensonbot
 
-import telegramium.bots.ChatIntId
 import doobie.Transactor
 import cats.effect.Resource
 import log.effect.fs2.SyncLogWriter.consoleLog
@@ -109,12 +108,12 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
       val dbTimeout = DBTimeout[IO](transactor)
       val actual = for {
         _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        result <- Resource.eval(dbTimeout.getOrDefault(ChatIntId(100))) // Not present ChatID
+        result <- Resource.eval(dbTimeout.getOrDefault(100L)) // Not present ChatID
       } yield result
       actual
         .use { timeout =>
           IO {
-            assertEquals(timeout.chat_id, "100")
+            assertEquals(timeout.chat_id, 100L)
             assertEquals(timeout.timeout_value, "0")
           }
         }
@@ -134,12 +133,12 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
       val dbTimeout = DBTimeout[IO](transactor)
       val actual = for {
         _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        result <- Resource.eval(dbTimeout.getOrDefault(ChatIntId(1))) // Present ChatID
+        result <- Resource.eval(dbTimeout.getOrDefault(1L)) // Present ChatID
       } yield result
       actual
         .use { timeout =>
           IO {
-            assertEquals(timeout.chat_id, "1")
+            assertEquals(timeout.chat_id, 1L)
             assertEquals(timeout.timeout_value, "15000")
           }
         }
@@ -157,7 +156,7 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
         config.password,
       )
       val dbTimeout = DBTimeout[IO](transactor)
-      val chatId    = ChatIntId(2)
+      val chatId    = 2L
 
       val actual = for {
         _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
@@ -167,7 +166,7 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
       actual
         .use { timeout =>
           IO {
-            assertEquals(timeout.chat_id, "2")
+            assertEquals(timeout.chat_id, 2L)
             assertEquals(timeout.timeout_value, "2000")
           }
         }
@@ -185,7 +184,7 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
         config.password,
       )
       val dbTimeout = DBTimeout[IO](transactor)
-      val chatId    = ChatIntId(1)
+      val chatId    = 1L
       val actual = for {
         _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
         _      <- Resource.eval(dbTimeout.setTimeout(chatId, 2.seconds))
@@ -194,7 +193,7 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
       actual
         .use { timeout =>
           IO {
-            assertEquals(timeout.chat_id, "1")
+            assertEquals(timeout.chat_id, 1L)
             assertEquals(timeout.timeout_value, "2000")
           }
         }
@@ -212,7 +211,7 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
         config.password,
       )
       val dbTimeout = DBTimeout[IO](transactor)
-      val chatId    = ChatIntId(2)
+      val chatId    = 2L
       val actual = for {
         _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
         _      <- Resource.eval(dbTimeout.logLastInteraction(chatId))
@@ -221,7 +220,7 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
       actual
         .use { timeout =>
           IO {
-            assertEquals(timeout.chat_id, "2")
+            assertEquals(timeout.chat_id, 2L)
             assertEquals(timeout.timeout_value, "0")
           }
         }
@@ -241,7 +240,7 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
         config.password,
       )
       val dbTimeout = DBTimeout[IO](transactor)
-      val chatId    = ChatIntId(1)
+      val chatId    = 1L
       val actual = for {
         _           <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
         prevResult  <- Resource.eval(dbTimeout.getOrDefault(chatId))
@@ -251,9 +250,9 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
       actual
         .use { case (prevTimeout, afterTimeout) =>
           IO {
-            assertEquals(prevTimeout.chat_id, "1")
+            assertEquals(prevTimeout.chat_id, 1L)
             assertEquals(prevTimeout.timeout_value, "15000")
-            assertEquals(afterTimeout.chat_id, "1")
+            assertEquals(afterTimeout.chat_id, 1L)
             assertEquals(afterTimeout.timeout_value, "15000")
             assert(prevTimeout.last_interaction.before(afterTimeout.last_interaction))
           }
