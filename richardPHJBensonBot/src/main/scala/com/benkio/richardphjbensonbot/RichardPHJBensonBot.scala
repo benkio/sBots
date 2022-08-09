@@ -163,8 +163,16 @@ object RichardPHJBensonBot extends BotOps {
               msg,
               "timeout",
               "RichardPHJBensonBot",
-              t => Timeout(msg, t).toList.traverse_(dbTimeout.setTimeout) *> List("Timeout set successfully").pure[F],
-              "Timeout set failed: wrong input format, the input must be in the form '\timeout 00:00:00'"
+              t => {
+                val timeout = Timeout(msg, t).toList
+                if (timeout.isEmpty)
+                  List(
+                    s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
+                  ).pure[F]
+                else
+                  timeout.traverse_(dbTimeout.setTimeout) *> List("Timeout set successfully").pure[F]
+              },
+              "Input Required: the input must be in the form '\timeout 00:00:00'"
             ),
           true
         )
