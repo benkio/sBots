@@ -50,7 +50,7 @@ object DBMigrator {
 
   private def logValidationErrorsIfAny(m: FluentConfiguration): Unit = {
     val validated = m
-      .ignorePendingMigrations(true)
+      .ignoreMigrationPatterns("*:pending")
       .load()
       .validateWithResult()
 
