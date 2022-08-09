@@ -172,7 +172,7 @@ object RichardPHJBensonBot extends BotOps {
                 else
                   timeout.traverse_(dbTimeout.setTimeout) *> List("Timeout set successfully").pure[F]
               },
-              "Input Required: the input must be in the form '\timeout 00:00:00'"
+              """Input Required: the input must be in the form '\timeout 00:00:00'"""
             ),
           true
         )
