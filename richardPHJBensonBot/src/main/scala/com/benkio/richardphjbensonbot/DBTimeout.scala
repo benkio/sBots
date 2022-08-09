@@ -7,10 +7,12 @@ import doobie.implicits.javasql._
 import doobie.Transactor
 import doobie._
 import log.effect.LogWriter
+import telegramium.bots.Message
 
 import java.sql.Timestamp
 import java.time.Instant
 import scala.concurrent.duration._
+import scala.util.Try
 
 final case class Timeout(chat_id: Long, timeout_value: String, last_interaction: Timestamp)
 
@@ -23,21 +25,35 @@ object Timeout {
     )
   }
 
-}
-
-sealed trait DBTimeout[F[_]] {
-  def getOrDefault(chatId: Long): F[Timeout]
-  def setTimeout(chatId: Long, timeout: FiniteDuration): F[Unit]
-  def logLastInteraction(chatId: Long): F[Unit]
-}
-
-object DBTimeout {
-
   def defaultTimeout(chatId: Long): Timeout = Timeout(
     chat_id = chatId,
     timeout_value = "0",
     last_interaction = Timestamp.from(Instant.now())
   )
+
+  def apply(m: Message, timeout: String): Option[Timeout] =
+    Try(
+      timeout
+        .split(":")
+        .map(_.toLong)
+        .zip(List(HOURS, MINUTES, SECONDS))
+        .map { case (value, timeUnit) =>
+          Duration(value, timeUnit)
+        }
+        .reduce(_ + _)
+    )
+      .map(duration => defaultTimeout(m.chat.id).copy(timeout_value = duration.toMillis.toString))
+      .toOption
+
+}
+
+sealed trait DBTimeout[F[_]] {
+  def getOrDefault(chatId: Long): F[Timeout]
+  def setTimeout(timeout: Timeout): F[Unit]
+  def logLastInteraction(chatId: Long): F[Unit]
+}
+
+object DBTimeout {
 
   def apply[F[_]: Async](transactor: Transactor[F])(implicit log: LogWriter[F]): DBTimeout[F] =
     new DBTimeoutImpl[F](
@@ -51,25 +67,25 @@ object DBTimeout {
       sql"SELECT chat_id, timeout_value, last_interaction FROM timeout WHERE chat_id = $chatId"
         .query[Timeout]
 
-    private def setTimeoutSql(chatId: Long, timeout: FiniteDuration): Update0 =
-      sql"INSERT INTO timeout (chat_id, timeout_value, last_interaction) VALUES ($chatId, ${timeout.toMillis}, NOW()::timestamp) ON CONFLICT (chat_id) DO UPDATE SET timeout_value = EXCLUDED.timeout_value, last_interaction = EXCLUDED.last_interaction".update
+    private def setTimeoutSql(timeout: Timeout): Update0 =
+      sql"INSERT INTO timeout (chat_id, timeout_value, last_interaction) VALUES (${timeout.chat_id}, ${timeout.timeout_value}, NOW()::timestamp) ON CONFLICT (chat_id) DO UPDATE SET timeout_value = EXCLUDED.timeout_value, last_interaction = EXCLUDED.last_interaction".update
 
     private def logLastInteractionSql(chatId: Long): Update0 =
       sql"UPDATE timeout SET last_interaction = NOW()::timestamp WHERE chat_id = $chatId".update
 
     def getOrDefault(chatId: Long): F[Timeout] =
       log.info(s"DB fetching timeout for $chatId") *>
-        getOrDefaultSql(chatId).option.transact(transactor).map(_.getOrElse(defaultTimeout(chatId)))
+        getOrDefaultSql(chatId).option.transact(transactor).map(_.getOrElse(Timeout.defaultTimeout(chatId)))
 
-    def setTimeout(chatId: Long, timeout: FiniteDuration): F[Unit] =
-      log.info(s"DB setting timeout for $chatId to value $timeout") *>
-        setTimeoutSql(chatId, timeout).run.transact(transactor).void
+    def setTimeout(timeout: Timeout): F[Unit] =
+      log.info(s"DB setting timeout for ${timeout.chat_id} to value ${timeout.timeout_value}") *>
+        setTimeoutSql(timeout).run.transact(transactor).void
 
     def logLastInteraction(chatId: Long): F[Unit] =
       log.info(s"DB logging the last interaction for chat $chatId") *>
         logLastInteractionSql(chatId).run
           .transact(transactor)
-          .onSqlException(setTimeout(chatId, 0.seconds))
+          .onSqlException(setTimeout(Timeout.defaultTimeout(chatId)))
           .void
   }
 

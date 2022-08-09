@@ -20,7 +20,7 @@ import telegramium.bots.high._
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     rAccess: ResourceAccess[F],
-    dbTimeout: DBTimeout[F]
+    val dbTimeout: DBTimeout[F]
 ) extends BotSkeletonPolling[F]
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
@@ -38,7 +38,7 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     url: String,
     rAccess: ResourceAccess[F],
-    dbTimeout: DBTimeout[F],
+    val dbTimeout: DBTimeout[F],
     path: String = "/"
 ) extends BotSkeletonWebhook[F](url, path)
     with RichardPHJBensonBot[F] {
@@ -56,6 +56,8 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
 
+  val dbTimeout: DBTimeout[F]
+
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
       log: LogWriter[F]
@@ -64,7 +66,7 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     List(randomLinkByKeywordReplyBundleF, randomLinkReplyBundleF).sequence.map(cs =>
-      cs ++ RichardPHJBensonBot.commandRepliesData[F]
+      cs ++ RichardPHJBensonBot.commandRepliesData[F](dbTimeout)
     )
 
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
@@ -138,7 +140,7 @@ object RichardPHJBensonBot extends BotOps {
     triggers :+ lastTriggers
   }
 
-  def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
+  def commandRepliesData[F[_]: Applicative](dbTimeout: DBTimeout[F]): List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
       text = Some(
@@ -149,6 +151,22 @@ object RichardPHJBensonBot extends BotOps {
               Applicative[F].pure(List("NON TE LO PUOI PERMETTERE!!!(puoi usare questo comando solo in chat privata)"))
           },
           false
+        )
+      )
+    ),
+    ReplyBundleCommand(
+      trigger = CommandTrigger("timeout"),
+      text = Some(
+        TextReply[F](
+          msg =>
+            handleCommandWithInput[F](
+              msg,
+              "timeout",
+              "RichardPHJBensonBot",
+              t => Timeout(msg, t).toList.traverse_(dbTimeout.setTimeout) *> List("Timeout set successfully").pure[F],
+              "Timeout set failed: wrong input format, the input must be in the form '\timeout 00:00:00'"
+            ),
+          true
         )
       )
     ),

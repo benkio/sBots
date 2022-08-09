@@ -1,5 +1,7 @@
 package com.benkio.richardphjbensonbot
 
+import java.time.Instant
+import java.sql.Timestamp
 import doobie.Transactor
 import cats.effect.Resource
 import log.effect.fs2.SyncLogWriter.consoleLog
@@ -157,10 +159,10 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
       )
       val dbTimeout = DBTimeout[IO](transactor)
       val chatId    = 2L
-
+      val timeout   = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
       val actual = for {
         _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        _      <- Resource.eval(dbTimeout.setTimeout(chatId, 2.seconds))
+        _      <- Resource.eval(dbTimeout.setTimeout(timeout))
         result <- Resource.eval(dbTimeout.getOrDefault(chatId))
       } yield result
       actual
@@ -185,9 +187,10 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
       )
       val dbTimeout = DBTimeout[IO](transactor)
       val chatId    = 1L
+      val timeout   = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
       val actual = for {
         _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        _      <- Resource.eval(dbTimeout.setTimeout(chatId, 2.seconds))
+        _      <- Resource.eval(dbTimeout.setTimeout(timeout))
         result <- Resource.eval(dbTimeout.getOrDefault(chatId))
       } yield result
       actual
