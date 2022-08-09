@@ -13,7 +13,7 @@ import doobie.implicits._
 
 class ITSpec extends FunSuite with TestContainerForAll {
   override val containerDef: PostgreSQLContainer.Def = PostgreSQLContainer.Def(
-    dockerImageName = DockerImageName.parse(PostgreSQLContainer.defaultDockerImageName),
+    dockerImageName = DockerImageName.parse("postgres:alpine"),
     databaseName = config.dbName,
     username = config.user,
     password = config.password,
