@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import cats.Applicative
 import cats.effect._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import munit.CatsEffectSuite
@@ -42,7 +43,8 @@ class ReplyBundleSpec extends CatsEffectSuite {
       chat = Chat(id = 0, `type` = "test")
     )
 
-    val result: IO[List[Message]] = ReplyBundle.computeReplyBundle(replyBundleInput, message)
+    val result: IO[List[Message]] =
+      ReplyBundle.computeReplyBundle(replyBundleInput, message, Applicative[IO].pure(true))
 
     assertIO(result.map(_.length), 6)
     assertIO(result.map(_.contains(message.copy(text = Some("Mp3")))), true)

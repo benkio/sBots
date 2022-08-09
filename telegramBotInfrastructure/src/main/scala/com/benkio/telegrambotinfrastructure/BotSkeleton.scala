@@ -26,6 +26,7 @@ abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F], l
       _ <- OptionT.liftF(log.trace(s"A message arrived: $msg"))
       _ <- OptionT.liftF(log.info(s"A message arrived with content: ${msg.text}"))
       _ <- OptionT(botLogic(Async[F], api, log)(msg))
+      _ <- OptionT.liftF(postComputation(Sync[F])(msg))
     } yield ()
     x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
@@ -40,6 +41,7 @@ abstract class BotSkeletonWebhook[F[_]: Async](url: String, path: String = "/")(
       text <- OptionT.fromOption[F](msg.text)
       _    <- OptionT.liftF(log.info(s"A message arrived with content: $text"))
       _    <- OptionT(botLogic(Async[F], api, log)(msg))
+      _    <- OptionT.liftF(postComputation(Sync[F])(msg))
     } yield ()
     x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
   }
@@ -47,11 +49,14 @@ abstract class BotSkeletonWebhook[F[_]: Async](url: String, path: String = "/")(
 
 trait BotSkeleton[F[_]] extends DefaultActions[F] {
 
-  // Configuration values /////////////////////////////////////////////////////
+  // Configuration values & functions /////////////////////////////////////////////////////
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = ResourceAccess.fromResources[F]
   val ignoreMessagePrefix: Option[String]                                 = Some("!")
   val inputTimeout: Option[Duration]                                      = Some(5.minute)
   val disableForward: Boolean                                             = true
+  def filteringMatchesMessages(implicit applicativeF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    (_: ReplyBundleMessage[F], _: Message) => applicativeF.pure(true)
+  def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = _ => Sync[F].unit
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
@@ -69,7 +74,10 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
         replies <- messageRepliesData
           .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
           .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout) && FilteringForward.filter(msg, disableForward))
-          .traverse(ReplyBundle.computeReplyBundle[F](_, msg))
+          .traverse(replyBundle =>
+            ReplyBundle
+              .computeReplyBundle[F](replyBundle, msg, filteringMatchesMessages(Applicative[F])(replyBundle, msg))
+          )
       } yield replies
 
   def commandLogic(implicit asyncF: Async[F], api: Api[F], log: LogWriter[F]): (Message) => F[Option[List[Message]]] =
@@ -82,7 +90,7 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
         } yield result
         commands <- commandMatch
           .traverse(
-            ReplyBundle.computeReplyBundle[F](_, msg)
+            ReplyBundle.computeReplyBundle[F](_, msg, Applicative[F].pure(true))
           )
       } yield commands
 

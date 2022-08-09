@@ -82,7 +82,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   }
 
   test("triggerlist should return a list of all triggers when called") {
-    assertEquals(RichardPHJBensonBot.commandRepliesData[IO].length, 3)
+    assertEquals(RichardPHJBensonBot.commandRepliesData[IO](null).length, 4)
     assert(
       RichardPHJBensonBot
         .messageRepliesData[IO]
@@ -94,7 +94,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
         )
         .forall(s =>
           RichardPHJBensonBot
-            .commandRepliesData[IO]
+            .commandRepliesData[IO](null)
             .filter(_.trigger.command == "triggerlist")
             .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
             .mkString("\n")
@@ -106,7 +106,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   test("triggerlist command should return the warning message if the input message is not a private chat") {
     val nonPrivateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "group"))
     val actual = RichardPHJBensonBot
-      .commandRepliesData[IO]
+      .commandRepliesData[IO](null)
       .filter(_.trigger.command == "triggerlist")
       .flatTraverse(_.text.text(nonPrivateTestMessage))
     assertIO(
@@ -116,7 +116,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   }
   test("instructions command should return the expected message") {
     val actual = RichardPHJBensonBot
-      .commandRepliesData[IO]
+      .commandRepliesData[IO](null)
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(
