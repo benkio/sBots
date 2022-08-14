@@ -16,7 +16,7 @@ object Dependencies {
     val postgresVersion       = "42.4.1"
     val pureConfig            = "0.17.1"
     val testcontainers        = "0.40.10"
-    val telegramiumVersion    = "7.61.0"
+    val telegramiumVersion    = "7.62.0"
   }
 
   lazy val libs = new {
