@@ -6,7 +6,9 @@ import cats.implicits._
 import com.benkio.richardphjbensonbot.Config
 import com.benkio.telegrambotinfrastructure.botcapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botcapabilities._
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.TextReply
+import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
@@ -57,6 +59,8 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
 
   val dbTimeout: DBTimeout[F]
+
+  override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -119,6 +123,8 @@ object RichardPHJBensonBot extends BotOps {
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
   import com.benkio.richardphjbensonbot.data.Mix.messageRepliesMixData
 
+  val ignoreMessagePrefix: Option[String] = Some("!")
+
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
       F
@@ -150,6 +156,35 @@ object RichardPHJBensonBot extends BotOps {
             else
               Applicative[F].pure(List("NON TE LO PUOI PERMETTERE!!!(puoi usare questo comando solo in chat privata)"))
           },
+          false
+        )
+      )
+    ),
+    ReplyBundleCommand(
+      trigger = CommandTrigger("triggersearch"),
+      text = Some(
+        TextReply[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "triggersearch",
+              "RichardPHJBensonBot",
+              t =>
+                messageRepliesData[F]
+                  .collectFirstSome(replyBundle =>
+                    replyBundle.trigger match {
+                      case TextTrigger(textTriggers @ _*)
+                          if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
+                        Some(textTriggers.toList)
+                      case _ => None
+                    }
+                  )
+                  .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
+                    textTriggers.map(_.toString)
+                  )
+                  .pure[F],
+              """Input Required: Insert the test keyword to check if it's in some bot trigger"""
+            ),
           false
         )
       )
