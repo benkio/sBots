@@ -8,6 +8,7 @@ import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import com.benkio.telegrambotinfrastructure.default.DefaultActions
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageOps
 import com.benkio.telegrambotinfrastructure.messagefiltering.Timeout
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
@@ -97,7 +98,7 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
   def botLogic(implicit asyncF: Async[F], api: Api[F], log: LogWriter[F]): (Message) => F[Option[List[Message]]] =
     (msg: Message) =>
       for {
-        messagesOpt <- messageLogic(asyncF, api, log)(msg)
+        messagesOpt <- if (!MessageOps.isCommand(msg)) messageLogic(asyncF, api, log)(msg) else Async[F].pure(None)
         commandsOpt <- commandLogic(asyncF, api, log)(msg)
       } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
 }
