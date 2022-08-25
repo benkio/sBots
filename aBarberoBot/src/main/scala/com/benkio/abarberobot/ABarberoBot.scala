@@ -5,6 +5,7 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botcapabilities._
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
@@ -21,6 +22,8 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String 
     with ABarberoBot[F]
 
 trait ABarberoBot[F[_]] extends BotSkeleton[F] {
+
+  override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -78,6 +81,8 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
 }
 
 object ABarberoBot extends BotOps {
+
+  val ignoreMessagePrefix: Option[String] = Some("!")
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
@@ -854,7 +859,36 @@ object ABarberoBot extends BotOps {
           false
         )
       )
-    )
+    ),
+    ReplyBundleCommand(
+      trigger = CommandTrigger("triggersearch"),
+      text = Some(
+        TextReply[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "triggersearch",
+              "ABarberoBot",
+              t =>
+                messageRepliesData[F]
+                  .collectFirstSome(replyBundle =>
+                    replyBundle.trigger match {
+                      case TextTrigger(textTriggers @ _*)
+                          if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
+                        Some(textTriggers.toList)
+                      case _ => None
+                    }
+                  )
+                  .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
+                    textTriggers.map(_.toString)
+                  )
+                  .pure[F],
+              """Input Required: Insert the test keyword to check if it's in some bot trigger"""
+            ),
+          false
+        )
+      )
+    ),
   )
 
   def token[F[_]: Async]: Resource[F, String] =
