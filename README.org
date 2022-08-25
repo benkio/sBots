@@ -106,6 +106,12 @@
 *** Next Development Ideas
 **** General(Maybe) Development
     - [X] TextReply needs to allow side effects with Message => F[List[String]]. This enable to access resources depending on message text
+    - [ ] Heroku Postgres terminates on November 28, 2022. Migrate the database, Idea is to:
+      - Upload the data in the web (gif -> giphy, mp4 -> youtube, mp3 -> [[https://gist.github.com/Moutard3/b925b090ab1d6d20a5d20f054bae7bca][here]])
+      - Collect the data and links
+      - Built a Sqlite db with such data in it
+      - Add the code necessary to download the data from the web using the links
+      - Deploy the database and the new jar
     - [ ] Twitch support
     - [ ] Discord support
     - [ ] Slack support
