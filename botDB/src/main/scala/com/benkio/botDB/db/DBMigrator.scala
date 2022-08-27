@@ -31,8 +31,8 @@ object DBMigrator {
     val m: FluentConfiguration = Flyway.configure
       .dataSource(
         config.url,
-        config.user,
-        config.password
+        "",
+        ""
       )
       .group(true)
       .outOfOrder(false)

@@ -35,6 +35,6 @@ object TestData {
     url = "jdbc:postgresql://localhost:5432/botDB",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
-    resourceLocation = "/testdata/"
+    csvLocation = "/testdata/"
   )
 }
