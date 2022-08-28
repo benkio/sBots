@@ -1,8 +1,9 @@
 package com.benkio.botDB
 
-import com.benkio.botDB.db.DatabaseRepository
 import cats.effect._
-import com.benkio.botDB.db.{BotDBController, DBMigrator}
+import com.benkio.botDB.db.BotDBController
+import com.benkio.botDB.db.DBMigrator
+import com.benkio.botDB.db.DatabaseRepository
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 
 object Main extends IOApp {
@@ -18,6 +19,7 @@ object Main extends IOApp {
       botDBController = BotDBController[IO](
         cfg = cfg,
         databaseRepository = databaseRepository,
+        resourceAccess = resourceAccess,
         migrator = migrator
       )
       _ <- botDBController.build.use_
