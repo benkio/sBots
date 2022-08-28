@@ -1,12 +1,12 @@
 package com.benkio.botDB
 
-import java.net.URL
+import cats.data.NonEmptyList
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.generic.semiauto._
 import io.chrisdavenport.cormorant.implicits._
-import scala.util.Try
 
-import cats.data.NonEmptyList
+import java.net.URL
+import scala.util.Try
 
 final case class Input(
   filename: String,

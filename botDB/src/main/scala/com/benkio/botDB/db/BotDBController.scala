@@ -8,9 +8,6 @@ import com.benkio.botDB.{Config, Input}
 import java.sql.Timestamp
 import java.time.Instant
 
-
-
-
 sealed trait BotDBController[F[_]] {
   def build: Resource[F, Unit]
 
