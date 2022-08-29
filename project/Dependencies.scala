@@ -16,7 +16,6 @@ object Dependencies {
     val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.1"
     val sqlite                = "3.39.2.1"
-    val testcontainers        = "0.40.10"
     val telegramiumVersion    = "7.62.0"
   }
 
@@ -36,7 +35,6 @@ object Dependencies {
     val sqlite              = "org.xerial"            % "sqlite-jdbc"                 % dependenciesVersion.sqlite
     val telegramiumCore     = "io.github.apimorphism" %% "telegramium-core"           % dependenciesVersion.telegramiumVersion
     val telegramiumHigh     = "io.github.apimorphism" %% "telegramium-high"           % dependenciesVersion.telegramiumVersion
-    val testcontainersMunit = "com.dimafeng"          %% "testcontainers-scala-munit" % dependenciesVersion.testcontainers  % "it, test"
   }
 
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] = Seq(
@@ -77,8 +75,7 @@ object Dependencies {
     libs.munitCatsEffect,
     libs.pureConfig,
     libs.telegramiumCore,
-    libs.telegramiumHigh,
-    libs.testcontainersMunit
+    libs.telegramiumHigh
   )
 
   val XahBotDependencies: Seq[ModuleID] = Seq(

@@ -11,6 +11,7 @@ import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
+// TODO: Change this to test against the sqlite real db and put it on CI/CD
 class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   import com.benkio.richardphjbensonbot.data.Audio.messageRepliesAudioData
