@@ -1,1 +1,0 @@
-web: java -cp main/target/scala-2.13/main.jar com.benkio.main.MainWebhook
