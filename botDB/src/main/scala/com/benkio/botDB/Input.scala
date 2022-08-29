@@ -26,11 +26,17 @@ object Input {
     )
 
   implicit val readUrl: Read[URL] =
-    Read.fromHeaders((_, r) =>
-      r.l.toNev
-        .get(2)
-        .flatMap(field => Try(new URL(field.x)).toOption)
-        .toRight(Error.DecodeFailure.single("Couldn't parse the URL"))
+    Read.fromHeaders((hs, r) =>
+      for {
+        url <- r.l.toNev
+          .get(2)
+          .flatMap(field => Try(new URL(field.x)).toOption)
+          .toRight(Error.DecodeFailure.single("Couldn't parse the URL"))
+        _ <- hs.l.toNev
+          .get(2)
+          .map(h => h.value == "url")
+          .toRight(Error.DecodeFailure.single("Third header should be `url`"))
+      } yield url
     )(headers)
 
   implicit val writeURL: Write[URL] = new Write[URL] {
