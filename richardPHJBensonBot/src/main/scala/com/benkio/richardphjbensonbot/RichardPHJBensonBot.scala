@@ -281,10 +281,11 @@ carattere '!':
       transactor = Transactor.fromDriverManager[F](
         config.driver,
         config.url,
-        config.user,
-        config.password
+        "",
+        ""
       )
-      dbResourceAccess = DBResourceAccess(transactor)
+      urlFetcher       = UrlFetcher[F]()
+      dbResourceAccess = DBResourceAccess(transactor, urlFetcher)
       dbTimeout        = DBTimeout(transactor)
       _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)

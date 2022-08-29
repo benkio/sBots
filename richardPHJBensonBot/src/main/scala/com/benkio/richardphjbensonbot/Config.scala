@@ -9,10 +9,6 @@ import pureconfig.generic.auto._
 final case class Config(
     driver: String,
     dbName: String,
-    user: String,
-    password: String,
-    host: String,
-    port: String,
     url: String
 )
 
