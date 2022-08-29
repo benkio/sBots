@@ -27,11 +27,11 @@ object TestData {
   )
 
   val config: Config = Config(
-    driver = "org.postgresql.Driver",
+    driver = "org.sqlite.JDBC",
     dbName = "botDB",
-    url = "jdbc:postgresql://localhost:5432/botDB",
+    url = "jdbc:sqlite:C:/sqlite/db/chinook.db",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
-    csvLocation = "/testdata/"
+    csvLocation = ""
   )
 }

@@ -104,7 +104,6 @@ object Dependencies {
     libs.flyway,
     libs.munit,
     libs.pureConfig,
-    libs.sqlite,
-    libs.testcontainersMunit
+    libs.sqlite
   )
 }

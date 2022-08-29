@@ -52,21 +52,21 @@ object BotDBController {
         parseComplete(fileContent).flatMap(_.readLabelled[Input].sequence)
       })))
       _ <- Resource.eval(
-        input
-          .foreach { case Input(filename, kind, url) =>
-            Sync[F].delay(println(s"Inserting filename $filename of kind $kind from $url")) *>
-              databaseRepository
-                .insertMedia(
-                  MediaEntity(
-                    media_name = filename,
-                    kind = kind,
-                    media_url = url,
-                    created_at = Timestamp.from(Instant.now())
-                  )
+        input.traverse_(i =>
+          for {
+            _ <- Sync[F].delay(println(s"Inserting file ${i.filename} of kind ${i.kind} from ${i.url}"))
+            _ <- databaseRepository
+              .insertMedia(
+                MediaEntity(
+                  media_name = i.filename,
+                  kind = i.kind,
+                  media_url = i.url,
+                  created_at = Timestamp.from(Instant.now())
                 )
-                .productL(Sync[F].delay(println(s"Inserted file $filename of kind $kind from $url, successfully")))
-          }
-          .pure[F]
+              )
+            _ <- Sync[F].delay(println(s"Inserted file ${i.filename} of kind ${i.kind} from ${i.url}, successfully"))
+          } yield ()
+        )
       )
     } yield ()
   }
