@@ -30,23 +30,22 @@
      resource folders. Put particular attention to the ~.token~ file
      contanining the telegram key specific to each bot.
 
-     For the Richard Benson's bot it supports a postgres Database! So
-     you need to provide the credentials for the database into the
-     ~application.conf~ or just setup the specific environment
-     variables.
+     For the Richard Benson's bot it uses sqlite Database! So you need
+     to provide the path to the database into the ~application.conf~
+     or just setup the specific environment variables. No need to put
+     the files in resources since those will be fetched from the web
+     via urls
 
      Read the following section to know how to setup the database
 
 ***** Database Setup
 
-     There's a module called ~botDB~, if opportunately configurade,
+     There's a module called ~botDB~, if opportunately configured,
      when launched it applies the migrations and the populate a bot
      database (Richard's one for now). Just setup the
-     ~application.conf~ correctly with the DB credentials and the
-     location of the files (tipically the resources of the previous
-     section)
-
-     An place where you can store your database for free is [[https://data.heroku.com/][heroku data]].
+     ~application.conf~ correctly with the DB path, see the db in the
+     root of the project, and the location of the csv (tipically the
+     resources of the previous section)
 
 **** Compile and Test
 
