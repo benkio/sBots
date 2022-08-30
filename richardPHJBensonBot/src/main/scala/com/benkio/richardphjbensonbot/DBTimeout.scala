@@ -68,10 +68,10 @@ object DBTimeout {
         .query[Timeout]
 
     private def setTimeoutSql(timeout: Timeout): Update0 =
-      sql"INSERT INTO timeout (chat_id, timeout_value, last_interaction) VALUES (${timeout.chat_id}, ${timeout.timeout_value}, NOW()::timestamp) ON CONFLICT (chat_id) DO UPDATE SET timeout_value = EXCLUDED.timeout_value, last_interaction = EXCLUDED.last_interaction".update
+      sql"INSERT INTO timeout (chat_id, timeout_value, last_interaction) VALUES (${timeout.chat_id}, ${timeout.timeout_value}, datetime('now')) ON CONFLICT (chat_id) DO UPDATE SET timeout_value = EXCLUDED.timeout_value, last_interaction = EXCLUDED.last_interaction".update
 
     private def logLastInteractionSql(chatId: Long): Update0 =
-      sql"UPDATE timeout SET last_interaction = NOW()::timestamp WHERE chat_id = $chatId".update
+      sql"UPDATE timeout SET last_interaction = datetime('now') WHERE chat_id = $chatId".update
 
     def getOrDefault(chatId: Long): F[Timeout] =
       log.info(s"DB fetching timeout for $chatId") *>

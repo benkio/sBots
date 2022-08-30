@@ -1,9 +1,9 @@
-CREATE TABLE media(
-  media_name VARCHAR(255) PRIMARY KEY,
-  kind VARCHAR(255) NULL,
-  media_content bytea NOT NULL,
-  created_at TIMESTAMP NOT NULL
+CREATE TABLE IF NOT EXISTS media(
+  media_name TEXT PRIMARY KEY,
+  kind TEXT NULL,
+  media_url TEXT NOT NULL,
+  created_at TEXT NOT NULL
 );
 
-CREATE UNIQUE INDEX media_key
+CREATE UNIQUE INDEX IF NOT EXISTS media_key
 ON media(media_name);

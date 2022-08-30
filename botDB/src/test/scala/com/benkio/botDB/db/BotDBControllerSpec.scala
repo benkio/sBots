@@ -12,15 +12,14 @@ import java.io.File
 
 class BotDBControllerSpec extends CatsEffectSuite {
 
-  val (files, folders) =
-    new File(getClass.getResource("/").toURI).listFiles().toList.filterNot(_.getName == "com").partition(_.isFile)
-  val media1File             = files.head // Just 1, media1.txt
-  val inputFiles: List[File] = media1File +: folders
+  val inputCsv =
+    new File(getClass.getResource("/").toURI).listFiles().toList.filterNot(_.getName == "com").head
+  val mediaEntities = List(google, amazon, facebook)
 
-  val resourceAccessMock = new ResourceAccessMock(inputFiles)
+  val resourceAccessMock = new ResourceAccessMock(List(inputCsv))
   val migratorMock       = new MigratorMock()
   val databaseRepositoryMock = new DatabaseRepositoryMock(
-    Ref.unsafe(List(mediaEntity1, mediaEntity2, mediaEntity3))
+    Ref.unsafe(mediaEntities)
   )
   val botDBController = BotDBController(
     cfg = config,
@@ -29,19 +28,8 @@ class BotDBControllerSpec extends CatsEffectSuite {
     migrator = migratorMock
   )
 
-  test("BotDBController flattenResources should flat directories recursively in a list of files") {
-    val media2File = new File(getClass.getResource("/kind/media2.txt").toURI)
-    val media3File = new File(getClass.getResource("/kind/innerKind/media3.txt").toURI)
-    val expected = List(
-      (media1File, None),
-      (media3File, Some("kind_innerKind")),
-      (media2File, Some("kind"))
-    )
-    assertEquals(expected, BotDBController.flattenResources(inputFiles))
-  }
-
   test("BotDBController populateMediaTable should call the databaseRepository for data insertion") {
-    assertIO_(botDBController.populateMediaTable().use_)
+    assertIO_(botDBController.populateMediaTable.use_)
   }
 
   test("BotDBController build should run the migrations and populate the DB") {

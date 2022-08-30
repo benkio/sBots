@@ -1,8 +1,8 @@
-CREATE TABLE timeout(
-  chat_id bigint PRIMARY KEY,
-  timeout_value VARCHAR(255) NOT NULL,
-  last_interaction TIMESTAMP NOT NULL
+CREATE TABLE IF NOT EXISTS timeout(
+  chat_id INTEGER PRIMARY KEY,
+  timeout_value TEXT NOT NULL,
+  last_interaction TEXT NOT NULL
 );
 
-CREATE UNIQUE INDEX timeout_key
+CREATE UNIQUE INDEX IF NOT EXISTS timeout_key
 ON timeout(chat_id);

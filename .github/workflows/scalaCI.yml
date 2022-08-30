@@ -17,13 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run telegramBotInfrastructure tests
-      run: sbt telegramBotInfrastructure/test
+    - name: Run unit tests
+      run: sbt "telegramBotInfrastructure/test; richardPHJBensonBot/test"
   itTest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run botDB tests
+    - name: Run Integration tests
       run: sbt "botDB/IntegrationTest/test; richardPHJBensonBot/IntegrationTest/test"
   dependenciesUpdate:
     runs-on: ubuntu-latest

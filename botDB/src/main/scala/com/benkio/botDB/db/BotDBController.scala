@@ -3,17 +3,21 @@ package com.benkio.botDB.db
 import cats.effect.Resource
 import cats.effect.Sync
 import cats.implicits._
-import com.benkio.botDB.Config
 import com.benkio.botDB.db.schema.MediaEntity
+import com.benkio.botDB.Config
+import com.benkio.botDB.Input
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
+import io.chrisdavenport.cormorant.implicits._
+import io.chrisdavenport.cormorant.parser._
 
-import java.io.File
-import scala.util.Try
+import java.sql.Timestamp
+import java.time.Instant
+import scala.io.Source
 
 sealed trait BotDBController[F[_]] {
   def build: Resource[F, Unit]
 
-  def populateMediaTable(): Resource[F, Unit]
+  def populateMediaTable: Resource[F, Unit]
 }
 
 object BotDBController {
@@ -30,17 +34,6 @@ object BotDBController {
       migrator = migrator
     )
 
-  def flattenResources(resources: List[File], kind: Option[String] = None): List[(File, Option[String])] = for {
-    r <- resources
-    fk <-
-      if (r.isFile)
-        List((r, kind))
-      else
-        Try(
-          flattenResources(r.listFiles().toList, kind.fold(Some(r.getName))((k: String) => Some(s"${k}_${r.getName}")))
-        ).getOrElse(List.empty)
-  } yield fk
-
   private class BotDBControllerImpl[F[_]: Sync](
       cfg: Config,
       databaseRepository: DatabaseRepository[F],
@@ -49,18 +42,32 @@ object BotDBController {
   ) extends BotDBController[F] {
     override def build: Resource[F, Unit] = for {
       _ <- Resource.eval(migrator.migrate(cfg))
-      _ <- populateMediaTable()
+      _ <- populateMediaTable
     } yield ()
 
-    def populateMediaTable(): Resource[F, Unit] = for {
-      resources <- resourceAccess.getResourcesByKind(cfg.resourceLocation)
-      files = BotDBController.flattenResources(resources)
-      _ <- Resource.eval(files.traverse_ { case (file, kind) =>
-        Sync[F].delay(println(s"Inserting file $file of kind $kind")) *>
-          databaseRepository
-            .insertMedia(MediaEntity.fromFile(file, kind))
-            .productL(Sync[F].delay(println(s"Inserted file $file of kind $kind successfully")))
-      })
+    override def populateMediaTable: Resource[F, Unit] = for {
+      csvs <- resourceAccess.getResourcesByKind(cfg.csvLocation)
+      input <- Resource.eval(Sync[F].fromEither(csvs.flatTraverse(csv => {
+        val fileContent = Source.fromFile(csv).getLines().mkString("\n")
+        parseComplete(fileContent).flatMap(_.readLabelled[Input].sequence)
+      })))
+      _ <- Resource.eval(
+        input.traverse_(i =>
+          for {
+            _ <- Sync[F].delay(println(s"Inserting file ${i.filename} of kind ${i.kind} from ${i.url}"))
+            _ <- databaseRepository
+              .insertMedia(
+                MediaEntity(
+                  media_name = i.filename,
+                  kind = i.kind,
+                  media_url = i.url,
+                  created_at = Timestamp.from(Instant.now())
+                )
+              )
+            _ <- Sync[F].delay(println(s"Inserted file ${i.filename} of kind ${i.kind} from ${i.url}, successfully"))
+          } yield ()
+        )
+      )
     } yield ()
   }
 }

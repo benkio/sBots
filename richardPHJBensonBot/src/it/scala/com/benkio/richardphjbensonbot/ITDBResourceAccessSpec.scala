@@ -1,195 +1,142 @@
 package com.benkio.richardphjbensonbot
 
-import java.time.Instant
-import java.sql.Timestamp
-import doobie.Transactor
-import cats.effect.Resource
-import log.effect.fs2.SyncLogWriter.consoleLog
-import log.effect.LogWriter
+import munit.CatsEffectSuite
 
-import java.sql.DriverManager
-import java.sql.Connection
 import cats.effect.IO
-import com.dimafeng.testcontainers.DockerComposeContainer
-import munit._
-import cats.effect.unsafe.implicits.global
+import cats.effect.Resource
+import cats.implicits._
+import com.benkio.richardphjbensonbot.UrlFetcher
+import com.benkio.telegrambotinfrastructure.model.MediaFile
+
+import doobie.implicits._
+
+import java.sql.Timestamp
+import java.time.Instant
+
 import scala.concurrent.duration._
 
-import java.nio.file.Files
+import com.benkio.richardphjbensonbot.data.Audio.messageRepliesAudioData
+import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData
+import com.benkio.richardphjbensonbot.data.Gif.messageRepliesGifData
+import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
+import com.benkio.richardphjbensonbot.data.Mix.messageRepliesMixData
 
-class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
+class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
-  def buildDBConnection(container: DockerComposeContainer): Connection =
-    DriverManager.getConnection(
-      s"jdbc:postgresql://${container.getServiceHost(dbServiceName, dbServicePort)}:${container
-          .getServicePort(dbServiceName, dbServicePort)}/$dbName?allowPublicKeyRetrieval=true",
-      dbUser,
-      dbPassword
-    )
-  implicit val log: LogWriter[IO] = consoleLog
-
-  def buildConfig(container: DockerComposeContainer): Config =
-    Config(
-      url = s"jdbc:postgresql://${container.getServiceHost(dbServiceName, dbServicePort)}:${container
-          .getServicePort(dbServiceName, dbServicePort)}/$dbName?allowPublicKeyRetrieval=true",
-      user = dbUser,
-      password = dbPassword,
-      port = dbServicePort.toString,
-      dbName = dbServiceName,
-      host = "localhost",
-      driver = "org.postgresql.Driver"
-    )
+  val testMedia = "rphjb_06.gif"
 
   // DBResourceAccess tests
-  test("DBResourceAccess.getResourceByteArray should return the expected content") {
-    withContainers { dockerComposeContainer =>
-      val config     = buildConfig(dockerComposeContainer)
-      val connection = buildDBConnection(dockerComposeContainer)
-      val transactor = Transactor.fromDriverManager[IO](
-        config.driver,
-        config.url,
-        config.user,
-        config.password,
-      )
-      val resourceAccess = DBResourceAccess[IO](transactor)
-      val obtained = for {
-        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        result <- resourceAccess.getResourceByteArray("test media.mp3")
-      } yield result
+
+  databaseFixture.test("DBResourceAccess.getResourceByteArray should return the expected content") {
+    connectionResourceAccess =>
+      val transactor     = connectionResourceAccess._3
+      val urlFetcher     = UrlFetcher[IO]()
+      val resourceAccess = DBResourceAccess[IO](transactor, urlFetcher)
+      val obtained       = resourceAccess.getResourceByteArray(testMedia)
 
       obtained
         .use { byteArray =>
           IO(
-            assertEquals(byteArray.toList, List(1, 2, 3, 4, 5, 6, 7, 8, 9).map(_.toByte))
+            assert(byteArray.length >= 100)
           )
         }
         .unsafeRunSync()
-    }
   }
-  test("DBResourceAccess.getResourcesByKind should return the expected list of files with expected content") {
-    withContainers { dockerComposeContainer =>
-      val config     = buildConfig(dockerComposeContainer)
-      val connection = buildDBConnection(dockerComposeContainer)
-      val transactor = Transactor.fromDriverManager[IO](
-        config.driver,
-        config.url,
-        config.user,
-        config.password,
-      )
-      val resourceAccess = DBResourceAccess[IO](transactor)
-      val obtained = for {
 
-        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        result <- resourceAccess.getResourcesByKind("kind")
-      } yield result
+  databaseFixture.test(
+    "DBResourceAccess.getResourcesByKind should return the expected list of files with expected content"
+  ) { connectionResourceAccess =>
+    val transactor     = connectionResourceAccess._3
+    val urlFetcher     = UrlFetcher[IO]()
+    val resourceAccess = DBResourceAccess[IO](transactor, urlFetcher)
+    val obtained       = resourceAccess.getResourcesByKind("rphjb_LinkSources")
+    val expectedFilenames = List(
+      "ancheLaRabbiaHaUnCuore.txt",
+      "live.txt",
+      "perCordeEGrida.txt",
+      "puntateCocktailMicidiale.txt",
+      "puntateRockMachine.txt"
+    )
 
-      obtained
-        .use { files =>
-          IO(
-            files.foreach { file =>
-              assert(file.getName().startsWith("test media"))
-              assert(file.getName().endsWith(".mp3"))
-              assertEquals(Files.readAllBytes(file.toPath).toList, List(1, 2, 3, 4, 5, 6, 7, 8, 9).map(_.toByte))
-            }
-          )
-        }
-        .unsafeRunSync()
-    }
+    obtained
+      .use { files =>
+        IO(
+          files.foreach { file =>
+            assert(expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
+          }
+        )
+      }
+      .unsafeRunSync()
+
   }
+
   // DBTimeout tests
-  test("DBTimeout.getOrDefault should return the default timeout if the chat id is not present in the database") {
-    withContainers { dockerComposeContainer =>
-      val config     = buildConfig(dockerComposeContainer)
-      val connection = buildDBConnection(dockerComposeContainer)
-      val transactor = Transactor.fromDriverManager[IO](
-        config.driver,
-        config.url,
-        config.user,
-        config.password,
-      )
-      val dbTimeout = DBTimeout[IO](transactor)
-      val actual = for {
-        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        result <- Resource.eval(dbTimeout.getOrDefault(100L)) // Not present ChatID
-      } yield result
-      actual
-        .use { timeout =>
-          IO {
-            assertEquals(timeout.chat_id, 100L)
-            assertEquals(timeout.timeout_value, "0")
-          }
+
+  databaseFixture.test(
+    "DBTimeout.getOrDefault should return the default timeout if the chat id is not present in the database"
+  ) { connectionResourceAccess =>
+    val transactor = connectionResourceAccess._3
+    val dbTimeout  = DBTimeout[IO](transactor)
+    val actual     = Resource.eval(dbTimeout.getOrDefault(100L)) // Not present ChatID
+
+    actual
+      .use { timeout =>
+        IO {
+          assertEquals(timeout.chat_id, 100L)
+          assertEquals(timeout.timeout_value, "0")
         }
-        .unsafeRunSync()
-    }
+      }
+      .unsafeRunSync()
+
   }
-  test("DBTimeout.getOrDefault should return the timeout if the chat id is present in the database") {
-    withContainers { dockerComposeContainer =>
-      val config     = buildConfig(dockerComposeContainer)
-      val connection = buildDBConnection(dockerComposeContainer)
-      val transactor = Transactor.fromDriverManager[IO](
-        config.driver,
-        config.url,
-        config.user,
-        config.password,
-      )
-      val dbTimeout = DBTimeout[IO](transactor)
-      val actual = for {
-        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        result <- Resource.eval(dbTimeout.getOrDefault(1L)) // Present ChatID
-      } yield result
-      actual
-        .use { timeout =>
-          IO {
-            assertEquals(timeout.chat_id, 1L)
-            assertEquals(timeout.timeout_value, "15000")
-          }
+
+  databaseFixture.test(
+    "DBTimeout.getOrDefault should return the timeout if the chat id is present in the database"
+  ) { connectionResourceAccess =>
+    val connection = connectionResourceAccess._1
+    val transactor = connectionResourceAccess._3
+    val dbTimeout  = DBTimeout[IO](transactor)
+    val actual     = Resource.eval(dbTimeout.getOrDefault(1L)) // Present ChatID
+    connection.createStatement().executeUpdate(ITDBResourceAccessSpec.timeoutSQL)
+    actual
+      .use { timeout =>
+        IO {
+          assertEquals(timeout.chat_id, 1L)
+          assertEquals(timeout.timeout_value, "15000")
         }
-        .unsafeRunSync()
-    }
+      }
+      .unsafeRunSync()
+
   }
-  test("DBTimeout.setTimeout should insert the timeout if the chat id is not present in the database") {
-    withContainers { dockerComposeContainer =>
-      val config     = buildConfig(dockerComposeContainer)
-      val connection = buildDBConnection(dockerComposeContainer)
-      val transactor = Transactor.fromDriverManager[IO](
-        config.driver,
-        config.url,
-        config.user,
-        config.password,
-      )
-      val dbTimeout = DBTimeout[IO](transactor)
-      val chatId    = 2L
-      val timeout   = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
-      val actual = for {
-        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        _      <- Resource.eval(dbTimeout.setTimeout(timeout))
-        result <- Resource.eval(dbTimeout.getOrDefault(chatId))
-      } yield result
-      actual
-        .use { timeout =>
-          IO {
-            assertEquals(timeout.chat_id, 2L)
-            assertEquals(timeout.timeout_value, "2000")
-          }
+
+  databaseFixture.test(
+    "DBTimeout.setTimeout should insert the timeout if the chat id is not present in the database"
+  ) { connectionResourceAccess =>
+    val transactor = connectionResourceAccess._3
+    val dbTimeout  = DBTimeout[IO](transactor)
+    val chatId     = 2L
+    val timeout    = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
+    val actual = for {
+      _      <- Resource.eval(dbTimeout.setTimeout(timeout))
+      result <- Resource.eval(dbTimeout.getOrDefault(chatId))
+    } yield result
+    actual
+      .use { timeout =>
+        IO {
+          assertEquals(timeout.chat_id, 2L)
+          assertEquals(timeout.timeout_value, "2000")
         }
-        .unsafeRunSync()
-    }
+      }
+      .unsafeRunSync()
   }
-  test("DBTimeout.setTimeout should update the timeout if the chat id is present in the database") {
-    withContainers { dockerComposeContainer =>
-      val config     = buildConfig(dockerComposeContainer)
-      val connection = buildDBConnection(dockerComposeContainer)
-      val transactor = Transactor.fromDriverManager[IO](
-        config.driver,
-        config.url,
-        config.user,
-        config.password,
-      )
-      val dbTimeout = DBTimeout[IO](transactor)
-      val chatId    = 1L
-      val timeout   = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
+
+  databaseFixture.test("DBTimeout.setTimeout should update the timeout if the chat id is present in the database") {
+    connectionResourceAccess =>
+      val transactor = connectionResourceAccess._3
+      val dbTimeout  = DBTimeout[IO](transactor)
+      val chatId     = 1L
+      val timeout    = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
       val actual = for {
-        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
         _      <- Resource.eval(dbTimeout.setTimeout(timeout))
         result <- Resource.eval(dbTimeout.getOrDefault(chatId))
       } yield result
@@ -201,86 +148,160 @@ class ITDBResourceAccessSpec extends FunSuite with ContainerSuite {
           }
         }
         .unsafeRunSync()
-    }
+
   }
-  test("DBTimeout.logLastInteraction should insert the timeout if the chat id is not present in the database") {
-    withContainers { dockerComposeContainer =>
-      val config     = buildConfig(dockerComposeContainer)
-      val connection = buildDBConnection(dockerComposeContainer)
-      val transactor = Transactor.fromDriverManager[IO](
-        config.driver,
-        config.url,
-        config.user,
-        config.password,
-      )
-      val dbTimeout = DBTimeout[IO](transactor)
-      val chatId    = 2L
-      val actual = for {
-        _      <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        _      <- Resource.eval(dbTimeout.logLastInteraction(chatId))
-        result <- Resource.eval(dbTimeout.getOrDefault(chatId))
-      } yield result
-      actual
-        .use { timeout =>
-          IO {
-            assertEquals(timeout.chat_id, 2L)
-            assertEquals(timeout.timeout_value, "0")
-          }
+
+  databaseFixture.test(
+    "DBTimeout.logLastInteraction should insert the timeout if the chat id is not present in the database"
+  ) { connectionResourceAccess =>
+    val transactor = connectionResourceAccess._3
+    val dbTimeout  = DBTimeout[IO](transactor)
+    val chatId     = 2L
+    val actual = for {
+      _      <- Resource.eval(dbTimeout.logLastInteraction(chatId))
+      result <- Resource.eval(dbTimeout.getOrDefault(chatId))
+    } yield result
+    actual
+      .use { timeout =>
+        IO {
+          assertEquals(timeout.chat_id, 2L)
+          assertEquals(timeout.timeout_value, "0")
         }
-        .unsafeRunSync()
-    }
+      }
+      .unsafeRunSync()
+
   }
-  test(
+
+  databaseFixture.test(
     "DBTimeout.logLastInteraction should update the timeout last interaction if the chat id is present in the database"
-  ) {
-    withContainers { dockerComposeContainer =>
-      val config     = buildConfig(dockerComposeContainer)
-      val connection = buildDBConnection(dockerComposeContainer)
-      val transactor = Transactor.fromDriverManager[IO](
-        config.driver,
-        config.url,
-        config.user,
-        config.password,
-      )
-      val dbTimeout = DBTimeout[IO](transactor)
-      val chatId    = 1L
-      val actual = for {
-        _           <- Resource.eval(ITDBResourceAccessSpec.initDB(connection))
-        prevResult  <- Resource.eval(dbTimeout.getOrDefault(chatId))
-        _           <- Resource.eval(dbTimeout.logLastInteraction(chatId))
-        afterResult <- Resource.eval(dbTimeout.getOrDefault(chatId))
-      } yield (prevResult, afterResult)
-      actual
-        .use { case (prevTimeout, afterTimeout) =>
-          IO {
-            assertEquals(prevTimeout.chat_id, 1L)
-            assertEquals(prevTimeout.timeout_value, "15000")
-            assertEquals(afterTimeout.chat_id, 1L)
-            assertEquals(afterTimeout.timeout_value, "15000")
-            assert(prevTimeout.last_interaction.before(afterTimeout.last_interaction))
-          }
+  ) { connectionResourceAccess =>
+    val connection = connectionResourceAccess._1
+    val transactor = connectionResourceAccess._3
+    val dbTimeout  = DBTimeout[IO](transactor)
+    val chatId     = 1L
+
+    connection.createStatement().executeUpdate(ITDBResourceAccessSpec.timeoutSQL)
+
+    val actual = for {
+      prevResult  <- Resource.eval(dbTimeout.getOrDefault(chatId))
+      _           <- Resource.eval(dbTimeout.logLastInteraction(chatId))
+      afterResult <- Resource.eval(dbTimeout.getOrDefault(chatId))
+    } yield (prevResult, afterResult)
+    actual
+      .use { case (prevTimeout, afterTimeout) =>
+        IO {
+          assertEquals(prevTimeout.chat_id, 1L)
+          assertEquals(prevTimeout.timeout_value, "15000")
+          assertEquals(afterTimeout.chat_id, 1L)
+          assertEquals(afterTimeout.timeout_value, "15000")
+          assert(prevTimeout.last_interaction.before(afterTimeout.last_interaction))
         }
-        .unsafeRunSync()
-    }
+      }
+      .unsafeRunSync()
+
   }
+
+  // File Reference Check
+
+  databaseFixture.test(
+    "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
+  ) { connectionResourceAccess =>
+    val resourceAccess = connectionResourceAccess._2
+    val transactor     = connectionResourceAccess._3
+    val result = messageRepliesAudioData[IO]
+      .flatMap(_.mediafiles)
+      .traverse((mp3: MediaFile) =>
+        resourceAccess
+          .getUrlByName(mp3.filename)
+          .unique
+          .transact(transactor)
+          .map { case (dbFilename, _) => mp3.filename == dbFilename }
+      )
+      .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
+  }
+
+  databaseFixture.test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
+    connectionResourceAccess =>
+      val resourceAccess = connectionResourceAccess._2
+      val transactor     = connectionResourceAccess._3
+      val result = messageRepliesGifData[IO]
+        .flatMap(_.mediafiles)
+        .traverse((gif: MediaFile) =>
+          resourceAccess
+            .getUrlByName(gif.filename)
+            .unique
+            .transact(transactor)
+            .map { case (dbFilename, _) => gif.filename == dbFilename }
+        )
+        .map(_.foldLeft(true)(_ && _))
+
+      assertIO(result, true)
+  }
+
+  databaseFixture.test(
+    "messageRepliesVideosData should never raise an exception when try to open the file in resounces"
+  ) { connectionResourceAccess =>
+    val resourceAccess = connectionResourceAccess._2
+    val transactor     = connectionResourceAccess._3
+    val result = messageRepliesVideoData[IO]
+      .flatMap(_.mediafiles)
+      .traverse((mp4: MediaFile) =>
+        resourceAccess
+          .getUrlByName(mp4.filename)
+          .unique
+          .transact(transactor)
+          .map { case (dbFilename, _) => mp4.filename == dbFilename }
+      )
+      .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
+  }
+
+  databaseFixture.test("messageRepliesMixData should never raise an exception when try to open the file in resounces") {
+    connectionResourceAccess =>
+      val resourceAccess = connectionResourceAccess._2
+      val transactor     = connectionResourceAccess._3
+      val result =
+        messageRepliesMixData[IO]
+          .flatMap(_.mediafiles)
+          .traverse((mix: MediaFile) =>
+            resourceAccess
+              .getUrlByName(mix.filename)
+              .unique
+              .transact(transactor)
+              .map { case (dbFilename, _) => mix.filename == dbFilename }
+          )
+          .map(_.foldLeft(true)(_ && _))
+
+      assertIO(result, true)
+  }
+
+  databaseFixture.test(
+    "messageRepliesSpecialData should never raise an exception when try to open the file in resounces"
+  ) { connectionResourceAccess =>
+    val resourceAccess = connectionResourceAccess._2
+    val transactor     = connectionResourceAccess._3
+    val result =
+      messageRepliesSpecialData[IO]
+        .flatMap(_.mediafiles)
+        .traverse((special: MediaFile) =>
+          resourceAccess
+            .getUrlByName(special.filename)
+            .unique
+            .transact(transactor)
+            .map { case (dbFilename, _) => special.filename == dbFilename }
+        )
+        .map(_.foldLeft(true)(_ && _))
+
+    assertIO(result, true)
+  }
+
 }
 
 object ITDBResourceAccessSpec {
 
-  val inserts = List(
-    """INSERT INTO media (media_name, kind, media_content, created_at) VALUES ('test media.mp3', NULL, decode('010203040506070809', 'hex'), '2008-01-01 00:00:01');""",
-    """INSERT INTO media (media_name, kind, media_content, created_at) VALUES ('test media2.mp3', 'kind', decode('010203040506070809', 'hex'), '2009-01-01 00:00:01');""",
-    """INSERT INTO media (media_name, kind, media_content, created_at) VALUES ('test media3.mp3', 'kind', decode('010203040506070809', 'hex'), '2010-01-01 00:00:01');""",
-    """INSERT INTO timeout (chat_id, timeout_value, last_interaction) VALUES ('1', '15000', '2010-01-01 00:00:01');""",
-  )
-
-  // Insert data in the DB
-  def initDB(connection: Connection): IO[Unit] = IO {
-    connection.createStatement().executeUpdate("DELETE FROM media;")
-    connection.createStatement().executeUpdate("DELETE FROM timeout;")
-    inserts.foreach { insert =>
-      connection.createStatement().executeUpdate(insert)
-    }
-  }
-
+  val timeoutSQL =
+    """INSERT INTO timeout (chat_id, timeout_value, last_interaction) VALUES ('1', '15000', '2010-01-01 00:00:01');"""
 }

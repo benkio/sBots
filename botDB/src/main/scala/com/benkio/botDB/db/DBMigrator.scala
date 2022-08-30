@@ -27,12 +27,12 @@ object DBMigrator {
       }
   }
 
-  private def unsafeMigrate(config: Config): Int = {
+  def unsafeMigrate(config: Config): Int = {
     val m: FluentConfiguration = Flyway.configure
       .dataSource(
         config.url,
-        config.user,
-        config.password
+        "",
+        ""
       )
       .group(true)
       .outOfOrder(false)

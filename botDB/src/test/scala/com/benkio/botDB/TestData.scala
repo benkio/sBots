@@ -3,38 +3,35 @@ package com.benkio.botDB
 import com.benkio.botDB.Config
 import com.benkio.botDB.db.schema.MediaEntity
 
+import java.net.URL
 import java.sql.Timestamp
 object TestData {
 
-  val mediaEntity1 = MediaEntity(
-    media_name = "media1.txt",
+  val google = MediaEntity(
+    media_name = "google.gif",
     kind = None,
-    media_content = Array(),
+    media_url = new URL("https://www.google.com"),
     created_at = new Timestamp(1658054878L)
   )
-  val mediaEntity2 = MediaEntity(
-    media_name = "media2.txt",
+  val amazon = MediaEntity(
+    media_name = "amazon.mp4",
     kind = Some("kind"),
-    media_content = Array(),
+    media_url = new URL("https://www.amazon.com"),
     created_at = new Timestamp(1658054878L)
   )
-  val mediaEntity3 = MediaEntity(
-    media_name = "media3.txt",
+  val facebook = MediaEntity(
+    media_name = "facebook.mp3",
     kind = Some("kind_innerKind"),
-    media_content = Array(),
+    media_url = new URL("https://www.facebook.com"),
     created_at = new Timestamp(1658054878L)
   )
 
   val config: Config = Config(
-    driver = "org.postgresql.Driver",
+    driver = "org.sqlite.JDBC",
     dbName = "botDB",
-    user = "botUser",
-    password = "botPassword",
-    host = "localhost",
-    port = 5432,
-    url = "jdbc:postgresql://localhost:5432/botDB",
+    url = "jdbc:sqlite:C:/sqlite/db/chinook.db",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
-    resourceLocation = "/testdata/"
+    csvLocation = ""
   )
 }

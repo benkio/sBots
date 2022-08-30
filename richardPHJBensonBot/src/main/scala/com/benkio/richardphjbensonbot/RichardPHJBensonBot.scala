@@ -277,14 +277,16 @@ carattere '!':
     for {
       tk     <- token[F]
       config <- Resource.eval(Config.loadConfig[F])
+      _      <- Resource.eval(log.info(s"RichardPHJBensonBot Configuration: $config"))
       ce     <- ExecutionContexts.fixedThreadPool[F](1) // 20 max connections
       transactor = Transactor.fromDriverManager[F](
         config.driver,
         config.url,
-        config.user,
-        config.password
+        "",
+        ""
       )
-      dbResourceAccess = DBResourceAccess(transactor)
+      urlFetcher       = UrlFetcher[F]()
+      dbResourceAccess = DBResourceAccess(transactor, urlFetcher)
       dbTimeout        = DBTimeout(transactor)
       _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)

@@ -8,14 +8,10 @@ import pureconfig.generic.auto._
 final case class Config(
     driver: String,
     dbName: String,
-    user: String,
-    password: String,
-    host: String,
-    port: Int,
     url: String,
     migrationsLocations: List[String],
     migrationsTable: String,
-    resourceLocation: String,
+    csvLocation: String,
 )
 
 object Config {
@@ -33,7 +29,7 @@ object Config {
     Transactor.fromDriverManager[IO](
       cfg.driver,
       cfg.url,
-      cfg.user,
-      cfg.password
+      "",
+      ""
     )
 }
