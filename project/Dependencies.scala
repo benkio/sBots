@@ -22,9 +22,9 @@ object Dependencies {
   lazy val libs = new {
     val cats                = "org.typelevel"         %% "cats-core"                  % dependenciesVersion.catsVersion
     val catsEffect          = "org.typelevel"         %% "cats-effect"                % dependenciesVersion.catsEffectVersion
-    val cormorantCore       = "io.chrisdavenport"     %% "cormorant-core"             % dependenciesVersion.cormorant
+    val cormorantCore       = "io.chrisdavenport"     %% "cormorant-core"             % dependenciesVersion.cormorant     % "it, test"
     val cormorantGeneric    = "io.chrisdavenport"     %% "cormorant-generic"          % dependenciesVersion.cormorant
-    val cormorantParser     = "io.chrisdavenport"     %% "cormorant-parser"           % dependenciesVersion.cormorant
+    val cormorantParser     = "io.chrisdavenport"     %% "cormorant-parser"           % dependenciesVersion.cormorant     % "it, test"
     val doobie              = "org.tpolecat"          %% "doobie-core"                % dependenciesVersion.doobie
     val flyway              = "org.flywaydb"          % "flyway-core"                 % dependenciesVersion.flyway
     val lightbendEmoji      = "com.lightbend"         %% "emoji"                      % dependenciesVersion.lightbendEmojiVersion
@@ -68,6 +68,8 @@ object Dependencies {
 
   val RichardPHJBensonBotDependencies: Seq[ModuleID] = Seq(
     libs.catsEffect,
+    libs.cormorantCore,
+    libs.cormorantParser,
     libs.doobie,
     libs.lightbendEmoji,
     libs.logEffects,

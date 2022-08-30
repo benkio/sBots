@@ -4,9 +4,14 @@ import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import io.chrisdavenport.cormorant._
+import io.chrisdavenport.cormorant.parser._
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
+
+import java.io.File
+import scala.io.Source
 
 class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
@@ -92,5 +97,23 @@ carattere '!':
 ! «Messaggio»
 """)
     )
+  }
+
+  test("the `rphjb_list.csv` should contain all the triggers of the bot") {
+    val listPath   = new File(".").getCanonicalPath + "/rphjb_list.csv"
+    val csvContent = Source.fromFile(listPath).getLines().mkString("\n")
+    val csvFile = parseComplete(csvContent).flatMap {
+      case CSV.Complete(_, CSV.Rows(rows)) => Right(rows.map(row => row.l.head.x))
+      case _                               => Left(new RuntimeException("Error on parsing the csv"))
+    }
+
+    val botFile = RichardPHJBensonBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename))
+
+    assert(csvFile.isRight)
+    csvFile.fold(
+      e => fail("test failed", e),
+      files => assert(botFile.forall(filename => files.contains(filename)))
+    )
+
   }
 }
