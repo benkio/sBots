@@ -46,7 +46,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
   }
 
   test("triggerlist should return a list of all triggers when called") {
-    assertEquals(ABarberoBot.commandRepliesData[IO].length, 1)
+    assertEquals(ABarberoBot.commandRepliesData[IO].length, 2)
     assert(
       ABarberoBot
         .messageRepliesData[IO]
