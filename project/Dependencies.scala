@@ -20,21 +20,21 @@ object Dependencies {
   }
 
   lazy val libs = new {
-    val cats                = "org.typelevel"         %% "cats-core"                  % dependenciesVersion.catsVersion
-    val catsEffect          = "org.typelevel"         %% "cats-effect"                % dependenciesVersion.catsEffectVersion
-    val cormorantCore       = "io.chrisdavenport"     %% "cormorant-core"             % dependenciesVersion.cormorant     % "it, test"
-    val cormorantGeneric    = "io.chrisdavenport"     %% "cormorant-generic"          % dependenciesVersion.cormorant
-    val cormorantParser     = "io.chrisdavenport"     %% "cormorant-parser"           % dependenciesVersion.cormorant     % "it, test"
-    val doobie              = "org.tpolecat"          %% "doobie-core"                % dependenciesVersion.doobie
-    val flyway              = "org.flywaydb"          % "flyway-core"                 % dependenciesVersion.flyway
-    val lightbendEmoji      = "com.lightbend"         %% "emoji"                      % dependenciesVersion.lightbendEmojiVersion
-    val logEffects          = "io.laserdisc"          %% "log-effect-fs2"             % dependenciesVersion.logEffects
-    val munit               = "org.scalameta"         %% "munit"                      % dependenciesVersion.munit           % "it, test"
-    val munitCatsEffect     = "org.typelevel"         %% "munit-cats-effect-3"        % dependenciesVersion.munitCatsEffect % "it, test"
-    val pureConfig          = "com.github.pureconfig" %% "pureconfig"                 % dependenciesVersion.pureConfig
-    val sqlite              = "org.xerial"            % "sqlite-jdbc"                 % dependenciesVersion.sqlite          % "it, test"
-    val telegramiumCore     = "io.github.apimorphism" %% "telegramium-core"           % dependenciesVersion.telegramiumVersion
-    val telegramiumHigh     = "io.github.apimorphism" %% "telegramium-high"           % dependenciesVersion.telegramiumVersion
+    val cats             = "org.typelevel"     %% "cats-core"         % dependenciesVersion.catsVersion
+    val catsEffect       = "org.typelevel"     %% "cats-effect"       % dependenciesVersion.catsEffectVersion
+    val cormorantCore    = "io.chrisdavenport" %% "cormorant-core"    % dependenciesVersion.cormorant % "it, test"
+    val cormorantGeneric = "io.chrisdavenport" %% "cormorant-generic" % dependenciesVersion.cormorant
+    val cormorantParser  = "io.chrisdavenport" %% "cormorant-parser"  % dependenciesVersion.cormorant
+    val doobie           = "org.tpolecat"      %% "doobie-core"       % dependenciesVersion.doobie
+    val flyway           = "org.flywaydb"       % "flyway-core"       % dependenciesVersion.flyway
+    val lightbendEmoji   = "com.lightbend"     %% "emoji"             % dependenciesVersion.lightbendEmojiVersion
+    val logEffects       = "io.laserdisc"      %% "log-effect-fs2"    % dependenciesVersion.logEffects
+    val munit            = "org.scalameta"     %% "munit"             % dependenciesVersion.munit     % "it, test"
+    val munitCatsEffect = "org.typelevel" %% "munit-cats-effect-3" % dependenciesVersion.munitCatsEffect % "it, test"
+    val pureConfig      = "com.github.pureconfig" %% "pureconfig"       % dependenciesVersion.pureConfig
+    val sqlite          = "org.xerial"             % "sqlite-jdbc"      % dependenciesVersion.sqlite % "it, test"
+    val telegramiumCore = "io.github.apimorphism" %% "telegramium-core" % dependenciesVersion.telegramiumVersion
+    val telegramiumHigh = "io.github.apimorphism" %% "telegramium-high" % dependenciesVersion.telegramiumVersion
   }
 
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] = Seq(
