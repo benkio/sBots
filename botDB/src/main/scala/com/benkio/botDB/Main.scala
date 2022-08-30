@@ -12,6 +12,7 @@ object Main extends IOApp {
     (for {
       _   <- IO(println(s"Migrating database configuration"))
       cfg <- Config.loadConfig
+      _ = println(s"inputConfig: " + cfg) 
       transactor         = Config.buildTransactor(cfg = cfg)
       databaseRepository = DatabaseRepository[IO](transactor)
       resourceAccess     = ResourceAccess.fromResources[IO]
