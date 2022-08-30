@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run telegramBotInfrastructure tests
-      run: sbt telegramBotInfrastructure/test
+      run: sbt "telegramBotInfrastructure/test; richardPHJBensonBot/test"
   itTest:
     runs-on: ubuntu-latest
     steps:
