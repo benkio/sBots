@@ -22,7 +22,6 @@ class ITSpec extends FunSuite with DBConstants {
   test("botDB main should populate the migration with the files in resources") {
 
     setEnv("DB_CONNECTION_URL", dbUrl)
-    setEnv("RESOURCE_LOCATION", "/testdata/")
 
     Main.run(List.empty).unsafeRunSync()
 
