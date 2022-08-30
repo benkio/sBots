@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS timeout(
   last_interaction TEXT NOT NULL
 );
 
-CREATE UNIQUE INDEX timeout_key
+CREATE UNIQUE INDEX IF NOT EXISTS timeout_key
 ON timeout(chat_id);

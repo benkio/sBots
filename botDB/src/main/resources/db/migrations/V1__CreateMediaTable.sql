@@ -5,5 +5,5 @@ CREATE TABLE IF NOT EXISTS media(
   created_at TEXT NOT NULL
 );
 
-CREATE UNIQUE INDEX media_key
+CREATE UNIQUE INDEX IF NOT EXISTS media_key
 ON media(media_name);

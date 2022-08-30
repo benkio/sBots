@@ -23,13 +23,13 @@ object DBResourceAccess {
       log
     )
 
-  private class DBResourceAccess[F[_]: Async](
+  private[richardphjbensonbot] class DBResourceAccess[F[_]: Async](
       transactor: Transactor[F],
       urlFetcher: UrlFetcher[F],
       log: LogWriter[F]
   ) extends ResourceAccess[F] {
 
-    private def getUrlByName(resourceName: String): Query0[(String, String)] =
+    def getUrlByName(resourceName: String): Query0[(String, String)] =
       sql"SELECT media_name, media_url FROM media WHERE media_name = $resourceName".query[(String, String)]
 
     private def getUrlByKind(kind: String): Query0[(String, String)] =

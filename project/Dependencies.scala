@@ -32,7 +32,7 @@ object Dependencies {
     val munit               = "org.scalameta"         %% "munit"                      % dependenciesVersion.munit           % "it, test"
     val munitCatsEffect     = "org.typelevel"         %% "munit-cats-effect-3"        % dependenciesVersion.munitCatsEffect % "it, test"
     val pureConfig          = "com.github.pureconfig" %% "pureconfig"                 % dependenciesVersion.pureConfig
-    val sqlite              = "org.xerial"            % "sqlite-jdbc"                 % dependenciesVersion.sqlite
+    val sqlite              = "org.xerial"            % "sqlite-jdbc"                 % dependenciesVersion.sqlite          % "it, test"
     val telegramiumCore     = "io.github.apimorphism" %% "telegramium-core"           % dependenciesVersion.telegramiumVersion
     val telegramiumHigh     = "io.github.apimorphism" %% "telegramium-high"           % dependenciesVersion.telegramiumVersion
   }
@@ -75,7 +75,8 @@ object Dependencies {
     libs.munitCatsEffect,
     libs.pureConfig,
     libs.telegramiumCore,
-    libs.telegramiumHigh
+    libs.telegramiumHigh,
+    libs.sqlite
   )
 
   val XahBotDependencies: Seq[ModuleID] = Seq(

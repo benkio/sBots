@@ -23,7 +23,7 @@ object UrlFetcher {
       extends Throwable(s"download of $url for $filename failed")
 
   private class DropboxFetcherImpl[F[_]: Async]() extends UrlFetcher[F] {
-    def fetch(url: String, filename: String): F[Fiber[F, Throwable, File]] = {
+    def fetch(filename: String, url: String): F[Fiber[F, Throwable, File]] = {
       val file = ResourceAccess.toTempFile(filename)
       val process = for {
         exitCode <- Async[F].delay(new URL(url) #> file !)

@@ -1,5 +1,10 @@
 package com.benkio.richardphjbensonbot
 
+import scala.io.Source
+import java.io.File
+import com.benkio.richardphjbensonbot.UrlFetcher
+import doobie.Transactor
+import com.benkio.richardphjbensonbot.DBResourceAccess.DBResourceAccess
 import log.effect.LogLevels
 import cats.effect.IO
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -15,41 +20,51 @@ trait DBFixture { self: FunSuite =>
 
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val dbName: String       = "botDB.db"
-  val resourcePath: String = getClass.getResource("/").getPath
-  val dbPath: String       = s"$resourcePath$dbName"
-  val dbUrl: String        = s"jdbc:sqlite:$dbPath";
+  val dbName: String        = "botDB.sqlite3"
+  val resourcePath: String  = new File("./..").getCanonicalPath
+  val dbPath: String        = s"$resourcePath/$dbName"
+  val dbUrl: String         = s"jdbc:sqlite:$dbPath";
+  val deleteDB: Boolean     = false
+  val migrationPath: String = resourcePath + "/botDB/src/main/resources/db/migrations"
 
-  val config = Config(
-    url = dbUrl,
-    dbName = dbName,
-    driver = "org.sqlite.JDBC"
-  )
-
-  val databaseConnection = FunFixture[Connection](
+  lazy val databaseFixture = FunFixture[(Connection, DBResourceAccess[IO], Transactor[IO])](
     setup = { _ =>
-      Files.deleteIfExists(Paths.get(dbPath))
-      val conn    = DriverManager.getConnection(dbUrl)
-      val isValid = conn.isValid(10)
-      println(s"conn is valid: " + isValid)
-      val ddls = getMigrations
+      Class.forName("org.sqlite.JDBC")
+      val conn = DriverManager.getConnection(dbUrl)
+      val ddls = getMigrations(migrationPath)
       ddls.foreach { ddl =>
         {
+          val query     = ddl.getLines().mkString(" ")
           val statement = conn.createStatement()
-          statement.executeQuery(ddl.getLines().mkString(" "))
+          statement.executeUpdate(query)
         }
       }
-      conn
+      val transactor = Transactor.fromConnection[IO](conn)
+      val urlFetcher = UrlFetcher[IO]()
+      val resourceAccess: DBResourceAccess[IO] = new DBResourceAccess[IO](
+        transactor = transactor,
+        urlFetcher = urlFetcher,
+        log = log
+      )
+      conn.createStatement().executeUpdate("DELETE FROM timeout;")
+      (conn, resourceAccess, transactor)
     },
-    teardown = { conn =>
+    teardown = { conn_resourceAccess =>
       {
-        conn.close()
-        Files.deleteIfExists(Paths.get(dbPath))
+        if (deleteDB) Files.deleteIfExists(Paths.get(dbPath))
+        else conn_resourceAccess._1.createStatement().executeUpdate("DELETE FROM timeout;")
+        conn_resourceAccess._1.close()
         ()
       }
     }
   )
 
-  def getMigrations: List[BufferedSource] = ???
+  def getMigrations(migrationPath: String): List[BufferedSource] = {
+    val migrationDir = new File(migrationPath)
+    val migrations = if (migrationDir.exists && migrationDir.isDirectory) {
+      migrationDir.listFiles.filter(_.isFile).toList
+    } else { List[File]() }
+    migrations.map(m => Source.fromFile(m))
+  }
 
 }

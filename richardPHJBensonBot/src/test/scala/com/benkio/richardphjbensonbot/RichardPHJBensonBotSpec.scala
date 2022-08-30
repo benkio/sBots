@@ -2,73 +2,17 @@ package com.benkio.richardphjbensonbot
 
 import cats.effect.IO
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccessSpec
-import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
-// TODO: Change this to test against the sqlite real db and put it on CI/CD
 class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
-  import com.benkio.richardphjbensonbot.data.Audio.messageRepliesAudioData
-  import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData
-  import com.benkio.richardphjbensonbot.data.Gif.messageRepliesGifData
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
-  import com.benkio.richardphjbensonbot.data.Mix.messageRepliesMixData
 
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  implicit val resourceAccess    = ResourceAccess.fromResources[IO]
-
-  test("messageRepliesAudioData should never raise an exception when try to open the file in resounces") {
-    val result = messageRepliesAudioData[IO]
-      .flatMap(_.mediafiles)
-      .traverse((mp3: MediaFile) => ResourceAccessSpec.testFilename(mp3.filename))
-      .map(_.foldLeft(true)(_ && _))
-
-    assertIO(result, true)
-  }
-
-  test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
-    val result = messageRepliesGifData[IO]
-      .flatMap(_.mediafiles)
-      .traverse((gif: MediaFile) => ResourceAccessSpec.testFilename(gif.filename))
-      .map(_.foldLeft(true)(_ && _))
-
-    assertIO(result, true)
-  }
-
-  test("messageRepliesVideosData should never raise an exception when try to open the file in resounces") {
-    val result = messageRepliesVideoData[IO]
-      .flatMap(_.mediafiles)
-      .traverse((video: MediaFile) => ResourceAccessSpec.testFilename(video.filename))
-      .map(_.foldLeft(true)(_ && _))
-
-    assertIO(result, true)
-  }
-
-  test("messageRepliesMixData should never raise an exception when try to open the file in resounces") {
-    val result =
-      messageRepliesMixData[IO]
-        .flatMap(_.mediafiles)
-        .traverse(mf => ResourceAccessSpec.testFilename(mf.filename))
-        .map(_.foldLeft(true)(_ && _))
-
-    assertIO(result, true)
-  }
-
-  test("messageRepliesSpecialData should never raise an exception when try to open the file in resounces") {
-    val result =
-      messageRepliesSpecialData[IO]
-        .flatMap(_.mediafiles)
-        .traverse(mf => ResourceAccessSpec.testFilename(mf.filename))
-        .map(_.foldLeft(true)(_ && _))
-
-    assertIO(result, true)
-  }
 
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {
     val result =
@@ -83,7 +27,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   }
 
   test("triggerlist should return a list of all triggers when called") {
-    assertEquals(RichardPHJBensonBot.commandRepliesData[IO](null).length, 4)
+    assertEquals(RichardPHJBensonBot.commandRepliesData[IO](null).length, 5)
     assert(
       RichardPHJBensonBot
         .messageRepliesData[IO]
