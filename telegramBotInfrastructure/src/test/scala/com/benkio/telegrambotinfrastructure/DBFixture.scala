@@ -1,18 +1,17 @@
 package com.benkio.telegrambotinfrastructure
 
-import scala.io.Source
-import java.io.File
-import doobie.Transactor
-import log.effect.LogLevels
 import cats.effect.IO
+import com.benkio.telegrambotinfrastructure.botcapabilities.DBResourceAccess.DBResourceAccess
+import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
+import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogWriter
-import java.sql.DriverManager
-import java.nio.file.Files
-import java.nio.file.Paths
-import java.sql.Connection
-import scala.io.BufferedSource
+import log.effect.{LogLevels, LogWriter}
 import munit._
+
+import java.io.File
+import java.nio.file.{Files, Paths}
+import java.sql.{Connection, DriverManager}
+import scala.io.{BufferedSource, Source}
 
 trait DBFixture { self: FunSuite =>
 

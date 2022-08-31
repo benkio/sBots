@@ -203,7 +203,7 @@ object Gif {
         StringTextTriggerValue("prefisso")
       ),
       List(
-        MediaFile("rphjb_06.gif")
+        MediaFile("rphjb_MaSgus.mp3")
       )
     ),
     ReplyBundleMessage(

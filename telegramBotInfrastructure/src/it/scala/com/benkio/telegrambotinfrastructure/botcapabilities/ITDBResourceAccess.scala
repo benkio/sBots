@@ -1,22 +1,15 @@
 package com.benkio.telegrambotinfrastructure.botcapabilities
 
+import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
 
 import cats.effect.IO
-import cats.effect.Resource
+
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.model.MediaFile
-
-import doobie.implicits._
-
-import java.sql.Timestamp
-import java.time.Instant
-
-import scala.concurrent.duration._
 
 class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
-  val testMedia = "rphjb_06.gif"
+  val testMedia = "rphjb_MaSgus.mp3"
 
   // DBResourceAccess tests
 

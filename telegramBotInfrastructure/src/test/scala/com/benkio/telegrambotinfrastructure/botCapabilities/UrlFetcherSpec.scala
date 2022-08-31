@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.botCapabilities
 
-import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
 import cats.effect._
+import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
 import munit.CatsEffectSuite
 
 import java.io.File
@@ -12,8 +12,8 @@ class UrlFetcherSpec extends CatsEffectSuite {
   val urlFetcher = UrlFetcher[IO]()
 
   test("fetch should return the expected url content in a file if the url is valid") {
-    val validUrl                                 = "https://www.dropbox.com/s/mco2gb75ldfurvy/rphjb_06.gif?dl=1"
-    val filename                                 = "rphjb_06.gif"
+    val validUrl                                 = "https://www.dropbox.com/s/mco2gb75ldfurvy/rphjb_MaSgus.mp3?dl=1"
+    val filename                                 = "rphjb_MaSgus.mp3"
     val actual: IO[Outcome[IO, Throwable, File]] = urlFetcher.fetch(filename, validUrl).flatMap(_.join)
 
     assertIO(actual.map(_.isSuccess), true)
@@ -22,7 +22,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
 
   test("fetch should fail if the url is malformed") {
     val invalidUrl                               = "bad url"
-    val filename                                 = "rphjb_06.gif"
+    val filename                                 = "rphjb_MaSgus.mp3"
     val actual: IO[Outcome[IO, Throwable, File]] = urlFetcher.fetch(filename, invalidUrl).flatMap(_.join)
 
     assertIO(actual.map(_.isError), true)
