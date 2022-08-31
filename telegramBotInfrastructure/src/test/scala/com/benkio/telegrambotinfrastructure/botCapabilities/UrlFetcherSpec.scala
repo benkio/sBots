@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.botCapabilities
 
-import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
 import cats.effect._
+import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
 import munit.CatsEffectSuite
 import org.http4s.ember.client._
 
@@ -16,8 +16,9 @@ class UrlFetcherSpec extends CatsEffectSuite {
     EmberClientBuilder.default[IO].build.map(httpClient => UrlFetcher[IO](httpClient))
 
   test("fetch should return the expected url content in a file if the url is valid") {
-    val validUrl = "https://www.dropbox.com/s/cy0onu1oq8dyyzs/rphjb_MaSgus.mp3?dl=1"
-    val filename = "rphjb_MaSgus.mp3"
+    val validUrl                                 = "https://www.dropbox.com/s/mco2gb75ldfurvy/rphjb_MaSgus.mp3?dl=1"
+    val filename                                 = "rphjb_MaSgus.mp3"
+    val actual: IO[Outcome[IO, Throwable, File]] = urlFetcher.fetch(filename, validUrl).flatMap(_.join)
 
     val result = for {
       urlFetcher <- buildUrlFetcher()
@@ -46,12 +47,9 @@ class UrlFetcherSpec extends CatsEffectSuite {
   }
 
   test("fetch should fail if the url is malformed") {
-    val invalidUrl = "bad url"
-    val filename   = "rphjb_06.gif"
-    val result = for {
-      urlFetcher <- buildUrlFetcher()
-      file       <- urlFetcher.fetchFromDropbox(filename, invalidUrl)
-    } yield file
+    val invalidUrl                               = "bad url"
+    val filename                                 = "rphjb_MaSgus.mp3"
+    val actual: IO[Outcome[IO, Throwable, File]] = urlFetcher.fetch(filename, invalidUrl).flatMap(_.join)
 
     interceptIO[Throwable](result.use_)
   }

@@ -44,6 +44,7 @@ object Dependencies {
     libs.logEffects,
     libs.munit,
     libs.munitCatsEffect,
+    libs.sqlite,
     libs.telegramiumCore,
     libs.telegramiumHigh
   )
@@ -77,8 +78,7 @@ object Dependencies {
     libs.munitCatsEffect,
     libs.pureConfig,
     libs.telegramiumCore,
-    libs.telegramiumHigh,
-    libs.sqlite
+    libs.telegramiumHigh
   )
 
   val XahBotDependencies: Seq[ModuleID] = Seq(

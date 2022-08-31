@@ -32,7 +32,7 @@ object Settings {
   lazy val TelegramBotInfrastructureSettings = Seq(
     name                := "TelegramBotInfrastructure",
     libraryDependencies := TelegramBotInfrastructureDependencies
-  )
+  ) ++ Defaults.itSettings
 
   lazy val CalandroBotSettings = Seq(
     name                     := "CalandroBot",

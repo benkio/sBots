@@ -21,7 +21,7 @@ object DBResourceAccess {
       log
     )
 
-  class DBResourceAccess[F[_]: Async](
+  private[telegrambotinfrastructure] class DBResourceAccess[F[_]: Async](
       transactor: Transactor[F],
       urlFetcher: UrlFetcher[F],
       log: LogWriter[F]
