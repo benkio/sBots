@@ -18,11 +18,12 @@ object DatabaseRepository {
   private class DatabaseRepositoryImpl[F[_]: MonadCancelThrow](transactor: Transactor[F])
       extends DatabaseRepository[F] {
     override def insertMedia(mediaEntity: MediaEntity): F[Unit] =
-      insertSql(mediaEntity).run.transact(transactor).void.exceptSqlState {
-        case SqlState("23505") => updateOnConflictSql(mediaEntity).run.transact(transactor).void
-        case sqlState =>
+      insertSql(mediaEntity).run.transact(transactor).void.exceptSql {
+        case e if e.getMessage().contains("UNIQUE constraint failed") =>
+          updateOnConflictSql(mediaEntity).run.transact(transactor).void
+        case e =>
           MonadCancelThrow[F].raiseError(
-            new RuntimeException(s"An error occurred in inserting $mediaEntity with the sql state: $sqlState")
+            new RuntimeException(s"An error occurred in inserting $mediaEntity with exception: $e")
           )
       }
 
