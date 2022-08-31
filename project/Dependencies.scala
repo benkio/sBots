@@ -40,6 +40,7 @@ object Dependencies {
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] = Seq(
     libs.cats,
     libs.catsEffect,
+    libs.doobie,
     libs.logEffects,
     libs.munit,
     libs.munitCatsEffect,
@@ -70,7 +71,6 @@ object Dependencies {
     libs.catsEffect,
     libs.cormorantCore,
     libs.cormorantParser,
-    libs.doobie,
     libs.lightbendEmoji,
     libs.logEffects,
     libs.munit,

@@ -1,7 +1,7 @@
-package com.benkio.richardphjbensonbot
+package com.benkio.telegrambotinfrastructure.botCapabilities
 
+import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
 import cats.effect._
-import com.benkio.richardphjbensonbot.UrlFetcher
 import munit.CatsEffectSuite
 
 import java.io.File

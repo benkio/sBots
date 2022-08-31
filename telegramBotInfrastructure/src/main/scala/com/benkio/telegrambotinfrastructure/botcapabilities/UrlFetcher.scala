@@ -1,4 +1,4 @@
-package com.benkio.richardphjbensonbot
+package com.benkio.telegrambotinfrastructure.botcapabilities
 
 import cats.effect.Async
 import cats.effect._

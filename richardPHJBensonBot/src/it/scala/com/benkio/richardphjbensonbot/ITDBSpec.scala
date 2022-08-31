@@ -1,11 +1,11 @@
 package com.benkio.richardphjbensonbot
 
+import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
 
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits._
-import com.benkio.richardphjbensonbot.UrlFetcher
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 
 import doobie.implicits._
@@ -21,54 +21,9 @@ import com.benkio.richardphjbensonbot.data.Gif.messageRepliesGifData
 import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 import com.benkio.richardphjbensonbot.data.Mix.messageRepliesMixData
 
-class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
+class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   val testMedia = "rphjb_06.gif"
-
-  // DBResourceAccess tests
-
-  databaseFixture.test("DBResourceAccess.getResourceByteArray should return the expected content") {
-    connectionResourceAccess =>
-      val transactor     = connectionResourceAccess._3
-      val urlFetcher     = UrlFetcher[IO]()
-      val resourceAccess = DBResourceAccess[IO](transactor, urlFetcher)
-      val obtained       = resourceAccess.getResourceByteArray(testMedia)
-
-      obtained
-        .use { byteArray =>
-          IO(
-            assert(byteArray.length >= 100)
-          )
-        }
-        .unsafeRunSync()
-  }
-
-  databaseFixture.test(
-    "DBResourceAccess.getResourcesByKind should return the expected list of files with expected content"
-  ) { connectionResourceAccess =>
-    val transactor     = connectionResourceAccess._3
-    val urlFetcher     = UrlFetcher[IO]()
-    val resourceAccess = DBResourceAccess[IO](transactor, urlFetcher)
-    val obtained       = resourceAccess.getResourcesByKind("rphjb_LinkSources")
-    val expectedFilenames = List(
-      "ancheLaRabbiaHaUnCuore.txt",
-      "live.txt",
-      "perCordeEGrida.txt",
-      "puntateCocktailMicidiale.txt",
-      "puntateRockMachine.txt"
-    )
-
-    obtained
-      .use { files =>
-        IO(
-          files.foreach { file =>
-            assert(expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
-          }
-        )
-      }
-      .unsafeRunSync()
-
-  }
 
   // DBTimeout tests
 
