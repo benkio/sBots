@@ -1,11 +1,9 @@
-package com.benkio.richardphjbensonbot
+package com.benkio.telegrambotinfrastructure
 
 import cats.effect.Resource
 import scala.io.Source
 import java.io.File
-import com.benkio.richardphjbensonbot.UrlFetcher
 import doobie.Transactor
-import com.benkio.richardphjbensonbot.DBResourceAccess.DBResourceAccess
 import log.effect.LogLevels
 import cats.effect.IO
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

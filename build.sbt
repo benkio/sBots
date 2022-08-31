@@ -44,28 +44,28 @@ lazy val calandroBot =
     .settings(Settings.settings: _*)
     .settings(Settings.CalandroBotSettings: _*)
     .configs(IntegrationTest.extend(Test))
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test;it->it")
 
 lazy val aBarberoBot =
   Project("aBarberoBot", file("aBarberoBot"))
     .settings(Settings.settings: _*)
     .settings(Settings.ABarberoBotSettings: _*)
     .configs(IntegrationTest.extend(Test))
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test;it->it")
 
 lazy val richardPHJBensonBot =
   Project("richardPHJBensonBot", file("richardPHJBensonBot"))
     .settings(Settings.settings: _*)
     .settings(Settings.RichardPHJBensonBotSettings: _*)
     .configs(IntegrationTest.extend(Test))
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test;it->it")
 
 lazy val xahBot =
   Project("xahBot", file("xahBot"))
     .settings(Settings.settings: _*)
     .settings(Settings.XahBotSettings: _*)
     .configs(IntegrationTest.extend(Test))
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test;it->it")
 
 lazy val main = project
   .in(file("main"))
@@ -87,4 +87,4 @@ lazy val botDB =
       fullRunTask(runMigrate, Compile, "com.benkio.botDB.Main"),
       runMigrate / fork := true
     )
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test;it->it")
