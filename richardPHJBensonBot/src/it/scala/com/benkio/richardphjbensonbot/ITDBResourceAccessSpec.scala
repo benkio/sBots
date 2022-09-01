@@ -30,7 +30,8 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       val resourceAssert = for {
         dbResourceAccess <- connectionResourceAccess._2
         arrayContent     <- dbResourceAccess.getResourceByteArray(testMedia)
-      } yield arrayContent.length >= 100
+      } yield arrayContent.length >= 1000000 // Shall I receive at least 1MB
+
       resourceAssert.use(IO.pure).assert
   }
 
