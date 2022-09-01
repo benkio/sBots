@@ -58,7 +58,12 @@ object Dependencies {
 
   val CalandroBotDependencies: Seq[ModuleID] = CommonDependencies
 
-  val ABarberoBotDependencies: Seq[ModuleID] = CommonDependencies
+  val ABarberoBotDependencies: Seq[ModuleID] =
+    CommonDependencies ++ Seq(
+      libs.pureConfig,
+      libs.cormorantCore,
+      libs.cormorantParser
+    )
 
   val XahBotDependencies: Seq[ModuleID] = CommonDependencies
 
