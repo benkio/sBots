@@ -17,19 +17,21 @@ object Dependencies {
     val pureConfig            = "0.17.1"
     val sqlite                = "3.39.2.1"
     val telegramiumVersion    = "7.62.0"
+    val http4s                = "0.23.12"
   }
 
   lazy val libs = new {
-    val cats             = "org.typelevel"     %% "cats-core"         % dependenciesVersion.catsVersion
-    val catsEffect       = "org.typelevel"     %% "cats-effect"       % dependenciesVersion.catsEffectVersion
-    val cormorantCore    = "io.chrisdavenport" %% "cormorant-core"    % dependenciesVersion.cormorant % "it, test"
-    val cormorantGeneric = "io.chrisdavenport" %% "cormorant-generic" % dependenciesVersion.cormorant
-    val cormorantParser  = "io.chrisdavenport" %% "cormorant-parser"  % dependenciesVersion.cormorant
-    val doobie           = "org.tpolecat"      %% "doobie-core"       % dependenciesVersion.doobie
-    val flyway           = "org.flywaydb"       % "flyway-core"       % dependenciesVersion.flyway
-    val lightbendEmoji   = "com.lightbend"     %% "emoji"             % dependenciesVersion.lightbendEmojiVersion
-    val logEffects       = "io.laserdisc"      %% "log-effect-fs2"    % dependenciesVersion.logEffects
-    val munit            = "org.scalameta"     %% "munit"             % dependenciesVersion.munit     % "it, test"
+    val cats              = "org.typelevel"     %% "cats-core"           % dependenciesVersion.catsVersion
+    val catsEffect        = "org.typelevel"     %% "cats-effect"         % dependenciesVersion.catsEffectVersion
+    val cormorantCore     = "io.chrisdavenport" %% "cormorant-core"      % dependenciesVersion.cormorant % "it, test"
+    val cormorantGeneric  = "io.chrisdavenport" %% "cormorant-generic"   % dependenciesVersion.cormorant
+    val cormorantParser   = "io.chrisdavenport" %% "cormorant-parser"    % dependenciesVersion.cormorant
+    val http4sEmberClient = "org.http4s"        %% "http4s-ember-client" % dependenciesVersion.http4s
+    val doobie            = "org.tpolecat"      %% "doobie-core"         % dependenciesVersion.doobie
+    val flyway            = "org.flywaydb"       % "flyway-core"         % dependenciesVersion.flyway
+    val lightbendEmoji    = "com.lightbend"     %% "emoji"               % dependenciesVersion.lightbendEmojiVersion
+    val logEffects        = "io.laserdisc"      %% "log-effect-fs2"      % dependenciesVersion.logEffects
+    val munit             = "org.scalameta"     %% "munit"               % dependenciesVersion.munit     % "it, test"
     val munitCatsEffect = "org.typelevel" %% "munit-cats-effect-3" % dependenciesVersion.munitCatsEffect % "it, test"
     val pureConfig      = "com.github.pureconfig" %% "pureconfig"       % dependenciesVersion.pureConfig
     val sqlite          = "org.xerial"             % "sqlite-jdbc"      % dependenciesVersion.sqlite
@@ -37,20 +39,9 @@ object Dependencies {
     val telegramiumHigh = "io.github.apimorphism" %% "telegramium-high" % dependenciesVersion.telegramiumVersion
   }
 
-  val TelegramBotInfrastructureDependencies: Seq[ModuleID] = Seq(
-    libs.cats,
+  private val CommonDependencies: Seq[ModuleID] = Seq(
     libs.catsEffect,
-    libs.doobie,
-    libs.logEffects,
-    libs.munit,
-    libs.munitCatsEffect,
-    libs.sqlite,
-    libs.telegramiumCore,
-    libs.telegramiumHigh
-  )
-
-  val CalandroBotDependencies: Seq[ModuleID] = Seq(
-    libs.catsEffect,
+    libs.http4sEmberClient,
     libs.lightbendEmoji,
     libs.logEffects,
     libs.munit,
@@ -59,39 +50,28 @@ object Dependencies {
     libs.telegramiumHigh
   )
 
-  val ABarberoBotDependencies: Seq[ModuleID] = Seq(
-    libs.catsEffect,
-    libs.logEffects,
-    libs.munit,
-    libs.munitCatsEffect,
-    libs.telegramiumCore,
-    libs.telegramiumHigh
-  )
+  val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
+    CommonDependencies ++ Seq(
+      libs.doobie,
+      libs.sqlite
+    )
+
+  val CalandroBotDependencies: Seq[ModuleID] = CommonDependencies
+
+  val ABarberoBotDependencies: Seq[ModuleID] = CommonDependencies
+
+  val XahBotDependencies: Seq[ModuleID] = CommonDependencies
 
   val RichardPHJBensonBotDependencies: Seq[ModuleID] = Seq(
-    libs.catsEffect,
     libs.cormorantCore,
     libs.cormorantParser,
-    libs.lightbendEmoji,
-    libs.logEffects,
-    libs.munit,
-    libs.munitCatsEffect,
     libs.pureConfig,
-    libs.telegramiumCore,
-    libs.telegramiumHigh
-  )
-
-  val XahBotDependencies: Seq[ModuleID] = Seq(
-    libs.catsEffect,
-    libs.logEffects,
-    libs.munit,
-    libs.munitCatsEffect,
-    libs.telegramiumCore,
-    libs.telegramiumHigh
-  )
+    libs.sqlite
+  ) ++ CommonDependencies
 
   val MainDependencies: Seq[ModuleID] = Seq(
     libs.catsEffect,
+    libs.http4sEmberClient,
     libs.logEffects,
     libs.pureConfig
   )

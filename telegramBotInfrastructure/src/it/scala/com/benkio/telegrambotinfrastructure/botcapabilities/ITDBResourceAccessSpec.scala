@@ -15,27 +15,17 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test("DBResourceAccess.getResourceByteArray should return the expected content") {
     connectionResourceAccess =>
-      val transactor     = connectionResourceAccess._3
-      val urlFetcher     = UrlFetcher[IO]()
-      val resourceAccess = DBResourceAccess[IO](transactor, urlFetcher)
-      val obtained       = resourceAccess.getResourceByteArray(testMedia)
+      val resourceAssert = for {
+        dbResourceAccess <- connectionResourceAccess._2
+        arrayContent     <- dbResourceAccess.getResourceByteArray(testMedia)
+      } yield arrayContent.length >= (1024 * 5)
 
-      obtained
-        .use { byteArray =>
-          IO(
-            assert(byteArray.length >= 100)
-          )
-        }
-        .unsafeRunSync()
+      resourceAssert.use(IO.pure).assert
   }
 
   databaseFixture.test(
     "DBResourceAccess.getResourcesByKind should return the expected list of files with expected content"
   ) { connectionResourceAccess =>
-    val transactor     = connectionResourceAccess._3
-    val urlFetcher     = UrlFetcher[IO]()
-    val resourceAccess = DBResourceAccess[IO](transactor, urlFetcher)
-    val obtained       = resourceAccess.getResourcesByKind("rphjb_LinkSources")
     val expectedFilenames = List(
       "ancheLaRabbiaHaUnCuore.txt",
       "live.txt",
@@ -43,17 +33,13 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       "puntateCocktailMicidiale.txt",
       "puntateRockMachine.txt"
     )
-
-    obtained
-      .use { files =>
-        IO(
-          files.foreach { file =>
-            assert(expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
-          }
-        )
-      }
-      .unsafeRunSync()
-
+    val resourceAssert = for {
+      dbResourceAccess <- connectionResourceAccess._2
+      files            <- dbResourceAccess.getResourcesByKind("rphjb_LinkSources")
+    } yield files
+      .map(file => expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
+      .foldLeft(true)(_ && _)
+    resourceAssert.use(IO.pure).assert
   }
 
 }
