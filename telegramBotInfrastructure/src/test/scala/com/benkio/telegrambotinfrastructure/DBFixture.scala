@@ -14,6 +14,11 @@ import java.nio.file.{Files, Paths}
 import java.sql.{Connection, DriverManager}
 import scala.io.{BufferedSource, Source}
 
+import java.io.File
+import java.nio.file.{Files, Paths}
+import java.sql.{Connection, DriverManager}
+import scala.io.{BufferedSource, Source}
+
 trait DBFixture { self: FunSuite =>
 
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
