@@ -35,7 +35,7 @@ trait ResourceAccess[F[_]] {
 
 object ResourceAccess {
 
-  def toTempFile(fileName: String, content: Array[Byte] = Array.empty[Byte]): File = {
+  def toTempFile(fileName: String, content: Array[Byte]): File = {
     val (name, ext) = fileName.span(_ != '.')
     val tempFile    = File.createTempFile(name, ext)
     Files.write(tempFile.toPath(), content)

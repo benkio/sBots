@@ -5,9 +5,7 @@ import munit.CatsEffectSuite
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits._
-import com.benkio.richardphjbensonbot.UrlFetcher
 import com.benkio.telegrambotinfrastructure.model.MediaFile
-
 import doobie.implicits._
 
 import java.sql.Timestamp
@@ -29,27 +27,16 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test("DBResourceAccess.getResourceByteArray should return the expected content") {
     connectionResourceAccess =>
-      val transactor     = connectionResourceAccess._3
-      val urlFetcher     = UrlFetcher[IO]()
-      val resourceAccess = DBResourceAccess[IO](transactor, urlFetcher)
-      val obtained       = resourceAccess.getResourceByteArray(testMedia)
-
-      obtained
-        .use { byteArray =>
-          IO(
-            assert(byteArray.length >= 100)
-          )
-        }
-        .unsafeRunSync()
+      val resourceAssert = for {
+        dbResourceAccess <- connectionResourceAccess._2
+        arrayContent     <- dbResourceAccess.getResourceByteArray(testMedia)
+      } yield arrayContent.length >= 100
+      resourceAssert.use(IO.pure).assert
   }
 
   databaseFixture.test(
     "DBResourceAccess.getResourcesByKind should return the expected list of files with expected content"
   ) { connectionResourceAccess =>
-    val transactor     = connectionResourceAccess._3
-    val urlFetcher     = UrlFetcher[IO]()
-    val resourceAccess = DBResourceAccess[IO](transactor, urlFetcher)
-    val obtained       = resourceAccess.getResourcesByKind("rphjb_LinkSources")
     val expectedFilenames = List(
       "ancheLaRabbiaHaUnCuore.txt",
       "live.txt",
@@ -57,17 +44,13 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       "puntateCocktailMicidiale.txt",
       "puntateRockMachine.txt"
     )
-
-    obtained
-      .use { files =>
-        IO(
-          files.foreach { file =>
-            assert(expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
-          }
-        )
-      }
-      .unsafeRunSync()
-
+    val resourceAssert = for {
+      dbResourceAccess <- connectionResourceAccess._2
+      files            <- dbResourceAccess.getResourcesByKind("rphjb_LinkSources")
+    } yield files
+      .map(file => expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
+      .foldLeft(true)(_ && _)
+    resourceAssert.use(IO.pure).assert
   }
 
   // DBTimeout tests
@@ -206,96 +189,109 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test(
     "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
   ) { connectionResourceAccess =>
-    val resourceAccess = connectionResourceAccess._2
-    val transactor     = connectionResourceAccess._3
-    val result = messageRepliesAudioData[IO]
-      .flatMap(_.mediafiles)
-      .traverse((mp3: MediaFile) =>
-        resourceAccess
-          .getUrlByName(mp3.filename)
-          .unique
-          .transact(transactor)
-          .map { case (dbFilename, _) => mp3.filename == dbFilename }
+    val transactor = connectionResourceAccess._3
+    val resourceAssert = for {
+      dbResourceAccess <- connectionResourceAccess._2
+      mp3s             <- Resource.pure(messageRepliesAudioData[IO].flatMap(_.mediafiles))
+      checks <- Resource.eval(
+        mp3s
+          .traverse((mp3: MediaFile) =>
+            dbResourceAccess
+              .getUrlByName(mp3.filename)
+              .unique
+              .transact(transactor)
+              .map { case (dbFilename, _) => mp3.filename == dbFilename }
+          )
       )
-      .map(_.foldLeft(true)(_ && _))
+    } yield checks.foldLeft(true)(_ && _)
 
-    assertIO(result, true)
+    resourceAssert.use(IO.pure).assert
   }
 
   databaseFixture.test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
     connectionResourceAccess =>
-      val resourceAccess = connectionResourceAccess._2
-      val transactor     = connectionResourceAccess._3
-      val result = messageRepliesGifData[IO]
-        .flatMap(_.mediafiles)
-        .traverse((gif: MediaFile) =>
-          resourceAccess
-            .getUrlByName(gif.filename)
-            .unique
-            .transact(transactor)
-            .map { case (dbFilename, _) => gif.filename == dbFilename }
+      val transactor = connectionResourceAccess._3
+      val resourceAssert = for {
+        dbResourceAccess <- connectionResourceAccess._2
+        gifs             <- Resource.pure(messageRepliesGifData[IO].flatMap(_.mediafiles))
+        checks <- Resource.eval(
+          gifs
+            .traverse((gif: MediaFile) =>
+              dbResourceAccess
+                .getUrlByName(gif.filename)
+                .unique
+                .transact(transactor)
+                .map { case (dbFilename, _) => gif.filename == dbFilename }
+            )
         )
-        .map(_.foldLeft(true)(_ && _))
+      } yield checks.foldLeft(true)(_ && _)
 
-      assertIO(result, true)
+      resourceAssert.use(IO.pure).assert
   }
 
   databaseFixture.test(
     "messageRepliesVideosData should never raise an exception when try to open the file in resounces"
   ) { connectionResourceAccess =>
-    val resourceAccess = connectionResourceAccess._2
-    val transactor     = connectionResourceAccess._3
-    val result = messageRepliesVideoData[IO]
-      .flatMap(_.mediafiles)
-      .traverse((mp4: MediaFile) =>
-        resourceAccess
-          .getUrlByName(mp4.filename)
-          .unique
-          .transact(transactor)
-          .map { case (dbFilename, _) => mp4.filename == dbFilename }
+    val transactor = connectionResourceAccess._3
+    val resourceAssert = for {
+      dbResourceAccess <- connectionResourceAccess._2
+      mp4s             <- Resource.pure(messageRepliesVideoData[IO].flatMap(_.mediafiles))
+      checks <- Resource.eval(
+        mp4s
+          .traverse((mp4: MediaFile) =>
+            dbResourceAccess
+              .getUrlByName(mp4.filename)
+              .unique
+              .transact(transactor)
+              .map { case (dbFilename, _) => mp4.filename == dbFilename }
+          )
       )
-      .map(_.foldLeft(true)(_ && _))
+    } yield checks.foldLeft(true)(_ && _)
 
-    assertIO(result, true)
+    resourceAssert.use(IO.pure).assert
   }
 
   databaseFixture.test("messageRepliesMixData should never raise an exception when try to open the file in resounces") {
     connectionResourceAccess =>
-      val resourceAccess = connectionResourceAccess._2
-      val transactor     = connectionResourceAccess._3
-      val result =
-        messageRepliesMixData[IO]
-          .flatMap(_.mediafiles)
-          .traverse((mix: MediaFile) =>
-            resourceAccess
-              .getUrlByName(mix.filename)
-              .unique
-              .transact(transactor)
-              .map { case (dbFilename, _) => mix.filename == dbFilename }
-          )
-          .map(_.foldLeft(true)(_ && _))
+      val transactor = connectionResourceAccess._3
+      val resourceAssert = for {
+        dbResourceAccess <- connectionResourceAccess._2
+        mixs             <- Resource.pure(messageRepliesMixData[IO].flatMap(_.mediafiles))
+        checks <- Resource.eval(
+          mixs
+            .traverse((mix: MediaFile) =>
+              dbResourceAccess
+                .getUrlByName(mix.filename)
+                .unique
+                .transact(transactor)
+                .map { case (dbFilename, _) => mix.filename == dbFilename }
+            )
+        )
+      } yield checks.foldLeft(true)(_ && _)
 
-      assertIO(result, true)
+      resourceAssert.use(IO.pure).assert
   }
 
   databaseFixture.test(
     "messageRepliesSpecialData should never raise an exception when try to open the file in resounces"
   ) { connectionResourceAccess =>
-    val resourceAccess = connectionResourceAccess._2
-    val transactor     = connectionResourceAccess._3
-    val result =
-      messageRepliesSpecialData[IO]
-        .flatMap(_.mediafiles)
-        .traverse((special: MediaFile) =>
-          resourceAccess
-            .getUrlByName(special.filename)
-            .unique
-            .transact(transactor)
-            .map { case (dbFilename, _) => special.filename == dbFilename }
-        )
-        .map(_.foldLeft(true)(_ && _))
+    val transactor = connectionResourceAccess._3
+    val resourceAssert = for {
+      dbResourceAccess <- connectionResourceAccess._2
+      specials         <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
+      checks <- Resource.eval(
+        specials
+          .traverse((special: MediaFile) =>
+            dbResourceAccess
+              .getUrlByName(special.filename)
+              .unique
+              .transact(transactor)
+              .map { case (dbFilename, _) => special.filename == dbFilename }
+          )
+      )
+    } yield checks.foldLeft(true)(_ && _)
 
-    assertIO(result, true)
+    resourceAssert.use(IO.pure).assert
   }
 
 }

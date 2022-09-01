@@ -1,5 +1,6 @@
 package com.benkio.richardphjbensonbot
 
+import cats.effect.Resource
 import scala.io.Source
 import java.io.File
 import com.benkio.richardphjbensonbot.UrlFetcher
@@ -15,6 +16,7 @@ import java.nio.file.Paths
 import java.sql.Connection
 import scala.io.BufferedSource
 import munit._
+import org.http4s.blaze.client._
 
 trait DBFixture { self: FunSuite =>
 
@@ -27,7 +29,7 @@ trait DBFixture { self: FunSuite =>
   val deleteDB: Boolean     = false
   val migrationPath: String = resourcePath + "/botDB/src/main/resources/db/migrations"
 
-  lazy val databaseFixture = FunFixture[(Connection, DBResourceAccess[IO], Transactor[IO])](
+  lazy val databaseFixture = FunFixture[(Connection, Resource[IO, DBResourceAccess[IO]], Transactor[IO])](
     setup = { _ =>
       Class.forName("org.sqlite.JDBC")
       val conn = DriverManager.getConnection(dbUrl)
@@ -40,14 +42,18 @@ trait DBFixture { self: FunSuite =>
         }
       }
       val transactor = Transactor.fromConnection[IO](conn)
-      val urlFetcher = UrlFetcher[IO]()
-      val resourceAccess: DBResourceAccess[IO] = new DBResourceAccess[IO](
-        transactor = transactor,
-        urlFetcher = urlFetcher,
-        log = log
-      )
+      val resourceAccessResource: Resource[IO, DBResourceAccess[IO]] = for {
+        httpClient <- BlazeClientBuilder[IO].resource
+        urlFetcher = UrlFetcher[IO](httpClient)
+        dbResourceAccess = new DBResourceAccess[IO](
+          transactor = transactor,
+          urlFetcher = urlFetcher,
+          log = log
+        )
+      } yield dbResourceAccess
+
       conn.createStatement().executeUpdate("DELETE FROM timeout;")
-      (conn, resourceAccess, transactor)
+      (conn, resourceAccessResource, transactor)
     },
     teardown = { conn_resourceAccess =>
       {
