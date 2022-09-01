@@ -10,8 +10,8 @@ import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import log.effect.LogWriter
 import org.http4s.Status
-import org.http4s.blaze.client._
 import org.http4s.client.Client
+import org.http4s.ember.client._
 import telegramium.bots.high._
 
 class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with XahBot[F]
@@ -106,18 +106,22 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
     log.debug("Empty message reply data") *> List.empty.pure[F]
 
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand
-      .selectRandomLinkByKeyword[F](
-        "",
-        resourceAccess,
-        "xah_LinkSources"
-      )
-      .use[ReplyBundleCommand[F]](optMessage =>
-        ReplyBundleCommand(
-          trigger = CommandTrigger("randomshow"),
-          text = Some(TextReply[F](_ => Applicative[F].pure(optMessage.toList), true)),
-        ).pure[F]
-      )
+    ReplyBundleCommand(
+      trigger = CommandTrigger("randomshow"),
+      text = Some(
+        TextReply[F](
+          _ =>
+            RandomLinkCommand
+              .selectRandomLinkByKeyword[F](
+                "",
+                resourceAccess,
+                "xah_LinkSources"
+              )
+              .use(optMessage => Applicative[F].pure(optMessage.toList)),
+          true
+        )
+      ),
+    ).pure[F]
 
   private def buildRandomReplyBundleCommand(command: String, directory: String)(implicit
       asyncF: Async[F]
@@ -180,7 +184,7 @@ object XahBot extends BotOps {
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: XahBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
-    httpClient <- BlazeClientBuilder[F].resource
+    httpClient <- EmberClientBuilder.default[F].build
     tk         <- buildCommonBot[F](httpClient)
   } yield (httpClient, tk)).use(httpClient_tk => {
     implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")

@@ -11,8 +11,8 @@ import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import log.effect.LogWriter
 import org.http4s.Status
-import org.http4s.blaze.client._
 import org.http4s.client.Client
+import org.http4s.ember.client._
 import telegramium.bots.high._
 
 class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with ABarberoBot[F]
@@ -38,18 +38,22 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
     ).sequence.map(cs => cs ++ ABarberoBot.commandRepliesData[F])
 
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand
-      .selectRandomLinkByKeyword[F](
-        "",
-        resourceAccess,
-        "abar_LinkSources"
-      )
-      .use[ReplyBundleCommand[F]](optMessage =>
-        ReplyBundleCommand(
-          trigger = CommandTrigger("randomshow"),
-          text = Some(TextReply[F](_ => Applicative[F].pure(optMessage.toList), true)),
-        ).pure[F]
-      )
+    ReplyBundleCommand(
+      trigger = CommandTrigger("randomshow"),
+      text = Some(
+        TextReply[F](
+          _ =>
+            RandomLinkCommand
+              .selectRandomLinkByKeyword[F](
+                "",
+                resourceAccess,
+                "abar_LinkSources"
+              )
+              .use(optMessage => Applicative[F].pure(optMessage.toList)),
+          true
+        )
+      ),
+    ).pure[F]
 
   private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     ReplyBundleCommand[F](
@@ -909,7 +913,7 @@ object ABarberoBot extends BotOps {
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: ABarberoBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
-    httpClient <- BlazeClientBuilder[F].resource
+    httpClient <- EmberClientBuilder.default[F].build
     tk         <- buildCommonBot[F](httpClient)
   } yield (httpClient, tk)).use(httpClient_tk => {
     implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")

@@ -16,7 +16,7 @@ import java.nio.file.Paths
 import java.sql.Connection
 import scala.io.BufferedSource
 import munit._
-import org.http4s.blaze.client._
+import org.http4s.ember.client._
 
 trait DBFixture { self: FunSuite =>
 
@@ -43,7 +43,7 @@ trait DBFixture { self: FunSuite =>
       }
       val transactor = Transactor.fromConnection[IO](conn)
       val resourceAccessResource: Resource[IO, DBResourceAccess[IO]] = for {
-        httpClient <- BlazeClientBuilder[IO].resource
+        httpClient <- EmberClientBuilder.default[IO].build
         urlFetcher = UrlFetcher[IO](httpClient)
         dbResourceAccess = new DBResourceAccess[IO](
           transactor = transactor,

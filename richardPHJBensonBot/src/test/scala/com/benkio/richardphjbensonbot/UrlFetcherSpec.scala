@@ -7,7 +7,7 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import org.http4s.blaze.client._
+import org.http4s.ember.client._
 
 import java.io.File
 import java.nio.file.Files
@@ -17,7 +17,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def buildUrlFetcher(): Resource[IO, UrlFetcher[IO]] =
-    BlazeClientBuilder[IO].resource.map(httpClient => UrlFetcher[IO](httpClient))
+    EmberClientBuilder.default[IO].build.map(httpClient => UrlFetcher[IO](httpClient))
 
   test("fetch should return the expected url content in a file if the url is valid") {
     val validUrl = "https://www.dropbox.com/s/cy0onu1oq8dyyzs/rphjb_MaSgus.mp3?dl=1"

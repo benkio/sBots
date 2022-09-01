@@ -13,8 +13,8 @@ import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
 import log.effect.LogWriter
 import org.http4s.Status
-import org.http4s.blaze.client._
 import org.http4s.client.Client
+import org.http4s.ember.client._
 import telegramium.bots.Message
 import telegramium.bots.high._
 
@@ -330,7 +330,7 @@ object CalandroBot extends BotOps {
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
-    httpClient <- BlazeClientBuilder[F].resource
+    httpClient <- EmberClientBuilder.default[F].build
     tk         <- buildCommonBot[F](httpClient)
   } yield (httpClient, tk))
     .use(httpClient_tk => {

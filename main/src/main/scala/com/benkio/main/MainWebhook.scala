@@ -12,7 +12,7 @@ import com.benkio.xahbot.XahBot
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import org.http4s.blaze.client._
+import org.http4s.ember.client._
 import telegramium.bots.high.WebhookBot
 
 object MainWebhook extends IOApp {
@@ -22,7 +22,7 @@ object MainWebhook extends IOApp {
 
     val server = for {
       config     <- Resource.eval(Config.loadConfig)
-      httpClient <- BlazeClientBuilder[IO].resource
+      httpClient <- EmberClientBuilder.default[IO].build
       xahWebhook <- XahBot.buildWebhookBot[IO](
         httpClient = httpClient,
         webhookBaseUrl = config.webhookBaseUrl

@@ -15,8 +15,8 @@ import com.benkio.telegrambotinfrastructure._
 import doobie._
 import log.effect.LogWriter
 import org.http4s.Status
-import org.http4s.blaze.client._
 import org.http4s.client.Client
+import org.http4s.ember.client._
 import telegramium.bots.Message
 import telegramium.bots.high._
 
@@ -74,18 +74,22 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
     )
 
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand
-      .selectRandomLinkByKeyword[F](
-        "",
-        resourceAccess,
-        "rphjb_LinkSources"
-      )
-      .use[ReplyBundleCommand[F]](optMessage =>
-        ReplyBundleCommand[F](
-          trigger = CommandTrigger("randomshow"),
-          text = Some(TextReply[F](_ => Applicative[F].pure(optMessage.toList), true)),
-        ).pure[F]
-      )
+    ReplyBundleCommand[F](
+      trigger = CommandTrigger("randomshow"),
+      text = Some(
+        TextReply[F](
+          _ =>
+            RandomLinkCommand
+              .selectRandomLinkByKeyword[F](
+                "",
+                resourceAccess,
+                "rphjb_LinkSources"
+              )
+              .use(optMessage => Applicative[F].pure(optMessage.toList)),
+          true
+        )
+      ),
+    ).pure[F]
 
   private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     ReplyBundleCommand[F](
@@ -303,7 +307,7 @@ carattere '!':
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
-    httpClient <- BlazeClientBuilder[F].resource
+    httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
   } yield (httpClient, botSetup)).use {
     case (httpClient, BotSetup(token, resourceAccess, dbTimeout)) => {

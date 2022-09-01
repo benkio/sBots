@@ -76,8 +76,10 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
           .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
           .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout) && FilteringForward.filter(msg, disableForward))
           .traverse(replyBundle =>
-            ReplyBundle
-              .computeReplyBundle[F](replyBundle, msg, filteringMatchesMessages(Applicative[F])(replyBundle, msg))
+            log
+              .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
+              ReplyBundle
+                .computeReplyBundle[F](replyBundle, msg, filteringMatchesMessages(Applicative[F])(replyBundle, msg))
           )
       } yield replies
 
@@ -90,8 +92,9 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
           result <- commandRepliesData.find(rbc => text.startsWith("/" + rbc.trigger.command))
         } yield result
         commands <- commandMatch
-          .traverse(
-            ReplyBundle.computeReplyBundle[F](_, msg, Applicative[F].pure(true))
+          .traverse(commandReply =>
+            log.info(s"Computing command ${msg.text} matching command reply bundle") *>
+              ReplyBundle.computeReplyBundle[F](commandReply, msg, Applicative[F].pure(true))
           )
       } yield commands
 
