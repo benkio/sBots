@@ -22,8 +22,6 @@ import com.benkio.richardphjbensonbot.data.Mix.messageRepliesMixData
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  val testMedia = "rphjb_MaSgus.mp3"
-
   // DBTimeout tests
 
   databaseFixture.test(

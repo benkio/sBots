@@ -13,8 +13,6 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   import ABarberoBot._
 
-  val testMedia = "abar_Cazzo.mp3"
-
   // File Reference Check
 
   databaseFixture.test(
