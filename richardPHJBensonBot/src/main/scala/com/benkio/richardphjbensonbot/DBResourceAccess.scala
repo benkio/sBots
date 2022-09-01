@@ -35,16 +35,18 @@ object DBResourceAccess {
       sql"SELECT media_name, media_url FROM media WHERE kind = $kind".query[(String, String)]
 
     def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
-      Resource.eval(for {
-        name_url <- log.info(s"DB fetching $resourceName") *> getUrlByName(resourceName).unique.transact(transactor)
-        file     <- urlFetcher.fetchFromDropbox(name_url._1, name_url._2)
-      } yield Files.readAllBytes(file.toPath))
+      for {
+        name_url <- Resource.eval(
+          log.info(s"DB fetching $resourceName") *> getUrlByName(resourceName).unique.transact(transactor)
+        )
+        file <- urlFetcher.fetchFromDropbox(name_url._1, name_url._2)
+      } yield Files.readAllBytes(file.toPath)
     def getResourcesByKind(criteria: String): Resource[F, List[File]] =
-      Resource.eval(for {
-        contents <- getUrlByKind(criteria).stream.compile.toList.transact(transactor)
+      for {
+        contents <- Resource.eval(getUrlByKind(criteria).stream.compile.toList.transact(transactor))
         files <- contents.traverse { case (filename, url) =>
           urlFetcher.fetchFromDropbox(filename, url)
         }
-      } yield files)
+      } yield files
   }
 }
