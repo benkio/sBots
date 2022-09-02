@@ -1,12 +1,12 @@
 package com.benkio.xahbot
 
-import java.io.File
+import cats.effect.IO
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
-import scala.io.Source
-import cats.effect.IO
-
 import munit.CatsEffectSuite
+
+import java.io.File
+import scala.io.Source
 
 class XahBotSpec extends CatsEffectSuite {
 
@@ -23,13 +23,14 @@ class XahBotSpec extends CatsEffectSuite {
     assert(csvFile.isRight)
     csvFile.fold(
       e => fail("test failed", e),
-      files => assert(botFile.forall(filename => {
-        if (!files.contains(filename)) {
-          println(s"filename: " + filename) 
-          
-        }
-        files.contains(filename)}
-      ))
+      files =>
+        assert(botFile.forall(filename => {
+          if (!files.contains(filename)) {
+            println(s"filename: " + filename)
+
+          }
+          files.contains(filename)
+        }))
     )
   }
 }

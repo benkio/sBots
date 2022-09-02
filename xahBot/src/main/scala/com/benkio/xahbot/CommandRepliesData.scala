@@ -1,14 +1,18 @@
 package com.benkio.xahbot
 
 import cats.Applicative
-import com.benkio.telegrambotinfrastructure.model.{CommandTrigger, MediaFile, RandomSelection, ReplyBundleCommand}
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.MediaFile
+import com.benkio.telegrambotinfrastructure.model.RandomSelection
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 
 object CommandRepliesData {
 
   def values[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand[F](
       trigger = CommandTrigger("ass"),
-      mediafiles = List(MediaFile("xah_Asshole.mp3"),
+      mediafiles = List(
+        MediaFile("xah_Asshole.mp3"),
         MediaFile("xah_CCppSucksStonkyAss.mp3"),
         MediaFile("xah_EmacsLispPainAss.mp3"),
         MediaFile("xah_FakingAss.mp3"),
@@ -21,12 +25,14 @@ object CommandRepliesData {
         MediaFile("xah_StonkyAssSucks.mp3"),
         MediaFile("xah_SuckLessYourAss-001.mp3"),
         MediaFile("xah_SuckLessYourAss.mp3"),
-        MediaFile("xah_YourAss.mp3")),
+        MediaFile("xah_YourAss.mp3")
+      ),
       replySelection = RandomSelection
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("ccpp"),
-      mediafiles = List(MediaFile("xah_CCppFakhead.mp3"),
+      mediafiles = List(
+        MediaFile("xah_CCppFakhead.mp3"),
         MediaFile("xah_CCppJavaPythonPHPJavascriptWorstFak.mp3"),
         MediaFile("xah_CCppSucksStonkyAss.mp3"),
         MediaFile("xah_CFak.mp3"),
@@ -49,7 +55,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("crap"),
-      mediafiles = List(MediaFile("xah_BitmapCrap.mp3"),
+      mediafiles = List(
+        MediaFile("xah_BitmapCrap.mp3"),
         MediaFile("xah_CUnixCrap.mp3"),
         MediaFile("xah_CommonLispCrap.mp3"),
         MediaFile("xah_Crap-001.mp3"),
@@ -84,7 +91,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("emacs"),
-      mediafiles = List(MediaFile("xah_EmacsAlanMackenzieFak.mp3"),
+      mediafiles = List(
+        MediaFile("xah_EmacsAlanMackenzieFak.mp3"),
         MediaFile("xah_EmacsCalculatorShit.mp3"),
         MediaFile("xah_EmacsEliteIdiots.mp3"),
         MediaFile("xah_EmacsFak.mp3"),
@@ -100,7 +108,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("fakhead"),
-      mediafiles = List(MediaFile("xah_AlanMackenzieFakhead.mp3"),
+      mediafiles = List(
+        MediaFile("xah_AlanMackenzieFakhead.mp3"),
         MediaFile("xah_CCppFakhead.mp3"),
         MediaFile("xah_CFakhead-001.mp3"),
         MediaFile("xah_CFakhead.mp3"),
@@ -147,7 +156,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("fak"),
-      mediafiles = List(MediaFile("xah_APIFak.mp3"),
+      mediafiles = List(
+        MediaFile("xah_APIFak.mp3"),
         MediaFile("xah_AlanFak.mp3"),
         MediaFile("xah_AltTabFak.mp3"),
         MediaFile("xah_BitmapFak.mp3"),
@@ -243,7 +253,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("idiocy"),
-      mediafiles = List(MediaFile("xah_BashIdiocy.mp3"),
+      mediafiles = List(
+        MediaFile("xah_BashIdiocy.mp3"),
         MediaFile("xah_CompleteUnixIdiocy.mp3"),
         MediaFile("xah_DesignIdiocy.mp3"),
         MediaFile("xah_ExtremeIdiocy-001.mp3"),
@@ -269,7 +280,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("Idiots"),
-      mediafiles = List(MediaFile("xah_AlanMackenzieIdiot-001.mp3"),
+      mediafiles = List(
+        MediaFile("xah_AlanMackenzieIdiot-001.mp3"),
         MediaFile("xah_AlanMackenzieIdiot.mp3"),
         MediaFile("xah_AllIdiots.mp3"),
         MediaFile("xah_AppleIdiots.mp3"),
@@ -343,7 +355,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("laugh"),
-      mediafiles = List(MediaFile("xah_Laugh-001.mp3"),
+      mediafiles = List(
+        MediaFile("xah_Laugh-001.mp3"),
         MediaFile("xah_Laugh-002.mp3"),
         MediaFile("xah_Laugh-003.mp3"),
         MediaFile("xah_Laugh-004.mp3"),
@@ -377,7 +390,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("linux"),
-      mediafiles = List(MediaFile("xah_FakFakingIdiocyLinux.mp3"),
+      mediafiles = List(
+        MediaFile("xah_FakFakingIdiocyLinux.mp3"),
         MediaFile("xah_FakingLinuxUnixIdiots.mp3"),
         MediaFile("xah_IdiotsLinuxVimEmacsFanaticts.mp3"),
         MediaFile("xah_LaughLinuxFak.mp3"),
@@ -402,7 +416,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("millennial"),
-      mediafiles = List(MediaFile("xah_MillenGenIdiots.mp3"),
+      mediafiles = List(
+        MediaFile("xah_MillenGenIdiots.mp3"),
         MediaFile("xah_MillenialGenerationFak.mp3"),
         MediaFile("xah_MillennialFakhead.mp3"),
         MediaFile("xah_MillennialGenFak.mp3"),
@@ -422,7 +437,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("opensource"),
-      mediafiles = List(MediaFile("xah_FakVivaliOpensourceFakheads.mp3"),
+      mediafiles = List(
+        MediaFile("xah_FakVivaliOpensourceFakheads.mp3"),
         MediaFile("xah_OpenSourceFak.mp3"),
         MediaFile("xah_OpenSourceFak2.mp3"),
         MediaFile("xah_OpenSourceFanaticsFak.mp3"),
@@ -438,7 +454,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("python"),
-      mediafiles = List(MediaFile("xah_CCppJavaPythonPHPJavascriptWorstFak.mp3"),
+      mediafiles = List(
+        MediaFile("xah_CCppJavaPythonPHPJavascriptWorstFak.mp3"),
         MediaFile("xah_FakAll.mp3"),
         MediaFile("xah_GuidoVanRossumFak.mp3"),
         MediaFile("xah_GuidoVanRossumIdiot.mp3"),
@@ -460,7 +477,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("rantcompilation"),
-      mediafiles = List(MediaFile("Xah3.mp3"),
+      mediafiles = List(
+        MediaFile("Xah3.mp3"),
         MediaFile("xah.mp3"),
         MediaFile("xah2.mp3"),
         MediaFile("xah4.mp3"),
@@ -470,7 +488,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("sucks"),
-      mediafiles = List(MediaFile("xah_CCppSucksStonkyAss.mp3"),
+      mediafiles = List(
+        MediaFile("xah_CCppSucksStonkyAss.mp3"),
         MediaFile("xah_ListComprehensionSucks.mp3"),
         MediaFile("xah_MacSucks.mp3"),
         MediaFile("xah_OperaSucks.mp3"),
@@ -484,7 +503,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("unix"),
-      mediafiles = List(MediaFile("xah_CUnixCrap.mp3"),
+      mediafiles = List(
+        MediaFile("xah_CUnixCrap.mp3"),
         MediaFile("xah_CUnixIdiots.mp3"),
         MediaFile("xah_CompleteUnixIdiocy.mp3"),
         MediaFile("xah_FakAll.mp3"),
@@ -529,7 +549,8 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("wtf"),
-      mediafiles = List(MediaFile("xah_NoPictureWhatTheFak.mp3"),
+      mediafiles = List(
+        MediaFile("xah_NoPictureWhatTheFak.mp3"),
         MediaFile("xah_WhatTheFak-001.mp3"),
         MediaFile("xah_WhatTheFak-002.mp3"),
         MediaFile("xah_WhatTheFak-003.mp3"),
@@ -547,8 +568,7 @@ object CommandRepliesData {
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("extra"),
-      mediafiles = List(MediaFile("xah_JesusOMG.mp3")
-      ),
+      mediafiles = List(MediaFile("xah_JesusOMG.mp3")),
       replySelection = RandomSelection
     ),
   )
