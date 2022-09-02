@@ -1,29 +1,36 @@
 package com.benkio.xahbot
 
 import cats.effect.IO
-import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccessSpec
-import com.benkio.telegrambotinfrastructure.model.MediaFile
-import log.effect.LogWriter
-import log.effect.fs2.SyncLogWriter.consoleLog
+import io.chrisdavenport.cormorant._
+import io.chrisdavenport.cormorant.parser._
 import munit.CatsEffectSuite
+
+import java.io.File
+import scala.io.Source
 
 class XahBotSpec extends CatsEffectSuite {
 
-  implicit val log: LogWriter[IO] = consoleLog
-  implicit val resourceAccess     = ResourceAccess.fromResources[IO]
+  test("the csvs should contain all the triggers of the bot") {
+    val listPath   = new File(".").getCanonicalPath + "/xah_list.csv"
+    val csvContent = Source.fromFile(listPath).getLines().mkString("\n")
+    val csvFile = parseComplete(csvContent).flatMap {
+      case CSV.Complete(_, CSV.Rows(rows)) => Right(rows.map(row => row.l.head.x))
+      case _                               => Left(new RuntimeException("Error on parsing the csv"))
+    }
 
-  test("commandRepliesData should never raise an exception when try to open the file in resounces") {
-    val result = XahBot.buildPollingBot[IO, Boolean](bot =>
-      for {
-        commandRepliesData <- bot.commandRepliesDataF
-        result <- commandRepliesData
-          .flatMap(_.mediafiles)
-          .traverse((mf: MediaFile) => ResourceAccessSpec.testFilename(mf.filepath))
-          .map(_.foldLeft(true)(_ && _))
-      } yield result
+    val botFile = CommandRepliesData.values[IO].flatMap(_.mediafiles.map(_.filename))
+
+    assert(csvFile.isRight)
+    csvFile.fold(
+      e => fail("test failed", e),
+      files =>
+        assert(botFile.forall(filename => {
+          if (!files.contains(filename)) {
+            println(s"filename: " + filename)
+
+          }
+          files.contains(filename)
+        }))
     )
-    assertIO(result, true)
   }
 }

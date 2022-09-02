@@ -65,7 +65,11 @@ object Dependencies {
       libs.cormorantParser
     )
 
-  val XahBotDependencies: Seq[ModuleID] = CommonDependencies
+  val XahBotDependencies: Seq[ModuleID] = CommonDependencies ++ Seq(
+    libs.pureConfig,
+    libs.cormorantCore,
+    libs.cormorantParser
+  )
 
   val RichardPHJBensonBotDependencies: Seq[ModuleID] = Seq(
     libs.cormorantCore,

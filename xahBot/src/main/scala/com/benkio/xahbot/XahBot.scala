@@ -8,102 +8,38 @@ import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
+import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.Status
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import telegramium.bots.high._
 
-class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with XahBot[F]
+class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    rAccess: ResourceAccess[F]
+) extends BotSkeletonPolling[F]
+    with XahBot[F] {
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+}
 
-class XahBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/")
+class XahBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess: ResourceAccess[F], path: String = "/")
     extends BotSkeletonWebhook[F](url, path)
-    with XahBot[F]
+    with XahBot[F] {
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+}
 
 trait XahBot[F[_]] extends BotSkeleton[F] {
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] = List(
-    buildRandomReplyBundleCommand(
-      "ass",
-      "Ass",
-    ),
-    buildRandomReplyBundleCommand(
-      "ccpp",
-      "CC++",
-    ),
-    buildRandomReplyBundleCommand(
-      "crap",
-      "Crap",
-    ),
-    buildRandomReplyBundleCommand(
-      "emacs",
-      "Emacs",
-    ),
-    buildRandomReplyBundleCommand(
-      "fakhead",
-      "Fakhead",
-    ),
-    buildRandomReplyBundleCommand(
-      "fak",
-      "Fak",
-    ),
-    buildRandomReplyBundleCommand(
-      "idiocy",
-      "Idiocy",
-    ),
-    buildRandomReplyBundleCommand(
-      "idiot",
-      "Idiots",
-    ),
-    buildRandomReplyBundleCommand(
-      "laugh",
-      "Laugh",
-    ),
-    buildRandomReplyBundleCommand(
-      "linux",
-      "Linux",
-    ),
-    buildRandomReplyBundleCommand(
-      "millennial",
-      "Millennial",
-    ),
-    buildRandomReplyBundleCommand(
-      "opensource",
-      "OpenSource"
-    ),
-    buildRandomReplyBundleCommand(
-      "python",
-      "Python"
-    ),
-    buildRandomReplyBundleCommand(
-      "rantcompilation",
-      "RantCompilation"
-    ),
-    buildRandomReplyBundleCommand(
-      "sucks",
-      "Sucks"
-    ),
-    buildRandomReplyBundleCommand(
-      "unix",
-      "Unix"
-    ),
-    buildRandomReplyBundleCommand(
-      "wtf",
-      "WTF"
-    ),
-    buildRandomReplyBundleCommand(
-      "extra",
-      "Extra"
-    ),
     randomLinkByKeywordReplyBundleF,
     randomLinkReplyBundleF
-  ).sequence[F, ReplyBundleCommand[F]]
+  ).sequence[F, ReplyBundleCommand[F]].map(_ ++ CommandRepliesData.values[F])
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
       log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
-    log.debug("Empty message reply data") *> List.empty.pure[F]
+    log.debug("[XahBot] Empty message reply data") *> List.empty.pure[F]
 
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     ReplyBundleCommand(
@@ -122,19 +58,6 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
         )
       ),
     ).pure[F]
-
-  private def buildRandomReplyBundleCommand(command: String, directory: String)(implicit
-      asyncF: Async[F]
-  ): F[ReplyBundleCommand[F]] =
-    resourceAccess
-      .getResourcesByKind(directory)
-      .use[ReplyBundleCommand[F]](files =>
-        ReplyBundleCommand[F](
-          CommandTrigger(command),
-          files.map(f => MediaFile(f.getPath)),
-          replySelection = RandomSelection
-        ).pure[F]
-      )
 
   private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     ReplyBundleCommand[F](
@@ -169,39 +92,53 @@ object XahBot extends BotOps {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("xah_XahBot.token").map(_.map(_.toChar).mkString)
 
-  def buildCommonBot[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): Resource[F, String] = for {
-    tk                    <- token[F]
-    _                     <- Resource.eval(log.info("[CalandroBot] Delete webook..."))
+  def buildCommonBot[F[_]: Async](
+      httpClient: Client[F]
+  )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] = for {
+    tk     <- token[F]
+    config <- Resource.eval(Config.loadConfig[F])
+    _      <- Resource.eval(log.info(s"XahBot Configuration: $config"))
+    transactor = Transactor.fromDriverManager[F](
+      config.driver,
+      config.url,
+      "",
+      ""
+    )
+    urlFetcher       = UrlFetcher[F](httpClient)
+    dbResourceAccess = DBResourceAccess(transactor, urlFetcher)
+    _                     <- Resource.eval(log.info("[XahBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException("[CalandroBot] The delete webhook request failed: " + deleteWebhookResponse.as[String])
+        new RuntimeException("[XahBot] The delete webhook request failed: " + deleteWebhookResponse.as[String])
       )
     )
-    _ <- Resource.eval(log.info("[CalandroBot] Webhook deleted"))
-  } yield tk
+    _ <- Resource.eval(log.info("[XahBot] Webhook deleted"))
+  } yield (tk, dbResourceAccess)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: XahBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    tk         <- buildCommonBot[F](httpClient)
-  } yield (httpClient, tk)).use(httpClient_tk => {
-    implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")
-    action(new XahBotPolling[F])
+    tk_ra      <- buildCommonBot[F](httpClient)
+  } yield (httpClient, tk_ra._1, tk_ra._2)).use(httpClient_tk_ra => {
+    implicit val api: Api[F] =
+      BotApi(httpClient_tk_ra._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk_ra._2}")
+    action(new XahBotPolling[F](httpClient_tk_ra._3))
   })
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, XahBotWebhook[F]] = for {
-    tk <- buildCommonBot[F](httpClient)
-    baseUrl = s"https://api.telegram.org/bot$tk"
-    path    = s"/$tk"
+    tk_ra <- buildCommonBot[F](httpClient)
+    baseUrl = s"https://api.telegram.org/bot${tk_ra._1}"
+    path    = s"/${tk_ra._1}"
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
     new XahBotWebhook[F](
       url = webhookBaseUrl + path,
+      rAccess = tk_ra._2,
       path = path
     )
   }
