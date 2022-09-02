@@ -50,18 +50,26 @@ object Dependencies {
     libs.telegramiumHigh
   )
 
-  val TelegramBotInfrastructureDependencies: Seq[ModuleID] = CommonDependencies
+  val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
+    CommonDependencies ++ Seq(
+      libs.doobie,
+      libs.sqlite
+    )
 
   val CalandroBotDependencies: Seq[ModuleID] = CommonDependencies
 
-  val ABarberoBotDependencies: Seq[ModuleID] = CommonDependencies
+  val ABarberoBotDependencies: Seq[ModuleID] =
+    CommonDependencies ++ Seq(
+      libs.pureConfig,
+      libs.cormorantCore,
+      libs.cormorantParser
+    )
 
   val XahBotDependencies: Seq[ModuleID] = CommonDependencies
 
   val RichardPHJBensonBotDependencies: Seq[ModuleID] = Seq(
     libs.cormorantCore,
     libs.cormorantParser,
-    libs.doobie,
     libs.pureConfig,
     libs.sqlite
   ) ++ CommonDependencies

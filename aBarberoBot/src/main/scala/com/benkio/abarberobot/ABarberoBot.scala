@@ -9,17 +9,25 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
+import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.Status
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import telegramium.bots.high._
 
-class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with ABarberoBot[F]
+class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    rAccess: ResourceAccess[F]
+) extends BotSkeletonPolling[F]
+    with ABarberoBot[F] {
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+}
 
-class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/")
+class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess: ResourceAccess[F], path: String = "/")
     extends BotSkeletonWebhook[F](url, path)
-    with ABarberoBot[F]
+    with ABarberoBot[F] {
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+}
 
 trait ABarberoBot[F[_]] extends BotSkeleton[F] {
 
@@ -898,8 +906,20 @@ object ABarberoBot extends BotOps {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
 
-  def buildCommonBot[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): Resource[F, String] = for {
-    tk                    <- token[F]
+  def buildCommonBot[F[_]: Async](
+      httpClient: Client[F]
+  )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] = for {
+    tk     <- token[F]
+    config <- Resource.eval(Config.loadConfig[F])
+    _      <- Resource.eval(log.info(s"ABarberoBot Configuration: $config"))
+    transactor = Transactor.fromDriverManager[F](
+      config.driver,
+      config.url,
+      "",
+      ""
+    )
+    urlFetcher       = UrlFetcher[F](httpClient)
+    dbResourceAccess = DBResourceAccess(transactor, urlFetcher)
     _                     <- Resource.eval(log.info("[ABarberoBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
@@ -908,29 +928,31 @@ object ABarberoBot extends BotOps {
       )
     )
     _ <- Resource.eval(log.info("[ABarberoBot] Webhook deleted"))
-  } yield tk
+  } yield (tk, dbResourceAccess)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: ABarberoBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    tk         <- buildCommonBot[F](httpClient)
-  } yield (httpClient, tk)).use(httpClient_tk => {
-    implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")
-    action(new ABarberoBotPolling[F])
+    tk_ra      <- buildCommonBot[F](httpClient)
+  } yield (httpClient, tk_ra._1, tk_ra._2)).use(httpClient_tk_ra => {
+    implicit val api: Api[F] =
+      BotApi(httpClient_tk_ra._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk_ra._2}")
+    action(new ABarberoBotPolling[F](httpClient_tk_ra._3))
   })
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] = for {
-    tk <- buildCommonBot[F](httpClient)
-    baseUrl = s"https://api.telegram.org/bot$tk"
-    path    = s"/$tk"
+    tk_ra <- buildCommonBot[F](httpClient)
+    baseUrl = s"https://api.telegram.org/bot${tk_ra._1}"
+    path    = s"/${tk_ra._1}"
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
     new ABarberoBotWebhook[F](
       url = webhookBaseUrl + path,
+      rAccess = tk_ra._2,
       path = path
     )
   }

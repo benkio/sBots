@@ -1,22 +1,23 @@
-package com.benkio.richardphjbensonbot
+package com.benkio.telegrambotinfrastructure
 
-import cats.effect.Resource
-import scala.io.Source
-import java.io.File
-import com.benkio.richardphjbensonbot.UrlFetcher
-import doobie.Transactor
-import com.benkio.richardphjbensonbot.DBResourceAccess.DBResourceAccess
-import log.effect.LogLevels
 import cats.effect.IO
+import cats.effect.Resource
+import com.benkio.telegrambotinfrastructure.botcapabilities.DBResourceAccess.DBResourceAccess
+import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
+import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
 import log.effect.LogWriter
-import java.sql.DriverManager
+import munit._
+import org.http4s.ember.client._
+
+import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.sql.Connection
+import java.sql.DriverManager
 import scala.io.BufferedSource
-import munit._
-import org.http4s.ember.client._
+import scala.io.Source
 
 trait DBFixture { self: FunSuite =>
 

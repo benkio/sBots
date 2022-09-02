@@ -1,8 +1,7 @@
-package com.benkio.richardphjbensonbot
+package com.benkio.telegrambotinfrastructure.botcapabilities
 
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import doobie._
 import doobie.implicits._
 import log.effect.LogWriter
@@ -22,7 +21,7 @@ object DBResourceAccess {
       log
     )
 
-  private[richardphjbensonbot] class DBResourceAccess[F[_]: Async](
+  private[telegrambotinfrastructure] class DBResourceAccess[F[_]: Async](
       transactor: Transactor[F],
       urlFetcher: UrlFetcher[F],
       log: LogWriter[F]

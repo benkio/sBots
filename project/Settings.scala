@@ -32,7 +32,7 @@ object Settings {
   lazy val TelegramBotInfrastructureSettings = Seq(
     name                := "TelegramBotInfrastructure",
     libraryDependencies := TelegramBotInfrastructureDependencies
-  )
+  ) ++ Defaults.itSettings
 
   lazy val CalandroBotSettings = Seq(
     name                     := "CalandroBot",
@@ -46,7 +46,7 @@ object Settings {
     libraryDependencies      := ABarberoBotDependencies,
     mainClass                := Some("com.benkio.abarberobot.ABarberoBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
+  ) ++ assemblySettings ++ Defaults.itSettings
 
   lazy val RichardPHJBensonBotSettings = Seq(
     name                     := "RichardPHJBensonBot",
