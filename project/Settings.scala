@@ -39,7 +39,7 @@ object Settings {
     libraryDependencies      := CalandroBotDependencies,
     mainClass                := Some("com.benkio.calandrobot.CalandroBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
+  ) ++ assemblySettings ++ Defaults.itSettings
 
   lazy val ABarberoBotSettings = Seq(
     name                     := "ABarberoBot",

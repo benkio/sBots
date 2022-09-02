@@ -25,16 +25,15 @@
 
 **** Move the Data into Resources Directory
 
-     Earch bot contains a ~resources~ folder. You need to
-     uncompress/move the data and put the files in each of the bot's
-     resource folders. Put particular attention to the ~.token~ file
-     contanining the telegram key specific to each bot.
+     Earch bot contains a ~resources~ folder. You need to put there
+     the ~.token~ file contanining the telegram key specific to each
+     bot.
 
-     For the Richard Benson's bot it uses sqlite Database! So you need
+     Each  bot also uses a sqlite Database! So you need
      to provide the path to the database into the ~application.conf~
      or just setup the specific environment variables. No need to put
      the files in resources since those will be fetched from the web
-     via urls
+     via urls.
 
      Read the following section to know how to setup the database
 
@@ -42,19 +41,20 @@
 
      There's a module called ~botDB~, if opportunately configured,
      when launched it applies the migrations and the populate a bot
-     database (Richard's one for now). Just setup the
-     ~application.conf~ correctly with the DB path, see the db in the
-     root of the project, and the location of the csv (tipically the
-     resources of the previous section)
+     database. Just setup the ~application.conf~ correctly with the DB
+     path, see the db in the root of the project, and the location of
+     the ~csv~. There should be a ~csv~ file in the root of each bot
+     module
 
 **** Compile and Test
 
-     Just run the following commands in a shell, at the bot folder
-     level, to check if everything is fine.
+     Just run the following commands in a shell to check if everything
+     is fine.
 
 #+begin_src bash
   sbt compile
-  sbt test:compile
+  sbt Test/compile
+  sbt IntegrationTest/compile
   sbt fix
   sbt test
   sbt IntegrationTest/test
@@ -63,7 +63,7 @@
 *** Run the Bots
 
 **** Long Polling
-       Under windows use the git bash terminal.
+     Under windows use the git bash terminal.
 
    #+begin_src bash
      ./lunch.sh # I know it's lunch not launch :)
@@ -135,7 +135,7 @@
 **** Xah Bot
     - [X] Add a command for a random xah's talk show youtube link
     - [X] Add a command for a xah's talk show by keyword in the title
-    - [ ] Move all the data to the database and use it as richard
+    - [X] Move all the data to the database and use it as richard
 **** Barbero Bot
     - [X] Add a command for a random barbero's talk show youtube link
     - [X] Add a command for a barbero's talk show by keyword in the title
@@ -144,6 +144,6 @@
       - Add a test to ensure it's consistent and up to date with the code
       - Change the command to return a link to github pointing to such file
     - [X] Add a command to check for a specific match, returning the selected response
-    - [ ] Move all the data to the database and use it as richard
+    - [X] Move all the data to the database and use it as richard
 **** CalandroBot
-    - [ ] Move all the data to the database and use it as richard
+    - [X] Move all the data to the database and use it as richard
