@@ -43,9 +43,3 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
   }
 
 }
-
-object ITDBResourceAccessSpec {
-
-  val timeoutSQL =
-    """INSERT INTO timeout (chat_id, timeout_value, last_interaction) VALUES ('1', '15000', '2010-01-01 00:00:01');"""
-}

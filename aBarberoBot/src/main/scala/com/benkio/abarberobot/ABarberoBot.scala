@@ -911,7 +911,7 @@ object ABarberoBot extends BotOps {
   )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] = for {
     tk     <- token[F]
     config <- Resource.eval(Config.loadConfig[F])
-    _      <- Resource.eval(log.info(s"RichardPHJBensonBot Configuration: $config"))
+    _      <- Resource.eval(log.info(s"ABarberoBot Configuration: $config"))
     transactor = Transactor.fromDriverManager[F](
       config.driver,
       config.url,

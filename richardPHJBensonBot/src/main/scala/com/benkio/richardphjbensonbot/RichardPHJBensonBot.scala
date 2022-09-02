@@ -282,7 +282,6 @@ carattere '!':
       tk     <- token[F]
       config <- Resource.eval(Config.loadConfig[F])
       _      <- Resource.eval(log.info(s"RichardPHJBensonBot Configuration: $config"))
-      // ce     <- ExecutionContexts.fixedThreadPool[F](1) // 20 max connections
       transactor = Transactor.fromDriverManager[F](
         config.driver,
         config.url,

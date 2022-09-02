@@ -20,7 +20,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
     EmberClientBuilder.default[IO].build.map(httpClient => UrlFetcher[IO](httpClient))
 
   test("fetch should return the expected url content in a file if the url is valid") {
-    val validUrl = "https://www.dropbox.com/s/mco2gb75ldfurvy/rphjb_MaSgus.mp3?dl=1"
+    val validUrl = "https://www.dropbox.com/s/cy0onu1oq8dyyzs/rphjb_MaSgus.mp3?dl=1"
     val filename = "rphjb_MaSgus.mp3"
 
     val result = for {
