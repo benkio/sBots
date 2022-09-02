@@ -1,39 +1,33 @@
 package com.benkio.calandrobot
 
-import cats.effect._
-import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccessSpec
-import com.benkio.telegrambotinfrastructure.model.MediaFile
-import log.effect.LogWriter
-import log.effect.fs2.SyncLogWriter.consoleLog
+import cats.effect.IO
+import io.chrisdavenport.cormorant._
+import io.chrisdavenport.cormorant.parser._
 import munit.CatsEffectSuite
+
+import java.io.File
+import scala.io.Source
 
 class CalandroBotSpec extends CatsEffectSuite {
 
-  implicit val log: LogWriter[IO] = consoleLog
-  implicit val resourceAccess     = ResourceAccess.fromResources[IO]
+  test("the `cala_list.csv` should contain all the triggers of the bot") {
+    val listPath   = new File(".").getCanonicalPath + "/cala_list.csv"
+    val csvContent = Source.fromFile(listPath).getLines().mkString("\n")
+    val csvFile = parseComplete(csvContent).flatMap {
+      case CSV.Complete(_, CSV.Rows(rows)) => Right(rows.map(row => row.l.head.x))
+      case _                               => Left(new RuntimeException("Error on parsing the csv"))
+    }
 
-  test("commandRepliesData should never raise an exception when try to open the file in resounces") {
-    val result = CalandroBot.buildPollingBot[IO, Boolean](bot =>
-      bot.commandRepliesDataF
-        .flatMap(
-          _.flatMap(_.mediafiles)
-            .traverse((mf: MediaFile) => ResourceAccessSpec.testFilename(mf.filepath))
-            .map(_.foldLeft(true)(_ && _))
-        )
+    val botFile = CalandroBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename)) ++ CalandroBot
+      .commandRepliesData[IO]
+      .flatMap(_.mediafiles.map(_.filename))
+
+    assert(csvFile.isRight)
+    csvFile.fold(
+      e => fail("test failed", e),
+      files => assert(botFile.forall(filename => files.contains(filename)))
     )
 
-    assertIO(result, true)
   }
 
-  test("messageRepliesData should never raise an exception when try to open the file in resounces") {
-    val result = CalandroBot
-      .messageRepliesData[IO]
-      .flatMap(_.mediafiles)
-      .traverse((mf: MediaFile) => ResourceAccessSpec.testFilename(mf.filename))
-      .map(_.foldLeft(true)(_ && _))
-
-    assertIO(result, true)
-  }
 }

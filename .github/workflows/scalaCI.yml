@@ -18,13 +18,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run unit tests
-      run: sbt "telegramBotInfrastructure/test; richardPHJBensonBot/test; aBarberoBot/test; xahBot/test"
+      run: sbt "test"
   itTest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Run Integration tests
-      run: sbt "telegramBotInfrastructure/IntegrationTest/test; richardPHJBensonBot/IntegrationTest/test; aBarberoBot/IntegrationTest/test; xahBot/IntegrationTest/test"
+      run: sbt "IntegrationTest/test"
   dependenciesUpdate:
     runs-on: ubuntu-latest
     if: startsWith( github.head_ref, 'update' )

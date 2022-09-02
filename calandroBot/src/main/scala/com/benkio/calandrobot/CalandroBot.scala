@@ -11,6 +11,7 @@ import com.benkio.telegrambotinfrastructure._
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
+import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.Status
 import org.http4s.client.Client
@@ -20,24 +21,20 @@ import telegramium.bots.high._
 
 import scala.util.Random
 
-class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter] extends BotSkeletonPolling[F] with CalandroBot[F]
+class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    rAccess: ResourceAccess[F]
+) extends BotSkeletonPolling[F]
+    with CalandroBot[F] {
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+}
 
-class CalandroBotWebhook[F[_]: Async: Api: LogWriter](url: String, path: String = "/")
+class CalandroBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess: ResourceAccess[F], path: String = "/")
     extends BotSkeletonWebhook[F](url, path)
-    with CalandroBot[F]
+    with CalandroBot[F] {
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+}
 
 trait CalandroBot[F[_]] extends BotSkeleton[F] {
-
-  private def randomCardReplyBundleF(implicit asyncF: Async[F]): F[ReplyBundleCommand[F]] =
-    resourceAccess
-      .getResourcesByKind("cards")
-      .use[ReplyBundleCommand[F]](files =>
-        ReplyBundleCommand[F](
-          CommandTrigger("randomcard"),
-          files.map(f => MediaFile(f.getPath)),
-          replySelection = RandomSelection
-        ).pure[F]
-      )
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -46,9 +43,7 @@ trait CalandroBot[F[_]] extends BotSkeleton[F] {
     CalandroBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    randomCardReplyBundleF.map(
-      CalandroBot.commandRepliesData[F] :+ _
-    )
+    CalandroBot.commandRepliesData[F].pure[F]
 }
 
 object CalandroBot extends BotOps {
@@ -198,6 +193,19 @@ object CalandroBot extends BotOps {
 
   def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
+      trigger = CommandTrigger("randomcard"),
+      mediafiles = List(
+        MediaFile("cala_CalandraCamiciaGialla.jpg"),
+        MediaFile("cala_CalandraMagliaRossa.jpg"),
+        MediaFile("cala_CazzoDiBudda.jpg"),
+        MediaFile("cala_EvilPencil.jpg"),
+        MediaFile("cala_FattorinoGLS.jpg"),
+        MediaFile("cala_GiamaRhythmLord.jpg"),
+        MediaFile("cala_PorcoLadro.jpg")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleCommand(
       CommandTrigger("porcoladro"),
       List(MediaFile("cala_PorcoLadro.mp3"))
     ),
@@ -239,7 +247,7 @@ object CalandroBot extends BotOps {
     ),
     ReplyBundleCommand(
       CommandTrigger("whawha_short"),
-      List(MediaFile("cala_Wwhaaawhaaa Singolo.mp3"))
+      List(MediaFile("cala_WwhaaawhaaaSingolo.mp3"))
     ),
     ReplyBundleCommand(
       CommandTrigger("daccordissimo"),
@@ -314,8 +322,20 @@ object CalandroBot extends BotOps {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
-  def buildCommonBot[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): Resource[F, String] = for {
-    tk                    <- token[F]
+  def buildCommonBot[F[_]: Async](
+      httpClient: Client[F]
+  )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] = for {
+    tk     <- token[F]
+    config <- Resource.eval(Config.loadConfig[F])
+    _      <- Resource.eval(log.info(s"ABarberoBot Configuration: $config"))
+    transactor = Transactor.fromDriverManager[F](
+      config.driver,
+      config.url,
+      "",
+      ""
+    )
+    urlFetcher       = UrlFetcher[F](httpClient)
+    dbResourceAccess = DBResourceAccess(transactor, urlFetcher)
     _                     <- Resource.eval(log.info("[CalandroBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
@@ -325,31 +345,33 @@ object CalandroBot extends BotOps {
     )
     _ <- Resource.eval(log.info("[CalandroBot] Webhook deleted"))
 
-  } yield tk
+  } yield (tk, dbResourceAccess)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    tk         <- buildCommonBot[F](httpClient)
-  } yield (httpClient, tk))
-    .use(httpClient_tk => {
-      implicit val api: Api[F] = BotApi(httpClient_tk._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk._2}")
-      action(new CalandroBotPolling[F])
+    tk_ra      <- buildCommonBot[F](httpClient)
+  } yield (httpClient, tk_ra._1, tk_ra._2))
+    .use(httpClient_tk_ra => {
+      implicit val api: Api[F] =
+        BotApi(httpClient_tk_ra._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk_ra._2}")
+      action(new CalandroBotPolling[F](httpClient_tk_ra._3))
     })
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, CalandroBotWebhook[F]] = for {
-    tk <- buildCommonBot[F](httpClient)
-    baseUrl = s"https://api.telegram.org/bot$tk"
-    path    = s"/$tk"
+    tk_ra <- buildCommonBot[F](httpClient)
+    baseUrl = s"https://api.telegram.org/bot${tk_ra._1}"
+    path    = s"/${tk_ra._1}"
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
     new CalandroBotWebhook[F](
       url = webhookBaseUrl + path,
-      path = s"/$tk"
+      rAccess = tk_ra._2,
+      path = s"/$tk_ra"
     )
   }
 }

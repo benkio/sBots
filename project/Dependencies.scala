@@ -41,11 +41,14 @@ object Dependencies {
 
   private val CommonDependencies: Seq[ModuleID] = Seq(
     libs.catsEffect,
+    libs.cormorantCore,
+    libs.cormorantParser,
     libs.http4sEmberClient,
     libs.lightbendEmoji,
     libs.logEffects,
     libs.munit,
     libs.munitCatsEffect,
+    libs.pureConfig,
     libs.telegramiumCore,
     libs.telegramiumHigh
   )
@@ -58,25 +61,14 @@ object Dependencies {
 
   val CalandroBotDependencies: Seq[ModuleID] = CommonDependencies
 
-  val ABarberoBotDependencies: Seq[ModuleID] =
+  val ABarberoBotDependencies: Seq[ModuleID] = CommonDependencies
+
+  val XahBotDependencies: Seq[ModuleID] = CommonDependencies
+
+  val RichardPHJBensonBotDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
-      libs.pureConfig,
-      libs.cormorantCore,
-      libs.cormorantParser
+      libs.sqlite
     )
-
-  val XahBotDependencies: Seq[ModuleID] = CommonDependencies ++ Seq(
-    libs.pureConfig,
-    libs.cormorantCore,
-    libs.cormorantParser
-  )
-
-  val RichardPHJBensonBotDependencies: Seq[ModuleID] = Seq(
-    libs.cormorantCore,
-    libs.cormorantParser,
-    libs.pureConfig,
-    libs.sqlite
-  ) ++ CommonDependencies
 
   val MainDependencies: Seq[ModuleID] = Seq(
     libs.catsEffect,
