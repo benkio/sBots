@@ -24,7 +24,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run Integration tests
-      run: sbt "IntegrationTest/test"
+      run: sbt "telegramBotInfrastructure/IntegrationTest/test; richardPHJBensonBot/IntegrationTest/test; aBarberoBot/IntegrationTest/test"
   dependenciesUpdate:
     runs-on: ubuntu-latest
     if: startsWith( github.head_ref, 'update' )
