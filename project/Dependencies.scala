@@ -67,8 +67,8 @@ object Dependencies {
 
   val RichardPHJBensonBotDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
-    libs.sqlite
-  )
+      libs.sqlite
+    )
 
   val MainDependencies: Seq[ModuleID] = Seq(
     libs.catsEffect,
