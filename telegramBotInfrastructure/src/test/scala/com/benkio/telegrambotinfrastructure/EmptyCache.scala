@@ -9,18 +9,18 @@ import scala.concurrent.duration.Duration
 
 class EmptyCache[F[_], V](implicit val F: Sync[F], val config: MemoizationConfig) extends AbstractCache[F, String, V] {
 
-  override protected def logger = Logger.getLogger("EmptyCache")
+  protected override def logger = Logger.getLogger("EmptyCache")
 
-  override protected def doGet(key: String) =
+  protected override def doGet(key: String) =
     F.pure(None)
 
-  override protected def doPut(key: String, value: V, ttl: Option[Duration]) =
+  protected override def doPut(key: String, value: V, ttl: Option[Duration]) =
     F.unit
 
-  override protected def doRemove(key: String) =
+  protected override def doRemove(key: String) =
     F.unit
 
-  override protected val doRemoveAll =
+  protected override val doRemoveAll =
     F.unit
 
   override val close = F.unit
