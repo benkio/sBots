@@ -17,7 +17,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def buildUrlFetcher(): Resource[IO, UrlFetcher[IO]] =
-    EmberClientBuilder.default[IO].build.flatMap(httpClient => UrlFetcher[IO](httpClient))
+    EmberClientBuilder.default[IO].build.map(httpClient => UrlFetcher[IO](httpClient))
 
   test("fetch should return the expected url content in a file if the url is valid") {
     val validUrl = "https://www.dropbox.com/s/cy0onu1oq8dyyzs/rphjb_MaSgus.mp3?dl=1"

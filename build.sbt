@@ -1,5 +1,7 @@
 import Settings._
 
+// import Configs._
+
 name         := "telegramBots"
 organization := "com.benkio"
 scalaVersion := "2.13.8"
