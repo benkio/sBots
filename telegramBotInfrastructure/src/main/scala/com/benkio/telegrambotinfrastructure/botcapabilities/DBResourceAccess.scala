@@ -5,34 +5,35 @@ import cats.implicits._
 import doobie._
 import doobie.implicits._
 import log.effect.LogWriter
+import scalacache._
+import scalacache.caffeine.CaffeineCache
 
 import java.io.File
 import java.nio.file.Files
-import scalacache._
-import scalacache.caffeine.CaffeineCache
+import scala.concurrent.duration._
 
 object DBResourceAccess {
 
   def apply[F[_]: Async](
-    transactor: Transactor[F],
-    urlFetcher: UrlFetcher[F]
+      transactor: Transactor[F],
+      urlFetcher: UrlFetcher[F]
   )(implicit log: LogWriter[F]): F[ResourceAccess[F]] = for {
     dbCacheSingle <- CaffeineCache[F, String, (String, String)]
-    dbCacheList<- CaffeineCache[F, String, List[(String, String)]]
+    dbCacheList   <- CaffeineCache[F, String, List[(String, String)]]
   } yield new DBResourceAccess[F](
-      transactor = transactor,
-      urlFetcher = urlFetcher,
-      log = log,
-      dbCacheSingle = dbCacheSingle,
-      dbCacheList = dbCacheList
-    )
+    transactor = transactor,
+    urlFetcher = urlFetcher,
+    log = log,
+    dbCacheSingle = dbCacheSingle,
+    dbCacheList = dbCacheList
+  )
 
   private[telegrambotinfrastructure] class DBResourceAccess[F[_]: Async](
-    transactor: Transactor[F],
-    urlFetcher: UrlFetcher[F],
-    log: LogWriter[F],
-    dbCacheSingle: Cache[F, String, (String, String)],
-    dbCacheList: Cache[F, String, List[(String, String)]]
+      transactor: Transactor[F],
+      urlFetcher: UrlFetcher[F],
+      log: LogWriter[F],
+      dbCacheSingle: Cache[F, String, (String, String)],
+      dbCacheList: Cache[F, String, List[(String, String)]]
   ) extends ResourceAccess[F] {
 
     def getUrlByName(resourceName: String): Query0[(String, String)] =
@@ -44,7 +45,7 @@ object DBResourceAccess {
     def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       for {
         name_url <- Resource.eval(
-          dbCacheSingle.cachingF(resourceName)(ttl = None)(
+          dbCacheSingle.cachingF(resourceName)(ttl = Some(12.hours))(
             log.info(s"DB fetching $resourceName") *>
               getUrlByName(resourceName).unique.transact(transactor)
           )
@@ -54,7 +55,7 @@ object DBResourceAccess {
     def getResourcesByKind(criteria: String): Resource[F, List[File]] =
       for {
         contents <- Resource.eval(
-          dbCacheList.cachingF(criteria)(ttl = None)(
+          dbCacheList.cachingF(criteria)(ttl = Some(12.hours))(
             getUrlByKind(criteria).stream.compile.toList.transact(transactor)
           )
         )
