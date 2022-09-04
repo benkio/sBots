@@ -104,7 +104,7 @@ object XahBot extends BotOps {
       "",
       ""
     )
-    urlFetcher = UrlFetcher[F](httpClient)
+    urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
     dbResourceAccess      <- Resource.eval(DBResourceAccess(transactor, urlFetcher))
     _                     <- Resource.eval(log.info("[XahBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)

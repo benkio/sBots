@@ -46,8 +46,8 @@ trait DBFixture { self: FunSuite =>
       val transactor = Transactor.fromConnection[IO](conn)
       val resourceAccessResource: Resource[IO, DBResourceAccess[IO]] = for {
         httpClient <- EmberClientBuilder.default[IO].build
-        urlFetcher = UrlFetcher[IO](httpClient)
-        dbCache <- Resource.eval(MemoryCache.ofSingleImmutableMap[IO, String, List[(String, String)]](None))
+        urlFetcher <- Resource.eval(UrlFetcher[IO](httpClient))
+        dbCache    <- Resource.eval(MemoryCache.ofSingleImmutableMap[IO, String, List[(String, String)]](None))
         dbResourceAccess = new DBResourceAccess[IO](
           transactor = transactor,
           urlFetcher = urlFetcher,
