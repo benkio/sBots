@@ -2,7 +2,9 @@ package com.benkio.richardphjbensonbot
 
 import cats.effect._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.{LogLevel, LogLevels, LogWriter}
+import log.effect.LogLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
 
 object RichardPHJBensonBotMainPolling extends IOApp {
 

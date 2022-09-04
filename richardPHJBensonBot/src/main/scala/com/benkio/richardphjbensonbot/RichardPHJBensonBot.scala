@@ -7,8 +7,11 @@ import com.benkio.richardphjbensonbot.Config
 import com.benkio.telegrambotinfrastructure.botcapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.{TextReply, TextTriggerValue, _}
-import com.benkio.telegrambotinfrastructure.{BotOps, _}
+import com.benkio.telegrambotinfrastructure.model.TextReply
+import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.BotOps
+import com.benkio.telegrambotinfrastructure._
 import doobie._
 import log.effect.LogWriter
 import org.http4s.Status

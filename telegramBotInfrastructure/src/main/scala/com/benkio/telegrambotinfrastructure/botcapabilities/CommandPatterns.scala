@@ -1,7 +1,8 @@
 package com.benkio.telegrambotinfrastructure.botcapabilities
 
 import cats.Applicative
-import cats.effect.{Async, Resource}
+import cats.effect.Async
+import cats.effect.Resource
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import log.effect.LogWriter

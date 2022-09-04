@@ -1,6 +1,8 @@
 package com.benkio.main
 
-import cats.effect.{ExitCode, IO, IOApp}
+import cats.effect.ExitCode
+import cats.effect.IO
+import cats.effect.IOApp
 import com.benkio.abarberobot.ABarberoBotMainPolling
 import com.benkio.calandrobot.CalandroBotMainPolling
 import com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling

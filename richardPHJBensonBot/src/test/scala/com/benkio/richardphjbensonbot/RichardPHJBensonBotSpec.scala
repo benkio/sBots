@@ -2,11 +2,13 @@ package com.benkio.richardphjbensonbot
 
 import cats.effect.IO
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.model.{NewMemberTrigger, TextTrigger}
+import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import munit.CatsEffectSuite
-import telegramium.bots.{Chat, Message}
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 import java.io.File
 import scala.io.Source

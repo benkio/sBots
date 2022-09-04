@@ -1,7 +1,10 @@
 package com.benkio.xahbot
 
 import cats.Applicative
-import com.benkio.telegrambotinfrastructure.model.{CommandTrigger, MediaFile, RandomSelection, ReplyBundleCommand}
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.MediaFile
+import com.benkio.telegrambotinfrastructure.model.RandomSelection
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 
 object CommandRepliesData {
 
