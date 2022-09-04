@@ -25,6 +25,7 @@ object Settings {
     assembly / assemblyJarName := name.value + ".jar",
     assembly / assemblyMergeStrategy := {
       case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+      case "application.conf"            => MergeStrategy.concat
       case x                             => MergeStrategy.first
     }
   )
