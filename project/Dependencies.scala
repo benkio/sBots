@@ -12,6 +12,8 @@ object Dependencies {
     val doobie                = "1.0.0-RC2"
     val lightbendEmojiVersion = "1.3.0"
     val logEffects            = "0.16.3"
+    val mules                 = "0.5.0-M1"
+    val mulesHttp4s           = "0.3.0-M1"
     val munit                 = "0.7.29"
     val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.1"
@@ -31,6 +33,8 @@ object Dependencies {
     val flyway            = "org.flywaydb"       % "flyway-core"         % dependenciesVersion.flyway
     val lightbendEmoji    = "com.lightbend"     %% "emoji"               % dependenciesVersion.lightbendEmojiVersion
     val logEffects        = "io.laserdisc"      %% "log-effect-fs2"      % dependenciesVersion.logEffects
+    val mules             = "io.chrisdavenport" %% "mules"               % dependenciesVersion.mules
+    val mulesHttp4s       = "io.chrisdavenport" %% "mules-http4s"        % dependenciesVersion.mulesHttp4s
     val munit             = "org.scalameta"     %% "munit"               % dependenciesVersion.munit     % "it, test"
     val munitCatsEffect = "org.typelevel" %% "munit-cats-effect-3" % dependenciesVersion.munitCatsEffect % "it, test"
     val pureConfig      = "com.github.pureconfig" %% "pureconfig"       % dependenciesVersion.pureConfig
@@ -56,6 +60,8 @@ object Dependencies {
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
       libs.doobie,
+      libs.mules,
+      libs.mulesHttp4s,
       libs.sqlite
     )
 

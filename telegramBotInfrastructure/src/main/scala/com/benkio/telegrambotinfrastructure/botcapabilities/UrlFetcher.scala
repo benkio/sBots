@@ -4,6 +4,8 @@ import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
+import io.chrisdavenport.mules._
+import io.chrisdavenport.mules.http4s._
 import log.effect.LogWriter
 import org.http4s.Method.GET
 import org.http4s._
@@ -12,6 +14,7 @@ import org.http4s.client.middleware.FollowRedirect
 import org.typelevel.ci._
 
 import java.io.File
+import scala.concurrent.duration._
 
 trait UrlFetcher[F[_]] {
 
@@ -20,8 +23,15 @@ trait UrlFetcher[F[_]] {
 }
 
 object UrlFetcher {
-  def apply[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): UrlFetcher[F] =
-    new UrlFetcherImpl[F](httpClient = FollowRedirect(3)(httpClient), log = log)
+  def apply[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): F[UrlFetcher[F]] = for {
+    httpCache <- MemoryCache.ofSingleImmutableMap[F, (Method, Uri), CacheItem](defaultExpiration =
+      TimeSpec.fromDuration(6.hours)
+    )
+    cachedMiddleware = CacheMiddleware.client(httpCache, CacheType.Public)
+  } yield new UrlFetcherImpl[F](
+    httpClient = cachedMiddleware(FollowRedirect(3)(httpClient)),
+    log = log
+  )
 
   final case class UnexpectedDropboxResponse[F[_]](response: Response[F])     extends Throwable
   final case class DropboxLocationHeaderNotFound[F[_]](response: Response[F]) extends Throwable
