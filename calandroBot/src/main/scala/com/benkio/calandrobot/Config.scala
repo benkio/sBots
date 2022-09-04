@@ -18,11 +18,11 @@ object Config {
 
   // Try to load the config from normal application.conf and from main application.conf if fails
   def loadConfig[F[_]: MonadThrow](implicit log: LogWriter[F]): F[Config] =
-    loadConfig(calaDBNamespace).handleErrorWith(err =>
+    loadConfig("main." + calaDBNamespace).handleErrorWith(err =>
       log.error(
-        s"An error occurred loading the calaDB configuration. Ignore if run thorugh main: ${err.getMessage()}"
+        s"An error occurred loading the calaDB configuration from main. Ignore if run thorugh single bot: ${err.getMessage()}"
       ) >>
-        loadConfig[F]("main." + calaDBNamespace)
+        loadConfig[F](calaDBNamespace)
     )
 
   def loadConfig[F[_]: MonadThrow](namespace: String): F[Config] =

@@ -18,11 +18,11 @@ object Config {
 
   // Try to load the config from normal application.conf and from main application.conf if fails
   def loadConfig[F[_]: MonadThrow](implicit log: LogWriter[F]): F[Config] =
-    loadConfig(xahDBNamespace).handleErrorWith(err =>
+    loadConfig("main." + xahDBNamespace).handleErrorWith(err =>
       log.error(
-        s"An error occurred loading the xahDB configuration. Ignore if run thorugh main: ${err.getMessage()}"
+        s"An error occurred loading the xahDB configuration from main. Ignore if run thorugh single bot: ${err.getMessage()}"
       ) >>
-        loadConfig[F]("main." + xahDBNamespace)
+        loadConfig[F](xahDBNamespace)
     )
 
   def loadConfig[F[_]: MonadThrow](namespace: String): F[Config] =
