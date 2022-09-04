@@ -288,9 +288,9 @@ carattere '!':
         "",
         ""
       )
-      urlFetcher       = UrlFetcher[F](httpClient)
-      dbResourceAccess = DBResourceAccess(transactor, urlFetcher)
-      dbTimeout        = DBTimeout(transactor)
+      urlFetcher = UrlFetcher[F](httpClient)
+      dbResourceAccess <- Resource.eval(DBResourceAccess(transactor, urlFetcher))
+      dbTimeout = DBTimeout(transactor)
       _                     <- Resource.eval(log.info("[RichardPHJBensonBot] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _ <- Resource.eval(
