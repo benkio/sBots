@@ -4,8 +4,7 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogLevels
-import log.effect.LogWriter
+import log.effect.{LogLevels, LogWriter}
 import munit.CatsEffectSuite
 import org.http4s.ember.client._
 

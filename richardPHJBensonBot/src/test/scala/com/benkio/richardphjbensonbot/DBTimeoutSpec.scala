@@ -1,8 +1,7 @@
 package com.benkio.richardphjbensonbot
 
 import munit._
-import telegramium.bots.Chat
-import telegramium.bots.Message
+import telegramium.bots.{Chat, Message}
 
 import java.sql.Timestamp
 import java.time.Instant

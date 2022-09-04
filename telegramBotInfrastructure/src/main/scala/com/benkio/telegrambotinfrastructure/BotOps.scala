@@ -1,8 +1,7 @@
 package com.benkio.telegrambotinfrastructure
 
 import cats._
-import cats.effect.Async
-import cats.effect.Resource
+import cats.effect.{Async, Resource}
 import org.http4s._
 import org.http4s.client.Client
 

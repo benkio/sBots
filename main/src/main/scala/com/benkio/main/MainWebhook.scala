@@ -1,17 +1,13 @@
 package com.benkio.main
 
-import cats.effect.ExitCode
-import cats.effect.IO
-import cats.effect.IOApp
-import cats.effect.Resource
+import cats.effect.{ExitCode, IO, IOApp, Resource}
 import cats.implicits._
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.calandrobot.CalandroBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.xahbot.XahBot
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogLevels
-import log.effect.LogWriter
+import log.effect.{LogLevels, LogWriter}
 import org.http4s.ember.client._
 import telegramium.bots.high.WebhookBot
 
