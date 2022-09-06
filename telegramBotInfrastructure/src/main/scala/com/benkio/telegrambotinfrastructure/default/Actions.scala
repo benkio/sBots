@@ -10,10 +10,7 @@ import com.benkio.telegrambotinfrastructure.model._
 import log.effect.LogWriter
 import telegramium.bots.high._
 import telegramium.bots.high.implicits._
-import telegramium.bots.ChatId
-import telegramium.bots.ChatIntId
-import telegramium.bots.InputPartFile
-import telegramium.bots.Message
+import telegramium.bots.{ChatId, ChatIntId, InputPartFile, Message}
 
 trait DefaultActions[F[_]] {
 

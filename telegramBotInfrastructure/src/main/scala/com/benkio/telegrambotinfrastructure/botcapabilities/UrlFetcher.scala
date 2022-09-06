@@ -1,7 +1,6 @@
 package com.benkio.telegrambotinfrastructure.botcapabilities
 
-import cats.effect.Async
-import cats.effect.Resource
+import cats.effect.{Async, Resource}
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import io.chrisdavenport.mules._

@@ -4,8 +4,7 @@ import cats.Applicative
 import cats.effect._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import munit.CatsEffectSuite
-import telegramium.bots.Chat
-import telegramium.bots.Message
+import telegramium.bots.{Chat, Message}
 
 class ReplyBundleSpec extends CatsEffectSuite {
 
