@@ -242,7 +242,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("entrat[oa]".r)
+        RegexTextTriggerValue("come ha fatto a entr(à|are)")
       ),
       List(
         MediaFile("rphjb_ComeHaFattoAEntrare.gif")
@@ -658,7 +658,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("si sente")
+        StringTextTriggerValue("perchè si sente")
       ),
       List(
         MediaFile("rphjb_SiSente.gif")
@@ -666,9 +666,8 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("colpa vostra"),
-        StringTextTriggerValue("pazzo"),
-        RegexTextTriggerValue("(divento|diventare|sono) matto".r)
+        StringTextTriggerValue("per colpa vostra"),
+        RegexTextTriggerValue("(divento|diventare|sono) (matto|pazzo)".r)
       ),
       List(
         MediaFile("rphjb_StoDiventandoPazzo.gif")

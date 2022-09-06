@@ -1061,8 +1061,8 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("timore"),
-        StringTextTriggerValue("paura"),
+        StringTextTriggerValue("c'hai timore"),
+        StringTextTriggerValue("c'hai paura"),
         RegexTextTriggerValue("diri[g]+en[dt]i".r),
       ),
       List(
