@@ -5,6 +5,7 @@ import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.botcapabilities.DBResourceAccess.DBResourceAccess
 import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
 import doobie.Transactor
+import io.chrisdavenport.mules.MemoryCache
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -45,10 +46,12 @@ trait DBFixture { self: FunSuite =>
       val transactor = Transactor.fromConnection[IO](conn)
       val resourceAccessResource: Resource[IO, DBResourceAccess[IO]] = for {
         httpClient <- EmberClientBuilder.default[IO].build
-        urlFetcher = UrlFetcher[IO](httpClient)
+        urlFetcher <- Resource.eval(UrlFetcher[IO](httpClient))
+        dbCache    <- Resource.eval(MemoryCache.ofSingleImmutableMap[IO, String, List[(String, String)]](None))
         dbResourceAccess = new DBResourceAccess[IO](
           transactor = transactor,
           urlFetcher = urlFetcher,
+          dbCache = dbCache,
           log = log
         )
       } yield dbResourceAccess
