@@ -242,7 +242,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("come ha fatto a entr(à|are)")
+        RegexTextTriggerValue("come ha fatto a entr(à|are)".r)
       ),
       List(
         MediaFile("rphjb_ComeHaFattoAEntrare.gif")
