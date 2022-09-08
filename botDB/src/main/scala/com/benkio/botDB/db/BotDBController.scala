@@ -1,9 +1,11 @@
 package com.benkio.botDB.db
 
-import cats.effect.{Resource, Sync}
+import cats.effect.Resource
+import cats.effect.Sync
 import cats.implicits._
 import com.benkio.botDB.db.schema.MediaEntity
-import com.benkio.botDB.{Config, Input}
+import com.benkio.botDB.Config
+import com.benkio.botDB.Input
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import io.chrisdavenport.cormorant.implicits._
 import io.chrisdavenport.cormorant.parser._

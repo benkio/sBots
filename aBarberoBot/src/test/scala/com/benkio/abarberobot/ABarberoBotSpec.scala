@@ -6,7 +6,8 @@ import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import munit.CatsEffectSuite
-import telegramium.bots.{Chat, Message}
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 import java.io.File
 import scala.io.Source

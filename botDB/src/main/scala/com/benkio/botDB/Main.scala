@@ -1,7 +1,9 @@
 package com.benkio.botDB
 
 import cats.effect._
-import com.benkio.botDB.db.{BotDBController, DBMigrator, DatabaseRepository}
+import com.benkio.botDB.db.BotDBController
+import com.benkio.botDB.db.DBMigrator
+import com.benkio.botDB.db.DatabaseRepository
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 
 object Main extends IOApp {

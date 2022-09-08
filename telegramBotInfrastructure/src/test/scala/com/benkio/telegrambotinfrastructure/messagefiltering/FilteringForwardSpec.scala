@@ -2,7 +2,8 @@ package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import munit._
-import telegramium.bots.{Chat, Message}
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 class FilteringForwardSpec extends FunSuite {
   test("FilteringForward.filter should return true if the disableForward is false") {

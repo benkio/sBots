@@ -1,7 +1,8 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import munit._
-import telegramium.bots.{Chat, Message}
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 class MessageOpsSpec extends FunSuite {
 
