@@ -67,6 +67,13 @@ lazy val xahBot =
     .configs(IntegrationTest.extend(Test))
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
+lazy val youtuboAncheIoBot =
+  Project("youtuboAncheIoBot", file("youtuboAncheIoBot"))
+    .settings(Settings.settings: _*)
+    .settings(Settings.YoutuboAncheIoBotSettings: _*)
+    .configs(IntegrationTest.extend(Test))
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+
 lazy val main = project
   .in(file("main"))
   .settings(Settings.settings: _*)

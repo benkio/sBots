@@ -63,6 +63,13 @@ object Settings {
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
+  lazy val YoutuboAncheIoBotSettings = Seq(
+    name                     := "YoutuboAncheIoBot",
+    libraryDependencies      := YoutuboAncheIoBotDependencies,
+    mainClass                := Some("com.benkio.youtuboAncheIobot.YoutuboAncheIoBotMainPolling"),
+    Test / resourceDirectory := (Compile / resourceDirectory).value
+  ) ++ assemblySettings
+
   lazy val MainSettings = Seq(
     name                := "main",
     libraryDependencies := MainDependencies
