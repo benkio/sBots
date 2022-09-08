@@ -29,7 +29,8 @@ lazy val global = project
     calandroBot,
     aBarberoBot,
     richardPHJBensonBot,
-    xahBot
+    xahBot,
+    youtuboAncheIoBot
   )
 
 lazy val telegramBotInfrastructure =
@@ -82,7 +83,8 @@ lazy val main = project
     calandroBot,
     aBarberoBot,
     richardPHJBensonBot,
-    xahBot
+    xahBot,
+    youtuboAncheIoBot
   )
 
 lazy val botDB =

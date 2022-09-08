@@ -2,14 +2,16 @@ package com.benkio.youtuboancheiobot
 
 import cats.effect._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.{LogLevel, LogLevels, LogWriter}
+import log.effect.LogLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
 
 object YoutuboAncheIoBotMainPolling extends IOApp {
 
   private def internalRun(logLevel: LogLevel): IO[ExitCode] = {
     implicit val log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
     YoutuboAncheIoBot
-      .buildPollingBot[IO, Unit]((ab: YoutuboAncheIoBotMainPolling[IO]) => ab.start())
+      .buildPollingBot[IO, Unit]((ab: YoutuboAncheIoBotPolling[IO]) => ab.start())
       .as(ExitCode.Success)
   }
 
