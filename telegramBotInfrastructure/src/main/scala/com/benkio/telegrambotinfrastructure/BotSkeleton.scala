@@ -24,12 +24,12 @@ abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit api: Api[F], l
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
-      _ <- OptionT.liftF(log.trace(s"A message arrived: $msg"))
-      _ <- OptionT.liftF(log.info(s"A message arrived with content: ${msg.text}"))
+      _ <- OptionT.liftF(log.trace(s"$botName: A message arrived: $msg"))
+      _ <- OptionT.liftF(log.info(s"$botName: A message arrived with content: ${msg.text}"))
       _ <- OptionT(botLogic(Async[F], api, log)(msg))
       _ <- OptionT.liftF(postComputation(Sync[F])(msg))
     } yield ()
-    x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
+    x.getOrElseF(log.debug(s"$botName: Input message produced no result: $msg"))
   }
 }
 
@@ -38,13 +38,13 @@ abstract class BotSkeletonWebhook[F[_]: Async](url: String, path: String = "/")(
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
-      _    <- OptionT.liftF(log.trace(s"A message arrived: $msg"))
+      _    <- OptionT.liftF(log.trace(s"$botName: A message arrived: $msg"))
       text <- OptionT.fromOption[F](msg.text)
-      _    <- OptionT.liftF(log.info(s"A message arrived with content: $text"))
+      _    <- OptionT.liftF(log.info(s"$botName: A message arrived with content: $text"))
       _    <- OptionT(botLogic(Async[F], api, log)(msg))
       _    <- OptionT.liftF(postComputation(Sync[F])(msg))
     } yield ()
-    x.getOrElseF(log.debug(s"Input message produced no result: $msg"))
+    x.getOrElseF(log.debug(s"$botName: Input message produced no result: $msg"))
   }
 }
 
@@ -55,6 +55,7 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
   val ignoreMessagePrefix: Option[String]                                 = Some("!")
   val inputTimeout: Option[Duration]                                      = Some(5.minute)
   val disableForward: Boolean                                             = true
+  val botName: String
   def filteringMatchesMessages(implicit applicativeF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_: ReplyBundleMessage[F], _: Message) => applicativeF.pure(true)
   def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = _ => Sync[F].unit
@@ -62,9 +63,9 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
   // Reply to Messages ////////////////////////////////////////////////////////
 
   def messageRepliesDataF(implicit applicativeF: Applicative[F], log: LogWriter[F]): F[List[ReplyBundleMessage[F]]] =
-    log.debug("Empty message reply data") *> List.empty[ReplyBundleMessage[F]].pure[F]
+    log.debug(s"$botName: Empty message reply data") *> List.empty[ReplyBundleMessage[F]].pure[F]
   def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    log.debug("Empty command reply data") *> List.empty[ReplyBundleCommand[F]].pure[F]
+    log.debug(s"$botName: Empty command reply data") *> List.empty[ReplyBundleCommand[F]].pure[F]
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
@@ -93,7 +94,7 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
         } yield result
         commands <- commandMatch
           .traverse(commandReply =>
-            log.info(s"Computing command ${msg.text} matching command reply bundle") *>
+            log.info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>
               ReplyBundle.computeReplyBundle[F](commandReply, msg, Applicative[F].pure(true))
           )
       } yield commands

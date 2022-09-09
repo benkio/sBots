@@ -36,6 +36,8 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess: Reso
 
 trait CalandroBot[F[_]] extends BotSkeleton[F] {
 
+  override val botName: String = "CalandroBot"
+
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
       log: LogWriter[F]

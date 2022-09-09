@@ -35,6 +35,8 @@ class YoutuboAncheIoBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess
 
 trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
 
+  override val botName: String = "YoutuboAncheIoBot"
+
   override val ignoreMessagePrefix: Option[String] = YoutuboAncheIoBot.ignoreMessagePrefix
 
   override def messageRepliesDataF(implicit
