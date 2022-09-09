@@ -29,7 +29,8 @@ lazy val global = project
     calandroBot,
     aBarberoBot,
     richardPHJBensonBot,
-    xahBot
+    xahBot,
+    youtuboAncheIoBot
   )
 
 lazy val telegramBotInfrastructure =
@@ -67,6 +68,13 @@ lazy val xahBot =
     .configs(IntegrationTest.extend(Test))
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
+lazy val youtuboAncheIoBot =
+  Project("youtuboAncheIoBot", file("youtuboAncheIoBot"))
+    .settings(Settings.settings: _*)
+    .settings(Settings.YoutuboAncheIoBotSettings: _*)
+    .configs(IntegrationTest.extend(Test))
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+
 lazy val main = project
   .in(file("main"))
   .settings(Settings.settings: _*)
@@ -75,7 +83,8 @@ lazy val main = project
     calandroBot,
     aBarberoBot,
     richardPHJBensonBot,
-    xahBot
+    xahBot,
+    youtuboAncheIoBot
   )
 
 lazy val botDB =

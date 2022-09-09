@@ -58,6 +58,7 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
 
+  override val botName: String = "RichardPHJBensonBot"
   val dbTimeout: DBTimeout[F]
 
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix

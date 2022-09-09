@@ -31,6 +31,8 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess: Reso
 
 trait ABarberoBot[F[_]] extends BotSkeleton[F] {
 
+  override val botName: String = "ABarberoBot"
+
   override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
 
   override def messageRepliesDataF(implicit

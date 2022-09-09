@@ -71,6 +71,8 @@ object Dependencies {
 
   val XahBotDependencies: Seq[ModuleID] = CommonDependencies
 
+  val YoutuboAncheIoBotDependencies: Seq[ModuleID] = CommonDependencies
+
   val RichardPHJBensonBotDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
       libs.sqlite

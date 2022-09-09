@@ -61,7 +61,14 @@ object Settings {
     libraryDependencies      := XahBotDependencies,
     mainClass                := Some("com.benkio.xahbot.XahBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
+  ) ++ assemblySettings ++ Defaults.itSettings
+
+  lazy val YoutuboAncheIoBotSettings = Seq(
+    name                     := "YoutuboAncheIoBot",
+    libraryDependencies      := YoutuboAncheIoBotDependencies,
+    mainClass                := Some("com.benkio.youtuboAncheIobot.YoutuboAncheIoBotMainPolling"),
+    Test / resourceDirectory := (Compile / resourceDirectory).value
+  ) ++ assemblySettings ++ Defaults.itSettings
 
   lazy val MainSettings = Seq(
     name                := "main",

@@ -30,6 +30,8 @@ class XahBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess: ResourceA
 
 trait XahBot[F[_]] extends BotSkeleton[F] {
 
+  override val botName: String = "XahBot"
+
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] = List(
     randomLinkByKeywordReplyBundleF,
     randomLinkReplyBundleF
