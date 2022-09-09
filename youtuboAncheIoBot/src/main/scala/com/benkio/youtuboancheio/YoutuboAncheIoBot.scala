@@ -414,6 +414,17 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
+        StringTextTriggerValue("molla"),
+        StringTextTriggerValue("ciccione"),
+        StringTextTriggerValue("grassone"),
+        StringTextTriggerValue("ancora non sei morto")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_Molla.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
         StringTextTriggerValue("molto buona")
       ),
       mediafiles = List(
