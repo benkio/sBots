@@ -14,15 +14,15 @@ final case class Config(
 
 object Config {
 
-  val abarDBNamespace = "abarDB"
+  val ytaiDBNamespace = "ytaiDB"
 
   // Try to load the config from normal application.conf and from main application.conf if fails
   def loadConfig[F[_]: MonadThrow](implicit log: LogWriter[F]): F[Config] =
-    loadConfig("main." + abarDBNamespace).handleErrorWith(err =>
+    loadConfig("main." + ytaiDBNamespace).handleErrorWith(err =>
       log.error(
-        s"An error occurred loading the abarDB configuration from main. Ignore if run thorugh single bot: ${err.getMessage()}"
+        s"An error occurred loading the ytaiDB configuration from main. Ignore if run thorugh single bot: ${err.getMessage()}"
       ) >>
-        loadConfig[F](abarDBNamespace)
+        loadConfig[F](ytaiDBNamespace)
     )
 
   def loadConfig[F[_]: MonadThrow](namespace: String): F[Config] =
