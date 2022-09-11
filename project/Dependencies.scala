@@ -13,7 +13,7 @@ object Dependencies {
     val lightbendEmojiVersion = "1.3.0"
     val logEffects            = "0.16.3"
     val mules                 = "0.5.0-M1"
-    val mulesHttp4s           = "0.3.0-M1"
+    val mulesHttp4s           = "0.3.0"
     val munit                 = "0.7.29"
     val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.1"
