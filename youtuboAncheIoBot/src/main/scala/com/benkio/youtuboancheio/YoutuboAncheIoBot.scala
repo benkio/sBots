@@ -494,7 +494,8 @@ object YoutuboAncheIoBot extends BotOps {
         MediaFile("ytai_Occhiolino.gif"),
         MediaFile("ytai_Occhiolino2.gif"),
         MediaFile("ytai_Occhiolino3.gif")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
