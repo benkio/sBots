@@ -540,7 +540,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("schifos(o|!)+".r)
+        RegexTextTriggerValue("schifos(o)+(!)*".r)
       ),
       List(
         MediaFile("rphjb_Schifoso.gif")

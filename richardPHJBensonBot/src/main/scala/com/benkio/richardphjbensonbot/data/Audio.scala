@@ -775,6 +775,15 @@ object Audio {
         MediaFile("rphjb_LucaDiNoia2.mp3"),
       ),
       replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("che schifo!"),
+        RegexTextTriggerValue("che( )?(s)+chifo".r),
+      ),
+      List(
+        MediaFile("rphjb_schifosi4.mp3"),
+      )
     )
   )
 }
