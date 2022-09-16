@@ -782,7 +782,7 @@ object Audio {
         RegexTextTriggerValue("che( )?(s)+chifo".r),
       ),
       List(
-        MediaFile("rphjb_schifosi4.mp3"),
+        MediaFile("rphjb_Schifosi4.mp3"),
       )
     )
   )

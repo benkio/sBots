@@ -212,8 +212,10 @@ object YoutuboAncheIoBot extends BotOps {
         RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r)
       ),
       mediafiles = List(
-        MediaFile("ytai_CheVergogna.gif")
-      )
+        MediaFile("ytai_CheVergogna.gif"),
+        MediaFile("ytai_CheVergogna.mp3"),
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(

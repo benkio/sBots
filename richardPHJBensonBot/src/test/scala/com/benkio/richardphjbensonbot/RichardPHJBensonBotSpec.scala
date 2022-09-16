@@ -112,7 +112,13 @@ carattere '!':
     assert(csvFile.isRight)
     csvFile.fold(
       e => fail("test failed", e),
-      files => assert(botFile.forall(filename => files.contains(filename)))
+      files =>
+        assert(botFile.forall(filename => {
+          if (!files.contains(filename)) {
+            println(s"[ERROR] missing filename: " + filename)
+          }
+          files.contains(filename)
+        }))
     )
 
   }
