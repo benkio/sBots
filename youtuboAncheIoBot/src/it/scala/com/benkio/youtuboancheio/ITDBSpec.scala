@@ -31,6 +31,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .unique
               .transact(transactor)
               .map { case (dbFilename, _) => mp3.filename == dbFilename }
+              .onError(_ => IO.println(s"[ERROR] mp3 missing from the DB: " + mp3))
           )
       )
     } yield checks.foldLeft(true)(_ && _)
@@ -52,6 +53,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 .unique
                 .transact(transactor)
                 .map { case (dbFilename, _) => gif.filename == dbFilename }
+                .onError(_ => IO.println(s"[ERROR] gif missing from the DB: " + gif))
             )
         )
       } yield checks.foldLeft(true)(_ && _)
@@ -74,6 +76,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .unique
               .transact(transactor)
               .map { case (dbFilename, _) => special.filename == dbFilename }
+              .onError(_ => IO.println(s"[ERROR] special missing from the DB: " + special))
           )
       )
     } yield checks.foldLeft(true)(_ && _)
