@@ -8,7 +8,7 @@ object Dependencies {
     val catsEffectVersion     = "3.3.14"
     val catsVersion           = "2.8.0"
     val cormorant             = "0.5.0-M1"
-    val flyway                = "9.2.2"
+    val flyway                = "9.2.3"
     val doobie                = "1.0.0-RC2"
     val lightbendEmojiVersion = "1.3.0"
     val logEffects            = "0.16.3"
@@ -17,9 +17,9 @@ object Dependencies {
     val munit                 = "0.7.29"
     val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.1"
-    val sqlite                = "3.39.2.1"
+    val sqlite                = "3.39.3.0"
     val telegramiumVersion    = "7.62.0"
-    val http4s                = "0.23.15"
+    val http4s                = "0.23.16"
   }
 
   lazy val libs = new {
