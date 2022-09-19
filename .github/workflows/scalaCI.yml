@@ -5,6 +5,10 @@ on:
     branches:
         - master
   pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
 
 jobs:
   lint:

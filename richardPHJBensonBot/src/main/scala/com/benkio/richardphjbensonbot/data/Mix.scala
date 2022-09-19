@@ -54,27 +54,6 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("albero grande"),
-        RegexTextTriggerValue("anche un('| )amplificatore".r),
-      ),
-      List(
-        MediaFile("rphjb_PoesiaRock.mp4"),
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("non sono uno del branco"),
-        StringTextTriggerValue("agende"),
-        StringTextTriggerValue("figli dei figli"),
-        StringTextTriggerValue("quali fiori"),
-        StringTextTriggerValue("diluite le vostre droghe")
-      ),
-      List(
-        MediaFile("rphjb_GerarchieInfernali.mp4"),
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("ti distruggo")
       ),
       List(
@@ -1199,7 +1178,8 @@ object Mix {
         MediaFile("rphjb_MiPareLogico.gif"),
         MediaFile("rphjb_MiPareLogico.mp3"),
         MediaFile("rphjb_MatematiciAnaliticiDiNoia.mp3"),
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -1230,7 +1210,8 @@ object Mix {
       List(
         MediaFile("rphjb_SareteCoglioniVoi.gif"),
         MediaFile("rphjb_SareteCoglioniVoi.mp3")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(

@@ -671,7 +671,35 @@ object Video {
       ),
       List(MediaFile("rphjb_DrogheLeggere.mp4"))
     ),
-    ReplyBundleMessage(TextTrigger(StringTextTriggerValue("peggio cose")), List(MediaFile("rphjb_Venerdi.mp4")))
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("peggio cose")
+      ),
+      List(
+        MediaFile("rphjb_Venerdi.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("albero grande"),
+        RegexTextTriggerValue("anche un('| )amplificatore".r),
+      ),
+      List(
+        MediaFile("rphjb_PoesiaRock.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non sono uno del branco"),
+        StringTextTriggerValue("agende"),
+        StringTextTriggerValue("figli dei figli"),
+        StringTextTriggerValue("quali fiori"),
+        StringTextTriggerValue("diluite le vostre droghe")
+      ),
+      List(
+        MediaFile("rphjb_GerarchieInfernali.mp4"),
+      )
+    ),
   )
 
 }
