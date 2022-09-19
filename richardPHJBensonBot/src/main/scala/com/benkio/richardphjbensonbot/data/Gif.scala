@@ -540,7 +540,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("schifos(o|!)+".r)
+        RegexTextTriggerValue("schifos(o)+(!)*".r)
       ),
       List(
         MediaFile("rphjb_Schifoso.gif")
@@ -961,6 +961,15 @@ object Gif {
       ),
       List(
         MediaFile("rphjb_IlBongo.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("inserirlo su internet"),
+        RegexTextTriggerValue("immagini ama[dt]oriali".r)
+      ),
+      List(
+        MediaFile("rphjb_Internet.gif")
       )
     )
   )

@@ -28,6 +28,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .unique
               .transact(transactor)
               .map { case (dbFilename, _) => file.filename == dbFilename }
+              .onError(_ => IO.println(s"[ERROR] file missing from the DB: " + file))
           )
       )
     } yield checks.foldLeft(true)(_ && _)
