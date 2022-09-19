@@ -3,11 +3,11 @@ package com.benkio.youtuboancheiobot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.CommandPatterns.RandomLinkCommand
-import com.benkio.telegrambotinfrastructure.botcapabilities.CommandPatterns.handleCommandWithInput
 import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.handleCommandWithInput
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import com.lightbend.emoji.ShortCodes.Defaults._
@@ -55,49 +55,17 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
     )
 
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    ReplyBundleCommand(
-      trigger = CommandTrigger("randomshow"),
-      text = Some(
-        TextReply[F](
-          _ =>
-            RandomLinkCommand
-              .selectRandomLinkByKeyword[F](
-                "",
-                resourceAccess,
-                "ytai_LinkSources"
-              )
-              .use(optMessage => Applicative[F].pure(optMessage.toList)),
-          true
-        )
-      ),
-    ).pure[F]
+    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      youtubeLinkSources = "ytai_LinkSources"
+    )
 
   private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("randomshowkeyword"),
-      text = Some(
-        TextReply[F](
-          m =>
-            handleCommandWithInput[F](
-              m,
-              "randomshowkeyword",
-              "YoutuboAncheIoBot",
-              keywords =>
-                RandomLinkCommand
-                  .selectRandomLinkByKeyword[F](
-                    keywords,
-                    resourceAccess,
-                    "ytai_LinkSources"
-                  )
-                  .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
-                    List(v)
-                  }.pure[F]),
-              s"Inserisci una keyword da cercare tra le puntate/shows"
-            ),
-          true
-        )
-      ),
-    ).pure[F]
+    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      botName = botName,
+      youtubeLinkSources = "ytai_LinkSources"
+    )
 
 }
 object YoutuboAncheIoBot extends BotOps {

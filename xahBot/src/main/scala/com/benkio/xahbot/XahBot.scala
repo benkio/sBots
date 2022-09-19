@@ -3,9 +3,9 @@ package com.benkio.xahbot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie.Transactor
@@ -44,49 +44,17 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
     log.debug("[XahBot] Empty message reply data") *> List.empty.pure[F]
 
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    ReplyBundleCommand(
-      trigger = CommandTrigger("randomshow"),
-      text = Some(
-        TextReply[F](
-          _ =>
-            RandomLinkCommand
-              .selectRandomLinkByKeyword[F](
-                "",
-                resourceAccess,
-                "xah_LinkSources"
-              )
-              .use(optMessage => Applicative[F].pure(optMessage.toList)),
-          true
-        )
-      ),
-    ).pure[F]
+    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      youtubeLinkSources = "xah_LinkSources"
+    )
 
   private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("randomshowkeyword"),
-      text = Some(
-        TextReply[F](
-          m =>
-            handleCommandWithInput[F](
-              m,
-              "randomshowkeyword",
-              "XahLeeBot",
-              keywords =>
-                RandomLinkCommand
-                  .selectRandomLinkByKeyword[F](
-                    keywords,
-                    resourceAccess,
-                    "xah_LinkSources"
-                  )
-                  .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
-                    List(v)
-                  }.pure[F]),
-              s"Inserisci una keyword da cercare tra le puntate/shows"
-            ),
-          true
-        )
-      ),
-    ).pure[F]
+    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      botName = botName,
+      youtubeLinkSources = "xah_LinkSources"
+    )
 }
 
 object XahBot extends BotOps {

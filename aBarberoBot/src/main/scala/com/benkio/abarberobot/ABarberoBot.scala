@@ -3,10 +3,10 @@ package com.benkio.abarberobot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie.Transactor
@@ -48,50 +48,17 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
     ).sequence.map(cs => cs ++ ABarberoBot.commandRepliesData[F])
 
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    ReplyBundleCommand(
-      trigger = CommandTrigger("randomshow"),
-      text = Some(
-        TextReply[F](
-          _ =>
-            RandomLinkCommand
-              .selectRandomLinkByKeyword[F](
-                "",
-                resourceAccess,
-                "abar_LinkSources"
-              )
-              .use(optMessage => Applicative[F].pure(optMessage.toList)),
-          true
-        )
-      ),
-    ).pure[F]
+    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      youtubeLinkSources = "abar_LinkSources"
+    )
 
   private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("randomshowkeyword"),
-      text = Some(
-        TextReply[F](
-          m =>
-            handleCommandWithInput[F](
-              m,
-              "randomshowkeyword",
-              "ABarberoBot",
-              keywords =>
-                RandomLinkCommand
-                  .selectRandomLinkByKeyword[F](
-                    keywords,
-                    resourceAccess,
-                    "abar_LinkSources"
-                  )
-                  .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
-                    List(v)
-                  }.pure[F]),
-              s"Inserisci una keyword da cercare tra le puntate/shows"
-            ),
-          true
-        )
-      ),
-    ).pure[F]
-
+    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      botName = botName,
+      youtubeLinkSources = "abar_LinkSources"
+    )
 }
 
 object ABarberoBot extends BotOps {

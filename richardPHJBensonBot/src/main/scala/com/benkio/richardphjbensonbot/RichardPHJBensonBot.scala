@@ -4,12 +4,12 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.richardphjbensonbot.Config
-import com.benkio.telegrambotinfrastructure.botcapabilities.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie._
@@ -75,49 +75,17 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
     )
 
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("randomshow"),
-      text = Some(
-        TextReply[F](
-          _ =>
-            RandomLinkCommand
-              .selectRandomLinkByKeyword[F](
-                "",
-                resourceAccess,
-                "rphjb_LinkSources"
-              )
-              .use(optMessage => Applicative[F].pure(optMessage.toList)),
-          true
-        )
-      ),
-    ).pure[F]
+    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      youtubeLinkSources = "rphjb_LinkSources"
+    )
 
   private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("randomshowkeyword"),
-      text = Some(
-        TextReply[F](
-          m =>
-            handleCommandWithInput[F](
-              m,
-              "randomshowkeyword",
-              "RichardPHJBensonBot",
-              keywords =>
-                RandomLinkCommand
-                  .selectRandomLinkByKeyword[F](
-                    keywords,
-                    resourceAccess,
-                    "rphjb_LinkSources"
-                  )
-                  .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
-                    List(v)
-                  }.pure[F]),
-              s"Inserisci una keyword da cercare tra le puntate/shows"
-            ),
-          true
-        )
-      ),
-    ).pure[F]
+    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      botName = botName,
+      youtubeLinkSources = "rphjb_LinkSources"
+    )
 }
 
 object RichardPHJBensonBot extends BotOps {
@@ -137,27 +105,13 @@ object RichardPHJBensonBot extends BotOps {
       .sorted(ReplyBundle.ordering[F])
       .reverse
 
-  def messageReplyDataStringChunks[F[_]: Applicative]: List[String] = {
-    val (triggers, lastTriggers) = messageRepliesData[F]
-      .map(_.trigger match {
-        case TextTrigger(lt @ _*) => lt.mkString("[", " - ", "]")
-        case _                    => ""
-      })
-      .foldLeft((List.empty[String], "")) { case ((acc, candidate), triggerString) =>
-        if ((candidate ++ triggerString).length > 4090)
-          (acc :+ candidate, triggerString)
-        else (acc, candidate ++ triggerString)
-      }
-    triggers :+ lastTriggers
-  }
-
   def commandRepliesData[F[_]: Applicative](dbTimeout: DBTimeout[F]): List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
       text = Some(
         TextReply[F](
           m => {
-            if (m.chat.`type` == "private") Applicative[F].pure(messageReplyDataStringChunks[F])
+            if (m.chat.`type` == "private") Applicative[F].pure(TriggerListCommand.messageReplyDataStringChunks[F](messageRepliesData[F]))
             else
               Applicative[F].pure(List("NON TE LO PUOI PERMETTERE!!!(puoi usare questo comando solo in chat privata)"))
           },
