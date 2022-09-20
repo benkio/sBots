@@ -1,9 +1,11 @@
 package com.benkio.richardphjbensonbot
 
+import cats.Show
 import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import munit.CatsEffectSuite
@@ -121,5 +123,20 @@ carattere '!':
         }))
     )
 
+  }
+
+  test("the `rphjb_triggers.txt` should contain all the triggers of the bot") {
+    val listPath       = new File(".").getCanonicalPath + "/rphjb_triggers.txt"
+    val triggerContent = Source.fromFile(listPath).getLines().mkString("")
+
+    val botMediaFiles    = RichardPHJBensonBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botTriggersFiles = RichardPHJBensonBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger))
+
+    botMediaFiles.foreach { mediaFileString =>
+      assert(triggerContent.contains(mediaFileString))
+    }
+    botTriggersFiles.foreach { triggerString =>
+      assert(triggerContent.contains(triggerString))
+    }
   }
 }

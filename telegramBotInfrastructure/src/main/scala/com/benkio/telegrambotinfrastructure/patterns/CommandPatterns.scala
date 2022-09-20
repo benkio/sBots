@@ -122,20 +122,17 @@ object CommandPatterns {
         )
       )
 
-    private def messageReplyDataStringChunks[F[_]](mdr: List[ReplyBundleMessage[F]]): List[String] = {
-      val (triggers, lastTriggers) = mdr
-        .map(_.trigger match {
-          case TextTrigger(lt @ _*) => lt.mkString("[", " - ", "]")
-          case _                    => ""
-        })
-        .foldLeft((List.empty[String], "")) { case ((acc, candidate), triggerString) =>
-          if ((candidate ++ triggerString).length > 4090)
-            (acc :+ candidate, triggerString)
-          else (acc, candidate ++ triggerString)
-        }
-      triggers :+ lastTriggers
+    private def contentToChucks(content: List[String]): List[String] = {
+      val (chunks, lastChunk) = content.foldLeft((List.empty[String], "")) { case ((acc, candidate), triggerString) =>
+        if ((candidate ++ triggerString).length > 4090)
+          (acc :+ candidate, triggerString)
+        else (acc, candidate ++ triggerString)
+      }
+      chunks :+ lastChunk
     }
 
+    private def messageReplyDataStringChunks[F[_]](mdr: List[ReplyBundleMessage[F]]): List[String] =
+      contentToChucks(mdr.map(ReplyBundleMessage.prettyPrint))
   }
 
   object TriggerSearchCommand {

@@ -102,7 +102,7 @@ object RichardPHJBensonBot extends BotOps {
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
       F
     ] ++ messageRepliesSpecialData[F])
-      .sorted(ReplyBundle.ordering[F])
+      .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
   def commandRepliesData[F[_]: Applicative](dbTimeout: DBTimeout[F]): List[ReplyBundleCommand[F]] = List(

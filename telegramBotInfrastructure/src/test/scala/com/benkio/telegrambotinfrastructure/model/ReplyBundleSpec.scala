@@ -20,14 +20,15 @@ class ReplyBundleSpec extends CatsEffectSuite {
           case _: TextReply[_] => List(m.copy(text = Some("Text")))
         })
 
+  val inputMediafile: List[MediaFile] = List(
+    Mp3File("audio.mp3"),
+    PhotoFile("picture.jpg"),
+    PhotoFile("picture.png"),
+    GifFile("a.gif"),
+    VideoFile("video.mp4")
+  )
+
   test("computeReplyBundle should return the expected message when the ReplyBundle and Message is provided") {
-    val inputMediafile: List[MediaFile] = List(
-      Mp3File("audio.mp3"),
-      PhotoFile("picture.jpg"),
-      PhotoFile("picture.png"),
-      GifFile("a.gif"),
-      VideoFile("video.mp4")
-    )
 
     val replyBundleInput: ReplyBundleMessage[IO] = ReplyBundleMessage[IO](
       trigger = TextTrigger(
@@ -52,5 +53,25 @@ class ReplyBundleSpec extends CatsEffectSuite {
     assertIO(result.map(_.contains(message.copy(text = Some("Gif")))), true)
     assertIO(result.map(_.contains(message.copy(text = Some("Text")))), true)
     assertIO(result.map(_.contains(message.copy(text = Some("Video")))), true)
+  }
+
+  test("prettyPrint of ReplyBundleMessage should return the expected string") {
+    val replyBundleInput: ReplyBundleMessage[IO] = ReplyBundleMessage[IO](
+      trigger = TextTrigger(
+        StringTextTriggerValue("stringTextTriggerValue"),
+        RegexTextTriggerValue("regexTextTriggerValue".r)
+      ),
+      text = Some(TextReply(_ => IO.pure(List("some text that will be overwritten by the implicit")))),
+      mediafiles = inputMediafile
+    )
+    val result: Array[String] = ReplyBundleMessage.prettyPrint(replyBundleInput).split('\n')
+    assertEquals(result.length, 7)
+    assertEquals(result(0), "--------------------------------------------------")
+    assertEquals(result(1), "audio.mp3                 | stringTextTriggerValue")
+    assertEquals(result(2), "picture.jpg               | regexTextTriggerValue")
+    assertEquals(result(3), "picture.png               | ")
+    assertEquals(result(4), "a.gif                     | ")
+    assertEquals(result(5), "video.mp4                 | ")
+    assertEquals(result(6), "--------------------------------------------------")
   }
 }

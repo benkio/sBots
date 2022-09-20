@@ -664,7 +664,7 @@ object YoutuboAncheIoBot extends BotOps {
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesSpecialData[F])
-      .sorted(ReplyBundle.ordering[F])
+      .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
   def commandRepliesData[
