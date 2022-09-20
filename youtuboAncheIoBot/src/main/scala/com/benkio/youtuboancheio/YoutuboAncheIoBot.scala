@@ -670,20 +670,7 @@ object YoutuboAncheIoBot extends BotOps {
   def commandRepliesData[
       F[_]: Applicative
   ]: List[ReplyBundleCommand[F]] = List(
-    ReplyBundleCommand(
-      trigger = CommandTrigger("triggerlist"),
-      text = Some(
-        TextReply(
-          m => {
-            if (m.chat.`type` == "private")
-              Applicative[F].pure(TriggerListCommand.messageReplyDataStringChunks[F](messageRepliesData[F]))
-            else
-              Applicative[F].pure(List("puoi usare questo comando solo in chat privata"))
-          },
-          false
-        )
-      )
-    ),
+    TriggerListCommand.triggerListReplyBundleCommand[F](messageRepliesData[F]),
     ReplyBundleCommand(
       trigger = CommandTrigger("triggersearch"),
       text = Some(

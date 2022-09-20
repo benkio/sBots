@@ -106,20 +106,7 @@ object RichardPHJBensonBot extends BotOps {
       .reverse
 
   def commandRepliesData[F[_]: Applicative](dbTimeout: DBTimeout[F]): List[ReplyBundleCommand[F]] = List(
-    ReplyBundleCommand(
-      trigger = CommandTrigger("triggerlist"),
-      text = Some(
-        TextReply[F](
-          m => {
-            if (m.chat.`type` == "private")
-              Applicative[F].pure(TriggerListCommand.messageReplyDataStringChunks[F](messageRepliesData[F]))
-            else
-              Applicative[F].pure(List("NON TE LO PUOI PERMETTERE!!!(puoi usare questo comando solo in chat privata)"))
-          },
-          false
-        )
-      )
-    ),
+    TriggerListCommand.triggerListReplyBundleCommand[F](messageRepliesData[F]),
     ReplyBundleCommand(
       trigger = CommandTrigger("triggersearch"),
       text = Some(
