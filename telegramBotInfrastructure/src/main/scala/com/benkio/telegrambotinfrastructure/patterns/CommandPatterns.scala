@@ -24,60 +24,60 @@ object CommandPatterns {
     lazy val random = new Random()
 
     def selectRandomLinkReplyBundleCommand[F[_]: Async](
-        resourceAccess: ResourceAccess[F],
-        youtubeLinkSources: String
+      resourceAccess: ResourceAccess[F],
+      youtubeLinkSources: String
     )(implicit log: LogWriter[F]): F[ReplyBundleCommand[F]] =
       ReplyBundleCommand(
         trigger = CommandTrigger("randomshow"),
         text = Some(
           TextReply[F](
             _ =>
-              selectRandomLinkByKeyword[F](
-                "",
-                resourceAccess,
-                youtubeLinkSources
-              )
-                .use(optMessage => Applicative[F].pure(optMessage.toList)),
+            selectRandomLinkByKeyword[F](
+              "",
+              resourceAccess,
+              youtubeLinkSources
+            )
+              .use(optMessage => Applicative[F].pure(optMessage.toList)),
             true
           )
         ),
       ).pure[F]
 
     def selectRandomLinkByKeywordsReplyBundleCommand[F[_]: Async](
-        resourceAccess: ResourceAccess[F],
-        botName: String,
-        youtubeLinkSources: String
+      resourceAccess: ResourceAccess[F],
+      botName: String,
+      youtubeLinkSources: String
     )(implicit log: LogWriter[F]): F[ReplyBundleCommand[F]] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("randomshowkeyword"),
         text = Some(
           TextReply[F](
             m =>
-              handleCommandWithInput[F](
-                m,
-                "randomshowkeyword",
-                botName,
-                keywords =>
-                  RandomLinkCommand
-                    .selectRandomLinkByKeyword[F](
-                      keywords,
-                      resourceAccess,
-                      youtubeLinkSources
-                    )
-                    .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
-                      List(v)
-                    }.pure[F]),
-                s"Inserisci una keyword da cercare tra le puntate/shows"
-              ),
+            handleCommandWithInput[F](
+              m,
+              "randomshowkeyword",
+              botName,
+              keywords =>
+              RandomLinkCommand
+                .selectRandomLinkByKeyword[F](
+                  keywords,
+                  resourceAccess,
+                  youtubeLinkSources
+                )
+                .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
+                  List(v)
+                }.pure[F]),
+              s"Inserisci una keyword da cercare tra le puntate/shows"
+            ),
             true
           )
         ),
       ).pure[F]
 
     private def selectRandomLinkByKeyword[F[_]: Async](
-        keywords: String,
-        resourceAccess: ResourceAccess[F],
-        youtubeLinkSources: String
+      keywords: String,
+      resourceAccess: ResourceAccess[F],
+      youtubeLinkSources: String
     )(implicit log: LogWriter[F]): Resource[F, Option[String]] = for {
       _           <- Resource.eval(log.info(s"selectRandomLinkByKeyword for $keywords - $youtubeLinkSources"))
       sourceFiles <- resourceAccess.getResourcesByKind(youtubeLinkSources)
@@ -86,26 +86,40 @@ object CommandPatterns {
         acc ++ (('\n'.toByte) +: bs)
       }
       youtubeLinkReplies = Source
-        .fromRawBytes(sourceRawBytes)
-        .getLines()
-        .toList
-        .filter(s =>
-          keywords
-            .split(' ')
-            .map(_.toLowerCase)
-            .forall(k => s.toLowerCase.contains(k))
-        )
+      .fromRawBytes(sourceRawBytes)
+      .getLines()
+      .toList
+      .filter(s =>
+        keywords
+          .split(' ')
+          .map(_.toLowerCase)
+          .forall(k => s.toLowerCase.contains(k))
+      )
       lineSelectedIndex <-
-        if (!youtubeLinkReplies.isEmpty)
-          Resource.eval(Async[F].delay(random.between(0, youtubeLinkReplies.length)))
-        else Resource.pure[F, Int](-1)
+      if (!youtubeLinkReplies.isEmpty)
+      Resource.eval(Async[F].delay(random.between(0, youtubeLinkReplies.length)))
+      else Resource.pure[F, Int](-1)
     } yield if (lineSelectedIndex == -1) None else Some(youtubeLinkReplies(lineSelectedIndex))
   }
 
   object TriggerListCommand {
 
     // TODO: Move the ReplyBundleCommand function over here and replace it in bots
-
+    def triggerListReplyBundleCommand[F[_]](mdr: List[ReplyBundleMessage[F]]): ReplyBundleCommand[F] =
+      ReplyBundleCommand(
+        trigger = CommandTrigger("triggerlist"),
+        text = Some(
+          TextReply(
+            m => {
+              if (m.chat.`type` == "private")
+                Applicative[F].pure(messageReplyDataStringChunks[F](mdr))
+              else
+                Applicative[F].pure(List("puoi usare questo comando solo in chat privata"))
+            },
+            false
+          )
+        )
+      )
     // TODO: Make this private
     def messageReplyDataStringChunks[F[_]](mdr: List[ReplyBundleMessage[F]]): List[String] = {
       val (triggers, lastTriggers) = mdr
@@ -126,11 +140,11 @@ object CommandPatterns {
   object TriggerSearchCommand {}
 
   def handleCommandWithInput[F[_]: Applicative](
-      msg: Message,
-      command: String,
-      botName: String,
-      computation: String => F[List[String]],
-      defaultReply: String
+    msg: Message,
+    command: String,
+    botName: String,
+    computation: String => F[List[String]],
+    defaultReply: String
   ): F[List[String]] =
     msg.text
       .filterNot(t => t.trim == s"/$command" || t.trim == s"/$command@$botName")
