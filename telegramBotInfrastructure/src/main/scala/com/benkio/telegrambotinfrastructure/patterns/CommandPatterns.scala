@@ -5,11 +5,13 @@ import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import log.effect.LogWriter
 import telegramium.bots.Message
 
@@ -136,7 +138,45 @@ object CommandPatterns {
 
   }
 
-  object TriggerSearchCommand {}
+  object TriggerSearchCommand {
+
+    // TODO: Return the closest match on failure
+    def triggerSearchReplyBundleCommand[F[_]: Applicative](
+        botName: String,
+        ignoreMessagePrefix: Option[String],
+        mdr: List[ReplyBundleMessage[F]]
+    ): ReplyBundleCommand[F] =
+      ReplyBundleCommand(
+        trigger = CommandTrigger("triggersearch"),
+        text = Some(
+          TextReply[F](
+            m =>
+              handleCommandWithInput[F](
+                m,
+                "triggersearch",
+                botName,
+                t =>
+                  mdr
+                    .collectFirstSome(replyBundle =>
+                      replyBundle.trigger match {
+                        case TextTrigger(textTriggers @ _*)
+                            if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
+                          Some(textTriggers.toList)
+                        case _ => None
+                      }
+                    )
+                    .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
+                      textTriggers.map(_.toString)
+                    )
+                    .pure[F],
+                """Input Required: Insert the test keyword to check if it's in some bot trigger"""
+              ),
+            false
+          )
+        )
+      )
+
+  }
 
   def handleCommandWithInput[F[_]: Applicative](
       msg: Message,

@@ -4,7 +4,6 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities._
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.BotOps
@@ -31,9 +30,9 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess: Reso
 
 trait ABarberoBot[F[_]] extends BotSkeleton[F] {
 
-  override val botName: String = "ABarberoBot"
-
+  override val botName: String                     = ABarberoBot.botName
   override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
+  val linkSources                                  = "abar_LinkSources"
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -50,20 +49,21 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
   private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     RandomLinkCommand.selectRandomLinkReplyBundleCommand(
       resourceAccess = resourceAccess,
-      youtubeLinkSources = "abar_LinkSources"
+      youtubeLinkSources = linkSources
     )
 
   private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
     RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
       resourceAccess = resourceAccess,
       botName = botName,
-      youtubeLinkSources = "abar_LinkSources"
+      youtubeLinkSources = linkSources
     )
 }
 
 object ABarberoBot extends BotOps {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
+  val botName: String                     = "ABarberoBot"
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
@@ -813,34 +813,10 @@ object ABarberoBot extends BotOps {
 
   def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](messageRepliesData[F]),
-    ReplyBundleCommand(
-      trigger = CommandTrigger("triggersearch"),
-      text = Some(
-        TextReply[F](
-          m =>
-            handleCommandWithInput[F](
-              m,
-              "triggersearch",
-              "ABarberoBot",
-              t =>
-                messageRepliesData[F]
-                  .collectFirstSome(replyBundle =>
-                    replyBundle.trigger match {
-                      case TextTrigger(textTriggers @ _*)
-                          if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
-                        Some(textTriggers.toList)
-                      case _ => None
-                    }
-                  )
-                  .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
-                    textTriggers.map(_.toString)
-                  )
-                  .pure[F],
-              """Input Required: Insert the test keyword to check if it's in some bot trigger"""
-            ),
-          false
-        )
-      )
+    TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
+      botName = botName,
+      ignoreMessagePrefix = ignoreMessagePrefix,
+      mdr = messageRepliesData[F]
     ),
   )
 
@@ -852,7 +828,7 @@ object ABarberoBot extends BotOps {
   )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] = for {
     tk     <- token[F]
     config <- Resource.eval(Config.loadConfig[F])
-    _      <- Resource.eval(log.info(s"ABarberoBot Configuration: $config"))
+    _      <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
     transactor = Transactor.fromDriverManager[F](
       config.driver,
       config.url,
@@ -861,14 +837,14 @@ object ABarberoBot extends BotOps {
     )
     urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
     dbResourceAccess      <- Resource.eval(DBResourceAccess(transactor, urlFetcher))
-    _                     <- Resource.eval(log.info("[ABarberoBot] Delete webook..."))
+    _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException("[ABarberoBot] The delete webhook request failed: " + deleteWebhookResponse.as[String])
+        new RuntimeException(s"[$botName] The delete webhook request failed: " + deleteWebhookResponse.as[String])
       )
     )
-    _ <- Resource.eval(log.info("[ABarberoBot] Webhook deleted"))
+    _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
   } yield (tk, dbResourceAccess)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
