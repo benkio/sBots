@@ -700,6 +700,14 @@ object Video {
         MediaFile("rphjb_GerarchieInfernali.mp4"),
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("brutto vigile")
+      ),
+      List(
+        MediaFile("rphjb_Vigile.mp4"),
+      )
+    ),
   )
 
 }

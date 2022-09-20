@@ -849,7 +849,18 @@ object Mix {
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
         MediaFile("rphjb_Schifosi.gif"),
         MediaFile("rphjb_Schifosi2.gif"),
+        MediaFile("rphjb_Vigile.mp4"),
         MediaFile("rphjb_ConQuestaTecnica.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("schifos(o)+(!)*".r)
+      ),
+      List(
+        MediaFile("rphjb_Schifoso.gif"),
+        MediaFile("rphjb_Vigile.mp4")
       ),
       replySelection = RandomSelection
     ),
