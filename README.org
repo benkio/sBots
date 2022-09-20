@@ -123,15 +123,15 @@
     - [X] Caching of files!!
     - [ ] Add a ~subscribe~ command that shares a random youtube show on the day/hour/frequency specified
     - [ ] Log any crash somewhere (by email??)
+    - [ ] Refactor the `/triggerlist` command:
+      - [ ] Programmatically generate a txt file with the current triggers pretty printed
+      - [ ] Add a test to ensure it's consistent and up to date with the code
+      - [ ] Change the command to return a link to github pointing to such file
 **** Richard Philip Henry John Benson Bot
     - [X] Add all the videos from https://t.me/ilsimposioinfernale
     - [X] Add a command for Random Benson's show youtube link: eg. from the channel Brigate Benson
     - [X] Add a command for a Benson's show by keyword in the title
     - [X] Add a auto reply on the group join sending: /Chi è questa persona scusate, eh?/
-    - [ ] Refactor the `/triggerlist` command:
-      - Programmatically generate a txt file with the current triggers pretty printed
-      - Add a test to ensure it's consistent and up to date with the code
-      - Change the command to return a link to github pointing to such file
     - [X] Add a command to check for a specific match, returning the selected response
     - [ ] Collect statistics on the triggers (on db: specific table) + Add command to see the top 20 matches
     - [ ] Add a trigger that sends ~e levati dai coglioni~ gif everytime someone is banned/kicked/remove from a group
@@ -142,10 +142,6 @@
 **** Barbero Bot
     - [X] Add a command for a random barbero's talk show youtube link
     - [X] Add a command for a barbero's talk show by keyword in the title
-    - [ ] Refactor the `/triggerlist` command:
-      - Programmatically generate a txt file with the current triggers pretty printed
-      - Add a test to ensure it's consistent and up to date with the code
-      - Change the command to return a link to github pointing to such file
     - [X] Add a command to check for a specific match, returning the selected response
     - [X] Move all the data to the database and use it as richard
 **** CalandroBot
