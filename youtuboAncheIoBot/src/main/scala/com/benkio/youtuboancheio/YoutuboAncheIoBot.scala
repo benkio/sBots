@@ -7,6 +7,7 @@ import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.handleCommandWithInput
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
@@ -666,23 +667,6 @@ object YoutuboAncheIoBot extends BotOps {
       .sorted(ReplyBundle.ordering[F])
       .reverse
 
-  def messageReplyDataStringChunks[
-      F[_]: Applicative
-  ]: List[String] = {
-    val (triggers, lastTriggers) = messageRepliesData[F]
-      .map(_.trigger match {
-        case TextTrigger(lt @ _*) => lt.mkString("[", " - ", "]")
-        case _                    => ""
-      })
-      .foldLeft((List.empty[String], "")) { case ((acc, candidate), triggerString) =>
-        if ((candidate ++ triggerString).length > 4090)
-          (acc :+ candidate, triggerString)
-        else
-          (acc, candidate ++ triggerString)
-      }
-    triggers :+ lastTriggers
-  }
-
   def commandRepliesData[
       F[_]: Applicative
   ]: List[ReplyBundleCommand[F]] = List(
@@ -692,7 +676,7 @@ object YoutuboAncheIoBot extends BotOps {
         TextReply(
           m => {
             if (m.chat.`type` == "private")
-              Applicative[F].pure(messageReplyDataStringChunks[F])
+              Applicative[F].pure(TriggerListCommand.messageReplyDataStringChunks[F](messageRepliesData[F]))
             else
               Applicative[F].pure(List("puoi usare questo comando solo in chat privata"))
           },

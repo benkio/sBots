@@ -811,21 +811,6 @@ object ABarberoBot extends BotOps {
       .sorted(ReplyBundle.ordering[F])
       .reverse
 
-  def messageReplyDataStringChunks[F[_]: Applicative]: List[String] = {
-    val (triggers, lastTriggers) = messageRepliesData[F]
-      .map(_.trigger match {
-        case TextTrigger(lt @ _*) => lt.mkString("[", " - ", "]")
-        case _                    => ""
-      })
-      .foldLeft((List.empty[String], "")) { case ((acc, candidate), triggerString) =>
-        if ((candidate ++ triggerString).length > 4090)
-          (acc :+ candidate, triggerString)
-        else
-          (acc, candidate ++ triggerString)
-      }
-    triggers :+ lastTriggers
-  }
-
   def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("triggerlist"),
@@ -833,7 +818,7 @@ object ABarberoBot extends BotOps {
         TextReply(
           m => {
             if (m.chat.`type` == "private")
-              Applicative[F].pure(messageReplyDataStringChunks[F])
+              Applicative[F].pure(TriggerListCommand.messageReplyDataStringChunks[F](messageRepliesData[F]))
             else
               Applicative[F].pure(List("puoi usare questo comando solo in chat privata"))
           },
