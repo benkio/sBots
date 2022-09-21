@@ -4,7 +4,6 @@ import cats.Show
 import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
@@ -34,25 +33,16 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   }
 
   test("triggerlist should return a list of all triggers when called") {
+    val triggerlist = RichardPHJBensonBot
+      .commandRepliesData[IO](null)
+      .filter(_.trigger.command == "triggerlist")
+      .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
+      .mkString("")
     assertEquals(RichardPHJBensonBot.commandRepliesData[IO](null).length, 5)
-    assert(
-      RichardPHJBensonBot
-        .messageRepliesData[IO]
-        .flatMap(
-          _.trigger match {
-            case TextTrigger(lt @ _*) => lt.map(_.toString)
-            case _                    => List.empty[String]
-          }
-        )
-        .forall(s =>
-          RichardPHJBensonBot
-            .commandRepliesData[IO](null)
-            .filter(_.trigger.command == "triggerlist")
-            .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
-            .mkString("\n")
-            .contains(s)
-        )
-    )
+    RichardPHJBensonBot
+      .messageRepliesData[IO]
+      .flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+      .foreach(s => assert(triggerlist.contains(s)))
   }
 
   test("triggerlist command should return the warning message if the input message is not a private chat") {
@@ -127,16 +117,24 @@ carattere '!':
 
   test("the `rphjb_triggers.txt` should contain all the triggers of the bot") {
     val listPath       = new File(".").getCanonicalPath + "/rphjb_triggers.txt"
-    val triggerContent = Source.fromFile(listPath).getLines().mkString("")
+    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
 
-    val botMediaFiles    = RichardPHJBensonBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
-    val botTriggersFiles = RichardPHJBensonBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger))
+    val botMediaFiles = RichardPHJBensonBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botTriggersFiles =
+      RichardPHJBensonBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
     botMediaFiles.foreach { mediaFileString =>
       assert(triggerContent.contains(mediaFileString))
     }
     botTriggersFiles.foreach { triggerString =>
-      assert(triggerContent.contains(triggerString))
+      {
+        val result = triggerContent.contains(triggerString)
+        if (!result) {
+          println(s"triggerString: " + triggerString)
+          println(s"content: " + triggerContent)
+        }
+        assert(result)
+      }
     }
   }
 }

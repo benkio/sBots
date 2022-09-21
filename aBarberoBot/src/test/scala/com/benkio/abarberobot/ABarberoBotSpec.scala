@@ -1,8 +1,9 @@
 package com.benkio.abarberobot
 
+import cats.Show
 import cats.effect.IO
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import munit.CatsEffectSuite
@@ -17,25 +18,16 @@ class ABarberoBotSpec extends CatsEffectSuite {
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
 
   test("triggerlist should return a list of all triggers when called") {
+    val triggerlist: String = ABarberoBot
+      .commandRepliesData[IO]
+      .filter(_.trigger.command == "triggerlist")
+      .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
+      .mkString("\n")
     assertEquals(ABarberoBot.commandRepliesData[IO].length, 2)
-    assert(
-      ABarberoBot
-        .messageRepliesData[IO]
-        .flatMap(
-          _.trigger match {
-            case TextTrigger(lt @ _*) => lt.map(_.toString)
-            case _                    => List.empty[String]
-          }
-        )
-        .forall(s =>
-          ABarberoBot
-            .commandRepliesData[IO]
-            .filter(_.trigger.command == "triggerlist")
-            .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
-            .mkString("\n")
-            .contains(s)
-        )
-    )
+    ABarberoBot
+      .messageRepliesData[IO]
+      .flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+      .foreach(s => assert(triggerlist.contains(s)))
   }
 
   test("triggerlist command should return the warning message if the input message is not a private chat") {
