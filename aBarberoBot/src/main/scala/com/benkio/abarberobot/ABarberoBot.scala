@@ -808,7 +808,7 @@ object ABarberoBot extends BotOps {
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesSpecialData[F])
-      .sorted(ReplyBundle.ordering[F])
+      .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
   def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(

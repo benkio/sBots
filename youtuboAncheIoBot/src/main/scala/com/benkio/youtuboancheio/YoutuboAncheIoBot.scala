@@ -546,7 +546,8 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("silenzio sta per dire qualcosa"),
+        RegexTextTriggerValue("silenzio[,]? silenzio".r),
+        StringTextTriggerValue("sta per dire qualcosa"),
       ),
       mediafiles = List(
         MediaFile("ytai_Silenzio.gif")
@@ -664,7 +665,7 @@ object YoutuboAncheIoBot extends BotOps {
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesSpecialData[F])
-      .sorted(ReplyBundle.ordering[F])
+      .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
   def commandRepliesData[

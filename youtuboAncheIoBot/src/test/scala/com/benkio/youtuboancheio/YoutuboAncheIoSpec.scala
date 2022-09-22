@@ -1,8 +1,9 @@
 package com.benkio.youtuboancheio
 
+import cats.Show
 import cats.effect.IO
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
@@ -18,25 +19,16 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
 
   test("triggerlist should return a list of all triggers when called") {
+    val triggerlist = YoutuboAncheIoBot
+      .commandRepliesData[IO]
+      .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
+      .mkString("")
     assertEquals(YoutuboAncheIoBot.commandRepliesData[IO].length, 2)
-    assert(
-      YoutuboAncheIoBot
-        .messageRepliesData[IO]
-        .flatMap(
-          _.trigger match {
-            case TextTrigger(lt @ _*) => lt.map(_.toString)
-            case _                    => List.empty[String]
-          }
-        )
-        .forall(s =>
-          YoutuboAncheIoBot
-            .commandRepliesData[IO]
-            .filter(_.trigger.command == "triggerlist")
-            .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
-            .mkString("\n")
-            .contains(s)
-        )
-    )
+    YoutuboAncheIoBot
+      .messageRepliesData[IO]
+      .map(mrd => Show[Trigger].show(mrd.trigger))
+      .foreach(s => assert(s.split('\n').forall(triggerlist.contains(_))))
+
   }
 
   test("triggerlist command should return the warning message if the input message is not a private chat") {
@@ -68,4 +60,28 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
     )
 
   }
+
+  test("the `ytai_triggers.txt` should contain all the triggers of the bot") {
+    val listPath       = new File(".").getCanonicalPath + "/ytai_triggers.txt"
+    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
+
+    val botMediaFiles = YoutuboAncheIoBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botTriggersFiles =
+      YoutuboAncheIoBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+
+    botMediaFiles.foreach { mediaFileString =>
+      assert(triggerContent.contains(mediaFileString))
+    }
+    botTriggersFiles.foreach { triggerString =>
+      {
+        val result = triggerContent.contains(triggerString)
+        if (!result) {
+          println(s"triggerString: " + triggerString)
+          println(s"content: " + triggerContent)
+        }
+        assert(result)
+      }
+    }
+  }
+
 }

@@ -1,0 +1,10 @@
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import cats.effect.IO
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
+import java.io._
+
+val input = RichardPHJBensonBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
+
+val pw = new PrintWriter(new File("hello.txt" ))
+pw.write(input)
+pw.close

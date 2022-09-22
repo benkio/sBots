@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import cats.implicits._
 import munit.FunSuite
 
 class ReplySpec extends FunSuite {
@@ -39,5 +40,13 @@ class ReplySpec extends FunSuite {
     ) {
       MediaFile("test.fuck")
     }
+  }
+
+  test("MediaFile show instance should return the expected string") {
+    assertEquals(MediaFile("audio.mp3").show, "audio.mp3")
+    assertEquals(MediaFile("picture.jpg").show, "picture.jpg")
+    assertEquals(MediaFile("picture.png").show, "picture.png")
+    assertEquals(MediaFile("gif.gif").show, "gif.gif")
+    assertEquals(MediaFile("video.mp4").show, "video.mp4")
   }
 }

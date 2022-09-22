@@ -38,6 +38,18 @@ object ReplyBundleMessage {
     matcher = matcher,
     replySelection = replySelection
   )
+
+  def prettyPrint[F[_]](rbm: ReplyBundleMessage[F])(implicit triggerShow: Show[Trigger]): String = {
+    val triggerStrings: List[String]   = triggerShow.show(rbm.trigger).split('\n').toList
+    val mediaFilesString: List[String] = rbm.mediafiles.map(_.show)
+    val result = mediaFilesString
+      .zipAll(triggerStrings, "", "")
+      .map { case (mfs, trs) =>
+        s"${mfs.padTo(25, ' ')} | $trs"
+      }
+      .mkString("\n")
+    ("-" * 50) + s"\n${result}\n" + ("-" * 50) + "\n"
+  }
 }
 
 final case class ReplyBundleCommand[F[_]](
@@ -63,8 +75,8 @@ object ReplyBundleCommand {
 
 object ReplyBundle {
 
-  implicit def ordering[F[_]]: Ordering[ReplyBundle[F]] =
-    Trigger.ordering.contramap(_.trigger)
+  implicit def orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
+    Trigger.orderingInstance.contramap(_.trigger)
 
   private def replyBundleToData[F[_]](replyBundle: ReplyBundle[F], textReplies: List[String], f: Boolean): List[Reply] =
     (textReplies, f) match {

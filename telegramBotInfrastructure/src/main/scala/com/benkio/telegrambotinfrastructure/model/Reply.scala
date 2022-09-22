@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import cats.Show
 import telegramium.bots.Message
 
 sealed trait Reply {
@@ -34,6 +35,8 @@ final case class VideoFile private[model] (filepath: String, replyToMessage: Boo
 }
 
 object MediaFile {
+
+  implicit val showInstance: Show[MediaFile] = Show.show(_.filename)
 
   def apply(filepath: String, replyToMessage: Boolean = false): MediaFile = filepath match {
     case s if s.endsWith(".mp3")                         => Mp3File(s, replyToMessage)
