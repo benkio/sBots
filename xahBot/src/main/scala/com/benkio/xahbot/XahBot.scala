@@ -10,9 +10,11 @@ import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie.Transactor
 import log.effect.LogWriter
-import org.http4s.Status
 import org.http4s.client.Client
 import org.http4s.ember.client._
+import org.http4s.implicits._
+import org.http4s.Status
+import org.http4s.Uri
 import telegramium.bots.high._
 
 class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter](
@@ -22,7 +24,7 @@ class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter](
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
 }
 
-class XahBotWebhook[F[_]: Async: Api: LogWriter](url: String, rAccess: ResourceAccess[F], path: String = "/")
+class XahBotWebhook[F[_]: Async: Api: LogWriter](url: Uri, rAccess: ResourceAccess[F], path: Uri = uri"/")
     extends BotSkeletonWebhook[F](url, path)
     with XahBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
@@ -101,13 +103,14 @@ object XahBot extends BotOps {
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, XahBotWebhook[F]] = for {
-    tk_ra <- buildCommonBot[F](httpClient)
-    baseUrl = s"https://api.telegram.org/bot${tk_ra._1}"
-    path    = s"/${tk_ra._1}"
+    tk_ra          <- buildCommonBot[F](httpClient)
+    baseUrl        <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${tk_ra._1}")))
+    path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${tk_ra._1}")))
+    webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
   } yield {
-    implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
+    implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
     new XahBotWebhook[F](
-      url = webhookBaseUrl + path,
+      url = webhookBaseUri,
       rAccess = tk_ra._2,
       path = path
     )

@@ -12,9 +12,11 @@ import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie._
 import log.effect.LogWriter
-import org.http4s.Status
 import org.http4s.client.Client
 import org.http4s.ember.client._
+import org.http4s.implicits._
+import org.http4s.Status
+import org.http4s.Uri
 import telegramium.bots.Message
 import telegramium.bots.high._
 
@@ -36,11 +38,11 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
-    url: String,
+    uri: Uri,
     rAccess: ResourceAccess[F],
     val dbTimeout: DBTimeout[F],
-    path: String = "/"
-) extends BotSkeletonWebhook[F](url, path)
+    path: Uri = uri"/"
+) extends BotSkeletonWebhook[F](uri, path)
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
   override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
@@ -97,6 +99,8 @@ object RichardPHJBensonBot extends BotOps {
 
   val botName: String                     = "RichardPHJBensonBot"
   val ignoreMessagePrefix: Option[String] = Some("!")
+  val triggerListUri: Uri =
+    uri"https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
@@ -106,7 +110,7 @@ object RichardPHJBensonBot extends BotOps {
       .reverse
 
   def commandRepliesData[F[_]: Applicative](dbTimeout: DBTimeout[F]): List[ReplyBundleCommand[F]] = List(
-    TriggerListCommand.triggerListReplyBundleCommand[F](messageRepliesData[F]),
+    TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -242,13 +246,14 @@ carattere '!':
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
   )(implicit log: LogWriter[F]): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
     botSetup <- buildCommonBot[F](httpClient)
-    baseUrl = s"https://api.telegram.org/bot${botSetup.token}"
-    path    = s"/${botSetup.token}"
+    baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
+    path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
+    webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
   } yield {
-    implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl)
+    implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
     new RichardPHJBensonBotWebhook[F](
-      url = webhookBaseUrl + path,
-      path = s"/${botSetup.token}",
+      uri = webhookBaseUri,
+      path = path,
       rAccess = botSetup.resourceAccess,
       dbTimeout = botSetup.dbTimeout
     )

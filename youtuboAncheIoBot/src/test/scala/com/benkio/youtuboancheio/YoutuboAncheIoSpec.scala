@@ -18,29 +18,18 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
 
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
 
-  test("triggerlist should return a list of all triggers when called") {
-    val triggerlist = YoutuboAncheIoBot
+  test("triggerlist should return the link to the trigger txt file") {
+    val triggerlistUrl = YoutuboAncheIoBot
       .commandRepliesData[IO]
+      .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("")
     assertEquals(YoutuboAncheIoBot.commandRepliesData[IO].length, 2)
-    YoutuboAncheIoBot
-      .messageRepliesData[IO]
-      .map(mrd => Show[Trigger].show(mrd.trigger))
-      .foreach(s => assert(s.split('\n').forall(triggerlist.contains(_))))
-
-  }
-
-  test("triggerlist command should return the warning message if the input message is not a private chat") {
-    val nonPrivateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "group"))
-    val actual = YoutuboAncheIoBot
-      .commandRepliesData[IO]
-      .filter(_.trigger.command == "triggerlist")
-      .flatTraverse(_.text.text(nonPrivateTestMessage))
-    assertIO(
-      actual,
-      List("puoi usare questo comando solo in chat privata")
+    assertEquals(
+      triggerlistUrl,
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/youtuboAncheIoBot/ytai_triggers.txt"
     )
+
   }
 
   test("the `ytai_list.csv` should contain all the triggers of the bot") {
