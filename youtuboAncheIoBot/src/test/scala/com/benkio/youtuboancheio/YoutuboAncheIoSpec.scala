@@ -60,4 +60,28 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
     )
 
   }
+
+  test("the `ytai_triggers.txt` should contain all the triggers of the bot") {
+    val listPath       = new File(".").getCanonicalPath + "/ytai_triggers.txt"
+    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
+
+    val botMediaFiles = YoutuboAncheIoBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botTriggersFiles =
+      YoutuboAncheIoBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+
+    botMediaFiles.foreach { mediaFileString =>
+      assert(triggerContent.contains(mediaFileString))
+    }
+    botTriggersFiles.foreach { triggerString =>
+      {
+        val result = triggerContent.contains(triggerString)
+        if (!result) {
+          println(s"triggerString: " + triggerString)
+          println(s"content: " + triggerContent)
+        }
+        assert(result)
+      }
+    }
+  }
+
 }

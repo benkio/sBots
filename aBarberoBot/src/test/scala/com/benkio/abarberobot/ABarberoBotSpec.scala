@@ -59,4 +59,28 @@ class ABarberoBotSpec extends CatsEffectSuite {
     )
 
   }
+
+  test("the `abar_triggers.txt` should contain all the triggers of the bot") {
+    val listPath       = new File(".").getCanonicalPath + "/abar_triggers.txt"
+    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
+
+    val botMediaFiles = ABarberoBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botTriggersFiles =
+      ABarberoBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+
+    botMediaFiles.foreach { mediaFileString =>
+      assert(triggerContent.contains(mediaFileString))
+    }
+    botTriggersFiles.foreach { triggerString =>
+      {
+        val result = triggerContent.contains(triggerString)
+        if (!result) {
+          println(s"triggerString: " + triggerString)
+          println(s"content: " + triggerContent)
+        }
+        assert(result)
+      }
+    }
+  }
+
 }

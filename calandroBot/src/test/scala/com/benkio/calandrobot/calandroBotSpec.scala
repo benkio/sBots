@@ -1,6 +1,9 @@
 package com.benkio.calandrobot
 
+import cats.Show
 import cats.effect.IO
+import cats.implicits._
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import munit.CatsEffectSuite
@@ -30,4 +33,26 @@ class CalandroBotSpec extends CatsEffectSuite {
 
   }
 
+  test("the `cala_triggers.txt` should contain all the triggers of the bot") {
+    val listPath       = new File(".").getCanonicalPath + "/cala_triggers.txt"
+    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
+
+    val botMediaFiles = CalandroBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botTriggersFiles =
+      CalandroBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+
+    botMediaFiles.foreach { mediaFileString =>
+      assert(triggerContent.contains(mediaFileString))
+    }
+    botTriggersFiles.foreach { triggerString =>
+      {
+        val result = triggerContent.contains(triggerString)
+        if (!result) {
+          println(s"triggerString: " + triggerString)
+          println(s"content: " + triggerContent)
+        }
+        assert(result)
+      }
+    }
+  }
 }
