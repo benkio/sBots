@@ -39,23 +39,12 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("")
     assertEquals(RichardPHJBensonBot.commandRepliesData[IO](null).length, 5)
-    RichardPHJBensonBot
-      .messageRepliesData[IO]
-      .flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
-      .foreach(s => assert(triggerlist.contains(s)))
-  }
-
-  test("triggerlist command should return the warning message if the input message is not a private chat") {
-    val nonPrivateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "group"))
-    val actual = RichardPHJBensonBot
-      .commandRepliesData[IO](null)
-      .filter(_.trigger.command == "triggerlist")
-      .flatTraverse(_.text.text(nonPrivateTestMessage))
-    assertIO(
-      actual,
-      List("puoi usare questo comando solo in chat privata")
+    assertEquals(
+      triggerlist,
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
     )
   }
+
   test("instructions command should return the expected message") {
     val actual = RichardPHJBensonBot
       .commandRepliesData[IO](null)

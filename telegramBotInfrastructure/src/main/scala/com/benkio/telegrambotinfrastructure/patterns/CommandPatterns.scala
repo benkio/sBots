@@ -13,6 +13,7 @@ import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import log.effect.LogWriter
+import org.http4s.Uri
 import telegramium.bots.Message
 
 import java.nio.file.Files
@@ -106,33 +107,16 @@ object CommandPatterns {
 
   object TriggerListCommand {
 
-    def triggerListReplyBundleCommand[F[_]: Applicative](mdr: List[ReplyBundleMessage[F]]): ReplyBundleCommand[F] =
+    def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
         text = Some(
           TextReply(
-            m => {
-              if (m.chat.`type` == "private")
-                Applicative[F].pure(messageReplyDataStringChunks[F](mdr))
-              else
-                Applicative[F].pure(List("puoi usare questo comando solo in chat privata"))
-            },
-            false
+            _ => Applicative[F].pure(List(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")),
+            true
           )
         )
       )
-
-    private def contentToChucks(content: List[String]): List[String] = {
-      val (chunks, lastChunk) = content.foldLeft((List.empty[String], "")) { case ((acc, candidate), triggerString) =>
-        if ((candidate ++ triggerString).length > 4090)
-          (acc :+ candidate, triggerString)
-        else (acc, candidate ++ triggerString)
-      }
-      chunks :+ lastChunk
-    }
-
-    private def messageReplyDataStringChunks[F[_]](mdr: List[ReplyBundleMessage[F]]): List[String] =
-      contentToChucks(mdr.map(ReplyBundleMessage.prettyPrint))
   }
 
   object TriggerSearchCommand {

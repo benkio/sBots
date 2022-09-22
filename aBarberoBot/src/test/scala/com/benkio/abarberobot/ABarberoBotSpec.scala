@@ -24,21 +24,9 @@ class ABarberoBotSpec extends CatsEffectSuite {
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("\n")
     assertEquals(ABarberoBot.commandRepliesData[IO].length, 2)
-    ABarberoBot
-      .messageRepliesData[IO]
-      .flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
-      .foreach(s => assert(triggerlist.contains(s)))
-  }
-
-  test("triggerlist command should return the warning message if the input message is not a private chat") {
-    val nonPrivateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "group"))
-    val actual = ABarberoBot
-      .commandRepliesData[IO]
-      .filter(_.trigger.command == "triggerlist")
-      .flatTraverse(_.text.text(nonPrivateTestMessage))
-    assertIO(
-      actual,
-      List("puoi usare questo comando solo in chat privata")
+    assertEquals(
+      triggerlist,
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
     )
   }
 
