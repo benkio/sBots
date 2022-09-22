@@ -558,7 +558,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("si va finchè si va"),
+        RegexTextTriggerValue("si v[àa] finch[eé] si v[aà]".r),
         StringTextTriggerValue("quando non si potrà andare più"),
         StringTextTriggerValue("è tanto facile")
       ),
