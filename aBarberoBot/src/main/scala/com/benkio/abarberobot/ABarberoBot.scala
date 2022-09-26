@@ -390,7 +390,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("c[a]+[z]+[o]+".r)
+        RegexTextTriggerValue("c[a]{2,}[z]+[o]+".r)
       ),
       List(
         MediaFile("abar_Cazzo.mp3")
