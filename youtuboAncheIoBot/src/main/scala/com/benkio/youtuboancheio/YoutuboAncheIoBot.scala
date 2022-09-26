@@ -621,7 +621,8 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("zenzero")
+        StringTextTriggerValue("zenzero"),
+        StringTextTriggerValue("mia risposta")
       ),
       mediafiles = List(
         MediaFile("ytai_Zenzero.gif")
