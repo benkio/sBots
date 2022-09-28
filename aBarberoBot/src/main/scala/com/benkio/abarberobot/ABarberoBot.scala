@@ -71,8 +71,68 @@ object ABarberoBot extends BotOps {
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("pestifero"),
+        StringTextTriggerValue("kimono")
+      ),
+      List(
+        MediaFile("abar_KimonoMaledetto.mp3"),
+        MediaFile("abar_KimonoStregato.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("particelle cadaveriche")
+      ),
+      List(
+        MediaFile("abar_ParticelleCadaveriche.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("avrebbe (mai )?immaginato".r)
+      ),
+      List(
+        MediaFile("abar_NessunoAvrebbeImmaginato.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("mortalit[aà]".r)
+      ),
+      List(
+        MediaFile("abar_Mortalita.mp3")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("carta"),
+        StringTextTriggerValue("legno leggero")
+      ),
+      List(
+        MediaFile("abar_LegnoLeggeroCarta.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("stregato")
+      ),
+      List(
+        MediaFile("abar_KimonoStregato.mp3")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
         StringTextTriggerValue("maledetto")
+      ),
+      List(
+        MediaFile("abar_Pestifero.mp3"),
+        MediaFile("abar_KimonoMaledetto.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("pestifero")
       ),
       List(
         MediaFile("abar_Pestifero.mp3")

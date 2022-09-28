@@ -1,10 +1,25 @@
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import cats.effect.IO
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
+import com.benkio.abarberobot.ABarberoBot
 import java.io._
+import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
+import com.benkio.calandrobot.CalandroBot
 
-val input = RichardPHJBensonBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
+val inputRichardPHJBenson = RichardPHJBensonBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
+val inputBarbero = ABarberoBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
+val inputYoutuboAncheIo = YoutuboAncheIoBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
+val inputCalandro = CalandroBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
 
-val pw = new PrintWriter(new File("hello.txt" ))
-pw.write(input)
-pw.close
+val pwRichard = new PrintWriter(new File("rphjb_triggers.txt"))
+pwRichard.write(inputRichardPHJBenson)
+pwRichard.close
+val pwBarbero = new PrintWriter(new File("abar_triggers.txt"))
+pwBarbero.write(inputBarbero)
+pwBarbero.close
+val pwYoutubo = new PrintWriter(new File("ytai_triggers.txt"))
+pwYoutubo.write(inputYoutuboAncheIo)
+pwYoutubo.close
+val pwCalandro = new PrintWriter(new File("cala_triggers.txt" ))
+pwCalandro.write(inputCalandro)
+pwCalandro.close

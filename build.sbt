@@ -18,20 +18,20 @@ addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
 
 // PROJECTS
 
-lazy val global = project
-  .in(file("."))
-  .settings(Settings.settings: _*)
-  .configs(IntegrationTest.extend(Test))
-  .aggregate(
-    main,
-    botDB,
-    telegramBotInfrastructure,
-    calandroBot,
-    aBarberoBot,
-    richardPHJBensonBot,
-    xahBot,
-    youtuboAncheIoBot
-  )
+lazy val bots =
+  Project("bots", file("."))
+    .settings(Settings.settings: _*)
+    .configs(IntegrationTest.extend(Test))
+    .aggregate(
+      main,
+      botDB,
+      telegramBotInfrastructure,
+      calandroBot,
+      aBarberoBot,
+      richardPHJBensonBot,
+      xahBot,
+      youtuboAncheIoBot
+    )
 
 lazy val telegramBotInfrastructure =
   Project("telegramBotInfrastructure", file("telegramBotInfrastructure"))

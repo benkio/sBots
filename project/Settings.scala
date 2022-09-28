@@ -13,7 +13,7 @@ object Settings {
     publishMavenStyle := true,
     semanticdbEnabled := true,
     semanticdbCompilerPlugin := {
-      ("org.scalameta" % "semanticdb-scalac" % "4.4.32")
+      ("org.scalameta" % "semanticdb-scalac" % "4.5.13")
         .cross(CrossVersion.full)
     },
     fork := true,

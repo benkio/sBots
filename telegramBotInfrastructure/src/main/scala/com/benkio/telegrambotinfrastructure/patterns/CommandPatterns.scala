@@ -89,7 +89,7 @@ object CommandPatterns {
         acc ++ (('\n'.toByte) +: bs)
       }
       youtubeLinkReplies = Source
-        .fromRawBytes(sourceRawBytes)
+        .fromBytes(sourceRawBytes)
         .getLines()
         .toList
         .filter(s =>
