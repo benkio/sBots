@@ -1127,7 +1127,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("ratti"),
+        RegexTextTriggerValue("\\bratti\\b".r),
         StringTextTriggerValue("topi")
       ),
       List(
