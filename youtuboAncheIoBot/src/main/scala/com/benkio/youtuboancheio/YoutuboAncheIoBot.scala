@@ -77,8 +77,16 @@ object YoutuboAncheIoBot extends BotOps {
   val triggerListUri: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/youtuboAncheIoBot/ytai_triggers.txt"
 
   def messageRepliesAudioData[
-      F[_] // : Applicative
+      F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("non vi costa nulla")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_Donazioni.mp3")
+      ),
+    )
   )
 
   def messageRepliesGifData[
@@ -238,14 +246,6 @@ object YoutuboAncheIoBot extends BotOps {
       ),
       mediafiles = List(
         MediaFile("ytai_Culetto.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("donazioni")
-      ),
-      mediafiles = List(
-        MediaFile("ytai_Donazioni.gif")
       )
     ),
     ReplyBundleMessage(
@@ -413,15 +413,6 @@ object YoutuboAncheIoBot extends BotOps {
       ),
       mediafiles = List(
         MediaFile("ytai_MonoporzioniTiramisu.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("a me niete va bene"),
-        StringTextTriggerValue("non mi va bene niente")
-      ),
-      mediafiles = List(
-        MediaFile("ytai_NienteVaBene.gif")
       )
     ),
     ReplyBundleMessage(
@@ -663,6 +654,27 @@ object YoutuboAncheIoBot extends BotOps {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("donazioni")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_Donazioni.gif"),
+        MediaFile("ytai_Donazioni.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("a me niete va bene"),
+        StringTextTriggerValue("non mi va bene niente")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_NienteVaBene.gif"),
+        MediaFile("ytai_NienteVaBene.mp3"),
+      ),
+      replySelection = RandomSelection
+    )
   )
 
   def messageRepliesData[
