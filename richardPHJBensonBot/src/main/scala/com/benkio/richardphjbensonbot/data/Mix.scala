@@ -1245,6 +1245,19 @@ object Mix {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("giuda"),
+        StringTextTriggerValue("chi è cristo"),
+        StringTextTriggerValue("si è fatto fregare"),
+        StringTextTriggerValue("bacio di un frocio"),
+      ),
+      List(
+        MediaFile("rphjb_ChiECristo.mp3"),
+        MediaFile("rphjb_GiudaFrocio.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }
