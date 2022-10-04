@@ -502,7 +502,8 @@ object Mix {
       List(
         MediaFile("rphjb_MaCheCazzoStoDicendo.mp3"),
         MediaFile("rphjb_MaCheCazzoStoDicendo.mp4"),
-        MediaFile("rphjb_MaCheCazzoStoDicendo.gif")
+        MediaFile("rphjb_MaCheCazzoStoDicendo.gif"),
+        MediaFile("rphjb_IlMartel.gif")
       ),
       replySelection = RandomSelection
     ),

@@ -506,11 +506,13 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue(" metal")
+        RegexTextTriggerValue("\\bmetal\\b".r)
       ),
       List(
-        MediaFile("rphjb_Metal.gif")
-      )
+        MediaFile("rphjb_Metal.gif"),
+        MediaFile("rphjb_IlMartel.gif")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -962,6 +964,14 @@ object Gif {
       ),
       List(
         MediaFile("rphjb_Internet.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("decido io"),
+      ),
+      List(
+        MediaFile("rphjb_DecidoIo.gif")
       )
     )
   )
