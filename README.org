@@ -2,24 +2,18 @@
 
   A repository containing the bots developed in Scala.
 
-** Installation
-
-   Details regarding the installation and run of the bots
-
-**** Software
+** Required Software
     - [[https://git-scm.com/][git]]
     - [[https://www.scala-sbt.org/][sbt - Scala Build Tool]]
     - [[https://www.scala-lang.org/][scala]]
 
-*** Installation
-
-**** Clone the Repository
+** Clone the Repository
 
 #+begin_src bash
   git clone git@github.com:benkio/myTelegramBot.git
 #+end_src
 
-**** Move the Data into Resources Directory
+** Add Data to the Bots
 
      Earch bot contains a ~resources~ folder. You need to put there
      the ~.token~ file contanining the telegram key specific to each
@@ -33,7 +27,9 @@
 
      Read the following section to know how to setup the database
 
-***** Database Setup
+     Check [[https://youtu.be/T-AfAvJLSJE][this video]] for a complete rundown on how to add files to a bot.
+     
+** Database Setup
 
      There's a module called ~botDB~, if opportunately configured,
      when launched it applies the migrations and the populate a bot
@@ -42,7 +38,7 @@
      the ~csv~. There should be a ~csv~ file in the root of each bot
      module
 
-**** Compile and Test
+** Compile and Test
 
      Just run the following commands in a shell to check if everything
      is fine.
@@ -56,38 +52,35 @@
   sbt IntegrationTest/test
 #+end_src
 
-*** Run the Bots
-
-**** Long Polling
+** Run the Bots
+*** Long Polling
      Under windows use the git bash terminal.
 
    #+begin_src bash
      ./lunch.sh # I know it's lunch not launch :)
    #+end_src
 
-**** Webhook
-
-***** Localhost
+*** Webhook
+**** Localhost
 
      - Export the webhook host, locally using [[https://ngrok.com/][ngrok]], [[https://github.com/beyondcode/expose][expose]] or [[https://github.com/agrinman/tunnelto][tunnelTo]]. example: ~./expose share http://localhost:8080~
      - Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from previous step or change it in ~~myTelegramBot/main/src/main/resources/application.conf~
      - run ~sbt assembly~
      - run ~java -cp main/target/scala-2.13/main.jar com.benkio.main.MainWebhook~
 
-***** Docker
+**** Docker
 
       TODO: There's already a ~main/Dockerfile~ with the command to run the webhook, but still it needs to be tested and visible from outside
             Also check [[https://expose.dev/docs/getting-started/installation#as-a-docker-container][expose on docker]]. In order to may make it discoverable from telegram api.
 
-*** Deploy on Oracle Cloud Infrastructure VM
-
-**** Setup
+** Deploy on Oracle Cloud Infrastructure VM
+*** Setup
 
  - Create a vm instance in Oracle cloud
  - Get the SSH Private and Public Keys to access it
  - Login to ssh vm instace by ssh private key, user and ip. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~ (~ssh -i ssh-key-2022-04-26.key opc@140.238.155.16~)
  - Install the jdk 16. Follow this [[https://blogs.oracle.com/developers/post/how-to-install-oracle-java-in-oracle-cloud-infrastructure][tutorial]]
-**** Deploy
+*** Deploy
 
  - Set the ~main/src/resources/application.conf~ accondigly (eg. right db path, urls...)
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
@@ -100,8 +93,8 @@
  - press ~Ctrl+Z~, run ~bg~ and ~disown~ in order to let previous command run in background
  - close your terminal and enjoy
 
-*** Next Development Ideas
-**** General(Maybe) Development
+** Next Development Ideas
+*** General(Maybe) Development
     - [X] TextReply needs to allow side effects with Message => F[List[String]]. This enable to access resources depending on message text
     - [X] Heroku Postgres terminates on November 28, 2022. Check the [[https://github.com/benkio/myTelegramBot/issues/102][issue]]
     - [ ] Twitch support
@@ -123,7 +116,7 @@
       - [X] Programmatically generate a txt file with the current triggers pretty printed
       - [X] Add a test to ensure it's consistent and up to date with the code
       - [X] Change the command to return a link to github pointing to such file
-**** Richard Philip Henry John Benson Bot
+*** Richard Philip Henry John Benson Bot
     - [X] Add all the videos from https://t.me/ilsimposioinfernale
     - [X] Add a command for Random Benson's show youtube link: eg. from the channel Brigate Benson
     - [X] Add a command for a Benson's show by keyword in the title
@@ -131,14 +124,14 @@
     - [X] Add a command to check for a specific match, returning the selected response
     - [ ] Collect statistics on the triggers + Add command to see the top 20 matches
     - [ ] Add a trigger that sends ~e levati dai coglioni~ gif everytime someone is banned/kicked/remove from a group
-**** Xah Bot
+*** Xah Bot
     - [X] Add a command for a random xah's talk show youtube link
     - [X] Add a command for a xah's talk show by keyword in the title
     - [X] Move all the data to the database and use it as richard
-**** Barbero Bot
+*** Barbero Bot
     - [X] Add a command for a random barbero's talk show youtube link
     - [X] Add a command for a barbero's talk show by keyword in the title
     - [X] Add a command to check for a specific match, returning the selected response
     - [X] Move all the data to the database and use it as richard
-**** CalandroBot
+*** CalandroBot
     - [X] Move all the data to the database and use it as richard
