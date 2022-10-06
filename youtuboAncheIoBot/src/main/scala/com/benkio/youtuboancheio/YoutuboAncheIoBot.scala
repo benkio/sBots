@@ -792,7 +792,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("\\bproviamo\\b"),
+        RegexTextTriggerValue("\\bproviamo\\b".r),
         StringTextTriggerValue("senza morire"),
       ),
       mediafiles = List(
