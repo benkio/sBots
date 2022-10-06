@@ -318,7 +318,7 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("fregare come un co(gl|j)ione".r),
-        RegexTextTriggerValue("Ges[uùù]".r)
+        RegexTextTriggerValue("ges[uùù]".r)
       ),
       List(
         MediaFile("rphjb_GesuCoglione.mp4")
