@@ -270,7 +270,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("io nooo[o]*".r)
+        RegexTextTriggerValue("io \\bn[o]{2,}\\b".r)
       ),
       List(
         MediaFile("rphjb_IoNo.mp3"),

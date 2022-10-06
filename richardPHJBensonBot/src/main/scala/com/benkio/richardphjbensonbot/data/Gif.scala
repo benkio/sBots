@@ -777,7 +777,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("nooo[o]*".r)
+        RegexTextTriggerValue("\\bn[o]{2,}\\b".r)
       ),
       List(
         MediaFile("rphjb_No.gif")
