@@ -886,7 +886,7 @@ object Gif {
         StringTextTriggerValue("faccio la parte"),
         StringTextTriggerValue(" recit"),
         StringTextTriggerValue(" fing"),
-        RegexTextTriggerValue("a[t]{2,}[o]+re".r),
+        RegexTextTriggerValue("\\ba[t]{2,}[o]+re\\b".r),
         StringTextTriggerValue("attrice")
       ),
       List(
