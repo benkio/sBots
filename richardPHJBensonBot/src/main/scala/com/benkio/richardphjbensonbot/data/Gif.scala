@@ -415,7 +415,8 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("divert")
+        StringTextTriggerValue("mi diverti"),
+        StringTextTriggerValue("mi sono divertito"),
       ),
       List(
         MediaFile("rphjb_Diverti.gif")
