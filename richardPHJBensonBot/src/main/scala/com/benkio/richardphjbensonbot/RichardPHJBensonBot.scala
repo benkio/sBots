@@ -109,12 +109,41 @@ object RichardPHJBensonBot extends BotOps {
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
+  val timeoutCommandDescriptionIta: String =
+    "'/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00"
+  val timeoutCommandDescriptionEng: String =
+    "'/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00"
+  val bensonifyCommandDescriptionIta: String =
+    "'/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio"
+  val bensonifyCommandDescriptionEng: String =
+    "'/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
+
   def commandRepliesData[F[_]: Applicative](dbTimeout: DBTimeout[F]): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
       mdr = messageRepliesData
+    ),
+    InstructionsCommand.instructionsReplyBundleCommand[F](
+      botName = botName,
+      ignoreMessagePrefix = ignoreMessagePrefix,
+      commandDescriptionsIta = List(
+        TriggerListCommand.triggerListCommandDescriptionIta,
+        TriggerSearchCommand.triggerSearchCommandDescriptionIta,
+        RandomLinkCommand.randomLinkCommandDescriptionIta,
+        RandomLinkCommand.randomLinkKeywordCommandIta,
+        timeoutCommandDescriptionIta,
+        bensonifyCommandDescriptionIta
+      ),
+      commandDescriptionsEng = List(
+        TriggerListCommand.triggerListCommandDescriptionEng,
+        TriggerSearchCommand.triggerSearchCommandDescriptionEng,
+        RandomLinkCommand.randomLinkCommandDescriptionEng,
+        RandomLinkCommand.randomLinkKeywordCommandEng,
+        timeoutCommandDescriptionEng,
+        bensonifyCommandDescriptionEng
+      )
     ),
     ReplyBundleCommand(
       trigger = CommandTrigger("timeout"),
@@ -153,39 +182,6 @@ object RichardPHJBensonBot extends BotOps {
               "E PARLAAAAAAA!!!!"
             ),
           true
-        )
-      )
-    ),
-    ReplyBundleCommand(
-      trigger = CommandTrigger("instructions"),
-      text = Some(
-        TextReply[F](
-          _ => List(s"""
----- Instruzioni Per il Bot di Benson ----
-
-Il bot reagisce automaticamente ai messaggi in base ai trigger che si
-possono trovare dal comando:
-
-/triggerlist
-
-ATTENZIONE: tale comando invierà una lunga lista. Consultarlo
-privatamente nella chat del bot.
-
-Questo bot consente di convertire le frasi come le direbbe Richard
-attraverso il comando:
-
-/bensonify «Frase»
-
-la frase è necessaria, altrimenti il bot vi risponderà in malomodo.
-
-Infine, se si vuole disabilitare il bot per un particolare messaggio,
-ad esempio per un messaggio lungo che potrebbe causare vari trigger
-in una volta, è possibile farlo iniziando il messaggio con il
-carattere '!':
-
-! «Messaggio»
-""").pure[F],
-          false
         )
       )
     )
