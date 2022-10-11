@@ -103,9 +103,9 @@ carattere: `!`
 Bot commands are:
 
 - '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
-- '/triggersearch 《testo》': Allow you to search if a specific word or phrase is part of a trigger
+- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
 - '/randomshow': Return the link of one show/video about the bot's character
-- '/randomshowkeyword 《testo》': Return a link of a show/video about the specific bot's character and containing the specified keyword
+- '/randomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword
 
 if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
 character: `!`

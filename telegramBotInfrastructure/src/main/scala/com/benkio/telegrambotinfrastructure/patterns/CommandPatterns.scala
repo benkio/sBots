@@ -31,7 +31,7 @@ object CommandPatterns {
     val randomLinkKeywordCommandIta: String =
       "'/randomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato"
     val randomLinkKeywordCommandEng: String =
-      "'/randomshowkeyword 《testo》': Return a link of a show/video about the specific bot's character and containing the specified keyword"
+      "'/randomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword"
 
     lazy val random = new Random()
 
@@ -138,7 +138,7 @@ object CommandPatterns {
     val triggerSearchCommandDescriptionIta: String =
       "'/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger"
     val triggerSearchCommandDescriptionEng: String =
-      "'/triggersearch 《testo》': Allow you to search if a specific word or phrase is part of a trigger"
+      "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
 
     // TODO: Return the closest match on failure
     def triggerSearchReplyBundleCommand[F[_]: Applicative](
