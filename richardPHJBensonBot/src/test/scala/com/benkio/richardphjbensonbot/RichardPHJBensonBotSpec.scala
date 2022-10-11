@@ -52,7 +52,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(
       actual,
-      List(s"""
+      List(
+        s"""
 ---- Instruzioni Per RichardPHJBensonBot ----
 
 I comandi del bot sono:
@@ -69,7 +70,8 @@ che interagisca, è possibile farlo iniziando il messaggio con il
 carattere: `!`
 
 ! Messaggio
-""",s"""
+""",
+        s"""
 ---- Instructions for RichardPHJBensonBot ----
 
 Bot commands are:

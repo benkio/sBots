@@ -5,6 +5,7 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
@@ -927,7 +928,23 @@ object YoutuboAncheIoBot extends BotOps {
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
       mdr = messageRepliesData[F]
-    )
+    ),
+    InstructionsCommand.instructionsReplyBundleCommand[F](
+      botName = botName,
+      ignoreMessagePrefix = ignoreMessagePrefix,
+      commandDescriptionsIta = List(
+        TriggerListCommand.triggerListCommandDescriptionIta,
+        TriggerSearchCommand.triggerSearchCommandDescriptionIta,
+        RandomLinkCommand.randomLinkCommandDescriptionIta,
+        RandomLinkCommand.randomLinkKeywordCommandIta
+      ),
+      commandDescriptionsEng = List(
+        TriggerListCommand.triggerListCommandDescriptionEng,
+        TriggerSearchCommand.triggerSearchCommandDescriptionEng,
+        RandomLinkCommand.randomLinkCommandDescriptionEng,
+        RandomLinkCommand.randomLinkKeywordCommandEng
+      )
+    ),
   )
 
   def token[F[_]: Async]: Resource[F, String] =
