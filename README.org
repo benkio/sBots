@@ -28,7 +28,7 @@
      Read the following section to know how to setup the database
 
      Check [[https://youtu.be/T-AfAvJLSJE][this video]] for a complete rundown on how to add files to a bot.
-     
+
 ** Database Setup
 
      There's a module called ~botDB~, if opportunately configured,
@@ -116,6 +116,12 @@
       - [X] Programmatically generate a txt file with the current triggers pretty printed
       - [X] Add a test to ensure it's consistent and up to date with the code
       - [X] Change the command to return a link to github pointing to such file
+    - [X] Refactor the `/instructions` command
+      - [X] Move it to the infrastructure
+      - [X] Make the skeleton of the message generic, but extendible by function all, eg ~makeInstructions(commandDescription: String, extra: String...)~
+      - [X] Add it to all the bots
+      - [X] Customise the call per bot if necessary
+      - [X] English version
 *** Richard Philip Henry John Benson Bot
     - [X] Add all the videos from https://t.me/ilsimposioinfernale
     - [X] Add a command for Random Benson's show youtube link: eg. from the channel Brigate Benson

@@ -24,6 +24,15 @@ object CommandPatterns {
 
   object RandomLinkCommand {
 
+    val randomLinkCommandDescriptionIta: String =
+      "'/randomshow': Restituisce un link di uno show/video riguardante il personaggio del bot"
+    val randomLinkCommandDescriptionEng: String =
+      "'/randomshow': Return the link of one show/video about the bot's character"
+    val randomLinkKeywordCommandIta: String =
+      "'/randomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato"
+    val randomLinkKeywordCommandEng: String =
+      "'/randomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword"
+
     lazy val random = new Random()
 
     def selectRandomLinkReplyBundleCommand[F[_]: Async](
@@ -107,6 +116,11 @@ object CommandPatterns {
 
   object TriggerListCommand {
 
+    val triggerListCommandDescriptionIta: String =
+      "'/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex"
+    val triggerListCommandDescriptionEng: String =
+      "'/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex"
+
     def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
@@ -120,6 +134,11 @@ object CommandPatterns {
   }
 
   object TriggerSearchCommand {
+
+    val triggerSearchCommandDescriptionIta: String =
+      "'/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger"
+    val triggerSearchCommandDescriptionEng: String =
+      "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
 
     // TODO: Return the closest match on failure
     def triggerSearchReplyBundleCommand[F[_]: Applicative](
@@ -157,6 +176,69 @@ object CommandPatterns {
         )
       )
 
+  }
+
+  object InstructionsCommand {
+
+    private def instructionMessageIta(
+        botName: String,
+        ignoreMessagePrefix: Option[String],
+        commandDescriptions: List[String]
+    ) = s"""
+---- Instruzioni Per $botName ----
+
+I comandi del bot sono:
+
+${commandDescriptions.mkString("- ", "\n- ", "")}
+
+${if (ignoreMessagePrefix.isDefined) {
+        s"Se si vuole disabilitare il bot per un particolare messaggio impedendo\nche interagisca, è possibile farlo iniziando il messaggio con il\ncarattere: `${ignoreMessagePrefix.get}`\n\n${ignoreMessagePrefix.get} Messaggio"
+      }}
+"""
+
+    def instructionMessageEng(
+        botName: String,
+        ignoreMessagePrefix: Option[String],
+        commandDescriptions: List[String]
+    ) = s"""
+---- Instructions for $botName ----
+
+Bot commands are:
+
+${commandDescriptions.mkString("- ", "\n- ", "")}
+
+${if (ignoreMessagePrefix.isDefined) {
+        s"if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix\ncharacter: `${ignoreMessagePrefix.get}`\n\n${ignoreMessagePrefix.get} Message"
+      }}
+"""
+
+    def instructionsReplyBundleCommand[F[_]: Applicative](
+        botName: String,
+        ignoreMessagePrefix: Option[String],
+        commandDescriptionsIta: List[String],
+        commandDescriptionsEng: List[String]
+    ): ReplyBundleCommand[F] =
+      ReplyBundleCommand(
+        trigger = CommandTrigger("instructions"),
+        text = Some(
+          TextReply[F](
+            _ =>
+              List(
+                instructionMessageIta(
+                  botName = botName,
+                  ignoreMessagePrefix = ignoreMessagePrefix,
+                  commandDescriptions = commandDescriptionsIta
+                ),
+                instructionMessageEng(
+                  botName = botName,
+                  ignoreMessagePrefix = ignoreMessagePrefix,
+                  commandDescriptions = commandDescriptionsEng
+                )
+              ).pure[F],
+            false
+          )
+        )
+      )
   }
 
   def handleCommandWithInput[F[_]: Applicative](
