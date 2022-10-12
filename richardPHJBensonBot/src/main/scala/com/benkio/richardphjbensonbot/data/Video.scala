@@ -708,6 +708,17 @@ object Video {
         MediaFile("rphjb_Vigile.mp4"),
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("loculi"),
+        StringTextTriggerValue("la pace"),
+        StringTextTriggerValue("genitori"),
+        StringTextTriggerValue("tarpare le ali")
+      ),
+      List(
+        MediaFile("rphjb_TrovatoPaceGenitori.mp4"),
+      )
+    )
   )
 
 }

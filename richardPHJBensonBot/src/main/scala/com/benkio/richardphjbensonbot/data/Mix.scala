@@ -637,7 +637,8 @@ object Mix {
         MediaFile("rphjb_Sorriso.gif"),
         MediaFile("rphjb_SorrisoSognante.gif"),
         MediaFile("rphjb_Risata2.mp3"),
-        MediaFile("rphjb_SepolturaRisata.mp4")
+        MediaFile("rphjb_SepolturaRisata.mp4"),
+        MediaFile("rphjb_RisataTrattenuta.mp4")
       ),
       replySelection = RandomSelection
     ),
