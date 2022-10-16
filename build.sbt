@@ -4,7 +4,7 @@ import Settings._
 
 name         := "telegramBots"
 organization := "com.benkio"
-scalaVersion := "2.13.9"
+scalaVersion := "2.13.10"
 
 enablePlugins(FlywayPlugin)
 Global / onChangedBuildSource := ReloadOnSourceChanges
