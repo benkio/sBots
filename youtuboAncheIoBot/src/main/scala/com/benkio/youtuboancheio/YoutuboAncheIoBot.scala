@@ -99,7 +99,8 @@ object YoutuboAncheIoBot extends BotOps {
       ),
       mediafiles = List(
         MediaFile("ytai_AcquaSguardo.gif"),
-        MediaFile("ytai_Sete.gif")
+        MediaFile("ytai_Sete.gif"),
+        MediaFile("ytai_AcquaCalabria.gif")
       ),
       replySelection = RandomSelection
     ),
@@ -865,6 +866,15 @@ object YoutuboAncheIoBot extends BotOps {
         MediaFile("ytai_AleOoo.gif")
       )
     ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("fare senza"),
+        StringTextTriggerValue("faenza"),
+      ),
+      mediafiles = List(
+        MediaFile("ytai_SenzaFaenza.gif")
+      )
+    )
   )
 
   def messageRepliesSpecialData[

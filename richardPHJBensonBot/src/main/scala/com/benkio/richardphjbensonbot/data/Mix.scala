@@ -1260,6 +1260,17 @@ object Mix {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("danza macabra"),
+      ),
+      List(
+        MediaFile("rphjb_DanzaMacabra.gif"),
+        MediaFile("rphjb_DanzaMacabra.mp4"),
+        MediaFile("rphjb_DanzaMacabra.mp3"),
+      ),
+      replySelection = RandomSelection
+    )
   )
 
 }
