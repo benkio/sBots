@@ -734,16 +734,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("danza macabra"),
-      ),
-      List(
-        MediaFile("rphjb_DanzaMacabra.gif"),
-        MediaFile("rphjb_DanzaMacabra.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         RegexTextTriggerValue("sei [gc]ambiat[oa]".r)
       ),
       List(

@@ -9,7 +9,7 @@ object Settings {
   lazy val settings = Seq(
     organization      := "com.benkio",
     version           := "1.0.0",
-    scalaVersion      := "2.13.9",
+    scalaVersion      := "2.13.10",
     publishMavenStyle := true,
     semanticdbEnabled := true,
     semanticdbCompilerPlugin := {
