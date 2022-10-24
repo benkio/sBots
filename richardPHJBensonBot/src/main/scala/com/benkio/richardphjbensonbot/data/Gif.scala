@@ -424,7 +424,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("e parl[a]+\\b")
+        RegexTextTriggerValue("e parl[a]+\\b".r)
       ),
       List(
         MediaFile("rphjb_Parla.gif")
