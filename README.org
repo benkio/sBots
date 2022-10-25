@@ -95,23 +95,31 @@
 
 ** Next Development Ideas
 *** General(Maybe) Development
-    - [X] TextReply needs to allow side effects with Message => F[List[String]]. This enable to access resources depending on message text
-    - [X] Heroku Postgres terminates on November 28, 2022. Check the [[https://github.com/benkio/myTelegramBot/issues/102][issue]]
     - [ ] Twitch support
     - [ ] Discord support
     - [ ] Slack support
-    - [ ] Telegram Webhook (tested locally, not deployed)
+    - [ ] Webhook (tested locally, not deployed)
+    - [ ] Refactor logging
+    - [ ] Feedback button on bot messages
+    - [ ] Add a ~subscribe~ command that shares a random youtube show on the day/hour/frequency specified
+    - [ ] Log any crash somewhere (by email??)
+**** GIF Refactoring
+    - [ ] Add multiple links foreach media file: Dropbox, Telegram (link to gif messages in public channels), Giphy mp4, Giphy original, Giphy small
+    - [ ] Replace the GIFs to muted MP4 in Dropbox and update the links (also the telegram one) in CSV and DB
+    - [ ] Upload the GIFs to Giphy and update the CSV and DB
+    - [ ] Implement the logic to forward the messages from telegram to telegram
+    - [ ] Implement the logic download from giphy
+    - [ ] Implement a source precedence for Telegram: Telegram Forwarding, Dropbox, Giphy mp4, Giphy Original, Giphy Small
+**** History
+    - [X] TextReply needs to allow side effects with Message => F[List[String]]. This enable to access resources depending on message text
+    - [X] Heroku Postgres terminates on November 28, 2022. Check the [[https://github.com/benkio/myTelegramBot/issues/102][issue]]
     - [X] Anti-spam filter (https://github.com/benkio/myTelegramBot/issues/45)
     - [X] Timeout the bot for a specific chat
     - [X] Disable ~/triggerlist~ for groups. maybe with an alternative message telling that when happens
     - [X] Option to disable the bot on forwarded messages (default true)
-    - [ ] Refactor logging
     - [X] Refactor common commands. Add in infrastructure the function to create the command bundles
-    - [ ] Feedback button on bot messages
     - [X] Create ~youtuboAncheIoBot~ on the same template as barbero bot
     - [X] Caching of files!!
-    - [ ] Add a ~subscribe~ command that shares a random youtube show on the day/hour/frequency specified
-    - [ ] Log any crash somewhere (by email??)
     - [X] Refactor the `/triggerlist` command:
       - [X] Programmatically generate a txt file with the current triggers pretty printed
       - [X] Add a test to ensure it's consistent and up to date with the code
@@ -123,21 +131,25 @@
       - [X] Customise the call per bot if necessary
       - [X] English version
 *** Richard Philip Henry John Benson Bot
+    - [ ] Collect statistics on the triggers + Add command to see the top 20 matches
+    - [ ] Add a trigger that sends ~e levati dai coglioni~ gif everytime someone is banned/kicked/remove from a group
+**** Archive
     - [X] Add all the videos from https://t.me/ilsimposioinfernale
     - [X] Add a command for Random Benson's show youtube link: eg. from the channel Brigate Benson
     - [X] Add a command for a Benson's show by keyword in the title
     - [X] Add a auto reply on the group join sending: /Chi è questa persona scusate, eh?/
     - [X] Add a command to check for a specific match, returning the selected response
-    - [ ] Collect statistics on the triggers + Add command to see the top 20 matches
-    - [ ] Add a trigger that sends ~e levati dai coglioni~ gif everytime someone is banned/kicked/remove from a group
 *** Xah Bot
+**** Archive
     - [X] Add a command for a random xah's talk show youtube link
     - [X] Add a command for a xah's talk show by keyword in the title
     - [X] Move all the data to the database and use it as richard
 *** Barbero Bot
+**** Archive
     - [X] Add a command for a random barbero's talk show youtube link
     - [X] Add a command for a barbero's talk show by keyword in the title
     - [X] Add a command to check for a specific match, returning the selected response
     - [X] Move all the data to the database and use it as richard
 *** CalandroBot
+**** Archive
     - [X] Move all the data to the database and use it as richard
