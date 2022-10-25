@@ -11,6 +11,12 @@ object Special {
       List(
         MediaFile("rphjb_QuestaPersonaScusate.gif", true)
       )
+    ),
+    ReplyBundleMessage(
+      LeftMemberTrigger,
+      List(
+        MediaFile("rphjb_LevatiDaiCoglioni.gif", true)
+      )
     )
   )
 

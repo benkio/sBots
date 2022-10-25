@@ -32,6 +32,7 @@ sealed trait MessageTrigger extends Trigger
 case class TextTrigger(triggers: TextTriggerValue*) extends MessageTrigger
 case class MessageLengthTrigger(messageLength: Int) extends MessageTrigger
 case object NewMemberTrigger                        extends MessageTrigger
+case object LeftMemberTrigger                       extends MessageTrigger
 case class CommandTrigger(command: String)          extends Trigger
 
 object Trigger {
@@ -41,6 +42,7 @@ object Trigger {
       case TextTrigger(tvs @ _*)   => tvs.map(_.show).mkString("\n")
       case MessageLengthTrigger(l) => s"Trigger when the length of message exceed $l"
       case NewMemberTrigger        => "Trigger on new member joining a group"
+      case LeftMemberTrigger       => "Trigger when a member leaves a group"
       case CommandTrigger(c)       => c
     }
   )
@@ -50,10 +52,11 @@ object Trigger {
       triggerLongestString(trigger1).compare(triggerLongestString(trigger2))
 
     private def triggerLongestString(trigger: Trigger): Int = trigger match {
-      case TextTrigger(lt @ _*)     => lt.map(_.toString).max.length
-      case MessageLengthTrigger(_)  => 0
-      case _: NewMemberTrigger.type => 0
-      case CommandTrigger(c)        => c.length
+      case TextTrigger(lt @ _*)      => lt.map(_.toString).max.length
+      case MessageLengthTrigger(_)   => 0
+      case _: NewMemberTrigger.type  => 0
+      case _: LeftMemberTrigger.type => 0
+      case CommandTrigger(c)         => c.length
     }
   }
 }

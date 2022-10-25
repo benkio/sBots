@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
+import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
@@ -29,6 +30,7 @@ object MessageMatches {
         true
       case (_, _, MessageLengthTrigger(messageLength), Some(messageText)) if messageText.size >= messageLength => true
       case (_, _, _: NewMemberTrigger.type, _) if message.newChatMembers.nonEmpty                              => true
+      case (_, _, _: LeftMemberTrigger.type, _) if message.leftChatMember.nonEmpty                             => true
       case _                                                                                                   => false
     }
 }
