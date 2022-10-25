@@ -75,6 +75,15 @@ class MessageMatchesSpec extends FunSuite {
     val result = MessageMatches.doesMatch(replyBundleInputNewMembers, testMessage, ignoreMessagePrefix)
     assert(!result)
   }
+  test("doesMatch should return false when the input message contains No left member in LeftMemberTrigger") {
+    val replyBundleInputLeaveMembers = replyBundleInput.copy(
+      trigger = LeftMemberTrigger
+    )
+    val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = None, leftChatMember = None)
+
+    val result = MessageMatches.doesMatch(replyBundleInputLeaveMembers, testMessage, ignoreMessagePrefix)
+    assert(!result)
+  }
 
   test("doesMatch should return true when the input text is longer then what specified in MessageLengthTrigger") {
     val replyBundleInputLength = replyBundleInput.copy(
@@ -128,6 +137,29 @@ class MessageMatchesSpec extends FunSuite {
     )
 
     val result = MessageMatches.doesMatch(replyBundleInputNewMembers, testMessage, ignoreMessagePrefix)
+    assert(result)
+  }
+  test(
+    "doesMatch should return true when the input message contains non empty list of left members in LeftMemberTrigger"
+  ) {
+    val replyBundleInputLeaveMembers = replyBundleInput.copy(
+      trigger = LeftMemberTrigger
+    )
+
+    val testMessage = Message(
+      67715,
+      Some(User(23769493, false, "Benkio", None, Some("Benkio"), Some("en"), None, None, None)),
+      None,
+      1653503377,
+      Chat(
+        -444726279,
+        "group",
+        Some("Via delle Albizzie 22"),
+      ),
+      leftChatMember = Some(User(87680068, false, "Silvio", None, None, Some("it"), None, None, None)),
+    )
+
+    val result = MessageMatches.doesMatch(replyBundleInputLeaveMembers, testMessage, ignoreMessagePrefix)
     assert(result)
   }
 }
