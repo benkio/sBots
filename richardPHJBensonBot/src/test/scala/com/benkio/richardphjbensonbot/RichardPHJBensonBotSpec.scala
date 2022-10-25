@@ -3,6 +3,7 @@ package com.benkio.richardphjbensonbot
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.chrisdavenport.cormorant._
@@ -26,6 +27,18 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
         .map(_.trigger match {
           case NewMemberTrigger => true
           case _                => false
+        })
+        .exists(identity(_))
+
+    assert(result, true)
+  }
+
+  test("messageRepliesSpecialData should contain a LeftMemberTrigger") {
+    val result =
+      messageRepliesSpecialData[IO]
+        .map(_.trigger match {
+          case LeftMemberTrigger => true
+          case _                 => false
         })
         .exists(identity(_))
 
