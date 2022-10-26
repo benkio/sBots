@@ -210,8 +210,11 @@ object ABarberoBot extends BotOps {
         RegexTextTriggerValue("\\beccoh\\b".r)
       ),
       List(
-        MediaFile("abar_Ecco.mp3")
-      )
+        MediaFile("abar_Ecco.mp3"),
+        MediaFile("abar_Ecco2.mp3"),
+        MediaFile("abar_Ecco3.mp3")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -366,7 +369,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue(" re "),
+        RegexTextTriggerValue("\\bre\\b".r),
         StringTextTriggerValue("decapita")
       ),
       List(
