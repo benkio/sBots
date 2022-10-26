@@ -874,6 +874,73 @@ object YoutuboAncheIoBot extends BotOps {
       mediafiles = List(
         MediaFile("ytai_SenzaFaenza.gif")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("caffè"),
+      ),
+      mediafiles = List(
+        MediaFile("ytai_BuonCaffeATutti.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("capolavoro"),
+        StringTextTriggerValue("meravigliosa"),
+      ),
+      mediafiles = List(
+        MediaFile("ytai_CapolavoroMeravigliosa.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("ce la puoi fare"),
+      ),
+      mediafiles = List(
+        MediaFile("ytai_CeLaPuoiFare.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("che profumo")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_CheProfumo.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("eccolo qua")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_EccoloQua.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("non mi piacciono"),
+      ),
+      mediafiles = List(
+        MediaFile("ytai_NonMiPiaccionoQuesteCose.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("nonno")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_NonnoMito.gif")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("soltanto per questo"),
+        StringTextTriggerValue("denaro"),
+        StringTextTriggerValue("guadagno"),
+      ),
+      mediafiles = List(
+        MediaFile("ytai_SoltantoPerQuesto.gif")
+      )
     )
   )
 
