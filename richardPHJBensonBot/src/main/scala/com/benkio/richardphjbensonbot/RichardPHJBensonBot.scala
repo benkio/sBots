@@ -4,6 +4,7 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.richardphjbensonbot.Config
+import com.benkio.richardphjbensonbot.model.Timeout
 import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model._
