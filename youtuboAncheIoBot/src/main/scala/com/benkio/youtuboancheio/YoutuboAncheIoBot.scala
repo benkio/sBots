@@ -171,7 +171,8 @@ object YoutuboAncheIoBot extends BotOps {
       mediafiles = List(
         MediaFile("ytai_BuonaPizza.gif"),
         MediaFile("ytai_PizzaAllegria.gif")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
