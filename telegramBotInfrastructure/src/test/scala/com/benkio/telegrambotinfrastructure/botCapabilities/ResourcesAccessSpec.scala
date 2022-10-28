@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.botcapabilities
 
 import cats.effect.IO
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import munit.FunSuite
 
 import java.nio.file.Files

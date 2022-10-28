@@ -4,11 +4,14 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.richardphjbensonbot.Config
+import com.benkio.richardphjbensonbot.db.DBLayer
+import com.benkio.richardphjbensonbot.db.DBTimeout
 import com.benkio.richardphjbensonbot.model.Timeout
-import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie._
@@ -193,7 +196,7 @@ object RichardPHJBensonBot extends BotOps {
       .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 
-  final case class BotSetup[F[_]](token: String, resourceAccess: ResourceAccess[F], dbTimeout: DBTimeout[F])
+  final case class BotSetup[F[_]](token: String, dbLayer: DBLayer[F])
 
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
@@ -208,9 +211,8 @@ object RichardPHJBensonBot extends BotOps {
         "",
         ""
       )
-      urlFetcher       <- Resource.eval(UrlFetcher[F](httpClient))
-      dbResourceAccess <- Resource.eval(DBResourceAccess(transactor, urlFetcher))
-      dbTimeout = DBTimeout(transactor)
+      urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
+      dbLayer               <- Resource.eval(DBLayer[F](transactor, urlFetcher))
       _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _ <- Resource.eval(
@@ -221,7 +223,7 @@ object RichardPHJBensonBot extends BotOps {
         )
       )
       _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-    } yield BotSetup(tk, dbResourceAccess, dbTimeout)
+    } yield BotSetup(tk, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
@@ -229,12 +231,12 @@ object RichardPHJBensonBot extends BotOps {
     httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
   } yield (httpClient, botSetup)).use {
-    case (httpClient, BotSetup(token, resourceAccess, dbTimeout)) => {
+    case (httpClient, BotSetup(token, dbLayer)) => {
       implicit val api: Api[F] = BotApi(
         httpClient,
         baseUrl = s"https://api.telegram.org/bot$token"
       )
-      action(new RichardPHJBensonBotPolling[F](rAccess = resourceAccess, dbTimeout = dbTimeout))
+      action(new RichardPHJBensonBotPolling[F](rAccess = dbLayer.dbResourceAccess, dbTimeout = dbLayer.dbTimeout))
     }
   }
 
@@ -251,8 +253,8 @@ object RichardPHJBensonBot extends BotOps {
     new RichardPHJBensonBotWebhook[F](
       uri = webhookBaseUri,
       path = path,
-      rAccess = botSetup.resourceAccess,
-      dbTimeout = botSetup.dbTimeout
+      rAccess = botSetup.dbLayer.dbResourceAccess,
+      dbTimeout = botSetup.dbLayer.dbTimeout
     )
   }
 }

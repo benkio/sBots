@@ -1,5 +1,8 @@
 package com.benkio.richardphjbensonbot
 
+import com.benkio.richardphjbensonbot.model.Timeout
+import com.benkio.richardphjbensonbot.db.DBLayer
+import com.benkio.richardphjbensonbot.db.DBTimeout
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
 
@@ -26,10 +29,10 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "DBTimeout.getOrDefault should return the default timeout if the chat id is not present in the database"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
-    val dbTimeout  = DBTimeout[IO](transactor)
-    val actual     = Resource.eval(dbTimeout.getOrDefault(100L)) // Not present ChatID
+  ) { fixture =>
+    val transactor                    = fixture.transactor
+    val dbTimeout: IO[DBTimeout[IO]]  = DBLayer[IO](transactor, null).map(_.dbTimeout)
+    val actual: Resource[IO, Timeout] = Resource.eval(dbTimeout.flatMap(_.getOrDefault(100L))) // Not present ChatID
 
     actual
       .use { timeout =>
@@ -44,11 +47,11 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "DBTimeout.getOrDefault should return the timeout if the chat id is present in the database"
-  ) { connectionResourceAccess =>
-    val connection = connectionResourceAccess._1
-    val transactor = connectionResourceAccess._3
-    val dbTimeout  = DBTimeout[IO](transactor)
-    val actual     = Resource.eval(dbTimeout.getOrDefault(1L)) // Present ChatID
+  ) { fixture =>
+    val connection = fixture.connection
+    val transactor = fixture.transactor
+    val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
+    val actual     = Resource.eval(dbTimeout.flatMap(_.getOrDefault(1L))) // Present ChatID
     connection.createStatement().executeUpdate(ITDBResourceAccessSpec.timeoutSQL)
     actual
       .use { timeout =>
@@ -63,14 +66,14 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "DBTimeout.setTimeout should insert the timeout if the chat id is not present in the database"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
-    val dbTimeout  = DBTimeout[IO](transactor)
+  ) { fixture =>
+    val transactor = fixture.transactor
+    val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
     val chatId     = 2L
     val timeout    = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
     val actual = for {
-      _      <- Resource.eval(dbTimeout.setTimeout(timeout))
-      result <- Resource.eval(dbTimeout.getOrDefault(chatId))
+      _      <- Resource.eval(dbTimeout.flatMap(_.setTimeout(timeout)))
+      result <- Resource.eval(dbTimeout.flatMap(_.getOrDefault(chatId)))
     } yield result
     actual
       .use { timeout =>
@@ -83,14 +86,14 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test("DBTimeout.setTimeout should update the timeout if the chat id is present in the database") {
-    connectionResourceAccess =>
-      val transactor = connectionResourceAccess._3
-      val dbTimeout  = DBTimeout[IO](transactor)
+    fixture =>
+      val transactor = fixture.transactor
+      val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
       val chatId     = 1L
       val timeout    = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
       val actual = for {
-        _      <- Resource.eval(dbTimeout.setTimeout(timeout))
-        result <- Resource.eval(dbTimeout.getOrDefault(chatId))
+        _      <- Resource.eval(dbTimeout.flatMap(_.setTimeout(timeout)))
+        result <- Resource.eval(dbTimeout.flatMap(_.getOrDefault(chatId)))
       } yield result
       actual
         .use { timeout =>
@@ -105,13 +108,13 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "DBTimeout.logLastInteraction should insert the timeout if the chat id is not present in the database"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
-    val dbTimeout  = DBTimeout[IO](transactor)
+  ) { fixture =>
+    val transactor = fixture.transactor
+    val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
     val chatId     = 2L
     val actual = for {
-      _      <- Resource.eval(dbTimeout.logLastInteraction(chatId))
-      result <- Resource.eval(dbTimeout.getOrDefault(chatId))
+      _      <- Resource.eval(dbTimeout.flatMap(_.logLastInteraction(chatId)))
+      result <- Resource.eval(dbTimeout.flatMap(_.getOrDefault(chatId)))
     } yield result
     actual
       .use { timeout =>
@@ -126,18 +129,18 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "DBTimeout.logLastInteraction should update the timeout last interaction if the chat id is present in the database"
-  ) { connectionResourceAccess =>
-    val connection = connectionResourceAccess._1
-    val transactor = connectionResourceAccess._3
-    val dbTimeout  = DBTimeout[IO](transactor)
+  ) { fixture =>
+    val connection = fixture.connection
+    val transactor = fixture.transactor
+    val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
     val chatId     = 1L
 
     connection.createStatement().executeUpdate(ITDBResourceAccessSpec.timeoutSQL)
 
     val actual = for {
-      prevResult  <- Resource.eval(dbTimeout.getOrDefault(chatId))
-      _           <- Resource.eval(dbTimeout.logLastInteraction(chatId))
-      afterResult <- Resource.eval(dbTimeout.getOrDefault(chatId))
+      prevResult  <- Resource.eval(dbTimeout.flatMap(_.getOrDefault(chatId)))
+      _           <- Resource.eval(dbTimeout.flatMap(_.logLastInteraction(chatId)))
+      afterResult <- Resource.eval(dbTimeout.flatMap(_.getOrDefault(chatId)))
     } yield (prevResult, afterResult)
     actual
       .use { case (prevTimeout, afterTimeout) =>
@@ -157,20 +160,22 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
+  ) { fixture =>
+    val transactor = fixture.transactor
     val resourceAssert = for {
-      dbResourceAccess <- connectionResourceAccess._2
-      mp3s             <- Resource.pure(messageRepliesAudioData[IO].flatMap(_.mediafiles))
+      dbMediaResource <- fixture.dbMediaResource
+      mp3s            <- Resource.pure(messageRepliesAudioData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         mp3s
           .traverse((mp3: MediaFile) =>
-            dbResourceAccess
-              .getUrlByName(mp3.filename)
+            dbMediaResource
+              .getMediaQueryByName(mp3.filename)
               .unique
               .transact(transactor)
-              .map { case (dbFilename, _) => mp3.filename == dbFilename }
               .onError(_ => IO.println(s"[ERROR] mp3 missing from the DB: " + mp3))
+              .attempt
+              .attempt
+              .map(_.isRight)
           )
       )
     } yield checks.foldLeft(true)(_ && _)
@@ -179,20 +184,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
-    connectionResourceAccess =>
-      val transactor = connectionResourceAccess._3
+    fixture =>
+      val transactor = fixture.transactor
       val resourceAssert = for {
-        dbResourceAccess <- connectionResourceAccess._2
-        gifs             <- Resource.pure(messageRepliesGifData[IO].flatMap(_.mediafiles))
+        dbMediaResource <- fixture.dbMediaResource
+        gifs            <- Resource.pure(messageRepliesGifData[IO].flatMap(_.mediafiles))
         checks <- Resource.eval(
           gifs
             .traverse((gif: MediaFile) =>
-              dbResourceAccess
-                .getUrlByName(gif.filename)
+              dbMediaResource
+                .getMediaQueryByName(gif.filename)
                 .unique
                 .transact(transactor)
-                .map { case (dbFilename, _) => gif.filename == dbFilename }
                 .onError(_ => IO.println(s"[ERROR] gif missing from the DB: " + gif))
+                .attempt
+                .map(_.isRight)
             )
         )
       } yield checks.foldLeft(true)(_ && _)
@@ -202,19 +208,20 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "messageRepliesVideosData should never raise an exception when try to open the file in resounces"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
+  ) { fixture =>
+    val transactor = fixture.transactor
     val resourceAssert = for {
-      dbResourceAccess <- connectionResourceAccess._2
-      mp4s             <- Resource.pure(messageRepliesVideoData[IO].flatMap(_.mediafiles))
+      dbMediaResource <- fixture.dbMediaResource
+      mp4s            <- Resource.pure(messageRepliesVideoData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         mp4s
           .traverse((mp4: MediaFile) =>
-            dbResourceAccess
-              .getUrlByName(mp4.filename)
+            dbMediaResource
+              .getMediaQueryByName(mp4.filename)
               .unique
               .transact(transactor)
-              .map { case (dbFilename, _) => mp4.filename == dbFilename }
+              .attempt
+              .map(_.isRight)
               .onError(_ => IO.println(s"[ERROR] mp4 missing from the DB: " + mp4))
           )
       )
@@ -224,20 +231,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test("messageRepliesMixData should never raise an exception when try to open the file in resounces") {
-    connectionResourceAccess =>
-      val transactor = connectionResourceAccess._3
+    fixture =>
+      val transactor = fixture.transactor
       val resourceAssert = for {
-        dbResourceAccess <- connectionResourceAccess._2
-        mixs             <- Resource.pure(messageRepliesMixData[IO].flatMap(_.mediafiles))
+        dbMediaResource <- fixture.dbMediaResource
+        mixs            <- Resource.pure(messageRepliesMixData[IO].flatMap(_.mediafiles))
         checks <- Resource.eval(
           mixs
             .traverse((mix: MediaFile) =>
-              dbResourceAccess
-                .getUrlByName(mix.filename)
+              dbMediaResource
+                .getMediaQueryByName(mix.filename)
                 .unique
                 .transact(transactor)
-                .map { case (dbFilename, _) => mix.filename == dbFilename }
                 .onError(_ => IO.println(s"[ERROR] mix missing from the DB: " + mix))
+                .attempt
+                .map(_.isRight)
             )
         )
       } yield checks.foldLeft(true)(_ && _)
@@ -247,20 +255,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "messageRepliesSpecialData should never raise an exception when try to open the file in resounces"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
+  ) { fixture =>
+    val transactor = fixture.transactor
     val resourceAssert = for {
-      dbResourceAccess <- connectionResourceAccess._2
-      specials         <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
+      dbMediaResource <- fixture.dbMediaResource
+      specials        <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         specials
           .traverse((special: MediaFile) =>
-            dbResourceAccess
-              .getUrlByName(special.filename)
+            dbMediaResource
+              .getMediaQueryByName(special.filename)
               .unique
               .transact(transactor)
-              .map { case (dbFilename, _) => special.filename == dbFilename }
               .onError(_ => IO.println(s"[ERROR] special missing from the DB: " + special))
+              .attempt
+              .map(_.isRight)
           )
       )
     } yield checks.foldLeft(true)(_ && _)

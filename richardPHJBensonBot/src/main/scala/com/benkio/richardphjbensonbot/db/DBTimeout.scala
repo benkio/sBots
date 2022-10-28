@@ -1,4 +1,4 @@
-package com.benkio.richardphjbensonbot
+package com.benkio.richardphjbensonbot.db
 
 import cats.effect.Async
 import cats.implicits._
@@ -17,13 +17,7 @@ sealed trait DBTimeout[F[_]] {
 
 object DBTimeout {
 
-  def apply[F[_]: Async](transactor: Transactor[F])(implicit log: LogWriter[F]): DBTimeout[F] =
-    new DBTimeoutImpl[F](
-      transactor,
-      log
-    )
-
-  private class DBTimeoutImpl[F[_]: Async](transactor: Transactor[F], log: LogWriter[F]) extends DBTimeout[F] {
+  private[db] class DBTimeoutImpl[F[_]: Async](transactor: Transactor[F], log: LogWriter[F]) extends DBTimeout[F] {
 
     private def getOrDefaultSql(chatId: Long): Query0[Timeout] =
       sql"SELECT chat_id, timeout_value, last_interaction FROM timeout WHERE chat_id = $chatId"

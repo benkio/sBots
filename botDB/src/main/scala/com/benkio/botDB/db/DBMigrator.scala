@@ -35,6 +35,7 @@ object DBMigrator {
         ""
       )
       .group(true)
+      .mixed(true)
       .outOfOrder(false)
       .table(config.migrationsTable)
       .locations(

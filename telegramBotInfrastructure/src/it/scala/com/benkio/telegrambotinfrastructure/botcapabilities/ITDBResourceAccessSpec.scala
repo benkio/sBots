@@ -13,19 +13,18 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
   // DBResourceAccess tests
 
-  databaseFixture.test("DBResourceAccess.getResourceByteArray should return the expected content") {
-    connectionResourceAccess =>
-      val resourceAssert = for {
-        dbResourceAccess <- connectionResourceAccess._2
-        arrayContent     <- dbResourceAccess.getResourceByteArray(testMedia)
-      } yield arrayContent.length >= (1024 * 5)
+  databaseFixture.test("DBResourceAccess.getResourceByteArray should return the expected content") { fixture =>
+    val resourceAssert = for {
+      dbResourceAccess <- fixture.resourceAccessResource
+      arrayContent     <- dbResourceAccess.getResourceByteArray(testMedia)
+    } yield arrayContent.length >= (1024 * 5)
 
-      resourceAssert.use(IO.pure).assert
+    resourceAssert.use(IO.pure).assert
   }
 
   databaseFixture.test(
     "DBResourceAccess.getResourcesByKind should return the expected list of files with expected content"
-  ) { connectionResourceAccess =>
+  ) { fixture =>
     val expectedFilenames = List(
       "ancheLaRabbiaHaUnCuore.txt",
       "live.txt",
@@ -34,7 +33,7 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       "puntateRockMachine.txt"
     )
     val resourceAssert = for {
-      dbResourceAccess <- connectionResourceAccess._2
+      dbResourceAccess <- fixture.resourceAccessResource
       files            <- dbResourceAccess.getResourcesByKind("rphjb_LinkSources")
     } yield files
       .map(file => expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))

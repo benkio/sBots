@@ -4,7 +4,6 @@ import cats._
 import cats.data.OptionT
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import com.benkio.telegrambotinfrastructure.default.DefaultActions
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
@@ -13,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.Timeout
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.implicits._

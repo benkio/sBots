@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.botCapabilities
 
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.UrlFetcher
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter

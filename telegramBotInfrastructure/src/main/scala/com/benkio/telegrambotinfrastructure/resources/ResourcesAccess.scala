@@ -1,4 +1,4 @@
-package com.benkio.telegrambotinfrastructure.botcapabilities
+package com.benkio.telegrambotinfrastructure.resources
 
 import cats._
 import cats.effect._

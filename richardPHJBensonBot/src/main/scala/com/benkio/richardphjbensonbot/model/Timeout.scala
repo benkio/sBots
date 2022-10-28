@@ -33,7 +33,6 @@ object Timeout {
       }
       .reduce(_ + _)
 
-
   def apply(m: Message, timeout: String): Option[Timeout] =
     Try(timeStringToDuration(timeout))
       .map(duration => defaultTimeout(m.chat.id).copy(timeout_value = duration.toMillis.toString))

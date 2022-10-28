@@ -15,20 +15,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "commandRepliesData should never raise an exception when try to open the file in resounces"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
+  ) { fixture =>
+    val transactor = fixture.transactor
     val resourceAssert = for {
-      dbResourceAccess <- connectionResourceAccess._2
-      files            <- Resource.pure(CommandRepliesData.values[IO].flatMap(_.mediafiles))
+      dbMediaResource <- fixture.dbMediaResource
+      files           <- Resource.pure(CommandRepliesData.values[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
-            dbResourceAccess
-              .getUrlByName(file.filename)
+            dbMediaResource
+              .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
-              .map { case (dbFilename, _) => file.filename == dbFilename }
               .onError(_ => IO.println(s"[ERROR] file missing from the DB: " + file))
+              .attempt
+              .map(_.isRight)
           )
       )
     } yield checks.foldLeft(true)(_ && _)

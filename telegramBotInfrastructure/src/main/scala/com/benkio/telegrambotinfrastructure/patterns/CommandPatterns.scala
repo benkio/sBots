@@ -4,7 +4,6 @@ import cats.Applicative
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
@@ -12,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import log.effect.LogWriter
 import org.http4s.Uri
 import telegramium.bots.Message

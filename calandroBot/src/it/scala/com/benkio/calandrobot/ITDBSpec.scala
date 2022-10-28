@@ -17,20 +17,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "messageRepliesData should never raise an exception when try to open the file in resounces"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
+  ) { fixture =>
+    val transactor = fixture.transactor
     val resourceAssert = for {
-      dbResourceAccess <- connectionResourceAccess._2
-      files            <- Resource.pure(messageRepliesData[IO].flatMap(_.mediafiles))
+      dbMedia <- fixture.dbMediaResource
+      files   <- Resource.pure(messageRepliesData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
-            dbResourceAccess
-              .getUrlByName(file.filename)
+            dbMedia
+              .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
-              .map { case (dbFilename, _) => file.filename == dbFilename }
               .onError(_ => IO.println(s"[ERROR] file missing from the DB: " + file))
+              .attempt
+              .map(_.isRight)
           )
       )
     } yield checks.foldLeft(true)(_ && _)
@@ -40,20 +41,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "commandRepliesData should never raise an exception when try to open the file in resounces"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
+  ) { fixture =>
+    val transactor = fixture.transactor
     val resourceAssert = for {
-      dbResourceAccess <- connectionResourceAccess._2
-      files            <- Resource.pure(commandRepliesData[IO].flatMap(_.mediafiles))
+      dbMedia <- fixture.dbMediaResource
+      files   <- Resource.pure(commandRepliesData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
-            dbResourceAccess
-              .getUrlByName(file.filename)
+            dbMedia
+              .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
-              .map { case (dbFilename, _) => file.filename == dbFilename }
               .onError(_ => IO.println(s"[ERROR] file missing from the DB: " + file))
+              .attempt
+              .map(_.isRight)
           )
       )
     } yield checks.foldLeft(true)(_ && _)
