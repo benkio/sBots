@@ -31,15 +31,14 @@ object DBResourceAccess {
 
     def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       for {
-        url  <- Resource.eval(dbMedia.getMedia(resourceName))
-        file <- urlFetcher.fetchFromDropbox(resourceName, url)
+        media <- Resource.eval(dbMedia.getMedia(resourceName))
+        file  <- urlFetcher.fetchFromDropbox(resourceName, media.media_url)
       } yield Files.readAllBytes(file.toPath)
+
     def getResourcesByKind(criteria: String): Resource[F, List[File]] =
       for {
-        contents <- Resource.eval(dbMedia.getMediaByKind(criteria))
-        files <- contents.traverse { case (filename, url) =>
-          urlFetcher.fetchFromDropbox(filename, url)
-        }
+        medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
+        files  <- medias.traverse(media => urlFetcher.fetchFromDropbox(media.media_name, media.media_url))
       } yield files
   }
 }
