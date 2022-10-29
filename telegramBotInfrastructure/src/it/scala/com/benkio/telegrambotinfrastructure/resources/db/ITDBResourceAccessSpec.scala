@@ -1,5 +1,6 @@
-package com.benkio.telegrambotinfrastructure.botcapabilities
+package com.benkio.telegrambotinfrastructure.resources.db
 
+import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
 
@@ -15,9 +16,19 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test("DBResourceAccess.getResourceByteArray should return the expected content") { fixture =>
     val resourceAssert = for {
+      dbMedia          <- fixture.dbMediaResource
+      preMedia         <- Resource.eval(dbMedia.getMedia(testMedia, false))
       dbResourceAccess <- fixture.resourceAccessResource
       arrayContent     <- dbResourceAccess.getResourceByteArray(testMedia)
-    } yield arrayContent.length >= (1024 * 5)
+      postMedia        <- Resource.eval(dbMedia.getMedia(testMedia, false))
+      _                <- Resource.eval(dbMedia.decrementMediaCount(testMedia))
+    } yield {
+      val assert1 = postMedia.media_count == (preMedia.media_count + 1)
+      val assert2 = arrayContent.length >= (1024 * 5)
+      assert1 && assert2
+    }
+
+
 
     resourceAssert.use(IO.pure).assert
   }

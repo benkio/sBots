@@ -32,6 +32,7 @@ object DBResourceAccess {
     def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       for {
         media <- Resource.eval(dbMedia.getMedia(resourceName))
+        _     <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
         file  <- urlFetcher.fetchFromDropbox(resourceName, media.media_url)
       } yield Files.readAllBytes(file.toPath)
 

@@ -11,8 +11,10 @@ import log.effect.LogWriter
 import scala.concurrent.duration._
 
 trait DBMedia[F[_]] {
-  def getMedia(filename: String): F[Media]
-  def getMediaByKind(kind: String): F[List[Media]]
+  def getMedia(filename: String, cache: Boolean = true): F[Media]
+  def getMediaByKind(kind: String, cache: Boolean = true): F[List[Media]]
+  def incrementMediaCount(filename: String): F[Unit]
+  def decrementMediaCount(filename: String): F[Unit]
 
   def getMediaQueryByName(resourceName: String): Query0[Media]
   def getMediaQueryByKind(kind: String): Query0[Media]
@@ -45,6 +47,12 @@ object DBMedia {
     def getMediaQueryByKind(kind: String): Query0[Media] =
       sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[Media]
 
+    def incrementMediaCountQuery(media: Media): Update0 =
+      sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update
+
+    def decrementMediaCountQuery(media: Media): Update0 =
+      sql"UPDATE media SET media_count = ${media.media_count - 1} WHERE media_name = ${media.media_name}".update
+
     private def getMediaInternal[A](
         cacheLookupValue: String,
         cacheResultHandler: Option[List[Media]] => F[A]
@@ -54,12 +62,23 @@ object DBMedia {
       media          <- cacheResultHandler(cachedValueOpt)
     } yield media
 
-    def getMedia(filename: String): F[Media] =
+    def incrementMediaCount(filename: String): F[Unit] = for {
+      media <- getMedia(filename)
+      _     <- incrementMediaCountQuery(media).run.transact(transactor)
+    } yield ()
+
+    def decrementMediaCount(filename: String): F[Unit] = for {
+      media <- getMedia(filename)
+      _     <- decrementMediaCountQuery(media).run.transact(transactor)
+    } yield ()
+
+    def getMedia(filename: String, cache: Boolean = true): F[Media] =
       getMediaInternal[Media](
         cacheLookupValue = filename,
         cacheResultHandler = cachedValueOpt =>
           for {
             media <- cachedValueOpt
+              .filter(_ => cache)
               .flatMap(_.headOption)
               .fold[F[Media]](
                 getMediaQueryByName(filename).unique.transact(transactor)
@@ -71,14 +90,16 @@ object DBMedia {
           } yield media
       )
 
-    def getMediaByKind(kind: String): F[List[Media]] =
+    def getMediaByKind(kind: String, cache: Boolean = true): F[List[Media]] =
       getMediaInternal[List[Media]](
         cacheLookupValue = kind,
         cacheResultHandler = cachedValueOpt =>
           for {
-            medias <- cachedValueOpt.fold(
-              getMediaQueryByKind(kind).stream.compile.toList.transact(transactor)
-            )(Async[F].pure)
+            medias <- cachedValueOpt
+              .filter(_ => cache)
+              .fold(
+                getMediaQueryByKind(kind).stream.compile.toList.transact(transactor)
+              )(Async[F].pure)
             _ <-
               if (cachedValueOpt.isEmpty)
                 dbCache.insert(kind, medias)

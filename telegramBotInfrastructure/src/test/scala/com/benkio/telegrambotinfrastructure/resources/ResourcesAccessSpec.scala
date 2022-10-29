@@ -1,11 +1,9 @@
-package com.benkio.telegrambotinfrastructure.botcapabilities
+package com.benkio.telegrambotinfrastructure.resources
 
 import cats.effect.IO
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import munit.FunSuite
 
-import java.nio.file.Files
-import java.nio.file._
+import java.nio.file.{Files, _}
 import scala.language.reflectiveCalls
 import scala.util.Random
 
