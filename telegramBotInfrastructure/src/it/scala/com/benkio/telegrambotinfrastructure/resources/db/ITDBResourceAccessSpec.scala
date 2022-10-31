@@ -28,8 +28,6 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       assert1 && assert2
     }
 
-
-
     resourceAssert.use(IO.pure).assert
   }
 
@@ -51,5 +49,11 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       .foldLeft(true)(_ && _)
     resourceAssert.use(IO.pure).assert
   }
+
+  // DBMedia
+
+  databaseFixture.test(
+    "DBMedia.getMediaByMediaCount should return the expected list of media"
+  ) { fixture => ??? }
 
 }

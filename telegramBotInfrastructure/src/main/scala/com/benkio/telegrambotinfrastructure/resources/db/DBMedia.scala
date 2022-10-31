@@ -13,6 +13,10 @@ import scala.concurrent.duration._
 trait DBMedia[F[_]] {
   def getMedia(filename: String, cache: Boolean = true): F[Media]
   def getMediaByKind(kind: String, cache: Boolean = true): F[List[Media]]
+  def getMediaByMediaCount(
+      limit: Int = 20,
+      mediaNamePrefix: Option[String] = None
+  ): F[List[Media]]
   def incrementMediaCount(filename: String): F[Unit]
   def decrementMediaCount(filename: String): F[Unit]
 
@@ -46,6 +50,13 @@ object DBMedia {
 
     def getMediaQueryByKind(kind: String): Query0[Media] =
       sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[Media]
+
+    def getMediaByMediaCountQuery(mediaNamePrefix: Option[String], limit: Int): Query0[Media] = {
+      def query(whereClause: Fragment) =
+        sql"SELECT media_name, kind, media_url, media_count, created_at FROM media $whereClause LIMIT $limit ORDER BY media_count DESC"
+          .query[Media]
+      mediaNamePrefix.fold(query(Fragment.empty))(prefix => query(s"WHERE media_name LIKE '$prefix%'".fr))
+    }
 
     def incrementMediaCountQuery(media: Media): Update0 =
       sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update
@@ -106,5 +117,12 @@ object DBMedia {
               else Async[F].unit
           } yield medias
       )
+
+    def getMediaByMediaCount(
+        limit: Int = 20,
+        mediaNamePrefix: Option[String] = None
+    ): F[List[Media]] =
+      getMediaByMediaCountQuery(limit = limit, mediaNamePrefix = mediaNamePrefix).stream.compile.toList
+        .transact(transactor)
   }
 }

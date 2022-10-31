@@ -6,12 +6,14 @@ import cats.effect.Resource
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.Media
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import log.effect.LogWriter
 import org.http4s.Uri
 import telegramium.bots.Message
@@ -239,6 +241,32 @@ ${if (ignoreMessagePrefix.isDefined) {
           )
         )
       )
+  }
+
+  object StatisticsCommands {
+
+    val topTwentyTriggersCommandDescriptionIta: String =
+      "'/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii"
+    val topTwentyTriggersCommandDescriptionEng: String =
+      "'/topTwentyTriggers': Return a list of files and theirs send frequery"
+
+    def topTwentyReplyBundleCommand[F[_]: Applicative](
+        botPrefix: String,
+        dbMedia: DBMedia[F]
+    ): F[ReplyBundleCommand[F]] =
+      ReplyBundleCommand(
+        trigger = CommandTrigger("toptwenty"),
+        text = Some(
+          TextReply[F](
+            _ =>
+              dbMedia
+                .getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
+                .map(ms => List(Media.mediaListToString(ms))),
+            true
+          )
+        ),
+      ).pure[F]
+
   }
 
   def handleCommandWithInput[F[_]: Applicative](

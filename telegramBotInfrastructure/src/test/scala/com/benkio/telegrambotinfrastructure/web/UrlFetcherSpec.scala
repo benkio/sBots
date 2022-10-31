@@ -3,7 +3,8 @@ package com.benkio.telegrambotinfrastructure.web
 import cats.effect._
 import cats.implicits._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.{LogLevels, LogWriter}
+import log.effect.LogLevels
+import log.effect.LogWriter
 import munit.CatsEffectSuite
 import org.http4s.ember.client._
 
