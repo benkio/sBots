@@ -23,7 +23,7 @@ import scala.io.Source
 final case class DBFixtureResources(
     connection: Connection,
     resourceAccessResource: Resource[IO, DBResourceAccess[IO]],
-    dbMediaResource: Resource[IO, DBMedia[IO]],
+    resourceDBMedia: Resource[IO, DBMedia[IO]],
     transactor: Transactor[IO]
 )
 
@@ -66,7 +66,7 @@ trait DBFixture { self: FunSuite =>
       DBFixtureResources(
         connection = conn,
         resourceAccessResource = resourceAccessResource,
-        dbMediaResource = dbMediaResource,
+        resourceDBMedia = dbMediaResource,
         transactor = transactor
       )
     },

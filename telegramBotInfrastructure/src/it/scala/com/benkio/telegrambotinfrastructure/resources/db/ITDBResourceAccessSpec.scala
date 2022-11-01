@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
+import com.benkio.telegrambotinfrastructure.model.Media
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
@@ -16,7 +17,7 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test("DBResourceAccess.getResourceByteArray should return the expected content") { fixture =>
     val resourceAssert = for {
-      dbMedia          <- fixture.dbMediaResource
+      dbMedia          <- fixture.resourceDBMedia
       preMedia         <- Resource.eval(dbMedia.getMedia(testMedia, false))
       dbResourceAccess <- fixture.resourceAccessResource
       arrayContent     <- dbResourceAccess.getResourceByteArray(testMedia)
@@ -54,6 +55,36 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "DBMedia.getMediaByMediaCount should return the expected list of media"
-  ) { fixture => ??? }
+  ) { fixture =>
+    val expected: List[Media] = List(
+      Media(
+        "xah_Asshole.mp3",
+        Some("Ass"),
+        "https://www.dropbox.com/sh/h9j3xata6j6d6h5/AAA75bTQjYFsnGLLhZsSbIBXa/Ass/xah_Asshole.mp3?dl=1",
+        0,
+        "1662126014510"
+      ),
+      Media(
+        "xah_CCppSucksStonkyAss.mp3",
+        Some("Sucks"),
+        "https://www.dropbox.com/s/hth49nkewdrrrlw/xah_CCppSucksStonkyAss.mp3?dl=1",
+        0,
+        "1662126014670"
+      ),
+      Media(
+        "xah_EmacsLispPainAss.mp3",
+        Some("Emacs"),
+        "https://www.dropbox.com/sh/h9j3xata6j6d6h5/AADMexmO4NL3-Ts6vWlamB9Xa/Emacs/xah_EmacsLispPainAss.mp3?dl=1",
+        0,
+        "1662126014677"
+      )
+    )
+
+    val resourceAssert = for {
+      dbMedia <- fixture.resourceDBMedia
+      medias  <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3))
+    } yield medias == expected
+    resourceAssert.use(IO.pure).assert
+  }
 
 }

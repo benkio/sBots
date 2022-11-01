@@ -53,7 +53,7 @@ object DBMedia {
 
     def getMediaByMediaCountQuery(mediaNamePrefix: Option[String], limit: Int): Query0[Media] = {
       def query(whereClause: Fragment) =
-        sql"SELECT media_name, kind, media_url, media_count, created_at FROM media $whereClause LIMIT $limit ORDER BY media_count DESC"
+        sql"SELECT media_name, kind, media_url, media_count, created_at FROM media $whereClause ORDER BY media_count DESC LIMIT $limit"
           .query[Media]
       mediaNamePrefix.fold(query(Fragment.empty))(prefix => query(s"WHERE media_name LIKE '$prefix%'".fr))
     }
