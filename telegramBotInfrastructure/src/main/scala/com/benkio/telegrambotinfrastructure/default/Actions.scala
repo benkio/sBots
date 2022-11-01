@@ -4,9 +4,9 @@ import cats._
 import cats.data.EitherT
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import log.effect.LogWriter
 import telegramium.bots.high._
 import telegramium.bots.high.implicits._

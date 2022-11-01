@@ -4,12 +4,20 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.richardphjbensonbot.Config
-import com.benkio.telegrambotinfrastructure.botcapabilities._
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.TextReply
-import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import com.benkio.telegrambotinfrastructure.BotOps
-import com.benkio.telegrambotinfrastructure._
+import com.benkio.telegrambotinfrastructure.BotSkeleton
+import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
+import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
 import doobie._
 import log.effect.LogWriter
 import org.http4s.client.Client
@@ -21,46 +29,45 @@ import telegramium.bots.Message
 import telegramium.bots.high._
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    rAccess: ResourceAccess[F],
-    val dbTimeout: DBTimeout[F]
+    val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
   override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
-    dbTimeout.logLastInteraction(m.chat.id)
+    dbLayer.dbTimeout.logLastInteraction(m.chat.id)
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_, m) =>
       for {
-        timeout <- dbTimeout.getOrDefault(m.chat.id)
+        timeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
       } yield Timeout.isExpired(timeout)
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    rAccess: ResourceAccess[F],
-    val dbTimeout: DBTimeout[F],
+    val dbLayer: DBLayer[F],
     path: Uri = uri"/"
 ) extends BotSkeletonWebhook[F](uri, path)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
   override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
-    dbTimeout.logLastInteraction(m.chat.id)
+    dbLayer.dbTimeout.logLastInteraction(m.chat.id)
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_, m) =>
       for {
-        timeout <- dbTimeout.getOrDefault(m.chat.id)
+        timeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
       } yield Timeout.isExpired(timeout)
 }
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
 
-  val dbTimeout: DBTimeout[F]
+  val dbLayer: DBLayer[F]
 
   override val botName: String                     = RichardPHJBensonBot.botName
+  override val botPrefix: String                   = RichardPHJBensonBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
   val linkSources: String                          = "rphjb_LinkSources"
 
@@ -71,22 +78,8 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    List(randomLinkByKeywordReplyBundleF, randomLinkReplyBundleF).sequence.map(cs =>
-      cs ++ RichardPHJBensonBot.commandRepliesData[F](dbTimeout)
-    )
+    RichardPHJBensonBot.commandRepliesData[F](dbLayer, linkSources).pure[F]
 
-  private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      youtubeLinkSources = linkSources
-    )
-
-  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      botName = botName,
-      youtubeLinkSources = linkSources
-    )
 }
 
 object RichardPHJBensonBot extends BotOps {
@@ -98,6 +91,7 @@ object RichardPHJBensonBot extends BotOps {
   import com.benkio.richardphjbensonbot.data.Mix.messageRepliesMixData
 
   val botName: String                     = "RichardPHJBensonBot"
+  val botPrefix: String                   = "rphjb"
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerListUri: Uri =
     uri"https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
@@ -118,12 +112,27 @@ object RichardPHJBensonBot extends BotOps {
   val bensonifyCommandDescriptionEng: String =
     "'/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
 
-  def commandRepliesData[F[_]: Applicative](dbTimeout: DBTimeout[F]): List[ReplyBundleCommand[F]] = List(
+  def commandRepliesData[F[_]: Async](dbLayer: DBLayer[F], linkSources: String)(implicit
+      log: LogWriter[F]
+  ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
       mdr = messageRepliesData
+    ),
+    StatisticsCommands.topTwentyReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
+    ),
+    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
+      resourceAccess = dbLayer.resourceAccess,
+      youtubeLinkSources = linkSources
+    ),
+    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
+      resourceAccess = dbLayer.resourceAccess,
+      botName = botName,
+      youtubeLinkSources = linkSources
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
@@ -133,14 +142,16 @@ object RichardPHJBensonBot extends BotOps {
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
         RandomLinkCommand.randomLinkCommandDescriptionIta,
         RandomLinkCommand.randomLinkKeywordCommandIta,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         timeoutCommandDescriptionIta,
-        bensonifyCommandDescriptionIta
+        bensonifyCommandDescriptionIta,
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
         RandomLinkCommand.randomLinkCommandDescriptionEng,
         RandomLinkCommand.randomLinkKeywordCommandEng,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         timeoutCommandDescriptionEng,
         bensonifyCommandDescriptionEng
       )
@@ -161,7 +172,7 @@ object RichardPHJBensonBot extends BotOps {
                     s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
                   ).pure[F]
                 else
-                  timeout.traverse_(dbTimeout.setTimeout) *> List("Timeout set successfully").pure[F]
+                  timeout.traverse_(dbLayer.dbTimeout.setTimeout) *> List("Timeout set successfully").pure[F]
               },
               """Input Required: the input must be in the form '\timeout 00:00:00'"""
             ),
@@ -192,7 +203,7 @@ object RichardPHJBensonBot extends BotOps {
       .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 
-  final case class BotSetup[F[_]](token: String, resourceAccess: ResourceAccess[F], dbTimeout: DBTimeout[F])
+  final case class BotSetup[F[_]](token: String, dbLayer: DBLayer[F])
 
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
@@ -207,9 +218,8 @@ object RichardPHJBensonBot extends BotOps {
         "",
         ""
       )
-      urlFetcher       <- Resource.eval(UrlFetcher[F](httpClient))
-      dbResourceAccess <- Resource.eval(DBResourceAccess(transactor, urlFetcher))
-      dbTimeout = DBTimeout(transactor)
+      urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
+      dbLayer               <- Resource.eval(DBLayer[F](transactor, urlFetcher))
       _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _ <- Resource.eval(
@@ -220,7 +230,7 @@ object RichardPHJBensonBot extends BotOps {
         )
       )
       _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-    } yield BotSetup(tk, dbResourceAccess, dbTimeout)
+    } yield BotSetup(tk, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
@@ -228,12 +238,12 @@ object RichardPHJBensonBot extends BotOps {
     httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
   } yield (httpClient, botSetup)).use {
-    case (httpClient, BotSetup(token, resourceAccess, dbTimeout)) => {
+    case (httpClient, BotSetup(token, dbLayer)) => {
       implicit val api: Api[F] = BotApi(
         httpClient,
         baseUrl = s"https://api.telegram.org/bot$token"
       )
-      action(new RichardPHJBensonBotPolling[F](rAccess = resourceAccess, dbTimeout = dbTimeout))
+      action(new RichardPHJBensonBotPolling[F](dbLayer = dbLayer))
     }
   }
 
@@ -250,8 +260,7 @@ object RichardPHJBensonBot extends BotOps {
     new RichardPHJBensonBotWebhook[F](
       uri = webhookBaseUri,
       path = path,
-      rAccess = botSetup.resourceAccess,
-      dbTimeout = botSetup.dbTimeout
+      dbLayer = botSetup.dbLayer
     )
   }
 }

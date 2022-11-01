@@ -109,10 +109,14 @@
     - [ ] Slack support
     - [ ] Webhook (tested locally, not deployed)
     - [ ] Refactor logging
-    - [ ] Feedback button on bot messages
+    - [ ] Feedback button  on bot messages or command
     - [ ] Add a ~subscribe~ & ~unsubscribe~ command that shares a random youtube show on the day/hour/frequency specified
     - [ ] Log any crash somewhere (by email??)
-    - [ ] Collect statistics on the files + Add command to see the top 20 matches
+    - [X] Collect statistics on the files + Add command to see the top 20 matches
+      - [X] Database Table count column
+      - [X] Change botDB to not overwrite the count
+      - [X] Code to accumulate the count on trigger
+      - [X] New Command to get the top 20 files triggered
 **** GIF Refactoring
     - [ ] Add multiple links foreach media file: Dropbox, Telegram (link to gif messages in public channels), Giphy mp4, Giphy original, Giphy small
     - [ ] Replace the GIFs to muted MP4 in Dropbox and update the links (also the telegram one) in CSV and DB

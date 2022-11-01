@@ -3,9 +3,11 @@ package com.benkio.abarberobot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie.Transactor
@@ -18,21 +20,24 @@ import org.http4s.Uri
 import telegramium.bots.high._
 
 class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    rAccess: ResourceAccess[F]
+    val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with ABarberoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
 }
 
-class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](uri: Uri, rAccess: ResourceAccess[F], path: Uri = uri"/")
+class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](uri: Uri, val dbLayer: DBLayer[F], path: Uri = uri"/")
     extends BotSkeletonWebhook[F](uri, path)
     with ABarberoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
 }
 
 trait ABarberoBot[F[_]] extends BotSkeleton[F] {
 
+  override val dbLayer: DBLayer[F]
+
   override val botName: String                     = ABarberoBot.botName
+  override val botPrefix: String                   = ABarberoBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
   val linkSources                                  = "abar_LinkSources"
 
@@ -43,29 +48,14 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
     ABarberoBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    List(
-      randomLinkByKeywordReplyBundleF,
-      randomLinkReplyBundleF
-    ).sequence.map(cs => cs ++ ABarberoBot.commandRepliesData[F])
-
-  private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      youtubeLinkSources = linkSources
-    )
-
-  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      botName = botName,
-      youtubeLinkSources = linkSources
-    )
+    ABarberoBot.commandRepliesData[F](dbLayer, linkSources).pure[F]
 }
 
 object ABarberoBot extends BotOps {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "ABarberoBot"
+  val botPrefix: String                   = "abar"
   val triggerListUrl: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
@@ -877,12 +867,27 @@ object ABarberoBot extends BotOps {
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
-  def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
+  def commandRepliesData[F[_]: Async](dbLayer: DBLayer[F], linkSources: String)(implicit
+      log: LogWriter[F]
+  ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUrl),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
       mdr = messageRepliesData[F]
+    ),
+    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
+      resourceAccess = dbLayer.resourceAccess,
+      youtubeLinkSources = linkSources
+    ),
+    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
+      resourceAccess = dbLayer.resourceAccess,
+      botName = botName,
+      youtubeLinkSources = linkSources
+    ),
+    StatisticsCommands.topTwentyReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
@@ -892,12 +897,14 @@ object ABarberoBot extends BotOps {
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
         RandomLinkCommand.randomLinkCommandDescriptionIta,
         RandomLinkCommand.randomLinkKeywordCommandIta,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
         RandomLinkCommand.randomLinkCommandDescriptionEng,
         RandomLinkCommand.randomLinkKeywordCommandEng,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
       )
     ),
   )
@@ -905,9 +912,11 @@ object ABarberoBot extends BotOps {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
 
+  final case class BotSetup[F[_]](token: String, dbLayer: DBLayer[F])
+
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
-  )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] = for {
+  )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
     tk     <- token[F]
     config <- Resource.eval(Config.loadConfig[F])
     _      <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
@@ -918,7 +927,7 @@ object ABarberoBot extends BotOps {
       ""
     )
     urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
-    dbResourceAccess      <- Resource.eval(DBResourceAccess(transactor, urlFetcher))
+    dbLayer               <- Resource.eval(DBLayer[F](transactor, urlFetcher))
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
@@ -927,32 +936,32 @@ object ABarberoBot extends BotOps {
       )
     )
     _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-  } yield (tk, dbResourceAccess)
+  } yield BotSetup[F](tk, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: ABarberoBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    tk_ra      <- buildCommonBot[F](httpClient)
-  } yield (httpClient, tk_ra._1, tk_ra._2)).use(httpClient_tk_ra => {
+    botSetup   <- buildCommonBot[F](httpClient)
+  } yield (httpClient, botSetup)).use(httpClient_botSetup => {
     implicit val api: Api[F] =
-      BotApi(httpClient_tk_ra._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk_ra._2}")
-    action(new ABarberoBotPolling[F](httpClient_tk_ra._3))
+      BotApi(httpClient_botSetup._1, baseUrl = s"https://api.telegram.org/bot${httpClient_botSetup._2.token}")
+    action(new ABarberoBotPolling[F](httpClient_botSetup._2.dbLayer))
   })
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] = for {
-    tk_ra          <- buildCommonBot[F](httpClient)
-    baseUrl        <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${tk_ra._1}")))
-    path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${tk_ra._1}")))
+    botSetup <- buildCommonBot[F](httpClient)
+    baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
+    path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
     new ABarberoBotWebhook[F](
       uri = webhookBaseUri,
-      rAccess = tk_ra._2,
+      dbLayer = botSetup.dbLayer,
       path = path
     )
   }

@@ -6,8 +6,12 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
@@ -19,7 +23,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 
-  private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
+  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  private val privateTestMessage  = Message(0, date = 0, chat = Chat(0, `type` = "private"))
 
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {
     val result =
@@ -44,14 +49,15 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
     assert(result, true)
   }
+  val emptyDBLayer = DBLayer[IO](null, null, null)
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist = RichardPHJBensonBot
-      .commandRepliesData[IO](null)
+      .commandRepliesData[IO](emptyDBLayer, "")
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("")
-    assertEquals(RichardPHJBensonBot.commandRepliesData[IO](null).length, 5)
+    assertEquals(RichardPHJBensonBot.commandRepliesData[IO](emptyDBLayer, "").length, 8)
     assertEquals(
       triggerlist,
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
@@ -60,7 +66,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   test("instructions command should return the expected message") {
     val actual = RichardPHJBensonBot
-      .commandRepliesData[IO](null)
+      .commandRepliesData[IO](emptyDBLayer, "")
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(
@@ -75,6 +81,7 @@ I comandi del bot sono:
 - '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
 - '/randomshow': Restituisce un link di uno show/video riguardante il personaggio del bot
 - '/randomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato
+- '/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii
 - '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00
 - '/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio
 
@@ -93,6 +100,7 @@ Bot commands are:
 - '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
 - '/randomshow': Return the link of one show/video about the bot's character
 - '/randomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword
+- '/topTwentyTriggers': Return a list of files and theirs send frequency
 - '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00
 - '/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory
 

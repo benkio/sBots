@@ -4,9 +4,13 @@ import cats.Show
 import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
@@ -16,15 +20,16 @@ import scala.io.Source
 
 class YoutuboAncheIoBotSpec extends CatsEffectSuite {
 
-  private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
+  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  private val privateTestMessage  = Message(0, date = 0, chat = Chat(0, `type` = "private"))
 
   test("triggerlist should return the link to the trigger txt file") {
     val triggerlistUrl = YoutuboAncheIoBot
-      .commandRepliesData[IO]
+      .commandRepliesData[IO](DBLayer[IO](null, null, null), "")
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("")
-    assertEquals(YoutuboAncheIoBot.commandRepliesData[IO].length, 3)
+    assertEquals(YoutuboAncheIoBot.commandRepliesData[IO](DBLayer[IO](null, null, null), "").length, 6)
     assertEquals(
       triggerlistUrl,
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/youtuboAncheIoBot/ytai_triggers.txt"
@@ -75,7 +80,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
 
   test("instructions command should return the expected message") {
     val actual = YoutuboAncheIoBot
-      .commandRepliesData[IO]
+      .commandRepliesData[IO](DBLayer[IO](null, null, null), "")
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(
@@ -90,6 +95,7 @@ I comandi del bot sono:
 - '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
 - '/randomshow': Restituisce un link di uno show/video riguardante il personaggio del bot
 - '/randomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato
+- '/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii
 
 Se si vuole disabilitare il bot per un particolare messaggio impedendo
 che interagisca, è possibile farlo iniziando il messaggio con il
@@ -106,6 +112,7 @@ Bot commands are:
 - '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
 - '/randomshow': Return the link of one show/video about the bot's character
 - '/randomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword
+- '/topTwentyTriggers': Return a list of files and theirs send frequency
 
 if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
 character: `!`

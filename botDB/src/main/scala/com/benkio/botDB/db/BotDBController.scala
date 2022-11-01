@@ -6,7 +6,7 @@ import cats.implicits._
 import com.benkio.botDB.db.schema.MediaEntity
 import com.benkio.botDB.Config
 import com.benkio.botDB.Input
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.chrisdavenport.cormorant.implicits._
 import io.chrisdavenport.cormorant.parser._
 

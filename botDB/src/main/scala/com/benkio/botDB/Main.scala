@@ -4,7 +4,7 @@ import cats.effect._
 import com.benkio.botDB.db.BotDBController
 import com.benkio.botDB.db.DBMigrator
 import com.benkio.botDB.db.DatabaseRepository
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 
 object Main extends IOApp {
 

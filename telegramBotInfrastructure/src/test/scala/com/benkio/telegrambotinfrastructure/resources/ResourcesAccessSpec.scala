@@ -1,4 +1,4 @@
-package com.benkio.telegrambotinfrastructure.botcapabilities
+package com.benkio.telegrambotinfrastructure.resources
 
 import cats.effect.IO
 import munit.FunSuite
