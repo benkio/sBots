@@ -14,7 +14,7 @@ final case class Media(
 object Media {
 
   implicit val mediaShowInstance: Show[Media] =
-    Show.show(media => s"${media.media_count.toString.padTo(7, ' ')} | ${media.media_name}")
+    Show.show(media => s"${media.media_count.toString.padTo(4, ' ')} | ${media.media_name} | ${media.media_url}")
 
   def mediaListToString(medias: List[Media]): String =
     medias.map(_.show).mkString("\n")
