@@ -6,6 +6,7 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -1001,6 +1002,10 @@ object YoutuboAncheIoBot extends BotOps {
       botName = botName,
       youtubeLinkSources = linkSources
     ),
+    StatisticsCommands.topTwentyReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -1008,13 +1013,15 @@ object YoutuboAncheIoBot extends BotOps {
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
         RandomLinkCommand.randomLinkCommandDescriptionIta,
-        RandomLinkCommand.randomLinkKeywordCommandIta
+        RandomLinkCommand.randomLinkKeywordCommandIta,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
         RandomLinkCommand.randomLinkCommandDescriptionEng,
-        RandomLinkCommand.randomLinkKeywordCommandEng
+        RandomLinkCommand.randomLinkKeywordCommandEng,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionEng
       )
     ),
   )

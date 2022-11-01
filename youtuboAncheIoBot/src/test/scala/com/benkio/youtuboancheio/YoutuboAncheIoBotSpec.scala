@@ -29,7 +29,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("")
-    assertEquals(YoutuboAncheIoBot.commandRepliesData[IO](DBLayer[IO](null, null, null), "").length, 5)
+    assertEquals(YoutuboAncheIoBot.commandRepliesData[IO](DBLayer[IO](null, null, null), "").length, 6)
     assertEquals(
       triggerlistUrl,
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/youtuboAncheIoBot/ytai_triggers.txt"
@@ -95,6 +95,7 @@ I comandi del bot sono:
 - '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
 - '/randomshow': Restituisce un link di uno show/video riguardante il personaggio del bot
 - '/randomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato
+- '/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii
 
 Se si vuole disabilitare il bot per un particolare messaggio impedendo
 che interagisca, è possibile farlo iniziando il messaggio con il
@@ -111,6 +112,7 @@ Bot commands are:
 - '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
 - '/randomshow': Return the link of one show/video about the bot's character
 - '/randomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword
+- '/topTwentyTriggers': Return a list of files and theirs send frequency
 
 if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
 character: `!`

@@ -885,6 +885,10 @@ object ABarberoBot extends BotOps {
       botName = botName,
       youtubeLinkSources = linkSources
     ),
+    StatisticsCommands.topTwentyReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -893,12 +897,14 @@ object ABarberoBot extends BotOps {
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
         RandomLinkCommand.randomLinkCommandDescriptionIta,
         RandomLinkCommand.randomLinkKeywordCommandIta,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
         RandomLinkCommand.randomLinkCommandDescriptionEng,
         RandomLinkCommand.randomLinkKeywordCommandEng,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
       )
     ),
   )
