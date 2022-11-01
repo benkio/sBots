@@ -1,10 +1,10 @@
 package com.benkio.youtuboancheio
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
@@ -25,11 +25,11 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
 
   test("triggerlist should return the link to the trigger txt file") {
     val triggerlistUrl = YoutuboAncheIoBot
-      .commandRepliesData[IO](DBLayer[IO](null,null,null), "")
+      .commandRepliesData[IO](DBLayer[IO](null, null, null), "")
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("")
-    assertEquals(YoutuboAncheIoBot.commandRepliesData[IO](DBLayer[IO](null,null,null), "").length, 5)
+    assertEquals(YoutuboAncheIoBot.commandRepliesData[IO](DBLayer[IO](null, null, null), "").length, 5)
     assertEquals(
       triggerlistUrl,
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/youtuboAncheIoBot/ytai_triggers.txt"
@@ -80,7 +80,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
 
   test("instructions command should return the expected message") {
     val actual = YoutuboAncheIoBot
-      .commandRepliesData[IO](DBLayer[IO](null,null,null), "")
+      .commandRepliesData[IO](DBLayer[IO](null, null, null), "")
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(

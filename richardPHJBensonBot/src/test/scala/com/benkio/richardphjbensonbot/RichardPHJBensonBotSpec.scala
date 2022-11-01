@@ -1,12 +1,12 @@
 package com.benkio.richardphjbensonbot
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -49,7 +49,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
     assert(result, true)
   }
-  val emptyDBLayer = DBLayer[IO](null,null,null)
+  val emptyDBLayer = DBLayer[IO](null, null, null)
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist = RichardPHJBensonBot

@@ -17,7 +17,7 @@ object DBLayer {
       urlFetcher: UrlFetcher[F]
   )(implicit log: LogWriter[F]): F[DBLayer[F]] = for {
     dbMedia <- DBMedia[F](transactor)
-    dbResourceAccess      = DBResourceAccess(dbMedia, urlFetcher)
+    dbResourceAccess = DBResourceAccess(dbMedia, urlFetcher)
     dbTimeout = new DBTimeout.DBTimeoutImpl[F](
       transactor,
       log

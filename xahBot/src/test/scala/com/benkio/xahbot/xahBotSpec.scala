@@ -1,7 +1,7 @@
 package com.benkio.xahbot
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import cats.effect.IO
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

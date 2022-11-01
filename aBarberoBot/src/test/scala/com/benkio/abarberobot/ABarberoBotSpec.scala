@@ -1,10 +1,10 @@
 package com.benkio.abarberobot
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -21,7 +21,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
 
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
   private val privateTestMessage  = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer = DBLayer[IO](null,null,null)
+  val emptyDBLayer                = DBLayer[IO](null, null, null)
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist: String = ABarberoBot

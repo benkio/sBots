@@ -1,8 +1,10 @@
 package com.benkio.richardphjbensonbot
 
-import com.benkio.richardphjbensonbot.model.Timeout
+import com.benkio.telegrambotinfrastructure.model.Timeout
+
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegramBotInfrastructure.resources.db.DBTimeout
+import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
+
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
 
@@ -163,12 +165,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      dbMediaResource <- fixture.dbMediaResource
+      resourceDBMedia <- fixture.resourceDBMedia
       mp3s            <- Resource.pure(messageRepliesAudioData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         mp3s
           .traverse((mp3: MediaFile) =>
-            dbMediaResource
+            resourceDBMedia
               .getMediaQueryByName(mp3.filename)
               .unique
               .transact(transactor)
@@ -187,12 +189,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     fixture =>
       val transactor = fixture.transactor
       val resourceAssert = for {
-        dbMediaResource <- fixture.dbMediaResource
+        resourceDBMedia <- fixture.resourceDBMedia
         gifs            <- Resource.pure(messageRepliesGifData[IO].flatMap(_.mediafiles))
         checks <- Resource.eval(
           gifs
             .traverse((gif: MediaFile) =>
-              dbMediaResource
+              resourceDBMedia
                 .getMediaQueryByName(gif.filename)
                 .unique
                 .transact(transactor)
@@ -211,12 +213,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      dbMediaResource <- fixture.dbMediaResource
+      resourceDBMedia <- fixture.resourceDBMedia
       mp4s            <- Resource.pure(messageRepliesVideoData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         mp4s
           .traverse((mp4: MediaFile) =>
-            dbMediaResource
+            resourceDBMedia
               .getMediaQueryByName(mp4.filename)
               .unique
               .transact(transactor)
@@ -234,12 +236,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     fixture =>
       val transactor = fixture.transactor
       val resourceAssert = for {
-        dbMediaResource <- fixture.dbMediaResource
+        resourceDBMedia <- fixture.resourceDBMedia
         mixs            <- Resource.pure(messageRepliesMixData[IO].flatMap(_.mediafiles))
         checks <- Resource.eval(
           mixs
             .traverse((mix: MediaFile) =>
-              dbMediaResource
+              resourceDBMedia
                 .getMediaQueryByName(mix.filename)
                 .unique
                 .transact(transactor)
@@ -258,12 +260,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      dbMediaResource <- fixture.dbMediaResource
+      resourceDBMedia <- fixture.resourceDBMedia
       specials        <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         specials
           .traverse((special: MediaFile) =>
-            dbMediaResource
+            resourceDBMedia
               .getMediaQueryByName(special.filename)
               .unique
               .transact(transactor)

@@ -5,7 +5,8 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import doobie.implicits._
 import doobie.implicits.javasql._
-import doobie.{Transactor, _}
+import doobie.Transactor
+import doobie._
 import log.effect.LogWriter
 
 sealed trait DBTimeout[F[_]] {

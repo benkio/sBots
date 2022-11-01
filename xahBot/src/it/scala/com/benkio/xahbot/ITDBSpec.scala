@@ -1,5 +1,6 @@
 package com.benkio.xahbot
 
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
 
@@ -11,6 +12,7 @@ import doobie.implicits._
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
+  val emptyDBLayer = DBLayer[IO](null, null, null)
   // File Reference Check
 
   databaseFixture.test(
@@ -18,12 +20,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      dbMediaResource <- fixture.dbMediaResource
-      files           <- Resource.pure(CommandRepliesData.values[IO].flatMap(_.mediafiles))
+      resourceDBMedia <- fixture.resourceDBMedia
+      files           <- Resource.pure(CommandRepliesData.values[IO](emptyDBLayer, "").flatMap(_.mediafiles))
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
-            dbMediaResource
+            resourceDBMedia
               .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
