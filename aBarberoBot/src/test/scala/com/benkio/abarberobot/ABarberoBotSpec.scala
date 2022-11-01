@@ -1,11 +1,15 @@
 package com.benkio.abarberobot
 
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
@@ -15,15 +19,17 @@ import scala.io.Source
 
 class ABarberoBotSpec extends CatsEffectSuite {
 
-  private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
+  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  private val privateTestMessage  = Message(0, date = 0, chat = Chat(0, `type` = "private"))
+  val emptyDBLayer = DBLayer[IO](null,null,null)
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist: String = ABarberoBot
-      .commandRepliesData[IO]
+      .commandRepliesData[IO](emptyDBLayer, "")
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("\n")
-    assertEquals(ABarberoBot.commandRepliesData[IO].length, 3)
+    assertEquals(ABarberoBot.commandRepliesData[IO](emptyDBLayer, "").length, 5)
     assertEquals(
       triggerlist,
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
@@ -73,7 +79,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
 
   test("instructions command should return the expected message") {
     val actual = ABarberoBot
-      .commandRepliesData[IO]
+      .commandRepliesData[IO](emptyDBLayer, "")
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(

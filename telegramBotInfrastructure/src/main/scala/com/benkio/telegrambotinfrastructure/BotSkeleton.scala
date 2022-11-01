@@ -13,6 +13,7 @@ import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.implicits._
@@ -58,6 +59,8 @@ trait BotSkeleton[F[_]] extends DefaultActions[F] {
   val inputTimeout: Option[Duration]                                      = Some(5.minute)
   val disableForward: Boolean                                             = true
   val botName: String
+  val botPrefix: String
+  val dbLayer: DBLayer[F]
   def filteringMatchesMessages(implicit applicativeF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_: ReplyBundleMessage[F], _: Message) => applicativeF.pure(true)
   def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = _ => Sync[F].unit

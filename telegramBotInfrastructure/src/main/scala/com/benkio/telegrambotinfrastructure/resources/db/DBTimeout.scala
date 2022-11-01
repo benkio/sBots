@@ -1,12 +1,11 @@
-package com.benkio.richardphjbensonbot.db
+package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect.Async
 import cats.implicits._
-import com.benkio.richardphjbensonbot.model.Timeout
+import com.benkio.telegrambotinfrastructure.model.Timeout
 import doobie.implicits._
 import doobie.implicits.javasql._
-import doobie.Transactor
-import doobie._
+import doobie.{Transactor, _}
 import log.effect.LogWriter
 
 sealed trait DBTimeout[F[_]] {

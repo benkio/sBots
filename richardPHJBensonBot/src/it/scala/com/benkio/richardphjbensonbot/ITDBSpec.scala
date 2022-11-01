@@ -1,8 +1,8 @@
 package com.benkio.richardphjbensonbot
 
 import com.benkio.richardphjbensonbot.model.Timeout
-import com.benkio.richardphjbensonbot.db.DBLayer
-import com.benkio.richardphjbensonbot.db.DBTimeout
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegramBotInfrastructure.resources.db.DBTimeout
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
 

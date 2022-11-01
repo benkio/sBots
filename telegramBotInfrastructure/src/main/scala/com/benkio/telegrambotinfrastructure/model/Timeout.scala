@@ -1,4 +1,4 @@
-package com.benkio.richardphjbensonbot.model
+package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits._
 import telegramium.bots.Message

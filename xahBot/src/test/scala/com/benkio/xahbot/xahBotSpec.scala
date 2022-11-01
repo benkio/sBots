@@ -1,14 +1,20 @@
 package com.benkio.xahbot
 
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import cats.effect.IO
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
 import munit.CatsEffectSuite
 
 import java.io.File
 import scala.io.Source
 
 class XahBotSpec extends CatsEffectSuite {
+
+  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   test("the csvs should contain all the triggers of the bot") {
     val listPath   = new File(".").getCanonicalPath + "/xah_list.csv"
@@ -18,7 +24,7 @@ class XahBotSpec extends CatsEffectSuite {
       case _                               => Left(new RuntimeException("Error on parsing the csv"))
     }
 
-    val botFile = CommandRepliesData.values[IO].flatMap(_.mediafiles.map(_.filename))
+    val botFile = CommandRepliesData.values[IO](DBLayer[IO](null, null, null), "").flatMap(_.mediafiles.map(_.filename))
 
     assert(csvFile.isRight)
     csvFile.fold(

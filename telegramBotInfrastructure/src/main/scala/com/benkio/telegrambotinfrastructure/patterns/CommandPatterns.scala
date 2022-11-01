@@ -40,7 +40,7 @@ object CommandPatterns {
     def selectRandomLinkReplyBundleCommand[F[_]: Async](
         resourceAccess: ResourceAccess[F],
         youtubeLinkSources: String
-    )(implicit log: LogWriter[F]): F[ReplyBundleCommand[F]] =
+    )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("randomshow"),
         text = Some(
@@ -55,13 +55,13 @@ object CommandPatterns {
             true
           )
         ),
-      ).pure[F]
+      )
 
     def selectRandomLinkByKeywordsReplyBundleCommand[F[_]: Async](
         resourceAccess: ResourceAccess[F],
         botName: String,
         youtubeLinkSources: String
-    )(implicit log: LogWriter[F]): F[ReplyBundleCommand[F]] =
+    )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("randomshowkeyword"),
         text = Some(
@@ -86,7 +86,7 @@ object CommandPatterns {
             true
           )
         ),
-      ).pure[F]
+      )
 
     private def selectRandomLinkByKeyword[F[_]: Async](
         keywords: String,
@@ -248,12 +248,12 @@ ${if (ignoreMessagePrefix.isDefined) {
     val topTwentyTriggersCommandDescriptionIta: String =
       "'/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii"
     val topTwentyTriggersCommandDescriptionEng: String =
-      "'/topTwentyTriggers': Return a list of files and theirs send frequery"
+      "'/topTwentyTriggers': Return a list of files and theirs send frequency"
 
     def topTwentyReplyBundleCommand[F[_]: Applicative](
         botPrefix: String,
         dbMedia: DBMedia[F]
-    ): F[ReplyBundleCommand[F]] =
+    ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("toptwenty"),
         text = Some(
@@ -265,7 +265,7 @@ ${if (ignoreMessagePrefix.isDefined) {
             true
           )
         ),
-      ).pure[F]
+      )
 
   }
 

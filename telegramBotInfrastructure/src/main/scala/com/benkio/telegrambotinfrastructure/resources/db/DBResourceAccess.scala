@@ -4,8 +4,6 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import doobie._
-import log.effect.LogWriter
 
 import java.io.File
 import java.nio.file.Files
@@ -14,14 +12,12 @@ object DBResourceAccess {
 
   // FIX: There should be no dependency to the UrlFetcher here!!
   def apply[F[_]: Async](
-      transactor: Transactor[F],
+      dbMedia: DBMedia[F],
       urlFetcher: UrlFetcher[F]
-  )(implicit log: LogWriter[F]): F[ResourceAccess[F]] =
-    DBMedia(transactor).map(dbMedia =>
-      new DBResourceAccess[F](
-        dbMedia = dbMedia,
-        urlFetcher = urlFetcher
-      )
+  ): ResourceAccess[F] =
+    new DBResourceAccess[F](
+      dbMedia = dbMedia,
+      urlFetcher = urlFetcher
     )
 
   private[telegrambotinfrastructure] class DBResourceAccess[F[_]: Async](
