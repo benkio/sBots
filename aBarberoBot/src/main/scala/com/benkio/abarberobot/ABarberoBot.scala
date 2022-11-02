@@ -79,7 +79,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("avrebbe (mai )?immaginato".r)
+        RegexTextTriggerValue("avrebbe (mai )?immaginato".r, 18)
       ),
       List(
         MediaFile("abar_NessunoAvrebbeImmaginato.mp3")
@@ -87,7 +87,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("mortalit[aà]".r)
+        RegexTextTriggerValue("mortalit[aà]".r, 9)
       ),
       List(
         MediaFile("abar_Mortalita.mp3")
@@ -143,7 +143,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bpratica\\b".r)
+        RegexTextTriggerValue("\\bpratica\\b".r, 7)
       ),
       List(
         MediaFile("abar_PraticaPocoPatriotticah.mp3")
@@ -197,7 +197,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\beccoh\\b".r)
+        RegexTextTriggerValue("\\beccoh\\b".r, 5)
       ),
       List(
         MediaFile("abar_Ecco.mp3"),
@@ -273,7 +273,7 @@ object ABarberoBot extends BotOps {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("cavallo"),
-        RegexTextTriggerValue("tiriamo(lo)? giù".r),
+        RegexTextTriggerValue("tiriamo(lo)? giù".r, 11),
         StringTextTriggerValue("ammazziamolo")
       ),
       List(
@@ -359,7 +359,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bre\\b".r),
+        RegexTextTriggerValue("\\bre\\b".r, 2),
         StringTextTriggerValue("decapita")
       ),
       List(
@@ -368,7 +368,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bascia\\b".r),
+        RegexTextTriggerValue("\\bascia\\b".r, 5),
         StringTextTriggerValue("sangue")
       ),
       List(
@@ -443,7 +443,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("c[a]{2,}[z]+[o]+".r)
+        RegexTextTriggerValue("c[a]{2,}[z]+[o]+".r, 5)
       ),
       List(
         MediaFile("abar_Cazzo.mp3")
@@ -560,7 +560,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("chi(s| )se( )?ne( )?frega".r)
+        RegexTextTriggerValue("chi(s| )se( )?ne( )?frega".r, 13)
       ),
       List(
         MediaFile("abar_Chissenefrega.gif")
@@ -577,7 +577,7 @@ object ABarberoBot extends BotOps {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("a morte"),
-        RegexTextTriggerValue("(si| si|si ){2,}".r)
+        RegexTextTriggerValue("(si| si|si ){2,}".r, 4)
       ),
       List(
         MediaFile("abar_SisiAMorte.gif")
@@ -619,7 +619,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bcerto\\b".r)
+        RegexTextTriggerValue("\\bcerto\\b".r, 5)
       ),
       List(
         MediaFile("abar_Certo.gif")
@@ -644,7 +644,7 @@ object ABarberoBot extends BotOps {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("bere"),
-        RegexTextTriggerValue("taglia(re)? la gola".r)
+        RegexTextTriggerValue("taglia(re)? la gola".r, 14)
       ),
       List(
         MediaFile("abar_TaglioGolaBereSangue.gif")
@@ -652,7 +652,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("spacco la (testa|faccia)".r)
+        RegexTextTriggerValue("spacco la (testa|faccia)".r, 15)
       ),
       List(
         MediaFile("abar_SpaccoLaTesta.gif")
@@ -660,7 +660,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r)
+        RegexTextTriggerValue("dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r, 8)
       ),
       List(
         MediaFile("abar_OrifizioPosteriore.gif")
@@ -702,7 +702,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("vieni (un po' )?qui".r)
+        RegexTextTriggerValue("vieni (un po' )?qui".r, 9)
       ),
       List(
         MediaFile("abar_VieniQui.gif")
@@ -735,8 +735,8 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue(" n[o]+!".r),
-        RegexTextTriggerValue("non (lo )?vogli(a|o)".r)
+        RegexTextTriggerValue("\\bn[o]+!\\b".r, 3),
+        RegexTextTriggerValue("non (lo )?vogli(a|o)".r, 10)
       ),
       List(
         MediaFile("abar_No.gif")
@@ -801,7 +801,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana|troia)".r)
+        RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana|troia)".r, 13)
       ),
       List(
         MediaFile("abar_FiglioDi.gif"),
