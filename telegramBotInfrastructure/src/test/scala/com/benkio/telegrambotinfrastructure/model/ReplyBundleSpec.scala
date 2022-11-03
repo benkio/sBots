@@ -59,7 +59,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
     val replyBundleInput: ReplyBundleMessage[IO] = ReplyBundleMessage[IO](
       trigger = TextTrigger(
         StringTextTriggerValue("stringTextTriggerValue"),
-        RegexTextTriggerValue("regexTextTriggerValue".r)
+        RegexTextTriggerValue("regexTextTriggerValue".r, 21)
       ),
       text = Some(TextReply(_ => IO.pure(List("some text that will be overwritten by the implicit")))),
       mediafiles = inputMediafile

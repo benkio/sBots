@@ -10,7 +10,7 @@ object Gif {
   def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bcontinua\\b".r)
+        RegexTextTriggerValue("\\bcontinua\\b".r, 8)
       ),
       List(
         MediaFile("rphjb_Continua.mp3"),
@@ -29,7 +29,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(af+)?fanculo(,)? per contesia".r)
+        RegexTextTriggerValue("(a[f]+)?fanculo(,)? per contesia".r, 20)
       ),
       List(
         MediaFile("rphjb_FanculoPerCortesia.gif")
@@ -146,7 +146,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue(" port[a]+( |$)".r)
+        RegexTextTriggerValue("\\bport[a]+\\b".r, 5)
       ),
       List(
         MediaFile("rphjb_Porta.gif")
@@ -242,7 +242,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("come ha fatto a entr(à|are)".r)
+        RegexTextTriggerValue("come ha fatto a entr(à|are)".r, 23)
       ),
       List(
         MediaFile("rphjb_ComeHaFattoAEntrare.gif")
@@ -374,7 +374,7 @@ object Gif {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("generi musicali"),
-        RegexTextTriggerValue("solo il me(t|d)al".r)
+        RegexTextTriggerValue("solo il me(t|d)al".r, 13)
       ),
       List(
         MediaFile("rphjb_GeneriMusicali.gif")
@@ -407,7 +407,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r)
+        RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r, 21)
       ),
       List(
         MediaFile("rphjb_Chitarrista.gif")
@@ -424,7 +424,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("e parl[a]+\\b".r)
+        RegexTextTriggerValue("e parl[a]+\\b".r, 7)
       ),
       List(
         MediaFile("rphjb_Parla.gif")
@@ -450,7 +450,7 @@ object Gif {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("pensa alla deficienza"),
-        RegexTextTriggerValue("ma si può dire una cosa (del genere|così)".r),
+        RegexTextTriggerValue("ma si può dire una cosa (del genere|così)".r, 28),
       ),
       List(
         MediaFile("rphjb_Deficienza.gif")
@@ -458,7 +458,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("e(s|c)certo".r),
+        RegexTextTriggerValue("e(s|c)certo".r, 6),
         StringTextTriggerValue("accetto le critiche"),
         StringTextTriggerValue("non me ne frega un cazzo")
       ),
@@ -468,8 +468,8 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("levati[/. ]*dai coglioni".r),
-        RegexTextTriggerValue("fuori[/. ]*dai coglioni".r)
+        RegexTextTriggerValue("levati[\\. ]*dai coglioni".r, 19),
+        RegexTextTriggerValue("fuori[\\. ]*dai coglioni".r, 18)
       ),
       List(
         MediaFile("rphjb_LevatiDaiCoglioni.gif")
@@ -477,9 +477,9 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("più co(gl|j)ione".r),
-        RegexTextTriggerValue("dice co(gl|j)ione".r),
-        RegexTextTriggerValue("co(gl|j)ion([e]{3,}|e[!]{3,})".r)
+        RegexTextTriggerValue("più co(gl|j)ione".r, 11),
+        RegexTextTriggerValue("dice co(gl|j)ione".r, 12),
+        RegexTextTriggerValue("co(gl|j)ion([e]{3,}|e[!]{3,})".r, 9)
       ),
       List(
         MediaFile("rphjb_Coglione.gif"),
@@ -507,7 +507,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bmetal\\b".r)
+        RegexTextTriggerValue("\\bmetal\\b".r, 5)
       ),
       List(
         MediaFile("rphjb_Metal.gif"),
@@ -662,7 +662,7 @@ object Gif {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("per colpa vostra"),
-        RegexTextTriggerValue("(divento|diventare|sono) (matto|pazzo)".r)
+        RegexTextTriggerValue("(divento|diventare|sono) (matto|pazzo)".r, 10)
       ),
       List(
         MediaFile("rphjb_StoDiventandoPazzo.gif")
@@ -673,7 +673,7 @@ object Gif {
         StringTextTriggerValue("sorca"),
         StringTextTriggerValue("patonza"),
         StringTextTriggerValue("lecciso"),
-        RegexTextTriggerValue("\\bfi[cg]a\\b".r)
+        RegexTextTriggerValue("\\bfi[cg]a\\b".r, 4)
       ),
       List(
         MediaFile("rphjb_SorcaLecciso.gif"),
@@ -710,7 +710,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(è|diventa) vecchi[ao]".r),
+        RegexTextTriggerValue("(è|diventa) vecchi[ao]".r, 9),
       ),
       List(
         MediaFile("rphjb_Vecchio.gif")
@@ -734,7 +734,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("sei [gc]ambiat[oa]".r)
+        RegexTextTriggerValue("sei [gc]ambiat[oa]".r, 12)
       ),
       List(
         MediaFile("rphjb_SeiCambiata.gif")
@@ -768,7 +768,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bn[o]{2,}\\b".r)
+        RegexTextTriggerValue("\\bn[o]{2,}\\b".r, 3)
       ),
       List(
         MediaFile("rphjb_No.gif")
@@ -831,7 +831,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r),
+        RegexTextTriggerValue("ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r, 10),
         StringTextTriggerValue("stillati")
       ),
       List(
@@ -877,7 +877,7 @@ object Gif {
         StringTextTriggerValue("faccio la parte"),
         StringTextTriggerValue(" recit"),
         StringTextTriggerValue(" fing"),
-        RegexTextTriggerValue("\\ba[t]{2,}[o]+re\\b".r),
+        RegexTextTriggerValue("\\ba[t]{2,}[o]+re\\b".r, 7),
         StringTextTriggerValue("attrice")
       ),
       List(
@@ -913,7 +913,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bester\\b".r)
+        RegexTextTriggerValue("\\bester\\b".r, 5)
       ),
       List(
         MediaFile("rphjb_Ester.gif"),
@@ -923,8 +923,8 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("abi[td]ua[td]o".r),
-        RegexTextTriggerValue("proprioll[aà]".r),
+        RegexTextTriggerValue("abi(t|d)ua(t|d)o".r, 8),
+        RegexTextTriggerValue("proprioll(a|à)".r, 10),
       ),
       List(
         MediaFile("rphjb_Propriolla.gif")
@@ -932,7 +932,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("non vedo questo grande problema".r)
+        StringTextTriggerValue("non vedo questo grande problema")
       ),
       List(
         MediaFile("rphjb_VabbeProblema.gif"),
@@ -951,7 +951,7 @@ object Gif {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("inserirlo su internet"),
-        RegexTextTriggerValue("immagini ama[dt]oriali".r)
+        RegexTextTriggerValue("immagini ama(d|t)oriali".r, 19)
       ),
       List(
         MediaFile("rphjb_Internet.gif")

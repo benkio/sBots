@@ -42,7 +42,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\brock\\b".r)
+        RegexTextTriggerValue("\\brock\\b".r, 4)
       ),
       List(
         MediaFile("rphjb_PoesiaRock.mp4"),
@@ -66,7 +66,7 @@ object Mix {
       TextTrigger(
         StringTextTriggerValue("cristo pinocchio"),
         StringTextTriggerValue("lumicino"),
-        RegexTextTriggerValue("(strade|vie) inferiori".r)
+        RegexTextTriggerValue("(strade|vie) inferiori".r, 13)
       ),
       List(
         MediaFile("rphjb_CristoPinocchio.mp3"),
@@ -88,7 +88,7 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("lasciami in pace"),
-        RegexTextTriggerValue("\\bstronza\\b".r)
+        RegexTextTriggerValue("\\bstronza\\b".r, 7)
       ),
       List(
         MediaFile("rphjb_LasciamiInPace.gif"),
@@ -99,11 +99,11 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("rimpinzati"),
-        RegexTextTriggerValue("[gc]io[gc]+ola[dt]a".r),
+        RegexTextTriggerValue("(g|c)io(g|c)+ola(d|t)a".r, 9),
         StringTextTriggerValue("pandori"),
         StringTextTriggerValue("ciambelloni"),
         StringTextTriggerValue("gli amari"),
-        RegexTextTriggerValue("limoncell[oi]".r),
+        RegexTextTriggerValue("limoncell(o|i)".r, 10),
         StringTextTriggerValue("il vino"),
         StringTextTriggerValue("ingrassati"),
         StringTextTriggerValue("andati al cesso"),
@@ -127,7 +127,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r)
+        RegexTextTriggerValue("[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r, 10)
       ),
       List(
         MediaFile("rphjb_Attenzione.mp3"),
@@ -147,7 +147,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bsput[ao]\\b".r)
+        RegexTextTriggerValue("\\bsput[ao]\\b".r, 5)
       ),
       List(
         MediaFile("rphjb_Sputo.gif"),
@@ -161,7 +161,7 @@ object Mix {
         StringTextTriggerValue("cobelini"),
         StringTextTriggerValue("cobbolidi"),
         StringTextTriggerValue("elfi"),
-        RegexTextTriggerValue("\\bnani\\b".r),
+        RegexTextTriggerValue("\\bnani\\b".r, 4),
         StringTextTriggerValue("la mandragola"),
         StringTextTriggerValue("gobellini"),
         StringTextTriggerValue("fico sacro"),
@@ -199,7 +199,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("stori(a|e)".r)
+        RegexTextTriggerValue("stori(a|e)".r, 6)
       ),
       List(
         MediaFile("rphjb_Storie.mp3"),
@@ -210,9 +210,9 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("au[ ]?de".r),
-        RegexTextTriggerValue("\\btime\\b".r),
-        RegexTextTriggerValue("uir[ ]?bi[ ]?taim".r)
+        RegexTextTriggerValue("au[ ]?de".r, 4),
+        RegexTextTriggerValue("\\btime\\b".r, 4),
+        RegexTextTriggerValue("uir[ ]?bi[ ]?taim".r, 9)
       ),
       List(
         MediaFile("rphjb_Audeuirbitaim.mp3"),
@@ -238,7 +238,7 @@ object Mix {
       TextTrigger(
         StringTextTriggerValue("spalle"),
         StringTextTriggerValue("braccia"),
-        RegexTextTriggerValue("t[ie] strozzo".r)
+        RegexTextTriggerValue("t(i|e) strozzo".r, 10)
       ),
       List(
         MediaFile("rphjb_FaccioVedereSpalleBraccia.gif"),
@@ -250,7 +250,7 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("non sapere"),
-        RegexTextTriggerValue("aris[dt]o[dt]ele".r)
+        RegexTextTriggerValue("aris(d|t)o(d|t)ele".r, 10)
       ),
       List(
         MediaFile("rphjb_SoDiNonSapere.gif"),
@@ -270,7 +270,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("io \\bn[o]{2,}\\b".r)
+        RegexTextTriggerValue("io \\bn[o]{2,}\\b".r, 6)
       ),
       List(
         MediaFile("rphjb_IoNo.mp3"),
@@ -319,7 +319,7 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("non ci credete?"),
-        RegexTextTriggerValue("grande s[dt]ronza[dt][ea]".r)
+        RegexTextTriggerValue("grande s(d|t)ronza(d|t)(e|a)".r, 16)
       ),
       List(
         MediaFile("rphjb_NonCiCredete.gif"),
@@ -356,11 +356,11 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("che (cazzo )?era quella roba".r),
-        RegexTextTriggerValue("che (cazzo |cazzo di roba )?mi avete dato".r),
+        RegexTextTriggerValue("che (cazzo )?era quella roba".r, 19),
+        RegexTextTriggerValue("che (cazzo |cazzo di roba )?mi avete dato".r, 17),
         StringTextTriggerValue("lampi negli occhi"),
-        RegexTextTriggerValue("gira(re|ra|rà|ndo)? la testa".r),
-        RegexTextTriggerValue("insieme alla (c|g)o(c|g)a (c|g)ola".r)
+        RegexTextTriggerValue("gira(re|ra|rà|ndo)? la testa".r, 13),
+        RegexTextTriggerValue("insieme alla (c|g)o(c|g)a (c|g)ola".r, 22)
       ),
       List(
         MediaFile("rphjb_CheCazzoEraQuellaRoba.mp3"),
@@ -424,9 +424,9 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bgood\\b".r),
-        RegexTextTriggerValue("\\bshow\\b".r),
-        RegexTextTriggerValue("\\bfriends\\b".r)
+        RegexTextTriggerValue("\\bgood\\b".r, 4),
+        RegexTextTriggerValue("\\bshow\\b".r, 4),
+        RegexTextTriggerValue("\\bfriends\\b".r, 7)
       ),
       List(
         MediaFile("rphjb_OkGoodShowFriends.gif"),
@@ -438,7 +438,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("vattene (af)?fanculo".r)
+        RegexTextTriggerValue("vattene (a f|a[f]*)?fanculo".r, 16)
       ),
       List(
         MediaFile("rphjb_MaVatteneAffanculo.gif"),
@@ -543,7 +543,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("ma[ ]?s[cg]us[a]?".r)
+        RegexTextTriggerValue("ma[ ]?s(c|g)us[a]?".r, 5)
       ),
       List(
         MediaFile("rphjb_MaSgus.mp3"),
@@ -564,7 +564,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("cia[o]{3,}".r)
+        RegexTextTriggerValue("cia[o]{3,}".r, 6)
       ),
       List(
         MediaFile("rphjb_Grazie.mp3"),
@@ -602,7 +602,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("infern[a]+l[ie]+[!]*".r)
+        RegexTextTriggerValue("infern[a]+l[ie]+[!]*".r, 9)
       ),
       List(
         MediaFile("rphjb_Infernali.mp3"),
@@ -626,7 +626,7 @@ object Mix {
         StringTextTriggerValue(e":lol:"),
         StringTextTriggerValue(e":rofl:"),
         StringTextTriggerValue("sorriso"),
-        RegexTextTriggerValue("(ah|ha){3,}".r)
+        RegexTextTriggerValue("(ah|ha){3,}".r, 6)
       ),
       List(
         MediaFile("rphjb_Risata.mp3"),
@@ -655,7 +655,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(fammi|chiedere)? (una|questa)? cortesia".r)
+        RegexTextTriggerValue("(fammi|chiedere)? (una|questa)? cortesia".r, 18)
       ),
       List(
         MediaFile("rphjb_FammiQuestaCortesia.mp3"),
@@ -721,7 +721,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("te[r]+[i]+[b]+[i]+l[e]+".r)
+        RegexTextTriggerValue("te[r]+[i]+[b]+[i]+l[e]+".r, 8)
       ),
       List(
         MediaFile("rphjb_Terribile.mp3"),
@@ -754,7 +754,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("bast[a]{3,}[!]*".r)
+        RegexTextTriggerValue("bast[a]{3,}[!]*".r, 7)
       ),
       List(
         MediaFile("rphjb_Basta.mp3"),
@@ -771,8 +771,8 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("assolo"),
-        RegexTextTriggerValue("[gc]hi[td]arra".r),
-        RegexTextTriggerValue("(as)?solo di basso".r)
+        RegexTextTriggerValue("(g|c)hi(t|d)arra".r, 8),
+        RegexTextTriggerValue("(as)?solo di basso".r, 13)
       ),
       List(
         MediaFile("rphjb_Assolo.mp3"),
@@ -790,9 +790,8 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("[ ]?ca[bp]i[dt]o | ca[bp]i[dt]o[ ]?".r),
-        RegexTextTriggerValue("[ ]?capissi | capissi[ ]?".r),
-        StringTextTriggerValue("gabido"),
+        RegexTextTriggerValue("\\b(g|c)a(b|p)i(d|t)o\\b".r, 6),
+        RegexTextTriggerValue("\\bcapissi\\b".r, 7),
       ),
       List(
         MediaFile("rphjb_HoCapito.mp3"),
@@ -818,8 +817,8 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("esperiment"),
-        RegexTextTriggerValue("1(,)? 2(,)? 3".r),
-        RegexTextTriggerValue("uno(,)? due(,)? tre".r)
+        RegexTextTriggerValue("1(,)? 2(,)? 3".r, 5),
+        RegexTextTriggerValue("uno(,)? due(,)? tre".r, 11)
       ),
       List(
         MediaFile("rphjb_Esperimento.mp3"),
@@ -857,7 +856,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("schifos(o)+(!)*".r)
+        RegexTextTriggerValue("schifos(o)+(!)*".r, 8)
       ),
       List(
         MediaFile("rphjb_Schifoso.gif"),
@@ -923,7 +922,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bpaga(re)?\\b".r),
+        RegexTextTriggerValue("\\bpaga(re)?\\b".r, 4),
         StringTextTriggerValue("soldi"),
         StringTextTriggerValue("bollette"),
         StringTextTriggerValue("tasse"),
@@ -940,7 +939,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("[od]?dio mio[,]? no".r)
+        RegexTextTriggerValue("[od]?dio mio[,]? no".r, 10)
       ),
       List(
         MediaFile("rphjb_OddioMioNo.gif"),
@@ -952,7 +951,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("[sono ]?a[r]{1,2}iva[dt]o".r),
+        RegexTextTriggerValue("[sono ]?a[r]{1,2}iva(d|t)o".r, 12),
         StringTextTriggerValue("piacere")
       ),
       List(
@@ -964,7 +963,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("delu[sd]".r)
+        RegexTextTriggerValue("delu(s|d)".r, 5)
       ),
       List(
         MediaFile("rphjb_Deluso.gif"),
@@ -976,7 +975,7 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("fate come vi pare"),
-        RegexTextTriggerValue("sti [gc]azzi".r)
+        RegexTextTriggerValue("sti (g|c)azzi".r, 9)
       ),
       List(
         MediaFile("rphjb_ComeViPare.gif"),
@@ -1030,7 +1029,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bpasqua\\b".r)
+        RegexTextTriggerValue("\\bpasqua\\b".r, 6)
       ),
       List(
         MediaFile("rphjb_AuguriPasqua.mp3"),
@@ -1042,7 +1041,7 @@ object Mix {
       TextTrigger(
         StringTextTriggerValue("vaniglia"),
         StringTextTriggerValue("pandoro"),
-        RegexTextTriggerValue("crema alla [gc]io[gc]+ola[dt]a".r),
+        RegexTextTriggerValue("crema alla (g|c)io(g|c)+ola(d|t)a".r, 20),
       ),
       List(
         MediaFile("rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3"),
@@ -1054,7 +1053,7 @@ object Mix {
       TextTrigger(
         StringTextTriggerValue("c'hai timore"),
         StringTextTriggerValue("c'hai paura"),
-        RegexTextTriggerValue("diri[g]+en[dt]i".r),
+        RegexTextTriggerValue("diri[g]+en(d|t)i".r, 9),
       ),
       List(
         MediaFile("rphjb_Dirigenti.gif"),
@@ -1108,7 +1107,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(18|diciott['o]?) anni".r)
+        RegexTextTriggerValue("(18|diciott['o]?) anni".r, 7)
       ),
       List(
         MediaFile("rphjb_DiciottoAnni.mp4"),
@@ -1118,7 +1117,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(cinque|5) dita".r),
+        RegexTextTriggerValue("(cinque|5) dita".r, 6),
         StringTextTriggerValue("pugno")
       ),
       List(
@@ -1129,7 +1128,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bratti\\b".r),
+        RegexTextTriggerValue("\\bratti\\b".r, 5),
         StringTextTriggerValue("topi")
       ),
       List(
@@ -1152,7 +1151,7 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("solo uno parló"),
-        RegexTextTriggerValue("[cg]ri[dt]i[gc]a[dt]o".r)
+        RegexTextTriggerValue("(c|g)ri(d|t)i(g|c)a(d|t)o".r, 9)
       ),
       List(
         MediaFile("rphjb_FuCriticato.gif"),
@@ -1195,7 +1194,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("lo[g]+i[cg]o".r)
+        RegexTextTriggerValue("lo[g]+i(c|g)o".r, 6)
       ),
       List(
         MediaFile("rphjb_MiPareLogico.gif"),
@@ -1216,8 +1215,8 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(non|mica) so(no)? (un |n )?co(gl|j)ione".r),
-        RegexTextTriggerValue("sarete co(gl|j)ioni voi".r)
+        RegexTextTriggerValue("(non|mica) so(no)? (un |n )?co(gl|j)ione".r, 13),
+        RegexTextTriggerValue("sarete co(gl|j)ioni voi".r, 17)
       ),
       List(
         MediaFile("rphjb_SareteCoglioniVoi.gif"),
@@ -1228,7 +1227,7 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("non li sopporto"),
-        RegexTextTriggerValue("che si deve f(à|are)".r),
+        RegexTextTriggerValue("che si deve f(à|are)".r, 14),
         StringTextTriggerValue("bisogna pure lavorà")
       ),
       List(

@@ -103,9 +103,9 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("ascolta (queste|le) mie parole".r),
+        RegexTextTriggerValue("ascolta (queste|le) mie parole".r, 21),
         StringTextTriggerValue("amareggiati"),
-        RegexTextTriggerValue("dedicaci (il tuo tempo|le tue notti)".r)
+        RegexTextTriggerValue("dedicaci (il tuo tempo|le tue notti)".r, 21)
       ),
       mediafiles = List(
         MediaFile("ytai_Amareggiati.gif")
@@ -153,7 +153,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("(buona )?pizza".r)
+        RegexTextTriggerValue("(buona )?pizza".r, 5)
       ),
       mediafiles = List(
         MediaFile("ytai_BuonaPizza.gif"),
@@ -182,7 +182,7 @@ object YoutuboAncheIoBot extends BotOps {
         StringTextTriggerValue("che vergogna"),
         StringTextTriggerValue("non ce l'ho"),
         StringTextTriggerValue("sopracciglia"),
-        RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r)
+        RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r, 22)
       ),
       mediafiles = List(
         MediaFile("ytai_CheVergogna.gif"),
@@ -259,7 +259,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("fallo anche (tu|te)".r),
+        RegexTextTriggerValue("fallo anche (tu|te)".r, 14),
       ),
       mediafiles = List(
         MediaFile("ytai_FalloAncheTu.gif")
@@ -267,7 +267,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("filet[ -]?o[ -]fish".r),
+        RegexTextTriggerValue("filet[ -]?o[ -]?fish".r, 10),
       ),
       mediafiles = List(
         MediaFile("ytai_FiletOFish.gif"),
@@ -278,7 +278,8 @@ object YoutuboAncheIoBot extends BotOps {
     ReplyBundleMessage(
       trigger = TextTrigger(
         RegexTextTriggerValue(
-          "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r
+          "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r,
+          6
         )
       ),
       mediafiles = List(
@@ -332,7 +333,7 @@ object YoutuboAncheIoBot extends BotOps {
       trigger = TextTrigger(
         StringTextTriggerValue("incredibile"),
         StringTextTriggerValue("inimitabile"),
-        RegexTextTriggerValue("the number (one|1)".r)
+        RegexTextTriggerValue("the number (one|1)".r, 12)
       ),
       mediafiles = List(
         MediaFile("ytai_IncredibileInimitabile.gif")
@@ -406,7 +407,7 @@ object YoutuboAncheIoBot extends BotOps {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("monoporzioni"),
-        RegexTextTriggerValue("mezzo (chilo|kg)".r),
+        RegexTextTriggerValue("mezzo (chilo|kg)".r, 8),
         StringTextTriggerValue("tiramisù"),
       ),
       mediafiles = List(
@@ -531,7 +532,7 @@ object YoutuboAncheIoBot extends BotOps {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("sete"),
-        RegexTextTriggerValue("(sorso|bicchiere) d'acqua".r)
+        RegexTextTriggerValue("(sorso|bicchiere) d'acqua".r, 13)
       ),
       mediafiles = List(
         MediaFile("ytai_Sete.gif")
@@ -555,7 +556,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("silenzio[,]? silenzio".r),
+        RegexTextTriggerValue("silenzio[,]? silenzio".r, 17),
       ),
       mediafiles = List(
         MediaFile("ytai_Silenzio.gif"),
@@ -565,7 +566,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("si v[àa] finch[eé] si v[aà]".r),
+        RegexTextTriggerValue("si v[àa] finch[eé] si v[aà]".r, 18),
         StringTextTriggerValue("quando non si potrà andare più"),
         StringTextTriggerValue("è tanto facile")
       ),
@@ -605,7 +606,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("ti voglio (tanto )?bene".r),
+        RegexTextTriggerValue("ti voglio (tanto )?bene".r, 14),
       ),
       mediafiles = List(
         MediaFile("ytai_TVTB.gif")
@@ -686,7 +687,7 @@ object YoutuboAncheIoBot extends BotOps {
       trigger = TextTrigger(
         StringTextTriggerValue("diploma"),
         StringTextTriggerValue("per pisciare"),
-        RegexTextTriggerValue("ma (che )?stiamo scherzando".r)
+        RegexTextTriggerValue("ma (che )?stiamo scherzando".r, 20)
       ),
       mediafiles = List(
         MediaFile("ytai_DiplomaPisciare.gif"),
@@ -694,7 +695,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("non (mi sento|sto) bene".r)
+        RegexTextTriggerValue("non (mi sento|sto) bene".r, 12)
       ),
       mediafiles = List(
         MediaFile("ytai_DiversiGioniNonStoBene.gif")
@@ -702,7 +703,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("(grazie e )?arrivederci".r),
+        RegexTextTriggerValue("(grazie e )?arrivederci".r, 11),
       ),
       mediafiles = List(
         MediaFile("ytai_GrazieArrivederci.gif")
@@ -738,7 +739,7 @@ object YoutuboAncheIoBot extends BotOps {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("caspita"),
-        RegexTextTriggerValue("sono (grosso|sono (quasi )?enorme|una palla di lardo)".r),
+        RegexTextTriggerValue("sono (grosso|sono (quasi )?enorme|una palla di lardo)".r, 11),
       ),
       mediafiles = List(
         MediaFile("ytai_PallaDiLardo.gif")
@@ -782,7 +783,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("\\bproviamo\\b".r),
+        RegexTextTriggerValue("\\bproviamo\\b".r, 8),
         StringTextTriggerValue("senza morire"),
       ),
       mediafiles = List(
@@ -799,7 +800,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("sentendo (davvero )?male".r),
+        RegexTextTriggerValue("sentendo (davvero )?male".r, 13),
       ),
       mediafiles = List(
         MediaFile("ytai_SentendoDavveroMale.gif")
@@ -832,7 +833,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("staccato (quasi )?il naso".r),
+        RegexTextTriggerValue("staccato (quasi )?il naso".r, 16),
       ),
       mediafiles = List(
         MediaFile("ytai_StaccatoNaso.gif")
@@ -840,7 +841,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("cuc[uù]+".r),
+        RegexTextTriggerValue("cuc[uù]+".r, 4),
       ),
       mediafiles = List(
         MediaFile("ytai_Cucu.gif")
@@ -848,7 +849,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("al[e]+ [o]{2,}".r),
+        RegexTextTriggerValue("al[e]+ [o]{2,}".r, 6),
       ),
       mediafiles = List(
         MediaFile("ytai_AleOoo.gif")
@@ -937,7 +938,7 @@ object YoutuboAncheIoBot extends BotOps {
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("ho perso (di nuovo )qualcosa".r)
+        RegexTextTriggerValue("ho perso (di nuovo )qualcosa".r, 18)
       ),
       mediafiles = List(
         MediaFile("ytai_HoPersoQualcosa.gif"),

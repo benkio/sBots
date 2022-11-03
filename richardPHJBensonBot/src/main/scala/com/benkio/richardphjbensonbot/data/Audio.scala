@@ -38,7 +38,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r)
+        RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r, 11)
       ),
       List(
         MediaFile("rphjb_Scusa.mp3")
@@ -70,7 +70,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r)
+        RegexTextTriggerValue("perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r, 24)
       ),
       List(
         MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp3")
@@ -186,7 +186,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(mi sento|sto) meglio".r)
+        RegexTextTriggerValue("(mi sento|sto) meglio".r, 10)
       ),
       List(
         MediaFile("rphjb_MiSentoMeglio.mp3")
@@ -230,7 +230,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("giù( giù)+".r)
+        RegexTextTriggerValue("giù( giù)+".r, 7)
       ),
       List(
         MediaFile("rphjb_GiuGiuGiu.mp3")
@@ -239,7 +239,7 @@ object Audio {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("viale zara"),
-        RegexTextTriggerValue("cas(a|e) chius(a|e)".r)
+        RegexTextTriggerValue("cas(a|e) chius(a|e)".r, 11)
       ),
       List(
         MediaFile("rphjb_VialeZara.mp3")
@@ -289,7 +289,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("poteri (ter[r]+ib[b]+ili|demoniaci)".r)
+        RegexTextTriggerValue("poteri (ter[r]+ib[b]+ili|demoniaci)".r, 16)
       ),
       List(
         MediaFile("rphjb_PoteriDemoniaci.mp3")
@@ -297,8 +297,8 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("sono( pure)? italiane".r),
-        RegexTextTriggerValue("non so(no)? ungheresi".r)
+        RegexTextTriggerValue("sono( pure)? italiane".r, 13),
+        RegexTextTriggerValue("non so(no)? ungheresi".r, 16)
       ),
       List(
         MediaFile("rphjb_ItalianeUngheresi.mp3")
@@ -306,7 +306,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bcolpevole\\b".r)
+        RegexTextTriggerValue("\\bcolpevole\\b".r, 9)
       ),
       List(
         MediaFile("rphjb_IlColpevole.mp3")
@@ -330,7 +330,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("si leva (sta roba|sto schifo)".r),
+        RegexTextTriggerValue("si leva (sta roba|sto schifo)".r, 16),
         StringTextTriggerValue("questo schifo")
       ),
       List(
@@ -370,8 +370,8 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("a( )?s[s]+tronzo".r),
-        RegexTextTriggerValue("stronz[o]{3,}".r)
+        RegexTextTriggerValue("a( )?s[s]+tronzo".r, 8),
+        RegexTextTriggerValue("stronz[o]{3,}".r, 9)
       ),
       List(
         MediaFile("rphjb_AStronzo.mp3")
@@ -416,7 +416,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("conosce(nza|re)".r),
+        RegexTextTriggerValue("conosce(nza|re)".r, 9),
         StringTextTriggerValue("il sapere"),
         StringTextTriggerValue("veri valori"),
       ),
@@ -426,7 +426,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r)
+        RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r, 6)
       ),
       List(
         MediaFile("rphjb_MenoVolume.mp3")
@@ -449,8 +449,8 @@ object Audio {
         StringTextTriggerValue("anguille"),
         StringTextTriggerValue("polipi"),
         StringTextTriggerValue("cetrioli"),
-        RegexTextTriggerValue("il problema è uno solo".r),
-        RegexTextTriggerValue("non riesco a suonare".r)
+        StringTextTriggerValue("il problema è uno solo"),
+        StringTextTriggerValue("non riesco a suonare")
       ),
       List(
         MediaFile("rphjb_Problema.mp3")
@@ -539,7 +539,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("ci sei ritornat[ao]".r)
+        RegexTextTriggerValue("ci sei ritornat[ao]".r, 15)
       ),
       List(
         MediaFile("rphjb_Ritornata.mp3")
@@ -563,7 +563,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("m[ie] fai( proprio)? schifo".r)
+        RegexTextTriggerValue("m[ie] fai( proprio)? schifo".r, 13)
       ),
       List(
         MediaFile("rphjb_Schifo.mp3")
@@ -579,7 +579,7 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("oppur[ae]".r)
+        RegexTextTriggerValue("oppur[ae]".r, 6)
       ),
       List(
         MediaFile("rphjb_Oppura.mp3")
@@ -632,10 +632,10 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("funzioni gene[g]{2,}iative".r),
+        RegexTextTriggerValue("funzioni gene[g]{2,}iative".r, 21),
         StringTextTriggerValue("non è un uomo"),
         StringTextTriggerValue("voce da uomo"),
-        RegexTextTriggerValue("è (veramente )?una donna".r)
+        RegexTextTriggerValue("è (veramente )?una donna".r, 11)
       ),
       List(
         MediaFile("rphjb_VoceDaUomo.mp3")
@@ -662,7 +662,7 @@ object Audio {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("incrinata la voce"),
-        RegexTextTriggerValue("parlo come un(a specie di)? frocio".r)
+        RegexTextTriggerValue("parlo come un(a specie di)? frocio".r, 20)
       ),
       List(
         MediaFile("rphjb_IncrinataLaVoceFrocio.mp3")
@@ -748,7 +748,7 @@ object Audio {
         StringTextTriggerValue("sei brava a truccare"),
         StringTextTriggerValue("non vali niente"),
         StringTextTriggerValue("sei l'ultima"),
-        RegexTextTriggerValue("manco trucc[aà] sai".r),
+        RegexTextTriggerValue("manco trucc[aà] sai".r, 16),
       ),
       List(
         MediaFile("rphjb_TruccareViaZara.mp3"),
@@ -767,7 +767,7 @@ object Audio {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("che schifo!"),
-        RegexTextTriggerValue("che( )?(s)+chifo".r),
+        RegexTextTriggerValue("che( )?(s)+chifo".r, 10),
       ),
       List(
         MediaFile("rphjb_Schifosi4.mp3"),
