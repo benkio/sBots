@@ -860,7 +860,8 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_Schifoso.gif"),
-        MediaFile("rphjb_Vigile.mp4")
+        MediaFile("rphjb_Vigile.mp4"),
+        MediaFile("rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1267,6 +1268,23 @@ object Mix {
         MediaFile("rphjb_DanzaMacabra.gif"),
         MediaFile("rphjb_DanzaMacabra.mp4"),
         MediaFile("rphjb_DanzaMacabra.mp3"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("steve vai"),
+      ),
+      List(
+        MediaFile("rphjb_SteveVaiRiciclando.mp4"),
+        MediaFile("rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4"),
+        MediaFile("rphjb_DueOssa.mp3"),
+        MediaFile("rphjb_Note.gif"),
+        MediaFile("rphjb_Paradosso.mp4"),
+        MediaFile("rphjb_RelIllusions.mp4"),
+        MediaFile("rphjb_TiDeviSpaventare.gif"),
+        MediaFile("rphjb_TiDeviSpaventare.mp3"),
+        MediaFile("rphjb_Feelings.mp4")
       ),
       replySelection = RandomSelection
     )
