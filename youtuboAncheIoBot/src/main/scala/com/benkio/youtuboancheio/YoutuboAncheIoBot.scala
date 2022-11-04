@@ -49,7 +49,7 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = YoutuboAncheIoBot.botName
   override val botPrefix: String                   = YoutuboAncheIoBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = YoutuboAncheIoBot.ignoreMessagePrefix
-  val linkSources = "ytai_LinkSources"
+  val linkSources                                  = "ytai_LinkSources"
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
