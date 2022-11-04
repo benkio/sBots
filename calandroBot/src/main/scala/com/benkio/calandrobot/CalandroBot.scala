@@ -26,16 +26,21 @@ import telegramium.bots.high._
 import scala.util.Random
 
 class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with CalandroBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
-class CalandroBotWebhook[F[_]: Async: Api: LogWriter](uri: Uri, val dbLayer: DBLayer[F], path: Uri = uri"/")
-    extends BotSkeletonWebhook[F](uri, path)
+class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
+    uri: Uri,
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F],
+    path: Uri = uri"/"
+) extends BotSkeletonWebhook[F](uri, path)
     with CalandroBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 trait CalandroBot[F[_]] extends BotSkeleton[F] {
@@ -331,7 +336,12 @@ object CalandroBot extends BotOps {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
 
-  final case class BotSetup[F[_]](token: String, dbLayer: DBLayer[F])
+  final case class BotSetup[F[_]](
+      token: String,
+      httpClient: Client[F],
+      resourceAccess: ResourceAccess[F],
+      dbLayer: DBLayer[F]
+  )
 
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
@@ -345,8 +355,9 @@ object CalandroBot extends BotOps {
       "",
       ""
     )
-    urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
-    dbLayer               <- Resource.eval(DBLayer[F](transactor, urlFetcher))
+    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
+    dbLayer    <- Resource.eval(DBLayer[F](transactor))
+    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
     _                     <- Resource.eval(log.info("[CalandroBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
@@ -356,18 +367,18 @@ object CalandroBot extends BotOps {
     )
     _ <- Resource.eval(log.info("[CalandroBot] Webhook deleted"))
 
-  } yield BotSetup(tk, dbLayer)
+  } yield BotSetup(tk, httpClient, resourceAccess, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
-  } yield (httpClient, botSetup))
-    .use(httpClient_botSetup => {
+  } yield botSetup)
+    .use(botSetup => {
       implicit val api: Api[F] =
-        BotApi(httpClient_botSetup._1, baseUrl = s"https://api.telegram.org/bot${httpClient_botSetup._2.token}")
-      action(new CalandroBotPolling[F](httpClient_botSetup._2.dbLayer))
+        BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
+      action(new CalandroBotPolling[F](botSetup.resourceAccess, botSetup.dbLayer))
     })
 
   def buildWebhookBot[F[_]: Async](
@@ -382,6 +393,7 @@ object CalandroBot extends BotOps {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
     new CalandroBotWebhook[F](
       uri = webhookBaseUri,
+      resAccess = botSetup.resourceAccess,
       dbLayer = botSetup.dbLayer,
       path = path
     )

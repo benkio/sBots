@@ -29,10 +29,11 @@ import telegramium.bots.Message
 import telegramium.bots.high._
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
   override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
     dbLayer.dbTimeout.logLastInteraction(m.chat.id)
   override def filteringMatchesMessages(implicit
@@ -46,11 +47,12 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
+    resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     path: Uri = uri"/"
 ) extends BotSkeletonWebhook[F](uri, path)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
   override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
     dbLayer.dbTimeout.logLastInteraction(m.chat.id)
   override def filteringMatchesMessages(implicit
@@ -64,8 +66,6 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
 
-  val dbLayer: DBLayer[F]
-
   override val botName: String                     = RichardPHJBensonBot.botName
   override val botPrefix: String                   = RichardPHJBensonBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
@@ -78,7 +78,7 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    RichardPHJBensonBot.commandRepliesData[F](dbLayer, linkSources).pure[F]
+    RichardPHJBensonBot.commandRepliesData[F](resourceAccess = resourceAccess, dbLayer = dbLayer, linkSources).pure[F]
 
 }
 
@@ -112,8 +112,8 @@ object RichardPHJBensonBot extends BotOps {
   val bensonifyCommandDescriptionEng: String =
     "'/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
 
-  def commandRepliesData[F[_]: Async](dbLayer: DBLayer[F], linkSources: String)(implicit
-      log: LogWriter[F]
+  def commandRepliesData[F[_]: Async](resourceAccess: ResourceAccess[F], dbLayer: DBLayer[F], linkSources: String)(
+      implicit log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
@@ -126,11 +126,11 @@ object RichardPHJBensonBot extends BotOps {
       dbMedia = dbLayer.dbMedia
     ),
     RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = dbLayer.resourceAccess,
+      resourceAccess = resourceAccess,
       youtubeLinkSources = linkSources
     ),
     RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = dbLayer.resourceAccess,
+      resourceAccess = resourceAccess,
       botName = botName,
       youtubeLinkSources = linkSources
     ),
@@ -203,7 +203,12 @@ object RichardPHJBensonBot extends BotOps {
       .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 
-  final case class BotSetup[F[_]](token: String, dbLayer: DBLayer[F])
+  final case class BotSetup[F[_]](
+      token: String,
+      httpClient: Client[F],
+      resourceAccess: ResourceAccess[F],
+      dbLayer: DBLayer[F]
+  )
 
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
@@ -218,8 +223,9 @@ object RichardPHJBensonBot extends BotOps {
         "",
         ""
       )
-      urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
-      dbLayer               <- Resource.eval(DBLayer[F](transactor, urlFetcher))
+      urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
+      dbLayer    <- Resource.eval(DBLayer[F](transactor))
+      resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
       _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _ <- Resource.eval(
@@ -230,20 +236,20 @@ object RichardPHJBensonBot extends BotOps {
         )
       )
       _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-    } yield BotSetup(tk, dbLayer)
+    } yield BotSetup(tk, httpClient, resourceAccess, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
-  } yield (httpClient, botSetup)).use {
-    case (httpClient, BotSetup(token, dbLayer)) => {
+  } yield botSetup).use {
+    case BotSetup(token, httpClient, resourceAccess, dbLayer) => {
       implicit val api: Api[F] = BotApi(
         httpClient,
         baseUrl = s"https://api.telegram.org/bot$token"
       )
-      action(new RichardPHJBensonBotPolling[F](dbLayer = dbLayer))
+      action(new RichardPHJBensonBotPolling[F](resAccess = resourceAccess, dbLayer = dbLayer))
     }
   }
 
@@ -260,6 +266,7 @@ object RichardPHJBensonBot extends BotOps {
     new RichardPHJBensonBotWebhook[F](
       uri = webhookBaseUri,
       path = path,
+      resAccess = botSetup.resourceAccess,
       dbLayer = botSetup.dbLayer
     )
   }

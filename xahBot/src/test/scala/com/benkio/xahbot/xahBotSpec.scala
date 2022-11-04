@@ -1,7 +1,7 @@
 package com.benkio.xahbot
 
 import cats.effect.IO
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -24,7 +24,8 @@ class XahBotSpec extends CatsEffectSuite {
       case _                               => Left(new RuntimeException("Error on parsing the csv"))
     }
 
-    val botFile = CommandRepliesData.values[IO](DBLayer[IO](null, null, null), "").flatMap(_.mediafiles.map(_.filename))
+    val botFile =
+      CommandRepliesData.values[IO](ResourceAccess.fromResources[IO], "").flatMap(_.mediafiles.map(_.filename))
 
     assert(csvFile.isRight)
     csvFile.fold(

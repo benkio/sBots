@@ -27,16 +27,21 @@ import org.http4s.Uri
 import telegramium.bots.high._
 
 class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with YoutuboAncheIoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
-class YoutuboAncheIoBotWebhook[F[_]: Async: Api: LogWriter](uri: Uri, val dbLayer: DBLayer[F], path: Uri = uri"/")
-    extends BotSkeletonWebhook[F](uri, path)
+class YoutuboAncheIoBotWebhook[F[_]: Async: Api: LogWriter](
+    uri: Uri,
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F],
+    path: Uri = uri"/"
+) extends BotSkeletonWebhook[F](uri, path)
     with YoutuboAncheIoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
@@ -44,7 +49,6 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = YoutuboAncheIoBot.botName
   override val botPrefix: String                   = YoutuboAncheIoBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = YoutuboAncheIoBot.ignoreMessagePrefix
-  override val dbLayer: DBLayer[F]
   val linkSources = "ytai_LinkSources"
 
   override def messageRepliesDataF(implicit
@@ -54,7 +58,7 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
     YoutuboAncheIoBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    YoutuboAncheIoBot.commandRepliesData[F](dbLayer, linkSources).pure[F]
+    YoutuboAncheIoBot.commandRepliesData[F](resourceAccess, dbLayer, linkSources).pure[F]
 
 }
 object YoutuboAncheIoBot extends BotOps {
@@ -988,7 +992,9 @@ object YoutuboAncheIoBot extends BotOps {
 
   def commandRepliesData[
       F[_]: Async
-  ](dbLayer: DBLayer[F], linkSources: String)(implicit log: LogWriter[F]): List[ReplyBundleCommand[F]] = List(
+  ](resourceAccess: ResourceAccess[F], dbLayer: DBLayer[F], linkSources: String)(implicit
+      log: LogWriter[F]
+  ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
@@ -996,11 +1002,11 @@ object YoutuboAncheIoBot extends BotOps {
       mdr = messageRepliesData[F]
     ),
     RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = dbLayer.resourceAccess,
+      resourceAccess = resourceAccess,
       youtubeLinkSources = linkSources
     ),
     RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = dbLayer.resourceAccess,
+      resourceAccess = resourceAccess,
       botName = botName,
       youtubeLinkSources = linkSources
     ),
@@ -1031,7 +1037,12 @@ object YoutuboAncheIoBot extends BotOps {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("ytai_YoutuboAncheIoBot.token").map(_.map(_.toChar).mkString)
 
-  final case class BotSetup[F[_]](token: String, dbLayer: DBLayer[F])
+  final case class BotSetup[F[_]](
+      token: String,
+      httpClient: Client[F],
+      resourceAccess: ResourceAccess[F],
+      dbLayer: DBLayer[F]
+  )
 
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
@@ -1045,8 +1056,9 @@ object YoutuboAncheIoBot extends BotOps {
       "",
       ""
     )
-    urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
-    dbLayer               <- Resource.eval(DBLayer[F](transactor, urlFetcher))
+    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
+    dbLayer    <- Resource.eval(DBLayer[F](transactor))
+    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
@@ -1057,17 +1069,17 @@ object YoutuboAncheIoBot extends BotOps {
       )
     )
     _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-  } yield BotSetup[F](tk, dbLayer)
+  } yield BotSetup[F](tk, httpClient, resourceAccess, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: YoutuboAncheIoBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
-  } yield (httpClient, botSetup)).use(httpClient_botSetup => {
+  } yield botSetup).use(botSetup => {
     implicit val api: Api[F] =
-      BotApi(httpClient_botSetup._1, baseUrl = s"https://api.telegram.org/bot${httpClient_botSetup._2.token}")
-    action(new YoutuboAncheIoBotPolling[F](httpClient_botSetup._2.dbLayer))
+      BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
+    action(new YoutuboAncheIoBotPolling[F](botSetup.resourceAccess, botSetup.dbLayer))
   })
 
   def buildWebhookBot[F[_]: Async](
@@ -1082,6 +1094,7 @@ object YoutuboAncheIoBot extends BotOps {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
     new YoutuboAncheIoBotWebhook[F](
       uri = webhookBaseUri,
+      resAccess = botSetup.resourceAccess,
       dbLayer = botSetup.dbLayer,
       path = path
     )
