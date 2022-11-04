@@ -3,9 +3,10 @@ package com.benkio.xahbot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie.Transactor
@@ -18,26 +19,30 @@ import org.http4s.Uri
 import telegramium.bots.high._
 
 class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    rAccess: ResourceAccess[F]
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with XahBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
-class XahBotWebhook[F[_]: Async: Api: LogWriter](url: Uri, rAccess: ResourceAccess[F], path: Uri = uri"/")
-    extends BotSkeletonWebhook[F](url, path)
+class XahBotWebhook[F[_]: Async: Api: LogWriter](
+    url: Uri,
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F],
+    path: Uri = uri"/"
+) extends BotSkeletonWebhook[F](url, path)
     with XahBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 trait XahBot[F[_]] extends BotSkeleton[F] {
 
-  override val botName: String = "XahBot"
+  override val botName: String   = XahBot.botName
+  override val botPrefix: String = XahBot.botPrefix
 
-  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] = List(
-    randomLinkByKeywordReplyBundleF,
-    randomLinkReplyBundleF
-  ).sequence[F, ReplyBundleCommand[F]].map(_ ++ CommandRepliesData.values[F])
+  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+    CommandRepliesData.values[F](resourceAccess = resourceAccess, botName = botName).pure[F]
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -45,28 +50,25 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
   ): F[List[ReplyBundleMessage[F]]] =
     log.debug("[XahBot] Empty message reply data") *> List.empty.pure[F]
 
-  private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      youtubeLinkSources = "xah_LinkSources"
-    )
-
-  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      botName = botName,
-      youtubeLinkSources = "xah_LinkSources"
-    )
 }
 
 object XahBot extends BotOps {
 
+  val botName: String   = "XahBot"
+  val botPrefix: String = "xah"
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("xah_XahBot.token").map(_.map(_.toChar).mkString)
 
+  final case class BotSetup[F[_]](
+      token: String,
+      httpClient: Client[F],
+      resourceAccess: ResourceAccess[F],
+      dbLayer: DBLayer[F]
+  )
+
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
-  )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] = for {
+  )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
     tk     <- token[F]
     config <- Resource.eval(Config.loadConfig[F])
     _      <- Resource.eval(log.info(s"XahBot Configuration: $config"))
@@ -76,8 +78,9 @@ object XahBot extends BotOps {
       "",
       ""
     )
-    urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
-    dbResourceAccess      <- Resource.eval(DBResourceAccess(transactor, urlFetcher))
+    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
+    dbLayer    <- Resource.eval(DBLayer[F](transactor))
+    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
     _                     <- Resource.eval(log.info("[XahBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
@@ -86,32 +89,33 @@ object XahBot extends BotOps {
       )
     )
     _ <- Resource.eval(log.info("[XahBot] Webhook deleted"))
-  } yield (tk, dbResourceAccess)
+  } yield BotSetup(tk, httpClient, resourceAccess, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: XahBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    tk_ra      <- buildCommonBot[F](httpClient)
-  } yield (httpClient, tk_ra._1, tk_ra._2)).use(httpClient_tk_ra => {
+    botSetup   <- buildCommonBot[F](httpClient)
+  } yield botSetup).use(botSetup => {
     implicit val api: Api[F] =
-      BotApi(httpClient_tk_ra._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk_ra._2}")
-    action(new XahBotPolling[F](httpClient_tk_ra._3))
+      BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
+    action(new XahBotPolling[F](botSetup.resourceAccess, botSetup.dbLayer))
   })
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, XahBotWebhook[F]] = for {
-    tk_ra          <- buildCommonBot[F](httpClient)
-    baseUrl        <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${tk_ra._1}")))
-    path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${tk_ra._1}")))
+    botSetup <- buildCommonBot[F](httpClient)
+    baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
+    path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
     new XahBotWebhook[F](
       url = webhookBaseUri,
-      rAccess = tk_ra._2,
+      resAccess = botSetup.resourceAccess,
+      dbLayer = botSetup.dbLayer,
       path = path
     )
   }

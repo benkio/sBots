@@ -3,9 +3,11 @@ package com.benkio.abarberobot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie.Transactor
@@ -18,21 +20,27 @@ import org.http4s.Uri
 import telegramium.bots.high._
 
 class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    rAccess: ResourceAccess[F]
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with ABarberoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
-class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](uri: Uri, rAccess: ResourceAccess[F], path: Uri = uri"/")
-    extends BotSkeletonWebhook[F](uri, path)
+class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
+    uri: Uri,
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F],
+    path: Uri = uri"/"
+) extends BotSkeletonWebhook[F](uri, path)
     with ABarberoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 trait ABarberoBot[F[_]] extends BotSkeleton[F] {
 
   override val botName: String                     = ABarberoBot.botName
+  override val botPrefix: String                   = ABarberoBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
   val linkSources                                  = "abar_LinkSources"
 
@@ -43,29 +51,14 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
     ABarberoBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    List(
-      randomLinkByKeywordReplyBundleF,
-      randomLinkReplyBundleF
-    ).sequence.map(cs => cs ++ ABarberoBot.commandRepliesData[F])
-
-  private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      youtubeLinkSources = linkSources
-    )
-
-  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      botName = botName,
-      youtubeLinkSources = linkSources
-    )
+    ABarberoBot.commandRepliesData[F](resourceAccess, dbLayer, linkSources).pure[F]
 }
 
 object ABarberoBot extends BotOps {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "ABarberoBot"
+  val botPrefix: String                   = "abar"
   val triggerListUrl: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
@@ -89,7 +82,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("avrebbe (mai )?immaginato".r)
+        RegexTextTriggerValue("avrebbe (mai )?immaginato".r, 18)
       ),
       List(
         MediaFile("abar_NessunoAvrebbeImmaginato.mp3")
@@ -97,7 +90,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("mortalit[aà]".r)
+        RegexTextTriggerValue("mortalit[aà]".r, 9)
       ),
       List(
         MediaFile("abar_Mortalita.mp3")
@@ -153,7 +146,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bpratica\\b".r)
+        RegexTextTriggerValue("\\bpratica\\b".r, 7)
       ),
       List(
         MediaFile("abar_PraticaPocoPatriotticah.mp3")
@@ -207,7 +200,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\beccoh\\b".r)
+        RegexTextTriggerValue("\\beccoh\\b".r, 5)
       ),
       List(
         MediaFile("abar_Ecco.mp3"),
@@ -283,7 +276,7 @@ object ABarberoBot extends BotOps {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("cavallo"),
-        RegexTextTriggerValue("tiriamo(lo)? giù".r),
+        RegexTextTriggerValue("tiriamo(lo)? giù".r, 11),
         StringTextTriggerValue("ammazziamolo")
       ),
       List(
@@ -369,7 +362,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bre\\b".r),
+        RegexTextTriggerValue("\\bre\\b".r, 2),
         StringTextTriggerValue("decapita")
       ),
       List(
@@ -378,7 +371,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bascia\\b".r),
+        RegexTextTriggerValue("\\bascia\\b".r, 5),
         StringTextTriggerValue("sangue")
       ),
       List(
@@ -453,7 +446,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("c[a]{2,}[z]+[o]+".r)
+        RegexTextTriggerValue("c[a]{2,}[z]+[o]+".r, 5)
       ),
       List(
         MediaFile("abar_Cazzo.mp3")
@@ -570,7 +563,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("chi(s| )se( )?ne( )?frega".r)
+        RegexTextTriggerValue("chi(s| )se( )?ne( )?frega".r, 13)
       ),
       List(
         MediaFile("abar_Chissenefrega.gif")
@@ -587,7 +580,7 @@ object ABarberoBot extends BotOps {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("a morte"),
-        RegexTextTriggerValue("(si| si|si ){2,}".r)
+        RegexTextTriggerValue("(si| si|si ){2,}".r, 4)
       ),
       List(
         MediaFile("abar_SisiAMorte.gif")
@@ -629,7 +622,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bcerto\\b".r)
+        RegexTextTriggerValue("\\bcerto\\b".r, 5)
       ),
       List(
         MediaFile("abar_Certo.gif")
@@ -654,7 +647,7 @@ object ABarberoBot extends BotOps {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("bere"),
-        RegexTextTriggerValue("taglia(re)? la gola".r)
+        RegexTextTriggerValue("taglia(re)? la gola".r, 14)
       ),
       List(
         MediaFile("abar_TaglioGolaBereSangue.gif")
@@ -662,7 +655,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("spacco la (testa|faccia)".r)
+        RegexTextTriggerValue("spacco la (testa|faccia)".r, 15)
       ),
       List(
         MediaFile("abar_SpaccoLaTesta.gif")
@@ -670,7 +663,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r)
+        RegexTextTriggerValue("dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r, 8)
       ),
       List(
         MediaFile("abar_OrifizioPosteriore.gif")
@@ -712,7 +705,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("vieni (un po' )?qui".r)
+        RegexTextTriggerValue("vieni (un po' )?qui".r, 9)
       ),
       List(
         MediaFile("abar_VieniQui.gif")
@@ -745,8 +738,8 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue(" n[o]+!".r),
-        RegexTextTriggerValue("non (lo )?vogli(a|o)".r)
+        RegexTextTriggerValue("\\bn[o]+!\\b".r, 3),
+        RegexTextTriggerValue("non (lo )?vogli(a|o)".r, 10)
       ),
       List(
         MediaFile("abar_No.gif")
@@ -811,7 +804,7 @@ object ABarberoBot extends BotOps {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana|troia)".r)
+        RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana|troia)".r, 13)
       ),
       List(
         MediaFile("abar_FiglioDi.gif"),
@@ -877,12 +870,27 @@ object ABarberoBot extends BotOps {
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
-  def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
+  def commandRepliesData[F[_]: Async](resourceAccess: ResourceAccess[F], dbLayer: DBLayer[F], linkSources: String)(
+      implicit log: LogWriter[F]
+  ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUrl),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
       mdr = messageRepliesData[F]
+    ),
+    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      youtubeLinkSources = linkSources
+    ),
+    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      botName = botName,
+      youtubeLinkSources = linkSources
+    ),
+    StatisticsCommands.topTwentyReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
@@ -892,12 +900,14 @@ object ABarberoBot extends BotOps {
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
         RandomLinkCommand.randomLinkCommandDescriptionIta,
         RandomLinkCommand.randomLinkKeywordCommandIta,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
         RandomLinkCommand.randomLinkCommandDescriptionEng,
         RandomLinkCommand.randomLinkKeywordCommandEng,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
       )
     ),
   )
@@ -905,9 +915,16 @@ object ABarberoBot extends BotOps {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
 
+  final case class BotSetup[F[_]](
+      token: String,
+      httpClient: Client[F],
+      resourceAccess: ResourceAccess[F],
+      dbLayer: DBLayer[F]
+  )
+
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
-  )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] = for {
+  )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
     tk     <- token[F]
     config <- Resource.eval(Config.loadConfig[F])
     _      <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
@@ -917,8 +934,9 @@ object ABarberoBot extends BotOps {
       "",
       ""
     )
-    urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
-    dbResourceAccess      <- Resource.eval(DBResourceAccess(transactor, urlFetcher))
+    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
+    dbLayer    <- Resource.eval(DBLayer[F](transactor))
+    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
@@ -927,32 +945,33 @@ object ABarberoBot extends BotOps {
       )
     )
     _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-  } yield (tk, dbResourceAccess)
+  } yield BotSetup[F](tk, httpClient, resourceAccess, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: ABarberoBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    tk_ra      <- buildCommonBot[F](httpClient)
-  } yield (httpClient, tk_ra._1, tk_ra._2)).use(httpClient_tk_ra => {
+    botSetup   <- buildCommonBot[F](httpClient)
+  } yield botSetup).use(botSetup => {
     implicit val api: Api[F] =
-      BotApi(httpClient_tk_ra._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk_ra._2}")
-    action(new ABarberoBotPolling[F](httpClient_tk_ra._3))
+      BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
+    action(new ABarberoBotPolling[F](botSetup.resourceAccess, botSetup.dbLayer))
   })
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] = for {
-    tk_ra          <- buildCommonBot[F](httpClient)
-    baseUrl        <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${tk_ra._1}")))
-    path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${tk_ra._1}")))
+    botSetup <- buildCommonBot[F](httpClient)
+    baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
+    path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
     new ABarberoBotWebhook[F](
       uri = webhookBaseUri,
-      rAccess = tk_ra._2,
+      resAccess = botSetup.resourceAccess,
+      dbLayer = botSetup.dbLayer,
       path = path
     )
   }

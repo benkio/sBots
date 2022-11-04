@@ -1,4 +1,4 @@
-package com.benkio.richardphjbensonbot
+package com.benkio.telegrambotinfrastructure.model
 
 import munit._
 import telegramium.bots.Chat
@@ -6,8 +6,9 @@ import telegramium.bots.Message
 
 import java.sql.Timestamp
 import java.time.Instant
+import scala.concurrent.duration._
 
-class DBTimeoutSpec extends FunSuite {
+class TimeoutSpec extends FunSuite {
   test("Timeout.isExpired should return true when the timeout is expired") {
     val now     = Timestamp.from(Instant.now())
     val timeout = Timeout(1L, "10", now)
@@ -45,5 +46,8 @@ class DBTimeoutSpec extends FunSuite {
     val timeout = "00:00:0a"
     val actual  = Timeout(message, timeout)
     assert(actual.isEmpty)
+  }
+  test("Timeout.timeStringToDuration return the expected duration if the input is in format hh:mm:ss") {
+    assertEquals(Timeout.timeStringToDuration("20:32:45"), 73965.seconds)
   }
 }

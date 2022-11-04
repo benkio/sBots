@@ -4,14 +4,16 @@ import cats.Applicative
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.Media
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import log.effect.LogWriter
 import org.http4s.Uri
 import telegramium.bots.Message
@@ -38,7 +40,7 @@ object CommandPatterns {
     def selectRandomLinkReplyBundleCommand[F[_]: Async](
         resourceAccess: ResourceAccess[F],
         youtubeLinkSources: String
-    )(implicit log: LogWriter[F]): F[ReplyBundleCommand[F]] =
+    )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("randomshow"),
         text = Some(
@@ -53,13 +55,13 @@ object CommandPatterns {
             true
           )
         ),
-      ).pure[F]
+      )
 
     def selectRandomLinkByKeywordsReplyBundleCommand[F[_]: Async](
         resourceAccess: ResourceAccess[F],
         botName: String,
         youtubeLinkSources: String
-    )(implicit log: LogWriter[F]): F[ReplyBundleCommand[F]] =
+    )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("randomshowkeyword"),
         text = Some(
@@ -84,7 +86,7 @@ object CommandPatterns {
             true
           )
         ),
-      ).pure[F]
+      )
 
     private def selectRandomLinkByKeyword[F[_]: Async](
         keywords: String,
@@ -241,7 +243,7 @@ ${if (ignoreMessagePrefix.isDefined) {
       )
   }
 
-    object SubscribeUnsubscribeCommand {
+  object SubscribeUnsubscribeCommand {
 
     val subscribeCommandDescriptionIta: String =
       "'/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo sito come riferimento: https://crontab.guru"
@@ -252,8 +254,32 @@ ${if (ignoreMessagePrefix.isDefined) {
     val unsubscribeCommandDescriptionEng: String =
       "'/unsubscribe': UnSubscribe the current chat from random shows"
 
-    def subscribeReplyBundleCommand[F[_]: Async](): ReplyBundleCommand[F] = ???
+    def subscribeReplyBundleCommand[F[_]: Async](): ReplyBundleCommand[F]   = ???
     def unsubscribeReplyBundleCommand[F[_]: Async](): ReplyBundleCommand[F] = ???
+  }
+  object StatisticsCommands {
+
+    val topTwentyTriggersCommandDescriptionIta: String =
+      "'/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii"
+    val topTwentyTriggersCommandDescriptionEng: String =
+      "'/topTwentyTriggers': Return a list of files and theirs send frequency"
+
+    def topTwentyReplyBundleCommand[F[_]: Applicative](
+        botPrefix: String,
+        dbMedia: DBMedia[F]
+    ): ReplyBundleCommand[F] =
+      ReplyBundleCommand(
+        trigger = CommandTrigger("toptwenty"),
+        text = Some(
+          TextReply[F](
+            _ =>
+              dbMedia
+                .getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
+                .map(ms => List(Media.mediaListToString(ms))),
+            true
+          )
+        ),
+      )
 
   }
 

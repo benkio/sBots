@@ -17,20 +17,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
+  ) { fixture =>
+    val transactor = fixture.transactor
     val resourceAssert = for {
-      dbResourceAccess <- connectionResourceAccess._2
-      mp3s             <- Resource.pure(messageRepliesAudioData[IO].flatMap(_.mediafiles))
+      dbMedia <- fixture.resourceDBMedia
+      mp3s    <- Resource.pure(messageRepliesAudioData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         mp3s
           .traverse((mp3: MediaFile) =>
-            dbResourceAccess
-              .getUrlByName(mp3.filename)
+            dbMedia
+              .getMediaQueryByName(mp3.filename)
               .unique
               .transact(transactor)
-              .map { case (dbFilename, _) => mp3.filename == dbFilename }
               .onError(_ => IO.println(s"[ERROR] mp3 missing from the DB: " + mp3))
+              .attempt
+              .map(_.isRight)
           )
       )
     } yield checks.foldLeft(true)(_ && _)
@@ -39,20 +40,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
-    connectionResourceAccess =>
-      val transactor = connectionResourceAccess._3
+    fixture =>
+      val transactor = fixture.transactor
       val resourceAssert = for {
-        dbResourceAccess <- connectionResourceAccess._2
-        gifs             <- Resource.pure(messageRepliesGifData[IO].flatMap(_.mediafiles))
+        dbMedia <- fixture.resourceDBMedia
+        gifs    <- Resource.pure(messageRepliesGifData[IO].flatMap(_.mediafiles))
         checks <- Resource.eval(
           gifs
             .traverse((gif: MediaFile) =>
-              dbResourceAccess
-                .getUrlByName(gif.filename)
+              dbMedia
+                .getMediaQueryByName(gif.filename)
                 .unique
                 .transact(transactor)
-                .map { case (dbFilename, _) => gif.filename == dbFilename }
                 .onError(_ => IO.println(s"[ERROR] gif missing from the DB: " + gif))
+                .attempt
+                .map(_.isRight)
             )
         )
       } yield checks.foldLeft(true)(_ && _)
@@ -62,20 +64,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "messageRepliesSpecialData should never raise an exception when try to open the file in resounces"
-  ) { connectionResourceAccess =>
-    val transactor = connectionResourceAccess._3
+  ) { fixture =>
+    val transactor = fixture.transactor
     val resourceAssert = for {
-      dbResourceAccess <- connectionResourceAccess._2
-      specials         <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
+      dbMedia  <- fixture.resourceDBMedia
+      specials <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         specials
           .traverse((special: MediaFile) =>
-            dbResourceAccess
-              .getUrlByName(special.filename)
+            dbMedia
+              .getMediaQueryByName(special.filename)
               .unique
               .transact(transactor)
-              .map { case (dbFilename, _) => special.filename == dbFilename }
               .onError(_ => IO.println(s"[ERROR] special missing from the DB: " + special))
+              .attempt
+              .map(_.isRight)
           )
       )
     } yield checks.foldLeft(true)(_ && _)

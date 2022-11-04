@@ -2,7 +2,7 @@ package com.benkio.botDB.mocks
 
 import cats.effect.IO
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.botcapabilities.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 
 import java.io.File
 

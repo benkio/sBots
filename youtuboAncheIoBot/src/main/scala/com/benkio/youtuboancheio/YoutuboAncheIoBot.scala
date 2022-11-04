@@ -3,12 +3,15 @@ package com.benkio.youtuboancheiobot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.botcapabilities._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import com.lightbend.emoji.ShortCodes.Defaults._
@@ -24,21 +27,27 @@ import org.http4s.Uri
 import telegramium.bots.high._
 
 class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    rAccess: ResourceAccess[F]
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with YoutuboAncheIoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
-class YoutuboAncheIoBotWebhook[F[_]: Async: Api: LogWriter](uri: Uri, rAccess: ResourceAccess[F], path: Uri = uri"/")
-    extends BotSkeletonWebhook[F](uri, path)
+class YoutuboAncheIoBotWebhook[F[_]: Async: Api: LogWriter](
+    uri: Uri,
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F],
+    path: Uri = uri"/"
+) extends BotSkeletonWebhook[F](uri, path)
     with YoutuboAncheIoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = rAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
 
   override val botName: String                     = YoutuboAncheIoBot.botName
+  override val botPrefix: String                   = YoutuboAncheIoBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = YoutuboAncheIoBot.ignoreMessagePrefix
   val linkSources                                  = "ytai_LinkSources"
 
@@ -49,32 +58,14 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
     YoutuboAncheIoBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    List(
-      randomLinkByKeywordReplyBundleF,
-      randomLinkReplyBundleF
-    ).sequence.map(cs =>
-      cs ++
-        YoutuboAncheIoBot.commandRepliesData[F]
-    )
-
-  private def randomLinkReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      youtubeLinkSources = linkSources
-    )
-
-  private def randomLinkByKeywordReplyBundleF(implicit asyncF: Async[F], log: LogWriter[F]): F[ReplyBundleCommand[F]] =
-    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      botName = botName,
-      youtubeLinkSources = linkSources
-    )
+    YoutuboAncheIoBot.commandRepliesData[F](resourceAccess, dbLayer, linkSources).pure[F]
 
 }
 object YoutuboAncheIoBot extends BotOps {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "YoutuboAncheIoBot"
+  val botPrefix: String                   = "ytai"
   val triggerListUri: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/youtuboAncheIoBot/ytai_triggers.txt"
 
   def messageRepliesAudioData[
@@ -116,9 +107,9 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("ascolta (queste|le) mie parole".r),
+        RegexTextTriggerValue("ascolta (queste|le) mie parole".r, 21),
         StringTextTriggerValue("amareggiati"),
-        RegexTextTriggerValue("dedicaci (il tuo tempo|le tue notti)".r)
+        RegexTextTriggerValue("dedicaci (il tuo tempo|le tue notti)".r, 21)
       ),
       mediafiles = List(
         MediaFile("ytai_Amareggiati.gif")
@@ -166,7 +157,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("(buona )?pizza".r)
+        RegexTextTriggerValue("(buona )?pizza".r, 5)
       ),
       mediafiles = List(
         MediaFile("ytai_BuonaPizza.gif"),
@@ -195,7 +186,7 @@ object YoutuboAncheIoBot extends BotOps {
         StringTextTriggerValue("che vergogna"),
         StringTextTriggerValue("non ce l'ho"),
         StringTextTriggerValue("sopracciglia"),
-        RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r)
+        RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r, 22)
       ),
       mediafiles = List(
         MediaFile("ytai_CheVergogna.gif"),
@@ -272,7 +263,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("fallo anche (tu|te)".r),
+        RegexTextTriggerValue("fallo anche (tu|te)".r, 14),
       ),
       mediafiles = List(
         MediaFile("ytai_FalloAncheTu.gif")
@@ -280,7 +271,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("filet[ -]?o[ -]fish".r),
+        RegexTextTriggerValue("filet[ -]?o[ -]?fish".r, 10),
       ),
       mediafiles = List(
         MediaFile("ytai_FiletOFish.gif"),
@@ -291,7 +282,8 @@ object YoutuboAncheIoBot extends BotOps {
     ReplyBundleMessage(
       trigger = TextTrigger(
         RegexTextTriggerValue(
-          "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r
+          "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r,
+          6
         )
       ),
       mediafiles = List(
@@ -345,7 +337,7 @@ object YoutuboAncheIoBot extends BotOps {
       trigger = TextTrigger(
         StringTextTriggerValue("incredibile"),
         StringTextTriggerValue("inimitabile"),
-        RegexTextTriggerValue("the number (one|1)".r)
+        RegexTextTriggerValue("the number (one|1)".r, 12)
       ),
       mediafiles = List(
         MediaFile("ytai_IncredibileInimitabile.gif")
@@ -419,7 +411,7 @@ object YoutuboAncheIoBot extends BotOps {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("monoporzioni"),
-        RegexTextTriggerValue("mezzo (chilo|kg)".r),
+        RegexTextTriggerValue("mezzo (chilo|kg)".r, 8),
         StringTextTriggerValue("tiramisù"),
       ),
       mediafiles = List(
@@ -544,7 +536,7 @@ object YoutuboAncheIoBot extends BotOps {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("sete"),
-        RegexTextTriggerValue("(sorso|bicchiere) d'acqua".r)
+        RegexTextTriggerValue("(sorso|bicchiere) d'acqua".r, 13)
       ),
       mediafiles = List(
         MediaFile("ytai_Sete.gif")
@@ -568,7 +560,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("silenzio[,]? silenzio".r),
+        RegexTextTriggerValue("silenzio[,]? silenzio".r, 17),
       ),
       mediafiles = List(
         MediaFile("ytai_Silenzio.gif"),
@@ -578,7 +570,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("si v[àa] finch[eé] si v[aà]".r),
+        RegexTextTriggerValue("si v[àa] finch[eé] si v[aà]".r, 18),
         StringTextTriggerValue("quando non si potrà andare più"),
         StringTextTriggerValue("è tanto facile")
       ),
@@ -618,7 +610,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("ti voglio (tanto )?bene".r),
+        RegexTextTriggerValue("ti voglio (tanto )?bene".r, 14),
       ),
       mediafiles = List(
         MediaFile("ytai_TVTB.gif")
@@ -699,7 +691,7 @@ object YoutuboAncheIoBot extends BotOps {
       trigger = TextTrigger(
         StringTextTriggerValue("diploma"),
         StringTextTriggerValue("per pisciare"),
-        RegexTextTriggerValue("ma (che )?stiamo scherzando".r)
+        RegexTextTriggerValue("ma (che )?stiamo scherzando".r, 20)
       ),
       mediafiles = List(
         MediaFile("ytai_DiplomaPisciare.gif"),
@@ -707,7 +699,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("non (mi sento|sto) bene".r)
+        RegexTextTriggerValue("non (mi sento|sto) bene".r, 12)
       ),
       mediafiles = List(
         MediaFile("ytai_DiversiGioniNonStoBene.gif")
@@ -715,7 +707,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("(grazie e )?arrivederci".r),
+        RegexTextTriggerValue("(grazie e )?arrivederci".r, 11),
       ),
       mediafiles = List(
         MediaFile("ytai_GrazieArrivederci.gif")
@@ -751,7 +743,7 @@ object YoutuboAncheIoBot extends BotOps {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("caspita"),
-        RegexTextTriggerValue("sono (grosso|sono (quasi )?enorme|una palla di lardo)".r),
+        RegexTextTriggerValue("sono (grosso|sono (quasi )?enorme|una palla di lardo)".r, 11),
       ),
       mediafiles = List(
         MediaFile("ytai_PallaDiLardo.gif")
@@ -795,7 +787,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("\\bproviamo\\b".r),
+        RegexTextTriggerValue("\\bproviamo\\b".r, 8),
         StringTextTriggerValue("senza morire"),
       ),
       mediafiles = List(
@@ -812,7 +804,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("sentendo (davvero )?male".r),
+        RegexTextTriggerValue("sentendo (davvero )?male".r, 13),
       ),
       mediafiles = List(
         MediaFile("ytai_SentendoDavveroMale.gif")
@@ -845,7 +837,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("staccato (quasi )?il naso".r),
+        RegexTextTriggerValue("staccato (quasi )?il naso".r, 16),
       ),
       mediafiles = List(
         MediaFile("ytai_StaccatoNaso.gif")
@@ -853,7 +845,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("cuc[uù]+".r),
+        RegexTextTriggerValue("cuc[uù]+".r, 4),
       ),
       mediafiles = List(
         MediaFile("ytai_Cucu.gif")
@@ -861,7 +853,7 @@ object YoutuboAncheIoBot extends BotOps {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("al[e]+ [o]{2,}".r),
+        RegexTextTriggerValue("al[e]+ [o]{2,}".r, 6),
       ),
       mediafiles = List(
         MediaFile("ytai_AleOoo.gif")
@@ -950,7 +942,7 @@ object YoutuboAncheIoBot extends BotOps {
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("ho perso (di nuovo )qualcosa".r)
+        RegexTextTriggerValue("ho perso (di nuovo )qualcosa".r, 18)
       ),
       mediafiles = List(
         MediaFile("ytai_HoPersoQualcosa.gif"),
@@ -999,13 +991,28 @@ object YoutuboAncheIoBot extends BotOps {
       .reverse
 
   def commandRepliesData[
-      F[_]: Applicative
-  ]: List[ReplyBundleCommand[F]] = List(
+      F[_]: Async
+  ](resourceAccess: ResourceAccess[F], dbLayer: DBLayer[F], linkSources: String)(implicit
+      log: LogWriter[F]
+  ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
       mdr = messageRepliesData[F]
+    ),
+    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      youtubeLinkSources = linkSources
+    ),
+    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
+      resourceAccess = resourceAccess,
+      botName = botName,
+      youtubeLinkSources = linkSources
+    ),
+    StatisticsCommands.topTwentyReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
@@ -1014,13 +1021,15 @@ object YoutuboAncheIoBot extends BotOps {
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
         RandomLinkCommand.randomLinkCommandDescriptionIta,
-        RandomLinkCommand.randomLinkKeywordCommandIta
+        RandomLinkCommand.randomLinkKeywordCommandIta,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
         RandomLinkCommand.randomLinkCommandDescriptionEng,
-        RandomLinkCommand.randomLinkKeywordCommandEng
+        RandomLinkCommand.randomLinkKeywordCommandEng,
+        StatisticsCommands.topTwentyTriggersCommandDescriptionEng
       )
     ),
   )
@@ -1028,9 +1037,16 @@ object YoutuboAncheIoBot extends BotOps {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("ytai_YoutuboAncheIoBot.token").map(_.map(_.toChar).mkString)
 
+  final case class BotSetup[F[_]](
+      token: String,
+      httpClient: Client[F],
+      resourceAccess: ResourceAccess[F],
+      dbLayer: DBLayer[F]
+  )
+
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
-  )(implicit log: LogWriter[F]): Resource[F, (String, ResourceAccess[F])] = for {
+  )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
     tk     <- token[F]
     config <- Resource.eval(Config.loadConfig[F])
     _      <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
@@ -1040,8 +1056,9 @@ object YoutuboAncheIoBot extends BotOps {
       "",
       ""
     )
-    urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
-    dbResourceAccess      <- Resource.eval(DBResourceAccess(transactor, urlFetcher))
+    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
+    dbLayer    <- Resource.eval(DBLayer[F](transactor))
+    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
@@ -1052,32 +1069,33 @@ object YoutuboAncheIoBot extends BotOps {
       )
     )
     _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-  } yield (tk, dbResourceAccess)
+  } yield BotSetup[F](tk, httpClient, resourceAccess, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: YoutuboAncheIoBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    tk_ra      <- buildCommonBot[F](httpClient)
-  } yield (httpClient, tk_ra._1, tk_ra._2)).use(httpClient_tk_ra => {
+    botSetup   <- buildCommonBot[F](httpClient)
+  } yield botSetup).use(botSetup => {
     implicit val api: Api[F] =
-      BotApi(httpClient_tk_ra._1, baseUrl = s"https://api.telegram.org/bot${httpClient_tk_ra._2}")
-    action(new YoutuboAncheIoBotPolling[F](httpClient_tk_ra._3))
+      BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
+    action(new YoutuboAncheIoBotPolling[F](botSetup.resourceAccess, botSetup.dbLayer))
   })
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, YoutuboAncheIoBotWebhook[F]] = for {
-    tk_ra          <- buildCommonBot[F](httpClient)
-    baseUrl        <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${tk_ra._1}")))
-    path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${tk_ra._1}")))
+    botSetup <- buildCommonBot[F](httpClient)
+    baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
+    path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
   } yield {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
     new YoutuboAncheIoBotWebhook[F](
       uri = webhookBaseUri,
-      rAccess = tk_ra._2,
+      resAccess = botSetup.resourceAccess,
+      dbLayer = botSetup.dbLayer,
       path = path
     )
   }

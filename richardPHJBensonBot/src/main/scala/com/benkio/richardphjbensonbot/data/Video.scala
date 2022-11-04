@@ -28,7 +28,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("accor(data|dana)".r)
+        RegexTextTriggerValue("accor(data|dana)".r, 9)
       ),
       List(
         MediaFile("rphjb_Accordana.mp4")
@@ -36,7 +36,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\brap\\b".r),
+        RegexTextTriggerValue("\\brap\\b".r, 3),
         StringTextTriggerValue("musica italiana"),
         StringTextTriggerValue("tullio pane"),
         StringTextTriggerValue("otello profazio"),
@@ -51,7 +51,7 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("eric clapton"),
-        RegexTextTriggerValue("uo(m)+ini d'affari".r),
+        RegexTextTriggerValue("uo[m]+ini d'affari".r, 15),
       ),
       List(
         MediaFile("rphjb_EricClaptonDrogaUominiAffari.mp4")
@@ -82,7 +82,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("fregat(a|ura)".r)
+        RegexTextTriggerValue("fregat(a|ura)".r, 7)
       ),
       List(
         MediaFile("rphjb_FregataFregatura.mp4")
@@ -90,7 +90,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bmula\\b".r),
+        RegexTextTriggerValue("\\bmula\\b".r, 4),
         StringTextTriggerValue("storia della mula")
       ),
       List(
@@ -115,7 +115,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(tornando|andando) (all')?indietro".r),
+        RegexTextTriggerValue("(tornando|andando) (all')?indietro".r, 16),
         StringTextTriggerValue("innovazione")
       ),
       List(
@@ -189,7 +189,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("riciclando il (suo )?peggio".r)
+        RegexTextTriggerValue("riciclando il (suo )?peggio".r, 20)
       ),
       List(
         MediaFile("rphjb_SteveVaiRiciclando.mp4")
@@ -199,7 +199,7 @@ object Video {
       TextTrigger(
         StringTextTriggerValue("già il titolo"),
         StringTextTriggerValue("coi due punti"),
-        RegexTextTriggerValue("re[a]?l illusions".r)
+        RegexTextTriggerValue("re[a]?l illusions".r, 13)
       ),
       List(
         MediaFile("rphjb_RelIllusions.mp4")
@@ -257,7 +257,7 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("madre tortura"),
-        RegexTextTriggerValue("(madre )?parrucca".r)
+        RegexTextTriggerValue("(madre )?parrucca".r, 8)
       ),
       List(
         MediaFile("rphjb_MadreTorturaParrucca.mp4")
@@ -265,7 +265,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("[l]+[i]+[b]+[e]+[r]+[i]+".r)
+        RegexTextTriggerValue("[l]+[i]+[b]+[e]+[r]+[i]+".r, 6)
       ),
       List(
         MediaFile("rphjb_Liberi.mp4")
@@ -273,7 +273,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bcinta\\b".r),
+        RegexTextTriggerValue("\\bcinta\\b".r, 5),
         StringTextTriggerValue("bruce kulick")
       ),
       List(
@@ -290,7 +290,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bcolla\\b".r),
+        RegexTextTriggerValue("\\bcolla\\b".r, 5),
         StringTextTriggerValue("serpe e serpe")
       ),
       List(
@@ -317,8 +317,8 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("fregare come un co(gl|j)ione".r),
-        RegexTextTriggerValue("ges[uùù]".r)
+        RegexTextTriggerValue("fregare come un co(gl|j)ione".r, 22),
+        RegexTextTriggerValue("ges[uùù]".r, 4)
       ),
       List(
         MediaFile("rphjb_GesuCoglione.mp4")
@@ -334,7 +334,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r),
+        RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r, 17),
         StringTextTriggerValue("impazzisce totalmente")
       ),
       List(
@@ -351,7 +351,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a pi[uùú] velo[cg]e".r)
+        RegexTextTriggerValue("(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r, 22)
       ),
       List(
         MediaFile("rphjb_Arivato.mp4")
@@ -359,8 +359,8 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bbeat\\b".r),
-        RegexTextTriggerValue("(e poi[ ,]?[ ]?){2,}".r),
+        RegexTextTriggerValue("\\bbeat\\b".r, 4),
+        RegexTextTriggerValue("(e poi[ ,]?[ ]?){2,}".r, 10),
         StringTextTriggerValue("qualche volta vedo lei"),
         StringTextTriggerValue("sfasciavamo tutti gli strumenti"),
       ),
@@ -387,9 +387,9 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("(roba|droga) tagliata male".r),
+        RegexTextTriggerValue("(roba|droga) tagliata male".r, 18),
         StringTextTriggerValue("one television"),
-        RegexTextTriggerValue("devo fare (un po'|un attimo) (di|de) esercitazione".r)
+        RegexTextTriggerValue("(un po'|un attimo) (di|de) esercitazione".r, 23)
       ),
       List(
         MediaFile("rphjb_RockMachineIntro.mp4")
@@ -411,7 +411,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("w[e]+[l]+[a]+".r)
+        RegexTextTriggerValue("w[e]+[l]+[a]+".r, 4)
       ),
       List(
         MediaFile("rphjb_WelaMyFriends.mp4")
@@ -437,8 +437,8 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("chi tocca (\\w)[,]? muore".r),
-        RegexTextTriggerValue("ciao (2001|duemilauno)".r),
+        RegexTextTriggerValue("chi tocca (\\w)[,]? muore".r, 16),
+        RegexTextTriggerValue("ciao (2001|duemilauno)".r, 9),
         StringTextTriggerValue("marilyn manson")
       ),
       List(
@@ -448,8 +448,8 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("petrucci"),
-        RegexTextTriggerValue("capelli (lunghi|corti)".r),
-        RegexTextTriggerValue("(impiegato statale|impiegati statali)".r),
+        RegexTextTriggerValue("capelli (lunghi|corti)".r, 13),
+        RegexTextTriggerValue("(impiegato statale|impiegati statali)".r, 17),
       ),
       List(
         MediaFile("rphjb_PetrucciCapelliCorti.mp4")
@@ -457,7 +457,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("impiegat[oi]".r),
+        RegexTextTriggerValue("impiegat[oi]".r, 9),
       ),
       List(
         MediaFile("rphjb_PetrucciCapelliCorti.mp4"),
@@ -541,7 +541,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("sigarett[ea]".r)
+        RegexTextTriggerValue("sigarett[ea]".r, 9)
       ),
       List(
         MediaFile("rphjb_Sigarette.mp4"),
@@ -589,7 +589,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("insegnante di [cg]hi[dt]arra".r)
+        RegexTextTriggerValue("insegnante di [cg]hi[dt]arra".r, 22)
       ),
       List(
         MediaFile("rphjb_InsegnanteDiChitarraModerna.mp4")
@@ -615,8 +615,8 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("l'unico bravo"),
-        RegexTextTriggerValue("scarica d(i |')andrenalina".r),
-        RegexTextTriggerValue("non valgono (un cazzo|niente)".r),
+        RegexTextTriggerValue("scarica d(i |')andrenalina".r, 20),
+        RegexTextTriggerValue("non valgono (un cazzo|niente)".r, 18),
       ),
       List(
         MediaFile("rphjb_UnicoBravo.mp4")
@@ -632,7 +632,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bdubbio\\b".r)
+        RegexTextTriggerValue("\\bdubbio\\b".r, 6)
       ),
       List(
         MediaFile("rphjb_DubbioComeMiAiuta.mp4"),
@@ -643,7 +643,7 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("scantinati"),
-        RegexTextTriggerValue("gioco (io )? del gatto e (voi )? del (ratto|topo)".r)
+        RegexTextTriggerValue("gioco (io )? del gatto e (voi )? del (ratto|topo)".r, 24)
       ),
       List(MediaFile("rphjb_DubbioScantinatiGiocoRattoGatto.mp4"))
     ),
@@ -664,7 +664,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("drogh[ae] (legger[ae]|pesant[ei])".r),
+        RegexTextTriggerValue("drogh[ae] (legger[ae]|pesant[ei])".r, 14),
         StringTextTriggerValue("ammoniaca"),
         StringTextTriggerValue("veleno per topi"),
         StringTextTriggerValue("borotalco")
@@ -682,7 +682,7 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("albero grande"),
-        RegexTextTriggerValue("anche un('| )amplificatore".r),
+        RegexTextTriggerValue("anche un('| )amplificatore".r, 22),
       ),
       List(
         MediaFile("rphjb_PoesiaRock.mp4"),

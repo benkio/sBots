@@ -1,9 +1,11 @@
-package com.benkio.telegrambotinfrastructure.botcapabilities
+package com.benkio.telegrambotinfrastructure.resources
 
 import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.MediaFile
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import log.effect.LogWriter
 
 import java.io.ByteArrayOutputStream
@@ -98,5 +100,21 @@ object ResourceAccess {
         )
       }
     }
+  }
+
+  def dbResources[F[_]: Async](dbMedia: DBMedia[F], urlFetcher: UrlFetcher[F]) = new ResourceAccess[F] {
+
+    def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
+      for {
+        media <- Resource.eval(dbMedia.getMedia(resourceName))
+        _     <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
+        file  <- urlFetcher.fetchFromDropbox(resourceName, media.media_url)
+      } yield Files.readAllBytes(file.toPath)
+
+    def getResourcesByKind(criteria: String): Resource[F, List[File]] =
+      for {
+        medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
+        files  <- medias.traverse(media => urlFetcher.fetchFromDropbox(media.media_name, media.media_url))
+      } yield files
   }
 }
