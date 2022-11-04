@@ -6,21 +6,21 @@ import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import log.effect.LogWriter
 
 object CommandRepliesData {
 
-  def values[F[_]: Async](dbLayer: DBLayer[F], botName: String)(implicit
+  def values[F[_]: Async](resourceAccess: ResourceAccess[F], botName: String)(implicit
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand[F](
-      resourceAccess = dbLayer.resourceAccess,
+      resourceAccess = resourceAccess,
       botName = botName,
       youtubeLinkSources = "xah_LinkSources"
     ),
     RandomLinkCommand.selectRandomLinkReplyBundleCommand[F](
-      resourceAccess = dbLayer.resourceAccess,
+      resourceAccess = resourceAccess,
       youtubeLinkSources = "xah_LinkSources"
     ),
     ReplyBundleCommand[F](

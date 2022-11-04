@@ -2,8 +2,8 @@ package com.benkio.telegrambotinfrastructure
 
 import cats.effect.IO
 import cats.effect.Resource
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-import com.benkio.telegrambotinfrastructure.resources.db.DBResourceAccess.DBResourceAccess
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -22,7 +22,7 @@ import scala.io.Source
 
 final case class DBFixtureResources(
     connection: Connection,
-    resourceAccessResource: Resource[IO, DBResourceAccess[IO]],
+    resourceAccessResource: Resource[IO, ResourceAccess[IO]],
     resourceDBMedia: Resource[IO, DBMedia[IO]],
     transactor: Transactor[IO]
 )
@@ -52,11 +52,11 @@ trait DBFixture { self: FunSuite =>
       }
       val transactor                                 = Transactor.fromConnection[IO](conn)
       val dbMediaResource: Resource[IO, DBMedia[IO]] = Resource.eval(DBMedia[IO](transactor))
-      val resourceAccessResource: Resource[IO, DBResourceAccess[IO]] = dbMediaResource.flatMap(dbMedia =>
+      val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbMediaResource.flatMap(dbMedia =>
         for {
           httpClient <- EmberClientBuilder.default[IO].build
           urlFetcher <- Resource.eval(UrlFetcher[IO](httpClient))
-        } yield new DBResourceAccess[IO](
+        } yield ResourceAccess.dbResources[IO](
           dbMedia = dbMedia,
           urlFetcher = urlFetcher
         )

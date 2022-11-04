@@ -6,6 +6,7 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
@@ -49,15 +50,18 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
     assert(result, true)
   }
-  val emptyDBLayer = DBLayer[IO](null, null, null)
+  val emptyDBLayer = DBLayer[IO](null, null)
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist = RichardPHJBensonBot
-      .commandRepliesData[IO](emptyDBLayer, "")
+      .commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "")
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("")
-    assertEquals(RichardPHJBensonBot.commandRepliesData[IO](emptyDBLayer, "").length, 8)
+    assertEquals(
+      RichardPHJBensonBot.commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "").length,
+      8
+    )
     assertEquals(
       triggerlist,
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
@@ -66,7 +70,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   test("instructions command should return the expected message") {
     val actual = RichardPHJBensonBot
-      .commandRepliesData[IO](emptyDBLayer, "")
+      .commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "")
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(

@@ -33,7 +33,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     "DBTimeout.getOrDefault should return the default timeout if the chat id is not present in the database"
   ) { fixture =>
     val transactor                    = fixture.transactor
-    val dbTimeout: IO[DBTimeout[IO]]  = DBLayer[IO](transactor, null).map(_.dbTimeout)
+    val dbTimeout: IO[DBTimeout[IO]]  = DBLayer[IO](transactor).map(_.dbTimeout)
     val actual: Resource[IO, Timeout] = Resource.eval(dbTimeout.flatMap(_.getOrDefault(100L))) // Not present ChatID
 
     actual
@@ -52,7 +52,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val connection = fixture.connection
     val transactor = fixture.transactor
-    val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
+    val dbTimeout  = DBLayer[IO](transactor).map(_.dbTimeout)
     val actual     = Resource.eval(dbTimeout.flatMap(_.getOrDefault(1L))) // Present ChatID
     connection.createStatement().executeUpdate(ITDBResourceAccessSpec.timeoutSQL)
     actual
@@ -70,7 +70,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     "DBTimeout.setTimeout should insert the timeout if the chat id is not present in the database"
   ) { fixture =>
     val transactor = fixture.transactor
-    val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
+    val dbTimeout  = DBLayer[IO](transactor).map(_.dbTimeout)
     val chatId     = 2L
     val timeout    = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
     val actual = for {
@@ -90,7 +90,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test("DBTimeout.setTimeout should update the timeout if the chat id is present in the database") {
     fixture =>
       val transactor = fixture.transactor
-      val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
+      val dbTimeout  = DBLayer[IO](transactor).map(_.dbTimeout)
       val chatId     = 1L
       val timeout    = Timeout(chatId, 2.seconds.toMillis.toString, Timestamp.from(Instant.now()))
       val actual = for {
@@ -112,7 +112,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     "DBTimeout.logLastInteraction should insert the timeout if the chat id is not present in the database"
   ) { fixture =>
     val transactor = fixture.transactor
-    val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
+    val dbTimeout  = DBLayer[IO](transactor).map(_.dbTimeout)
     val chatId     = 2L
     val actual = for {
       _      <- Resource.eval(dbTimeout.flatMap(_.logLastInteraction(chatId)))
@@ -134,7 +134,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val connection = fixture.connection
     val transactor = fixture.transactor
-    val dbTimeout  = DBLayer[IO](transactor, null).map(_.dbTimeout)
+    val dbTimeout  = DBLayer[IO](transactor).map(_.dbTimeout)
     val chatId     = 1L
 
     connection.createStatement().executeUpdate(ITDBResourceAccessSpec.timeoutSQL)

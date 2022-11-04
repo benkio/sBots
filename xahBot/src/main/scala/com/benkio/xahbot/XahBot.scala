@@ -19,30 +19,30 @@ import org.http4s.Uri
 import telegramium.bots.high._
 
 class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with XahBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 class XahBotWebhook[F[_]: Async: Api: LogWriter](
     url: Uri,
+    resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     path: Uri = uri"/"
 ) extends BotSkeletonWebhook[F](url, path)
     with XahBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = dbLayer.resourceAccess
+  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 trait XahBot[F[_]] extends BotSkeleton[F] {
-
-  val dbLayer: DBLayer[F]
 
   override val botName: String   = XahBot.botName
   override val botPrefix: String = XahBot.botPrefix
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    CommandRepliesData.values[F](dbLayer = dbLayer, botName = botName).pure[F]
+    CommandRepliesData.values[F](resourceAccess = resourceAccess, botName = botName).pure[F]
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -59,7 +59,12 @@ object XahBot extends BotOps {
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("xah_XahBot.token").map(_.map(_.toChar).mkString)
 
-  final case class BotSetup[F[_]](token: String, dbLayer: DBLayer[F])
+  final case class BotSetup[F[_]](
+      token: String,
+      httpClient: Client[F],
+      resourceAccess: ResourceAccess[F],
+      dbLayer: DBLayer[F]
+  )
 
   def buildCommonBot[F[_]: Async](
       httpClient: Client[F]
@@ -73,8 +78,9 @@ object XahBot extends BotOps {
       "",
       ""
     )
-    urlFetcher            <- Resource.eval(UrlFetcher[F](httpClient))
-    dbLayer               <- Resource.eval(DBLayer[F](transactor, urlFetcher))
+    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
+    dbLayer    <- Resource.eval(DBLayer[F](transactor))
+    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
     _                     <- Resource.eval(log.info("[XahBot] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(
@@ -83,17 +89,17 @@ object XahBot extends BotOps {
       )
     )
     _ <- Resource.eval(log.info("[XahBot] Webhook deleted"))
-  } yield BotSetup(tk, dbLayer)
+  } yield BotSetup(tk, httpClient, resourceAccess, dbLayer)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: XahBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
-  } yield (httpClient, botSetup)).use(httpClient_botSetup => {
+  } yield botSetup).use(botSetup => {
     implicit val api: Api[F] =
-      BotApi(httpClient_botSetup._1, baseUrl = s"https://api.telegram.org/bot${httpClient_botSetup._2.token}")
-    action(new XahBotPolling[F](httpClient_botSetup._2.dbLayer))
+      BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
+    action(new XahBotPolling[F](botSetup.resourceAccess, botSetup.dbLayer))
   })
 
   def buildWebhookBot[F[_]: Async](
@@ -108,6 +114,7 @@ object XahBot extends BotOps {
     implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
     new XahBotWebhook[F](
       url = webhookBaseUri,
+      resAccess = botSetup.resourceAccess,
       dbLayer = botSetup.dbLayer,
       path = path
     )
