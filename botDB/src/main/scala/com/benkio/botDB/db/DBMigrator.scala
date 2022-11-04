@@ -38,6 +38,7 @@ object DBMigrator {
       .mixed(true)
       .outOfOrder(false)
       .table(config.migrationsTable)
+      .validateOnMigrate(true)
       .locations(
         config.migrationsLocations
           .map(new Location(_))
