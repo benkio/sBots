@@ -50,7 +50,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
     assert(result, true)
   }
-  val emptyDBLayer = DBLayer[IO](null, null)
+  val emptyDBLayer = DBLayer[IO](null, null, null)
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist = RichardPHJBensonBot

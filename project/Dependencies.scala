@@ -60,6 +60,7 @@ object Dependencies {
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
       libs.doobie,
+      libs.flyway,
       libs.mules,
       libs.mulesHttp4s,
       libs.sqlite

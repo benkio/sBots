@@ -7,6 +7,7 @@ import java.sql.Timestamp
 import java.time.Instant
 import scala.concurrent.duration._
 import scala.util.Try
+
 final case class Timeout(chat_id: Long, timeout_value: String, last_interaction: Timestamp)
 
 object Timeout {

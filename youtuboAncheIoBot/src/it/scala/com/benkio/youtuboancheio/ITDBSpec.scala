@@ -21,7 +21,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      dbMedia <- fixture.resourceDBMedia
+      dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       mp3s    <- Resource.pure(messageRepliesAudioData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         mp3s
@@ -44,7 +44,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     fixture =>
       val transactor = fixture.transactor
       val resourceAssert = for {
-        dbMedia <- fixture.resourceDBMedia
+        dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
         gifs    <- Resource.pure(messageRepliesGifData[IO].flatMap(_.mediafiles))
         checks <- Resource.eval(
           gifs
@@ -68,7 +68,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      dbMedia  <- fixture.resourceDBMedia
+      dbMedia  <- fixture.resourceDBLayer.map(_.dbMedia)
       specials <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         specials

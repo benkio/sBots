@@ -3,13 +3,15 @@ package com.benkio.telegrambotinfrastructure
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit._
+import org.flywaydb.core.Flyway
+import org.flywaydb.core.api.configuration.FluentConfiguration
 import org.http4s.ember.client._
 
 import java.io.File
@@ -17,47 +19,39 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.sql.Connection
 import java.sql.DriverManager
-import scala.io.BufferedSource
-import scala.io.Source
 
 final case class DBFixtureResources(
     connection: Connection,
-    resourceAccessResource: Resource[IO, ResourceAccess[IO]],
-    resourceDBMedia: Resource[IO, DBMedia[IO]],
-    transactor: Transactor[IO]
+    transactor: Transactor[IO],
+    resourceDBLayer: Resource[IO, DBLayer[IO]],
+    resourceAccessResource: Resource[IO, ResourceAccess[IO]]
 )
 
 trait DBFixture { self: FunSuite =>
 
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val dbName: String        = "botDB.sqlite3"
-  val resourcePath: String  = new File("./..").getCanonicalPath
-  val dbPath: String        = s"$resourcePath/$dbName"
-  val dbUrl: String         = s"jdbc:sqlite:$dbPath";
-  val deleteDB: Boolean     = false
-  val migrationPath: String = resourcePath + "/botDB/src/main/resources/db/migrations"
+  val dbName: String         = "botDB.sqlite3"
+  val resourcePath: String   = new File("./..").getCanonicalPath
+  val dbPath: String         = s"$resourcePath/$dbName"
+  val dbUrl: String          = s"jdbc:sqlite:$dbPath";
+  val deleteDB: Boolean      = false
+  val migrationPath: String  = resourcePath + "/botDB/src/main/resources/db/migrations"
+  val migrationTable: String = "FlywaySchemaHistory"
 
   lazy val databaseFixture = FunFixture[DBFixtureResources](
     setup = { _ =>
       Class.forName("org.sqlite.JDBC")
       val conn = DriverManager.getConnection(dbUrl)
-      val ddls = getMigrations(migrationPath)
-      ddls.foreach { ddl =>
-        {
-          val query     = ddl.getLines().mkString(" ")
-          val statement = conn.createStatement()
-          statement.executeUpdate(query)
-        }
-      }
+      runMigrations(dbUrl, migrationTable, migrationPath)
       val transactor                                 = Transactor.fromConnection[IO](conn)
-      val dbMediaResource: Resource[IO, DBMedia[IO]] = Resource.eval(DBMedia[IO](transactor))
-      val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbMediaResource.flatMap(dbMedia =>
+      val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
+      val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbLayerResource.flatMap(dbLayer =>
         for {
           httpClient <- EmberClientBuilder.default[IO].build
           urlFetcher <- Resource.eval(UrlFetcher[IO](httpClient))
         } yield ResourceAccess.dbResources[IO](
-          dbMedia = dbMedia,
+          dbMedia = dbLayer.dbMedia,
           urlFetcher = urlFetcher
         )
       )
@@ -65,9 +59,9 @@ trait DBFixture { self: FunSuite =>
       conn.createStatement().executeUpdate("DELETE FROM timeout;")
       DBFixtureResources(
         connection = conn,
-        resourceAccessResource = resourceAccessResource,
-        resourceDBMedia = dbMediaResource,
-        transactor = transactor
+        transactor = transactor,
+        resourceDBLayer = dbLayerResource,
+        resourceAccessResource = resourceAccessResource
       )
     },
     teardown = { fixture =>
@@ -80,12 +74,25 @@ trait DBFixture { self: FunSuite =>
     }
   )
 
-  def getMigrations(migrationPath: String): List[BufferedSource] = {
-    val migrationDir = new File(migrationPath)
-    val migrations = if (migrationDir.exists && migrationDir.isDirectory) {
-      migrationDir.listFiles.filter(_.isFile).toList
-    } else { List[File]() }
-    migrations.map(m => Source.fromFile(m))
+  def runMigrations(dbUrl: String, migrationsTable: String, migrationsLocations: String): Unit = {
+    val m: FluentConfiguration = Flyway.configure
+      .dataSource(
+        dbUrl,
+        "",
+        ""
+      )
+      .group(true)
+      .mixed(true)
+      .outOfOrder(false)
+      .table(migrationsTable)
+      .validateOnMigrate(true)
+      .locations(
+        migrationsLocations
+      )
+      .baselineOnMigrate(true)
+
+    m.load().migrate().migrationsExecuted
+    ()
   }
 
 }
