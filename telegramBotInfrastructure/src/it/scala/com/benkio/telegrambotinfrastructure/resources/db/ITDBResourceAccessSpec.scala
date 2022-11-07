@@ -30,7 +30,7 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       _                <- Resource.eval(dbMedia.decrementMediaCount(testMediaName))
       initialMedia     <- Resource.eval(dbMedia.getMedia(testMediaName, false))
     } yield {
-      val assert1 = postMedia == preMedia.copy(media_count = (preMedia.media_count + 1))
+      val assert1 = postMedia == preMedia.copy(media_count = preMedia.media_count + 1)
       val assert2 = arrayContent.length >= (1024 * 5)
       val assert3 = preMedia == initialMedia
       assert1 && assert2 && assert3

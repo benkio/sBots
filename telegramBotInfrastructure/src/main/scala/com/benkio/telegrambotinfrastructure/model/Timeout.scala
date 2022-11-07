@@ -1,6 +1,8 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits._
+import doobie.util.Get
+import doobie.util.Put
 import telegramium.bots.Message
 
 import java.sql.Timestamp
@@ -38,5 +40,8 @@ object Timeout {
     Try(timeStringToDuration(timeout))
       .map(duration => defaultTimeout(m.chat.id).copy(timeout_value = duration.toMillis.toString))
       .toOption
+
+  implicit val getTimestamp: Get[Timestamp] = Get[String].map(s => new Timestamp(s.toLong))
+  implicit val putTimestamp: Put[Timestamp] = Put[String].contramap(_.getTime.toString)
 
 }

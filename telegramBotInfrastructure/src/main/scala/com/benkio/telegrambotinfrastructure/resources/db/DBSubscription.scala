@@ -5,6 +5,7 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import doobie._
 import doobie.implicits._
+import doobie.util.fragments
 import log.effect.LogWriter
 
 trait DBSubscription[F[_]] {
@@ -36,7 +37,7 @@ object DBSubscription {
       sql"SELECT subscription_id, chat_id, cron, subscribed_at FROM subscription".query[Subscription]
 
     def insertSubscriptionQuery(subscription: Subscription): Update0 =
-      sql"INSERT INTO subscription (subscription_id, chat_id, cron, subscribed_at) VALUES $subscription".update
+      sql"INSERT INTO subscription (subscription_id, chat_id, cron, subscribed_at) VALUES (${fragments.values(subscription)})".update
 
     def deleteSubscriptionQuery(subscriptionId: Int): Update0 =
       sql"DELETE FROM subscription WHERE subscription_id = $subscriptionId".update

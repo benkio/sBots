@@ -24,8 +24,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       media   <- Resource.eval(dbMedia.getMedia(filename = testMediaName, cache = false))
-    } yield
-      media == testMedia
+    } yield media == testMedia
     resourceAssert.use(IO.pure).assert
   }
 
