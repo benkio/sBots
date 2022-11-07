@@ -1,8 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import java.time.Instant
-import cron4s.expr.CronExpr
 import cron4s.Cron
+import cron4s.expr.CronExpr
+
+import java.time.Instant
 import java.util.UUID
 
 final case class Subscription(

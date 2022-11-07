@@ -1,17 +1,10 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import cats.Applicative
-import cats.effect.Async
-import cats.effect.Resource
+import cats.effect.{Async, Resource}
 import cats.implicits._
+import cats.{Applicative, MonadThrow}
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.Media
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.TextReply
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.{CommandTrigger, Media, ReplyBundleCommand, ReplyBundleMessage, TextReply, TextTrigger, TextTriggerValue}
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import log.effect.LogWriter
@@ -264,7 +257,7 @@ ${if (ignoreMessagePrefix.isDefined) {
     val topTwentyTriggersCommandDescriptionEng: String =
       "'/topTwentyTriggers': Return a list of files and theirs send frequency"
 
-    def topTwentyReplyBundleCommand[F[_]: Applicative](
+    def topTwentyReplyBundleCommand[F[_]: MonadThrow](
         botPrefix: String,
         dbMedia: DBMedia[F]
     ): ReplyBundleCommand[F] =
@@ -272,10 +265,10 @@ ${if (ignoreMessagePrefix.isDefined) {
         trigger = CommandTrigger("toptwenty"),
         text = Some(
           TextReply[F](
-            _ =>
-              dbMedia
-                .getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
-                .map(ms => List(Media.mediaListToString(ms))),
+            _ => for {
+              dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
+              medias <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
+            } yield List(Media.mediaListToString(medias)),
             true
           )
         ),

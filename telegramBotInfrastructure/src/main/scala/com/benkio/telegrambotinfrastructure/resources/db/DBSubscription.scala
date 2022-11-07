@@ -2,22 +2,11 @@ package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.model.Subscription
 import doobie._
 import doobie.implicits._
 import doobie.util.fragments
 import log.effect.LogWriter
-
-trait DBSubscription[F[_]] {
-  def getSubscriptions(): F[List[DBSubscriptionData]]
-  def insertSubscription(subscription: DBSubscriptionData): F[Unit]
-  def deleteSubscription(
-      subscriptionId: Int
-  ): F[Unit]
-
-  def getSubscriptionsQuery(): Query0[DBSubscriptionData]
-}
-
-object DBSubscription {
 
   final case class DBSubscriptionData(
     id: String,
@@ -32,9 +21,21 @@ object DBSubscription {
         id = subscription.id.toString,
         chat_id = subscription.chatId ,
         cron = subscription.cron.toString ,
-        subscribed_at = subscription.subscribedAt.getEpochSeconds().toString
+        subscribed_at = subscription.subscribedAt.getEpochSecond.toString
       )
   }
+
+trait DBSubscription[F[_]] {
+  def getSubscriptions(): F[List[DBSubscriptionData]]
+  def insertSubscription(subscription: DBSubscriptionData): F[Unit]
+  def deleteSubscription(
+      subscriptionId: Int
+  ): F[Unit]
+
+  def getSubscriptionsQuery(): Query0[DBSubscriptionData]
+}
+
+object DBSubscription {
 
   def apply[F[_]: Async](
       transactor: Transactor[F],

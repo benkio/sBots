@@ -2,15 +2,29 @@ package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect.Async
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.model.Timeout
 import doobie.implicits._
-import doobie.Transactor
-import doobie._
+import doobie.util.{Get, Put}
+import doobie.{Transactor, _}
 import log.effect.LogWriter
 
 import java.sql.Timestamp
 import java.time.Instant
-import doobie.util.Get
-import doobie.util.Put
+
+
+final case class DBTimeoutData(
+  chat_id: Long,
+  timeout_value: String,
+  last_interaction: Timestamp
+)
+
+object DBTimeoutData {
+  def apply(timeout: Timeout): DBTimeoutData = DBTimeoutData(
+    chat_id = timeout.chatId,
+    timeout_value = timeout.timeoutValue.toMillis.toString,
+    last_interaction = Timestamp.from(timeout.lastInteraction)
+  )
+}
 
 sealed trait DBTimeout[F[_]] {
   def getOrDefault(chatId: Long): F[DBTimeoutData]
@@ -20,21 +34,8 @@ sealed trait DBTimeout[F[_]] {
 
 object DBTimeout {
 
-    implicit val getTimestamp: Get[Timestamp] = Get[String].map(s => new Timestamp(s.toLong))
+  implicit val getTimestamp: Get[Timestamp] = Get[String].map(s => new Timestamp(s.toLong))
   implicit val putTimestamp: Put[Timestamp] = Put[String].contramap(_.getTime.toString)
-
-  final case class DBTimeoutData(
-    chat_id: Long,
-    timeout_value: String,
-    last_interaction: Timestamp)
-
-  object DBTimeoutData {
-    def apply(timeout: Timeout): DBTimeoutData = DBTimeoutData(
-      chat_id = timeout.chatId,
-      timeout_value = timeout.timeoutValue.toMillis.toString,
-      last_interaction = timeout.lastInteraction
-    )
-  }
 
   private[db] class DBTimeoutImpl[F[_]: Async](transactor: Transactor[F], log: LogWriter[F]) extends DBTimeout[F] {
 
@@ -50,23 +51,23 @@ object DBTimeout {
 
     override def getOrDefault(chatId: Long): F[DBTimeoutData] =
       log.info(s"DB fetching timeout for $chatId") *>
-        getOrDefaultSql(chatId).option.transact(transactor).map(_.getOrElse(Timeout.defaultTimeout(chatId)))
+    getOrDefaultSql(chatId).option.transact(transactor).map(_.getOrElse(DBTimeoutData(Timeout(chatId))))
 
     override def setTimeout(timeout: DBTimeoutData): F[Unit] =
       log.info(s"DB setting timeout for ${timeout.chat_id} to value ${timeout.timeout_value}") *>
-        setTimeoutSql(timeout).run.transact(transactor).void
+    setTimeoutSql(timeout).run.transact(transactor).void
 
     override def logLastInteraction(chatId: Long): F[Unit] =
       log.info(s"DB logging the last interaction for chat $chatId") *>
-        logLastInteractionSql(chatId).run
-          .transact(transactor)
-          .attemptSql
-          .flatMap {
-            case Left(e) =>
-              log.info(s"Sql Exception on logging last interaction: $e") *>
-                setTimeout(Timeout.defaultTimeout(chatId))
-            case Right(_) => ().pure[F]
-          }
+    logLastInteractionSql(chatId).run
+      .transact(transactor)
+      .attemptSql
+      .flatMap {
+        case Left(e) =>
+          log.info(s"Sql Exception on logging last interaction: $e") *>
+          setTimeout(DBTimeoutData(Timeout(chatId)))
+        case Right(_) => ().pure[F]
+      }
   }
 
 }

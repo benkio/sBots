@@ -1,12 +1,11 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits._
-import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 
 import java.time.Instant
-import scala.concurrent.duration._
+import scala.concurrent.duration.{FiniteDuration, _}
 import scala.util.Try
-import scala.concurrent.duration.FiniteDuration
 
 final case class Timeout(
   chatId: Long,
@@ -17,10 +16,10 @@ final case class Timeout(
 object Timeout {
 
   def apply(chatId: Long, timeoutValue: String): Either[Throwable, Timeout] =
-    Try(timeoutValue.toLong).map(timeoutValue =>
+    Try(timeStringToDuration(timeoutValue)).map(timeoutValue =>
       Timeout(
         chatId = chatId,
-        timeoutValue = timeoutValue.millis,
+        timeoutValue = timeoutValue,
         lastInteraction = Instant.now()
       )
     ).toEither
@@ -31,14 +30,18 @@ object Timeout {
     lastInteraction = Instant.now()
   )
 
-  def isExpired(timeout: Timeout): Boolean = {
-    val now = Instant.now()
-    now.after(
-      new Timestamp(timeout.last_interaction.getTime() + timeout.timeout_value.toInt)
-    )
-  }
+  def apply(dbTimeoutData: DBTimeoutData): Either[Throwable, Timeout] = for {
+    timeoutValue <- Try(dbTimeoutData.timeout_value.toLong.millis).toEither
+  } yield Timeout(
+    chatId = dbTimeoutData.chat_id,
+    timeoutValue = timeoutValue,
+    lastInteraction = dbTimeoutData.last_interaction.toInstant()
+  )
 
-  def timeStringToDuration(timeout: String): FiniteDuration =
+  def isExpired(timeout: Timeout): Boolean =
+    Instant.now().isAfter(timeout.lastInteraction.plusMillis(timeout.timeoutValue.toMillis))
+
+  private def timeStringToDuration(timeout: String): FiniteDuration =
     timeout
       .split(":")
       .map(_.toLong)
@@ -47,10 +50,5 @@ object Timeout {
         FiniteDuration(value, timeUnit)
       }
       .reduce(_ + _)
-
-  def apply(m: Message, timeout: String): Option[Timeout] =
-    Try(timeStringToDuration(timeout))
-      .map(duration => defaultTimeout(m.chat.id).copy(timeout_value = duration.toMillis.toString))
-      .toOption
 
 }
