@@ -26,12 +26,14 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
 
   test("triggerlist should return the link to the trigger txt file") {
     val triggerlistUrl = YoutuboAncheIoBot
-      .commandRepliesData[IO](ResourceAccess.fromResources[IO], DBLayer[IO](null, null), "")
+      .commandRepliesData[IO](ResourceAccess.fromResources[IO], DBLayer[IO](null, null, null), "")
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("")
     assertEquals(
-      YoutuboAncheIoBot.commandRepliesData[IO](ResourceAccess.fromResources[IO], DBLayer[IO](null, null), "").length,
+      YoutuboAncheIoBot
+        .commandRepliesData[IO](ResourceAccess.fromResources[IO], DBLayer[IO](null, null, null), "")
+        .length,
       6
     )
     assertEquals(
@@ -84,7 +86,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
 
   test("instructions command should return the expected message") {
     val actual = YoutuboAncheIoBot
-      .commandRepliesData[IO](ResourceAccess.fromResources[IO], DBLayer[IO](null, null), "")
+      .commandRepliesData[IO](ResourceAccess.fromResources[IO], DBLayer[IO](null, null, null), "")
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(

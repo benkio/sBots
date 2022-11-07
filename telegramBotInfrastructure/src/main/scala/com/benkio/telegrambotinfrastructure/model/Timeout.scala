@@ -1,29 +1,50 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits._
-import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 
-import java.sql.Timestamp
 import java.time.Instant
+import scala.concurrent.duration.FiniteDuration
 import scala.concurrent.duration._
 import scala.util.Try
-final case class Timeout(chat_id: Long, timeout_value: String, last_interaction: Timestamp)
+
+final case class Timeout(
+    chatId: Long,
+    timeoutValue: FiniteDuration,
+    lastInteraction: Instant
+)
 
 object Timeout {
-  def isExpired(timeout: Timeout): Boolean = {
-    val now = Timestamp.from(Instant.now())
-    now.after(
-      new Timestamp(timeout.last_interaction.getTime() + timeout.timeout_value.toInt)
-    )
-  }
 
-  def defaultTimeout(chatId: Long): Timeout = Timeout(
-    chat_id = chatId,
-    timeout_value = "0",
-    last_interaction = Timestamp.from(Instant.now())
+  def apply(chatId: Long, timeoutValue: String): Either[Throwable, Timeout] =
+    Try(timeStringToDuration(timeoutValue))
+      .map(timeoutValue =>
+        Timeout(
+          chatId = chatId,
+          timeoutValue = timeoutValue,
+          lastInteraction = Instant.now()
+        )
+      )
+      .toEither
+
+  def apply(chatId: Long): Timeout = Timeout(
+    chatId = chatId,
+    timeoutValue = 0.millis,
+    lastInteraction = Instant.now()
   )
 
-  def timeStringToDuration(timeout: String): FiniteDuration =
+  def apply(dbTimeoutData: DBTimeoutData): Either[Throwable, Timeout] = for {
+    timeoutValue <- Try(dbTimeoutData.timeout_value.toLong.millis).toEither
+  } yield Timeout(
+    chatId = dbTimeoutData.chat_id,
+    timeoutValue = timeoutValue,
+    lastInteraction = dbTimeoutData.last_interaction.toInstant()
+  )
+
+  def isExpired(timeout: Timeout): Boolean =
+    Instant.now().isAfter(timeout.lastInteraction.plusMillis(timeout.timeoutValue.toMillis))
+
+  private[model] def timeStringToDuration(timeout: String): FiniteDuration =
     timeout
       .split(":")
       .map(_.toLong)
@@ -32,10 +53,5 @@ object Timeout {
         FiniteDuration(value, timeUnit)
       }
       .reduce(_ + _)
-
-  def apply(m: Message, timeout: String): Option[Timeout] =
-    Try(timeStringToDuration(timeout))
-      .map(duration => defaultTimeout(m.chat.id).copy(timeout_value = duration.toMillis.toString))
-      .toOption
 
 }

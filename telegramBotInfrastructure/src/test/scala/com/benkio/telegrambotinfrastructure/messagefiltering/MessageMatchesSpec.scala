@@ -124,11 +124,10 @@ class MessageMatchesSpec extends FunSuite {
     )
 
     val testMessage = Message(
-      67715,
-      Some(User(23769493, false, "Benkio", None, Some("Benkio"), Some("en"), None, None, None)),
-      None,
-      1653503377,
-      Chat(
+      messageId = 67715,
+      from = Some(User(23769493, false, "Benkio", None, Some("Benkio"), Some("en"), None, None, None)),
+      date = 1653503377,
+      chat = Chat(
         -444726279,
         "group",
         Some("Via delle Albizzie 22"),
@@ -147,11 +146,10 @@ class MessageMatchesSpec extends FunSuite {
     )
 
     val testMessage = Message(
-      67715,
-      Some(User(23769493, false, "Benkio", None, Some("Benkio"), Some("en"), None, None, None)),
-      None,
-      1653503377,
-      Chat(
+      messageId = 67715,
+      from = Some(User(23769493, false, "Benkio", None, Some("Benkio"), Some("en"), None, None, None)),
+      date = 1653503377,
+      chat = Chat(
         -444726279,
         "group",
         Some("Via delle Albizzie 22"),

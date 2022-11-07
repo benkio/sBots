@@ -1,8 +1,9 @@
 package com.benkio.richardphjbensonbot
 
-import cats._
 import cats.effect._
 import cats.implicits._
+import cats.MonadThrow
+import cats._
 import com.benkio.richardphjbensonbot.Config
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
@@ -13,6 +14,7 @@ import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure.BotSkeleton
@@ -41,7 +43,8 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_, m) =>
       for {
-        timeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
+        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
+        timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
 }
 
@@ -60,7 +63,8 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_, m) =>
       for {
-        timeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
+        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
+        timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
 }
 
@@ -166,13 +170,15 @@ object RichardPHJBensonBot extends BotOps {
               "timeout",
               botName,
               t => {
-                val timeout = Timeout(msg, t).toList
-                if (timeout.isEmpty)
-                  List(
-                    s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
-                  ).pure[F]
-                else
-                  timeout.traverse_(dbLayer.dbTimeout.setTimeout) *> List("Timeout set successfully").pure[F]
+                Timeout(msg.chat.id, t)
+                  .fold(
+                    error =>
+                      log.info(s"[ERROR] While parsing the timeout input: $error") *> List(
+                        s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
+                      ).pure[F],
+                    timeout =>
+                      dbLayer.dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List("Timeout set successfully").pure[F]
+                  )
               },
               """Input Required: the input must be in the form '\timeout 00:00:00'"""
             ),

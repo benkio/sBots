@@ -551,7 +551,8 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("dovete soffrire")
+        StringTextTriggerValue("dovete soffrire"),
+        RegexTextTriggerValue("vi voglio far(e)? soffrire".r, 23),
       ),
       List(
         MediaFile("rphjb_DoveteSoffrire.gif")

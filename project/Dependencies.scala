@@ -8,6 +8,7 @@ object Dependencies {
     val catsEffectVersion     = "3.3.14"
     val catsVersion           = "2.8.0"
     val cormorant             = "0.5.0-M1"
+    val fs2Cron               = "0.7.2"
     val flyway                = "9.7.0"
     val doobie                = "1.0.0-RC2"
     val lightbendEmojiVersion = "1.3.0"
@@ -28,6 +29,7 @@ object Dependencies {
     val cormorantCore     = "io.chrisdavenport" %% "cormorant-core"      % dependenciesVersion.cormorant % "it, test"
     val cormorantGeneric  = "io.chrisdavenport" %% "cormorant-generic"   % dependenciesVersion.cormorant
     val cormorantParser   = "io.chrisdavenport" %% "cormorant-parser"    % dependenciesVersion.cormorant
+    val fs2Cron           = "eu.timepit"        %% "fs2-cron-cron4s"     % dependenciesVersion.fs2Cron
     val http4sEmberClient = "org.http4s"        %% "http4s-ember-client" % dependenciesVersion.http4s
     val doobie            = "org.tpolecat"      %% "doobie-core"         % dependenciesVersion.doobie
     val flyway            = "org.flywaydb"       % "flyway-core"         % dependenciesVersion.flyway
@@ -60,6 +62,8 @@ object Dependencies {
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
       libs.doobie,
+      libs.flyway,
+      libs.fs2Cron,
       libs.mules,
       libs.mulesHttp4s,
       libs.sqlite
