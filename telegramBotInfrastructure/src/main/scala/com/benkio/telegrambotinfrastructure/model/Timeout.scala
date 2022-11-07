@@ -1,30 +1,42 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits._
-import doobie.util.Get
-import doobie.util.Put
 import telegramium.bots.Message
 
-import java.sql.Timestamp
 import java.time.Instant
 import scala.concurrent.duration._
 import scala.util.Try
+import scala.concurrent.duration.FiniteDuration
 
-final case class Timeout(chat_id: Long, timeout_value: String, last_interaction: Timestamp)
+final case class Timeout(
+  chatId: Long,
+  timeoutValue: FiniteDuration,
+  lastInteraction: Instant
+)
 
 object Timeout {
+
+  def apply(chatId: Long, timeoutValue: String): Either[Throwable, Timeout] =
+    Try(timeoutValue.toLong).map(timeoutValue =>
+      Timeout(
+        chatId = chatId,
+        timeoutValue = timeoutValue.millis,
+        lastInteraction = Instant.now()
+      )
+    ).toEither
+
+  def apply(chatId: Long): Timeout = Timeout(
+    chatId = chatId,
+    timeoutValue = 0.millis,
+    lastInteraction = Instant.now()
+  )
+
   def isExpired(timeout: Timeout): Boolean = {
-    val now = Timestamp.from(Instant.now())
+    val now = Instant.now()
     now.after(
       new Timestamp(timeout.last_interaction.getTime() + timeout.timeout_value.toInt)
     )
   }
-
-  def defaultTimeout(chatId: Long): Timeout = Timeout(
-    chat_id = chatId,
-    timeout_value = "0",
-    last_interaction = Timestamp.from(Instant.now())
-  )
 
   def timeStringToDuration(timeout: String): FiniteDuration =
     timeout
@@ -40,8 +52,5 @@ object Timeout {
     Try(timeStringToDuration(timeout))
       .map(duration => defaultTimeout(m.chat.id).copy(timeout_value = duration.toMillis.toString))
       .toOption
-
-  implicit val getTimestamp: Get[Timestamp] = Get[String].map(s => new Timestamp(s.toLong))
-  implicit val putTimestamp: Put[Timestamp] = Put[String].contramap(_.getTime.toString)
 
 }

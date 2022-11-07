@@ -2,7 +2,6 @@ package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.model.Media
 import doobie._
 import doobie.implicits._
 import io.chrisdavenport.mules._
@@ -11,26 +10,44 @@ import log.effect.LogWriter
 import scala.concurrent.duration._
 
 trait DBMedia[F[_]] {
-  def getMedia(filename: String, cache: Boolean = true): F[Media]
-  def getMediaByKind(kind: String, cache: Boolean = true): F[List[Media]]
+  def getMedia(filename: String, cache: Boolean = true): F[DBMediaData]
+  def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]]
   def getMediaByMediaCount(
       limit: Int = 20,
       mediaNamePrefix: Option[String] = None
-  ): F[List[Media]]
+  ): F[List[DBMediaData]]
   def incrementMediaCount(filename: String): F[Unit]
   def decrementMediaCount(filename: String): F[Unit]
 
-  def getMediaQueryByName(resourceName: String): Query0[Media]
-  def getMediaQueryByKind(kind: String): Query0[Media]
-  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String], limit: Int): Query0[Media]
+  def getMediaQueryByName(resourceName: String): Query0[DBMediaData]
+  def getMediaQueryByKind(kind: String): Query0[DBMediaData]
+  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String], limit: Int): Query0[DBMediaData]
 }
 
 object DBMedia {
 
+   final case class DBMediaData(
+     media_name: String,
+     kind: Option[String],
+     media_url: String,
+     media_count: Int,
+     created_at: String
+ )
+
+  object DBMediaData {
+    def apply(media: Media) : DBMediaData = DBMediaData(
+     media_name = media.mediaName ,
+     kind = media.kind ,
+     media_url = media.mediaUrl.renderString,
+     media_count = media.mediaCount ,
+     created_at = media.createdAt
+    )
+  }
+
   def apply[F[_]: Async](
       transactor: Transactor[F],
   )(implicit log: LogWriter[F]): F[DBMedia[F]] = for {
-    dbCache <- MemoryCache.ofSingleImmutableMap[F, String, List[Media]](defaultExpiration =
+    dbCache <- MemoryCache.ofSingleImmutableMap[F, String, List[DBMediaData]](defaultExpiration =
       TimeSpec.fromDuration(6.hours)
     )
   } yield new DBMediaImpl[F](
@@ -41,33 +58,33 @@ object DBMedia {
 
   private[telegrambotinfrastructure] class DBMediaImpl[F[_]: Async](
       transactor: Transactor[F],
-      dbCache: MemoryCache[F, String, List[Media]],
+      dbCache: MemoryCache[F, String, List[DBMediaData]],
       log: LogWriter[F]
   ) extends DBMedia[F] {
 
-    override def getMediaQueryByName(resourceName: String): Query0[Media] =
+    override def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
       sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE media_name = $resourceName"
-        .query[Media]
+        .query[DBMediaData]
 
-    override def getMediaQueryByKind(kind: String): Query0[Media] =
-      sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[Media]
+    override def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
+      sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[DBMediaData]
 
-    override def getMediaQueryByMediaCount(mediaNamePrefix: Option[String], limit: Int): Query0[Media] = {
+    override def getMediaQueryByMediaCount(mediaNamePrefix: Option[String], limit: Int): Query0[DBMediaData] = {
       def query(whereClause: Fragment) =
         sql"SELECT media_name, kind, media_url, media_count, created_at FROM media $whereClause ORDER BY media_count DESC LIMIT $limit"
-          .query[Media]
+          .query[DBMediaData]
       mediaNamePrefix.fold(query(Fragment.empty))(prefix => query(s"WHERE media_name LIKE '$prefix%'".fr))
     }
 
-    def incrementMediaCountQuery(media: Media): Update0 =
+    def incrementMediaCountQuery(media: DBMediaData): Update0 =
       sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update
 
-    def decrementMediaCountQuery(media: Media): Update0 =
+    def decrementMediaCountQuery(media: DBMediaData): Update0 =
       sql"UPDATE media SET media_count = ${media.media_count - 1} WHERE media_name = ${media.media_name}".update
 
     private def getMediaInternal[A](
         cacheLookupValue: String,
-        cacheResultHandler: Option[List[Media]] => F[A]
+        cacheResultHandler: Option[List[DBMediaData]] => F[A]
     ): F[A] = for {
       _              <- log.info(s"DB fetching media by $cacheLookupValue")
       cachedValueOpt <- dbCache.lookup(cacheLookupValue)
@@ -86,15 +103,15 @@ object DBMedia {
       _     <- decrementMediaCountQuery(media).run.transact(transactor)
     } yield ()
 
-    override def getMedia(filename: String, cache: Boolean = true): F[Media] =
-      getMediaInternal[Media](
+    override def getMedia(filename: String, cache: Boolean = true): F[DBMediaData] =
+      getMediaInternal[DBMediaData](
         cacheLookupValue = filename,
         cacheResultHandler = cachedValueOpt =>
           for {
             media <- cachedValueOpt
               .filter(_ => cache)
               .flatMap(_.headOption)
-              .fold[F[Media]](
+              .fold[F[DBMediaData]](
                 getMediaQueryByName(filename).unique.transact(transactor)
               )(Async[F].pure)
             _ <-
@@ -104,8 +121,8 @@ object DBMedia {
           } yield media
       )
 
-    override def getMediaByKind(kind: String, cache: Boolean = true): F[List[Media]] =
-      getMediaInternal[List[Media]](
+    override def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]] =
+      getMediaInternal[List[DBMediaData]](
         cacheLookupValue = kind,
         cacheResultHandler = cachedValueOpt =>
           for {
@@ -124,7 +141,7 @@ object DBMedia {
     override def getMediaByMediaCount(
         limit: Int = 20,
         mediaNamePrefix: Option[String] = None
-    ): F[List[Media]] =
+    ): F[List[DBMediaData]] =
       getMediaQueryByMediaCount(limit = limit, mediaNamePrefix = mediaNamePrefix).stream.compile.toList
         .transact(transactor)
   }

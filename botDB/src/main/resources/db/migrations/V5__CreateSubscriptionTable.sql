@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS subscription(
-  subscription_id INTEGER PRIMARY KEY,
+  subscription_id TEXT PRIMARY KEY,
   chat_id INTEGER NOT NULL,
   cron TEXT NOT NULL,
   subscribed_at TEXT NOT NULL,
