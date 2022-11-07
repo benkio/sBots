@@ -22,6 +22,7 @@ trait DBMedia[F[_]] {
 
   def getMediaQueryByName(resourceName: String): Query0[Media]
   def getMediaQueryByKind(kind: String): Query0[Media]
+  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String], limit: Int): Query0[Media]
 }
 
 object DBMedia {
@@ -44,14 +45,14 @@ object DBMedia {
       log: LogWriter[F]
   ) extends DBMedia[F] {
 
-    def getMediaQueryByName(resourceName: String): Query0[Media] =
+    override def getMediaQueryByName(resourceName: String): Query0[Media] =
       sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE media_name = $resourceName"
         .query[Media]
 
-    def getMediaQueryByKind(kind: String): Query0[Media] =
+    override def getMediaQueryByKind(kind: String): Query0[Media] =
       sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[Media]
 
-    def getMediaByMediaCountQuery(mediaNamePrefix: Option[String], limit: Int): Query0[Media] = {
+    override def getMediaQueryByMediaCount(mediaNamePrefix: Option[String], limit: Int): Query0[Media] = {
       def query(whereClause: Fragment) =
         sql"SELECT media_name, kind, media_url, media_count, created_at FROM media $whereClause ORDER BY media_count DESC LIMIT $limit"
           .query[Media]
@@ -73,17 +74,19 @@ object DBMedia {
       media          <- cacheResultHandler(cachedValueOpt)
     } yield media
 
-    def incrementMediaCount(filename: String): F[Unit] = for {
+    override def incrementMediaCount(filename: String): F[Unit] = for {
+      _     <- dbCache.delete(filename)
       media <- getMedia(filename)
       _     <- incrementMediaCountQuery(media).run.transact(transactor)
     } yield ()
 
-    def decrementMediaCount(filename: String): F[Unit] = for {
+    override def decrementMediaCount(filename: String): F[Unit] = for {
+      _     <- dbCache.delete(filename)
       media <- getMedia(filename)
       _     <- decrementMediaCountQuery(media).run.transact(transactor)
     } yield ()
 
-    def getMedia(filename: String, cache: Boolean = true): F[Media] =
+    override def getMedia(filename: String, cache: Boolean = true): F[Media] =
       getMediaInternal[Media](
         cacheLookupValue = filename,
         cacheResultHandler = cachedValueOpt =>
@@ -101,7 +104,7 @@ object DBMedia {
           } yield media
       )
 
-    def getMediaByKind(kind: String, cache: Boolean = true): F[List[Media]] =
+    override def getMediaByKind(kind: String, cache: Boolean = true): F[List[Media]] =
       getMediaInternal[List[Media]](
         cacheLookupValue = kind,
         cacheResultHandler = cachedValueOpt =>
@@ -118,11 +121,11 @@ object DBMedia {
           } yield medias
       )
 
-    def getMediaByMediaCount(
+    override def getMediaByMediaCount(
         limit: Int = 20,
         mediaNamePrefix: Option[String] = None
     ): F[List[Media]] =
-      getMediaByMediaCountQuery(limit = limit, mediaNamePrefix = mediaNamePrefix).stream.compile.toList
+      getMediaQueryByMediaCount(limit = limit, mediaNamePrefix = mediaNamePrefix).stream.compile.toList
         .transact(transactor)
   }
 }
