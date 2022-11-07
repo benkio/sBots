@@ -4,25 +4,28 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 
 import java.time.Instant
-import scala.concurrent.duration.{FiniteDuration, _}
+import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
 import scala.util.Try
 
 final case class Timeout(
-  chatId: Long,
-  timeoutValue: FiniteDuration,
-  lastInteraction: Instant
+    chatId: Long,
+    timeoutValue: FiniteDuration,
+    lastInteraction: Instant
 )
 
 object Timeout {
 
   def apply(chatId: Long, timeoutValue: String): Either[Throwable, Timeout] =
-    Try(timeStringToDuration(timeoutValue)).map(timeoutValue =>
-      Timeout(
-        chatId = chatId,
-        timeoutValue = timeoutValue,
-        lastInteraction = Instant.now()
+    Try(timeStringToDuration(timeoutValue))
+      .map(timeoutValue =>
+        Timeout(
+          chatId = chatId,
+          timeoutValue = timeoutValue,
+          lastInteraction = Instant.now()
+        )
       )
-    ).toEither
+      .toEither
 
   def apply(chatId: Long): Timeout = Timeout(
     chatId = chatId,
@@ -41,7 +44,7 @@ object Timeout {
   def isExpired(timeout: Timeout): Boolean =
     Instant.now().isAfter(timeout.lastInteraction.plusMillis(timeout.timeoutValue.toMillis))
 
-  private def timeStringToDuration(timeout: String): FiniteDuration =
+  private[model] def timeStringToDuration(timeout: String): FiniteDuration =
     timeout
       .split(":")
       .map(_.toLong)

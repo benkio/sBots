@@ -8,22 +8,22 @@ import doobie.implicits._
 import doobie.util.fragments
 import log.effect.LogWriter
 
-  final case class DBSubscriptionData(
+final case class DBSubscriptionData(
     id: String,
     chat_id: Int,
     cron: String,
     subscribed_at: String
-  )
+)
 
-  object DBSubscriptionData {
-    def apply(subscription: Subscription) : DBSubscriptionData =
-      DBSubscriptionData(
-        id = subscription.id.toString,
-        chat_id = subscription.chatId ,
-        cron = subscription.cron.toString ,
-        subscribed_at = subscription.subscribedAt.getEpochSecond.toString
-      )
-  }
+object DBSubscriptionData {
+  def apply(subscription: Subscription): DBSubscriptionData =
+    DBSubscriptionData(
+      id = subscription.id.toString,
+      chat_id = subscription.chatId,
+      cron = subscription.cron.toString,
+      subscribed_at = subscription.subscribedAt.getEpochSecond.toString
+    )
+}
 
 trait DBSubscription[F[_]] {
   def getSubscriptions(): F[List[DBSubscriptionData]]

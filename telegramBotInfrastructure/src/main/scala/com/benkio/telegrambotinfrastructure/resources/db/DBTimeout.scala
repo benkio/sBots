@@ -4,18 +4,19 @@ import cats.effect.Async
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import doobie.implicits._
-import doobie.util.{Get, Put}
-import doobie.{Transactor, _}
+import doobie.util.Get
+import doobie.util.Put
+import doobie.Transactor
+import doobie._
 import log.effect.LogWriter
 
 import java.sql.Timestamp
 import java.time.Instant
 
-
 final case class DBTimeoutData(
-  chat_id: Long,
-  timeout_value: String,
-  last_interaction: Timestamp
+    chat_id: Long,
+    timeout_value: String,
+    last_interaction: Timestamp
 )
 
 object DBTimeoutData {
@@ -51,23 +52,23 @@ object DBTimeout {
 
     override def getOrDefault(chatId: Long): F[DBTimeoutData] =
       log.info(s"DB fetching timeout for $chatId") *>
-    getOrDefaultSql(chatId).option.transact(transactor).map(_.getOrElse(DBTimeoutData(Timeout(chatId))))
+        getOrDefaultSql(chatId).option.transact(transactor).map(_.getOrElse(DBTimeoutData(Timeout(chatId))))
 
     override def setTimeout(timeout: DBTimeoutData): F[Unit] =
       log.info(s"DB setting timeout for ${timeout.chat_id} to value ${timeout.timeout_value}") *>
-    setTimeoutSql(timeout).run.transact(transactor).void
+        setTimeoutSql(timeout).run.transact(transactor).void
 
     override def logLastInteraction(chatId: Long): F[Unit] =
       log.info(s"DB logging the last interaction for chat $chatId") *>
-    logLastInteractionSql(chatId).run
-      .transact(transactor)
-      .attemptSql
-      .flatMap {
-        case Left(e) =>
-          log.info(s"Sql Exception on logging last interaction: $e") *>
-          setTimeout(DBTimeoutData(Timeout(chatId)))
-        case Right(_) => ().pure[F]
-      }
+        logLastInteractionSql(chatId).run
+          .transact(transactor)
+          .attemptSql
+          .flatMap {
+            case Left(e) =>
+              log.info(s"Sql Exception on logging last interaction: $e") *>
+                setTimeout(DBTimeoutData(Timeout(chatId)))
+            case Right(_) => ().pure[F]
+          }
   }
 
 }
