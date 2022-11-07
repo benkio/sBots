@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
-import com.benkio.telegrambotinfrastructure.model.Media
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
@@ -12,7 +11,7 @@ import cats.implicits._
 class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
   val testMediaName = "rphjb_MaSgus.mp3"
-  val testMedia: Media = Media(
+  val testMedia: DBMediaData = DBMediaData(
     testMediaName,
     None,
     "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACBnRH33traQAKBGy9bidu0a/rphjb_MaSgus.mp3?dl=1",

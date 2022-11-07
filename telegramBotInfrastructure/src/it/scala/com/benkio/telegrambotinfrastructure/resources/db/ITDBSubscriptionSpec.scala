@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
-import com.benkio.telegrambotinfrastructure.model.Subscription
+import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
@@ -9,11 +9,11 @@ import cats.effect.IO
 
 class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture {
 
-  val testSubscription: Subscription = Subscription(
-    id = 1,
-    chatId = 2,
+  val testSubscription: DBSubscriptionData = DBSubscriptionData(
+    id = "u70C4B13C-F76A-45FB-8D60-3F754E645CE5",
+    chat_id = 2,
     cron = "5 4 * * *",
-    subscribedAt = "2022-11-06T19:54:46Z"
+    subscribed_at = "2022-11-06T19:54:46Z"
   )
   databaseFixture.test(
     "DBSubscription: given a subscription, insertSubscription should insert the subscription then getSubscriptions should return the subscription and deleteSubscription should delete it"

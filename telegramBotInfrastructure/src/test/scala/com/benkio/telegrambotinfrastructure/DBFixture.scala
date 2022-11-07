@@ -36,7 +36,7 @@ trait DBFixture { self: FunSuite =>
   val dbPath: String         = s"$resourcePath/$dbName"
   val dbUrl: String          = s"jdbc:sqlite:$dbPath";
   val deleteDB: Boolean      = false
-  val migrationPath: String  = resourcePath + "/botDB/src/main/resources/db/migrations"
+  val migrationPath: String  = "filesystem:" + resourcePath + "/botDB/src/main/resources/db/migrations"
   val migrationTable: String = "FlywaySchemaHistory"
 
   lazy val databaseFixture = FunFixture[DBFixtureResources](
@@ -86,6 +86,7 @@ trait DBFixture { self: FunSuite =>
       .outOfOrder(false)
       .table(migrationsTable)
       .validateOnMigrate(true)
+      .failOnMissingLocations(true)
       .locations(
         migrationsLocations
       )
