@@ -89,7 +89,7 @@ object CommandPatterns {
         ),
       )
 
-    private def selectRandomLinkByKeyword[F[_]: Async](
+    def selectRandomLinkByKeyword[F[_]: Async](
         keywords: String,
         resourceAccess: ResourceAccess[F],
         youtubeLinkSources: String

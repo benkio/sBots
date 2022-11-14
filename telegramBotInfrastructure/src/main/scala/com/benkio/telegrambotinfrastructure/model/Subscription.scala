@@ -10,7 +10,7 @@ import scala.util.Try
 
 final case class Subscription(
     id: UUID,
-    chatId: Int,
+    chatId: Long,
     cron: CronExpr,
     subscribedAt: Instant
 )
@@ -20,7 +20,7 @@ object Subscription {
     cron <- Cron(inputCron)
   } yield Subscription(
     id = UUID.randomUUID,
-    chatId = chatId,
+    chatId = chatId.toLong,
     cron = cron,
     subscribedAt = Instant.now()
   )
@@ -31,7 +31,7 @@ object Subscription {
     subscribedAt <- Try(Instant.parse(dbSubscriptionData.subscribed_at)).toEither
   } yield Subscription(
     id = id,
-    chatId = dbSubscriptionData.chat_id,
+    chatId = dbSubscriptionData.chat_id.toLong,
     cron = cron,
     subscribedAt = subscribedAt
   )

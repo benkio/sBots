@@ -19,7 +19,7 @@ object DBSubscriptionData {
   def apply(subscription: Subscription): DBSubscriptionData =
     DBSubscriptionData(
       id = subscription.id.toString,
-      chat_id = subscription.chatId,
+      chat_id = subscription.chatId.toInt,
       cron = subscription.cron.toString,
       subscribed_at = subscription.subscribedAt.getEpochSecond.toString
     )
