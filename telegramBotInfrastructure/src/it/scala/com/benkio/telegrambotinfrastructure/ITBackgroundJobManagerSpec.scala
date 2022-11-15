@@ -16,6 +16,14 @@ import munit.CatsEffectSuite
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   implicit val noAction: Action[Reply, IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
+  val testSubscriptionId                   = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
+
+  val testSubscription: Subscription = Subscription(
+    id = testSubscriptionId,
+    chatId = 0L,
+    cron = Cron.unsafeParse("* 0 0,12 1,10 * ?"),
+    subscribedAt = Instant.now()
+  )
 
   databaseFixture.test(
     "The creation of the BackgroundJobManager with empty subscriptions should load no subscriptions in memory"
@@ -36,15 +44,6 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test(
     "The creation of the BackgroundJobManager with non empty subscriptions should load subscriptions in memory and run the background tasks without errors"
   ) { fixture =>
-    val testSubscriptionId = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
-
-    val testSubscription: Subscription = Subscription(
-      id = testSubscriptionId,
-      chatId = 0L,
-      cron = Cron.unsafeParse("* 0 0,12 1,10 * ?"),
-      subscribedAt = Instant.now()
-    )
-
     for {
       resourceAccess <- fixture.resourceAccessResource
       dbLayer        <- fixture.resourceDBLayer
@@ -65,15 +64,52 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "BackgroundJobManager.scheduleSubscription should add a subscription to the in memory map and store it in the DB"
-  ) { _ =>
-    ???
+    "BackgroundJobManager.scheduleSubscription should run a subscription, add it to the in memory map and store it in the DB"
+  ) { fixture =>
+    for {
+      resourceAccess <- fixture.resourceAccessResource
+      dbLayer        <- fixture.resourceDBLayer
+      backgroundJobManager <- Resource.eval(
+        BackgroundJobManager(
+          dbSubscription = dbLayer.dbSubscription,
+          resourceAccess = resourceAccess,
+          youtubeLinkSources = "abar_LinkSources"
+        )
+      )
+      _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
+      subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions())
+    } yield {
+      assert(backgroundJobManager.memSubscriptions.size == 1)
+      assert(backgroundJobManager.memSubscriptions.get(testSubscriptionId).isDefined)
+      assertIO(backgroundJobManager.memSubscriptions.get(testSubscriptionId).get.get, false)
+      assert(subscriptions.length == 1)
+      assert(Subscription(subscriptions.head) == testSubscription)
+    }
   }
 
   databaseFixture.test(
     "BackgroundJobManager.cancelSubscription should cancel in memory job, remove the in memory entry and it the db"
-  ) { _ =>
-    ???
+  ) { fixture =>
+    for {
+      resourceAccess <- fixture.resourceAccessResource
+      dbLayer        <- fixture.resourceDBLayer
+      backgroundJobManager <- Resource.eval(
+        BackgroundJobManager(
+          dbSubscription = dbLayer.dbSubscription,
+          resourceAccess = resourceAccess,
+          youtubeLinkSources = "abar_LinkSources"
+        )
+      )
+      _                      <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
+      inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions())
+      _                      <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))
+      cancel_subscriptions   <- Resource.eval(dbLayer.dbSubscription.getSubscriptions())
+    } yield {
+      assert(backgroundJobManager.memSubscriptions.size == 0)
+      assert(inserted_subscriptions.length == 1)
+      assert(Subscription(inserted_subscriptions.head) == testSubscription)
+      assert(cancel_subscriptions.isEmpty)
+    }
   }
 
 }
