@@ -1,5 +1,8 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
+import java.sql.Timestamp
+import java.time.Instant
+import com.benkio.telegrambotinfrastructure.model.Timeout
 import java.util.UUID
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
@@ -25,9 +28,14 @@ object DBLayerMock {
   )
 
   class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]]) extends DBTimeout[IO] {
-    override def getOrDefault(chatId: Long): IO[DBTimeoutData] = ???
-    override def setTimeout(timeout: DBTimeoutData): IO[Unit] = ???
-    override def logLastInteraction(chatId: Long): IO[Unit] = ???
+    override def getOrDefault(chatId: Long): IO[DBTimeoutData] =
+      db.get.map(_.find(t => t.chat_id == chatId).getOrElse(DBTimeoutData(Timeout(chatId))))
+    override def setTimeout(timeout: DBTimeoutData): IO[Unit] =
+      db.update(ts => ts.filterNot(t => t.chat_id == timeout.chat_id) :+ timeout)
+    override def logLastInteraction(chatId: Long): IO[Unit] =
+      db.update(ts => ts.find(t => t.chat_id == chatId).fold(ts)(oldValue =>
+        ts.filterNot(_ == oldValue) :+ oldValue.copy(last_interaction = Timestamp.from(Instant.now()))
+      ))
   }
 
   class DBMediaMock(db: Ref[IO, List[DBMediaData]]) extends DBMedia[IO] {
