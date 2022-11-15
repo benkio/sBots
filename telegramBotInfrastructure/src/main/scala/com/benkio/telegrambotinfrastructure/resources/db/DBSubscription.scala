@@ -8,6 +8,8 @@ import doobie.implicits._
 import doobie.util.fragments
 import log.effect.LogWriter
 
+import java.util.UUID
+
 final case class DBSubscriptionData(
     id: String,
     chat_id: Int,
@@ -29,7 +31,7 @@ trait DBSubscription[F[_]] {
   def getSubscriptions(): F[List[DBSubscriptionData]]
   def insertSubscription(subscription: DBSubscriptionData): F[Unit]
   def deleteSubscription(
-      subscriptionId: String
+      subscriptionId: UUID
   ): F[Unit]
 
   def getSubscriptionsQuery(): Query0[DBSubscriptionData]
@@ -65,9 +67,9 @@ object DBSubscription {
       )
 
     override def deleteSubscription(
-        subscriptionId: String
+        subscriptionId: UUID
     ): F[Unit] =
-      deleteSubscriptionQuery(subscriptionId).run.transact(transactor).void <* log.info(
+      deleteSubscriptionQuery(subscriptionId.toString).run.transact(transactor).void <* log.info(
         s"delete subscription id $subscriptionId"
       )
 

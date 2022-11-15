@@ -35,7 +35,20 @@ trait BackgroundJobManager[F[_]] {
 // TODO: Implement and Test
 object BackgroundJobManager {
 
-  def apply[F[_]](): F[BackgroundJobManager[F]] = ???
+  def apply[F[_]: Async](
+      dbSubscription: DBSubscription[F],
+      resourceAccess: ResourceAccess[F],
+      youtubeLinkSources: String
+  )(implicit replyAction: Action[Reply, F], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
+    backgroundJobManager <- Async[F].pure(
+      new BackgroundJobManagerImpl(
+        dbSubscription = dbSubscription,
+        resourceAccess = resourceAccess,
+        youtubeLinkSources = youtubeLinkSources
+      )
+    )
+    _ <- backgroundJobManager.loadSubscriptions()
+  } yield backgroundJobManager
 
   class BackgroundJobManagerImpl[F[_]: Async](
       dbSubscription: DBSubscription[F],
