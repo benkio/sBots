@@ -1,21 +1,11 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import cats.effect.Async
-import cats.effect.Resource
+import cats.effect.{Async, Resource}
 import cats.implicits._
-import cats.Applicative
-import cats.ApplicativeThrow
-import cats.MonadThrow
+import cats.{Applicative, ApplicativeThrow, MonadThrow}
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.Media
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.Subscription
-import com.benkio.telegrambotinfrastructure.model.TextReply
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.{CommandTrigger, Media, ReplyBundleCommand, ReplyBundleMessage, Subscription, TextReply, TextTrigger, TextTriggerValue}
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import log.effect.LogWriter
@@ -25,8 +15,7 @@ import telegramium.bots.Message
 import java.nio.file.Files
 import java.util.UUID
 import scala.io.Source
-import scala.util.Random
-import scala.util.Try
+import scala.util.{Random, Try}
 
 object CommandPatterns {
 
