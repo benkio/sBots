@@ -4,12 +4,15 @@ import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
 import cats.Applicative
+import cats.ApplicativeThrow
 import cats.MonadThrow
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.Media
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
@@ -20,8 +23,10 @@ import org.http4s.Uri
 import telegramium.bots.Message
 
 import java.nio.file.Files
+import java.util.UUID
 import scala.io.Source
 import scala.util.Random
+import scala.util.Try
 
 object CommandPatterns {
 
@@ -144,7 +149,7 @@ object CommandPatterns {
       "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
 
     // TODO: Return the closest match on failure
-    def triggerSearchReplyBundleCommand[F[_]: Applicative](
+    def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](
         botName: String,
         ignoreMessagePrefix: Option[String],
         mdr: List[ReplyBundleMessage[F]]
@@ -255,8 +260,59 @@ ${if (ignoreMessagePrefix.isDefined) {
     val unsubscribeCommandDescriptionEng: String =
       "'/unsubscribe': UnSubscribe the current chat from random shows"
 
-    def subscribeReplyBundleCommand[F[_]: Async](): ReplyBundleCommand[F]   = ???
-    def unsubscribeReplyBundleCommand[F[_]: Async](): ReplyBundleCommand[F] = ???
+    def subscribeReplyBundleCommand[F[_]: Async](
+        backgroundJobManager: BackgroundJobManager[F],
+        botName: String
+    ): ReplyBundleCommand[F] =
+      ReplyBundleCommand[F](
+        trigger = CommandTrigger("subscribe"),
+        text = Some(
+          TextReply[F](
+            m =>
+              handleCommandWithInput[F](
+                m,
+                "subscribe",
+                botName,
+                cronInput =>
+                  for {
+                    subscription <- Async[F].fromEither(Subscription(m.chat.id, cronInput))
+                    _            <- backgroundJobManager.scheduleSubscription(subscription)
+                  } yield List(
+                    s"Subscription successfully scheduled. Refer to this subscription with the ID: ${subscription.id}"
+                  ),
+                s"Input Required: insert a valid 〈cron time〉. Check the instructions"
+              ),
+            true
+          )
+        ),
+      )
+
+    def unsubscribeReplyBundleCommand[F[_]: Async](
+        backgroundJobManager: BackgroundJobManager[F],
+        botName: String
+    ): ReplyBundleCommand[F] =
+      ReplyBundleCommand[F](
+        trigger = CommandTrigger("subscribe"),
+        text = Some(
+          TextReply[F](
+            m =>
+              handleCommandWithInput[F](
+                m,
+                "subscribe",
+                botName,
+                subscriptionIdInput =>
+                  for {
+                    subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
+                    _              <- backgroundJobManager.cancelSubscription(subscriptionId)
+                  } yield List(
+                    s"Subscription successfully cancelled"
+                  ),
+                s"Input Required: insert a valid 〈UUID〉. Check the instructions"
+              ),
+            true
+          )
+        ),
+      )
   }
   object StatisticsCommands {
 
@@ -285,7 +341,7 @@ ${if (ignoreMessagePrefix.isDefined) {
 
   }
 
-  def handleCommandWithInput[F[_]: Applicative](
+  def handleCommandWithInput[F[_]: ApplicativeThrow](
       msg: Message,
       command: String,
       botName: String,
@@ -296,4 +352,9 @@ ${if (ignoreMessagePrefix.isDefined) {
       .filterNot(t => t.trim == s"/$command" || t.trim == s"/$command@$botName")
       .map(t => computation(t.dropWhile(_ != ' ').tail))
       .getOrElse(List(defaultReply).pure[F])
+      .handleErrorWith(e =>
+        List(
+          s"An error occurred processing the command: $command from message: $msg by bot: $botName with error: ${e.getMessage}"
+        ).pure[F]
+      )
 }

@@ -16,11 +16,11 @@ final case class Subscription(
 )
 
 object Subscription {
-  def apply(chatId: Int, inputCron: String): Either[Throwable, Subscription] = for {
+  def apply(chatId: Long, inputCron: String): Either[Throwable, Subscription] = for {
     cron <- Cron(inputCron)
   } yield Subscription(
     id = UUID.randomUUID,
-    chatId = chatId.toLong,
+    chatId = chatId,
     cron = cron,
     subscribedAt = Instant.now()
   )
