@@ -1,5 +1,8 @@
 package com.benkio.abarberobot
 
+import com.benkio.telegrambotinfrastructure.model.Reply
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
@@ -23,14 +26,28 @@ class ABarberoBotSpec extends CatsEffectSuite {
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
   private val privateTestMessage  = Message(0, date = 0, chat = Chat(0, `type` = "private"))
   val emptyDBLayer                = DBLayer[IO](null, null, null)
+  implicit val noAction: Action[Reply, IO] = (_:Reply) => (_:Message) => IO.pure(List.empty)
+  val emptyBackgroundJobManager = BackgroundJobManager[IO](
+    null,
+    ResourceAccess.fromResources[IO],
+    ""
+  ).unsafeRunSync()
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist: String = ABarberoBot
-      .commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "")
+      .commandRepliesData[IO](
+        resourceAccess = ResourceAccess.fromResources[IO],
+        backgroundJobManager = emptyBackgroundJobManager,
+        dbLayer = emptyDBLayer,
+        linkSources = "")
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("\n")
-    assertEquals(ABarberoBot.commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "").length, 6)
+    assertEquals(ABarberoBot.commandRepliesData[IO](
+        resourceAccess = ResourceAccess.fromResources[IO],
+        backgroundJobManager = emptyBackgroundJobManager,
+        dbLayer = emptyDBLayer,
+        linkSources = "").length, 6)
     assertEquals(
       triggerlist,
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
@@ -80,7 +97,11 @@ class ABarberoBotSpec extends CatsEffectSuite {
 
   test("instructions command should return the expected message") {
     val actual = ABarberoBot
-      .commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "")
+      .commandRepliesData[IO](
+        resourceAccess = ResourceAccess.fromResources[IO],
+        backgroundJobManager = emptyBackgroundJobManager,
+        dbLayer = emptyDBLayer,
+        linkSources = "")
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(

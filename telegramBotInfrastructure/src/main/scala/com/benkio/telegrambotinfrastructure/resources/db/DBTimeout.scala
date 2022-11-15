@@ -27,7 +27,7 @@ object DBTimeoutData {
   )
 }
 
-sealed trait DBTimeout[F[_]] {
+trait DBTimeout[F[_]] {
   def getOrDefault(chatId: Long): F[DBTimeoutData]
   def setTimeout(timeout: DBTimeoutData): F[Unit]
   def logLastInteraction(chatId: Long): F[Unit]
