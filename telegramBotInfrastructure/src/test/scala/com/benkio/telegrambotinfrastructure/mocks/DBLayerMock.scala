@@ -39,14 +39,29 @@ object DBLayerMock {
   }
 
   class DBMediaMock(db: Ref[IO, List[DBMediaData]]) extends DBMedia[IO] {
-    override def getMedia(filename: String, cache: Boolean = true): IO[DBMediaData] = ???
-    override def getMediaByKind(kind: String, cache: Boolean = true): IO[List[DBMediaData]] = ???
+    override def getMedia(filename: String, cache: Boolean = true): IO[DBMediaData] =
+      db.get.flatMap(
+        _.find(m => m.media_name == filename).fold[IO[DBMediaData]](IO.raiseError(new Throwable(s"[TEST ERROR] Media not found: $filename")))(IO.pure)
+      )
+    override def getMediaByKind(kind: String, cache: Boolean = true): IO[List[DBMediaData]] =
+      db.get.map(
+        _.filter(m => m.kind.fold(false)(_ == kind))
+      )
     override def getMediaByMediaCount(
       limit: Int = 20,
       mediaNamePrefix: Option[String] = None
-    ): IO[List[DBMediaData]] = ???
-    override def incrementMediaCount(filename: String): IO[Unit] = ???
-    override def decrementMediaCount(filename: String): IO[Unit] = ???
+    ): IO[List[DBMediaData]] =
+      db.get.map(
+        _.filter(m => mediaNamePrefix.fold(true)(pr => m.media_name.startsWith(pr))).sortBy(_.media_count)(Ordering.Int.reverse).take(limit)
+      )
+    override def incrementMediaCount(filename: String): IO[Unit] =
+      db.update(ms => ms.find(m => m.media_name == filename).fold(ms)(oldValue =>
+        ms.filterNot(_ == oldValue) :+ oldValue.copy(media_count = oldValue.media_count + 1)
+      ))
+    override def decrementMediaCount(filename: String): IO[Unit] =
+      db.update(ms => ms.find(m => m.media_name == filename).fold(ms)(oldValue =>
+        ms.filterNot(_ == oldValue) :+ oldValue.copy(media_count = oldValue.media_count + 1)
+      ))
 
     override def getMediaQueryByName(resourceName: String): Query0[DBMediaData] = ???
     override def getMediaQueryByKind(kind: String): Query0[DBMediaData] = ???
@@ -54,11 +69,20 @@ object DBLayerMock {
   }
 
   class DBSubscriptionMock(db: Ref[IO, List[DBSubscriptionData]]) extends DBSubscription[IO] {
-    override def getSubscriptions(): IO[List[DBSubscriptionData]] = ???
-    override def insertSubscription(subscription: DBSubscriptionData): IO[Unit] = ???
+    override def getSubscriptions(): IO[List[DBSubscriptionData]] =
+      db.get
+    override def insertSubscription(subscription: DBSubscriptionData): IO[Unit] =
+      db.update((subs: List[DBSubscriptionData]) =>
+        if (subs.exists((s: DBSubscriptionData) => s.id == subscription.id))
+          throw new Throwable(s"[TEST ERROR] Subscription id already present when inserting")
+        else subs :+ subscription
+      )
     override def deleteSubscription(
       subscriptionId: UUID
-    ): IO[Unit] = ???
+    ): IO[Unit] =
+      db.update((subs: List[DBSubscriptionData]) =>
+        subs.filterNot((s: DBSubscriptionData) => s.id == subscriptionId)
+      )
 
     override def getSubscriptionsQuery(): Query0[DBSubscriptionData] = ???
   }
