@@ -1,5 +1,11 @@
 package com.benkio.xahbot
 
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import telegramium.bots.Message
+
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
@@ -12,6 +18,14 @@ import doobie.implicits._
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
+  implicit val noAction: Action[Reply, IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
+  val emptyDBLayer                         = DBLayerMock.mock()
+  val emptyBackgroundJobManager = BackgroundJobManager(
+    dbSubscription = emptyDBLayer.dbSubscription,
+    resourceAccess = ResourceAccess.fromResources[IO],
+    youtubeLinkSources = ""
+  ).unsafeRunSync()
+
   // File Reference Check
 
   databaseFixture.test(
@@ -20,7 +34,16 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val transactor = fixture.transactor
     val resourceAssert = for {
       resourceDBMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      files <- Resource.pure(CommandRepliesData.values[IO](ResourceAccess.fromResources[IO], "").flatMap(_.mediafiles))
+      files <- Resource.pure(
+        CommandRepliesData
+          .values[IO](
+            resourceAccess = ResourceAccess.fromResources[IO],
+            botName = "xahbot",
+            backgroundJobManager = emptyBackgroundJobManager,
+            linkSources = ""
+          )
+          .flatMap(_.mediafiles)
+      )
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>

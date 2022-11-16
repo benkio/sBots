@@ -7,6 +7,7 @@ import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure._
 import doobie.Transactor
@@ -24,6 +25,11 @@ class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 ) extends BotSkeletonPolling[F]
     with XahBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
+    dbSubscription = dbLayer.dbSubscription,
+    resourceAccess = resourceAccess,
+    youtubeLinkSources = linkSources
+  )
 }
 
 class XahBotWebhook[F[_]: Async: Api: LogWriter](
@@ -34,15 +40,29 @@ class XahBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends BotSkeletonWebhook[F](url, path)
     with XahBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
+    dbSubscription = dbLayer.dbSubscription,
+    resourceAccess = resourceAccess,
+    youtubeLinkSources = linkSources
+  )
 }
 
 trait XahBot[F[_]] extends BotSkeleton[F] {
 
   override val botName: String   = XahBot.botName
   override val botPrefix: String = XahBot.botPrefix
+  val linkSources: String        = XahBot.linkSources
+  val backgroundJobManagerF: F[BackgroundJobManager[F]]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    CommandRepliesData.values[F](resourceAccess = resourceAccess, botName = botName).pure[F]
+    for {
+      backgroundJobManager <- backgroundJobManagerF
+    } yield CommandRepliesData.values[F](
+      resourceAccess = resourceAccess,
+      backgroundJobManager = backgroundJobManager,
+      linkSources = linkSources,
+      botName = botName
+    )
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -54,8 +74,9 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
 
 object XahBot extends BotOps {
 
-  val botName: String   = "XahBot"
-  val botPrefix: String = "xah"
+  val botName: String     = "XahBot"
+  val botPrefix: String   = "xah"
+  val linkSources: String = "xah_LinkSources"
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess.fromResources.getResourceByteArray("xah_XahBot.token").map(_.map(_.toChar).mkString)
 

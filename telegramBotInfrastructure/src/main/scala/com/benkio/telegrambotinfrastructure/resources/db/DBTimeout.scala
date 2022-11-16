@@ -4,8 +4,10 @@ import cats.effect.Async
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import doobie.implicits._
-import doobie.util.{Get, Put}
-import doobie.{Transactor, _}
+import doobie.util.Get
+import doobie.util.Put
+import doobie.Transactor
+import doobie._
 import log.effect.LogWriter
 
 import java.sql.Timestamp
