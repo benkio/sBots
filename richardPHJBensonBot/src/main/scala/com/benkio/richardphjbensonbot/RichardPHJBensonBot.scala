@@ -16,6 +16,7 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BotOps
 import com.benkio.telegrambotinfrastructure.BotSkeleton
 import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
@@ -46,6 +47,11 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
         dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
         timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
+  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
+    dbSubscription = dbLayer.dbSubscription,
+    resourceAccess = resourceAccess,
+    youtubeLinkSources = linkSources
+  )
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
@@ -66,6 +72,11 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
         dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
         timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
+  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
+    dbSubscription = dbLayer.dbSubscription,
+    resourceAccess = resourceAccess,
+    youtubeLinkSources = linkSources
+  )
 }
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
@@ -73,7 +84,8 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = RichardPHJBensonBot.botName
   override val botPrefix: String                   = RichardPHJBensonBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
-  val linkSources: String                          = "rphjb_LinkSources"
+  val linkSources: String                          = RichardPHJBensonBot.linkSources
+  val backgroundJobManagerF: F[BackgroundJobManager[F]]
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -82,7 +94,14 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    RichardPHJBensonBot.commandRepliesData[F](resourceAccess = resourceAccess, dbLayer = dbLayer, linkSources).pure[F]
+    for {
+      backgroundJobManager <- backgroundJobManagerF
+    } yield RichardPHJBensonBot.commandRepliesData[F](
+      resourceAccess,
+      backgroundJobManager,
+      dbLayer,
+      linkSources
+    )
 
 }
 
@@ -99,6 +118,7 @@ object RichardPHJBensonBot extends BotOps {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerListUri: Uri =
     uri"https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
+  val linkSources: String = "rphjb_LinkSources"
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
@@ -116,8 +136,13 @@ object RichardPHJBensonBot extends BotOps {
   val bensonifyCommandDescriptionEng: String =
     "'/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
 
-  def commandRepliesData[F[_]: Async](resourceAccess: ResourceAccess[F], dbLayer: DBLayer[F], linkSources: String)(
-      implicit log: LogWriter[F]
+  def commandRepliesData[F[_]: Async](
+      resourceAccess: ResourceAccess[F],
+      backgroundJobManager: BackgroundJobManager[F],
+      dbLayer: DBLayer[F],
+      linkSources: String
+  )(implicit
+      log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
@@ -138,6 +163,14 @@ object RichardPHJBensonBot extends BotOps {
       botName = botName,
       youtubeLinkSources = linkSources
     ),
+    SubscribeUnsubscribeCommand.subscribeReplyBundleCommand[F](
+      backgroundJobManager = backgroundJobManager,
+      botName = botName
+    ),
+    SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand[F](
+      backgroundJobManager = backgroundJobManager,
+      botName = botName
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -147,6 +180,8 @@ object RichardPHJBensonBot extends BotOps {
         RandomLinkCommand.randomLinkCommandDescriptionIta,
         RandomLinkCommand.randomLinkKeywordCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
+        SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
         timeoutCommandDescriptionIta,
         bensonifyCommandDescriptionIta,
       ),
@@ -156,6 +191,8 @@ object RichardPHJBensonBot extends BotOps {
         RandomLinkCommand.randomLinkCommandDescriptionEng,
         RandomLinkCommand.randomLinkKeywordCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
+        SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
         timeoutCommandDescriptionEng,
         bensonifyCommandDescriptionEng
       )

@@ -1,19 +1,14 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
+import cats.effect.IO
+import cats.effect.kernel.Ref
+import com.benkio.telegrambotinfrastructure.model.Timeout
+import com.benkio.telegrambotinfrastructure.resources.db.{DBLayer, DBMedia, DBMediaData, DBSubscription, DBSubscriptionData, DBTimeout, DBTimeoutData}
+import doobie._
+
 import java.sql.Timestamp
 import java.time.Instant
-import com.benkio.telegrambotinfrastructure.model.Timeout
 import java.util.UUID
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
-import cats.effect.kernel.Ref
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import cats.effect.IO
-import doobie._
 
 object DBLayerMock {
   def mock(
