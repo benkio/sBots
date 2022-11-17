@@ -12,7 +12,7 @@ import java.util.UUID
 
 final case class DBSubscriptionData(
     id: String,
-    chat_id: Int,
+    chat_id: Long,
     cron: String,
     subscribed_at: String
 )
@@ -21,7 +21,7 @@ object DBSubscriptionData {
   def apply(subscription: Subscription): DBSubscriptionData =
     DBSubscriptionData(
       id = subscription.id.toString,
-      chat_id = subscription.chatId.toInt,
+      chat_id = subscription.chatId,
       cron = subscription.cron.toString,
       subscribed_at = subscription.subscribedAt.getEpochSecond.toString
     )
