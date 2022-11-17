@@ -7,6 +7,7 @@ import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -32,6 +33,11 @@ class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 ) extends BotSkeletonPolling[F]
     with YoutuboAncheIoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
+    dbSubscription = dbLayer.dbSubscription,
+    resourceAccess = resourceAccess,
+    youtubeLinkSources = linkSources
+  )
 }
 
 class YoutuboAncheIoBotWebhook[F[_]: Async: Api: LogWriter](
@@ -42,6 +48,11 @@ class YoutuboAncheIoBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends BotSkeletonWebhook[F](uri, path)
     with YoutuboAncheIoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
+    dbSubscription = dbLayer.dbSubscription,
+    resourceAccess = resourceAccess,
+    youtubeLinkSources = linkSources
+  )
 }
 
 trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
@@ -49,7 +60,8 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = YoutuboAncheIoBot.botName
   override val botPrefix: String                   = YoutuboAncheIoBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = YoutuboAncheIoBot.ignoreMessagePrefix
-  val linkSources                                  = "ytai_LinkSources"
+  val linkSources                                  = YoutuboAncheIoBot.linkSources
+  val backgroundJobManagerF: F[BackgroundJobManager[F]]
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -58,7 +70,14 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
     YoutuboAncheIoBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    YoutuboAncheIoBot.commandRepliesData[F](resourceAccess, dbLayer, linkSources).pure[F]
+    for {
+      backgroundJobManager <- backgroundJobManagerF
+    } yield YoutuboAncheIoBot.commandRepliesData[F](
+      resourceAccess = resourceAccess,
+      dbLayer = dbLayer,
+      backgroundJobManager = backgroundJobManager,
+      linkSources = linkSources
+    )
 
 }
 object YoutuboAncheIoBot extends BotOps {
@@ -67,6 +86,7 @@ object YoutuboAncheIoBot extends BotOps {
   val botName: String                     = "YoutuboAncheIoBot"
   val botPrefix: String                   = "ytai"
   val triggerListUri: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/youtuboAncheIoBot/ytai_triggers.txt"
+  val linkSources: String = "ytai_LinkSources"
 
   def messageRepliesAudioData[
       F[_]: Applicative
@@ -992,7 +1012,12 @@ object YoutuboAncheIoBot extends BotOps {
 
   def commandRepliesData[
       F[_]: Async
-  ](resourceAccess: ResourceAccess[F], dbLayer: DBLayer[F], linkSources: String)(implicit
+  ](
+      resourceAccess: ResourceAccess[F],
+      backgroundJobManager: BackgroundJobManager[F],
+      dbLayer: DBLayer[F],
+      linkSources: String
+  )(implicit
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
@@ -1014,6 +1039,14 @@ object YoutuboAncheIoBot extends BotOps {
       botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia
     ),
+    SubscribeUnsubscribeCommand.subscribeReplyBundleCommand[F](
+      backgroundJobManager = backgroundJobManager,
+      botName = botName
+    ),
+    SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand[F](
+      backgroundJobManager = backgroundJobManager,
+      botName = botName
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -1022,14 +1055,18 @@ object YoutuboAncheIoBot extends BotOps {
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
         RandomLinkCommand.randomLinkCommandDescriptionIta,
         RandomLinkCommand.randomLinkKeywordCommandIta,
-        StatisticsCommands.topTwentyTriggersCommandDescriptionIta
+        StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
+        SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
         RandomLinkCommand.randomLinkCommandDescriptionEng,
         RandomLinkCommand.randomLinkKeywordCommandEng,
-        StatisticsCommands.topTwentyTriggersCommandDescriptionEng
+        StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
+        SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng
       )
     ),
   )
