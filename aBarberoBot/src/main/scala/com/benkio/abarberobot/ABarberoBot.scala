@@ -25,6 +25,11 @@ class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 ) extends BotSkeletonPolling[F]
     with ABarberoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
+    dbSubscription = dbLayer.dbSubscription,
+    resourceAccess = resourceAccess,
+    youtubeLinkSources = linkSources
+  )
 }
 
 class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
@@ -35,6 +40,11 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends BotSkeletonWebhook[F](uri, path)
     with ABarberoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
+    dbSubscription = dbLayer.dbSubscription,
+    resourceAccess = resourceAccess,
+    youtubeLinkSources = linkSources
+  )
 }
 
 trait ABarberoBot[F[_]] extends BotSkeleton[F] {
@@ -42,7 +52,8 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = ABarberoBot.botName
   override val botPrefix: String                   = ABarberoBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
-  val linkSources                                  = "abar_LinkSources"
+  val linkSources                                  = ABarberoBot.linkSources
+  val backgroundJobManagerF: F[BackgroundJobManager[F]]
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -50,8 +61,14 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
   ): F[List[ReplyBundleMessage[F]]] =
     ABarberoBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    ABarberoBot.commandRepliesData[F](resourceAccess, dbLayer, linkSources).pure[F]
+  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] = for {
+    backgroundJobManager <- backgroundJobManagerF
+  } yield ABarberoBot.commandRepliesData[F](
+    resourceAccess,
+    backgroundJobManager,
+    dbLayer,
+    linkSources
+  )
 }
 
 object ABarberoBot extends BotOps {
@@ -60,6 +77,7 @@ object ABarberoBot extends BotOps {
   val botName: String                     = "ABarberoBot"
   val botPrefix: String                   = "abar"
   val triggerListUrl: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
+  val linkSources: String = "abar_LinkSources"
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
@@ -870,8 +888,13 @@ object ABarberoBot extends BotOps {
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
-  def commandRepliesData[F[_]: Async](resourceAccess: ResourceAccess[F], dbLayer: DBLayer[F], linkSources: String)(
-      implicit log: LogWriter[F]
+  def commandRepliesData[F[_]: Async](
+      resourceAccess: ResourceAccess[F],
+      backgroundJobManager: BackgroundJobManager[F],
+      dbLayer: DBLayer[F],
+      linkSources: String
+  )(implicit
+      log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUrl),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
@@ -892,6 +915,14 @@ object ABarberoBot extends BotOps {
       botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia
     ),
+    SubscribeUnsubscribeCommand.subscribeReplyBundleCommand[F](
+      backgroundJobManager = backgroundJobManager,
+      botName = botName
+    ),
+    SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand[F](
+      backgroundJobManager = backgroundJobManager,
+      botName = botName
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -901,6 +932,8 @@ object ABarberoBot extends BotOps {
         RandomLinkCommand.randomLinkCommandDescriptionIta,
         RandomLinkCommand.randomLinkKeywordCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
+        SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
@@ -908,6 +941,8 @@ object ABarberoBot extends BotOps {
         RandomLinkCommand.randomLinkCommandDescriptionEng,
         RandomLinkCommand.randomLinkKeywordCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
+        SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng
       )
     ),
   )
@@ -945,7 +980,12 @@ object ABarberoBot extends BotOps {
       )
     )
     _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-  } yield BotSetup[F](tk, httpClient, resourceAccess, dbLayer)
+  } yield BotSetup[F](
+    token = tk,
+    httpClient = httpClient,
+    resourceAccess = resourceAccess,
+    dbLayer = dbLayer
+  )
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: ABarberoBotPolling[F] => F[A]

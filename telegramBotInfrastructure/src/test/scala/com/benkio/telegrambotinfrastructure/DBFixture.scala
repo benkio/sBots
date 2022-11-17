@@ -57,6 +57,7 @@ trait DBFixture { self: FunSuite =>
       )
 
       conn.createStatement().executeUpdate("DELETE FROM timeout;")
+      conn.createStatement().executeUpdate("DELETE FROM subscription;")
       DBFixtureResources(
         connection = conn,
         transactor = transactor,
@@ -67,7 +68,10 @@ trait DBFixture { self: FunSuite =>
     teardown = { fixture =>
       {
         if (deleteDB) Files.deleteIfExists(Paths.get(dbPath))
-        else fixture.connection.createStatement().executeUpdate("DELETE FROM timeout;")
+        else {
+          fixture.connection.createStatement().executeUpdate("DELETE FROM timeout;")
+          fixture.connection.createStatement().executeUpdate("DELETE FROM subscription;")
+        }
         fixture.connection.close()
         ()
       }

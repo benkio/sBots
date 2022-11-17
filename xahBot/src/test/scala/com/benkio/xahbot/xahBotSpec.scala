@@ -1,6 +1,10 @@
 package com.benkio.xahbot
 
 import cats.effect.IO
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
@@ -8,13 +12,21 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
+import telegramium.bots.Message
 
 import java.io.File
 import scala.io.Source
 
 class XahBotSpec extends CatsEffectSuite {
 
-  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  implicit val log: LogWriter[IO]          = consoleLogUpToLevel(LogLevels.Info)
+  implicit val noAction: Action[Reply, IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
+  val emptyDBLayer                         = DBLayerMock.mock()
+  val emptyBackgroundJobManager = BackgroundJobManager(
+    dbSubscription = emptyDBLayer.dbSubscription,
+    resourceAccess = ResourceAccess.fromResources[IO],
+    youtubeLinkSources = ""
+  ).unsafeRunSync()
 
   test("the csvs should contain all the triggers of the bot") {
     val listPath   = new File(".").getCanonicalPath + "/xah_list.csv"
@@ -25,7 +37,14 @@ class XahBotSpec extends CatsEffectSuite {
     }
 
     val botFile =
-      CommandRepliesData.values[IO](ResourceAccess.fromResources[IO], "").flatMap(_.mediafiles.map(_.filename))
+      CommandRepliesData
+        .values[IO](
+          resourceAccess = ResourceAccess.fromResources[IO],
+          botName = "xahBot",
+          backgroundJobManager = emptyBackgroundJobManager,
+          linkSources = ""
+        )
+        .flatMap(_.mediafiles.map(_.filename))
 
     assert(csvFile.isRight)
     csvFile.fold(

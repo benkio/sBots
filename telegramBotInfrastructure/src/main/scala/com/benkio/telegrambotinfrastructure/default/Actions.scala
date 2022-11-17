@@ -113,7 +113,7 @@ trait DefaultActions[F[_]] {
         }).value.map {
           case Right(x) => x
           case Left(e) =>
-            println(s"********ERROR OCCURRED********\n ${e.getMessage}")
+            log.error(s"********ERROR OCCURRED********\n ${e.getMessage}")
             List(msg)
         }
       }

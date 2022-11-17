@@ -3,9 +3,12 @@ package com.benkio.abarberobot
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -20,17 +23,38 @@ import scala.io.Source
 
 class ABarberoBotSpec extends CatsEffectSuite {
 
-  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-  private val privateTestMessage  = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer                = DBLayer[IO](null, null, null)
+  implicit val log: LogWriter[IO]          = consoleLogUpToLevel(LogLevels.Info)
+  private val privateTestMessage           = Message(0, date = 0, chat = Chat(0, `type` = "private"))
+  val emptyDBLayer                         = DBLayerMock.mock()
+  implicit val noAction: Action[Reply, IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
+  val emptyBackgroundJobManager = BackgroundJobManager[IO](
+    emptyDBLayer.dbSubscription,
+    ResourceAccess.fromResources[IO],
+    ""
+  ).unsafeRunSync()
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist: String = ABarberoBot
-      .commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "")
+      .commandRepliesData[IO](
+        resourceAccess = ResourceAccess.fromResources[IO],
+        backgroundJobManager = emptyBackgroundJobManager,
+        dbLayer = emptyDBLayer,
+        linkSources = ""
+      )
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("\n")
-    assertEquals(ABarberoBot.commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "").length, 6)
+    assertEquals(
+      ABarberoBot
+        .commandRepliesData[IO](
+          resourceAccess = ResourceAccess.fromResources[IO],
+          backgroundJobManager = emptyBackgroundJobManager,
+          dbLayer = emptyDBLayer,
+          linkSources = ""
+        )
+        .length,
+      8
+    )
     assertEquals(
       triggerlist,
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
@@ -80,7 +104,12 @@ class ABarberoBotSpec extends CatsEffectSuite {
 
   test("instructions command should return the expected message") {
     val actual = ABarberoBot
-      .commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "")
+      .commandRepliesData[IO](
+        resourceAccess = ResourceAccess.fromResources[IO],
+        backgroundJobManager = emptyBackgroundJobManager,
+        dbLayer = emptyDBLayer,
+        linkSources = ""
+      )
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(
@@ -96,6 +125,8 @@ I comandi del bot sono:
 - '/randomshow': Restituisce un link di uno show/video riguardante il personaggio del bot
 - '/randomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato
 - '/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii
+- '/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo sito come riferimento: https://crontab.guru. Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html
+- '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate
 
 Se si vuole disabilitare il bot per un particolare messaggio impedendo
 che interagisca, è possibile farlo iniziando il messaggio con il
@@ -113,6 +144,8 @@ Bot commands are:
 - '/randomshow': Return the link of one show/video about the bot's character
 - '/randomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword
 - '/topTwentyTriggers': Return a list of files and theirs send frequency
+- '/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following site: https://crontab.guru. Beware the underlying library require to specify the seconds as well as reported in the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html
+- '/unsubscribe': UnSubscribe the current chat from random shows
 
 if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
 character: `!`

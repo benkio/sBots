@@ -3,11 +3,14 @@ package com.benkio.richardphjbensonbot
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
+import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -24,8 +27,16 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 
-  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-  private val privateTestMessage  = Message(0, date = 0, chat = Chat(0, `type` = "private"))
+  implicit val log: LogWriter[IO]          = consoleLogUpToLevel(LogLevels.Info)
+  implicit val noAction: Action[Reply, IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
+
+  private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
+  val emptyDBLayer               = DBLayerMock.mock()
+  val emptyBackgroundJobManager = BackgroundJobManager(
+    dbSubscription = emptyDBLayer.dbSubscription,
+    resourceAccess = ResourceAccess.fromResources[IO],
+    youtubeLinkSources = ""
+  ).unsafeRunSync()
 
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {
     val result =
@@ -50,17 +61,28 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
     assert(result, true)
   }
-  val emptyDBLayer = DBLayer[IO](null, null, null)
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist = RichardPHJBensonBot
-      .commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "")
+      .commandRepliesData[IO](
+        resourceAccess = ResourceAccess.fromResources[IO],
+        backgroundJobManager = emptyBackgroundJobManager,
+        dbLayer = emptyDBLayer,
+        linkSources = ""
+      )
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
       .mkString("")
     assertEquals(
-      RichardPHJBensonBot.commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "").length,
-      8
+      RichardPHJBensonBot
+        .commandRepliesData[IO](
+          resourceAccess = ResourceAccess.fromResources[IO],
+          backgroundJobManager = emptyBackgroundJobManager,
+          dbLayer = emptyDBLayer,
+          linkSources = ""
+        )
+        .length,
+      10
     )
     assertEquals(
       triggerlist,
@@ -70,7 +92,12 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   test("instructions command should return the expected message") {
     val actual = RichardPHJBensonBot
-      .commandRepliesData[IO](ResourceAccess.fromResources[IO], emptyDBLayer, "")
+      .commandRepliesData[IO](
+        resourceAccess = ResourceAccess.fromResources[IO],
+        backgroundJobManager = emptyBackgroundJobManager,
+        dbLayer = emptyDBLayer,
+        linkSources = ""
+      )
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.text(privateTestMessage))
     assertIO(
@@ -86,6 +113,8 @@ I comandi del bot sono:
 - '/randomshow': Restituisce un link di uno show/video riguardante il personaggio del bot
 - '/randomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato
 - '/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii
+- '/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo sito come riferimento: https://crontab.guru. Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html
+- '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate
 - '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00
 - '/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio
 
@@ -105,6 +134,8 @@ Bot commands are:
 - '/randomshow': Return the link of one show/video about the bot's character
 - '/randomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword
 - '/topTwentyTriggers': Return a list of files and theirs send frequency
+- '/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following site: https://crontab.guru. Beware the underlying library require to specify the seconds as well as reported in the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html
+- '/unsubscribe': UnSubscribe the current chat from random shows
 - '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00
 - '/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory
 

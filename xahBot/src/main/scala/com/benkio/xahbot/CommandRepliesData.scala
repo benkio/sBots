@@ -1,27 +1,42 @@
 package com.benkio.xahbot
 
 import cats.effect.Async
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import log.effect.LogWriter
 
 object CommandRepliesData {
 
-  def values[F[_]: Async](resourceAccess: ResourceAccess[F], botName: String)(implicit
+  def values[F[_]: Async](
+      resourceAccess: ResourceAccess[F],
+      backgroundJobManager: BackgroundJobManager[F],
+      linkSources: String,
+      botName: String
+  )(implicit
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand[F](
       resourceAccess = resourceAccess,
       botName = botName,
-      youtubeLinkSources = "xah_LinkSources"
+      youtubeLinkSources = linkSources
     ),
     RandomLinkCommand.selectRandomLinkReplyBundleCommand[F](
       resourceAccess = resourceAccess,
-      youtubeLinkSources = "xah_LinkSources"
+      youtubeLinkSources = linkSources
+    ),
+    SubscribeUnsubscribeCommand.subscribeReplyBundleCommand[F](
+      backgroundJobManager = backgroundJobManager,
+      botName = botName
+    ),
+    SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand[F](
+      backgroundJobManager = backgroundJobManager,
+      botName = botName
     ),
     ReplyBundleCommand[F](
       trigger = CommandTrigger("ass"),
