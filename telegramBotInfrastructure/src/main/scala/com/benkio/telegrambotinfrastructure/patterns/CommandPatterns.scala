@@ -18,11 +18,14 @@ import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import cron4s._
+import cron4s.lib.javatime._
 import log.effect.LogWriter
 import org.http4s.Uri
 import telegramium.bots.Message
 
 import java.nio.file.Files
+import java.time.LocalDateTime
 import java.util.UUID
 import scala.io.Source
 import scala.util.Random
@@ -254,7 +257,7 @@ ${if (ignoreMessagePrefix.isDefined) {
     val subscribeCommandDescriptionIta: String =
       "'/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo sito come riferimento: https://crontab.guru. Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html"
     val subscribeCommandDescriptionEng: String =
-      "'/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following site: https://crontab.guru. Beware the underlying library require to specify the seconds as well as reported in the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html"
+      "'/subscrinbe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following site: https://crontab.guru. Beware the underlying library require to specify the seconds as well as reported in the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html"
     val unsubscribeCommandDescriptionIta: String =
       "'/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate"
     val unsubscribeCommandDescriptionEng: String =
@@ -276,9 +279,13 @@ ${if (ignoreMessagePrefix.isDefined) {
                 cronInput =>
                   for {
                     subscription <- Async[F].fromEither(Subscription(m.chat.id, cronInput))
-                    _            <- backgroundJobManager.scheduleSubscription(subscription)
+                    now = LocalDateTime.now()
+                    nextOccurrence = subscription.cron
+                      .next(now)
+                      .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
+                    _ <- backgroundJobManager.scheduleSubscription(subscription)
                   } yield List(
-                    s"Subscription successfully scheduled. Refer to this subscription with the ID: ${subscription.id}"
+                    s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
                   ),
                 s"Input Required: insert a valid 〈cron time〉. Check the instructions"
               ),
