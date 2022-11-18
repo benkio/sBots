@@ -1,5 +1,6 @@
 package com.benkio.xahbot
 
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import cats._
 import cats.effect._
 import cats.implicits._
@@ -19,7 +20,7 @@ import org.http4s.Status
 import org.http4s.Uri
 import telegramium.bots.high._
 
-class XahBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+class XahBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]

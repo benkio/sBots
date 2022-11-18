@@ -1,5 +1,6 @@
 package com.benkio.richardphjbensonbot
 
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import cats.effect._
 import cats.implicits._
 import cats.MonadThrow
@@ -31,9 +32,10 @@ import org.http4s.Uri
 import telegramium.bots.Message
 import telegramium.bots.high._
 
-class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
-    val dbLayer: DBLayer[F]
+  val dbLayer: DBLayer[F],
+  val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F]
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
@@ -47,17 +49,13 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
         dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
         timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
-  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
-    dbSubscription = dbLayer.dbSubscription,
-    resourceAccess = resourceAccess,
-    youtubeLinkSources = linkSources
-  )
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
     resAccess: ResourceAccess[F],
-    val dbLayer: DBLayer[F],
+  val dbLayer: DBLayer[F],
+  val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/"
 ) extends BotSkeletonWebhook[F](uri, path)
     with RichardPHJBensonBot[F] {
@@ -72,11 +70,6 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
         dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
         timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
-  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
-    dbSubscription = dbLayer.dbSubscription,
-    resourceAccess = resourceAccess,
-    youtubeLinkSources = linkSources
-  )
 }
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
@@ -85,7 +78,7 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
   override val botPrefix: String                   = RichardPHJBensonBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
   val linkSources: String                          = RichardPHJBensonBot.linkSources
-  val backgroundJobManagerF: F[BackgroundJobManager[F]]
+  val backgroundJobManager: BackgroundJobManager[F]
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -94,14 +87,12 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    for {
-      backgroundJobManager <- backgroundJobManagerF
-    } yield RichardPHJBensonBot.commandRepliesData[F](
+    RichardPHJBensonBot.commandRepliesData[F](
       resourceAccess,
       backgroundJobManager,
       dbLayer,
       linkSources
-    )
+    ).pure[F]
 
 }
 
@@ -250,7 +241,8 @@ object RichardPHJBensonBot extends BotOps {
       token: String,
       httpClient: Client[F],
       resourceAccess: ResourceAccess[F],
-      dbLayer: DBLayer[F]
+    dbLayer: DBLayer[F],
+    backgroundJobManager: BackgroundJobManager[F]
   )
 
   def buildCommonBot[F[_]: Async](
@@ -269,6 +261,11 @@ object RichardPHJBensonBot extends BotOps {
       urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
       dbLayer    <- Resource.eval(DBLayer[F](transactor))
       resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
+      backgroundJobManager <- BackgroundJobManager[F](
+        dbSubscription = dbLayer.dbSubscription,
+        resourceAccess = resourceAccess,
+        youtubeLinkSources = RichardPHJBensonBot.linkSources
+      )
       _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _ <- Resource.eval(
@@ -279,7 +276,7 @@ object RichardPHJBensonBot extends BotOps {
         )
       )
       _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-    } yield BotSetup(tk, httpClient, resourceAccess, dbLayer)
+    } yield BotSetup(token = tk, httpClient = httpClient, resourceAccess = resourceAccess, dbLayer = dbLayer, backgroundJobManager = backgroundJobManager)
 
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
@@ -287,12 +284,16 @@ object RichardPHJBensonBot extends BotOps {
     httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
   } yield botSetup).use {
-    case BotSetup(token, httpClient, resourceAccess, dbLayer) => {
+    case BotSetup(token, httpClient, resourceAccess, dbLayer, backgroundJobManager) => {
       implicit val api: Api[F] = BotApi(
         httpClient,
         baseUrl = s"https://api.telegram.org/bot$token"
       )
-      action(new RichardPHJBensonBotPolling[F](resAccess = resourceAccess, dbLayer = dbLayer))
+      action(new RichardPHJBensonBotPolling[F](
+        resAccess = resourceAccess,
+        dbLayer = dbLayer,
+        backgroundJobManager = backgroundJobManager
+      ))
     }
   }
 
@@ -310,7 +311,8 @@ object RichardPHJBensonBot extends BotOps {
       uri = webhookBaseUri,
       path = path,
       resAccess = botSetup.resourceAccess,
-      dbLayer = botSetup.dbLayer
+      dbLayer = botSetup.dbLayer,
+      backgroundJobManager = botSetup.backgroundJobManager
     )
   }
 }

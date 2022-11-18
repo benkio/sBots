@@ -3,6 +3,8 @@ package com.benkio.calandrobot
 import cats._
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.default.Actions._
 import com.benkio.telegrambotinfrastructure.messagefiltering._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -25,7 +27,7 @@ import telegramium.bots.high._
 
 import scala.util.Random
 
-class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+class CalandroBotPolling[F[_]: Parallel: Api: Async: Action: LogWriter](
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
@@ -33,7 +35,7 @@ class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
-class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
+class CalandroBotWebhook[F[_]: Async: Api: Action: LogWriter](
     uri: Uri,
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
@@ -369,28 +371,30 @@ object CalandroBot extends BotOps {
 
   } yield BotSetup(tk, httpClient, resourceAccess, dbLayer)
 
-  def buildPollingBot[F[_]: Parallel: Async, A](
+  def buildPollingBot[F[_]: Parallel: Async: LogWriter, A](
       action: CalandroBotPolling[F] => F[A]
-  )(implicit log: LogWriter[F]): F[A] = (for {
+  ): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
   } yield botSetup)
     .use(botSetup => {
       implicit val api: Api[F] =
         BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
+      implicit val ra: ResourceAccess[F] = botSetup.resourceAccess
       action(new CalandroBotPolling[F](botSetup.resourceAccess, botSetup.dbLayer))
     })
 
-  def buildWebhookBot[F[_]: Async](
+  def buildWebhookBot[F[_]: Async: LogWriter](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
-  )(implicit log: LogWriter[F]): Resource[F, CalandroBotWebhook[F]] = for {
+  ): Resource[F, CalandroBotWebhook[F]] = for {
     botSetup <- buildCommonBot[F](httpClient)
     baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
     path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
   } yield {
-    implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
+    implicit val api: Api[F]           = BotApi(httpClient, baseUrl = baseUrl.renderString)
+    implicit val ra: ResourceAccess[F] = botSetup.resourceAccess
     new CalandroBotWebhook[F](
       uri = webhookBaseUri,
       resAccess = botSetup.resourceAccess,

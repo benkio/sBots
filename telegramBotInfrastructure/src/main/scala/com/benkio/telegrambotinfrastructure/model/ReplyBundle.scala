@@ -86,7 +86,7 @@ object ReplyBundle {
     }
 
   def computeReplyBundle[F[_]](replyBundle: ReplyBundle[F], message: Message, filter: F[Boolean])(implicit
-      replyAction: Action[Reply, F],
+      replyAction: Action[F],
       syncF: Sync[F]
   ): F[List[Message]] = for {
     f           <- filter

@@ -4,7 +4,6 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
@@ -42,7 +41,7 @@ object BackgroundJobManager {
       dbSubscription: DBSubscription[F],
       resourceAccess: ResourceAccess[F],
       youtubeLinkSources: String
-  )(implicit replyAction: Action[Reply, F], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
+  )(implicit replyAction: Action[F], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
     backgroundJobManager <- Async[F].pure(
       new BackgroundJobManagerImpl(
         dbSubscription = dbSubscription,
@@ -57,7 +56,7 @@ object BackgroundJobManager {
       dbSubscription: DBSubscription[F],
       resourceAccess: ResourceAccess[F],
       youtubeLinkSources: String
-  )(implicit replyAction: Action[Reply, F], log: LogWriter[F])
+  )(implicit replyAction: Action[F], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
     var memSubscriptions: MMap[UUID, SignallingRef[F, Boolean]] = MMap()
@@ -93,7 +92,7 @@ object BackgroundJobManager {
       cronScheduler: Scheduler[F, CronExpr],
       resourceAccess: ResourceAccess[F],
       youtubeLinkSources: String
-  )(implicit replyAction: Action[Reply, F], log: LogWriter[F]): F[(UUID, SignallingRef[F, Boolean])] = {
+  )(implicit replyAction: Action[F], log: LogWriter[F]): F[(UUID, SignallingRef[F, Boolean])] = {
     val scheduled: Stream[F, Unit] = for {
       _ <- cronScheduler.awakeEvery(subscription.cron)
       _ <- Stream.eval(log.info(s"Executing the Scheduled subscription: $subscription"))
