@@ -1,10 +1,10 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import cats._
 import cats.data.OptionT
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageOps
@@ -23,11 +23,10 @@ import telegramium.bots.high._
 import scala.concurrent.duration._
 
 abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit
-  api: Api[F],
-  log: LogWriter[F],
-  action: Action[F]
-)
-    extends LongPollBot[F](api)
+    api: Api[F],
+    log: LogWriter[F],
+    action: Action[F]
+) extends LongPollBot[F](api)
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
@@ -41,9 +40,9 @@ abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit
 }
 
 abstract class BotSkeletonWebhook[F[_]: Async](uri: Uri, path: Uri = uri"/")(implicit
-  api: Api[F],
-  log: LogWriter[F],
-  action: Action[F]
+    api: Api[F],
+    log: LogWriter[F],
+    action: Action[F]
 ) extends WebhookBot[F](api, uri.renderString, path.renderString)
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
@@ -62,9 +61,9 @@ trait BotSkeleton[F[_]] {
 
   // Configuration values & functions /////////////////////////////////////////////////////
   def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = ResourceAccess.fromResources[F]
-  val ignoreMessagePrefix: Option[String]                                 = Some("!")
-  val inputTimeout: Option[Duration]                                      = Some(5.minute)
-  val disableForward: Boolean                                             = true
+  val ignoreMessagePrefix: Option[String]                        = Some("!")
+  val inputTimeout: Option[Duration]                             = Some(5.minute)
+  val disableForward: Boolean                                    = true
   val botName: String
   val botPrefix: String
   val dbLayer: DBLayer[F]
@@ -82,9 +81,9 @@ trait BotSkeleton[F[_]] {
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   def messageLogic(implicit
-    asyncF: Async[F],
-    log: LogWriter[F],
-    action: Action[F]
+      asyncF: Async[F],
+      log: LogWriter[F],
+      action: Action[F]
   ): (Message) => F[Option[List[Message]]] =
     (msg: Message) =>
       for {
@@ -96,19 +95,19 @@ trait BotSkeleton[F[_]] {
             log
               .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
               ReplyBundle
-              .computeReplyBundle[F](
-                replyBundle,
-                msg,
-                filteringMatchesMessages(Applicative[F])(replyBundle, msg)
-              )
+                .computeReplyBundle[F](
+                  replyBundle,
+                  msg,
+                  filteringMatchesMessages(Applicative[F])(replyBundle, msg)
+                )
           )
       } yield replies
 
   def commandLogic(implicit
-    asyncF: Async[F],
-    log: LogWriter[F],
-    action: Action[F]
-): (Message) => F[Option[List[Message]]] =
+      asyncF: Async[F],
+      log: LogWriter[F],
+      action: Action[F]
+  ): (Message) => F[Option[List[Message]]] =
     (msg: Message) =>
       for {
         commandRepliesData <- commandRepliesDataF
@@ -128,10 +127,10 @@ trait BotSkeleton[F[_]] {
       } yield commands
 
   def botLogic(implicit
-    asyncF: Async[F],
-    log: LogWriter[F],
-    action: Action[F]
-): (Message) => F[Option[List[Message]]] =
+      asyncF: Async[F],
+      log: LogWriter[F],
+      action: Action[F]
+  ): (Message) => F[Option[List[Message]]] =
     (msg: Message) =>
       for {
         messagesOpt <- if (!MessageOps.isCommand(msg)) messageLogic(asyncF, log, action)(msg) else Async[F].pure(None)
