@@ -308,7 +308,7 @@ object CommandRepliesData {
       replySelection = RandomSelection
     ),
     ReplyBundleCommand[F](
-      trigger = CommandTrigger("Idiots"),
+      trigger = CommandTrigger("idiots"),
       mediafiles = List(
         MediaFile("xah_AlanMackenzieIdiot-001.mp3"),
         MediaFile("xah_AlanMackenzieIdiot.mp3"),
