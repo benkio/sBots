@@ -14,6 +14,8 @@ import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
 
+import cats.effect.kernel.Outcome
+
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
@@ -71,8 +73,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           .find { case (SubscriptionKey(sId, _), _) => sId == testSubscriptionId }
           .get
           ._2
-          .get,
-        false
+          .join,
+        Outcome.succeeded[IO, Throwable, Unit](IO(()))
       )
     }
   }
@@ -103,8 +105,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           .find { case (SubscriptionKey(sId, _), _) => sId == testSubscriptionId }
           .get
           ._2
-          .get,
-        false
+          .join,
+        Outcome.succeeded[IO, Throwable, Unit](IO(()))
       )
       assert(subscriptions.length == 1)
       assert(Subscription(subscriptions.head) == testSubscription)
