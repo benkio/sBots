@@ -3,20 +3,13 @@ package com.benkio.youtuboancheiobot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.default.Actions._
+import com.benkio.telegrambotinfrastructure.default.Actions.{Action, _}
 import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.{InstructionsCommand, RandomLinkCommand, StatisticsCommands, SubscribeUnsubscribeCommand, TriggerListCommand, TriggerSearchCommand}
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import com.benkio.telegrambotinfrastructure.BotOps
-import com.benkio.telegrambotinfrastructure._
+import com.benkio.telegrambotinfrastructure.{BotOps, _}
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
@@ -25,8 +18,7 @@ import log.effect.LogWriter
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import org.http4s.Status
-import org.http4s.Uri
+import org.http4s.{Status, Uri}
 import telegramium.bots.high._
 
 class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
@@ -1115,7 +1107,8 @@ object YoutuboAncheIoBot extends BotOps {
       backgroundJobManager <- BackgroundJobManager[F](
         dbSubscription = botSetup.dbLayer.dbSubscription,
         resourceAccess = botSetup.resourceAccess,
-        youtubeLinkSources = YoutuboAncheIoBot.linkSources
+        youtubeLinkSources = YoutuboAncheIoBot.linkSources,
+        botName = YoutuboAncheIoBot.botName
       )
       result <- action(
         new YoutuboAncheIoBotPolling[F](
@@ -1144,7 +1137,8 @@ object YoutuboAncheIoBot extends BotOps {
         BackgroundJobManager[F](
           dbSubscription = botSetup.dbLayer.dbSubscription,
           resourceAccess = botSetup.resourceAccess,
-          youtubeLinkSources = YoutuboAncheIoBot.linkSources
+          youtubeLinkSources = YoutuboAncheIoBot.linkSources,
+          botName = YoutuboAncheIoBot.botName
         )
       )
     }

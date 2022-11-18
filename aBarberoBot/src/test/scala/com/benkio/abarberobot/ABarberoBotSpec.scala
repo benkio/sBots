@@ -30,7 +30,8 @@ class ABarberoBotSpec extends CatsEffectSuite {
   val emptyBackgroundJobManager = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
     ResourceAccess.fromResources[IO],
-    ""
+    "",
+    "ABarberoBot"
   ).unsafeRunSync()
 
   test("triggerlist should return a list of all triggers when called") {

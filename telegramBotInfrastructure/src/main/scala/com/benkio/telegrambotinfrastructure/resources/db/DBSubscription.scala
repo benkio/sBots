@@ -12,9 +12,10 @@ import java.util.UUID
 
 final case class DBSubscriptionData(
     id: String,
-    chat_id: Long,
-    cron: String,
-    subscribed_at: String
+  chat_id: Long,
+  bot_name: String,
+  cron: String,
+  subscribed_at: String
 )
 
 object DBSubscriptionData {
@@ -22,13 +23,14 @@ object DBSubscriptionData {
     DBSubscriptionData(
       id = subscription.id.toString,
       chat_id = subscription.chatId,
+      bot_name = subscription.botName,
       cron = subscription.cron.toString,
       subscribed_at = subscription.subscribedAt.getEpochSecond.toString
     )
 }
 
 trait DBSubscription[F[_]] {
-  def getSubscriptions(): F[List[DBSubscriptionData]]
+  def getSubscriptionsByBotName(botName: String): F[List[DBSubscriptionData]]
   def insertSubscription(subscription: DBSubscriptionData): F[Unit]
   def deleteSubscription(
       subscriptionId: UUID
@@ -56,10 +58,10 @@ object DBSubscription {
   ) extends DBSubscription[F] {
 
     override def getSubscriptionsQuery(): Query0[DBSubscriptionData] =
-      sql"SELECT subscription_id, chat_id, cron, subscribed_at FROM subscription".query[DBSubscriptionData]
+      sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription".query[DBSubscriptionData]
 
     def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
-      sql"INSERT INTO subscription (subscription_id, chat_id, cron, subscribed_at) VALUES (${fragments.values(subscription)})".update
+      sql"INSERT INTO subscription (subscription_id, chat_id, bot_name, cron, subscribed_at) VALUES (${fragments.values(subscription)})".update
 
     def deleteSubscriptionQuery(subscriptionId: String): Update0 =
       sql"DELETE FROM subscription WHERE subscription_id = $subscriptionId".update
@@ -86,7 +88,7 @@ object DBSubscription {
         s"delete subscriptions for chat id $chatId"
       )
 
-    override def getSubscriptions(): F[List[DBSubscriptionData]] =
+    override def getSubscriptionsByBotName(botName: String): F[List[DBSubscriptionData]] =
       getSubscriptionsQuery().stream.compile.toList.transact(transactor) <* log.info(s"Get subscriptions")
 
   }

@@ -20,10 +20,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
   val emptyDBLayer                  = DBLayerMock.mock()
+  val botName: String = "botname"
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     resourceAccess = ResourceAccess.fromResources[IO],
-    youtubeLinkSources = ""
+    youtubeLinkSources = "",
+    botName = botName
   ).unsafeRunSync()
 
   // File Reference Check
@@ -38,7 +40,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         CommandRepliesData
           .values[IO](
             resourceAccess = ResourceAccess.fromResources[IO],
-            botName = "xahbot",
+            botName = botName,
             backgroundJobManager = emptyBackgroundJobManager,
             linkSources = ""
           )

@@ -25,7 +25,8 @@ class XahBotSpec extends CatsEffectSuite {
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     resourceAccess = ResourceAccess.fromResources[IO],
-    youtubeLinkSources = ""
+    youtubeLinkSources = "",
+    botName = "XahBot"
   ).unsafeRunSync()
 
   test("the csvs should contain all the triggers of the bot") {

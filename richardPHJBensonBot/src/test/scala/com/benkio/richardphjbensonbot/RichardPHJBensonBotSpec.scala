@@ -35,7 +35,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     resourceAccess = ResourceAccess.fromResources[IO],
-    youtubeLinkSources = ""
+    youtubeLinkSources = "",
+    botName = "RichardPHJBensonBot"
   ).unsafeRunSync()
 
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {

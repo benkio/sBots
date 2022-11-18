@@ -10,9 +10,12 @@ import cats.effect.IO
 
 class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture {
 
+  val botName = "botname"
+
   val testSubscription: DBSubscriptionData = DBSubscriptionData(
     id = "83beabe1-cad9-4845-a838-65bbed34bc46",
     chat_id = 2,
+    bot_name = botName,
     cron = "0 0 0 12 4 *",
     subscribed_at = "2022-11-06T19:54:46Z"
   )
@@ -22,9 +25,9 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
       _              <- Resource.eval(dbSubscription.insertSubscription(testSubscription))
-      subscriptions1 <- Resource.eval(dbSubscription.getSubscriptions())
+      subscriptions1 <- Resource.eval(dbSubscription.getSubscriptionsByBotName(botName))
       _              <- Resource.eval(dbSubscription.deleteSubscription(UUID.fromString(testSubscription.id)))
-      subscriptions2 <- Resource.eval(dbSubscription.getSubscriptions())
+      subscriptions2 <- Resource.eval(dbSubscription.getSubscriptionsByBotName(botName))
     } yield (subscriptions1, subscriptions2)
 
     resourceAssert.use { case (preSubscriptions, postSubscriptions) =>

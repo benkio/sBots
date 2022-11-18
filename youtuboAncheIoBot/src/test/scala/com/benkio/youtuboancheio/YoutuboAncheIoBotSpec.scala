@@ -31,7 +31,8 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
   val emptyBackgroundJobManager = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
     ResourceAccess.fromResources[IO],
-    ""
+    "",
+    "youtuboAncheIoBot"
   ).unsafeRunSync()
 
   test("triggerlist should return the link to the trigger txt file") {

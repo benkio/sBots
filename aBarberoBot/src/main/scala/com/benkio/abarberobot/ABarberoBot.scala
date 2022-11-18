@@ -3,22 +3,19 @@ package com.benkio.abarberobot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.default.Actions._
+import com.benkio.telegrambotinfrastructure.default.Actions.{Action, _}
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import com.benkio.telegrambotinfrastructure.BotOps
-import com.benkio.telegrambotinfrastructure._
+import com.benkio.telegrambotinfrastructure.{BotOps, _}
 import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import org.http4s.Status
-import org.http4s.Uri
+import org.http4s.{Status, Uri}
 import telegramium.bots.high._
 
 class ABarberoBotPolling[F[_]: Parallel: Async: Action: Api: LogWriter](
@@ -995,7 +992,8 @@ object ABarberoBot extends BotOps {
       backgroundJobManager <- BackgroundJobManager[F](
         dbSubscription = botSetup.dbLayer.dbSubscription,
         resourceAccess = botSetup.resourceAccess,
-        youtubeLinkSources = ABarberoBot.linkSources
+        youtubeLinkSources = ABarberoBot.linkSources,
+        botName = ABarberoBot.botName
       )
       result <- action(
         new ABarberoBotPolling[F](
@@ -1025,7 +1023,8 @@ object ABarberoBot extends BotOps {
         BackgroundJobManager[F](
           dbSubscription = botSetup.dbLayer.dbSubscription,
           resourceAccess = botSetup.resourceAccess,
-          youtubeLinkSources = ABarberoBot.linkSources
+          youtubeLinkSources = ABarberoBot.linkSources,
+          botName = ABarberoBot.botName
         )
       )
     }
