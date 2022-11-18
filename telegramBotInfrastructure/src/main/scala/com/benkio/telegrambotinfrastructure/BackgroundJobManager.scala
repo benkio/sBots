@@ -68,6 +68,7 @@ object BackgroundJobManager {
     val cronScheduler                                                      = Cron4sScheduler.utc[F]
 
     override def scheduleSubscription(subscription: Subscription): F[Unit] = for {
+      _ <- log.info(s"Schedule subscription: $subscription")
       subscriptionReference <- BackgroundJobManager.runSubscription(
         subscription,
         cronScheduler,
