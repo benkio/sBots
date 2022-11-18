@@ -3,18 +3,22 @@ package com.benkio.xahbot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.{Action, _}
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.default.Actions._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import com.benkio.telegrambotinfrastructure.{BackgroundJobManager, BotOps, _}
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BotOps
+import com.benkio.telegrambotinfrastructure._
 import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import org.http4s.{Status, Uri}
+import org.http4s.Status
+import org.http4s.Uri
 import telegramium.bots.high._
 
 class XahBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](

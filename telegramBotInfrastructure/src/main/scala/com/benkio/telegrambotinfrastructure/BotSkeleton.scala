@@ -5,8 +5,13 @@ import cats.data.OptionT
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.messagefiltering.{FilteringForward, MessageMatches, MessageOps, Timeout}
-import com.benkio.telegrambotinfrastructure.model.{ReplyBundle, ReplyBundleCommand, ReplyBundleMessage}
+import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageOps
+import com.benkio.telegrambotinfrastructure.messagefiltering.Timeout
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
@@ -106,12 +111,10 @@ trait BotSkeleton[F[_]] {
     (msg: Message) =>
       for {
         commandRepliesData <- commandRepliesDataF
-        _ <- println(s"before matching").pure[F] 
         commandMatch = for {
           text   <- msg.text
           result <- commandRepliesData.find(rbc => text.startsWith("/" + rbc.trigger.command))
         } yield result
-        _ <- println(s"after Matching").pure[F]
         commands <- commandMatch
           .traverse(commandReply =>
             log.info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>

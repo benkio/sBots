@@ -43,7 +43,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
         linkSources = ""
       )
       .filter(_.trigger.command == "triggerlist")
-      .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
+      .flatMap(_.text.get.text(privateTestMessage).unsafeRunSync())
       .mkString("\n")
     assertEquals(
       ABarberoBot
@@ -112,7 +112,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
         linkSources = ""
       )
       .filter(_.trigger.command == "instructions")
-      .flatTraverse(_.text.text(privateTestMessage))
+      .flatTraverse(_.text.get.text(privateTestMessage))
     assertIO(
       actual,
       List(

@@ -12,10 +12,10 @@ import java.util.UUID
 
 final case class DBSubscriptionData(
     id: String,
-  chat_id: Long,
-  bot_name: String,
-  cron: String,
-  subscribed_at: String
+    chat_id: Long,
+    bot_name: String,
+    cron: String,
+    subscribed_at: String
 )
 
 object DBSubscriptionData {

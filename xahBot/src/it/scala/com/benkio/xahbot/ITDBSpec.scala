@@ -20,7 +20,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
   val emptyDBLayer                  = DBLayerMock.mock()
-  val botName: String = "botname"
+  val botName: String               = "botname"
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     resourceAccess = ResourceAccess.fromResources[IO],

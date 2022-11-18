@@ -2,21 +2,34 @@ package com.benkio.richardphjbensonbot
 
 import cats.effect._
 import cats.implicits._
-import cats.{MonadThrow, _}
+import cats.MonadThrow
+import cats._
 import com.benkio.richardphjbensonbot.Config
-import com.benkio.telegrambotinfrastructure.default.Actions.{Action, _}
-import com.benkio.telegrambotinfrastructure.model.{CommandTrigger, ReplyBundle, ReplyBundleCommand, ReplyBundleMessage, TextReply, Timeout}
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.default.Actions._
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.TextReply
+import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.resources.db.{DBLayer, DBTimeoutData}
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import com.benkio.telegrambotinfrastructure.{BackgroundJobManager, BotOps, BotSkeleton, BotSkeletonPolling, BotSkeletonWebhook}
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BotOps
+import com.benkio.telegrambotinfrastructure.BotSkeleton
+import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
+import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
 import doobie._
 import log.effect.LogWriter
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import org.http4s.{Status, Uri}
+import org.http4s.Status
+import org.http4s.Uri
 import telegramium.bots.Message
 import telegramium.bots.high._
 
@@ -101,7 +114,7 @@ object RichardPHJBensonBot extends BotOps {
     uri"https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
   val linkSources: String = "rphjb_LinkSources"
 
-  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
+  def messageRepliesData[F[_]]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
       F
     ] ++ messageRepliesSpecialData[F])

@@ -9,11 +9,11 @@ import java.util.UUID
 import scala.util.Try
 
 final case class Subscription(
-  id: UUID,
-  chatId: Long,
-  botName: String,
-  cron: CronExpr,
-  subscribedAt: Instant
+    id: UUID,
+    chatId: Long,
+    botName: String,
+    cron: CronExpr,
+    subscribedAt: Instant
 )
 
 object Subscription {

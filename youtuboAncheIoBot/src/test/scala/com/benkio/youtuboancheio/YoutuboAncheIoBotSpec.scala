@@ -44,7 +44,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
         linkSources = ""
       )
       .filter(_.trigger.command == "triggerlist")
-      .flatMap(_.text.text(privateTestMessage).unsafeRunSync())
+      .flatMap(_.text.get.text(privateTestMessage).unsafeRunSync())
       .mkString("")
     assertEquals(
       YoutuboAncheIoBot
@@ -114,7 +114,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
         linkSources = ""
       )
       .filter(_.trigger.command == "instructions")
-      .flatTraverse(_.text.text(privateTestMessage))
+      .flatTraverse(_.text.get.text(privateTestMessage))
     assertIO(
       actual,
       List(

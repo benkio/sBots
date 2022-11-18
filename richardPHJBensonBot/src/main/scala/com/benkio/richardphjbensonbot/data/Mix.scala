@@ -1,6 +1,5 @@
 package com.benkio.richardphjbensonbot.data
 
-import cats._
 import com.benkio.telegrambotinfrastructure.messagefiltering._
 import com.benkio.telegrambotinfrastructure.model._
 import com.lightbend.emoji.ShortCodes.Defaults._
@@ -8,7 +7,7 @@ import com.lightbend.emoji.ShortCodes.Implicits._
 
 object Mix {
 
-  def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesMixData[F[_]]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("vivi"),

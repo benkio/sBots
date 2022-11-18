@@ -207,7 +207,7 @@ object CalandroBot extends BotOps {
     )
   )
 
-  def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
+  def commandRepliesData[F[_]]: List[ReplyBundleCommand[F]] = List(
     ReplyBundleCommand(
       trigger = CommandTrigger("randomcard"),
       mediafiles = List(

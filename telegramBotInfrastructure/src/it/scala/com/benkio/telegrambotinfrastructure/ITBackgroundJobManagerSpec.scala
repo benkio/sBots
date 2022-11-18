@@ -18,7 +18,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
   val testSubscriptionId            = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
-  val botName = "botname"
+  val botName                       = "botname"
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
@@ -88,7 +88,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           resourceAccess = resourceAccess,
           youtubeLinkSources = "abar_LinkSources",
-                    botName = botName
+          botName = botName
         )
       )
       _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
@@ -121,7 +121,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           resourceAccess = resourceAccess,
-          youtubeLinkSources = "abar_LinkSources",          botName = botName
+          youtubeLinkSources = "abar_LinkSources",
+          botName = botName
         )
       )
       _                      <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))

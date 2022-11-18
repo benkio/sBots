@@ -4,36 +4,37 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.messagefiltering.{ContainsOnce, MessageMatches}
+import com.benkio.telegrambotinfrastructure.messagefiltering.ContainsOnce
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import telegramium.bots.Message
 
 sealed trait ReplyBundle[F[_]] {
 
   def trigger: Trigger
   def mediafiles: List[MediaFile]
-  def text: TextReply[F]
+  def text: Option[TextReply[F]]
   def replySelection: ReplySelection
 }
 
 final case class ReplyBundleMessage[F[_]](
     trigger: MessageTrigger,
     mediafiles: List[MediaFile],
-    text: TextReply[F],
+    text: Option[TextReply[F]],
     matcher: MessageMatches,
     replySelection: ReplySelection
 ) extends ReplyBundle[F]
 
 object ReplyBundleMessage {
-  def apply[F[_]: Applicative](
+  def apply[F[_]](
       trigger: MessageTrigger,
       mediafiles: List[MediaFile] = List.empty[MediaFile],
       text: Option[TextReply[F]] = None,
       matcher: MessageMatches = ContainsOnce,
       replySelection: ReplySelection = SelectAll
-  ): ReplyBundleMessage[F] = ReplyBundleMessage[F](
+  ): ReplyBundleMessage[F] = new ReplyBundleMessage[F](
     trigger = trigger,
     mediafiles = mediafiles,
-    text = text.getOrElse(TextReply(_ => Applicative[F].pure(List.empty[String]), false)),
+    text = text,
     matcher = matcher,
     replySelection = replySelection
   )
@@ -54,45 +55,41 @@ object ReplyBundleMessage {
 final case class ReplyBundleCommand[F[_]](
     trigger: CommandTrigger,
     mediafiles: List[MediaFile],
-    text: TextReply[F],
+    text: Option[TextReply[F]],
     replySelection: ReplySelection
 ) extends ReplyBundle[F]
 
 object ReplyBundleCommand {
-  def apply[F[_]: Applicative](
+  def apply[F[_]](
       trigger: CommandTrigger,
       mediafiles: List[MediaFile] = List.empty[MediaFile],
       text: Option[TextReply[F]] = None,
       replySelection: ReplySelection = SelectAll
-  ): ReplyBundleCommand[F] = ReplyBundleCommand[F](
+  ): ReplyBundleCommand[F] = new ReplyBundleCommand[F](
     trigger = trigger,
     mediafiles = mediafiles,
-    text = text.getOrElse(TextReply(_ => Applicative[F].pure(List.empty[String]), false)),
+    text = text,
     replySelection = replySelection
   )
 }
 
+@annotation.nowarn
 object ReplyBundle {
 
   implicit def orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
     Trigger.orderingInstance.contramap(_.trigger)
 
-  private def replyBundleToData[F[_]](replyBundle: ReplyBundle[F], textReplies: List[String], f: Boolean): List[Reply] =
-    (textReplies, f) match {
-      case (_, false) => List.empty
-      case (Nil, _)   => replyBundle.mediafiles
-      case _          => replyBundle.mediafiles :+ replyBundle.text
-    }
+  private def replyBundleToData[F[_]](replyBundle: ReplyBundle[F], f: Boolean): List[Reply] =
+    if (f) replyBundle.mediafiles ++ replyBundle.text.toList
+    else List.empty
 
   def computeReplyBundle[F[_]](replyBundle: ReplyBundle[F], message: Message, filter: F[Boolean])(implicit
       replyAction: Action[F],
       syncF: Sync[F]
   ): F[List[Message]] = for {
-    _ <- println(s"computeReplyBundle here").pure[F]
-    f           <- filter
-    textReplies <- replyBundle.text.text(message)
-    dataToSend = replyBundleToData[F](replyBundle, textReplies, f)
+    f <- filter
+    dataToSend = replyBundleToData[F](replyBundle, f)
     replies <- replyBundle.replySelection.logic(dataToSend)
     result  <- replies.traverse[F, List[Message]](replyAction(_)(message))
-  } yield result.flatten
+  } yield List.empty // result.flatten
 }

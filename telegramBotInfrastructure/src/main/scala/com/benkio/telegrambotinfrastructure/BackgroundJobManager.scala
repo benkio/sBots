@@ -4,17 +4,21 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.model.{Subscription, TextReply}
+import com.benkio.telegrambotinfrastructure.model.Subscription
+import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.resources.db.{DBSubscription, DBSubscriptionData}
+import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
+import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import cron4s.expr.CronExpr
 import eu.timepit.fs2cron.Scheduler
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.Stream
-import fs2.concurrent.{Signal, SignallingRef}
+import fs2.concurrent.Signal
+import fs2.concurrent.SignallingRef
 import log.effect.LogWriter
-import telegramium.bots.{Chat, Message}
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 import java.util.UUID
 import scala.collection.mutable.{ Map => MMap }
@@ -22,7 +26,7 @@ import scala.collection.mutable.{ Map => MMap }
 trait BackgroundJobManager[F[_]] {
 
   var memSubscriptions: MMap[BackgroundJobManager.SubscriptionKey, SignallingRef[F, Boolean]]
-  val botName:String
+  val botName: String
   def scheduleSubscription(subscription: Subscription): F[Unit]
   def loadSubscriptions(): F[Unit]
   def cancelSubscription(subscriptionId: UUID): F[Unit]
@@ -41,8 +45,8 @@ object BackgroundJobManager {
   def apply[F[_]: Async](
       dbSubscription: DBSubscription[F],
       resourceAccess: ResourceAccess[F],
-    youtubeLinkSources: String,
-    botName: String
+      youtubeLinkSources: String,
+      botName: String
   )(implicit replyAction: Action[F], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
     backgroundJobManager <- Async[F].pure(
       new BackgroundJobManagerImpl(
@@ -58,8 +62,8 @@ object BackgroundJobManager {
   class BackgroundJobManagerImpl[F[_]: Async](
       dbSubscription: DBSubscription[F],
       resourceAccess: ResourceAccess[F],
-    youtubeLinkSources: String,
-    val botName: String
+      youtubeLinkSources: String,
+      val botName: String
   )(implicit replyAction: Action[F], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 

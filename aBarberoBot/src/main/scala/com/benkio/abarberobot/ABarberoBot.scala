@@ -3,19 +3,22 @@ package com.benkio.abarberobot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.{Action, _}
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.default.Actions._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import com.benkio.telegrambotinfrastructure.{BotOps, _}
+import com.benkio.telegrambotinfrastructure.BotOps
+import com.benkio.telegrambotinfrastructure._
 import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import org.http4s.{Status, Uri}
+import org.http4s.Status
+import org.http4s.Uri
 import telegramium.bots.high._
 
 class ABarberoBotPolling[F[_]: Parallel: Async: Action: Api: LogWriter](
@@ -71,7 +74,7 @@ object ABarberoBot extends BotOps {
   val triggerListUrl: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
   val linkSources: String = "abar_LinkSources"
 
-  def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesAudioData[F[_]]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("kimono")
@@ -464,7 +467,7 @@ object ABarberoBot extends BotOps {
     )
   )
 
-  def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesGifData[F[_]]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ha ragione")
@@ -790,7 +793,7 @@ object ABarberoBot extends BotOps {
     )
   )
 
-  def messageRepliesSpecialData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesSpecialData[F[_]]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("tedesco")
@@ -875,7 +878,7 @@ object ABarberoBot extends BotOps {
     )
   )
 
-  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
+  def messageRepliesData[F[_]]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesSpecialData[F])
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
