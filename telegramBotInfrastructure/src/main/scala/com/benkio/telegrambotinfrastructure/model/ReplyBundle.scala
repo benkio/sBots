@@ -4,8 +4,7 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.messagefiltering.ContainsOnce
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.messagefiltering.{ContainsOnce, MessageMatches}
 import telegramium.bots.Message
 
 sealed trait ReplyBundle[F[_]] {
@@ -73,7 +72,6 @@ object ReplyBundleCommand {
   )
 }
 
-@annotation.nowarn
 object ReplyBundle {
 
   implicit def orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
