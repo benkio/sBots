@@ -27,8 +27,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 
-  implicit val log: LogWriter[IO]          = consoleLogUpToLevel(LogLevels.Info)
-  implicit val noAction: Action[Reply, IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
+  implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
+  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
 
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
   val emptyDBLayer               = DBLayerMock.mock()
