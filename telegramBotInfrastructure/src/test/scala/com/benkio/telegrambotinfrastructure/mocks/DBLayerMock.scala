@@ -90,6 +90,11 @@ object DBLayerMock {
     ): IO[Unit] =
       db.update((subs: List[DBSubscriptionData]) => subs.filterNot((s: DBSubscriptionData) => s.id == subscriptionId))
 
+    override def deleteSubscriptions(
+        chatId: Long
+    ): IO[Unit] =
+      db.update((subs: List[DBSubscriptionData]) => subs.filterNot((s: DBSubscriptionData) => s.chat_id == chatId))
+
     override def getSubscriptionsQuery(): Query0[DBSubscriptionData] = ???
   }
 }

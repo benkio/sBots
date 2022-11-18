@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import java.time.Instant
 import cron4s.Cron
@@ -58,8 +59,17 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       _ <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(testSubscription.id))
     } yield {
       assert(backgroundJobManager.memSubscriptions.size == 1)
-      assert(backgroundJobManager.memSubscriptions.get(testSubscriptionId).isDefined)
-      assertIO(backgroundJobManager.memSubscriptions.get(testSubscriptionId).get.get, false)
+      assert(backgroundJobManager.memSubscriptions.find { case (SubscriptionKey(sId, _), _) =>
+        sId == testSubscriptionId
+      }.isDefined)
+      assertIO(
+        backgroundJobManager.memSubscriptions
+          .find { case (SubscriptionKey(sId, _), _) => sId == testSubscriptionId }
+          .get
+          ._2
+          .get,
+        false
+      )
     }
   }
 
@@ -80,8 +90,17 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions())
     } yield {
       assert(backgroundJobManager.memSubscriptions.size == 1)
-      assert(backgroundJobManager.memSubscriptions.get(testSubscriptionId).isDefined)
-      assertIO(backgroundJobManager.memSubscriptions.get(testSubscriptionId).get.get, false)
+      assert(backgroundJobManager.memSubscriptions.find { case (SubscriptionKey(sId, _), _) =>
+        sId == testSubscriptionId
+      }.isDefined)
+      assertIO(
+        backgroundJobManager.memSubscriptions
+          .find { case (SubscriptionKey(sId, _), _) => sId == testSubscriptionId }
+          .get
+          ._2
+          .get,
+        false
+      )
       assert(subscriptions.length == 1)
       assert(Subscription(subscriptions.head) == testSubscription)
     }
