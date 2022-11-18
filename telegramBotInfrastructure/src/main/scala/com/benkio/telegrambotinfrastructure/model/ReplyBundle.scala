@@ -91,5 +91,5 @@ object ReplyBundle {
     dataToSend = replyBundleToData[F](replyBundle, f)
     replies <- replyBundle.replySelection.logic(dataToSend)
     result  <- replies.traverse[F, List[Message]](replyAction(_)(message))
-  } yield List.empty // result.flatten
+  } yield result.flatten
 }
