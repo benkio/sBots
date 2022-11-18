@@ -1,9 +1,10 @@
 package com.benkio.xahbot
 
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import cats._
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import com.benkio.telegrambotinfrastructure.default.Actions._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -22,30 +23,22 @@ import telegramium.bots.high._
 
 class XahBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
-    val dbLayer: DBLayer[F]
+    val dbLayer: DBLayer[F],
+    val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F]
     with XahBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
-    dbSubscription = dbLayer.dbSubscription,
-    resourceAccess = resourceAccess,
-    youtubeLinkSources = linkSources
-  )
 }
 
-class XahBotWebhook[F[_]: Async: Api: LogWriter](
+class XahBotWebhook[F[_]: Async: Api: Action: LogWriter](
     url: Uri,
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
+    val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/"
 ) extends BotSkeletonWebhook[F](url, path)
     with XahBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override val backgroundJobManagerF: F[BackgroundJobManager[F]] = BackgroundJobManager[F](
-    dbSubscription = dbLayer.dbSubscription,
-    resourceAccess = resourceAccess,
-    youtubeLinkSources = linkSources
-  )
 }
 
 trait XahBot[F[_]] extends BotSkeleton[F] {
@@ -53,17 +46,17 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
   override val botName: String   = XahBot.botName
   override val botPrefix: String = XahBot.botPrefix
   val linkSources: String        = XahBot.linkSources
-  val backgroundJobManagerF: F[BackgroundJobManager[F]]
+  val backgroundJobManager: BackgroundJobManager[F]
 
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    for {
-      backgroundJobManager <- backgroundJobManagerF
-    } yield CommandRepliesData.values[F](
-      resourceAccess = resourceAccess,
-      backgroundJobManager = backgroundJobManager,
-      linkSources = linkSources,
-      botName = botName
-    )
+    CommandRepliesData
+      .values[F](
+        resourceAccess = resourceAccess,
+        backgroundJobManager = backgroundJobManager,
+        linkSources = linkSources,
+        botName = botName
+      )
+      .pure[F]
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -113,15 +106,29 @@ object XahBot extends BotOps {
     _ <- Resource.eval(log.info("[XahBot] Webhook deleted"))
   } yield BotSetup(tk, httpClient, resourceAccess, dbLayer)
 
-  def buildPollingBot[F[_]: Parallel: Async, A](
+  def buildPollingBot[F[_]: Parallel: Async: LogWriter, A](
       action: XahBotPolling[F] => F[A]
-  )(implicit log: LogWriter[F]): F[A] = (for {
+  ): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
     botSetup   <- buildCommonBot[F](httpClient)
   } yield botSetup).use(botSetup => {
     implicit val api: Api[F] =
       BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
-    action(new XahBotPolling[F](botSetup.resourceAccess, botSetup.dbLayer))
+    implicit val resAccess = botSetup.resourceAccess
+    for {
+      backgroundJobManager <- BackgroundJobManager[F](
+        dbSubscription = botSetup.dbLayer.dbSubscription,
+        resourceAccess = botSetup.resourceAccess,
+        youtubeLinkSources = XahBot.linkSources
+      )
+      result <- action(
+        new XahBotPolling[F](
+          resAccess = botSetup.resourceAccess,
+          backgroundJobManager = backgroundJobManager,
+          dbLayer = botSetup.dbLayer
+        )
+      )
+    } yield result
   })
 
   def buildWebhookBot[F[_]: Async](
@@ -132,11 +139,26 @@ object XahBot extends BotOps {
     baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
     path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
+    api       = BotApi(httpClient, baseUrl = baseUrl.renderString)
+    resAccess = botSetup.resourceAccess
+    backgroundJobManager <- {
+      implicit val implApi: Api[F] = api
+      implicit val implResAccess   = resAccess
+      Resource.eval(
+        BackgroundJobManager[F](
+          dbSubscription = botSetup.dbLayer.dbSubscription,
+          resourceAccess = botSetup.resourceAccess,
+          youtubeLinkSources = XahBot.linkSources
+        )
+      )
+    }
   } yield {
-    implicit val api: Api[F] = BotApi(httpClient, baseUrl = baseUrl.renderString)
+    implicit val implApi: Api[F] = api
+    implicit val implResAccess   = resAccess
     new XahBotWebhook[F](
       url = webhookBaseUri,
       resAccess = botSetup.resourceAccess,
+      backgroundJobManager = backgroundJobManager,
       dbLayer = botSetup.dbLayer,
       path = path
     )

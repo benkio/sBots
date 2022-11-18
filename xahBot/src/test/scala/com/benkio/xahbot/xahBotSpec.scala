@@ -19,9 +19,9 @@ import scala.io.Source
 
 class XahBotSpec extends CatsEffectSuite {
 
-  implicit val log: LogWriter[IO]          = consoleLogUpToLevel(LogLevels.Info)
-  implicit val noAction: Action[Reply, IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
-  val emptyDBLayer                         = DBLayerMock.mock()
+  implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
+  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
+  val emptyDBLayer                  = DBLayerMock.mock()
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     resourceAccess = ResourceAccess.fromResources[IO],
