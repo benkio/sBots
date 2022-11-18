@@ -4,7 +4,6 @@ import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
@@ -26,28 +25,35 @@ import scala.collection.mutable.{ Map => MMap }
 
 trait BackgroundJobManager[F[_]] {
 
-  var memSubscriptions: MMap[UUID, SignallingRef[F, Boolean]]
-
+  var memSubscriptions: MMap[BackgroundJobManager.SubscriptionKey, SignallingRef[F, Boolean]]
+  val botName: String
   def scheduleSubscription(subscription: Subscription): F[Unit]
   def loadSubscriptions(): F[Unit]
   def cancelSubscription(subscriptionId: UUID): F[Unit]
+  def cancelSubscriptions(chatId: Long): F[Unit]
 }
 
 object BackgroundJobManager {
 
+  final case class SubscriptionKey(subscriptionId: UUID, chatId: Long)
+
   final case class SubscriptionIdNotFound(subscriptionId: UUID)
       extends Throwable(s"Subscription Id is not found: $subscriptionId")
+  final case class SubscriptionChatIdNotFound(chatId: Long)
+      extends Throwable(s"Subscription chat Id is not found: $chatId")
 
   def apply[F[_]: Async](
       dbSubscription: DBSubscription[F],
       resourceAccess: ResourceAccess[F],
-      youtubeLinkSources: String
-  )(implicit replyAction: Action[Reply, F], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
+      youtubeLinkSources: String,
+      botName: String
+  )(implicit replyAction: Action[F], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
     backgroundJobManager <- Async[F].pure(
       new BackgroundJobManagerImpl(
         dbSubscription = dbSubscription,
         resourceAccess = resourceAccess,
-        youtubeLinkSources = youtubeLinkSources
+        youtubeLinkSources = youtubeLinkSources,
+        botName = botName
       )
     )
     _ <- backgroundJobManager.loadSubscriptions()
@@ -56,14 +62,16 @@ object BackgroundJobManager {
   class BackgroundJobManagerImpl[F[_]: Async](
       dbSubscription: DBSubscription[F],
       resourceAccess: ResourceAccess[F],
-      youtubeLinkSources: String
-  )(implicit replyAction: Action[Reply, F], log: LogWriter[F])
+      youtubeLinkSources: String,
+      val botName: String
+  )(implicit replyAction: Action[F], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
-    var memSubscriptions: MMap[UUID, SignallingRef[F, Boolean]] = MMap()
-    val cronScheduler                                           = Cron4sScheduler.utc[F]
+    var memSubscriptions: MMap[SubscriptionKey, SignallingRef[F, Boolean]] = MMap()
+    val cronScheduler                                                      = Cron4sScheduler.utc[F]
 
     override def scheduleSubscription(subscription: Subscription): F[Unit] = for {
+      _ <- log.info(s"Schedule subscription: $subscription")
       subscriptionReference <- BackgroundJobManager.runSubscription(
         subscription,
         cronScheduler,
@@ -74,7 +82,7 @@ object BackgroundJobManager {
     } yield memSubscriptions += subscriptionReference
 
     override def loadSubscriptions(): F[Unit] = for {
-      subscriptionsData <- dbSubscription.getSubscriptions()
+      subscriptionsData <- dbSubscription.getSubscriptionsByBotName(botName)
       subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
       subscriptionReferences <- subscriptions.traverse(s =>
         BackgroundJobManager.runSubscription(s, cronScheduler, resourceAccess, youtubeLinkSources)
@@ -82,10 +90,25 @@ object BackgroundJobManager {
     } yield memSubscriptions = MMap.from(subscriptionReferences)
 
     override def cancelSubscription(subscriptionId: UUID): F[Unit] = for {
-      optCancellingBoolean <- Async[F].pure(memSubscriptions.get(subscriptionId))
+      optCancellingBoolean <- Async[F].pure(
+        memSubscriptions.find { case (SubscriptionKey(sId, _), _) => sId == subscriptionId }.map {
+          case (_, cancelJob) => cancelJob
+        }
+      )
       _ <- optCancellingBoolean.fold[F[Unit]](Async[F].raiseError(SubscriptionIdNotFound(subscriptionId)))(_.set(true))
       _ <- dbSubscription.deleteSubscription(subscriptionId)
-    } yield memSubscriptions -= subscriptionId
+    } yield memSubscriptions = memSubscriptions.filterNot { case (SubscriptionKey(sId, _), _) => sId == subscriptionId }
+
+    override def cancelSubscriptions(chatId: Long): F[Unit] = for {
+      optCancellingBooleans <- Async[F].pure(
+        memSubscriptions
+          .filter { case (SubscriptionKey(_, cId), _) => cId == chatId }
+          .map { case (_, cancelJob) => cancelJob }
+          .toList
+      )
+      _ <- optCancellingBooleans.traverse(_.set(true))
+      _ <- dbSubscription.deleteSubscriptions(chatId)
+    } yield memSubscriptions = memSubscriptions.filterNot { case (SubscriptionKey(_, cId), _) => cId == chatId }
   }
 
   def runSubscription[F[_]: Async](
@@ -93,7 +116,7 @@ object BackgroundJobManager {
       cronScheduler: Scheduler[F, CronExpr],
       resourceAccess: ResourceAccess[F],
       youtubeLinkSources: String
-  )(implicit replyAction: Action[Reply, F], log: LogWriter[F]): F[(UUID, SignallingRef[F, Boolean])] = {
+  )(implicit replyAction: Action[F], log: LogWriter[F]): F[(SubscriptionKey, SignallingRef[F, Boolean])] = {
     val scheduled: Stream[F, Unit] = for {
       _ <- cronScheduler.awakeEvery(subscription.cron)
       _ <- Stream.eval(log.info(s"Executing the Scheduled subscription: $subscription"))
@@ -114,6 +137,6 @@ object BackgroundJobManager {
     for {
       c <- cancel
       _ <- Async[F].start(scheduled.interruptWhen(c: Signal[F, Boolean]).repeat.compile.drain)
-    } yield (subscription.id, c)
+    } yield (SubscriptionKey(subscription.id, subscription.chatId), c)
   }
 }

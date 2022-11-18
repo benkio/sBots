@@ -1,13 +1,12 @@
 package com.benkio.richardphjbensonbot.data
 
-import cats._
 import com.benkio.telegrambotinfrastructure.model._
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 
 object Gif {
 
-  def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesGifData[F[_]]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("\\bcontinua\\b".r, 8)

@@ -4,7 +4,6 @@ import cats._
 import cats.data.EitherT
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import log.effect.LogWriter
@@ -15,15 +14,17 @@ import telegramium.bots.ChatIntId
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
-trait DefaultActions[F[_]] {
+object Actions {
 
-  def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F]
+  type Action[F[_]] =
+    Reply => Message => F[List[Message]]
 
-  implicit def sendReply(implicit
+  implicit def sendReply[F[_]](implicit
       api: telegramium.bots.high.Api[F],
       asyncF: Async[F],
-      log: LogWriter[F]
-  ): Action[Reply, F] =
+      log: LogWriter[F],
+      resourceAccess: ResourceAccess[F]
+  ): Action[F] =
     (reply: Reply) =>
       (msg: Message) => {
         val replyToMessage = if (reply.replyToMessage) Some(msg.messageId) else None
@@ -117,9 +118,4 @@ trait DefaultActions[F[_]] {
             List(msg)
         }
       }
-}
-
-object Actions {
-  type Action[T <: Reply, F[_]] =
-    T => Message => F[List[Message]]
 }

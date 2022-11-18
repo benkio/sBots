@@ -255,13 +255,13 @@ ${if (ignoreMessagePrefix.isDefined) {
   object SubscribeUnsubscribeCommand {
 
     val subscribeCommandDescriptionIta: String =
-      "'/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo sito come riferimento: https://crontab.guru. Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html"
+      "'/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/hwpZ3fvcQ7q4xlfjoTjTvw. Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html"
     val subscribeCommandDescriptionEng: String =
-      "'/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following site: https://crontab.guru. Beware the underlying library require to specify the seconds as well as reported in the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html"
+      "'/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/hwpZ3fvcQ7q4xlfjoTjTvw. You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html"
     val unsubscribeCommandDescriptionIta: String =
-      "'/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate"
+      "'/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input"
     val unsubscribeCommandDescriptionEng: String =
-      "'/unsubscribe': UnSubscribe the current chat from random shows"
+      "'/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted"
 
     def subscribeReplyBundleCommand[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
@@ -278,7 +278,7 @@ ${if (ignoreMessagePrefix.isDefined) {
                 botName,
                 cronInput =>
                   for {
-                    subscription <- Async[F].fromEither(Subscription(m.chat.id, cronInput))
+                    subscription <- Async[F].fromEither(Subscription(m.chat.id, botName, cronInput))
                     now = LocalDateTime.now()
                     nextOccurrence = subscription.cron
                       .next(now)
@@ -299,7 +299,7 @@ ${if (ignoreMessagePrefix.isDefined) {
         botName: String
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
-        trigger = CommandTrigger("subscribe"),
+        trigger = CommandTrigger("unsubscribe"),
         text = Some(
           TextReply[F](
             m =>
@@ -308,13 +308,18 @@ ${if (ignoreMessagePrefix.isDefined) {
                 "subscribe",
                 botName,
                 subscriptionIdInput =>
-                  for {
-                    subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
-                    _              <- backgroundJobManager.cancelSubscription(subscriptionId)
-                  } yield List(
-                    s"Subscription successfully cancelled"
-                  ),
-                s"Input Required: insert a valid 〈UUID〉. Check the instructions"
+                  if (subscriptionIdInput.isEmpty)
+                    for {
+                      _ <- backgroundJobManager.cancelSubscriptions(m.chat.id)
+                    } yield List(s"All Subscriptions for current chat successfully cancelled")
+                  else
+                    for {
+                      subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
+                      _              <- backgroundJobManager.cancelSubscription(subscriptionId)
+                    } yield List(
+                      s"Subscription successfully cancelled"
+                    ),
+                s"Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
               ),
             true
           )

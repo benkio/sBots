@@ -1,11 +1,10 @@
 package com.benkio.richardphjbensonbot.data
 
-import cats._
 import com.benkio.telegrambotinfrastructure.model._
 
 object Video {
 
-  def messageRepliesVideoData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesVideoData[F[_]]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("amici veri"),

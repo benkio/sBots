@@ -9,7 +9,7 @@ import telegramium.bots.Message
 
 class ReplyBundleSpec extends CatsEffectSuite {
 
-  implicit val replyAction: Action[Reply, IO] =
+  implicit val replyAction: Action[IO] =
     (r: Reply) =>
       (m: Message) =>
         IO.pure(r match {

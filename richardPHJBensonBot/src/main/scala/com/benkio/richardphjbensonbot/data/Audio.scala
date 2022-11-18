@@ -1,12 +1,11 @@
 package com.benkio.richardphjbensonbot.data
 
-import cats._
 import com.benkio.telegrambotinfrastructure.messagefiltering._
 import com.benkio.telegrambotinfrastructure.model._
 
 object Audio {
 
-  def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesAudioData[F[_]]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("come state stasera")
