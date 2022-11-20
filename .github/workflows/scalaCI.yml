@@ -1,6 +1,8 @@
 name: Scala CI
 
 on:
+  pull_request:
+    types: [opened, reopened]
   push:
     branches:
         - "**"
@@ -11,7 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Formatting
-      run: sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
+      run: |
+        echo this workflow was triggered by ${{github.actor}}
+        sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
   test:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +30,7 @@ jobs:
       run: sbt "IntegrationTest/test"
   dependenciesUpdate:
     runs-on: ubuntu-latest
-    if: ${{ startsWith( github.ref, 'refs/heads/update' ) }}
+    if: ${{ github.actor == 'github-actions[bot]' }}
     needs:
       - lint
       - test
