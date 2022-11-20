@@ -32,6 +32,6 @@ object TestData {
     url = "jdbc:sqlite:C:/sqlite/db/chinook.db",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
-    csvLocation = ""
+    csvLocation = List.empty
   )
 }

@@ -11,7 +11,7 @@ import scala.util.Random
 class ResourcesAccessSpec extends FunSuite {
 
   val testfile                     = "testFile"
-  val resourcesAccessFromResources = ResourceAccess.fromResources[IO]
+  val resourcesAccessFromResources = ResourceAccess.fromResources[IO]()
   val rootPath                     = Paths.get("").toAbsolutePath()
   val random                       = new Random()
 

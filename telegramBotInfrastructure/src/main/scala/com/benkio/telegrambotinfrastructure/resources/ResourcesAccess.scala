@@ -44,7 +44,7 @@ object ResourceAccess {
     tempFile
   }
 
-  def fromResources[F[_]: Sync] = new ResourceAccess[F] {
+  def fromResources[F[_]: Sync](stage: Option[String] = None) = new ResourceAccess[F] {
 
     def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       (for {
@@ -64,7 +64,7 @@ object ResourceAccess {
       }
 
     def buildPath(subResourceFilePath: String): Path =
-      Paths.get(Paths.get("").toAbsolutePath().toString(), "src", "main", "resources", subResourceFilePath)
+      Paths.get(Paths.get("").toAbsolutePath().toString(), "src", stage.getOrElse("main"), "resources", subResourceFilePath)
 
     def getResourcesByKind(criteria: String): Resource[F, List[File]] = {
       val jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())

@@ -60,7 +60,7 @@ abstract class BotSkeletonWebhook[F[_]: Async](uri: Uri, path: Uri = uri"/")(imp
 trait BotSkeleton[F[_]] {
 
   // Configuration values & functions /////////////////////////////////////////////////////
-  def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = ResourceAccess.fromResources[F]
+  def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = ResourceAccess.fromResources[F]()
   val ignoreMessagePrefix: Option[String]                        = Some("!")
   val inputTimeout: Option[Duration]                             = Some(5.minute)
   val disableForward: Boolean                                    = true

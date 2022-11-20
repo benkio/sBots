@@ -46,7 +46,8 @@ object BotDBController {
     } yield ()
 
     override def populateMediaTable: Resource[F, Unit] = for {
-      csvs <- resourceAccess.getResourcesByKind(cfg.csvLocation)
+      allFiles <- cfg.csvLocation.flatTraverse(resourceAccess.getResourcesByKind)
+      csvs = allFiles.filter(f => f.getName.endsWith("csv"))
       input <- Resource.eval(Sync[F].fromEither(csvs.flatTraverse(csv => {
         val fileContent = Source.fromFile(csv).getLines().mkString("\n")
         parseComplete(fileContent).flatMap(_.readLabelled[Input].sequence)

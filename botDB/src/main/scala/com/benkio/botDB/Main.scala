@@ -8,13 +8,14 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 
 object Main extends IOApp {
 
+  // in IT test the args will contain the app config 
   def run(args: List[String]): IO[ExitCode] =
     (for {
       _   <- IO(println(s"Migrating database configuration"))
-      cfg <- Config.loadConfig
+      cfg <- Config.loadConfig(args.headOption)
       transactor         = Config.buildTransactor(cfg = cfg)
       databaseRepository = DatabaseRepository[IO](transactor)
-      resourceAccess     = ResourceAccess.fromResources[IO]
+      resourceAccess     = ResourceAccess.fromResources[IO](args.tail.headOption)
       migrator           = DBMigrator[IO]
       botDBController = BotDBController[IO](
         cfg = cfg,

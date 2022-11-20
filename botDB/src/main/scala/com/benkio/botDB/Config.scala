@@ -11,19 +11,21 @@ final case class Config(
     url: String,
     migrationsLocations: List[String],
     migrationsTable: String,
-    csvLocation: String,
+    csvLocation: List[String],
 )
 
 object Config {
 
-  def loadConfig: IO[Config] =
-    ConfigSource.default
+  def loadConfig(configPath: Option[String] = None): IO[Config] = {
+    val source = configPath.fold(ConfigSource.default)(ConfigSource.file)
+    source
       .at("botDB")
       .load[Config]
       .fold(
         err => IO.raiseError[Config](new RuntimeException(err.prettyPrint())),
         value => IO.pure(value)
       )
+  }
 
   def buildTransactor(cfg: Config): Transactor[IO] =
     Transactor.fromDriverManager[IO](

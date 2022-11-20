@@ -20,11 +20,11 @@ class ITSpec extends FunSuite with DBConstants {
   }
 
   // FAILING ON CI ONLY (╯_╰)
-  test("botDB main should populate the migration with the files in resources".ignore) {
+  test("botDB main should populate the migration with the files in resources") {
 
     setEnv("DB_CONNECTION_URL", dbUrl)
 
-    Main.run(List.empty).unsafeRunSync()
+    Main.run(List(s"$resourcePath$testApplicationConf", "it")).unsafeRunSync()
 
     val transactor = Transactor.fromDriverManager[IO](
       "org.sqlite.JDBC",
