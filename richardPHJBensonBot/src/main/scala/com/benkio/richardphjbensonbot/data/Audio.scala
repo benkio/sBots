@@ -771,6 +771,16 @@ object Audio {
       List(
         MediaFile("rphjb_Schifosi4.mp3"),
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non parlare"),
+        StringTextTriggerValue("non hai il diritto"),
+        StringTextTriggerValue("la trasmissione è la mia"),
+      ),
+      List(
+        MediaFile("rphjb_NonParlareTeTrasmissioneMia.mp3"),
+      )
     )
   )
 }
