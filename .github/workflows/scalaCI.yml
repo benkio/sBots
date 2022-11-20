@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Formatting
       run: |
-        echo github.head_ref
+        echo ${{github.head_ref}}
         sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
   test:
     runs-on: ubuntu-latest
