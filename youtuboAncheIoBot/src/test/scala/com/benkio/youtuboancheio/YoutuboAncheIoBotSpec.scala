@@ -30,7 +30,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
   val emptyDBLayer                  = DBLayerMock.mock()
   val emptyBackgroundJobManager = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
-    ResourceAccess.fromResources[IO],
+    ResourceAccess.fromResources[IO](),
     "",
     "youtuboAncheIoBot"
   ).unsafeRunSync()
@@ -38,7 +38,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
   test("triggerlist should return the link to the trigger txt file") {
     val triggerlistUrl = YoutuboAncheIoBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO],
+        resourceAccess = ResourceAccess.fromResources[IO](),
         dbLayer = emptyDBLayer,
         backgroundJobManager = emptyBackgroundJobManager,
         linkSources = ""
@@ -49,7 +49,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
     assertEquals(
       YoutuboAncheIoBot
         .commandRepliesData[IO](
-          resourceAccess = ResourceAccess.fromResources[IO],
+          resourceAccess = ResourceAccess.fromResources[IO](),
           backgroundJobManager = emptyBackgroundJobManager,
           dbLayer = emptyDBLayer,
           linkSources = ""
@@ -108,7 +108,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
   test("instructions command should return the expected message") {
     val actual = YoutuboAncheIoBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO],
+        resourceAccess = ResourceAccess.fromResources[IO](),
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer,
         linkSources = ""

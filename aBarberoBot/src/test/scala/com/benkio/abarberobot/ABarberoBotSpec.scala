@@ -29,7 +29,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
   val emptyBackgroundJobManager = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
-    ResourceAccess.fromResources[IO],
+    ResourceAccess.fromResources[IO](),
     "",
     "ABarberoBot"
   ).unsafeRunSync()
@@ -37,7 +37,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist: String = ABarberoBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO],
+        resourceAccess = ResourceAccess.fromResources[IO](),
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer,
         linkSources = ""
@@ -48,7 +48,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
     assertEquals(
       ABarberoBot
         .commandRepliesData[IO](
-          resourceAccess = ResourceAccess.fromResources[IO],
+          resourceAccess = ResourceAccess.fromResources[IO](),
           backgroundJobManager = emptyBackgroundJobManager,
           dbLayer = emptyDBLayer,
           linkSources = ""
@@ -106,7 +106,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
   test("instructions command should return the expected message") {
     val actual = ABarberoBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO],
+        resourceAccess = ResourceAccess.fromResources[IO](),
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer,
         linkSources = ""

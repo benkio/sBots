@@ -64,7 +64,13 @@ object ResourceAccess {
       }
 
     def buildPath(subResourceFilePath: String): Path =
-      Paths.get(Paths.get("").toAbsolutePath().toString(), "src", stage.getOrElse("main"), "resources", subResourceFilePath)
+      Paths.get(
+        Paths.get("").toAbsolutePath().toString(),
+        "src",
+        stage.getOrElse("main"),
+        "resources",
+        subResourceFilePath
+      )
 
     def getResourcesByKind(criteria: String): Resource[F, List[File]] = {
       val jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())

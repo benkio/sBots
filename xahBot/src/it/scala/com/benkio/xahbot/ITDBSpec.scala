@@ -23,7 +23,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   val botName: String               = "botname"
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
-    resourceAccess = ResourceAccess.fromResources[IO],
+    resourceAccess = ResourceAccess.fromResources[IO](),
     youtubeLinkSources = "",
     botName = botName
   ).unsafeRunSync()
@@ -39,7 +39,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       files <- Resource.pure(
         CommandRepliesData
           .values[IO](
-            resourceAccess = ResourceAccess.fromResources[IO],
+            resourceAccess = ResourceAccess.fromResources[IO](),
             botName = botName,
             backgroundJobManager = emptyBackgroundJobManager,
             linkSources = ""

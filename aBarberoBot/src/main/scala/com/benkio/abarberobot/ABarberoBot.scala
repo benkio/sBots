@@ -944,7 +944,7 @@ object ABarberoBot extends BotOps {
   )
 
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources.getResourceByteArray("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources().getResourceByteArray("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
 
   final case class BotSetup[F[_]](
       token: String,
