@@ -6,14 +6,17 @@ on:
         - "**"
 
 jobs:
+  branchName:
+    name: Extract branch name
+    shell: bash
+    run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+    id: extract_branch
   lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Formatting
-      run: |
-        echo ${{github.head_ref}}
-        sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
+      run: sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
   test:
     runs-on: ubuntu-latest
     steps:
