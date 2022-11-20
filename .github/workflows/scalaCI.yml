@@ -6,16 +6,14 @@ on:
         - "**"
 
 jobs:
-  branchName:
-    steps:
-      - name: Branch name
-        run: echo running on branch ${GITHUB_REF##*/}
   lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Formatting
-      run: sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
+      run: |
+        echo running on branch ${GITHUB_REF##*/}
+        sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
   test:
     runs-on: ubuntu-latest
     steps:
