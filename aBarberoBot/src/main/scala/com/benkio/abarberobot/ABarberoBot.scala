@@ -802,7 +802,8 @@ object ABarberoBot extends BotOps {
         MediaFile("abar_Kraft.mp3"),
         MediaFile("abar_Von_Hohenheim.mp3"),
         MediaFile("abar_Haushofer.mp3")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(

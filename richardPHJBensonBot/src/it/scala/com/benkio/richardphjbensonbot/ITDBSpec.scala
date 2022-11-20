@@ -35,7 +35,6 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .transact(transactor)
               .onError(_ => IO.println(s"[ERROR] mp3 missing from the DB: " + mp3))
               .attempt
-              .attempt
               .map(_.isRight)
           )
       )

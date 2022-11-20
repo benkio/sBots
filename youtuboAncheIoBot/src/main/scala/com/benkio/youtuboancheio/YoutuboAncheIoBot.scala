@@ -92,6 +92,34 @@ object YoutuboAncheIoBot extends BotOps {
       mediafiles = List(
         MediaFile("ytai_Donazioni.mp3")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("bengalino"),
+        StringTextTriggerValue("pappagallo"),
+        StringTextTriggerValue("uccellino"),
+      ),
+      mediafiles = List(
+        MediaFile("ytai_BengalinoDiamantino.mp3")
+      ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("cocod[eè]".r, 6),
+        StringTextTriggerValue("gallina")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_Cocode.mp3")
+      ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("\\bmisc\\b".r, 4),
+        RegexTextTriggerValue("\\bm[i]+[a]+[o]+\\b".r, 4)
+      ),
+      mediafiles = List(
+        MediaFile("ytai_Misc.mp3")
+      ),
     )
   )
 
