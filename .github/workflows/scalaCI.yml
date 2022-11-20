@@ -24,3 +24,16 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run Integration tests
       run: sbt "IntegrationTest/test"
+  dependenciesUpdate:
+    runs-on: ubuntu-latest
+    if: startsWith( github.head_ref, 'update' )
+    needs:
+      - lint
+      - test
+      - itTest
+    steps:
+    - name: merge dependency update PRs
+      uses: desbo/merge-pr-action@v0.3.2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ALLOWED_UPDATE: any
