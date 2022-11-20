@@ -9,7 +9,7 @@ object Dependencies {
     val catsVersion           = "2.8.0"
     val cormorant             = "0.5.0-M1"
     val fs2Cron               = "0.7.2"
-    val flyway                = "9.8.1"
+    val flyway                = "9.8.2"
     val doobie                = "1.0.0-RC2"
     val lightbendEmojiVersion = "1.3.0"
     val logEffects            = "0.16.3"
