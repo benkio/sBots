@@ -26,7 +26,7 @@ jobs:
       run: sbt "IntegrationTest/test"
   dependenciesUpdate:
     runs-on: ubuntu-latest
-    if: startsWith( ${GITHUB_REF}, 'refs/heads/update' )
+    if: startsWith( github.ref, 'refs/heads/update' )
     needs:
       - lint
       - test
