@@ -4,8 +4,9 @@ on:
   push:
     branches:
         - "**"
-  pull_request:
-    types: [opened, reopened]
+        - "update/*"
+  # pull_request:
+  #   types: [opened, reopened]
 
 jobs:
   lint:
