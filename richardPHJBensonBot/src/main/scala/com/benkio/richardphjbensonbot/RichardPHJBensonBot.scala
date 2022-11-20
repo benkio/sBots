@@ -236,7 +236,7 @@ object RichardPHJBensonBot extends BotOps {
   )
   def token[F[_]: Async]: Resource[F, String] =
     ResourceAccess
-      .fromResources[F]
+      .fromResources[F]()
       .getResourceByteArray("rphjb_RichardPHJBensonBot.token")
       .map(_.map(_.toChar).mkString)
 

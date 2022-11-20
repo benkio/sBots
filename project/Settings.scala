@@ -78,6 +78,8 @@ object Settings {
   lazy val BotDBSettings = Seq(
     name                := "botDB",
     libraryDependencies := BotDBDependencies,
-    mainClass           := Some("com.benkio.botDB.Main")
+    mainClass           := Some("com.benkio.botDB.Main"),
+    Test / javaOptions += s"-Dconfig.file=${sourceDirectory.value}/test/resources/application.test.conf",
+    Test / fork := true
   ) ++ assemblySettings ++ Defaults.itSettings
 }

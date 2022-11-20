@@ -1094,7 +1094,7 @@ object YoutuboAncheIoBot extends BotOps {
   )
 
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources.getResourceByteArray("ytai_YoutuboAncheIoBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources().getResourceByteArray("ytai_YoutuboAncheIoBot.token").map(_.map(_.toChar).mkString)
 
   final case class BotSetup[F[_]](
       token: String,

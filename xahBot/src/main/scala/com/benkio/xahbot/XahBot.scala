@@ -72,7 +72,7 @@ object XahBot extends BotOps {
   val botPrefix: String   = "xah"
   val linkSources: String = "xah_LinkSources"
   def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources.getResourceByteArray("xah_XahBot.token").map(_.map(_.toChar).mkString)
+    ResourceAccess.fromResources().getResourceByteArray("xah_XahBot.token").map(_.map(_.toChar).mkString)
 
   final case class BotSetup[F[_]](
       token: String,

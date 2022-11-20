@@ -24,7 +24,7 @@ class XahBotSpec extends CatsEffectSuite {
   val emptyDBLayer                  = DBLayerMock.mock()
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
-    resourceAccess = ResourceAccess.fromResources[IO],
+    resourceAccess = ResourceAccess.fromResources[IO](),
     youtubeLinkSources = "",
     botName = "XahBot"
   ).unsafeRunSync()
@@ -40,7 +40,7 @@ class XahBotSpec extends CatsEffectSuite {
     val botFile =
       CommandRepliesData
         .values[IO](
-          resourceAccess = ResourceAccess.fromResources[IO],
+          resourceAccess = ResourceAccess.fromResources[IO](),
           botName = "xahBot",
           backgroundJobManager = emptyBackgroundJobManager,
           linkSources = ""

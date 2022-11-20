@@ -34,7 +34,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   val emptyDBLayer               = DBLayerMock.mock()
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
-    resourceAccess = ResourceAccess.fromResources[IO],
+    resourceAccess = ResourceAccess.fromResources[IO](),
     youtubeLinkSources = "",
     botName = "RichardPHJBensonBot"
   ).unsafeRunSync()
@@ -66,7 +66,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist = RichardPHJBensonBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO],
+        resourceAccess = ResourceAccess.fromResources[IO](),
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer,
         linkSources = ""
@@ -77,7 +77,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
     assertEquals(
       RichardPHJBensonBot
         .commandRepliesData[IO](
-          resourceAccess = ResourceAccess.fromResources[IO],
+          resourceAccess = ResourceAccess.fromResources[IO](),
           backgroundJobManager = emptyBackgroundJobManager,
           dbLayer = emptyDBLayer,
           linkSources = ""
@@ -94,7 +94,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   test("instructions command should return the expected message") {
     val actual = RichardPHJBensonBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO],
+        resourceAccess = ResourceAccess.fromResources[IO](),
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer,
         linkSources = ""
