@@ -20,7 +20,7 @@ object Media {
 
   def apply(dbMediaData: DBMediaData): Either[Throwable, Media] = for {
     uri       <- Uri.fromString(dbMediaData.media_url)
-    createdAt <- Try(Instant.parse(dbMediaData.created_at)).toEither
+    createdAt <- Try(Instant.ofEpochSecond(dbMediaData.created_at.toLong)).toEither
   } yield Media(
     mediaName = dbMediaData.media_name,
     kind = dbMediaData.kind,

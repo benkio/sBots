@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import cats.syntax.all._
 import munit._
 import org.http4s.Uri
@@ -34,5 +35,17 @@ class MediaSpec extends FunSuite {
 1    | test name 2 | https://benkio.github.io
 2    | test name 3 | https://benkio.github.io""".stripMargin
     )
+  }
+
+  test("Media.apply should correctly parse a valid db record") {
+    val input: DBMediaData = DBMediaData(
+      media_name = "rphjb_Animali.mp3",
+      kind = None,
+      media_url = "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AADgdXIhpbWU57v4_jZyc0G3a/rphjb_Animali.mp3?dl=1",
+      media_count = 0,
+      created_at = "1662126018293"
+    )
+
+    assert(Media(input).isRight)
   }
 }
