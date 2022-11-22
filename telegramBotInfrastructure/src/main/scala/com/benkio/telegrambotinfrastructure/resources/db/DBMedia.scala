@@ -40,7 +40,7 @@ trait DBMedia[F[_]] {
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData]
   def getMediaQueryByKind(kind: String): Query0[DBMediaData]
-  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String], limit: Int): Query0[DBMediaData]
+  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData]
 }
 
 object DBMedia {
@@ -70,11 +70,16 @@ object DBMedia {
     override def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
       sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[DBMediaData]
 
-    override def getMediaQueryByMediaCount(mediaNamePrefix: Option[String], limit: Int): Query0[DBMediaData] = {
-      def query(whereClause: Fragment) =
-        sql"SELECT media_name, kind, media_url, media_count, created_at FROM media $whereClause ORDER BY media_count DESC LIMIT $limit"
-          .query[DBMediaData]
-      mediaNamePrefix.fold(query(Fragment.empty))(prefix => query(s"WHERE media_name LIKE '$prefix%'".fr))
+    override def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
+      val q: Fragment =
+        fr"SELECT media_name, kind, media_url, media_count, created_at FROM media" ++
+          Fragments.whereAndOpt(mediaNamePrefix.map(s => {
+            val like = s + "%"
+            fr"media_name LIKE $like"
+          })) ++
+          fr"ORDER BY media_count DESC"
+
+      q.query[DBMediaData]
     }
 
     def incrementMediaCountQuery(media: DBMediaData): Update0 =
@@ -143,7 +148,10 @@ object DBMedia {
         limit: Int = 20,
         mediaNamePrefix: Option[String] = None
     ): F[List[DBMediaData]] =
-      getMediaQueryByMediaCount(limit = limit, mediaNamePrefix = mediaNamePrefix).stream.compile.toList
+      getMediaQueryByMediaCount(mediaNamePrefix = mediaNamePrefix).stream
+        .take(limit.toLong)
+        .compile
+        .toList
         .transact(transactor)
   }
 }

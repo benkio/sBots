@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import cats.syntax.all._
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import munit._
 import org.http4s.Uri
 

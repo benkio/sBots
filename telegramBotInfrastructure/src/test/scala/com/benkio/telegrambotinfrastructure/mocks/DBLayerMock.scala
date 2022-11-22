@@ -71,9 +71,9 @@ object DBLayerMock {
           .fold(ms)(oldValue => ms.filterNot(_ == oldValue) :+ oldValue.copy(media_count = oldValue.media_count + 1))
       )
 
-    override def getMediaQueryByName(resourceName: String): Query0[DBMediaData]                              = ???
-    override def getMediaQueryByKind(kind: String): Query0[DBMediaData]                                      = ???
-    override def getMediaQueryByMediaCount(mediaNamePrefix: Option[String], limit: Int): Query0[DBMediaData] = ???
+    override def getMediaQueryByName(resourceName: String): Query0[DBMediaData]                  = ???
+    override def getMediaQueryByKind(kind: String): Query0[DBMediaData]                          = ???
+    override def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = ???
   }
 
   class DBSubscriptionMock(db: Ref[IO, List[DBSubscriptionData]]) extends DBSubscription[IO] {
