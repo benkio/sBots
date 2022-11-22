@@ -40,9 +40,9 @@ object CommandPatterns {
     val randomLinkCommandDescriptionEng: String =
       "'/randomshow': Return the link of one show/video about the bot's character"
     val randomLinkKeywordCommandIta: String =
-      "'/randomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato"
+      "'/searchrandomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato"
     val randomLinkKeywordCommandEng: String =
-      "'/randomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword"
+      "'/searchrandomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword"
 
     lazy val random = new Random()
 
@@ -72,13 +72,13 @@ object CommandPatterns {
         youtubeLinkSources: String
     )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
-        trigger = CommandTrigger("randomshowkeyword"),
+        trigger = CommandTrigger("searchrandomshowkeyword"),
         text = Some(
           TextReply[F](
             m =>
               handleCommandWithInput[F](
                 m,
-                "randomshowkeyword",
+                "searchrandomshowkeyword",
                 botName,
                 keywords =>
                   RandomLinkCommand
