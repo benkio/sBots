@@ -3,8 +3,9 @@ package com.benkio.youtuboancheiobot
 import cats._
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.default.Actions._
+import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
@@ -14,19 +15,14 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerList
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import com.benkio.telegrambotinfrastructure.BotOps
-import com.benkio.telegrambotinfrastructure._
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
-import doobie.Transactor
 import log.effect.LogWriter
+import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import org.http4s.Status
-import org.http4s.Uri
 import telegramium.bots.high._
 
 class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
@@ -74,13 +70,15 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
       .pure[F]
 
 }
-object YoutuboAncheIoBot extends BotOps {
+object YoutuboAncheIoBot {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "YoutuboAncheIoBot"
   val botPrefix: String                   = "ytai"
   val triggerListUri: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/youtuboAncheIoBot/ytai_triggers.txt"
   val linkSources: String = "ytai_LinkSources"
+  val tokenFilename: String   = "ytai_YoutuboAncheIoBot.token"
+  val configNamespace: String = "ytaiDB"
 
   def messageRepliesAudioData[
       F[_]
@@ -1093,100 +1091,45 @@ object YoutuboAncheIoBot extends BotOps {
     ),
   )
 
-  def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources().getResourceByteArray("ytai_YoutuboAncheIoBot.token").map(_.map(_.toChar).mkString)
-
-  final case class BotSetup[F[_]](
-      token: String,
-      httpClient: Client[F],
-      resourceAccess: ResourceAccess[F],
-      dbLayer: DBLayer[F]
-  )
-
-  def buildCommonBot[F[_]: Async](
-      httpClient: Client[F]
-  )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
-    tk     <- token[F]
-    config <- Resource.eval(Config.loadConfig[F])
-    _      <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
-    transactor = Transactor.fromDriverManager[F](
-      config.driver,
-      config.url,
-      "",
-      ""
-    )
-    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
-    dbLayer    <- Resource.eval(DBLayer[F](transactor))
-    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
-    _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
-    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
-    _ <- Resource.eval(
-      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException(
-          s"[$botName] The delete webhook request failed: " + deleteWebhookResponse.as[String]
-        )
-      )
-    )
-    _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-  } yield BotSetup[F](tk, httpClient, resourceAccess, dbLayer)
-
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: YoutuboAncheIoBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    botSetup   <- buildCommonBot[F](httpClient)
-  } yield botSetup).use(botSetup => {
-    implicit val api: Api[F] =
-      BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
-    implicit val ra: ResourceAccess[F] = botSetup.resourceAccess
-    for {
-      backgroundJobManager <- BackgroundJobManager[F](
-        dbSubscription = botSetup.dbLayer.dbSubscription,
-        resourceAccess = botSetup.resourceAccess,
-        youtubeLinkSources = YoutuboAncheIoBot.linkSources,
-        botName = YoutuboAncheIoBot.botName
-      )
-      result <- action(
-        new YoutuboAncheIoBotPolling[F](
-          resAccess = botSetup.resourceAccess,
-          dbLayer = botSetup.dbLayer,
-          backgroundJobManager = backgroundJobManager
-        )
-      )
-    } yield result
-  })
+    botSetup <- BotSetup(
+      httpClient = httpClient,
+      tokenFilename = tokenFilename,
+      namespace = configNamespace,
+      botName = botName,
+      linkSources = linkSources
+    )
+  } yield botSetup).use { botSetup =>
+    action(
+      new YoutuboAncheIoBotPolling[F](
+        resAccess = botSetup.resourceAccess,
+        dbLayer = botSetup.dbLayer,
+        backgroundJobManager = botSetup.backgroundJobManager
+      )(Parallel[F], Async[F], botSetup.api, botSetup.action, log)
+    )
+  }
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
-  )(implicit log: LogWriter[F]): Resource[F, YoutuboAncheIoBotWebhook[F]] = for {
-    botSetup <- buildCommonBot[F](httpClient)
-    baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
-    path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
-    webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
-    api       = BotApi(httpClient, baseUrl = baseUrl.renderString)
-    resAccess = botSetup.resourceAccess
-    backgroundJobManager <- {
-      implicit val implApi: Api[F] = api
-      implicit val implResAccess   = resAccess
-      Resource.eval(
-        BackgroundJobManager[F](
-          dbSubscription = botSetup.dbLayer.dbSubscription,
-          resourceAccess = botSetup.resourceAccess,
-          youtubeLinkSources = YoutuboAncheIoBot.linkSources,
-          botName = YoutuboAncheIoBot.botName
-        )
-      )
+  )(implicit log: LogWriter[F]): Resource[F, YoutuboAncheIoBotWebhook[F]] =
+    BotSetup(
+      httpClient = httpClient,
+      tokenFilename = tokenFilename,
+      namespace = configNamespace,
+      botName = botName,
+      linkSources = linkSources,
+      webhookBaseUrl = webhookBaseUrl
+    ).map { botSetup =>
+      new YoutuboAncheIoBotWebhook[F](
+        uri = botSetup.webhookUri,
+        path = botSetup.webhookPath,
+        resAccess = botSetup.resourceAccess,
+        dbLayer = botSetup.dbLayer,
+        backgroundJobManager = botSetup.backgroundJobManager
+      )(Async[F], botSetup.api, botSetup.action, log)
     }
-  } yield {
-    implicit val implApi: Api[F] = api
-    implicit val implResAccess   = resAccess
-    new YoutuboAncheIoBotWebhook[F](
-      uri = webhookBaseUri,
-      resAccess = botSetup.resourceAccess,
-      dbLayer = botSetup.dbLayer,
-      backgroundJobManager = backgroundJobManager,
-      path = path
-    )
-  }
 }

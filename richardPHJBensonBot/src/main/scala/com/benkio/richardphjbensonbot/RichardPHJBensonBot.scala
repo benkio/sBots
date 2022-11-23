@@ -116,7 +116,7 @@ object RichardPHJBensonBot {
       F
     ] ++ messageRepliesSpecialData[F])
       .sorted(ReplyBundle.orderingInstance[F])
-      .reverse
+      .reversen
 
   val timeoutCommandDescriptionIta: String =
     "'/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00"
