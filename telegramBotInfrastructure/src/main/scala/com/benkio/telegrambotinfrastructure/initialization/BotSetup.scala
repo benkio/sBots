@@ -4,9 +4,9 @@ import cats.MonadThrow
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.default.Actions
+import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model.Config
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -21,31 +21,31 @@ import telegramium.bots.high.Api
 import telegramium.bots.high.BotApi
 
 final case class BotSetup[F[_]](
-  token: String,
-  httpClient: Client[F],
-  resourceAccess: ResourceAccess[F],
-  dbLayer: DBLayer[F],
-  backgroundJobManager: BackgroundJobManager[F],
-  api: Api[F],
-  action: Action[F],
-  webhookUri: Uri,
-  webhookPath: Uri
+    token: String,
+    httpClient: Client[F],
+    resourceAccess: ResourceAccess[F],
+    dbLayer: DBLayer[F],
+    backgroundJobManager: BackgroundJobManager[F],
+    api: Api[F],
+    action: Action[F],
+    webhookUri: Uri,
+    webhookPath: Uri
 )
 
 object BotSetup {
 
   def deleteWebhooks[F[_]: Async](
-    httpClient: Client[F],
-    token: String,
+      httpClient: Client[F],
+      token: String,
   ): Resource[F, Response[F]] = for {
     uri <- Resource.eval(
       MonadThrow[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$token/setWebhook?url="))
     )
     deleteWebhookRequest: Request[F] =
-    Request[F](
-      method = Method.POST,
-      uri = uri
-    )
+      Request[F](
+        method = Method.POST,
+        uri = uri
+      )
     response <- httpClient.run(deleteWebhookRequest)
   } yield response
 
@@ -56,12 +56,12 @@ object BotSetup {
       .map(_.map(_.toChar).mkString)
 
   def apply[F[_]: Async](
-    httpClient: Client[F],
-    tokenFilename: String,
-    namespace: String,
-    botName: String,
-    linkSources: String,
-    webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
+      httpClient: Client[F],
+      tokenFilename: String,
+      namespace: String,
+      botName: String,
+      linkSources: String,
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
     tk     <- token[F](tokenFilename)
     config <- Resource.eval(Config.loadConfig[F](namespace))
