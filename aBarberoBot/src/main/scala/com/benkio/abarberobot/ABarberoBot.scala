@@ -3,25 +3,21 @@ package com.benkio.abarberobot
 import cats._
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.default.Actions._
+import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import com.benkio.telegrambotinfrastructure.BotOps
-import com.benkio.telegrambotinfrastructure._
-import doobie.Transactor
 import log.effect.LogWriter
+import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import org.http4s.Status
-import org.http4s.Uri
 import telegramium.bots.high._
 
-class ABarberoBotPolling[F[_]: Parallel: Async: Action: Api: LogWriter](
+class ABarberoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
@@ -66,13 +62,15 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
       .pure[F]
 }
 
-object ABarberoBot extends BotOps {
+object ABarberoBot {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "ABarberoBot"
   val botPrefix: String                   = "abar"
-  val triggerListUrl: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
-  val linkSources: String = "abar_LinkSources"
+  val triggerListUrl: Uri     = uri"https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
+  val linkSources: String     = "abar_LinkSources"
+  val tokenFilename: String   = "abar_ABarberoBot.token"
+  val configNamespace: String = "abarDB"
 
   def messageRepliesAudioData[F[_]]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
@@ -943,104 +941,45 @@ object ABarberoBot extends BotOps {
     ),
   )
 
-  def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources().getResourceByteArray("abar_ABarberoBot.token").map(_.map(_.toChar).mkString)
-
-  final case class BotSetup[F[_]](
-      token: String,
-      httpClient: Client[F],
-      resourceAccess: ResourceAccess[F],
-      dbLayer: DBLayer[F]
-  )
-
-  def buildCommonBot[F[_]: Async](
-      httpClient: Client[F]
-  )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
-    tk     <- token[F]
-    config <- Resource.eval(Config.loadConfig[F])
-    _      <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
-    transactor = Transactor.fromDriverManager[F](
-      config.driver,
-      config.url,
-      "",
-      ""
-    )
-    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
-    dbLayer    <- Resource.eval(DBLayer[F](transactor))
-    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
-    _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
-    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
-    _ <- Resource.eval(
-      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException(s"[$botName] The delete webhook request failed: " + deleteWebhookResponse.as[String])
-      )
-    )
-    _ <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
-  } yield BotSetup[F](
-    token = tk,
-    httpClient = httpClient,
-    resourceAccess = resourceAccess,
-    dbLayer = dbLayer
-  )
-
-  def buildPollingBot[F[_]: Parallel: Async: LogWriter, A](
+  def buildPollingBot[F[_]: Parallel: Async, A](
       action: ABarberoBotPolling[F] => F[A]
-  ): F[A] = (for {
+  )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    botSetup   <- buildCommonBot[F](httpClient)
-  } yield botSetup).use(botSetup => {
-    implicit val api: Api[F] =
-      BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
-    implicit val ra: ResourceAccess[F] = botSetup.resourceAccess
-    for {
-      backgroundJobManager <- BackgroundJobManager[F](
-        dbSubscription = botSetup.dbLayer.dbSubscription,
-        resourceAccess = botSetup.resourceAccess,
-        youtubeLinkSources = ABarberoBot.linkSources,
-        botName = ABarberoBot.botName
-      )
-      result <- action(
-        new ABarberoBotPolling[F](
-          resAccess = botSetup.resourceAccess,
-          dbLayer = botSetup.dbLayer,
-          backgroundJobManager = backgroundJobManager
-        )
-      )
-    } yield result
-
-  })
-
-  def buildWebhookBot[F[_]: Async: LogWriter](
-      httpClient: Client[F],
-      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
-  ): Resource[F, ABarberoBotWebhook[F]] = for {
-    botSetup <- buildCommonBot[F](httpClient)
-    baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
-    path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
-    webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
-    api       = BotApi(httpClient, baseUrl = baseUrl.renderString)
-    resAccess = botSetup.resourceAccess
-    backgroundJobManager <- {
-      implicit val implApi: Api[F] = api
-      implicit val implResAccess   = resAccess
-      Resource.eval(
-        BackgroundJobManager[F](
-          dbSubscription = botSetup.dbLayer.dbSubscription,
-          resourceAccess = botSetup.resourceAccess,
-          youtubeLinkSources = ABarberoBot.linkSources,
-          botName = ABarberoBot.botName
-        )
-      )
-    }
-  } yield {
-    implicit val implApi: Api[F] = api
-    implicit val implResAccess   = resAccess
-    new ABarberoBotWebhook[F](
-      uri = webhookBaseUri,
-      resAccess = botSetup.resourceAccess,
-      backgroundJobManager = backgroundJobManager,
-      dbLayer = botSetup.dbLayer,
-      path = path
+    botSetup <- BotSetup(
+      httpClient = httpClient,
+      tokenFilename = tokenFilename,
+      namespace = configNamespace,
+      botName = botName,
+      linkSources = linkSources
+    )
+  } yield botSetup).use { botSetup =>
+    action(
+      new ABarberoBotPolling[F](
+        resAccess = botSetup.resourceAccess,
+        dbLayer = botSetup.dbLayer,
+        backgroundJobManager = botSetup.backgroundJobManager
+      )(Parallel[F], Async[F], botSetup.api, botSetup.action, log)
     )
   }
+
+  def buildWebhookBot[F[_]: Async](
+      httpClient: Client[F],
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
+  )(implicit log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] =
+    BotSetup(
+      httpClient = httpClient,
+      tokenFilename = tokenFilename,
+      namespace = configNamespace,
+      botName = botName,
+      linkSources = linkSources,
+      webhookBaseUrl = webhookBaseUrl
+    ).map { botSetup =>
+      new ABarberoBotWebhook[F](
+        uri = botSetup.webhookUri,
+        path = botSetup.webhookPath,
+        resAccess = botSetup.resourceAccess,
+        dbLayer = botSetup.dbLayer,
+        backgroundJobManager = botSetup.backgroundJobManager
+      )(Async[F], botSetup.api, botSetup.action, log)
+    }
 }

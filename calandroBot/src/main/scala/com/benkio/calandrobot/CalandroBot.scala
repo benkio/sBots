@@ -3,31 +3,27 @@ package com.benkio.calandrobot
 import cats._
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.default.Actions._
+import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import com.benkio.telegrambotinfrastructure.BotOps
-import com.benkio.telegrambotinfrastructure._
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
-import doobie.Transactor
 import log.effect.LogWriter
+import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import org.http4s.Status
-import org.http4s.Uri
 import telegramium.bots.Message
 import telegramium.bots.high._
 
 import scala.util.Random
 
-class CalandroBotPolling[F[_]: Parallel: Api: Async: Action: LogWriter](
+class CalandroBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
@@ -60,10 +56,13 @@ trait CalandroBot[F[_]] extends BotSkeleton[F] {
     CalandroBot.commandRepliesData[F].pure[F]
 }
 
-object CalandroBot extends BotOps {
+object CalandroBot {
 
-  val botName: String   = "CalandroBot"
-  val botPrefix: String = "cala"
+  val botName: String         = "CalandroBot"
+  val botPrefix: String       = "cala"
+  val tokenFilename: String   = "cala_CalandroBot.token"
+  val configNamespace: String = "calaDB"
+
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       TextTrigger(
@@ -335,71 +334,43 @@ object CalandroBot extends BotOps {
     )
   )
 
-  def token[F[_]: Async]: Resource[F, String] =
-    ResourceAccess.fromResources().getResourceByteArray("cala_CalandroBot.token").map(_.map(_.toChar).mkString)
-
-  final case class BotSetup[F[_]](
-      token: String,
-      httpClient: Client[F],
-      resourceAccess: ResourceAccess[F],
-      dbLayer: DBLayer[F]
-  )
-
-  def buildCommonBot[F[_]: Async](
-      httpClient: Client[F]
-  )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
-    tk     <- token[F]
-    config <- Resource.eval(Config.loadConfig[F])
-    _      <- Resource.eval(log.info(s"ABarberoBot Configuration: $config"))
-    transactor = Transactor.fromDriverManager[F](
-      config.driver,
-      config.url,
-      "",
-      ""
-    )
-    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
-    dbLayer    <- Resource.eval(DBLayer[F](transactor))
-    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
-    _                     <- Resource.eval(log.info("[CalandroBot] Delete webook..."))
-    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
-    _ <- Resource.eval(
-      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException("[CalandroBot] The delete webhook request failed: " + deleteWebhookResponse.as[String])
-      )
-    )
-    _ <- Resource.eval(log.info("[CalandroBot] Webhook deleted"))
-
-  } yield BotSetup(tk, httpClient, resourceAccess, dbLayer)
-
-  def buildPollingBot[F[_]: Parallel: Async: LogWriter, A](
+  def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]
-  ): F[A] = (for {
+  )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].build
-    botSetup   <- buildCommonBot[F](httpClient)
-  } yield botSetup)
-    .use(botSetup => {
-      implicit val api: Api[F] =
-        BotApi(botSetup.httpClient, baseUrl = s"https://api.telegram.org/bot${botSetup.token}")
-      implicit val ra: ResourceAccess[F] = botSetup.resourceAccess
-      action(new CalandroBotPolling[F](botSetup.resourceAccess, botSetup.dbLayer))
-    })
-
-  def buildWebhookBot[F[_]: Async: LogWriter](
-      httpClient: Client[F],
-      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
-  ): Resource[F, CalandroBotWebhook[F]] = for {
-    botSetup <- buildCommonBot[F](httpClient)
-    baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
-    path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
-    webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
-  } yield {
-    implicit val api: Api[F]           = BotApi(httpClient, baseUrl = baseUrl.renderString)
-    implicit val ra: ResourceAccess[F] = botSetup.resourceAccess
-    new CalandroBotWebhook[F](
-      uri = webhookBaseUri,
-      resAccess = botSetup.resourceAccess,
-      dbLayer = botSetup.dbLayer,
-      path = path
+    botSetup <- BotSetup(
+      httpClient = httpClient,
+      tokenFilename = tokenFilename,
+      namespace = configNamespace,
+      botName = botName,
+      linkSources = ""
+    )
+  } yield botSetup).use { botSetup =>
+    action(
+      new CalandroBotPolling[F](
+        resAccess = botSetup.resourceAccess,
+        dbLayer = botSetup.dbLayer
+      )(Parallel[F], Async[F], botSetup.api, botSetup.action, log)
     )
   }
+
+  def buildWebhookBot[F[_]: Async](
+      httpClient: Client[F],
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
+  )(implicit log: LogWriter[F]): Resource[F, CalandroBotWebhook[F]] =
+    BotSetup(
+      httpClient = httpClient,
+      tokenFilename = tokenFilename,
+      namespace = configNamespace,
+      botName = botName,
+      linkSources = "",
+      webhookBaseUrl = webhookBaseUrl
+    ).map { botSetup =>
+      new CalandroBotWebhook[F](
+        uri = botSetup.webhookUri,
+        path = botSetup.webhookPath,
+        resAccess = botSetup.resourceAccess,
+        dbLayer = botSetup.dbLayer
+      )(Async[F], botSetup.api, botSetup.action, log)
+    }
 }
