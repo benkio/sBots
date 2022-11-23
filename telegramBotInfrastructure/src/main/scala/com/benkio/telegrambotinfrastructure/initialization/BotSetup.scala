@@ -21,30 +21,31 @@ import telegramium.bots.high.Api
 import telegramium.bots.high.BotApi
 
 final case class BotSetup[F[_]](
-    token: String,
-    httpClient: Client[F],
-    resourceAccess: ResourceAccess[F],
-    dbLayer: DBLayer[F],
-    backgroundJobManager: BackgroundJobManager[F],
+  token: String,
+  httpClient: Client[F],
+  resourceAccess: ResourceAccess[F],
+  dbLayer: DBLayer[F],
+  backgroundJobManager: BackgroundJobManager[F],
   api: Api[F],
   action: Action[F],
-  webhookUri: Uri
+  webhookUri: Uri,
+  webhookPath: Uri
 )
 
 object BotSetup {
 
   def deleteWebhooks[F[_]: Async](
-      httpClient: Client[F],
-      token: String,
+    httpClient: Client[F],
+    token: String,
   ): Resource[F, Response[F]] = for {
     uri <- Resource.eval(
       MonadThrow[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$token/setWebhook?url="))
     )
     deleteWebhookRequest: Request[F] =
-      Request[F](
-        method = Method.POST,
-        uri = uri
-      )
+    Request[F](
+      method = Method.POST,
+      uri = uri
+    )
     response <- httpClient.run(deleteWebhookRequest)
   } yield response
 
@@ -55,9 +56,9 @@ object BotSetup {
       .map(_.map(_.toChar).mkString)
 
   def apply[F[_]: Async](
-      httpClient: Client[F],
-      tokenFilename: String,
-      namespace: String,
+    httpClient: Client[F],
+    tokenFilename: String,
+    namespace: String,
     botName: String,
     linkSources: String,
     webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
@@ -108,6 +109,7 @@ object BotSetup {
     backgroundJobManager = backgroundJobManager,
     api = api,
     action = ra,
-    webhookUri = webhookBaseUri
+    webhookUri = webhookBaseUri,
+    webhookPath = path
   )
 }

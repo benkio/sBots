@@ -253,66 +253,24 @@ object RichardPHJBensonBot {
     )
   }
 
-  // (for {
-  //   httpClient <- EmberClientBuilder.default[F].build
-  //   botSetup   <- buildCommonBot[F](httpClient)
-  // } yield botSetup).use {
-  //   case BotSetup(token, httpClient, resourceAccess, dbLayer) => {
-  //     implicit val api: Api[F] = BotApi(
-  //       httpClient,
-  //       baseUrl = s"https://api.telegram.org/bot$token"
-  //     )
-  //     implicit val ra: ResourceAccess[F] = resourceAccess
-  //     for {
-  //       backgroundJobManager <- BackgroundJobManager[F](
-  //         dbSubscription = dbLayer.dbSubscription,
-  //         resourceAccess = resourceAccess,
-  //         youtubeLinkSources = RichardPHJBensonBot.linkSources,
-  //         botName = RichardPHJBensonBot.botName
-  //       )
-  //       result <- action(
-  //         new RichardPHJBensonBotPolling[F](
-  //           resAccess = resourceAccess,
-  //           dbLayer = dbLayer,
-  //           backgroundJobManager = backgroundJobManager
-  //         )
-  //       )
-  //     } yield result
-  //   }
-  // }
-
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
-  )(implicit log: LogWriter[F]): Resource[F, RichardPHJBensonBotWebhook[F]] = ???
-  // for {
-  //   botSetup <- buildCommonBot[F](httpClient)
-  //   baseUrl  <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${botSetup.token}")))
-  //   path     <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${botSetup.token}")))
-  //   webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
-  //   api       = BotApi(httpClient, baseUrl = baseUrl.renderString)
-  //   resAccess = botSetup.resourceAccess
-  //   backgroundJobManager <- {
-  //     implicit val implApi: Api[F] = api
-  //     implicit val implResAccess   = resAccess
-  //     Resource.eval(
-  //       BackgroundJobManager[F](
-  //         dbSubscription = botSetup.dbLayer.dbSubscription,
-  //         resourceAccess = botSetup.resourceAccess,
-  //         youtubeLinkSources = RichardPHJBensonBot.linkSources,
-  //         botName = RichardPHJBensonBot.botName
-  //       )
-  //     )
-  //   }
-  // } yield {
-  //   implicit val implApi: Api[F] = api
-  //   implicit val implResAccess   = resAccess
-  //   new RichardPHJBensonBotWebhook[F](
-  //     uri = webhookBaseUri,
-  //     path = path,
-  //     resAccess = botSetup.resourceAccess,
-  //     dbLayer = botSetup.dbLayer,
-  //     backgroundJobManager = backgroundJobManager
-  //   )
-  // }
+  )(implicit log: LogWriter[F]): Resource[F, RichardPHJBensonBotWebhook[F]] =
+    BotSetup(
+      httpClient = httpClient,
+      tokenFilename = tokenFilename,
+      namespace = configNamespace,
+      botName = botName,
+      linkSources = linkSources,
+      webhookBaseUrl = webhookBaseUrl
+    ).map { botSetup =>
+      new RichardPHJBensonBotWebhook[F](
+        uri = botSetup.webhookUri,
+        path = botSetup.webhookPath,
+        resAccess = botSetup.resourceAccess,
+        dbLayer = botSetup.dbLayer,
+        backgroundJobManager = botSetup.backgroundJobManager
+      )(Async[F], botSetup.api, botSetup.action, log)
+    }
 }
