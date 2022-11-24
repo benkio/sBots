@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS timeout(
-  chat_id INTEGER PRIMARY KEY,
+  chat_id BIGINT PRIMARY KEY NOT NULL,
   timeout_value TEXT NOT NULL,
   last_interaction TEXT NOT NULL
 );

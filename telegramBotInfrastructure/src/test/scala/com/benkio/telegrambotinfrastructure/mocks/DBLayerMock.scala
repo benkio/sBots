@@ -12,7 +12,6 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 import doobie._
 
-import java.sql.Timestamp
 import java.time.Instant
 import java.util.UUID
 
@@ -36,9 +35,13 @@ object DBLayerMock {
       db.update(ts =>
         ts.find(t => t.chat_id == chatId)
           .fold(ts)(oldValue =>
-            ts.filterNot(_ == oldValue) :+ oldValue.copy(last_interaction = Timestamp.from(Instant.now()))
+            ts.filterNot(_ == oldValue) :+ oldValue.copy(last_interaction = Instant.now().getEpochSecond().toString)
           )
       )
+
+    override def getOrDefaultQuery(chatId: Long): Query0[DBTimeoutData] = ???
+    override def setTimeoutQuery(timeout: DBTimeoutData): Update0       = ???
+    override def logLastInteractionQuery(chatId: Long): Update0         = ???
   }
 
   class DBMediaMock(db: Ref[IO, List[DBMediaData]]) extends DBMedia[IO] {
@@ -95,6 +98,9 @@ object DBLayerMock {
     ): IO[Unit] =
       db.update((subs: List[DBSubscriptionData]) => subs.filterNot((s: DBSubscriptionData) => s.chat_id == chatId))
 
-    override def getSubscriptionsQuery(): Query0[DBSubscriptionData] = ???
+    override def getSubscriptionsQuery(): Query0[DBSubscriptionData]                = ???
+    override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 = ???
+    override def deleteSubscriptionQuery(subscriptionId: String): Update0           = ???
+    override def deleteSubscriptionsQuery(chatId: Long): Update0                    = ???
   }
 }

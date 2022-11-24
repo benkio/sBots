@@ -40,6 +40,9 @@ trait DBSubscription[F[_]] {
   ): F[Unit]
 
   def getSubscriptionsQuery(): Query0[DBSubscriptionData]
+  def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0
+  def deleteSubscriptionQuery(subscriptionId: String): Update0
+  def deleteSubscriptionsQuery(chatId: Long): Update0
 }
 
 object DBSubscription {
@@ -60,13 +63,13 @@ object DBSubscription {
     override def getSubscriptionsQuery(): Query0[DBSubscriptionData] =
       sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription".query[DBSubscriptionData]
 
-    def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
+    override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
       sql"INSERT INTO subscription (subscription_id, chat_id, bot_name, cron, subscribed_at) VALUES (${fragments.values(subscription)})".update
 
-    def deleteSubscriptionQuery(subscriptionId: String): Update0 =
+    override def deleteSubscriptionQuery(subscriptionId: String): Update0 =
       sql"DELETE FROM subscription WHERE subscription_id = $subscriptionId".update
 
-    def deleteSubscriptionsQuery(chatId: Long): Update0 =
+    override def deleteSubscriptionsQuery(chatId: Long): Update0 =
       sql"DELETE FROM subscription WHERE chat_id = $chatId".update
 
     override def insertSubscription(subscription: DBSubscriptionData): F[Unit] =
