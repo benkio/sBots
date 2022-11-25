@@ -64,7 +64,7 @@ object DBSubscription {
       sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription".query[DBSubscriptionData]
 
     override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
-      sql"INSERT INTO subscription (subscription_id, chat_id, bot_name, cron, subscribed_at) VALUES (${fragments.values(subscription)})".update
+      sql"INSERT INTO subscription (subscription_id, chat_id, bot_name, cron, subscribed_at) VALUES ${fragments.parentheses(fragments.values(subscription))}".update
 
     override def deleteSubscriptionQuery(subscriptionId: String): Update0 =
       sql"DELETE FROM subscription WHERE subscription_id = $subscriptionId".update
