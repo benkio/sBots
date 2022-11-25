@@ -23,3 +23,10 @@ pwYoutubo.close
 val pwCalandro = new PrintWriter(new File("calandroBot/cala_triggers.txt" ))
 pwCalandro.write(inputCalandro)
 pwCalandro.close
+
+
+/*
+ Get the list of youtube videos command example:
+
+ yt-dlp --print "%(id)s||%(title)s||%(upload_date)s||%(duration)s||%(description)s" "https://www.youtube.com/c/xahlee" > xahVideos.txt
+ */
