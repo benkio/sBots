@@ -32,6 +32,7 @@ object Dependencies {
     val fs2Cron           = "eu.timepit"        %% "fs2-cron-cron4s"     % dependenciesVersion.fs2Cron
     val http4sEmberClient = "org.http4s"        %% "http4s-ember-client" % dependenciesVersion.http4s
     val doobie            = "org.tpolecat"      %% "doobie-core"         % dependenciesVersion.doobie
+    val doobieMunit       = "org.tpolecat"      %% "doobie-munit"        % dependenciesVersion.doobie
     val flyway            = "org.flywaydb"       % "flyway-core"         % dependenciesVersion.flyway
     val lightbendEmoji    = "com.lightbend"     %% "emoji"               % dependenciesVersion.lightbendEmojiVersion
     val logEffects        = "io.laserdisc"      %% "log-effect-fs2"      % dependenciesVersion.logEffects
@@ -62,6 +63,7 @@ object Dependencies {
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
       libs.doobie,
+      libs.doobieMunit,
       libs.flyway,
       libs.fs2Cron,
       libs.mules,

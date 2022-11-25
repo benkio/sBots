@@ -34,11 +34,12 @@ object Timeout {
   )
 
   def apply(dbTimeoutData: DBTimeoutData): Either[Throwable, Timeout] = for {
-    timeoutValue <- Try(dbTimeoutData.timeout_value.toLong.millis).toEither
+    timeoutValue    <- Try(dbTimeoutData.timeout_value.toLong.millis).toEither
+    lastInteraction <- Try(dbTimeoutData.last_interaction.toLong).toEither
   } yield Timeout(
     chatId = dbTimeoutData.chat_id,
     timeoutValue = timeoutValue,
-    lastInteraction = dbTimeoutData.last_interaction.toInstant()
+    lastInteraction = Instant.ofEpochSecond(lastInteraction)
   )
 
   def isExpired(timeout: Timeout): Boolean =

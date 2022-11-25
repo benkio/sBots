@@ -1,13 +1,16 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
+import doobie.Transactor
+import java.sql.DriverManager
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
+import doobie.munit.analysisspec.IOChecker
 
 import cats.effect.IO
 
-class ITDBMediaSpec extends CatsEffectSuite with DBFixture {
+class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
   val testMediaName   = "rphjb_MaSgus.mp3"
   val testMediaKind   = "some kind"
@@ -20,25 +23,27 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture {
     "1669122662279"
   )
 
+  override def transactor: doobie.Transactor[cats.effect.IO] = {
+    Class.forName("org.sqlite.JDBC")
+    val conn = DriverManager.getConnection(dbUrl)
+    runMigrations(dbUrl, migrationTable, migrationPath)
+    val transactor = Transactor.fromConnection[IO](conn)
+    transactor
+  }
+
   databaseFixture.test(
     "DBMedia queries should check"
   ) { fixture =>
-    {
-      val y = fixture.transactor.yolo
-      import y._
-
-      fixture.resourceDBLayer
-        .map(_.dbMedia)
-        .use(dbMedia =>
-          for {
-            _ <- dbMedia.getMediaQueryByName(testMediaName).check
-            _ <- dbMedia.getMediaQueryByKind(testMediaKind).check
-            _ <- dbMedia.getMediaQueryByMediaCount(mediaNamePrefix = Some(testMediaPrefix)).check
-          } yield ()
-        )
-        .assert
-
-    }
+    fixture.resourceDBLayer
+      .map(_.dbMedia)
+      .use(dbMedia =>
+        for {
+          _ <- IO(checkOutput(dbMedia.getMediaQueryByName(testMediaName)))
+          _ <- IO(checkOutput(dbMedia.getMediaQueryByKind(testMediaKind)))
+          _ <- IO(checkOutput(dbMedia.getMediaQueryByMediaCount(mediaNamePrefix = Some(testMediaPrefix))))
+        } yield ()
+      )
+      .assert
   }
 
   databaseFixture.test(
@@ -95,10 +100,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       medias  <- Resource.eval(dbMedia.getMediaByKind(kind = "rphjb_LinkSources"))
-    } yield {
-      println(s"medias: $medias")
-      medias == expected
-    }
+    } yield medias == expected
     resourceAssert.use(IO.pure).assert
   }
 
@@ -132,10 +134,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       medias  <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3))
-    } yield {
-      println(s"medias2: $medias")
-      medias == expected
-    }
+    } yield medias == expected
     resourceAssert.use(IO.pure).assert
   }
 

@@ -1,7 +1,7 @@
 PRAGMA foreign_keys=off;
 
 CREATE TABLE IF NOT EXISTS temp_media(
-  media_name TEXT PRIMARY KEY,
+  media_name TEXT PRIMARY KEY NOT NULL,
   kind TEXT NULL,
   media_url TEXT NOT NULL,
   media_count INTEGER NOT NULL DEFAULT 0,
