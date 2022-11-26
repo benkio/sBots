@@ -29,4 +29,7 @@ pwCalandro.close
  Get the list of youtube videos command example:
 
  yt-dlp --print "%(id)s||%(title)s||%(upload_date)s||%(duration)s||%(description)s" "https://www.youtube.com/c/xahlee" > xahVideos.txt
+
+ Get the list of YouTube live streams json: 
+youtube-dl -j -o "%(id)s||%(title)s||%(upload_date)s||%(duration)s||%(description)s" "https://www.youtube.com/@XahLee/streams" >> xahVideos.txt
  */
