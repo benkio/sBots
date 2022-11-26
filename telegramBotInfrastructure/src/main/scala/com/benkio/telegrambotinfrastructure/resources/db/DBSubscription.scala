@@ -40,7 +40,7 @@ trait DBSubscription[F[_]] {
       chatId: Long
   ): F[Unit]
 
-  def getSubscriptionsQuery(): Query0[DBSubscriptionData]
+  def getSubscriptionsQuery(botName: String): Query0[DBSubscriptionData]
   def getSubscriptionQuery(id: String): Query0[DBSubscriptionData]
   def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0
   def deleteSubscriptionQuery(subscriptionId: String): Update0
@@ -62,8 +62,9 @@ object DBSubscription {
       log: LogWriter[F]
   ) extends DBSubscription[F] {
 
-    override def getSubscriptionsQuery(): Query0[DBSubscriptionData] =
-      sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription".query[DBSubscriptionData]
+    override def getSubscriptionsQuery(botName: String): Query0[DBSubscriptionData] =
+      sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription WHERE bot_name = $botName"
+        .query[DBSubscriptionData]
 
     override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
       sql"INSERT INTO subscription (subscription_id, chat_id, bot_name, cron, subscribed_at) VALUES ${fragments
@@ -95,7 +96,7 @@ object DBSubscription {
       )
 
     override def getSubscriptionsByBotName(botName: String): F[List[DBSubscriptionData]] =
-      getSubscriptionsQuery().stream.compile.toList.transact(transactor) <* log.info(s"Get subscriptions")
+      getSubscriptionsQuery(botName).stream.compile.toList.transact(transactor) <* log.info(s"Get subscriptions")
 
     override def getSubscription(id: String): F[Option[DBSubscriptionData]] =
       getSubscriptionQuery(id).option.transact(transactor) <* log.info(s"Get subscription: $id")

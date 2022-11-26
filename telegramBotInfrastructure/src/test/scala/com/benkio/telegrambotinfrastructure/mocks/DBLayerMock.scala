@@ -103,7 +103,7 @@ object DBLayerMock {
     override def getSubscription(id: String): IO[Option[DBSubscriptionData]] =
       db.get.map(_.find(sub => sub.id.toString == id))
 
-    override def getSubscriptionsQuery(): Query0[DBSubscriptionData]                = ???
+    override def getSubscriptionsQuery(botName: String): Query0[DBSubscriptionData] = ???
     override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 = ???
     override def deleteSubscriptionQuery(subscriptionId: String): Update0           = ???
     override def deleteSubscriptionsQuery(chatId: Long): Update0                    = ???
