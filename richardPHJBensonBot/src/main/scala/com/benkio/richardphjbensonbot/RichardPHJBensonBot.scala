@@ -73,7 +73,6 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = RichardPHJBensonBot.botName
   override val botPrefix: String                   = RichardPHJBensonBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
-  val linkSources: String                          = RichardPHJBensonBot.linkSources
   val backgroundJobManager: BackgroundJobManager[F]
 
   override def messageRepliesDataF(implicit
@@ -85,10 +84,8 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     RichardPHJBensonBot
       .commandRepliesData[F](
-        resourceAccess,
         backgroundJobManager,
-        dbLayer,
-        linkSources
+        dbLayer
       )
       .pure[F]
 
@@ -107,7 +104,6 @@ object RichardPHJBensonBot {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerListUri: Uri =
     uri"https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
-  val linkSources: String     = "rphjb_LinkSources"
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
   val configNamespace: String = "rphjbDB"
 
@@ -128,10 +124,8 @@ object RichardPHJBensonBot {
     "'/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
 
   def commandRepliesData[F[_]: Async](
-      resourceAccess: ResourceAccess[F],
       backgroundJobManager: BackgroundJobManager[F],
-      dbLayer: DBLayer[F],
-      linkSources: String
+      dbLayer: DBLayer[F]
   )(implicit
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
@@ -146,13 +140,12 @@ object RichardPHJBensonBot {
       dbMedia = dbLayer.dbMedia
     ),
     RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      youtubeLinkSources = linkSources
+      dbShow = dbLayer.dbShow,
+      botName = botName
     ),
     RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      botName = botName,
-      youtubeLinkSources = linkSources
+      dbShow = dbLayer.dbShow,
+      botName = botName
     ),
     SubscribeUnsubscribeCommand.subscribeReplyBundleCommand[F](
       backgroundJobManager = backgroundJobManager,
@@ -241,7 +234,6 @@ object RichardPHJBensonBot {
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       botName = botName,
-      linkSources = linkSources
     )
   } yield botSetup).use { botSetup =>
     action(
@@ -262,7 +254,6 @@ object RichardPHJBensonBot {
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       botName = botName,
-      linkSources = linkSources,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new RichardPHJBensonBotWebhook[F](

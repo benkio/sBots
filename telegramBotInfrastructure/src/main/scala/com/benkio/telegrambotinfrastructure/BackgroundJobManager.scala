@@ -8,7 +8,7 @@ import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import cron4s.expr.CronExpr
@@ -43,15 +43,13 @@ object BackgroundJobManager {
 
   def apply[F[_]: Async](
       dbSubscription: DBSubscription[F],
-      resourceAccess: ResourceAccess[F],
-      youtubeLinkSources: String,
+      dbShow: DBShow[F],
       botName: String
   )(implicit replyAction: Action[F], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
     backgroundJobManager <- Async[F].pure(
       new BackgroundJobManagerImpl(
         dbSubscription = dbSubscription,
-        resourceAccess = resourceAccess,
-        youtubeLinkSources = youtubeLinkSources,
+        dbShow = dbShow,
         botName = botName
       )
     )
@@ -60,8 +58,7 @@ object BackgroundJobManager {
 
   class BackgroundJobManagerImpl[F[_]: Async](
       dbSubscription: DBSubscription[F],
-      resourceAccess: ResourceAccess[F],
-      youtubeLinkSources: String,
+      dbShow: DBShow[F],
       val botName: String
   )(implicit replyAction: Action[F], log: LogWriter[F])
       extends BackgroundJobManager[F] {
@@ -74,8 +71,8 @@ object BackgroundJobManager {
       subscriptionReference <- BackgroundJobManager.runSubscription(
         subscription,
         cronScheduler,
-        resourceAccess,
-        youtubeLinkSources
+        dbShow,
+        botName
       )
       _ <- dbSubscription.insertSubscription(DBSubscriptionData(subscription))
     } yield memSubscriptions += subscriptionReference
@@ -84,7 +81,7 @@ object BackgroundJobManager {
       subscriptionsData <- dbSubscription.getSubscriptionsByBotName(botName)
       subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
       subscriptionReferences <- subscriptions.traverse(s =>
-        BackgroundJobManager.runSubscription(s, cronScheduler, resourceAccess, youtubeLinkSources)
+        BackgroundJobManager.runSubscription(s, cronScheduler, dbShow, botName)
       )
     } yield memSubscriptions = MMap.from(subscriptionReferences)
 
@@ -113,8 +110,8 @@ object BackgroundJobManager {
   def runSubscription[F[_]: Async](
       subscription: Subscription,
       cronScheduler: Scheduler[F, CronExpr],
-      resourceAccess: ResourceAccess[F],
-      youtubeLinkSources: String
+      dbShow: DBShow[F],
+      botName: String
   )(implicit replyAction: Action[F], log: LogWriter[F]): F[(SubscriptionKey, Fiber[F, Throwable, Unit])] = {
     val scheduled: Stream[F, Unit] = for {
       _ <- cronScheduler.awakeEvery(subscription.cron)
@@ -126,8 +123,7 @@ object BackgroundJobManager {
       ) // Only the chat id matters here
       reply = TextReply[F](_ =>
         CommandPatterns.RandomLinkCommand
-          .selectRandomLinkByKeyword[F]("", resourceAccess, youtubeLinkSources)
-          .use(optMessage => Applicative[F].pure(optMessage.toList))
+          .selectRandomLinkByKeyword[F]("", dbShow, botName)
       )
       _ <- Stream.eval(replyAction(reply)(message))
     } yield ()

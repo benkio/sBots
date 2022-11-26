@@ -54,10 +54,8 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     ABarberoBot
       .commandRepliesData[F](
-        resourceAccess,
         backgroundJobManager,
-        dbLayer,
-        linkSources
+        dbLayer
       )
       .pure[F]
 }
@@ -883,10 +881,8 @@ object ABarberoBot {
       .reverse
 
   def commandRepliesData[F[_]: Async](
-      resourceAccess: ResourceAccess[F],
       backgroundJobManager: BackgroundJobManager[F],
-      dbLayer: DBLayer[F],
-      linkSources: String
+      dbLayer: DBLayer[F]
   )(implicit
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
@@ -897,13 +893,12 @@ object ABarberoBot {
       mdr = messageRepliesData[F]
     ),
     RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      youtubeLinkSources = linkSources
+      botName = botName,
+      dbShow = dbLayer.dbShow
     ),
     RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = resourceAccess,
       botName = botName,
-      youtubeLinkSources = linkSources
+      dbShow = dbLayer.dbShow
     ),
     StatisticsCommands.topTwentyReplyBundleCommand[F](
       botPrefix = botPrefix,
@@ -949,8 +944,7 @@ object ABarberoBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName,
-      linkSources = linkSources
+      botName = botName
     )
   } yield botSetup).use { botSetup =>
     action(
@@ -971,7 +965,6 @@ object ABarberoBot {
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       botName = botName,
-      linkSources = linkSources,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new ABarberoBotWebhook[F](

@@ -342,8 +342,7 @@ object CalandroBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName,
-      linkSources = ""
+      botName = botName
     )
   } yield botSetup).use { botSetup =>
     action(
@@ -363,7 +362,6 @@ object CalandroBot {
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       botName = botName,
-      linkSources = "",
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new CalandroBotWebhook[F](

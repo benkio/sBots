@@ -8,7 +8,6 @@ import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Trigger
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -29,18 +28,15 @@ class ABarberoBotSpec extends CatsEffectSuite {
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
   val emptyBackgroundJobManager = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
-    ResourceAccess.fromResources[IO](),
-    "",
+    emptyDBLayer.dbShow,
     "ABarberoBot"
   ).unsafeRunSync()
 
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist: String = ABarberoBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO](),
         backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer,
-        linkSources = ""
+        dbLayer = emptyDBLayer
       )
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.get.text(privateTestMessage).unsafeRunSync())
@@ -48,10 +44,8 @@ class ABarberoBotSpec extends CatsEffectSuite {
     assertEquals(
       ABarberoBot
         .commandRepliesData[IO](
-          resourceAccess = ResourceAccess.fromResources[IO](),
           backgroundJobManager = emptyBackgroundJobManager,
-          dbLayer = emptyDBLayer,
-          linkSources = ""
+          dbLayer = emptyDBLayer
         )
         .length,
       8
@@ -106,10 +100,8 @@ class ABarberoBotSpec extends CatsEffectSuite {
   test("instructions command should return the expected message") {
     val actual = ABarberoBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO](),
         backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer,
-        linkSources = ""
+        dbLayer = emptyDBLayer
       )
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.get.text(privateTestMessage))

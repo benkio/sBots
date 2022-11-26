@@ -19,11 +19,14 @@ final case class DBShowData(
 )
 
 object DBShowData {
+
+  val dateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+
   def apply(show: Show): DBShowData = DBShowData(
     show_url = show.url.renderString,
     bot_name = show.botName,
     show_title = show.title,
-    show_upload_date = show.uploadDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")),
+    show_upload_date = show.uploadDate.format(dateTimeFormatter),
     show_duration = show.duration,
     show_description = show.description
   )

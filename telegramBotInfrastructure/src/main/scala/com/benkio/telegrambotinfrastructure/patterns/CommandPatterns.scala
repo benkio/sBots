@@ -1,7 +1,6 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
 import cats.effect.Async
-import cats.effect.Resource
 import cats.implicits._
 import cats.Applicative
 import cats.ApplicativeThrow
@@ -12,12 +11,13 @@ import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.Media
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.Show
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import cron4s._
 import cron4s.lib.javatime._
 import log.effect.LogWriter
@@ -45,29 +45,28 @@ object CommandPatterns {
     lazy val random = new Random()
 
     def selectRandomLinkReplyBundleCommand[F[_]: Async](
-        resourceAccess: ResourceAccess[F],
-        youtubeLinkSources: String
+        dbShow: DBShow[F],
+        botName: String
     )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("randomshow"),
         text = Some(
           TextReply[F](
             _ =>
-              selectRandomLinkByKeyword[F](
-                "",
-                resourceAccess,
-                youtubeLinkSources
-              )
-                .use(optMessage => Applicative[F].pure(optMessage.toList)),
+              RandomLinkCommand
+                .selectRandomLinkByKeyword[F](
+                  "",
+                  dbShow,
+                  botName
+                ),
             true
           )
         ),
       )
 
     def selectRandomLinkByKeywordsReplyBundleCommand[F[_]: Async](
-        resourceAccess: ResourceAccess[F],
-        botName: String,
-        youtubeLinkSources: String
+        dbShow: DBShow[F],
+        botName: String
     )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("searchrandomshowkeyword"),
@@ -82,12 +81,9 @@ object CommandPatterns {
                   RandomLinkCommand
                     .selectRandomLinkByKeyword[F](
                       keywords,
-                      resourceAccess,
-                      youtubeLinkSources
-                    )
-                    .use(_.foldl(List(s"Nessuna puntata/show contenente '$keywords' è stata trovata")) { case (_, v) =>
-                      List(v)
-                    }.pure[F]),
+                      dbShow,
+                      botName
+                    ),
                 s"Inserisci una keyword da cercare tra le puntate/shows"
               ),
             true
@@ -97,9 +93,24 @@ object CommandPatterns {
 
     def selectRandomLinkByKeyword[F[_]: Async](
         keywords: String,
-        resourceAccess: ResourceAccess[F],
-        youtubeLinkSources: String
-    )(implicit log: LogWriter[F]): Resource[F, Option[String]] = ???
+        dbShow: DBShow[F],
+        botName: String
+    )(implicit log: LogWriter[F]): F[List[String]] = {
+      val dbCall = keywords.isEmpty match {
+        case true  => dbShow.getShows(botName)
+        case false => dbShow.getShowByKeywordTitle(keywords, botName)
+      }
+
+      for {
+        _       <- log.info(s"Select random Show: $botName - $keywords")
+        results <- dbCall
+        result <-
+          if (results.isEmpty)
+            List(s"Nessuna puntata/show contenente '$keywords' è stata trovata").pure[F]
+          else
+            Show.apply[F](results(random.nextInt(results.length))).map(show => List(show.show))
+      } yield result
+    }
   }
 
   object TriggerListCommand {

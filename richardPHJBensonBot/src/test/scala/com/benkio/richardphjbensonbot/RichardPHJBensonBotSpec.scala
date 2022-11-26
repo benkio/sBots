@@ -10,7 +10,6 @@ import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Trigger
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -34,8 +33,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   val emptyDBLayer               = DBLayerMock.mock()
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
-    resourceAccess = ResourceAccess.fromResources[IO](),
-    youtubeLinkSources = "",
+    dbShow = emptyDBLayer.dbShow,
     botName = "RichardPHJBensonBot"
   ).unsafeRunSync()
 
@@ -66,10 +64,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   test("triggerlist should return a list of all triggers when called") {
     val triggerlist = RichardPHJBensonBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO](),
         backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer,
-        linkSources = ""
+        dbLayer = emptyDBLayer
       )
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.get.text(privateTestMessage).unsafeRunSync())
@@ -77,10 +73,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
     assertEquals(
       RichardPHJBensonBot
         .commandRepliesData[IO](
-          resourceAccess = ResourceAccess.fromResources[IO](),
           backgroundJobManager = emptyBackgroundJobManager,
-          dbLayer = emptyDBLayer,
-          linkSources = ""
+          dbLayer = emptyDBLayer
         )
         .length,
       10
@@ -94,10 +88,8 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   test("instructions command should return the expected message") {
     val actual = RichardPHJBensonBot
       .commandRepliesData[IO](
-        resourceAccess = ResourceAccess.fromResources[IO](),
         backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer,
-        linkSources = ""
+        dbLayer = emptyDBLayer
       )
       .filter(_.trigger.command == "instructions")
       .flatTraverse(_.text.get.text(privateTestMessage))

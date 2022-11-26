@@ -50,7 +50,6 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = YoutuboAncheIoBot.botName
   override val botPrefix: String                   = YoutuboAncheIoBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = YoutuboAncheIoBot.ignoreMessagePrefix
-  val linkSources                                  = YoutuboAncheIoBot.linkSources
   val backgroundJobManager: BackgroundJobManager[F]
 
   override def messageRepliesDataF(implicit
@@ -62,10 +61,8 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     YoutuboAncheIoBot
       .commandRepliesData[F](
-        resourceAccess = resourceAccess,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
-        linkSources = linkSources
       )
       .pure[F]
 
@@ -76,7 +73,6 @@ object YoutuboAncheIoBot {
   val botName: String                     = "YoutuboAncheIoBot"
   val botPrefix: String                   = "ytai"
   val triggerListUri: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/youtuboAncheIoBot/ytai_triggers.txt"
-  val linkSources: String = "ytai_LinkSources"
   val tokenFilename: String   = "ytai_YoutuboAncheIoBot.token"
   val configNamespace: String = "ytaiDB"
 
@@ -1033,10 +1029,8 @@ object YoutuboAncheIoBot {
   def commandRepliesData[
       F[_]: Async
   ](
-      resourceAccess: ResourceAccess[F],
       backgroundJobManager: BackgroundJobManager[F],
-      dbLayer: DBLayer[F],
-      linkSources: String
+      dbLayer: DBLayer[F]
   )(implicit
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
@@ -1047,13 +1041,12 @@ object YoutuboAncheIoBot {
       mdr = messageRepliesData[F]
     ),
     RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      resourceAccess = resourceAccess,
-      youtubeLinkSources = linkSources
+      botName = botName,
+      dbShow = dbLayer.dbShow
     ),
     RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
-      resourceAccess = resourceAccess,
       botName = botName,
-      youtubeLinkSources = linkSources
+      dbShow = dbLayer.dbShow
     ),
     StatisticsCommands.topTwentyReplyBundleCommand[F](
       botPrefix = botPrefix,
@@ -1099,8 +1092,7 @@ object YoutuboAncheIoBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName,
-      linkSources = linkSources
+      botName = botName
     )
   } yield botSetup).use { botSetup =>
     action(
@@ -1121,7 +1113,6 @@ object YoutuboAncheIoBot {
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       botName = botName,
-      linkSources = linkSources,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new YoutuboAncheIoBotWebhook[F](

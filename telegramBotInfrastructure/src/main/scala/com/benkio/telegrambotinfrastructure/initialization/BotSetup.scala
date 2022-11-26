@@ -60,7 +60,6 @@ object BotSetup {
       tokenFilename: String,
       namespace: String,
       botName: String,
-      linkSources: String,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
     tk     <- token[F](tokenFilename)
@@ -94,8 +93,7 @@ object BotSetup {
     backgroundJobManager <- Resource.eval(
       BackgroundJobManager[F](
         dbSubscription = dbLayer.dbSubscription,
-        resourceAccess = resourceAccess,
-        youtubeLinkSources = linkSources,
+        dbShow = dbLayer.dbShow,
         botName = botName
       )(Async[F], ra, log)
     )

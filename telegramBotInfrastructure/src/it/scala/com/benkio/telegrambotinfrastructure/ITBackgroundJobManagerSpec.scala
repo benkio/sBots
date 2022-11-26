@@ -34,13 +34,11 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "The creation of the BackgroundJobManager with empty subscriptions should load no subscriptions in memory"
   ) { fixture =>
     for {
-      resourceAccess <- fixture.resourceAccessResource
-      dbLayer        <- fixture.resourceDBLayer
+      dbLayer <- fixture.resourceDBLayer
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
-          resourceAccess = resourceAccess,
-          youtubeLinkSources = "abar_LinkSources",
+          dbShow = dbLayer.dbShow,
           botName = botName
         )
       )
@@ -51,14 +49,12 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "The creation of the BackgroundJobManager with non empty subscriptions should load subscriptions in memory and run the background tasks without errors"
   ) { fixture =>
     for {
-      resourceAccess <- fixture.resourceAccessResource
-      dbLayer        <- fixture.resourceDBLayer
-      _              <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
+      dbLayer <- fixture.resourceDBLayer
+      _       <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
-          resourceAccess = resourceAccess,
-          youtubeLinkSources = "abar_LinkSources",
+          dbShow = dbLayer.dbShow,
           botName = botName
         )
       )
@@ -83,13 +79,11 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "BackgroundJobManager.scheduleSubscription should run a subscription, add it to the in memory map and store it in the DB"
   ) { fixture =>
     for {
-      resourceAccess <- fixture.resourceAccessResource
-      dbLayer        <- fixture.resourceDBLayer
+      dbLayer <- fixture.resourceDBLayer
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
-          resourceAccess = resourceAccess,
-          youtubeLinkSources = "abar_LinkSources",
+          dbShow = dbLayer.dbShow,
           botName = botName
         )
       )
@@ -117,13 +111,11 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "BackgroundJobManager.cancelSubscription should cancel in memory job, remove the in memory entry and it the db"
   ) { fixture =>
     for {
-      resourceAccess <- fixture.resourceAccessResource
-      dbLayer        <- fixture.resourceDBLayer
+      dbLayer <- fixture.resourceDBLayer
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
-          resourceAccess = resourceAccess,
-          youtubeLinkSources = "abar_LinkSources",
+          dbShow = dbLayer.dbShow,
           botName = botName
         )
       )
