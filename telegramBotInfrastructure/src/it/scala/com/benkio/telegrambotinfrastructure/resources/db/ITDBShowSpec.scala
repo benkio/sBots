@@ -15,7 +15,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
   val botName = "RichardPHJBensonBot"
 
   val testShow: DBShowData = DBShowData(
-    show_id = "8lNe8xmtgc8",
+    show_url = "https://www.youtube.com/watch?v=8lNe8xmtgc8",
     bot_name = botName,
     show_title = "Cocktail Micidiale 21 gennaio 2005 (puntata completa) il segreto di Brian May, Paul Gilbert",
     show_upload_date = "20180610",

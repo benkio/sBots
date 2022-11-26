@@ -24,10 +24,8 @@ import log.effect.LogWriter
 import org.http4s.Uri
 import telegramium.bots.Message
 
-import java.nio.file.Files
 import java.time.LocalDateTime
 import java.util.UUID
-import scala.io.Source
 import scala.util.Random
 import scala.util.Try
 
@@ -101,28 +99,7 @@ object CommandPatterns {
         keywords: String,
         resourceAccess: ResourceAccess[F],
         youtubeLinkSources: String
-    )(implicit log: LogWriter[F]): Resource[F, Option[String]] = for {
-      _           <- Resource.eval(log.info(s"selectRandomLinkByKeyword for $keywords - $youtubeLinkSources"))
-      sourceFiles <- resourceAccess.getResourcesByKind(youtubeLinkSources)
-      sourceRawBytesArray = sourceFiles.map(f => Files.readAllBytes(f.toPath))
-      sourceRawBytes = sourceRawBytesArray.foldLeft(Array.empty[Byte]) { case (acc, bs) =>
-        acc ++ (('\n'.toByte) +: bs)
-      }
-      youtubeLinkReplies = Source
-        .fromBytes(sourceRawBytes)
-        .getLines()
-        .toList
-        .filter(s =>
-          keywords
-            .split(' ')
-            .map(_.toLowerCase)
-            .forall(k => s.toLowerCase.contains(k))
-        )
-      lineSelectedIndex <-
-        if (!youtubeLinkReplies.isEmpty)
-          Resource.eval(Async[F].delay(random.between(0, youtubeLinkReplies.length)))
-        else Resource.pure[F, Int](-1)
-    } yield if (lineSelectedIndex == -1) None else Some(youtubeLinkReplies(lineSelectedIndex))
+    )(implicit log: LogWriter[F]): Resource[F, Option[String]] = ???
   }
 
   object TriggerListCommand {
@@ -326,6 +303,7 @@ ${if (ignoreMessagePrefix.isDefined) {
         ),
       )
   }
+
   object StatisticsCommands {
 
     val topTwentyTriggersCommandDescriptionIta: String =

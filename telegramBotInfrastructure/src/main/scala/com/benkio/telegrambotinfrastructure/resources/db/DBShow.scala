@@ -10,7 +10,7 @@ import log.effect.LogWriter
 import java.time.format.DateTimeFormatter
 
 final case class DBShowData(
-    show_id: String,
+    show_url: String,
     bot_name: String,
     show_title: String,
     show_upload_date: String,
@@ -20,7 +20,7 @@ final case class DBShowData(
 
 object DBShowData {
   def apply(show: Show): DBShowData = DBShowData(
-    show_id = show.id,
+    show_url = show.url.renderString,
     bot_name = show.botName,
     show_title = show.title,
     show_upload_date = show.uploadDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")),
@@ -62,10 +62,10 @@ object DBShow {
       )
 
     override def getShowsQuery(botName: String): Query0[DBShowData] =
-      sql"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description FROM show WHERE bot_name = $botName"
+      sql"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description FROM show WHERE bot_name = $botName"
         .query[DBShowData]
     override def getShowByKeywordTitleQuery(keyword: String, botName: String): Query0[DBShowData] = {
-      val q = fr"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description FROM show" ++
+      val q = fr"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description FROM show" ++
         Fragments.whereAnd(
           fr"bot_name = $botName",
           fr"show_title LIKE ${"%" + keyword + "%"}"
