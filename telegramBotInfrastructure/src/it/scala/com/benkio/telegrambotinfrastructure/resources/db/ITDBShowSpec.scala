@@ -50,9 +50,11 @@ arriva il peggio del peggio""")
     "DBShow: should return the test show sample"
   ) { fixture =>
     val resourceAssert = for {
-      dbShow <- fixture.resourceDBLayer.map(_.dbShow)
+      dbShow      <- fixture.resourceDBLayer.map(_.dbShow)
       bensonShows <- Resource.eval(dbShow.getShows(botName))
-      bensonShowsByKeyword <- Resource.eval(dbShow.getShowByKeywordTitle("il segreto di Brian May, Paul Gilbert", botName))
+      bensonShowsByKeyword <- Resource.eval(
+        dbShow.getShowByKeywordTitle("il segreto di Brian May, Paul Gilbert", botName)
+      )
     } yield (bensonShows, bensonShowsByKeyword)
 
     resourceAssert.use { case (bensonShows, bensonShowsByKeyword) =>

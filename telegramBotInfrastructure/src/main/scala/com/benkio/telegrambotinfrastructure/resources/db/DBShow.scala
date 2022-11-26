@@ -10,22 +10,22 @@ import log.effect.LogWriter
 import java.time.format.DateTimeFormatter
 
 final case class DBShowData(
-  show_id          : String,
-  bot_name         : String,
-  show_title       : String,
-  show_upload_date : String,
-  show_duration    : Int,
-  show_description : Option[String]
+    show_id: String,
+    bot_name: String,
+    show_title: String,
+    show_upload_date: String,
+    show_duration: Int,
+    show_description: Option[String]
 )
 
 object DBShowData {
   def apply(show: Show): DBShowData = DBShowData(
-    show_id          = show.id,
-      bot_name         = show.botName,
-      show_title       = show.title,
-      show_upload_date = show.uploadDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")),
-      show_duration    = show.duration,
-      show_description = show.description
+    show_id = show.id,
+    bot_name = show.botName,
+    show_title = show.title,
+    show_upload_date = show.uploadDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")),
+    show_duration = show.duration,
+    show_description = show.description
   )
 }
 
@@ -40,7 +40,7 @@ trait DBShow[F[_]] {
 object DBShow {
 
   def apply[F[_]: Async](
-    transactor: Transactor[F],
+      transactor: Transactor[F],
   )(implicit log: LogWriter[F]): DBShow[F] =
     new DBShowImpl[F](
       transactor = transactor,
@@ -48,8 +48,8 @@ object DBShow {
     )
 
   private[telegrambotinfrastructure] class DBShowImpl[F[_]: Async](
-    transactor: Transactor[F],
-    log: LogWriter[F]
+      transactor: Transactor[F],
+      log: LogWriter[F]
   ) extends DBShow[F] {
 
     override def getShows(botName: String): F[List[DBShowData]] =
@@ -62,13 +62,14 @@ object DBShow {
       )
 
     override def getShowsQuery(botName: String): Query0[DBShowData] =
-      sql"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description FROM show WHERE bot_name = $botName".query[DBShowData]
-    override def getShowByKeywordTitleQuery(keyword: String, botName: String): Query0[DBShowData] ={
+      sql"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description FROM show WHERE bot_name = $botName"
+        .query[DBShowData]
+    override def getShowByKeywordTitleQuery(keyword: String, botName: String): Query0[DBShowData] = {
       val q = fr"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description FROM show" ++
-      Fragments.whereAnd(
-        fr"bot_name = $botName",
-        fr"show_title LIKE ${"%" + keyword + "%"}"
-      )
+        Fragments.whereAnd(
+          fr"bot_name = $botName",
+          fr"show_title LIKE ${"%" + keyword + "%"}"
+        )
 
       q.query[DBShowData]
     }
