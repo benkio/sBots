@@ -5,7 +5,6 @@ import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.Reply
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -24,8 +23,7 @@ class XahBotSpec extends CatsEffectSuite {
   val emptyDBLayer                  = DBLayerMock.mock()
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
-    resourceAccess = ResourceAccess.fromResources[IO](),
-    youtubeLinkSources = "",
+    dbShow = emptyDBLayer.dbShow,
     botName = "XahBot"
   ).unsafeRunSync()
 
@@ -40,10 +38,9 @@ class XahBotSpec extends CatsEffectSuite {
     val botFile =
       CommandRepliesData
         .values[IO](
-          resourceAccess = ResourceAccess.fromResources[IO](),
           botName = "xahBot",
           backgroundJobManager = emptyBackgroundJobManager,
-          linkSources = ""
+          dbShow = emptyDBLayer.dbShow
         )
         .flatMap(_.mediafiles.map(_.filename))
 

@@ -8,6 +8,7 @@ import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure._
 import log.effect.LogWriter
@@ -24,6 +25,7 @@ class XahBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
 ) extends BotSkeletonPolling[F]
     with XahBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override val dbShow: DBShow[F]                                          = dbLayer.dbShow
 }
 
 class XahBotWebhook[F[_]: Async: Api: Action: LogWriter](
@@ -35,24 +37,15 @@ class XahBotWebhook[F[_]: Async: Api: Action: LogWriter](
 ) extends BotSkeletonWebhook[F](uri, path)
     with XahBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override val dbShow: DBShow[F]                                          = dbLayer.dbShow
 }
 
 trait XahBot[F[_]] extends BotSkeleton[F] {
 
   override val botName: String   = XahBot.botName
   override val botPrefix: String = XahBot.botPrefix
-  val linkSources: String        = XahBot.linkSources
   val backgroundJobManager: BackgroundJobManager[F]
-
-  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    CommandRepliesData
-      .values[F](
-        resourceAccess = resourceAccess,
-        backgroundJobManager = backgroundJobManager,
-        linkSources = linkSources,
-        botName = botName
-      )
-      .pure[F]
+  val dbShow: DBShow[F]
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -60,13 +53,21 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
   ): F[List[ReplyBundleMessage[F]]] =
     log.debug("[XahBot] Empty message reply data") *> List.empty.pure[F]
 
+  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+    CommandRepliesData
+      .values[F](
+        dbShow = dbShow,
+        backgroundJobManager = backgroundJobManager,
+        botName = botName
+      )
+      .pure[F]
+
 }
 
 object XahBot {
 
   val botName: String         = "XahBot"
   val botPrefix: String       = "xah"
-  val linkSources: String     = "xah_LinkSources"
   val tokenFilename: String   = "xah_XahBot.token"
   val configNamespace: String = "xahDB"
 
@@ -78,8 +79,7 @@ object XahBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName,
-      linkSources = linkSources
+      botName = botName
     )
   } yield botSetup).use { botSetup =>
     action(
@@ -100,7 +100,6 @@ object XahBot {
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       botName = botName,
-      linkSources = linkSources,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new XahBotWebhook[F](

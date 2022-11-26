@@ -6,7 +6,6 @@ import telegramium.bots.Message
 
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model.Reply
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
 
@@ -23,8 +22,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   val botName: String               = "botname"
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
-    resourceAccess = ResourceAccess.fromResources[IO](),
-    youtubeLinkSources = "",
+    dbShow = emptyDBLayer.dbShow,
     botName = botName
   ).unsafeRunSync()
 
@@ -36,13 +34,13 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val transactor = fixture.transactor
     val resourceAssert = for {
       resourceDBMedia <- fixture.resourceDBLayer.map(_.dbMedia)
+      resourceDBShow  <- fixture.resourceDBLayer.map(_.dbShow)
       files <- Resource.pure(
         CommandRepliesData
           .values[IO](
-            resourceAccess = ResourceAccess.fromResources[IO](),
             botName = botName,
+            dbShow = resourceDBShow,
             backgroundJobManager = emptyBackgroundJobManager,
-            linkSources = ""
           )
           .flatMap(_.mediafiles)
       )

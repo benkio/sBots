@@ -5,7 +5,12 @@ import cats.implicits._
 import doobie.Transactor
 import log.effect.LogWriter
 
-final case class DBLayer[F[_]](dbTimeout: DBTimeout[F], dbMedia: DBMedia[F], dbSubscription: DBSubscription[F])
+final case class DBLayer[F[_]](
+    dbTimeout: DBTimeout[F],
+    dbMedia: DBMedia[F],
+    dbSubscription: DBSubscription[F],
+    dbShow: DBShow[F]
+)
 
 object DBLayer {
 
@@ -18,9 +23,11 @@ object DBLayer {
       transactor,
       log
     )
+    dbShow = DBShow(transactor)
   } yield DBLayer[F](
     dbTimeout = dbTimeout,
     dbSubscription = dbSubscription,
-    dbMedia = dbMedia
+    dbMedia = dbMedia,
+    dbShow = dbShow
   )
 }

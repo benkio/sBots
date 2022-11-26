@@ -8,27 +8,25 @@ import com.benkio.telegrambotinfrastructure.model.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import log.effect.LogWriter
 
 object CommandRepliesData {
 
   def values[F[_]: Async](
-      resourceAccess: ResourceAccess[F],
+      dbShow: DBShow[F],
       backgroundJobManager: BackgroundJobManager[F],
-      linkSources: String,
       botName: String
   )(implicit
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand[F](
-      resourceAccess = resourceAccess,
+      dbShow = dbShow,
       botName = botName,
-      youtubeLinkSources = linkSources
     ),
     RandomLinkCommand.selectRandomLinkReplyBundleCommand[F](
-      resourceAccess = resourceAccess,
-      youtubeLinkSources = linkSources
+      dbShow = dbShow,
+      botName = botName,
     ),
     SubscribeUnsubscribeCommand.subscribeReplyBundleCommand[F](
       backgroundJobManager = backgroundJobManager,
