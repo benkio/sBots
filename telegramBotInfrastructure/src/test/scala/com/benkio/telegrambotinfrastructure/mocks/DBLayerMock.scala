@@ -96,16 +96,18 @@ object DBLayerMock {
         subscriptionId: UUID
     ): IO[Unit] =
       db.update((subs: List[DBSubscriptionData]) => subs.filterNot((s: DBSubscriptionData) => s.id == subscriptionId))
-
     override def deleteSubscriptions(
         chatId: Long
     ): IO[Unit] =
       db.update((subs: List[DBSubscriptionData]) => subs.filterNot((s: DBSubscriptionData) => s.chat_id == chatId))
+    override def getSubscription(id: String): IO[Option[DBSubscriptionData]] =
+      db.get.map(_.find(sub => sub.id.toString == id))
 
     override def getSubscriptionsQuery(): Query0[DBSubscriptionData]                = ???
     override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 = ???
     override def deleteSubscriptionQuery(subscriptionId: String): Update0           = ???
     override def deleteSubscriptionsQuery(chatId: Long): Update0                    = ???
+    override def getSubscriptionQuery(id: String): Query0[DBSubscriptionData]       = ???
   }
   class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
     override def getShows(botName: String): IO[List[DBShowData]] =

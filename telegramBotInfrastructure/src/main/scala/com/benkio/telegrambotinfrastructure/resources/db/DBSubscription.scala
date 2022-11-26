@@ -31,6 +31,7 @@ object DBSubscriptionData {
 
 trait DBSubscription[F[_]] {
   def getSubscriptionsByBotName(botName: String): F[List[DBSubscriptionData]]
+  def getSubscription(id: String): F[Option[DBSubscriptionData]]
   def insertSubscription(subscription: DBSubscriptionData): F[Unit]
   def deleteSubscription(
       subscriptionId: UUID
@@ -40,6 +41,7 @@ trait DBSubscription[F[_]] {
   ): F[Unit]
 
   def getSubscriptionsQuery(): Query0[DBSubscriptionData]
+  def getSubscriptionQuery(id: String): Query0[DBSubscriptionData]
   def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0
   def deleteSubscriptionQuery(subscriptionId: String): Update0
   def deleteSubscriptionsQuery(chatId: Long): Update0
@@ -94,6 +96,12 @@ object DBSubscription {
 
     override def getSubscriptionsByBotName(botName: String): F[List[DBSubscriptionData]] =
       getSubscriptionsQuery().stream.compile.toList.transact(transactor) <* log.info(s"Get subscriptions")
+
+    override def getSubscription(id: String): F[Option[DBSubscriptionData]] =
+      getSubscriptionQuery(id).option.transact(transactor) <* log.info(s"Get subscription: $id")
+    override def getSubscriptionQuery(id: String): Query0[DBSubscriptionData] =
+      sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
+        .query[DBSubscriptionData]
 
   }
 }

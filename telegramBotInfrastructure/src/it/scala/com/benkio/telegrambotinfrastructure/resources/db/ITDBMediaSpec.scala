@@ -23,12 +23,11 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     "1669122662279"
   )
 
-  def checkMedia(actual :DBMediaData, expected: DBMediaData) =
-    actual.media_name  == expected.media_name  &&
-    actual.media_url   == expected.media_url   &&
-    actual.kind        == expected.kind        &&
-  actual.media_count == expected.media_count
-
+  def checkMedia(actual: DBMediaData, expected: DBMediaData) =
+    actual.media_name == expected.media_name &&
+      actual.media_url == expected.media_url &&
+      actual.kind == expected.kind &&
+      actual.media_count == expected.media_count
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
     Class.forName("org.sqlite.JDBC")
@@ -107,7 +106,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       medias  <- Resource.eval(dbMedia.getMediaByKind(kind = "rphjb_LinkSources"))
-    } yield medias.zip(expected).foldLeft(true){ case (acc, (actual, exp)) => acc && checkMedia(actual, exp) }
+    } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) => acc && checkMedia(actual, exp) }
     resourceAssert.use(IO.pure).assert
   }
 
@@ -141,7 +140,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       medias  <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3))
-    } yield medias.zip(expected).foldLeft(true){ case (acc, (actual, exp)) => acc && checkMedia(actual, exp) }
+    } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) => acc && checkMedia(actual, exp) }
     resourceAssert.use(IO.pure).assert
   }
 
