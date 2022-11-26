@@ -39,7 +39,7 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
       .map(_.dbSubscription)
       .use(dbSubscription =>
         for {
-          _ <- IO(checkOutput(dbSubscription.getSubscriptionsQuery()))
+          _ <- IO(checkOutput(dbSubscription.getSubscriptionsQuery(botName)))
           _ <- IO(check(dbSubscription.insertSubscriptionQuery(testSubscription)))
           _ <- IO(check(dbSubscription.deleteSubscriptionQuery(testSubscriptionId)))
           _ <- IO(check(dbSubscription.getSubscriptionQuery(testSubscriptionId)))

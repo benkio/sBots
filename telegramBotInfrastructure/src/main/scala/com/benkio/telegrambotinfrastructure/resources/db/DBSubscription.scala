@@ -63,7 +63,8 @@ object DBSubscription {
   ) extends DBSubscription[F] {
 
     override def getSubscriptionsQuery(botName: String): Query0[DBSubscriptionData] =
-      sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription WHERE bot_name = $botName".query[DBSubscriptionData]
+      sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription WHERE bot_name = $botName"
+        .query[DBSubscriptionData]
 
     override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
       sql"INSERT INTO subscription (subscription_id, chat_id, bot_name, cron, subscribed_at) VALUES ${fragments
