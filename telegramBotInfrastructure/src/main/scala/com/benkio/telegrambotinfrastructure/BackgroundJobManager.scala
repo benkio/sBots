@@ -40,6 +40,10 @@ object BackgroundJobManager {
       extends Throwable(s"Subscription Id is not found: $subscriptionId")
   final case class SubscriptionChatIdNotFound(chatId: Long)
       extends Throwable(s"Subscription chat Id is not found: $chatId")
+  final case class StaleSubscription(subscription: Subscription)
+      extends Throwable(
+        s"Subscription is stale: no longer present in DB after awake. Operation Aborted. id: ${subscription.id}"
+      )
 
   def apply[F[_]: Async](
       dbSubscription: DBSubscription[F],
@@ -72,6 +76,7 @@ object BackgroundJobManager {
         subscription,
         cronScheduler,
         dbShow,
+        dbSubscription,
         botName
       )
       _ <- dbSubscription.insertSubscription(DBSubscriptionData(subscription))
@@ -81,7 +86,7 @@ object BackgroundJobManager {
       subscriptionsData <- dbSubscription.getSubscriptionsByBotName(botName)
       subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
       subscriptionReferences <- subscriptions.traverse(s =>
-        BackgroundJobManager.runSubscription(s, cronScheduler, dbShow, botName)
+        BackgroundJobManager.runSubscription(s, cronScheduler, dbShow, dbSubscription, botName)
       )
     } yield memSubscriptions = MMap.from(subscriptionReferences)
 
@@ -111,11 +116,14 @@ object BackgroundJobManager {
       subscription: Subscription,
       cronScheduler: Scheduler[F, CronExpr],
       dbShow: DBShow[F],
+      dbSubscription: DBSubscription[F],
       botName: String
   )(implicit replyAction: Action[F], log: LogWriter[F]): F[(SubscriptionKey, Fiber[F, Throwable, Unit])] = {
     val scheduled: Stream[F, Unit] = for {
-      _ <- cronScheduler.awakeEvery(subscription.cron)
-      _ <- Stream.eval(log.info(s"Executing the Scheduled subscription: $subscription"))
+      _      <- cronScheduler.awakeEvery(subscription.cron)
+      _      <- Stream.eval(log.info(s"Executing the Scheduled subscription: $subscription"))
+      subOpt <- Stream.eval(dbSubscription.getSubscription(subscription.id.toString))
+      _      <- Stream.eval(Async[F].fromOption(subOpt, StaleSubscription(subscription)))
       message = Message(
         messageId = 0,
         date = 0,
