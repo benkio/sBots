@@ -6,6 +6,8 @@ import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
+import com.benkio.telegrambotinfrastructure.resources.db.DBShow
+import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
@@ -20,10 +22,12 @@ object DBLayerMock {
       timeouts: List[DBTimeoutData] = List.empty,
       medias: List[DBMediaData] = List.empty,
       subscriptions: List[DBSubscriptionData] = List.empty,
+      shows: List[DBShowData] = List.empty
   ): DBLayer[IO] = DBLayer(
     dbTimeout = new DBTimeoutMock(Ref.unsafe(timeouts)),
     dbMedia = new DBMediaMock(Ref.unsafe(medias)),
-    dbSubscription = new DBSubscriptionMock(Ref.unsafe(subscriptions))
+    dbSubscription = new DBSubscriptionMock(Ref.unsafe(subscriptions)),
+    dbShow = new DBShowMock(Ref.unsafe(shows))
   )
 
   class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]]) extends DBTimeout[IO] {
@@ -102,5 +106,14 @@ object DBLayerMock {
     override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 = ???
     override def deleteSubscriptionQuery(subscriptionId: String): Update0           = ???
     override def deleteSubscriptionsQuery(chatId: Long): Update0                    = ???
+  }
+  class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
+    override def getShows(botName: String): IO[List[DBShowData]] =
+      db.get.map(_.filter(s => s.bot_name == botName))
+    override def getShowByKeywordTitle(keyword: String, botName: String): IO[List[DBShowData]] =
+      db.get.map(_.filter(s => s.bot_name == botName && s.show_title.contains(keyword)))
+
+    override def getShowsQuery(botName: String): Query0[DBShowData]                               = ???
+    override def getShowByKeywordTitleQuery(keyword: String, botName: String): Query0[DBShowData] = ???
   }
 }
