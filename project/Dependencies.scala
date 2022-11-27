@@ -12,7 +12,7 @@ object Dependencies {
     val flyway                = "9.8.3"
     val doobie                = "1.0.0-RC2"
     val lightbendEmojiVersion = "1.3.0"
-    val logEffects            = "0.16.3"
+    val logEffects            = "0.16.4"
     val mules                 = "0.5.0-M1"
     val mulesHttp4s           = "0.3.0-M1"
     val munit                 = "0.7.29"
