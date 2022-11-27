@@ -198,7 +198,7 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("06"),
+        RegexTextTriggerValue("\\b06\\b".r,2),
         StringTextTriggerValue("prefisso")
       ),
       List(
