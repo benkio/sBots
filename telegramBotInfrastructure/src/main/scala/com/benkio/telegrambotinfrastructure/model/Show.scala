@@ -36,8 +36,8 @@ object Show {
   )
 
   implicit val showInstance: CatsShow[Show] =
-    CatsShow.show(show => s"""${show.url} - ${show.title}
-----------
-${show.description}
-""")
+    CatsShow.show(show =>
+      s"""${show.url} - ${show.title}""" +
+        show.description.fold("")(d => s"""\n----------\n $d""")
+    )
 }
