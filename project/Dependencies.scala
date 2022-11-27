@@ -18,7 +18,7 @@ object Dependencies {
     val munit                 = "0.7.29"
     val munitCatsEffect       = "1.0.7"
     val pureConfig            = "0.17.2"
-    val sqlite                = "3.39.4.1"
+    val sqlite                = "3.40.0.0"
     val telegramiumVersion    = "7.63.0"
     val http4s                = "0.23.16"
   }
