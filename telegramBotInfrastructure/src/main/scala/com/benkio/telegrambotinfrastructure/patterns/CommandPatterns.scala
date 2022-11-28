@@ -12,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.Media
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Show
+import com.benkio.telegrambotinfrastructure.model.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
@@ -98,7 +99,7 @@ object CommandPatterns {
     )(implicit log: LogWriter[F]): F[List[String]] = {
       val dbCall = keywords.isEmpty match {
         case true  => dbShow.getShows(botName)
-        case false => dbShow.getShowByKeywordTitle(keywords, botName)
+        case false => dbShow.getShowByShowQuery(ShowQuery(keywords), botName)
       }
 
       for {

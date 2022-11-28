@@ -2,6 +2,7 @@ package com.benkio.telegrambotinfrastructure.mocks
 
 import cats.effect.IO
 import cats.effect.kernel.Ref
+import com.benkio.telegrambotinfrastructure.model.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
@@ -112,10 +113,10 @@ object DBLayerMock {
   class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
     override def getShows(botName: String): IO[List[DBShowData]] =
       db.get.map(_.filter(s => s.bot_name == botName))
-    override def getShowByKeywordTitle(keyword: String, botName: String): IO[List[DBShowData]] =
-      db.get.map(_.filter(s => s.bot_name == botName && s.show_title.contains(keyword)))
+    override def getShowByShowQuery(query: ShowQuery, botName: String): IO[List[DBShowData]] =
+      ???
 
-    override def getShowsQuery(botName: String): Query0[DBShowData]                               = ???
-    override def getShowByKeywordTitleQuery(keyword: String, botName: String): Query0[DBShowData] = ???
+    override def getShowsQuery(botName: String): Query0[DBShowData]                             = ???
+    override def getShowByShowQueryQuery(query: ShowQuery, botName: String): Query0[DBShowData] = ???
   }
 }

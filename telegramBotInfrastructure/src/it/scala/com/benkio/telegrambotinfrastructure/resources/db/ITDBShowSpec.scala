@@ -1,5 +1,7 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
+import com.benkio.telegrambotinfrastructure.model.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.RandomQuery
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import doobie.Transactor
 import java.sql.DriverManager
@@ -40,7 +42,13 @@ arriva il peggio del peggio""")
       .use(dbShow =>
         for {
           _ <- IO(checkOutput(dbShow.getShowsQuery("botName")))
-          _ <- IO(check(dbShow.getShowByKeywordTitleQuery("test keyword", "botName")))
+          _ <- IO(check(dbShow.getShowByShowQueryQuery(RandomQuery, "botName")))
+          _ <- IO(
+            check(
+              dbShow
+                .getShowByShowQueryQuery(ShowQuery("title=paul+gilbert&description=samurai&minDuration=300"), "botName")
+            )
+          )
         } yield ()
       )
       .assert
@@ -53,7 +61,7 @@ arriva il peggio del peggio""")
       dbShow      <- fixture.resourceDBLayer.map(_.dbShow)
       bensonShows <- Resource.eval(dbShow.getShows(botName))
       bensonShowsByKeyword <- Resource.eval(
-        dbShow.getShowByKeywordTitle("il segreto di Brian May, Paul Gilbert", botName)
+        dbShow.getShowByShowQuery(ShowQuery("title=il+segreto+di+Brian+May,+Paul+Gilbert"), botName)
       )
     } yield (bensonShows, bensonShowsByKeyword)
 
