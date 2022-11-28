@@ -20,11 +20,7 @@ object CommandRepliesData {
   )(implicit
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
-    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand[F](
-      dbShow = dbShow,
-      botName = botName,
-    ),
-    RandomLinkCommand.selectRandomLinkReplyBundleCommand[F](
+    RandomLinkCommand.searchShowReplyBundleCommand[F](
       dbShow = dbShow,
       botName = botName,
     ),
