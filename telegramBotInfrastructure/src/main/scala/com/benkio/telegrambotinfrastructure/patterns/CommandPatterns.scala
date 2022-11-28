@@ -81,7 +81,8 @@ Input as query string:
                       dbShow,
                       botName
                     ),
-                s"Inserisci una keyword da cercare tra le puntate/shows"
+                s"Input non riconosciuto. Controlla le instruzioni per i dettagli",
+                allowEmptyString = true
               ),
             true
           )
@@ -345,10 +346,11 @@ ${if (ignoreMessagePrefix.isDefined) {
       command: String,
       botName: String,
       computation: String => F[List[String]],
-      defaultReply: String
+      defaultReply: String,
+      allowEmptyString: Boolean = false
   ): F[List[String]] =
     msg.text
-      .filterNot(t => t.trim == s"/$command" || t.trim == s"/$command@$botName")
+      .filterNot(t => !allowEmptyString && (t.trim == s"/$command" || t.trim == s"/$command@$botName"))
       .map(t => computation(t.dropWhile(_ != ' ').tail))
       .getOrElse(List(defaultReply).pure[F])
       .handleErrorWith(e =>
