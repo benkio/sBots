@@ -9,9 +9,12 @@ import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.Media
+import com.benkio.telegrambotinfrastructure.model.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Show
+import com.benkio.telegrambotinfrastructure.model.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.ShowQueryKeyword
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
@@ -33,49 +36,43 @@ object CommandPatterns {
 
   object RandomLinkCommand {
 
-    val randomLinkCommandDescriptionIta: String =
-      "'/randomshow': Restituisce un link di uno show/video riguardante il personaggio del bot"
-    val randomLinkCommandDescriptionEng: String =
-      "'/randomshow': Return the link of one show/video about the bot's character"
-    val randomLinkKeywordCommandIta: String =
-      "'/searchrandomshowkeyword 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato"
-    val randomLinkKeywordCommandEng: String =
-      "'/searchrandomshowkeyword 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword"
+    val searchShowCommandIta: String =
+      """'/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
+Input come query string:
+  - No input: restituisce uno show random
+  - 'title=keyword: restituisce uno show contenente la keyword nel titolo. Campo obbligatorio. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords. Esempio: 'title=Paul+Gilbert&title=dissacrazione'
+  - 'description=keyword: restituisce uno show contenente la keyword nella descrizione. Campo opzionale. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords.  Esempio: 'description=Cris+Impellitteri&description=ramarro'
+  - 'minduration=X': restituisce uno show di durata minima pari a X secondi. Campo opzionale. Esempio: 'minduration=300'
+  - 'maxduration=X': restituisce uno show di durata massima pari a X secondi. Campo opzionale. Esempio: 'maxduration=1000'
+  - 'mindate=YYYYMMDD': restituisce uno show più recente della data specificata. Campo opzionale. Esempio: 'mindate=20200101'
+  - 'maxdate=YYYYMMDD': restituisce uno show più vecchio della data specificata. Campo opzionale. Esempio: 'mandate=20220101'
+  I campi possono essere concatenati. Esempio: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
+    val searchShowCommandEng: String =
+      """'/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
+Input as query string:
+  - No input: returns a random show
+  - 'title=keyword: returns a show with the keyword in the title. Mandatory. The field can be specified multiple times, the show will contain all the keywords. Example: 'title=Paul+Gilbert&title=dissacrazione'
+  - 'description=keyword: returns a show with the keyword in the description. Optional. The field can be specified multiple times, the show will contain all the keywords.  Example: 'description=Cris+Impellitteri&description=ramarro'
+  - 'minduration=X': returns a show with minimal duration of X seconds. Optional. Example: 'minduration=300'
+  - 'maxduration=X': returns a show with maximal duration of X seconds. Optional. Example: 'maxduration=1000'
+  - 'mindate=YYYYMMDD': returns a show newer than the specified date. Optional. Example: 'mindate=20200101'
+  - 'maxdate=YYYYMMDD': returns a show older than the specified date. Optional. Example: 'mandate=20220101'
+  Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
 
     lazy val random = new Random()
 
-    def selectRandomLinkReplyBundleCommand[F[_]: Async](
-        dbShow: DBShow[F],
-        botName: String
-    )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
-      ReplyBundleCommand(
-        trigger = CommandTrigger("randomshow"),
-        text = Some(
-          TextReply[F](
-            _ =>
-              RandomLinkCommand
-                .selectRandomLinkByKeyword[F](
-                  "",
-                  dbShow,
-                  botName
-                ),
-            true
-          )
-        ),
-      )
-
-    def selectRandomLinkByKeywordsReplyBundleCommand[F[_]: Async](
+    def searchShowReplyBundleCommand[F[_]: Async](
         dbShow: DBShow[F],
         botName: String
     )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
-        trigger = CommandTrigger("searchrandomshowkeyword"),
+        trigger = CommandTrigger("searchshow"),
         text = Some(
           TextReply[F](
             m =>
               handleCommandWithInput[F](
                 m,
-                "searchrandomshowkeyword",
+                "searchshow",
                 botName,
                 keywords =>
                   RandomLinkCommand
@@ -96,13 +93,14 @@ object CommandPatterns {
         dbShow: DBShow[F],
         botName: String
     )(implicit log: LogWriter[F]): F[List[String]] = {
-      val dbCall = keywords.isEmpty match {
-        case true  => dbShow.getShows(botName)
-        case false => dbShow.getShowByKeywordTitle(keywords, botName)
+      val query: ShowQuery = ShowQuery(keywords)
+      val dbCall = query match {
+        case RandomQuery         => dbShow.getShows(botName)
+        case q: ShowQueryKeyword => dbShow.getShowByShowQuery(q, botName)
       }
 
       for {
-        _       <- log.info(s"Select random Show: $botName - $keywords")
+        _       <- log.info(s"Select random Show: $botName - $keywords - $query")
         results <- dbCall
         result <-
           if (results.isEmpty)

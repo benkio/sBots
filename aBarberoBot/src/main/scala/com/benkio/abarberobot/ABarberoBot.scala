@@ -892,11 +892,7 @@ object ABarberoBot {
       ignoreMessagePrefix = ignoreMessagePrefix,
       mdr = messageRepliesData[F]
     ),
-    RandomLinkCommand.selectRandomLinkReplyBundleCommand(
-      botName = botName,
-      dbShow = dbLayer.dbShow
-    ),
-    RandomLinkCommand.selectRandomLinkByKeywordsReplyBundleCommand(
+    RandomLinkCommand.searchShowReplyBundleCommand(
       botName = botName,
       dbShow = dbLayer.dbShow
     ),
@@ -918,8 +914,7 @@ object ABarberoBot {
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-        RandomLinkCommand.randomLinkCommandDescriptionIta,
-        RandomLinkCommand.randomLinkKeywordCommandIta,
+        RandomLinkCommand.searchShowCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta
@@ -927,8 +922,7 @@ object ABarberoBot {
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-        RandomLinkCommand.randomLinkCommandDescriptionEng,
-        RandomLinkCommand.randomLinkKeywordCommandEng,
+        RandomLinkCommand.searchShowCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng
