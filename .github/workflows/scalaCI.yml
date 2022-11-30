@@ -13,7 +13,7 @@ jobs:
     - name: Formatting
       run: |
         echo this workflow was triggered by ${{github.actor}}
-        sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck
+        sbt "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; test:scalafmtCheck"
   test:
     runs-on: ubuntu-latest
     steps:
