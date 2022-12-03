@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import cats.Show
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import cron4s.Cron
 import cron4s.expr.CronExpr
@@ -38,5 +39,8 @@ object Subscription {
     cron = cron,
     subscribedAt = subscribedAt
   )
+
+  implicit val showInstance: Show[Subscription] =
+    Show.show(s => s"Subscription Id: ${s.id} - cron value: ${s.cron}")
 
 }

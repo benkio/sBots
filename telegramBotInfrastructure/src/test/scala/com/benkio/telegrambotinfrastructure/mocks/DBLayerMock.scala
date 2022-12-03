@@ -85,8 +85,8 @@ object DBLayerMock {
   }
 
   class DBSubscriptionMock(db: Ref[IO, List[DBSubscriptionData]]) extends DBSubscription[IO] {
-    override def getSubscriptionsByBotName(botName: String): IO[List[DBSubscriptionData]] =
-      db.get.map(_.filter(subs => subs.bot_name == botName))
+    override def getSubscriptions(botName: String, chatId: Option[Long] = None): IO[List[DBSubscriptionData]] =
+      db.get.map(_.filter(subs => subs.bot_name == botName && chatId.fold(true)(_ == subs.chat_id)))
     override def insertSubscription(subscription: DBSubscriptionData): IO[Unit] =
       db.update((subs: List[DBSubscriptionData]) =>
         if (subs.exists((s: DBSubscriptionData) => s.id == subscription.id))
@@ -104,11 +104,11 @@ object DBLayerMock {
     override def getSubscription(id: String): IO[Option[DBSubscriptionData]] =
       db.get.map(_.find(sub => sub.id.toString == id))
 
-    override def getSubscriptionsQuery(botName: String): Query0[DBSubscriptionData] = ???
-    override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 = ???
-    override def deleteSubscriptionQuery(subscriptionId: String): Update0           = ???
-    override def deleteSubscriptionsQuery(chatId: Long): Update0                    = ???
-    override def getSubscriptionQuery(id: String): Query0[DBSubscriptionData]       = ???
+    override def getSubscriptionsQuery(botName: String, chatId: Option[Long] = None): Query0[DBSubscriptionData] = ???
+    override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0                              = ???
+    override def deleteSubscriptionQuery(subscriptionId: String): Update0                                        = ???
+    override def deleteSubscriptionsQuery(chatId: Long): Update0                                                 = ???
+    override def getSubscriptionQuery(id: String): Query0[DBSubscriptionData]                                    = ???
   }
   class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
     override def getShows(botName: String): IO[List[DBShowData]] =

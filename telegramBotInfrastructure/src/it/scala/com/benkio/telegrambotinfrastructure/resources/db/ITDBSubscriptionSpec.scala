@@ -55,9 +55,9 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     val resourceAssert = for {
       dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
       _              <- Resource.eval(dbSubscription.insertSubscription(testSubscription))
-      subscriptions1 <- Resource.eval(dbSubscription.getSubscriptionsByBotName(botName))
+      subscriptions1 <- Resource.eval(dbSubscription.getSubscriptions(botName))
       _              <- Resource.eval(dbSubscription.deleteSubscription(UUID.fromString(testSubscription.id)))
-      subscriptions2 <- Resource.eval(dbSubscription.getSubscriptionsByBotName(botName))
+      subscriptions2 <- Resource.eval(dbSubscription.getSubscriptions(botName))
     } yield (subscriptions1, subscriptions2)
 
     resourceAssert.use { case (preSubscriptions, postSubscriptions) =>

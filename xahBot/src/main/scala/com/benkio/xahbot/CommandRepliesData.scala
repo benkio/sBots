@@ -8,20 +8,20 @@ import com.benkio.telegrambotinfrastructure.model.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
 
 object CommandRepliesData {
 
   def values[F[_]: Async](
-      dbShow: DBShow[F],
+      dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
       botName: String
   )(implicit
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     RandomLinkCommand.searchShowReplyBundleCommand[F](
-      dbShow = dbShow,
+      dbShow = dbLayer.dbShow,
       botName = botName,
     ),
     SubscribeUnsubscribeCommand.subscribeReplyBundleCommand[F](
@@ -30,6 +30,10 @@ object CommandRepliesData {
     ),
     SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand[F](
       backgroundJobManager = backgroundJobManager,
+      botName = botName
+    ),
+    SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand[F](
+      dbSubscription = dbLayer.dbSubscription,
       botName = botName
     ),
     ReplyBundleCommand[F](

@@ -21,6 +21,7 @@ import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
+import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import cron4s._
 import cron4s.lib.javatime._
 import log.effect.LogWriter
@@ -249,6 +250,10 @@ ${if (ignoreMessagePrefix.isDefined) {
       "'/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input"
     val unsubscribeCommandDescriptionEng: String =
       "'/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted"
+    val subscriptionsCommandDescriptionIta: String =
+      "'/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente"
+    val subscriptionsCommandDescriptionEng: String =
+      "'/subscriptions': Return the amout of subscriptions for the current chat"
 
     def subscribeReplyBundleCommand[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
@@ -311,6 +316,28 @@ ${if (ignoreMessagePrefix.isDefined) {
             true
           )
         ),
+      )
+
+    def subscriptionsReplyBundleCommand[F[_]: Async](
+        dbSubscription: DBSubscription[F],
+        botName: String
+    ): ReplyBundleCommand[F] =
+      ReplyBundleCommand[F](
+        trigger = CommandTrigger("subscriptions"),
+        text = Some(
+          TextReply[F](
+            m =>
+              for {
+                subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
+                subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
+              } yield List(
+                s"There are ${subscriptions.length} subscriptions in this chat\n" ++ subscriptions
+                  .map(_.show)
+                  .mkString("\n")
+              ),
+            true
+          )
+        )
       )
   }
 

@@ -908,6 +908,10 @@ object ABarberoBot {
       backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
+    SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand[F](
+      dbSubscription = dbLayer.dbSubscription,
+      botName = botName
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -917,7 +921,8 @@ object ABarberoBot {
         RandomLinkCommand.searchShowCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
@@ -925,7 +930,8 @@ object ABarberoBot {
         RandomLinkCommand.searchShowCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng
       )
     ),
   )

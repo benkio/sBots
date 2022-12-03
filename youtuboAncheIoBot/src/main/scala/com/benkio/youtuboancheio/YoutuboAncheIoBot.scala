@@ -1056,6 +1056,10 @@ object YoutuboAncheIoBot {
       backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
+    SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand[F](
+      dbSubscription = dbLayer.dbSubscription,
+      botName = botName
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -1065,7 +1069,8 @@ object YoutuboAncheIoBot {
         RandomLinkCommand.searchShowCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
@@ -1073,7 +1078,8 @@ object YoutuboAncheIoBot {
         RandomLinkCommand.searchShowCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng
+        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng
       )
     ),
   )

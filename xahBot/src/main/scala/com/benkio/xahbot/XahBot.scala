@@ -8,7 +8,6 @@ import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure._
 import log.effect.LogWriter
@@ -25,7 +24,6 @@ class XahBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
 ) extends BotSkeletonPolling[F]
     with XahBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override val dbShow: DBShow[F]                                          = dbLayer.dbShow
 }
 
 class XahBotWebhook[F[_]: Async: Api: Action: LogWriter](
@@ -37,7 +35,6 @@ class XahBotWebhook[F[_]: Async: Api: Action: LogWriter](
 ) extends BotSkeletonWebhook[F](uri, path)
     with XahBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override val dbShow: DBShow[F]                                          = dbLayer.dbShow
 }
 
 trait XahBot[F[_]] extends BotSkeleton[F] {
@@ -45,7 +42,7 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
   override val botName: String   = XahBot.botName
   override val botPrefix: String = XahBot.botPrefix
   val backgroundJobManager: BackgroundJobManager[F]
-  val dbShow: DBShow[F]
+  val dbLayer: DBLayer[F]
 
   override def messageRepliesDataF(implicit
       applicativeF: Applicative[F],
@@ -56,7 +53,7 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
   override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     CommandRepliesData
       .values[F](
-        dbShow = dbShow,
+        dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
         botName = botName
       )

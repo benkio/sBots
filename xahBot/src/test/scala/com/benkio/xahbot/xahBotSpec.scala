@@ -40,7 +40,7 @@ class XahBotSpec extends CatsEffectSuite {
         .values[IO](
           botName = "xahBot",
           backgroundJobManager = emptyBackgroundJobManager,
-          dbShow = emptyDBLayer.dbShow
+          dbLayer = emptyDBLayer
         )
         .flatMap(_.mediafiles.map(_.filename))
 

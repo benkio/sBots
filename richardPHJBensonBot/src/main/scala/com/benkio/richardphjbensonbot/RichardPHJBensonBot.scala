@@ -151,6 +151,10 @@ object RichardPHJBensonBot {
       backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
+    SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand[F](
+      dbSubscription = dbLayer.dbSubscription,
+      botName = botName
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -161,6 +165,7 @@ object RichardPHJBensonBot {
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
         timeoutCommandDescriptionIta,
         bensonifyCommandDescriptionIta,
       ),
@@ -171,6 +176,7 @@ object RichardPHJBensonBot {
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
         timeoutCommandDescriptionEng,
         bensonifyCommandDescriptionEng
       )
