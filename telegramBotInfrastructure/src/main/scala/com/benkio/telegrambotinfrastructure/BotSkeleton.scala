@@ -17,8 +17,9 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.implicits._
-import telegramium.bots.Message
 import telegramium.bots.high._
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
 
 import scala.concurrent.duration._
 
@@ -39,11 +40,15 @@ abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit
   }
 }
 
-abstract class BotSkeletonWebhook[F[_]: Async](uri: Uri, path: Uri = uri"/")(implicit
+abstract class BotSkeletonWebhook[F[_]: Async](
+    uri: Uri,
+    path: Uri = uri"/",
+    webhookCertificate: Option[InputPartFile] = None
+)(implicit
     api: Api[F],
     log: LogWriter[F],
     action: Action[F]
-) extends WebhookBot[F](api, uri.renderString, path.renderString)
+) extends WebhookBot[F](api, uri.renderString, path.renderString, certificate = webhookCertificate)
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {

@@ -14,7 +14,10 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import org.http4s.ember.client._
+import telegramium.bots.InputPartFile
 import telegramium.bots.high.WebhookBot
+
+import java.io.File
 
 object MainWebhook extends IOApp {
 
@@ -22,27 +25,33 @@ object MainWebhook extends IOApp {
     implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
     val server = for {
-      config     <- Resource.eval(Config.loadConfig)
-      httpClient <- EmberClientBuilder.default[IO].build
+      config      <- Resource.eval(Config.loadConfig)
+      httpClient  <- EmberClientBuilder.default[IO].build
+      certificate <- Resource.eval(IO.pure(config.webhookCertificate.map(fp => InputPartFile(new File(fp)))))
       xahWebhook <- XahBot.buildWebhookBot[IO](
         httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl
+        webhookBaseUrl = config.webhookBaseUrl,
+        webhookCertificate = certificate
       )
       youtuboAncheIoWebhook <- YoutuboAncheIoBot.buildWebhookBot[IO](
         httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl
+        webhookBaseUrl = config.webhookBaseUrl,
+        webhookCertificate = certificate
       )
       calandroWebhook <- CalandroBot.buildWebhookBot[IO](
         httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl
+        webhookBaseUrl = config.webhookBaseUrl,
+        webhookCertificate = certificate
       )
       richardPHJBensonWebhook <- RichardPHJBensonBot.buildWebhookBot[IO](
         httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl
+        webhookBaseUrl = config.webhookBaseUrl,
+        webhookCertificate = certificate
       )
       aBarberoWebhook <- ABarberoBot.buildWebhookBot[IO](
         httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl
+        webhookBaseUrl = config.webhookBaseUrl,
+        webhookCertificate = certificate
       )
       server <- WebhookBot.compose[IO](
         bots = List(xahWebhook, calandroWebhook, richardPHJBensonWebhook, aBarberoWebhook, youtuboAncheIoWebhook),

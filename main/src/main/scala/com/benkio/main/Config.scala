@@ -7,7 +7,8 @@ import pureconfig.generic.auto._
 final case class Config(
     webhookBaseUrl: String,
     hostUrl: String,
-    port: Int
+    port: Int,
+    webhookCertificate: Option[String]
 )
 
 object Config {

@@ -18,8 +18,9 @@ import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import telegramium.bots.Message
 import telegramium.bots.high._
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
 
 import scala.util.Random
 
@@ -35,8 +36,9 @@ class CalandroBotWebhook[F[_]: Async: Api: Action: LogWriter](
     uri: Uri,
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
-    path: Uri = uri"/"
-) extends BotSkeletonWebhook[F](uri, path)
+    path: Uri = uri"/",
+    webhookCertificate: Option[InputPartFile] = None
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with CalandroBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
@@ -355,7 +357,8 @@ object CalandroBot {
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
-      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
+      webhookCertificate: Option[InputPartFile] = None
   )(implicit log: LogWriter[F]): Resource[F, CalandroBotWebhook[F]] =
     BotSetup(
       httpClient = httpClient,
@@ -368,7 +371,8 @@ object CalandroBot {
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
         resAccess = botSetup.resourceAccess,
-        dbLayer = botSetup.dbLayer
+        dbLayer = botSetup.dbLayer,
+        webhookCertificate = webhookCertificate
       )(Async[F], botSetup.api, botSetup.action, log)
     }
 }

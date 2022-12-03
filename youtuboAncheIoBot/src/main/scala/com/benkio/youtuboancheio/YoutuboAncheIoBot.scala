@@ -23,6 +23,7 @@ import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
+import telegramium.bots.InputPartFile
 import telegramium.bots.high._
 
 class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
@@ -39,8 +40,9 @@ class YoutuboAncheIoBotWebhook[F[_]: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
-    path: Uri = uri"/"
-) extends BotSkeletonWebhook[F](uri, path)
+    path: Uri = uri"/",
+    webhookCertificate: Option[InputPartFile] = None
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with YoutuboAncheIoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
@@ -1100,7 +1102,8 @@ object YoutuboAncheIoBot {
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
-      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
+      webhookCertificate: Option[InputPartFile] = None
   )(implicit log: LogWriter[F]): Resource[F, YoutuboAncheIoBotWebhook[F]] =
     BotSetup(
       httpClient = httpClient,
@@ -1114,7 +1117,8 @@ object YoutuboAncheIoBot {
         path = botSetup.webhookPath,
         resAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
-        backgroundJobManager = botSetup.backgroundJobManager
+        backgroundJobManager = botSetup.backgroundJobManager,
+        webhookCertificate = webhookCertificate
       )(Async[F], botSetup.api, botSetup.action, log)
     }
 }
