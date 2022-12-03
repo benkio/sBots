@@ -36,6 +36,9 @@ object BackgroundJobManager {
 
   final case class SubscriptionKey(subscriptionId: UUID, chatId: Long)
 
+  implicit val showInstance: Show[SubscriptionKey] =
+    Show.show(s => s"Subscription Id: ${s.subscriptionId} - chat id: ${s.chatId}")
+
   final case class SubscriptionIdNotFound(subscriptionId: UUID)
       extends Throwable(s"Subscription Id is not found: $subscriptionId")
   final case class SubscriptionChatIdNotFound(chatId: Long)

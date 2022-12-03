@@ -34,6 +34,7 @@ object CommandRepliesData {
     ),
     SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand[F](
       dbSubscription = dbLayer.dbSubscription,
+      backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
     ReplyBundleCommand[F](

@@ -6,6 +6,7 @@ import cats.Applicative
 import cats.ApplicativeThrow
 import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.Media
@@ -320,6 +321,7 @@ ${if (ignoreMessagePrefix.isDefined) {
 
     def subscriptionsReplyBundleCommand[F[_]: Async](
         dbSubscription: DBSubscription[F],
+        backgroundJobManager: BackgroundJobManager[F],
         botName: String
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
@@ -330,10 +332,14 @@ ${if (ignoreMessagePrefix.isDefined) {
               for {
                 subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
                 subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
+                memSubscriptions     = backgroundJobManager.memSubscriptions.keys
+                memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid == m.chat.id }
               } yield List(
-                s"There are ${subscriptions.length} subscriptions in this chat\n" ++ subscriptions
+                s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
                   .map(_.show)
-                  .mkString("\n")
+                  .mkString("\n") ++
+                  s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
+                  memChatSubscriptions.map(_.show).mkString("\n")
               ),
             true
           )

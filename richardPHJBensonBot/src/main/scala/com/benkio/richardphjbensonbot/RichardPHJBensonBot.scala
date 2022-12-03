@@ -153,6 +153,7 @@ object RichardPHJBensonBot {
     ),
     SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand[F](
       dbSubscription = dbLayer.dbSubscription,
+      backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
