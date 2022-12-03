@@ -952,7 +952,7 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("[sono ]?a[r]{1,2}iva(d|t)o".r, 12),
-        StringTextTriggerValue("piacere")
+        RegexTextTriggerValue("(eccomi|ciao).*\\bpiacere\\b".r, 13)
       ),
       List(
         MediaFile("rphjb_Arivato.gif"),
