@@ -717,6 +717,20 @@ object Video {
       List(
         MediaFile("rphjb_TrovatoPaceGenitori.mp4"),
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("io non so mai"),
+        StringTextTriggerValue("buon compleanno"),
+        StringTextTriggerValue("più vicino alla fine"),
+        StringTextTriggerValue("hai un anno di più"),
+        StringTextTriggerValue("felicitazioni"),
+        StringTextTriggerValue("ma che siamo noi"),
+        RegexTextTriggerValue("rumor[ie] di vetro e di metallo".r, 27)
+      ),
+      List(
+        MediaFile("rphjb_AuguriCompleanno.mp4")
+      )
     )
   )
 

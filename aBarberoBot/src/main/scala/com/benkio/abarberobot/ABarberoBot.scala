@@ -460,6 +460,18 @@ object ABarberoBot {
       List(
         MediaFile("abar_Cazzo.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("eresia"),
+        StringTextTriggerValue("riti satanici"),
+        StringTextTriggerValue("rinnegamento di gesù cristo"),
+        StringTextTriggerValue("sputi sulla croce"),
+        StringTextTriggerValue("sodomia"),
+      ),
+      List(
+        MediaFile("abar_RitiSataniciSodomia.mp3")
+      )
     )
   )
 
