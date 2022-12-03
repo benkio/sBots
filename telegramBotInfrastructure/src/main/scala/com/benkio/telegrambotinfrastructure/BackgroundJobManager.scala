@@ -36,6 +36,9 @@ object BackgroundJobManager {
 
   final case class SubscriptionKey(subscriptionId: UUID, chatId: Long)
 
+  implicit val showInstance: Show[SubscriptionKey] =
+    Show.show(s => s"Subscription Id: ${s.subscriptionId} - chat id: ${s.chatId}")
+
   final case class SubscriptionIdNotFound(subscriptionId: UUID)
       extends Throwable(s"Subscription Id is not found: $subscriptionId")
   final case class SubscriptionChatIdNotFound(chatId: Long)
@@ -43,6 +46,10 @@ object BackgroundJobManager {
   final case class StaleSubscription(subscription: Subscription)
       extends Throwable(
         s"Subscription is stale: no longer present in DB after awake. Operation Aborted. id: ${subscription.id}"
+      )
+  final case class SubscriptionAlreadyExists(subscription: Subscription)
+      extends Throwable(
+        s"Subscription already exists: already present in memory while subscribing to it. id: ${subscription.id} - ${subscription.chatId}"
       )
 
   def apply[F[_]: Async](
@@ -72,6 +79,9 @@ object BackgroundJobManager {
 
     override def scheduleSubscription(subscription: Subscription): F[Unit] = for {
       _ <- log.info(s"Schedule subscription: $subscription")
+      _ <- Async[F]
+        .raiseError(SubscriptionAlreadyExists(subscription))
+        .whenA(memSubscriptions.contains(SubscriptionKey(subscription.id, subscription.chatId)))
       subscriptionReference <- BackgroundJobManager.runSubscription(
         subscription,
         cronScheduler,
@@ -83,11 +93,12 @@ object BackgroundJobManager {
     } yield memSubscriptions += subscriptionReference
 
     override def loadSubscriptions(): F[Unit] = for {
-      subscriptionsData <- dbSubscription.getSubscriptionsByBotName(botName)
+      subscriptionsData <- dbSubscription.getSubscriptions(botName)
       subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
       subscriptionReferences <- subscriptions.traverse(s =>
         BackgroundJobManager.runSubscription(s, cronScheduler, dbShow, dbSubscription, botName)
       )
+      _ <- memSubscriptions.values.toList.traverse_(_.cancel)
     } yield memSubscriptions = MMap.from(subscriptionReferences)
 
     override def cancelSubscription(subscriptionId: UUID): F[Unit] = for {

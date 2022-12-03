@@ -229,6 +229,7 @@ object Mix {
         MediaFile("rphjb_Micetta.gif"),
         MediaFile("rphjb_LaMorteMicetta.mp4"),
         MediaFile("rphjb_LaMorte.mp4"),
+        MediaFile("rphjb_LaMorte2.mp4"),
         MediaFile("rphjb_InnoAllaMorte.mp4")
       ),
       replySelection = RandomSelection
@@ -952,7 +953,7 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("[sono ]?a[r]{1,2}iva(d|t)o".r, 12),
-        StringTextTriggerValue("piacere")
+        RegexTextTriggerValue("(eccomi|ciao).*\\bpiacere\\b".r, 13)
       ),
       List(
         MediaFile("rphjb_Arivato.gif"),

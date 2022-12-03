@@ -88,7 +88,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         )
       )
       _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
-      subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptionsByBotName(botName))
+      subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
     } yield {
       assert(backgroundJobManager.memSubscriptions.size == 1)
       assert(backgroundJobManager.memSubscriptions.find { case (SubscriptionKey(sId, _), _) =>
@@ -120,9 +120,9 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         )
       )
       _                      <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
-      inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptionsByBotName(botName))
+      inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
       _                      <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))
-      cancel_subscriptions   <- Resource.eval(dbLayer.dbSubscription.getSubscriptionsByBotName(botName))
+      cancel_subscriptions   <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
     } yield {
       assert(backgroundJobManager.memSubscriptions.size == 0)
       assert(inserted_subscriptions.length == 1)

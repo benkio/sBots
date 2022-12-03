@@ -34,12 +34,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val transactor = fixture.transactor
     val resourceAssert = for {
       resourceDBMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      resourceDBShow  <- fixture.resourceDBLayer.map(_.dbShow)
+      resourceDBLayer <- fixture.resourceDBLayer
       files <- Resource.pure(
         CommandRepliesData
           .values[IO](
             botName = botName,
-            dbShow = resourceDBShow,
+            dbLayer = resourceDBLayer,
             backgroundJobManager = emptyBackgroundJobManager,
           )
           .flatMap(_.mediafiles)
