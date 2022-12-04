@@ -4,4 +4,4 @@ addSbtPlugin("ch.epfl.scala"             % "sbt-scalafix"              % "0.10.4
 addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat"              % "0.4.1")
 addSbtPlugin("io.github.davidmweber"     % "flyway-sbt"                % "7.4.0")
 addSbtPlugin("com.github.cb372"          % "sbt-explicit-dependencies" % "0.2.16")
-addSbtPlugin("com.timushev.sbt"          % "sbt-updates"               % "0.6.3")
+addSbtPlugin("com.timushev.sbt"          % "sbt-updates"               % "0.6.4")
