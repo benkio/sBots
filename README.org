@@ -83,15 +83,22 @@
  - Get the SSH Private and Public Keys to access it
  - Login to ssh vm instace by ssh private key, user and ip. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~ (~ssh -i ssh-key-2022-04-26.key opc@140.238.155.16~)
  - Install the jdk 16. Follow this [[https://blogs.oracle.com/developers/post/how-to-install-oracle-java-in-oracle-cloud-infrastructure][tutorial]]
+
+**** Webhook Extra Configuration
+  TODO: Guarda i vod e aggiungi le varie cose: perche si usa nginx con reverse proxy (link alla issue della libreria che non permette di esporre il server su https), firewalld, oci subnet rule, audit2allow, nginx install, nginx enable/start + config...
+
 *** Deploy
 
- - Set the ~main/src/resources/application.conf~ accondigly (eg. right db path, urls...)
+ - Set the ~main/src/resources/application.conf~ accondigly
+   - TODO Explain each application.conf parameters with links to the code.
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
  - Move the fat jar to the vm by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> myTelegramBot/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/mytelegrambot/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
- - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~ or other changes
+ - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~ or other changes in the process. No easy way to migrate the database as for now.
  - Login to the vm
- - Be sure to have the right environment variables. IT'S RECOMMENDED TO
+ - OPTIONAL: be sure to have the right environment variables. IT'S RECOMMENDED TO
    CHANGE the ~application.conf~ (point 1) before running the ~assembly~. The environment variables could lose their value somehow.
- - Run the bots. Easier by polling: ~java -Xmx1024m -cp main.jar com.benkio.main.MainPolling~
+ - Run the bots.
+   - Polling: ~java -Xmx1024m -cp main.jar com.benkio.main.MainPolling~
+   - Webhook: ~java -Xmx1024m -cp main.jar com.benkio.main.MainWebhook~
  - press ~Ctrl+Z~, run ~bg~ and ~disown~ in order to let previous command run in background
  - close your terminal and enjoy
