@@ -161,6 +161,7 @@ object Dependencies {
     libs.pureConfigGeneric,
     libs.pureConfigGenericBase,
     libs.shapeless,
+    libs.telegramiumCore,
     libs.telegramiumHigh
   )
 
