@@ -292,7 +292,7 @@ ${if (ignoreMessagePrefix.isDefined) {
             m =>
               handleCommandWithInput[F](
                 m,
-                "subscribe",
+                "unsubscribe",
                 botName,
                 subscriptionIdInput =>
                   if (subscriptionIdInput.isEmpty)
