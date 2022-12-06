@@ -18,15 +18,15 @@
 
 ** Add Data to the Bots
 
-     Earch bot contains a ~resources~ folder. You need to put there
-     the ~.token~ file contanining the telegram key specific to each
+     Each bot contains a ~resources~ folder. You need to put there
+     the ~.token~ file containing the telegram key specific to each
      bot.
 
-     Each  bot also uses a sqlite Database! So you need
+     Each  bot also uses a SQLite Database! So you need
      to provide the path to the database into the ~application.conf~
      or just setup the specific environment variables. No need to put
      the files in resources since those will be fetched from the web
-     via urls.
+     via URLs.
 
      Read the following section to know how to setup the database
 
@@ -34,7 +34,7 @@
 
 ** Database Setup
 
-     There's a module called ~botDB~, if opportunately configured,
+     There's a module called ~botDB~, if opportunely configured,
      when launched it applies the migrations and the populate a bot
      database. Just setup the ~application.conf~ correctly with the DB
      path, see the db in the root of the project, and the location of
@@ -81,14 +81,14 @@
 
  - Create a vm instance in Oracle cloud
  - Get the SSH Private and Public Keys to access it
- - Login to ssh vm instace by ssh private key, user and ip. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~ (~ssh -i ssh-key-2022-04-26.key opc@140.238.155.16~)
+   - Login to ssh vm instance by ssh private key, user and IP. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~ (~ssh -i ssh-key-2022-04-26.key opc@140.238.155.16~)
  - Install the jdk 16. Follow this [[https://blogs.oracle.com/developers/post/how-to-install-oracle-java-in-oracle-cloud-infrastructure][tutorial]]
 
 **** Webhook Extra Configuration
 
   Eventually the library connecting to Telegram should provide full SSL certificate support as for [[https://github.com/apimorphism/telegramium/issues/348][this issue]], but until now we will rely on ~nginx~ and reverse proxy. Follow these steps to setup the server property:
 
-  - Server Prerequisites :: Check [[https://core.telegram.org/bots/webhooks#the-short-version][this page]] for the prerequisites required by telegram to work with webhook. In our case we choose the port 8443
+  - Server Prerequisites :: Check [[https://core.telegram.org/bots/webhooks#the-short-version][this page]] for the prerequisites required by telegram to work with webhook. In our case we choose the port 8443 for SSL connection.
   - Open Port on OCI Subnet :: The instance where the bots are running needs to have an attached VNICs([[https://docs.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm][Virtual Network Interface Card]]) with a subnet. The subnet will have a default security list containing the rules for the ports available from outside. Add a new rule with for the port required and save it. The parameters to use are:
     - Stateless: No
     - Source: 0.0.0.0
@@ -113,12 +113,13 @@
       ssl_certificate_key  /etc/nginx/certs/certificatePrivate.key;
     }
       #+end_src
-      Be sure to put the right port on ~listen~ and the correct path to the certificates. As you can see the other local port is the **8081**, there is where the actual bots will listen to requests and the reverse proxy will redirect the incoming requests.
+      Be sure to put the right port on ~listen~ and the correct path to the certificates. As you can see the other local port is the *8081*, there is where the actual bots will listen to requests and the reverse proxy will redirect the incoming requests.
   - Install Audit2Allow from Python Policy Core Utils :: Run ~sudo yum install policycoreutils-python-utils~
   - Allow the new Certificates :: Run ~audit2allow -a -M mycertwatch~ and then ~semodule -i mycertwatch.pp~. [[https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-fixing_problems-allowing_access_audit2allow][Reference]]
   - Allow the External Port in the Firewall :: Run ~sudo firewall-cmd --zone=public --add-port=8443/tcp --permanent~
   - Enable NGINX Service :: Run ~sudo systemctl enable nginx~
   - Start NGINX Service :: Run ~sudo systemctl start nginx~
+  - Test NGINX :: You should see a 503 error ~Bad Gateway~ when hitting the external URL. In our case ~https://140.238.155.16:8433~. This means ~nginx~ is working correctly. You can also spawn a temporary web server on the port ~8081~ by running: ~python -m http.server 8081~. Then, the above URL should show the server file system. This means everything is running fine. Otherwise you can inspect any error logs via the command: ~journalctl -xu nginx~.
 
 *** Deploy
 
@@ -127,7 +128,6 @@
     - ~host-url~ as ~0.0.0.0~
     - ~port~ as ~<internalPort>~ in our case ~8081~
     - ~webhook-certificate~ with the path of the public certificate, in our case ~/etc/nginx/certs/certificatePublic.pem~
-    Then move the jar in to the server.
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
  - Move the fat jar to the vm by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> myTelegramBot/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/mytelegrambot/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
  - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~ or other changes in the process. No easy way to migrate the database as for now.
