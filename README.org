@@ -97,7 +97,7 @@
     - Destination Port Range: 8443
     This should allow telegram to reach your server though that port.
   - Generate a Self Signed Certificate :: On the server, using the commands on [[https://core.telegram.org/bots/self-signed][this page]], generate a pair of keys that will serve as self signed certificate for the SSL connection. Be sure to include the IP or domain of your server in the ~CN~ key.
-  - Change Certificates Permissions and Owner :: This can be done by running ~sudo chown root:root <<Certificate>>~ and ~sudo chmod 644 <<Certificate>~. Do this on both private and public keys.
+  - Change Certificates Permissions and Owner :: This can be done by running ~sudo chown root:root <<Certificate>>~ and ~sudo chmod 600 <<Certificate>~. Do this on both private and public keys.
   - Install NGINX :: Run ~sudo yum install nginx~
   - Move the Above Certificates to NGINX Certificate Folder :: ~/etc/nginx/certs~ as you'll see in the configuration below.
   - Change NGINX Configuration to Enable the Reverse Proxy on the Port :: Add this ~server~ block to the configuration:
@@ -115,7 +115,7 @@
       #+end_src
       Be sure to put the right port on ~listen~ and the correct path to the certificates. As you can see the other local port is the *8081*, there is where the actual bots will listen to requests and the reverse proxy will redirect the incoming requests.
   - Install Audit2Allow from Python Policy Core Utils :: Run ~sudo yum install policycoreutils-python-utils~
-  - Allow the new Certificates :: Run ~audit2allow -a -M mycertwatch~ and then ~semodule -i mycertwatch.pp~. [[https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-fixing_problems-allowing_access_audit2allow][Reference]]
+  - Create Selinux Allow Rules and Add Them :: Run ~audit2allow -a -M mycertwatch~ and then ~semodule -i mycertwatch.pp~ in order to be able to access the port and the certificates. [[https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-fixing_problems-allowing_access_audit2allow][Reference]]
   - Allow the External Port in the Firewall :: Run ~sudo firewall-cmd --zone=public --add-port=8443/tcp --permanent~
   - Enable NGINX Service :: Run ~sudo systemctl enable nginx~
   - Start NGINX Service :: Run ~sudo systemctl start nginx~
