@@ -72,7 +72,7 @@ class DBSpec extends CatsEffectSuite with DBConstants {
 object DBSpec {
 
   val mediaSQL: String = """
-INSERT INTO media (media_name, kind, media_url, created_at, media_count) VALUES ('test media.mp3', NULL, 'https://www.google.com', '2008-01-01 00:00:01', 0);
+INSERT INTO media (media_name, kind, mime_type, media_url, created_at, media_count) VALUES ('test media.mp3', NULL, 'audio/mpeg', 'https://www.google.com', '2008-01-01 00:00:01', 0);
 """
 
   val timeoutSQL = """
