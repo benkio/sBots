@@ -1,6 +1,7 @@
 package com.benkio.botDB
 
 import cats.data.NonEmptyList
+import cats.implicits._
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.generic.semiauto._
 import io.chrisdavenport.cormorant.implicits._
@@ -11,6 +12,7 @@ import scala.util.Try
 final case class Input(
     filename: String,
     kind: Option[String],
+    mime: Option[String],
     url: URL
 )
 
@@ -21,6 +23,7 @@ object Input {
       NonEmptyList.of(
         CSV.Header("filename"),
         CSV.Header("kind"),
+        CSV.Header("mime"),
         CSV.Header("url")
       )
     )
@@ -28,14 +31,18 @@ object Input {
   implicit val readUrl: Read[URL] =
     Read.fromHeaders((hs, r) =>
       for {
-        url <- r.l.toNev
-          .get(2)
-          .flatMap(field => Try(new URL(field.x)).toOption)
-          .toRight(Error.DecodeFailure.single("Couldn't parse the URL"))
         _ <- hs.l.toNev
-          .get(2)
+          .get(3)
           .map(h => h.value == "url")
           .toRight(Error.DecodeFailure.single("Third header should be `url`"))
+        url <- r.l.toNev
+          .get(3)
+          .fold[Either[Error.DecodeFailure, URL]](
+            Left(Error.DecodeFailure.single(s"Url Value in input CSV is required"))
+          )(field =>
+            Try(new URL(field.x)).toEither
+              .leftMap(_ => Error.DecodeFailure.single(s"Couldn't parse the URL: ${field.x}"))
+          )
       } yield url
     )(headers)
 

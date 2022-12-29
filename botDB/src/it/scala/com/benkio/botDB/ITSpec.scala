@@ -19,7 +19,6 @@ class ITSpec extends FunSuite with DBConstants {
     map.put(key, value)
   }
 
-  // FAILING ON CI ONLY (╯_╰)
   test("botDB main should populate the migration with the files in resources") {
 
     setEnv("DB_CONNECTION_URL", dbUrl)
