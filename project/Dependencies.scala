@@ -27,7 +27,7 @@ object Dependencies {
     val shapeless          = "2.3.10"
     val sqlite             = "3.40.0.0"
     val telegramiumVersion = "7.63.0"
-    val vault              = "3.4.0"
+    val vault              = "3.5.0"
   }
 
   lazy val libs = new {
