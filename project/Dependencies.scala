@@ -13,7 +13,7 @@ object Dependencies {
     val cron4sCore         = "0.6.1"
     val doobie             = "1.0.0-RC2"
     val emojiVersion       = "1.3.0"
-    val flyway             = "9.10.2"
+    val flyway             = "9.11.0"
     val fs2Core            = "3.4.0"
     val fs2Cron            = "0.7.2"
     val fs2IO              = "3.4.0"
