@@ -534,7 +534,7 @@ object Gif {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("porca miseria"),
-        StringTextTriggerValue("incazzare")
+        StringTextTriggerValue("facendo incazzare")
       ),
       List(
         MediaFile("rphjb_PorcaMiseria.gif")
