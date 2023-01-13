@@ -13,11 +13,11 @@ object Dependencies {
     val cron4sCore         = "0.6.1"
     val doobie             = "1.0.0-RC2"
     val emojiVersion       = "1.3.0"
-    val flyway             = "9.10.2"
+    val flyway             = "9.11.0"
     val fs2Core            = "3.4.0"
     val fs2Cron            = "0.7.2"
     val fs2IO              = "3.4.0"
-    val http4s             = "0.23.16"
+    val http4s             = "0.23.17"
     val logEffects         = "0.17.0"
     val mules              = "0.5.0"
     val mulesHttp4s        = "0.3.0"
@@ -27,7 +27,7 @@ object Dependencies {
     val shapeless          = "2.3.10"
     val sqlite             = "3.40.0.0"
     val telegramiumVersion = "7.64.0"
-    val vault              = "3.4.0"
+    val vault              = "3.5.0"
   }
 
   lazy val libs = new {
