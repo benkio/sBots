@@ -96,7 +96,7 @@ trait DBFixture { self: FunSuite =>
       )
       .baselineOnMigrate(true)
 
-    m.load().migrate().migrationsExecuted
+    val _ = m.load().migrate().migrationsExecuted
     ()
   }
 
