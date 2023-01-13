@@ -50,7 +50,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
 
   test("fetch should fail if the url is malformed") {
     val invalidUrl = "bad url"
-    val filename   = "rphjb_06.gif"
+    val filename   = "rphjb_06.mp4"
     val result = for {
       urlFetcher <- buildUrlFetcher()
       file       <- urlFetcher.fetchFromDropbox(filename, invalidUrl)
