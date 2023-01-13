@@ -8,13 +8,13 @@ object Special {
     ReplyBundleMessage(
       NewMemberTrigger,
       List(
-        MediaFile("rphjb_QuestaPersonaScusate.gif", true)
+        MediaFile("rphjb_QuestaPersonaScusate.mp4", true)
       )
     ),
     ReplyBundleMessage(
       LeftMemberTrigger,
       List(
-        MediaFile("rphjb_LevatiDaiCoglioni.gif", true)
+        MediaFile("rphjb_LevatiDaiCoglioni.mp4", true)
       )
     )
   )

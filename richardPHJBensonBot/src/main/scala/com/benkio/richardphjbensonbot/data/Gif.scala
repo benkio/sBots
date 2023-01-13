@@ -23,7 +23,7 @@ object Gif {
         StringTextTriggerValue("ultime")
       ),
       List(
-        MediaFile("rphjb_SchifoseUltime.gif")
+        MediaFile("rphjb_SchifoseUltime.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -31,7 +31,7 @@ object Gif {
         RegexTextTriggerValue("(a[f]+)?fanculo(,)? per contesia".r, 20)
       ),
       List(
-        MediaFile("rphjb_FanculoPerCortesia.gif")
+        MediaFile("rphjb_FanculoPerCortesia.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -39,7 +39,7 @@ object Gif {
         StringTextTriggerValue("gli autori")
       ),
       List(
-        MediaFile("rphjb_Autori.gif")
+        MediaFile("rphjb_Autori.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -63,7 +63,7 @@ object Gif {
         StringTextTriggerValue("graffi")
       ),
       List(
-        MediaFile("rphjb_Graffi.gif")
+        MediaFile("rphjb_Graffi.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -72,7 +72,7 @@ object Gif {
         StringTextTriggerValue("impazzire"),
       ),
       List(
-        MediaFile("rphjb_MiPiaccio.gif")
+        MediaFile("rphjb_MiPiaccio.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -82,7 +82,7 @@ object Gif {
         StringTextTriggerValue("brivid")
       ),
       List(
-        MediaFile("rphjb_Brivido.gif")
+        MediaFile("rphjb_Brivido.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -91,7 +91,7 @@ object Gif {
         StringTextTriggerValue("pezzi di merda"),
       ),
       List(
-        MediaFile("rphjb_PezziDiMerda.gif")
+        MediaFile("rphjb_PezziDiMerda.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -101,11 +101,11 @@ object Gif {
         StringTextTriggerValue("disper"),
       ),
       List(
-        MediaFile("rphjb_Tuffo.gif"),
-        MediaFile("rphjb_Urlo.gif"),
-        MediaFile("rphjb_Urlo3.gif"),
-        MediaFile("rphjb_Urlo2.gif"),
-        MediaFile("rphjb_UrloCanaro.gif")
+        MediaFile("rphjb_Tuffo.mp4"),
+        MediaFile("rphjb_Urlo.mp4"),
+        MediaFile("rphjb_Urlo3.mp4"),
+        MediaFile("rphjb_Urlo2.mp4"),
+        MediaFile("rphjb_UrloCanaro.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -114,7 +114,7 @@ object Gif {
         StringTextTriggerValue("rispondere")
       ),
       List(
-        MediaFile("rphjb_Rispondere.gif")
+        MediaFile("rphjb_Rispondere.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -124,7 +124,7 @@ object Gif {
         StringTextTriggerValue("pelle contro la pelle")
       ),
       List(
-        MediaFile("rphjb_CuoreInMano.gif")
+        MediaFile("rphjb_CuoreInMano.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -132,7 +132,7 @@ object Gif {
         StringTextTriggerValue("stato brado")
       ),
       List(
-        MediaFile("rphjb_StatoBrado.gif")
+        MediaFile("rphjb_StatoBrado.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -140,7 +140,7 @@ object Gif {
         StringTextTriggerValue("pronto dimmi")
       ),
       List(
-        MediaFile("rphjb_ProntoDimmi.gif")
+        MediaFile("rphjb_ProntoDimmi.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -148,7 +148,7 @@ object Gif {
         RegexTextTriggerValue("\\bport[a]+\\b".r, 5)
       ),
       List(
-        MediaFile("rphjb_Porta.gif")
+        MediaFile("rphjb_Porta.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -159,7 +159,7 @@ object Gif {
         StringTextTriggerValue("prendo l'auto"),
       ),
       List(
-        MediaFile("rphjb_PrendoIlNecessario.gif")
+        MediaFile("rphjb_PrendoIlNecessario.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -167,7 +167,7 @@ object Gif {
         StringTextTriggerValue("nella gola")
       ),
       List(
-        MediaFile("rphjb_NellaGola.gif")
+        MediaFile("rphjb_NellaGola.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -175,7 +175,7 @@ object Gif {
         StringTextTriggerValue("siamo qua")
       ),
       List(
-        MediaFile("rphjb_SiamoQua.gif")
+        MediaFile("rphjb_SiamoQua.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -183,8 +183,8 @@ object Gif {
         StringTextTriggerValue("cucciolo")
       ),
       List(
-        MediaFile("rphjb_Cucciolo.gif"),
-        MediaFile("rphjb_Cucciolo2.gif"),
+        MediaFile("rphjb_Cucciolo.mp4"),
+        MediaFile("rphjb_Cucciolo2.mp4"),
       ),
       replySelection = RandomSelection
     ),
@@ -193,7 +193,7 @@ object Gif {
         StringTextTriggerValue("Che c'hai")
       ),
       List(
-        MediaFile("rphjb_CheCHai.gif")
+        MediaFile("rphjb_CheCHai.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -202,7 +202,7 @@ object Gif {
         StringTextTriggerValue("prefisso")
       ),
       List(
-        MediaFile("rphjb_06.gif")
+        MediaFile("rphjb_06.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -210,7 +210,7 @@ object Gif {
         StringTextTriggerValue("abbiamo vinto")
       ),
       List(
-        MediaFile("rphjb_AbbiamoVinto.gif")
+        MediaFile("rphjb_AbbiamoVinto.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -219,7 +219,7 @@ object Gif {
         StringTextTriggerValue("falsità")
       ),
       List(
-        MediaFile("rphjb_TelefonataPilotata.gif")
+        MediaFile("rphjb_TelefonataPilotata.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -227,7 +227,7 @@ object Gif {
         StringTextTriggerValue("ed è vero")
       ),
       List(
-        MediaFile("rphjb_Vero.gif")
+        MediaFile("rphjb_Vero.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -236,7 +236,7 @@ object Gif {
         StringTextTriggerValue("quanto tempo")
       ),
       List(
-        MediaFile("rphjb_QuanteOre.gif")
+        MediaFile("rphjb_QuanteOre.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -244,7 +244,7 @@ object Gif {
         RegexTextTriggerValue("come ha fatto a entr(à|are)".r, 23)
       ),
       List(
-        MediaFile("rphjb_ComeHaFattoAEntrare.gif")
+        MediaFile("rphjb_ComeHaFattoAEntrare.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -252,7 +252,7 @@ object Gif {
         StringTextTriggerValue("donna cane")
       ),
       List(
-        MediaFile("rphjb_DonnaCane.gif")
+        MediaFile("rphjb_DonnaCane.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -260,7 +260,7 @@ object Gif {
         StringTextTriggerValue("menzion")
       ),
       List(
-        MediaFile("rphjb_NonMiMenzionareQuestaParola.gif")
+        MediaFile("rphjb_NonMiMenzionareQuestaParola.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -268,7 +268,7 @@ object Gif {
         StringTextTriggerValue("hollywood")
       ),
       List(
-        MediaFile("rphjb_Hollywood.gif")
+        MediaFile("rphjb_Hollywood.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -278,7 +278,7 @@ object Gif {
         StringTextTriggerValue("gerarca")
       ),
       List(
-        MediaFile("rphjb_PianoSuperioreCompete.gif")
+        MediaFile("rphjb_PianoSuperioreCompete.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -286,7 +286,7 @@ object Gif {
         StringTextTriggerValue("chi è")
       ),
       List(
-        MediaFile("rphjb_QuestaPersonaScusate.gif")
+        MediaFile("rphjb_QuestaPersonaScusate.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -294,7 +294,7 @@ object Gif {
         StringTextTriggerValue("tucul")
       ),
       List(
-        MediaFile("rphjb_TuCul.gif")
+        MediaFile("rphjb_TuCul.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -305,7 +305,7 @@ object Gif {
         StringTextTriggerValue(e":wink:")
       ),
       List(
-        MediaFile("rphjb_Occhiolino.gif")
+        MediaFile("rphjb_Occhiolino.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -313,7 +313,7 @@ object Gif {
         StringTextTriggerValue("soffro")
       ),
       List(
-        MediaFile("rphjb_Soffro.gif")
+        MediaFile("rphjb_Soffro.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -332,7 +332,7 @@ object Gif {
         StringTextTriggerValue("la salute")
       ),
       List(
-        MediaFile("rphjb_MannaggiaLaSalute.gif")
+        MediaFile("rphjb_MannaggiaLaSalute.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -341,7 +341,7 @@ object Gif {
         StringTextTriggerValue("mi dai fastidio")
       ),
       List(
-        MediaFile("rphjb_MiRompiErCazzo.gif")
+        MediaFile("rphjb_MiRompiErCazzo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -349,7 +349,7 @@ object Gif {
         StringTextTriggerValue("dare fastidio")
       ),
       List(
-        MediaFile("rphjb_DareFastidio.gif")
+        MediaFile("rphjb_DareFastidio.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -358,7 +358,7 @@ object Gif {
         StringTextTriggerValue("olio di croce")
       ),
       List(
-        MediaFile("rphjb_OlioDiCroce.gif")
+        MediaFile("rphjb_OlioDiCroce.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -367,7 +367,7 @@ object Gif {
         StringTextTriggerValue("o no?")
       ),
       List(
-        MediaFile("rphjb_Ragione.gif")
+        MediaFile("rphjb_Ragione.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -376,7 +376,7 @@ object Gif {
         RegexTextTriggerValue("solo il me(t|d)al".r, 13)
       ),
       List(
-        MediaFile("rphjb_GeneriMusicali.gif")
+        MediaFile("rphjb_GeneriMusicali.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -393,7 +393,7 @@ object Gif {
         StringTextTriggerValue("cosa è successo")
       ),
       List(
-        MediaFile("rphjb_CosaSuccesso.gif")
+        MediaFile("rphjb_CosaSuccesso.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -401,7 +401,7 @@ object Gif {
         StringTextTriggerValue("perchè mi guardi")
       ),
       List(
-        MediaFile("rphjb_Guardi.gif")
+        MediaFile("rphjb_Guardi.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -409,7 +409,7 @@ object Gif {
         RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r, 21)
       ),
       List(
-        MediaFile("rphjb_Chitarrista.gif")
+        MediaFile("rphjb_Chitarrista.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -418,7 +418,7 @@ object Gif {
         StringTextTriggerValue("mi sono divertito"),
       ),
       List(
-        MediaFile("rphjb_Diverti.gif")
+        MediaFile("rphjb_Diverti.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -426,7 +426,7 @@ object Gif {
         RegexTextTriggerValue("e parl[a]+\\b".r, 7)
       ),
       List(
-        MediaFile("rphjb_Parla.gif")
+        MediaFile("rphjb_Parla.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -434,7 +434,7 @@ object Gif {
         StringTextTriggerValue("uno scherzo")
       ),
       List(
-        MediaFile("rphjb_Scherzo.gif")
+        MediaFile("rphjb_Scherzo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -443,7 +443,7 @@ object Gif {
         StringTextTriggerValue("campà"),
       ),
       List(
-        MediaFile("rphjb_Campa.gif")
+        MediaFile("rphjb_Campa.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -452,7 +452,7 @@ object Gif {
         RegexTextTriggerValue("ma si può dire una cosa (del genere|così)".r, 28),
       ),
       List(
-        MediaFile("rphjb_Deficienza.gif")
+        MediaFile("rphjb_Deficienza.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -462,7 +462,7 @@ object Gif {
         StringTextTriggerValue("non me ne frega un cazzo")
       ),
       List(
-        MediaFile("rphjb_Escerto.gif")
+        MediaFile("rphjb_Escerto.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -471,7 +471,7 @@ object Gif {
         RegexTextTriggerValue("fuori[\\. ]*dai coglioni".r, 18)
       ),
       List(
-        MediaFile("rphjb_LevatiDaiCoglioni.gif")
+        MediaFile("rphjb_LevatiDaiCoglioni.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -481,8 +481,8 @@ object Gif {
         RegexTextTriggerValue("co(gl|j)ion([e]{3,}|e[!]{3,})".r, 9)
       ),
       List(
-        MediaFile("rphjb_Coglione.gif"),
-        MediaFile("rphjb_PiuCoglione.gif"),
+        MediaFile("rphjb_CoglioneGif.mp4"),
+        MediaFile("rphjb_PiuCoglione.mp4"),
         MediaFile("rphjb_Coglione.mp4")
       ),
       replySelection = RandomSelection
@@ -493,7 +493,7 @@ object Gif {
         StringTextTriggerValue("bravooo")
       ),
       List(
-        MediaFile("rphjb_Bravo.gif")
+        MediaFile("rphjb_Bravo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -501,7 +501,7 @@ object Gif {
         StringTextTriggerValue("capolavoro")
       ),
       List(
-        MediaFile("rphjb_Capolavoro.gif")
+        MediaFile("rphjb_Capolavoro.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -509,8 +509,8 @@ object Gif {
         RegexTextTriggerValue("\\bmetal\\b".r, 5)
       ),
       List(
-        MediaFile("rphjb_Metal.gif"),
-        MediaFile("rphjb_IlMartel.gif")
+        MediaFile("rphjb_Metal.mp4"),
+        MediaFile("rphjb_IlMartel.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -519,7 +519,7 @@ object Gif {
         StringTextTriggerValue("allucinante")
       ),
       List(
-        MediaFile("rphjb_Allucinante.gif")
+        MediaFile("rphjb_Allucinante.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -528,16 +528,16 @@ object Gif {
         StringTextTriggerValue("non è possibile")
       ),
       List(
-        MediaFile("rphjb_NonPossibile.gif")
+        MediaFile("rphjb_NonPossibile.mp4")
       )
     ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("porca miseria"),
-        StringTextTriggerValue("incazzare")
+        StringTextTriggerValue("facendo incazzare")
       ),
       List(
-        MediaFile("rphjb_PorcaMiseria.gif")
+        MediaFile("rphjb_PorcaMiseria.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -545,7 +545,7 @@ object Gif {
         StringTextTriggerValue("facendo soffrire")
       ),
       List(
-        MediaFile("rphjb_FacendoSoffrire.gif")
+        MediaFile("rphjb_FacendoSoffrire.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -554,7 +554,7 @@ object Gif {
         RegexTextTriggerValue("vi voglio far(e)? soffrire".r, 23),
       ),
       List(
-        MediaFile("rphjb_DoveteSoffrire.gif")
+        MediaFile("rphjb_DoveteSoffrire.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -562,7 +562,7 @@ object Gif {
         StringTextTriggerValue("sarete puniti")
       ),
       List(
-        MediaFile("rphjb_SaretePuniti.gif")
+        MediaFile("rphjb_SaretePuniti.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -571,7 +571,7 @@ object Gif {
         StringTextTriggerValue("serie z")
       ),
       List(
-        MediaFile("rphjb_CantantiSerieZ.gif")
+        MediaFile("rphjb_CantantiSerieZ.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -579,7 +579,7 @@ object Gif {
         StringTextTriggerValue("sentendo male")
       ),
       List(
-        MediaFile("rphjb_MiStoSentendoMale.gif")
+        MediaFile("rphjb_MiStoSentendoMale.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -588,7 +588,7 @@ object Gif {
         StringTextTriggerValue("brave persone")
       ),
       List(
-        MediaFile("rphjb_LunghezzaDOnda.gif")
+        MediaFile("rphjb_LunghezzaDOnda.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -596,16 +596,15 @@ object Gif {
         StringTextTriggerValue("delirio")
       ),
       List(
-        MediaFile("rphjb_Delirio.gif")
+        MediaFile("rphjb_Delirio.mp4")
       )
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("querelare"),
-        StringTextTriggerValue("guerelare")
+        RegexTextTriggerValue("[gq]uerelare".r, 9),
       ),
       List(
-        MediaFile("rphjb_Querelare.gif")
+        MediaFile("rphjb_Querelare.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -614,7 +613,7 @@ object Gif {
         StringTextTriggerValue("arigliano")
       ),
       List(
-        MediaFile("rphjb_Arigliano.gif")
+        MediaFile("rphjb_Arigliano.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -623,7 +622,7 @@ object Gif {
         StringTextTriggerValue("diecimila volte")
       ),
       List(
-        MediaFile("rphjb_Alcesso.gif")
+        MediaFile("rphjb_Alcesso.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -632,7 +631,7 @@ object Gif {
         StringTextTriggerValue("c'è tutto")
       ),
       List(
-        MediaFile("rphjb_NonMancaNiente.gif")
+        MediaFile("rphjb_NonMancaNiente.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -640,7 +639,7 @@ object Gif {
         StringTextTriggerValue("in fila")
       ),
       List(
-        MediaFile("rphjb_MettitiInFila.gif")
+        MediaFile("rphjb_MettitiInFila.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -648,7 +647,7 @@ object Gif {
         StringTextTriggerValue("non male")
       ),
       List(
-        MediaFile("rphjb_NonMale.gif")
+        MediaFile("rphjb_NonMale.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -656,7 +655,7 @@ object Gif {
         StringTextTriggerValue("perchè si sente")
       ),
       List(
-        MediaFile("rphjb_SiSente.gif")
+        MediaFile("rphjb_SiSente.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -665,7 +664,7 @@ object Gif {
         RegexTextTriggerValue("(divento|diventare|sono) (matto|pazzo)".r, 10)
       ),
       List(
-        MediaFile("rphjb_StoDiventandoPazzo.gif")
+        MediaFile("rphjb_StoDiventandoPazzo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -676,7 +675,7 @@ object Gif {
         RegexTextTriggerValue("\\bfi[cg]a\\b".r, 4)
       ),
       List(
-        MediaFile("rphjb_SorcaLecciso.gif"),
+        MediaFile("rphjb_SorcaLecciso.mp4"),
         MediaFile("rphjb_FigaLarga.mp4"),
         MediaFile("rphjb_FragolinaFichina.mp3"),
         MediaFile("rphjb_Sorca.mp4")
@@ -688,7 +687,7 @@ object Gif {
         StringTextTriggerValue("chi cazzo sei")
       ),
       List(
-        MediaFile("rphjb_ChiCazzoSei.gif")
+        MediaFile("rphjb_ChiCazzoSei.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -696,7 +695,7 @@ object Gif {
         StringTextTriggerValue("feste")
       ),
       List(
-        MediaFile("rphjb_Feste.gif")
+        MediaFile("rphjb_Feste.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -705,7 +704,7 @@ object Gif {
         StringTextTriggerValue("foto vecchie")
       ),
       List(
-        MediaFile("rphjb_Ostina.gif")
+        MediaFile("rphjb_Ostina.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -713,7 +712,7 @@ object Gif {
         RegexTextTriggerValue("(è|diventa) vecchi[ao]".r, 9),
       ),
       List(
-        MediaFile("rphjb_Vecchio.gif")
+        MediaFile("rphjb_Vecchio.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -721,7 +720,7 @@ object Gif {
         StringTextTriggerValue("scatta qualcosa")
       ),
       List(
-        MediaFile("rphjb_ScattaQualcosa.gif")
+        MediaFile("rphjb_ScattaQualcosa.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -729,7 +728,7 @@ object Gif {
         StringTextTriggerValue("pure bona")
       ),
       List(
-        MediaFile("rphjb_Bona.gif")
+        MediaFile("rphjb_Bona.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -737,7 +736,7 @@ object Gif {
         RegexTextTriggerValue("sei [gc]ambiat[oa]".r, 12)
       ),
       List(
-        MediaFile("rphjb_SeiCambiata.gif")
+        MediaFile("rphjb_SeiCambiata.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -746,7 +745,7 @@ object Gif {
         StringTextTriggerValue("disgabido")
       ),
       List(
-        MediaFile("rphjb_Discapito.gif")
+        MediaFile("rphjb_Discapito.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -755,7 +754,7 @@ object Gif {
         StringTextTriggerValue("abbia mai sentito")
       ),
       List(
-        MediaFile("rphjb_Squallida.gif")
+        MediaFile("rphjb_Squallida.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -771,7 +770,7 @@ object Gif {
         RegexTextTriggerValue("\\bn[o]{2,}\\b".r, 3)
       ),
       List(
-        MediaFile("rphjb_No.gif")
+        MediaFile("rphjb_No.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -780,7 +779,7 @@ object Gif {
         StringTextTriggerValue("incontrare")
       ),
       List(
-        MediaFile("rphjb_Destino.gif")
+        MediaFile("rphjb_Destino.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -789,7 +788,7 @@ object Gif {
         StringTextTriggerValue("terron")
       ),
       List(
-        MediaFile("rphjb_Meridionale.gif")
+        MediaFile("rphjb_Meridionale.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -798,7 +797,7 @@ object Gif {
         StringTextTriggerValue("limonare")
       ),
       List(
-        MediaFile("rphjb_Bacio.gif"),
+        MediaFile("rphjb_Bacio.mp4"),
         MediaFile("rphjb_DanzaMacabra.mp4")
       ),
       replySelection = RandomSelection
@@ -808,8 +807,8 @@ object Gif {
         StringTextTriggerValue("giudica")
       ),
       List(
-        MediaFile("rphjb_Giudicate.gif"),
-        MediaFile("rphjb_ComeFaiAGiudicare.gif")
+        MediaFile("rphjb_Giudicate.mp4"),
+        MediaFile("rphjb_ComeFaiAGiudicare.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -819,10 +818,10 @@ object Gif {
         StringTextTriggerValue("sostanze improprie")
       ),
       List(
-        MediaFile("rphjb_DrogatiRockettari1.gif"),
+        MediaFile("rphjb_DrogatiRockettari1.mp4"),
         MediaFile("rphjb_DrogatiRockettari.mp4"),
         MediaFile("rphjb_EricClaptonDrogaUominiAffari.mp4"),
-        MediaFile("rphjb_DrogatiRockettari2.gif"),
+        MediaFile("rphjb_DrogatiRockettari2.mp4"),
         MediaFile("rphjb_DrogatiPiloti.gif"),
         MediaFile("rphjb_DrogatiPiloti.mp4"),
         MediaFile("rphjb_Rampolli.mp4")
@@ -835,9 +834,9 @@ object Gif {
         StringTextTriggerValue("stillati")
       ),
       List(
-        MediaFile("rphjb_DrogatiRockettari1.gif"),
+        MediaFile("rphjb_DrogatiRockettari1.mp4"),
         MediaFile("rphjb_DrogatiRockettari.mp4"),
-        MediaFile("rphjb_DrogatiRockettari2.gif"),
+        MediaFile("rphjb_DrogatiRockettari2.mp4"),
         MediaFile("rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4")
       ),
       replySelection = RandomSelection
@@ -847,11 +846,11 @@ object Gif {
         StringTextTriggerValue("sguardo")
       ),
       List(
-        MediaFile("rphjb_Sguardo.gif"),
-        MediaFile("rphjb_Sguardo2.gif"),
+        MediaFile("rphjb_Sguardo.mp4"),
+        MediaFile("rphjb_Sguardo2.mp4"),
         MediaFile("rphjb_Sguardo3.gif"),
-        MediaFile("rphjb_Sguardo4.gif"),
-        MediaFile("rphjb_SguardoCanaro.gif")
+        MediaFile("rphjb_Sguardo4.mp4"),
+        MediaFile("rphjb_SguardoCanaro.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -860,7 +859,7 @@ object Gif {
         StringTextTriggerValue("a quel punto")
       ),
       List(
-        MediaFile("rphjb_QuelPunto.gif")
+        MediaFile("rphjb_QuelPunto.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -869,7 +868,7 @@ object Gif {
         StringTextTriggerValue("faccio in tempo")
       ),
       List(
-        MediaFile("rphjb_QuattroSolo.gif")
+        MediaFile("rphjb_QuattroSolo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -881,7 +880,7 @@ object Gif {
         StringTextTriggerValue("attrice")
       ),
       List(
-        MediaFile("rphjb_FaccioLaParte.gif")
+        MediaFile("rphjb_FaccioLaParte.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -890,7 +889,7 @@ object Gif {
         StringTextTriggerValue("non mi lamento")
       ),
       List(
-        MediaFile("rphjb_NonMiLamento.gif")
+        MediaFile("rphjb_NonMiLamento.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -908,7 +907,7 @@ object Gif {
         StringTextTriggerValue("il senso")
       ),
       List(
-        MediaFile("rphjb_IlSensoCapito.gif")
+        MediaFile("rphjb_IlSensoCapito.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -916,8 +915,8 @@ object Gif {
         RegexTextTriggerValue("\\bester\\b".r, 5)
       ),
       List(
-        MediaFile("rphjb_Ester.gif"),
-        MediaFile("rphjb_Ester2.gif"),
+        MediaFile("rphjb_Ester.mp4"),
+        MediaFile("rphjb_Ester2.mp4"),
       ),
       replySelection = RandomSelection
     ),
@@ -927,7 +926,7 @@ object Gif {
         RegexTextTriggerValue("proprioll(a|à)".r, 10),
       ),
       List(
-        MediaFile("rphjb_Propriolla.gif")
+        MediaFile("rphjb_Propriolla.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -935,7 +934,7 @@ object Gif {
         StringTextTriggerValue("non vedo questo grande problema")
       ),
       List(
-        MediaFile("rphjb_VabbeProblema.gif"),
+        MediaFile("rphjb_VabbeProblema.mp4"),
       ),
     ),
     ReplyBundleMessage(
@@ -945,7 +944,7 @@ object Gif {
         StringTextTriggerValue("music man")
       ),
       List(
-        MediaFile("rphjb_IlBongo.gif")
+        MediaFile("rphjb_IlBongo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -954,7 +953,7 @@ object Gif {
         RegexTextTriggerValue("immagini ama(d|t)oriali".r, 19)
       ),
       List(
-        MediaFile("rphjb_Internet.gif")
+        MediaFile("rphjb_Internet.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -962,7 +961,7 @@ object Gif {
         StringTextTriggerValue("decido io"),
       ),
       List(
-        MediaFile("rphjb_DecidoIo.gif")
+        MediaFile("rphjb_DecidoIo.mp4")
       )
     )
   )
