@@ -127,9 +127,9 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("acqua calabria")
       ),
       mediafiles = List(
-        MediaFile("ytai_AcquaSguardo.gif"),
-        MediaFile("ytai_Sete.gif"),
-        MediaFile("ytai_AcquaCalabria.gif")
+        GifFile("ytai_AcquaSguardo.mp4"),
+        GifFile("ytai_Sete.mp4"),
+        GifFile("ytai_AcquaCalabria.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -140,7 +140,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sudato")
       ),
       mediafiles = List(
-        MediaFile("ytai_Affaticamento.gif")
+        GifFile("ytai_Affaticamento.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -150,7 +150,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("dedicaci (il tuo tempo|le tue notti)".r, 21)
       ),
       mediafiles = List(
-        MediaFile("ytai_Amareggiati.gif")
+        GifFile("ytai_Amareggiati.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -161,7 +161,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("avvocata")
       ),
       mediafiles = List(
-        MediaFile("ytai_Architetta.gif")
+        GifFile("ytai_Architetta.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -169,7 +169,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("bel sogno")
       ),
       mediafiles = List(
-        MediaFile("ytai_BelSogno.gif")
+        GifFile("ytai_BelSogno.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -180,7 +180,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("tremore")
       ),
       mediafiles = List(
-        MediaFile("ytai_Brivido.gif")
+        GifFile("ytai_Brivido.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -188,8 +188,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("buonanotte")
       ),
       mediafiles = List(
-        MediaFile("ytai_Buonanotte.gif"),
-        MediaFile("ytai_BuonanotteBrunchPlus.gif")
+        GifFile("ytai_Buonanotte.mp4"),
+        GifFile("ytai_BuonanotteBrunchPlus.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -198,8 +198,8 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("(buona )?pizza".r, 5)
       ),
       mediafiles = List(
-        MediaFile("ytai_BuonaPizza.gif"),
-        MediaFile("ytai_PizzaAllegria.gif")
+        GifFile("ytai_BuonaPizza.mp4"),
+        GifFile("ytai_PizzaAllegria.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -208,7 +208,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("buonasera")
       ),
       mediafiles = List(
-        MediaFile("ytai_Buonasera.gif")
+        GifFile("ytai_Buonasera.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -216,7 +216,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("che spettacolo")
       ),
       mediafiles = List(
-        MediaFile("ytai_CheSpettacolo.gif")
+        GifFile("ytai_CheSpettacolo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -227,7 +227,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r, 22)
       ),
       mediafiles = List(
-        MediaFile("ytai_CheVergogna.gif"),
+        GifFile("ytai_CheVergogna.mp4"),
         MediaFile("ytai_CheVergogna.mp3"),
       ),
       replySelection = RandomSelection
@@ -237,7 +237,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ciao!")
       ),
       mediafiles = List(
-        MediaFile("ytai_Ciao.gif")
+        GifFile("ytai_Ciao.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -246,7 +246,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("cari saluti")
       ),
       mediafiles = List(
-        MediaFile("ytai_CiaoRagazzi.gif")
+        GifFile("ytai_CiaoRagazzi.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -255,7 +255,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("bel percorso")
       ),
       mediafiles = List(
-        MediaFile("ytai_CiDivertiremoPercorso.gif")
+        GifFile("ytai_CiDivertiremoPercorso.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -263,7 +263,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("colore meraviglioso")
       ),
       mediafiles = List(
-        MediaFile("ytai_ColoreMeraviglioso.gif")
+        GifFile("ytai_ColoreMeraviglioso.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -272,7 +272,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ciccioni")
       ),
       mediafiles = List(
-        MediaFile("ytai_CorpulentiCiccioni.gif")
+        GifFile("ytai_CorpulentiCiccioni.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -280,7 +280,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("culetto")
       ),
       mediafiles = List(
-        MediaFile("ytai_Culetto.gif")
+        GifFile("ytai_Culetto.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -288,7 +288,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ed allora")
       ),
       mediafiles = List(
-        MediaFile("ytai_EdAllora.gif")
+        GifFile("ytai_EdAllora.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -296,7 +296,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("fai pure")
       ),
       mediafiles = List(
-        MediaFile("ytai_FaiPure.gif")
+        GifFile("ytai_FaiPure.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -304,7 +304,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("fallo anche (tu|te)".r, 14),
       ),
       mediafiles = List(
-        MediaFile("ytai_FalloAncheTu.gif")
+        GifFile("ytai_FalloAncheTu.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -312,8 +312,8 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("filet[ -]?o[ -]?fish".r, 10),
       ),
       mediafiles = List(
-        MediaFile("ytai_FiletOFish.gif"),
-        MediaFile("ytai_BagnarloAcqua.gif")
+        GifFile("ytai_FiletOFish.mp4"),
+        GifFile("ytai_BagnarloAcqua.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -325,7 +325,7 @@ object YoutuboAncheIoBot {
         )
       ),
       mediafiles = List(
-        MediaFile("ytai_Frustrazione.gif")
+        GifFile("ytai_Frustrazione.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -333,7 +333,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ci sto già pensando")
       ),
       mediafiles = List(
-        MediaFile("ytai_GiaPensando.gif")
+        GifFile("ytai_GiaPensando.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -342,7 +342,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sono corpulento")
       ),
       mediafiles = List(
-        MediaFile("ytai_GrandeCorpulento.gif")
+        GifFile("ytai_GrandeCorpulento.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -350,7 +350,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("grazie dottore"),
       ),
       mediafiles = List(
-        MediaFile("ytai_GrazieDottore.gif")
+        GifFile("ytai_GrazieDottore.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -359,7 +359,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sconforto grave")
       ),
       mediafiles = List(
-        MediaFile("ytai_GrazieTante.gif")
+        GifFile("ytai_GrazieTante.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -368,7 +368,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("incredibile aroma")
       ),
       mediafiles = List(
-        MediaFile("ytai_IncredibileAromaProfumo.gif")
+        GifFile("ytai_IncredibileAromaProfumo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -378,7 +378,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("the number (one|1)".r, 12)
       ),
       mediafiles = List(
-        MediaFile("ytai_IncredibileInimitabile.gif")
+        GifFile("ytai_IncredibileInimitabile.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -386,7 +386,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("io non lo so")
       ),
       mediafiles = List(
-        MediaFile("ytai_IoNonLoSo.gif")
+        GifFile("ytai_IoNonLoSo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -395,7 +395,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("vostro diritto")
       ),
       mediafiles = List(
-        MediaFile("ytai_LoroDovereVostroDiritto.gif")
+        GifFile("ytai_LoroDovereVostroDiritto.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -403,7 +403,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("lo so anche io")
       ),
       mediafiles = List(
-        MediaFile("ytai_LoSoAncheIo.gif")
+        GifFile("ytai_LoSoAncheIo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -411,9 +411,9 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("mah")
       ),
       mediafiles = List(
-        MediaFile("ytai_Mah.gif"),
-        MediaFile("ytai_Mah2.gif"),
-        MediaFile("ytai_ZoomMah.gif")
+        GifFile("ytai_Mah.mp4"),
+        GifFile("ytai_Mah2.mp4"),
+        GifFile("ytai_ZoomMah.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -422,7 +422,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("meraviglioso"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Meraviglioso.gif")
+        GifFile("ytai_Meraviglioso.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -433,7 +433,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ancora non sei morto")
       ),
       mediafiles = List(
-        MediaFile("ytai_Molla.gif")
+        GifFile("ytai_Molla.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -441,8 +441,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("molto buona")
       ),
       mediafiles = List(
-        MediaFile("ytai_MoltoBuona.gif"),
-        MediaFile("ytai_Buona.gif")
+        GifFile("ytai_MoltoBuona.mp4"),
+        GifFile("ytai_Buona.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -453,7 +453,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("tiramisù"),
       ),
       mediafiles = List(
-        MediaFile("ytai_MonoporzioniTiramisu.gif")
+        GifFile("ytai_MonoporzioniTiramisu.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -461,7 +461,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("non fa male")
       ),
       mediafiles = List(
-        MediaFile("ytai_NonFaMale.gif")
+        GifFile("ytai_NonFaMale.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -470,7 +470,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("non ci crede nessuno")
       ),
       mediafiles = List(
-        MediaFile("ytai_NonLaCredeNessuno.gif")
+        GifFile("ytai_NonLaCredeNessuno.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -478,7 +478,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("non pensiamoci più")
       ),
       mediafiles = List(
-        MediaFile("ytai_NonPensiamoci.gif")
+        GifFile("ytai_NonPensiamoci.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -487,7 +487,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("non vi capiscono")
       ),
       mediafiles = List(
-        MediaFile("ytai_NonViCapiscono.gif")
+        GifFile("ytai_NonViCapiscono.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -497,9 +497,9 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue(e":wink:"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Occhiolino.gif"),
-        MediaFile("ytai_Occhiolino2.gif"),
-        MediaFile("ytai_Occhiolino3.gif")
+        GifFile("ytai_Occhiolino.mp4"),
+        GifFile("ytai_Occhiolino2.mp4"),
+        GifFile("ytai_Occhiolino3.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -508,7 +508,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("olè"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Ole.gif")
+        GifFile("ytai_Ole.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -516,7 +516,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("olè anche io"),
       ),
       mediafiles = List(
-        MediaFile("ytai_OleAncheIo.gif")
+        GifFile("ytai_OleAncheIo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -525,7 +525,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("la nostra tendenza")
       ),
       mediafiles = List(
-        MediaFile("ytai_PerfezioneTendenza.gif")
+        GifFile("ytai_PerfezioneTendenza.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -533,8 +533,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("profumo meraviglioso"),
       ),
       mediafiles = List(
-        MediaFile("ytai_ProfumoMeraviglioso.gif"),
-        MediaFile("ytai_ProfumoGamberettiSalmone.gif")
+        GifFile("ytai_ProfumoMeraviglioso.mp4"),
+        GifFile("ytai_ProfumoGamberettiSalmone.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -543,7 +543,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sentiamo il profumo")
       ),
       mediafiles = List(
-        MediaFile("ytai_ProfumoMeraviglioso.gif")
+        MediaFile("ytai_ProfumoMeraviglioso.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -551,7 +551,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ricordami fino a domani")
       ),
       mediafiles = List(
-        MediaFile("ytai_Ricordami.gif")
+        GifFile("ytai_Ricordami.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -559,7 +559,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ringraziamento"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Ringraziamento.gif")
+        GifFile("ytai_Ringraziamento.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -568,7 +568,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("cosa mi aiuta")
       ),
       mediafiles = List(
-        MediaFile("ytai_SentiteCheRoba.gif")
+        GifFile("ytai_SentiteCheRoba.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -577,7 +577,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("(sorso|bicchiere) d'acqua".r, 13)
       ),
       mediafiles = List(
-        MediaFile("ytai_Sete.gif")
+        MediaFile("ytai_Sete.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -585,7 +585,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue(Emoji(0x1f937).toString)
       ),
       mediafiles = List(
-        MediaFile("ytai_Shrug.gif")
+        GifFile("ytai_Shrug.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -593,7 +593,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sta per dire qualcosa"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Silenzio.gif")
+        GifFile("ytai_Silenzio.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -601,8 +601,8 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("silenzio[,]? silenzio".r, 17),
       ),
       mediafiles = List(
-        MediaFile("ytai_Silenzio.gif"),
-        MediaFile("ytai_SilenzioMomentoMagico.gif")
+        MediaFile("ytai_Silenzio.mp4"),
+        GifFile("ytai_SilenzioMomentoMagico.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -613,7 +613,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("è tanto facile")
       ),
       mediafiles = List(
-        MediaFile("ytai_SiVaFincheSiVa.gif")
+        GifFile("ytai_SiVaFincheSiVa.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -621,7 +621,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sorprendente"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Sorprendente.gif")
+        GifFile("ytai_Sorprendente.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -632,7 +632,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sorriso")
       ),
       mediafiles = List(
-        MediaFile("ytai_Sorriso.gif")
+        GifFile("ytai_Sorriso.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -640,9 +640,9 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("spuntino"),
       ),
       mediafiles = List(
-        MediaFile("ytai_SpuntinoConMe.gif"),
-        MediaFile("ytai_SpuntinoConMe2.gif"),
-        MediaFile("ytai_BuonoSpuntino.gif")
+        GifFile("ytai_SpuntinoConMe.mp4"),
+        GifFile("ytai_SpuntinoConMe2.mp4"),
+        GifFile("ytai_BuonoSpuntino.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -651,7 +651,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("ti voglio (tanto )?bene".r, 14),
       ),
       mediafiles = List(
-        MediaFile("ytai_TVTB.gif")
+        GifFile("ytai_TVTB.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -659,7 +659,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("l'unica cosa che sai fare"),
       ),
       mediafiles = List(
-        MediaFile("ytai_UnicaCosaMangiare.gif")
+        GifFile("ytai_UnicaCosaMangiare.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -667,7 +667,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("uno o due")
       ),
       mediafiles = List(
-        MediaFile("ytai_UnoODue.gif")
+        GifFile("ytai_UnoODue.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -676,7 +676,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("mia risposta")
       ),
       mediafiles = List(
-        MediaFile("ytai_Zenzero.gif")
+        GifFile("ytai_Zenzero.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -685,8 +685,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("guardo da vicino")
       ),
       mediafiles = List(
-        MediaFile("ytai_Zoom.gif"),
-        MediaFile("ytai_ZoomMah.gif")
+        GifFile("ytai_Zoom.mp4"),
+        MediaFile("ytai_ZoomMah.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -695,8 +695,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("auguri"),
       ),
       mediafiles = List(
-        MediaFile("ytai_AuguriDiGusto.gif"),
-        MediaFile("ytai_TantiAuguri.gif")
+        GifFile("ytai_AuguriDiGusto.mp4"),
+        GifFile("ytai_TantiAuguri.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -705,7 +705,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("bagnarlo")
       ),
       mediafiles = List(
-        MediaFile("ytai_BagnarloAcqua.gif")
+        MediaFile("ytai_BagnarloAcqua.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -714,7 +714,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ora e sempre")
       ),
       mediafiles = List(
-        MediaFile("ytai_Benvenuti.gif")
+        GifFile("ytai_Benvenuti.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -722,7 +722,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("buon appetito")
       ),
       mediafiles = List(
-        MediaFile("ytai_BuonAppetito.gif"),
+        GifFile("ytai_BuonAppetito.mp4"),
       )
     ),
     ReplyBundleMessage(
@@ -732,7 +732,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("ma (che )?stiamo scherzando".r, 20)
       ),
       mediafiles = List(
-        MediaFile("ytai_DiplomaPisciare.gif"),
+        GifFile("ytai_DiplomaPisciare.mp4"),
       )
     ),
     ReplyBundleMessage(
@@ -740,7 +740,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("non (mi sento|sto) bene".r, 12)
       ),
       mediafiles = List(
-        MediaFile("ytai_DiversiGioniNonStoBene.gif")
+        GifFile("ytai_DiversiGioniNonStoBene.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -748,7 +748,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("(grazie e )?arrivederci".r, 11),
       ),
       mediafiles = List(
-        MediaFile("ytai_GrazieArrivederci.gif")
+        GifFile("ytai_GrazieArrivederci.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -756,7 +756,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("eccitato"),
       ),
       mediafiles = List(
-        MediaFile("ytai_MoltoEccitato.gif")
+        GifFile("ytai_MoltoEccitato.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -765,7 +765,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("no gain")
       ),
       mediafiles = List(
-        MediaFile("ytai_NoPainNoGain.gif")
+        GifFile("ytai_NoPainNoGain.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -775,7 +775,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sei in gamba"),
       ),
       mediafiles = List(
-        MediaFile("ytai_NoScuse.gif")
+        GifFile("ytai_NoScuse.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -784,7 +784,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("sono (grosso|sono (quasi )?enorme|una palla di lardo)".r, 11),
       ),
       mediafiles = List(
-        MediaFile("ytai_PallaDiLardo.gif")
+        GifFile("ytai_PallaDiLardo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -792,7 +792,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("mette paura"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Paura.gif")
+        GifFile("ytai_Paura.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -800,7 +800,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("per voi"),
       ),
       mediafiles = List(
-        MediaFile("ytai_PerVoi.gif")
+        GifFile("ytai_PerVoi.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -809,7 +809,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("allegria"),
       ),
       mediafiles = List(
-        MediaFile("ytai_PizzaAllegria.gif")
+        MediaFile("ytai_PizzaAllegria.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -818,8 +818,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("salmone"),
       ),
       mediafiles = List(
-        MediaFile("ytai_ProfumoGamberettiSalmone.gif"),
-        MediaFile("ytai_Sorpresa.gif")
+        MediaFile("ytai_ProfumoGamberettiSalmone.mp4"),
+        GifFile("ytai_Sorpresa.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -829,7 +829,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("senza morire"),
       ),
       mediafiles = List(
-        MediaFile("ytai_ProviamoSenzaMorire.gif")
+        GifFile("ytai_ProviamoSenzaMorire.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -837,7 +837,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("quello che riesco a fare"),
       ),
       mediafiles = List(
-        MediaFile("ytai_RiescoAFare.gif")
+        GifFile("ytai_RiescoAFare.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -845,7 +845,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("sentendo (davvero )?male".r, 13),
       ),
       mediafiles = List(
-        MediaFile("ytai_SentendoDavveroMale.gif")
+        GifFile("ytai_SentendoDavveroMale.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -853,7 +853,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("momento magico"),
       ),
       mediafiles = List(
-        MediaFile("ytai_SilenzioMomentoMagico.gif")
+        MediaFile("ytai_SilenzioMomentoMagico.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -861,7 +861,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sopraffino"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Sopraffino.gif")
+        GifFile("ytai_Sopraffino.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -870,7 +870,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("😯"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Sorpresa.gif")
+        MediaFile("ytai_Sorpresa.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -878,7 +878,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("staccato (quasi )?il naso".r, 16),
       ),
       mediafiles = List(
-        MediaFile("ytai_StaccatoNaso.gif")
+        GifFile("ytai_StaccatoNaso.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -886,7 +886,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("cuc[uù]+".r, 4),
       ),
       mediafiles = List(
-        MediaFile("ytai_Cucu.gif")
+        GifFile("ytai_Cucu.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -894,7 +894,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("al[e]+ [o]{2,}".r, 6),
       ),
       mediafiles = List(
-        MediaFile("ytai_AleOoo.gif")
+        GifFile("ytai_AleOoo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -903,7 +903,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("faenza"),
       ),
       mediafiles = List(
-        MediaFile("ytai_SenzaFaenza.gif")
+        GifFile("ytai_SenzaFaenza.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -911,7 +911,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("caffè"),
       ),
       mediafiles = List(
-        MediaFile("ytai_BuonCaffeATutti.gif")
+        GifFile("ytai_BuonCaffeATutti.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -920,7 +920,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("meravigliosa"),
       ),
       mediafiles = List(
-        MediaFile("ytai_CapolavoroMeravigliosa.gif")
+        GifFile("ytai_CapolavoroMeravigliosa.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -928,7 +928,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ce la puoi fare"),
       ),
       mediafiles = List(
-        MediaFile("ytai_CeLaPuoiFare.gif")
+        GifFile("ytai_CeLaPuoiFare.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -936,7 +936,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("che profumo")
       ),
       mediafiles = List(
-        MediaFile("ytai_CheProfumo.gif")
+        GifFile("ytai_CheProfumo.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -944,7 +944,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("eccolo qua")
       ),
       mediafiles = List(
-        MediaFile("ytai_EccoloQua.gif")
+        GifFile("ytai_EccoloQua.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -952,7 +952,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("non mi piacciono"),
       ),
       mediafiles = List(
-        MediaFile("ytai_NonMiPiaccionoQuesteCose.gif")
+        GifFile("ytai_NonMiPiaccionoQuesteCose.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -960,7 +960,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("nonno")
       ),
       mediafiles = List(
-        MediaFile("ytai_NonnoMito.gif")
+        GifFile("ytai_NonnoMito.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -970,7 +970,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("guadagno"),
       ),
       mediafiles = List(
-        MediaFile("ytai_SoltantoPerQuesto.gif")
+        GifFile("ytai_SoltantoPerQuesto.mp4")
       )
     )
   )
@@ -983,7 +983,7 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("ho perso (di nuovo )qualcosa".r, 18)
       ),
       mediafiles = List(
-        MediaFile("ytai_HoPersoQualcosa.gif"),
+        GifFile("ytai_HoPersoQualcosa.mp4"),
         MediaFile("ytai_HoPersoQualcosa.mp3")
       ),
       replySelection = RandomSelection
@@ -993,8 +993,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("reputazione")
       ),
       mediafiles = List(
-        MediaFile("ytai_LaReputazione.gif"),
-        MediaFile("ytai_CheVergogna.gif")
+        GifFile("ytai_LaReputazione.mp4"),
+        MediaFile("ytai_CheVergogna.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1003,7 +1003,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("donazioni")
       ),
       mediafiles = List(
-        MediaFile("ytai_Donazioni.gif"),
+        GifFile("ytai_Donazioni.mp4"),
         MediaFile("ytai_Donazioni.mp3")
       ),
       replySelection = RandomSelection
@@ -1014,7 +1014,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("non mi va bene niente")
       ),
       mediafiles = List(
-        MediaFile("ytai_NienteVaBene.gif"),
+        GifFile("ytai_NienteVaBene.mp4"),
         MediaFile("ytai_NienteVaBene.mp3"),
       ),
       replySelection = RandomSelection
