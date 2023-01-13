@@ -353,7 +353,7 @@ object Video {
         RegexTextTriggerValue("(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r, 22)
       ),
       List(
-        MediaFile("rphjb_Arivato.mp4")
+        GifFile("rphjb_Arivato.mp4")
       )
     ),
     ReplyBundleMessage(

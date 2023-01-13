@@ -23,7 +23,7 @@ final case class Mp3File private[model] (filepath: String, replyToMessage: Boole
 }
 
 final case class GifFile private[model] (filepath: String, replyToMessage: Boolean = false) extends MediaFile {
-  require(filepath.endsWith(".gif"))
+  require(filepath.endsWith(".gif") || filepath.endsWith(".mp4"))
 }
 
 final case class PhotoFile private[model] (filepath: String, replyToMessage: Boolean = false) extends MediaFile {
