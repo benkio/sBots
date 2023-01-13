@@ -47,12 +47,14 @@ class ReplyBundleSpec extends CatsEffectSuite {
     val result: IO[List[Message]] =
       ReplyBundle.computeReplyBundle(replyBundleInput, message, Applicative[IO].pure(true))
 
-    assertIO(result.map(_.length), 6)
-    assertIO(result.map(_.contains(message.copy(text = Some("Mp3")))), true)
-    assertIO(result.map(_.contains(message.copy(text = Some("Photo")))), true)
-    assertIO(result.map(_.contains(message.copy(text = Some("Gif")))), true)
-    assertIO(result.map(_.contains(message.copy(text = Some("Text")))), true)
-    assertIO(result.map(_.contains(message.copy(text = Some("Video")))), true)
+    for {
+      _ <- assertIO(result.map(_.length), 6)
+      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Mp3")))), true)
+      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Photo")))), true)
+      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Gif")))), true)
+      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Text")))), true)
+      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Video")))), true)
+    } yield ()
   }
 
   test("prettyPrint of ReplyBundleMessage should return the expected string") {

@@ -113,9 +113,7 @@ object Actions {
             } yield messages
         }).value.map {
           case Right(x) => x
-          case Left(e) =>
-            log.error(s"********ERROR OCCURRED********\n ${e.getMessage}")
-            List(msg)
+          case Left(_)  => List(msg)
         }
       }
 }

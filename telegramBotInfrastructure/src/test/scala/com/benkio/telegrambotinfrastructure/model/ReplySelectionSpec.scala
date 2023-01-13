@@ -12,16 +12,19 @@ class ReplySelectionSpec extends CatsEffectSuite {
     "RandomSelection logic should be a function returning a list of one element when a list of multiple element is provided"
   ) {
     val result: IO[List[Reply]] = RandomSelection.logic[IO](input)
-    assertIO(result.map(_.length), 1)
-    assertIO(
-      result.map(mediaFiles =>
-        mediaFiles.forall {
-          case (mediaFile: MediaFile) => List("a.mp3", "b.gif", "c.jpg", "d.png", "e.mp4").contains(mediaFile.filename)
-          case _                      => fail("I expect a mediafile in here")
-        }
-      ),
-      true
-    )
+    for {
+      _ <- assertIO(result.map(_.length), 1)
+      _ <- assertIO(
+        result.map(mediaFiles =>
+          mediaFiles.forall {
+            case (mediaFile: MediaFile) =>
+              List("a.mp3", "b.gif", "c.jpg", "d.png", "e.mp4").contains(mediaFile.filename)
+            case _ => fail("I expect a mediafile in here")
+          }
+        ),
+        true
+      )
+    } yield ()
   }
   test("SelectAll logic should always return the same input") {
     assertIO(SelectAll.logic[IO](input), input)
