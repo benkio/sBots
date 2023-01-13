@@ -89,19 +89,21 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       )
       _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
+      _ <- Resource.eval(
+        assertIO(
+          backgroundJobManager.memSubscriptions
+            .find { case (SubscriptionKey(sId, _), _) => sId == testSubscriptionId }
+            .get
+            ._2
+            .join,
+          Outcome.succeeded[IO, Throwable, Unit](IO(()))
+        )
+      )
     } yield {
       assert(backgroundJobManager.memSubscriptions.size == 1)
       assert(backgroundJobManager.memSubscriptions.find { case (SubscriptionKey(sId, _), _) =>
         sId == testSubscriptionId
       }.isDefined)
-      assertIO(
-        backgroundJobManager.memSubscriptions
-          .find { case (SubscriptionKey(sId, _), _) => sId == testSubscriptionId }
-          .get
-          ._2
-          .join,
-        Outcome.succeeded[IO, Throwable, Unit](IO(()))
-      )
       assert(subscriptions.length == 1)
       assert(Subscription(subscriptions.head) == testSubscription)
     }

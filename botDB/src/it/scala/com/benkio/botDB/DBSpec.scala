@@ -18,7 +18,7 @@ class DBSpec extends CatsEffectSuite with DBConstants {
   val databaseConnection = FunFixture[Connection](
     setup = { _ =>
       Files.deleteIfExists(Paths.get(dbPath))
-      DBMigrator.unsafeMigrate(TestData.config.copy(url = dbUrl))
+      val _       = DBMigrator.unsafeMigrate(TestData.config.copy(url = dbUrl))
       val conn    = DriverManager.getConnection(dbUrl)
       val isValid = conn.isValid(10)
       println(s"conn is valid: " + isValid)
