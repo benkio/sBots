@@ -407,7 +407,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bsubito([o]|[!]){2,}\\b".r, 6)
+        RegexTextTriggerValue("\\bsubito(o|!){2,}".r, 6)
       ),
       List(
         MediaFile("abar_Subito.mp3")
@@ -703,7 +703,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bbasta(a|!){2,}\\b".r, 5)
+        RegexTextTriggerValue("\\bbasta(a|!){2,}".r, 5)
       ),
       List(
         MediaFile("abar_Basta.gif")
@@ -787,7 +787,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bgiusto(o|!){2,}\\b".r, 6)
+        RegexTextTriggerValue("\\bgiusto(o|!){2,}".r, 6)
       ),
       List(
         MediaFile("abar_Giusto.gif")

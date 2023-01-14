@@ -755,7 +755,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("bast[a]{3,}[!]*".r, 7)
+        RegexTextTriggerValue("\\bbasta(a|!){2,}".r, 7)
       ),
       List(
         MediaFile("rphjb_Basta.mp3"),
