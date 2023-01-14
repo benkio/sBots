@@ -373,7 +373,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bre\\b".r, 2),
+        RegexTextTriggerValue("i \\bre\\b".r, 2),
         StringTextTriggerValue("decapita")
       ),
       List(
@@ -407,7 +407,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("subito")
+        RegexTextTriggerValue("\\bsubito([o]|[!]){2,}\\b".r, 6)
       ),
       List(
         MediaFile("abar_Subito.mp3")
@@ -669,7 +669,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("bere"),
+        RegexTextTriggerValue("bere il (suo )?sangue".r, 15),
         RegexTextTriggerValue("taglia(re)? la gola".r, 14)
       ),
       List(
@@ -703,7 +703,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("basta!")
+        RegexTextTriggerValue("\\bbasta(a|!){2,}\\b".r, 5)
       ),
       List(
         MediaFile("abar_Basta.gif")
@@ -787,7 +787,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("giusto")
+        RegexTextTriggerValue("\\bgiusto(o|!){2,}\\b".r, 6)
       ),
       List(
         MediaFile("abar_Giusto.gif")
@@ -795,7 +795,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("gli altri")
+        RegexTextTriggerValue("gli altri (che )?sono".r, 15)
       ),
       List(
         MediaFile("abar_GliAltri.gif")
