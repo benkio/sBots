@@ -692,13 +692,19 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("auguri"),
+        StringTextTriggerValue("tanti auguri"),
       ),
       mediafiles = List(
-        GifFile("ytai_AuguriDiGusto.mp4"),
         GifFile("ytai_TantiAuguri.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("auguri di gusto"),
       ),
-      replySelection = RandomSelection
+      mediafiles = List(
+        GifFile("ytai_AuguriDiGusto.mp4")
+      )
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(

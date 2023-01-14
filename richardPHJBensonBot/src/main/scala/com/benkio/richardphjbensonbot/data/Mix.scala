@@ -34,7 +34,7 @@ object Mix {
         StringTextTriggerValue("disastri aerei")
       ),
       List(
-        MediaFile("rphjb_DrogatiPiloti.gif"),
+        GifFile("rphjb_DrogatiPilotiGif.mp4"),
         MediaFile("rphjb_DrogatiPiloti.mp4")
       ),
       replySelection = RandomSelection
@@ -139,7 +139,7 @@ object Mix {
         StringTextTriggerValue("paradosso")
       ),
       List(
-        MediaFile("rphjb_Paradosso.gif"),
+        GifFile("rphjb_ParadossoGif.mp4"),
         MediaFile("rphjb_Paradosso.mp4")
       ),
       replySelection = RandomSelection
@@ -149,7 +149,7 @@ object Mix {
         RegexTextTriggerValue("\\bsput[ao]\\b".r, 5)
       ),
       List(
-        MediaFile("rphjb_Sputo.gif"),
+        GifFile("rphjb_SputoGif.mp4"),
         MediaFile("rphjb_Sputo.mp4"),
         MediaFile("rphjb_BicchiereSputoLimitazioniUomoDonna.mp4")
       ),
@@ -241,7 +241,7 @@ object Mix {
         RegexTextTriggerValue("t(i|e) strozzo".r, 10)
       ),
       List(
-        MediaFile("rphjb_FaccioVedereSpalleBraccia.gif"),
+        GifFile("rphjb_FaccioVedereSpalleBracciaGif.mp4"),
         MediaFile("rphjb_FaccioVedereSpalleBraccia.mp4"),
         MediaFile("rphjb_UccidereUnaPersona.mp4"),
       ),
@@ -253,7 +253,7 @@ object Mix {
         RegexTextTriggerValue("aris(d|t)o(d|t)ele".r, 10)
       ),
       List(
-        MediaFile("rphjb_SoDiNonSapere.gif"),
+        GifFile("rphjb_SoDiNonSapereGif.mp4"),
         MediaFile("rphjb_SoDiNonSapere.mp4")
       ),
       replySelection = RandomSelection
@@ -263,7 +263,7 @@ object Mix {
         StringTextTriggerValue("non è roba per me")
       ),
       List(
-        MediaFile("rphjb_RobaPerMe.gif"),
+        GifFile("rphjb_RobaPerMeGif.mp4"),
         MediaFile("rphjb_RobaPerMe.mp4")
       ),
       replySelection = RandomSelection
@@ -298,7 +298,7 @@ object Mix {
         StringTextTriggerValue("strisciate per terra")
       ),
       List(
-        MediaFile("rphjb_ViCalpesto.gif"),
+        GifFile("rphjb_ViCalpestoGif.mp4"),
         MediaFile("rphjb_ViCalpesto.mp3"),
         MediaFile("rphjb_ViCalpesto.mp4")
       ),
@@ -346,7 +346,7 @@ object Mix {
         StringTextTriggerValue("ultimi")
       ),
       List(
-        MediaFile("rphjb_ViCalpesto.gif"),
+        GifFile("rphjb_ViCalpestoGif.mp4"),
         MediaFile("rphjb_ViCalpesto.mp3"),
         MediaFile("rphjb_ViCalpesto.mp4"),
         GifFile("rphjb_Ultimi.mp4"),
@@ -394,7 +394,7 @@ object Mix {
         MediaFile("rphjb_Pollo.mp3"),
         MediaFile("rphjb_Pollo.mp4"),
         MediaFile("rphjb_Pollo2.mp4"),
-        MediaFile("rphjb_Pollo.gif")
+        GifFile("rphjb_PolloGif.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -490,7 +490,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_TiDeviSpaventare.mp3"),
-        MediaFile("rphjb_TiDeviSpaventare.gif"),
+        GifFile("rphjb_TiDeviSpaventareGif.mp4"),
         MediaFile("rphjb_TiDeviSpaventare.mp4")
       ),
       replySelection = RandomSelection
@@ -503,7 +503,7 @@ object Mix {
       List(
         MediaFile("rphjb_MaCheCazzoStoDicendo.mp3"),
         MediaFile("rphjb_MaCheCazzoStoDicendo.mp4"),
-        MediaFile("rphjb_MaCheCazzoStoDicendo.gif"),
+        GifFile("rphjb_MaCheCazzoStoDicendoGif.mp4"),
         GifFile("rphjb_IlMartel.mp4")
       ),
       replySelection = RandomSelection
@@ -525,7 +525,7 @@ object Mix {
       List(
         MediaFile("rphjb_Vergogna.mp3"),
         MediaFile("rphjb_Vergogna.mp4"),
-        MediaFile("rphjb_Vergogna.gif"),
+        GifFile("rphjb_VergognaGif.mp4"),
         GifFile("rphjb_Vergogna2.mp4")
       ),
       replySelection = RandomSelection
@@ -558,7 +558,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_Grazie.mp3"),
-        MediaFile("rphjb_Grazie.gif"),
+        GifFile("rphjb_GrazieGif.mp4"),
         MediaFile("rphjb_Grazie.mp4")
       ),
       replySelection = RandomSelection
@@ -569,7 +569,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_Grazie.mp3"),
-        MediaFile("rphjb_Grazie.gif"),
+        GifFile("rphjb_GrazieGif.mp4"),
         MediaFile("rphjb_Grazie.mp4"),
         MediaFile("rphjb_ViSaluto.mp3")
       ),
@@ -596,7 +596,7 @@ object Mix {
         MediaFile("rphjb_LavoraTu.mp3"),
         MediaFile("rphjb_LavoraTu.mp4"),
         MediaFile("rphjb_LavoraTu2.mp4"),
-        MediaFile("rphjb_LavoraTu.gif"),
+        GifFile("rphjb_LavoraTuGif.mp4"),
         MediaFile("rphjb_StorieSonoTanteVecchiaccia.mp4")
       ),
       replySelection = RandomSelection
@@ -632,7 +632,7 @@ object Mix {
       List(
         MediaFile("rphjb_Risata.mp3"),
         MediaFile("rphjb_Risata.mp4"),
-        MediaFile("rphjb_Risata.gif"),
+        GifFile("rphjb_RisataGif.mp4"),
         MediaFile("rphjb_OrmaiRisata.mp4"),
         MediaFile("rphjb_Sorriso2.gif"),
         GifFile("rphjb_Sorriso.mp4"),
@@ -671,7 +671,7 @@ object Mix {
       List(
         MediaFile("rphjb_NonMiStaBene.mp3"),
         MediaFile("rphjb_NonMiStaBene2.mp3"),
-        MediaFile("rphjb_NonMiStaBene.gif"),
+        GifFile("rphjb_NonMiStaBeneGif.mp4"),
         GifFile("rphjb_NonMiStaBene2.mp4"),
         MediaFile("rphjb_NonMiStaBene.mp4")
       ),
@@ -693,7 +693,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_VitaNemico.mp3"),
-        MediaFile("rphjb_VitaNemico.gif"),
+        GifFile("rphjb_VitaNemicoGif.mp4"),
         MediaFile("rphjb_VitaNemico.mp4"),
         MediaFile("rphjb_VitaNemico2.mp4"),
         MediaFile("rphjb_VitaNemicoCervello.mp4")
@@ -727,7 +727,7 @@ object Mix {
       List(
         MediaFile("rphjb_Terribile.mp3"),
         MediaFile("rphjb_Terribile.mp4"),
-        MediaFile("rphjb_Terribile.gif")
+        GifFile("rphjb_TerribileGif.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -802,7 +802,7 @@ object Mix {
         MediaFile("rphjb_NonHannoCapitoUnCazzo.mp3"),
         MediaFile("rphjb_NonAveteCapitoUnCazzo.mp4"),
         GifFile("rphjb_AveteCapitoComeSempre.mp4"),
-        MediaFile("rphjb_NonAveteCapitoUnCazzo.gif"),
+        GifFile("rphjb_NonAveteCapitoUnCazzoGif.mp4"),
         GifFile("rphjb_VoiNonAveteCapitoUnCazzo.mp4"),
         GifFile("rphjb_IlSensoCapito.mp4"),
         GifFile("rphjb_CapitoDoveStiamo.mp4"),
@@ -825,8 +825,8 @@ object Mix {
         MediaFile("rphjb_Esperimento.mp3"),
         MediaFile("rphjb_Esperimento.mp4"),
         MediaFile("rphjb_Esperimento2.mp4"),
-        MediaFile("rphjb_Esperimento.gif"),
-        MediaFile("rphjb_Esperimento2.gif"),
+        GifFile("rphjb_EsperimentoGif.mp4"),
+        GifFile("rphjb_Esperimento2Gif.mp4"),
         GifFile("rphjb_Esperimento3.mp4"),
         MediaFile("rphjb_DiciottoAnni.mp4"),
       ),
@@ -837,7 +837,7 @@ object Mix {
         StringTextTriggerValue("schifosi")
       ),
       List(
-        MediaFile("rphjb_ViCalpesto.gif"),
+        GifFile("rphjb_ViCalpestoGif.mp4"),
         MediaFile("rphjb_ViCalpesto.mp3"),
         MediaFile("rphjb_ViCalpesto.mp4"),
         MediaFile("rphjb_Schifosi.mp3"),
@@ -848,7 +848,7 @@ object Mix {
         GifFile("rphjb_Schifosi3.mp4"),
         MediaFile("rphjb_SchifosoUltimi.mp4"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
-        MediaFile("rphjb_Schifosi.gif"),
+        GifFile("rphjb_SchifosiGif.mp4"),
         GifFile("rphjb_Schifosi2.mp4"),
         MediaFile("rphjb_Vigile.mp4"),
         MediaFile("rphjb_ConQuestaTecnica.mp4")
@@ -871,7 +871,7 @@ object Mix {
         StringTextTriggerValue("mortacci vostri")
       ),
       List(
-        MediaFile("rphjb_MortacciVostri.gif"),
+        GifFile("rphjb_MortacciVostriGif.mp4"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
         MediaFile("rphjb_ConQuestaTecnica.mp4"),
         MediaFile("rphjb_MortacciVostri.mp4"),
@@ -916,7 +916,7 @@ object Mix {
         StringTextTriggerValue("venite qua")
       ),
       List(
-        MediaFile("rphjb_VeniteQua.gif"),
+        GifFile("rphjb_VeniteQuaGif.mp4"),
         MediaFile("rphjb_VeniteQua.mp3"),
         MediaFile("rphjb_VeniteQua.mp4")
       ),
@@ -968,7 +968,7 @@ object Mix {
         RegexTextTriggerValue("delu(s|d)".r, 5)
       ),
       List(
-        MediaFile("rphjb_Deluso.gif"),
+        GifFile("rphjb_Deluso.mp4"),
         MediaFile("rphjb_Deluso.mp3"),
         MediaFile("rphjb_DeludendoQuasiTutto.mp4")
       ),
@@ -1024,7 +1024,7 @@ object Mix {
         StringTextTriggerValue("errori")
       ),
       List(
-        MediaFile("rphjb_MaiErrori.gif"),
+        GifFile("rphjb_MaiErroriGif.mp4"),
         MediaFile("rphjb_MaiErrori.mp4")
       ),
       replySelection = RandomSelection
@@ -1068,7 +1068,7 @@ object Mix {
         StringTextTriggerValue("guerra")
       ),
       List(
-        MediaFile("rphjb_GuerraTotale.gif"),
+        GifFile("rphjb_GuerraTotaleGif.mp4"),
         MediaFile("rphjb_GuerraTotale.mp4")
       ),
       replySelection = RandomSelection
@@ -1079,7 +1079,7 @@ object Mix {
         StringTextTriggerValue("mentre lavoro")
       ),
       List(
-        MediaFile("rphjb_NonVoglioNessuno.gif"),
+        GifFile("rphjb_NonVoglioNessunoGif.mp4"),
         MediaFile("rphjb_NonVoglioNessuno.mp4")
       ),
       replySelection = RandomSelection
@@ -1089,7 +1089,7 @@ object Mix {
         StringTextTriggerValue("peggio del peggio")
       ),
       List(
-        MediaFile("rphjb_PeggioDelPeggio.gif"),
+        GifFile("rphjb_PeggioDelPeggioGif.mp4"),
         MediaFile("rphjb_PeggioDelPeggio.mp4")
       ),
       replySelection = RandomSelection
@@ -1113,7 +1113,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_DiciottoAnni.mp4"),
-        MediaFile("rphjb_AvremoDiciottanni.gif")
+        GifFile("rphjb_DiciottoAnniGif.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1156,7 +1156,7 @@ object Mix {
         RegexTextTriggerValue("(c|g)ri(d|t)i(g|c)a(d|t)o".r, 9)
       ),
       List(
-        MediaFile("rphjb_FuCriticato.gif"),
+        GifFile("rphjb_FuCriticatoGif.mp4"),
         MediaFile("rphjb_FuCriticato.mp4"),
       ),
       replySelection = RandomSelection
@@ -1266,7 +1266,7 @@ object Mix {
         StringTextTriggerValue("danza macabra"),
       ),
       List(
-        MediaFile("rphjb_DanzaMacabra.gif"),
+        GifFile("rphjb_DanzaMacabraGif.mp4"),
         MediaFile("rphjb_DanzaMacabra.mp4"),
         MediaFile("rphjb_DanzaMacabra.mp3"),
       ),
@@ -1283,7 +1283,7 @@ object Mix {
         GifFile("rphjb_Note.mp4"),
         MediaFile("rphjb_Paradosso.mp4"),
         MediaFile("rphjb_RelIllusions.mp4"),
-        MediaFile("rphjb_TiDeviSpaventare.gif"),
+        GifFile("rphjb_TiDeviSpaventareGif.mp4"),
         MediaFile("rphjb_TiDeviSpaventare.mp3"),
         MediaFile("rphjb_Feelings.mp4")
       ),
