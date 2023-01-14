@@ -822,7 +822,7 @@ object Gif {
         MediaFile("rphjb_DrogatiRockettari.mp4"),
         MediaFile("rphjb_EricClaptonDrogaUominiAffari.mp4"),
         GifFile("rphjb_DrogatiRockettari2.mp4"),
-        MediaFile("rphjb_DrogatiPiloti.gif"),
+        GifFile("rphjb_DrogatiPilotiGif.mp4"),
         MediaFile("rphjb_DrogatiPiloti.mp4"),
         MediaFile("rphjb_Rampolli.mp4")
       ),
@@ -897,7 +897,7 @@ object Gif {
         StringTextTriggerValue("inizio della fine")
       ),
       List(
-        MediaFile("rphjb_InizioDellaFine.gif"),
+        GifFile("rphjb_InizioDellaFineGif.mp4"),
         MediaFile("rphjb_InizioDellaFine.mp4")
       ),
       replySelection = RandomSelection
