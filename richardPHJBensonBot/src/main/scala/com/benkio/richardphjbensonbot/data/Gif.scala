@@ -966,10 +966,19 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("prendere quello l[aà]".r, 18),
+        RegexTextTriggerValue("prendere quello l[aà]".r, 18),
       ),
       List(
         GifFile("rphjb_AaaPrendereQuelloLa.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(af)?fanculo in una maniera pazzesca".r, 33),
+        StringTextTriggerValue("altro che quel coglione"),
+      ),
+      List(
+        GifFile("rphjb_AffanculoManieraPazzesca.mp4")
       )
     )
   )
