@@ -517,7 +517,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("paura")
+        StringTextTriggerValue("un po' paura")
       ),
       List(
         MediaFile("abar_Paura.gif")

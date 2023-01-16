@@ -116,6 +116,22 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         MediaFile("ytai_Misc.mp3")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("\\btopolin[oi]\\b".r, 8)
+      ),
+      mediafiles = List(
+        MediaFile("ytai_Topolino.mp3")
+      ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("francesismo")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_Francesismo.mp3")
+      ),
     )
   )
 

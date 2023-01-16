@@ -614,7 +614,8 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("vi saluto")
+        StringTextTriggerValue("vi saluto"),
+        StringTextTriggerValue("(col|con il) (cuore|cervello|anima|pisello|martello)".r, 9),
       ),
       List(
         MediaFile("rphjb_ViSaluto.mp3")
@@ -781,6 +782,15 @@ object Audio {
       List(
         MediaFile("rphjb_NonParlareTeTrasmissioneMia.mp3"),
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("fa paura pure a"),
+        StringTextTriggerValue("al di meola")
+      ),
+      List(
+        MediaFile("rphjb_PauraAdAlDiMeola.mp3"),
+      )
+    ),
   )
 }
