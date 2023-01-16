@@ -615,7 +615,7 @@ object Audio {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("vi saluto"),
-        StringTextTriggerValue("(col|con il) (cuore|cervello|anima|pisello|martello)".r, 9),
+        RegexTextTriggerValue("(col|con il) (cuore|cervello|anima|pisello|martello)".r, 9),
       ),
       List(
         MediaFile("rphjb_ViSaluto.mp3")
