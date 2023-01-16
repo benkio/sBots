@@ -963,6 +963,14 @@ object Gif {
       List(
         GifFile("rphjb_DecidoIo.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("prendere quello l[aà]".r, 18),
+      ),
+      List(
+        GifFile("rphjb_AaaPrendereQuelloLa.mp4")
+      )
     )
   )
 
