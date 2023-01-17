@@ -731,6 +731,15 @@ object Video {
       List(
         MediaFile("rphjb_AuguriCompleanno.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("3 minuti"),
+        RegexTextTriggerValue("ti va bene cos[iì]".r, 15),
+      ),
+      List(
+        MediaFile("rphjb_3Minuti.mp4")
+      )
     )
   )
 
