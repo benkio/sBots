@@ -425,14 +425,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r, 6)
-      ),
-      List(
-        MediaFile("rphjb_MenoVolume.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("sono"),
         StringTextTriggerValue("ultimo")
       ),

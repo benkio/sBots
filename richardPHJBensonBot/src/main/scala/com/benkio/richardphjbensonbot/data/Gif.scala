@@ -96,16 +96,17 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue(" urlo"),
-        StringTextTriggerValue("urlo "),
-        StringTextTriggerValue("disper"),
+        RegexTextTriggerValue("\\burlo\\b".r, 4),
+        StringTextTriggerValue("\\b[a]{5,}"),
       ),
       List(
         GifFile("rphjb_Tuffo.mp4"),
         GifFile("rphjb_Urlo.mp4"),
         GifFile("rphjb_Urlo3.mp4"),
+        GifFile("rphjb_Urlo4.mp4"),
         GifFile("rphjb_Urlo2.mp4"),
-        GifFile("rphjb_UrloCanaro.mp4")
+        GifFile("rphjb_UrloCanaro.mp4"),
+        GifFile("rphjb_UrloRiso.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -656,15 +657,6 @@ object Gif {
       ),
       List(
         GifFile("rphjb_SiSente.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("per colpa vostra"),
-        RegexTextTriggerValue("(divento|diventare|sono) (matto|pazzo)".r, 10)
-      ),
-      List(
-        GifFile("rphjb_StoDiventandoPazzo.mp4")
       )
     ),
     ReplyBundleMessage(

@@ -765,6 +765,8 @@ object Mix {
         MediaFile("rphjb_BastaGif.mp4"),
         MediaFile("rphjb_Basta2Gif.mp4"),
         GifFile("rphjb_Basta3.mp4"),
+        GifFile("rphjb_Basta4.mp4"),
+        GifFile("rphjb_BastaRottoIlCazzo.mp4"),
         GifFile("rphjb_BastaSedia.mp4")
       ),
       replySelection = RandomSelection
@@ -783,6 +785,7 @@ object Mix {
         MediaFile("rphjb_AssoloSubdolo.mp4"),
         GifFile("rphjb_Chitarra1.mp4"),
         GifFile("rphjb_Chitarra2.mp4"),
+        GifFile("rphjb_Chitarra3.mp4"),
         MediaFile("rphjb_ChitarraPlettroVicoletto.mp4"),
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
         MediaFile("rphjb_AssoloBasso.mp4")
@@ -1288,7 +1291,26 @@ object Mix {
         MediaFile("rphjb_Feelings.mp4")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(divento|diventare|sono) (matto|pazzo)".r, 10)
+      ),
+      List(
+        GifFile("rphjb_StoDiventandoPazzo.mp4"),
+        MediaFile("rphjb_CompletamentePazzo.mp4"),
+        MediaFile("rphjb_CompletamentePazzo2.mp4"),
+      )
+    ),
+        ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r, 6)
+      ),
+      List(
+        MediaFile("rphjb_MenoVolume.mp3"),
+        MediaFile("rphjb_VolumeTelevisori.mp4")
+      )
+    ),
   )
 
 }
