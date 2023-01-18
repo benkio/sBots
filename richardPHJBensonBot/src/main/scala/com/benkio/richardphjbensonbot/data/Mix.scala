@@ -1300,7 +1300,8 @@ object Mix {
         GifFile("rphjb_StoDiventandoPazzo.mp4"),
         MediaFile("rphjb_CompletamentePazzo.mp4"),
         MediaFile("rphjb_CompletamentePazzo2.mp4"),
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -1309,7 +1310,8 @@ object Mix {
       List(
         MediaFile("rphjb_MenoVolume.mp3"),
         MediaFile("rphjb_VolumeTelevisori.mp4")
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -1319,7 +1321,8 @@ object Mix {
       List(
         GifFile("rphjb_GeneriMusicali.mp4"),
         MediaFile("rphjb_GeneriMusicali2.mp4"),
-      )
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -1345,8 +1348,19 @@ object Mix {
       List(
         GifFile("rphjb_SchifoseUltime.mp4"),
         MediaFile("rphjb_ImparaASputareMignottaSchifose.mp4")
-      )
+      ),
+      replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("e parl[a]+\\b".r, 7)
+      ),
+      List(
+        GifFile("rphjb_Parla.mp4"),
+        MediaFile("rphjb_Parla2.mp4")
+      ),
+      replySelection = RandomSelection
+    )
   )
 
 }

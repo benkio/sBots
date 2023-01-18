@@ -406,14 +406,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("e parl[a]+\\b".r, 7)
-      ),
-      List(
-        GifFile("rphjb_Parla.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("uno scherzo")
       ),
       List(
