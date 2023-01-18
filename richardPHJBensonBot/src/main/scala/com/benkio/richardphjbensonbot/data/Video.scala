@@ -748,6 +748,22 @@ object Video {
       List(
         MediaFile("rphjb_ImparaASputareMignottaSchifose.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("aiutatemi")
+      ),
+      List(
+        MediaFile("rphjb_Aiutatemi.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("brescia")
+      ),
+      List(
+        MediaFile("rphjb_BresciaMiPiace.mp4")
+      )
     )
   )
 

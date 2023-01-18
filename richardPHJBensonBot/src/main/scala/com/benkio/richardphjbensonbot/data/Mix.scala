@@ -1397,6 +1397,17 @@ object Mix {
         MediaFile("rphjb_Stanco.mp4")
       ),
       replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ratzinger"),
+        StringTextTriggerValue("il vaticano")
+      ),
+      List(
+        MediaFile("rphjb_AndateDaRatzinger.mp4"),
+        GifFile("rphjb_AndateDaRatzinger2.mp4")
+      ),
+      replySelection = RandomSelection
     )
   )
 
