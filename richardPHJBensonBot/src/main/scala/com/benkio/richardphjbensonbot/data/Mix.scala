@@ -1360,6 +1360,17 @@ object Mix {
         MediaFile("rphjb_Parla2.mp4")
       ),
       replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cosa è successo"),
+        RegexTextTriggerValue("\\bcosa[?]{1,}\\b".r, 5)
+      ),
+      List(
+        GifFile("rphjb_CosaSuccesso.mp4"),
+        MediaFile("rphjb_Cosa.mp4")
+      ),
+      replySelection = RandomSelection
     )
   )
 

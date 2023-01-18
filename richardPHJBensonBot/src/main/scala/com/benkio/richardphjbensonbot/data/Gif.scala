@@ -373,14 +373,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("cosa è successo")
-      ),
-      List(
-        GifFile("rphjb_CosaSuccesso.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("perchè mi guardi")
       ),
       List(
