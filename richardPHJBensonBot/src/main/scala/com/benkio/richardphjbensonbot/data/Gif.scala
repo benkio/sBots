@@ -19,15 +19,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("schifose"),
-        StringTextTriggerValue("ultime")
-      ),
-      List(
-        GifFile("rphjb_SchifoseUltime.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         RegexTextTriggerValue("(a[f]+)?fanculo(,)? per contesia".r, 20)
       ),
       List(
@@ -324,7 +315,7 @@ object Gif {
         StringTextTriggerValue("divento cattivo")
       ),
       List(
-        MediaFile("rphjb_Indispettirmi.gif")
+        GifFile("rphjb_Indispettirmi.gif")
       )
     ),
     ReplyBundleMessage(
@@ -373,20 +364,11 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("generi musicali"),
-        RegexTextTriggerValue("solo il me(t|d)al".r, 13)
-      ),
-      List(
-        GifFile("rphjb_GeneriMusicali.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("bassista"),
         StringTextTriggerValue("slap")
       ),
       List(
-        MediaFile("rphjb_Bassista.gif")
+        GifFile("rphjb_Bassista.gif")
       )
     ),
     ReplyBundleMessage(
@@ -658,21 +640,6 @@ object Gif {
       List(
         GifFile("rphjb_SiSente.mp4")
       )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("sorca"),
-        StringTextTriggerValue("patonza"),
-        StringTextTriggerValue("lecciso"),
-        RegexTextTriggerValue("\\bfi[cg]a\\b".r, 4)
-      ),
-      List(
-        GifFile("rphjb_SorcaLecciso.mp4"),
-        MediaFile("rphjb_FigaLarga.mp4"),
-        MediaFile("rphjb_FragolinaFichina.mp3"),
-        MediaFile("rphjb_Sorca.mp4")
-      ),
-      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(

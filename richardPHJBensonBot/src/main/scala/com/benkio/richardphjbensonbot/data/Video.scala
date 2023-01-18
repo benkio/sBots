@@ -740,6 +740,14 @@ object Video {
       List(
         MediaFile("rphjb_3Minuti.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("impara a sputare")
+      ),
+      List(
+        MediaFile("rphjb_ImparaASputareMignottaSchifose.mp4")
+      )
     )
   )
 

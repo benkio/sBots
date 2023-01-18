@@ -1302,13 +1302,49 @@ object Mix {
         MediaFile("rphjb_CompletamentePazzo2.mp4"),
       )
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r, 6)
       ),
       List(
         MediaFile("rphjb_MenoVolume.mp3"),
         MediaFile("rphjb_VolumeTelevisori.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("generi musicali"),
+        RegexTextTriggerValue("solo il me(t|d)al".r, 13)
+      ),
+      List(
+        GifFile("rphjb_GeneriMusicali.mp4"),
+        MediaFile("rphjb_GeneriMusicali2.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sorca"),
+        StringTextTriggerValue("patonza"),
+        StringTextTriggerValue("lecciso"),
+        RegexTextTriggerValue("\\bfi[cg]a\\b".r, 4)
+      ),
+      List(
+        GifFile("rphjb_SorcaLecciso.mp4"),
+        MediaFile("rphjb_SorcaLecciso2.mp4"),
+        MediaFile("rphjb_FigaLarga.mp4"),
+        MediaFile("rphjb_FragolinaFichina.mp3"),
+        MediaFile("rphjb_Sorca.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("schifose"),
+        StringTextTriggerValue("ultime")
+      ),
+      List(
+        GifFile("rphjb_SchifoseUltime.mp4"),
+        MediaFile("rphjb_ImparaASputareMignottaSchifose.mp4")
       )
     ),
   )
