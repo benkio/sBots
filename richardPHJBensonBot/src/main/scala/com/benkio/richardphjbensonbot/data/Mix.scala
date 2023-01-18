@@ -848,6 +848,7 @@ object Mix {
         MediaFile("rphjb_Schifosi2.mp3"),
         MediaFile("rphjb_Schifosi3.mp3"),
         MediaFile("rphjb_Schifosi4.mp3"),
+        MediaFile("rphjb_Schifosi4.mp4"),
         GifFile("rphjb_Schifosi3.mp4"),
         MediaFile("rphjb_SchifosoUltimi.mp4"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
@@ -888,6 +889,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_Stanco.mp3"),
+        MediaFile("rphjb_Stanco.mp4"),
         MediaFile("rphjb_PannaOcchialiSpalla.mp3"),
       ),
       replySelection = RandomSelection
@@ -1369,6 +1371,30 @@ object Mix {
       List(
         GifFile("rphjb_CosaSuccesso.mp4"),
         MediaFile("rphjb_Cosa.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("negozio"),
+        StringTextTriggerValue("pantaloni"),
+        StringTextTriggerValue("shopping")
+      ),
+      List(
+        MediaFile("rphjb_Pantaloni.mp3"),
+        MediaFile("rphjb_Pantaloni.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sono finito"),
+        StringTextTriggerValue("ultimo stadio"),
+        StringTextTriggerValue("stanco")
+      ),
+      List(
+        MediaFile("rphjb_Stanco.mp3"),
+        MediaFile("rphjb_Stanco.mp4")
       ),
       replySelection = RandomSelection
     )

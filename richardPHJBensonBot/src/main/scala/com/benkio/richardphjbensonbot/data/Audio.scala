@@ -449,26 +449,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("sono finito"),
-        StringTextTriggerValue("ultimo stadio"),
-        StringTextTriggerValue("stanco")
-      ),
-      List(
-        MediaFile("rphjb_Stanco.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("negozio"),
-        StringTextTriggerValue("pantaloni"),
-        StringTextTriggerValue("shopping")
-      ),
-      List(
-        MediaFile("rphjb_Pantaloni.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("brutto frocio")
       ),
       List(
