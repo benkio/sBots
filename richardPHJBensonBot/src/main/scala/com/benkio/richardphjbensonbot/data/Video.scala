@@ -764,6 +764,50 @@ object Video {
       List(
         MediaFile("rphjb_BresciaMiPiace.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("auguri di natale"),
+        StringTextTriggerValue("buon natale"),
+      ),
+      List(
+        MediaFile("rphjb_AuguriDiNatale.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bdvd\\b".r, 3),
+        StringTextTriggerValue("non si trova online"),
+        StringTextTriggerValue("membrana speciale"),
+        StringTextTriggerValue("cellula fotoelettrica"),
+        StringTextTriggerValue("non si può inserire")
+      ),
+      List(
+        MediaFile("rphjb_CellulaFotoelettrica.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("leon neon"),
+        StringTextTriggerValue("faccia d'angelo"),
+        StringTextTriggerValue("grande troia"),
+      ),
+      List(
+        MediaFile("rphjb_LeonNeon.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("james labrie"),
+        StringTextTriggerValue("james la lagna"),
+        StringTextTriggerValue("gallinaceo"),
+        StringTextTriggerValue("lisa dagli occhi blu"),
+        StringTextTriggerValue("vibrato melodico"),
+        StringTextTriggerValue("mario tessuto")
+      ),
+      List(
+        MediaFile("rphjb_Labrie.mp4")
+      )
     )
   )
 

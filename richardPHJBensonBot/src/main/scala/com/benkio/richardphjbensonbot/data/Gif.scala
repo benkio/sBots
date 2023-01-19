@@ -914,6 +914,14 @@ object Gif {
       List(
         GifFile("rphjb_AffanculoManieraPazzesca.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("col cazzo che non so suonà")
+      ),
+      List(
+        GifFile("rphjb_ColCazzoSuona.mp4")
+      )
     )
   )
 

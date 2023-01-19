@@ -346,17 +346,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("cameriera"),
-        StringTextTriggerValue("moglie"),
-        StringTextTriggerValue("si sposa"),
-        StringTextTriggerValue("matrimonio")
-      ),
-      List(
-        MediaFile("rphjb_Cameriera.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("korn"),
         StringTextTriggerValue("giovanni battista"),
         StringTextTriggerValue("acque del giordano"),

@@ -706,7 +706,8 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_Permettere.mp3"),
-        GifFile("rphjb_Permettere.mp4")
+        GifFile("rphjb_Permettere.mp4"),
+        MediaFile("rphjb_Labrie.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1416,6 +1417,29 @@ object Mix {
       ),
       List(
         GifFile("rphjb_NonPossibile.mp4"),
+        MediaFile("rphjb_NonPossibile2.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cameriera"),
+        StringTextTriggerValue("moglie"),
+        StringTextTriggerValue("si sposa"),
+        StringTextTriggerValue("matrimonio")
+      ),
+      List(
+        MediaFile("rphjb_Cameriera.mp3"),
+        MediaFile("rphjb_Cameriera.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("cos(a)? hai trovato?".r, 16)
+      ),
+      List(
+        GifFile("rphjb_CosHaiTrovato.mp4"),
         MediaFile("rphjb_NonPossibile2.mp4")
       ),
       replySelection = RandomSelection
