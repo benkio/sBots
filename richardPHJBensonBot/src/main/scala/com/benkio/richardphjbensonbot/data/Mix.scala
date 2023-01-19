@@ -443,7 +443,8 @@ object Mix {
       ),
       List(
         GifFile("rphjb_MaVatteneAffanculo.mp4"),
-        MediaFile("rphjb_MaVatteneAffanculo.mp3")
+        MediaFile("rphjb_MaVatteneAffanculo.mp3"),
+        MediaFile("rphjb_PortlandVancuverFanculo.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1169,11 +1170,12 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("il venerdì")
+        StringTextTriggerValue("venerdì")
       ),
       List(
         MediaFile("rphjb_Venerdi.mp3"),
-        MediaFile("rphjb_Venerdi.mp4")
+        MediaFile("rphjb_Venerdi.mp4"),
+        MediaFile("rphjb_TempoAlTempo.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1441,6 +1443,26 @@ object Mix {
       List(
         GifFile("rphjb_CosHaiTrovato.mp4"),
         MediaFile("rphjb_NonPossibile2.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("accetto (le|qualsiasi) critich[ea]".r, 17),
+      ),
+      List(
+        GifFile("rphjb_Escerto.mp4"),
+        MediaFile("rphjb_CriticaNoCazzate.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("pronto dimmi")
+      ),
+      List(
+        GifFile("rphjb_ProntoDimmi.mp4"),
+        GifFile("rphjb_ProntoDimmi2.mp4"),
       ),
       replySelection = RandomSelection
     ),

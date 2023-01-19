@@ -808,7 +808,44 @@ object Video {
       List(
         MediaFile("rphjb_Labrie.mp4")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non ho bisogno di consigli")
+      ),
+      List(
+        MediaFile("rphjb_NoConsigli.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("lo devi spiegare")
+      ),
+      List(
+        MediaFile("rphjb_LoDeviSpiegare.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("se non ci credi"),
+        RegexTextTriggerValue("[pb]or[dt]land".r, 8),
+        StringTextTriggerValue("vancuver"),
+        StringTextTriggerValue("vancuva"),
+      ),
+      List(
+        MediaFile("rphjb_PortlandVancuverFanculo.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("tempo al tempo"),
+        StringTextTriggerValue("non ne ho più"),
+        StringTextTriggerValue("mercoledì"),
+      ),
+      List(
+        MediaFile("rphjb_TempoAlTempo.mp4")
+      )
+    ),
   )
 
 }

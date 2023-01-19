@@ -129,14 +129,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("pronto dimmi")
-      ),
-      List(
-        GifFile("rphjb_ProntoDimmi.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         RegexTextTriggerValue("\\bport[a]+\\b".r, 5)
       ),
       List(
@@ -425,7 +417,6 @@ object Gif {
     ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("e(s|c)certo".r, 6),
-        StringTextTriggerValue("accetto le critiche"),
         StringTextTriggerValue("non me ne frega un cazzo")
       ),
       List(
