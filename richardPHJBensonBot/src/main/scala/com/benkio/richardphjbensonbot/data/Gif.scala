@@ -491,15 +491,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("mare di cazzate"),
-        StringTextTriggerValue("non è possibile")
-      ),
-      List(
-        GifFile("rphjb_NonPossibile.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("porca miseria"),
         StringTextTriggerValue("facendo incazzare")
       ),

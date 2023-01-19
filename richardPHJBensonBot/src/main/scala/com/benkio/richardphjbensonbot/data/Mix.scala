@@ -1408,7 +1408,18 @@ object Mix {
         GifFile("rphjb_AndateDaRatzinger2.mp4")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mare di cazzate"),
+        StringTextTriggerValue("non è possibile")
+      ),
+      List(
+        GifFile("rphjb_NonPossibile.mp4"),
+        MediaFile("rphjb_NonPossibile2.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }
