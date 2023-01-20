@@ -661,7 +661,7 @@ object Gif {
         StringTextTriggerValue("la verità")
       ),
       List(
-        MediaFile("rphjb_Verita.gif")
+        GifFile("rphjb_Verita.mp4")
       )
     ),
     ReplyBundleMessage(
