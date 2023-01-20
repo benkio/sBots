@@ -687,7 +687,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_Labbra.mp3"),
-        MediaFile("rphjb_Labbra.gif")
+        GifFile("rphjb_Labbra.mp4")
       ),
       replySelection = RandomSelection
     ),
