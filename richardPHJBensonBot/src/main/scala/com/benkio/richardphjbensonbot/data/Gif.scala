@@ -60,15 +60,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("mi piaccio"),
-        StringTextTriggerValue("impazzire"),
-      ),
-      List(
-        GifFile("rphjb_MiPiaccio.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("pelle d'oca"),
         StringTextTriggerValue("sussult"),
         StringTextTriggerValue("brivid")

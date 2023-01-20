@@ -1523,6 +1523,17 @@ object Mix {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mi piaccio"),
+        StringTextTriggerValue("impazzire"),
+      ),
+      List(
+        GifFile("rphjb_MiPiaccio.mp4"),
+        MediaFile("rphjb_MiPiaccio2.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }
