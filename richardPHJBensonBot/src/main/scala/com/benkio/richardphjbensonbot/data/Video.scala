@@ -948,7 +948,27 @@ object Video {
       List(
         MediaFile("rphjb_TuttaColpaMia.mp4")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("i colpevoli"),
+        StringTextTriggerValue("ho vinto io"),
+        StringTextTriggerValue("cercato di rovinarmi"),
+      ),
+      List(
+        MediaFile("rphjb_RovinarmiVintoIo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("un casino(,)? come al solito".r, 24),
+        StringTextTriggerValue("quando ci sono io"),
+        RegexTextTriggerValue("l'acqua è (scivolata|scesa) (de|di) sotto".r, 28)
+      ),
+      List(
+        MediaFile("rphjb_UnCasinoComeAlSolito.mp4")
+      )
+    ),
   )
 
 }

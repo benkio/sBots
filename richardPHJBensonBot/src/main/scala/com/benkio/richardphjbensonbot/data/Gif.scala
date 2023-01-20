@@ -888,7 +888,15 @@ object Gif {
       List(
         GifFile("rphjb_ProprioAMe.mp4")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("where are you going?")
+      ),
+      List(
+        GifFile("rphjb_WhereAreYouGoing.mp4")
+      )
+    ),
   )
 
 }
