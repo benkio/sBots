@@ -785,6 +785,7 @@ object Mix {
         MediaFile("rphjb_Assolo2.mp4"),
         MediaFile("rphjb_AssoloBeat.mp4"),
         MediaFile("rphjb_AssoloSubdolo.mp4"),
+        MediaFile("rphjb_Basso.mp4"),
         GifFile("rphjb_Chitarra1.mp4"),
         GifFile("rphjb_Chitarra2.mp4"),
         GifFile("rphjb_Chitarra3.mp4"),
@@ -1463,6 +1464,37 @@ object Mix {
       List(
         GifFile("rphjb_ProntoDimmi.mp4"),
         GifFile("rphjb_ProntoDimmi2.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("bassista"),
+        StringTextTriggerValue("slap")
+      ),
+      List(
+        GifFile("rphjb_Bassista.gif"),
+        GifFile("rphjb_Basso.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("è vero[!?]+".r, 6)
+      ),
+      List(
+        GifFile("rphjb_Vero.mp4"),
+        MediaFile("rphjb_EraVero.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r, 24)
+      ),
+      List(
+        MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp3"),
+        MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp4"),
       ),
       replySelection = RandomSelection
     ),

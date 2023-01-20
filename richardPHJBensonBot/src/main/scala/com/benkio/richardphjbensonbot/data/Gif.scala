@@ -208,14 +208,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("ed è vero")
-      ),
-      List(
-        GifFile("rphjb_Vero.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("quante ore"),
         StringTextTriggerValue("quanto tempo")
       ),
@@ -352,15 +344,6 @@ object Gif {
       ),
       List(
         GifFile("rphjb_Ragione.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("bassista"),
-        StringTextTriggerValue("slap")
-      ),
-      List(
-        GifFile("rphjb_Bassista.gif")
       )
     ),
     ReplyBundleMessage(

@@ -69,14 +69,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r, 24)
-      ),
-      List(
-        MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("devo sopportare")
       ),
       List(

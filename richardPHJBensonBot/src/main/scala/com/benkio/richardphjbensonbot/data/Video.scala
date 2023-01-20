@@ -846,6 +846,47 @@ object Video {
         MediaFile("rphjb_TempoAlTempo.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("barzelletta"),
+        StringTextTriggerValue("ginecologo"),
+        StringTextTriggerValue("partiti politici"),
+      ),
+      List(
+        MediaFile("rphjb_BarzellettaPoliticaGinecologo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("questa è una trasmissione"),
+        StringTextTriggerValue("caro avvocato"),
+        StringTextTriggerValue("punto di morte"),
+        RegexTextTriggerValue("ti da (la carica|l'energia)".r, 15),
+        StringTextTriggerValue("ritornare alla vita")
+      ),
+      List(
+        MediaFile("rphjb_InPuntoDiMorte.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("le tecniche sono tante"),
+        StringTextTriggerValue("la tecnica che piace a me"),
+      ),
+      List(
+        MediaFile("rphjb_LeTecnicheSonoTante.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mi controllate dappertutto"),
+        StringTextTriggerValue("perfidi lacci"),
+        StringTextTriggerValue("non posso più scappare"),
+      ),
+      List(
+        MediaFile("rphjb_PerfidiLacci.mp4")
+      )
+    ),
   )
 
 }
