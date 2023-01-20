@@ -22,7 +22,8 @@ object Gif {
         RegexTextTriggerValue("(a[f]+)?fanculo(,)? per contesia".r, 20)
       ),
       List(
-        GifFile("rphjb_FanculoPerCortesia.mp4")
+        GifFile("rphjb_FanculoPerCortesia.mp4"),
+        MediaFile("rphjb_DecidoIoMareCazzatePerCortesia.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -853,14 +854,6 @@ object Gif {
       ),
       List(
         GifFile("rphjb_Internet.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("decido io"),
-      ),
-      List(
-        GifFile("rphjb_DecidoIo.mp4")
       )
     ),
     ReplyBundleMessage(

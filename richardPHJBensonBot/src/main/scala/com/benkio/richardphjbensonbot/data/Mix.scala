@@ -445,7 +445,9 @@ object Mix {
       List(
         GifFile("rphjb_MaVatteneAffanculo.mp4"),
         MediaFile("rphjb_MaVatteneAffanculo.mp3"),
-        MediaFile("rphjb_PortlandVancuverFanculo.mp4")
+        MediaFile("rphjb_PortlandVancuverFanculo.mp4"),
+        GifFile("rphjb_FanculoPerCortesia.mp4"),
+        MediaFile("rphjb_DecidoIoMareCazzatePerCortesia.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1507,6 +1509,16 @@ object Mix {
       List(
         GifFile("rphjb_Escerto.mp4"),
         MediaFile("rphjb_EscertoCritiche.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("decido io"),
+      ),
+      List(
+        GifFile("rphjb_DecidoIo.mp4"),
+        MediaFile("rphjb_DecidoIoMareCazzatePerCortesia.mp4")
       ),
       replySelection = RandomSelection
     ),
