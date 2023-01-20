@@ -203,6 +203,7 @@ object Mix {
       List(
         MediaFile("rphjb_Storie.mp3"),
         MediaFile("rphjb_Storie2.mp3"),
+        MediaFile("rphjb_StoriaNonDetta.mp4"),
         MediaFile("rphjb_StorieSonoTanteVecchiaccia.mp4"),
         MediaFile("rphjb_StoriaVeraPienaBugie.mp4")
       ),
@@ -1358,6 +1359,7 @@ object Mix {
       ),
       List(
         GifFile("rphjb_SchifoseUltime.mp4"),
+        MediaFile("rphjb_SchifoseUltime.mp4"),
         MediaFile("rphjb_ImparaASputareMignottaSchifose.mp4")
       ),
       replySelection = RandomSelection

@@ -978,6 +978,14 @@ object Video {
         MediaFile("rphjb_StoriaVeraPienaBugie.mp4"),
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("tra i coglioni"),
+      ),
+      List(
+        MediaFile("rphjb_TraICoglioni.mp4"),
+      )
+    ),
   )
 
 }
