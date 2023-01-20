@@ -880,6 +880,14 @@ object Gif {
       List(
         GifFile("rphjb_ColCazzoSuona.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("proprio a me\\b".r, 12)
+      ),
+      List(
+        GifFile("rphjb_ProprioAMe.mp4")
+      )
     )
   )
 

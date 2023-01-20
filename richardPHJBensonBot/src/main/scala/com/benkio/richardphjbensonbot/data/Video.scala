@@ -132,12 +132,13 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("plettro"),
-        StringTextTriggerValue("vicoletto"),
-        StringTextTriggerValue("scopata")
+        StringTextTriggerValue("vicoletto")
       ),
       List(
-        MediaFile("rphjb_ChitarraPlettroVicoletto.mp4")
-      )
+        MediaFile("rphjb_ChitarraPlettroVicoletto.mp4"),
+        MediaFile("rphjb_ChitarraPlettroVicoletto2.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -939,6 +940,15 @@ object Video {
         MediaFile("rphjb_JovanottiUltimo.mp4")
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("colpa mia"),
+        RegexTextTriggerValue("mi assumo (tutte )?le responsabilità".r, 27),
+      ),
+      List(
+        MediaFile("rphjb_TuttaColpaMia.mp4")
+      )
+    )
   )
 
 }

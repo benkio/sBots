@@ -793,6 +793,7 @@ object Mix {
         GifFile("rphjb_Chitarra2.mp4"),
         GifFile("rphjb_Chitarra3.mp4"),
         MediaFile("rphjb_ChitarraPlettroVicoletto.mp4"),
+        MediaFile("rphjb_ChitarraPlettroVicoletto2.mp4"),
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
         MediaFile("rphjb_AssoloBasso.mp4")
       ),
