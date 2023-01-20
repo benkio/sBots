@@ -887,6 +887,58 @@ object Video {
         MediaFile("rphjb_PerfidiLacci.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cortei femministi"),
+        StringTextTriggerValue("amplessi macisti"),
+      ),
+      List(
+        MediaFile("rphjb_CorteiFemministiAmplessiMacisti.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("facevo schifo"),
+        StringTextTriggerValue("(ora|adesso) spacco il culo"),
+      ),
+      List(
+        MediaFile("rphjb_FacevoSchifoOraSpacco.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sono ingrassato"),
+        StringTextTriggerValue("esigenze cinematografiche"),
+      ),
+      List(
+        MediaFile("rphjb_IngrassatoCinema.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("parlo io")
+      ),
+      List(
+        MediaFile("rphjb_NonMiFregaParloIo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sono il demonio")
+      ),
+      List(
+        MediaFile("rphjb_SonoDemonio.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("jovanotti"),
+        StringTextTriggerValue("lorenzo cherubini"),
+      ),
+      List(
+        MediaFile("rphjb_JovanottiUltimo.mp4")
+      ),
+    ),
   )
 
 }

@@ -299,7 +299,7 @@ object Gif {
         StringTextTriggerValue("divento cattivo")
       ),
       List(
-        GifFile("rphjb_Indispettirmi.gif")
+        GifFile("rphjb_Indispettirmi.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -395,15 +395,6 @@ object Gif {
       ),
       List(
         GifFile("rphjb_Deficienza.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("e(s|c)certo".r, 6),
-        StringTextTriggerValue("non me ne frega un cazzo")
-      ),
-      List(
-        GifFile("rphjb_Escerto.mp4")
       )
     ),
     ReplyBundleMessage(

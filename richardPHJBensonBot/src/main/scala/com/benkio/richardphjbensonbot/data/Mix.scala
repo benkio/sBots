@@ -336,6 +336,7 @@ object Mix {
       List(
         GifFile("rphjb_NonMeNeFotte.mp4"),
         GifFile("rphjb_NonMeNeFrega.mp4"),
+        MediaFile("rphjb_NonMiFregaParloIo.mp4"),
         MediaFile("rphjb_ENonMeNeFotteUnCazzo.mp3"),
         MediaFile("rphjb_NonLeggoQuelloCheScrivete.mp3")
       ),
@@ -1495,6 +1496,17 @@ object Mix {
       List(
         MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp3"),
         MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("e(s|c)certo".r, 6),
+        StringTextTriggerValue("non me ne frega un cazzo")
+      ),
+      List(
+        GifFile("rphjb_Escerto.mp4"),
+        MediaFile("rphjb_EscertoCritiche.mp4")
       ),
       replySelection = RandomSelection
     ),
