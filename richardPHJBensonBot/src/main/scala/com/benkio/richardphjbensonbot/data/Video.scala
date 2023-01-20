@@ -969,6 +969,15 @@ object Video {
         MediaFile("rphjb_UnCasinoComeAlSolito.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("storia vera"),
+        StringTextTriggerValue("piena di bugie"),
+      ),
+      List(
+        MediaFile("rphjb_StoriaVeraPienaBugie.mp4"),
+      )
+    ),
   )
 
 }
