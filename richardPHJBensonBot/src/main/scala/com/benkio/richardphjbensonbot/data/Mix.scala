@@ -949,7 +949,8 @@ object Mix {
         GifFile("rphjb_ChiCacciaISoldi.mp4"),
         MediaFile("rphjb_ChiCacciaISoldi.mp3"),
         MediaFile("rphjb_SoldiButtatiDiscotecaLaziale.mp3"),
-        MediaFile("rphjb_BigMoney.mp4")
+        MediaFile("rphjb_BigMoney.mp4"),
+        MediaFile("rphjb_InvestitoreGoverno.mp4")
       ),
       replySelection = RandomSelection
     ),

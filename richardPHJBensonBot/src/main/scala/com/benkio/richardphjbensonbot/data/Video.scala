@@ -986,6 +986,18 @@ object Video {
         MediaFile("rphjb_TraICoglioni.mp4"),
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("investi(re|tore)".r, 9),
+        StringTextTriggerValue("zurigo"),
+        StringTextTriggerValue("dubai"),
+        StringTextTriggerValue("governo svizzero"),
+        RegexTextTriggerValue("affar(i|isti)".r, 6),
+      ),
+      List(
+        MediaFile("rphjb_InvestitoreGoverno.mp4"),
+      )
+    ),
   )
 
 }
