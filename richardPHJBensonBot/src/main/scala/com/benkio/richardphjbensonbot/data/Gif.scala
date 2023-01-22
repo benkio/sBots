@@ -888,6 +888,32 @@ object Gif {
         GifFile("rphjb_WhereAreYouGoing.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("🤨"),
+        StringTextTriggerValue("🧐"),
+        StringTextTriggerValue("sono confuso"),
+        RegexTextTriggerValue("[?]{3,}".r, 3),
+      ),
+      List(
+        GifFile("rphjb_Confuso.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("😑"),
+        StringTextTriggerValue("😒"),
+        StringTextTriggerValue("🫤"),
+        RegexTextTriggerValue("\\bwtf[!]*\\b".r, 3),
+      ),
+      List(
+        GifFile("rphjb_WTF.mp4"),
+        GifFile("rphjb_WTF2.mp4"),
+        GifFile("rphjb_WTF3.mp4"),
+        GifFile("rphjb_WTF4.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }
