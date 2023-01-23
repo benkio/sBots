@@ -914,6 +914,16 @@ object Gif {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("🙏")
+      ),
+      List(
+        GifFile("rphjb_Prega.mp4"),
+        GifFile("rphjb_Prega2.mp4")
+      ),
+      replySelection = RandomSelection
+    )
   )
 
 }

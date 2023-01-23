@@ -449,8 +449,9 @@ object Audio {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("chiesa"),
-        StringTextTriggerValue("preghiera"),
-        StringTextTriggerValue("non credo")
+        RegexTextTriggerValue("preghier(a|ina)".r, 9),
+        StringTextTriggerValue("io non credo"),
+        StringTextTriggerValue("la medicina")
       ),
       List(
         MediaFile("rphjb_Chiesa.mp3")
