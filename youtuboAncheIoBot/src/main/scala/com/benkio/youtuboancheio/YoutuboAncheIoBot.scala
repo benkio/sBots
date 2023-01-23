@@ -466,7 +466,6 @@ object YoutuboAncheIoBot {
       trigger = TextTrigger(
         StringTextTriggerValue("monoporzioni"),
         RegexTextTriggerValue("mezzo (chilo|kg)".r, 8),
-        StringTextTriggerValue("tiramisù"),
       ),
       mediafiles = List(
         GifFile("ytai_MonoporzioniTiramisu.mp4")
@@ -658,7 +657,8 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_SpuntinoConMe.mp4"),
         GifFile("ytai_SpuntinoConMe2.mp4"),
-        GifFile("ytai_BuonoSpuntino.mp4")
+        GifFile("ytai_BuonoSpuntino.mp4"),
+        GifFile("ytai_PaninoBuonoSpuntito.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -994,6 +994,41 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_SoltantoPerQuesto.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("dubbi enciclopedici"),
+        StringTextTriggerValue("rifletteteci"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_DubbiEnciclopedici.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("miei limiti"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_Limiti.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("panino")
+      ),
+      mediafiles = List(
+        GifFile("ytai_PaninoBuonoSpuntito.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("tiramisù"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_MonoporzioniTiramisu.mp4"),
+        GifFile("ytai_Tiramisu.mp4"),
+      ),
+      replySelection = RandomSelection
     )
   )
 
