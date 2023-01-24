@@ -840,7 +840,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("salmone"),
       ),
       mediafiles = List(
-        MediaFile("ytai_ProfumoGamberettiSalmone.mp4"),
+        GifFile("ytai_ProfumoGamberettiSalmone.mp4"),
         GifFile("ytai_Sorpresa.mp4")
       ),
       replySelection = RandomSelection
@@ -892,7 +892,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("😯"),
       ),
       mediafiles = List(
-        MediaFile("ytai_Sorpresa.mp4")
+        GifFile("ytai_Sorpresa.mp4")
       )
     ),
     ReplyBundleMessage(
