@@ -119,28 +119,30 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         None,
         "https://www.dropbox.com/s/xndnmq4firkc9lu/rphjb_06.mp4?dl=1",
         0,
-        "1669122660192"
+        "1674248160144"
       ),
       DBMediaData(
-        "rphjb_AbbiamoVinto.mp4",
+        "rphjb_3Minuti.mp4",
         None,
-        "https://www.dropbox.com/s/9ry4aph6yshdx3y/rphjb_AbbiamoVinto.mp4?dl=1",
+        "https://www.dropbox.com/s/axd2jcti4pxd1n7/rphjb_3Minuti.mp4?dl=1",
         0,
-        "1669122660325"
+        "1674248160242"
       ),
       DBMediaData(
-        "rphjb_Accordana.mp4",
+        "rphjb_AStronzo.mp3",
         None,
-        "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AADClIFTHStZ0Ro_AkmyR6Qca/rphjb_Accordana.mp4?dl=1",
+        "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABzJ4WK6Jerfso1kdYaYf5ga/rphjb_AStronzo.mp3?dl=1",
         0,
-        "1669122660336"
+        "1674248160249"
       )
     )
 
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       medias  <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3))
-    } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) => acc && checkMedia(actual, exp) }
+    } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) =>
+      acc && checkMedia(actual, exp)
+    }
     resourceAssert.use(IO.pure).assert
   }
 

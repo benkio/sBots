@@ -203,7 +203,9 @@ object Mix {
       List(
         MediaFile("rphjb_Storie.mp3"),
         MediaFile("rphjb_Storie2.mp3"),
-        MediaFile("rphjb_StorieSonoTanteVecchiaccia.mp4")
+        MediaFile("rphjb_StoriaNonDetta.mp4"),
+        MediaFile("rphjb_StorieSonoTanteVecchiaccia.mp4"),
+        MediaFile("rphjb_StoriaVeraPienaBugie.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -336,6 +338,7 @@ object Mix {
       List(
         GifFile("rphjb_NonMeNeFotte.mp4"),
         GifFile("rphjb_NonMeNeFrega.mp4"),
+        MediaFile("rphjb_NonMiFregaParloIo.mp4"),
         MediaFile("rphjb_ENonMeNeFotteUnCazzo.mp3"),
         MediaFile("rphjb_NonLeggoQuelloCheScrivete.mp3")
       ),
@@ -433,7 +436,8 @@ object Mix {
         GifFile("rphjb_OkGoodShowFriends2.mp4"),
         MediaFile("rphjb_LetSGoodStateBene.mp3"),
         MediaFile("rphjb_WelaMyFriends.mp4"),
-        MediaFile("rphjb_LetsGoodMyFriends.mp4")
+        MediaFile("rphjb_LetsGoodMyFriends.mp4"),
+        MediaFile("rphjb_NonPoteteGiudicarUrloThatsGood.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -443,7 +447,10 @@ object Mix {
       ),
       List(
         GifFile("rphjb_MaVatteneAffanculo.mp4"),
-        MediaFile("rphjb_MaVatteneAffanculo.mp3")
+        MediaFile("rphjb_MaVatteneAffanculo.mp3"),
+        MediaFile("rphjb_PortlandVancuverFanculo.mp4"),
+        GifFile("rphjb_FanculoPerCortesia.mp4"),
+        MediaFile("rphjb_DecidoIoMareCazzatePerCortesia.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -683,7 +690,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_Labbra.mp3"),
-        MediaFile("rphjb_Labbra.gif")
+        GifFile("rphjb_Labbra.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -706,7 +713,8 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_Permettere.mp3"),
-        GifFile("rphjb_Permettere.mp4")
+        GifFile("rphjb_Permettere.mp4"),
+        MediaFile("rphjb_Labrie.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -765,6 +773,8 @@ object Mix {
         MediaFile("rphjb_BastaGif.mp4"),
         MediaFile("rphjb_Basta2Gif.mp4"),
         GifFile("rphjb_Basta3.mp4"),
+        GifFile("rphjb_Basta4.mp4"),
+        GifFile("rphjb_BastaRottoIlCazzo.mp4"),
         GifFile("rphjb_BastaSedia.mp4")
       ),
       replySelection = RandomSelection
@@ -781,9 +791,12 @@ object Mix {
         MediaFile("rphjb_Assolo2.mp4"),
         MediaFile("rphjb_AssoloBeat.mp4"),
         MediaFile("rphjb_AssoloSubdolo.mp4"),
+        MediaFile("rphjb_Basso.mp4"),
         GifFile("rphjb_Chitarra1.mp4"),
         GifFile("rphjb_Chitarra2.mp4"),
+        GifFile("rphjb_Chitarra3.mp4"),
         MediaFile("rphjb_ChitarraPlettroVicoletto.mp4"),
+        MediaFile("rphjb_ChitarraPlettroVicoletto2.mp4"),
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
         MediaFile("rphjb_AssoloBasso.mp4")
       ),
@@ -845,6 +858,7 @@ object Mix {
         MediaFile("rphjb_Schifosi2.mp3"),
         MediaFile("rphjb_Schifosi3.mp3"),
         MediaFile("rphjb_Schifosi4.mp3"),
+        MediaFile("rphjb_Schifosi4.mp4"),
         GifFile("rphjb_Schifosi3.mp4"),
         MediaFile("rphjb_SchifosoUltimi.mp4"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
@@ -885,6 +899,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_Stanco.mp3"),
+        MediaFile("rphjb_Stanco.mp4"),
         MediaFile("rphjb_PannaOcchialiSpalla.mp3"),
       ),
       replySelection = RandomSelection
@@ -935,7 +950,8 @@ object Mix {
         GifFile("rphjb_ChiCacciaISoldi.mp4"),
         MediaFile("rphjb_ChiCacciaISoldi.mp3"),
         MediaFile("rphjb_SoldiButtatiDiscotecaLaziale.mp3"),
-        MediaFile("rphjb_BigMoney.mp4")
+        MediaFile("rphjb_BigMoney.mp4"),
+        MediaFile("rphjb_InvestitoreGoverno.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1163,11 +1179,12 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("il venerdì")
+        StringTextTriggerValue("venerdì")
       ),
       List(
         MediaFile("rphjb_Venerdi.mp3"),
-        MediaFile("rphjb_Venerdi.mp4")
+        MediaFile("rphjb_Venerdi.mp4"),
+        MediaFile("rphjb_TempoAlTempo.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1288,7 +1305,251 @@ object Mix {
         MediaFile("rphjb_Feelings.mp4")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(divento|diventare|sono) (matto|pazzo)".r, 10)
+      ),
+      List(
+        GifFile("rphjb_StoDiventandoPazzo.mp4"),
+        MediaFile("rphjb_CompletamentePazzo.mp4"),
+        MediaFile("rphjb_CompletamentePazzo2.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r, 6)
+      ),
+      List(
+        MediaFile("rphjb_MenoVolume.mp3"),
+        MediaFile("rphjb_VolumeTelevisori.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("generi musicali"),
+        RegexTextTriggerValue("solo il me(t|d)al".r, 13)
+      ),
+      List(
+        GifFile("rphjb_GeneriMusicali.mp4"),
+        MediaFile("rphjb_GeneriMusicali2.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sorca"),
+        StringTextTriggerValue("patonza"),
+        StringTextTriggerValue("lecciso"),
+        RegexTextTriggerValue("\\bfi[cg]a\\b".r, 4)
+      ),
+      List(
+        GifFile("rphjb_SorcaLecciso.mp4"),
+        MediaFile("rphjb_SorcaLecciso2.mp4"),
+        MediaFile("rphjb_FigaLarga.mp4"),
+        MediaFile("rphjb_FragolinaFichina.mp3"),
+        MediaFile("rphjb_Sorca.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("schifose"),
+        StringTextTriggerValue("ultime")
+      ),
+      List(
+        GifFile("rphjb_SchifoseUltime.mp4"),
+        MediaFile("rphjb_SchifoseUltime.mp4"),
+        MediaFile("rphjb_ImparaASputareMignottaSchifose.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("e parl[a]+\\b".r, 7)
+      ),
+      List(
+        GifFile("rphjb_Parla.mp4"),
+        MediaFile("rphjb_Parla2.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cosa è successo"),
+        RegexTextTriggerValue("\\bcosa[?]{1,}\\b".r, 5)
+      ),
+      List(
+        GifFile("rphjb_CosaSuccesso.mp4"),
+        MediaFile("rphjb_Cosa.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("negozio"),
+        StringTextTriggerValue("pantaloni"),
+        StringTextTriggerValue("shopping")
+      ),
+      List(
+        MediaFile("rphjb_Pantaloni.mp3"),
+        MediaFile("rphjb_Pantaloni.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sono finito"),
+        StringTextTriggerValue("ultimo stadio"),
+        StringTextTriggerValue("stanco")
+      ),
+      List(
+        MediaFile("rphjb_Stanco.mp3"),
+        MediaFile("rphjb_Stanco.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ratzinger"),
+        StringTextTriggerValue("il vaticano")
+      ),
+      List(
+        MediaFile("rphjb_AndateDaRatzinger.mp4"),
+        GifFile("rphjb_AndateDaRatzinger2.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mare di cazzate"),
+        StringTextTriggerValue("non è possibile")
+      ),
+      List(
+        GifFile("rphjb_NonPossibile.mp4"),
+        MediaFile("rphjb_NonPossibile2.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cameriera"),
+        StringTextTriggerValue("moglie"),
+        StringTextTriggerValue("si sposa"),
+        StringTextTriggerValue("matrimonio")
+      ),
+      List(
+        MediaFile("rphjb_Cameriera.mp3"),
+        MediaFile("rphjb_Cameriera.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("cos(a)? hai trovato?".r, 16)
+      ),
+      List(
+        GifFile("rphjb_CosHaiTrovato.mp4"),
+        MediaFile("rphjb_NonPossibile2.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("accetto (le|qualsiasi) critich[ea]".r, 17),
+      ),
+      List(
+        GifFile("rphjb_Escerto.mp4"),
+        MediaFile("rphjb_CriticaNoCazzate.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("pronto dimmi")
+      ),
+      List(
+        GifFile("rphjb_ProntoDimmi.mp4"),
+        GifFile("rphjb_ProntoDimmi2.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("bassista"),
+        StringTextTriggerValue("slap")
+      ),
+      List(
+        GifFile("rphjb_Bassista.gif"),
+        GifFile("rphjb_Basso.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("è vero[!?]+".r, 6)
+      ),
+      List(
+        GifFile("rphjb_Vero.mp4"),
+        MediaFile("rphjb_EraVero.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r, 24)
+      ),
+      List(
+        MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp3"),
+        MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("e(s|c)certo".r, 6),
+        StringTextTriggerValue("non me ne frega un cazzo")
+      ),
+      List(
+        GifFile("rphjb_Escerto.mp4"),
+        MediaFile("rphjb_EscertoCritiche.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("decido io"),
+      ),
+      List(
+        GifFile("rphjb_DecidoIo.mp4"),
+        MediaFile("rphjb_DecidoIoMareCazzatePerCortesia.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mi piaccio"),
+        StringTextTriggerValue("impazzire"),
+      ),
+      List(
+        GifFile("rphjb_MiPiaccio.mp4"),
+        MediaFile("rphjb_MiPiaccio2.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("giudica")
+      ),
+      List(
+        GifFile("rphjb_Giudicate.mp4"),
+        GifFile("rphjb_ComeFaiAGiudicare.mp4"),
+        MediaFile("rphjb_NonPoteteGiudicarUrloThatsGood.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }

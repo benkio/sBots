@@ -306,16 +306,6 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("guerra"),
-        StringTextTriggerValue("chi vuole"),
-        StringTextTriggerValue("la vogliamo")
-      ),
-      List(
-        MediaFile("abar_Guerra.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("cagarelli"),
         StringTextTriggerValue("feci"),
         StringTextTriggerValue("cacca")
@@ -517,7 +507,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("paura")
+        StringTextTriggerValue("un po' paura")
       ),
       List(
         MediaFile("abar_Paura.gif")
@@ -561,27 +551,6 @@ object ABarberoBot {
       ),
       List(
         MediaFile("abar_TroppoFacile.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("trappola"),
-        StringTextTriggerValue("tranello"),
-        StringTextTriggerValue("inganno")
-      ),
-      List(
-        MediaFile("abar_Trappola.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("faida"),
-        StringTextTriggerValue("vendetta"),
-        StringTextTriggerValue("rappresaglia"),
-        StringTextTriggerValue("ritorsione")
-      ),
-      List(
-        MediaFile("abar_Faida.gif")
       )
     ),
     ReplyBundleMessage(
@@ -744,14 +713,6 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("spranga")
-      ),
-      List(
-        MediaFile("abar_Spranga.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("rapire"),
         StringTextTriggerValue("riscatto")
       ),
@@ -801,6 +762,21 @@ object ABarberoBot {
         MediaFile("abar_GliAltri.gif")
       )
     )
+  )
+
+  def messageRepliesVideoData[F[_]]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("parole longobarde"),
+        StringTextTriggerValue("zuffa"),
+        StringTextTriggerValue("spaccare"),
+        StringTextTriggerValue("arraffare"),
+        StringTextTriggerValue("tanfo"),
+      ),
+      List(
+        MediaFile("abar_ParoleLongobarde.mp4"),
+      ),
+    ),
   )
 
   def messageRepliesSpecialData[F[_]]: List[ReplyBundleMessage[F]] = List(
@@ -886,11 +862,53 @@ object ABarberoBot {
         MediaFile("abar_Zagaglia.mp3"),
         MediaFile("abar_Zagaglia.gif")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("guerra"),
+      ),
+      List(
+        MediaFile("abar_ParoleLongobarde.mp4"),
+        MediaFile("abar_Guerra.mp3"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("faida"),
+      ),
+      List(
+        MediaFile("abar_ParoleLongobarde.mp4"),
+        MediaFile("abar_Faida.gif"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("spranga")
+      ),
+      List(
+        MediaFile("abar_Spranga.gif"),
+        MediaFile("abar_ParoleLongobarde.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("trappola")
+      ),
+      List(
+        MediaFile("abar_Trappola.gif"),
+        MediaFile("abar_ParoleLongobarde.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
   def messageRepliesData[F[_]]: List[ReplyBundleMessage[F]] =
-    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesSpecialData[F])
+    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesSpecialData[
+      F
+    ])
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 

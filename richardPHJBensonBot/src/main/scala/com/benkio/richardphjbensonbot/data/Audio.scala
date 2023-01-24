@@ -69,14 +69,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r, 24)
-      ),
-      List(
-        MediaFile("rphjb_PercheCazzoMiHaiFattoVeni.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("devo sopportare")
       ),
       List(
@@ -346,17 +338,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("cameriera"),
-        StringTextTriggerValue("moglie"),
-        StringTextTriggerValue("si sposa"),
-        StringTextTriggerValue("matrimonio")
-      ),
-      List(
-        MediaFile("rphjb_Cameriera.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("korn"),
         StringTextTriggerValue("giovanni battista"),
         StringTextTriggerValue("acque del giordano"),
@@ -425,14 +406,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r, 6)
-      ),
-      List(
-        MediaFile("rphjb_MenoVolume.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("sono"),
         StringTextTriggerValue("ultimo")
       ),
@@ -457,26 +430,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("sono finito"),
-        StringTextTriggerValue("ultimo stadio"),
-        StringTextTriggerValue("stanco")
-      ),
-      List(
-        MediaFile("rphjb_Stanco.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("negozio"),
-        StringTextTriggerValue("pantaloni"),
-        StringTextTriggerValue("shopping")
-      ),
-      List(
-        MediaFile("rphjb_Pantaloni.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("brutto frocio")
       ),
       List(
@@ -496,8 +449,9 @@ object Audio {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("chiesa"),
-        StringTextTriggerValue("preghiera"),
-        StringTextTriggerValue("non credo")
+        RegexTextTriggerValue("preghier(a|ina)".r, 9),
+        StringTextTriggerValue("io non credo"),
+        StringTextTriggerValue("la medicina")
       ),
       List(
         MediaFile("rphjb_Chiesa.mp3")
@@ -614,7 +568,8 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("vi saluto")
+        StringTextTriggerValue("vi saluto"),
+        RegexTextTriggerValue("(col|con il) (cuore|cervello|anima|pisello|martello)".r, 9),
       ),
       List(
         MediaFile("rphjb_ViSaluto.mp3")
@@ -781,6 +736,15 @@ object Audio {
       List(
         MediaFile("rphjb_NonParlareTeTrasmissioneMia.mp3"),
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("fa paura pure a"),
+        StringTextTriggerValue("al di meola")
+      ),
+      List(
+        MediaFile("rphjb_PauraAdAlDiMeola.mp3"),
+      )
+    ),
   )
 }

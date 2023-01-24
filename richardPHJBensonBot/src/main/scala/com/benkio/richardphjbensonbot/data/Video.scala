@@ -132,12 +132,13 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("plettro"),
-        StringTextTriggerValue("vicoletto"),
-        StringTextTriggerValue("scopata")
+        StringTextTriggerValue("vicoletto")
       ),
       List(
-        MediaFile("rphjb_ChitarraPlettroVicoletto.mp4")
-      )
+        MediaFile("rphjb_ChitarraPlettroVicoletto.mp4"),
+        MediaFile("rphjb_ChitarraPlettroVicoletto2.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -404,7 +405,8 @@ object Video {
         MediaFile("rphjb_Blues.mp4"),
         MediaFile("rphjb_PoesiaMaria.mp4"),
         MediaFile("rphjb_PoesiaArtistiImpiegati.mp4"),
-        MediaFile("rphjb_CanzonettePoesieAuschwitzCervello.mp4")
+        MediaFile("rphjb_CanzonettePoesieAuschwitzCervello.mp4"),
+        MediaFile("rphjb_PoesiaDirittoPaura.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -730,6 +732,349 @@ object Video {
       ),
       List(
         MediaFile("rphjb_AuguriCompleanno.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("3 minuti"),
+        RegexTextTriggerValue("ti va bene cos[iì]".r, 15),
+      ),
+      List(
+        MediaFile("rphjb_3Minuti.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("impara a sputare")
+      ),
+      List(
+        MediaFile("rphjb_ImparaASputareMignottaSchifose.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("aiutatemi")
+      ),
+      List(
+        MediaFile("rphjb_Aiutatemi.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("brescia")
+      ),
+      List(
+        MediaFile("rphjb_BresciaMiPiace.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("auguri di natale"),
+        StringTextTriggerValue("buon natale"),
+      ),
+      List(
+        MediaFile("rphjb_AuguriDiNatale.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bdvd\\b".r, 3),
+        StringTextTriggerValue("non si trova online"),
+        StringTextTriggerValue("membrana speciale"),
+        StringTextTriggerValue("cellula fotoelettrica"),
+        StringTextTriggerValue("non si può inserire")
+      ),
+      List(
+        MediaFile("rphjb_CellulaFotoelettrica.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("leon neon"),
+        StringTextTriggerValue("faccia d'angelo"),
+        StringTextTriggerValue("grande troia"),
+      ),
+      List(
+        MediaFile("rphjb_LeonNeon.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("james labrie"),
+        StringTextTriggerValue("james la lagna"),
+        StringTextTriggerValue("gallinaceo"),
+        StringTextTriggerValue("lisa dagli occhi blu"),
+        StringTextTriggerValue("vibrato melodico"),
+        StringTextTriggerValue("mario tessuto")
+      ),
+      List(
+        MediaFile("rphjb_Labrie.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non ho bisogno di consigli")
+      ),
+      List(
+        MediaFile("rphjb_NoConsigli.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("lo devi spiegare")
+      ),
+      List(
+        MediaFile("rphjb_LoDeviSpiegare.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("se non ci credi"),
+        RegexTextTriggerValue("[pb]or[dt]land".r, 8),
+        StringTextTriggerValue("vancuver"),
+        StringTextTriggerValue("vancuva"),
+      ),
+      List(
+        MediaFile("rphjb_PortlandVancuverFanculo.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("tempo al tempo"),
+        StringTextTriggerValue("non ne ho più"),
+        StringTextTriggerValue("mercoledì"),
+      ),
+      List(
+        MediaFile("rphjb_TempoAlTempo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("barzelletta"),
+        StringTextTriggerValue("ginecologo"),
+        StringTextTriggerValue("partiti politici"),
+      ),
+      List(
+        MediaFile("rphjb_BarzellettaPoliticaGinecologo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("questa è una trasmissione"),
+        StringTextTriggerValue("caro avvocato"),
+        StringTextTriggerValue("punto di morte"),
+        RegexTextTriggerValue("ti da (la carica|l'energia)".r, 15),
+        StringTextTriggerValue("ritornare alla vita")
+      ),
+      List(
+        MediaFile("rphjb_InPuntoDiMorte.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("le tecniche sono tante"),
+        StringTextTriggerValue("la tecnica che piace a me"),
+      ),
+      List(
+        MediaFile("rphjb_LeTecnicheSonoTante.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mi controllate dappertutto"),
+        StringTextTriggerValue("perfidi lacci"),
+        StringTextTriggerValue("non posso più scappare"),
+      ),
+      List(
+        MediaFile("rphjb_PerfidiLacci.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cortei femministi"),
+        StringTextTriggerValue("amplessi macisti"),
+      ),
+      List(
+        MediaFile("rphjb_CorteiFemministiAmplessiMacisti.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("facevo schifo"),
+        StringTextTriggerValue("(ora|adesso) spacco il culo"),
+      ),
+      List(
+        MediaFile("rphjb_FacevoSchifoOraSpacco.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sono ingrassato"),
+        StringTextTriggerValue("esigenze cinematografiche"),
+      ),
+      List(
+        MediaFile("rphjb_IngrassatoCinema.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("parlo io")
+      ),
+      List(
+        MediaFile("rphjb_NonMiFregaParloIo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sono il demonio")
+      ),
+      List(
+        MediaFile("rphjb_SonoDemonio.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("jovanotti"),
+        StringTextTriggerValue("lorenzo cherubini"),
+      ),
+      List(
+        MediaFile("rphjb_JovanottiUltimo.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("colpa mia"),
+        RegexTextTriggerValue("mi assumo (tutte )?le responsabilità".r, 27),
+      ),
+      List(
+        MediaFile("rphjb_TuttaColpaMia.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("i colpevoli"),
+        StringTextTriggerValue("ho vinto io"),
+        StringTextTriggerValue("cercato di rovinarmi"),
+      ),
+      List(
+        MediaFile("rphjb_RovinarmiVintoIo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("un casino(,)? come al solito".r, 24),
+        StringTextTriggerValue("quando ci sono io"),
+        RegexTextTriggerValue("l'acqua è (scivolata|scesa) (de|di) sotto".r, 28)
+      ),
+      List(
+        MediaFile("rphjb_UnCasinoComeAlSolito.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("storia vera"),
+        StringTextTriggerValue("piena di bugie"),
+      ),
+      List(
+        MediaFile("rphjb_StoriaVeraPienaBugie.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("tra i coglioni"),
+      ),
+      List(
+        MediaFile("rphjb_TraICoglioni.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("investi(re|tore)".r, 9),
+        StringTextTriggerValue("zurigo"),
+        StringTextTriggerValue("dubai"),
+        StringTextTriggerValue("governo svizzero"),
+        RegexTextTriggerValue("affar(i|isti)".r, 6),
+      ),
+      List(
+        MediaFile("rphjb_InvestitoreGoverno.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("pesce avaria[dt]o".r, 14),
+        StringTextTriggerValue("veramente di merda"),
+      ),
+      List(
+        MediaFile("rphjb_PesceAvariato.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("obama"),
+        StringTextTriggerValue("governo americano"),
+        RegexTextTriggerValue("rock('n'| n |&)roll presidence band".r, 25),
+      ),
+      List(
+        MediaFile("rphjb_Obama.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("piove in continuazione"),
+        StringTextTriggerValue("non ce la faccio più"),
+        StringTextTriggerValue("piove sempre"),
+        StringTextTriggerValue("a mio nonno"),
+        RegexTextTriggerValue("nipote[!]+".r, 7),
+      ),
+      List(
+        MediaFile("rphjb_Nonno.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("sangue (caldo )di un cavallo".r, 22),
+        StringTextTriggerValue("il peso di un cervello"),
+        StringTextTriggerValue("diritto alla paura"),
+        StringTextTriggerValue("come una tigre"),
+        StringTextTriggerValue("migliaia di animali"),
+        StringTextTriggerValue("miliardi di uomini")
+      ),
+      List(
+        MediaFile("rphjb_PoesiaDirittoPaura.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("er foco"),
+        StringTextTriggerValue("in mezzo alle cosce"),
+        StringTextTriggerValue("le donne mi fanno questo effetto"),
+        StringTextTriggerValue("frasi inconsulte"),
+        StringTextTriggerValue("ne capo ne coda"),
+      ),
+      List(
+        MediaFile("rphjb_DonneErFoco.mp4"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non sto mai male"),
+        StringTextTriggerValue("febbre"),
+        StringTextTriggerValue("influenza"),
+        StringTextTriggerValue("raffreddore"),
+        StringTextTriggerValue("straight edge"),
+      ),
+      List(
+        MediaFile("rphjb_NonStoMaiMale.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("libro giallo"),
+        StringTextTriggerValue("pagine gialle"),
+        StringTextTriggerValue("troppi personaggi"),
+      ),
+      List(
+        MediaFile("rphjb_LibroGiallo.mp4"),
       )
     )
   )

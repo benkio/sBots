@@ -55,7 +55,6 @@ object BotDBController {
       _ <- Resource.eval(
         input.traverse_(i =>
           for {
-            _    <- Sync[F].delay(println(s"Inserting file ${i.filename} of kind ${i.kind} from ${i.url}"))
             mime <- MediaEntity.mimeTypeOrDefault[F](i.filename, i.mime)
             _ <- databaseRepository
               .insertMedia(

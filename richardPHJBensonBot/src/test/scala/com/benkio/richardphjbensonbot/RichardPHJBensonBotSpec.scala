@@ -192,7 +192,11 @@ character: `!`
       RichardPHJBensonBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
     botMediaFiles.foreach { mediaFileString =>
-      assert(triggerContent.contains(mediaFileString))
+      val result = triggerContent.contains(mediaFileString)
+      if (!result) {
+        println(s"Mediafile missing: $mediaFileString")
+      }
+      assert(result)
     }
     botTriggersFiles.foreach { triggerString =>
       {
