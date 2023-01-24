@@ -941,7 +941,27 @@ object Gif {
         RegexTextTriggerValue("[u]{3,}".r, 3)
       ),
       List(
-        MediaFile("rphjb_Uuu.mp4")
+        GifFile("rphjb_Uuu.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("☝️"),
+        StringTextTriggerValue("👆"),
+        StringTextTriggerValue("👉"),
+        StringTextTriggerValue("👇"),
+        StringTextTriggerValue("👈")
+      ),
+      List(
+        GifFile("rphjb_Indicare.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("deal with it")
+      ),
+      List(
+        GifFile("rphjb_Occhiali.mp4")
       )
     ),
   )

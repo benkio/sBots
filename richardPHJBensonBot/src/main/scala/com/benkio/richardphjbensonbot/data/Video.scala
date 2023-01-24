@@ -1055,6 +1055,28 @@ object Video {
         MediaFile("rphjb_DonneErFoco.mp4"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non sto mai male"),
+        StringTextTriggerValue("febbre"),
+        StringTextTriggerValue("influenza"),
+        StringTextTriggerValue("raffreddore"),
+        StringTextTriggerValue("straight edge"),
+      ),
+      List(
+        MediaFile("rphjb_NonStoMaiMale.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("libro giallo"),
+        StringTextTriggerValue("pagine gialle"),
+        StringTextTriggerValue("troppi personaggi"),
+      ),
+      List(
+        MediaFile("rphjb_LibroGiallo.mp4"),
+      )
+    )
   )
 
 }
