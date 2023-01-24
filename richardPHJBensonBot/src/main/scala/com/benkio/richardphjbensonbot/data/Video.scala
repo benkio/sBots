@@ -405,7 +405,8 @@ object Video {
         MediaFile("rphjb_Blues.mp4"),
         MediaFile("rphjb_PoesiaMaria.mp4"),
         MediaFile("rphjb_PoesiaArtistiImpiegati.mp4"),
-        MediaFile("rphjb_CanzonettePoesieAuschwitzCervello.mp4")
+        MediaFile("rphjb_CanzonettePoesieAuschwitzCervello.mp4"),
+        MediaFile("rphjb_PoesiaDirittoPaura.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1027,6 +1028,19 @@ object Video {
       ),
       List(
         MediaFile("rphjb_Nonno.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("sangue (caldo )di un cavallo".r, 22),
+        StringTextTriggerValue("il peso di un cervello"),
+        StringTextTriggerValue("diritto alla paura"),
+        StringTextTriggerValue("come una tigre"),
+        StringTextTriggerValue("migliaia di animali"),
+        StringTextTriggerValue("miliardi di uomini")
+      ),
+      List(
+        MediaFile("rphjb_PoesiaDirittoPaura.mp4")
       )
     ),
   )

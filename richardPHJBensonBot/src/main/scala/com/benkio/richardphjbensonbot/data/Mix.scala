@@ -436,7 +436,8 @@ object Mix {
         GifFile("rphjb_OkGoodShowFriends2.mp4"),
         MediaFile("rphjb_LetSGoodStateBene.mp3"),
         MediaFile("rphjb_WelaMyFriends.mp4"),
-        MediaFile("rphjb_LetsGoodMyFriends.mp4")
+        MediaFile("rphjb_LetsGoodMyFriends.mp4"),
+        MediaFile("rphjb_NonPoteteGiudicarUrloThatsGood.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1535,6 +1536,17 @@ object Mix {
       List(
         GifFile("rphjb_MiPiaccio.mp4"),
         MediaFile("rphjb_MiPiaccio2.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("giudica")
+      ),
+      List(
+        GifFile("rphjb_Giudicate.mp4"),
+        GifFile("rphjb_ComeFaiAGiudicare.mp4"),
+        MediaFile("rphjb_NonPoteteGiudicarUrloThatsGood.mp4")
       ),
       replySelection = RandomSelection
     ),

@@ -695,16 +695,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("giudica")
-      ),
-      List(
-        GifFile("rphjb_Giudicate.mp4"),
-        GifFile("rphjb_ComeFaiAGiudicare.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("drogati"),
         StringTextTriggerValue("sostanze improprie")
       ),
