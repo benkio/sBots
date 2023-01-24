@@ -1043,6 +1043,18 @@ object Video {
         MediaFile("rphjb_PoesiaDirittoPaura.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("er foco"),
+        StringTextTriggerValue("in mezzo alle cosce"),
+        StringTextTriggerValue("le donne mi fanno questo effetto"),
+        StringTextTriggerValue("frasi inconsulte"),
+        StringTextTriggerValue("ne capo ne coda"),
+      ),
+      List(
+        MediaFile("rphjb_DonneErFoco.mp4"),
+      ),
+    ),
   )
 
 }
