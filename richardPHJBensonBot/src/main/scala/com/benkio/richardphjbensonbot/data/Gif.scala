@@ -739,7 +739,8 @@ object Gif {
       List(
         GifFile("rphjb_Sguardo.mp4"),
         GifFile("rphjb_Sguardo2.mp4"),
-        MediaFile("rphjb_Sguardo3.gif"),
+        MediaFile("rphjb_Confuso.mp4"),
+        GifFile("rphjb_Sguardo3.mp4"),
         GifFile("rphjb_Sguardo4.mp4"),
         GifFile("rphjb_SguardoCanaro.mp4")
       ),
@@ -923,6 +924,27 @@ object Gif {
         GifFile("rphjb_Prega2.mp4")
       ),
       replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("\\bsorpresa\\b".r, 8),
+        RegexTextTriggerValue("\\bshock\\b".r, 5),
+        StringTextTriggerValue("😮"),
+      ),
+      mediafiles = List(
+        GifFile("rphjb_Sorpresa.mp4"),
+        GifFile("rphjb_Sorpresa2.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("quello che ti meriti"),
+        StringTextTriggerValue("fino alla fine"),
+      ),
+      mediafiles = List(
+        GifFile("rphjb_QuelloCheTiMeriti.mp4")
+      )
     )
   )
 
