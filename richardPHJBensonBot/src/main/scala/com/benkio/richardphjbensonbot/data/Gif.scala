@@ -945,7 +945,15 @@ object Gif {
       mediafiles = List(
         GifFile("rphjb_QuelloCheTiMeriti.mp4")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("[u]{3,}".r, 3)
+      ),
+      List(
+        MediaFile("rphjb_Uuu.mp4")
+      )
+    ),
   )
 
 }

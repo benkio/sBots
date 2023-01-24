@@ -998,6 +998,37 @@ object Video {
         MediaFile("rphjb_InvestitoreGoverno.mp4"),
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("pesce avaria[dt]o".r, 14),
+        StringTextTriggerValue("veramente di merda"),
+      ),
+      List(
+        MediaFile("rphjb_PesceAvariato.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("obama"),
+        StringTextTriggerValue("governo americano"),
+        RegexTextTriggerValue("rock('n'| n |&)roll presidence band".r, 25),
+      ),
+      List(
+        MediaFile("rphjb_Obama.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("piove in continuazione"),
+        StringTextTriggerValue("non ce la faccio più"),
+        StringTextTriggerValue("piove sempre"),
+        StringTextTriggerValue("a mio nonno"),
+        RegexTextTriggerValue("nipote[!]+".r, 7),
+      ),
+      List(
+        MediaFile("rphjb_Nonno.mp4")
+      )
+    ),
   )
 
 }
