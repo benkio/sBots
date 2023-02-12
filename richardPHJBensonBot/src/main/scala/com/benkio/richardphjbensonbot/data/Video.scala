@@ -290,8 +290,7 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bcolla\\b".r, 5),
-        StringTextTriggerValue("serpe e serpe")
+        StringTextTriggerValue("colla tra serpe e serpe")
       ),
       List(
         MediaFile("rphjb_CollaSerpe.mp4"),
