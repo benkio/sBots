@@ -1051,7 +1051,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_LaReputazione.mp4"),
-        MediaFile("ytai_CheVergogna.mp4")
+        GifFile("ytai_CheVergogna.mp4")
       ),
       replySelection = RandomSelection
     ),
