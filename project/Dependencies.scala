@@ -8,7 +8,7 @@ object Dependencies {
     val caseInsensitive    = "1.3.0"
     val cats               = "2.9.0"
     val catsEffectTime     = "0.2.0"
-    val catsEffectVersion  = "3.4.6"
+    val catsEffectVersion  = "3.4.7"
     val cormorant          = "0.5.0-M1"
     val cron4sCore         = "0.6.1"
     val doobie             = "1.0.0-RC2"
