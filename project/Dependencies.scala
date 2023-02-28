@@ -25,7 +25,7 @@ object Dependencies {
     val munitCatsEffect    = "1.0.7"
     val pureConfig         = "0.17.2"
     val shapeless          = "2.3.10"
-    val sqlite             = "3.40.1.0"
+    val sqlite             = "3.41.0.0"
     val telegramiumVersion = "7.65.0"
     val vault              = "3.5.0"
   }
