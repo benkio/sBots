@@ -1075,6 +1075,18 @@ object Video {
       List(
         MediaFile("rphjb_LibroGiallo.mp4"),
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sperma in un bicchiere"),
+        StringTextTriggerValue("in onore di satana"),
+        StringTextTriggerValue("mi tocca il pacco"),
+        StringTextTriggerValue("consigli sul pacco"),
+        RegexTextTriggerValue("umori miscelati (allo |al tuo )?sperma".r, 27),
+      ),
+      List(
+        MediaFile("rphjb_ConsigliSulPacco.mp4"),
+      )
     )
   )
 
