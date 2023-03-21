@@ -55,4 +55,13 @@ object Timeout {
       }
       .reduce(_ + _)
 
+  def formatTimeout(timeout: Timeout): String = {
+    val duration   = timeout.timeoutValue
+    val millis     = duration.toMillis
+    val hours      = millis / (1000 * 60 * 60)
+    val minutes    = (millis / (1000 * 60)) % 60
+    val seconds    = (millis / 1000)        % 60
+    val millisLeft = millis                 % 1000
+    f"$hours%02d:$minutes%02d:$seconds%02d.$millisLeft%03d"
+  }
 }

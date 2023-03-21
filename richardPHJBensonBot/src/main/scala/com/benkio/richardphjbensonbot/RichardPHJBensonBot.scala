@@ -201,7 +201,9 @@ object RichardPHJBensonBot {
                         s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
                       ).pure[F],
                     timeout =>
-                      dbLayer.dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List("Timeout set successfully").pure[F]
+                      dbLayer.dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List(
+                        s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}"
+                      ).pure[F]
                   )
               },
               """Input Required: the input must be in the form '\timeout 00:00:00'"""
