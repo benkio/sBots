@@ -1213,7 +1213,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("lo[g]+i(c|g)o".r, 6)
+        RegexTextTriggerValue("\\blo[g]+i(c|g)o\\b".r, 6)
       ),
       List(
         GifFile("rphjb_MiPareLogico.mp4"),

@@ -939,7 +939,7 @@ object YoutuboAncheIoBot {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("capolavoro"),
-        StringTextTriggerValue("meravigliosa"),
+        RegexTextTriggerValue("\\bmeravigliosa\\b".r, 12),
       ),
       mediafiles = List(
         GifFile("ytai_CapolavoroMeravigliosa.mp4")

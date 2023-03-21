@@ -451,7 +451,10 @@ object Audio {
         StringTextTriggerValue("chiesa"),
         RegexTextTriggerValue("preghier(a|ina)".r, 9),
         StringTextTriggerValue("io non credo"),
-        StringTextTriggerValue("la medicina")
+        StringTextTriggerValue("la medicina"),
+        StringTextTriggerValue("andare dal dottore"),
+        RegexTextTriggerValue("\\billusi\\b".r, 6),
+        StringTextTriggerValue("manfrine"),
       ),
       List(
         MediaFile("rphjb_Chiesa.mp3")
@@ -746,5 +749,13 @@ object Audio {
         MediaFile("rphjb_PauraAdAlDiMeola.mp3"),
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("alle (22|ventidue)".r, 7)
+      ),
+      List(
+        MediaFile("rphjb_Alle22.mp3")
+      )
+    )
   )
 }
