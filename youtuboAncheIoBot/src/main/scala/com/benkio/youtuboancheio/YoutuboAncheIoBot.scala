@@ -831,7 +831,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("allegria"),
       ),
       mediafiles = List(
-        MediaFile("ytai_PizzaAllegria.mp4")
+        GifFile("ytai_PizzaAllegria.mp4")
       )
     ),
     ReplyBundleMessage(
