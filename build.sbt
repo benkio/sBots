@@ -14,6 +14,7 @@ lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
 
 addCommandAlias("run-db-migrations", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
+addCommandAlias("validate", ";clean; compile; fix; test; IntegrationTest/test")
 
 // PROJECTS
 

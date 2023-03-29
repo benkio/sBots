@@ -1029,6 +1029,18 @@ object YoutuboAncheIoBot {
         GifFile("ytai_Tiramisu.mp4"),
       ),
       replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("m&m's"),
+        StringTextTriggerValue("rotear"),
+        StringTextTriggerValue("ruotar"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_M&Ms.mp4"),
+        GifFile("ytai_M&MsLoop.mp4"),
+      ),
+      replySelection = RandomSelection
     )
   )
 
