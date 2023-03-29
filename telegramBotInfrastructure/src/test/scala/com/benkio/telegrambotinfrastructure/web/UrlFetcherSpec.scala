@@ -41,7 +41,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
 
     val result = for {
       urlFetcher <- buildUrlFetcher()
-      files      <- input.traverse { case (url, filename) => urlFetcher.fetchFromDropbox(filename, url) }
+      files      <- input.parTraverse { case (url, filename) => urlFetcher.fetchFromDropbox(filename, url) }
       bytess = files.map((file: File) => Files.readAllBytes(file.toPath).length)
     } yield bytess.forall(bytes => bytes > (1024 * 5))
 
