@@ -831,7 +831,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("allegria"),
       ),
       mediafiles = List(
-        MediaFile("ytai_PizzaAllegria.mp4")
+        GifFile("ytai_PizzaAllegria.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -1029,6 +1029,28 @@ object YoutuboAncheIoBot {
         GifFile("ytai_Tiramisu.mp4"),
       ),
       replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("m&m's"),
+        StringTextTriggerValue("rotear"),
+        StringTextTriggerValue("ruotar"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_M&Ms.mp4"),
+        GifFile("ytai_M&MsLoop.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("🤣"),
+        StringTextTriggerValue("😂"),
+        RegexTextTriggerValue("(ah|ha){3,}".r, 6)
+      ),
+      mediafiles = List(
+        GifFile("ytai_Risata.mp4")
+      )
     )
   )
 
