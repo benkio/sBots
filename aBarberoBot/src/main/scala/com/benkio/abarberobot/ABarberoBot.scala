@@ -572,7 +572,7 @@ object ABarberoBot {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue(" a morte"),
-        RegexTextTriggerValue("\\bsi si\\b".r, 4)
+        RegexTextTriggerValue("\\bsi si si\\b".r, 4)
       ),
       List(
         MediaFile("abar_SisiAMorte.gif")
@@ -614,7 +614,7 @@ object ABarberoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bcerto\\b".r, 5)
+        RegexTextTriggerValue("\\bcert[o!]{3,}\\b".r, 5)
       ),
       List(
         MediaFile("abar_Certo.gif")
