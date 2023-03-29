@@ -1041,6 +1041,16 @@ object YoutuboAncheIoBot {
         GifFile("ytai_M&MsLoop.mp4"),
       ),
       replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("🤣"),
+        StringTextTriggerValue("😂"),
+        RegexTextTriggerValue("(ah|ha){3,}".r, 6)
+      ),
+      mediafiles = List(
+        GifFile("ytai_Risata.mp4")
+      )
     )
   )
 
