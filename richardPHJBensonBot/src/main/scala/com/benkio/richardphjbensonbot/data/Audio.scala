@@ -786,7 +786,7 @@ object Audio {
         MediaFile("rphjb_RomanticiDonneArCulo.mp3")
       )
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("bonolis"),
         StringTextTriggerValue("vi lascio nelle mani")

@@ -1563,6 +1563,23 @@ object Mix {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non sono uno del branco"),
+        StringTextTriggerValue("agende"),
+        StringTextTriggerValue("figli dei figli"),
+        StringTextTriggerValue("quali fiori"),
+        StringTextTriggerValue("diluite le vostre droghe"),
+        StringTextTriggerValue("non sono uno da sangue"),
+        StringTextTriggerValue("aghi di culto"),
+        RegexTextTriggerValue("bucati[,]? ma da quale chiodo".r, 25),
+      ),
+      List(
+        MediaFile("rphjb_GerarchieInfernali.mp4"),
+        MediaFile("rphjb_GerarchieInfernali.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }

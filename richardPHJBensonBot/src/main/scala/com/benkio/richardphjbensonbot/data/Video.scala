@@ -681,18 +681,6 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("non sono uno del branco"),
-        StringTextTriggerValue("agende"),
-        StringTextTriggerValue("figli dei figli"),
-        StringTextTriggerValue("quali fiori"),
-        StringTextTriggerValue("diluite le vostre droghe")
-      ),
-      List(
-        MediaFile("rphjb_GerarchieInfernali.mp4"),
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("brutto vigile")
       ),
       List(
