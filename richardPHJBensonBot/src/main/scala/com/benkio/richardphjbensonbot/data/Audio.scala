@@ -785,6 +785,15 @@ object Audio {
       List(
         MediaFile("rphjb_RomanticiDonneArCulo.mp3")
       )
+    ),
+        ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("bonolis"),
+        StringTextTriggerValue("vi lascio nelle mani")
+      ),
+      List(
+        MediaFile("rphjb_NelleManiDiBonolis.mp3")
+      )
     )
   )
 }

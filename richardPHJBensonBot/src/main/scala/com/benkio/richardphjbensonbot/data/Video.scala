@@ -316,15 +316,6 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("fregare come un co(gl|j)ione".r, 22),
-        RegexTextTriggerValue("ges[uùù]".r, 4)
-      ),
-      List(
-        MediaFile("rphjb_GesuCoglione.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("con questa tecnica")
       ),
       List(

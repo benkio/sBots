@@ -276,7 +276,8 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_IoNo.mp3"),
-        MediaFile("rphjb_GesuCoglione.mp4")
+        MediaFile("rphjb_GesuCoglione.mp4"),
+        MediaFile("rphjb_GesuCoglione.mp3"),
       ),
       replySelection = RandomSelection
     ),
@@ -1548,6 +1549,17 @@ object Mix {
         GifFile("rphjb_Giudicate.mp4"),
         GifFile("rphjb_ComeFaiAGiudicare.mp4"),
         MediaFile("rphjb_NonPoteteGiudicarUrloThatsGood.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("fregare come un co(gl|j)ione".r, 22),
+        RegexTextTriggerValue("ges[uùù]".r, 4)
+      ),
+      List(
+        MediaFile("rphjb_GesuCoglione.mp4"),
+        MediaFile("rphjb_GesuCoglione.mp3")
       ),
       replySelection = RandomSelection
     ),
