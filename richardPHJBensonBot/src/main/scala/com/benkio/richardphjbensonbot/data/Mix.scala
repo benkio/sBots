@@ -1415,11 +1415,12 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ratzinger"),
-        StringTextTriggerValue("il vaticano")
+        RegexTextTriggerValue("(il|er) vaticano", 11)
       ),
       List(
         MediaFile("rphjb_AndateDaRatzinger.mp4"),
-        GifFile("rphjb_AndateDaRatzinger2.mp4")
+        GifFile("rphjb_AndateDaRatzinger2.mp4"),
+        MediaFile("rphjb_AndateDaRatzinger.mp3"),
       ),
       replySelection = RandomSelection
     ),
