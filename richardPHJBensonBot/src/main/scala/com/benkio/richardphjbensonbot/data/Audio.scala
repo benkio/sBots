@@ -756,6 +756,35 @@ object Audio {
       List(
         MediaFile("rphjb_Alle22.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("gelatina"),
+        StringTextTriggerValue("secchi d'acqua"),
+        StringTextTriggerValue("fazzoletti"),
+        StringTextTriggerValue("sapone")
+      ),
+      List(
+        MediaFile("rphjb_GelatinaFazzolettiSecchiAcquaSapone.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("suonato (abbastanza )?bene".r, 12),
+        RegexTextTriggerValue("e che cazz[o!]{2,}".r, 12),
+      ),
+      List(
+        MediaFile("rphjb_SuonatoAbbastanzaBeneEVero.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("romantic"),
+        RegexTextTriggerValue("(ar|in) culo".r, 7)
+      ),
+      List(
+        MediaFile("rphjb_RomanticiDonneArCulo.mp3")
+      )
     )
   )
 }

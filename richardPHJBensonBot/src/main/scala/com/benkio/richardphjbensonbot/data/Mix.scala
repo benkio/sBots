@@ -1493,7 +1493,8 @@ object Mix {
       ),
       List(
         GifFile("rphjb_Vero.mp4"),
-        MediaFile("rphjb_EraVero.mp4")
+        MediaFile("rphjb_EraVero.mp4"),
+        MediaFile("rphjb_SuonatoAbbastanzaBeneEVero.mp3")
       ),
       replySelection = RandomSelection
     ),
