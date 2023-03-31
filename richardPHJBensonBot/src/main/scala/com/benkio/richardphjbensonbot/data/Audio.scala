@@ -814,5 +814,15 @@ object Audio {
         MediaFile("rphjb_ChitarraZuccheroAlgheVino.mp3")
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("misero antro"),
+        StringTextTriggerValue("addibiti ad agnelli"),
+        StringTextTriggerValue("una pisciata"),
+      ),
+      List(
+        MediaFile("rphjb_MiseroAntroGanciAgnelliPisciata.mp3")
+      ),
+    )
   )
 }
