@@ -317,14 +317,6 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("con questa tecnica")
-      ),
-      List(
-        MediaFile("rphjb_ConQuestaTecnica.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r, 17),
         StringTextTriggerValue("impazzisce totalmente")
       ),

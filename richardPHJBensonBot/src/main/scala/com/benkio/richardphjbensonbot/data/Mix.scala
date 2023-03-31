@@ -866,7 +866,8 @@ object Mix {
         GifFile("rphjb_SchifosiGif.mp4"),
         GifFile("rphjb_Schifosi2.mp4"),
         MediaFile("rphjb_Vigile.mp4"),
-        MediaFile("rphjb_ConQuestaTecnica.mp4")
+        MediaFile("rphjb_ConQuestaTecnica.mp4"),
+        MediaFile("rphjb_ConQuestaTecnica.mp3")
       ),
       replySelection = RandomSelection
     ),
@@ -889,6 +890,7 @@ object Mix {
         GifFile("rphjb_MortacciVostriGif.mp4"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
         MediaFile("rphjb_ConQuestaTecnica.mp4"),
+        MediaFile("rphjb_ConQuestaTecnica.mp3"),
         MediaFile("rphjb_MortacciVostri.mp4"),
         MediaFile("rphjb_CheCazzoEraQuellaRoba2.mp4")
       ),
@@ -1578,6 +1580,16 @@ object Mix {
       List(
         MediaFile("rphjb_GerarchieInfernali.mp4"),
         MediaFile("rphjb_GerarchieInfernali.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("con questa tecnica")
+      ),
+      List(
+        MediaFile("rphjb_ConQuestaTecnica.mp4"),
+        MediaFile("rphjb_ConQuestaTecnica.mp3")
       ),
       replySelection = RandomSelection
     ),
