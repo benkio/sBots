@@ -828,6 +828,7 @@ object Mix {
         MediaFile("rphjb_CapitoDoveStiamo.mp3"),
         MediaFile("rphjb_CapisciRidotti.mp3"),
         MediaFile("rphjb_CapitoCheMagagna.mp3"),
+        MediaFile("rphjb_DavantiGenteNonHaCapisceUnCazzo.mp3")
       ),
       replySelection = RandomSelection
     ),
