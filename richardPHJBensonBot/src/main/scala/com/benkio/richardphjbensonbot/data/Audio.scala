@@ -804,6 +804,15 @@ object Audio {
       List(
         MediaFile("rphjb_9MesiUscireRientrare.mp3")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("suono che cosa"),
+        StringTextTriggerValue("alghe marine"),
+      ),
+      List(
+        MediaFile("rphjb_ChitarraZuccheroAlgheVino.mp3")
+      ),
+    ),
   )
 }

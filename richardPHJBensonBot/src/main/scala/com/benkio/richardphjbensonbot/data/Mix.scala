@@ -103,7 +103,6 @@ object Mix {
         StringTextTriggerValue("ciambelloni"),
         StringTextTriggerValue("gli amari"),
         RegexTextTriggerValue("limoncell(o|i)".r, 10),
-        StringTextTriggerValue("il vino"),
         StringTextTriggerValue("ingrassati"),
         StringTextTriggerValue("andati al cesso"),
       ),
@@ -420,6 +419,7 @@ object Mix {
       List(
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
         MediaFile("rphjb_ChitarraZuccherada.mp4"),
+        MediaFile("rphjb_ChitarraZuccheroAlgheVino.mp3"),
         MediaFile("rphjb_Zucchero.mp3"),
         MediaFile("rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3"),
         MediaFile("rphjb_AuguriPerPasqua.mp4")
@@ -799,6 +799,8 @@ object Mix {
         MediaFile("rphjb_ChitarraPlettroVicoletto.mp4"),
         MediaFile("rphjb_ChitarraPlettroVicoletto2.mp4"),
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
+        MediaFile("rphjb_ChitarraZuccherada.mp4"),
+        MediaFile("rphjb_ChitarraZuccheroAlgheVino.mp3"),
         MediaFile("rphjb_AssoloBasso.mp4")
       ),
       replySelection = RandomSelection
@@ -1618,6 +1620,17 @@ object Mix {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bvino\\b".r, 4),
+      ),
+      List(
+        MediaFile("rphjb_ChitarraZuccheroAlgheVino.mp3"),
+        MediaFile("rphjb_Rimpinzati.mp4"),
+        MediaFile("rphjb_Pasqua.mp4")
+      ),
+      replySelection = RandomSelection
+    )
   )
 
 }
