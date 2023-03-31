@@ -103,7 +103,6 @@ object Mix {
         StringTextTriggerValue("ciambelloni"),
         StringTextTriggerValue("gli amari"),
         RegexTextTriggerValue("limoncell(o|i)".r, 10),
-        StringTextTriggerValue("il vino"),
         StringTextTriggerValue("ingrassati"),
         StringTextTriggerValue("andati al cesso"),
       ),
@@ -276,7 +275,8 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_IoNo.mp3"),
-        MediaFile("rphjb_GesuCoglione.mp4")
+        MediaFile("rphjb_GesuCoglione.mp4"),
+        MediaFile("rphjb_GesuCoglione.mp3"),
       ),
       replySelection = RandomSelection
     ),
@@ -371,6 +371,7 @@ object Mix {
         MediaFile("rphjb_CheCazzoEraQuellaRoba2.mp4"),
         MediaFile("rphjb_CheCazzoEraQuellaRoba3.mp4"),
         MediaFile("rphjb_RockMachineIntro.mp4"),
+        MediaFile("rphjb_MaCheCazzoEraQuellaRobaDroghe.mp3")
       ),
       replySelection = RandomSelection
     ),
@@ -419,6 +420,7 @@ object Mix {
       List(
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
         MediaFile("rphjb_ChitarraZuccherada.mp4"),
+        MediaFile("rphjb_ChitarraZuccheroAlgheVino.mp3"),
         MediaFile("rphjb_Zucchero.mp3"),
         MediaFile("rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3"),
         MediaFile("rphjb_AuguriPerPasqua.mp4")
@@ -798,6 +800,8 @@ object Mix {
         MediaFile("rphjb_ChitarraPlettroVicoletto.mp4"),
         MediaFile("rphjb_ChitarraPlettroVicoletto2.mp4"),
         MediaFile("rphjb_ChitarraZuggherada.mp3"),
+        MediaFile("rphjb_ChitarraZuccherada.mp4"),
+        MediaFile("rphjb_ChitarraZuccheroAlgheVino.mp3"),
         MediaFile("rphjb_AssoloBasso.mp4")
       ),
       replySelection = RandomSelection
@@ -825,6 +829,7 @@ object Mix {
         MediaFile("rphjb_CapitoDoveStiamo.mp3"),
         MediaFile("rphjb_CapisciRidotti.mp3"),
         MediaFile("rphjb_CapitoCheMagagna.mp3"),
+        MediaFile("rphjb_DavantiGenteNonHaCapisceUnCazzo.mp3")
       ),
       replySelection = RandomSelection
     ),
@@ -865,7 +870,8 @@ object Mix {
         GifFile("rphjb_SchifosiGif.mp4"),
         GifFile("rphjb_Schifosi2.mp4"),
         MediaFile("rphjb_Vigile.mp4"),
-        MediaFile("rphjb_ConQuestaTecnica.mp4")
+        MediaFile("rphjb_ConQuestaTecnica.mp4"),
+        MediaFile("rphjb_ConQuestaTecnica.mp3")
       ),
       replySelection = RandomSelection
     ),
@@ -888,6 +894,7 @@ object Mix {
         GifFile("rphjb_MortacciVostriGif.mp4"),
         MediaFile("rphjb_StateZittiZozziUltimi.mp3"),
         MediaFile("rphjb_ConQuestaTecnica.mp4"),
+        MediaFile("rphjb_ConQuestaTecnica.mp3"),
         MediaFile("rphjb_MortacciVostri.mp4"),
         MediaFile("rphjb_CheCazzoEraQuellaRoba2.mp4")
       ),
@@ -1414,11 +1421,12 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ratzinger"),
-        StringTextTriggerValue("il vaticano")
+        RegexTextTriggerValue("(il|er) vaticano".r, 11)
       ),
       List(
         MediaFile("rphjb_AndateDaRatzinger.mp4"),
-        GifFile("rphjb_AndateDaRatzinger2.mp4")
+        GifFile("rphjb_AndateDaRatzinger2.mp4"),
+        MediaFile("rphjb_AndateDaRatzinger.mp3"),
       ),
       replySelection = RandomSelection
     ),
@@ -1493,7 +1501,8 @@ object Mix {
       ),
       List(
         GifFile("rphjb_Vero.mp4"),
-        MediaFile("rphjb_EraVero.mp4")
+        MediaFile("rphjb_EraVero.mp4"),
+        MediaFile("rphjb_SuonatoAbbastanzaBeneEVero.mp3")
       ),
       replySelection = RandomSelection
     ),
@@ -1550,6 +1559,80 @@ object Mix {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("fregare come un co(gl|j)ione".r, 22),
+        RegexTextTriggerValue("ges[uùù]".r, 4)
+      ),
+      List(
+        MediaFile("rphjb_GesuCoglione.mp4"),
+        MediaFile("rphjb_GesuCoglione.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non sono uno del branco"),
+        StringTextTriggerValue("agende"),
+        StringTextTriggerValue("figli dei figli"),
+        StringTextTriggerValue("quali fiori"),
+        StringTextTriggerValue("diluite le vostre droghe"),
+        StringTextTriggerValue("non sono uno da sangue"),
+        StringTextTriggerValue("aghi di culto"),
+        RegexTextTriggerValue("bucati[,]? ma da quale chiodo".r, 25),
+      ),
+      List(
+        MediaFile("rphjb_GerarchieInfernali.mp4"),
+        MediaFile("rphjb_GerarchieInfernali.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("con questa tecnica")
+      ),
+      List(
+        MediaFile("rphjb_ConQuestaTecnica.mp4"),
+        MediaFile("rphjb_ConQuestaTecnica.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("platinette"),
+        StringTextTriggerValue("due persone in una"),
+        StringTextTriggerValue("quando scopo me la levo"),
+        StringTextTriggerValue("mi levo tutto"),
+      ),
+      List(
+        MediaFile("rphjb_Platinette.mp4"),
+        MediaFile("rphjb_Platinette.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("il mio sbadiglio"),
+        StringTextTriggerValue("donna solo per un taglio"),
+        StringTextTriggerValue("labbro superiore")
+      ),
+      List(
+        MediaFile("rphjb_DonnaTaglioSbadiglio.mp4"),
+        MediaFile("rphjb_DonnaTaglioSbadiglio.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bvino\\b".r, 4),
+      ),
+      List(
+        MediaFile("rphjb_ChitarraZuccheroAlgheVino.mp3"),
+        MediaFile("rphjb_Rimpinzati.mp4"),
+        MediaFile("rphjb_Pasqua.mp4")
+      ),
+      replySelection = RandomSelection
+    )
   )
 
 }

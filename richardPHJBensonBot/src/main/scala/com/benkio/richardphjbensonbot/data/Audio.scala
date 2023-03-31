@@ -756,6 +756,82 @@ object Audio {
       List(
         MediaFile("rphjb_Alle22.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("gelatina"),
+        StringTextTriggerValue("secchi d'acqua"),
+        StringTextTriggerValue("fazzoletti"),
+        StringTextTriggerValue("sapone")
+      ),
+      List(
+        MediaFile("rphjb_GelatinaFazzolettiSecchiAcquaSapone.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("suonato (abbastanza )?bene".r, 12),
+        RegexTextTriggerValue("e che cazz[o!]{2,}".r, 12),
+      ),
+      List(
+        MediaFile("rphjb_SuonatoAbbastanzaBeneEVero.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("romantic"),
+        RegexTextTriggerValue("(ar|in) culo".r, 7)
+      ),
+      List(
+        MediaFile("rphjb_RomanticiDonneArCulo.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("bonolis"),
+        StringTextTriggerValue("vi lascio nelle mani")
+      ),
+      List(
+        MediaFile("rphjb_NelleManiDiBonolis.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(9|nove) mesi".r, 6),
+        RegexTextTriggerValue("voler (uscire|rientrare)".r, 12),
+        StringTextTriggerValue("una vita intera")
+      ),
+      List(
+        MediaFile("rphjb_9MesiUscireRientrare.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("suono che cosa"),
+        StringTextTriggerValue("alghe marine"),
+      ),
+      List(
+        MediaFile("rphjb_ChitarraZuccheroAlgheVino.mp3")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("misero antro"),
+        StringTextTriggerValue("addibiti ad agnelli"),
+        StringTextTriggerValue("una pisciata"),
+      ),
+      List(
+        MediaFile("rphjb_MiseroAntroGanciAgnelliPisciata.mp3")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bsperma\\b".r, 5),
+        RegexTextTriggerValue("mio (fidanzato|partner|moroso)".r, 11),
+      ),
+      List(
+        MediaFile("rphjb_DonneSperma.mp3")
+      ),
     )
   )
 }

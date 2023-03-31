@@ -294,6 +294,7 @@ object Video {
       ),
       List(
         MediaFile("rphjb_CollaSerpe.mp4"),
+        MediaFile("rphjb_CollaSerpe.mp3"),
         MediaFile("rphjb_CollaSerpeSigarettePercussionista.mp4")
       ),
       replySelection = RandomSelection
@@ -312,23 +313,6 @@ object Video {
       ),
       List(
         MediaFile("rphjb_InCantina.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("fregare come un co(gl|j)ione".r, 22),
-        RegexTextTriggerValue("ges[uùù]".r, 4)
-      ),
-      List(
-        MediaFile("rphjb_GesuCoglione.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("con questa tecnica")
-      ),
-      List(
-        MediaFile("rphjb_ConQuestaTecnica.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -503,19 +487,6 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("platinette"),
-        StringTextTriggerValue("due persone in una"),
-        StringTextTriggerValue("quando scopo me la levo"),
-        StringTextTriggerValue("il mio sbadiglio"),
-        StringTextTriggerValue("solo per un taglio"),
-        StringTextTriggerValue("labbro superiore")
-      ),
-      List(
-        MediaFile("rphjb_PlatinetteLabbroSuperiore.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("non aprite quella porta")
       ),
       List(
@@ -686,18 +657,6 @@ object Video {
       ),
       List(
         MediaFile("rphjb_PoesiaRock.mp4"),
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("non sono uno del branco"),
-        StringTextTriggerValue("agende"),
-        StringTextTriggerValue("figli dei figli"),
-        StringTextTriggerValue("quali fiori"),
-        StringTextTriggerValue("diluite le vostre droghe")
-      ),
-      List(
-        MediaFile("rphjb_GerarchieInfernali.mp4"),
       )
     ),
     ReplyBundleMessage(

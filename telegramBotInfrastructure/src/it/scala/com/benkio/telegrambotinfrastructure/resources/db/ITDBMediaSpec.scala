@@ -23,7 +23,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     "1669122662279"
   )
 
-  def checkMedia(actual: DBMediaData, expected: DBMediaData) =
+  def checkMedia(actual: DBMediaData, expected: DBMediaData): Boolean =
     actual.media_name == expected.media_name &&
       actual.media_url == expected.media_url &&
       actual.kind == expected.kind &&
