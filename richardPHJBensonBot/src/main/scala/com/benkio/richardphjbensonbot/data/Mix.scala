@@ -1593,6 +1593,31 @@ object Mix {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("platinette"),
+        StringTextTriggerValue("due persone in una"),
+        StringTextTriggerValue("quando scopo me la levo"),
+        StringTextTriggerValue("mi levo tutto"),
+      ),
+      List(
+        MediaFile("rphjb_Platinette.mp4"),
+        MediaFile("rphjb_Platinette.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("il mio sbadiglio"),
+        StringTextTriggerValue("donna solo per un taglio"),
+        StringTextTriggerValue("labbro superiore")
+      ),
+      List(
+        MediaFile("rphjb_DonnaTaglioSbadiglio.mp4"),
+        MediaFile("rphjb_DonnaTaglioSbadiglio.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }

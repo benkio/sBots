@@ -487,19 +487,6 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("platinette"),
-        StringTextTriggerValue("due persone in una"),
-        StringTextTriggerValue("quando scopo me la levo"),
-        StringTextTriggerValue("il mio sbadiglio"),
-        StringTextTriggerValue("solo per un taglio"),
-        StringTextTriggerValue("labbro superiore")
-      ),
-      List(
-        MediaFile("rphjb_PlatinetteLabbroSuperiore.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("non aprite quella porta")
       ),
       List(
