@@ -823,6 +823,15 @@ object Audio {
       List(
         MediaFile("rphjb_MiseroAntroGanciAgnelliPisciata.mp3")
       ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bsperma\\b".r, 5),
+        RegexTextTriggerValue("mio (fidanzato|partner|moroso)".r, 11),
+      ),
+      List(
+        MediaFile("rphjb_DonneSperma.mp3")
+      ),
     )
   )
 }
