@@ -1415,7 +1415,7 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ratzinger"),
-        RegexTextTriggerValue("(il|er) vaticano", 11)
+        RegexTextTriggerValue("(il|er) vaticano".r, 11)
       ),
       List(
         MediaFile("rphjb_AndateDaRatzinger.mp4"),

@@ -794,6 +794,16 @@ object Audio {
       List(
         MediaFile("rphjb_NelleManiDiBonolis.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("(9|nove) mesi".r, 6),
+        RegexTextTriggerValue("voler (uscire|rientrare)".r, 12),
+        StringTextTriggerValue("una vita intera")
+      ),
+      List(
+        MediaFile("rphjb_9MesiUscireRientrare.mp3")
+      )
     )
   )
 }
