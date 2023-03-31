@@ -294,6 +294,7 @@ object Video {
       ),
       List(
         MediaFile("rphjb_CollaSerpe.mp4"),
+        MediaFile("rphjb_CollaSerpe.mp3"),
         MediaFile("rphjb_CollaSerpeSigarettePercussionista.mp4")
       ),
       replySelection = RandomSelection
