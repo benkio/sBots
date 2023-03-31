@@ -371,6 +371,7 @@ object Mix {
         MediaFile("rphjb_CheCazzoEraQuellaRoba2.mp4"),
         MediaFile("rphjb_CheCazzoEraQuellaRoba3.mp4"),
         MediaFile("rphjb_RockMachineIntro.mp4"),
+        MediaFile("rphjb_MaCheCazzoEraQuellaRobaDroghe.mp3")
       ),
       replySelection = RandomSelection
     ),
