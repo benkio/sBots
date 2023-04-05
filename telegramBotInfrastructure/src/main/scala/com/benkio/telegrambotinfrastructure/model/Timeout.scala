@@ -4,31 +4,33 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 
 import java.time.Instant
-import scala.concurrent.duration.FiniteDuration
-import scala.concurrent.duration._
+import scala.concurrent.duration.{FiniteDuration, _}
 import scala.util.Try
 
 final case class Timeout(
-    chatId: Long,
+  chatId: Long,
+  botName: String,
     timeoutValue: FiniteDuration,
     lastInteraction: Instant
 )
 
 object Timeout {
 
-  def apply(chatId: Long, timeoutValue: String): Either[Throwable, Timeout] =
+  def apply(chatId: Long, botName: String, timeoutValue: String): Either[Throwable, Timeout] =
     Try(timeStringToDuration(timeoutValue))
       .map(timeoutValue =>
         Timeout(
           chatId = chatId,
+          botName = botName,
           timeoutValue = timeoutValue,
           lastInteraction = Instant.now()
         )
       )
       .toEither
 
-  def apply(chatId: Long): Timeout = Timeout(
+  def apply(chatId: Long, botName: String): Timeout = Timeout(
     chatId = chatId,
+    botName = botName,
     timeoutValue = 0.millis,
     lastInteraction = Instant.now()
   )
@@ -38,6 +40,7 @@ object Timeout {
     lastInteraction <- Try(dbTimeoutData.last_interaction.toLong).toEither
   } yield Timeout(
     chatId = dbTimeoutData.chat_id,
+    botName = dbTimeoutData.bot_name,
     timeoutValue = timeoutValue,
     lastInteraction = Instant.ofEpochSecond(lastInteraction)
   )

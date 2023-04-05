@@ -2,32 +2,21 @@ package com.benkio.richardphjbensonbot
 
 import cats.effect._
 import cats.implicits._
-import cats.MonadThrow
-import cats._
+import cats.{MonadThrow, _}
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.TextReply
-import com.benkio.telegrambotinfrastructure.model.Timeout
+import com.benkio.telegrambotinfrastructure.model.{CommandTrigger, ReplyBundle, ReplyBundleCommand, ReplyBundleMessage, TextReply, Timeout}
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.BotSkeleton
-import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
-import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import com.benkio.telegrambotinfrastructure.resources.db.{DBLayer, DBTimeoutData}
+import com.benkio.telegrambotinfrastructure.{BackgroundJobManager, BotSkeleton, BotSkeletonPolling, BotSkeletonWebhook}
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
 import telegramium.bots.high._
-import telegramium.bots.InputPartFile
-import telegramium.bots.Message
+import telegramium.bots.{InputPartFile, Message}
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
@@ -37,13 +26,13 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
   override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
-    dbLayer.dbTimeout.logLastInteraction(m.chat.id)
+    dbLayer.dbTimeout.logLastInteraction(m.chat.id, botName)
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_, m) =>
       for {
-        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
+        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id, botName)
         timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
 }
@@ -59,13 +48,13 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: Action: LogWriter](
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
   override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
-    dbLayer.dbTimeout.logLastInteraction(m.chat.id)
+    dbLayer.dbTimeout.logLastInteraction(m.chat.id, botName)
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_, m) =>
       for {
-        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
+        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id, botName)
         timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
 }
@@ -194,7 +183,7 @@ object RichardPHJBensonBot {
               "timeout",
               botName,
               t => {
-                Timeout(msg.chat.id, t)
+                Timeout(msg.chat.id, botName, t)
                   .fold(
                     error =>
                       log.info(s"[ERROR] While parsing the timeout input: $error") *> List(

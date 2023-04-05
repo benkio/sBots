@@ -5,20 +5,15 @@ import cats.data.OptionT
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageOps
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.messagefiltering.{FilteringForward, MessageMatches, MessageOps}
+import com.benkio.telegrambotinfrastructure.model.{ReplyBundle, ReplyBundleCommand, ReplyBundleMessage}
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.implicits._
 import telegramium.bots.high._
-import telegramium.bots.InputPartFile
-import telegramium.bots.Message
+import telegramium.bots.{InputPartFile, Message}
 
 abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit
     api: Api[F],
@@ -114,7 +109,7 @@ trait BotSkeleton[F[_]] {
         commandRepliesData <- commandRepliesDataF
         commandMatch = for {
           text   <- msg.text
-          result <- commandRepliesData.find(rbc => text.startsWith("/" + rbc.trigger.command))
+          result <- commandRepliesData.find(rbc => text.startsWith("/" + rbc.trigger.command)) // TODO: Fix this, if the command is in the form /command@botname and the botname is not the right one, ignore the command
         } yield result
         commands <- commandMatch
           .traverse(commandReply =>
