@@ -15,7 +15,7 @@ object Dependencies {
     val emojiVersion       = "1.3.0"
     val fs2Core            = "3.6.1"
     val fs2IO              = "3.6.1"
-    val flyway             = "9.16.1"
+    val flyway             = "9.16.3"
     val fs2Cron            = "0.8.3"
     val http4s             = "0.23.18"
     val logEffects         = "0.17.0"
