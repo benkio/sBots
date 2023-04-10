@@ -237,8 +237,8 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("spalle"),
-        StringTextTriggerValue("braccia"),
+        RegexTextTriggerValue("\\bspalle\\b", 6),
+        RegexTextTriggerValue("\\bbraccia\\b", 7),
         RegexTextTriggerValue("t(i|e) strozzo".r, 10)
       ),
       List(
