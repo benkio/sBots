@@ -2,8 +2,6 @@ package com.benkio.richardphjbensonbot.data
 
 import com.benkio.telegrambotinfrastructure.messagefiltering._
 import com.benkio.telegrambotinfrastructure.model._
-import com.lightbend.emoji.ShortCodes.Defaults._
-import com.lightbend.emoji.ShortCodes.Implicits._
 
 object Mix {
 
@@ -237,8 +235,8 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("spalle"),
-        StringTextTriggerValue("braccia"),
+        RegexTextTriggerValue("\\bspalle\\b".r, 6),
+        RegexTextTriggerValue("\\bbraccia\\b".r, 7),
         RegexTextTriggerValue("t(i|e) strozzo".r, 10)
       ),
       List(
@@ -633,10 +631,8 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue(e":lol:"),
-        StringTextTriggerValue(e":rofl:"),
         StringTextTriggerValue("sorriso"),
-        RegexTextTriggerValue("(ah|ha){3,}".r, 6)
+        RegexTextTriggerValue("(ah|ha|🤣|😂){3,}".r, 6)
       ),
       List(
         MediaFile("rphjb_Risata.mp3"),
