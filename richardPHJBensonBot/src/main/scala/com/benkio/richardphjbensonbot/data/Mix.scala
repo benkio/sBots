@@ -2,8 +2,6 @@ package com.benkio.richardphjbensonbot.data
 
 import com.benkio.telegrambotinfrastructure.messagefiltering._
 import com.benkio.telegrambotinfrastructure.model._
-import com.lightbend.emoji.ShortCodes.Defaults._
-import com.lightbend.emoji.ShortCodes.Implicits._
 
 object Mix {
 
@@ -237,8 +235,8 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("\\bspalle\\b", 6),
-        RegexTextTriggerValue("\\bbraccia\\b", 7),
+        RegexTextTriggerValue("\\bspalle\\b".r, 6),
+        RegexTextTriggerValue("\\bbraccia\\b".r, 7),
         RegexTextTriggerValue("t(i|e) strozzo".r, 10)
       ),
       List(
