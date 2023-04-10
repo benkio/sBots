@@ -4,12 +4,13 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 
 import java.time.Instant
-import scala.concurrent.duration.{FiniteDuration, _}
+import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
 import scala.util.Try
 
 final case class Timeout(
-  chatId: Long,
-  botName: String,
+    chatId: Long,
+    botName: String,
     timeoutValue: FiniteDuration,
     lastInteraction: Instant
 )

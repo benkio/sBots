@@ -4,7 +4,8 @@ import cats.effect.Async
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import doobie.implicits._
-import doobie.{Transactor, _}
+import doobie.Transactor
+import doobie._
 import log.effect.LogWriter
 
 import java.time.Instant
@@ -51,7 +52,9 @@ object DBTimeout {
 
     override def getOrDefault(chatId: Long, botName: String): F[DBTimeoutData] =
       log.info(s"DB fetching timeout for $chatId - $botName") *>
-        getOrDefaultQuery(chatId, botName).option.transact(transactor).map(_.getOrElse(DBTimeoutData(Timeout(chatId, botName))))
+        getOrDefaultQuery(chatId, botName).option
+          .transact(transactor)
+          .map(_.getOrElse(DBTimeoutData(Timeout(chatId, botName))))
 
     override def setTimeout(timeout: DBTimeoutData): F[Unit] =
       log.info(s"DB setting timeout for ${timeout.chat_id} - ${timeout.bot_name} to value ${timeout.timeout_value}") *>

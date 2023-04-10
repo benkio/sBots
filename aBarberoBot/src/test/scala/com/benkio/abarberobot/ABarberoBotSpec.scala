@@ -24,7 +24,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
 
   implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
   private val privateTestMessage    = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer                  = DBLayerMock.mock()
+  val emptyDBLayer                  = DBLayerMock.mock(ABarberoBot.botName)
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
   val emptyBackgroundJobManager = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
