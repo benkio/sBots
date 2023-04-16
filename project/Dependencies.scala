@@ -23,7 +23,7 @@ object Dependencies {
     val mulesHttp4s        = "0.3.0"
     val munit              = "0.7.29"
     val munitCatsEffect    = "1.0.7"
-    val pureConfig         = "0.17.2"
+    val pureConfig         = "0.17.3"
     val shapeless          = "2.3.10"
     val sqlite             = "3.41.2.1"
     val telegramiumVersion = "7.66.0"
