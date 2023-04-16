@@ -19,7 +19,7 @@ object Dependencies {
     val fs2Cron            = "0.8.3"
     val http4s             = "0.23.18"
     val logEffects         = "0.17.0"
-    val mules              = "0.5.0"
+    val mules              = "0.7.0"
     val mulesHttp4s        = "0.3.0"
     val munit              = "0.7.29"
     val munitCatsEffect    = "1.0.7"
