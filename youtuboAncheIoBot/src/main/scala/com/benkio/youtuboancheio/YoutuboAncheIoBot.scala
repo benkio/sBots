@@ -145,7 +145,8 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_AcquaSguardo.mp4"),
         GifFile("ytai_Sete.mp4"),
-        GifFile("ytai_AcquaCalabria.mp4")
+        GifFile("ytai_AcquaCalabria.mp4"),
+        GifFile("ytai_AcquaCalabriaOttima.mp4")
       ),
       replySelection = RandomSelection
     ),
