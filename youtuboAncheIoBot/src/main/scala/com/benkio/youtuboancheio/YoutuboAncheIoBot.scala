@@ -444,7 +444,6 @@ object YoutuboAncheIoBot {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("molla"),
-        StringTextTriggerValue("ciccione"),
         StringTextTriggerValue("grassone"),
         StringTextTriggerValue("ancora non sei morto")
       ),
@@ -1050,6 +1049,26 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_Risata.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("ciccione")
+      ),
+      mediafiles = List(
+        GifFile("ytai_Molla.mp4"),
+        GifFile("ytai_CiccioneObesoMangiTanto.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("obeso"),
+        StringTextTriggerValue("te lo meriti"),
+        StringTextTriggerValue("mangi tanto")
+      ),
+      mediafiles = List(
+        GifFile("ytai_CiccioneObesoMangiTanto.mp4")
       )
     )
   )
