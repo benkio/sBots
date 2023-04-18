@@ -1053,16 +1053,6 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("ciccione")
-      ),
-      mediafiles = List(
-        GifFile("ytai_Molla.mp4"),
-        GifFile("ytai_CiccioneObesoMangiTanto.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
         StringTextTriggerValue("obeso"),
         StringTextTriggerValue("te lo meriti"),
         StringTextTriggerValue("mangi tanto")
@@ -1070,6 +1060,14 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_CiccioneObesoMangiTanto.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("si vede")
+      ),
+      mediafiles = List(
+        MediaFile("ytai_SiVede.mp4")
+      ),
     )
   )
 
@@ -1116,7 +1114,17 @@ object YoutuboAncheIoBot {
         MediaFile("ytai_NienteVaBene.mp3"),
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("ciccione")
+      ),
+      mediafiles = List(
+        GifFile("ytai_Molla.mp4"),
+        GifFile("ytai_CiccioneObesoMangiTanto.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
   def messageRepliesData[
