@@ -1088,6 +1088,14 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         MediaFile("ytai_TorreMarmellata.mp4")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("vi voglio (tanto )*bene".r, 14)
+      ),
+      mediafiles = List(
+        MediaFile("ytai_ViVoglioTantoBene.mp4")
+      ),
     )
   )
 
