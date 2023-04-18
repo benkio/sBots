@@ -1068,6 +1068,15 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         MediaFile("ytai_SiVede.mp4")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("correre non serve"),
+        RegexTextTriggerValue("\\bfretta\\b".r, 6)
+      ),
+      mediafiles = List(
+        MediaFile("ytai_CorrereNonServe.mp4")
+      ),
     )
   )
 
