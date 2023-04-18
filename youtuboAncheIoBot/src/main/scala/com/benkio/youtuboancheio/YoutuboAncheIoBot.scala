@@ -1078,6 +1078,16 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         MediaFile("ytai_CorrereNonServe.mp4")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("marmellata"),
+        StringTextTriggerValue("santa rosa"),
+        RegexTextTriggerValue("(la|una) torre".r, 8)
+      ),
+      mediafiles = List(
+        MediaFile("ytai_TorreMarmellata.mp4")
+      ),
     )
   )
 
