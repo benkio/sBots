@@ -882,7 +882,8 @@ object Mix {
       List(
         GifFile("rphjb_Schifoso.mp4"),
         MediaFile("rphjb_Vigile.mp4"),
-        MediaFile("rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4")
+        MediaFile("rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4"),
+        MediaFile("rphjb_BruttoSquallidoSchifoso.mp4")
       ),
       replySelection = RandomSelection
     ),

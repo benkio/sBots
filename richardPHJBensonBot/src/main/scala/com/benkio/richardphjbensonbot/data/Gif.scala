@@ -964,6 +964,15 @@ object Gif {
         GifFile("rphjb_Occhiali.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("squallido"),
+        StringTextTriggerValue("ultimo degli esseri umani")
+      ),
+      List(
+        GifFile("rphjb_BruttoSquallidoSchifoso.mp4")
+      )
+    ),
   )
 
 }
