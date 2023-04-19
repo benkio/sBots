@@ -1114,6 +1114,16 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_SaporiAgrodolciSpettacolari.mp4")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("non parlate di"),
+        StringTextTriggerValue("questioni filosofiche"),
+        StringTextTriggerValue("non ci azzecc")
+      ),
+      mediafiles = List(
+        GifFile("ytai_QuestioniFilosofiche.mp4")
+      ),
     )
   )
 
