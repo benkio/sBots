@@ -841,7 +841,8 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_ProfumoGamberettiSalmone.mp4"),
-        GifFile("ytai_Sorpresa.mp4")
+        GifFile("ytai_Sorpresa.mp4"),
+        GifFile("ytai_TartinaSalmone.mp4")
       ),
       replySelection = RandomSelection
     ),
