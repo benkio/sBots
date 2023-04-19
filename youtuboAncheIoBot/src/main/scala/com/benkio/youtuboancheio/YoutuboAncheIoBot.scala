@@ -1104,6 +1104,16 @@ object YoutuboAncheIoBot {
         GifFile("ytai_SalmoneUnico.mp4"),
         GifFile("ytai_TartinaSalmone.mp4")
       ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("un successo"),
+        StringTextTriggerValue("agrodolci"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_SaporiAgrodolciSpettacolari.mp4")
+      ),
     )
   )
 
