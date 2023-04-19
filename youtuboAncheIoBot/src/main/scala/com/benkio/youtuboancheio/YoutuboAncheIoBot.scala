@@ -476,7 +476,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("non fa male")
       ),
       mediafiles = List(
-        GifFile("ytai_NonFaMale.mp4")
+        GifFile("ytai_NonFaMale.mp4"),
+        GifFile("ytai_AcquaMiglioreDrink.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -1163,6 +1164,15 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_CodaLunga.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("brindare"),
+        StringTextTriggerValue("drink"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_AcquaMiglioreDrink.mp4")
       ),
     )
   )
