@@ -1129,6 +1129,16 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_InCompagnia.mp4")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("mi incontrate"),
+        StringTextTriggerValue("la pancia"),
+        StringTextTriggerValue("in imbarazzo")
+      ),
+      mediafiles = List(
+        GifFile("ytai_IncontratePanciaImbarazzo.mp4")
+      ),
     )
   )
 
