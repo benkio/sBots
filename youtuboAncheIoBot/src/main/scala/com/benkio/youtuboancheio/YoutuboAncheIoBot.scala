@@ -1139,6 +1139,23 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_IncontratePanciaImbarazzo.mp4")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("caro amico"),
+        StringTextTriggerValue("chiarire"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_GrazieAmicoChiarire.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("commovendo")
+      ),
+      mediafiles = List(
+        GifFile("ytai_Commovendo.mp4")
+      ),
     )
   )
 
@@ -1147,7 +1164,7 @@ object YoutuboAncheIoBot {
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("ho perso (di nuovo )qualcosa".r, 18)
+        RegexTextTriggerValue("ho perso (di nuovo )?qualcosa".r, 18)
       ),
       mediafiles = List(
         GifFile("ytai_HoPersoQualcosa.mp4"),
