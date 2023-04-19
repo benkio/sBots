@@ -836,13 +836,11 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("gamberetti"),
-        StringTextTriggerValue("salmone"),
+        StringTextTriggerValue("gamberetti")
       ),
       mediafiles = List(
         GifFile("ytai_ProfumoGamberettiSalmone.mp4"),
-        GifFile("ytai_Sorpresa.mp4"),
-        GifFile("ytai_TartinaSalmone.mp4")
+        GifFile("ytai_Sorpresa.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1096,6 +1094,15 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_ViVoglioTantoBene.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("salmone"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_SalmoneUnico.mp4"),
+        GifFile("ytai_TartinaSalmone.mp4")
       ),
     )
   )
