@@ -633,10 +633,10 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue(e":lol:"),
-        StringTextTriggerValue(e":rofl:"),
         StringTextTriggerValue("sorriso"),
-        RegexTextTriggerValue("(ah|ha){3,}".r, 6)
+        RegexTextTriggerValue("(😂|🤣){4,}".r, 4),
+        RegexTextTriggerValue("(😄|😀|😃){4,}".r, 4),
+        RegexTextTriggerValue("(ah|ha){7,}".r, 14)
       ),
       List(
         MediaFile("rphjb_Risata.mp3"),
