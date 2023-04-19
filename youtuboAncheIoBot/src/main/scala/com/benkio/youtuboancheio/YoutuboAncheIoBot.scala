@@ -1124,6 +1124,14 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_QuestioniFilosofiche.mp4")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("mang[ai] in (mia )?compagnia".r, 18),
+      ),
+      mediafiles = List(
+        GifFile("ytai_InCompagnia.mp4")
+      ),
     )
   )
 
