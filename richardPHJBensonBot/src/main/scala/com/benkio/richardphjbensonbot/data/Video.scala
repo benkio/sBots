@@ -1044,6 +1044,16 @@ object Video {
       List(
         MediaFile("rphjb_ConsigliSulPacco.mp4"),
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("rebus"),
+        RegexTextTriggerValue("tocco qua\\b".r, 9),
+        RegexTextTriggerValue("volt(o|are) pagina".r, 12),
+      ),
+      List(
+        MediaFile("rphjb_Rebus.mp4")
+      )
     )
   )
 
