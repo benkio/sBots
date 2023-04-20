@@ -982,7 +982,7 @@ object Gif {
         GifFile("rphjb_Ciao2001Gif.mp4")
       )
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("covi il male"),
         StringTextTriggerValue("invidia"),
@@ -991,12 +991,15 @@ object Gif {
       List(
         GifFile("rphjb_CoviMaleInvidiaLivore.mp4")
       )
-        ),
+    ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("mettermi in difficoltà"),
-        StringTextTriggerValue("amicizie (politiche| d[ie] polizia| d[ie] carabinieri| d[ei] tutt'altr[o]? genere)?".r, 9),
-        RegexTextTriggerValue("amici potenti")
+        RegexTextTriggerValue(
+          "amicizie (politiche| d[ie] polizia| d[ie] carabinieri| d[ei] tutt'altr[o]? genere)?".r,
+          9
+        ),
+        StringTextTriggerValue("amici potenti")
       ),
       List(
         GifFile("rphjb_DifficoltaAmicizieTelefonata.mp4")
