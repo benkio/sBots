@@ -421,8 +421,6 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("chi tocca (\\w)[,]? muore".r, 16),
-        RegexTextTriggerValue("ciao (2001|duemilauno)".r, 9),
         StringTextTriggerValue("marilyn manson")
       ),
       List(

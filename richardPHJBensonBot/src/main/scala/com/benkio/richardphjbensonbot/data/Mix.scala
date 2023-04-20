@@ -1631,7 +1631,18 @@ object Mix {
         MediaFile("rphjb_Pasqua.mp4")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("chi tocca (\\w)[,]? muore".r, 16),
+        RegexTextTriggerValue("ciao (2001|duemilauno)".r, 9)
+      ),
+      List(
+        MediaFile("rphjb_Ciao2001.mp4"),
+        GifFile("rphjb_Ciao2001Gif.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }

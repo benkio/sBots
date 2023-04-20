@@ -973,6 +973,15 @@ object Gif {
         GifFile("rphjb_BruttoSquallidoSchifoso.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("un avvertimento"),
+        StringTextTriggerValue("bastoni tra le ruote")
+      ),
+      List(
+        GifFile("rphjb_Ciao2001Gif.mp4")
+      )
+    ),
   )
 
 }
