@@ -982,6 +982,16 @@ object Gif {
         GifFile("rphjb_Ciao2001Gif.mp4")
       )
     ),
+        ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("covi il male"),
+        StringTextTriggerValue("invidia"),
+        StringTextTriggerValue("livore")
+      ),
+      List(
+        GifFile("rphjb_CoviMaleInvidiaLivore.mp4")
+      )
+    ),
   )
 
 }
