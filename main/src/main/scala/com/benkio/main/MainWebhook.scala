@@ -26,7 +26,7 @@ object MainWebhook extends IOApp {
 
     val server = for {
       config      <- Resource.eval(Config.loadConfig)
-      httpClient  <- EmberClientBuilder.default[IO].build
+      httpClient  <- EmberClientBuilder.default[IO].withMaxResponseHeaderSize(8192).build
       certificate <- Resource.eval(IO.pure(config.webhookCertificate.map(fp => InputPartFile(new File(fp)))))
       xahWebhook <- XahBot.buildWebhookBot[IO](
         httpClient = httpClient,
