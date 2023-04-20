@@ -1002,6 +1002,16 @@ object Gif {
         GifFile("rphjb_DifficoltaAmicizieTelefonata.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("in un attimo"),
+        StringTextTriggerValue("risolto tutto"),
+        StringTextTriggerValue("telefonata"),
+      ),
+      List(
+        GifFile("rphjb_Telefonata.mp4")
+      )
+    ),
   )
 
 }
