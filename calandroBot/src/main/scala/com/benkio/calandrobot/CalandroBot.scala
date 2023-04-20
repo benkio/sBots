@@ -339,7 +339,7 @@ object CalandroBot {
   def buildPollingBot[F[_]: Parallel: Async, A](
       action: CalandroBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
-    httpClient <- EmberClientBuilder.default[F].build
+    httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     botSetup <- BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,

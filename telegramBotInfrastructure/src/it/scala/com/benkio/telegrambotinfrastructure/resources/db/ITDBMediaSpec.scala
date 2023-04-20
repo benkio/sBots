@@ -23,11 +23,14 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     "1669122662279"
   )
 
-  def checkMedia(actual: DBMediaData, expected: DBMediaData): Boolean =
-    actual.media_name == expected.media_name &&
+  def checkMedia(actual: DBMediaData, expected: DBMediaData): Boolean = {
+    val result = actual.media_name == expected.media_name &&
       actual.media_url == expected.media_url &&
       actual.kind == expected.kind &&
       actual.media_count == expected.media_count
+    if (!result) println(s"checkMedia test failure: $actual ≄ $expected")
+    result
+  }
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
     Class.forName("org.sqlite.JDBC")
@@ -129,11 +132,11 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         "1674248160242"
       ),
       DBMediaData(
-        "rphjb_AStronzo.mp3",
+        "rphjb_9MesiUscireRientrare.mp3",
         None,
-        "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABzJ4WK6Jerfso1kdYaYf5ga/rphjb_AStronzo.mp3?dl=1",
+        "https://www.dropbox.com/s/fwvtyo9vxtxt2p5/rphjb_9MesiUscireRientrare.mp3?dl=1",
         0,
-        "1674248160249"
+        "1681990713607"
       )
     )
 

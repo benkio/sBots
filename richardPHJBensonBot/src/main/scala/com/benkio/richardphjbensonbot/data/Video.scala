@@ -421,8 +421,6 @@ object Video {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("chi tocca (\\w)[,]? muore".r, 16),
-        RegexTextTriggerValue("ciao (2001|duemilauno)".r, 9),
         StringTextTriggerValue("marilyn manson")
       ),
       List(
@@ -1045,6 +1043,16 @@ object Video {
       ),
       List(
         MediaFile("rphjb_ConsigliSulPacco.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("rebus"),
+        RegexTextTriggerValue("tocco qua\\b".r, 9),
+        RegexTextTriggerValue("volt(o|are) pagina".r, 12),
+      ),
+      List(
+        MediaFile("rphjb_Rebus.mp4")
       )
     )
   )

@@ -964,6 +964,57 @@ object Gif {
         GifFile("rphjb_Occhiali.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("squallido"),
+        StringTextTriggerValue("ultimo degli esseri umani")
+      ),
+      List(
+        GifFile("rphjb_BruttoSquallidoSchifoso.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("un avvertimento"),
+        StringTextTriggerValue("bastoni tra le ruote")
+      ),
+      List(
+        GifFile("rphjb_Ciao2001Gif.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("covi il male"),
+        StringTextTriggerValue("invidia"),
+        StringTextTriggerValue("livore")
+      ),
+      List(
+        GifFile("rphjb_CoviMaleInvidiaLivore.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mettermi in difficoltà"),
+        RegexTextTriggerValue(
+          "amicizie (politiche| d[ie] polizia| d[ie] carabinieri| d[ei] tutt'altr[o]? genere)?".r,
+          9
+        ),
+        StringTextTriggerValue("amici potenti")
+      ),
+      List(
+        GifFile("rphjb_DifficoltaAmicizieTelefonata.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("in un attimo"),
+        StringTextTriggerValue("risolto tutto"),
+        StringTextTriggerValue("telefonata"),
+      ),
+      List(
+        GifFile("rphjb_Telefonata.mp4")
+      )
+    ),
   )
 
 }
