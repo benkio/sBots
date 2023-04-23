@@ -7,7 +7,7 @@ object Dependencies {
   lazy val versions = new {
     val caseInsensitive    = "1.3.0"
     val cats               = "2.9.0"
-    val catsEffectTime     = "0.2.0"
+    val catsEffectTime     = "0.2.1"
     val catsEffectVersion  = "3.4.8"
     val cormorant          = "0.5.0-M1"
     val cron4sCore         = "0.6.1"
