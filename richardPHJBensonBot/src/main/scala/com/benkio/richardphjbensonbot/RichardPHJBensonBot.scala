@@ -1,11 +1,11 @@
 package com.benkio.richardphjbensonbot
 
+import cats._
 import cats.effect._
 import cats.implicits._
-import cats.MonadThrow
-import cats._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
+import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
@@ -41,11 +41,7 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
-    (_, m) =>
-      for {
-        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id, botName)
-        timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
-      } yield Timeout.isExpired(timeout)
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: Action: LogWriter](
@@ -63,11 +59,7 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: Action: LogWriter](
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
-    (_, m) =>
-      for {
-        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id, botName)
-        timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
-      } yield Timeout.isExpired(timeout)
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
