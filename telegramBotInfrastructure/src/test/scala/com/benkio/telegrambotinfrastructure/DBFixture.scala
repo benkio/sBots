@@ -48,7 +48,7 @@ trait DBFixture { self: FunSuite =>
       val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
       val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbLayerResource.flatMap(dbLayer =>
         for {
-          httpClient <- EmberClientBuilder.default[IO].build
+          httpClient <- EmberClientBuilder.default[IO].withMaxResponseHeaderSize(8192).build
           urlFetcher <- Resource.eval(UrlFetcher[IO](httpClient))
         } yield ResourceAccess.dbResources[IO](
           dbMedia = dbLayer.dbMedia,

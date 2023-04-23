@@ -16,17 +16,21 @@ class UrlFetcherSpec extends CatsEffectSuite {
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def buildUrlFetcher(): Resource[IO, UrlFetcher[IO]] =
-    EmberClientBuilder.default[IO].build.flatMap(httpClient => Resource.eval(UrlFetcher[IO](httpClient)))
+    EmberClientBuilder
+      .default[IO]
+      .withMaxResponseHeaderSize(8192)
+      .build
+      .flatMap(httpClient => Resource.eval(UrlFetcher[IO](httpClient)))
 
   test("fetch should return the expected url content in a file if the url is valid") {
-    val validUrl = "https://www.dropbox.com/s/cy0onu1oq8dyyzs/rphjb_MaSgus.mp3?dl=1"
-    val filename = "rphjb_MaSgus.mp3"
+    val validUrl = "https://www.dropbox.com/s/syd0ivnsyq1r5pk/rphjb_AmmaestrareIlDolore.mp4?dl=1"
+    val filename = "rphjb_AmmaestrareIlDolore.mp4"
 
     val result = for {
       urlFetcher <- buildUrlFetcher()
       file       <- urlFetcher.fetchFromDropbox(filename, validUrl)
       bytes = Files.readAllBytes(file.toPath).length
-    } yield bytes > (1024 * 5)
+    } yield bytes > (1024 * 10)
 
     result.use(IO.pure).assert
   }

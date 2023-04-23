@@ -632,7 +632,9 @@ object Mix {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("sorriso"),
-        RegexTextTriggerValue("(ah|ha|🤣|😂){3,}".r, 6)
+        RegexTextTriggerValue("(😂|🤣){4,}".r, 4),
+        RegexTextTriggerValue("(😄|😀|😃){4,}".r, 4),
+        RegexTextTriggerValue("(ah|ha){7,}".r, 14)
       ),
       List(
         MediaFile("rphjb_Risata.mp3"),
@@ -878,7 +880,8 @@ object Mix {
       List(
         GifFile("rphjb_Schifoso.mp4"),
         MediaFile("rphjb_Vigile.mp4"),
-        MediaFile("rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4")
+        MediaFile("rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4"),
+        MediaFile("rphjb_BruttoSquallidoSchifoso.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1628,7 +1631,18 @@ object Mix {
         MediaFile("rphjb_Pasqua.mp4")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("chi tocca (\\w)[,]? muore".r, 16),
+        RegexTextTriggerValue("ciao (2001|duemilauno)".r, 9)
+      ),
+      List(
+        MediaFile("rphjb_Ciao2001.mp4"),
+        GifFile("rphjb_Ciao2001Gif.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
 }
