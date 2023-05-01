@@ -1064,7 +1064,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("si vede")
       ),
       mediafiles = List(
-        MediaFile("ytai_SiVede.mp4")
+        GifFile("ytai_SiVede.mp4")
       ),
     ),
     ReplyBundleMessage(
