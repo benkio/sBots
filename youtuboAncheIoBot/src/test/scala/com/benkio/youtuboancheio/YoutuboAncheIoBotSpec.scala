@@ -49,7 +49,7 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
           dbLayer = emptyDBLayer
         )
         .length,
-      8
+      9
     )
     assertEquals(
       triggerlistUrl,
@@ -131,6 +131,7 @@ Input come query string:
 - '/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/hwpZ3fvcQ7q4xlfjoTjTvw. Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html
 - '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input
 - '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
+- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00
 
 Se si vuole disabilitare il bot per un particolare messaggio impedendo
 che interagisca, è possibile farlo iniziando il messaggio con il
@@ -159,6 +160,7 @@ Input as query string:
 - '/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/hwpZ3fvcQ7q4xlfjoTjTvw. You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html
 - '/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted
 - '/subscriptions': Return the amout of subscriptions for the current chat
+- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00
 
 if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
 character: `!`
