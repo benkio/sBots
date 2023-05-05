@@ -1182,6 +1182,14 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_MancaForchetta.mp4")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("solo[?]{2,}",r, 5),
+      ),
+      mediafiles = List(
+        GifFile("ytai_Solo.mp4")
+      ),
     )
   )
 
