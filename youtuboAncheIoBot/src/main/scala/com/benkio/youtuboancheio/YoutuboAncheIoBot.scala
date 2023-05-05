@@ -1174,6 +1174,14 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_AcquaMiglioreDrink.mp4")
       ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("forchetta"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_MancaForchetta.mp4")
+      ),
     )
   )
 
