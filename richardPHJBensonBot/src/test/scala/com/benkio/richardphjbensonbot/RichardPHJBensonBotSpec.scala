@@ -30,7 +30,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
 
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer               = DBLayerMock.mock()
+  val emptyDBLayer               = DBLayerMock.mock(RichardPHJBensonBot.botName)
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,

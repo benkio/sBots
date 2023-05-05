@@ -6,8 +6,10 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
+import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
@@ -15,8 +17,9 @@ import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import telegramium.bots.InputPartFile
 import telegramium.bots.high._
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
 
 class ABarberoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
@@ -25,6 +28,12 @@ class ABarberoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
 ) extends BotSkeletonPolling[F]
     with ABarberoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+  override def filteringMatchesMessages(implicit
+      applicativeF: Applicative[F]
+  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 class ABarberoBotWebhook[F[_]: Async: Api: Action: LogWriter](
@@ -37,6 +46,12 @@ class ABarberoBotWebhook[F[_]: Async: Api: Action: LogWriter](
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with ABarberoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+  override def filteringMatchesMessages(implicit
+      applicativeF: Applicative[F]
+  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 trait ABarberoBot[F[_]] extends BotSkeleton[F] {
@@ -945,6 +960,11 @@ object ABarberoBot {
       backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
+    TimeoutCommand.timeoutReplyBundleCommand[F](
+      botName = botName,
+      dbTimeout = dbLayer.dbTimeout,
+      log = log
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -955,7 +975,8 @@ object ABarberoBot {
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
+        TimeoutCommand.timeoutCommandDescriptionIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
@@ -964,7 +985,8 @@ object ABarberoBot {
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
+        TimeoutCommand.timeoutCommandDescriptionEng
       )
     ),
   )

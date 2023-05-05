@@ -188,8 +188,8 @@ object Mix {
         StringTextTriggerValue("chiama la polizia")
       ),
       List(
-        MediaFile("rphjb_ChiamaLaPoliziaGif.mp4"),
-        GifFile("rphjb_ChiamaLaPolizia.mp4")
+        GifFile("rphjb_ChiamaLaPoliziaGif.mp4"),
+        MediaFile("rphjb_ChiamaLaPolizia.mp4")
       ),
       replySelection = RandomSelection
     ),

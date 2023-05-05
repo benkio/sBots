@@ -20,33 +20,38 @@ import java.util.UUID
 
 object DBLayerMock {
   def mock(
+      botName: String,
       timeouts: List[DBTimeoutData] = List.empty,
       medias: List[DBMediaData] = List.empty,
       subscriptions: List[DBSubscriptionData] = List.empty,
       shows: List[DBShowData] = List.empty
   ): DBLayer[IO] = DBLayer(
-    dbTimeout = new DBTimeoutMock(Ref.unsafe(timeouts)),
+    dbTimeout = new DBTimeoutMock(Ref.unsafe(timeouts), botName),
     dbMedia = new DBMediaMock(Ref.unsafe(medias)),
     dbSubscription = new DBSubscriptionMock(Ref.unsafe(subscriptions)),
     dbShow = new DBShowMock(Ref.unsafe(shows))
   )
 
-  class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]]) extends DBTimeout[IO] {
-    override def getOrDefault(chatId: Long): IO[DBTimeoutData] =
-      db.get.map(_.find(t => t.chat_id == chatId).getOrElse(DBTimeoutData(Timeout(chatId))))
+  class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]], botNameI: String) extends DBTimeout[IO] {
+    override def getOrDefault(chatId: Long, botName: String): IO[DBTimeoutData] =
+      if (botName == botNameI)
+        db.get.map(_.find(t => t.chat_id == chatId).getOrElse(DBTimeoutData(Timeout(chatId, botName))))
+      else IO.raiseError(new Throwable(s"Unexpected botName, actual: $botName - expected: $botNameI"))
     override def setTimeout(timeout: DBTimeoutData): IO[Unit] =
       db.update(ts => ts.filterNot(t => t.chat_id == timeout.chat_id) :+ timeout)
-    override def logLastInteraction(chatId: Long): IO[Unit] =
-      db.update(ts =>
-        ts.find(t => t.chat_id == chatId)
-          .fold(ts)(oldValue =>
-            ts.filterNot(_ == oldValue) :+ oldValue.copy(last_interaction = Instant.now().getEpochSecond().toString)
-          )
-      )
+    override def logLastInteraction(chatId: Long, botName: String): IO[Unit] =
+      if (botName == botNameI)
+        db.update(ts =>
+          ts.find(t => t.chat_id == chatId)
+            .fold(ts)(oldValue =>
+              ts.filterNot(_ == oldValue) :+ oldValue.copy(last_interaction = Instant.now().getEpochSecond().toString)
+            )
+        )
+      else IO.raiseError(new Throwable(s"Unexpected botName, actual: $botName - expected: $botNameI"))
 
-    override def getOrDefaultQuery(chatId: Long): Query0[DBTimeoutData] = ???
-    override def setTimeoutQuery(timeout: DBTimeoutData): Update0       = ???
-    override def logLastInteractionQuery(chatId: Long): Update0         = ???
+    override def getOrDefaultQuery(chatId: Long, botName: String): Query0[DBTimeoutData] = ???
+    override def setTimeoutQuery(timeout: DBTimeoutData): Update0                        = ???
+    override def logLastInteractionQuery(chatId: Long, botName: String): Update0         = ???
   }
 
   class DBMediaMock(db: Ref[IO, List[DBMediaData]]) extends DBMedia[IO] {

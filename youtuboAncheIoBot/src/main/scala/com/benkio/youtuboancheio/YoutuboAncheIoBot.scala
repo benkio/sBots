@@ -6,13 +6,16 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
+import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.lightbend.emoji.ShortCodes.Defaults._
@@ -23,8 +26,9 @@ import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import telegramium.bots.InputPartFile
 import telegramium.bots.high._
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
 
 class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
@@ -33,6 +37,12 @@ class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
 ) extends BotSkeletonPolling[F]
     with YoutuboAncheIoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+  override def filteringMatchesMessages(implicit
+      applicativeF: Applicative[F]
+  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 class YoutuboAncheIoBotWebhook[F[_]: Async: Api: Action: LogWriter](
@@ -45,6 +55,12 @@ class YoutuboAncheIoBotWebhook[F[_]: Async: Api: Action: LogWriter](
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with YoutuboAncheIoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+  override def filteringMatchesMessages(implicit
+      applicativeF: Applicative[F]
+  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
@@ -1064,7 +1080,7 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("si vede")
       ),
       mediafiles = List(
-        MediaFile("ytai_SiVede.mp4")
+        GifFile("ytai_SiVede.mp4")
       ),
     ),
     ReplyBundleMessage(
@@ -1275,6 +1291,11 @@ object YoutuboAncheIoBot {
       backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
+    TimeoutCommand.timeoutReplyBundleCommand[F](
+      botName = botName,
+      dbTimeout = dbLayer.dbTimeout,
+      log = log
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -1285,7 +1306,8 @@ object YoutuboAncheIoBot {
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
+        TimeoutCommand.timeoutCommandDescriptionIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
@@ -1294,7 +1316,8 @@ object YoutuboAncheIoBot {
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
+        TimeoutCommand.timeoutCommandDescriptionEng
       )
     ),
   )
