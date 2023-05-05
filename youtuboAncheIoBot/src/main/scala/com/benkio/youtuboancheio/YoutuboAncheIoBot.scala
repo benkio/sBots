@@ -1,22 +1,21 @@
 package com.benkio.youtuboancheiobot
 
-import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
-import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
-import telegramium.bots.Message
 import cats._
 import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
+import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
+import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.lightbend.emoji.ShortCodes.Defaults._
@@ -27,31 +26,32 @@ import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import telegramium.bots.InputPartFile
 import telegramium.bots.high._
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
 
 class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
-  resAccess: ResourceAccess[F],
-  val dbLayer: DBLayer[F],
-  val backgroundJobManager: BackgroundJobManager[F]
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F],
+    val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F]
     with YoutuboAncheIoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
   override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(implicit
-    applicativeF: Applicative[F]
+      applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 }
 
 class YoutuboAncheIoBotWebhook[F[_]: Async: Api: Action: LogWriter](
-  uri: Uri,
-  resAccess: ResourceAccess[F],
-  val dbLayer: DBLayer[F],
-  val backgroundJobManager: BackgroundJobManager[F],
-  path: Uri = uri"/",
-  webhookCertificate: Option[InputPartFile] = None
+    uri: Uri,
+    resAccess: ResourceAccess[F],
+    val dbLayer: DBLayer[F],
+    val backgroundJobManager: BackgroundJobManager[F],
+    path: Uri = uri"/",
+    webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with YoutuboAncheIoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
@@ -71,8 +71,8 @@ trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
   val backgroundJobManager: BackgroundJobManager[F]
 
   override def messageRepliesDataF(implicit
-    applicativeF: Applicative[F],
-    log: LogWriter[F]
+      applicativeF: Applicative[F],
+      log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
     YoutuboAncheIoBot.messageRepliesData[F].pure[F]
 
@@ -95,7 +95,7 @@ object YoutuboAncheIoBot {
   val configNamespace: String = "ytaiDB"
 
   def messageRepliesAudioData[
-    F[_]
+      F[_]
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -152,7 +152,7 @@ object YoutuboAncheIoBot {
   )
 
   def messageRepliesGifData[
-    F[_]
+      F[_]
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1194,7 +1194,7 @@ object YoutuboAncheIoBot {
   )
 
   def messageRepliesSpecialData[
-    F[_]
+      F[_]
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1250,19 +1250,19 @@ object YoutuboAncheIoBot {
   )
 
   def messageRepliesData[
-    F[_]
+      F[_]
   ]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesSpecialData[F])
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
   def commandRepliesData[
-    F[_]: Async
+      F[_]: Async
   ](
-    backgroundJobManager: BackgroundJobManager[F],
-    dbLayer: DBLayer[F]
+      backgroundJobManager: BackgroundJobManager[F],
+      dbLayer: DBLayer[F]
   )(implicit
-    log: LogWriter[F]
+      log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
@@ -1323,7 +1323,7 @@ object YoutuboAncheIoBot {
   )
 
   def buildPollingBot[F[_]: Parallel: Async, A](
-    action: YoutuboAncheIoBotPolling[F] => F[A]
+      action: YoutuboAncheIoBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     botSetup <- BotSetup(
@@ -1343,9 +1343,9 @@ object YoutuboAncheIoBot {
   }
 
   def buildWebhookBot[F[_]: Async](
-    httpClient: Client[F],
-    webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
-    webhookCertificate: Option[InputPartFile] = None
+      httpClient: Client[F],
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
+      webhookCertificate: Option[InputPartFile] = None
   )(implicit log: LogWriter[F]): Resource[F, YoutuboAncheIoBotWebhook[F]] =
     BotSetup(
       httpClient = httpClient,
