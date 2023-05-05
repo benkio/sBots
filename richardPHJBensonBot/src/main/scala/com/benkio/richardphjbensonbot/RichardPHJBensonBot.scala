@@ -12,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -34,8 +35,8 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
 ) extends BotSkeletonPolling[F]
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
-    dbLayer.dbTimeout.logLastInteraction(m.chat.id, botName)
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
@@ -52,8 +53,8 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: Action: LogWriter](
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
-    dbLayer.dbTimeout.logLastInteraction(m.chat.id, botName)
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =

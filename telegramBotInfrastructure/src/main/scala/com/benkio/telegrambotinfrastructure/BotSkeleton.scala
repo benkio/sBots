@@ -70,7 +70,7 @@ trait BotSkeleton[F[_]] {
   val dbLayer: DBLayer[F]
   def filteringMatchesMessages(implicit applicativeF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_: ReplyBundleMessage[F], _: Message) => applicativeF.pure(true)
-  def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = _ => Sync[F].unit
+  def postComputation(implicit appF: Applicative[F]): Message => F[Unit] = _ => appF.unit
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
