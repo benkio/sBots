@@ -1321,6 +1321,16 @@ object YoutuboAncheIoBot {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("allora l[iì]".r, 9)
+      ),
+      mediafiles = List(
+        GifFile("ytai_AlloraLi.mp4"),
+        MediaFile("ytai_AlloraLi.mp3")
+      ),
+      replySelection = RandomSelection
+    )
   )
 
   def messageRepliesData[
