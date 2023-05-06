@@ -744,7 +744,9 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_BuonAppetito.mp4"),
-      )
+        GifFile("ytai_BuonAppetito2.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
