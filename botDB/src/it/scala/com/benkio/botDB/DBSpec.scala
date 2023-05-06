@@ -51,12 +51,16 @@ class DBSpec extends CatsEffectSuite with DBConstants {
   databaseConnection.test("The `timeout` table should exist and be readable/writable") { connection =>
     connection.createStatement().executeUpdate(DBSpec.timeoutSQL)
     val resultSet =
-      connection.createStatement().executeQuery("SELECT chat_id, timeout_value, last_interaction FROM timeout")
+      connection
+        .createStatement()
+        .executeQuery("SELECT chat_id, bot_name, timeout_value, last_interaction FROM timeout")
     resultSet.next()
     val actualChatId                 = resultSet.getString("chat_id")
+    val actualBotName                = resultSet.getString("bot_name")
     val actualTimeoutValue           = resultSet.getString("timeout_value")
     val actualTimeoutLastInteraction = resultSet.getString("last_interaction")
     assertEquals(actualChatId, "123456789")
+    assertEquals(actualBotName, "botName")
     assertEquals(actualTimeoutValue, "1000")
     assertEquals(actualTimeoutLastInteraction, "2008-01-01 00:00:01")
   }
@@ -76,6 +80,6 @@ INSERT INTO media (media_name, kind, mime_type, media_url, created_at, media_cou
 """
 
   val timeoutSQL = """
-INSERT INTO timeout (chat_id, timeout_value, last_interaction) VALUES (123456789, 1000 ,'2008-01-01 00:00:01');
+INSERT INTO timeout (chat_id, bot_name, timeout_value, last_interaction) VALUES (123456789, 'botName', 1000 ,'2008-01-01 00:00:01');
 """
 }

@@ -6,13 +6,16 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
+import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.lightbend.emoji.ShortCodes.Defaults._
@@ -23,8 +26,9 @@ import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
-import telegramium.bots.InputPartFile
 import telegramium.bots.high._
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
 
 class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
@@ -33,6 +37,12 @@ class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
 ) extends BotSkeletonPolling[F]
     with YoutuboAncheIoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+  override def filteringMatchesMessages(implicit
+      applicativeF: Applicative[F]
+  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 class YoutuboAncheIoBotWebhook[F[_]: Async: Api: Action: LogWriter](
@@ -45,6 +55,12 @@ class YoutuboAncheIoBotWebhook[F[_]: Async: Api: Action: LogWriter](
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with YoutuboAncheIoBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+  override def filteringMatchesMessages(implicit
+      applicativeF: Applicative[F]
+  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 trait YoutuboAncheIoBot[F[_]] extends BotSkeleton[F] {
@@ -87,7 +103,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_Donazioni.mp3")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -97,7 +113,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_BengalinoDiamantino.mp3")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -106,7 +122,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_Cocode.mp3")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -115,7 +131,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_Misc.mp3")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -123,7 +139,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_Topolino.mp3")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -131,7 +147,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_Francesismo.mp3")
-      )
+      ),
     )
   )
 
@@ -744,9 +760,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_BuonAppetito.mp4"),
-        GifFile("ytai_BuonAppetito2.mp4")
-      ),
-      replySelection = RandomSelection
+      )
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1017,10 +1031,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("panino")
       ),
       mediafiles = List(
-        GifFile("ytai_PaninoBuonoSpuntito.mp4"),
-        GifFile("ytai_Panino.mp4")
-      ),
-      replySelection = RandomSelection
+        GifFile("ytai_PaninoBuonoSpuntito.mp4")
+      )
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1068,8 +1080,8 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("si vede")
       ),
       mediafiles = List(
-        MediaFile("ytai_SiVede.mp4")
-      )
+        GifFile("ytai_SiVede.mp4")
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1078,7 +1090,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_CorrereNonServe.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1088,7 +1100,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_TorreMarmellata.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1096,7 +1108,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         MediaFile("ytai_ViVoglioTantoBene.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1115,7 +1127,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_SaporiAgrodolciSpettacolari.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1125,7 +1137,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_QuestioniFilosofiche.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1133,7 +1145,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_InCompagnia.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1143,7 +1155,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_IncontratePanciaImbarazzo.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1152,7 +1164,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_GrazieAmicoChiarire.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1160,7 +1172,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_Commovendo.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1168,7 +1180,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_CodaLunga.mp4")
-      )
+      ),
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1177,93 +1189,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_AcquaMiglioreDrink.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("forchetta"),
       ),
-      mediafiles = List(
-        GifFile("ytai_MancaForchetta.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        RegexTextTriggerValue("solo[?]{2,}".r, 5),
-      ),
-      mediafiles = List(
-        GifFile("ytai_Solo.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        RegexTextTriggerValue("ottimo[!]+".r, 5),
-      ),
-      mediafiles = List(
-        GifFile("ytai_Ottimo.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("sei uno sfigato")
-      ),
-      mediafiles = List(
-        GifFile("ytai_SeiUnoSfigato.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("non prendetevi confidenze"),
-        StringTextTriggerValue("inteso di darvi")
-      ),
-      mediafiles = List(
-        GifFile("ytai_Confidenze.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("illegale"),
-        StringTextTriggerValue("fuorilegge")
-      ),
-      mediafiles = List(
-        GifFile("ytai_IllegaleFuorilegge.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("ne ho già parlato"),
-        StringTextTriggerValue("ritornare sugli stessi punti"),
-        StringTextTriggerValue("lamentato con me")
-      ),
-      mediafiles = List(
-        GifFile("ytai_NeHoGiaParlato.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("alla salute")
-      ),
-      mediafiles = List(
-        GifFile("ytai_AllaSalute.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("grazie ragazzi"),
-        StringTextTriggerValue("grazie a tutti")
-      ),
-      mediafiles = List(
-        GifFile("ytai_GrazieRagazzi.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        RegexTextTriggerValue("mi (reputi|consideri) intelligente".r, 22),
-        RegexTextTriggerValue("mi (reputi|consideri) sensibile".r, 19)
-      ),
-      mediafiles = List(
-        GifFile("ytai_SensibileIntelligente.mp4")
-      )
     )
   )
 
@@ -1321,16 +1247,6 @@ object YoutuboAncheIoBot {
       ),
       replySelection = RandomSelection
     ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        RegexTextTriggerValue("allora l[iì]".r, 9)
-      ),
-      mediafiles = List(
-        GifFile("ytai_AlloraLi.mp4"),
-        MediaFile("ytai_AlloraLi.mp3")
-      ),
-      replySelection = RandomSelection
-    )
   )
 
   def messageRepliesData[
@@ -1375,6 +1291,11 @@ object YoutuboAncheIoBot {
       backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
+    TimeoutCommand.timeoutReplyBundleCommand[F](
+      botName = botName,
+      dbTimeout = dbLayer.dbTimeout,
+      log = log
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -1385,7 +1306,8 @@ object YoutuboAncheIoBot {
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
+        TimeoutCommand.timeoutCommandDescriptionIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
@@ -1394,7 +1316,8 @@ object YoutuboAncheIoBot {
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng
+        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
+        TimeoutCommand.timeoutCommandDescriptionEng
       )
     ),
   )

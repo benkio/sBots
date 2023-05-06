@@ -1,21 +1,20 @@
 package com.benkio.richardphjbensonbot
 
+import cats._
 import cats.effect._
 import cats.implicits._
-import cats.MonadThrow
-import cats._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
+import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.TextReply
-import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BotSkeleton
 import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
@@ -36,16 +35,12 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
 ) extends BotSkeletonPolling[F]
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
-    dbLayer.dbTimeout.logLastInteraction(m.chat.id)
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
-    (_, m) =>
-      for {
-        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
-        timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
-      } yield Timeout.isExpired(timeout)
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: Action: LogWriter](
@@ -58,16 +53,12 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: Action: LogWriter](
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with RichardPHJBensonBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = m =>
-    dbLayer.dbTimeout.logLastInteraction(m.chat.id)
+  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(implicit
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
-    (_, m) =>
-      for {
-        dbTimeout <- dbLayer.dbTimeout.getOrDefault(m.chat.id)
-        timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
-      } yield Timeout.isExpired(timeout)
+    FilteringTimeout.filter(dbLayer, botName)
 }
 
 trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
@@ -116,10 +107,6 @@ object RichardPHJBensonBot {
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
-  val timeoutCommandDescriptionIta: String =
-    "'/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00"
-  val timeoutCommandDescriptionEng: String =
-    "'/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00"
   val bensonifyCommandDescriptionIta: String =
     "'/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio"
   val bensonifyCommandDescriptionEng: String =
@@ -158,6 +145,11 @@ object RichardPHJBensonBot {
       backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
+    TimeoutCommand.timeoutReplyBundleCommand[F](
+      botName = botName,
+      dbTimeout = dbLayer.dbTimeout,
+      log = log
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ignoreMessagePrefix,
@@ -169,7 +161,7 @@ object RichardPHJBensonBot {
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
-        timeoutCommandDescriptionIta,
+        TimeoutCommand.timeoutCommandDescriptionIta,
         bensonifyCommandDescriptionIta,
       ),
       commandDescriptionsEng = List(
@@ -180,36 +172,8 @@ object RichardPHJBensonBot {
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
-        timeoutCommandDescriptionEng,
+        TimeoutCommand.timeoutCommandDescriptionEng,
         bensonifyCommandDescriptionEng
-      )
-    ),
-    ReplyBundleCommand(
-      trigger = CommandTrigger("timeout"),
-      text = Some(
-        TextReply[F](
-          msg =>
-            handleCommandWithInput[F](
-              msg,
-              "timeout",
-              botName,
-              t => {
-                Timeout(msg.chat.id, t)
-                  .fold(
-                    error =>
-                      log.info(s"[ERROR] While parsing the timeout input: $error") *> List(
-                        s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
-                      ).pure[F],
-                    timeout =>
-                      dbLayer.dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List(
-                        s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}"
-                      ).pure[F]
-                  )
-              },
-              """Input Required: the input must be in the form '\timeout 00:00:00'"""
-            ),
-          true
-        )
       )
     ),
     ReplyBundleCommand(

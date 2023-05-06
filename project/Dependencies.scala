@@ -7,15 +7,15 @@ object Dependencies {
   lazy val versions = new {
     val caseInsensitive    = "1.3.0"
     val cats               = "2.9.0"
-    val catsEffectTime     = "0.2.0"
-    val catsEffectVersion  = "3.4.8"
+    val catsEffectTime     = "0.2.1"
+    val catsEffectVersion  = "3.4.10"
     val cormorant          = "0.5.0-M1"
     val cron4sCore         = "0.6.1"
     val doobie             = "1.0.0-RC2"
     val emojiVersion       = "1.3.0"
     val fs2Core            = "3.6.1"
     val fs2IO              = "3.6.1"
-    val flyway             = "9.16.3"
+    val flyway             = "9.17.0"
     val fs2Cron            = "0.8.3"
     val http4s             = "0.23.18"
     val logEffects         = "0.17.0"
@@ -26,7 +26,7 @@ object Dependencies {
     val pureConfig         = "0.17.3"
     val shapeless          = "2.3.10"
     val sqlite             = "3.41.2.1"
-    val telegramiumVersion = "7.66.0"
+    val telegramiumVersion = "7.67.1"
     val vault              = "3.5.0"
   }
 

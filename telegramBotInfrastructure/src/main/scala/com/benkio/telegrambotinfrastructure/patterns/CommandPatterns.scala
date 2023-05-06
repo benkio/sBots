@@ -20,9 +20,12 @@ import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
+import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
+import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 import cron4s._
 import cron4s.lib.javatime._
 import log.effect.LogWriter
@@ -370,6 +373,49 @@ ${if (ignoreMessagePrefix.isDefined) {
             true
           )
         ),
+      )
+
+  }
+
+  object TimeoutCommand {
+
+    val timeoutCommandDescriptionIta: String =
+      "'/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00"
+    val timeoutCommandDescriptionEng: String =
+      "'/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00"
+
+    def timeoutReplyBundleCommand[F[_]: MonadThrow](
+        botName: String,
+        dbTimeout: DBTimeout[F],
+        log: LogWriter[F]
+    ): ReplyBundleCommand[F] =
+      ReplyBundleCommand(
+        trigger = CommandTrigger("timeout"),
+        text = Some(
+          TextReply[F](
+            msg =>
+              handleCommandWithInput[F](
+                msg,
+                "timeout",
+                botName,
+                t => {
+                  Timeout(msg.chat.id, botName, t)
+                    .fold(
+                      error =>
+                        log.info(s"[ERROR] While parsing the timeout input: $error") *> List(
+                          s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
+                        ).pure[F],
+                      timeout =>
+                        dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List(
+                          s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}"
+                        ).pure[F]
+                    )
+                },
+                """Input Required: the input must be in the form '\timeout 00:00:00'"""
+              ),
+            true
+          )
+        )
       )
 
   }
