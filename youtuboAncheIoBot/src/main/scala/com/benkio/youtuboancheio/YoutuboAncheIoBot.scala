@@ -1220,7 +1220,7 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("illegali"),
+        StringTextTriggerValue("illegale"),
         StringTextTriggerValue("fuorilegge")
       ),
       mediafiles = List(
@@ -1252,6 +1252,15 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_GrazieRagazzi.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("mi (reputi|consideri) intelligente".r, 22),
+        RegexTextTriggerValue("mi (reputi|consideri) sensibile".r, 19)
+      ),
+      mediafiles = List(
+        GifFile("ytai_SensibileIntelligente.mp4")
       )
     )
   )
