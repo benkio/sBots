@@ -1226,6 +1226,16 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_IllegaleFuorilegge.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("ne ho già parlato"),
+        StringTextTriggerValue("ritornare sugli stessi punti"),
+        StringTextTriggerValue("lamentato con me")
+      ),
+      mediafiles = List(
+        GifFile("ytai_NeHoGiaParlato.mp4")
+      )
     )
   )
 
