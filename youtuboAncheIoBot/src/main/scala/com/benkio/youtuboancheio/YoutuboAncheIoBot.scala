@@ -1203,10 +1203,19 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("sei uno sfigato"),
+        StringTextTriggerValue("sei uno sfigato")
       ),
       mediafiles = List(
         GifFile("ytai_SeiUnoSfigato.mp4")
+      ),
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("non prendetevi confidenze"),
+        StringTextTriggerValue("inteso di darvi")
+      ),
+      mediafiles = List(
+        GifFile("ytai_Confidenze.mp4")
       ),
     )
   )
