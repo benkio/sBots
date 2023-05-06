@@ -8,7 +8,6 @@ import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageOps
-import com.benkio.telegrambotinfrastructure.messagefiltering.Timeout
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
@@ -20,8 +19,6 @@ import org.http4s.implicits._
 import telegramium.bots.high._
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
-
-import scala.concurrent.duration._
 
 abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit
     api: Api[F],
@@ -67,14 +64,13 @@ trait BotSkeleton[F[_]] {
   // Configuration values & functions /////////////////////////////////////////////////////
   def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = ResourceAccess.fromResources[F]()
   val ignoreMessagePrefix: Option[String]                        = Some("!")
-  val inputTimeout: Option[Duration]                             = Some(5.minute)
   val disableForward: Boolean                                    = true
   val botName: String
   val botPrefix: String
   val dbLayer: DBLayer[F]
   def filteringMatchesMessages(implicit applicativeF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_: ReplyBundleMessage[F], _: Message) => applicativeF.pure(true)
-  def postComputation(implicit syncF: Sync[F]): Message => F[Unit] = _ => Sync[F].unit
+  def postComputation(implicit appF: Applicative[F]): Message => F[Unit] = _ => appF.unit
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
@@ -95,7 +91,7 @@ trait BotSkeleton[F[_]] {
         messageRepliesData <- messageRepliesDataF
         replies <- messageRepliesData
           .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
-          .filter(_ => Timeout.isWithinTimeout(msg.date, inputTimeout) && FilteringForward.filter(msg, disableForward))
+          .filter(_ => FilteringForward.filter(msg, disableForward))
           .traverse(replyBundle =>
             log
               .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
