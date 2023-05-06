@@ -115,8 +115,8 @@ trait BotSkeleton[F[_]] {
         commandMatch = for {
           text <- msg.text
           result <- commandRepliesData.find(rbc =>
-            text.startsWith("/" + rbc.trigger.command)
-          ) // TODO: Fix this, if the command is in the form /command@botname and the botname is not the right one, ignore the command
+            text == s"/${rbc.trigger.command}" || text == s"/${rbc.trigger.command}@${botName}"
+          )
         } yield result
         commands <- commandMatch
           .traverse(commandReply =>
