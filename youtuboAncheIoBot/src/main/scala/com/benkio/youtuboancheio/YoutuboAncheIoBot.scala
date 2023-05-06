@@ -1236,6 +1236,14 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_NeHoGiaParlato.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("alla salute")
+      ),
+      mediafiles = List(
+        GifFile("ytai_AllaSalute.mp4")
+      )
     )
   )
 
