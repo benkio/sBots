@@ -1017,8 +1017,10 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("panino")
       ),
       mediafiles = List(
-        GifFile("ytai_PaninoBuonoSpuntito.mp4")
-      )
+        GifFile("ytai_PaninoBuonoSpuntito.mp4"),
+        GifFile("ytai_Panino.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
