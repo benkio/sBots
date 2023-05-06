@@ -1187,7 +1187,7 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("solo[?]{2,}",r, 5),
+        RegexTextTriggerValue("solo[?]{2,}".r, 5),
       ),
       mediafiles = List(
         GifFile("ytai_Solo.mp4")
