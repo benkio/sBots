@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.web
 
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher.UnexpectedDropboxResponse
 import cats.effect._
 import cats.implicits._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -7,6 +8,7 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
 import org.http4s.ember.client._
+import org.http4s.ParseFailure
 
 import java.io.File
 import java.nio.file.Files
@@ -60,6 +62,17 @@ class UrlFetcherSpec extends CatsEffectSuite {
       file       <- urlFetcher.fetchFromDropbox(filename, invalidUrl)
     } yield file
 
-    interceptIO[Throwable](result.use_)
+    interceptIO[ParseFailure](result.use_)
+  }
+
+  test("fetch should fail if the response is empty") {
+    val emptyUrl = "https://httpbin.org/status/200"
+    val filename   = "whaeverfilename"
+    val result = for {
+      urlFetcher <- buildUrlFetcher()
+      file       <- urlFetcher.fetchFromDropbox(filename, emptyUrl)
+    } yield file
+
+    interceptIO[UnexpectedDropboxResponse[IO]](result.use_)
   }
 }
