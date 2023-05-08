@@ -115,7 +115,9 @@ trait BotSkeleton[F[_]] {
         commandMatch = for {
           text <- msg.text
           result <- commandRepliesData.find(rbc =>
-            text == s"/${rbc.trigger.command}" || text == s"/${rbc.trigger.command}@${botName}"
+            text.startsWith(s"/${rbc.trigger.command} ")
+              || text == s"/${rbc.trigger.command}"
+              || text.startsWith(s"/${rbc.trigger.command}@${botName}")
           )
         } yield result
         commands <- commandMatch
