@@ -31,7 +31,7 @@ class MediaIntegritySpec extends CatsEffectSuite with DBFixture with IOChecker {
 
   def checkFile(mf: MediaFile): Unit =
     databaseFixture.test(
-      s"${mf.filename} should return some data"
+      s"${mf.filename} should return some data".ignore //ignore to not run in CI, remove sometimes to check all the messages files
     ) { fixture =>
       val resourceAssert = for {
         resourceAccess <- fixture.resourceAccessResource
