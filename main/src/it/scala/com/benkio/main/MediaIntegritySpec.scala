@@ -1,10 +1,9 @@
 package com.benkio.main
 
+import com.benkio.telegrambotinfrastructure.model.MediaFile
 import scala.concurrent.duration.Duration
 import doobie.Transactor
 import java.sql.DriverManager
-import cats.effect.Resource
-import cats.implicits._
 import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
@@ -25,22 +24,23 @@ class MediaIntegritySpec extends CatsEffectSuite with DBFixture with IOChecker {
     transactor
   }
 
-  val allMessageMediaFiles =
+  val allMessageMediaFiles : List[MediaFile] =
     (RichardPHJBensonBot.messageRepliesData[IO] ++
-    ABarberoBot.messageRepliesData[IO] ++
-    YoutuboAncheIoBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinct
+      ABarberoBot.messageRepliesData[IO] ++
+      YoutuboAncheIoBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinct
 
+  def checkFile(mf: MediaFile): Unit =
     databaseFixture.test(
-    "All the media should return some data. HUGE TEST, run manually".only
-  ) { fixture =>
-    val resourceAssert = for {
-      resourceAccess <- fixture.resourceAccessResource
-      mediaFiles <- Resource.pure(allMessageMediaFiles)
-      files  <- mediaFiles.traverse(f => resourceAccess.getResourceFile(f))
-    } yield files.forall(f =>
-      if (f.length > 2048) true
-      else { println(s"failure: file " + f.getName() + " is less then 2KB"); false })
-    resourceAssert.use(IO.pure).assert
-  }
+      s"${mf.filename} should return some data"
+    ) { fixture =>
+      val resourceAssert = for {
+        resourceAccess <- fixture.resourceAccessResource
+        file          <- resourceAccess.getResourceFile(mf)
+      } yield file.length > (5 * 1024)
+      resourceAssert.use(IO.pure).assert
+    }
+
+  allMessageMediaFiles.foreach(checkFile)
+
 
 }
