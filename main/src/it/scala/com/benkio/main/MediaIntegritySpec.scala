@@ -24,23 +24,22 @@ class MediaIntegritySpec extends CatsEffectSuite with DBFixture with IOChecker {
     transactor
   }
 
-  val allMessageMediaFiles : List[MediaFile] =
+  val allMessageMediaFiles: List[MediaFile] =
     (RichardPHJBensonBot.messageRepliesData[IO] ++
       ABarberoBot.messageRepliesData[IO] ++
       YoutuboAncheIoBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinct
 
   def checkFile(mf: MediaFile): Unit =
     databaseFixture.test(
-      s"${mf.filename} should return some data".ignore //ignore to not run in CI, remove sometimes to check all the messages files
+      s"${mf.filename} should return some data".ignore // ignore to not run in CI, remove sometimes to check all the messages files
     ) { fixture =>
       val resourceAssert = for {
         resourceAccess <- fixture.resourceAccessResource
-        file          <- resourceAccess.getResourceFile(mf)
+        file           <- resourceAccess.getResourceFile(mf)
       } yield file.length > (5 * 1024)
       resourceAssert.use(IO.pure).assert
     }
 
   allMessageMediaFiles.foreach(checkFile)
-
 
 }

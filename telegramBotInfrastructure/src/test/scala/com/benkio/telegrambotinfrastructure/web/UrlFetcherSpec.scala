@@ -1,14 +1,14 @@
 package com.benkio.telegrambotinfrastructure.web
 
-import com.benkio.telegrambotinfrastructure.web.UrlFetcher.UnexpectedDropboxResponse
 import cats.effect._
 import cats.implicits._
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher.UnexpectedDropboxResponse
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import org.http4s.ember.client._
 import org.http4s.ParseFailure
+import org.http4s.ember.client._
 
 import java.io.File
 import java.nio.file.Files
@@ -26,8 +26,16 @@ class UrlFetcherSpec extends CatsEffectSuite {
 
   test("fetch should return the expected url content in a file if the url is valid") {
     val input = List(
-      ("rphjb_AmmaestrareIlDolore.mp4","https://www.dropbox.com/s/syd0ivnsyq1r5pk/rphjb_AmmaestrareIlDolore.mp4?dl=1",1024 * 10),
-      ("rphjb_TiDovrestiVergognare.mp3","https://www.dropbox.com/s/fjhnlf32njs8nec/rphjb_TiDovrestiVergognare.mp3?dl=1", 1024 * 10)
+      (
+        "rphjb_AmmaestrareIlDolore.mp4",
+        "https://www.dropbox.com/s/syd0ivnsyq1r5pk/rphjb_AmmaestrareIlDolore.mp4?dl=1",
+        1024 * 10
+      ),
+      (
+        "rphjb_TiDovrestiVergognare.mp3",
+        "https://www.dropbox.com/s/fjhnlf32njs8nec/rphjb_TiDovrestiVergognare.mp3?dl=1",
+        1024 * 10
+      )
     )
 
     def check(f: String, u: String, size: Int) = for {
@@ -36,47 +44,50 @@ class UrlFetcherSpec extends CatsEffectSuite {
       bytes = Files.readAllBytes(file.toPath).length
     } yield bytes > size
 
-    input.traverse {
-      case (f,u,s) => check(f,u,s)
-    }.use(rs => IO.pure(rs.forall(identity))).assert
+    input
+      .traverse { case (f, u, s) =>
+        check(f, u, s)
+      }
+      .use(rs => IO.pure(rs.forall(identity)))
+      .assert
   }
 
-    test("fetch should return the expected urls content in a file if the urls is valid") {
-      val input = List(
-        "https://www.dropbox.com/s/cy0onu1oq8dyyzs/rphjb_MaSgus.mp3?dl=1"   -> "rphjb_MaSgus.mp3",
-        "https://www.dropbox.com/s/efpsh6zt3qpn91s/rphjb_MeNeVado.mp3?dl=1" -> "rphjb_MeNeVado.mp3",
-        "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAsGKVUNNSJ_TzDZuzFmHJya/rphjb_Ritornata.mp3?dl=1" -> "rphjb_Ritornata.mp3",
-        "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAfdMdV-91EhLTSJHmLN6Lca/rphjb_Schifo.mp3?dl=1" -> "rphjb_Schifo.mp3"
-      )
+  test("fetch should return the expected urls content in a file if the urls is valid") {
+    val input = List(
+      "https://www.dropbox.com/s/cy0onu1oq8dyyzs/rphjb_MaSgus.mp3?dl=1"   -> "rphjb_MaSgus.mp3",
+      "https://www.dropbox.com/s/efpsh6zt3qpn91s/rphjb_MeNeVado.mp3?dl=1" -> "rphjb_MeNeVado.mp3",
+      "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAsGKVUNNSJ_TzDZuzFmHJya/rphjb_Ritornata.mp3?dl=1" -> "rphjb_Ritornata.mp3",
+      "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAfdMdV-91EhLTSJHmLN6Lca/rphjb_Schifo.mp3?dl=1" -> "rphjb_Schifo.mp3"
+    )
 
-      val result = for {
-        urlFetcher <- buildUrlFetcher()
-        files      <- input.parTraverse { case (url, filename) => urlFetcher.fetchFromDropbox(filename, url) }
-        bytess = files.map((file: File) => Files.readAllBytes(file.toPath).length)
-      } yield bytess.forall(bytes => bytes > (1024 * 5))
+    val result = for {
+      urlFetcher <- buildUrlFetcher()
+      files      <- input.parTraverse { case (url, filename) => urlFetcher.fetchFromDropbox(filename, url) }
+      bytess = files.map((file: File) => Files.readAllBytes(file.toPath).length)
+    } yield bytess.forall(bytes => bytes > (1024 * 5))
 
-      result.use(IO.pure).assert
-    }
-
-    test("fetch should fail if the url is malformed") {
-      val invalidUrl = "bad url"
-      val filename   = "rphjb_06.mp4"
-      val result = for {
-        urlFetcher <- buildUrlFetcher()
-        file       <- urlFetcher.fetchFromDropbox(filename, invalidUrl)
-      } yield file
-
-      interceptIO[ParseFailure](result.use_)
-    }
-
-    test("fetch should fail if the response is empty") {
-      val emptyUrl = "https://httpbin.org/status/200"
-      val filename   = "whaeverfilename"
-      val result = for {
-        urlFetcher <- buildUrlFetcher()
-        file       <- urlFetcher.fetchFromDropbox(filename, emptyUrl)
-      } yield file
-
-      interceptIO[UnexpectedDropboxResponse[IO]](result.use_)
-    }
+    result.use(IO.pure).assert
   }
+
+  test("fetch should fail if the url is malformed") {
+    val invalidUrl = "bad url"
+    val filename   = "rphjb_06.mp4"
+    val result = for {
+      urlFetcher <- buildUrlFetcher()
+      file       <- urlFetcher.fetchFromDropbox(filename, invalidUrl)
+    } yield file
+
+    interceptIO[ParseFailure](result.use_)
+  }
+
+  test("fetch should fail if the response is empty") {
+    val emptyUrl = "https://httpbin.org/status/200"
+    val filename = "whaeverfilename"
+    val result = for {
+      urlFetcher <- buildUrlFetcher()
+      file       <- urlFetcher.fetchFromDropbox(filename, emptyUrl)
+    } yield file
+
+    interceptIO[UnexpectedDropboxResponse[IO]](result.use_)
+  }
+}
