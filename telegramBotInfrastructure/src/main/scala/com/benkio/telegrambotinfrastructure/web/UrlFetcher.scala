@@ -3,6 +3,8 @@ package com.benkio.telegrambotinfrastructure.web
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
+import cats.Applicative
+import cats.ApplicativeError
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.chrisdavenport.mules._
 import io.chrisdavenport.mules.http4s._
@@ -44,14 +46,21 @@ object UrlFetcher {
         .run(req)
         .flatMap(response => {
           val followup: Resource[F, File] = (
-            response.status == Status.Found,
+            response.status,
             response.headers.get(ci"Location")
           ) match { // non standard redirect because dropbox
-            case (true, Some(loc)) => fetchFromDropbox(filename, loc.head.value)
-            case (true, None) => Resource.raiseError[F, File, Throwable](DropboxLocationHeaderNotFound[F](response))
-            case (false, _) =>
+            case (Status.Found, Some(loc)) => fetchFromDropbox(filename, loc.head.value)
+            case (Status.Found, None) =>
+              Resource.raiseError[F, File, Throwable](DropboxLocationHeaderNotFound[F](response))
+            case _ =>
               Resource
-                .eval(response.body.compile.toList.map(content => ResourceAccess.toTempFile(filename, content.toArray)))
+                .eval(
+                  response.body.compile.toList.flatMap(content =>
+                    if (content.isEmpty)
+                      ApplicativeError[F, Throwable].raiseError[File](UnexpectedDropboxResponse[F](response))
+                    else Applicative[F].pure(ResourceAccess.toTempFile(filename, content.toArray))
+                  )
+                )
 
           }
 

@@ -79,12 +79,14 @@ lazy val main = project
   .in(file("main"))
   .settings(Settings.settings: _*)
   .settings(Settings.MainSettings)
+  .configs(IntegrationTest.extend(Test))
   .dependsOn(
     calandroBot,
     aBarberoBot,
     richardPHJBensonBot,
     xahBot,
-    youtuboAncheIoBot
+    youtuboAncheIoBot,
+    telegramBotInfrastructure % "compile->compile;test->test"
   )
 
 lazy val botDB =

@@ -80,7 +80,7 @@ object Settings {
     name                := "main",
     libraryDependencies := MainDependencies,
     dependencyOverrides := MainDependencies
-  ) ++ assemblySettings
+  ) ++ assemblySettings ++ Defaults.itSettings
 
   lazy val BotDBSettings = Seq(
     name                := "botDB",
