@@ -1280,6 +1280,14 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_SensibileIntelligente.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("dico basta")
+      ),
+      mediafiles = List(
+        GifFile("ytai_AdessoViDicoBasta.mp4")
+      )
     )
   )
 
