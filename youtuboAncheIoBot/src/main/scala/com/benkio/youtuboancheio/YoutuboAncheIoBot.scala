@@ -976,8 +976,10 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("che profumo")
       ),
       mediafiles = List(
-        GifFile("ytai_CheProfumo.mp4")
-      )
+        GifFile("ytai_CheProfumo.mp4"),
+        GifFile("ytai_ECheProfumo.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1289,6 +1291,15 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_AdessoViDicoBasta.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("che bontà"),
+        StringTextTriggerValue("eccoli qua"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_ECheProfumo.mp4")
       )
     )
   )
