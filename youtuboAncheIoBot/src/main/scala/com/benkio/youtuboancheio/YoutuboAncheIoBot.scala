@@ -270,8 +270,10 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("ciao!")
       ),
       mediafiles = List(
-        GifFile("ytai_Ciao.mp4")
-      )
+        GifFile("ytai_Ciao.mp4"),
+        GifFile("ytai_Ciao2.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
