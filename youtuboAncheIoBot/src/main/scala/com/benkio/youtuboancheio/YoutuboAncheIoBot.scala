@@ -1301,6 +1301,17 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_ECheProfumo.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("parlo poco"),
+        StringTextTriggerValue("ingozzo"),
+        StringTextTriggerValue("non ve la prendete"),
+        StringTextTriggerValue("vostra compagnia"),
+      ),
+      mediafiles = List(
+        GifFile("ytai_SeParloPoco.mp4")
+      )
     )
   )
 
