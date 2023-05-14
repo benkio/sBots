@@ -10,6 +10,7 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure._
+import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
@@ -70,7 +71,7 @@ object XahBot {
   val tokenFilename: String   = "xah_XahBot.token"
   val configNamespace: String = "xahDB"
 
-  def buildPollingBot[F[_]: Parallel: Async, A](
+  def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: XahBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build

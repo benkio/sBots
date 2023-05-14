@@ -19,6 +19,7 @@ import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BotSkeleton
 import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
 import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
@@ -194,7 +195,7 @@ object RichardPHJBensonBot {
     )
   )
 
-  def buildPollingBot[F[_]: Parallel: Async, A](
+  def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build

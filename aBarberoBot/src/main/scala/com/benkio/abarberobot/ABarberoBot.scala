@@ -12,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
@@ -991,7 +992,7 @@ object ABarberoBot {
     ),
   )
 
-  def buildPollingBot[F[_]: Parallel: Async, A](
+  def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: ABarberoBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build

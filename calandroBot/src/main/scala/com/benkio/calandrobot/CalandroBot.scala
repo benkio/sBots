@@ -13,6 +13,7 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.lightbend.emoji.ShortCodes.Defaults._
 import com.lightbend.emoji.ShortCodes.Implicits._
 import com.lightbend.emoji._
+import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
@@ -336,7 +337,7 @@ object CalandroBot {
     )
   )
 
-  def buildPollingBot[F[_]: Parallel: Async, A](
+  def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: CalandroBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
