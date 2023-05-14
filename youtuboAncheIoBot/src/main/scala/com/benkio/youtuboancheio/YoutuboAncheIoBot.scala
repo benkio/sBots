@@ -1337,6 +1337,17 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_TorreKinderFettaLatte.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("lasciate libera"),
+        StringTextTriggerValue("linea telefonica"),
+        StringTextTriggerValue("per cose reali"),
+        StringTextTriggerValue("che mi serve")
+      ),
+      mediafiles = List(
+        GifFile("ytai_LineaTelefonica.mp4")
+      )
     )
   )
 
