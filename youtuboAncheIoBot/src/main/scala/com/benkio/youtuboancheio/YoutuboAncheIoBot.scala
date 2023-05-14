@@ -1312,6 +1312,14 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_SeParloPoco.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("meno di un minuto")
+      ),
+      mediafiles = List(
+        GifFile("ytai_MenoDiMinuto.mp4")
+      )
     )
   )
 
