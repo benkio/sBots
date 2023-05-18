@@ -608,7 +608,9 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("scatta qualcosa")
+        StringTextTriggerValue("scatta qualcosa"),
+        StringTextTriggerValue("proprio in quel momento"),
+        StringTextTriggerValue("nel suo cervello"),
       ),
       List(
         GifFile("rphjb_ScattaQualcosa.mp4")
