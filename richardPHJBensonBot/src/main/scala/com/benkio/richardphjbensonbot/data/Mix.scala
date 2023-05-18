@@ -770,8 +770,8 @@ object Mix {
         GifFile("rphjb_Basta.mp4"),
         GifFile("rphjb_Basta2.mp4"),
         MediaFile("rphjb_Basta2.mp3"),
-        MediaFile("rphjb_BastaGif.mp4"),
-        MediaFile("rphjb_Basta2Gif.mp4"),
+        GifFile("rphjb_BastaGif.mp4"),
+        GifFile("rphjb_Basta2Gif.mp4"),
         GifFile("rphjb_Basta3.mp4"),
         GifFile("rphjb_Basta4.mp4"),
         GifFile("rphjb_BastaRottoIlCazzo.mp4"),
@@ -966,7 +966,7 @@ object Mix {
         RegexTextTriggerValue("[od]?dio mio[,]? no".r, 10)
       ),
       List(
-        MediaFile("rphjb_OddioMioNoGif.mp4"),
+        GifFile("rphjb_OddioMioNoGif.mp4"),
         MediaFile("rphjb_OddioMioNo.mp3"),
         MediaFile("rphjb_OddioMioNo2.mp3"),
         GifFile("rphjb_OddioMioNo.mp4")
@@ -979,7 +979,7 @@ object Mix {
         RegexTextTriggerValue("(eccomi|ciao).*\\bpiacere\\b".r, 13)
       ),
       List(
-        MediaFile("rphjb_ArivatoGif.mp4"),
+        GifFile("rphjb_ArivatoGif.mp4"),
         MediaFile("rphjb_Arivato.mp3"),
         GifFile("rphjb_Arivato.mp4")
       ),
@@ -1124,7 +1124,7 @@ object Mix {
         StringTextTriggerValue("my baby")
       ),
       List(
-        MediaFile("rphjb_BebopGif.mp4"),
+        GifFile("rphjb_BebopGif.mp4"),
         GifFile("rphjb_Bebop.mp4")
       ),
       replySelection = RandomSelection

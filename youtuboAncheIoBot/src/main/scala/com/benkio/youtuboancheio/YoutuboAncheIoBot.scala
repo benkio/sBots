@@ -391,7 +391,6 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("grazie tante"),
         StringTextTriggerValue("sconforto grave")
       ),
       mediafiles = List(
@@ -1349,6 +1348,25 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_LineaTelefonica.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("ce l'ho fatta"),
+        RegexTextTriggerValue("\\bp(à|a')\\b".r, 2)
+      ),
+      mediafiles = List(
+        GifFile("ytai_CeLhoFatta.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("grazie tante")
+      ),
+      mediafiles = List(
+        GifFile("ytai_GrazieTante.mp4"),
+        GifFile("ytai_GrazieTante2.mp4")
+      ),
+      replySelection = RandomSelection
     )
   )
 
