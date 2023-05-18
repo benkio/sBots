@@ -1017,6 +1017,16 @@ object Gif {
         GifFile("rphjb_Telefonata.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("a questo punto"),
+        RegexTextTriggerValue("andiamo[ci]? a sentire".r, 18),
+        StringTextTriggerValue("l'originale"),
+      ),
+      List(
+        GifFile("rphjb_SentireOriginale.mp4")
+      )
+    ),
   )
 
 }
