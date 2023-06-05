@@ -15,7 +15,7 @@ object Dependencies {
     val emojiVersion       = "1.3.0"
     val fs2Core            = "3.7.0"
     val fs2IO              = "3.7.0"
-    val flyway             = "9.17.0"
+    val flyway             = "9.19.1"
     val fs2Cron            = "0.8.3"
     val http4s             = "0.23.19"
     val logEffects         = "0.17.0"
@@ -25,7 +25,7 @@ object Dependencies {
     val munitCatsEffect    = "1.0.7"
     val pureConfig         = "0.17.4"
     val shapeless          = "2.3.10"
-    val sqlite             = "3.41.2.1"
+    val sqlite             = "3.41.2.2"
     val telegramiumVersion = "8.67.0"
     val vault              = "3.5.0"
   }
