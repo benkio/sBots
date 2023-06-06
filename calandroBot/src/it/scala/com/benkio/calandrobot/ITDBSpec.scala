@@ -2,6 +2,7 @@ package com.benkio.calandrobot
 
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 
 import cats.effect.IO
 import cats.effect.Resource
@@ -20,12 +21,11 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      files   <- Resource.pure(messageRepliesData[IO].flatMap(_.mediafiles))
+      files <- Resource.pure(messageRepliesData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
-            dbMedia
+            DBMedia
               .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
@@ -44,12 +44,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      files   <- Resource.pure(commandRepliesData[IO].flatMap(_.mediafiles))
+
+      files <- Resource.pure(commandRepliesData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
-            dbMedia
+            DBMedia
               .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)

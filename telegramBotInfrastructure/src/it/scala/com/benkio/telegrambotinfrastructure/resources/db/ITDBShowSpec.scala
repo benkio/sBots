@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
+import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.model.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.RandomQuery
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
@@ -34,24 +35,14 @@ arriva il peggio del peggio""")
     transactor
   }
 
-  databaseFixture.test(
+  test(
     "DBShow queries should check"
-  ) { fixture =>
-    fixture.resourceDBLayer
-      .map(_.dbShow)
-      .use(dbShow =>
-        for {
-          _ <- IO(checkOutput(dbShow.getShowsQuery("botName")))
-          _ <- IO(check(dbShow.getShowByShowQueryQuery(RandomQuery, "botName")))
-          _ <- IO(
-            check(
-              dbShow
-                .getShowByShowQueryQuery(ShowQuery("title=paul+gilbert&description=samurai&minDuration=300"), "botName")
-            )
-          )
-        } yield ()
-      )
-      .assert
+  ) {
+    check(DBShow.getShowsQuery("botName"))
+    check(DBShow.getShowByShowQueryQuery(RandomQuery, "botName"))
+    check(
+      DBShow.getShowByShowQueryQuery(ShowQuery("title=paul+gilbert&description=samurai&minDuration=300"), "botName")
+    )
   }
 
   databaseFixture.test(

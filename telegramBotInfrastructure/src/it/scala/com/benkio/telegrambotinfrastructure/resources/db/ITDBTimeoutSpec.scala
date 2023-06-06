@@ -4,6 +4,7 @@ import doobie.Transactor
 import java.sql.DriverManager
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
 import munit.CatsEffectSuite
 import cats.effect.IO
 
@@ -30,19 +31,12 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
     transactor
   }
 
-  databaseFixture.test(
+  test(
     "DBTimeout queries should check".ignore
-  ) { fixture =>
-    fixture.resourceDBLayer
-      .map(_.dbTimeout)
-      .use(dbTimeout =>
-        for {
-          _ <- IO(checkOutput(dbTimeout.getOrDefaultQuery(testTimeoutChatId, testBotName)))
-          _ <- IO(check(dbTimeout.setTimeoutQuery(testTimeout)))
-          _ <- IO(check(dbTimeout.logLastInteractionQuery(testTimeoutChatId, testBotName)))
-        } yield ()
-      )
-      .assert
+  ) {
+    check(DBTimeout.getOrDefaultQuery(testTimeoutChatId, testBotName))
+    check(DBTimeout.setTimeoutQuery(testTimeout))
+    check(DBTimeout.logLastInteractionQuery(testTimeoutChatId, testBotName))
   }
 
   databaseFixture.test(

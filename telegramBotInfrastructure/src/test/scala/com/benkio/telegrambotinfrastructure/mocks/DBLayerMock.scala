@@ -13,7 +13,6 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
-import doobie._
 
 import java.time.Instant
 import java.util.UUID
@@ -48,10 +47,6 @@ object DBLayerMock {
             )
         )
       else IO.raiseError(new Throwable(s"Unexpected botName, actual: $botName - expected: $botNameI"))
-
-    override def getOrDefaultQuery(chatId: Long, botName: String): Query0[DBTimeoutData] = ???
-    override def setTimeoutQuery(timeout: DBTimeoutData): Update0                        = ???
-    override def logLastInteractionQuery(chatId: Long, botName: String): Update0         = ???
   }
 
   class DBMediaMock(db: Ref[IO, List[DBMediaData]]) extends DBMedia[IO] {
@@ -83,10 +78,6 @@ object DBLayerMock {
         ms.find(m => m.media_name == filename)
           .fold(ms)(oldValue => ms.filterNot(_ == oldValue) :+ oldValue.copy(media_count = oldValue.media_count + 1))
       )
-
-    override def getMediaQueryByName(resourceName: String): Query0[DBMediaData]                  = ???
-    override def getMediaQueryByKind(kind: String): Query0[DBMediaData]                          = ???
-    override def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = ???
   }
 
   class DBSubscriptionMock(db: Ref[IO, List[DBSubscriptionData]]) extends DBSubscription[IO] {
@@ -109,19 +100,11 @@ object DBLayerMock {
     override def getSubscription(id: String): IO[Option[DBSubscriptionData]] =
       db.get.map(_.find(sub => sub.id.toString == id))
 
-    override def getSubscriptionsQuery(botName: String, chatId: Option[Long] = None): Query0[DBSubscriptionData] = ???
-    override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0                              = ???
-    override def deleteSubscriptionQuery(subscriptionId: String): Update0                                        = ???
-    override def deleteSubscriptionsQuery(chatId: Long): Update0                                                 = ???
-    override def getSubscriptionQuery(id: String): Query0[DBSubscriptionData]                                    = ???
   }
   class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
     override def getShows(botName: String): IO[List[DBShowData]] =
       db.get.map(_.filter(s => s.bot_name == botName))
     override def getShowByShowQuery(query: ShowQuery, botName: String): IO[List[DBShowData]] =
       ???
-
-    override def getShowsQuery(botName: String): Query0[DBShowData]                             = ???
-    override def getShowByShowQueryQuery(query: ShowQuery, botName: String): Query0[DBShowData] = ???
   }
 }

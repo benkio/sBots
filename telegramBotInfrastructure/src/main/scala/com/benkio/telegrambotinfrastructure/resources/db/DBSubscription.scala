@@ -39,12 +39,6 @@ trait DBSubscription[F[_]] {
   def deleteSubscriptions(
       chatId: Long
   ): F[Unit]
-
-  def getSubscriptionsQuery(botName: String, chatId: Option[Long] = None): Query0[DBSubscriptionData]
-  def getSubscriptionQuery(id: String): Query0[DBSubscriptionData]
-  def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0
-  def deleteSubscriptionQuery(subscriptionId: String): Update0
-  def deleteSubscriptionsQuery(chatId: Long): Update0
 }
 
 object DBSubscription {
@@ -61,23 +55,6 @@ object DBSubscription {
       transactor: Transactor[F],
       log: LogWriter[F]
   ) extends DBSubscription[F] {
-
-    override def getSubscriptionsQuery(botName: String, chatId: Option[Long] = None): Query0[DBSubscriptionData] =
-      (sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription " ++ Fragments.whereAndOpt(
-        fr"bot_name = $botName".some,
-        chatId.map(cid => fr"chat_id = $cid")
-      ))
-        .query[DBSubscriptionData]
-
-    override def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
-      sql"INSERT INTO subscription (subscription_id, chat_id, bot_name, cron, subscribed_at) VALUES ${fragments
-          .parentheses(fragments.values(subscription))}".update
-
-    override def deleteSubscriptionQuery(subscriptionId: String): Update0 =
-      sql"DELETE FROM subscription WHERE subscription_id = $subscriptionId".update
-
-    override def deleteSubscriptionsQuery(chatId: Long): Update0 =
-      sql"DELETE FROM subscription WHERE chat_id = $chatId".update
 
     override def insertSubscription(subscription: DBSubscriptionData): F[Unit] =
       insertSubscriptionQuery(subscription).run.transact(transactor).void <* log.info(
@@ -105,9 +82,27 @@ object DBSubscription {
 
     override def getSubscription(id: String): F[Option[DBSubscriptionData]] =
       getSubscriptionQuery(id).option.transact(transactor) <* log.info(s"Get subscription: $id")
-    override def getSubscriptionQuery(id: String): Query0[DBSubscriptionData] =
-      sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
-        .query[DBSubscriptionData]
 
   }
+
+  def getSubscriptionQuery(id: String): Query0[DBSubscriptionData] =
+    sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
+      .query[DBSubscriptionData]
+
+  def getSubscriptionsQuery(botName: String, chatId: Option[Long] = None): Query0[DBSubscriptionData] =
+    (sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription " ++ Fragments.whereAndOpt(
+      fr"bot_name = $botName".some,
+      chatId.map(cid => fr"chat_id = $cid")
+    ))
+      .query[DBSubscriptionData]
+
+  def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
+    sql"INSERT INTO subscription (subscription_id, chat_id, bot_name, cron, subscribed_at) VALUES ${fragments
+        .parentheses(fragments.values(subscription))}".update
+
+  def deleteSubscriptionQuery(subscriptionId: String): Update0 =
+    sql"DELETE FROM subscription WHERE subscription_id = $subscriptionId".update
+
+  def deleteSubscriptionsQuery(chatId: Long): Update0 =
+    sql"DELETE FROM subscription WHERE chat_id = $chatId".update
 }
