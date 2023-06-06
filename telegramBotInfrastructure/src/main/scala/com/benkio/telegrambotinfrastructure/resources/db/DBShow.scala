@@ -38,9 +38,6 @@ object DBShowData {
 trait DBShow[F[_]] {
   def getShows(botName: String): F[List[DBShowData]]
   def getShowByShowQuery(query: ShowQuery, botName: String): F[List[DBShowData]]
-
-  def getShowsQuery(botName: String): Query0[DBShowData]
-  def getShowByShowQueryQuery(query: ShowQuery, botName: String): Query0[DBShowData]
 }
 
 object DBShow {
@@ -58,37 +55,37 @@ object DBShow {
       log: LogWriter[F]
   ) extends DBShow[F] {
 
-    private def showQueryToFragments(query: ShowQuery): List[Fragment] = query match {
-      case RandomQuery => List.empty
-      case ShowQueryKeyword(titleKeywords, descriptionKeywords, minDuration, maxDuration, minDate, maxDate) =>
-        titleKeywords.map(k => fr"""show_title LIKE ${"%" + k + "%"}""") ++
-          descriptionKeywords.toList.flatten.map(k => fr"""show_description LIKE ${"%" + k + "%"}""") ++
-          minDuration.toList.map(mind => fr"show_duration > $mind") ++
-          maxDuration.toList.map(maxd => fr"show_duration < $maxd") ++
-          minDate.toList.map(mind => fr"show_upload_date > ${mind.format(DBShowData.dateTimeFormatter)}") ++
-          maxDate.toList.map(maxd => fr"show_upload_date < ${maxd.format(DBShowData.dateTimeFormatter)}")
-    }
-
     override def getShows(botName: String): F[List[DBShowData]] =
-      getShowsQuery(botName).stream.compile.toList.transact(transactor) <* log.info(
+      DBShow.getShowsQuery(botName).stream.compile.toList.transact(transactor) <* log.info(
         s"get shows by bot name: $botName"
       )
     override def getShowByShowQuery(query: ShowQuery, botName: String): F[List[DBShowData]] =
-      getShowByShowQueryQuery(query, botName).stream.compile.toList.transact(transactor) <* log.info(
+      DBShow.getShowByShowQueryQuery(query, botName).stream.compile.toList.transact(transactor) <* log.info(
         s"get shows by bot name: $botName and keyword: $query"
       )
+  }
 
-    override def getShowsQuery(botName: String): Query0[DBShowData] =
-      sql"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description FROM show WHERE bot_name = $botName"
-        .query[DBShowData]
-    override def getShowByShowQueryQuery(query: ShowQuery, botName: String): Query0[DBShowData] = {
-      val q = fr"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description FROM show" ++
-        Fragments.whereAnd(
-          (fr"bot_name = $botName" +: showQueryToFragments(query)): _*
-        )
+  private def showQueryToFragments(query: ShowQuery): List[Fragment] = query match {
+    case RandomQuery => List.empty
+    case ShowQueryKeyword(titleKeywords, descriptionKeywords, minDuration, maxDuration, minDate, maxDate) =>
+      titleKeywords.map(k => fr"""show_title LIKE ${"%" + k + "%"}""") ++
+        descriptionKeywords.toList.flatten.map(k => fr"""show_description LIKE ${"%" + k + "%"}""") ++
+        minDuration.toList.map(mind => fr"show_duration > $mind") ++
+        maxDuration.toList.map(maxd => fr"show_duration < $maxd") ++
+        minDate.toList.map(mind => fr"show_upload_date > ${mind.format(DBShowData.dateTimeFormatter)}") ++
+        maxDate.toList.map(maxd => fr"show_upload_date < ${maxd.format(DBShowData.dateTimeFormatter)}")
+  }
 
-      q.query[DBShowData]
-    }
+  def getShowsQuery(botName: String): Query0[DBShowData] =
+    sql"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description FROM show WHERE bot_name = $botName"
+      .query[DBShowData]
+  def getShowByShowQueryQuery(query: ShowQuery, botName: String): Query0[DBShowData] = {
+    val q = fr"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description FROM show" ++
+      Fragments.whereAnd(
+        (fr"bot_name = $botName" +: showQueryToFragments(query)): _*
+      )
+
+    q.query[DBShowData]
   }
 
 }

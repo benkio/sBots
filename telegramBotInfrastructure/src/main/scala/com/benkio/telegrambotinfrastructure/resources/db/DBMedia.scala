@@ -37,10 +37,6 @@ trait DBMedia[F[_]] {
   ): F[List[DBMediaData]]
   def incrementMediaCount(filename: String): F[Unit]
   def decrementMediaCount(filename: String): F[Unit]
-
-  def getMediaQueryByName(resourceName: String): Query0[DBMediaData]
-  def getMediaQueryByKind(kind: String): Query0[DBMediaData]
-  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData]
 }
 
 object DBMedia {
@@ -62,31 +58,6 @@ object DBMedia {
       dbCache: MemoryCache[F, String, List[DBMediaData]],
       log: LogWriter[F]
   ) extends DBMedia[F] {
-
-    override def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
-      sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE media_name = $resourceName"
-        .query[DBMediaData]
-
-    override def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
-      sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[DBMediaData]
-
-    override def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
-      val q: Fragment =
-        fr"SELECT media_name, kind, media_url, media_count, created_at FROM media" ++
-          Fragments.whereAndOpt(mediaNamePrefix.map(s => {
-            val like = s + "%"
-            fr"media_name LIKE $like"
-          })) ++
-          fr"ORDER BY media_count DESC"
-
-      q.query[DBMediaData]
-    }
-
-    def incrementMediaCountQuery(media: DBMediaData): Update0 =
-      sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update
-
-    def decrementMediaCountQuery(media: DBMediaData): Update0 =
-      sql"UPDATE media SET media_count = ${media.media_count - 1} WHERE media_name = ${media.media_name}".update
 
     private def getMediaInternal[A](
         cacheLookupValue: String,
@@ -154,4 +125,29 @@ object DBMedia {
         .toList
         .transact(transactor)
   }
+
+  def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
+    sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE media_name = $resourceName"
+      .query[DBMediaData]
+
+  def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
+    sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[DBMediaData]
+
+  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
+    val q: Fragment =
+      fr"SELECT media_name, kind, media_url, media_count, created_at FROM media" ++
+        Fragments.whereAndOpt(mediaNamePrefix.map(s => {
+          val like = s + "%"
+          fr"media_name LIKE $like"
+        })) ++
+        fr"ORDER BY media_count DESC"
+
+    q.query[DBMediaData]
+  }
+
+  def incrementMediaCountQuery(media: DBMediaData): Update0 =
+    sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update
+
+  def decrementMediaCountQuery(media: DBMediaData): Update0 =
+    sql"UPDATE media SET media_count = ${media.media_count - 1} WHERE media_name = ${media.media_name}".update
 }

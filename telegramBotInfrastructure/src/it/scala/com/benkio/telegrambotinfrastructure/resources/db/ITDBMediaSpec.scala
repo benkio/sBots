@@ -3,6 +3,7 @@ package com.benkio.telegrambotinfrastructure.resources.db
 import doobie.Transactor
 import java.sql.DriverManager
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
@@ -40,19 +41,12 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     transactor
   }
 
-  databaseFixture.test(
+  test(
     "DBMedia queries should check"
-  ) { fixture =>
-    fixture.resourceDBLayer
-      .map(_.dbMedia)
-      .use(dbMedia =>
-        for {
-          _ <- IO(checkOutput(dbMedia.getMediaQueryByName(testMediaName)))
-          _ <- IO(checkOutput(dbMedia.getMediaQueryByKind(testMediaKind)))
-          _ <- IO(checkOutput(dbMedia.getMediaQueryByMediaCount(mediaNamePrefix = Some(testMediaPrefix))))
-        } yield ()
-      )
-      .assert
+  ) {
+    check(DBMedia.getMediaQueryByName(testMediaName))
+    check(DBMedia.getMediaQueryByKind(testMediaKind))
+    check(DBMedia.getMediaQueryByMediaCount(mediaNamePrefix = Some(testMediaPrefix)))
   }
 
   databaseFixture.test(

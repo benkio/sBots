@@ -4,6 +4,7 @@ import doobie.Transactor
 import java.sql.DriverManager
 import java.util.UUID
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
@@ -32,21 +33,14 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     transactor
   }
 
-  databaseFixture.test(
+  test(
     "DBSubscription queries should check".ignore
-  ) { fixture =>
-    fixture.resourceDBLayer
-      .map(_.dbSubscription)
-      .use(dbSubscription =>
-        for {
-          _ <- IO(checkOutput(dbSubscription.getSubscriptionsQuery(botName)))
-          _ <- IO(check(dbSubscription.insertSubscriptionQuery(testSubscription)))
-          _ <- IO(check(dbSubscription.deleteSubscriptionQuery(testSubscriptionId)))
-          _ <- IO(check(dbSubscription.getSubscriptionQuery(testSubscriptionId)))
-          _ <- IO(check(dbSubscription.deleteSubscriptionsQuery(2L)))
-        } yield ()
-      )
-      .assert
+  ) {
+    check(DBSubscription.getSubscriptionsQuery(botName))
+    check(DBSubscription.insertSubscriptionQuery(testSubscription))
+    check(DBSubscription.deleteSubscriptionQuery(testSubscriptionId))
+    check(DBSubscription.getSubscriptionQuery(testSubscriptionId))
+    check(DBSubscription.deleteSubscriptionsQuery(2L))
   }
 
   databaseFixture.test(

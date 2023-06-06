@@ -1,6 +1,7 @@
 package com.benkio.xahbot
 
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import telegramium.bots.Message
 
@@ -33,7 +34,6 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      resourceDBMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       resourceDBLayer <- fixture.resourceDBLayer
       files <- Resource.pure(
         CommandRepliesData
@@ -47,7 +47,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
-            resourceDBMedia
+            DBMedia
               .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
