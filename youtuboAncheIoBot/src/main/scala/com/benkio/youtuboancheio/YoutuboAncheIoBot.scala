@@ -189,10 +189,10 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("architetta"),
-        StringTextTriggerValue("notaia"),
-        StringTextTriggerValue("ministra"),
-        StringTextTriggerValue("avvocata")
+        RegexTextTriggerValue("\\barchitetta\\b".r, 10),
+        RegexTextTriggerValue("\\bnotaia\\b".r, 6),
+        RegexTextTriggerValue("\\bministra\\b".r, 8),
+        RegexTextTriggerValue("\\bavvocata\\b".r, 8)
       ),
       mediafiles = List(
         GifFile("ytai_Architetta.mp4")
