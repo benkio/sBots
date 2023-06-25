@@ -93,11 +93,8 @@ object Dependencies {
   )
 
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
-    Seq(
+    CommonDependencies ++ Seq(
       libs.caseInsensitive,
-      libs.catsCore,
-      libs.catsEffect,
-      libs.catsEffectKernel,
       libs.catsEffectTime,
       libs.catsFree,
       libs.catsKernel,
@@ -109,23 +106,13 @@ object Dependencies {
       libs.fs2Core,
       libs.fs2CronCore,
       libs.fs2CronCron4s,
-      libs.http4sClient,
-      libs.http4sCore,
       libs.http4sDsl,
-      libs.http4sEmberClient % "test",
-      libs.http4sServer,
-      libs.logEffectsCore,
-      libs.logEffectsFs2 % "test",
       libs.mules,
       libs.mulesHttp4s,
-      libs.munit,
-      libs.munitCatsEffect,
       libs.pureConfigCore,
       libs.pureConfigGeneric,
       libs.pureConfigGenericBase,
       libs.shapeless,
-      libs.telegramiumCore,
-      libs.telegramiumHigh,
       libs.sqlite,
       libs.vault
     )
@@ -147,24 +134,14 @@ object Dependencies {
       libs.emoji
     )
 
-  val MainDependencies: Seq[ModuleID] = Seq(
-    libs.catsCore,
-    libs.catsEffect,
-    libs.catsEffectKernel,
+  val MainDependencies: Seq[ModuleID] =
+    CommonDependencies ++
+  Seq(
     libs.doobieMunit % "test",
-    libs.fs2IO,
-    libs.http4sClient,
-    libs.http4sEmberClient,
-    libs.http4sServer,
-    libs.logEffectsCore,
-    libs.logEffectsFs2,
-    libs.munit,
     libs.pureConfigCore,
     libs.pureConfigGeneric,
     libs.pureConfigGenericBase,
-    libs.shapeless,
-    libs.telegramiumCore,
-    libs.telegramiumHigh
+    libs.shapeless
   )
 
   val BotDBDependencies: Seq[ModuleID] = Seq(

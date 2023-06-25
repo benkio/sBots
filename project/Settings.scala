@@ -34,7 +34,13 @@ object Settings {
     name                := "TelegramBotInfrastructure",
     libraryDependencies := TelegramBotInfrastructureDependencies,
     dependencyOverrides := TelegramBotInfrastructureDependencies
-  ) ++ Defaults.itSettings
+  )
+
+  lazy val IntegrationDependencies = Seq(
+    name                := "Integration",
+    libraryDependencies := TelegramBotInfrastructureDependencies,
+    publish / skip := true,
+  )
 
   lazy val CalandroBotSettings = Seq(
     name                     := "CalandroBot",
@@ -42,7 +48,7 @@ object Settings {
     dependencyOverrides      := CalandroBotDependencies,
     mainClass                := Some("com.benkio.calandrobot.CalandroBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings ++ Defaults.itSettings
+  ) ++ assemblySettings
 
   lazy val ABarberoBotSettings = Seq(
     name                     := "ABarberoBot",
@@ -50,7 +56,7 @@ object Settings {
     dependencyOverrides      := ABarberoBotDependencies,
     mainClass                := Some("com.benkio.abarberobot.ABarberoBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings ++ Defaults.itSettings
+  ) ++ assemblySettings
 
   lazy val RichardPHJBensonBotSettings = Seq(
     name                     := "RichardPHJBensonBot",
@@ -58,7 +64,7 @@ object Settings {
     dependencyOverrides      := RichardPHJBensonBotDependencies,
     mainClass                := Some("com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings ++ Defaults.itSettings
+  ) ++ assemblySettings
 
   lazy val XahBotSettings = Seq(
     name                     := "XahBot",
@@ -66,7 +72,7 @@ object Settings {
     dependencyOverrides      := XahBotDependencies,
     mainClass                := Some("com.benkio.xahbot.XahBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings ++ Defaults.itSettings
+  ) ++ assemblySettings
 
   lazy val YoutuboAncheIoBotSettings = Seq(
     name                     := "YoutuboAncheIoBot",
@@ -74,13 +80,13 @@ object Settings {
     dependencyOverrides      := YoutuboAncheIoBotDependencies,
     mainClass                := Some("com.benkio.youtuboAncheIobot.YoutuboAncheIoBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings ++ Defaults.itSettings
+  ) ++ assemblySettings
 
   lazy val MainSettings = Seq(
     name                := "main",
     libraryDependencies := MainDependencies,
     dependencyOverrides := MainDependencies
-  ) ++ assemblySettings ++ Defaults.itSettings
+  ) ++ assemblySettings
 
   lazy val BotDBSettings = Seq(
     name                := "botDB",
@@ -89,5 +95,5 @@ object Settings {
     mainClass           := Some("com.benkio.botDB.Main"),
     Test / javaOptions += s"-Dconfig.file=${sourceDirectory.value}/test/resources/application.test.conf",
     Test / fork := true
-  ) ++ assemblySettings ++ Defaults.itSettings
+  ) ++ assemblySettings
 }
