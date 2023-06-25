@@ -69,7 +69,8 @@ object BotSetup {
       config.driver,
       config.url,
       "",
-      ""
+      "",
+      None
     )
     urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
     dbLayer    <- Resource.eval(DBLayer[F](transactor))

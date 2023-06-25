@@ -6,6 +6,7 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
+import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageOps
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
@@ -91,7 +92,7 @@ trait BotSkeleton[F[_]] {
         messageRepliesData <- messageRepliesDataF
         replies <- messageRepliesData
           .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
-          .filter(_ => FilteringForward.filter(msg, disableForward))
+          .filter(_ => FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg))
           .traverse(replyBundle =>
             log
               .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
