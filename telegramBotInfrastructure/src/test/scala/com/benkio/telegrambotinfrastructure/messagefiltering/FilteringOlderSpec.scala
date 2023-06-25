@@ -3,15 +3,16 @@ package com.benkio.telegrambotinfrastructure.messagefiltering
 //import java.time.temporal.{ChronoField, ChronoUnit}
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
 import munit._
-import telegramium.bots.{Chat, Message}
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 import java.time.Instant
 import scala.concurrent.duration._
 
 class FilteringOlderSpec extends FunSuite {
-  val now = Instant.now
-  val dateWithinThreshold : Long  = now.getEpochSecond() - FilteringOlder.olderThreshold.-(10.seconds).toSeconds
-  val dateOutsideThreshold : Long = now.getEpochSecond() - FilteringOlder.olderThreshold.+(10.seconds).toSeconds
+  val now                        = Instant.now
+  val dateWithinThreshold: Long  = now.getEpochSecond() - FilteringOlder.olderThreshold.-(10.seconds).toSeconds
+  val dateOutsideThreshold: Long = now.getEpochSecond() - FilteringOlder.olderThreshold.+(10.seconds).toSeconds
 
   test("FilteringOlder.filter should return true if the message date is within threshold") {
     val msg = Message(
