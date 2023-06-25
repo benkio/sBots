@@ -44,7 +44,7 @@ trait DBFixture { self: FunSuite =>
       Class.forName("org.sqlite.JDBC")
       val conn = DriverManager.getConnection(dbUrl)
       runMigrations(dbUrl, migrationTable, migrationPath)
-      val transactor                                 = Transactor.fromConnection[IO](conn)
+      val transactor                                 = Transactor.fromConnection[IO](conn, None)
       val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
       val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbLayerResource.flatMap(dbLayer =>
         for {

@@ -29,7 +29,8 @@ class ITSpec extends FunSuite with DBConstants {
       "org.sqlite.JDBC",
       dbUrl,
       "",
-      ""
+      "",
+      None
     )
     val mediaContent = sql"SELECT media_name FROM media;".query[String].to[List].transact(transactor).unsafeRunSync()
     Files.deleteIfExists(Paths.get(dbPath))

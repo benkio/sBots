@@ -32,6 +32,7 @@ object Config {
       cfg.driver,
       cfg.url,
       "",
-      ""
+      "",
+      None
     )
 }
