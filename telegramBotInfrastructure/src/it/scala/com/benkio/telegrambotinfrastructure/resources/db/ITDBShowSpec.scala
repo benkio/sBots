@@ -31,7 +31,7 @@ arriva il peggio del peggio""")
     Class.forName("org.sqlite.JDBC")
     val conn = DriverManager.getConnection(dbUrl)
     runMigrations(dbUrl, migrationTable, migrationPath)
-    val transactor = Transactor.fromConnection[IO](conn)
+    val transactor = Transactor.fromConnection[IO](conn, None)
     transactor
   }
 

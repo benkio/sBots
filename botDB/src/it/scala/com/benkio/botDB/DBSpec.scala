@@ -34,7 +34,7 @@ class DBSpec extends CatsEffectSuite with DBConstants {
   )
 
   def transactor(c: Connection): Transactor[IO] =
-    Transactor.fromConnection[IO](c)
+    Transactor.fromConnection[IO](c, None)
 
   databaseConnection.test("The `media` table should exist and be readable/writable") { connection =>
     connection.createStatement().executeUpdate(DBSpec.mediaSQL)
