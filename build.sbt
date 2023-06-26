@@ -90,6 +90,14 @@ lazy val botDB =
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val integration = (project in file("integration"))
-  .dependsOn(telegramBotInfrastructure, calandroBot, aBarberoBot, richardPHJBensonBot, xahBot, youtuboAncheIoBot, botDB, main)
+  .dependsOn(
+    telegramBotInfrastructure % "compile->compile;test->test",
+    calandroBot,
+    aBarberoBot,
+    richardPHJBensonBot,
+    xahBot,
+    youtuboAncheIoBot,
+    botDB % "compile->compile;test->test",
+    main)
   .settings(Settings.settings: _*)
   .settings(Settings.IntegrationDependencies)

@@ -60,8 +60,8 @@ object Dependencies {
     val logEffectsFs2     = "io.laserdisc"                  %% "log-effect-fs2"      % versions.logEffects
     val mules             = "io.chrisdavenport"             %% "mules"               % versions.mules
     val mulesHttp4s       = "io.chrisdavenport"             %% "mules-http4s"        % versions.mulesHttp4s
-    val munit             = "org.scalameta"                 %% "munit"               % versions.munit % "it, test"
-    val munitCatsEffect   = "org.typelevel"         %% "munit-cats-effect-3" % versions.munitCatsEffect % "it, test"
+    val munit             = "org.scalameta"                 %% "munit"               % versions.munit % "test"
+    val munitCatsEffect   = "org.typelevel"         %% "munit-cats-effect-3" % versions.munitCatsEffect % "test"
     val pureConfig        = "com.github.pureconfig" %% "pureconfig"          % versions.pureConfig
     val pureConfigCore    = "com.github.pureconfig" %% "pureconfig-core"     % versions.pureConfig
     val pureConfigGeneric = "com.github.pureconfig" %% "pureconfig-generic"  % versions.pureConfig
