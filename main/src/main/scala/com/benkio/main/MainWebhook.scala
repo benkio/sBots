@@ -7,6 +7,7 @@ import cats.effect.Resource
 import cats.implicits._
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.calandrobot.CalandroBot
+import com.benkio.mosconibot.MosconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.xahbot.XahBot
 import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
@@ -38,6 +39,11 @@ object MainWebhook extends IOApp {
         webhookBaseUrl = config.webhookBaseUrl,
         webhookCertificate = certificate
       )
+      mosconiWebhook <- MosconiBot.buildWebhookBot[IO](
+        httpClient = httpClient,
+        webhookBaseUrl = config.webhookBaseUrl,
+        webhookCertificate = certificate
+      )
       calandroWebhook <- CalandroBot.buildWebhookBot[IO](
         httpClient = httpClient,
         webhookBaseUrl = config.webhookBaseUrl,
@@ -54,7 +60,14 @@ object MainWebhook extends IOApp {
         webhookCertificate = certificate
       )
       server <- WebhookBot.compose[IO](
-        bots = List(xahWebhook, calandroWebhook, richardPHJBensonWebhook, aBarberoWebhook, youtuboAncheIoWebhook),
+        bots = List(
+          xahWebhook,
+          calandroWebhook,
+          richardPHJBensonWebhook,
+          aBarberoWebhook,
+          youtuboAncheIoWebhook,
+          mosconiWebhook
+        ),
         port = config.port,
         host = config.hostUrl
       )

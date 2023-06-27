@@ -1,10 +1,11 @@
 package com.benkio.integration.main
 
 import com.benkio.telegrambotinfrastructure.model.MediaFile
-import scala.concurrent.duration.Duration
+import scala.concurrent.duration._
 import doobie.Transactor
 import java.sql.DriverManager
 import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
+import com.benkio.mosconibot.MosconiBot
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import cats.effect.IO
@@ -14,7 +15,7 @@ import munit.CatsEffectSuite
 
 class MediaIntegritySpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  override val munitIOTimeout = Duration.Inf
+  override val munitIOTimeout = 1.hour
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
     Class.forName("org.sqlite.JDBC")
@@ -27,7 +28,8 @@ class MediaIntegritySpec extends CatsEffectSuite with DBFixture with IOChecker {
   val allMessageMediaFiles: List[MediaFile] =
     (RichardPHJBensonBot.messageRepliesData[IO] ++
       ABarberoBot.messageRepliesData[IO] ++
-      YoutuboAncheIoBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinct
+      YoutuboAncheIoBot.messageRepliesData[IO] ++
+    MosconiBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinct
 
   def checkFile(mf: MediaFile): Unit =
     databaseFixture.test(

@@ -25,7 +25,8 @@ lazy val bots =
       aBarberoBot,
       richardPHJBensonBot,
       xahBot,
-      youtuboAncheIoBot
+      youtuboAncheIoBot,
+      mosconiBot
     )
 
 lazy val telegramBotInfrastructure =
@@ -64,6 +65,12 @@ lazy val youtuboAncheIoBot =
     .settings(Settings.YoutuboAncheIoBotSettings: _*)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
+lazy val mosconiBot =
+  Project("mosconiBot", file("mosconiBot"))
+    .settings(Settings.settings: _*)
+    .settings(Settings.MosconiBotSettings: _*)
+    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+
 lazy val main = project
   .in(file("main"))
   .settings(Settings.settings: _*)
@@ -74,6 +81,7 @@ lazy val main = project
     richardPHJBensonBot,
     xahBot,
     youtuboAncheIoBot,
+    mosconiBot,
     telegramBotInfrastructure % "compile->compile;test->test"
   )
 
@@ -95,6 +103,7 @@ lazy val integration = (project in file("integration"))
     richardPHJBensonBot,
     xahBot,
     youtuboAncheIoBot,
+    mosconiBot,
     botDB % "compile->compile;test->test",
     main
   )
