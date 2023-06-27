@@ -1,4 +1,4 @@
-package com.benkio.telegrambotinfrastructure.resources.db
+package com.benkio.integration.telegrambotinfrastructure.resources.db
 
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.model.ShowQuery

@@ -60,11 +60,11 @@ object Dependencies {
     val logEffectsFs2     = "io.laserdisc"                  %% "log-effect-fs2"      % versions.logEffects
     val mules             = "io.chrisdavenport"             %% "mules"               % versions.mules
     val mulesHttp4s       = "io.chrisdavenport"             %% "mules-http4s"        % versions.mulesHttp4s
-    val munit             = "org.scalameta"                 %% "munit"               % versions.munit % "test"
-    val munitCatsEffect   = "org.typelevel"         %% "munit-cats-effect-3" % versions.munitCatsEffect % "test"
-    val pureConfig        = "com.github.pureconfig" %% "pureconfig"          % versions.pureConfig
-    val pureConfigCore    = "com.github.pureconfig" %% "pureconfig-core"     % versions.pureConfig
-    val pureConfigGeneric = "com.github.pureconfig" %% "pureconfig-generic"  % versions.pureConfig
+    val munit             = "org.scalameta"                 %% "munit"               % versions.munit           % "test"
+    val munitCatsEffect   = "org.typelevel"                 %% "munit-cats-effect-3" % versions.munitCatsEffect % "test"
+    val pureConfig        = "com.github.pureconfig"         %% "pureconfig"          % versions.pureConfig
+    val pureConfigCore    = "com.github.pureconfig"         %% "pureconfig-core"     % versions.pureConfig
+    val pureConfigGeneric = "com.github.pureconfig"         %% "pureconfig-generic"  % versions.pureConfig
     val pureConfigGenericBase = "com.github.pureconfig" %% "pureconfig-generic-base" % versions.pureConfig
     val shapeless             = "com.chuusai"           %% "shapeless"               % versions.shapeless
     val sqlite                = "org.xerial"             % "sqlite-jdbc"             % versions.sqlite
@@ -136,13 +136,13 @@ object Dependencies {
 
   val MainDependencies: Seq[ModuleID] =
     CommonDependencies ++
-  Seq(
-    libs.doobieMunit % "test",
-    libs.pureConfigCore,
-    libs.pureConfigGeneric,
-    libs.pureConfigGenericBase,
-    libs.shapeless
-  )
+      Seq(
+        libs.doobieMunit % "test",
+        libs.pureConfigCore,
+        libs.pureConfigGeneric,
+        libs.pureConfigGenericBase,
+        libs.shapeless
+      )
 
   val BotDBDependencies: Seq[ModuleID] = Seq(
     libs.catsCore,

@@ -1,6 +1,7 @@
-package com.benkio.telegrambotinfrastructure
+package com.benkio.integration.telegrambotinfrastructure
 
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import java.time.Instant
 import cron4s.Cron

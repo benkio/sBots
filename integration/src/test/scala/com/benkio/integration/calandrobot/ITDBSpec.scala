@@ -1,4 +1,4 @@
-package com.benkio.calandrobot
+package com.benkio.integration.calandrobot
 
 import com.benkio.telegrambotinfrastructure.DBFixture
 import munit.CatsEffectSuite
@@ -12,7 +12,7 @@ import doobie.implicits._
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  import CalandroBot._
+  import com.benkio.calandrobot.CalandroBot._
 
   // File Reference Check
 

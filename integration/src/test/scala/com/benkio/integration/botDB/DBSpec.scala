@@ -1,4 +1,4 @@
-package com.benkio.botDB
+package com.benkio.integration.botDB
 
 import com.benkio.botDB.db.DBMigrator
 import munit.CatsEffectSuite
@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.Connection
 
 import doobie.Transactor
+import com.benkio.botDB.TestData
 
 class DBSpec extends CatsEffectSuite with DBConstants {
 

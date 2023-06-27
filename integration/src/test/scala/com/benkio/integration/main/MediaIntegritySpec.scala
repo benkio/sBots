@@ -1,4 +1,4 @@
-package com.benkio.main
+package com.benkio.integration.main
 
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import scala.concurrent.duration.Duration

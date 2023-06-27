@@ -1,5 +1,5 @@
 import sbt._
-
+n
 import Keys._
 import sbtassembly.AssemblyPlugin.autoImport._
 import Dependencies._
@@ -39,7 +39,7 @@ object Settings {
   lazy val IntegrationDependencies = Seq(
     name                := "Integration",
     libraryDependencies := TelegramBotInfrastructureDependencies,
-    publish / skip := true,
+    publish / skip      := true,
   )
 
   lazy val CalandroBotSettings = Seq(

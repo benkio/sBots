@@ -1,8 +1,9 @@
-package com.benkio.abarberobot
+package com.benkio.integration.youtuboancheio
 
+import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
 import com.benkio.telegrambotinfrastructure.DBFixture
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import munit.CatsEffectSuite
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 
 import cats.effect.IO
 import cats.effect.Resource
@@ -12,7 +13,7 @@ import doobie.implicits._
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  import ABarberoBot._
+  import YoutuboAncheIoBot._
 
   // File Reference Check
 

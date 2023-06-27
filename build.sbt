@@ -6,8 +6,6 @@ organization := "com.benkio"
 enablePlugins(FlywayPlugin)
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.6.0"
-
 lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
 
 addCommandAlias("run-db-migrations", "runMigrate")
@@ -98,6 +96,7 @@ lazy val integration = (project in file("integration"))
     xahBot,
     youtuboAncheIoBot,
     botDB % "compile->compile;test->test",
-    main)
+    main
+  )
   .settings(Settings.settings: _*)
   .settings(Settings.IntegrationDependencies)

@@ -1,13 +1,12 @@
-package com.benkio.botDB
+package com.benkio.integration.botDB
 
+import com.benkio.botDB.Main
 import java.nio.file.Paths
 import java.nio.file.Files
 import cats.effect.IO
 import doobie.Transactor
-
 import munit._
 import cats.effect.unsafe.implicits.global
-
 import doobie.implicits._
 
 class ITSpec extends FunSuite with DBConstants {

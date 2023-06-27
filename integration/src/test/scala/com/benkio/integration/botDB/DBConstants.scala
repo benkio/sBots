@@ -1,4 +1,4 @@
-package com.benkio.botDB
+package com.benkio.integration.botDB
 
 trait DBConstants {
 
