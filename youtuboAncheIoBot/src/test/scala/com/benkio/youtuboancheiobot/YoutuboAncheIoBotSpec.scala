@@ -6,17 +6,14 @@ import cats.implicits._
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.model.Reply
-import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.model.{Reply, Trigger}
 import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogLevels
-import log.effect.LogWriter
+import log.effect.{LogLevels, LogWriter}
 import munit.CatsEffectSuite
-import telegramium.bots.Chat
-import telegramium.bots.Message
+import telegramium.bots.{Chat, Message}
 
 import java.io.File
 import scala.io.Source

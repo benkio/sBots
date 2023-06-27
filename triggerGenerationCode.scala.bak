@@ -4,11 +4,13 @@ import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.abarberobot.ABarberoBot
 import java.io._
 import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
+import com.benkio.mosconibot.MosconiBot
 import com.benkio.calandrobot.CalandroBot
 
 val inputRichardPHJBenson = RichardPHJBensonBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
 val inputBarbero = ABarberoBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
 val inputYoutuboAncheIo = YoutuboAncheIoBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
+val inputMosconi = MosconiBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
 val inputCalandro = CalandroBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
 
 val pwRichard = new PrintWriter(new File("richardPHJBensonBot/rphjb_triggers.txt"))
@@ -20,6 +22,9 @@ pwBarbero.close
 val pwYoutubo = new PrintWriter(new File("youtuboAncheIoBot/ytai_triggers.txt"))
 pwYoutubo.write(inputYoutuboAncheIo)
 pwYoutubo.close
+val pwMosconi = new PrintWriter(new File("mosconiBot/mos_triggers.txt"))
+pwMosconi.write(inputMosconi)
+pwMosconi.close
 val pwCalandro = new PrintWriter(new File("calandroBot/cala_triggers.txt" ))
 pwCalandro.write(inputCalandro)
 pwCalandro.close

@@ -103,6 +103,7 @@ lazy val integration = (project in file("integration"))
     richardPHJBensonBot,
     xahBot,
     youtuboAncheIoBot,
+    mosconiBot,
     botDB % "compile->compile;test->test",
     main
   )
