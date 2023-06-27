@@ -8,7 +8,11 @@ import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.{InstructionsCommand, StatisticsCommands, TimeoutCommand, TriggerListCommand, TriggerSearchCommand}
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -19,7 +23,8 @@ import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
 import telegramium.bots.high._
-import telegramium.bots.{InputPartFile, Message}
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
 
 class MosconiBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
@@ -80,7 +85,7 @@ object MosconiBot {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "MosconiBot"
   val botPrefix: String                   = "mos"
-  val triggerListUri: Uri = uri"https://github.com/benkio/myTelegramBot/blob/master/MosconiBot/mos_triggers.txt"
+  val triggerListUri: Uri     = uri"https://github.com/benkio/myTelegramBot/blob/master/MosconiBot/mos_triggers.txt"
   val tokenFilename: String   = "mos_MosconiBot.token"
   val configNamespace: String = "mosDB"
 

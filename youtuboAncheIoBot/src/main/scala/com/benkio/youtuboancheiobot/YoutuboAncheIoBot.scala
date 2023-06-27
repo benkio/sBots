@@ -8,7 +8,13 @@ import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.{InstructionsCommand, RandomLinkCommand, StatisticsCommands, SubscribeUnsubscribeCommand, TimeoutCommand, TriggerListCommand, TriggerSearchCommand}
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -22,7 +28,8 @@ import org.http4s.client.Client
 import org.http4s.ember.client._
 import org.http4s.implicits._
 import telegramium.bots.high._
-import telegramium.bots.{InputPartFile, Message}
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
 
 class YoutuboAncheIoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
