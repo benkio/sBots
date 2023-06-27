@@ -1,5 +1,5 @@
 import sbt._
-n
+
 import Keys._
 import sbtassembly.AssemblyPlugin.autoImport._
 import Dependencies._
