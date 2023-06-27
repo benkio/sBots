@@ -5,7 +5,7 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 import doobie.Transactor
 import java.sql.DriverManager
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
 import munit.CatsEffectSuite
 import cats.effect.IO

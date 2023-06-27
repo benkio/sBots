@@ -12,7 +12,7 @@ import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import telegramium.bots.Message
 import com.benkio.telegrambotinfrastructure.model.Reply
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 
 import cats.effect.kernel.Outcome

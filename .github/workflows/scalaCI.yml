@@ -18,11 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run unit tests
+    - name: Run unit tests & integration tests
       run: sbt "test"
-  itTest:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Run Integration tests
-      run: sbt "integration/test"

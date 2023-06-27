@@ -7,7 +7,7 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import doobie.Transactor
 import java.sql.DriverManager
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 import doobie.munit.analysisspec.IOChecker
 

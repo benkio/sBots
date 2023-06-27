@@ -38,7 +38,7 @@ object Settings {
 
   lazy val IntegrationDependencies = Seq(
     name                := "Integration",
-    libraryDependencies := TelegramBotInfrastructureDependencies,
+    libraryDependencies := AllDependencies,
     publish / skip      := true,
   )
 

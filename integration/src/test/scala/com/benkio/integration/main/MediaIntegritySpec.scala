@@ -9,7 +9,7 @@ import com.benkio.abarberobot.ABarberoBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import cats.effect.IO
 import doobie.munit.analysisspec.IOChecker
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 
 class MediaIntegritySpec extends CatsEffectSuite with DBFixture with IOChecker {

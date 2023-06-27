@@ -1,6 +1,6 @@
 package com.benkio.integration.abarberobot
 
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import munit.CatsEffectSuite
 

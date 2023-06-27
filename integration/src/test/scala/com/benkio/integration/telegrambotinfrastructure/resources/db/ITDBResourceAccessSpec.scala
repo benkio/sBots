@@ -3,7 +3,7 @@ package com.benkio.integration.telegrambotinfrastructure.resources.db
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 
 import cats.effect.IO

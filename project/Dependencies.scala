@@ -44,7 +44,7 @@ object Dependencies {
     val cron4sCore        = "com.github.alonsodomin.cron4s" %% "cron4s-core"         % versions.cron4sCore
     val doobieCore        = "org.tpolecat"                  %% "doobie-core"         % versions.doobie
     val doobieFree        = "org.tpolecat"                  %% "doobie-free"         % versions.doobie
-    val doobieMunit       = "org.tpolecat"                  %% "doobie-munit"        % versions.doobie
+    val doobieMunit       = "org.tpolecat"                  %% "doobie-munit"        % versions.doobie % "test"
     val emoji             = "com.lightbend"                 %% "emoji"               % versions.emojiVersion
     val flyway            = "org.flywaydb"                   % "flyway-core"         % versions.flyway
     val fs2Core           = "co.fs2"                        %% "fs2-core"            % versions.fs2Core
@@ -101,7 +101,7 @@ object Dependencies {
       libs.cron4sCore,
       libs.doobieCore,
       libs.doobieFree,
-      libs.doobieMunit % "test",
+      libs.doobieMunit,
       libs.flyway      % "test",
       libs.fs2Core,
       libs.fs2CronCore,
@@ -137,7 +137,7 @@ object Dependencies {
   val MainDependencies: Seq[ModuleID] =
     CommonDependencies ++
       Seq(
-        libs.doobieMunit % "test",
+        libs.doobieMunit,
         libs.pureConfigCore,
         libs.pureConfigGeneric,
         libs.pureConfigGenericBase,
@@ -161,4 +161,19 @@ object Dependencies {
     libs.pureConfigGenericBase,
     libs.shapeless,
   )
+
+  val AllDependencies : Seq[ModuleID] =
+    Seq(
+      libs.munitCatsEffect,
+      libs.munit,
+      libs.doobieMunit,
+      libs.catsEffect % "test",
+      libs.catsCore % "test",
+      libs.doobieCore % "test",
+      libs.telegramiumCore % "test",
+      libs.cron4sCore % "test",
+      libs.http4sEmberClient % "test",
+      libs.logEffectsCore % "test",
+      libs.flyway      % "test"
+    )
 }

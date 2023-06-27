@@ -25,7 +25,8 @@ lazy val bots =
       aBarberoBot,
       richardPHJBensonBot,
       xahBot,
-      youtuboAncheIoBot
+      youtuboAncheIoBot,
+      integration
     )
 
 lazy val telegramBotInfrastructure =

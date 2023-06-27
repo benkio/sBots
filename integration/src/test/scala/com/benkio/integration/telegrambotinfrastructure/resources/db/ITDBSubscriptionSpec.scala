@@ -6,7 +6,7 @@ import java.util.UUID
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 import doobie.munit.analysisspec.IOChecker
 

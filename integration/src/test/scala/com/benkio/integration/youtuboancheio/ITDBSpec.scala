@@ -1,7 +1,7 @@
 package com.benkio.integration.youtuboancheio
 
 import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 

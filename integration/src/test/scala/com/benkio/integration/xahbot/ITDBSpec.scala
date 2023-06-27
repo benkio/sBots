@@ -9,7 +9,7 @@ import telegramium.bots.Message
 
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model.Reply
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 
 import cats.effect.IO

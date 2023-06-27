@@ -5,7 +5,7 @@ import java.sql.DriverManager
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.DBFixture
+import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 import doobie.munit.analysisspec.IOChecker
 
