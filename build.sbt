@@ -25,8 +25,7 @@ lazy val bots =
       aBarberoBot,
       richardPHJBensonBot,
       xahBot,
-      youtuboAncheIoBot,
-      integration
+      youtuboAncheIoBot
     )
 
 lazy val telegramBotInfrastructure =
@@ -100,4 +99,4 @@ lazy val integration = (project in file("integration"))
     main
   )
   .settings(Settings.settings: _*)
-  .settings(Settings.IntegrationDependencies)
+  .settings(Settings.IntegrationSettings)

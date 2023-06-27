@@ -21,8 +21,8 @@ object Dependencies {
     val logEffects         = "0.17.0"
     val mules              = "0.7.0"
     val mulesHttp4s        = "0.4.0"
-    val munit              = "0.7.29"
-    val munitCatsEffect    = "1.0.7"
+    val munit              = "1.0.0-M8"
+    val munitCatsEffect    = "2.0.0-M3"
     val pureConfig         = "0.17.4"
     val shapeless          = "2.3.10"
     val sqlite             = "3.41.2.1"
@@ -61,7 +61,7 @@ object Dependencies {
     val mules             = "io.chrisdavenport"             %% "mules"               % versions.mules
     val mulesHttp4s       = "io.chrisdavenport"             %% "mules-http4s"        % versions.mulesHttp4s
     val munit             = "org.scalameta"                 %% "munit"               % versions.munit           % "test"
-    val munitCatsEffect   = "org.typelevel"                 %% "munit-cats-effect-3" % versions.munitCatsEffect % "test"
+    val munitCatsEffect   = "org.typelevel"                 %% "munit-cats-effect" % versions.munitCatsEffect % "test"
     val pureConfig        = "com.github.pureconfig"         %% "pureconfig"          % versions.pureConfig
     val pureConfigCore    = "com.github.pureconfig"         %% "pureconfig-core"     % versions.pureConfig
     val pureConfigGeneric = "com.github.pureconfig"         %% "pureconfig-generic"  % versions.pureConfig
@@ -162,7 +162,7 @@ object Dependencies {
     libs.shapeless,
   )
 
-  val AllDependencies : Seq[ModuleID] =
+  val IntegrationDependencies : Seq[ModuleID] =
     Seq(
       libs.munitCatsEffect,
       libs.munit,

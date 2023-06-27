@@ -36,9 +36,9 @@ object Settings {
     dependencyOverrides := TelegramBotInfrastructureDependencies
   )
 
-  lazy val IntegrationDependencies = Seq(
+  lazy val IntegrationSettings = Seq(
     name                := "Integration",
-    libraryDependencies := AllDependencies,
+    libraryDependencies := IntegrationDependencies,
     publish / skip      := true,
   )
 

@@ -22,7 +22,7 @@ class ITSpec extends FunSuite with DBConstants {
 
     val _ = setEnv("DB_CONNECTION_URL", dbUrl)
 
-    val _ = Main.run(List(s"$resourcePath$testApplicationConf", "it")).unsafeRunSync()
+    val _ = Main.run(List(s"$resourcePath$testApplicationConf", "test")).unsafeRunSync()
 
     val transactor = Transactor.fromDriverManager[IO](
       "org.sqlite.JDBC",

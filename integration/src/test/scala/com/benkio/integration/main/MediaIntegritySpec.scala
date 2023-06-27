@@ -14,7 +14,7 @@ import munit.CatsEffectSuite
 
 class MediaIntegritySpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  override val munitTimeout = Duration.Inf
+  override val munitIOTimeout = Duration.Inf
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
     Class.forName("org.sqlite.JDBC")
