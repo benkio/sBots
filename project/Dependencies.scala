@@ -129,6 +129,8 @@ object Dependencies {
     libs.emoji
   )
 
+  val MosconiBotDependencies: Seq[ModuleID] = CommonDependencies
+
   val RichardPHJBensonBotDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
       libs.emoji

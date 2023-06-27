@@ -82,6 +82,14 @@ object Settings {
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
+  lazy val MosconiBotSettings = Seq(
+    name                     := "MosconiBot",
+    libraryDependencies      := MosconiBotDependencies,
+    dependencyOverrides      := MosconiBotDependencies,
+    mainClass                := Some("com.benkio.Mosconibot.MosconiBotMainPolling"),
+    Test / resourceDirectory := (Compile / resourceDirectory).value
+  ) ++ assemblySettings
+
   lazy val MainSettings = Seq(
     name                := "main",
     libraryDependencies := MainDependencies,
