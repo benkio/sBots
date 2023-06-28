@@ -190,6 +190,8 @@ Input as query string:
     ) = s"""
 ---- Instruzioni Per $botName ----
 
+Per segnalare problemi, scrivere a: https://t.me/Benkio
+
 I comandi del bot sono:
 
 ${commandDescriptions.mkString("- ", "\n- ", "")}
@@ -205,6 +207,8 @@ ${if (ignoreMessagePrefix.isDefined) {
         commandDescriptions: List[String]
     ) = s"""
 ---- Instructions for $botName ----
+
+to report issues, write to: https://t.me/Benkio
 
 Bot commands are:
 

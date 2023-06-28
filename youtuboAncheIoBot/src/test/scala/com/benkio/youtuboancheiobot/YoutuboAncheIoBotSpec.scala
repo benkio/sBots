@@ -113,6 +113,8 @@ class YoutuboAncheIoBotSpec extends CatsEffectSuite {
         s"""
 ---- Instruzioni Per YoutuboAncheIoBot ----
 
+Per segnalare problemi, scrivere a: https://t.me/Benkio
+
 I comandi del bot sono:
 
 - '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
@@ -141,6 +143,8 @@ carattere: `!`
 """,
         s"""
 ---- Instructions for YoutuboAncheIoBot ----
+
+to report issues, write to: https://t.me/Benkio
 
 Bot commands are:
 
