@@ -318,7 +318,8 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("(mi|me) so(n|no)? rotto il ca\\b".r, 17),
-        StringTextTriggerValue("impazzisce totalmente")
+        RegexTextTriggerValue("impazzi(to|sce|ta) totalmente".r, 20),
+        RegexTextTriggerValue("a(gia[s]?){2,}".r, 7)
       ),
       List(
         MediaFile("rphjb_RottoIlCa.mp4")

@@ -85,7 +85,7 @@ object MosconiBot {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "MosconiBot"
   val botPrefix: String                   = "mos"
-  val triggerListUri: Uri     = uri"https://github.com/benkio/myTelegramBot/blob/master/MosconiBot/mos_triggers.txt"
+  val triggerListUri: Uri     = uri"https://github.com/benkio/myTelegramBot/blob/master/mosconiBot/mos_triggers.txt"
   val tokenFilename: String   = "mos_MosconiBot.token"
   val configNamespace: String = "mosDB"
 
@@ -490,7 +490,8 @@ object MosconiBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("[dfdbah]{5,}".r, 5)
+        RegexTextTriggerValue("[dfdba]{5,}".r, 5),
+        RegexTextTriggerValue("farfugl(i|a|iare|iamento)".r, 7)
       ),
       mediafiles = List(
         MediaFile("mos_Difabbddffbbaa.mp3")
@@ -735,7 +736,7 @@ object MosconiBot {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("non capisco più niente"),
-        StringTextTriggerValue("non riesco a capire piò niente")
+        StringTextTriggerValue("non riesco a capire più niente")
       ),
       mediafiles = List(
         MediaFile("mos_NonRiescoACapireNiente.mp3"),
@@ -808,7 +809,7 @@ object MosconiBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("dio bubu")
+        RegexTextTriggerValue("dio bub[uù]".r, 8)
       ),
       mediafiles = List(
         MediaFile("mos_PiproviamoDioBubu.mp3")
