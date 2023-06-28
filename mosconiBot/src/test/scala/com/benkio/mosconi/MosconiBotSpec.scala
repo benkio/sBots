@@ -45,7 +45,7 @@ class MosconiBotSpec extends CatsEffectSuite {
     )
     assertEquals(
       triggerlistUrl,
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/MosconiBot/mos_triggers.txt"
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/mosconiBot/mos_triggers.txt"
     )
 
   }
@@ -104,7 +104,7 @@ class MosconiBotSpec extends CatsEffectSuite {
         s"""
 ---- Instruzioni Per MosconiBot ----
 
-https://t.me/Benkiohttps://t.me/Benkiohttps://t.me/Benkio
+Per segnalare problemi, scrivere a: https://t.me/Benkio
 
 I comandi del bot sono:
 
