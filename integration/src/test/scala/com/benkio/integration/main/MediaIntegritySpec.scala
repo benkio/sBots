@@ -29,7 +29,7 @@ class MediaIntegritySpec extends CatsEffectSuite with DBFixture with IOChecker {
     (RichardPHJBensonBot.messageRepliesData[IO] ++
       ABarberoBot.messageRepliesData[IO] ++
       YoutuboAncheIoBot.messageRepliesData[IO] ++
-    MosconiBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinct
+      MosconiBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinct
 
   def checkFile(mf: MediaFile): Unit =
     databaseFixture.test(
