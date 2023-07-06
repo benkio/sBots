@@ -1066,6 +1066,15 @@ object Video {
         MediaFile("rphjb_SentireOriginale.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("legati"),
+        StringTextTriggerValue("spago"),
+      ),
+      List(
+        MediaFile("rphjb_LegatiSpago.mp4")
+      )
+    ),
   )
 
 }
