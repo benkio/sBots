@@ -1075,6 +1075,16 @@ object Video {
         MediaFile("rphjb_LegatiSpago.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ci siamo sciolti"),
+        StringTextTriggerValue("non l'ha capita"),
+        RegexTextTriggerValue("\\bnodi\\b".r, 4),
+      ),
+      List(
+        MediaFile("rphjb_Nodi.mp4")
+      )
+    ),
   )
 
 }
