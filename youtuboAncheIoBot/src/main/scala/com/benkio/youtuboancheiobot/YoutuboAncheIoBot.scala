@@ -684,8 +684,10 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("ti voglio (tanto )?bene".r, 14),
       ),
       mediafiles = List(
-        GifFile("ytai_TVTB.mp4")
-      )
+        GifFile("ytai_TVTB.mp4"),
+        MediaFile("ytai_AncheIoTiVoglioTantoBene.mp3")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1124,8 +1126,10 @@ object YoutuboAncheIoBot {
         RegexTextTriggerValue("vi voglio (tanto )*bene".r, 14)
       ),
       mediafiles = List(
-        GifFile("ytai_ViVoglioTantoBene.mp4")
-      )
+        GifFile("ytai_ViVoglioTantoBeneGif.mp4"),
+        MediaFile("ytai_ViVoglioTantoBene.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
