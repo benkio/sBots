@@ -1398,6 +1398,14 @@ object YoutuboAncheIoBot {
         GifFile("ytai_DipendeDaComeMiSento.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("eccellente")
+      ),
+      List(
+        GifFile("ytai_Eccellente.mp4")
+      )
+    ),
   )
 
   def messageRepliesSpecialData[
