@@ -476,6 +476,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_MoltoBuona.mp4"),
+        GifFile("ytai_MoltoBuona2.mp4"),
         GifFile("ytai_Buona.mp4")
       ),
       replySelection = RandomSelection
@@ -1404,6 +1405,31 @@ object YoutuboAncheIoBot {
       ),
       List(
         GifFile("ytai_Eccellente.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non fatelo più")
+      ),
+      List(
+        GifFile("ytai_NonFateloPiu.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("molto dolce"),
+        StringTextTriggerValue("molto buono")
+      ),
+      List(
+        GifFile("ytai_MoltoDolceMoltoBuono.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ne avevo proprio voglia")
+      ),
+      List(
+        GifFile("ytai_NeAvevoProprioVoglia.mp4")
       )
     ),
   )
