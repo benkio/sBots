@@ -636,7 +636,7 @@ object Video {
       TextTrigger(
         RegexTextTriggerValue("drogh[ae] (legger[ae]|pesant[ei])".r, 14),
         StringTextTriggerValue("ammoniaca"),
-        RegexTextTriggerValue("(sprecano|allungano) le foglie", 18),
+        RegexTextTriggerValue("(sprecano|allungano) le foglie".r, 18),
         StringTextTriggerValue("veleno per topi"),
         StringTextTriggerValue("borotalco")
       ),
