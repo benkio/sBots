@@ -1371,7 +1371,33 @@ object YoutuboAncheIoBot {
         GifFile("ytai_GrazieTante2.mp4")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("beviamoci sopra"),
+        StringTextTriggerValue("non vi preoccupate"),
+        StringTextTriggerValue("non c'è alcohol"),
+      ),
+      List(
+        GifFile("ytai_BeviamociSopraNoAlcohol.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cercherò di preparlo"),
+      ),
+      List(
+        GifFile("ytai_CercheroDiPrepararlo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("dipende da come mi sento")
+      ),
+      List(
+        GifFile("ytai_DipendeDaComeMiSento.mp4")
+      )
+    ),
   )
 
   def messageRepliesSpecialData[
