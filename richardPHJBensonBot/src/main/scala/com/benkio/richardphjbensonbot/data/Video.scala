@@ -1056,7 +1056,16 @@ object Video {
       List(
         MediaFile("rphjb_Rebus.mp4")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non c'è giudizio"),
+        StringTextTriggerValue("parola fine"),
+      ),
+      List(
+        MediaFile("rphjb_SentireOriginale.mp4")
+      )
+    ),
   )
 
 }
