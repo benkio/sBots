@@ -1458,6 +1458,24 @@ object YoutuboAncheIoBot {
         GifFile("ytai_ForteProfumoMiele.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("😋"),
+        StringTextTriggerValue("yum"),
+      ),
+      List(
+        GifFile("ytai_GestoGustoso.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mia filosofia"),
+        RegexTextTriggerValue("risol(to|vere) con tutti".r, 15),
+      ),
+      List(
+        GifFile("ytai_HoRisoltoConTutti.mp4")
+      )
+    ),
   )
 
   def messageRepliesSpecialData[
