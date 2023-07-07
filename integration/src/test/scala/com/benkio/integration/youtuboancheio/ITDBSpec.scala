@@ -63,11 +63,34 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "messageRepliesSpecialData should never raise an exception when try to open the file in resounces"
+    "messageRepliesMixData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
     val resourceAssert = for {
-      specials <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
+      specials <- Resource.pure(messageRepliesMixData[IO].flatMap(_.mediafiles))
+      checks <- Resource.eval(
+        specials
+          .traverse((special: MediaFile) =>
+            DBMedia
+              .getMediaQueryByName(special.filename)
+              .unique
+              .transact(transactor)
+              .onError(_ => IO.println(s"[ERROR] special missing from the DB: " + special))
+              .attempt
+              .map(_.isRight)
+          )
+      )
+    } yield checks.foldLeft(true)(_ && _)
+
+    resourceAssert.use(IO.pure).assert
+  }
+
+  databaseFixture.test(
+    "messageRepliesVideoData should never raise an exception when try to open the file in resounces"
+  ) { fixture =>
+    val transactor = fixture.transactor
+    val resourceAssert = for {
+      specials <- Resource.pure(messageRepliesVideoData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         specials
           .traverse((special: MediaFile) =>
