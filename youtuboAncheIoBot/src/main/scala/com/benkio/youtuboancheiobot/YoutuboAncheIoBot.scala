@@ -1385,7 +1385,7 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("cercherò di preparlo"),
+        StringTextTriggerValue("cercherò di prepararlo"),
       ),
       List(
         GifFile("ytai_CercheroDiPrepararlo.mp4")
@@ -1474,6 +1474,22 @@ object YoutuboAncheIoBot {
       ),
       List(
         GifFile("ytai_HoRisoltoConTutti.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("fetta al latte")
+      ),
+      List(
+        GifFile("ytai_KinderFettaAlLatte.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sentendo in compagnia")
+      ),
+      List(
+        GifFile("ytai_MiStoSentendoInCompagnia.mp4")
       )
     ),
   )
