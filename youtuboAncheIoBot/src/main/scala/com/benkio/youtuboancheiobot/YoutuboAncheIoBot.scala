@@ -255,19 +255,6 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("che vergogna"),
-        StringTextTriggerValue("non ce l'ho"),
-        StringTextTriggerValue("sopracciglia"),
-        RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r, 22)
-      ),
-      mediafiles = List(
-        GifFile("ytai_CheVergogna.mp4"),
-        MediaFile("ytai_CheVergogna.mp3"),
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
         StringTextTriggerValue("ciao!")
       ),
       mediafiles = List(
@@ -476,6 +463,7 @@ object YoutuboAncheIoBot {
       ),
       mediafiles = List(
         GifFile("ytai_MoltoBuona.mp4"),
+        GifFile("ytai_MoltoBuona2.mp4"),
         GifFile("ytai_Buona.mp4")
       ),
       replySelection = RandomSelection
@@ -655,8 +643,10 @@ object YoutuboAncheIoBot {
         StringTextTriggerValue("sorprendente"),
       ),
       mediafiles = List(
-        GifFile("ytai_Sorprendente.mp4")
-      )
+        GifFile("ytai_Sorprendente.mp4"),
+        GifFile("ytai_SecondoBocconeSorprendente.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -678,14 +668,6 @@ object YoutuboAncheIoBot {
         GifFile("ytai_PaninoBuonoSpuntito.mp4")
       ),
       replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        RegexTextTriggerValue("ti voglio (tanto )?bene".r, 14),
-      ),
-      mediafiles = List(
-        GifFile("ytai_TVTB.mp4")
-      )
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1121,14 +1103,6 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("vi voglio (tanto )*bene".r, 14)
-      ),
-      mediafiles = List(
-        GifFile("ytai_ViVoglioTantoBene.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
         StringTextTriggerValue("salmone"),
       ),
       mediafiles = List(
@@ -1332,11 +1306,13 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("kinder fetta al latte")
+        StringTextTriggerValue("fetta al latte")
       ),
       mediafiles = List(
-        GifFile("ytai_TorreKinderFettaLatte.mp4")
-      )
+        GifFile("ytai_TorreKinderFettaLatte.mp4"),
+        GifFile("ytai_KinderFettaAlLatte.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1367,10 +1343,164 @@ object YoutuboAncheIoBot {
         GifFile("ytai_GrazieTante2.mp4")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("beviamoci sopra"),
+        StringTextTriggerValue("non vi preoccupate"),
+        StringTextTriggerValue("non c'è alcohol"),
+      ),
+      List(
+        GifFile("ytai_BeviamociSopraNoAlcohol.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cercherò di prepararlo"),
+      ),
+      List(
+        GifFile("ytai_CercheroDiPrepararlo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("dipende da come mi sento")
+      ),
+      List(
+        GifFile("ytai_DipendeDaComeMiSento.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("eccellente")
+      ),
+      List(
+        GifFile("ytai_Eccellente.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non fatelo più")
+      ),
+      List(
+        GifFile("ytai_NonFateloPiu.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("molto dolce"),
+        StringTextTriggerValue("molto buono")
+      ),
+      List(
+        GifFile("ytai_MoltoDolceMoltoBuono.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ne avevo proprio voglia")
+      ),
+      List(
+        GifFile("ytai_NeAvevoProprioVoglia.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("c'entra (quasi )?sempre".r, 14),
+      ),
+      List(
+        GifFile("ytai_CentraQuasiSempre.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("riesco a darvi"),
+        RegexTextTriggerValue("imparare (anche io )?(un po' )?di più".r, 15),
+      ),
+      List(
+        GifFile("ytai_DarviImparare.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("miele"),
+        StringTextTriggerValue("forte profumo"),
+      ),
+      List(
+        GifFile("ytai_ForteProfumoMiele.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("😋"),
+        StringTextTriggerValue("yum"),
+      ),
+      List(
+        GifFile("ytai_GestoGustoso.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mia filosofia"),
+        RegexTextTriggerValue("risol(to|vere) con tutti".r, 15),
+      ),
+      List(
+        GifFile("ytai_HoRisoltoConTutti.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("sentendo in compagnia")
+      ),
+      List(
+        GifFile("ytai_MiStoSentendoInCompagnia.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("vengono le parole"),
+        StringTextTriggerValue("intendi dire"),
+      ),
+      List(
+        GifFile("ytai_NoParoleMostraIntenzioni.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("quello che ci voleva"),
+        RegexTextTriggerValue("bibita (bella )?fresca".r, 13),
+      ),
+      List(
+        GifFile("ytai_QuestaBibitaBellaFresca.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("secondo boccone"),
+      ),
+      List(
+        GifFile("ytai_SecondoBocconeSorprendente.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("veterano"),
+        StringTextTriggerValue("chat day"),
+      ),
+      List(
+        GifFile("ytai_VeteranoChatDays.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("vivete questo momento")
+      ),
+      List(
+        GifFile("ytai_ViveteQuestoMomentoConMe.mp4")
+      )
+    ),
   )
 
-  def messageRepliesSpecialData[
+  def messageRepliesMixData[
       F[_]
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
@@ -1433,13 +1563,63 @@ object YoutuboAncheIoBot {
         MediaFile("ytai_AlloraLi.mp3")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("che vergogna"),
+        StringTextTriggerValue("non ce l'ho"),
+        StringTextTriggerValue("sopracciglia"),
+        RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r, 22)
+      ),
+      mediafiles = List(
+        GifFile("ytai_CheVergogna.mp4"),
+        MediaFile("ytai_CheVergogna.mp3"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("ti voglio (tanto )?bene".r, 14),
+      ),
+      mediafiles = List(
+        GifFile("ytai_TVTB.mp4"),
+        MediaFile("ytai_AncheIoTiVoglioTantoBene.mp3")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        RegexTextTriggerValue("vi voglio (tanto )*bene".r, 14)
+      ),
+      mediafiles = List(
+        GifFile("ytai_ViVoglioTantoBeneGif.mp4"),
+        MediaFile("ytai_ViVoglioTantoBene.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+  )
+
+  def messageRepliesVideoData[
+      F[_]
+  ]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("in america"),
+        RegexTextTriggerValue("(posto|carico) i video".r, 13),
+        StringTextTriggerValue("restiamo in contatto"),
+        StringTextTriggerValue("attraverso i commenti"),
+        StringTextTriggerValue("sto risolvendo")
+      ),
+      List(
+        MediaFile("ytai_SognoAmericano.mp4")
+      )
+    ),
   )
 
   def messageRepliesData[
       F[_]
   ]: List[ReplyBundleMessage[F]] =
-    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesSpecialData[F])
+    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesVideoData[F])
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 

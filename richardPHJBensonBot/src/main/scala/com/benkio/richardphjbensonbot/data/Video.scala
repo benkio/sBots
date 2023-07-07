@@ -636,6 +636,7 @@ object Video {
       TextTrigger(
         RegexTextTriggerValue("drogh[ae] (legger[ae]|pesant[ei])".r, 14),
         StringTextTriggerValue("ammoniaca"),
+        RegexTextTriggerValue("(sprecano|allungano) le foglie".r, 18),
         StringTextTriggerValue("veleno per topi"),
         StringTextTriggerValue("borotalco")
       ),
@@ -1055,7 +1056,35 @@ object Video {
       List(
         MediaFile("rphjb_Rebus.mp4")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non c'è giudizio"),
+        StringTextTriggerValue("parola fine"),
+      ),
+      List(
+        MediaFile("rphjb_SentireOriginale.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("legati"),
+        StringTextTriggerValue("spago"),
+      ),
+      List(
+        MediaFile("rphjb_LegatiSpago.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ci siamo sciolti"),
+        StringTextTriggerValue("non l'ha capita"),
+        RegexTextTriggerValue("\\bnodi\\b".r, 4),
+      ),
+      List(
+        MediaFile("rphjb_Nodi.mp4")
+      )
+    ),
   )
 
 }

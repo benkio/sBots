@@ -1027,6 +1027,23 @@ object Gif {
         GifFile("rphjb_SentireOriginale.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("fai schifo"),
+        StringTextTriggerValue("sei l'ultimo"),
+      ),
+      List(
+        GifFile("rphjb_FaiSchifoSeiUltimo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ragazza indemoniata"),
+      ),
+      List(
+        GifFile("rphjb_LaRagazzaIndemoniata.mp4")
+      )
+    ),
   )
 
 }
