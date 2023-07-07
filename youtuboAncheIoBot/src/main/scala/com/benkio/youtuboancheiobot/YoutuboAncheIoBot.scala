@@ -1432,6 +1432,32 @@ object YoutuboAncheIoBot {
         GifFile("ytai_NeAvevoProprioVoglia.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("c'entra (quasi )?sempre".r, 14),
+      ),
+      List(
+        GifFile("ytai_CentraQuasiSempre.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("riesco a darvi"),
+        RegexTextTriggerValue("imparare (anche io )?(un po' )?di più".r, 15),
+      ),
+      List(
+        GifFile("ytai_DarviImparare.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("miele"),
+        StringTextTriggerValue("forte profumo"),
+      ),
+      List(
+        GifFile("ytai_ForteProfumoMiele.mp4")
+      )
+    ),
   )
 
   def messageRepliesSpecialData[
