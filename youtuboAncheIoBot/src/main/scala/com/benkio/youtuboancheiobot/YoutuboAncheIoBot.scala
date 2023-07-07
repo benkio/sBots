@@ -1492,6 +1492,24 @@ object YoutuboAncheIoBot {
         GifFile("ytai_MiStoSentendoInCompagnia.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("vengono le parole"),
+        StringTextTriggerValue("intendi dire"),
+      ),
+      List(
+        GifFile("ytai_NoParoleMostraIntenzioni.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("quello che ci voleva"),
+        RegexTextTriggerValue("bibita (bella )?fresca".r, 13),
+      ),
+      List(
+        GifFile("ytai_QuestaBibitaBellaFresca.mp4")
+      )
+    ),
   )
 
   def messageRepliesSpecialData[
