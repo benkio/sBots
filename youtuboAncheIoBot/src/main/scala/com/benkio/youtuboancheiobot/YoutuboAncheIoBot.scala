@@ -1508,6 +1508,15 @@ object YoutuboAncheIoBot {
         GifFile("ytai_Tremo.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("fallo anche (te|tu)".r, 14),
+        RegexTextTriggerValue("\\bcome me\\b".r, 5)
+      ),
+      List(
+        GifFile("ytai_FalloAncheTeComeMe.mp4")
+      )
+    ),
   )
 
   def messageRepliesMixData[
