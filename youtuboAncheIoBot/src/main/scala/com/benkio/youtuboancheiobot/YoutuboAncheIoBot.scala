@@ -1498,6 +1498,15 @@ object YoutuboAncheIoBot {
         GifFile("ytai_ViveteQuestoMomentoConMe.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\btremo\\b".r, 5),
+        StringTextTriggerValue("le mie condizioni")
+      ),
+      List(
+        GifFile("ytai_Tremo.mp4")
+      )
+    ),
   )
 
   def messageRepliesMixData[
