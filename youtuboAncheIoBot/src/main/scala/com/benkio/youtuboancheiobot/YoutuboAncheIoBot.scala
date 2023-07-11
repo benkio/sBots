@@ -664,6 +664,7 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_SpuntinoConMe.mp4"),
         GifFile("ytai_SpuntinoConMe2.mp4"),
+        GifFile("ytai_SpuntinoConMe3.mp4"),
         GifFile("ytai_BuonoSpuntino.mp4"),
         GifFile("ytai_PaninoBuonoSpuntito.mp4")
       ),
