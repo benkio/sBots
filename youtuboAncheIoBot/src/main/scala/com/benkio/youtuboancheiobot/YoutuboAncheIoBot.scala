@@ -422,7 +422,7 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("lo so anche io")
+        RegexTextTriggerValue("lo so (bene )?anche io".r, 14)
       ),
       mediafiles = List(
         GifFile("ytai_LoSoAncheIo.mp4")
@@ -664,6 +664,7 @@ object YoutuboAncheIoBot {
       mediafiles = List(
         GifFile("ytai_SpuntinoConMe.mp4"),
         GifFile("ytai_SpuntinoConMe2.mp4"),
+        GifFile("ytai_SpuntinoConMe3.mp4"),
         GifFile("ytai_BuonoSpuntino.mp4"),
         GifFile("ytai_PaninoBuonoSpuntito.mp4")
       ),
@@ -1496,6 +1497,43 @@ object YoutuboAncheIoBot {
       ),
       List(
         GifFile("ytai_ViveteQuestoMomentoConMe.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\btremo\\b".r, 5),
+        StringTextTriggerValue("le mie condizioni")
+      ),
+      List(
+        GifFile("ytai_Tremo.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("fallo anche (te|tu)".r, 14),
+        RegexTextTriggerValue("\\bcome me\\b".r, 5)
+      ),
+      List(
+        GifFile("ytai_FalloAncheTeComeMe.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cercando di fare"),
+        StringTextTriggerValue("del mio meglio")
+      ),
+      List(
+        GifFile("ytai_FareDelMioMeglio.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("limitato molto"),
+        StringTextTriggerValue("essere privato"),
+        StringTextTriggerValue("questi soldi"),
+      ),
+      List(
+        GifFile("ytai_PrivatoSoldiLimitatoMolto.mp4")
       )
     ),
   )
