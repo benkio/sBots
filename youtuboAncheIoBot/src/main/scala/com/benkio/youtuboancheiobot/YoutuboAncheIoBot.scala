@@ -1517,6 +1517,15 @@ object YoutuboAncheIoBot {
         GifFile("ytai_FalloAncheTeComeMe.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("cercando di fare"),
+        StringTextTriggerValue("del mio meglio")
+      ),
+      List(
+        GifFile("ytai_FareDelMioMeglio.mp4")
+      )
+    ),
   )
 
   def messageRepliesMixData[
