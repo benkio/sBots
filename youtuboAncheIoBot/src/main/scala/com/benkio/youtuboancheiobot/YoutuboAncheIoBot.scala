@@ -422,7 +422,7 @@ object YoutuboAncheIoBot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("lo so anche io")
+        RegexTextTriggerValue("lo so (bene )?anche io".r, 14)
       ),
       mediafiles = List(
         GifFile("ytai_LoSoAncheIo.mp4")
