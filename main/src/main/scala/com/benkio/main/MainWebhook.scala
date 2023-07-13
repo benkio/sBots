@@ -15,6 +15,7 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import org.http4s.ember.client._
+import org.http4s.server.Server
 import telegramium.bots.InputPartFile
 import telegramium.bots.high.WebhookBot
 
@@ -25,7 +26,7 @@ object MainWebhook extends IOApp {
   def run(args: List[String]): IO[ExitCode] = {
     implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-    val server = for {
+    val server: Resource[IO, Server] = for {
       config      <- Resource.eval(Config.loadConfig)
       httpClient  <- EmberClientBuilder.default[IO].withMaxResponseHeaderSize(8192).build
       certificate <- Resource.eval(IO.pure(config.webhookCertificate.map(fp => InputPartFile(new File(fp)))))
@@ -73,6 +74,6 @@ object MainWebhook extends IOApp {
       )
     } yield server
 
-    server.useForever *> ExitCode.Success.pure[IO]
+    GeneralErrorHandling.dbLogAndRestart[IO, Server](server).useForever *> ExitCode.Success.pure[IO]
   }
 }

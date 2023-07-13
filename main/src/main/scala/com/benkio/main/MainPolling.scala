@@ -12,7 +12,12 @@ import com.benkio.youtuboancheiobot.YoutuboAncheIoBotMainPolling
 
 object MainPolling extends IOApp {
   def run(args: List[String]): IO[ExitCode] =
-    ABarberoBotMainPolling.run(args) &> CalandroBotMainPolling.run(args) &> RichardPHJBensonBotMainPolling.run(
-      args
-    ) &> XahBotMainPolling.run(args) &> YoutuboAncheIoBotMainPolling.run(args) &> MosconiBotMainPolling.run(args)
+    GeneralErrorHandling.dbLogAndRestart(
+      ABarberoBotMainPolling.run(args) &>
+        CalandroBotMainPolling.run(args) &>
+        RichardPHJBensonBotMainPolling.run(args) &>
+        XahBotMainPolling.run(args) &>
+        YoutuboAncheIoBotMainPolling.run(args) &>
+        MosconiBotMainPolling.run(args)
+    )
 }
