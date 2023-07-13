@@ -8,7 +8,7 @@ import scala.concurrent.duration._
 
 object FilteringOlder {
 
-  val olderThreshold: FiniteDuration = 10.minutes
+  val olderThreshold: FiniteDuration = 5.minutes
 
   def filter(msg: Message): Boolean = {
     val nowSeconds: Long = Instant.now.getEpochSecond()
