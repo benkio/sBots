@@ -1,5 +1,6 @@
 package com.benkio.main
 
+import com.benkio.telegrambotinfrastructure.resources.db.DBLog
 import cats.ApplicativeError
 import cats.effect.kernel.MonadCancel
 import cats.effect.ExitCode
@@ -8,13 +9,14 @@ import cats.effect.Resource
 
 object GeneralErrorHandling {
 
-  def dbLogAndRestart[F[_], A](server: Resource[F, A])(implicit
+  def dbLogAndRestart[F[_], A](dbLog: DBLog[F], server: Resource[F, A])(implicit
       appErr: ApplicativeError[F, Throwable]
   ): Resource[F, A] =
-    server.handleErrorWith((e: Throwable) => dbLogError(e).flatMap(_ => dbLogAndRestart(server)))
+    server.handleErrorWith((e: Throwable) => dbLogError(dbLog, e).flatMap(_ => dbLogAndRestart(dbLog, server)))
 
-  def dbLogAndRestart(app: IO[ExitCode])(implicit monCancel: MonadCancel[IO, Throwable]): IO[ExitCode] =
-    app.handleErrorWith((e: Throwable) => dbLogError[IO](e).use_ *> app)
+  def dbLogAndRestart(dbLog: DBLog[IO], app: IO[ExitCode])(implicit monCancel: MonadCancel[IO, Throwable]): IO[ExitCode] =
+    app.handleErrorWith((e: Throwable) => dbLogError[IO](dbLog, e).use_ *> app)
 
-  private def dbLogError[F[_]](e: Throwable): Resource[F, Unit] = ???
+  private def dbLogError[F[_]](dbLog: DBLog[F], e: Throwable): Resource[F, Unit] =
+    Resource.eval(dbLog.writeLog(e.getMessage()))
 }
