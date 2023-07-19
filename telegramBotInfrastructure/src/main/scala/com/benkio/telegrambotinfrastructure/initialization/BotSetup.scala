@@ -55,6 +55,15 @@ object BotSetup {
       .getResourceByteArray(tokenFilename)
       .map(_.map(_.toChar).mkString)
 
+  def loadDB[F[_]: Async](config: Config)(implicit log: LogWriter[F]): Resource[F, DBLayer[F]] = 
+    Resource.eval(DBLayer[F](Transactor.fromDriverManager[F](
+      config.driver,
+      config.url,
+      "",
+      "",
+      None
+    )))
+
   def apply[F[_]: Async](
       httpClient: Client[F],
       tokenFilename: String,
@@ -65,15 +74,8 @@ object BotSetup {
     tk     <- token[F](tokenFilename)
     config <- Resource.eval(Config.loadConfig[F](namespace))
     _      <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
-    transactor = Transactor.fromDriverManager[F](
-      config.driver,
-      config.url,
-      "",
-      "",
-      None
-    )
     urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
-    dbLayer    <- Resource.eval(DBLayer[F](transactor))
+    dbLayer    <- loadDB[F](config)
     resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)

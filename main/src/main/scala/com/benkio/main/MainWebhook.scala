@@ -27,38 +27,36 @@ object MainWebhook extends IOApp {
     implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
     val server: Resource[IO, Server] = for {
-      config      <- Resource.eval(Config.loadConfig)
-      httpClient  <- EmberClientBuilder.default[IO].withMaxResponseHeaderSize(8192).build
-      certificate <- Resource.eval(IO.pure(config.webhookCertificate.map(fp => InputPartFile(new File(fp)))))
+      mainSetup <- MainSetup[IO]()
       xahWebhook <- XahBot.buildWebhookBot[IO](
-        httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl,
-        webhookCertificate = certificate
+        httpClient = mainSetup.httpClient,
+        webhookBaseUrl = mainSetup.webhookBaseUrl,
+        webhookCertificate = mainSetup.webhookCertificate
       )
       youtuboAncheIoWebhook <- YoutuboAncheIoBot.buildWebhookBot[IO](
-        httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl,
-        webhookCertificate = certificate
+        httpClient = mainSetup.httpClient,
+        webhookBaseUrl = mainSetup.webhookBaseUrl,
+        webhookCertificate = mainSetup.webhookCertificate
       )
       mosconiWebhook <- MosconiBot.buildWebhookBot[IO](
-        httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl,
-        webhookCertificate = certificate
+        httpClient = mainSetup.httpClient,
+        webhookBaseUrl = mainSetup.webhookBaseUrl,
+        webhookCertificate = mainSetup.webhookCertificate
       )
       calandroWebhook <- CalandroBot.buildWebhookBot[IO](
-        httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl,
-        webhookCertificate = certificate
+        httpClient = mainSetup.httpClient,
+        webhookBaseUrl = mainSetup.webhookBaseUrl,
+        webhookCertificate = mainSetup.webhookCertificate
       )
       richardPHJBensonWebhook <- RichardPHJBensonBot.buildWebhookBot[IO](
-        httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl,
-        webhookCertificate = certificate
+        httpClient = mainSetup.httpClient,
+        webhookBaseUrl = mainSetup.webhookBaseUrl,
+        webhookCertificate = mainSetup.webhookCertificate
       )
       aBarberoWebhook <- ABarberoBot.buildWebhookBot[IO](
-        httpClient = httpClient,
-        webhookBaseUrl = config.webhookBaseUrl,
-        webhookCertificate = certificate
+        httpClient = mainSetup.httpClient,
+        webhookBaseUrl = mainSetup.webhookBaseUrl,
+        webhookCertificate = mainSetup.webhookCertificate
       )
       server <- WebhookBot.compose[IO](
         bots = List(
@@ -69,8 +67,8 @@ object MainWebhook extends IOApp {
           youtuboAncheIoWebhook,
           mosconiWebhook
         ),
-        port = config.port,
-        host = config.hostUrl
+        port = mainSetup.port,
+        host = mainSetup.hostUrl
       )
     } yield server
 
