@@ -17,7 +17,7 @@ object GeneralErrorHandling {
   def dbLogAndRestart(dbLog: DBLog[IO], app: IO[ExitCode])(implicit
       monCancel: MonadCancel[IO, Throwable]
   ): IO[ExitCode] =
-    app.handleErrorWith((e: Throwable) => dbLogError[IO](dbLog, e).use_ *> app)
+    app.handleErrorWith((e: Throwable) => dbLogError[IO](dbLog, e).use_ *> dbLogAndRestart(dbLog, app))
 
   private def dbLogError[F[_]](dbLog: DBLog[F], e: Throwable): Resource[F, Unit] =
     Resource.eval(dbLog.writeLog(e.getMessage()))
