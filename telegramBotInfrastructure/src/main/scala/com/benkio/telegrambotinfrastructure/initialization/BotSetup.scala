@@ -55,14 +55,18 @@ object BotSetup {
       .getResourceByteArray(tokenFilename)
       .map(_.map(_.toChar).mkString)
 
-  def loadDB[F[_]: Async](config: Config)(implicit log: LogWriter[F]): Resource[F, DBLayer[F]] = 
-    Resource.eval(DBLayer[F](Transactor.fromDriverManager[F](
-      config.driver,
-      config.url,
-      "",
-      "",
-      None
-    )))
+  def loadDB[F[_]: Async](config: Config)(implicit log: LogWriter[F]): Resource[F, DBLayer[F]] =
+    Resource.eval(
+      DBLayer[F](
+        Transactor.fromDriverManager[F](
+          config.driver,
+          config.url,
+          "",
+          "",
+          None
+        )
+      )
+    )
 
   def apply[F[_]: Async](
       httpClient: Client[F],
@@ -71,9 +75,9 @@ object BotSetup {
       botName: String,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
-    tk     <- token[F](tokenFilename)
-    config <- Resource.eval(Config.loadConfig[F](namespace))
-    _      <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
+    tk         <- token[F](tokenFilename)
+    config     <- Resource.eval(Config.loadConfig[F](namespace))
+    _          <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
     urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
     dbLayer    <- loadDB[F](config)
     resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)

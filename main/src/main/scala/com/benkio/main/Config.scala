@@ -1,16 +1,16 @@
 package com.benkio.main
 
 import cats.effect.Async
+import com.benkio.telegrambotinfrastructure.model.{ Config => DBConfig }
 import pureconfig._
 import pureconfig.generic.auto._
-import com.benkio.telegrambotinfrastructure.model.{Config => DBConfig}
 
 final case class Config(
-  webhookBaseUrl: String,
-  hostUrl: String,
-  port: Int,
-  webhookCertificate: Option[String],
-  mainDB: DBConfig
+    webhookBaseUrl: String,
+    hostUrl: String,
+    port: Int,
+    webhookCertificate: Option[String],
+    mainDB: DBConfig
 )
 
 object Config {

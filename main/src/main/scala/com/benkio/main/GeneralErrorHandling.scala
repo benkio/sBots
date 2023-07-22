@@ -1,11 +1,11 @@
 package com.benkio.main
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBLog
 import cats.ApplicativeError
 import cats.effect.kernel.MonadCancel
 import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.Resource
+import com.benkio.telegrambotinfrastructure.resources.db.DBLog
 
 object GeneralErrorHandling {
 
@@ -14,7 +14,9 @@ object GeneralErrorHandling {
   ): Resource[F, A] =
     server.handleErrorWith((e: Throwable) => dbLogError(dbLog, e).flatMap(_ => dbLogAndRestart(dbLog, server)))
 
-  def dbLogAndRestart(dbLog: DBLog[IO], app: IO[ExitCode])(implicit monCancel: MonadCancel[IO, Throwable]): IO[ExitCode] =
+  def dbLogAndRestart(dbLog: DBLog[IO], app: IO[ExitCode])(implicit
+      monCancel: MonadCancel[IO, Throwable]
+  ): IO[ExitCode] =
     app.handleErrorWith((e: Throwable) => dbLogError[IO](dbLog, e).use_ *> app)
 
   private def dbLogError[F[_]](dbLog: DBLog[F], e: Throwable): Resource[F, Unit] =
