@@ -137,7 +137,7 @@
  - OPTIONAL: be sure to have the right environment variables. IT'S RECOMMENDED TO
    CHANGE the ~application.conf~ (point 1) before running the ~assembly~. The environment variables could lose their value somehow.
  - Run the bots.
-   - Polling: ~java -Xmx1024m -cp main.jar com.benkio.main.MainPolling~
-   - Webhook: ~java -Xmx1024m -cp main.jar com.benkio.main.MainWebhook~
+   - Polling: ~java -Xmx512m -Xms512m -cp main.jar com.benkio.main.MainPolling~
+   - Webhook: ~java -Xmx512m -Xms512m -cp main.jar com.benkio.main.MainWebhook~
  - press ~Ctrl+Z~, run ~bg~ and ~disown~ in order to let previous command run in background
  - close your terminal and enjoy
