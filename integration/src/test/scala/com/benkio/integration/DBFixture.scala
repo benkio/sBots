@@ -61,6 +61,7 @@ trait DBFixture { self: FunSuite =>
 
       conn.createStatement().executeUpdate("DELETE FROM timeout;")
       conn.createStatement().executeUpdate("DELETE FROM subscription;")
+      conn.createStatement().executeUpdate("DELETE FROM log;")
       DBFixtureResources(
         connection = conn,
         transactor = transactor,

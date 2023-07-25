@@ -5,6 +5,8 @@ import cats.effect.kernel.Ref
 import com.benkio.telegrambotinfrastructure.model.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.db.DBLog
+import com.benkio.telegrambotinfrastructure.resources.db.DBLogData
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
@@ -23,12 +25,14 @@ object DBLayerMock {
       timeouts: List[DBTimeoutData] = List.empty,
       medias: List[DBMediaData] = List.empty,
       subscriptions: List[DBSubscriptionData] = List.empty,
-      shows: List[DBShowData] = List.empty
+      shows: List[DBShowData] = List.empty,
+      logs: List[DBLogData] = List.empty
   ): DBLayer[IO] = DBLayer(
     dbTimeout = new DBTimeoutMock(Ref.unsafe(timeouts), botName),
     dbMedia = new DBMediaMock(Ref.unsafe(medias)),
     dbSubscription = new DBSubscriptionMock(Ref.unsafe(subscriptions)),
-    dbShow = new DBShowMock(Ref.unsafe(shows))
+    dbShow = new DBShowMock(Ref.unsafe(shows)),
+    dbLog = new DBLogMock(Ref.unsafe(logs))
   )
 
   class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]], botNameI: String) extends DBTimeout[IO] {
@@ -101,10 +105,24 @@ object DBLayerMock {
       db.get.map(_.find(sub => sub.id.toString == id))
 
   }
+
   class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
     override def getShows(botName: String): IO[List[DBShowData]] =
       db.get.map(_.filter(s => s.bot_name == botName))
     override def getShowByShowQuery(query: ShowQuery, botName: String): IO[List[DBShowData]] =
       ???
+  }
+
+  class DBLogMock(db: Ref[IO, List[DBLogData]]) extends DBLog[IO] {
+    override def writeLog(logMessage: String): IO[Unit] =
+      db.update(ms => {
+        val data = DBLogData(
+          log_time = Instant.now().toEpochMilli,
+          message = logMessage
+        )
+        ms :+ data
+      })
+    override def getLastLog(): IO[Option[DBLogData]] =
+      db.get.map(_.lastOption)
   }
 }

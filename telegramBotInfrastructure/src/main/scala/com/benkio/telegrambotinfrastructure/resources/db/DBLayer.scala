@@ -9,6 +9,7 @@ final case class DBLayer[F[_]](
     dbTimeout: DBTimeout[F],
     dbMedia: DBMedia[F],
     dbSubscription: DBSubscription[F],
+    dbLog: DBLog[F],
     dbShow: DBShow[F]
 )
 
@@ -23,11 +24,13 @@ object DBLayer {
       transactor,
       log
     )
+    dbLog  = DBLog[F](transactor)
     dbShow = DBShow(transactor)
   } yield DBLayer[F](
     dbTimeout = dbTimeout,
     dbSubscription = dbSubscription,
     dbMedia = dbMedia,
+    dbLog = dbLog,
     dbShow = dbShow
   )
 }

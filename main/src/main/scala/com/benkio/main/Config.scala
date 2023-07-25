@@ -1,6 +1,7 @@
 package com.benkio.main
 
-import cats.effect.IO
+import cats.effect.Async
+import com.benkio.telegrambotinfrastructure.model.{ Config => DBConfig }
 import pureconfig._
 import pureconfig.generic.auto._
 
@@ -8,17 +9,18 @@ final case class Config(
     webhookBaseUrl: String,
     hostUrl: String,
     port: Int,
-    webhookCertificate: Option[String]
+    webhookCertificate: Option[String],
+    mainDB: DBConfig
 )
 
 object Config {
 
-  def loadConfig: IO[Config] =
+  def loadConfig[F[_]: Async]: F[Config] =
     ConfigSource.default
       .at("main")
       .load[Config]
       .fold(
-        err => IO.raiseError[Config](new RuntimeException(err.prettyPrint())),
-        value => IO.pure(value)
+        err => Async[F].raiseError[Config](new RuntimeException(err.prettyPrint())),
+        value => Async[F].pure(value)
       )
 }
