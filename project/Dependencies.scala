@@ -26,7 +26,7 @@ object Dependencies {
     val pureConfig         = "0.17.4"
     val shapeless          = "2.3.10"
     val sqlite             = "3.41.2.1"
-    val telegramiumVersion = "8.67.1"
+    val telegramiumVersion = "8.67.2"
     val vault              = "3.5.0"
   }
 
