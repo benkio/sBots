@@ -1,24 +1,36 @@
 package com.benkio.main
 
-import cats.ApplicativeError
-import cats.effect.kernel.MonadCancel
+import cats.effect.Async
 import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.resources.db.DBLog
+import log.effect.LogWriter
 
 object GeneralErrorHandling {
 
-  def dbLogAndRestart[F[_], A](dbLog: DBLog[F], server: Resource[F, A])(implicit
-      appErr: ApplicativeError[F, Throwable]
+  def dbLogAndRestart[F[_]: Async, A](dbLog: DBLog[F], server: Resource[F, A])(implicit
+      log: LogWriter[F]
   ): Resource[F, A] =
-    server.handleErrorWith((e: Throwable) => dbLogError(dbLog, e).flatMap(_ => dbLogAndRestart(dbLog, server)))
+    server.handleErrorWith((e: Throwable) =>
+      for {
+        _       <- Resource.eval(log.error("[Main] ERROR: " + e.getMessage))
+        _       <- Resource.eval(dbLogError(dbLog, e))
+        restart <- dbLogAndRestart(dbLog, server)
+      } yield restart
+    )
 
   def dbLogAndRestart(dbLog: DBLog[IO], app: IO[ExitCode])(implicit
-      monCancel: MonadCancel[IO, Throwable]
+      log: LogWriter[IO]
   ): IO[ExitCode] =
-    app.handleErrorWith((e: Throwable) => dbLogError[IO](dbLog, e).use_ *> dbLogAndRestart(dbLog, app))
+    app.handleErrorWith((e: Throwable) =>
+      for {
+        _       <- IO.pure(log.error("[Main] ERROR: " + e.getMessage))
+        _       <- dbLogError[IO](dbLog, e)
+        restart <- dbLogAndRestart(dbLog, app)
+      } yield restart
+    )
 
-  private def dbLogError[F[_]](dbLog: DBLog[F], e: Throwable): Resource[F, Unit] =
-    Resource.eval(dbLog.writeLog(e.getMessage()))
+  private def dbLogError[F[_]](dbLog: DBLog[F], e: Throwable): F[Unit] =
+    dbLog.writeLog(e.getMessage())
 }
