@@ -3,12 +3,16 @@ package com.benkio.main
 import cats.effect.ExitCode
 import cats.effect._
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
 import munit.CatsEffectSuite
 
 import scala.concurrent.duration._
 
 class GeneralErrorHandlingSpec extends CatsEffectSuite {
 
+  implicit val log: LogWriter[IO]  = consoleLogUpToLevel(LogLevels.Info)
   val expectedErrorMessage: String = "Test Throwable"
   val failedResource: Resource[IO, Unit] =
     Resource.raiseError(new Throwable(expectedErrorMessage))

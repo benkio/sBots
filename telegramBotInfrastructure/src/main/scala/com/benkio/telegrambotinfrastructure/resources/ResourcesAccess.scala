@@ -26,7 +26,7 @@ trait ResourceAccess[F[_]] {
     for {
       _           <- Resource.eval(log.info(s"getResourceFile of $mediaFile"))
       fileContent <- getResourceByteArray(mediaFile.filepath)
-      tempFile = File.createTempFile(mediaFile.filename, mediaFile.extension, null)
+      tempFile = ResourceAccess.toTempFile(mediaFile.filename, Array.empty)
       fos <- Resource.make(syncF.delay(new FileOutputStream(tempFile)))(fos => Sync[F].delay(fos.close()))
     } yield {
       fos.write(fileContent)
@@ -41,6 +41,7 @@ object ResourceAccess {
     val (name, ext) = fileName.span(_ != '.')
     val tempFile    = File.createTempFile(name, ext)
     Files.write(tempFile.toPath(), content)
+    tempFile.deleteOnExit()
     tempFile
   }
 

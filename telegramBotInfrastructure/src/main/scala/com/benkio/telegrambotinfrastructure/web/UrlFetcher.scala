@@ -3,8 +3,6 @@ package com.benkio.telegrambotinfrastructure.web
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
-import cats.Applicative
-import cats.ApplicativeError
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.chrisdavenport.mules._
 import io.chrisdavenport.mules.http4s._
@@ -54,13 +52,15 @@ object UrlFetcher {
               Resource.raiseError[F, File, Throwable](DropboxLocationHeaderNotFound[F](response))
             case _ =>
               Resource
-                .eval(
-                  response.body.compile.toList.flatMap(content =>
-                    if (content.isEmpty)
-                      ApplicativeError[F, Throwable].raiseError[File](UnexpectedDropboxResponse[F](response))
-                    else Applicative[F].pure(ResourceAccess.toTempFile(filename, content.toArray))
-                  )
-                )
+                .make(
+                  for {
+                    content <- response.body.compile.toList
+                    _       <- Async[F].raiseWhen(content.isEmpty)(UnexpectedDropboxResponse[F](response))
+                    result <- Async[F].delay(
+                      ResourceAccess.toTempFile(filename, content.toArray)
+                    )
+                  } yield result
+                )((f: File) => Async[F].delay(f.delete()).void)
 
           }
 
