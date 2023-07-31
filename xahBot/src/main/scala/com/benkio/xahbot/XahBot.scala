@@ -66,7 +66,7 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
 
 object XahBot {
 
-  val botName: String         = "XahBot"
+  val botName: String         = "XahLeeBot"
   val botPrefix: String       = "xah"
   val tokenFilename: String   = "xah_XahBot.token"
   val configNamespace: String = "xahDB"
