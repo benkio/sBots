@@ -12,7 +12,7 @@ import scala.concurrent.duration._
 
 class GeneralErrorHandlingSpec extends CatsEffectSuite {
 
-  implicit val log: LogWriter[IO]  = consoleLogUpToLevel(LogLevels.Info)
+  implicit val log: LogWriter[IO]  = consoleLogUpToLevel(LogLevels.Error)
   val expectedErrorMessage: String = "Test Throwable"
   val failedResource: Resource[IO, Unit] =
     Resource.raiseError(new Throwable(expectedErrorMessage))
@@ -24,7 +24,7 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
     val computation: IO[Unit] =
       GeneralErrorHandling
         .dbLogAndRestart(emptyDBLayer.dbLog, failedResource)
-        .race(Resource.eval(IO.sleep(2.seconds)))
+        .race(Resource.eval(IO.sleep(20.millis)))
         .use_
 
     val lastLogMessage: IO[Option[String]] = for {
@@ -39,7 +39,7 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
     val computation: IO[Unit] =
       GeneralErrorHandling
         .dbLogAndRestart(emptyDBLayer.dbLog, failedIO)
-        .race(IO.sleep(2.seconds))
+        .race(IO.sleep(20.millis))
         .void
 
     val lastLogMessage: IO[Option[String]] = for {
