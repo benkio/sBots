@@ -1,4 +1,4 @@
-package com.benkio.abarberobot
+package com.benkio.youtuboanchei0bot
 
 import cats.Show
 import cats.effect.IO
@@ -8,6 +8,7 @@ import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import io.chrisdavenport.cormorant._
 import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -20,29 +21,29 @@ import telegramium.bots.Message
 import java.io.File
 import scala.io.Source
 
-class ABarberoBotSpec extends CatsEffectSuite {
+class YouTuboAncheI0BotSpec extends CatsEffectSuite {
 
+  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
   implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
   private val privateTestMessage    = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer                  = DBLayerMock.mock(ABarberoBot.botName)
-  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
+  val emptyDBLayer                  = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
   val emptyBackgroundJobManager = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
     emptyDBLayer.dbShow,
-    "ABarberoBot"
+    "youTuboAncheI0Bot"
   ).unsafeRunSync()
 
-  test("triggerlist should return a list of all triggers when called") {
-    val triggerlist: String = ABarberoBot
+  test("triggerlist should return the link to the trigger txt file") {
+    val triggerlistUrl = YouTuboAncheI0Bot
       .commandRepliesData[IO](
-        backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer
+        dbLayer = emptyDBLayer,
+        backgroundJobManager = emptyBackgroundJobManager
       )
       .filter(_.trigger.command == "triggerlist")
       .flatMap(_.text.get.text(privateTestMessage).unsafeRunSync())
-      .mkString("\n")
+      .mkString("")
     assertEquals(
-      ABarberoBot
+      YouTuboAncheI0Bot
         .commandRepliesData[IO](
           backgroundJobManager = emptyBackgroundJobManager,
           dbLayer = emptyDBLayer
@@ -51,20 +52,21 @@ class ABarberoBotSpec extends CatsEffectSuite {
       9
     )
     assertEquals(
-      triggerlist,
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/aBarberoBot/abar_triggers.txt"
+      triggerlistUrl,
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/youTuboAncheI0Bot/ytai_triggers.txt"
     )
+
   }
 
-  test("the `abar_list.csv` should contain all the triggers of the bot") {
-    val listPath   = new File(".").getCanonicalPath + "/abar_list.csv"
+  test("the `ytai_list.csv` should contain all the triggers of the bot") {
+    val listPath   = new File(".").getCanonicalPath + "/ytai_list.csv"
     val csvContent = Source.fromFile(listPath).getLines().mkString("\n")
     val csvFile = parseComplete(csvContent).flatMap {
       case CSV.Complete(_, CSV.Rows(rows)) => Right(rows.map(row => row.l.head.x))
       case _                               => Left(new RuntimeException("Error on parsing the csv"))
     }
 
-    val botFile = ABarberoBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename))
+    val botFile = YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename))
 
     assert(csvFile.isRight)
     csvFile.fold(
@@ -74,13 +76,13 @@ class ABarberoBotSpec extends CatsEffectSuite {
 
   }
 
-  test("the `abar_triggers.txt` should contain all the triggers of the bot") {
-    val listPath       = new File(".").getCanonicalPath + "/abar_triggers.txt"
+  test("the `ytai_triggers.txt` should contain all the triggers of the bot") {
+    val listPath       = new File(".").getCanonicalPath + "/ytai_triggers.txt"
     val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
 
-    val botMediaFiles = ABarberoBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botMediaFiles = YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
     val botTriggersFiles =
-      ABarberoBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+      YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
     botMediaFiles.foreach { mediaFileString =>
       assert(triggerContent.contains(mediaFileString))
@@ -98,7 +100,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
   }
 
   test("instructions command should return the expected message") {
-    val actual = ABarberoBot
+    val actual = YouTuboAncheI0Bot
       .commandRepliesData[IO](
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer
@@ -109,7 +111,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
       actual,
       List(
         s"""
----- Instruzioni Per ABarberoBot ----
+---- Instruzioni Per YouTuboAncheI0Bot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
 
@@ -140,7 +142,7 @@ carattere: `!`
 ! Messaggio
 """,
         s"""
----- Instructions for ABarberoBot ----
+---- Instructions for YouTuboAncheI0Bot ----
 
 to report issues, write to: https://t.me/Benkio
 

@@ -6,10 +6,10 @@ import cats.effect.IOApp
 import cats.effect.Resource
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.calandrobot.CalandroBot
-import com.benkio.mosconibot.MosconiBot
+import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.xahbot.XahBot
-import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
+import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -27,12 +27,12 @@ object MainWebhook extends IOApp {
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )
-      youtuboAncheIoWebhook <- YoutuboAncheIoBot.buildWebhookBot[IO](
+      youTuboAncheI0BotWebhook <- YouTuboAncheI0Bot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )
-      mosconiWebhook <- MosconiBot.buildWebhookBot[IO](
+      m0sconiWebhook <- M0sconiBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
@@ -58,8 +58,8 @@ object MainWebhook extends IOApp {
           calandroWebhook,
           richardPHJBensonWebhook,
           aBarberoWebhook,
-          youtuboAncheIoWebhook,
-          mosconiWebhook
+          youTuboAncheI0BotWebhook,
+          m0sconiWebhook
         ),
         port = mainSetup.port,
         host = mainSetup.host

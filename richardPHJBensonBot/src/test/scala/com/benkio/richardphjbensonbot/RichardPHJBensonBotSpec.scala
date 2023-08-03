@@ -81,7 +81,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
     )
     assertEquals(
       triggerlist,
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
     )
   }
 

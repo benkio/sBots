@@ -1,6 +1,6 @@
 import Settings._
 
-name         := "telegramBots"
+name         := "sBots"
 organization := "com.benkio"
 
 enablePlugins(FlywayPlugin)
@@ -14,8 +14,8 @@ addCommandAlias("validate", ";clean; compile; fix; test; integration/test")
 
 // PROJECTS
 
-lazy val bots =
-  Project("bots", file("."))
+lazy val sBots =
+  Project("sBots", file("."))
     .settings(Settings.settings: _*)
     .aggregate(
       main,
@@ -24,9 +24,9 @@ lazy val bots =
       calandroBot,
       aBarberoBot,
       richardPHJBensonBot,
-      xahBot,
-      youtuboAncheIoBot,
-      mosconiBot
+      xahLeeBot,
+      youTuboAncheI0Bot,
+      m0sconiBot
     )
 
 lazy val telegramBotInfrastructure =
@@ -53,22 +53,22 @@ lazy val richardPHJBensonBot =
     .settings(Settings.RichardPHJBensonBotSettings: _*)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
-lazy val xahBot =
-  Project("xahBot", file("xahBot"))
+lazy val xahLeeBot =
+  Project("xahLeeBot", file("xahLeeBot"))
     .settings(Settings.settings: _*)
     .settings(Settings.XahBotSettings: _*)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
-lazy val youtuboAncheIoBot =
-  Project("youtuboAncheIoBot", file("youtuboAncheIoBot"))
+lazy val youTuboAncheI0Bot =
+  Project("youTuboAncheI0Bot", file("youTuboAncheI0Bot"))
     .settings(Settings.settings: _*)
-    .settings(Settings.YoutuboAncheIoBotSettings: _*)
+    .settings(Settings.YouTuboAncheI0BotSettings: _*)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
-lazy val mosconiBot =
-  Project("mosconiBot", file("mosconiBot"))
+lazy val m0sconiBot =
+  Project("m0sconiBot", file("m0sconiBot"))
     .settings(Settings.settings: _*)
-    .settings(Settings.MosconiBotSettings: _*)
+    .settings(Settings.M0sconiBotSettings: _*)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val main = project
@@ -79,9 +79,9 @@ lazy val main = project
     calandroBot,
     aBarberoBot,
     richardPHJBensonBot,
-    xahBot,
-    youtuboAncheIoBot,
-    mosconiBot,
+    xahLeeBot,
+    youTuboAncheI0Bot,
+    m0sconiBot,
     telegramBotInfrastructure % "compile->compile;test->test"
   )
 
@@ -101,9 +101,9 @@ lazy val integration = (project in file("integration"))
     calandroBot,
     aBarberoBot,
     richardPHJBensonBot,
-    xahBot,
-    youtuboAncheIoBot,
-    mosconiBot,
+    xahLeeBot,
+    youTuboAncheI0Bot,
+    m0sconiBot,
     botDB % "compile->compile;test->test",
     main
   )

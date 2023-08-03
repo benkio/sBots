@@ -69,7 +69,7 @@
 **** Localhost
 
      - Export the webhook host, locally using [[https://ngrok.com/][ngrok]], [[https://github.com/beyondcode/expose][expose]] or [[https://github.com/agrinman/tunnelto][tunnelTo]]. example: ~./expose share http://localhost:8080~
-     - Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from previous step or change it in ~~myTelegramBot/main/src/main/resources/application.conf~
+     - Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from previous step or change it in ~~sBots/main/src/main/resources/application.conf~
      - run ~sbt assembly~
      - run ~java -cp main/target/scala-2.13/main.jar com.benkio.main.MainWebhook~
 
@@ -131,7 +131,7 @@
     - ~port~ as ~<internalPort>~ in our case ~8081~
     - ~webhook-certificate~ with the path of the public certificate, in our case ~/etc/nginx/certs/certificatePublic.pem~
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
- - Move the fat jar to the vm by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> myTelegramBot/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/mytelegrambot/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
+ - Move the fat jar to the vm by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/sBots/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
  - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~ or other changes in the process. No easy way to migrate the database as for now.
  - Login to the vm
  - OPTIONAL: be sure to have the right environment variables. IT'S RECOMMENDED TO

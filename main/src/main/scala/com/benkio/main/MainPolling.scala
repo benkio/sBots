@@ -5,10 +5,10 @@ import cats.effect.IO
 import cats.effect.IOApp
 import com.benkio.abarberobot.ABarberoBotMainPolling
 import com.benkio.calandrobot.CalandroBotMainPolling
-import com.benkio.mosconibot.MosconiBotMainPolling
+import com.benkio.m0sconibot.M0sconiBotMainPolling
 import com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling
 import com.benkio.xahbot.XahBotMainPolling
-import com.benkio.youtuboancheiobot.YoutuboAncheIoBotMainPolling
+import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -25,8 +25,8 @@ object MainPolling extends IOApp {
           CalandroBotMainPolling.run(args) &>
           RichardPHJBensonBotMainPolling.run(args) &>
           XahBotMainPolling.run(args) &>
-          YoutuboAncheIoBotMainPolling.run(args) &>
-          MosconiBotMainPolling.run(args)
+          YouTuboAncheI0BotMainPolling.run(args) &>
+          M0sconiBotMainPolling.run(args)
       )
     }
 
