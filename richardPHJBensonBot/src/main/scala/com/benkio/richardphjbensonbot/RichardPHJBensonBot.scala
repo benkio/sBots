@@ -97,7 +97,7 @@ object RichardPHJBensonBot {
   val botPrefix: String                   = "rphjb"
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerListUri: Uri =
-    uri"https://github.com/benkio/myTelegramBot/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
+    uri"https://github.com/benkio/sBots/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
   val configNamespace: String = "rphjbDB"
 

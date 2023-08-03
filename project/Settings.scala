@@ -74,19 +74,19 @@ object Settings {
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
-  lazy val YoutuboAncheIoBotSettings = Seq(
-    name                     := "YoutuboAncheIoBot",
-    libraryDependencies      := YoutuboAncheIoBotDependencies,
-    dependencyOverrides      := YoutuboAncheIoBotDependencies,
-    mainClass                := Some("com.benkio.youtuboAncheIobot.YoutuboAncheIoBotMainPolling"),
+  lazy val YouTuboAncheI0BotSettings = Seq(
+    name                     := "YouTuboAncheI0Bot",
+    libraryDependencies      := YouTuboAncheI0BotDependencies,
+    dependencyOverrides      := YouTuboAncheI0BotDependencies,
+    mainClass                := Some("com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
-  lazy val MosconiBotSettings = Seq(
-    name                     := "MosconiBot",
-    libraryDependencies      := MosconiBotDependencies,
-    dependencyOverrides      := MosconiBotDependencies,
-    mainClass                := Some("com.benkio.Mosconibot.MosconiBotMainPolling"),
+  lazy val M0sconiBotSettings = Seq(
+    name                     := "M0sconiBot",
+    libraryDependencies      := M0sconiBotDependencies,
+    dependencyOverrides      := M0sconiBotDependencies,
+    mainClass                := Some("com.benkio.M0sconibot.M0sconiBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 

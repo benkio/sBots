@@ -125,11 +125,11 @@ object Dependencies {
 
   val XahBotDependencies: Seq[ModuleID] = CommonDependencies
 
-  val YoutuboAncheIoBotDependencies: Seq[ModuleID] = CommonDependencies ++ Seq(
+  val YouTuboAncheI0BotDependencies: Seq[ModuleID] = CommonDependencies ++ Seq(
     libs.emoji
   )
 
-  val MosconiBotDependencies: Seq[ModuleID] = CommonDependencies
+  val M0sconiBotDependencies: Seq[ModuleID] = CommonDependencies
 
   val RichardPHJBensonBotDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(

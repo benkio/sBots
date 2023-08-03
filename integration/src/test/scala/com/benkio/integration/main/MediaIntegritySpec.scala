@@ -4,8 +4,8 @@ import com.benkio.telegrambotinfrastructure.model.MediaFile
 import scala.concurrent.duration._
 import doobie.Transactor
 import java.sql.DriverManager
-import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
-import com.benkio.mosconibot.MosconiBot
+import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import cats.effect.IO
@@ -28,8 +28,8 @@ class MediaIntegritySpec extends CatsEffectSuite with DBFixture with IOChecker {
   val allMessageMediaFiles: List[MediaFile] =
     (RichardPHJBensonBot.messageRepliesData[IO] ++
       ABarberoBot.messageRepliesData[IO] ++
-      YoutuboAncheIoBot.messageRepliesData[IO] ++
-      MosconiBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinct
+      YouTuboAncheI0Bot.messageRepliesData[IO] ++
+      M0sconiBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinct
 
   def checkFile(mf: MediaFile): Unit =
     databaseFixture.test(

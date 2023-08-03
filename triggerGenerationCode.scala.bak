@@ -11,14 +11,14 @@ import cats.effect.IO
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.abarberobot.ABarberoBot
 import java.io._
-import com.benkio.youtuboancheiobot.YoutuboAncheIoBot
-import com.benkio.mosconibot.MosconiBot
+import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.calandrobot.CalandroBot
 
 val inputRichardPHJBenson = RichardPHJBensonBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
 val inputBarbero = ABarberoBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
-val inputYoutuboAncheIo = YoutuboAncheIoBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
-val inputMosconi = MosconiBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
+val inputYouTuboAncheI0Bot = YouTuboAncheI0Bot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
+val inputM0sconi = M0sconiBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
 val inputCalandro = CalandroBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
 
 val pwRichard = new PrintWriter(new File("richardPHJBensonBot/rphjb_triggers.txt"))
@@ -27,12 +27,12 @@ pwRichard.close
 val pwBarbero = new PrintWriter(new File("aBarberoBot/abar_triggers.txt"))
 pwBarbero.write(inputBarbero)
 pwBarbero.close
-val pwYoutubo = new PrintWriter(new File("youtuboAncheIoBot/ytai_triggers.txt"))
-pwYoutubo.write(inputYoutuboAncheIo)
+val pwYoutubo = new PrintWriter(new File("youTuboAncheI0Bot/ytai_triggers.txt"))
+pwYoutubo.write(inputYouTuboAncheI0Bot)
 pwYoutubo.close
-val pwMosconi = new PrintWriter(new File("mosconiBot/mos_triggers.txt"))
-pwMosconi.write(inputMosconi)
-pwMosconi.close
+val pwM0sconi = new PrintWriter(new File("m0sconiBot/mos_triggers.txt"))
+pwM0sconi.write(inputM0sconi)
+pwM0sconi.close
 val pwCalandro = new PrintWriter(new File("calandroBot/cala_triggers.txt" ))
 pwCalandro.write(inputCalandro)
 pwCalandro.close

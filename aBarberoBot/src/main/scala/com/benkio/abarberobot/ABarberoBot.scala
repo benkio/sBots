@@ -83,7 +83,7 @@ object ABarberoBot {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "ABarberoBot"
   val botPrefix: String                   = "abar"
-  val triggerListUrl: Uri     = uri"https://github.com/benkio/myTelegramBot/blob/master/aBarberoBot/abar_triggers.txt"
+  val triggerListUrl: Uri     = uri"https://github.com/benkio/sBots/blob/master/aBarberoBot/abar_triggers.txt"
   val linkSources: String     = "abar_LinkSources"
   val tokenFilename: String   = "abar_ABarberoBot.token"
   val configNamespace: String = "abarDB"
