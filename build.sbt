@@ -56,7 +56,7 @@ lazy val richardPHJBensonBot =
 lazy val xahLeeBot =
   Project("xahLeeBot", file("xahLeeBot"))
     .settings(Settings.settings: _*)
-    .settings(Settings.XahBotSettings: _*)
+    .settings(Settings.XahLeeBotSettings: _*)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val youTuboAncheI0Bot =

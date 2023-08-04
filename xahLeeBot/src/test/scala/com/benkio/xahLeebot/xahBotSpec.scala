@@ -1,4 +1,4 @@
-package com.benkio.xahbot
+package com.benkio.xahleebot
 
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -16,11 +16,11 @@ import telegramium.bots.Message
 import java.io.File
 import scala.io.Source
 
-class XahBotSpec extends CatsEffectSuite {
+class XahLeeBotSpec extends CatsEffectSuite {
 
   implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
-  val emptyDBLayer                  = DBLayerMock.mock(XahBot.botName)
+  val emptyDBLayer                  = DBLayerMock.mock(XahLeeBot.botName)
   val emptyBackgroundJobManager = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,

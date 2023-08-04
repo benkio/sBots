@@ -8,7 +8,7 @@ import com.benkio.abarberobot.ABarberoBot
 import com.benkio.calandrobot.CalandroBot
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.xahbot.XahBot
+import com.benkio.xahleebot.XahLeeBot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -22,7 +22,7 @@ object MainWebhook extends IOApp {
     implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
     def server(mainSetup: MainSetup[IO]): Resource[IO, Server] = for {
-      xahWebhook <- XahBot.buildWebhookBot[IO](
+      xahWebhook <- XahLeeBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate

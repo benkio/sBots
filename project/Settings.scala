@@ -8,7 +8,7 @@ object Settings {
 
   lazy val settings = Seq(
     organization      := "com.benkio",
-    version           := "1.0.0",
+    version           := "1.9.3",
     scalaVersion      := "2.13.11",
     publishMavenStyle := true,
     semanticdbEnabled := true,
@@ -16,8 +16,7 @@ object Settings {
       ("org.scalameta" % "semanticdb-scalac" % "4.7.8")
         .cross(CrossVersion.full)
     },
-    fork := true,
-    run / javaOptions += "-Xmx256m",
+    fork                   := true,
     Test / publishArtifact := false
   )
 
@@ -66,11 +65,11 @@ object Settings {
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
-  lazy val XahBotSettings = Seq(
-    name                     := "XahBot",
-    libraryDependencies      := XahBotDependencies,
-    dependencyOverrides      := XahBotDependencies,
-    mainClass                := Some("com.benkio.xahbot.XahBotMainPolling"),
+  lazy val XahLeeBotSettings = Seq(
+    name                     := "XahLeeBot",
+    libraryDependencies      := XahLeeBotDependencies,
+    dependencyOverrides      := XahLeeBotDependencies,
+    mainClass                := Some("com.benkio.xahleebot.XahLeeBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 

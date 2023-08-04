@@ -1,6 +1,6 @@
-package com.benkio.integration.xahbot
+package com.benkio.integration.xahleebot
 
-import com.benkio.xahbot.CommandRepliesData
+import com.benkio.xahleebot.CommandRepliesData
 
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia

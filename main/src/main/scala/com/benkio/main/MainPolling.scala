@@ -7,7 +7,7 @@ import com.benkio.abarberobot.ABarberoBotMainPolling
 import com.benkio.calandrobot.CalandroBotMainPolling
 import com.benkio.m0sconibot.M0sconiBotMainPolling
 import com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling
-import com.benkio.xahbot.XahBotMainPolling
+import com.benkio.xahleebot.XahLeeBotMainPolling
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -24,7 +24,7 @@ object MainPolling extends IOApp {
         ABarberoBotMainPolling.run(args) &>
           CalandroBotMainPolling.run(args) &>
           RichardPHJBensonBotMainPolling.run(args) &>
-          XahBotMainPolling.run(args) &>
+          XahLeeBotMainPolling.run(args) &>
           YouTuboAncheI0BotMainPolling.run(args) &>
           M0sconiBotMainPolling.run(args)
       )

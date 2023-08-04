@@ -1,4 +1,4 @@
-package com.benkio.xahbot
+package com.benkio.xahleebot
 
 import cats._
 import cats.effect._
@@ -19,16 +19,16 @@ import org.http4s.implicits._
 import telegramium.bots.InputPartFile
 import telegramium.bots.high._
 
-class XahBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
+class XahLeeBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F]
-    with XahBot[F] {
+    with XahLeeBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
-class XahBotWebhook[F[_]: Async: Api: Action: LogWriter](
+class XahLeeBotWebhook[F[_]: Async: Api: Action: LogWriter](
     uri: Uri,
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
@@ -36,14 +36,14 @@ class XahBotWebhook[F[_]: Async: Api: Action: LogWriter](
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
-    with XahBot[F] {
+    with XahLeeBot[F] {
   override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
-trait XahBot[F[_]] extends BotSkeleton[F] {
+trait XahLeeBot[F[_]] extends BotSkeleton[F] {
 
-  override val botName: String   = XahBot.botName
-  override val botPrefix: String = XahBot.botPrefix
+  override val botName: String   = XahLeeBot.botName
+  override val botPrefix: String = XahLeeBot.botPrefix
   val backgroundJobManager: BackgroundJobManager[F]
   val dbLayer: DBLayer[F]
 
@@ -64,7 +64,7 @@ trait XahBot[F[_]] extends BotSkeleton[F] {
 
 }
 
-object XahBot {
+object XahLeeBot {
 
   val botName: String         = "XahLeeBot"
   val botPrefix: String       = "xah"
@@ -72,7 +72,7 @@ object XahBot {
   val configNamespace: String = "xahDB"
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
-      action: XahBotPolling[F] => F[A]
+      action: XahLeeBotPolling[F] => F[A]
   )(implicit log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     botSetup <- BotSetup(
@@ -83,7 +83,7 @@ object XahBot {
     )
   } yield botSetup).use { botSetup =>
     action(
-      new XahBotPolling[F](
+      new XahLeeBotPolling[F](
         resAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager
@@ -95,7 +95,7 @@ object XahBot {
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(implicit log: LogWriter[F]): Resource[F, XahBotWebhook[F]] =
+  )(implicit log: LogWriter[F]): Resource[F, XahLeeBotWebhook[F]] =
     BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,
@@ -103,7 +103,7 @@ object XahBot {
       botName = botName,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
-      new XahBotWebhook[F](
+      new XahLeeBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
         resAccess = botSetup.resourceAccess,

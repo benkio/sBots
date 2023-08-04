@@ -1,4 +1,4 @@
-package com.benkio.xahbot
+package com.benkio.xahleebot
 
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
