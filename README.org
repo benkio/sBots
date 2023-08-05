@@ -21,41 +21,41 @@
 
 ** Add Data to the Bots
 
-     Each bot contains a ~resources~ folder. You need to put there
+     Each bot contains a ~resources~ folder. You need to put in there
      the ~.token~ file containing the telegram key specific to each
      bot.
 
-     Each  bot also uses a SQLite Database! So you need
+     Each  bot also uses a ~SQLite~ Database! So you need
      to provide the path to the database into the ~application.conf~
-     or just setup the specific environment variables. No need to put
+     or just set up the specific environment variables. No need to put
      the files in resources since those will be fetched from the web
      via URLs.
 
-     Read the following section to know how to setup the database
+     Read the following section to know how to set up the database
 
      Check [[https://youtu.be/T-AfAvJLSJE][this video]] for a complete rundown on how to add files to a bot.
 
 ** Database Setup
 
      There's a module called ~botDB~, if opportunely configured,
-     when launched it applies the migrations and the populate a bot
-     database. Just setup the ~application.conf~ correctly with the DB
-     path, see the db in the root of the project, and the location of
-     the ~csv~. There should be a ~csv~ file in the root of each bot
+     when launched, it applies the migrations and populates a bot
+     database. Just set up the ~application.conf~ correctly with the DB
+     path, see the DB in the root of the project, and the location of
+     the ~csv~. There should be a ~csv~ file at the root of each bot
      module
 
 ** Compile and Test
 
-  Several command alias are defined in the project to group together useful sbt commands:
-  - `dbSetup` :: Run the botDB main that setup the DB anew. Running the migrations and the updating the media tables based on the CSV in the bots.
-  - `fix` :: Run the `scalafmt` and `scalafix` an the whole project.
-  - `check` :: Check the project for formatting and dependencies using sbt plugins such as scalafmt.
-  - `validate` :: compile clean and test. It includes the `fix` command and it is run in the CI.
+  Several command alias are defined in the project to group together useful ~sbt~ commands:
+  - ~dbSetup~ :: Run the botDB main that set up the DB anew. Running the migrations and updating the media tables based on the CSV in the bots.
+  - ~fix~ :: Run the ~scalafmt~ and ~scalafix~ an the whole project.
+  - ~check~ :: Check the project for formatting and dependencies using ~sbt~ plugins such as ~scalafmt~.
+  - ~validate~ :: compile clean and test. It includes the ~fix~ command and it is run in the CI.
 
-  Moreover there are tests excluded from the CI because they are quite slow. In this category there is one that checks all the media links in the DB and can be called manually by `sbt integration/runIntegrationScalaTests`
+  Moreover, there are tests excluded from the CI because they are quite slow. In this category, there is one that checks all the media links in the DB and can be called manually by ~sbt integration/runIntegrationScalaTests~
 ** Run the Bots
 *** Long Polling
-     Under windows use the git bash terminal.
+     Under Windows use the git bash terminal.
 
    #+begin_src bash
      ./lunch.sh # I know it's lunch not launch :)
@@ -65,36 +65,36 @@
 **** Localhost
 
      - Export the webhook host, locally using [[https://ngrok.com/][ngrok]], [[https://github.com/beyondcode/expose][expose]] or [[https://github.com/agrinman/tunnelto][tunnelTo]]. example: ~./expose share http://localhost:8080~
-     - Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from previous step or change it in ~~sBots/main/src/main/resources/application.conf~
+     - Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from the previous step or change it in ~~sBots/main/src/main/resources/application.conf~
      - run ~sbt assembly~
      - run ~java -cp main/target/scala-2.13/main.jar com.benkio.main.MainWebhook~
 
 **** Docker
 
       TODO: There's already a ~main/Dockerfile~ with the command to run the webhook, but still it needs to be tested and visible from outside
-            Also check [[https://expose.dev/docs/getting-started/installation#as-a-docker-container][expose on docker]]. In order to may make it discoverable from telegram api.
+            Also check [[https://expose.dev/docs/getting-started/installation#as-a-docker-container][expose on docker]]. In order to may make it discoverable from telegram API.
 
 ** Deploy on Oracle Cloud Infrastructure VM
 *** Setup
 
- - Create a vm instance in Oracle cloud
+ - Create a VM instance in the Oracle cloud
  - Get the SSH Private and Public Keys to access it
-   - Login to ssh vm instance by ssh private key, user and IP. get the last two in the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public ip of the vm>>~ (~ssh -i ssh-key-2022-04-26.key opc@140.238.155.16~)
+   - Login to ssh VM instance by ssh private key, user, and IP. get the last two on the site. Eg command: ~ssh -i <<private key of the vm>> <<user of the vm>>@<<public IP of the vm>>~ (~ssh -i ssh-key-2022-04-26.key opc@140.238.155.16~)
  - Install the jdk 16. Follow this [[https://blogs.oracle.com/developers/post/how-to-install-oracle-java-in-oracle-cloud-infrastructure][tutorial]]
 
 **** Webhook Extra Configuration
 
-  Eventually the library connecting to Telegram should provide full SSL certificate support as for [[https://github.com/apimorphism/telegramium/issues/348][this issue]], but until now we will rely on ~nginx~ and reverse proxy. Follow these steps to setup the server property:
+  Eventually, the library connecting to Telegram should provide full SSL certificate support for [[https://github.com/apimorphism/telegramium/issues/348][this issue]], but until now we will rely on ~nginx~ and reverse proxy. Follow these steps to set up the server property:
 
-  - Server Prerequisites :: Check [[https://core.telegram.org/bots/webhooks#the-short-version][this page]] for the prerequisites required by telegram to work with webhook. In our case we choose the port 8443 for SSL connection.
-  - Open Port on OCI Subnet :: The instance where the bots are running needs to have an attached VNICs([[https://docs.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm][Virtual Network Interface Card]]) with a subnet. The subnet will have a default security list containing the rules for the ports available from outside. Add a new rule with for the port required and save it. The parameters to use are:
+  - Server Prerequisites :: Check [[https://core.telegram.org/bots/webhooks#the-short-version][this page]] for the prerequisites required by telegram to work with webhook. In our case, we choose port 8443 for SSL connection.
+  - Open Port on OCI Subnet :: The instance where the bots are running needs to have an attached VNICs([[https://docs.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm][Virtual Network Interface Card]]) with a subnet. The subnet will have a default security list containing the rules for the ports available from outside. Add a new rule for the port required and save it. The parameters to use are:
     - Stateless: No
     - Source: 0.0.0.0
     - IP Protocol: TCP
     - Source Port Range: All
     - Destination Port Range: 8443
-    This should allow telegram to reach your server though that port.
-  - Generate a Self Signed Certificate :: On the server, using the commands on [[https://core.telegram.org/bots/self-signed][this page]], generate a pair of keys that will serve as self signed certificate for the SSL connection. Be sure to include the IP or domain of your server in the ~CN~ key.
+    This should allow telegram to reach your server through that port.
+  - Generate a Self-Signed Certificate :: On the server, using the commands on [[https://core.telegram.org/bots/self-signed][this page]], generate a pair of keys that will serve as the self-signed certificate for the SSL connection. Be sure to include the IP or domain of your server in the ~CN~ key.
   - Change Certificates Permissions and Owner :: This can be done by running ~sudo chown root:root <<Certificate>>~ and ~sudo chmod 600 <<Certificate>~. Do this on both private and public keys.
   - Install NGINX :: Run ~sudo yum install nginx~
   - Move the Above Certificates to NGINX Certificate Folder :: ~/etc/nginx/certs~ as you'll see in the configuration below.
@@ -117,19 +117,19 @@
   - Allow the External Port in the Firewall :: Run ~sudo firewall-cmd --zone=public --add-port=8443/tcp --permanent~
   - Enable NGINX Service :: Run ~sudo systemctl enable nginx~
   - Start NGINX Service :: Run ~sudo systemctl start nginx~
-  - Test NGINX :: You should see a 503 error ~Bad Gateway~ when hitting the external URL. In our case ~https://140.238.155.16:8433~. This means ~nginx~ is working correctly. You can also spawn a temporary web server on the port ~8081~ by running: ~python -m http.server 8081~. Then, the above URL should show the server file system. This means everything is running fine. Otherwise you can inspect any error logs via the command: ~journalctl -xu nginx~.
+  - Test NGINX :: You should see a 503 error ~Bad Gateway~ when hitting the external URL. In our case ~https://140.238.155.16:8433~. This means ~nginx~ is working correctly. You can also spawn a temporary web server on port ~8081~ by running: ~python -m http.server 8081~. Then, the above URL should show the server file system. This means everything is running fine. Otherwise, you can inspect any error logs via the command: ~journalctl -xu nginx~.
 
 *** Deploy
 
- - Set the ~main/src/resources/application.conf~ accondigly:
+ - Set the ~main/src/resources/application.conf~ accordingly:
     - ~webhook-base-url~ as ~https://<serverip>:<outsideport>~, in our case it will be ~https://140.238.155.16:8433~
     - ~host-url~ as ~0.0.0.0~
     - ~port~ as ~<internalPort>~ in our case ~8081~
     - ~webhook-certificate~ with the path of the public certificate, in our case ~/etc/nginx/certs/certificatePublic.pem~
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
- - Move the fat jar to the vm by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public ip of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/sBots/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
- - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~ or other changes in the process. No easy way to migrate the database as for now.
- - Login to the vm
+ - Move the fat jar to the VM by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public IP of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/sBots/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
+ - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~, or other changes in the process. No easy way to migrate the database as of now.
+ - Login to the VM
  - OPTIONAL: be sure to have the right environment variables. IT'S RECOMMENDED TO
    CHANGE the ~application.conf~ (point 1) before running the ~assembly~. The environment variables could lose their value somehow.
  - Run the bots.
