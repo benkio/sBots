@@ -1,4 +1,4 @@
-package com.benkio.integration.telegrambotinfrastructure.resources.db
+package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 

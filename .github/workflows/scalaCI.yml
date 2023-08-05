@@ -13,16 +13,10 @@ jobs:
     - name: Formatting
       run: |
         echo this workflow was triggered by ${{github.actor}}
-        sbt "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; test:scalafmtCheck"
+        sbt "check"
   test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run unit tests
-      run: sbt "test"
-  itTest:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Run Integration tests
-      run: sbt "integration/test"
+    - name: Validate the project (clean, compile, format, test, itTest
+      run: sbt validate

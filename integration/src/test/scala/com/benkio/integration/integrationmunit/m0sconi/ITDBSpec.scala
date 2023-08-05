@@ -1,4 +1,4 @@
-package com.benkio.integration.M0sconi
+package com.benkio.integration.integrationmunit.M0sconi
 
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.integration.DBFixture

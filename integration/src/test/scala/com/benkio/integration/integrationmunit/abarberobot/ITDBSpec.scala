@@ -1,4 +1,4 @@
-package com.benkio.integration.abarberobot
+package com.benkio.integration.integrationmunit.abarberobot
 
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia

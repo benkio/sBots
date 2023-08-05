@@ -98,6 +98,8 @@ object CommandRepliesData {
         MediaFile("xah_Crap5.mp3"),
         MediaFile("xah_Crap6.mp3"),
         MediaFile("xah_Crap7.mp3"),
+        MediaFile("xah_CrapShit.mp3"),
+        MediaFile("xah_CrapShit2.mp3"),
         MediaFile("xah_DesignFakCrap.mp3"),
         MediaFile("xah_EmacsCalculatorShit.mp3"),
         MediaFile("xah_GiveShit.mp3"),

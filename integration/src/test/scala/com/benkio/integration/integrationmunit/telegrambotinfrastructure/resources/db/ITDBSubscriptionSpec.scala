@@ -1,4 +1,4 @@
-package com.benkio.integration.telegrambotinfrastructure.resources.db
+package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
 import doobie.Transactor
 import java.sql.DriverManager
@@ -27,8 +27,8 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
     Class.forName("org.sqlite.JDBC")
-    val conn = DriverManager.getConnection(dbUrl)
-    runMigrations(dbUrl, migrationTable, migrationPath)
+    val conn = DriverManager.getConnection(DBFixture.dbUrl)
+    DBFixture.runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
     val transactor = Transactor.fromConnection[IO](conn, None)
     transactor
   }

@@ -1,4 +1,4 @@
-package com.benkio.integration.telegrambotinfrastructure.resources.db
+package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.model.ShowQuery
@@ -29,8 +29,8 @@ arriva il peggio del peggio""")
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
     Class.forName("org.sqlite.JDBC")
-    val conn = DriverManager.getConnection(dbUrl)
-    runMigrations(dbUrl, migrationTable, migrationPath)
+    val conn = DriverManager.getConnection(DBFixture.dbUrl)
+    DBFixture.runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
     val transactor = Transactor.fromConnection[IO](conn, None)
     transactor
   }

@@ -25,6 +25,7 @@ object Dependencies {
     val munitCatsEffect    = "2.0.0-M3"
     val pureConfig         = "0.17.4"
     val shapeless          = "2.3.10"
+    val scalatest          = "3.2.16"
     val sqlite             = "3.41.2.1"
     val telegramiumVersion = "8.67.2"
     val vault              = "3.5.0"
@@ -66,6 +67,7 @@ object Dependencies {
     val pureConfigCore    = "com.github.pureconfig"         %% "pureconfig-core"     % versions.pureConfig
     val pureConfigGeneric = "com.github.pureconfig"         %% "pureconfig-generic"  % versions.pureConfig
     val pureConfigGenericBase = "com.github.pureconfig" %% "pureconfig-generic-base" % versions.pureConfig
+    val scalatest             = "org.scalatest"         %% "scalatest"               % versions.scalatest % "test"
     val shapeless             = "com.chuusai"           %% "shapeless"               % versions.shapeless
     val sqlite                = "org.xerial"             % "sqlite-jdbc"             % versions.sqlite
     val telegramiumCore       = "io.github.apimorphism" %% "telegramium-core"        % versions.telegramiumVersion
@@ -169,6 +171,7 @@ object Dependencies {
       libs.munitCatsEffect,
       libs.munit,
       libs.doobieMunit,
+      libs.scalatest,
       libs.catsEffect        % "test",
       libs.catsCore          % "test",
       libs.doobieCore        % "test",
