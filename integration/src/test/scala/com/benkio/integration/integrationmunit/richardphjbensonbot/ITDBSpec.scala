@@ -1,4 +1,4 @@
-package com.benkio.integration.richardphjbensonbot
+package com.benkio.integration.integrationmunit.richardphjbensonbot
 
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia

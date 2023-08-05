@@ -1,16 +1,23 @@
 import Settings._
 
+// GLOBAL SETTINGS
+
 name         := "sBots"
 organization := "com.benkio"
 
 enablePlugins(FlywayPlugin)
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
+// TASKS
+
 lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
 
-addCommandAlias("run-db-migrations", "runMigrate")
+// COMMAND ALIASES
+
+addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
-addCommandAlias("validate", ";clean; compile; fix; test; integration/test")
+addCommandAlias("check", "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck")
+addCommandAlias("validate", ";clean; compile; fix; test; integration/runIntegrationMUnitTests")
 
 // PROJECTS
 

@@ -1,4 +1,4 @@
-package com.benkio.integration.telegrambotinfrastructure
+package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager

@@ -32,14 +32,6 @@ trait DBFixture { self: FunSuite =>
 
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val dbName: String         = "botDB.sqlite3"
-  val resourcePath: String   = new File("./..").getCanonicalPath
-  val dbPath: String         = s"$resourcePath/$dbName"
-  val dbUrl: String          = s"jdbc:sqlite:$dbPath";
-  val deleteDB: Boolean      = false
-  val migrationPath: String  = "filesystem:" + resourcePath + "/botDB/src/main/resources/db/migrations"
-  val migrationTable: String = "FlywaySchemaHistory"
-
   lazy val databaseFixture = FunFixture[DBFixtureResources](
     setup = DBFixture.fixtureSetup,
     teardown = DBFixture.teardownFixture
@@ -48,10 +40,18 @@ trait DBFixture { self: FunSuite =>
 
 object DBFixture {
 
-  def fixtureSetup(@unused testOptions: TestOptions): DBFixtureResources = {
+  val dbName: String         = "botDB.sqlite3"
+  val resourcePath: String   = new File("./..").getCanonicalPath
+  val dbPath: String         = s"$resourcePath/$dbName"
+  val dbUrl: String          = s"jdbc:sqlite:$dbPath";
+  val deleteDB: Boolean      = false
+  val migrationPath: String  = "filesystem:" + resourcePath + "/botDB/src/main/resources/db/migrations"
+  val migrationTable: String = "FlywaySchemaHistory"
+
+  def fixtureSetup(@unused testOptions: TestOptions)(implicit log: LogWriter[IO]): DBFixtureResources = {
     Class.forName("org.sqlite.JDBC")
-    val conn = DriverManager.getConnection(dbUrl)
-    runMigrations(dbUrl, migrationTable, migrationPath)
+    val conn = DriverManager.getConnection(DBFixture.dbUrl)
+    runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
     val transactor                                 = Transactor.fromConnection[IO](conn, None)
     val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
     val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbLayerResource.flatMap(dbLayer =>

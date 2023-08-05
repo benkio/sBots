@@ -46,18 +46,13 @@
 
 ** Compile and Test
 
-     Just run the following commands in a shell to check if everything
-     is fine.
+  Several command alias are defined in the project to group together useful sbt commands:
+  - `dbSetup` :: Run the botDB main that setup the DB anew. Running the migrations and the updating the media tables based on the CSV in the bots.
+  - `fix` :: Run the `scalafmt` and `scalafix` an the whole project.
+  - `check` :: Check the project for formatting and dependencies using sbt plugins such as scalafmt.
+  - `validate` :: compile clean and test. It includes the `fix` command and it is run in the CI.
 
-#+begin_src bash
-  sbt compile
-  sbt Test/compile
-  sbt Integration/compile
-  sbt fix
-  sbt test
-  sbt Integration/test
-#+end_src
-
+  Moreover there are tests excluded from the CI because they are quite slow. In this category there is one that checks all the media links in the DB and can be called manually by `sbt integration/runIntegrationScalaTests`
 ** Run the Bots
 *** Long Polling
      Under windows use the git bash terminal.

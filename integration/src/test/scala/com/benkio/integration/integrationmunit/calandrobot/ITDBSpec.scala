@@ -1,4 +1,4 @@
-package com.benkio.integration.calandrobot
+package com.benkio.integration.integrationmunit.calandrobot
 
 import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite

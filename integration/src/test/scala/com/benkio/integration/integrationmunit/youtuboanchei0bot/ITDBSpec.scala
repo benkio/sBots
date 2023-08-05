@@ -1,4 +1,4 @@
-package com.benkio.integration.youtuboanchei0bot
+package com.benkio.integration.integrationmunit.youtuboanchei0bot
 
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import com.benkio.integration.DBFixture

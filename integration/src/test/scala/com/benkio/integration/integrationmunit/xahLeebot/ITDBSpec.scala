@@ -1,4 +1,4 @@
-package com.benkio.integration.xahleebot
+package com.benkio.integration.integrationmunit.xahleebot
 
 import com.benkio.xahleebot.CommandRepliesData
 

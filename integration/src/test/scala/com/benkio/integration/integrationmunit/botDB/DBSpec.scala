@@ -1,4 +1,4 @@
-package com.benkio.integration.botDB
+package com.benkio.integration.integrationmunit.botDB
 
 import com.benkio.botDB.db.DBMigrator
 import munit.CatsEffectSuite

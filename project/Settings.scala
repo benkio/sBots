@@ -6,6 +6,10 @@ import Dependencies._
 
 object Settings {
 
+  lazy val runIntegrationMUnitTests = taskKey[Unit]("Run MUnit tests")
+
+  lazy val runIntegrationScalaTests = taskKey[Unit]("Run ScalaTest tests")
+
   lazy val settings = Seq(
     organization      := "com.benkio",
     version           := "1.9.3",
@@ -39,6 +43,12 @@ object Settings {
     name                := "Integration",
     libraryDependencies := IntegrationDependencies,
     publish / skip      := true,
+    runIntegrationMUnitTests := {
+      (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.*").value
+    },
+    runIntegrationScalaTests := {
+      (Test / testOnly).toTask(" com.benkio.integration.integrationscalatest.*").value
+    }
   )
 
   lazy val CalandroBotSettings = Seq(
