@@ -1047,7 +1047,9 @@ object Gif {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("lui si chiamava"),
-        StringTextTriggerValue("adolf hitler"),
+        RegexTextTriggerValue("\\badolf\\b", 5),
+        StringTextTriggerValue("hitler"),
+        StringTextTriggerValue("belle arti"),
         RegexTextTriggerValue("hitl[aà]".r, 5),
       ),
       List(

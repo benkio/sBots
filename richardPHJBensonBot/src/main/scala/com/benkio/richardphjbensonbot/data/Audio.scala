@@ -832,6 +832,15 @@ object Audio {
       List(
         MediaFile("rphjb_DonneSperma.mp3")
       ),
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("nudo([ -]nudo)+".r, 4),
+        RegexTextTriggerValue("fro(ci|sh)o([ -]fro(ci|sh)o)+".r, 5)
+      ),
+      List(
+        MediaFile("rphjb_NudoFrocio.mp3")
+      ),
+    ),
   )
 }
