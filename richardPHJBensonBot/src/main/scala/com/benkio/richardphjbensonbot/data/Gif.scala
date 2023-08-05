@@ -1044,6 +1044,16 @@ object Gif {
         GifFile("rphjb_LaRagazzaIndemoniata.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("lui si chiamava"),
+        StringTextTriggerValue("adolf hitler"),
+        RegexTextTriggerValue("hitl[aà]".r, 5),
+      ),
+      List(
+        GifFile("rphjb_AdolfHitler.mp4")
+      )
+    ),
   )
 
 }
