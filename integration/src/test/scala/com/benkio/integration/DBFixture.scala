@@ -22,10 +22,10 @@ import java.sql.Connection
 import java.sql.DriverManager
 
 final case class DBFixtureResources(
-  connection: Connection,
-  transactor: Transactor[IO],
-  resourceDBLayer: Resource[IO, DBLayer[IO]],
-  resourceAccessResource: Resource[IO, ResourceAccess[IO]]
+    connection: Connection,
+    transactor: Transactor[IO],
+    resourceDBLayer: Resource[IO, DBLayer[IO]],
+    resourceAccessResource: Resource[IO, ResourceAccess[IO]]
 )
 
 trait DBFixture { self: FunSuite =>
@@ -57,9 +57,9 @@ object DBFixture {
     val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbLayerResource.flatMap(dbLayer =>
       for {
         httpClient <- EmberClientBuilder
-        .default[IO]
-        .withMaxResponseHeaderSize(8192)
-        .build
+          .default[IO]
+          .withMaxResponseHeaderSize(8192)
+          .build
         urlFetcher <- Resource.eval(UrlFetcher[IO](httpClient))
       } yield ResourceAccess.dbResources[IO](
         dbMedia = dbLayer.dbMedia,
@@ -83,7 +83,7 @@ object DBFixture {
     ()
   }
 
-  def cleanDB(connection: Connection): Unit ={
+  def cleanDB(connection: Connection): Unit = {
     connection.createStatement().executeUpdate("DELETE FROM timeout;")
     connection.createStatement().executeUpdate("DELETE FROM subscription;")
     connection.createStatement().executeUpdate("DELETE FROM log;")
