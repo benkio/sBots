@@ -22,7 +22,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
 
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  // TODO: find a way to include all the bots 
+  // TODO: find a way to include all the bots
   val allMessageMediaFiles: List[MediaFile] =
     (RichardPHJBensonBot.messageRepliesData[IO] ++
       ABarberoBot.messageRepliesData[IO] ++
@@ -34,8 +34,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
 
     try {
       withFixture(test.toNoArgTest(fixtureParam)) // "loan" the fixture to the test
-    }
-    finally DBFixture.teardownFixture(fixtureParam.fixture)
+    } finally DBFixture.teardownFixture(fixtureParam.fixture)
   }
 
   def checkFile(mf: MediaFile): Unit =
