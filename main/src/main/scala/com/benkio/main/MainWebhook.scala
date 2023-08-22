@@ -62,7 +62,9 @@ object MainWebhook extends IOApp {
           m0sconiWebhook
         ),
         port = mainSetup.port,
-        host = mainSetup.host
+        host = mainSetup.host,
+        keystorePath = mainSetup.keystorePath,
+        keystorePassword = mainSetup.keystorePassword
       )
     } yield server
 

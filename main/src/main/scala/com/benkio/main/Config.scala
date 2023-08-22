@@ -10,6 +10,8 @@ final case class Config(
     hostUrl: String,
     port: Int,
     webhookCertificate: Option[String],
+    keystorePath: Option[String],
+    keystorePassword: Option[String],
     mainDB: DBConfig
 )
 

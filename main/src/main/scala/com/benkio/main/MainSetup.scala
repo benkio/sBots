@@ -19,7 +19,9 @@ final case class MainSetup[F[_]](
     webhookBaseUrl: String,
     host: String,
     port: Int,
-    webhookCertificate: Option[InputPartFile]
+    webhookCertificate: Option[InputPartFile],
+    keystorePath: Option[String],
+    keystorePassword: Option[String]
 )
 
 object MainSetup {
@@ -36,6 +38,8 @@ object MainSetup {
     webhookBaseUrl = config.webhookBaseUrl,
     host = config.hostUrl,
     port = config.port,
-    webhookCertificate = certificate
+    webhookCertificate = certificate,
+    keystorePath = config.keystorePath,
+    keystorePassword = config.keystorePassword
   )
 }
