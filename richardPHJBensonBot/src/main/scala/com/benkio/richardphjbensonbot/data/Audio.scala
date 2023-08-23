@@ -842,5 +842,17 @@ object Audio {
         MediaFile("rphjb_NudoFrocio.mp3")
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("incidente dal ponte"),
+        StringTextTriggerValue("ponte sisto"),
+        StringTextTriggerValue("manco il tevere"),
+        StringTextTriggerValue("cercando di farmi del male"),
+        StringTextTriggerValue("sono ancora vivo")
+      ),
+      List(
+        MediaFile("rphjb_IncidentePonte.mp3")
+      ),
+    ),
   )
 }

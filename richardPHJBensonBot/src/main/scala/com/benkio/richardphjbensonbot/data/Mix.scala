@@ -329,7 +329,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("non me ne fotte"),
+        RegexTextTriggerValue("non me ne (frega|fotte)".r, 15),
         StringTextTriggerValue("chissenefrega"),
         StringTextTriggerValue("non mi interessa")
       ),
@@ -338,7 +338,10 @@ object Mix {
         GifFile("rphjb_NonMeNeFrega.mp4"),
         MediaFile("rphjb_NonMiFregaParloIo.mp4"),
         MediaFile("rphjb_ENonMeNeFotteUnCazzo.mp3"),
-        MediaFile("rphjb_NonLeggoQuelloCheScrivete.mp3")
+        MediaFile("rphjb_NonLeggoQuelloCheScrivete.mp3"),
+        MediaFile("rphjb_IncidentePonte.mp3"),
+        MediaFile("rphjb_EscertoCritiche.mp4"),
+        MediaFile("rphjb_Escerto.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1517,7 +1520,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("e(s|c)certo".r, 6),
+        RegexTextTriggerValue("e[sc]+erto".r, 6),
         StringTextTriggerValue("non me ne frega un cazzo")
       ),
       List(
