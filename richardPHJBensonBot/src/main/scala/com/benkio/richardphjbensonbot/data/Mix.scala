@@ -329,7 +329,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("non me ne fotte"),
+        RegexTextTriggerValue("non me ne (frega|fotte)".r, 15),
         StringTextTriggerValue("chissenefrega"),
         StringTextTriggerValue("non mi interessa")
       ),
@@ -338,7 +338,10 @@ object Mix {
         GifFile("rphjb_NonMeNeFrega.mp4"),
         MediaFile("rphjb_NonMiFregaParloIo.mp4"),
         MediaFile("rphjb_ENonMeNeFotteUnCazzo.mp3"),
-        MediaFile("rphjb_NonLeggoQuelloCheScrivete.mp3")
+        MediaFile("rphjb_NonLeggoQuelloCheScrivete.mp3"),
+        MediaFile("rphjb_IncidentePonte.mp3"),
+        MediaFile("rphjb_EscertoCritiche.mp4"),
+        MediaFile("rphjb_Escerto.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1190,7 +1193,8 @@ object Mix {
       List(
         MediaFile("rphjb_Venerdi.mp3"),
         MediaFile("rphjb_Venerdi.mp4"),
-        MediaFile("rphjb_TempoAlTempo.mp4")
+        MediaFile("rphjb_TempoAlTempo.mp4"),
+        MediaFile("rphjb_VenerdiAppuntamentoFissoFica.mp4"),
       ),
       replySelection = RandomSelection
     ),
@@ -1517,7 +1521,7 @@ object Mix {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("e(s|c)certo".r, 6),
+        RegexTextTriggerValue("e[sc]+erto".r, 6),
         StringTextTriggerValue("non me ne frega un cazzo")
       ),
       List(
@@ -1640,6 +1644,26 @@ object Mix {
       List(
         MediaFile("rphjb_Ciao2001.mp4"),
         GifFile("rphjb_Ciao2001Gif.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("alle (22|ventidue)".r, 7)
+      ),
+      List(
+        MediaFile("rphjb_Alle22.mp3"),
+        MediaFile("rphjb_VenerdiAppuntamentoFissoFica.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("appuntamento")
+      ),
+      List(
+        MediaFile("rphjb_Appuntamento.mp3"),
+        MediaFile("rphjb_VenerdiAppuntamentoFissoFica.mp4")
       ),
       replySelection = RandomSelection
     ),

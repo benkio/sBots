@@ -111,14 +111,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("appuntamento")
-      ),
-      List(
-        MediaFile("rphjb_Appuntamento.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("perchè l'ho fatto"),
         StringTextTriggerValue("non do spiegazioni")
       ),
@@ -751,14 +743,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("alle (22|ventidue)".r, 7)
-      ),
-      List(
-        MediaFile("rphjb_Alle22.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("gelatina"),
         StringTextTriggerValue("secchi d'acqua"),
         StringTextTriggerValue("fazzoletti"),
@@ -840,6 +824,18 @@ object Audio {
       ),
       List(
         MediaFile("rphjb_NudoFrocio.mp3")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("incidente dal ponte"),
+        StringTextTriggerValue("ponte sisto"),
+        StringTextTriggerValue("manco il tevere"),
+        StringTextTriggerValue("cercando di farmi del male"),
+        StringTextTriggerValue("sono ancora vivo")
+      ),
+      List(
+        MediaFile("rphjb_IncidentePonte.mp3")
       ),
     ),
   )
