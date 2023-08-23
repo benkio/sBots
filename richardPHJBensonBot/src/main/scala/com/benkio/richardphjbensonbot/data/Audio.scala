@@ -111,14 +111,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("appuntamento")
-      ),
-      List(
-        MediaFile("rphjb_Appuntamento.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("perchè l'ho fatto"),
         StringTextTriggerValue("non do spiegazioni")
       ),
@@ -747,14 +739,6 @@ object Audio {
       ),
       List(
         MediaFile("rphjb_PauraAdAlDiMeola.mp3"),
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("alle (22|ventidue)".r, 7)
-      ),
-      List(
-        MediaFile("rphjb_Alle22.mp3")
       )
     ),
     ReplyBundleMessage(

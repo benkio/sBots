@@ -1193,7 +1193,8 @@ object Mix {
       List(
         MediaFile("rphjb_Venerdi.mp3"),
         MediaFile("rphjb_Venerdi.mp4"),
-        MediaFile("rphjb_TempoAlTempo.mp4")
+        MediaFile("rphjb_TempoAlTempo.mp4"),
+        MediaFile("rphjb_VenerdiAppuntamentoFissoFica.mp4"),
       ),
       replySelection = RandomSelection
     ),
@@ -1643,6 +1644,26 @@ object Mix {
       List(
         MediaFile("rphjb_Ciao2001.mp4"),
         GifFile("rphjb_Ciao2001Gif.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("alle (22|ventidue)".r, 7)
+      ),
+      List(
+        MediaFile("rphjb_Alle22.mp3"),
+        MediaFile("rphjb_VenerdiAppuntamentoFissoFica.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("appuntamento")
+      ),
+      List(
+        MediaFile("rphjb_Appuntamento.mp3"),
+        MediaFile("rphjb_VenerdiAppuntamentoFissoFica.mp4")
       ),
       replySelection = RandomSelection
     ),

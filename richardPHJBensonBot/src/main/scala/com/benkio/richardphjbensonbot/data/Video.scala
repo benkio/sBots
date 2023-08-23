@@ -1085,6 +1085,18 @@ object Video {
         MediaFile("rphjb_Nodi.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("una bella fi[cg]a".r, 14),
+        StringTextTriggerValue("la fate aspettare"),
+        RegexTextTriggerValue("in silenzio( dovuto)?".r, 11),
+        StringTextTriggerValue("consumare dopo"),
+        StringTextTriggerValue("consumare durante"),
+      ),
+      List(
+        MediaFile("rphjb_VenerdiAppuntamentoFissoFica.mp4")
+      )
+    ),
   )
 
 }
