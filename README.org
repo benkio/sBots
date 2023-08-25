@@ -1,6 +1,9 @@
 * sBots
 
-  A repository containing the bots developed in Scala.
+[[https://actions-badge.atrox.dev/benkio/sBots/goto][file:https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fbenkio%2FsBots%2Fbadge&style=flat]]
+[[https://scala-steward.org][file:https://img.shields.io/badge/Scala_Steward-helping-blue.svg?style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAMAAAARSr4IAAAAVFBMVEUAAACHjojlOy5NWlrKzcYRKjGFjIbp293YycuLa3pYY2LSqql4f3pCUFTgSjNodYRmcXUsPD/NTTbjRS+2jomhgnzNc223cGvZS0HaSD0XLjbaSjElhIr+AAAAAXRSTlMAQObYZgAAAHlJREFUCNdNyosOwyAIhWHAQS1Vt7a77/3fcxxdmv0xwmckutAR1nkm4ggbyEcg/wWmlGLDAA3oL50xi6fk5ffZ3E2E3QfZDCcCN2YtbEWZt+Drc6u6rlqv7Uk0LdKqqr5rk2UCRXOk0vmQKGfc94nOJyQjouF9H/wCc9gECEYfONoAAAAASUVORK5CYII=]]
+
+  A repository containing the following bots developed in Scala.
 
   Author: https://t.me/Benkio
 
@@ -31,8 +34,6 @@
      the files in resources since those will be fetched from the web
      via URLs.
 
-     Read the following section to know how to set up the database
-
      Check [[https://youtu.be/T-AfAvJLSJE][this video]] for a complete rundown on how to add files to a bot.
 
 ** Database Setup
@@ -47,12 +48,13 @@
 ** Compile and Test
 
   Several command alias are defined in the project to group together useful ~sbt~ commands:
-  - ~dbSetup~ :: Run the botDB main that set up the DB anew. Running the migrations and updating the media tables based on the CSV in the bots.
-  - ~fix~ :: Run the ~scalafmt~ and ~scalafix~ an the whole project.
+  - ~dbSetup~ :: Run the botDB main that set up the DB anew. Running the migrations and updating the media tables based on the CSV in the bots folders.
+  - ~fix~ :: Run the ~scalafmt~ and ~scalafix~ in the whole project.
   - ~check~ :: Check the project for formatting and dependencies using ~sbt~ plugins such as ~scalafmt~.
   - ~validate~ :: compile clean and test. It includes the ~fix~ command and it is run in the CI.
 
   Moreover, there are tests excluded from the CI because they are quite slow. In this category, there is one that checks all the media links in the DB and can be called manually by ~sbt integration/runIntegrationScalaTests~
+
 ** Run the Bots
 *** Long Polling
      Under Windows use the git bash terminal.
@@ -122,10 +124,10 @@
 *** Deploy
 
  - Set the ~main/src/resources/application.conf~ accordingly:
-    - ~webhook-base-url~ as ~https://<serverip>:<outsideport>~, in our case it will be ~https://140.238.155.16:8433~
-    - ~host-url~ as ~0.0.0.0~
-    - ~port~ as ~<internalPort>~ in our case ~8081~
-    - ~webhook-certificate~ with the path of the public certificate, in our case ~/etc/nginx/certs/certificatePublic.pem~
+   - ~webhook-base-url~ as ~https://<serverip>:<outsideport>~, eg ~https://140.238.155.16:8433~
+   - ~host-url~ as ~0.0.0.0~
+   - ~port~ as ~<internalPort>~ in our case ~8081~
+   - ~webhook-certificate~ with the path of the public certificate, eg ~/etc/nginx/certs/certificatePublic.pem~
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
  - Move the fat jar to the VM by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public IP of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/sBots/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
  - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~, or other changes in the process. No easy way to migrate the database as of now.
