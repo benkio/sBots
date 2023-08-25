@@ -21,6 +21,7 @@
     - [[https://git-scm.com/][git]]
     - [[https://www.scala-sbt.org/][sbt - Scala Build Tool]]
     - [[https://www.scala-lang.org/][scala]]
+    - [[https://www.openssl.org/][openSSL]]
 
 ** Add Data to the Bots
 
@@ -96,38 +97,30 @@
     - Source Port Range: All
     - Destination Port Range: 8443
     This should allow telegram to reach your server through that port.
-  - Generate a Self-Signed Certificate :: On the server, using the commands on [[https://core.telegram.org/bots/self-signed][this page]], generate a pair of keys that will serve as the self-signed certificate for the SSL connection. Be sure to include the IP or domain of your server in the ~CN~ key.
-  - Change Certificates Permissions and Owner :: This can be done by running ~sudo chown root:root <<Certificate>>~ and ~sudo chmod 600 <<Certificate>~. Do this on both private and public keys.
-  - Install NGINX :: Run ~sudo yum install nginx~
-  - Move the Above Certificates to NGINX Certificate Folder :: ~/etc/nginx/certs~ as you'll see in the configuration below.
-  - Change NGINX Configuration to Enable the Reverse Proxy on the Port :: Add this ~server~ block to the configuration:
-      #+begin_src
-    server {
-      listen *:8443;
-      ssl on;
-      server_name _;
-
-      location / { proxy_pass http://localhost:8081; }
-
-      ssl_certificate      /etc/nginx/certs/certificatePublic.pem;
-      ssl_certificate_key  /etc/nginx/certs/certificatePrivate.key;
-    }
-      #+end_src
-      Be sure to put the right port on ~listen~ and the correct path to the certificates. As you can see the other local port is the *8081*, there is where the actual bots will listen to requests and the reverse proxy will redirect the incoming requests.
-  - Install Audit2Allow from Python Policy Core Utils :: Run ~sudo yum install policycoreutils-python-utils~
-  - Create Selinux Allow Rules and Add Them :: Run ~audit2allow -a -M mycertwatch~ and then ~semodule -i mycertwatch.pp~ in order to be able to access the port and the certificates. [[https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-fixing_problems-allowing_access_audit2allow][Reference]]
-  - Allow the External Port in the Firewall :: Run ~sudo firewall-cmd --zone=public --add-port=8443/tcp --permanent~
-  - Enable NGINX Service :: Run ~sudo systemctl enable nginx~
-  - Start NGINX Service :: Run ~sudo systemctl start nginx~
-  - Test NGINX :: You should see a 503 error ~Bad Gateway~ when hitting the external URL. In our case ~https://140.238.155.16:8433~. This means ~nginx~ is working correctly. You can also spawn a temporary web server on port ~8081~ by running: ~python -m http.server 8081~. Then, the above URL should show the server file system. This means everything is running fine. Otherwise, you can inspect any error logs via the command: ~journalctl -xu nginx~.
+  - Generate a keystore JKS :: On the server, using the commands on [[https://core.telegram.org/bots/self-signed][this page]], follow the instruction for the java keystore, pasting each command one by one. Command: ~keytool -genkey -keyalg RSA -alias 129.152.27.196 -keystore sbotsKeystore.jks -storepass sbotsKeystorePassword -validity 360 -keysize 2048~
+    When generating the keystore provide the following responses to the questions:
+    - "first and last name": "Enrico Benini"
+    - "organizational unit": "."
+    - "organization": "Benkio"
+    - "city or location": "Cesena"@
+    - "state or province": "Emilia-Romagna"
+    - "country code": "IT"
+    You should see the following message: ~Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 360 days\n for: CN=Enrico Benini, O=Benkio, L=Cesena, ST=Emilia-Romagna, C=IT~
+  - Convert the keystore to PEM :: following the commands in the link above. eg:
+    #+begin_src sh
+      # multiple passwords will be requested. Just put the same "sbotsKeystorePassword" everywhere
+      keytool -importkeystore -srckeystore sbotsKeystore.jks -destkeystore sbots.p12 -srcstoretype jks -deststoretype pkcs12
+      openssl pkcs12 -in sbots.p12 -out sbotsCertificatePub.pem
+    #+end_src
+  - Check your application.conf values :: be sure to specify the certificate and the keystore name and password correctly.
 
 *** Deploy
 
  - Set the ~main/src/resources/application.conf~ accordingly:
-   - ~webhook-base-url~ as ~https://<serverip>:<outsideport>~, eg ~https://140.238.155.16:8433~
+   - ~webhook-base-url~ as ~https://<serverip>:<outsideport>~, eg ~https://129.152.27.196:8443~
    - ~host-url~ as ~0.0.0.0~
    - ~port~ as ~<internalPort>~ in our case ~8081~
-   - ~webhook-certificate~ with the path of the public certificate, eg ~/etc/nginx/certs/certificatePublic.pem~
+   - ~webhook-certificate~ with the path of the public certificate, eg ~certificatePublic.pem~
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
  - Move the fat jar to the VM by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public IP of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/sBots/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
  - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~, or other changes in the process. No easy way to migrate the database as of now.
