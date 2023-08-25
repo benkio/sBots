@@ -87,7 +87,8 @@
 
 **** Webhook Extra Configuration
 
-  Eventually, the library connecting to Telegram should provide full SSL certificate support for [[https://github.com/apimorphism/telegramium/issues/348][this issue]], but until now we will rely on ~nginx~ and reverse proxy. Follow these steps to set up the server property:
+  If something doesn't work, please follow [[https://core.telegram.org/bots/webhooks#the-verbose-version][this guide]] and update the documentation accondingly
+  Follow these steps to set up the server property:
 
   - Server Prerequisites :: Check [[https://core.telegram.org/bots/webhooks#the-short-version][this page]] for the prerequisites required by telegram to work with webhook. In our case, we choose port 8443 for SSL connection.
   - Open Port on OCI Subnet :: The instance where the bots are running needs to have an attached VNICs([[https://docs.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm][Virtual Network Interface Card]]) with a subnet. The subnet will have a default security list containing the rules for the ports available from outside. Add a new rule for the port required and save it. The parameters to use are:
@@ -97,20 +98,42 @@
     - Source Port Range: All
     - Destination Port Range: 8443
     This should allow telegram to reach your server through that port.
-  - Generate a keystore JKS :: On the server, using the commands on [[https://core.telegram.org/bots/self-signed][this page]], follow the instruction for the java keystore, pasting each command one by one. Command: ~keytool -genkey -keyalg RSA -alias 129.152.27.196 -keystore sbotsKeystore.jks -storepass sbotsKeystorePassword -validity 360 -keysize 2048~
-    When generating the keystore provide the following responses to the questions:
-    - "first and last name": "Enrico Benini"
-    - "organizational unit": "."
-    - "organization": "Benkio"
-    - "city or location": "Cesena"@
-    - "state or province": "Emilia-Romagna"
-    - "country code": "IT"
-    You should see the following message: ~Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 360 days\n for: CN=Enrico Benini, O=Benkio, L=Cesena, ST=Emilia-Romagna, C=IT~
+  - Test the port is open :: by spawning a server with the command ~python3 -m http.server 8443~ and try to open a browser tab to the server. eg http://129.152.27.196:8443/
+  - Generate a keystore JKS :: On the server, using the commands on [[https://core.telegram.org/bots/self-signed][this page]], follow the instruction for the java keystore, pasting each command one by one. Example
+    #+begin_src sh
+    $ keytool -genkey -alias sbots -keyalg RSA -keystore sbotsKeystore.jks -keysize 2048 -validity 360
+    Enter keystore password:
+    Re-enter new password:
+    Enter the distinguished name. Provide a single dot (.) to leave a sub-component empty or press ENTER to use the default value in braces.
+    What is your first and last name?
+      [Unknown]:  129.152.27.196
+    What is the name of your organizational unit?
+      [Unknown]:
+    What is the name of your organization?
+      [Unknown]:
+    What is the name of your City or Locality?
+      [Unknown]:
+    What is the name of your State or Province?
+      [Unknown]:
+    What is the two-letter country code for this unit?
+      [Unknown]:
+    Is CN=129.152.27.196, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct?
+      [no]:  yes
+
+    Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 360 days
+            for: CN=129.152.27.196, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+    #+end_src
+
   - Convert the keystore to PEM :: following the commands in the link above. eg:
     #+begin_src sh
-      # multiple passwords will be requested. Just put the same "sbotsKeystorePassword" everywhere
-      keytool -importkeystore -srckeystore sbotsKeystore.jks -destkeystore sbots.p12 -srcstoretype jks -deststoretype pkcs12
-      openssl pkcs12 -in sbots.p12 -out sbotsCertificatePub.pem
+      $ keytool -importkeystore -srckeystore sbotsKeystore.jks -destkeystore sbots.p12 -srcstoretype jks -deststoretype pkcs12
+      Importing keystore sbotsKeystore.jks to sbots.p12...
+      Enter destination keystore password:
+      Re-enter new password:
+      Enter source keystore password:
+      Entry for alias sbots successfully imported.
+      Import command completed:  1 entries successfully imported, 0 entries failed or cancelled
+      $ openssl pkcs12 -in sbots.p12 -out sbotsCertificatePub.pem -nokeys
     #+end_src
 
 *** Deploy
@@ -118,7 +141,7 @@
  - Set the ~main/src/resources/application.conf~ accordingly:
    - ~webhook-base-url~ as ~https://<serverip>:<outsideport>~, eg ~https://129.152.27.196:8443~
    - ~host-url~ as ~0.0.0.0~
-   - ~port~ as ~<internalPort>~ in our case ~8081~
+   - ~port~ as ~<internalPort>~ in our case ~8443~
    - ~webhook-certificate~ with the path of the public certificate, eg ~sbotsCertificatePub.pem~
    - ~keystore-path~ add the path to the keystore, eg ~sbotsKeystore.jks~
    - ~keystore-password~ add the password of the keystore, eg ~sbotsKeystorePassword~
