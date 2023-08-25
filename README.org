@@ -112,7 +112,6 @@
       keytool -importkeystore -srckeystore sbotsKeystore.jks -destkeystore sbots.p12 -srcstoretype jks -deststoretype pkcs12
       openssl pkcs12 -in sbots.p12 -out sbotsCertificatePub.pem
     #+end_src
-  - Check your application.conf values :: be sure to specify the certificate and the keystore name and password correctly.
 
 *** Deploy
 
@@ -120,9 +119,11 @@
    - ~webhook-base-url~ as ~https://<serverip>:<outsideport>~, eg ~https://129.152.27.196:8443~
    - ~host-url~ as ~0.0.0.0~
    - ~port~ as ~<internalPort>~ in our case ~8081~
-   - ~webhook-certificate~ with the path of the public certificate, eg ~certificatePublic.pem~
+   - ~webhook-certificate~ with the path of the public certificate, eg ~sbotsCertificatePub.pem~
+   - ~keystore-path~ add the path to the keystore, eg ~sbotsKeystore.jks~
+   - ~keystore-password~ add the password of the keystore, eg ~sbotsKeystorePassword~
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
- - Move the fat jar to the VM by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public IP of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ssh-key-2022-04-26.key" /home/benkio/workspace/sBots/main/target/scala-2.13/main.jar opc@140.238.155.16:/home/opc/main.jar~)
+ - Move the fat jar to the VM by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public IP of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ubuntu_rsa.pem" /home/benkio/workspace/sBots/main/target/scala-2.13/main.jar ubuntu@129.152.27.196:/home/ubuntu/bots/main.jar~)
  - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~, or other changes in the process. No easy way to migrate the database as of now.
  - Login to the VM
  - OPTIONAL: be sure to have the right environment variables. IT'S RECOMMENDED TO
