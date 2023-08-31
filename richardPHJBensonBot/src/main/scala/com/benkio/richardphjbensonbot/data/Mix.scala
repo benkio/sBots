@@ -642,6 +642,7 @@ object Mix {
       List(
         MediaFile("rphjb_Risata.mp3"),
         MediaFile("rphjb_Risata.mp4"),
+        MediaFile("rphjb_Risata.gif"),
         GifFile("rphjb_RisataGif.mp4"),
         MediaFile("rphjb_OrmaiRisata.mp4"),
         MediaFile("rphjb_Sorriso2.gif"),
