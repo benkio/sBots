@@ -19,3 +19,11 @@ jobs:
       uses: actions/checkout@v3
     - name: assembly
       run: sbt "assembly"
+    - name: Create SSH key
+      run: |
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+    - name: test connection
+      run: |
+        ssh ubuntu@${{ secrets.DEPLOY_SERVER_IP }}
+        echo "welcome from the server"
