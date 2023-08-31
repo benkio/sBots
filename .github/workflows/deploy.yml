@@ -1,10 +1,13 @@
 name: Deploy
 
 on:
-  workflow_run:
-    workflows: ["Scala CI"]
-    types:
-      - completed
+  push: # Remove this for the one below once it works
+    branches:
+        - "**"
+  # workflow_run:
+  #   workflows: ["Scala CI"]
+  #   types:
+  #     - completed
 
 jobs:
   assembly:
@@ -13,10 +16,5 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Setup JDK
-      uses: actions/setup-java@v3
-      with:
-        distribution: temurin
-        java-version: 17
     - name: assembly
       run: sbt "assembly"
