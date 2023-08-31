@@ -12,7 +12,8 @@ on:
 jobs:
   assembly:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/master'
+    # UNCOMMENT THIS
+#    if: github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/master'
     steps:
     - name: Checkout
       uses: actions/checkout@v3
