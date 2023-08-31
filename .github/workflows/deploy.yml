@@ -25,4 +25,4 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
     - name: test connection
       run: |
-        rsync -v /home/runner/work/sBots/sBots/main/target/scala-2.13/main.jar ubuntu@{{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/test.jar
+        rsync -v /home/runner/work/sBots/sBots/main/target/scala-2.13/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/test.jar
