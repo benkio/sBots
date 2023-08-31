@@ -943,7 +943,7 @@ object M0sconiBot {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("cesena"),
-        StringTextTriggerValue("torino"),
+        RegexTextTriggerValue("\\btorino\\b".r, 6),
         StringTextTriggerValue("avellino"),
         StringTextTriggerValue("walter shakner"),
         StringTextTriggerValue("austriaco")
