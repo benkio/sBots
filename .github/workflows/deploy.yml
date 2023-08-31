@@ -20,6 +20,7 @@ jobs:
     - name: assembly
       run: |
         sed -i 's!\"\.\./botDB\.sqlite3"!\"botDB\.sqlite3\"!g' /home/runner/work/sBots/sBots/main/src/main/resources/application.conf
+        cat /home/runner/work/sBots/sBots/main/src/main/resources/application.conf
         sbt "assembly"
     - name: Create SSH key
       run: |
@@ -27,4 +28,4 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
     - name: test connection
       run: |
-        rsync -av -e ssh /home/runner/work/sBots/sBots/main/target/scala-2.13/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/test.jar
+        rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/main/target/scala-2.13/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/test.jar
