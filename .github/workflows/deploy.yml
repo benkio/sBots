@@ -37,4 +37,4 @@ jobs:
         ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'killall java'
         rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/main/target/scala-2.13/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/main.jar
         rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3
-        ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'java -cp /home/ubuntu/bots/main.jar com.benkio.main.MainWebhook'
+        ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'cd /home/ubuntu/bots; /usr/bin/java -cp main.jar com.benkio.main.MainWebhook'
