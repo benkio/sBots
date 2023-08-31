@@ -132,7 +132,8 @@ object CommandRepliesData {
         MediaFile("xah_FakAll.mp3"),
         MediaFile("xah_FakEmacs.mp3"),
         MediaFile("xah_FakRichardStallman.mp3"),
-        MediaFile("xah_IdiotsLinuxVimEmacsFanaticts.mp3")
+        MediaFile("xah_IdiotsLinuxVimEmacsFanaticts.mp3"),
+        MediaFile("xah_FakfaceRichardStallman.mp3")
       ),
       replySelection = RandomSelection
     ),
@@ -189,6 +190,8 @@ object CommandRepliesData {
       mediafiles = List(
         MediaFile("xah_APIFak.mp3"),
         MediaFile("xah_AlanFak.mp3"),
+        MediaFile("xah_AlanMackenzieFak.mp3"),
+        MediaFile("xah_AlanMackenzieFak2.mp3"),
         MediaFile("xah_AltTabFak.mp3"),
         MediaFile("xah_BitmapFak.mp3"),
         MediaFile("xah_BloadedFak.mp3"),
@@ -205,6 +208,8 @@ object CommandRepliesData {
         MediaFile("xah_Fak.mp3"),
         MediaFile("xah_Fak2.mp3"),
         MediaFile("xah_Fak3.mp3"),
+        MediaFile("xah_Fak4.mp3"),
+        MediaFile("xah_FakAlanMackenzie.mp3"),
         MediaFile("xah_FakAll.mp3"),
         MediaFile("xah_FakEmacs.mp3"),
         MediaFile("xah_FakFakingIdiocyLinux.mp3"),
