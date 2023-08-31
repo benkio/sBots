@@ -21,6 +21,12 @@ jobs:
       run: |
         sed -i 's!\"\.\./botDB\.sqlite3"!\"botDB\.sqlite3\"!g' /home/runner/work/sBots/sBots/main/src/main/resources/application.conf
         cat /home/runner/work/sBots/sBots/main/src/main/resources/application.conf
+        echo '${{ secrets.ABAR_TOKEN }}' > /home/runner/work/sBots/sBots/aBarberoBot/src/main/resources/abar_ABarberoBot.token
+        echo '${{ secrets.CALA_TOKEN }}' > /home/runner/work/sBots/sBots/calandroBot/src/main/resources/cala_CalandroBot.token
+        echo '${{ secrets.MOS_TOKEN }}' > /home/runner/work/sBots/sBots/m0sconiBot/src/main/resources/mos_M0sconiBot.token
+        echo '${{ secrets.RPHJB_TOKEN }}' > /home/runner/work/sBots/sBots/richardPHJBensonBot/src/main/resources/rphjb_RichardPHJBensonBot.token
+        echo '${{ secrets.XAH_TOKEN }}' > /home/runner/work/sBots/sBots/xahLeeBot/src/main/resources/xah_XahLeeBot.token
+        echo '${{ secrets.YTAI_TOKEN }}' > /home/runner/work/sBots/sBots/youTuboAncheI0Bot/src/main/resources/ytai_YouTuboAncheI0Bot.token
         sbt "assembly"
     - name: Create SSH key
       run: |
