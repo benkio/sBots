@@ -10,7 +10,7 @@ on:
   #     - completed
 
 jobs:
-  assembly:
+  deploy:
     runs-on: ubuntu-latest
     # UNCOMMENT THIS
 #    if: github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/master'
@@ -25,5 +25,4 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
     - name: test connection
       run: |
-        ssh ubuntu@${{ secrets.DEPLOY_SERVER_IP }}
-        echo "welcome from the server"
+        rsync -v /home/runner/work/sBots/sBots/main/target/scala-2.13/main.jar ubuntu@{{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/test.jar
