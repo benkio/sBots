@@ -1097,6 +1097,17 @@ object Video {
         MediaFile("rphjb_VenerdiAppuntamentoFissoFica.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("slipknot"),
+        StringTextTriggerValue("type o negative"),
+        StringTextTriggerValue("morto pure"),
+        StringTextTriggerValue("morti tutti"),
+      ),
+      List(
+        MediaFile("rphjb_MortiTutti.mp4")
+      )
+    ),
   )
 
 }
