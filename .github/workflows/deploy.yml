@@ -43,6 +43,9 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
-        script: whoami
+        script: |
+          killall java || true
+          cd /home/ubuntu/bots
+          java -cp main.jar com.benkio.main.MainWebhook
         # ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'killall java'
         # ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'cd /home/ubuntu/bots; /usr/bin/java -cp main.jar com.benkio.main.MainWebhook'
