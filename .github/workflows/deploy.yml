@@ -1,19 +1,15 @@
 name: Deploy
 
 on:
-  push: # Remove this for the one below once it works
-    branches:
-        - "**"
-  # workflow_run:
-  #   workflows: ["Scala CI"]
-  #   types:
-  #     - completed
+  workflow_run:
+    workflows: ["Scala CI"]
+    types:
+      - completed
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # UNCOMMENT THIS
-#    if: github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/master'
+    if: github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/master'
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -32,25 +28,9 @@ jobs:
       run: |
         install -m 600 -D /dev/null ~/.ssh/id_rsa
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-    - name: move artifactory
+    - name: Replace and Restart Bots
       run: |
         ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'killall java || true'"
         rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/main/target/scala-2.13/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/main.jar
         rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3
         ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"
-    # - name: restart bots
-    #   uses: appleboy/ssh-action@v1.0.0
-    #   with:
-    #     host: ${{ secrets.DEPLOY_SERVER_IP }}
-    #     username: ubuntu
-    #     key: ${{ secrets.SSH_PRIVATE_KEY }}
-    #     port: 22
-    #     script: |
-    #       killall java || true
-    #       cd /home/ubuntu/bots
-    #       java -cp main.jar com.benkio.main.MainWebhook &
-    #       bg
-    #       disown
-    #       exit
-    #     # ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'killall java'
-    #     # ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'cd /home/ubuntu/bots; /usr/bin/java -cp main.jar com.benkio.main.MainWebhook'
