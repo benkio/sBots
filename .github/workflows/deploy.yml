@@ -47,5 +47,8 @@ jobs:
           killall java || true
           cd /home/ubuntu/bots
           java -cp main.jar com.benkio.main.MainWebhook &
+          bg
+          disown
+          exit
         # ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'killall java'
         # ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'cd /home/ubuntu/bots; /usr/bin/java -cp main.jar com.benkio.main.MainWebhook'
