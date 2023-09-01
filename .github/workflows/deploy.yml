@@ -32,9 +32,17 @@ jobs:
       run: |
         install -m 600 -D /dev/null ~/.ssh/id_rsa
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-    - name: Kill running bots, move artifactory & restart bots
+    - name: move artifactory
       run: |
-        ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'killall java'
         rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/main/target/scala-2.13/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/main.jar
         rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3
-        ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'cd /home/ubuntu/bots; /usr/bin/java -cp main.jar com.benkio.main.MainWebhook'
+    - name: restart bots
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.DEPLOY_SERVER_IP }}
+        username: ubuntu
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: whoami
+        # ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'killall java'
+        # ssh -t -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEPLOY_SERVER_IP }} 'cd /home/ubuntu/bots; /usr/bin/java -cp main.jar com.benkio.main.MainWebhook'
