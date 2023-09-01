@@ -77,6 +77,13 @@
       TODO: There's already a ~main/Dockerfile~ with the command to run the webhook, but still it needs to be tested and visible from outside
             Also check [[https://expose.dev/docs/getting-started/installation#as-a-docker-container][expose on docker]]. In order to may make it discoverable from telegram API.
 
+** Continuous Integration
+
+  There should be a pipeline on master, running after the other
+  workflows, that should deploy build, deploy and run the bots
+  remotely on Oracle already. Every new master commit will result in a
+  deployment.
+
 ** Deploy on Oracle Cloud Infrastructure VM
 *** Setup
 
