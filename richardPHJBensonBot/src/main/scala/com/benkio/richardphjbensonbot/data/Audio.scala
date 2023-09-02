@@ -857,7 +857,7 @@ object Audio {
         MediaFile("rphjb_TelevitaSonoInizioRisata.mp3")
       ),
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("passaporto"),
         StringTextTriggerValue("riccardo benzoni"),
@@ -865,6 +865,15 @@ object Audio {
       ),
       List(
         MediaFile("rphjb_PassaportoRiccardoBenzoni.mp3")
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ah eccola"),
+        StringTextTriggerValue("l'ho trovata"),
+      ),
+      List(
+        MediaFile("rphjb_LHoTrovata.mp3")
       ),
     ),
   )
