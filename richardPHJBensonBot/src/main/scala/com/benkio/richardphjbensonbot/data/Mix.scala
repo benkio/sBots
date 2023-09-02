@@ -1668,6 +1668,16 @@ object Mix {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("succh"),
+        StringTextTriggerValue("olio di croce")
+      ),
+      List(
+        GifFile("rphjb_OlioDiCroce.mp4"),
+        MediaFile("rphjb_OlioDiCroce.mp3")
+      )
+    ),
   )
 
 }
