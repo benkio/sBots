@@ -322,15 +322,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("succh"),
-        StringTextTriggerValue("olio di croce")
-      ),
-      List(
-        GifFile("rphjb_OlioDiCroce.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("c'ha [pure ]?ragione"),
         StringTextTriggerValue("o no?")
       ),
