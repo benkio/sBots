@@ -857,5 +857,15 @@ object Audio {
         MediaFile("rphjb_TelevitaSonoInizioRisata.mp3")
       ),
     ),
+        ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("passaporto"),
+        StringTextTriggerValue("riccardo benzoni"),
+        StringTextTriggerValue("richard philip henry john benson"),
+      ),
+      List(
+        MediaFile("rphjb_PassaportoRiccardoBenzoni.mp3")
+      ),
+    ),
   )
 }
