@@ -838,5 +838,15 @@ object Audio {
         MediaFile("rphjb_IncidentePonte.mp3")
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\btega\\b".r, 4),
+        RegexTextTriggerValue("peli (a[rl]|del) culo".r, 12),
+        StringTextTriggerValue("il baffo"),
+      ),
+      List(
+        MediaFile("rphjb_RaccondaStoriaTegaBaffoPeliCulo.mp3")
+      ),
+    ),
   )
 }
