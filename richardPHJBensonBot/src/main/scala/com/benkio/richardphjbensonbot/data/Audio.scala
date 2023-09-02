@@ -848,5 +848,14 @@ object Audio {
         MediaFile("rphjb_RaccondaStoriaTegaBaffoPeliCulo.mp3")
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("televita"),
+        StringTextTriggerValue("solo l'inizio"),
+      ),
+      List(
+        MediaFile("rphjb_TelevitaSonoInizioRisata.mp3")
+      ),
+    ),
   )
 }
