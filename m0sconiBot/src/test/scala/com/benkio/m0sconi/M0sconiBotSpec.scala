@@ -63,7 +63,10 @@ class M0sconiBotSpec extends CatsEffectSuite {
     assert(csvFile.isRight)
     csvFile.fold(
       e => fail("test failed", e),
-      files => assert(botFile.forall(filename => files.contains(filename)))
+      files =>
+        botFile.foreach(filename =>
+          assert(files.contains(filename), s"$filename is not contained in mosconi data file")
+        )
     )
 
   }
@@ -80,14 +83,7 @@ class M0sconiBotSpec extends CatsEffectSuite {
       assert(triggerContent.contains(mediaFileString))
     }
     botTriggersFiles.foreach { triggerString =>
-      {
-        val result = triggerContent.contains(triggerString)
-        if (!result) {
-          println(s"triggerString: " + triggerString)
-          println(s"content: " + triggerContent)
-        }
-        assert(result)
-      }
+      assert(triggerContent.contains(triggerString), s"$triggerString is not contained in mosconi trigger file")
     }
   }
 

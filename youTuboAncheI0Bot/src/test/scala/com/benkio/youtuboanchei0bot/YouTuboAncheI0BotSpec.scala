@@ -71,7 +71,10 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
     assert(csvFile.isRight)
     csvFile.fold(
       e => fail("test failed", e),
-      files => assert(botFile.forall(filename => files.contains(filename)))
+      files =>
+        botFile.foreach(filename =>
+          assert(files.contains(filename), s"$filename is not contained in youtubo data file")
+        )
     )
 
   }
@@ -85,17 +88,10 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
       YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
     botMediaFiles.foreach { mediaFileString =>
-      assert(triggerContent.contains(mediaFileString))
+      assert(triggerContent.contains(mediaFileString), s"$mediaFileString is not contained in youtubo trigger file")
     }
     botTriggersFiles.foreach { triggerString =>
-      {
-        val result = triggerContent.contains(triggerString)
-        if (!result) {
-          println(s"triggerString: " + triggerString)
-          println(s"content: " + triggerContent)
-        }
-        assert(result)
-      }
+      assert(triggerContent.contains(triggerString), s"$triggerString is not contained in youtubo trigger file")
     }
   }
 

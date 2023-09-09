@@ -177,12 +177,9 @@ character: `!`
     csvFile.fold(
       e => fail("test failed", e),
       files =>
-        assert(botFile.forall(filename => {
-          if (!files.contains(filename)) {
-            println(s"[ERROR] missing filename: " + filename)
-          }
-          files.contains(filename)
-        }))
+        botFile.foreach(filename =>
+          assert(files.contains(filename), s"$filename is not contained in richard data file")
+        )
     )
 
   }
@@ -203,14 +200,7 @@ character: `!`
       assert(result)
     }
     botTriggersFiles.foreach { triggerString =>
-      {
-        val result = triggerContent.contains(triggerString)
-        if (!result) {
-          println(s"triggerString: " + triggerString)
-          println(s"content: " + triggerContent)
-        }
-        assert(result)
-      }
+      assert(triggerContent.contains(triggerString), s"$triggerString is not contained in richard trigger file")
     }
   }
 }

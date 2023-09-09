@@ -1536,6 +1536,15 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_PrivatoSoldiLimitatoMolto.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bball(o|are|i)\\b".r, 5),
+        RegexTextTriggerValue("\\bdanz(a|are|i)\\b".r, 5),
+      ),
+      List(
+        GifFile("ytai_Ballo.mp4")
+      )
+    )
   )
 
   def messageRepliesMixData[
@@ -1654,10 +1663,36 @@ object YouTuboAncheI0Bot {
     ),
   )
 
+  def messageRepliesImageData[
+      F[_]
+  ]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\b(ar)?rabbi([oa]|at[oa])\\b".r, 6),
+        StringTextTriggerValue("collera"),
+        RegexTextTriggerValue("[🤬😡😠]".r, 1),
+      ),
+      List(
+        MediaFile("ytai_Rabbia.jpg")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("[😦😧]".r, 1),
+        StringTextTriggerValue("shock"),
+      ),
+      List(
+        MediaFile("ytai_Shock.jpg")
+      )
+    ),
+  )
+
   def messageRepliesData[
       F[_]
   ]: List[ReplyBundleMessage[F]] =
-    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesVideoData[F])
+    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesVideoData[
+      F
+    ] ++ messageRepliesImageData[F])
       .sorted(ReplyBundle.orderingInstance[F])
       .reverse
 
