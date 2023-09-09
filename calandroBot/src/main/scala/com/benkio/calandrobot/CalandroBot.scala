@@ -76,7 +76,7 @@ object CalandroBot {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("gay"),
-        StringTextTriggerValue("frocio"),
+        RegexTextTriggerValue("froc[io]".r, 5),
         StringTextTriggerValue("culattone"),
         StringTextTriggerValue("ricchione")
       ),
