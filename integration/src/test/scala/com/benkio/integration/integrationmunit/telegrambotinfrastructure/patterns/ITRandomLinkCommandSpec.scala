@@ -23,25 +23,26 @@ class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test(
     "RandomLink Command should return a random show foreach bots if the input is an empty string"
   ) { fixture =>
-    List("ABarberoBot", "YouTuboAncheI0Bot", "RichardPHJBensonBot", "XahLeeBot")
-      .traverse(bot =>
-        for {
-          dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-          result <- testBot(bot, dbShow, "")
-        } yield result
-      ).map(_.foldLeft(true)(_ && _)).assert
+    val result = for {
+      dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
+      check <- List("ABarberoBot", "YouTuboAncheI0Bot", "RichardPHJBensonBot", "XahLeeBot")
+      .traverse(bot => testBot(bot, dbShow, ""))
+    } yield check.foldLeft(true)(_ && _)
+
+    result.assert
   }
 
   databaseFixture.test(
     "RandomLink Command should return a show if the input title matches a show per bot"
   ) { fixture =>
-    ITRandomLinkCommandSpec.showByTitle
-      .traverse(testInput =>
-        for {
-          dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-          result <- testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
-        } yield result
-      ).map(_.foldLeft(true)(_ && _)).assert
+    val result = for {
+      dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
+      check <- ITRandomLinkCommandSpec.showByTitle
+      .traverse(testInput => testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+      )
+    } yield check.foldLeft(true)(_ && _)
+
+    result.assert
   }
 
   databaseFixture.test(
@@ -80,8 +81,6 @@ object ITRandomLinkCommandSpec {
   final case class TestInput(botName: String, randomLinkInput: String, expectedOutput: String)
 
   val showByTitle: List[TestInput] = List(
-
-
     TestInput(botName = "ABarberoBot", randomLinkInput = "001 I GAP", expectedOutput = """2018-10-01 - https://barberopodcast.it/episode/001-i-gap-di-roma-e-lattentato-di-via-rasella-barbero-riserva-festival-della-mente-2017
  #001 I GAP di Roma e l’attentato di Via Rasella - Barbero Riserva (Festival della Mente, 2017)
 ----------
@@ -119,4 +118,50 @@ prende due note, e le ripete in continuazione....."""),
 ----------
  notes at http -_xahlee.info_talk_show_xah_talk_show_2022-11-01.html"""),
   )
+
+  val showByDescription: List[TestInput] = List(
+    TestInput(botName = "ABarberoBot",         randomLinkInput = "description=Michail+Bulgakov", expectedOutput = """2020-04-19 - https://barberopodcast.it/episode/095-il-maestro-e-margherita-di-bulgakov-extrabarbero-scandicci-cultura-2017
+ #095 Il Maestro e Margherita di Bulgakov - Extrabarbero (Scandicci Cultura, 2017)
+----------
+ Da Il Libro della Vita (Scandicci Cultura) il professor Barbero racconta “Il Maestro e Margherita” di Michail Bulgakov. Video originale: https://www.youtube.com/watch?v=nwZ1i2I15ps Twitter: https://twitter.com/barberopodcast Facebook: https://facebook.com/barberopodcast Instagram: https://instagram...."""),
+    TestInput(botName = "ABarberoBot",         randomLinkInput = "description=Liceo&description=Sassuolo", expectedOutput = """2021-10-24 - https://barberopodcast.it/episode/142-dante-e-la-sua-opera-1000vocix100canti-sassuolo-2021
+ #142 Dante e la sua opera (1000VociX100Canti, Sassuolo 2021)
+----------
+ Il prof. Barbero risponde alle domande preparate dagli studenti del Liceo Formiggini di Sassuolo nell’ambito del progetto 1000VociX100Canti, organizzato dall’Istituto e dalla compagnia teatrale H.O.T. Minds di Sassuolo. Progetto 1000VociX100Canti: https://www.instagram.com/1000vocix100canti/ Video o..."""),
+    TestInput(botName = "YoutuboAncheI0Bot",   randomLinkInput = "description=grazie+a+tutti", expectedOutput = """2018-11-23 - https://www.youtube.com/watch?v=l4W7-lCCif0
+ Unboxing www.norcineriacoccia.it   Pt 2^
+----------
+ Shop online:
+
+www.norcineriacoccia.it
+
+
+Se anche tu desideri i prodotti che ho ricevuto io , guarda il sito indicato sopra ; scegli e compra!
+
+Grazie a Tutti 🤩"""),
+    TestInput(botName = "YoutuboAncheI0Bot",   randomLinkInput = "description=acqua+calabria&description=ketchup+kania", expectedOutput = """2018-10-01 - https://www.youtube.com/watch?v=UNZebs_Cg0s
+ FISH & CHIPS  Abbondante ma non troppo
+----------
+ Buongiorno cari followers e buon inizio di settimana con questo mio nuovo video, che dovrebbe piacervi; mi auguro molto.
+
+Mi raccomando Condividete, Iscrivetevi, Lasciate il vostro Like, Attivate la campanella, Commentate...
+
+Nel video si vedono i seguenti prodotti: acqua Calabria, Coca Cola lattina da 1/2 litro, ketchup Kania, bastoncini di merluzzo Lidl e patatine da ristorante Mc Cain... tutti da me amatissimi 🤩
+
+Dunque una buona visione e Grazie per la tua personale visualizzazione 👍
+
+Ciaooo da YouTubo Anche Io 🌞"""),
+    TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "description=hardtodie", expectedOutput = """2022-05-11 - https://www.youtube.com/watch?v=CWK8yoOO934
+ Richard Benson | RicHARDtoDIE (Blob, 10 maggio 2022)
+----------
+ #RichardBenson #Blob #HardToDie
+
+GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
+CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
+PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook"""),
+    TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "description=&description=", expectedOutput = """"""),
+    TestInput(botName = "XahLeeBot",           randomLinkInput = "description=", expectedOutput = """"""),
+    TestInput(botName = "XahLeeBot",           randomLinkInput = "description=&description=", expectedOutput = """"""),
+  )
+
 }
