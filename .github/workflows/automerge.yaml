@@ -1,10 +1,14 @@
 name: Auto-merge
-on: pull_request
+on:
+  workflow_run:
+    workflows: ["Auto approve"]
+    types:
+      - completed
 
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    if: startsWith(github.head_ref, 'update/')
+    if: startsWith(github.head_ref, 'update/') && ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - id: automerge
         name: automerge
