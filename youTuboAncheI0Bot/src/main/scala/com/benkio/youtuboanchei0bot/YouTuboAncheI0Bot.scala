@@ -650,12 +650,14 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("(😄|😀|😃){4,}".r, 4),
+        RegexTextTriggerValue("(😄|😀|😃){3,}".r, 3),
         StringTextTriggerValue("sorriso")
       ),
       mediafiles = List(
-        GifFile("ytai_Sorriso.mp4")
-      )
+        GifFile("ytai_Sorriso.mp4"),
+        GifFile("ytai_Sorriso2.mp4"),
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
