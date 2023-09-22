@@ -666,7 +666,8 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_SpuntinoConMe2.mp4"),
         GifFile("ytai_SpuntinoConMe3.mp4"),
         GifFile("ytai_BuonoSpuntino.mp4"),
-        GifFile("ytai_PaninoBuonoSpuntito.mp4")
+        GifFile("ytai_PaninoBuonoSpuntito.mp4"),
+        GifFile("ytai_SpuntinoSmart.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1552,6 +1553,14 @@ object YouTuboAncheI0Bot {
       ),
       List(
         GifFile("ytai_ZebraGiraffa.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("smart")
+      ),
+      List(
+        GifFile("ytai_SpuntinoSmart.mp4")
       )
     )
   )
