@@ -259,7 +259,8 @@ object YouTuboAncheI0Bot {
       ),
       mediafiles = List(
         GifFile("ytai_Ciao.mp4"),
-        GifFile("ytai_Ciao2.mp4")
+        GifFile("ytai_Ciao2.mp4"),
+        GifFile("ytai_Ciao3.mp4")
       ),
       replySelection = RandomSelection
     ),
