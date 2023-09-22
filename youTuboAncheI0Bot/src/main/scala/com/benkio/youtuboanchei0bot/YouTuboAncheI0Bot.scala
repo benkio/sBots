@@ -1544,6 +1544,15 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_Ballo.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("zebra"),
+        StringTextTriggerValue("giraffa"),
+      ),
+      List(
+        GifFile("ytai_ZebraGiraffa.mp4")
+      )
     )
   )
 
