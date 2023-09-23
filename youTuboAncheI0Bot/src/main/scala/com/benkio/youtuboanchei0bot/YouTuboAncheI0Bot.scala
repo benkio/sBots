@@ -163,7 +163,8 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_AcquaSguardo.mp4"),
         GifFile("ytai_Sete.mp4"),
         GifFile("ytai_AcquaCalabria.mp4"),
-        GifFile("ytai_AcquaCalabriaOttima.mp4")
+        GifFile("ytai_AcquaCalabriaOttima.mp4"),
+        GifFile("ytai_AcquaMeravigliosa.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -436,6 +437,7 @@ object YouTuboAncheI0Bot {
       mediafiles = List(
         GifFile("ytai_Mah.mp4"),
         GifFile("ytai_Mah2.mp4"),
+        GifFile("ytai_Mah3.mp4"),
         GifFile("ytai_ZoomMah.mp4")
       ),
       replySelection = RandomSelection
@@ -600,8 +602,10 @@ object YouTuboAncheI0Bot {
         RegexTextTriggerValue("(sorso|bicchiere) d'acqua".r, 13)
       ),
       mediafiles = List(
-        GifFile("ytai_Sete.mp4")
-      )
+        GifFile("ytai_Sete.mp4"),
+        GifFile("ytai_AcquaMeravigliosa.mp4"),
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1574,7 +1578,7 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_SonoIpocrita.mp4")
       )
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("stetti male"),
         StringTextTriggerValue("rovinato lo stomaco"),
@@ -1584,6 +1588,16 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_StoriaChampignon.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("imbarazz(o|ato)".r, 9)
+      ),
+      List(
+        GifFile("ytai_SentireInImbarazzo.mp4"),
+        GifFile("ytai_LeggermenteImbarazzato.mp4"),
+      ),
+      replySelection = RandomSelection
     ),
   )
 
