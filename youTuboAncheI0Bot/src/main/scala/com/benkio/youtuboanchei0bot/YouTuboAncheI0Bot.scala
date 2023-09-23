@@ -1444,10 +1444,13 @@ object YouTuboAncheI0Bot {
       TextTrigger(
         StringTextTriggerValue("😋"),
         StringTextTriggerValue("yum"),
+        StringTextTriggerValue("gustoso"),
       ),
       List(
-        GifFile("ytai_GestoGustoso.mp4")
-      )
+        GifFile("ytai_GestoGustoso.mp4"),
+        GifFile("ytai_MoltoGustoso.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
@@ -1620,6 +1623,16 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_CiaoFollowersNelBeneNelMale.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("se volete sapere"),
+        StringTextTriggerValue("100%"),
+        StringTextTriggerValue("non va per me"),
+      ),
+      List(
+        GifFile("ytai_SapereTuttoNonVa.mp4")
+      )
+    ),
   )
 
   def messageRepliesMixData[
@@ -1658,7 +1671,7 @@ object YouTuboAncheI0Bot {
     ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("a me niente va bene"),
-        StringTextTriggerValue("non mi va bene niente")
+        RegexTextTriggerValue("non [tm]i va bene niente".r, 21)
       ),
       mediafiles = List(
         GifFile("ytai_NienteVaBene.mp4"),
