@@ -261,7 +261,9 @@ object YouTuboAncheI0Bot {
       mediafiles = List(
         GifFile("ytai_Ciao.mp4"),
         GifFile("ytai_Ciao2.mp4"),
-        GifFile("ytai_Ciao3.mp4")
+        GifFile("ytai_Ciao3.mp4"),
+        GifFile("ytai_CiaoRagazzi.mp4"),
+        GifFile("ytai_CiaoFollowersNelBeneNelMale.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1586,7 +1588,7 @@ object YouTuboAncheI0Bot {
         StringTextTriggerValue("matrimonio"),
       ),
       List(
-        GifFile("ytai_StoriaChampignon.mp4")
+        MediaFile("ytai_StoriaChampignon.mp4")
       )
     ),
     ReplyBundleMessage(
@@ -1608,6 +1610,15 @@ object YouTuboAncheI0Bot {
         MediaFile("ytai_PuoCapitare.mp4")
       ),
       replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("nel bene"),
+        StringTextTriggerValue("nel male"),
+      ),
+      List(
+        GifFile("ytai_CiaoFollowersNelBeneNelMale.mp4")
+      )
     ),
   )
 
