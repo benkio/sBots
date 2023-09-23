@@ -1565,7 +1565,26 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_SpuntinoSmart.mp4")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ipocrita")
+      ),
+      List(
+        GifFile("ytai_SonoIpocrita.mp4")
+      )
+    ),
+        ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("stetti male"),
+        StringTextTriggerValue("rovinato lo stomaco"),
+        StringTextTriggerValue("champignon"),
+        StringTextTriggerValue("matrimonio"),
+      ),
+      List(
+        GifFile("ytai_StoriaChampignon.mp4")
+      )
+    ),
   )
 
   def messageRepliesMixData[
