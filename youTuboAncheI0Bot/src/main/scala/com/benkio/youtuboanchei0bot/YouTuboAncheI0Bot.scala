@@ -1633,6 +1633,16 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_SapereTuttoNonVa.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("molto aromatico"),
+        StringTextTriggerValue("affumicatura"),
+        StringTextTriggerValue("pepe nero"),
+      ),
+      List(
+        GifFile("ytai_MoltoAromatico.mp4")
+      )
+    ),
   )
 
   def messageRepliesMixData[
