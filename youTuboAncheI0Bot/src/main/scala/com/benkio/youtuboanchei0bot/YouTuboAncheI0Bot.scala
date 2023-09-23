@@ -1599,6 +1599,16 @@ object YouTuboAncheI0Bot {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("pu[oò] capitare".r, 12)
+      ),
+      List(
+        GifFile("ytai_PuoCapitareGif.mp4"),
+        MediaFile("ytai_PuoCapitare.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
   def messageRepliesMixData[
