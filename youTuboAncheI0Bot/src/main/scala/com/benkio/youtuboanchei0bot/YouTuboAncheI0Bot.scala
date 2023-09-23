@@ -526,7 +526,8 @@ object YouTuboAncheI0Bot {
       mediafiles = List(
         GifFile("ytai_Occhiolino.mp4"),
         GifFile("ytai_Occhiolino2.mp4"),
-        GifFile("ytai_Occhiolino3.mp4")
+        GifFile("ytai_Occhiolino3.mp4"),
+        GifFile("ytai_OcchiolinoTestaDondolante.mp4")
       ),
       replySelection = RandomSelection
     ),
