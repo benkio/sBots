@@ -1359,7 +1359,6 @@ object YouTuboAncheI0Bot {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("beviamoci sopra"),
-        StringTextTriggerValue("non vi preoccupate"),
         StringTextTriggerValue("non c'è alcohol"),
       ),
       List(
@@ -1653,6 +1652,16 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_NonViPreoccupateCiRiusciremo.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("non vi preoccupate"),
+      ),
+      List(
+        GifFile("ytai_NonViPreoccupateCiRiusciremo.mp4"),
+        GifFile("ytai_BeviamociSopraNoAlcohol.mp4")
+      ),
+      replySelection = RandomSelection
+    )
   )
 
   def messageRepliesMixData[
