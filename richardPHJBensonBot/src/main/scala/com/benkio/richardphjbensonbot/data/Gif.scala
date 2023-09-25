@@ -314,14 +314,6 @@ object Gif {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("dare fastidio")
-      ),
-      List(
-        GifFile("rphjb_DareFastidio.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("c'ha [pure ]?ragione"),
         StringTextTriggerValue("o no?")
       ),
