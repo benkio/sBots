@@ -68,8 +68,8 @@ object DBShow {
   private def showQueryToFragments(query: ShowQuery): List[Fragment] = query match {
     case RandomQuery => List.empty
     case ShowQueryKeyword(titleKeywords, descriptionKeywords, minDuration, maxDuration, minDate, maxDate) =>
-      titleKeywords.map(k => fr"""show_title LIKE ${"%" + k + "%"}""") ++
-        descriptionKeywords.toList.flatten.map(k => fr"""show_description LIKE ${"%" + k + "%"}""") ++
+      titleKeywords.toList.flatten.map(k => fr"""lower(show_title) LIKE ${"%" + k + "%"}""") ++
+        descriptionKeywords.toList.flatten.map(k => fr"""lower(show_description) LIKE ${"%" + k + "%"}""") ++
         minDuration.toList.map(mind => fr"show_duration > $mind") ++
         maxDuration.toList.map(maxd => fr"show_duration < $maxd") ++
         minDate.toList.map(mind => fr"show_upload_date > ${mind.format(DBShowData.dateTimeFormatter)}") ++
@@ -85,7 +85,7 @@ object DBShow {
         fr"bot_name = $botName",
         showQueryToFragments(query): _*
       )
-
+    println(s"query: $q")
     q.query[DBShowData]
   }
 

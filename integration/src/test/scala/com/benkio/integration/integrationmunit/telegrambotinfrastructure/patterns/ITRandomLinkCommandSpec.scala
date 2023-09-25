@@ -16,7 +16,7 @@ class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
       botName = botName
     ).map(result => {
       val check = optExpected.fold(result.length == 1 && result != List(s"Nessuna puntata/show contenente '' è stata trovata"))(e => result == List(e))
-      if (!check) println(s"$botName - $input - $optExpected - $result")
+      if (!check) println(s"ERROR: $botName - $input - $optExpected - $result")
       check
     })
 
@@ -47,8 +47,16 @@ class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "RandomLink Command should return a show if the input description matches a show per bot"
-  ) { _// fixture
-    => ??? }
+  ) { fixture =>
+    val result = for {
+      dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
+      check <- ITRandomLinkCommandSpec.showByDescription
+      .traverse(testInput => testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+      )
+    } yield check.foldLeft(true)(_ && _)
+
+    result.assert
+  }
 
   databaseFixture.test(
     "RandomLink Command should return a show if the input minduration matches a show per bot"
@@ -159,9 +167,25 @@ Ciaooo da YouTubo Anche Io 🌞"""),
 GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
 CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
 PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook"""),
-    TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "description=&description=", expectedOutput = """"""),
-    TestInput(botName = "XahLeeBot",           randomLinkInput = "description=", expectedOutput = """"""),
-    TestInput(botName = "XahLeeBot",           randomLinkInput = "description=&description=", expectedOutput = """"""),
+    TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "description=carpi&description=simposio", expectedOutput = """2018-06-11 - https://www.youtube.com/watch?v=nZOhrQ4jZzI
+ Cocktail Micidiale 04 febbraio 2005 (puntata completa) Andrea Carpi
+----------
+ #RichardBenson #CocktailMicidiale #GianniNeri
+Andrea Carpi, vieni qui, vieni ad affrontare me, nel vero covo del medallo e del simposio."""),
+    TestInput(botName = "XahLeeBot",           randomLinkInput = "description=undo+hell", expectedOutput = """2019-01-05 - https://www.youtube.com/watch?v=JFdQtbEcwzE
+ emacs talk show. workflow. command log mode, working with raw html
+----------
+ randomish topic discussed:
+
+command log mode
+add html nav bar
+categorization problem
+15:50 undo hell
+using xah-fly-keys.el and xah-html-mode.el"""),
+    TestInput(botName = "XahLeeBot",           randomLinkInput = "description=david&description=suzuki", expectedOutput = """2019-09-29 - https://www.youtube.com/watch?v=L_Q7_F83DVY
+ Open Source, Richard Stallman, Recycling, Global Warming, Democracy Dies in Darkness. 2019-09-29
+----------
+ topics talked -• lisp  〈SAIL Keyboard〉 [ http -_xahlee.info_kbd_sail_keyboard.html ] • biggest flamewar online  〈The One True History of Meow〉 [ http -_xahlee.info_Netiquette_dir_meow_wars.html ] •  〈Richard Stallman Resigned from FSF, 2019-09-16〉 [ http -_ergoemacs.org_misc_rms_resign.html ] •  〈Richard Stallman Speech Requirement (2011)〉 [ http -_ergoemacs.org_misc_rms_speech_requirement.html ] • Why Utopian Communities Fail 2018-03-08 By Ewan Morrison• The Washington Post “democracy dies in darkness”• PBS• search YouTube - Penn and Teller Recycling• David Suzuki s daughter, Severn Cullis-Suzuki s speech to the UN in 1992 on climate change sounds an awful lot like Greta Thunberg s in 2019.  https -_twitter.com_CalebJHull_status_1177221680999124992"""),
   )
 
 }
