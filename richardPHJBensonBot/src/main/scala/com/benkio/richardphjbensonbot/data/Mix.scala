@@ -476,6 +476,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_MeNeVado.mp3"),
+        MediaFile("rphjb_EBastaETuHaiRottoIlCazzo.mp4"),
         GifFile("rphjb_MiRompiErCazzo.mp4"),
         GifFile("rphjb_MeNeVado.mp4")
       ),
@@ -775,11 +776,12 @@ object Mix {
         GifFile("rphjb_Basta.mp4"),
         GifFile("rphjb_Basta2.mp4"),
         MediaFile("rphjb_Basta2.mp3"),
+        MediaFile("rphjb_EBastaETuHaiRottoIlCazzo.mp4"),
         GifFile("rphjb_BastaGif.mp4"),
         GifFile("rphjb_Basta2Gif.mp4"),
         GifFile("rphjb_Basta3.mp4"),
         GifFile("rphjb_Basta4.mp4"),
-        GifFile("rphjb_BastaRottoIlCazzo.mp4"),
+        MediaFile("rphjb_BastaRottoIlCazzo.mp4"),
         GifFile("rphjb_BastaSedia.mp4")
       ),
       replySelection = RandomSelection
@@ -1695,7 +1697,7 @@ object Mix {
       ),
       List(
         GifFile("rphjb_DareFastidio.mp4"),
-        GifFile("rphjb_Regressive.mp4"),
+        MediaFile("rphjb_Regressive.mp4"),
       ),
       replySelection = RandomSelection
     ),
@@ -1705,7 +1707,17 @@ object Mix {
       ),
       List(
         GifFile("rphjb_RegressiveGif.mp4"),
-        GifFile("rphjb_Regressive.mp4"),
+        MediaFile("rphjb_Regressive.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("rotto il cazzo")
+      ),
+      List(
+        MediaFile("rphjb_EBastaETuHaiRottoIlCazzo.mp4"),
+        MediaFile("rphjb_BastaRottoIlCazzo.mp4"),
       ),
       replySelection = RandomSelection
     ),
