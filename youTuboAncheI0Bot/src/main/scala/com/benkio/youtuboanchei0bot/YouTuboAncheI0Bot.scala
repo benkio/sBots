@@ -1658,6 +1658,14 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_NonSonoFuorileggeNecessita.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("mi fa (tanto )?picere".r, 12)
+      ),
+      List(
+        GifFile("ytai_MiFaTantoPiacere.mp4")
+      )
+    ),
   )
 
   def messageRepliesMixData[
