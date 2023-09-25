@@ -1684,7 +1684,7 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("far(e|ti) (due |i )?conti".r, 9),
+        RegexTextTriggerValue("fa(re|rti|tti) (due |i )?conti".r, 9),
         StringTextTriggerValue("il lavoro che fai"),
       ),
       List(
