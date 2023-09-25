@@ -1585,32 +1585,11 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("stetti male"),
-        StringTextTriggerValue("rovinato lo stomaco"),
-        StringTextTriggerValue("champignon"),
-        StringTextTriggerValue("matrimonio"),
-      ),
-      List(
-        MediaFile("ytai_StoriaChampignon.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         RegexTextTriggerValue("imbarazz(o|ato)".r, 9)
       ),
       List(
         GifFile("ytai_SentireInImbarazzo.mp4"),
         GifFile("ytai_LeggermenteImbarazzato.mp4"),
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("pu[oò] capitare".r, 12)
-      ),
-      List(
-        GifFile("ytai_PuoCapitareGif.mp4"),
-        MediaFile("ytai_PuoCapitare.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1761,6 +1740,16 @@ object YouTuboAncheI0Bot {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("pu[oò] capitare".r, 12)
+      ),
+      List(
+        GifFile("ytai_PuoCapitareGif.mp4"),
+        MediaFile("ytai_PuoCapitare.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
   def messageRepliesVideoData[
@@ -1776,6 +1765,28 @@ object YouTuboAncheI0Bot {
       ),
       List(
         MediaFile("ytai_SognoAmericano.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("stetti male"),
+        StringTextTriggerValue("rovinato lo stomaco"),
+        StringTextTriggerValue("champignon"),
+        StringTextTriggerValue("matrimonio"),
+      ),
+      List(
+        MediaFile("ytai_StoriaChampignon.mp4")
+      )
+    ),
+        ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("senape"),
+        StringTextTriggerValue("non è scaduta"),
+        StringTextTriggerValue("ha un gusto strano"),
+        StringTextTriggerValue("non ne mangio più"),
+      ),
+      List(
+        MediaFile("ytai_Senape.mp4")
       )
     ),
   )
