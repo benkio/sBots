@@ -85,7 +85,7 @@ object DBShow {
         fr"bot_name = $botName",
         showQueryToFragments(query): _*
       )
-    println(s"query: $q")
+
     q.query[DBShowData]
   }
 

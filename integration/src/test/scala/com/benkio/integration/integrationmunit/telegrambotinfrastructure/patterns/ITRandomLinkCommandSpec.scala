@@ -136,7 +136,7 @@ prende due note, e le ripete in continuazione....."""),
  #142 Dante e la sua opera (1000VociX100Canti, Sassuolo 2021)
 ----------
  Il prof. Barbero risponde alle domande preparate dagli studenti del Liceo Formiggini di Sassuolo nell’ambito del progetto 1000VociX100Canti, organizzato dall’Istituto e dalla compagnia teatrale H.O.T. Minds di Sassuolo. Progetto 1000VociX100Canti: https://www.instagram.com/1000vocix100canti/ Video o..."""),
-    TestInput(botName = "YoutuboAncheI0Bot",   randomLinkInput = "description=grazie+a+tutti", expectedOutput = """2018-11-23 - https://www.youtube.com/watch?v=l4W7-lCCif0
+    TestInput(botName = "YouTuboAncheI0Bot",   randomLinkInput = "description=grazie+a+tutti", expectedOutput = """2018-11-23 - https://www.youtube.com/watch?v=l4W7-lCCif0
  Unboxing www.norcineriacoccia.it   Pt 2^
 ----------
  Shop online:
@@ -147,7 +147,7 @@ www.norcineriacoccia.it
 Se anche tu desideri i prodotti che ho ricevuto io , guarda il sito indicato sopra ; scegli e compra!
 
 Grazie a Tutti 🤩"""),
-    TestInput(botName = "YoutuboAncheI0Bot",   randomLinkInput = "description=acqua+calabria&description=ketchup+kania", expectedOutput = """2018-10-01 - https://www.youtube.com/watch?v=UNZebs_Cg0s
+    TestInput(botName = "YouTuboAncheI0Bot",   randomLinkInput = "description=acqua+calabria&description=ketchup+kania", expectedOutput = """2018-10-01 - https://www.youtube.com/watch?v=UNZebs_Cg0s
  FISH & CHIPS  Abbondante ma non troppo
 ----------
  Buongiorno cari followers e buon inizio di settimana con questo mio nuovo video, che dovrebbe piacervi; mi auguro molto.
@@ -167,7 +167,7 @@ Ciaooo da YouTubo Anche Io 🌞"""),
 GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
 CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
 PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook"""),
-    TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "description=carpi&description=simposio", expectedOutput = """2018-06-11 - https://www.youtube.com/watch?v=nZOhrQ4jZzI
+    TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "description=carpi&description=covo+del+medallo", expectedOutput = """2018-06-11 - https://www.youtube.com/watch?v=nZOhrQ4jZzI
  Cocktail Micidiale 04 febbraio 2005 (puntata completa) Andrea Carpi
 ----------
  #RichardBenson #CocktailMicidiale #GianniNeri
