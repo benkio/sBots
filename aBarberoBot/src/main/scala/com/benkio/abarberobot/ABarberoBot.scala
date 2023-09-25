@@ -480,7 +480,23 @@ object ABarberoBot {
       List(
         MediaFile("abar_RitiSataniciSodomia.mp3")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("preoccupazione")
+      ),
+      List(
+        MediaFile("abar_Preoccupazione.mp3")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("son(o)? tu[t]+e ba[l]+e".r, 13)
+      ),
+      List(
+        MediaFile("abar_Bale.mp3")
+      )
+    ),
   )
 
   def messageRepliesGifData[F[_]]: List[ReplyBundleMessage[F]] = List(

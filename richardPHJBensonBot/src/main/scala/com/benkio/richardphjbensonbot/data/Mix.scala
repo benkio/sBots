@@ -202,7 +202,8 @@ object Mix {
         MediaFile("rphjb_Storie2.mp3"),
         MediaFile("rphjb_StoriaNonDetta.mp4"),
         MediaFile("rphjb_StorieSonoTanteVecchiaccia.mp4"),
-        MediaFile("rphjb_StoriaVeraPienaBugie.mp4")
+        MediaFile("rphjb_StoriaVeraPienaBugie.mp4"),
+        MediaFile("rphjb_StoriaAmicoGrasso.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -475,6 +476,7 @@ object Mix {
       ),
       List(
         MediaFile("rphjb_MeNeVado.mp3"),
+        MediaFile("rphjb_EBastaETuHaiRottoIlCazzo.mp4"),
         GifFile("rphjb_MiRompiErCazzo.mp4"),
         GifFile("rphjb_MeNeVado.mp4")
       ),
@@ -774,11 +776,12 @@ object Mix {
         GifFile("rphjb_Basta.mp4"),
         GifFile("rphjb_Basta2.mp4"),
         MediaFile("rphjb_Basta2.mp3"),
+        MediaFile("rphjb_EBastaETuHaiRottoIlCazzo.mp4"),
         GifFile("rphjb_BastaGif.mp4"),
         GifFile("rphjb_Basta2Gif.mp4"),
         GifFile("rphjb_Basta3.mp4"),
         GifFile("rphjb_Basta4.mp4"),
-        GifFile("rphjb_BastaRottoIlCazzo.mp4"),
+        MediaFile("rphjb_BastaRottoIlCazzo.mp4"),
         GifFile("rphjb_BastaSedia.mp4")
       ),
       replySelection = RandomSelection
@@ -1677,6 +1680,46 @@ object Mix {
         GifFile("rphjb_OlioDiCroce.mp4"),
         MediaFile("rphjb_OlioDiCroce.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r, 11)
+      ),
+      List(
+        MediaFile("rphjb_Scusa.mp3"),
+        MediaFile("rphjb_ScusaScusa.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("dare fastidio")
+      ),
+      List(
+        GifFile("rphjb_DareFastidio.mp4"),
+        MediaFile("rphjb_Regressive.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("regressive")
+      ),
+      List(
+        GifFile("rphjb_RegressiveGif.mp4"),
+        MediaFile("rphjb_Regressive.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("rotto il cazzo")
+      ),
+      List(
+        MediaFile("rphjb_EBastaETuHaiRottoIlCazzo.mp4"),
+        MediaFile("rphjb_BastaRottoIlCazzo.mp4"),
+      ),
+      replySelection = RandomSelection
     ),
   )
 

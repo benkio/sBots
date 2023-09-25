@@ -48,13 +48,7 @@ class XahLeeBotSpec extends CatsEffectSuite {
     csvFile.fold(
       e => fail("test failed", e),
       files =>
-        assert(botFile.forall(filename => {
-          if (!files.contains(filename)) {
-            println(s"filename: " + filename)
-
-          }
-          files.contains(filename)
-        }))
+        botFile.foreach(filename => assert(files.contains(filename), s"$filename is not contained in xah data file"))
     )
   }
 }
