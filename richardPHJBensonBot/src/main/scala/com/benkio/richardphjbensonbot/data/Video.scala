@@ -451,8 +451,13 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("progressive"),
-        StringTextTriggerValue("regressive"),
-        StringTextTriggerValue("i genesis")
+        StringTextTriggerValue("i genesis"),
+        RegexTextTriggerValue("tecno(-| )thrash".r, 12),
+        StringTextTriggerValue("van der graaf generator"),
+        RegexTextTriggerValue("emerson, lake (e|&) palmer".r, 22),
+        StringTextTriggerValue("gentle giant"),
+        StringTextTriggerValue("jetro tull"),
+        StringTextTriggerValue("Marillion"),
       ),
       List(
         MediaFile("rphjb_Regressive.mp4")
@@ -1106,6 +1111,20 @@ object Video {
       ),
       List(
         MediaFile("rphjb_MortiTutti.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("amico grasso"),
+        RegexTextTriggerValue("(fare la| mettersi a) dieta".r, 13),
+        RegexTextTriggerValue("circa (6|sei) mesi".r, 11),
+        StringTextTriggerValue("peso ideale"),
+        StringTextTriggerValue("pioppo"),
+        StringTextTriggerValue("zinco"),
+        StringTextTriggerValue("una bara"),
+      ),
+      List(
+        MediaFile("rphjb_StoriaAmicoGrasso.mp4")
       )
     ),
   )

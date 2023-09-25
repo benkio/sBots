@@ -37,14 +37,6 @@ object Audio {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r, 11)
-      ),
-      List(
-        MediaFile("rphjb_Scusa.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
         StringTextTriggerValue("lo sapevo")
       ),
       List(

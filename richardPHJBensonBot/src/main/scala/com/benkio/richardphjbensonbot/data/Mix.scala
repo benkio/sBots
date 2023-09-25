@@ -202,7 +202,8 @@ object Mix {
         MediaFile("rphjb_Storie2.mp3"),
         MediaFile("rphjb_StoriaNonDetta.mp4"),
         MediaFile("rphjb_StorieSonoTanteVecchiaccia.mp4"),
-        MediaFile("rphjb_StoriaVeraPienaBugie.mp4")
+        MediaFile("rphjb_StoriaVeraPienaBugie.mp4"),
+        MediaFile("rphjb_StoriaAmicoGrasso.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1677,6 +1678,36 @@ object Mix {
         GifFile("rphjb_OlioDiCroce.mp4"),
         MediaFile("rphjb_OlioDiCroce.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r, 11)
+      ),
+      List(
+        MediaFile("rphjb_Scusa.mp3"),
+        MediaFile("rphjb_ScusaScusa.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("dare fastidio")
+      ),
+      List(
+        GifFile("rphjb_DareFastidio.mp4"),
+        GifFile("rphjb_Regressive.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("regressive")
+      ),
+      List(
+        GifFile("rphjb_RegressiveGif.mp4"),
+        GifFile("rphjb_Regressive.mp4"),
+      ),
+      replySelection = RandomSelection
     ),
   )
 
