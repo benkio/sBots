@@ -1237,8 +1237,7 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("illegale"),
-        StringTextTriggerValue("fuorilegge")
+        StringTextTriggerValue("illegale")
       ),
       mediafiles = List(
         GifFile("ytai_IllegaleFuorilegge.mp4")
@@ -1640,7 +1639,25 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_BeviamociSopraNoAlcohol.mp4")
       ),
       replySelection = RandomSelection
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("fuorilegge")
+      ),
+      List(
+        GifFile("ytai_NonSonoFuorileggeNecessita.mp4"),
+        GifFile("ytai_IllegaleFuorilegge.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ho necessità")
+      ),
+      List(
+        GifFile("ytai_NonSonoFuorileggeNecessita.mp4")
+      )
+    ),
   )
 
   def messageRepliesMixData[
