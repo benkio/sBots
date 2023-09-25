@@ -1660,10 +1660,35 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        RegexTextTriggerValue("mi fa (tanto )?picere".r, 12)
+        RegexTextTriggerValue("mi fa (tanto )?piacere".r, 12)
       ),
       List(
         GifFile("ytai_MiFaTantoPiacere.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\bshow\\b".r, 4)
+      ),
+      List(
+        GifFile("ytai_LoShowDeveContunuare.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("felice di ritrovarvi")
+      ),
+      List(
+        GifFile("ytai_FeliceDiRitrovarvi.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("far(e|ti) (due |i )?conti".r, 9),
+        StringTextTriggerValue("il lavoro che fai"),
+      ),
+      List(
+        GifFile("ytai_FattiDueConti.mp4")
       )
     ),
   )
@@ -1803,7 +1828,7 @@ object YouTuboAncheI0Bot {
         MediaFile("ytai_StoriaChampignon.mp4")
       )
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("senape"),
         StringTextTriggerValue("non è scaduta"),
