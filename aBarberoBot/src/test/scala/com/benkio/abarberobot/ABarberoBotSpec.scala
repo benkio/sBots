@@ -116,12 +116,13 @@ I comandi del bot sono:
 - '/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
 Input come query string:
   - No input: restituisce uno show random
-  - 'title=keyword: restituisce uno show contenente la keyword nel titolo. Campo obbligatorio. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords. Esempio: 'title=Paul+Gilbert&title=dissacrazione'
-  - 'description=keyword: restituisce uno show contenente la keyword nella descrizione. Campo opzionale. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords.  Esempio: 'description=Cris+Impellitteri&description=ramarro'
-  - 'minduration=X': restituisce uno show di durata minima pari a X secondi. Campo opzionale. Esempio: 'minduration=300'
-  - 'maxduration=X': restituisce uno show di durata massima pari a X secondi. Campo opzionale. Esempio: 'maxduration=1000'
-  - 'mindate=YYYYMMDD': restituisce uno show più recente della data specificata. Campo opzionale. Esempio: 'mindate=20200101'
-  - 'maxdate=YYYYMMDD': restituisce uno show più vecchio della data specificata. Campo opzionale. Esempio: 'mandate=20220101'
+  - 'title=keyword: restituisce uno show contenente la keyword nel titolo. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords. Esempio: 'title=Paul+Gilbert&title=dissacrazione'
+  - 'description=keyword: restituisce uno show contenente la keyword nella descrizione. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords.  Esempio: 'description=Cris+Impellitteri&description=ramarro'
+  - 'minduration=X': restituisce uno show di durata minima pari a X secondi. Esempio: 'minduration=300'
+  - 'maxduration=X': restituisce uno show di durata massima pari a X secondi. Esempio: 'maxduration=1000'
+  - 'mindate=YYYYMMDD': restituisce uno show più recente della data specificata. Esempio: 'mindate=20200101'
+  - 'maxdate=YYYYMMDD': restituisce uno show più vecchio della data specificata. Esempio: 'mandate=20220101'
+  In caso di input non riconosciuto, verrà considerato come titolo.
   I campi possono essere concatenati. Esempio: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'
 - '/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii
 - '/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/hwpZ3fvcQ7q4xlfjoTjTvw. Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html
@@ -147,12 +148,13 @@ Bot commands are:
 - '/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
 Input as query string:
   - No input: returns a random show
-  - 'title=keyword: returns a show with the keyword in the title. Mandatory. The field can be specified multiple times, the show will contain all the keywords. Example: 'title=Paul+Gilbert&title=dissacrazione'
-  - 'description=keyword: returns a show with the keyword in the description. Optional. The field can be specified multiple times, the show will contain all the keywords.  Example: 'description=Cris+Impellitteri&description=ramarro'
-  - 'minduration=X': returns a show with minimal duration of X seconds. Optional. Example: 'minduration=300'
-  - 'maxduration=X': returns a show with maximal duration of X seconds. Optional. Example: 'maxduration=1000'
-  - 'mindate=YYYYMMDD': returns a show newer than the specified date. Optional. Example: 'mindate=20200101'
-  - 'maxdate=YYYYMMDD': returns a show older than the specified date. Optional. Example: 'mandate=20220101'
+  - 'title=keyword: returns a show with the keyword in the title. The field can be specified multiple times, the show will contain all the keywords. Example: 'title=Paul+Gilbert&title=dissacrazione'
+  - 'description=keyword: returns a show with the keyword in the description. The field can be specified multiple times, the show will contain all the keywords.  Example: 'description=Cris+Impellitteri&description=ramarro'
+  - 'minduration=X': returns a show with minimal duration of X seconds.  Example: 'minduration=300'
+  - 'maxduration=X': returns a show with maximal duration of X seconds.  Example: 'maxduration=1000'
+  - 'mindate=YYYYMMDD': returns a show newer than the specified date.  Example: 'mindate=20200101'
+  - 'maxdate=YYYYMMDD': returns a show older than the specified date.  Example: 'mandate=20220101'
+  If the input is not recognized it will be considered as a title.
   Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'
 - '/topTwentyTriggers': Return a list of files and theirs send frequency
 - '/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/hwpZ3fvcQ7q4xlfjoTjTvw. You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html
