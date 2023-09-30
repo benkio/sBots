@@ -308,7 +308,7 @@ Viene poi ripreso più particolarmente il bengalino piccolino che canta , ancora
 Mi raccomando , Iscriviti al mio canale e , se gradisci , lascia puntualmente il tuo like 👍
 
 Grazie. E al prossimo video : buona visione !"""),
-    TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "maxdate=20180611", expectedOutput = """2018-06-10 - https://www.youtube.com/watch?v=8lNe8xmtgc8
+    TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "maxdate=20180611&title=gilbert", expectedOutput = """2018-06-10 - https://www.youtube.com/watch?v=8lNe8xmtgc8
  Cocktail Micidiale 21 gennaio 2005 (puntata completa) il segreto di Brian May, Paul Gilbert
 ----------
  #RichardBenson #CocktailMicidiale #PaulGilbert
