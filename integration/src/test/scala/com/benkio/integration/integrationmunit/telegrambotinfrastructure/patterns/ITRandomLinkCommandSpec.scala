@@ -86,8 +86,16 @@ class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "RandomLink Command should return a show if the input mindate matches a show per bot"
-  ) { _// fixture
-    => ??? }
+  ) { fixture =>
+    val result = for {
+      dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
+      check <- ITRandomLinkCommandSpec.showByMinDate
+      .traverse(testInput => testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+      )
+    } yield check.foldLeft(true)(_ && _)
+
+    result.assert
+  }
 
   databaseFixture.test(
     "RandomLink Command should return a show if the input maxdate matches a show per bot"
@@ -257,4 +265,29 @@ YouTubo Anche Io ."""),
 
 Dancing in Second Life to the tune of Michael Jackson's Thriller. The dancers are members of Vanguard and Chthonic Syndicate. Recorded on 2010-07.""")
   )
+
+    val showByMinDate: List[TestInput] = List(
+      TestInput(botName = "ABarberoBot", randomLinkInput = "mindate=20230710", expectedOutput = """2023-07-11 - https://open.spotify.com/episode/0kZoDER9sHb9g0vvjh1ixv
+ Chiedilo a Barbero - Intesa Sanpaolo On Air - Episodio 9: Turismo medioevale
+----------
+ Il professore racconta della nascita del turismo e consiglia tre, tra le tantissime, mete “medievali” che meritano di essere visitate in Italia."""),
+      TestInput(botName = "YouTuboAncheI0Bot", randomLinkInput = "mindate=20190607", expectedOutput = """2019-06-08 - https://www.youtube.com/watch?v=MbTXCvrxbTY
+ Capricciosa con Acciughe Alla Pala
+----------
+ Buongiorno cari Amici followers , ritorno con questo video di Pizza Unboxing — il numero 5– spero vivamente sia di Vs gradimento 🤩
+Mi raccomando Iscriviti al Canale, lascia il tuo Like e — se proprio devi— un commento ... .. ....
+Grazie per questa Tua importante visualizzazione 👍"""),
+      TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "mindate=20220928", expectedOutput = """2022-09-29 - https://www.youtube.com/watch?v=cQSdK7sOh38
+ Lino Vairetti (degli Osanna) saluta le Brigate Benson
+----------
+ #RichardBenson #LinoVairetti #Osanna #BrigateBenson
+
+GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
+CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
+PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook"""),
+      TestInput(botName = "XahLeeBot", randomLinkInput = "mindate=20221124", expectedOutput = """2022-11-25 - https://www.youtube.com/watch?v=B-PkmWMbFfY
+ xah talk show 2022-11-25 emacs lisp coding live session
+----------
+ """),
+    )
 }
