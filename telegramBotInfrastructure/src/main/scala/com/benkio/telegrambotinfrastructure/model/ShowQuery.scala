@@ -10,7 +10,7 @@ import java.time.LocalDate
 
 sealed trait ShowQuery
 final case class ShowQueryKeyword(
-    titleKeywords: List[String],
+    titleKeywords: Option[List[String]],
     descriptionKeywords: Option[List[String]] = None,
     minDuration: Option[Int] = None,
     maxDuration: Option[Int] = None,
@@ -32,20 +32,30 @@ object ShowQuery {
     DBShowData.dateTimeFormatter
   )
 
-  def apply(queryString: String): ShowQuery = (queryString, Query.unsafeFromString(queryString)) match {
-    case (x, _) if x.isEmpty => RandomQuery
-    case (input, query) if TitleKeywordsQueryParamMatcher.unapplySeq(query.multiParams).isEmpty =>
-      ShowQueryKeyword(titleKeywords = List(input))
-    case (_, query) =>
-      ShowQueryKeyword(
-        titleKeywords =
-          TitleKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList).getOrElse(List.empty),
-        descriptionKeywords = DescriptionKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
-        minDuration = MinDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
-        maxDuration = MaxDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
-        minDate = MinDateKeywordsQueryParamMatcher.unapply(query.multiParams),
-        maxDate = MaxDateKeywordsQueryParamMatcher.unapply(query.multiParams)
-      )
+  def apply(queryString: String): ShowQuery = {
+    def allParamsNone(query: Query) =
+      List(
+        TitleKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
+        DescriptionKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
+        MinDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
+        MaxDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
+        MinDateKeywordsQueryParamMatcher.unapply(query.multiParams),
+        MaxDateKeywordsQueryParamMatcher.unapply(query.multiParams)
+      ).forall(_.isEmpty)
+
+    (queryString, Query.unsafeFromString(queryString)) match {
+      case (x, _) if x.isEmpty                => RandomQuery
+      case (x, query) if allParamsNone(query) => ShowQueryKeyword(titleKeywords = Some(List(x)))
+      case (_, query) =>
+        ShowQueryKeyword(
+          titleKeywords = TitleKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
+          descriptionKeywords = DescriptionKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
+          minDuration = MinDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
+          maxDuration = MaxDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
+          minDate = MinDateKeywordsQueryParamMatcher.unapply(query.multiParams),
+          maxDate = MaxDateKeywordsQueryParamMatcher.unapply(query.multiParams)
+        )
+    }
   }
 
 }
