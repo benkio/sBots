@@ -99,13 +99,16 @@ class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
     "RandomLink Command should return a show if the input maxdate matches a show per bot"
-  ) { _// fixture
-    => ??? }
+  ) { fixture =>
+    val result = for {
+      dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
+      check <- ITRandomLinkCommandSpec.showByMaxDate
+      .traverse(testInput => testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+      )
+    } yield check.foldLeft(true)(_ && _)
 
-  databaseFixture.test(
-    "RandomLink Command should return a show if the input criteria combination matches a show per bot"
-  ) { _// fixture
-    => ??? }
+    result.assert
+  }
 }
 
 object ITRandomLinkCommandSpec {
@@ -289,5 +292,30 @@ PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook"""),
  xah talk show 2022-11-25 emacs lisp coding live session
 ----------
  """),
+    )
+
+  val showByMaxDate: List[TestInput] = List(
+    TestInput(botName = "ABarberoBot", randomLinkInput = "title=terroristi&maxdate=20181002", expectedOutput = """2018-10-01 - https://barberopodcast.it/episode/003-il-rapimento-di-aldo-moro-una-rete-di-terroristi-barbero-riserva-festival-della-mente-2018
+ #003 Il rapimento di Aldo Moro - Una rete di terroristi - Barbero Riserva (Festival della Mente, 2018)
+----------
+ Il 16 maggio 1978 le Brigate Rosse rapirono, a Roma, l’allora presidente della DC Aldo Moro. Nella settimana dell’anniversario ascoltiamo il professor Barbero raccontare come l’operazione fu organizzata ed eseguita dalle Brigate Rosse, la più importante rete di terroristi che abbia mai agito in Ital..."""),
+    TestInput(botName = "YouTuboAncheI0Bot", randomLinkInput = "maxdate=20170819", expectedOutput = """2017-08-18 - https://www.youtube.com/watch?v=2Q66egvMkyU
+ Canto sprint del mio piccolo diamantino bengalino ... in compagnia con gli altri miei uccellini .
+----------
+ Piccola clip che osserva i miei bengalini e i due canarini che dividono con loro la gabbia , andando d'amore d'accordo : rispettano gli spazi altrui e basta un niente per capirsi .
+Viene poi ripreso più particolarmente il bengalino piccolino che canta , ancora un po' acerbo , peró lo fà con continuità : è bello sentirlo e vederlo mentre canta ...
+
+Mi raccomando , Iscriviti al mio canale e , se gradisci , lascia puntualmente il tuo like 👍
+
+Grazie. E al prossimo video : buona visione !"""),
+    TestInput(botName = "RichardPHJBensonBot", randomLinkInput = "maxdate=20180611", expectedOutput = """2018-06-10 - https://www.youtube.com/watch?v=8lNe8xmtgc8
+ Cocktail Micidiale 21 gennaio 2005 (puntata completa) il segreto di Brian May, Paul Gilbert
+----------
+ #RichardBenson #CocktailMicidiale #PaulGilbert
+arriva il peggio del peggio"""),
+      TestInput(botName = "XahLeeBot", randomLinkInput = "maxdate=20080301", expectedOutput = """2008-02-29 - https://www.youtube.com/watch?v=OAPwh_w5JD4
+ "色，戒" clip: 天涯歌
+----------
+ The 天涯歌 song clip from movie "色，戒" (Lust,Caution)."""),
     )
 }
