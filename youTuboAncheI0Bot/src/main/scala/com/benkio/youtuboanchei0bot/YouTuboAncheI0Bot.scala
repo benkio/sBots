@@ -1710,8 +1710,15 @@ object YouTuboAncheI0Bot {
       ),
       List(
         GifFile("ytai_NonInquietante.mp4"),
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("vediamo un po'"),
       ),
-      replySelection = RandomSelection
+      List(
+        GifFile("ytai_VediamoUnPo.mp4"),
+      ),
     ),
   )
 
