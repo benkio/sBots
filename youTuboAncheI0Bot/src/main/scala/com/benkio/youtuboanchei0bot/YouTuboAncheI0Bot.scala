@@ -264,7 +264,8 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_Ciao2.mp4"),
         GifFile("ytai_Ciao3.mp4"),
         GifFile("ytai_CiaoRagazzi.mp4"),
-        GifFile("ytai_CiaoFollowersNelBeneNelMale.mp4")
+        GifFile("ytai_CiaoFollowersNelBeneNelMale.mp4"),
+        GifFile("ytai_CiaoCariAmiciFollowers.mp4")
       ),
       replySelection = RandomSelection
     ),
@@ -1698,7 +1699,8 @@ object YouTuboAncheI0Bot {
       ),
       List(
         GifFile("ytai_CiaoFollowersNelBeneNelMale.mp4"),
-        GifFile("ytai_BuonanotteFollowers.mp4")
+        GifFile("ytai_BuonanotteFollowers.mp4"),
+        GifFile("ytai_CiaoCariAmiciFollowers.mp4")
       ),
       replySelection = RandomSelection
     ),
