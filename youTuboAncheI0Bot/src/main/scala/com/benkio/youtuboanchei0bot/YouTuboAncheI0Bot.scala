@@ -582,7 +582,7 @@ object YouTuboAncheI0Bot {
       ),
       mediafiles = List(
         GifFile("ytai_Ricordami.mp4"),
-        GifFile("ytai_RicordamiFinoADomani.mp4"),
+        MediaFile("ytai_RicordamiFinoADomani.mp4"),
       ),
       replySelection = RandomSelection
     ),
@@ -1770,6 +1770,19 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_DentistiFame.mp4")
       )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("verza"),
+        StringTextTriggerValue("cavolo cappuccio"),
+        StringTextTriggerValue("giuseppe"),
+        RegexTextTriggerValue("ma che m(i |')hai detto".r, 8),
+      ),
+      List(
+        GifFile("ytai_VerzaGiuseppeGif.mp4"),
+        MediaFile("ytai_VerzaGiuseppe.mp4")
+      ),
+      replySelection = RandomSelection
     ),
   )
 
