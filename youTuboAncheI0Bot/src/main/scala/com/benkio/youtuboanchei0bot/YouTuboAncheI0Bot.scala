@@ -1720,6 +1720,16 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_VediamoUnPo.mp4"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("rinfrescante"),
+        StringTextTriggerValue("calabria"),
+        RegexTextTriggerValue("s(\\.)?r(\\.)?l(\\.)?".r, 3),
+      ),
+      List(
+        GifFile("ytai_RinfrescanteDiCalabria.mp4"),
+      ),
+    ),
   )
 
   def messageRepliesMixData[
