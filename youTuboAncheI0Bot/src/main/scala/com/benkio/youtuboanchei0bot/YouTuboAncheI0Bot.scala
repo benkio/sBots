@@ -581,8 +581,10 @@ object YouTuboAncheI0Bot {
         StringTextTriggerValue("ricordami fino a domani")
       ),
       mediafiles = List(
-        GifFile("ytai_Ricordami.mp4")
-      )
+        GifFile("ytai_Ricordami.mp4"),
+        GifFile("ytai_RicordamiFinoADomani.mp4"),
+      ),
+      randomLinkInput = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
