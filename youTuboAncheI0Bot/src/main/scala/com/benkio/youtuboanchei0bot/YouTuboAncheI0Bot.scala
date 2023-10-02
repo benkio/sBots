@@ -584,7 +584,7 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_Ricordami.mp4"),
         GifFile("ytai_RicordamiFinoADomani.mp4"),
       ),
-      randomLinkInput = RandomSelection
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1749,6 +1749,26 @@ object YouTuboAncheI0Bot {
       ),
       List(
         GifFile("ytai_PassioneAllevareGalline.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("com'è venuto"),
+        StringTextTriggerValue("perfetto")
+      ),
+      List(
+        GifFile("ytai_Perfetto.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("per cortesia"),
+        StringTextTriggerValue("dottori"),
+        RegexTextTriggerValue("dentist[ia]".r, 8),
+        RegexTextTriggerValue("ho (ancora )?tanta fame".r, 13),
+      ),
+      List(
+        GifFile("ytai_DentistiFame.mp4")
       )
     ),
   )
