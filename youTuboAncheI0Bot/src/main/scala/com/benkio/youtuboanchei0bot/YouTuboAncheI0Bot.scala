@@ -1704,6 +1704,15 @@ object YouTuboAncheI0Bot {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("inquietante"),
+      ),
+      List(
+        GifFile("ytai_NonInquietante.mp4"),
+      ),
+      replySelection = RandomSelection
+    ),
   )
 
   def messageRepliesMixData[
