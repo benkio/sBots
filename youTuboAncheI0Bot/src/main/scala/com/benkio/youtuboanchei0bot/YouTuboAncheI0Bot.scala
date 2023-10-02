@@ -1628,7 +1628,6 @@ object YouTuboAncheI0Bot {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ci riusciremo"),
-        StringTextTriggerValue("prima o poi")
       ),
       List(
         GifFile("ytai_NonViPreoccupateCiRiusciremo.mp4")
@@ -1731,6 +1730,26 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_RinfrescanteDiCalabria.mp4"),
       ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("prima o poi")
+      ),
+      List(
+        GifFile("ytai_NonViPreoccupateCiRiusciremo.mp4"),
+        GifFile("ytai_PassioneAllevareGalline.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("allevare"),
+        StringTextTriggerValue("galline"),
+        RegexTextTriggerValue("mi[ae] passion[ie]".r, 12)
+      ),
+      List(
+        GifFile("ytai_PassioneAllevareGalline.mp4")
+      )
     ),
   )
 
