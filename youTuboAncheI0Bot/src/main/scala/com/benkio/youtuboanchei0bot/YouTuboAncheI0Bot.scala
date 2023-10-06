@@ -681,7 +681,8 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_SpuntinoConMe3.mp4"),
         GifFile("ytai_BuonoSpuntino.mp4"),
         GifFile("ytai_PaninoBuonoSpuntito.mp4"),
-        GifFile("ytai_SpuntinoSmart.mp4")
+        GifFile("ytai_SpuntinoSmart.mp4"),
+        GifFile("ytai_BuonoSpuntinoAncheATe.mp4"),
       ),
       replySelection = RandomSelection
     ),
