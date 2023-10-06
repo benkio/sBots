@@ -951,6 +951,14 @@ object M0sconiBot {
       mediafiles = List(
         MediaFile("mos_WalterShaknerAustriacoCesenaTorinoAvellino.mp3")
       )
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        StringTextTriggerValue("gaetano")
+      ),
+      mediafiles = List(
+        MediaFile("mos_Gaetano.mp3")
+      )
     )
   )
 
