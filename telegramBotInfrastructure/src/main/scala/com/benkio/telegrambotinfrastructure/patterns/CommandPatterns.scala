@@ -171,7 +171,7 @@ Input as query string:
                       }
                     )
                     .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
-                      textTriggers.map(_.toString)
+                      textTriggers.map(_.show)
                     )
                     .pure[F],
                 """Input Required: Insert the test keyword to check if it's in some bot trigger"""
