@@ -1784,6 +1784,27 @@ object YouTuboAncheI0Bot {
       ),
       replySelection = RandomSelection
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("più piccoline"),
+        StringTextTriggerValue("sono dolci"),
+        StringTextTriggerValue("al punto giusto"),
+      ),
+      List(
+        GifFile("ytai_DolciAlPuntoGiusto.mp4"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("amarognolo"),
+        StringTextTriggerValue("si intona"),
+        StringTextTriggerValue("non guasta"),
+        StringTextTriggerValue("contrasto")
+      ),
+      List(
+        GifFile("ytai_ContrastoAmarognolo.mp4"),
+      ),
+    ),
   )
 
   def messageRepliesMixData[
