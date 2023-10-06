@@ -1806,7 +1806,7 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_ContrastoAmarognolo.mp4"),
       ),
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("bella fresca")
       ),
