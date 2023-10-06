@@ -1806,6 +1806,14 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_ContrastoAmarognolo.mp4"),
       ),
     ),
+        ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("bella fresca")
+      ),
+      List(
+        GifFile("ytai_BellaFresca.mp4"),
+      ),
+    ),
   )
 
   def messageRepliesMixData[
