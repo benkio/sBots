@@ -1702,7 +1702,8 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_CiaoFollowersNelBeneNelMale.mp4"),
         GifFile("ytai_BuonanotteFollowers.mp4"),
-        GifFile("ytai_CiaoCariAmiciFollowers.mp4")
+        GifFile("ytai_CiaoCariAmiciFollowers.mp4"),
+        GifFile("ytai_PersonaliLotteFollowers.mp4"),
       ),
       replySelection = RandomSelection
     ),
@@ -1812,6 +1813,33 @@ object YouTuboAncheI0Bot {
       ),
       List(
         GifFile("ytai_BellaFresca.mp4"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("piace mangiare così"),
+        StringTextTriggerValue("critiche")
+      ),
+      List(
+        GifFile("ytai_MangiareCritiche.mp4"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("ostica"),
+        StringTextTriggerValue("insalata")
+      ),
+      List(
+        GifFile("ytai_OsticaInsalata.mp4"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("\\blotte\\b".r, 5),
+        StringTextTriggerValue("condivido")
+      ),
+      List(
+        GifFile("ytai_PersonaliLotteFollowers.mp4"),
       ),
     ),
   )
