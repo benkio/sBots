@@ -1824,7 +1824,7 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_MangiareCritiche.mp4"),
       ),
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ostica"),
         StringTextTriggerValue("insalata")
@@ -1832,8 +1832,8 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_OsticaInsalata.mp4"),
       ),
-        ),
-        ReplyBundleMessage(
+    ),
+    ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("\\blotte\\b".r, 5),
         StringTextTriggerValue("condivido")
