@@ -149,7 +149,15 @@ object YouTuboAncheI0Bot {
       mediafiles = List(
         MediaFile("ytai_Francesismo.mp3")
       ),
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("grazie")
+      ),
+      List(
+        MediaFile("ytai_Grazie.mp3"),
+      ),
+    ),
   )
 
   def messageRepliesGifData[
