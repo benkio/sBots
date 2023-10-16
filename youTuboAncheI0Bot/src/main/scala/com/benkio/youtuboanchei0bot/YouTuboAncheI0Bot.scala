@@ -1860,6 +1860,16 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_AssomigliaPomodoro.mp4"),
       ),
     ),
+        ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("condizione umana"),
+        StringTextTriggerValue("patologico"),
+        StringTextTriggerValue("individuo che comunque vive"),
+      ),
+      List(
+        GifFile("ytai_CondizioneUmana.mp4"),
+      ),
+    ),
   )
 
   def messageRepliesMixData[
