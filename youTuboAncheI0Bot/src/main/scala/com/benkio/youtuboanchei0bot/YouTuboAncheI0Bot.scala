@@ -1869,6 +1869,16 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_CondizioneUmana.mp4"),
       ),
+        ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("occhiali"),
+        StringTextTriggerValue("👓"),
+        StringTextTriggerValue("🤓"),
+      ),
+      List(
+        GifFile("ytai_SistemazioneOcchiali.mp4"),
+      ),
     ),
   )
 
