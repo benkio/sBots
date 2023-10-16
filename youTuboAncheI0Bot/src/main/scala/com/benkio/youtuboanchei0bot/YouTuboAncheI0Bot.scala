@@ -1860,7 +1860,7 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_AssomigliaPomodoro.mp4"),
       ),
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("condizione umana"),
         StringTextTriggerValue("patologico"),
@@ -1869,7 +1869,7 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_CondizioneUmana.mp4"),
       ),
-        ),
+    ),
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("occhiali"),

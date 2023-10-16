@@ -1127,7 +1127,7 @@ object Video {
         MediaFile("rphjb_StoriaAmicoGrasso.mp4")
       )
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         RegexTextTriggerValue("dylan (dog|thomas)".r, 9),
         StringTextTriggerValue("poeti maledetti"),
