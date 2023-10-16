@@ -1850,6 +1850,36 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_PersonaliLotteFollowers.mp4"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mi assomiglia"),
+        StringTextTriggerValue("stessa forma"),
+        StringTextTriggerValue("pomodoro"),
+      ),
+      List(
+        GifFile("ytai_AssomigliaPomodoro.mp4"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("condizione umana"),
+        StringTextTriggerValue("patologico"),
+        StringTextTriggerValue("individuo che comunque vive"),
+      ),
+      List(
+        GifFile("ytai_CondizioneUmana.mp4"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("occhiali"),
+        StringTextTriggerValue("👓"),
+        StringTextTriggerValue("🤓"),
+      ),
+      List(
+        GifFile("ytai_SistemazioneOcchiali.mp4"),
+      ),
+    ),
   )
 
   def messageRepliesMixData[

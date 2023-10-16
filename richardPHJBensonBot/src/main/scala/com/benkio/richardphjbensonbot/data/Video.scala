@@ -1127,6 +1127,18 @@ object Video {
         MediaFile("rphjb_StoriaAmicoGrasso.mp4")
       )
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        RegexTextTriggerValue("dylan (dog|thomas)".r, 9),
+        StringTextTriggerValue("poeti maledetti"),
+        StringTextTriggerValue("un po' gay"),
+        RegexTextTriggerValue("la (collezione|colazione)".r, 12),
+        RegexTextTriggerValue("t[ei] sei sbagliato".r, 12),
+      ),
+      List(
+        MediaFile("rphjb_DylanDog.mp4"),
+      ),
+    ),
   )
 
 }
