@@ -1850,6 +1850,16 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_PersonaliLotteFollowers.mp4"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("mi assomiglia"),
+        StringTextTriggerValue("stessa forma"),
+        StringTextTriggerValue("pomodoro"),
+      ),
+      List(
+        GifFile("ytai_AssomigliaPomodoro.mp4"),
+      ),
+    ),
   )
 
   def messageRepliesMixData[
