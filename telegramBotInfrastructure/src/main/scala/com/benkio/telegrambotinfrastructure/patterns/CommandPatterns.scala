@@ -197,7 +197,7 @@ ${commandDescriptions.mkString("- ", "\n- ", "")}
 
 ${ignoreMessagePrefix
         .map(s =>
-          s"Se si vuole disabilitare il bot per un particolare messaggio impedendo\nche interagisca, è possibile farlo iniziando il messaggio con il\ncarattere: `$s\n\n$s Messaggio"
+          s"Se si vuole disabilitare il bot per un particolare messaggio impedendo\nche interagisca, è possibile farlo iniziando il messaggio con il\ncarattere: `$s`\n\n$s Messaggio"
         )
         .getOrElse("")}
 """
@@ -217,7 +217,7 @@ ${commandDescriptions.mkString("- ", "\n- ", "")}
 
 ${ignoreMessagePrefix
         .map(s =>
-          s"if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix\ncharacter: `$s\n\n$s Message"
+          s"if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix\ncharacter: `$s`\n\n$s Message"
         )
         .getOrElse("")}
 """
