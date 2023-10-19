@@ -21,7 +21,7 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  implicit val noAction: Action[IO] = ((((((_: Reply)))))) => ((((((_: Message)))))) => IO.pure(List.empty[Message])
+  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
   val botName: String               = "botname"
   val emptyDBLayer: DBLayer[IO]                  = DBLayerMock.mock(botName)
   val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager(
@@ -49,7 +49,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       )
       checks <- Resource.eval(
         files
-          .traverse(((((((file: MediaFile)))))) =>
+          .traverse((file: MediaFile) =>
             DBMedia
               .getMediaQueryByName(file.filename)
               .unique

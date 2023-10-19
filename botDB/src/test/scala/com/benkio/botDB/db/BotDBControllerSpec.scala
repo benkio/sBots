@@ -2,7 +2,7 @@ package com.benkio.botDB.db
 
 import cats.effect.kernel.Ref
 import com.benkio.botDB.TestData._
-import com.benkio.botDB.db.BotDBController
+
 import com.benkio.botDB.mocks.DatabaseRepositoryMock
 import com.benkio.botDB.mocks.MigratorMock
 import com.benkio.botDB.mocks.ResourceAccessMock

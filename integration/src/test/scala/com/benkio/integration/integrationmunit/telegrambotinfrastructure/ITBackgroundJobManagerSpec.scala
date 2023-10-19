@@ -1,10 +1,10 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
+import little.time.CronSchedule
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import java.time.Instant
-import cron4s.Cron
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import java.util.UUID
 import cats.effect.IO
@@ -19,7 +19,7 @@ import cats.effect.kernel.Outcome
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
-  implicit val noAction: Action[IO] = ((((((_: Reply)))))) => ((((((_: Message)))))) => IO.pure(List.empty[Message])
+  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
   val testSubscriptionId: UUID            = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
   val botName                       = "botname"
 
@@ -27,7 +27,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     id = testSubscriptionId,
     chatId = 0L,
     botName = botName,
-    cron = Cron.unsafeParse("* 0 0,12 1,10 * ?"),
+    cron = "* 0 0,12 1,10 * ?",
+    cronScheduler = CronSchedule("* 0 0,12 1,10 * ?"),
     subscribedAt = Instant.now()
   )
 

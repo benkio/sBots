@@ -7,6 +7,7 @@ import com.benkio.botDB.db.schema.MediaEntity
 import com.benkio.botDB.Config
 import com.benkio.botDB.Input
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import io.circe.parser.decode
 
 import java.sql.Timestamp
 import java.time.Instant
@@ -48,7 +49,7 @@ object BotDBController {
       jsons = allFiles.filter(f => f.getName.endsWith("json"))
       input <- Resource.eval(Sync[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")
-        parseComplete(fileContent).flatMap(_.readLabelled[Input].sequence)
+        decode[List[Input]](fileContent)
       })))
       _ <- Resource.eval(
         input.traverse_(i =>

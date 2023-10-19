@@ -54,8 +54,8 @@ object ResourceAccess {
       subResourceFilePath
     )
 
-  def fromResources[F[_]: Sync]: fromResources[F] = new fromResources[F]
-  class fromResources[F[_]: Sync] extends ResourceAccess[F] {
+  def fromResources[F[_]: Sync](stage: Option[String] = None): fromResources[F] = new fromResources[F](stage)
+  class fromResources[F[_]: Sync](stage: Option[String] = None) extends ResourceAccess[F] {
 
     def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       (for {
@@ -95,12 +95,12 @@ object ResourceAccess {
         Resource
           .pure[F, List[File]](
             Files
-              .walk(buildPath(criteria))
+              .walk(buildPath(criteria, stage))
               .iterator
               .asScala
               .toList
               .tail
-              .map((fl: Path) => new File(buildPath(criteria).toString + "/" + fl.getFileName.toString))
+              .map((fl: Path) => new File(buildPath(criteria, stage).toString + "/" + fl.getFileName.toString))
           )
       } else {
         result.toList.traverse(s =>

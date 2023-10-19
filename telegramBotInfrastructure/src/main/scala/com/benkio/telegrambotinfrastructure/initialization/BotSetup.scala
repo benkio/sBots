@@ -51,7 +51,7 @@ object BotSetup {
 
   def token[F[_]: Async](tokenFilename: String): Resource[F, String] =
     ResourceAccess
-      .fromResources[F]
+      .fromResources[F]()
       .getResourceByteArray(tokenFilename)
       .map(_.map(_.toChar).mkString)
 

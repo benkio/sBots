@@ -24,7 +24,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       mp3s <- Resource.pure(messageRepliesAudioData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         mp3s
-          .traverse(((((((mp3: MediaFile)))))) =>
+          .traverse((mp3: MediaFile) =>
             DBMedia
               .getMediaQueryByName(mp3.filename)
               .unique
@@ -46,7 +46,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         gifs <- Resource.pure(messageRepliesGifData[IO].flatMap(_.mediafiles))
         checks <- Resource.eval(
           gifs
-            .traverse(((((((gif: MediaFile)))))) =>
+            .traverse((gif: MediaFile) =>
               DBMedia
                 .getMediaQueryByName(gif.filename)
                 .unique
@@ -69,7 +69,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       specials <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
       checks <- Resource.eval(
         specials
-          .traverse(((((((special: MediaFile)))))) =>
+          .traverse((special: MediaFile) =>
             DBMedia
               .getMediaQueryByName(special.filename)
               .unique

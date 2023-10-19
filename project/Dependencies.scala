@@ -38,6 +38,7 @@ object Dependencies {
     val catsFree         = "org.typelevel"     %% "cats-free"          % versions.cats
     val catsKernel       = "org.typelevel"     %% "cats-kernel"        % versions.cats
     val circeCore        = "io.circe" %% "circe-core" % versions.circe
+    val circeGeneric        = "io.circe" %% "circe-generic" % versions.circe
     val circeParser        = "io.circe" %% "circe-parser" % versions.circe
     val doobieCore        = "org.tpolecat"      %% "doobie-core"         % versions.doobie
     val doobieFree        = "org.tpolecat"      %% "doobie-free"         % versions.doobie
@@ -130,6 +131,7 @@ object Dependencies {
     libs.catsEffectKernel,
     libs.catsFree,
     libs.circeCore,
+    libs.circeGeneric,
     libs.circeParser,
     libs.doobieCore,
     libs.doobieFree,

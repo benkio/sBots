@@ -1,6 +1,5 @@
 package com.benkio.botDB
 
-import com.benkio.botDB.Config
 import com.benkio.botDB.db.schema.MediaEntity
 
 import java.net.URL

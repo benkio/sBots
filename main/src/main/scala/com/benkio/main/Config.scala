@@ -3,7 +3,7 @@ package com.benkio.main
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.model.{ Config => DBConfig }
 import pureconfig._
-import pureconfig.generic.auto._
+import pureconfig.generic.derivation.default._
 
 final case class Config(
     webhookBaseUrl: String,
@@ -13,7 +13,7 @@ final case class Config(
     keystorePath: Option[String],
     keystorePassword: Option[String],
     mainDB: DBConfig
-)
+) derives ConfigReader
 
 object Config {
 
