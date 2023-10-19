@@ -27,8 +27,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     id = testSubscriptionId,
     chatId = 0L,
     botName = botName,
-    cron = "* 0 0,12 1,10 * ?",
-    cronScheduler = CronSchedule("* 0 0,12 1,10 * ?"),
+    cron = "0 4 8-14 * *",
+    cronScheduler = CronSchedule("0 4 8-14 * *"),
     subscribedAt = Instant.now()
   )
 
