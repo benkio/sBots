@@ -1,8 +1,6 @@
 package com.benkio.richardphjbensonbot.data
 
 import com.benkio.telegrambotinfrastructure.model._
-import com.lightbend.emoji.ShortCodes.Defaults._
-import com.lightbend.emoji.ShortCodes.Implicits._
 
 object Gif {
 
@@ -270,7 +268,7 @@ object Gif {
         StringTextTriggerValue(";)"),
         StringTextTriggerValue("occhiolino"),
         StringTextTriggerValue("wink"),
-        StringTextTriggerValue(e":wink:")
+        StringTextTriggerValue("😉")
       ),
       List(
         GifFile("rphjb_Occhiolino.mp4")
