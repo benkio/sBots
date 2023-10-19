@@ -15,13 +15,14 @@ import telegramium.bots.Message
 
 import java.io.File
 import scala.io.Source
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class XahLeeBotSpec extends CatsEffectSuite {
 
   implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
-  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
-  val emptyDBLayer                  = DBLayerMock.mock(XahLeeBot.botName)
-  val emptyBackgroundJobManager = BackgroundJobManager(
+  implicit val noAction: Action[IO] = (((_: Reply))) => (((_: Message))) => IO.pure(List.empty[Message])
+  val emptyDBLayer: DBLayer[IO]                  = DBLayerMock.mock(XahLeeBot.botName)
+  val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     botName = "XahLeeBot"

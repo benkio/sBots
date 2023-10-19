@@ -19,8 +19,8 @@ import cats.effect.kernel.Outcome
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
-  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
-  val testSubscriptionId            = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
+  implicit val noAction: Action[IO] = ((((((_: Reply)))))) => ((((((_: Message)))))) => IO.pure(List.empty[Message])
+  val testSubscriptionId: UUID            = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
   val botName                       = "botname"
 
   val testSubscription: Subscription = Subscription(

@@ -8,8 +8,8 @@ import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Trigger
-import io.chrisdavenport.cormorant._
-import io.chrisdavenport.cormorant.parser._
+// import io.chrisdavenport.cormorant._
+// import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -19,14 +19,15 @@ import telegramium.bots.Message
 
 import java.io.File
 import scala.io.Source
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class ABarberoBotSpec extends CatsEffectSuite {
 
   implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
   private val privateTestMessage    = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer                  = DBLayerMock.mock(ABarberoBot.botName)
-  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
-  val emptyBackgroundJobManager = BackgroundJobManager[IO](
+  val emptyDBLayer: DBLayer[IO]                  = DBLayerMock.mock(ABarberoBot.botName)
+  implicit val noAction: Action[IO] = ((((((((((((_: Reply)))))))))))) => ((((((((((((_: Message)))))))))))) => IO.pure(List.empty)
+  val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
     emptyDBLayer.dbShow,
     "ABarberoBot"

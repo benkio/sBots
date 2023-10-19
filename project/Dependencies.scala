@@ -14,8 +14,8 @@ object Dependencies {
     val fs2Core            = "3.9.2"
     val fs2IO              = "3.9.2"
     val flyway             = "9.22.3"
-    val fs2Cron            = "0.8.3"
     val http4s             = "0.23.23"
+    val littleTime         = "4.0.2"
     val logEffects         = "0.17.0"
     val mules              = "0.7.0"
     val mulesHttp4s        = "0.4.0"
@@ -39,23 +39,22 @@ object Dependencies {
     val catsKernel       = "org.typelevel"     %% "cats-kernel"        % versions.cats
 
     // CORMORANT 2.13, change to circe
-    val cormorantCore    = "io.chrisdavenport" %% "cormorant-core"    % versions.cormorant
+//    val cormorantCore    = ("io.chrisdavenport" %% "cormorant-core"    % versions.cormorant).cross(CrossVersion.for3Use2_13)
     val cormorantGeneric = "io.chrisdavenport" %% "cormorant-generic" % versions.cormorant
-    val cormorantParser  = "io.chrisdavenport" %% "cormorant-parser"  % versions.cormorant
+//    val cormorantParser  = ("io.chrisdavenport" %% "cormorant-parser"  % versions.cormorant).cross(CrossVersion.for3Use2_13)
 
     val doobieCore        = "org.tpolecat"      %% "doobie-core"         % versions.doobie
     val doobieFree        = "org.tpolecat"      %% "doobie-free"         % versions.doobie
     val doobieMunit       = "org.tpolecat"      %% "doobie-munit"        % versions.doobie          % "test"
     val flyway            = "org.flywaydb"       % "flyway-core"         % versions.flyway
     val fs2Core           = "co.fs2"            %% "fs2-core"            % versions.fs2Core
-    val fs2CronCore       = "eu.timepit"        %% "fs2-cron-core"       % versions.fs2Cron
-    val fs2CronCron4s     = "eu.timepit"        %% "fs2-cron-cron4s"     % versions.fs2Cron
     val fs2IO             = "co.fs2"            %% "fs2-io"              % versions.fs2IO
     val http4sClient      = "org.http4s"        %% "http4s-client"       % versions.http4s
     val http4sCore        = "org.http4s"        %% "http4s-core"         % versions.http4s
     val http4sDsl         = "org.http4s"        %% "http4s-dsl"          % versions.http4s
     val http4sEmberClient = "org.http4s"        %% "http4s-ember-client" % versions.http4s
     val http4sServer      = "org.http4s"        %% "http4s-server"       % versions.http4s
+    val littleTime        = "com.github.losizm" %% "little-time"         % versions.littleTime
     val logEffectsCore    = "io.laserdisc"      %% "log-effect-core"     % versions.logEffects
     val logEffectsFs2     = "io.laserdisc"      %% "log-effect-fs2"      % versions.logEffects
     val mules             = "io.chrisdavenport" %% "mules"               % versions.mules
@@ -65,14 +64,9 @@ object Dependencies {
 
     // Pureconfig 2.13 is possible to derive with scala 3, just remove generic & generic-base
     val pureConfig            = "com.github.pureconfig" %% "pureconfig"              % versions.pureConfig
-    val pureConfigGeneric     = "com.github.pureconfig" %% "pureconfig-generic"      % versions.pureConfig
-    val pureConfigGenericBase = "com.github.pureconfig" %% "pureconfig-generic-base" % versions.pureConfig
 
     val pureConfigCore = "com.github.pureconfig" %% "pureconfig-core" % versions.pureConfig
     val scalatest      = "org.scalatest"         %% "scalatest"       % versions.scalatest % "test"
-
-    // Shapeless
-    val shapeless = "com.chuusai" %% "shapeless" % versions.shapeless
 
     val sqlite          = "org.xerial"             % "sqlite-jdbc"      % versions.sqlite
     val telegramiumCore = "io.github.apimorphism" %% "telegramium-core" % versions.telegramiumVersion
@@ -84,8 +78,8 @@ object Dependencies {
     libs.catsCore,
     libs.catsEffect,
     libs.catsEffectKernel,
-    libs.cormorantCore   % "test",
-    libs.cormorantParser % "test",
+    // libs.cormorantCore   % "test",
+    // libs.cormorantParser % "test",
     libs.fs2IO,
     libs.http4sClient,
     libs.http4sCore,
@@ -110,15 +104,11 @@ object Dependencies {
       libs.doobieMunit,
       libs.flyway % "test",
       libs.fs2Core,
-      libs.fs2CronCore,
-      libs.fs2CronCron4s,
       libs.http4sDsl,
+      libs.littleTime,
       libs.mules,
       libs.mulesHttp4s,
       libs.pureConfigCore,
-      libs.pureConfigGeneric,
-      libs.pureConfigGenericBase,
-      libs.shapeless,
       libs.sqlite,
       libs.vault
     )
@@ -139,10 +129,7 @@ object Dependencies {
     CommonDependencies ++
       Seq(
         libs.doobieMunit,
-        libs.pureConfigCore,
-        libs.pureConfigGeneric,
-        libs.pureConfigGenericBase,
-        libs.shapeless
+        libs.pureConfigCore
       )
 
   val BotDBDependencies: Seq[ModuleID] = Seq(
@@ -150,17 +137,14 @@ object Dependencies {
     libs.catsEffect,
     libs.catsEffectKernel,
     libs.catsFree,
-    libs.cormorantCore,
+    // libs.cormorantCore,
     libs.cormorantGeneric,
-    libs.cormorantParser,
+    // libs.cormorantParser,
     libs.doobieCore,
     libs.doobieFree,
     libs.flyway,
     libs.munit,
     libs.pureConfigCore,
-    libs.pureConfigGeneric,
-    libs.pureConfigGenericBase,
-    libs.shapeless,
   )
 
   val IntegrationDependencies: Seq[ModuleID] =

@@ -5,18 +5,16 @@ import munit.FunSuite
 
 import java.nio.file.Files
 import java.nio.file._
-import scala.language.reflectiveCalls
 import scala.util.Random
 
 class ResourcesAccessSpec extends FunSuite {
 
-  val testfile                     = "testFile"
-  val resourcesAccessFromResources = ResourceAccess.fromResources[IO]()
-  val rootPath                     = Paths.get("").toAbsolutePath()
-  val random                       = new Random()
+  val testfile       = "testFile"
+  val rootPath: Path = Paths.get("").toAbsolutePath()
+  val random         = new Random()
 
   test("ResourceAccess - buildPath should return the expected path when the filename is provided") {
-    val result = resourcesAccessFromResources.buildPath(testfile)
+    val result = ResourceAccess.buildPath(testfile)
     assertEquals(result, Paths.get(rootPath.toString, "src", "main", "resources", testfile))
   }
 

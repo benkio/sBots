@@ -1,7 +1,7 @@
-package com.benkio.telegrambotinfrastructure
+package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import cats.effect.IO
-import com.benkio.telegrambotinfrastructure.messagefiltering._
+
 import com.benkio.telegrambotinfrastructure.model._
 import munit.FunSuite
 import telegramium.bots.Chat
@@ -25,7 +25,7 @@ class MessageMatchesSpec extends FunSuite {
     mediafiles = inputMediafile
   )
 
-  val ignoreMessagePrefix = Some("!")
+  val ignoreMessagePrefix: Some[String] = Some("!")
 
   test("doesMatch should return false when the messageText starts with the ignoreMessagePrefix") {
     val messageText = "!messageIgnored"

@@ -16,7 +16,7 @@ object Main extends IOApp {
       cfg <- Config.loadConfig(args.headOption)
       transactor         = Config.buildTransactor(cfg = cfg)
       databaseRepository = DatabaseRepository[IO](transactor)
-      resourceAccess     = ResourceAccess.fromResources[IO](args.lastOption)
+      resourceAccess     = ResourceAccess.fromResources[IO]
       migrator           = DBMigrator[IO]
       botDBController = BotDBController[IO](
         cfg = cfg,

@@ -32,7 +32,7 @@ trait DBFixture { self: FunSuite =>
 
   implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  lazy val databaseFixture = FunFixture[DBFixtureResources](
+  lazy val databaseFixture: FunFixture[DBFixtureResources] = FunFixture[DBFixtureResources](
     setup = DBFixture.fixtureSetup,
     teardown = DBFixture.teardownFixture
   )

@@ -9,19 +9,21 @@ import com.benkio.botDB.mocks.ResourceAccessMock
 import munit.CatsEffectSuite
 
 import java.io.File
+import cats.effect.IO
+import com.benkio.botDB.db.schema.MediaEntity
 
 class BotDBControllerSpec extends CatsEffectSuite {
 
-  val inputCsv =
+  val inputCsv: File =
     new File(getClass.getResource("/").toURI).listFiles().toList.filterNot(_.getName == "com").head
-  val mediaEntities = List(google, amazon, facebook)
+  val mediaEntities: List[MediaEntity] = List(google, amazon, facebook)
 
   val resourceAccessMock = new ResourceAccessMock(List(inputCsv))
   val migratorMock       = new MigratorMock()
   val databaseRepositoryMock = new DatabaseRepositoryMock(
     Ref.unsafe(mediaEntities)
   )
-  val botDBController = BotDBController(
+  val botDBController: BotDBController[IO] = BotDBController(
     cfg = config,
     databaseRepository = databaseRepositoryMock,
     resourceAccess = resourceAccessMock,

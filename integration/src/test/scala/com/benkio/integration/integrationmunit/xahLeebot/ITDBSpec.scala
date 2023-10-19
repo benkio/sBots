@@ -17,13 +17,14 @@ import cats.effect.Resource
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import doobie.implicits._
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
+  implicit val noAction: Action[IO] = ((((((_: Reply)))))) => ((((((_: Message)))))) => IO.pure(List.empty[Message])
   val botName: String               = "botname"
-  val emptyDBLayer                  = DBLayerMock.mock(botName)
-  val emptyBackgroundJobManager = BackgroundJobManager(
+  val emptyDBLayer: DBLayer[IO]                  = DBLayerMock.mock(botName)
+  val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     botName = botName
@@ -48,7 +49,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       )
       checks <- Resource.eval(
         files
-          .traverse((file: MediaFile) =>
+          .traverse(((((((file: MediaFile)))))) =>
             DBMedia
               .getMediaQueryByName(file.filename)
               .unique

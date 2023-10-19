@@ -26,13 +26,10 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
-import cron4s._
-import cron4s.lib.javatime._
 import log.effect.LogWriter
 import org.http4s.Uri
 import telegramium.bots.Message
 
-import java.time.LocalDateTime
 import java.util.UUID
 import scala.util.Random
 import scala.util.Try
@@ -198,16 +195,18 @@ I comandi del bot sono:
 
 ${commandDescriptions.mkString("- ", "\n- ", "")}
 
-${if (ignoreMessagePrefix.isDefined) {
-        s"Se si vuole disabilitare il bot per un particolare messaggio impedendo\nche interagisca, è possibile farlo iniziando il messaggio con il\ncarattere: `${ignoreMessagePrefix.get}`\n\n${ignoreMessagePrefix.get} Messaggio"
-      }}
+${ignoreMessagePrefix
+        .map(s =>
+          s"Se si vuole disabilitare il bot per un particolare messaggio impedendo\nche interagisca, è possibile farlo iniziando il messaggio con il\ncarattere: `$s\n\n$s Messaggio"
+        )
+        .getOrElse("")}
 """
 
     def instructionMessageEng(
         botName: String,
         ignoreMessagePrefix: Option[String],
         commandDescriptions: List[String]
-    ) = s"""
+    ): String = s"""
 ---- Instructions for $botName ----
 
 to report issues, write to: https://t.me/Benkio
@@ -216,9 +215,11 @@ Bot commands are:
 
 ${commandDescriptions.mkString("- ", "\n- ", "")}
 
-${if (ignoreMessagePrefix.isDefined) {
-        s"if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix\ncharacter: `${ignoreMessagePrefix.get}`\n\n${ignoreMessagePrefix.get} Message"
-      }}
+${ignoreMessagePrefix
+        .map(s =>
+          s"if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix\ncharacter: `$s\n\n$s Message"
+        )
+        .getOrElse("")}
 """
 
     def instructionsReplyBundleCommand[F[_]: Applicative](
@@ -281,9 +282,8 @@ ${if (ignoreMessagePrefix.isDefined) {
                 cronInput =>
                   for {
                     subscription <- Async[F].fromEither(Subscription(m.chat.id, botName, cronInput))
-                    now = LocalDateTime.now()
-                    nextOccurrence = subscription.cron
-                      .next(now)
+                    nextOccurrence = subscription.cronScheduler
+                      .next()
                       .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
                     _ <- backgroundJobManager.scheduleSubscription(subscription)
                   } yield List(

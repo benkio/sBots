@@ -1,5 +1,9 @@
 package com.benkio.telegrambotinfrastructure
 
+import scala.concurrent.duration.FiniteDuration
+import java.time.Duration
+import scala.util.Try
+import java.time.LocalDateTime
 import cats._
 import cats.effect.Fiber
 import cats.effect._
@@ -11,9 +15,6 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
-import cron4s.expr.CronExpr
-import eu.timepit.fs2cron.Scheduler
-import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.Stream
 import log.effect.LogWriter
 import telegramium.bots.Chat
@@ -75,7 +76,6 @@ object BackgroundJobManager {
       extends BackgroundJobManager[F] {
 
     var memSubscriptions: MMap[SubscriptionKey, Fiber[F, Throwable, Unit]] = MMap()
-    val cronScheduler                                                      = Cron4sScheduler.utc[F]
 
     override def scheduleSubscription(subscription: Subscription): F[Unit] = for {
       _ <- log.info(s"Schedule subscription: $subscription")
@@ -84,7 +84,6 @@ object BackgroundJobManager {
         .whenA(memSubscriptions.contains(SubscriptionKey(subscription.id, subscription.chatId)))
       subscriptionReference <- BackgroundJobManager.runSubscription(
         subscription,
-        cronScheduler,
         dbShow,
         dbSubscription,
         botName
@@ -96,7 +95,7 @@ object BackgroundJobManager {
       subscriptionsData <- dbSubscription.getSubscriptions(botName)
       subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
       subscriptionReferences <- subscriptions.traverse(s =>
-        BackgroundJobManager.runSubscription(s, cronScheduler, dbShow, dbSubscription, botName)
+        BackgroundJobManager.runSubscription(s, dbShow, dbSubscription, botName)
       )
       _ <- memSubscriptions.values.toList.traverse_(_.cancel)
     } yield memSubscriptions = MMap.from(subscriptionReferences)
@@ -125,16 +124,18 @@ object BackgroundJobManager {
 
   def runSubscription[F[_]: Async](
       subscription: Subscription,
-      cronScheduler: Scheduler[F, CronExpr],
       dbShow: DBShow[F],
       dbSubscription: DBSubscription[F],
       botName: String
   )(implicit replyAction: Action[F], log: LogWriter[F]): F[(SubscriptionKey, Fiber[F, Throwable, Unit])] = {
     val scheduled: Stream[F, Unit] = for {
-      _      <- cronScheduler.awakeEvery(subscription.cron)
-      _      <- Stream.eval(log.info(s"Executing the Scheduled subscription: $subscription"))
-      subOpt <- Stream.eval(dbSubscription.getSubscription(subscription.id.toString))
-      _      <- Stream.eval(Async[F].fromOption(subOpt, StaleSubscription(subscription)))
+      nextTime <- Stream.fromOption(subscription.cronScheduler.next())
+      now = LocalDateTime.now()
+      duration <- Stream.eval(Async[F].fromTry(Try(Duration.between(now, nextTime))))
+      _        <- Stream.sleep(FiniteDuration(duration.getSeconds(), "seconds"))
+      _        <- Stream.eval(log.info(s"Executing the Scheduled subscription: $subscription"))
+      subOpt   <- Stream.eval(dbSubscription.getSubscription(subscription.id.toString))
+      _        <- Stream.eval(Async[F].fromOption(subOpt, StaleSubscription(subscription)))
       message = Message(
         messageId = 0,
         date = 0,

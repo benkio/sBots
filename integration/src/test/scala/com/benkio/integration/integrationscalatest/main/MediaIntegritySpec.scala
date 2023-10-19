@@ -29,7 +29,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       YouTuboAncheI0Bot.messageRepliesData[IO] ++
       M0sconiBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinctBy(_.filename)
 
-  def withFixture(test: OneArgTest) = {
+  def withFixture(test: OneArgTest): Outcome = {
     val fixtureParam = FixtureParam(DBFixture.fixtureSetup(null))
 
     try {
