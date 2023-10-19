@@ -4,8 +4,6 @@ import cats.Show
 import cats.effect.IO
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Trigger
-import io.chrisdavenport.cormorant._
-import io.chrisdavenport.cormorant.parser._
 import munit.CatsEffectSuite
 
 import java.io.File
@@ -13,20 +11,20 @@ import scala.io.Source
 
 class CalandroBotSpec extends CatsEffectSuite {
 
-  test("the `cala_list.csv` should contain all the triggers of the bot") {
-    val listPath   = new File(".").getCanonicalPath + "/cala_list.csv"
-    val csvContent = Source.fromFile(listPath).getLines().mkString("\n")
-    val csvFile = parseComplete(csvContent).flatMap {
+  test("the `cala_list.json` should contain all the triggers of the bot") {
+    val listPath   = new File(".").getCanonicalPath + "/cala_list.json"
+    val jsonContent = Source.fromFile(listPath).getLines().mkString("\n")
+    val jsonFile = parseComplete(jsonContent).flatMap {
       case CSV.Complete(_, CSV.Rows(rows)) => Right(rows.map(row => row.l.head.x))
-      case _                               => Left(new RuntimeException("Error on parsing the csv"))
+      case _                               => Left(new RuntimeException("Error on parsing the json"))
     }
 
     val botFile = CalandroBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename)) ++ CalandroBot
       .commandRepliesData[IO]
       .flatMap(_.mediafiles.map(_.filename))
 
-    assert(csvFile.isRight)
-    csvFile.fold(
+    assert(jsonFile.isRight)
+    jsonFile.fold(
       e => fail("test failed", e),
       files =>
         botFile.foreach(filename =>

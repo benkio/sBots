@@ -2,9 +2,6 @@ package com.benkio.botDB
 
 import cats.data.NonEmptyList
 import cats.implicits._
-import io.chrisdavenport.cormorant._
-import io.chrisdavenport.cormorant.generic.semiauto._
-import io.chrisdavenport.cormorant.implicits._
 
 import java.net.URL
 import scala.util.Try

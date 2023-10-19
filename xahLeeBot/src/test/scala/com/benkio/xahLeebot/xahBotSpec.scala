@@ -5,8 +5,6 @@ import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.Reply
-import io.chrisdavenport.cormorant._
-import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -28,12 +26,12 @@ class XahLeeBotSpec extends CatsEffectSuite {
     botName = "XahLeeBot"
   ).unsafeRunSync()
 
-  test("the csvs should contain all the triggers of the bot") {
-    val listPath   = new File(".").getCanonicalPath + "/xah_list.csv"
-    val csvContent = Source.fromFile(listPath).getLines().mkString("\n")
-    val csvFile = parseComplete(csvContent).flatMap {
+  test("the jsons should contain all the triggers of the bot") {
+    val listPath   = new File(".").getCanonicalPath + "/xah_list.json"
+    val jsonContent = Source.fromFile(listPath).getLines().mkString("\n")
+    val jsonFile = parseComplete(jsonContent).flatMap {
       case CSV.Complete(_, CSV.Rows(rows)) => Right(rows.map(row => row.l.head.x))
-      case _                               => Left(new RuntimeException("Error on parsing the csv"))
+      case _                               => Left(new RuntimeException("Error on parsing the json"))
     }
 
     val botFile =
@@ -45,8 +43,8 @@ class XahLeeBotSpec extends CatsEffectSuite {
         )
         .flatMap(_.mediafiles.map(_.filename))
 
-    assert(csvFile.isRight)
-    csvFile.fold(
+    assert(jsonFile.isRight)
+    jsonFile.fold(
       e => fail("test failed", e),
       files =>
         botFile.foreach(filename => assert(files.contains(filename), s"$filename is not contained in xah data file"))

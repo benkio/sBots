@@ -9,7 +9,7 @@ object Dependencies {
     val cats               = "2.10.0"
     val catsEffectTime     = "0.2.1"
     val catsEffectVersion  = "3.5.2"
-    val cormorant          = "0.5.0-M1"
+    val circe              = "0.14.6"
     val doobie             = "1.0.0-RC4"
     val fs2Core            = "3.9.2"
     val fs2IO              = "3.9.2"
@@ -37,12 +37,8 @@ object Dependencies {
     val catsEffectTime   = "io.chrisdavenport" %% "cats-effect-time"   % versions.catsEffectTime
     val catsFree         = "org.typelevel"     %% "cats-free"          % versions.cats
     val catsKernel       = "org.typelevel"     %% "cats-kernel"        % versions.cats
-
-    // CORMORANT 2.13, change to circe
-//    val cormorantCore    = ("io.chrisdavenport" %% "cormorant-core"    % versions.cormorant).cross(CrossVersion.for3Use2_13)
-    val cormorantGeneric = "io.chrisdavenport" %% "cormorant-generic" % versions.cormorant
-//    val cormorantParser  = ("io.chrisdavenport" %% "cormorant-parser"  % versions.cormorant).cross(CrossVersion.for3Use2_13)
-
+    val circeCore        = "io.circe" %% "circe-core" % versions.circe
+    val circeParser        = "io.circe" %% "circe-parser" % versions.circe
     val doobieCore        = "org.tpolecat"      %% "doobie-core"         % versions.doobie
     val doobieFree        = "org.tpolecat"      %% "doobie-free"         % versions.doobie
     val doobieMunit       = "org.tpolecat"      %% "doobie-munit"        % versions.doobie          % "test"
@@ -61,13 +57,9 @@ object Dependencies {
     val mulesHttp4s       = "io.chrisdavenport" %% "mules-http4s"        % versions.mulesHttp4s
     val munit             = "org.scalameta"     %% "munit"               % versions.munit           % "test"
     val munitCatsEffect   = "org.typelevel"     %% "munit-cats-effect"   % versions.munitCatsEffect % "test"
-
-    // Pureconfig 2.13 is possible to derive with scala 3, just remove generic & generic-base
-    val pureConfig            = "com.github.pureconfig" %% "pureconfig"              % versions.pureConfig
-
+    val pureConfig     = "com.github.pureconfig" %% "pureconfig"              % versions.pureConfig
     val pureConfigCore = "com.github.pureconfig" %% "pureconfig-core" % versions.pureConfig
     val scalatest      = "org.scalatest"         %% "scalatest"       % versions.scalatest % "test"
-
     val sqlite          = "org.xerial"             % "sqlite-jdbc"      % versions.sqlite
     val telegramiumCore = "io.github.apimorphism" %% "telegramium-core" % versions.telegramiumVersion
     val telegramiumHigh = "io.github.apimorphism" %% "telegramium-high" % versions.telegramiumVersion
@@ -78,8 +70,8 @@ object Dependencies {
     libs.catsCore,
     libs.catsEffect,
     libs.catsEffectKernel,
-    // libs.cormorantCore   % "test",
-    // libs.cormorantParser % "test",
+    libs.circeCore   % "test",
+    libs.circeParser % "test",
     libs.fs2IO,
     libs.http4sClient,
     libs.http4sCore,
@@ -137,9 +129,8 @@ object Dependencies {
     libs.catsEffect,
     libs.catsEffectKernel,
     libs.catsFree,
-    // libs.cormorantCore,
-    libs.cormorantGeneric,
-    // libs.cormorantParser,
+    libs.circeCore,
+    libs.circeParser,
     libs.doobieCore,
     libs.doobieFree,
     libs.flyway,

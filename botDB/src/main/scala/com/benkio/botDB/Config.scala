@@ -11,7 +11,7 @@ final case class Config(
     url: String,
     migrationsLocations: List[String],
     migrationsTable: String,
-    csvLocation: List[String],
+    jsonLocation: List[String],
 )
 
 object Config {

@@ -14,11 +14,11 @@ import com.benkio.botDB.db.schema.MediaEntity
 
 class BotDBControllerSpec extends CatsEffectSuite {
 
-  val inputCsv: File =
+  val inputJson: File =
     new File(getClass.getResource("/").toURI).listFiles().toList.filterNot(_.getName == "com").head
   val mediaEntities: List[MediaEntity] = List(google, amazon, facebook)
 
-  val resourceAccessMock = new ResourceAccessMock(List(inputCsv))
+  val resourceAccessMock = new ResourceAccessMock(List(inputJson))
   val migratorMock       = new MigratorMock()
   val databaseRepositoryMock = new DatabaseRepositoryMock(
     Ref.unsafe(mediaEntities)

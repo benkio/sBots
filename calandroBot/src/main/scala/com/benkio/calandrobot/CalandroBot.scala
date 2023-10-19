@@ -196,7 +196,7 @@ object CalandroBot {
       MessageLengthTrigger(280),
       text = Some(
         TextReply[F](
-          ((msg: Message) =>
+          (msg: Message) =>
             Applicative[F].pure(
               List(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)""")
             ),

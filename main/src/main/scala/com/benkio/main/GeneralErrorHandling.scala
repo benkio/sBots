@@ -12,7 +12,7 @@ object GeneralErrorHandling {
   def dbLogAndRestart[F[_]: Async, A](dbLog: DBLog[F], server: Resource[F, A])(implicit
       log: LogWriter[F]
   ): Resource[F, A] =
-    server.handleErrorWith(((((((e: Throwable)))))) =>
+    server.handleErrorWith((e: Throwable) =>
       for {
         _       <- Resource.eval(log.error("[Main] ERROR: " + e.getMessage))
         _       <- Resource.eval(dbLogError(dbLog, e))
@@ -23,7 +23,7 @@ object GeneralErrorHandling {
   def dbLogAndRestart(dbLog: DBLog[IO], app: IO[ExitCode])(implicit
       log: LogWriter[IO]
   ): IO[ExitCode] =
-    app.handleErrorWith(((((((e: Throwable)))))) =>
+    app.handleErrorWith((e: Throwable) =>
       for {
         _       <- IO.pure(log.error("[Main] ERROR: " + e.getMessage))
         _       <- dbLogError[IO](dbLog, e)
