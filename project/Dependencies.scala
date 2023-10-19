@@ -131,9 +131,13 @@ object Dependencies {
     libs.catsEffect,
     libs.catsEffectKernel,
     libs.catsFree,
+    libs.circeCore,
+    libs.circeParser,
     libs.doobieCore,
     libs.doobieFree,
     libs.flyway,
+    libs.logEffectsCore,
+    libs.logEffectsFs2,
     libs.munit,
     libs.pureConfigCore,
   )
