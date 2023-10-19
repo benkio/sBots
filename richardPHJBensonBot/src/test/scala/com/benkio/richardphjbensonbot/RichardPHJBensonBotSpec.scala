@@ -1,5 +1,7 @@
 package com.benkio.richardphjbensonbot
 
+import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import io.circe.parser.decode
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
@@ -29,7 +31,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
 
   private val privateTestMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer: DBLayer[IO]               = DBLayerMock.mock(RichardPHJBensonBot.botName)
+  val emptyDBLayer: DBLayer[IO]  = DBLayerMock.mock(RichardPHJBensonBot.botName)
   val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
@@ -165,17 +167,14 @@ character: `!`
   }
 
   test("the `rphjb_list.json` should contain all the triggers of the bot") {
-    val listPath   = new File(".").getCanonicalPath + "/rphjb_list.json"
-    val jsonContent = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFile = parseComplete(jsonContent).flatMap {
-      case CSV.Complete(_, CSV.Rows(rows)) => Right(rows.map(row => row.l.head.x))
-      case _                               => Left(new RuntimeException("Error on parsing the json"))
-    }
+    val listPath      = new File(".").getCanonicalPath + "/rphjb_list.json"
+    val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
+    val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
 
     val botFile = RichardPHJBensonBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename))
 
-    assert(jsonFile.isRight)
-    jsonFile.fold(
+    assert(jsonFilenames.isRight)
+    jsonFilenames.fold(
       e => fail("test failed", e),
       files =>
         botFile.foreach(filename =>

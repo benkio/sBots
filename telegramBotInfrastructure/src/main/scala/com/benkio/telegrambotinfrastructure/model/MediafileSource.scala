@@ -1,4 +1,4 @@
-package com.benkio.botDB
+package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits._
 import io.circe.generic.semiauto._
@@ -9,16 +9,16 @@ import io.circe.DecodingFailure
 import java.net.URL
 import scala.util.Try
 
-final case class Input(
+final case class MediafileSource(
     filename: String,
     kind: Option[String],
     mime: Option[String],
     url: URL
 )
 
-object Input {
+object MediafileSource {
 
-  given Decoder[Input] = deriveDecoder
+  given Decoder[MediafileSource] = deriveDecoder
   given Decoder[URL] = new Decoder[URL] {
     final def apply(c: HCursor): Decoder.Result[URL] =
       for {
