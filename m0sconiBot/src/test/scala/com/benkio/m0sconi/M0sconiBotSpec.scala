@@ -1,5 +1,6 @@
 package com.benkio.M0sconi
 
+import com.benkio.telegrambotinfrastructure.model.MediafileSource
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
@@ -8,8 +9,6 @@ import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Trigger
-import io.chrisdavenport.cormorant._
-import io.chrisdavenport.cormorant.parser._
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -19,13 +18,15 @@ import telegramium.bots.Message
 
 import java.io.File
 import scala.io.Source
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import io.circe.parser.decode
 
 class M0sconiBotSpec extends CatsEffectSuite {
 
   implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
   implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
   private val privateTestMessage    = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer                  = DBLayerMock.mock(M0sconiBot.botName)
+  val emptyDBLayer: DBLayer[IO]     = DBLayerMock.mock(M0sconiBot.botName)
 
   test("triggerlist should return the link to the trigger txt file") {
     val triggerlistUrl = M0sconiBot
@@ -50,18 +51,15 @@ class M0sconiBotSpec extends CatsEffectSuite {
 
   }
 
-  test("the `mos_list.csv` should contain all the triggers of the bot") {
-    val listPath   = new File(".").getCanonicalPath + "/mos_list.csv"
-    val csvContent = Source.fromFile(listPath).getLines().mkString("\n")
-    val csvFile = parseComplete(csvContent).flatMap {
-      case CSV.Complete(_, CSV.Rows(rows)) => Right(rows.map(row => row.l.head.x))
-      case _                               => Left(new RuntimeException("Error on parsing the csv"))
-    }
+  test("the `mos_list.json` should contain all the triggers of the bot") {
+    val listPath      = new File(".").getCanonicalPath + "/mos_list.json"
+    val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
+    val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
 
     val botFile = M0sconiBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename))
 
-    assert(csvFile.isRight)
-    csvFile.fold(
+    assert(jsonFilenames.isRight)
+    jsonFilenames.fold(
       e => fail("test failed", e),
       files =>
         botFile.foreach(filename =>

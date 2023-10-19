@@ -3,7 +3,7 @@ package com.benkio.botDB
 import cats.effect.IO
 import doobie.Transactor
 import pureconfig._
-import pureconfig.generic.auto._
+import pureconfig.generic.derivation.default._
 
 final case class Config(
     driver: String,
@@ -11,8 +11,8 @@ final case class Config(
     url: String,
     migrationsLocations: List[String],
     migrationsTable: String,
-    csvLocation: List[String],
-)
+    jsonLocation: List[String],
+) derives ConfigReader
 
 object Config {
 

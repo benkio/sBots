@@ -45,7 +45,17 @@ object ResourceAccess {
     tempFile
   }
 
-  def fromResources[F[_]: Sync](stage: Option[String] = None) = new ResourceAccess[F] {
+  def buildPath(subResourceFilePath: String, stage: Option[String] = None): Path =
+    Paths.get(
+      Paths.get("").toAbsolutePath().toString(),
+      "src",
+      stage.getOrElse("main"),
+      "resources",
+      subResourceFilePath
+    )
+
+  def fromResources[F[_]: Sync](stage: Option[String] = None): fromResources[F] = new fromResources[F](stage)
+  class fromResources[F[_]: Sync](stage: Option[String] = None) extends ResourceAccess[F] {
 
     def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       (for {
@@ -63,15 +73,6 @@ object ResourceAccess {
           )(_ != -1)
         } yield bais.toByteArray()
       }
-
-    def buildPath(subResourceFilePath: String): Path =
-      Paths.get(
-        Paths.get("").toAbsolutePath().toString(),
-        "src",
-        stage.getOrElse("main"),
-        "resources",
-        subResourceFilePath
-      )
 
     def getResourcesByKind(criteria: String): Resource[F, List[File]] = {
       val jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())
@@ -94,12 +95,12 @@ object ResourceAccess {
         Resource
           .pure[F, List[File]](
             Files
-              .walk(buildPath(criteria))
+              .walk(buildPath(criteria, stage))
               .iterator
               .asScala
               .toList
               .tail
-              .map((fl: Path) => new File(buildPath(criteria).toString + "/" + fl.getFileName.toString))
+              .map((fl: Path) => new File(buildPath(criteria, stage).toString + "/" + fl.getFileName.toString))
           )
       } else {
         result.toList.traverse(s =>
@@ -109,19 +110,20 @@ object ResourceAccess {
     }
   }
 
-  def dbResources[F[_]: Async](dbMedia: DBMedia[F], urlFetcher: UrlFetcher[F]) = new ResourceAccess[F] {
+  def dbResources[F[_]: Async](dbMedia: DBMedia[F], urlFetcher: UrlFetcher[F]): ResourceAccess[F] =
+    new ResourceAccess[F] {
 
-    def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
-      for {
-        media <- Resource.eval(dbMedia.getMedia(resourceName))
-        _     <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
-        file  <- urlFetcher.fetchFromDropbox(resourceName, media.media_url)
-      } yield Files.readAllBytes(file.toPath)
+      def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
+        for {
+          media <- Resource.eval(dbMedia.getMedia(resourceName))
+          _     <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
+          file  <- urlFetcher.fetchFromDropbox(resourceName, media.media_url)
+        } yield Files.readAllBytes(file.toPath)
 
-    def getResourcesByKind(criteria: String): Resource[F, List[File]] =
-      for {
-        medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
-        files  <- medias.traverse(media => urlFetcher.fetchFromDropbox(media.media_name, media.media_url))
-      } yield files
-  }
+      def getResourcesByKind(criteria: String): Resource[F, List[File]] =
+        for {
+          medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
+          files  <- medias.traverse(media => urlFetcher.fetchFromDropbox(media.media_name, media.media_url))
+        } yield files
+    }
 }

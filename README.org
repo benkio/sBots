@@ -43,13 +43,13 @@
      when launched, it applies the migrations and populates a bot
      database. Just set up the ~application.conf~ correctly with the DB
      path, see the DB in the root of the project, and the location of
-     the ~csv~. There should be a ~csv~ file at the root of each bot
+     the ~json~. There should be a ~json~ file at the root of each bot
      module
 
 ** Compile and Test
 
   Several command alias are defined in the project to group together useful ~sbt~ commands:
-  - ~dbSetup~ :: Run the botDB main that set up the DB anew. Running the migrations and updating the media tables based on the CSV in the bots folders.
+  - ~dbSetup~ :: Run the botDB main that set up the DB anew. Running the migrations and updating the media tables based on the JSON in the bots folders.
   - ~fix~ :: Run the ~scalafmt~ and ~scalafix~ in the whole project.
   - ~check~ :: Check the project for formatting and dependencies using ~sbt~ plugins such as ~scalafmt~.
   - ~validate~ :: compile clean and test. It includes the ~fix~ command and it is run in the CI.

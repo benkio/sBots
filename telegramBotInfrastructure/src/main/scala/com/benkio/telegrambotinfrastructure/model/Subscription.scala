@@ -2,43 +2,45 @@ package com.benkio.telegrambotinfrastructure.model
 
 import cats.Show
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
-import cron4s.Cron
-import cron4s.expr.CronExpr
 
 import java.time.Instant
 import java.util.UUID
 import scala.util.Try
+import little.time.CronSchedule
 
 final case class Subscription(
     id: UUID,
     chatId: Long,
     botName: String,
-    cron: CronExpr,
+    cron: String,
+    cronScheduler: CronSchedule,
     subscribedAt: Instant
 )
 
 object Subscription {
   def apply(chatId: Long, botName: String, inputCron: String): Either[Throwable, Subscription] = for {
-    cron <- Cron(inputCron)
+    cronScheduler <- Try(CronSchedule(inputCron)).toEither
   } yield Subscription(
     id = UUID.randomUUID,
     chatId = chatId,
     botName = botName,
-    cron = cron,
+    cron = inputCron,
+    cronScheduler = cronScheduler,
     subscribedAt = Instant.now()
   )
 
-  def apply(dbSubscriptionData: DBSubscriptionData): Either[Throwable, Subscription] = for {
-    cron         <- Cron(dbSubscriptionData.cron)
-    id           <- Try(UUID.fromString(dbSubscriptionData.id)).toEither
-    subscribedAt <- Try(Instant.ofEpochSecond(dbSubscriptionData.subscribed_at.toLong)).toEither
+  def apply(dbSubscriptionData: DBSubscriptionData): Either[Throwable, Subscription] = (for {
+    cronScheduler <- Try(CronSchedule(dbSubscriptionData.cron))
+    id            <- Try(UUID.fromString(dbSubscriptionData.id))
+    subscribedAt  <- Try(Instant.ofEpochSecond(dbSubscriptionData.subscribed_at.toLong))
   } yield Subscription(
     id = id,
     chatId = dbSubscriptionData.chat_id.toLong,
     botName = dbSubscriptionData.bot_name,
-    cron = cron,
+    cron = dbSubscriptionData.cron,
+    cronScheduler = cronScheduler,
     subscribedAt = subscribedAt
-  )
+  )).toEither
 
   implicit val showInstance: Show[Subscription] =
     Show.show(s => s"Subscription Id: ${s.id} - cron value: ${s.cron}")

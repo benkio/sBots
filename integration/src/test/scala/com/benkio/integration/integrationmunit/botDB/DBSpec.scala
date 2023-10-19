@@ -16,7 +16,7 @@ import com.benkio.botDB.TestData
 
 class DBSpec extends CatsEffectSuite with DBConstants {
 
-  val databaseConnection = FunFixture[Connection](
+  val databaseConnection: FunFixture[Connection] = FunFixture[Connection](
     setup = { _ =>
       Files.deleteIfExists(Paths.get(dbPath))
       val _       = DBMigrator.unsafeMigrate(TestData.config.copy(url = dbUrl))

@@ -4,13 +4,13 @@ import cats._
 import cats.implicits._
 import log.effect.LogWriter
 import pureconfig._
-import pureconfig.generic.auto._
+import pureconfig.generic.derivation.default._
 
 final case class Config(
     driver: String,
     dbName: String,
     url: String
-)
+) derives ConfigReader
 
 object Config {
 

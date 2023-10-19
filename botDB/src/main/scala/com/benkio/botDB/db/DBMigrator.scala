@@ -14,7 +14,7 @@ trait DBMigrator[F[_]] {
 
 object DBMigrator {
 
-  def apply[F[_]: Sync] = new DBMigrator[F] {
+  def apply[F[_]: Sync]: DBMigrator[F] = new DBMigrator[F] {
     def migrate(config: Config): F[Int] =
       Sync[F].delay {
         println(

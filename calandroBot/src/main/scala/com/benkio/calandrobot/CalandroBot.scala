@@ -10,9 +10,6 @@ import com.benkio.telegrambotinfrastructure.messagefiltering._
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.lightbend.emoji.ShortCodes.Defaults._
-import com.lightbend.emoji.ShortCodes.Implicits._
-import com.lightbend.emoji._
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
@@ -146,19 +143,19 @@ object CalandroBot {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("ambulanza"),
-        StringTextTriggerValue(e":ambulance:")
+        StringTextTriggerValue("🚑")
       ),
       text = Some(
         TextReply[F](
           _ =>
             Applicative[F].pure(
               List(
-                Emoji(0x1f624).toString      // 😤
-                  ++ Emoji(0x1f918).toString // 🤘
-                  ++ Emoji(0x1f91e).toString // 🤞
-                  ++ Emoji(0x1f91e).toString // 🤞
-                  ++ Emoji(0x1f918).toString // 🤘
-                  ++ Emoji(0x1f624).toString // 😤
+                "😤",
+                "🤘",
+                "🤞",
+                "🤞",
+                "🤘",
+                "😤"
               )
             ),
           false
@@ -176,7 +173,7 @@ object CalandroBot {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("videogioc"),
-        StringTextTriggerValue(e":video_game:")
+        StringTextTriggerValue("🎮")
       ),
       text = Some(
         TextReply[F](

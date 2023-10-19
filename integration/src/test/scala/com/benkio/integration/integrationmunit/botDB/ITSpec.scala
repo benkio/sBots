@@ -11,7 +11,7 @@ import doobie.implicits._
 
 class ITSpec extends FunSuite with DBConstants {
 
-  def setEnv(key: String, value: String) = {
+  def setEnv(key: String, value: String): String = {
     val field = System.getenv().getClass.getDeclaredField("m")
     field.setAccessible(true)
     val map = field.get(System.getenv()).asInstanceOf[java.util.Map[java.lang.String, java.lang.String]]
@@ -21,8 +21,8 @@ class ITSpec extends FunSuite with DBConstants {
   test("botDB main should populate the migration with the files in resources") {
 
     val _ = setEnv("DB_CONNECTION_URL", dbUrl)
-
-    val _ = Main.run(List(s"$resourcePath$testApplicationConf", "test")).unsafeRunSync()
+    val testApplicationConfPath = s"$resourcePath$testApplicationConf"
+    val _ = Main.run(List(testApplicationConfPath, "test")).unsafeRunSync()
 
     val transactor = Transactor.fromDriverManager[IO](
       "org.sqlite.JDBC",

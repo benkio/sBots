@@ -1,23 +1,30 @@
 package com.benkio.botDB
 
+import log.effect.LogLevels
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import cats.effect._
 import com.benkio.botDB.db.BotDBController
 import com.benkio.botDB.db.DBMigrator
 import com.benkio.botDB.db.DatabaseRepository
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import log.effect.LogWriter
 
 object Main extends IOApp {
+
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   // in IT test the args will contain the app config and the stage.
   // Eg ("src/it/resources/app.config", "it")
   def run(args: List[String]): IO[ExitCode] =
     (for {
-      _   <- IO(println(s"Migrating database configuration"))
+      _   <- IO(log.info(s"Migrating database configuration"))
       cfg <- Config.loadConfig(args.headOption)
+      _   <- IO(log.info(s"Input Configuration: $cfg"))
       transactor         = Config.buildTransactor(cfg = cfg)
       databaseRepository = DatabaseRepository[IO](transactor)
       resourceAccess     = ResourceAccess.fromResources[IO](args.lastOption)
       migrator           = DBMigrator[IO]
+      _ <- IO(log.info(s"Build BotDBController"))
       botDBController = BotDBController[IO](
         cfg = cfg,
         databaseRepository = databaseRepository,
@@ -25,5 +32,6 @@ object Main extends IOApp {
         migrator = migrator
       )
       _ <- botDBController.build.use_
+      _ <- IO(log.info(s"Bot DB Setup Excuted"))
     } yield ()).as(ExitCode.Success)
 }

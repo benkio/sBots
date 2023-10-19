@@ -18,19 +18,19 @@ sealed trait MediaFile extends Reply {
   def extension: String = filename.takeRight(4)
 }
 
-final case class Mp3File private[model] (filepath: String, replyToMessage: Boolean = false) extends MediaFile {
+final case class Mp3File(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(filepath.endsWith(".mp3"))
 }
 
-final case class GifFile private[model] (filepath: String, replyToMessage: Boolean = false) extends MediaFile {
+final case class GifFile(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(filepath.endsWith(".gif") || filepath.endsWith(".mp4"))
 }
 
-final case class PhotoFile private[model] (filepath: String, replyToMessage: Boolean = false) extends MediaFile {
+final case class PhotoFile(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(List(".jpg", ".png").exists(filepath.endsWith(_)))
 }
 
-final case class VideoFile private[model] (filepath: String, replyToMessage: Boolean = false) extends MediaFile {
+final case class VideoFile(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(List(".mp4").exists(filepath.endsWith(_)))
 }
 

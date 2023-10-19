@@ -18,9 +18,6 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSear
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.lightbend.emoji.ShortCodes.Defaults._
-import com.lightbend.emoji.ShortCodes.Implicits._
-import com.lightbend.emoji._
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
@@ -531,7 +528,7 @@ object YouTuboAncheI0Bot {
       trigger = TextTrigger(
         StringTextTriggerValue("occhiolino"),
         StringTextTriggerValue(";)"),
-        StringTextTriggerValue(e":wink:"),
+        StringTextTriggerValue("😉"),
       ),
       mediafiles = List(
         GifFile("ytai_Occhiolino.mp4"),
@@ -624,7 +621,7 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue(Emoji(0x1f937).toString)
+        StringTextTriggerValue("🤷")
       ),
       mediafiles = List(
         GifFile("ytai_Shrug.mp4")

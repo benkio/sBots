@@ -1,14 +1,13 @@
 package com.benkio.botDB.db
 
+import com.benkio.telegrambotinfrastructure.model.MediafileSource
 import cats.effect.Resource
 import cats.effect.Sync
 import cats.implicits._
 import com.benkio.botDB.db.schema.MediaEntity
 import com.benkio.botDB.Config
-import com.benkio.botDB.Input
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import io.chrisdavenport.cormorant.implicits._
-import io.chrisdavenport.cormorant.parser._
+import io.circe.parser.decode
 
 import java.sql.Timestamp
 import java.time.Instant
@@ -46,11 +45,11 @@ object BotDBController {
     } yield ()
 
     override def populateMediaTable: Resource[F, Unit] = for {
-      allFiles <- cfg.csvLocation.flatTraverse(resourceAccess.getResourcesByKind)
-      csvs = allFiles.filter(f => f.getName.endsWith("csv"))
-      input <- Resource.eval(Sync[F].fromEither(csvs.flatTraverse(csv => {
-        val fileContent = Source.fromFile(csv).getLines().mkString("\n")
-        parseComplete(fileContent).flatMap(_.readLabelled[Input].sequence)
+      allFiles <- cfg.jsonLocation.flatTraverse(resourceAccess.getResourcesByKind)
+      jsons = allFiles.filter(f => f.getName.endsWith("json"))
+      input <- Resource.eval(Sync[F].fromEither(jsons.flatTraverse(json => {
+        val fileContent = Source.fromFile(json).getLines().mkString("\n")
+        decode[List[MediafileSource]](fileContent)
       })))
       _ <- Resource.eval(
         input.traverse_(i =>
