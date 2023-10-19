@@ -10,7 +10,6 @@ object Dependencies {
     val catsEffectTime     = "0.2.1"
     val catsEffectVersion  = "3.5.2"
     val cormorant          = "0.5.0-M1"
-    val cron4sCore         = "0.6.1"
     val doobie             = "1.0.0-RC4"
     val fs2Core            = "3.9.2"
     val fs2IO              = "3.9.2"
@@ -40,47 +39,45 @@ object Dependencies {
     val catsKernel       = "org.typelevel"     %% "cats-kernel"        % versions.cats
 
     // CORMORANT 2.13, change to circe
-    // Cron4s upgrate do 0.7
     val cormorantCore    = "io.chrisdavenport" %% "cormorant-core"    % versions.cormorant
     val cormorantGeneric = "io.chrisdavenport" %% "cormorant-generic" % versions.cormorant
     val cormorantParser  = "io.chrisdavenport" %% "cormorant-parser"  % versions.cormorant
-    val cron4sCore       = "com.github.alonsodomin.cron4s" %% "cron4s-core" % versions.cron4sCore
 
-    val doobieCore  = "org.tpolecat" %% "doobie-core"  % versions.doobie
-    val doobieFree  = "org.tpolecat" %% "doobie-free"  % versions.doobie
-    val doobieMunit = "org.tpolecat" %% "doobie-munit" % versions.doobie % "test"
-    val flyway                = "org.flywaydb"           % "flyway-core"             % versions.flyway
-    val fs2Core               = "co.fs2"                %% "fs2-core"                % versions.fs2Core
-    val fs2CronCore           = "eu.timepit"            %% "fs2-cron-core"           % versions.fs2Cron
-    val fs2CronCron4s         = "eu.timepit"            %% "fs2-cron-cron4s"         % versions.fs2Cron
-    val fs2IO                 = "co.fs2"                %% "fs2-io"                  % versions.fs2IO
-    val http4sClient          = "org.http4s"            %% "http4s-client"           % versions.http4s
-    val http4sCore            = "org.http4s"            %% "http4s-core"             % versions.http4s
-    val http4sDsl             = "org.http4s"            %% "http4s-dsl"              % versions.http4s
-    val http4sEmberClient     = "org.http4s"            %% "http4s-ember-client"     % versions.http4s
-    val http4sServer          = "org.http4s"            %% "http4s-server"           % versions.http4s
-    val logEffectsCore        = "io.laserdisc"          %% "log-effect-core"         % versions.logEffects
-    val logEffectsFs2         = "io.laserdisc"          %% "log-effect-fs2"          % versions.logEffects
-    val mules                 = "io.chrisdavenport"     %% "mules"                   % versions.mules
-    val mulesHttp4s           = "io.chrisdavenport"     %% "mules-http4s"            % versions.mulesHttp4s
-    val munit                 = "org.scalameta"         %% "munit"                   % versions.munit           % "test"
-    val munitCatsEffect       = "org.typelevel"         %% "munit-cats-effect"       % versions.munitCatsEffect % "test"
+    val doobieCore        = "org.tpolecat"      %% "doobie-core"         % versions.doobie
+    val doobieFree        = "org.tpolecat"      %% "doobie-free"         % versions.doobie
+    val doobieMunit       = "org.tpolecat"      %% "doobie-munit"        % versions.doobie          % "test"
+    val flyway            = "org.flywaydb"       % "flyway-core"         % versions.flyway
+    val fs2Core           = "co.fs2"            %% "fs2-core"            % versions.fs2Core
+    val fs2CronCore       = "eu.timepit"        %% "fs2-cron-core"       % versions.fs2Cron
+    val fs2CronCron4s     = "eu.timepit"        %% "fs2-cron-cron4s"     % versions.fs2Cron
+    val fs2IO             = "co.fs2"            %% "fs2-io"              % versions.fs2IO
+    val http4sClient      = "org.http4s"        %% "http4s-client"       % versions.http4s
+    val http4sCore        = "org.http4s"        %% "http4s-core"         % versions.http4s
+    val http4sDsl         = "org.http4s"        %% "http4s-dsl"          % versions.http4s
+    val http4sEmberClient = "org.http4s"        %% "http4s-ember-client" % versions.http4s
+    val http4sServer      = "org.http4s"        %% "http4s-server"       % versions.http4s
+    val logEffectsCore    = "io.laserdisc"      %% "log-effect-core"     % versions.logEffects
+    val logEffectsFs2     = "io.laserdisc"      %% "log-effect-fs2"      % versions.logEffects
+    val mules             = "io.chrisdavenport" %% "mules"               % versions.mules
+    val mulesHttp4s       = "io.chrisdavenport" %% "mules-http4s"        % versions.mulesHttp4s
+    val munit             = "org.scalameta"     %% "munit"               % versions.munit           % "test"
+    val munitCatsEffect   = "org.typelevel"     %% "munit-cats-effect"   % versions.munitCatsEffect % "test"
 
-    // Pureconfig 2.13
+    // Pureconfig 2.13 is possible to derive with scala 3, just remove generic & generic-base
     val pureConfig            = "com.github.pureconfig" %% "pureconfig"              % versions.pureConfig
     val pureConfigGeneric     = "com.github.pureconfig" %% "pureconfig-generic"      % versions.pureConfig
     val pureConfigGenericBase = "com.github.pureconfig" %% "pureconfig-generic-base" % versions.pureConfig
 
-    val pureConfigCore        = "com.github.pureconfig" %% "pureconfig-core"         % versions.pureConfig
-    val scalatest             = "org.scalatest"         %% "scalatest"               % versions.scalatest       % "test"
+    val pureConfigCore = "com.github.pureconfig" %% "pureconfig-core" % versions.pureConfig
+    val scalatest      = "org.scalatest"         %% "scalatest"       % versions.scalatest % "test"
 
     // Shapeless
-    val shapeless             = "com.chuusai"           %% "shapeless"               % versions.shapeless
+    val shapeless = "com.chuusai" %% "shapeless" % versions.shapeless
 
-    val sqlite                = "org.xerial"             % "sqlite-jdbc"             % versions.sqlite
-    val telegramiumCore       = "io.github.apimorphism" %% "telegramium-core"        % versions.telegramiumVersion
-    val telegramiumHigh       = "io.github.apimorphism" %% "telegramium-high"        % versions.telegramiumVersion
-    val vault                 = "org.typelevel"         %% "vault"                   % versions.vault
+    val sqlite          = "org.xerial"             % "sqlite-jdbc"      % versions.sqlite
+    val telegramiumCore = "io.github.apimorphism" %% "telegramium-core" % versions.telegramiumVersion
+    val telegramiumHigh = "io.github.apimorphism" %% "telegramium-high" % versions.telegramiumVersion
+    val vault           = "org.typelevel"         %% "vault"            % versions.vault
   }
 
   private val CommonDependencies: Seq[ModuleID] = Seq(
@@ -108,7 +105,6 @@ object Dependencies {
       libs.catsEffectTime,
       libs.catsFree,
       libs.catsKernel,
-      libs.cron4sCore,
       libs.doobieCore,
       libs.doobieFree,
       libs.doobieMunit,
@@ -173,11 +169,10 @@ object Dependencies {
       libs.munit,
       libs.doobieMunit,
       libs.scalatest,
-      libs.catsEffect        % "test",
-      libs.catsCore          % "test",
-      libs.doobieCore        % "test",
-      libs.telegramiumCore   % "test",
-      libs.cron4sCore        % "test",
+      libs.catsEffect      % "test",
+      libs.catsCore        % "test",
+      libs.doobieCore      % "test",
+      libs.telegramiumCore % "test",
       libs.http4sEmberClient % "test",
       libs.logEffectsCore    % "test",
       libs.flyway            % "test"
