@@ -1904,6 +1904,16 @@ object YouTuboAncheI0Bot {
         MediaFile("ytai_Multa3000euro.mp3")
       )
     ),
+        ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("scaldato"),
+        StringTextTriggerValue("panini"),
+        StringTextTriggerValue("sono ottimi"),
+      ),
+      List(
+        GifFile("ytai_GrazieScaldatoPanini.mp4"),
+      ),
+    ),
   )
 
   def messageRepliesMixData[
