@@ -239,6 +239,7 @@ object CommandRepliesData {
         MediaFile("xah_GuidoVanRossumFak.mp3"),
         MediaFile("xah_HackerFanatismFak.mp3"),
         MediaFile("xah_IdioticFak.mp3"),
+        MediaFile("xah_IncomprehensibleFak.mp3"),
         MediaFile("xah_IteratorEnumenatorOOPPythonFak.mp3"),
         MediaFile("xah_JargonFak.mp3"),
         MediaFile("xah_JavaTutorialWorstFak.mp3"),
