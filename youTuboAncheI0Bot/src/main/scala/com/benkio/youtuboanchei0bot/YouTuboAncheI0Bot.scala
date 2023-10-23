@@ -1442,7 +1442,6 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("miele"),
         StringTextTriggerValue("forte profumo"),
       ),
       List(
@@ -1876,6 +1875,34 @@ object YouTuboAncheI0Bot {
       List(
         GifFile("ytai_SistemazioneOcchiali.mp4"),
       ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("miele"),
+      ),
+      List(
+        GifFile("ytai_ForteProfumoMiele.mp4"),
+        GifFile("ytai_AppiccicaticcioMiele.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("appiccicaticcio"),
+      ),
+      List(
+        GifFile("ytai_AppiccicaticcioMiele.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("3000"),
+        StringTextTriggerValue("tremila"),
+        StringTextTriggerValue("multa"),
+      ),
+      List(
+        MediaFile("ytai_Multa3000euro.mp3")
+      )
     ),
   )
 
