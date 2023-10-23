@@ -218,6 +218,7 @@ object CommandRepliesData {
         MediaFile("xah_FakEmacs.mp3"),
         MediaFile("xah_FakFakingIdiocyLinux.mp3"),
         MediaFile("xah_FakGoogle.mp3"),
+        MediaFile("xah_FakGoogle2.mp3"),
         MediaFile("xah_FakingGoogle.mp3"),
         MediaFile("xah_FakProgrammersUnix.mp3"),
         MediaFile("xah_FakRichardStallman.mp3"),
