@@ -155,6 +155,16 @@ object YouTuboAncheI0Bot {
         MediaFile("ytai_Grazie.mp3"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("3000"),
+        StringTextTriggerValue("tremila"),
+        StringTextTriggerValue("multa"),
+      ),
+      List(
+        MediaFile("ytai_Multa3000euro.mp3")
+      )
+    )
   )
 
   def messageRepliesGifData[
@@ -1892,16 +1902,6 @@ object YouTuboAncheI0Bot {
       ),
       List(
         GifFile("ytai_AppiccicaticcioMiele.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("3000"),
-        StringTextTriggerValue("tremila"),
-        StringTextTriggerValue("multa"),
-      ),
-      List(
-        MediaFile("ytai_Multa3000euro.mp3")
       )
     ),
         ReplyBundleMessage(
