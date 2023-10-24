@@ -1904,7 +1904,7 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_AppiccicaticcioMiele.mp4")
       )
     ),
-        ReplyBundleMessage(
+    ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("scaldato"),
         StringTextTriggerValue("panini"),
