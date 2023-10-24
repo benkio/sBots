@@ -155,6 +155,16 @@ object YouTuboAncheI0Bot {
         MediaFile("ytai_Grazie.mp3"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("3000"),
+        StringTextTriggerValue("tremila"),
+        StringTextTriggerValue("multa"),
+      ),
+      List(
+        MediaFile("ytai_Multa3000euro.mp3")
+      )
+    )
   )
 
   def messageRepliesGifData[
@@ -1442,7 +1452,6 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       TextTrigger(
-        StringTextTriggerValue("miele"),
         StringTextTriggerValue("forte profumo"),
       ),
       List(
@@ -1875,6 +1884,34 @@ object YouTuboAncheI0Bot {
       ),
       List(
         GifFile("ytai_SistemazioneOcchiali.mp4"),
+      ),
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("miele"),
+      ),
+      List(
+        GifFile("ytai_ForteProfumoMiele.mp4"),
+        GifFile("ytai_AppiccicaticcioMiele.mp4")
+      ),
+      replySelection = RandomSelection
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("appiccicaticcio"),
+      ),
+      List(
+        GifFile("ytai_AppiccicaticcioMiele.mp4")
+      )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("scaldato"),
+        StringTextTriggerValue("panini"),
+        StringTextTriggerValue("sono ottimi"),
+      ),
+      List(
+        GifFile("ytai_GrazieScaldatoPanini.mp4"),
       ),
     ),
   )

@@ -292,8 +292,10 @@ object Audio {
         StringTextTriggerValue("vi spacco il culo")
       ),
       List(
-        MediaFile("rphjb_ViSpaccoIlCulo.mp3")
-      )
+        MediaFile("rphjb_ViSpaccoIlCulo.mp3"),
+        MediaFile("rphjb_ViSpaccoIlCulo.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       TextTrigger(
