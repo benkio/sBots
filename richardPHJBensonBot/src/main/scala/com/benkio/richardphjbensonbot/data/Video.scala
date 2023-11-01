@@ -1139,6 +1139,15 @@ object Video {
         MediaFile("rphjb_DylanDog.mp4"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("buckethead"),
+        RegexTextTriggerValue("guns (n|n'|and) roses".r, 12),
+      ),
+      List(
+        MediaFile("rphjb_BucketheadGunsNRoses.mp4"),
+      ),
+    ),
   )
 
 }

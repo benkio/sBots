@@ -1191,11 +1191,13 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("commovendo")
+        RegexTextTriggerValue("comm(uo|o)vendo".r, 10)
       ),
       mediafiles = List(
-        GifFile("ytai_Commovendo.mp4")
-      )
+        GifFile("ytai_Commovendo.mp4"),
+        GifFile("ytai_CommuovendoFareQuelloChePiace.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -1914,6 +1916,15 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_GrazieScaldatoPanini.mp4"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("terminato"),
+        RegexTextTriggerValue("facilit[aàá]".r, 7)
+      ),
+      List(
+        GifFile("ytai_EstremaFacilita.mp4")
+      )
+    )
   )
 
   def messageRepliesMixData[
