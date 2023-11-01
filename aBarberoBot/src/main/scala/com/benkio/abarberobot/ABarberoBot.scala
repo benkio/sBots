@@ -793,7 +793,16 @@ object ABarberoBot {
       List(
         MediaFile("abar_GliAltri.gif")
       )
-    )
+    ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("👐"),
+        StringTextTriggerValue("🙌"),
+      ),
+      List(
+        MediaFile("abar_AlzaLeMani.mp4"),
+      ),
+    ),
   )
 
   def messageRepliesVideoData[F[_]]: List[ReplyBundleMessage[F]] = List(
