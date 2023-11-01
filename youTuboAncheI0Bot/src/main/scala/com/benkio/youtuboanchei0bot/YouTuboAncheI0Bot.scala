@@ -1916,6 +1916,15 @@ object YouTuboAncheI0Bot {
         GifFile("ytai_GrazieScaldatoPanini.mp4"),
       ),
     ),
+    ReplyBundleMessage(
+      TextTrigger(
+        StringTextTriggerValue("terminato"),
+        RegexTextTriggerValue("facilit[aàá]".r, 7)
+      ),
+      List(
+        GifFile("ytai_EstremaFacilita.mp4")
+      )
+    )
   )
 
   def messageRepliesMixData[
