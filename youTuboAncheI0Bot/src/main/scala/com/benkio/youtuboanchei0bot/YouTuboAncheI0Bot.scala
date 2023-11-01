@@ -1191,11 +1191,13 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("commovendo")
+        StringTextTriggerValue("comm(uo|o)vendo".r, 10)
       ),
       mediafiles = List(
-        GifFile("ytai_Commovendo.mp4")
-      )
+        GifFile("ytai_Commovendo.mp4"),
+        GifFile("ytai_CommuovendoFareQuelloChePiace.mp4")
+      ),
+      replySelection = RandomSelection
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
