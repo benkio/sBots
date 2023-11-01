@@ -8,7 +8,7 @@ on:
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    if: startsWith(github.head_ref, 'scala-steward:update/') && ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: {{ github.event.issue.user.login == 'scala-steward'}} && ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - id: automerge
         name: automerge
