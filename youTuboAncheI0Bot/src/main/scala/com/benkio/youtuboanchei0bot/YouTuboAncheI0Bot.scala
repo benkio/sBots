@@ -1191,7 +1191,7 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        StringTextTriggerValue("comm(uo|o)vendo".r, 10)
+        RegexTextTriggerValue("comm(uo|o)vendo".r, 10)
       ),
       mediafiles = List(
         GifFile("ytai_Commovendo.mp4"),

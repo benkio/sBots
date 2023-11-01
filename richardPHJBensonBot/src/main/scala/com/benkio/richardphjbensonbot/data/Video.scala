@@ -1142,7 +1142,7 @@ object Video {
     ReplyBundleMessage(
       TextTrigger(
         StringTextTriggerValue("buckethead"),
-        RegexTextTriggerValue("guns (n|n'|and) roses", 12),
+        RegexTextTriggerValue("guns (n|n'|and) roses".r, 12),
       ),
       List(
         MediaFile("rphjb_BucketheadGunsNRoses.mp4"),
