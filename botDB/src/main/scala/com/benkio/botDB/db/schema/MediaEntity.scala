@@ -7,7 +7,7 @@ import java.sql.Timestamp
 
 final case class MediaEntity(
     media_name: String,
-    kind: Option[String],
+    kinds: List[String],
     mime_type: String,
     media_url: URL,
     created_at: Timestamp

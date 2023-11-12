@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import io.circe.parser.decode
 import cats.Show
 import cats.syntax.all._
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
@@ -10,7 +11,7 @@ import scala.util.Try
 
 final case class Media(
     mediaName: String,
-    kind: Option[String],
+    kinds: List[String],
     mediaUrl: Uri,
     mediaCount: Int,
     createdAt: Instant
@@ -23,7 +24,7 @@ object Media {
     createdAt <- Try(Instant.ofEpochSecond(dbMediaData.created_at.toLong)).toEither
   } yield Media(
     mediaName = dbMediaData.media_name,
-    kind = dbMediaData.kind,
+    kinds = decode[List[String]](dbMediaData.kinds).getOrElse(List.empty),
     mediaUrl = uri,
     mediaCount = dbMediaData.media_count,
     createdAt = createdAt,

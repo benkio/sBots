@@ -4,24 +4,27 @@ import cats.effect._
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.Media
 import doobie._
+import doobie.util.Read
 import doobie.implicits._
 import io.chrisdavenport.mules._
 import log.effect.LogWriter
+import io.circe.syntax._
 
 import scala.concurrent.duration._
 
 final case class DBMediaData(
     media_name: String,
-    kind: Option[String],
+    kinds: String,
     media_url: String,
     media_count: Int,
     created_at: String
 )
 
 object DBMediaData {
+
   def apply(media: Media): DBMediaData = DBMediaData(
     media_name = media.mediaName,
-    kind = media.kind,
+    kinds = media.kinds.asJson.noSpaces,
     media_url = media.mediaUrl.renderString,
     media_count = media.mediaCount,
     created_at = media.createdAt.toString
@@ -127,15 +130,20 @@ object DBMedia {
   }
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
-    sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE media_name = $resourceName"
+    sql"SELECT media_name, kinds, media_url, media_count, created_at FROM media WHERE media_name = $resourceName"
       .query[DBMediaData]
 
   def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
-    sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[DBMediaData]
+    (fr"SELECT media_name, kinds, media_url, media_count, created_at FROM media" ++
+      Fragments.whereOr(
+        fr"kinds LIKE '[$kind,%'",
+        fr"kinds LIKE '%,$kind,%'",
+        fr"kinds LIKE '%,$kind]%'"
+      )).query[DBMediaData]
 
   def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
     val q: Fragment =
-      fr"SELECT media_name, kind, media_url, media_count, created_at FROM media" ++
+      fr"SELECT media_name, kinds, media_url, media_count, created_at FROM media" ++
         Fragments.whereAndOpt(mediaNamePrefix.map(s => {
           val like = s + "%"
           fr"media_name LIKE $like"

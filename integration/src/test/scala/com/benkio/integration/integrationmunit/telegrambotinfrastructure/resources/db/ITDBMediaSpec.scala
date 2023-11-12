@@ -18,7 +18,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   val testMediaPrefix = "rphjb"
   val testMedia: DBMediaData = DBMediaData(
     testMediaName,
-    None,
+    List.empty,
     "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACBnRH33traQAKBGy9bidu0a/rphjb_MaSgus.mp3?dl=1",
     0,
     "1669122662279"
@@ -27,7 +27,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   def checkMedia(actual: DBMediaData, expected: DBMediaData): Boolean = {
     val result = actual.media_name == expected.media_name &&
       actual.media_url == expected.media_url &&
-      actual.kind == expected.kind &&
+      actual.kinds == expected.kinds &&
       actual.media_count == expected.media_count
     if (!result) println(s"checkMedia test failure: $actual ≄ $expected")
     result
@@ -65,35 +65,35 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val expected: List[DBMediaData] = List(
       DBMediaData(
         "ancheLaRabbiaHaUnCuore.txt",
-        Some("rphjb_LinkSources"),
+        List("rphjb_LinkSources"),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABLDyXAOThfUrS3EoR3kL6ma/rphjb_LinkSources/ancheLaRabbiaHaUnCuore.txt?dl=1",
         0,
         "1669122665179"
       ),
       DBMediaData(
         "live.txt",
-        Some("rphjb_LinkSources"),
+        List("rphjb_LinkSources"),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACKI915JzajxuCSLy4spvbYa/rphjb_LinkSources/live.txt?dl=1",
         0,
         "1669122665277"
       ),
       DBMediaData(
         "perCordeEGrida.txt",
-        Some("rphjb_LinkSources"),
+        List("rphjb_LinkSources"),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAA6aMpu41wxHF3wFrYZTXGba/rphjb_LinkSources/perCordeEGrida.txt?dl=1",
         0,
         "1669122665311"
       ),
       DBMediaData(
         "puntateCocktailMicidiale.txt",
-        Some("rphjb_LinkSources"),
+        List("rphjb_LinkSources"),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAfPoTfoPzhKys-DPI0YV8aa/rphjb_LinkSources/puntateCocktailMicidiale.txt?dl=1",
         0,
         "1669122665322"
       ),
       DBMediaData(
         "puntateRockMachine.txt",
-        Some("rphjb_LinkSources"),
+        List("rphjb_LinkSources"),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABSjYo7uJwDeQqKe3bA5cXea/rphjb_LinkSources/puntateRockMachine.txt?dl=1",
         0,
         "1669122665412"

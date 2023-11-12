@@ -11,7 +11,7 @@ import scala.util.Try
 
 final case class MediafileSource(
     filename: String,
-    kind: Option[String],
+    kinds: Option[List[String]],
     mime: Option[String],
     url: URL
 )
