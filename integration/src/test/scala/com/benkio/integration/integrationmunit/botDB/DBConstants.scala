@@ -2,7 +2,7 @@ package com.benkio.integration.integrationmunit.botDB
 
 trait DBConstants {
 
-  val dbName: String              = "botDB.db"
+  val dbName: String              = "botDB.sqlite3"
   val resourcePath: String        = getClass.getResource("/").getPath
   val dbPath: String              = s"$resourcePath$dbName"
   val dbUrl: String               = s"jdbc:sqlite:$dbPath"

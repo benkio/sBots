@@ -1,5 +1,6 @@
 package com.benkio.integration.integrationmunit.botDB
 
+import com.benkio.botDB.Config
 import com.benkio.botDB.Main
 import java.nio.file.Paths
 import java.nio.file.Files
@@ -11,28 +12,22 @@ import doobie.implicits._
 
 class ITSpec extends FunSuite with DBConstants {
 
-  def setEnv(key: String, value: String): String = {
-    val field = System.getenv().getClass.getDeclaredField("m")
-    field.setAccessible(true)
-    val map = field.get(System.getenv()).asInstanceOf[java.util.Map[java.lang.String, java.lang.String]]
-    map.put(key, value)
-  }
-
   test("botDB main should populate the migration with the files in resources") {
 
-    val _                       = setEnv("DB_CONNECTION_URL", dbUrl)
+    //val _                       = setEnv("DB_CONNECTION_URL", dbUrl)
     val testApplicationConfPath = s"$resourcePath$testApplicationConf"
+    val config                  = Config.loadConfig(Some(testApplicationConfPath)).unsafeRunSync()
     val _                       = Main.run(List(testApplicationConfPath, "test")).unsafeRunSync()
 
     val transactor = Transactor.fromDriverManager[IO](
       "org.sqlite.JDBC",
-      dbUrl,
+      config.url,
       "",
       "",
       None
     )
     val mediaContent = sql"SELECT media_name FROM media;".query[String].to[List].transact(transactor).unsafeRunSync()
-    Files.deleteIfExists(Paths.get(dbPath))
+    Files.deleteIfExists(Paths.get(config.dbName))
 
     assert(mediaContent.length == 3)
     assert(mediaContent.diff(List("amazon.mp4", "facebook.mp3", "google.gif")).isEmpty)
