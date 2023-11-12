@@ -70,7 +70,7 @@
      - Export the webhook host, locally using [[https://ngrok.com/][ngrok]], [[https://github.com/beyondcode/expose][expose]] or [[https://github.com/agrinman/tunnelto][tunnelTo]]. example: ~./expose share http://localhost:8080~
      - Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from the previous step or change it in ~~sBots/main/src/main/resources/application.conf~
      - run ~sbt assembly~
-     - run ~java -cp main/target/scala-2.13/main.jar com.benkio.main.MainWebhook~
+     - run ~java -cp main/target/scala-3.3.1/main.jar com.benkio.main.MainWebhook~
 
 **** Docker
 
