@@ -18,7 +18,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   val testMediaPrefix = "rphjb"
   val testMedia: DBMediaData = DBMediaData(
     testMediaName,
-    "[]",
+    Some("[]"),
     "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACBnRH33traQAKBGy9bidu0a/rphjb_MaSgus.mp3?dl=1",
     0,
     "1669122662279"
@@ -65,35 +65,35 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val expected: List[DBMediaData] = List(
       DBMediaData(
         "ancheLaRabbiaHaUnCuore.txt",
-        """["rphjb_LinkSources"]""",
+        Some("""["rphjb_LinkSources"]"""),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABLDyXAOThfUrS3EoR3kL6ma/rphjb_LinkSources/ancheLaRabbiaHaUnCuore.txt?dl=1",
         0,
         "1669122665179"
       ),
       DBMediaData(
         "live.txt",
-        """["rphjb_LinkSources"]""",
+        Some("""["rphjb_LinkSources"]"""),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACKI915JzajxuCSLy4spvbYa/rphjb_LinkSources/live.txt?dl=1",
         0,
         "1669122665277"
       ),
       DBMediaData(
         "perCordeEGrida.txt",
-        """["rphjb_LinkSources"]""",
+        Some("""["rphjb_LinkSources"]"""),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAA6aMpu41wxHF3wFrYZTXGba/rphjb_LinkSources/perCordeEGrida.txt?dl=1",
         0,
         "1669122665311"
       ),
       DBMediaData(
         "puntateCocktailMicidiale.txt",
-        """["rphjb_LinkSources"]""",
+        Some("""["rphjb_LinkSources"]"""),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAfPoTfoPzhKys-DPI0YV8aa/rphjb_LinkSources/puntateCocktailMicidiale.txt?dl=1",
         0,
         "1669122665322"
       ),
       DBMediaData(
         "puntateRockMachine.txt",
-        """["rphjb_LinkSources"]""",
+        Some("""["rphjb_LinkSources"]"""),
         "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABSjYo7uJwDeQqKe3bA5cXea/rphjb_LinkSources/puntateRockMachine.txt?dl=1",
         0,
         "1669122665412"
@@ -113,21 +113,21 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val expected: List[DBMediaData] = List(
       DBMediaData(
         "rphjb_06.mp4",
-        "[]",
+        Some("[]"),
         "https://www.dropbox.com/s/xndnmq4firkc9lu/rphjb_06.mp4?dl=1",
         0,
         "1674248160144"
       ),
       DBMediaData(
         "rphjb_3Minuti.mp4",
-        "[]",
+        Some("[]"),
         "https://www.dropbox.com/s/axd2jcti4pxd1n7/rphjb_3Minuti.mp4?dl=1",
         0,
         "1674248160242"
       ),
       DBMediaData(
         "rphjb_9MesiUscireRientrare.mp3",
-        "[]",
+        Some("[]"),
         "https://www.dropbox.com/s/fwvtyo9vxtxt2p5/rphjb_9MesiUscireRientrare.mp3?dl=1",
         0,
         "1681990713607"

@@ -14,7 +14,7 @@ import scala.concurrent.duration._
 
 final case class DBMediaData(
     media_name: String,
-    kinds: String,
+    kinds: Option[String],
     media_url: String,
     media_count: Int,
     created_at: String
@@ -24,7 +24,7 @@ object DBMediaData {
 
   def apply(media: Media): DBMediaData = DBMediaData(
     media_name = media.mediaName,
-    kinds = media.kinds.asJson.noSpaces,
+    kinds = media.kinds.asJson.noSpaces.some,
     media_url = media.mediaUrl.renderString,
     media_count = media.mediaCount,
     created_at = media.createdAt.toString
@@ -136,9 +136,9 @@ object DBMedia {
   def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
     (fr"SELECT media_name, kinds, media_url, media_count, created_at FROM media" ++
       Fragments.whereOr(
-        fr"kinds LIKE '[$kind,%'",
-        fr"kinds LIKE '%,$kind,%'",
-        fr"kinds LIKE '%,$kind]%'"
+        fr"""kinds LIKE ${"[" + kind + ",%"}""",
+        fr"""kinds LIKE ${"%," + kind + ",%"}""",
+        fr"""kinds LIKE ${"%," + kind + "]"}""",
       )).query[DBMediaData]
 
   def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {

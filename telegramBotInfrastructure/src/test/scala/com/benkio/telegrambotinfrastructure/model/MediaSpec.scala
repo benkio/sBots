@@ -40,7 +40,7 @@ class MediaSpec extends FunSuite {
   test("Media.apply should correctly parse a valid db record") {
     val input: DBMediaData = DBMediaData(
       media_name = "rphjb_Animali.mp3",
-      kinds = "[]",
+      kinds = Some("[]"),
       media_url = "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AADgdXIhpbWU57v4_jZyc0G3a/rphjb_Animali.mp3?dl=1",
       media_count = 0,
       created_at = "1662126018293"
