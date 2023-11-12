@@ -17,6 +17,7 @@ object Dependencies {
     val http4s             = "0.23.23"
     val littleTime         = "4.0.2"
     val logEffects         = "0.17.0"
+    val logbackClassic     = "1.4.11"
     val mules              = "0.7.0"
     val mulesHttp4s        = "0.4.0"
     val munit              = "1.0.0-M10"
@@ -54,6 +55,7 @@ object Dependencies {
     val littleTime        = "com.github.losizm"     %% "little-time"         % versions.littleTime
     val logEffectsCore    = "io.laserdisc"          %% "log-effect-core"     % versions.logEffects
     val logEffectsFs2     = "io.laserdisc"          %% "log-effect-fs2"      % versions.logEffects
+    val logbackClassic    = "ch.qos.logback"         % "logback-classic"     % versions.logbackClassic  % Runtime
     val mules             = "io.chrisdavenport"     %% "mules"               % versions.mules
     val mulesHttp4s       = "io.chrisdavenport"     %% "mules-http4s"        % versions.mulesHttp4s
     val munit             = "org.scalameta"         %% "munit"               % versions.munit           % "test"
@@ -77,6 +79,7 @@ object Dependencies {
     libs.http4sCore,
     libs.http4sEmberClient,
     libs.http4sServer,
+    libs.logbackClassic,
     libs.logEffectsCore,
     libs.logEffectsFs2,
     libs.munit,
@@ -136,6 +139,7 @@ object Dependencies {
     libs.doobieCore,
     libs.doobieFree,
     libs.flyway,
+    libs.logbackClassic,
     libs.logEffectsCore,
     libs.logEffectsFs2,
     libs.munit,
@@ -153,7 +157,8 @@ object Dependencies {
       libs.doobieCore        % "test",
       libs.telegramiumCore   % "test",
       libs.http4sEmberClient % "test",
-      libs.logEffectsCore    % "test",
-      libs.flyway            % "test"
+      libs.logbackClassic,
+      libs.logEffectsCore % "test",
+      libs.flyway         % "test"
     )
 }
