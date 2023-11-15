@@ -1068,7 +1068,7 @@ object Video {
         StringTextTriggerValue("parola fine"),
       ),
       List(
-        MediaFile("rphjb_SentireOriginale.mp4")
+        MediaFile("rphjb_GiudizioParolaFine.mp4")
       )
     ),
     ReplyBundleMessage(
