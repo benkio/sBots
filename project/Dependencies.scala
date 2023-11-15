@@ -13,7 +13,7 @@ object Dependencies {
     val doobie             = "1.0.0-RC4"
     val fs2Core            = "3.9.3"
     val fs2IO              = "3.9.3"
-    val flyway             = "10.0.0"
+    val flyway             = "10.0.1"
     val http4s             = "0.23.23"
     val littleTime         = "4.0.2"
     val logEffects         = "0.17.0"
