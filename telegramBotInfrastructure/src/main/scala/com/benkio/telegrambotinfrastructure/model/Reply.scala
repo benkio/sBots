@@ -1,8 +1,10 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import com.benkio.telegrambotinfrastructure.model.Text.toText
 import cats.Applicative
-import cats.Show
-import cats.implicits._
+import cats.syntax.all._
+
+
 import telegramium.bots.Message
 
 sealed trait Reply[F[_]] {
@@ -14,10 +16,28 @@ final case class TextReplyM[F[_]](
     replyToMessage: Boolean = false
 ) extends Reply[F]
 
+object TextReplyM:
+    def createNoMessage[F[_]:Applicative](values: String*)(
+      replyToMessage: Boolean
+    ): TextReplyM[F] =
+      TextReplyM(
+        textM = (_: Message) => Applicative[F].pure(values.toList.toText),
+        replyToMessage = replyToMessage
+      )
+
 final case class TextReply[F[_]](
     text: F[List[Text]],
     replyToMessage: Boolean = false
 ) extends Reply[F]
+
+object TextReply:
+    def createNoMessage[F[_]:Applicative](values: String*)(
+      replyToMessage: Boolean
+    ): TextReply[F] =
+      TextReply(
+        text = Applicative[F].pure(values.toList.toText),
+        replyToMessage = replyToMessage
+      )
 
 final case class MediaReply[F[_]](
   mediaFiles: F[List[MediaFile]],

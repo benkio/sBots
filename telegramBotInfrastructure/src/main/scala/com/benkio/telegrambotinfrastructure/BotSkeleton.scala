@@ -4,7 +4,6 @@ import cats._
 import cats.data.OptionT
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
@@ -22,16 +21,16 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit
-    api: Api[F],
-    log: LogWriter[F],
-    action: Action[F]
+  api: Api[F],
+  log: LogWriter[F],
+  resourceAccess: ResourceAccess[F]
 ) extends LongPollBot[F](api)
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
       _ <- OptionT.liftF(log.trace(s"$botName: A message arrived: $msg"))
       _ <- OptionT.liftF(log.info(s"$botName: A message arrived with content: ${msg.text}"))
-      _ <- OptionT(botLogic(Async[F], log, action)(msg))
+      _ <- OptionT(botLogic(Async[F], api, log, resourceAccess)(msg))
       _ <- OptionT.liftF(postComputation(Sync[F])(msg))
     } yield ()
     x.getOrElseF(log.debug(s"$botName: Input message produced no result: $msg"))
@@ -44,8 +43,8 @@ abstract class BotSkeletonWebhook[F[_]: Async](
     webhookCertificate: Option[InputPartFile] = None
 )(implicit
     api: Api[F],
-    log: LogWriter[F],
-    action: Action[F]
+  log: LogWriter[F],
+  resourceAccess: ResourceAccess[F]
 ) extends WebhookBot[F](api, uri.renderString, path.renderString, certificate = webhookCertificate)
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
@@ -53,7 +52,7 @@ abstract class BotSkeletonWebhook[F[_]: Async](
       _    <- OptionT.liftF(log.trace(s"$botName: A message arrived: $msg"))
       text <- OptionT.fromOption[F](msg.text)
       _    <- OptionT.liftF(log.info(s"$botName: A message arrived with content: $text"))
-      _    <- OptionT(botLogic(Async[F], log, action)(msg))
+      _    <- OptionT(botLogic(Async[F], api, log, resourceAccess)(msg))
       _    <- OptionT.liftF(postComputation(Sync[F])(msg))
     } yield ()
     x.getOrElseF(log.debug(s"$botName: Input message produced no result: $msg"))
@@ -69,23 +68,22 @@ trait BotSkeleton[F[_]] {
   val botName: String
   val botPrefix: String
   val dbLayer: DBLayer[F]
-  def filteringMatchesMessages(implicit applicativeF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
-    (_: ReplyBundleMessage[F], _: Message) => applicativeF.pure(true)
-  def postComputation(implicit appF: Applicative[F]): Message => F[Unit] = _ => appF.unit
+  def filteringMatchesMessages[F[_]: Applicative]: (ReplyBundleMessage[F], Message) => F[Boolean] =
+    (_: ReplyBundleMessage[F], _: Message) => Applicative[F].pure(true)
+  def postComputation[F[_]: Applicative]: Message => F[Unit] = _ => Applicative[F].unit
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  def messageRepliesDataF(implicit applicativeF: Applicative[F], log: LogWriter[F]): F[List[ReplyBundleMessage[F]]] =
+  def messageRepliesDataF[F[_]: Applicative](implicit log: LogWriter[F]): F[List[ReplyBundleMessage[F]]] =
     log.debug(s"$botName: Empty message reply data") *> List.empty[ReplyBundleMessage[F]].pure[F]
-  def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  def commandRepliesDataF[F[_]: Async](implicit log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     log.debug(s"$botName: Empty command reply data") *> List.empty[ReplyBundleCommand[F]].pure[F]
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  def messageLogic(implicit
-      asyncF: Async[F],
+  def messageLogic[F[_]: Async: Api](implicit
       log: LogWriter[F],
-      action: Action[F]
+      resourceAccess: ResourceAccess[F]
   ): (Message) => F[Option[List[Message]]] =
     (msg: Message) =>
       for {
@@ -100,15 +98,15 @@ trait BotSkeleton[F[_]] {
                 .computeReplyBundle[F](
                   replyBundle,
                   msg,
-                  filteringMatchesMessages(Applicative[F])(replyBundle, msg)
+                  filteringMatchesMessages(Applicative[F])(replyBundle, msg),
+                  resourceAccess
                 )
           )
       } yield replies
 
-  def commandLogic(implicit
-      asyncF: Async[F],
-      log: LogWriter[F],
-      action: Action[F]
+  def commandLogic[F[_]: Async: Api](using
+    log: LogWriter[F],
+      resourceAccess: ResourceAccess[F]
   ): (Message) => F[Option[List[Message]]] =
     (msg: Message) =>
       for {
@@ -127,19 +125,21 @@ trait BotSkeleton[F[_]] {
               ReplyBundle.computeReplyBundle[F](
                 commandReply,
                 msg,
-                Applicative[F].pure(true)
+                Applicative[F].pure(true),
+                resourceAccess
               )
           )
       } yield commands
 
   def botLogic(implicit
-      asyncF: Async[F],
-      log: LogWriter[F],
-      action: Action[F]
+    asyncF: Async[F],
+    api: Api[F],
+    log: LogWriter[F],
+    resourceAccess: ResourceAccess[F]
   ): (Message) => F[Option[List[Message]]] =
     (msg: Message) =>
       for {
-        messagesOpt <- if (!MessageOps.isCommand(msg)) messageLogic(asyncF, log, action)(msg) else Async[F].pure(None)
-        commandsOpt <- commandLogic(asyncF, log, action)(msg)
+        messagesOpt <- if (!MessageOps.isCommand(msg)) messageLogic(asyncF, api, log, resourceAccess)(msg) else Async[F].pure(None)
+        commandsOpt <- commandLogic(asyncF, api, log, resourceAccess)(msg)
       } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
 }

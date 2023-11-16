@@ -1,12 +1,12 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply.telegramTextReply
+
 import cats.MonadThrow
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.default.Actions
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model.Config
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -27,7 +27,6 @@ final case class BotSetup[F[_]](
     dbLayer: DBLayer[F],
     backgroundJobManager: BackgroundJobManager[F],
     api: Api[F],
-    action: Action[F],
     webhookUri: Uri,
     webhookPath: Uri
 )
@@ -96,13 +95,13 @@ object BotSetup {
       httpClient,
       baseUrl = baseUrl.renderString
     )
-    ra = Actions.sendReply[F](api = api, asyncF = Async[F], log = log, resourceAccess = resourceAccess)
     backgroundJobManager <- Resource.eval(
       BackgroundJobManager[F](
         dbSubscription = dbLayer.dbSubscription,
         dbShow = dbLayer.dbShow,
-        botName = botName
-      )(Async[F], ra, log)
+        botName = botName,
+        resourceAccess = resourceAccess
+      )(Async[F], api, telegramTextReply, log)
     )
     path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
@@ -113,7 +112,6 @@ object BotSetup {
     dbLayer = dbLayer,
     backgroundJobManager = backgroundJobManager,
     api = api,
-    action = ra,
     webhookUri = webhookBaseUri,
     webhookPath = path
   )

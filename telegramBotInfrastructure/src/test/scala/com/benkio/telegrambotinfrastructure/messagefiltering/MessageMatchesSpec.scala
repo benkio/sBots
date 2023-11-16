@@ -22,7 +22,7 @@ class MessageMatchesSpec extends FunSuite {
     trigger = TextTrigger(
       StringTextTriggerValue("test")
     ),
-    mediafiles = inputMediafile
+    reply = MediaReply[IO](mediaFiles = IO.pure(inputMediafile))
   )
 
   val ignoreMessagePrefix: Some[String] = Some("!")

@@ -1,5 +1,8 @@
 package com.benkio.telegrambotinfrastructure
 
+import telegramium.bots.high.Api
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import scala.concurrent.duration.FiniteDuration
 import java.time.Duration
 import scala.util.Try
@@ -8,9 +11,8 @@ import cats._
 import cats.effect.Fiber
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.model.Subscription
-import com.benkio.telegrambotinfrastructure.model.TextReply
+import com.benkio.telegrambotinfrastructure.model.Text
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
@@ -53,26 +55,29 @@ object BackgroundJobManager {
         s"Subscription already exists: already present in memory while subscribing to it. id: ${subscription.id} - ${subscription.chatId}"
       )
 
-  def apply[F[_]: Async](
+  def apply[F[_]: Async: Api](
       dbSubscription: DBSubscription[F],
       dbShow: DBShow[F],
+      resourceAccess: ResourceAccess[F],
       botName: String
-  )(implicit replyAction: Action[F], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
+  )(implicit textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
     backgroundJobManager <- Async[F].pure(
       new BackgroundJobManagerImpl(
         dbSubscription = dbSubscription,
         dbShow = dbShow,
+        resourceAccess: ResourceAccess[F],
         botName = botName
       )
     )
     _ <- backgroundJobManager.loadSubscriptions()
   } yield backgroundJobManager
 
-  class BackgroundJobManagerImpl[F[_]: Async](
+  class BackgroundJobManagerImpl[F[_]: Async: Api](
       dbSubscription: DBSubscription[F],
       dbShow: DBShow[F],
+      resourceAccess: ResourceAccess[F],
       val botName: String
-  )(implicit replyAction: Action[F], log: LogWriter[F])
+  )(implicit textTelegramReply: TelegramReply[Text], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
     var memSubscriptions: MMap[SubscriptionKey, Fiber[F, Throwable, Unit]] = MMap()
@@ -86,7 +91,8 @@ object BackgroundJobManager {
         subscription,
         dbShow,
         dbSubscription,
-        botName
+        botName,
+        resourceAccess
       )
       _ <- dbSubscription.insertSubscription(DBSubscriptionData(subscription))
     } yield memSubscriptions += subscriptionReference
@@ -95,7 +101,7 @@ object BackgroundJobManager {
       subscriptionsData <- dbSubscription.getSubscriptions(botName)
       subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
       subscriptionReferences <- subscriptions.traverse(s =>
-        BackgroundJobManager.runSubscription(s, dbShow, dbSubscription, botName)
+        BackgroundJobManager.runSubscription(s, dbShow, dbSubscription, botName, resourceAccess)
       )
       _ <- memSubscriptions.values.toList.traverse_(_.cancel)
     } yield memSubscriptions = MMap.from(subscriptionReferences)
@@ -122,12 +128,13 @@ object BackgroundJobManager {
     } yield memSubscriptions = memSubscriptions.filterNot { case (SubscriptionKey(_, cId), _) => cId == chatId }
   }
 
-  def runSubscription[F[_]: Async](
+  def runSubscription[F[_]: Async: Api](
       subscription: Subscription,
       dbShow: DBShow[F],
       dbSubscription: DBSubscription[F],
-      botName: String
-  )(implicit replyAction: Action[F], log: LogWriter[F]): F[(SubscriptionKey, Fiber[F, Throwable, Unit])] = {
+      botName: String,
+      resourceAccess: ResourceAccess[F]
+  )(implicit textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[(SubscriptionKey, Fiber[F, Throwable, Unit])] = {
     val scheduled: Stream[F, Unit] = for {
       nextTime <- Stream.fromOption(subscription.cronScheduler.next())
       now = LocalDateTime.now()
@@ -141,11 +148,15 @@ object BackgroundJobManager {
         date = 0,
         chat = Chat(id = subscription.chatId, `type` = "private")
       ) // Only the chat id matters here
-      reply = TextReply[F](_ =>
-        CommandPatterns.RandomLinkCommand
+      reply <- Stream.evalSeq(CommandPatterns.RandomLinkCommand
           .selectRandomLinkByKeyword[F]("", dbShow, botName)
       )
-      _ <- Stream.eval(replyAction(reply)(message))
+      _ <- Stream.eval(textTelegramReply.reply(
+        reply          = Text(reply),
+        msg            = message,
+        resourceAccess = resourceAccess,
+        replyToMessage = true
+      )).drain
     } yield ()
 
     Async[F]
