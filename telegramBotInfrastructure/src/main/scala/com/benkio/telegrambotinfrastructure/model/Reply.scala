@@ -1,18 +1,38 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import cats.Applicative
 import cats.Show
+import cats.implicits._
 import telegramium.bots.Message
 
-sealed trait Reply {
+sealed trait Reply[F[_]] {
   val replyToMessage: Boolean
 }
 
-final case class TextReply[F[_]](
+final case class TextReplyM[F[_]](
     text: Message => F[List[String]],
     replyToMessage: Boolean = false
-) extends Reply
+) extends Reply[F]
 
-sealed trait MediaFile extends Reply {
+final case class TextReply[F[_]](
+    text: F[List[String]],
+    replyToMessage: Boolean = false
+) extends Reply[F]
+
+final case class MediaReply[F[_]](
+  mediaFiles: F[List[MediaFile]],
+  replyToMessage: Boolean = false
+) extends Reply[F]
+
+object Reply:
+  extension [F[_]: Applicative](r: Reply[F])
+    def prettyPrint: F[List[String]] = r match {
+      case TextReply(text,_) => text
+      case TextReplyM(_,_) => Applicative[F].pure(List.empty)
+      case MediaReply(mediaFilesF,_) => mediaFilesF.map(mfs => mfs.map(_.show))
+}
+
+sealed trait MediaFile {
   def filepath: String
   def filename: String  = filepath.split('/').last
   def extension: String = filename.takeRight(4)
