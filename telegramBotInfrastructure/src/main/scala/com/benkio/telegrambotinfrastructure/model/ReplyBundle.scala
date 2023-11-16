@@ -73,17 +73,12 @@ object ReplyBundle {
   implicit def orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
     Trigger.orderingInstance.contramap(_.trigger)
 
-  // private def replyBundleToData[F[_]](replyBundle: ReplyBundle[F], f: Boolean): List[Reply[F]] =
-  //   if (f) replyBundle.mediafiles ++ replyBundle.text.toList
-  //   else List.empty
-
   def computeReplyBundle[F[_]](replyBundle: ReplyBundle[F], message: Message, filter: F[Boolean])(implicit
       replyAction: Action[F],
       syncF: Sync[F]
   ): F[List[Message]] = for {
-    f <- filter
-    dataToReply = if f then replyBundle.reply else List.empty
-    replies <- replyBundle.replySelection.logic(dataToReply)
+    dataToReply <- syncF.ifM(filter)(ifTrue = syncF.pure(replyBundle.reply), ifFalse = syncF.raiseError(new Exception(s"No replies for the given message: $message")))
+    replies <- replyBundle.replySelection.logic(dataToReply, message)
     result  <- replies.traverse[F, List[Message]](replyAction(_)(message))
   } yield result.flatten
 }
