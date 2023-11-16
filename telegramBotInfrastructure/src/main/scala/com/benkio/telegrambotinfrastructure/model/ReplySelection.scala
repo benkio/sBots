@@ -2,7 +2,6 @@ package com.benkio.telegrambotinfrastructure.model
 
 import telegramium.bots.Message
 
-
 import cats.effect._
 import cats.implicits._
 
@@ -13,7 +12,7 @@ sealed trait ReplySelection {
 }
 
 case object SelectAll extends ReplySelection {
-  def logic[F[_]: Sync](reply: Reply[F],message: Message): F[List[ReplyValue]] =
+  def logic[F[_]: Sync](reply: Reply[F], message: Message): F[List[ReplyValue]] =
     reply match {
       case TextReply(text, _)        => Sync[F].widen(text)
       case TextReplyM(textM, _)      => Sync[F].widen(textM(message))

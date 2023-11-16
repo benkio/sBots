@@ -2,16 +2,13 @@ package com.benkio.telegrambotinfrastructure.model
 
 import cats.Show
 
-
-
 sealed trait ReplyValue
 
 final case class Text(value: String) extends ReplyValue
 
 object Text:
-    given Show[Text] = Show.show(_.value)
-    extension (values: List[String])
-      def toText: List[Text] = values.map(Text(_))
+  given Show[Text]                                        = Show.show(_.value)
+  extension (values: List[String]) def toText: List[Text] = values.map(Text(_))
 
 sealed trait MediaFile extends ReplyValue {
   def filepath: String

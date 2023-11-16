@@ -21,9 +21,9 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 abstract class BotSkeletonPolling[F[_]: Parallel: Async](implicit
-  api: Api[F],
-  log: LogWriter[F],
-  resourceAccess: ResourceAccess[F]
+    api: Api[F],
+    log: LogWriter[F],
+    resourceAccess: ResourceAccess[F]
 ) extends LongPollBot[F](api)
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
@@ -43,8 +43,8 @@ abstract class BotSkeletonWebhook[F[_]: Async](
     webhookCertificate: Option[InputPartFile] = None
 )(implicit
     api: Api[F],
-  log: LogWriter[F],
-  resourceAccess: ResourceAccess[F]
+    log: LogWriter[F],
+    resourceAccess: ResourceAccess[F]
 ) extends WebhookBot[F](api, uri.renderString, path.renderString, certificate = webhookCertificate)
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
@@ -105,7 +105,7 @@ trait BotSkeleton[F[_]] {
       } yield replies
 
   def commandLogic[F[_]: Async: Api](using
-    log: LogWriter[F],
+      log: LogWriter[F],
       resourceAccess: ResourceAccess[F]
   ): (Message) => F[Option[List[Message]]] =
     (msg: Message) =>
@@ -132,14 +132,15 @@ trait BotSkeleton[F[_]] {
       } yield commands
 
   def botLogic(implicit
-    asyncF: Async[F],
-    api: Api[F],
-    log: LogWriter[F],
-    resourceAccess: ResourceAccess[F]
+      asyncF: Async[F],
+      api: Api[F],
+      log: LogWriter[F],
+      resourceAccess: ResourceAccess[F]
   ): (Message) => F[Option[List[Message]]] =
     (msg: Message) =>
       for {
-        messagesOpt <- if (!MessageOps.isCommand(msg)) messageLogic(asyncF, api, log, resourceAccess)(msg) else Async[F].pure(None)
+        messagesOpt <-
+          if (!MessageOps.isCommand(msg)) messageLogic(asyncF, api, log, resourceAccess)(msg) else Async[F].pure(None)
         commandsOpt <- commandLogic(asyncF, api, log, resourceAccess)(msg)
       } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
 }

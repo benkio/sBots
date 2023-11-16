@@ -134,7 +134,10 @@ object BackgroundJobManager {
       dbSubscription: DBSubscription[F],
       botName: String,
       resourceAccess: ResourceAccess[F]
-  )(implicit textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[(SubscriptionKey, Fiber[F, Throwable, Unit])] = {
+  )(implicit
+      textTelegramReply: TelegramReply[Text],
+      log: LogWriter[F]
+  ): F[(SubscriptionKey, Fiber[F, Throwable, Unit])] = {
     val scheduled: Stream[F, Unit] = for {
       nextTime <- Stream.fromOption(subscription.cronScheduler.next())
       now = LocalDateTime.now()
@@ -148,15 +151,20 @@ object BackgroundJobManager {
         date = 0,
         chat = Chat(id = subscription.chatId, `type` = "private")
       ) // Only the chat id matters here
-      reply <- Stream.evalSeq(CommandPatterns.RandomLinkCommand
+      reply <- Stream.evalSeq(
+        CommandPatterns.RandomLinkCommand
           .selectRandomLinkByKeyword[F]("", dbShow, botName)
       )
-      _ <- Stream.eval(textTelegramReply.reply(
-        reply          = Text(reply),
-        msg            = message,
-        resourceAccess = resourceAccess,
-        replyToMessage = true
-      )).drain
+      _ <- Stream
+        .eval(
+          textTelegramReply.reply(
+            reply = Text(reply),
+            msg = message,
+            resourceAccess = resourceAccess,
+            replyToMessage = true
+          )
+        )
+        .drain
     } yield ()
 
     Async[F]

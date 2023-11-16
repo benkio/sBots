@@ -73,24 +73,23 @@ Input as query string:
     )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("searchshow"),
-        reply =
-          TextReplyM[F](
-            m =>
-              handleCommandWithInput[F](
-                m,
-                "searchshow",
-                botName,
-                keywords =>
-                  RandomLinkCommand
-                    .selectRandomLinkByKeyword[F](
-                      keywords,
-                      dbShow,
-                      botName
-                    ),
-                s"Input non riconosciuto. Controlla le instruzioni per i dettagli",
-                allowEmptyString = true
-              ),
-            true
+        reply = TextReplyM[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "searchshow",
+              botName,
+              keywords =>
+                RandomLinkCommand
+                  .selectRandomLinkByKeyword[F](
+                    keywords,
+                    dbShow,
+                    botName
+                  ),
+              s"Input non riconosciuto. Controlla le instruzioni per i dettagli",
+              allowEmptyString = true
+            ),
+          true
         ),
       )
 
@@ -127,8 +126,7 @@ Input as query string:
     def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
-        reply =
-          TextReplyM.createNoMessage(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")(true)
+        reply = TextReplyM.createNoMessage(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")(true)
       )
   }
 
@@ -147,29 +145,27 @@ Input as query string:
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggersearch"),
-        reply =
-          TextReplyM[F](
-            m =>
-              handleCommandWithInput[F](
-                m,
-                "triggersearch",
-                botName,
-                t =>
-                  mdr
-                    .collectFirstSome(replyBundle =>
-                      replyBundle.trigger match {
-                        case TextTrigger(textTriggers @ _*)
-                            if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
-                          Some(textTriggers.toList)
-                        case _ => None
-                      }
-                    )
-                    .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
-                      textTriggers.map(_.show)
-                    )
-                    .pure[F],
-                """Input Required: Insert the test keyword to check if it's in some bot trigger"""
-              ),
+        reply = TextReplyM[F](m =>
+          handleCommandWithInput[F](
+            m,
+            "triggersearch",
+            botName,
+            t =>
+              mdr
+                .collectFirstSome(replyBundle =>
+                  replyBundle.trigger match {
+                    case TextTrigger(textTriggers @ _*)
+                        if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
+                      Some(textTriggers.toList)
+                    case _ => None
+                  }
+                )
+                .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
+                  textTriggers.map(_.show)
+                )
+                .pure[F],
+            """Input Required: Insert the test keyword to check if it's in some bot trigger"""
+          ),
         )
       )
 
@@ -225,19 +221,19 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("instructions"),
-        reply =
-          TextReplyM.createNoMessage[F](
-                instructionMessageIta(
-                  botName = botName,
-                  ignoreMessagePrefix = ignoreMessagePrefix,
-                  commandDescriptions = commandDescriptionsIta
-                ),
-                instructionMessageEng(
-                  botName = botName,
-                  ignoreMessagePrefix = ignoreMessagePrefix,
-                  commandDescriptions = commandDescriptionsEng
-                ))(false)
-        )
+        reply = TextReplyM.createNoMessage[F](
+          instructionMessageIta(
+            botName = botName,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commandDescriptions = commandDescriptionsIta
+          ),
+          instructionMessageEng(
+            botName = botName,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commandDescriptions = commandDescriptionsEng
+          )
+        )(false)
+      )
   }
 
   object SubscribeUnsubscribeCommand {
@@ -261,26 +257,25 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscribe"),
-        reply =
-          TextReplyM[F](
-            m =>
-              handleCommandWithInput[F](
-                m,
-                "subscribe",
-                botName,
-                cronInput =>
-                  for {
-                    subscription <- Async[F].fromEither(Subscription(m.chat.id, botName, cronInput))
-                    nextOccurrence = subscription.cronScheduler
-                      .next()
-                      .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
-                    _ <- backgroundJobManager.scheduleSubscription(subscription)
-                  } yield List(
-                    s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
-                  ),
-                s"Input Required: insert a valid 〈cron time〉. Check the instructions"
-              ),
-            true
+        reply = TextReplyM[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "subscribe",
+              botName,
+              cronInput =>
+                for {
+                  subscription <- Async[F].fromEither(Subscription(m.chat.id, botName, cronInput))
+                  nextOccurrence = subscription.cronScheduler
+                    .next()
+                    .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
+                  _ <- backgroundJobManager.scheduleSubscription(subscription)
+                } yield List(
+                  s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
+                ),
+              s"Input Required: insert a valid 〈cron time〉. Check the instructions"
+            ),
+          true
         ),
       )
 
@@ -290,28 +285,27 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("unsubscribe"),
-        reply =
-          TextReplyM[F](
-            m =>
-              handleCommandWithInput[F](
-                m,
-                "unsubscribe",
-                botName,
-                subscriptionIdInput =>
-                  if (subscriptionIdInput.isEmpty)
-                    for {
-                      _ <- backgroundJobManager.cancelSubscriptions(m.chat.id)
-                    } yield List(s"All Subscriptions for current chat successfully cancelled")
-                  else
-                    for {
-                      subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
-                      _              <- backgroundJobManager.cancelSubscription(subscriptionId)
-                    } yield List(
-                      s"Subscription successfully cancelled"
-                    ),
-                s"Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
-              ),
-            true
+        reply = TextReplyM[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "unsubscribe",
+              botName,
+              subscriptionIdInput =>
+                if (subscriptionIdInput.isEmpty)
+                  for {
+                    _ <- backgroundJobManager.cancelSubscriptions(m.chat.id)
+                  } yield List(s"All Subscriptions for current chat successfully cancelled")
+                else
+                  for {
+                    subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
+                    _              <- backgroundJobManager.cancelSubscription(subscriptionId)
+                  } yield List(
+                    s"Subscription successfully cancelled"
+                  ),
+              s"Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
+            ),
+          true
         ),
       )
 
@@ -322,22 +316,21 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscriptions"),
-        reply =
-          TextReplyM[F](
-            m =>
-              for {
-                subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
-                subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
-                memSubscriptions     = backgroundJobManager.memSubscriptions.keys
-                memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid == m.chat.id }
-              } yield List(
-                s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
-                  .map(_.show)
-                  .mkString("\n") ++
-                  s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
-                  memChatSubscriptions.map(_.show).mkString("\n")
-              ).toText,
-            true
+        reply = TextReplyM[F](
+          m =>
+            for {
+              subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
+              subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
+              memSubscriptions     = backgroundJobManager.memSubscriptions.keys
+              memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid == m.chat.id }
+            } yield List(
+              s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
+                .map(_.show)
+                .mkString("\n") ++
+                s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
+                memChatSubscriptions.map(_.show).mkString("\n")
+            ).toText,
+          true
         )
       )
   }
@@ -355,14 +348,13 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("toptwenty"),
-        reply =
-          TextReplyM[F](
-            _ =>
-              for {
-                dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
-                medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-              } yield List(Media.mediaListToString(medias)).toText,
-            true
+        reply = TextReplyM[F](
+          _ =>
+            for {
+              dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
+              medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
+            } yield List(Media.mediaListToString(medias)).toText,
+          true
         ),
       )
 
@@ -382,30 +374,30 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("timeout"),
-        reply =
-          TextReplyM[F](
-            msg =>
-              handleCommandWithInput[F](
-                msg,
-                "timeout",
-                botName,
-                t => {
-                  Timeout(msg.chat.id, botName, t)
-                    .fold(
-                      error =>
-                        log.info(s"[ERROR] While parsing the timeout input: $error") *> List(
-                          s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
-                        ).pure[F],
-                      timeout =>
-                        dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List(
-                          s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}"
-                        ).pure[F]
-                    )
-                },
-                """Input Required: the input must be in the form '\timeout 00:00:00'"""
-              ),
-            true
-      ))
+        reply = TextReplyM[F](
+          msg =>
+            handleCommandWithInput[F](
+              msg,
+              "timeout",
+              botName,
+              t => {
+                Timeout(msg.chat.id, botName, t)
+                  .fold(
+                    error =>
+                      log.info(s"[ERROR] While parsing the timeout input: $error") *> List(
+                        s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
+                      ).pure[F],
+                    timeout =>
+                      dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List(
+                        s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}"
+                      ).pure[F]
+                  )
+              },
+              """Input Required: the input must be in the form '\timeout 00:00:00'"""
+            ),
+          true
+        )
+      )
   }
 
   def handleCommandWithInput[F[_]: ApplicativeThrow](
@@ -424,5 +416,6 @@ ${ignoreMessagePrefix
         List(
           s"An error occurred processing the command: $command from message: $msg by bot: $botName with error: ${e.getMessage}"
         ).pure[F]
-      ).map(_.toText)
+      )
+      .map(_.toText)
 }

@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply.telegramTextReply
+import com.benkio.telegrambotinfrastructure.model.Text
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 
 import cats.MonadThrow
 import cats.effect.Async
@@ -73,7 +74,7 @@ object BotSetup {
       namespace: String,
       botName: String,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
-  )(implicit log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
+  )(using log: LogWriter[F], telegramReply: TelegramReply[Text]): Resource[F, BotSetup[F]] = for {
     tk         <- token[F](tokenFilename)
     config     <- Resource.eval(Config.loadConfig[F](namespace))
     _          <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
@@ -101,7 +102,7 @@ object BotSetup {
         dbShow = dbLayer.dbShow,
         botName = botName,
         resourceAccess = resourceAccess
-      )(Async[F], api, telegramTextReply, log)
+      )(Async[F], api, telegramReply, log)
     )
     path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
