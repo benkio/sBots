@@ -27,7 +27,7 @@ class CalandroBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]
     with CalandroBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 class CalandroBotWebhook[F[_]: Async: Api: Action: LogWriter](
@@ -38,7 +38,7 @@ class CalandroBotWebhook[F[_]: Async: Api: Action: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with CalandroBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 trait CalandroBot[F[_]] extends BotSkeleton[F] {
@@ -46,13 +46,13 @@ trait CalandroBot[F[_]] extends BotSkeleton[F] {
   override val botName: String   = CalandroBot.botName
   override val botPrefix: String = CalandroBot.botPrefix
 
-  override def messageRepliesDataF(implicit
+  override def messageRepliesDataF(using
       applicativeF: Applicative[F],
       log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
     CalandroBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     CalandroBot.commandRepliesData[F].pure[F]
 }
 

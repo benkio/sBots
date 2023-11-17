@@ -1,7 +1,8 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
+import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.model.Text
-import com.benkio.telegrambotinfrastructure.model.Text.toText
+import com.benkio.telegrambotinfrastructure.model.toText
 import cats.effect.Async
 import cats.implicits._
 import cats.Applicative
@@ -126,7 +127,7 @@ Input as query string:
     def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
-        reply = TextReplyM.createNoMessage(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")(true)
+        reply = TextReply.fromList(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")(true)
       )
   }
 
@@ -221,7 +222,7 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("instructions"),
-        reply = TextReplyM.createNoMessage[F](
+        reply = TextReply.fromList[F](
           instructionMessageIta(
             botName = botName,
             ignoreMessagePrefix = ignoreMessagePrefix,

@@ -28,10 +28,10 @@ class ABarberoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F]
     with ABarberoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(implicit
+  override def filteringMatchesMessages(using
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
@@ -46,10 +46,10 @@ class ABarberoBotWebhook[F[_]: Async: Api: Action: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with ABarberoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(implicit
+  override def filteringMatchesMessages(using
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
@@ -63,13 +63,13 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
   val linkSources                                  = ABarberoBot.linkSources
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override def messageRepliesDataF(implicit
+  override def messageRepliesDataF(using
       applicativeF: Applicative[F],
       log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
     ABarberoBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     ABarberoBot
       .commandRepliesData[F](
         backgroundJobManager,

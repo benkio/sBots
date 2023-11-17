@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import com.benkio.telegrambotinfrastructure.model.Text.toText
+import com.benkio.telegrambotinfrastructure.model.toText
 import cats.Applicative
 import cats.syntax.all._
 

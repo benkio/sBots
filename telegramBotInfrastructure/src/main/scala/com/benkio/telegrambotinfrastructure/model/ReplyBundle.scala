@@ -32,12 +32,17 @@ object ReplyBundleMessage {
       trigger: MessageTrigger,
       reply: Reply[F],
       matcher: MessageMatches = ContainsOnce,
-      replySelection: ReplySelection = SelectAll
+      replySelection: ReplySelection = RandomSelection
   ): ReplyBundleMessage[F] = new ReplyBundleMessage[F](
     trigger = trigger,
     reply = reply,
     matcher = matcher,
     replySelection = replySelection
+  )
+
+  def textToMedia[F[_]:Applicative](triggers: TextTriggerValue*)(mediaFiles: MediaFile*): ReplyBundleMessage[F] = ReplyBundleMessage[F](
+    trigger = TextTrigger(triggers : _*),
+    reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList)
   )
 
   def prettyPrint[F[_]: Applicative](rbm: ReplyBundleMessage[F])(implicit triggerShow: Show[Trigger]): F[String] = {

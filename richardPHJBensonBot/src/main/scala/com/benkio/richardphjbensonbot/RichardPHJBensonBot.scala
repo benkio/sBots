@@ -35,10 +35,10 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F]
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(implicit
+  override def filteringMatchesMessages(using
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
@@ -53,10 +53,10 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: Action: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(implicit
+  override def filteringMatchesMessages(using
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
@@ -69,13 +69,13 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override def messageRepliesDataF(implicit
+  override def messageRepliesDataF(using
       applicativeF: Applicative[F],
       log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     RichardPHJBensonBot
       .commandRepliesData[F](
         backgroundJobManager,

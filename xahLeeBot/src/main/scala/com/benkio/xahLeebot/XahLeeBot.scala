@@ -25,7 +25,7 @@ class XahLeeBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F]
     with XahLeeBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 class XahLeeBotWebhook[F[_]: Async: Api: Action: LogWriter](
@@ -37,7 +37,7 @@ class XahLeeBotWebhook[F[_]: Async: Api: Action: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
     with XahLeeBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
 }
 
 trait XahLeeBot[F[_]] extends BotSkeleton[F] {
@@ -47,13 +47,13 @@ trait XahLeeBot[F[_]] extends BotSkeleton[F] {
   val backgroundJobManager: BackgroundJobManager[F]
   val dbLayer: DBLayer[F]
 
-  override def messageRepliesDataF(implicit
+  override def messageRepliesDataF(using
       applicativeF: Applicative[F],
       log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
     log.debug("[XahLeeBot] Empty message reply data") *> List.empty.pure[F]
 
-  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     CommandRepliesData
       .values[F](
         dbLayer = dbLayer,
