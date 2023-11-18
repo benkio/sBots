@@ -26,8 +26,10 @@ import scala.io.Source
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import io.circe.parser.decode
 
-class M0sconiBotSpec extends CatsEffectSuite {
+class M0sconiBotSpec extends CatsEffectSuite with DBFixture {
 
+  given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(M0sconiBot.botName)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
@@ -36,9 +38,6 @@ class M0sconiBotSpec extends CatsEffectSuite {
         replyToMessage: Boolean
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
-  given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(M0sconiBot.botName)
-
   test("triggerlist should return the link to the trigger txt file") {
     val triggerlistUrl: String = M0sconiBot
       .commandRepliesData[IO](
@@ -104,7 +103,7 @@ class M0sconiBotSpec extends CatsEffectSuite {
         dbLayer = emptyDBLayer
       )
       .filter(_.trigger.command == "instructions")
-      .flatTraverse(_.reply.asInstanceOf[TextReply[IO]].text.map(_.map(_.value)))
+      .flatTraverse(_.reply.prettyPrint)
     assertIO(
       actual,
       List(
