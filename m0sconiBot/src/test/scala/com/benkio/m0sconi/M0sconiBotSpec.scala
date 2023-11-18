@@ -1,6 +1,5 @@
 package com.benkio.M0sconi
 
-import com.benkio.telegrambotinfrastructure.model.TextReply
 import telegramium.bots.high.Api
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -26,7 +25,7 @@ import scala.io.Source
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import io.circe.parser.decode
 
-class M0sconiBotSpec extends CatsEffectSuite with DBFixture {
+class M0sconiBotSpec extends CatsEffectSuite {
 
   given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(M0sconiBot.botName)

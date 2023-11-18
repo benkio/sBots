@@ -31,10 +31,9 @@ case class RegexTextTriggerValue(trigger: Regex, minimalLengthMatch: Int) extend
   override def length: Int = minimalLengthMatch
 }
 
-extension (sc: StringContext)
-  def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args: _*))
+extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args: _*))
 extension (r: Regex)
-  def tr(minimalLengthMatch: Int): RegexTextTriggerValue  = RegexTextTriggerValue(r, minimalLengthMatch)
+  def tr(minimalLengthMatch: Int): RegexTextTriggerValue = RegexTextTriggerValue(r, minimalLengthMatch)
 
 sealed trait Trigger
 

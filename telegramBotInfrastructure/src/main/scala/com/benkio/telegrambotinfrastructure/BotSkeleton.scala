@@ -20,13 +20,14 @@ import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
-abstract class BotSkeletonPolling[F[_]: Parallel: Async: Api: LogWriter](resourceAccess: ResourceAccess[F]) extends LongPollBot[F](summon[Api[F]])
+abstract class BotSkeletonPolling[F[_]: Parallel: Async: Api: LogWriter](resourceAccess: ResourceAccess[F])
+    extends LongPollBot[F](summon[Api[F]])
     with BotSkeleton[F] {
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
       _ <- OptionT.liftF(summon[LogWriter[F]].trace(s"$botName: A message arrived: $msg"))
       _ <- OptionT.liftF(summon[LogWriter[F]].info(s"$botName: A message arrived with content: ${msg.text}"))
-      _ <- OptionT(botLogic(resourceAccess,msg)(using Async[F], summon[Api[F]], summon[LogWriter[F]]))
+      _ <- OptionT(botLogic(resourceAccess, msg)(using Async[F], summon[Api[F]], summon[LogWriter[F]]))
       _ <- OptionT.liftF(postComputation(msg))
     } yield ()
     x.getOrElseF(summon[LogWriter[F]].debug(s"$botName: Input message produced no result: $msg"))
@@ -45,7 +46,7 @@ abstract class BotSkeletonWebhook[F[_]: Async: Api: LogWriter](
       _    <- OptionT.liftF(summon[LogWriter[F]].trace(s"$botName: A message arrived: $msg"))
       text <- OptionT.fromOption[F](msg.text)
       _    <- OptionT.liftF(summon[LogWriter[F]].info(s"$botName: A message arrived with content: $text"))
-      _    <- OptionT(botLogic(resourceAccess,msg)(using Async[F], summon[Api[F]], summon[LogWriter[F]]))
+      _    <- OptionT(botLogic(resourceAccess, msg)(using Async[F], summon[Api[F]], summon[LogWriter[F]]))
       _    <- OptionT.liftF(postComputation(msg))
     } yield ()
     x.getOrElseF(summon[LogWriter[F]].debug(s"$botName: Input message produced no result: $msg"))
@@ -56,8 +57,8 @@ trait BotSkeleton[F[_]] {
 
   // Configuration values & functions /////////////////////////////////////////////////////
   def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = ResourceAccess.fromResources[F]()
-  val ignoreMessagePrefix: Option[String]                        = Some("!")
-  val disableForward: Boolean                                    = true
+  val ignoreMessagePrefix: Option[String]                     = Some("!")
+  val disableForward: Boolean                                 = true
   val botName: String
   val botPrefix: String
   val dbLayer: DBLayer[F]
@@ -75,60 +76,61 @@ trait BotSkeleton[F[_]] {
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   def messageLogic(
-    resourceAccess: ResourceAccess[F],
-    msg: Message
+      resourceAccess: ResourceAccess[F],
+      msg: Message
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
-      for {
-        messageRepliesData <- messageRepliesDataF
-        replies <- messageRepliesData
-          .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
-          .filter(_ => FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg))
-          .traverse(replyBundle =>
-            log
-              .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
-              ReplyBundle
-                .computeReplyBundle[F](
-                  replyBundle,
-                  msg,
-                  filteringMatchesMessages(using Applicative[F])(replyBundle, msg),
-                  resourceAccess
-                )
-          )
-      } yield replies
-
-  def commandLogic(
-    resourceAccess: ResourceAccess[F],
-    msg: Message
-  )(using asyncF: Async[F], api: Api[F], log :LogWriter[F]): F[Option[List[Message]]] =
-      for {
-        commandRepliesData <- commandRepliesDataF(using asyncF, log)
-        commandMatch = for {
-          text <- msg.text
-          result <- commandRepliesData.find(rbc =>
-            text.startsWith(s"/${rbc.trigger.command} ")
-              || text == s"/${rbc.trigger.command}"
-              || text.startsWith(s"/${rbc.trigger.command}@${botName}")
-          )
-        } yield result
-        commands <- commandMatch
-          .traverse(commandReply =>
-            summon[LogWriter[F]].info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>
-              ReplyBundle.computeReplyBundle[F](
-                commandReply,
+    for {
+      messageRepliesData <- messageRepliesDataF
+      replies <- messageRepliesData
+        .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
+        .filter(_ => FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg))
+        .traverse(replyBundle =>
+          log
+            .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
+            ReplyBundle
+              .computeReplyBundle[F](
+                replyBundle,
                 msg,
-                Applicative[F].pure(true),
+                filteringMatchesMessages(using Applicative[F])(replyBundle, msg),
                 resourceAccess
               )
-          )
-      } yield commands
+        )
+    } yield replies
+
+  def commandLogic(
+      resourceAccess: ResourceAccess[F],
+      msg: Message
+  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
+    for {
+      commandRepliesData <- commandRepliesDataF(using asyncF, log)
+      commandMatch = for {
+        text <- msg.text
+        result <- commandRepliesData.find(rbc =>
+          text.startsWith(s"/${rbc.trigger.command} ")
+            || text == s"/${rbc.trigger.command}"
+            || text.startsWith(s"/${rbc.trigger.command}@${botName}")
+        )
+      } yield result
+      commands <- commandMatch
+        .traverse(commandReply =>
+          summon[LogWriter[F]].info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>
+            ReplyBundle.computeReplyBundle[F](
+              commandReply,
+              msg,
+              Applicative[F].pure(true),
+              resourceAccess
+            )
+        )
+    } yield commands
 
   def botLogic(
-    resourceAccess: ResourceAccess[F],
-    msg: Message
-  )(using asyncF: Async[F], api : Api[F], log : LogWriter[F]): F[Option[List[Message]]] =
-      for {
-        messagesOpt <-
-          if (!MessageOps.isCommand(msg)) messageLogic(resourceAccess, msg)(using asyncF, api, log) else Async[F].pure[Option[List[Message]]](None)
-        commandsOpt <- commandLogic(resourceAccess, msg)
-      } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
+      resourceAccess: ResourceAccess[F],
+      msg: Message
+  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
+    for {
+      messagesOpt <-
+        if (!MessageOps.isCommand(msg)) messageLogic(resourceAccess, msg)(using asyncF, api, log)
+        else Async[F].pure[Option[List[Message]]](None)
+      commandsOpt <- commandLogic(resourceAccess, msg)
+    } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
 }

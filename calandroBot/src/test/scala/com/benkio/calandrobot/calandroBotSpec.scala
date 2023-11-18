@@ -18,17 +18,18 @@ class CalandroBotSpec extends CatsEffectSuite {
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
     val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
 
-    val botFile = CalandroBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename)) ++ CalandroBot
-      .commandRepliesData[IO]
-      .flatMap(_.mediafiles.map(_.filename))
+    val botFile: IO[List[String]] =
+      ??? // CalandroBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint) ++ CalandroBot
+    // .commandRepliesData[IO]
+    // .flatTraverse(_.reply.prettyPrint)
 
     assert(jsonFilenames.isRight)
     jsonFilenames.fold(
       e => fail("test failed", e),
       files =>
-        botFile.foreach(filename =>
-          assert(files.contains(filename), s"$filename is not contained in calandro data file")
-        )
+        botFile
+          .unsafeRunSync()
+          .foreach(filename => assert(files.contains(filename), s"$filename is not contained in calandro data file"))
     )
 
   }
@@ -37,11 +38,11 @@ class CalandroBotSpec extends CatsEffectSuite {
     val listPath       = new File(".").getCanonicalPath + "/cala_triggers.txt"
     val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
 
-    val botMediaFiles = CalandroBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botMediaFiles = CalandroBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
     val botTriggersFiles =
       CalandroBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
-    botMediaFiles.foreach { mediaFileString =>
+    botMediaFiles.unsafeRunSync().foreach { mediaFileString =>
       assert(triggerContent.contains(mediaFileString))
     }
     botTriggersFiles.foreach { triggerString =>

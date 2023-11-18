@@ -3,7 +3,6 @@ package com.benkio.xahleebot
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model._
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -19,25 +18,25 @@ import org.http4s.implicits._
 import telegramium.bots.InputPartFile
 import telegramium.bots.high._
 
-class XahLeeBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
-    resAccess: ResourceAccess[F],
+class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    resourceAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
-) extends BotSkeletonPolling[F]
+) extends BotSkeletonPolling[F](resourceAccess)
     with XahLeeBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
 }
 
-class XahLeeBotWebhook[F[_]: Async: Api: Action: LogWriter](
+class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resAccess: ResourceAccess[F],
+    resourceAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with XahLeeBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
 }
 
 trait XahLeeBot[F[_]] extends BotSkeleton[F] {
@@ -84,10 +83,10 @@ object XahLeeBot {
   } yield botSetup).use { botSetup =>
     action(
       new XahLeeBotPolling[F](
-        resAccess = botSetup.resourceAccess,
+        resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager
-      )(Parallel[F], Async[F], botSetup.api, botSetup.action, log)
+      )(Parallel[F], Async[F], botSetup.api, log)
     )
   }
 
@@ -106,10 +105,10 @@ object XahLeeBot {
       new XahLeeBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resAccess = botSetup.resourceAccess,
+        resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate
-      )(Async[F], botSetup.api, botSetup.action, log)
+      )(Async[F], botSetup.api, log)
     }
 }

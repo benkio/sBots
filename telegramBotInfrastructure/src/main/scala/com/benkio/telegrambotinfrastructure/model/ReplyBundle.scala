@@ -40,10 +40,17 @@ object ReplyBundleMessage {
     replySelection = replySelection
   )
 
-  def textToMedia[F[_]:Applicative](triggers: TextTriggerValue*)(mediaFiles: MediaFile*): ReplyBundleMessage[F] = ReplyBundleMessage[F](
-    trigger = TextTrigger(triggers : _*),
-    reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList)
-  )
+  def textToMedia[F[_]: Applicative](triggers: TextTriggerValue*)(mediaFiles: MediaFile*): ReplyBundleMessage[F] =
+    ReplyBundleMessage[F](
+      trigger = TextTrigger(triggers: _*),
+      reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList)
+    )
+
+  def textToText[F[_]: Applicative](triggers: TextTriggerValue*)(texts: String*): ReplyBundleMessage[F] =
+    ReplyBundleMessage[F](
+      trigger = TextTrigger(triggers: _*),
+      reply = TextReply.fromList[F](texts: _*)(false)
+    )
 
   def prettyPrint[F[_]: Applicative](rbm: ReplyBundleMessage[F])(implicit triggerShow: Show[Trigger]): F[String] = {
     val triggerStrings: List[String] = triggerShow.show(rbm.trigger).split('\n').toList
@@ -75,6 +82,12 @@ object ReplyBundleCommand {
     reply = reply,
     replySelection = replySelection
   )
+
+  def textToMedia[F[_]: Applicative](trigger: String)(mediaFiles: MediaFile*): ReplyBundleCommand[F] =
+    ReplyBundleCommand[F](
+      trigger = CommandTrigger(trigger),
+      reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList)
+    )
 }
 
 object ReplyBundle {

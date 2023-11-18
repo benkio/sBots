@@ -7,7 +7,7 @@ sealed trait ReplyValue
 final case class Text(value: String) extends ReplyValue
 
 object Text:
-    given Show[Text]                                        = Show.show(_.value)
+  given Show[Text] = Show.show(_.value)
 
 sealed trait MediaFile extends ReplyValue {
   def filepath: String
@@ -48,11 +48,11 @@ object MediaFile {
 }
 
 extension (sc: StringContext)
-  def mf(args: Any*): MediaFile = MediaFile(sc.s(args: _*))
-  def mp3(args: Any*): Mp3File  = Mp3File(sc.s(args: _*))
-  def gif(args: Any*): GifFile = GifFile(sc.s(args: _*))
+  def mf(args: Any*): MediaFile  = MediaFile(sc.s(args: _*))
+  def mp3(args: Any*): Mp3File   = Mp3File(sc.s(args: _*))
+  def gif(args: Any*): GifFile   = GifFile(sc.s(args: _*))
   def vid(args: Any*): VideoFile = VideoFile(sc.s(args: _*))
   def pho(args: Any*): PhotoFile = PhotoFile(sc.s(args: _*))
-  def txt(args: Any*): Text = Text(sc.s(args: _*))
+  def txt(args: Any*): Text      = Text(sc.s(args: _*))
 
 extension (values: List[String]) def toText: List[Text] = values.map(Text(_))
