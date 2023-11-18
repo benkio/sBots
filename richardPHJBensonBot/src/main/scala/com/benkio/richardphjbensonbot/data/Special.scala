@@ -1,20 +1,25 @@
 package com.benkio.richardphjbensonbot.data
 
+import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model._
 
 object Special {
 
-  def messageRepliesSpecialData[F[_]]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesSpecialData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage(
-      NewMemberTrigger,
-      List(
-        GifFile("rphjb_QuestaPersonaScusate.mp4", true)
+      trigger = NewMemberTrigger,
+      reply = MediaReply.fromList(
+        List(
+          GifFile("rphjb_QuestaPersonaScusate.mp4", true)
+        )
       )
     ),
     ReplyBundleMessage(
-      LeftMemberTrigger,
-      List(
-        GifFile("rphjb_LevatiDaiCoglioni.mp4", true)
+      trigger = LeftMemberTrigger,
+      reply = MediaReply.fromList(
+        List(
+          GifFile("rphjb_LevatiDaiCoglioni.mp4", true)
+        )
       )
     )
   )

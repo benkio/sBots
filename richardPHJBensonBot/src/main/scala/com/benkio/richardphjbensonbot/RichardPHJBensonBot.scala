@@ -1,16 +1,15 @@
 package com.benkio.richardphjbensonbot
 
+import com.benkio.telegrambotinfrastructure.model.TextReplyM
 import cats._
 import cats.effect._
 import cats.implicits._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.TextReply
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -29,13 +28,13 @@ import telegramium.bots.high._
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
-class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
-    resAccess: ResourceAccess[F],
+class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    resourceAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
-) extends BotSkeletonPolling[F]
+) extends BotSkeletonPolling[F](resourceAccess)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
   override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using
@@ -44,16 +43,16 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
     FilteringTimeout.filter(dbLayer, botName)
 }
 
-class RichardPHJBensonBotWebhook[F[_]: Async: Api: Action: LogWriter](
+class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resAccess: ResourceAccess[F],
+    resourceAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
   override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using
@@ -101,7 +100,7 @@ object RichardPHJBensonBot {
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
   val configNamespace: String = "rphjbDB"
 
-  def messageRepliesData[F[_]]: List[ReplyBundleMessage[F]] =
+  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
       F
     ] ++ messageRepliesSpecialData[F])
@@ -179,18 +178,16 @@ object RichardPHJBensonBot {
     ),
     ReplyBundleCommand(
       trigger = CommandTrigger("bensonify"),
-      text = Some(
-        TextReply[F](
-          msg =>
-            handleCommandWithInput[F](
-              msg,
-              "bensonify",
-              botName,
-              t => List(Bensonify.compute(t)).pure[F],
-              "E PARLAAAAAAA!!!!"
-            ),
-          true
-        )
+      reply = TextReplyM[F](
+        msg =>
+          handleCommandWithInput[F](
+            msg,
+            "bensonify",
+            botName,
+            t => List(Bensonify.compute(t)).pure[F],
+            "E PARLAAAAAAA!!!!"
+          ),
+        true
       )
     )
   )
@@ -208,10 +205,10 @@ object RichardPHJBensonBot {
   } yield botSetup).use { botSetup =>
     action(
       new RichardPHJBensonBotPolling[F](
-        resAccess = botSetup.resourceAccess,
+        resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager
-      )(Parallel[F], Async[F], botSetup.api, botSetup.action, log)
+      )(Parallel[F], Async[F], botSetup.api, log)
     )
   }
 
@@ -230,10 +227,10 @@ object RichardPHJBensonBot {
       new RichardPHJBensonBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resAccess = botSetup.resourceAccess,
+        resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate
-      )(Async[F], botSetup.api, botSetup.action, log)
+      )(Async[F], botSetup.api, log)
     }
 }

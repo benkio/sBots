@@ -22,7 +22,7 @@ import telegramium.bots.Message
 
 import scala.util.Random
 
-class CalandroBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
+class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     resAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F]

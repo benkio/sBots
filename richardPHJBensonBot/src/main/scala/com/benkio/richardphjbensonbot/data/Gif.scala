@@ -1,1041 +1,694 @@
 package com.benkio.richardphjbensonbot.data
 
+import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model._
 
 object Gif {
 
-  def messageRepliesGifData[F[_]]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bcontinua\\b".r, 8)
-      ),
-      List(
-        MediaFile("rphjb_Continua.mp3"),
-        MediaFile("rphjb_Continua.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("(a[f]+)?fanculo(,)? per contesia".r, 20)
-      ),
-      List(
-        GifFile("rphjb_FanculoPerCortesia.mp4"),
-        MediaFile("rphjb_DecidoIoMareCazzatePerCortesia.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("gli autori")
-      ),
-      List(
-        GifFile("rphjb_Autori.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("questo è matto")
-      ),
-      List(
-        MediaFile("rphjb_MattoRagazzi.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("scivola")
-      ),
-      List(
-        MediaFile("rphjb_SiScivola.mp3")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("graffi")
-      ),
-      List(
-        GifFile("rphjb_Graffi.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("pelle d'oca"),
-        StringTextTriggerValue("sussult"),
-        StringTextTriggerValue("brivid")
-      ),
-      List(
-        GifFile("rphjb_Brivido.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("che siamo noi"),
-        StringTextTriggerValue("pezzi di merda"),
-      ),
-      List(
-        GifFile("rphjb_PezziDiMerda.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\burlo\\b".r, 4),
-        StringTextTriggerValue("\\b[a]{5,}"),
-      ),
-      List(
-        GifFile("rphjb_Tuffo.mp4"),
-        GifFile("rphjb_Urlo.mp4"),
-        GifFile("rphjb_Urlo3.mp4"),
-        GifFile("rphjb_Urlo4.mp4"),
-        GifFile("rphjb_Urlo2.mp4"),
-        GifFile("rphjb_UrloCanaro.mp4"),
-        GifFile("rphjb_UrloRiso.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("rispondere")
-      ),
-      List(
-        GifFile("rphjb_Rispondere.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("cuore in mano"),
-        StringTextTriggerValue("mano nella mano"),
-        StringTextTriggerValue("pelle contro la pelle")
-      ),
-      List(
-        GifFile("rphjb_CuoreInMano.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("stato brado")
-      ),
-      List(
-        GifFile("rphjb_StatoBrado.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bport[a]+\\b".r, 5)
-      ),
-      List(
-        GifFile("rphjb_Porta.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("prendo quello che cazzo c'è da prendere"),
-        StringTextTriggerValue("prendo il motorino"),
-        StringTextTriggerValue("prendo la macchina"),
-        StringTextTriggerValue("prendo l'auto"),
-      ),
-      List(
-        GifFile("rphjb_PrendoIlNecessario.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("nella gola")
-      ),
-      List(
-        GifFile("rphjb_NellaGola.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("siamo qua")
-      ),
-      List(
-        GifFile("rphjb_SiamoQua.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("cucciolo")
-      ),
-      List(
-        GifFile("rphjb_Cucciolo.mp4"),
-        GifFile("rphjb_Cucciolo2.mp4"),
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("Che c'hai")
-      ),
-      List(
-        GifFile("rphjb_CheCHai.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\b06\\b".r, 2),
-        StringTextTriggerValue("prefisso")
-      ),
-      List(
-        GifFile("rphjb_06.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("abbiamo vinto")
-      ),
-      List(
-        GifFile("rphjb_AbbiamoVinto.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("telefonata pilotata"),
-        StringTextTriggerValue("falsità")
-      ),
-      List(
-        GifFile("rphjb_TelefonataPilotata.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("quante ore"),
-        StringTextTriggerValue("quanto tempo")
-      ),
-      List(
-        GifFile("rphjb_QuanteOre.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("come ha fatto a entr(à|are)".r, 23)
-      ),
-      List(
-        GifFile("rphjb_ComeHaFattoAEntrare.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("donna cane")
-      ),
-      List(
-        GifFile("rphjb_DonnaCane.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("menzion")
-      ),
-      List(
-        GifFile("rphjb_NonMiMenzionareQuestaParola.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("hollywood")
-      ),
-      List(
-        GifFile("rphjb_Hollywood.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("piano superiore"),
-        StringTextTriggerValue("compete"),
-        StringTextTriggerValue("gerarca")
-      ),
-      List(
-        GifFile("rphjb_PianoSuperioreCompete.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("chi è")
-      ),
-      List(
-        GifFile("rphjb_QuestaPersonaScusate.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("tucul")
-      ),
-      List(
-        GifFile("rphjb_TuCul.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue(";)"),
-        StringTextTriggerValue("occhiolino"),
-        StringTextTriggerValue("wink"),
-        StringTextTriggerValue("😉")
-      ),
-      List(
-        GifFile("rphjb_Occhiolino.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("soffro")
-      ),
-      List(
-        GifFile("rphjb_Soffro.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("indispettirmi"),
-        StringTextTriggerValue("oltrepassare"),
-        StringTextTriggerValue("divento cattivo")
-      ),
-      List(
-        GifFile("rphjb_Indispettirmi.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("mannaggia"),
-        StringTextTriggerValue("la salute")
-      ),
-      List(
-        GifFile("rphjb_MannaggiaLaSalute.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("mi rompi il cazzo"),
-        StringTextTriggerValue("mi dai fastidio")
-      ),
-      List(
-        GifFile("rphjb_MiRompiErCazzo.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("c'ha [pure ]?ragione"),
-        StringTextTriggerValue("o no?")
-      ),
-      List(
-        GifFile("rphjb_Ragione.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("perchè mi guardi")
-      ),
-      List(
-        GifFile("rphjb_Guardi.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r, 21)
-      ),
-      List(
-        GifFile("rphjb_Chitarrista.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("mi diverti"),
-        StringTextTriggerValue("mi sono divertito"),
-      ),
-      List(
-        GifFile("rphjb_Diverti.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("uno scherzo")
-      ),
-      List(
-        GifFile("rphjb_Scherzo.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("che si deve fà"),
-        StringTextTriggerValue("campà"),
-      ),
-      List(
-        GifFile("rphjb_Campa.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("pensa alla deficienza"),
-        RegexTextTriggerValue("ma si può dire una cosa (del genere|così)".r, 28),
-      ),
-      List(
-        GifFile("rphjb_Deficienza.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("levati[\\. ]*dai coglioni".r, 19),
-        RegexTextTriggerValue("fuori[\\. ]*dai coglioni".r, 18)
-      ),
-      List(
-        GifFile("rphjb_LevatiDaiCoglioni.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("più co(gl|j)ione".r, 11),
-        RegexTextTriggerValue("dice co(gl|j)ione".r, 12),
-        RegexTextTriggerValue("co(gl|j)ion([e]{3,}|e[!]{3,})".r, 9)
-      ),
-      List(
-        GifFile("rphjb_CoglioneGif.mp4"),
-        GifFile("rphjb_PiuCoglione.mp4"),
-        GifFile("rphjb_Coglione.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("bravo!!!"),
-        StringTextTriggerValue("bravooo")
-      ),
-      List(
-        GifFile("rphjb_Bravo.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("capolavoro")
-      ),
-      List(
-        GifFile("rphjb_Capolavoro.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bmetal\\b".r, 5)
-      ),
-      List(
-        GifFile("rphjb_Metal.mp4"),
-        GifFile("rphjb_IlMartel.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("allucinante")
-      ),
-      List(
-        GifFile("rphjb_Allucinante.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("porca miseria"),
-        StringTextTriggerValue("facendo incazzare")
-      ),
-      List(
-        GifFile("rphjb_PorcaMiseria.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("facendo soffrire")
-      ),
-      List(
-        GifFile("rphjb_FacendoSoffrire.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("dovete soffrire"),
-        RegexTextTriggerValue("vi voglio far(e)? soffrire".r, 23),
-      ),
-      List(
-        GifFile("rphjb_DoveteSoffrire.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("sarete puniti")
-      ),
-      List(
-        GifFile("rphjb_SaretePuniti.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("cantanti"),
-        StringTextTriggerValue("serie z")
-      ),
-      List(
-        GifFile("rphjb_CantantiSerieZ.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("sentendo male")
-      ),
-      List(
-        GifFile("rphjb_MiStoSentendoMale.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("lunghezza d'onda"),
-        StringTextTriggerValue("brave persone")
-      ),
-      List(
-        GifFile("rphjb_LunghezzaDOnda.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("delirio")
-      ),
-      List(
-        GifFile("rphjb_Delirio.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("[gq]uerelare".r, 9),
-      ),
-      List(
-        GifFile("rphjb_Querelare.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("cantate"),
-        StringTextTriggerValue("arigliano")
-      ),
-      List(
-        GifFile("rphjb_Arigliano.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("andati al cesso"),
-        StringTextTriggerValue("diecimila volte")
-      ),
-      List(
-        GifFile("rphjb_Alcesso.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("non manca niente"),
-        StringTextTriggerValue("c'è tutto")
-      ),
-      List(
-        GifFile("rphjb_NonMancaNiente.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("in fila")
-      ),
-      List(
-        GifFile("rphjb_MettitiInFila.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("non male")
-      ),
-      List(
-        GifFile("rphjb_NonMale.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("perchè si sente")
-      ),
-      List(
-        GifFile("rphjb_SiSente.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("chi cazzo sei")
-      ),
-      List(
-        GifFile("rphjb_ChiCazzoSei.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("feste")
-      ),
-      List(
-        GifFile("rphjb_Feste.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("si ostina"),
-        StringTextTriggerValue("foto vecchie")
-      ),
-      List(
-        GifFile("rphjb_Ostina.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("(è|diventa) vecchi[ao]".r, 9),
-      ),
-      List(
-        GifFile("rphjb_Vecchio.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("scatta qualcosa"),
-        StringTextTriggerValue("proprio in quel momento"),
-        StringTextTriggerValue("nel suo cervello"),
-      ),
-      List(
-        GifFile("rphjb_ScattaQualcosa.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("pure bona")
-      ),
-      List(
-        GifFile("rphjb_Bona.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("sei [gc]ambiat[oa]".r, 12)
-      ),
-      List(
-        GifFile("rphjb_SeiCambiata.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("mio discapito"),
-        StringTextTriggerValue("disgabido")
-      ),
-      List(
-        GifFile("rphjb_Discapito.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("squallida"),
-        StringTextTriggerValue("abbia mai sentito")
-      ),
-      List(
-        GifFile("rphjb_Squallida.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("la verità")
-      ),
-      List(
-        GifFile("rphjb_Verita.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bn[o]{2,}\\b".r, 3)
-      ),
-      List(
-        GifFile("rphjb_No.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("destino"),
-        StringTextTriggerValue("incontrare")
-      ),
-      List(
-        GifFile("rphjb_Destino.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("meridionale"),
-        StringTextTriggerValue("terron")
-      ),
-      List(
-        GifFile("rphjb_Meridionale.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("baci"),
-        StringTextTriggerValue("limonare")
-      ),
-      List(
-        GifFile("rphjb_Bacio.mp4"),
-        MediaFile("rphjb_DanzaMacabra.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("drogati"),
-        StringTextTriggerValue("sostanze improprie")
-      ),
-      List(
-        GifFile("rphjb_DrogatiRockettari1.mp4"),
-        MediaFile("rphjb_DrogatiRockettari.mp4"),
-        MediaFile("rphjb_EricClaptonDrogaUominiAffari.mp4"),
-        GifFile("rphjb_DrogatiRockettari2.mp4"),
-        GifFile("rphjb_DrogatiPilotiGif.mp4"),
-        MediaFile("rphjb_DrogatiPiloti.mp4"),
-        MediaFile("rphjb_Rampolli.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r, 10),
-        StringTextTriggerValue("stillati")
-      ),
-      List(
-        GifFile("rphjb_DrogatiRockettari1.mp4"),
-        MediaFile("rphjb_DrogatiRockettari.mp4"),
-        GifFile("rphjb_DrogatiRockettari2.mp4"),
-        MediaFile("rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("sguardo")
-      ),
-      List(
-        GifFile("rphjb_Sguardo.mp4"),
-        GifFile("rphjb_Sguardo2.mp4"),
-        MediaFile("rphjb_Confuso.mp4"),
-        GifFile("rphjb_Sguardo3.mp4"),
-        GifFile("rphjb_Sguardo4.mp4"),
-        GifFile("rphjb_SguardoCanaro.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("a quel punto")
-      ),
-      List(
-        GifFile("rphjb_QuelPunto.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("quattro solo"),
-        StringTextTriggerValue("faccio in tempo")
-      ),
-      List(
-        GifFile("rphjb_QuattroSolo.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("faccio la parte"),
-        StringTextTriggerValue(" recit"),
-        StringTextTriggerValue(" fing"),
-        RegexTextTriggerValue("\\ba[t]{2,}[o]+re\\b".r, 7),
-        StringTextTriggerValue("attrice")
-      ),
-      List(
-        GifFile("rphjb_FaccioLaParte.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("assolutamente no"),
-        StringTextTriggerValue("non mi lamento")
-      ),
-      List(
-        GifFile("rphjb_NonMiLamento.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("inizio della fine")
-      ),
-      List(
-        GifFile("rphjb_InizioDellaFineGif.mp4"),
-        MediaFile("rphjb_InizioDellaFine.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("il senso")
-      ),
-      List(
-        GifFile("rphjb_IlSensoCapito.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bester\\b".r, 5)
-      ),
-      List(
-        GifFile("rphjb_Ester.mp4"),
-        GifFile("rphjb_Ester2.mp4"),
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("abi(t|d)ua(t|d)o".r, 8),
-        RegexTextTriggerValue("proprioll(a|à)".r, 10),
-      ),
-      List(
-        GifFile("rphjb_Propriolla.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("non vedo questo grande problema")
-      ),
-      List(
-        GifFile("rphjb_VabbeProblema.mp4"),
-      ),
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("il bongo"),
-        StringTextTriggerValue("non esiste un basso più pontente al mondo"),
-        StringTextTriggerValue("music man")
-      ),
-      List(
-        GifFile("rphjb_IlBongo.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("inserirlo su internet"),
-        RegexTextTriggerValue("immagini ama(d|t)oriali".r, 19)
-      ),
-      List(
-        GifFile("rphjb_Internet.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("prendere quello l[aà]".r, 18),
-      ),
-      List(
-        GifFile("rphjb_AaaPrendereQuelloLa.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("(af)?fanculo in una maniera pazzesca".r, 33),
-        StringTextTriggerValue("altro che quel coglione"),
-      ),
-      List(
-        GifFile("rphjb_AffanculoManieraPazzesca.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("col cazzo che non so suonà")
-      ),
-      List(
-        GifFile("rphjb_ColCazzoSuona.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("proprio a me\\b".r, 12)
-      ),
-      List(
-        GifFile("rphjb_ProprioAMe.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("where are you going?")
-      ),
-      List(
-        GifFile("rphjb_WhereAreYouGoing.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("🤨"),
-        StringTextTriggerValue("🧐"),
-        StringTextTriggerValue("sono confuso"),
-        RegexTextTriggerValue("[?]{3,}".r, 3),
-      ),
-      List(
-        GifFile("rphjb_Confuso.mp4")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("😑"),
-        StringTextTriggerValue("😒"),
-        StringTextTriggerValue("🫤"),
-        RegexTextTriggerValue("\\bwtf[!]*\\b".r, 3),
-      ),
-      List(
-        GifFile("rphjb_WTF.mp4"),
-        GifFile("rphjb_WTF2.mp4"),
-        GifFile("rphjb_WTF3.mp4"),
-        GifFile("rphjb_WTF4.mp4"),
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("🙏")
-      ),
-      List(
-        GifFile("rphjb_Prega.mp4"),
-        GifFile("rphjb_Prega2.mp4")
-      ),
-      replySelection = RandomSelection
+  def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage.textToMedia[F](
+      "\\bcontinua\\b".r.tr(8)
+    )(
+      mf"rphjb_Continua.mp3",
+      mf"rphjb_Continua.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(a[f]+)?fanculo(,)? per contesia".r.tr(20)
+    )(
+      gif"rphjb_FanculoPerCortesia.mp4",
+      mf"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"gli autori"
+    )(
+      gif"rphjb_Autori.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"questo è matto"
+    )(
+      mf"rphjb_MattoRagazzi.gif"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"scivola"
+    )(
+      mf"rphjb_SiScivola.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"graffi"
+    )(
+      gif"rphjb_Graffi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"pelle d'oca",
+      stt"sussult",
+      stt"brivid"
+    )(
+      gif"rphjb_Brivido.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"che siamo noi",
+      stt"pezzi di merda",
+    )(
+      gif"rphjb_PezziDiMerda.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\burlo\\b".r.tr(4),
+      stt"\\b[a]{5,}",
+    )(
+      gif"rphjb_Tuffo.mp4",
+      gif"rphjb_Urlo.mp4",
+      gif"rphjb_Urlo3.mp4",
+      gif"rphjb_Urlo4.mp4",
+      gif"rphjb_Urlo2.mp4",
+      gif"rphjb_UrloCanaro.mp4",
+      gif"rphjb_UrloRiso.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"rispondere"
+    )(
+      gif"rphjb_Rispondere.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cuore in mano",
+      stt"mano nella mano",
+      stt"pelle contro la pelle"
+    )(
+      gif"rphjb_CuoreInMano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"stato brado"
+    )(
+      gif"rphjb_StatoBrado.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bport[a]+\\b".r.tr(5)
+    )(
+      gif"rphjb_Porta.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"prendo quello che cazzo c'è da prendere",
+      stt"prendo il motorino",
+      stt"prendo la macchina",
+      stt"prendo l'auto",
+    )(
+      gif"rphjb_PrendoIlNecessario.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"nella gola"
+    )(
+      gif"rphjb_NellaGola.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"siamo qua"
+    )(
+      gif"rphjb_SiamoQua.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cucciolo"
+    )(
+      gif"rphjb_Cucciolo.mp4",
+      gif"rphjb_Cucciolo2.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"Che c'hai"
+    )(
+      gif"rphjb_CheCHai.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\b06\\b".r.tr(2),
+      stt"prefisso"
+    )(
+      gif"rphjb_06.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"abbiamo vinto"
+    )(
+      gif"rphjb_AbbiamoVinto.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"telefonata pilotata",
+      stt"falsità"
+    )(
+      gif"rphjb_TelefonataPilotata.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"quante ore",
+      stt"quanto tempo"
+    )(
+      gif"rphjb_QuanteOre.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "come ha fatto a entr(à|are)".r.tr(23)
+    )(
+      gif"rphjb_ComeHaFattoAEntrare.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"donna cane"
+    )(
+      gif"rphjb_DonnaCane.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"menzion"
+    )(
+      gif"rphjb_NonMiMenzionareQuestaParola.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"hollywood"
+    )(
+      gif"rphjb_Hollywood.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"piano superiore",
+      stt"compete",
+      stt"gerarca"
+    )(
+      gif"rphjb_PianoSuperioreCompete.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"chi è"
+    )(
+      gif"rphjb_QuestaPersonaScusate.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"tucul"
+    )(
+      gif"rphjb_TuCul.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt";)",
+      stt"occhiolino",
+      stt"wink",
+      stt"😉"
+    )(
+      gif"rphjb_Occhiolino.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"soffro"
+    )(
+      gif"rphjb_Soffro.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"indispettirmi",
+      stt"oltrepassare",
+      stt"divento cattivo"
+    )(
+      gif"rphjb_Indispettirmi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"mannaggia",
+      stt"la salute"
+    )(
+      gif"rphjb_MannaggiaLaSalute.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"mi rompi il cazzo",
+      stt"mi dai fastidio"
+    )(
+      gif"rphjb_MiRompiErCazzo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"c'ha [pure ]?ragione",
+      stt"o no?"
+    )(
+      gif"rphjb_Ragione.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"perchè mi guardi"
+    )(
+      gif"rphjb_Guardi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r.tr(21)
+    )(
+      gif"rphjb_Chitarrista.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"mi diverti",
+      stt"mi sono divertito",
+    )(
+      gif"rphjb_Diverti.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"uno scherzo"
+    )(
+      gif"rphjb_Scherzo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"che si deve fà",
+      stt"campà",
+    )(
+      gif"rphjb_Campa.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"pensa alla deficienza",
+      "ma si può dire una cosa (del genere|così)".r.tr(28),
+    )(
+      gif"rphjb_Deficienza.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "levati[\\. ]*dai coglioni".r.tr(19),
+      "fuori[\\. ]*dai coglioni".r.tr(18)
+    )(
+      gif"rphjb_LevatiDaiCoglioni.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "più co(gl|j)ione".r.tr(11),
+      "dice co(gl|j)ione".r.tr(12),
+      "co(gl|j)ion([e]{3,}|e[!]{3,})".r.tr(9)
+    )(
+      gif"rphjb_CoglioneGif.mp4",
+      gif"rphjb_PiuCoglione.mp4",
+      gif"rphjb_Coglione.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"bravo!!!",
+      stt"bravooo"
+    )(
+      gif"rphjb_Bravo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"capolavoro"
+    )(
+      gif"rphjb_Capolavoro.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bmetal\\b".r.tr(5)
+    )(
+      gif"rphjb_Metal.mp4",
+      gif"rphjb_IlMartel.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"allucinante"
+    )(
+      gif"rphjb_Allucinante.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"porca miseria",
+      stt"facendo incazzare"
+    )(
+      gif"rphjb_PorcaMiseria.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"facendo soffrire"
+    )(
+      gif"rphjb_FacendoSoffrire.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"dovete soffrire",
+      "vi voglio far(e)? soffrire".r.tr(23),
+    )(
+      gif"rphjb_DoveteSoffrire.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sarete puniti"
+    )(
+      gif"rphjb_SaretePuniti.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cantanti",
+      stt"serie z"
+    )(
+      gif"rphjb_CantantiSerieZ.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sentendo male"
+    )(
+      gif"rphjb_MiStoSentendoMale.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"lunghezza d'onda",
+      stt"brave persone"
+    )(
+      gif"rphjb_LunghezzaDOnda.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"delirio"
+    )(
+      gif"rphjb_Delirio.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "[gq]uerelare".r.tr(9),
+    )(
+      gif"rphjb_Querelare.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cantate",
+      stt"arigliano"
+    )(
+      gif"rphjb_Arigliano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"andati al cesso",
+      stt"diecimila volte"
+    )(
+      gif"rphjb_Alcesso.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"non manca niente",
+      stt"c'è tutto"
+    )(
+      gif"rphjb_NonMancaNiente.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"in fila"
+    )(
+      gif"rphjb_MettitiInFila.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"non male"
+    )(
+      gif"rphjb_NonMale.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"perchè si sente"
+    )(
+      gif"rphjb_SiSente.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"chi cazzo sei"
+    )(
+      gif"rphjb_ChiCazzoSei.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"feste"
+    )(
+      gif"rphjb_Feste.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"si ostina",
+      stt"foto vecchie"
+    )(
+      gif"rphjb_Ostina.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(è|diventa) vecchi[ao]".r.tr(9),
+    )(
+      gif"rphjb_Vecchio.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"scatta qualcosa",
+      stt"proprio in quel momento",
+      stt"nel suo cervello",
+    )(
+      gif"rphjb_ScattaQualcosa.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"pure bona"
+    )(
+      gif"rphjb_Bona.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sei [gc]ambiat[oa]".r.tr(12)
+    )(
+      gif"rphjb_SeiCambiata.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"mio discapito",
+      stt"disgabido"
+    )(
+      gif"rphjb_Discapito.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"squallida",
+      stt"abbia mai sentito"
+    )(
+      gif"rphjb_Squallida.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"la verità"
+    )(
+      gif"rphjb_Verita.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bn[o]{2,}\\b".r.tr(3)
+    )(
+      gif"rphjb_No.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"destino",
+      stt"incontrare"
+    )(
+      gif"rphjb_Destino.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"meridionale",
+      stt"terron"
+    )(
+      gif"rphjb_Meridionale.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"baci",
+      stt"limonare"
+    )(
+      gif"rphjb_Bacio.mp4",
+      mf"rphjb_DanzaMacabra.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"drogati",
+      stt"sostanze improprie"
+    )(
+      gif"rphjb_DrogatiRockettari1.mp4",
+      mf"rphjb_DrogatiRockettari.mp4",
+      mf"rphjb_EricClaptonDrogaUominiAffari.mp4",
+      gif"rphjb_DrogatiRockettari2.mp4",
+      gif"rphjb_DrogatiPilotiGif.mp4",
+      mf"rphjb_DrogatiPiloti.mp4",
+      mf"rphjb_Rampolli.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r.tr(10),
+      stt"stillati"
+    )(
+      gif"rphjb_DrogatiRockettari1.mp4",
+      mf"rphjb_DrogatiRockettari.mp4",
+      gif"rphjb_DrogatiRockettari2.mp4",
+      mf"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sguardo"
+    )(
+      gif"rphjb_Sguardo.mp4",
+      gif"rphjb_Sguardo2.mp4",
+      mf"rphjb_Confuso.mp4",
+      gif"rphjb_Sguardo3.mp4",
+      gif"rphjb_Sguardo4.mp4",
+      gif"rphjb_SguardoCanaro.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"a quel punto"
+    )(
+      gif"rphjb_QuelPunto.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"quattro solo",
+      stt"faccio in tempo"
+    )(
+      gif"rphjb_QuattroSolo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"faccio la parte",
+      stt" recit",
+      stt" fing",
+      "\\ba[t]{2,}[o]+re\\b".r.tr(7),
+      stt"attrice"
+    )(
+      gif"rphjb_FaccioLaParte.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"assolutamente no",
+      stt"non mi lamento"
+    )(
+      gif"rphjb_NonMiLamento.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"inizio della fine"
+    )(
+      gif"rphjb_InizioDellaFineGif.mp4",
+      mf"rphjb_InizioDellaFine.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"il senso"
+    )(
+      gif"rphjb_IlSensoCapito.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bester\\b".r.tr(5)
+    )(
+      gif"rphjb_Ester.mp4",
+      gif"rphjb_Ester2.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "abi(t|d)ua(t|d)o".r.tr(8),
+      "proprioll(a|à)".r.tr(10),
+    )(
+      gif"rphjb_Propriolla.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"non vedo questo grande problema"
+    )(
+      gif"rphjb_VabbeProblema.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"il bongo",
+      stt"non esiste un basso più pontente al mondo",
+      stt"music man"
+    )(
+      gif"rphjb_IlBongo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"inserirlo su internet",
+      "immagini ama(d|t)oriali".r.tr(19)
+    )(
+      gif"rphjb_Internet.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "prendere quello l[aà]".r.tr(18),
+    )(
+      gif"rphjb_AaaPrendereQuelloLa.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(af)?fanculo in una maniera pazzesca".r.tr(33),
+      stt"altro che quel coglione",
+    )(
+      gif"rphjb_AffanculoManieraPazzesca.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"col cazzo che non so suonà"
+    )(
+      gif"rphjb_ColCazzoSuona.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "proprio a me\\b".r.tr(12)
+    )(
+      gif"rphjb_ProprioAMe.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"where are you going?"
+    )(
+      gif"rphjb_WhereAreYouGoing.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"🤨",
+      stt"🧐",
+      stt"sono confuso",
+      "[?]{3,}".r.tr(3),
+    )(
+      gif"rphjb_Confuso.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"😑",
+      stt"😒",
+      stt"🫤",
+      "\\bwtf[!]*\\b".r.tr(3),
+    )(
+      gif"rphjb_WTF.mp4",
+      gif"rphjb_WTF2.mp4",
+      gif"rphjb_WTF3.mp4",
+      gif"rphjb_WTF4.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"🙏"
+    )(
+      gif"rphjb_Prega.mp4",
+      gif"rphjb_Prega2.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bsorpresa\\b".r.tr(8),
+      "\\bshock\\b".r.tr(5),
+      stt"😮",
+    )(
+      gif"rphjb_Sorpresa.mp4",
+      gif"rphjb_Sorpresa2.mp4"
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
-        RegexTextTriggerValue("\\bsorpresa\\b".r, 8),
-        RegexTextTriggerValue("\\bshock\\b".r, 5),
-        StringTextTriggerValue("😮"),
+        stt"quello che ti meriti",
+        stt"fino alla fine",
       ),
-      mediafiles = List(
-        GifFile("rphjb_Sorpresa.mp4"),
-        GifFile("rphjb_Sorpresa2.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        StringTextTriggerValue("quello che ti meriti"),
-        StringTextTriggerValue("fino alla fine"),
-      ),
-      mediafiles = List(
-        GifFile("rphjb_QuelloCheTiMeriti.mp4")
+      reply = MediaReply.fromList[F](
+        List(
+          gif"rphjb_QuelloCheTiMeriti.mp4"
+        )
       )
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("[u]{3,}".r, 3)
-      ),
-      List(
-        GifFile("rphjb_Uuu.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "[u]{3,}".r.tr(3)
+    )(
+      gif"rphjb_Uuu.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("☝️"),
-        StringTextTriggerValue("👆"),
-        StringTextTriggerValue("👉"),
-        StringTextTriggerValue("👇"),
-        StringTextTriggerValue("👈")
-      ),
-      List(
-        GifFile("rphjb_Indicare.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"☝️",
+      stt"👆",
+      stt"👉",
+      stt"👇",
+      stt"👈"
+    )(
+      gif"rphjb_Indicare.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("deal with it")
-      ),
-      List(
-        GifFile("rphjb_Occhiali.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"deal with it"
+    )(
+      gif"rphjb_Occhiali.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("squallido"),
-        StringTextTriggerValue("ultimo degli esseri umani")
-      ),
-      List(
-        GifFile("rphjb_BruttoSquallidoSchifoso.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"squallido",
+      stt"ultimo degli esseri umani"
+    )(
+      gif"rphjb_BruttoSquallidoSchifoso.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("un avvertimento"),
-        StringTextTriggerValue("bastoni tra le ruote")
-      ),
-      List(
-        GifFile("rphjb_Ciao2001Gif.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"un avvertimento",
+      stt"bastoni tra le ruote"
+    )(
+      gif"rphjb_Ciao2001Gif.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("covi il male"),
-        StringTextTriggerValue("invidia"),
-        StringTextTriggerValue("livore")
-      ),
-      List(
-        GifFile("rphjb_CoviMaleInvidiaLivore.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"covi il male",
+      stt"invidia",
+      stt"livore"
+    )(
+      gif"rphjb_CoviMaleInvidiaLivore.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("mettermi in difficoltà"),
-        RegexTextTriggerValue(
-          "amicizie (politiche| d[ie] polizia| d[ie] carabinieri| d[ei] tutt'altr[o]? genere)?".r,
-          9
-        ),
-        StringTextTriggerValue("amici potenti")
-      ),
-      List(
-        GifFile("rphjb_DifficoltaAmicizieTelefonata.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"mettermi in difficoltà",
+      "amicizie (politiche| d[ie] polizia| d[ie] carabinieri| d[ei] tutt'altr[o]? genere)?".r.tr(9),
+      stt"amici potenti"
+    )(
+      gif"rphjb_DifficoltaAmicizieTelefonata.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("in un attimo"),
-        StringTextTriggerValue("risolto tutto"),
-        StringTextTriggerValue("telefonata"),
-      ),
-      List(
-        GifFile("rphjb_Telefonata.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"in un attimo",
+      stt"risolto tutto",
+      stt"telefonata",
+    )(
+      gif"rphjb_Telefonata.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("a questo punto"),
-        RegexTextTriggerValue("andiamo[ci]? a sentire".r, 18),
-        StringTextTriggerValue("l'originale"),
-      ),
-      List(
-        GifFile("rphjb_SentireOriginale.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"a questo punto",
+      "andiamo[ci]? a sentire".r.tr(18),
+      stt"l'originale",
+    )(
+      gif"rphjb_SentireOriginale.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("fai schifo"),
-        StringTextTriggerValue("sei l'ultimo"),
-      ),
-      List(
-        GifFile("rphjb_FaiSchifoSeiUltimo.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"fai schifo",
+      stt"sei l'ultimo",
+    )(
+      gif"rphjb_FaiSchifoSeiUltimo.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("ragazza indemoniata"),
-      ),
-      List(
-        GifFile("rphjb_LaRagazzaIndemoniata.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"ragazza indemoniata",
+    )(
+      gif"rphjb_LaRagazzaIndemoniata.mp4"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("lui si chiamava"),
-        RegexTextTriggerValue("\\badolf\\b".r, 5),
-        StringTextTriggerValue("hitler"),
-        StringTextTriggerValue("belle arti"),
-        RegexTextTriggerValue("hitl[aà]".r, 5),
-      ),
-      List(
-        GifFile("rphjb_AdolfHitler.mp4")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"lui si chiamava",
+      "\\badolf\\b".r.tr(5),
+      stt"hitler",
+      stt"belle arti",
+      "hitl[aà]".r.tr(5),
+    )(
+      gif"rphjb_AdolfHitler.mp4"
     ),
   )
 
