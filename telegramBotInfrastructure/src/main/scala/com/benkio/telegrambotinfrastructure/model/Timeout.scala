@@ -1,11 +1,11 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 
 import java.time.Instant
 import scala.concurrent.duration.FiniteDuration
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import scala.util.Try
 
 final case class Timeout(

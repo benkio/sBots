@@ -1,16 +1,16 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
-import cats.effect._
-import cats.implicits._
+import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Media
-import doobie._
+import doobie.*
 import doobie.util.Read
-import doobie.implicits._
-import io.chrisdavenport.mules._
+import doobie.implicits.*
+import io.chrisdavenport.mules.*
 import log.effect.LogWriter
-import io.circe.syntax._
+import io.circe.syntax.*
 
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
 final case class DBMediaData(
     media_name: String,
@@ -46,7 +46,7 @@ object DBMedia {
 
   def apply[F[_]: Async](
       transactor: Transactor[F],
-  )(implicit log: LogWriter[F]): F[DBMedia[F]] = for {
+  )(using log: LogWriter[F]): F[DBMedia[F]] = for {
     dbCache <- MemoryCache.ofSingleImmutableMap[F, String, List[DBMediaData]](defaultExpiration =
       TimeSpec.fromDuration(6.hours)
     )

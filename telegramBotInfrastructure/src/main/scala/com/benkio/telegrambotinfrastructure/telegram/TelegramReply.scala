@@ -3,19 +3,19 @@ package com.benkio.telegrambotinfrastructure.telegram
 import com.benkio.telegrambotinfrastructure.model.ReplyValue
 import telegramium.bots.InputPartFile
 import telegramium.bots.ChatIntId
-import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.model.*
 import telegramium.bots.ChatId
 import telegramium.bots.IFile
 import telegramium.bots.client.Method
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import telegramium.bots.high._
-import telegramium.bots.high.implicits._
+import telegramium.bots.high.*
+import telegramium.bots.high.implicits.*
 import log.effect.LogWriter
 import telegramium.bots.Message
-import cats._
+import cats.*
 import cats.data.EitherT
-import cats.effect._
-import cats.implicits._
+import cats.effect.*
+import cats.implicits.*
 
 trait TelegramReply[A] {
   def reply[F[_]: Async: LogWriter: Api](

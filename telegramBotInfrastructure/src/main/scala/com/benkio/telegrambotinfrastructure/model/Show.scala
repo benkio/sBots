@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.implicits._
+import cats.implicits.*
 import cats.MonadThrow
 import cats.{ Show => CatsShow }
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
@@ -35,7 +35,7 @@ object Show {
     description = dbShow.show_description
   )
 
-  implicit val showInstance: CatsShow[Show] =
+  given showInstance: CatsShow[Show] =
     CatsShow.show(show =>
       s"""${show.uploadDate} - ${show.url}
  ${show.title}""" +

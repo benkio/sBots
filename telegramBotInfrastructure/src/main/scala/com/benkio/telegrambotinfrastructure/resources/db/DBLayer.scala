@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect.Async
-import cats.implicits._
+import cats.implicits.*
 import doobie.Transactor
 import log.effect.LogWriter
 
@@ -17,7 +17,7 @@ object DBLayer {
 
   def apply[F[_]: Async](
       transactor: Transactor[F]
-  )(implicit log: LogWriter[F]): F[DBLayer[F]] = for {
+  )(using log: LogWriter[F]): F[DBLayer[F]] = for {
     dbMedia <- DBMedia[F](transactor)
     dbSubscription = DBSubscription[F](transactor)
     dbTimeout = new DBTimeout.DBTimeoutImpl[F](

@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
-import munit._
+import munit.*
 
 class SubscriptionSpec extends FunSuite {
 

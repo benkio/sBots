@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.Show
-import cats.implicits._
+import cats.implicits.*
 
 import scala.util.matching.Regex
 
@@ -16,7 +16,7 @@ object TextTriggerValue {
     case StringTextTriggerValue(v)   => source contains v
   }
 
-  implicit val showInstance: Show[TextTriggerValue] = Show.show(ttv =>
+  given showInstance: Show[TextTriggerValue] = Show.show(ttv =>
     ttv match {
       case StringTextTriggerValue(t)   => t
       case RegexTextTriggerValue(t, _) => t.toString
@@ -47,7 +47,7 @@ case class CommandTrigger(command: String)          extends Trigger
 
 object Trigger {
 
-  implicit val showInstance: Show[Trigger] = Show.show(t =>
+  given showInstance: Show[Trigger] = Show.show(t =>
     t match {
       case TextTrigger(tvs @ _*)   => tvs.map(_.show).mkString("\n")
       case MessageLengthTrigger(l) => s"Trigger when the length of message exceed $l"
@@ -57,7 +57,7 @@ object Trigger {
     }
   )
 
-  implicit val orderingInstance: Ordering[Trigger] = new Ordering[Trigger] {
+  given orderingInstance: Ordering[Trigger] = new Ordering[Trigger] {
     def compare(trigger1: Trigger, trigger2: Trigger) =
       triggerLongestString(trigger1).compare(triggerLongestString(trigger2))
   }

@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.syntax.all._
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
-import munit._
+import munit.*
 import org.http4s.Uri
 
 import java.time.Instant

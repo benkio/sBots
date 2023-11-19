@@ -7,10 +7,10 @@ import scala.concurrent.duration.FiniteDuration
 import java.time.Duration
 import scala.util.Try
 import java.time.LocalDateTime
-import cats._
+import cats.*
 import cats.effect.Fiber
-import cats.effect._
-import cats.implicits._
+import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.Text
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
@@ -39,7 +39,7 @@ object BackgroundJobManager {
 
   final case class SubscriptionKey(subscriptionId: UUID, chatId: Long)
 
-  implicit val showInstance: Show[SubscriptionKey] =
+  given showInstance: Show[SubscriptionKey] =
     Show.show(s => s"Subscription Id: ${s.subscriptionId} - chat id: ${s.chatId}")
 
   final case class SubscriptionIdNotFound(subscriptionId: UUID)
@@ -60,7 +60,7 @@ object BackgroundJobManager {
       dbShow: DBShow[F],
       resourceAccess: ResourceAccess[F],
       botName: String
-  )(implicit textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
+  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
     backgroundJobManager <- Async[F].pure(
       new BackgroundJobManagerImpl(
         dbSubscription = dbSubscription,
@@ -77,7 +77,7 @@ object BackgroundJobManager {
       dbShow: DBShow[F],
       resourceAccess: ResourceAccess[F],
       val botName: String
-  )(implicit textTelegramReply: TelegramReply[Text], log: LogWriter[F])
+  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
     var memSubscriptions: MMap[SubscriptionKey, Fiber[F, Throwable, Unit]] = MMap()
@@ -134,7 +134,7 @@ object BackgroundJobManager {
       dbSubscription: DBSubscription[F],
       botName: String,
       resourceAccess: ResourceAccess[F]
-  )(implicit
+  )(using
       textTelegramReply: TelegramReply[Text],
       log: LogWriter[F]
   ): F[(SubscriptionKey, Fiber[F, Throwable, Unit])] = {

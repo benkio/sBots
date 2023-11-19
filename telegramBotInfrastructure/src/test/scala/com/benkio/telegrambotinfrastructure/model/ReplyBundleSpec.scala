@@ -9,8 +9,8 @@ import log.effect.LogWriter
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import cats.Applicative
-import cats.effect._
-import cats.syntax.all._
+import cats.effect.*
+import cats.syntax.all.*
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message

@@ -1,12 +1,12 @@
 package com.benkio.m0sconibot
 
-import cats._
-import cats.effect._
-import cats.implicits._
-import com.benkio.telegrambotinfrastructure._
+import cats.*
+import cats.effect.*
+import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
-import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.model.*
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
@@ -19,9 +19,9 @@ import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
-import org.http4s.ember.client._
-import org.http4s.implicits._
-import telegramium.bots.high._
+import org.http4s.ember.client.*
+import org.http4s.implicits.*
+import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 

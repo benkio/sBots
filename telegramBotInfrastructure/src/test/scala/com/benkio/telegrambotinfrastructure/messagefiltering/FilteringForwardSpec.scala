@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
-import munit._
+import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
 

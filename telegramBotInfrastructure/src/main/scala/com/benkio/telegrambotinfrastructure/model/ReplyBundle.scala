@@ -5,9 +5,9 @@ import telegramium.bots.high.Api
 import log.effect.LogWriter
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import cats._
-import cats.effect._
-import cats.implicits._
+import cats.*
+import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.ContainsOnce
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import telegramium.bots.Message
@@ -52,7 +52,7 @@ object ReplyBundleMessage {
       reply = TextReply.fromList[F](texts: _*)(false)
     )
 
-  def prettyPrint[F[_]: Applicative](rbm: ReplyBundleMessage[F])(implicit triggerShow: Show[Trigger]): F[String] = {
+  def prettyPrint[F[_]: Applicative](rbm: ReplyBundleMessage[F])(using triggerShow: Show[Trigger]): F[String] = {
     val triggerStrings: List[String] = triggerShow.show(rbm.trigger).split('\n').toList
     val replyString: F[List[String]] = rbm.reply.prettyPrint
     val result = replyString.map(x =>

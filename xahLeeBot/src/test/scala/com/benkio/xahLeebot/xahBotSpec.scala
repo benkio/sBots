@@ -25,7 +25,7 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class XahLeeBotSpec extends CatsEffectSuite {
 
-  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(XahLeeBot.botName)
   val resourceAccessMock        = new ResourceAccessMock(List.empty)

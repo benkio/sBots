@@ -10,7 +10,7 @@ import log.effect.LogWriter
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.Show
 import cats.effect.IO
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import munit.CatsEffectSuite
 

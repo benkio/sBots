@@ -42,7 +42,7 @@ object Subscription {
     subscribedAt = subscribedAt
   )).toEither
 
-  implicit val showInstance: Show[Subscription] =
+  given showInstance: Show[Subscription] =
     Show.show(s => s"Subscription Id: ${s.id} - cron value: ${s.cron}")
 
 }

@@ -11,7 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import io.circe.parser.decode
 import cats.Show
 import cats.effect.IO
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
@@ -32,7 +32,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
 
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 
-  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
   val resourceAccessMock          = new ResourceAccessMock(List.empty)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     def reply[F[_]: Async: LogWriter: Api](

@@ -19,10 +19,10 @@ import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 
-import cats.effect._
-import cats.implicits._
+import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.MediaFile
-import doobie.implicits._
+import doobie.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {

@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.implicits._
-import io.circe.generic.semiauto._
+import cats.implicits.*
+import io.circe.generic.semiauto.*
 import io.circe.Decoder
 import io.circe.HCursor
 import io.circe.DecodingFailure

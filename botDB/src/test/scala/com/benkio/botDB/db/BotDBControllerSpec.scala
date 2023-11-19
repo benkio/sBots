@@ -2,7 +2,7 @@ package com.benkio.botDB.db
 
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import cats.effect.kernel.Ref
-import com.benkio.botDB.TestData._
+import com.benkio.botDB.TestData.*
 
 import com.benkio.botDB.mocks.DatabaseRepositoryMock
 import com.benkio.botDB.mocks.MigratorMock

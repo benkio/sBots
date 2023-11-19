@@ -1,22 +1,22 @@
 package com.benkio.calandrobot
 
 import com.benkio.telegrambotinfrastructure.model.TextReplyM
-import cats._
-import cats.effect._
-import cats.implicits._
-import com.benkio.telegrambotinfrastructure._
+import cats.*
+import cats.effect.*
+import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.messagefiltering._
-import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.messagefiltering.*
+import com.benkio.telegrambotinfrastructure.model.*
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
-import org.http4s.ember.client._
-import org.http4s.implicits._
-import telegramium.bots.high._
+import org.http4s.ember.client.*
+import org.http4s.implicits.*
+import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
@@ -187,7 +187,7 @@ object CalandroBot {
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: CalandroBotPolling[F] => F[A]
-  )(implicit log: LogWriter[F]): F[A] = (for {
+  )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     botSetup <- BotSetup(
       httpClient = httpClient,
@@ -208,7 +208,7 @@ object CalandroBot {
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(implicit log: LogWriter[F]): Resource[F, CalandroBotWebhook[F]] =
+  )(using log: LogWriter[F]): Resource[F, CalandroBotWebhook[F]] =
     BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,

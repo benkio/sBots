@@ -3,7 +3,7 @@ package com.benkio.integration.integrationscalatest.main
 import cats.effect.IO
 import cats.effect.Resource
 import cats.effect.unsafe.implicits.global
-import cats.syntax.all._
+import cats.syntax.all.*
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.SlowTest
@@ -19,7 +19,7 @@ import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import log.effect.LogLevels
 import log.effect.LogWriter
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import org.scalatest._
+import org.scalatest.*
 import org.scalatest.funsuite.FixtureAnyFunSuite
 import telegramium.bots.client.Method
 import telegramium.bots.high.Api

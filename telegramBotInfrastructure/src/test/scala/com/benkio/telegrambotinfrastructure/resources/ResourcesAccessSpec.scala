@@ -4,7 +4,7 @@ import cats.effect.IO
 import munit.FunSuite
 
 import java.nio.file.Files
-import java.nio.file._
+import java.nio.file.*
 import scala.util.Random
 
 class ResourcesAccessSpec extends FunSuite {
@@ -30,7 +30,7 @@ class ResourcesAccessSpec extends FunSuite {
 
 object ResourceAccessSpec {
 
-  def testFilename(filename: String)(implicit resourceAccess: ResourceAccess[IO]): IO[Boolean] =
+  def testFilename(filename: String)(using resourceAccess: ResourceAccess[IO]): IO[Boolean] =
     resourceAccess
       .getResourceByteArray(filename)
       .use((fileBytes: Array[Byte]) => {

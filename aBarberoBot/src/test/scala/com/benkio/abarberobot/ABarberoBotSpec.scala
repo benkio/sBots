@@ -10,7 +10,7 @@ import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.Show
 import cats.effect.IO
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.Reply

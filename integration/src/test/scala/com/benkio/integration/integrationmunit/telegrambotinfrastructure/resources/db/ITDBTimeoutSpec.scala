@@ -11,7 +11,7 @@ import munit.CatsEffectSuite
 import cats.effect.IO
 
 import java.time.Instant
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import doobie.munit.analysisspec.IOChecker
 
 class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {

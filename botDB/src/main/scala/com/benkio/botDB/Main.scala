@@ -2,7 +2,7 @@ package com.benkio.botDB
 
 import log.effect.LogLevels
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import cats.effect._
+import cats.effect.*
 import com.benkio.botDB.db.BotDBController
 import com.benkio.botDB.db.DBMigrator
 import com.benkio.botDB.db.DatabaseRepository

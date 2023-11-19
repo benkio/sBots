@@ -3,7 +3,7 @@ package com.benkio.botDB.db
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.effect.Resource
 import cats.effect.Sync
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.botDB.db.schema.MediaEntity
 import com.benkio.botDB.Config
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess

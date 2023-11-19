@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.model
 
 import com.benkio.telegrambotinfrastructure.model.toText
 import cats.Applicative
-import cats.syntax.all._
+import cats.syntax.all.*
 
 import telegramium.bots.Message
 

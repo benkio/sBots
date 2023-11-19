@@ -1,13 +1,13 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect.Async
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.Show
 import com.benkio.telegrambotinfrastructure.model.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.ShowQueryKeyword
-import doobie._
-import doobie.implicits._
+import doobie.*
+import doobie.implicits.*
 import log.effect.LogWriter
 
 import java.time.format.DateTimeFormatter
@@ -44,7 +44,7 @@ object DBShow {
 
   def apply[F[_]: Async](
       transactor: Transactor[F],
-  )(implicit log: LogWriter[F]): DBShow[F] =
+  )(using log: LogWriter[F]): DBShow[F] =
     new DBShowImpl[F](
       transactor = transactor,
       log = log

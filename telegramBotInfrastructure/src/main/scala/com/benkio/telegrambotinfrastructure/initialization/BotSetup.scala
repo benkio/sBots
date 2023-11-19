@@ -6,7 +6,7 @@ import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import cats.MonadThrow
 import cats.effect.Async
 import cats.effect.Resource
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.model.Config
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -17,7 +17,7 @@ import log.effect.LogWriter
 import org.http4s.client.Client
 import org.http4s.Status
 import org.http4s.Uri
-import org.http4s._
+import org.http4s.*
 import telegramium.bots.high.Api
 import telegramium.bots.high.BotApi
 
@@ -55,7 +55,7 @@ object BotSetup {
       .getResourceByteArray(tokenFilename)
       .map(_.map(_.toChar).mkString)
 
-  def loadDB[F[_]: Async](config: Config)(implicit log: LogWriter[F]): Resource[F, DBLayer[F]] =
+  def loadDB[F[_]: Async](config: Config)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(
       DBLayer[F](
         Transactor.fromDriverManager[F](

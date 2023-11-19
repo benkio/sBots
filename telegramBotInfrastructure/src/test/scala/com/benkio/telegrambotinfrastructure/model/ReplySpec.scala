@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.implicits._
+import cats.implicits.*
 import munit.FunSuite
 
 class ReplySpec extends FunSuite {

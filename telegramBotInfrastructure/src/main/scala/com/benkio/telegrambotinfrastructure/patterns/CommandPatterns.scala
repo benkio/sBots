@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
 import cats.effect.Async
-import cats.implicits._
+import cats.implicits.*
 import cats.Applicative
 import cats.ApplicativeThrow
 import cats.MonadThrow

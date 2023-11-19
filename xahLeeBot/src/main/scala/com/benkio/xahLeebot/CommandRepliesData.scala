@@ -16,7 +16,7 @@ object CommandRepliesData {
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
       botName: String
-  )(implicit
+  )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     RandomLinkCommand.searchShowReplyBundleCommand[F](

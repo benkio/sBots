@@ -1,12 +1,12 @@
 package com.benkio.botDB.db
 
 import cats.effect.kernel.MonadCancelThrow
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.botDB.db.schema.MediaEntity
-import doobie._
-import doobie.implicits._
-import doobie.implicits.javasql._
-import io.circe.syntax._
+import doobie.*
+import doobie.implicits.*
+import doobie.implicits.javasql.*
+import io.circe.syntax.*
 
 trait DatabaseRepository[F[_]] {
   def insertMedia(mediaEntity: MediaEntity): F[Unit]

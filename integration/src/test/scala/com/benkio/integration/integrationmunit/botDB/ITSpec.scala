@@ -6,9 +6,9 @@ import java.nio.file.Paths
 import java.nio.file.Files
 import cats.effect.IO
 import doobie.Transactor
-import munit._
+import munit.*
 import cats.effect.unsafe.implicits.global
-import doobie.implicits._
+import doobie.implicits.*
 
 class ITSpec extends FunSuite with DBConstants {
 

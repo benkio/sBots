@@ -10,7 +10,7 @@ import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.Show
 import cats.effect.IO
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.Reply
@@ -41,7 +41,7 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
   given api: Api[IO] = new Api[IO] {
     def execute[Res](method: Method[Res]): IO[Res] = IO(???)
   }
-  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
   val emptyDBLayer: DBLayer[IO]   = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
   val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,

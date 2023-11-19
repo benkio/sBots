@@ -1,13 +1,13 @@
 package com.benkio.abarberobot
 
-import cats._
-import cats.effect._
-import cats.implicits._
-import com.benkio.telegrambotinfrastructure._
+import cats.*
+import cats.effect.*
+import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
-import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.model.*
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -15,9 +15,9 @@ import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
-import org.http4s.ember.client._
-import org.http4s.implicits._
-import telegramium.bots.high._
+import org.http4s.ember.client.*
+import org.http4s.implicits.*
+import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
@@ -665,7 +665,7 @@ object ABarberoBot {
   def commandRepliesData[F[_]: Async](
       backgroundJobManager: BackgroundJobManager[F],
       dbLayer: DBLayer[F]
-  )(implicit
+  )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUrl),
@@ -728,7 +728,7 @@ object ABarberoBot {
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: ABarberoBotPolling[F] => F[A]
-  )(implicit log: LogWriter[F]): F[A] = (for {
+  )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     botSetup <- BotSetup(
       httpClient = httpClient,
@@ -750,7 +750,7 @@ object ABarberoBot {
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(implicit log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] =
+  )(using log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] =
     BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,

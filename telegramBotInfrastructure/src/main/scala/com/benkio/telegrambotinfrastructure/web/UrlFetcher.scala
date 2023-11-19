@@ -2,19 +2,19 @@ package com.benkio.telegrambotinfrastructure.web
 
 import cats.effect.Async
 import cats.effect.Resource
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import io.chrisdavenport.mules._
-import io.chrisdavenport.mules.http4s._
+import io.chrisdavenport.mules.*
+import io.chrisdavenport.mules.http4s.*
 import log.effect.LogWriter
 import org.http4s.Method.GET
-import org.http4s._
+import org.http4s.*
 import org.http4s.client.Client
 import org.http4s.client.middleware.FollowRedirect
-import org.typelevel.ci._
+import org.typelevel.ci.*
 
 import java.io.File
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
 trait UrlFetcher[F[_]] {
 
@@ -23,7 +23,7 @@ trait UrlFetcher[F[_]] {
 }
 
 object UrlFetcher {
-  def apply[F[_]: Async](httpClient: Client[F])(implicit log: LogWriter[F]): F[UrlFetcher[F]] = for {
+  def apply[F[_]: Async](httpClient: Client[F])(using log: LogWriter[F]): F[UrlFetcher[F]] = for {
     httpCache <- MemoryCache.ofSingleImmutableMap[F, (Method, Uri), CacheItem](defaultExpiration =
       TimeSpec.fromDuration(6.hours)
     )

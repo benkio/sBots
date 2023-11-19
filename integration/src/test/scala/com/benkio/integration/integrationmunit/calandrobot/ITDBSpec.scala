@@ -8,13 +8,13 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 
 import cats.effect.IO
 import cats.effect.Resource
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.MediaFile
-import doobie.implicits._
+import doobie.implicits.*
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  import com.benkio.calandrobot.CalandroBot._
+  import com.benkio.calandrobot.CalandroBot.*
 
   // File Reference Check
 

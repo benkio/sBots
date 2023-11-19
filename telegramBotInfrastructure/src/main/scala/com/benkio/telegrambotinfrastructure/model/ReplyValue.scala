@@ -33,7 +33,7 @@ final case class VideoFile(filepath: String, replyToMessage: Boolean = false) ex
 
 object MediaFile {
 
-  implicit val showInstance: Show[MediaFile] = Show.show(_.filename)
+  given showInstance: Show[MediaFile] = Show.show(_.filename)
 
   def apply(filepath: String, replyToMessage: Boolean = false): MediaFile = filepath match {
     case s if s.endsWith(".mp3")                         => Mp3File(s, replyToMessage)

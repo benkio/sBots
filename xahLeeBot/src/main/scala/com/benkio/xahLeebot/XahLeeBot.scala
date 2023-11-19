@@ -1,22 +1,22 @@
 package com.benkio.xahleebot
 
-import cats._
-import cats.effect._
-import cats.implicits._
+import cats.*
+import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.model.*
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure._
+import com.benkio.telegrambotinfrastructure.*
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
-import org.http4s.ember.client._
-import org.http4s.implicits._
+import org.http4s.ember.client.*
+import org.http4s.implicits.*
 import telegramium.bots.InputPartFile
-import telegramium.bots.high._
+import telegramium.bots.high.*
 
 class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     resourceAccess: ResourceAccess[F],
@@ -79,7 +79,7 @@ object XahLeeBot {
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: XahLeeBotPolling[F] => F[A]
-  )(implicit log: LogWriter[F]): F[A] = (for {
+  )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     botSetup <- BotSetup(
       httpClient = httpClient,
@@ -101,7 +101,7 @@ object XahLeeBot {
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(implicit log: LogWriter[F]): Resource[F, XahLeeBotWebhook[F]] =
+  )(using log: LogWriter[F]): Resource[F, XahLeeBotWebhook[F]] =
     BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,

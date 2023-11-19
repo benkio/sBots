@@ -7,9 +7,9 @@ import munit.CatsEffectSuite
 
 import cats.effect.IO
 
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.MediaFile
-import doobie.implicits._
+import doobie.implicits.*
 
 import com.benkio.richardphjbensonbot.data.Audio.messageRepliesAudioData
 import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData

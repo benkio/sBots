@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.model
 
 import telegramium.bots.Chat
 import telegramium.bots.Message
-import cats.effect._
+import cats.effect.*
 import munit.CatsEffectSuite
 
 class ReplySelectionSpec extends CatsEffectSuite {

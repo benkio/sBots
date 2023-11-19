@@ -2,8 +2,8 @@ package com.benkio.telegrambotinfrastructure.model
 
 import telegramium.bots.Message
 
-import cats.effect._
-import cats.implicits._
+import cats.effect.*
+import cats.implicits.*
 
 import scala.util.Random
 

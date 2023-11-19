@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import munit._
+import munit.*
 
 import java.time.LocalDate
 

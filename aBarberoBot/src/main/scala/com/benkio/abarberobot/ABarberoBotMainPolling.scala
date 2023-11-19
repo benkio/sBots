@@ -1,6 +1,6 @@
 package com.benkio.abarberobot
 
-import cats.effect._
+import cats.effect.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevel
 import log.effect.LogLevels
@@ -9,7 +9,7 @@ import log.effect.LogWriter
 object ABarberoBotMainPolling extends IOApp {
 
   private def internalRun(logLevel: LogLevel): IO[ExitCode] = {
-    implicit val log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
+    given log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
     ABarberoBot
       .buildPollingBot[IO, Unit]((ab: ABarberoBotPolling[IO]) => ab.start())
       .as(ExitCode.Success)

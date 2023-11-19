@@ -1,11 +1,11 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect.Async
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Timeout
-import doobie.implicits._
+import doobie.implicits.*
 import doobie.Transactor
-import doobie._
+import doobie.*
 import log.effect.LogWriter
 
 import java.time.Instant
