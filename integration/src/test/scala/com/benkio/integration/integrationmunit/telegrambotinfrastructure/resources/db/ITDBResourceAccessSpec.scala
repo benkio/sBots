@@ -8,14 +8,14 @@ import munit.CatsEffectSuite
 
 import cats.effect.IO
 
-import cats.implicits._
+import cats.implicits.*
 
 class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
   val testMediaName = "rphjb_MaSgus.mp3"
   val testMedia: DBMediaData = DBMediaData(
     testMediaName,
-    None,
+    Some("[]"),
     "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACBnRH33traQAKBGy9bidu0a/rphjb_MaSgus.mp3?dl=1",
     0,
     "1662126019680"

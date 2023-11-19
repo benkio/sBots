@@ -8,21 +8,21 @@ object TestData {
 
   val google: MediaEntity = MediaEntity(
     media_name = "google.gif",
-    kind = None,
+    kinds = List.empty,
     mime_type = "image/gif",
     media_url = new URL("https://www.google.com"),
     created_at = new Timestamp(1658054878L)
   )
   val amazon: MediaEntity = MediaEntity(
     media_name = "amazon.mp4",
-    kind = Some("kind"),
+    kinds = List("kind"),
     mime_type = "video/mp4",
     media_url = new URL("https://www.amazon.com"),
     created_at = new Timestamp(1658054878L)
   )
   val facebook: MediaEntity = MediaEntity(
     media_name = "facebook.mp3",
-    kind = Some("kind_innerKind"),
+    kinds = List("kind_innerKind"),
     mime_type = "audio/mpeg",
     media_url = new URL("https://www.facebook.com"),
     created_at = new Timestamp(1658054878L)

@@ -4,7 +4,7 @@ import telegramium.bots.Message
 
 import java.time.Instant
 import scala.concurrent.duration.FiniteDuration
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
 object FilteringOlder {
 

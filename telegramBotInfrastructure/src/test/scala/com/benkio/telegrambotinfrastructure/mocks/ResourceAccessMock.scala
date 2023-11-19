@@ -1,4 +1,4 @@
-package com.benkio.botDB.mocks
+package com.benkio.telegrambotinfrastructure.mocks
 
 import cats.effect.IO
 import cats.effect.Resource

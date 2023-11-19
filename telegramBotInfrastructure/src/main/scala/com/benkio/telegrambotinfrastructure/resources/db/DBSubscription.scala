@@ -1,10 +1,10 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
-import cats.effect._
-import cats.implicits._
+import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Subscription
-import doobie._
-import doobie.implicits._
+import doobie.*
+import doobie.implicits.*
 import doobie.util.fragments
 import log.effect.LogWriter
 
@@ -45,7 +45,7 @@ object DBSubscription {
 
   def apply[F[_]: Async](
       transactor: Transactor[F],
-  )(implicit log: LogWriter[F]): DBSubscription[F] =
+  )(using log: LogWriter[F]): DBSubscription[F] =
     new DBSubscriptionImpl[F](
       transactor = transactor,
       log = log

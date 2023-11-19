@@ -9,10 +9,10 @@ import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import munit._
+import munit.*
 import org.flywaydb.core.Flyway
 import org.flywaydb.core.api.configuration.FluentConfiguration
-import org.http4s.ember.client._
+import org.http4s.ember.client.*
 import annotation.unused
 
 import java.io.File
@@ -30,7 +30,7 @@ final case class DBFixtureResources(
 
 trait DBFixture { self: FunSuite =>
 
-  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   lazy val databaseFixture: FunFixture[DBFixtureResources] = FunFixture[DBFixtureResources](
     setup = DBFixture.fixtureSetup,
@@ -48,7 +48,7 @@ object DBFixture {
   val migrationPath: String  = "filesystem:" + resourcePath + "/botDB/src/main/resources/db/migrations"
   val migrationTable: String = "FlywaySchemaHistory"
 
-  def fixtureSetup(@unused testOptions: TestOptions)(implicit log: LogWriter[IO]): DBFixtureResources = {
+  def fixtureSetup(@unused testOptions: TestOptions)(using log: LogWriter[IO]): DBFixtureResources = {
     Class.forName("org.sqlite.JDBC")
     val conn = DriverManager.getConnection(DBFixture.dbUrl)
     runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)

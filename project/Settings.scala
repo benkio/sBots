@@ -1,8 +1,8 @@
-import sbt._
+import sbt.*
 
-import Keys._
-import sbtassembly.AssemblyPlugin.autoImport._
-import Dependencies._
+import Keys.*
+import sbtassembly.AssemblyPlugin.autoImport.*
+import Dependencies.*
 
 object Settings {
 

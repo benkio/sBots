@@ -1,18 +1,20 @@
 package com.benkio.integration.integrationmunit.calandrobot
 
+import com.benkio.calandrobot.CalandroBot
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 
 import cats.effect.IO
 import cats.effect.Resource
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.MediaFile
-import doobie.implicits._
+import doobie.implicits.*
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  import com.benkio.calandrobot.CalandroBot._
+  import com.benkio.calandrobot.CalandroBot.*
 
   // File Reference Check
 
@@ -20,9 +22,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     "messageRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
-    val resourceAssert = for {
-      files <- Resource.pure(messageRepliesData[IO].flatMap(_.mediafiles))
-      checks <- Resource.eval(
+    val testAssert = for {
+      files <- messageRepliesData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+      checks <-
         files
           .traverse((file: MediaFile) =>
             DBMedia
@@ -33,20 +35,20 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .attempt
               .map(_.isRight)
           )
-      )
     } yield checks.foldLeft(true)(_ && _)
 
-    resourceAssert.use(IO.pure).assert
+    testAssert.assert
   }
 
   databaseFixture.test(
     "commandRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
-    val resourceAssert = for {
-
-      files <- Resource.pure(commandRepliesData[IO].flatMap(_.mediafiles))
-      checks <- Resource.eval(
+    val testAssert = for {
+      dbLayer <- fixture.resourceDBLayer
+      files <- Resource.eval(commandRepliesData[IO](dbLayer).flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r)))
+      checks <-
+        Resource.eval(
         files
           .traverse((file: MediaFile) =>
             DBMedia
@@ -57,9 +59,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .attempt
               .map(_.isRight)
           )
-      )
+        )
     } yield checks.foldLeft(true)(_ && _)
 
-    resourceAssert.use(IO.pure).assert
+    testAssert.use(IO.pure).assert
   }
 }

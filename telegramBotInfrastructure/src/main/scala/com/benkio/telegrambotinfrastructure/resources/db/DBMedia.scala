@@ -1,27 +1,30 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
-import cats.effect._
-import cats.implicits._
+import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Media
-import doobie._
-import doobie.implicits._
-import io.chrisdavenport.mules._
+import doobie.*
+import doobie.util.Read
+import doobie.implicits.*
+import io.chrisdavenport.mules.*
 import log.effect.LogWriter
+import io.circe.syntax.*
 
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
 final case class DBMediaData(
     media_name: String,
-    kind: Option[String],
+    kinds: Option[String],
     media_url: String,
     media_count: Int,
     created_at: String
 )
 
 object DBMediaData {
+
   def apply(media: Media): DBMediaData = DBMediaData(
     media_name = media.mediaName,
-    kind = media.kind,
+    kinds = media.kinds.asJson.noSpaces.some,
     media_url = media.mediaUrl.renderString,
     media_count = media.mediaCount,
     created_at = media.createdAt.toString
@@ -43,7 +46,7 @@ object DBMedia {
 
   def apply[F[_]: Async](
       transactor: Transactor[F],
-  )(implicit log: LogWriter[F]): F[DBMedia[F]] = for {
+  )(using log: LogWriter[F]): F[DBMedia[F]] = for {
     dbCache <- MemoryCache.ofSingleImmutableMap[F, String, List[DBMediaData]](defaultExpiration =
       TimeSpec.fromDuration(6.hours)
     )
@@ -127,15 +130,21 @@ object DBMedia {
   }
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
-    sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE media_name = $resourceName"
+    sql"SELECT media_name, kinds, media_url, media_count, created_at FROM media WHERE media_name = $resourceName"
       .query[DBMediaData]
 
   def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
-    sql"SELECT media_name, kind, media_url, media_count, created_at FROM media WHERE kind = $kind".query[DBMediaData]
+    (fr"SELECT media_name, kinds, media_url, media_count, created_at FROM media" ++
+      Fragments.whereOr(
+        fr"""kinds LIKE ${"""["""" + kind + """",%"""}""",
+        fr"""kinds LIKE ${"""%,"""" + kind + """",%"""}""",
+        fr"""kinds LIKE ${"""%,"""" + kind + """"]"""}""",
+        fr"""kinds LIKE ${"""["""" + kind + """"]"""}""",
+      )).query[DBMediaData]
 
   def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
     val q: Fragment =
-      fr"SELECT media_name, kind, media_url, media_count, created_at FROM media" ++
+      fr"SELECT media_name, kinds, media_url, media_count, created_at FROM media" ++
         Fragments.whereAndOpt(mediaNamePrefix.map(s => {
           val like = s + "%"
           fr"media_name LIKE $like"

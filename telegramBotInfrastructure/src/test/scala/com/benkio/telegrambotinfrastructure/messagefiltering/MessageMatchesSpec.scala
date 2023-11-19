@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import cats.effect.IO
 
-import com.benkio.telegrambotinfrastructure.model._
+import com.benkio.telegrambotinfrastructure.model.*
 import munit.FunSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
@@ -22,7 +22,7 @@ class MessageMatchesSpec extends FunSuite {
     trigger = TextTrigger(
       StringTextTriggerValue("test")
     ),
-    mediafiles = inputMediafile
+    reply = MediaReply[IO](mediaFiles = IO.pure(inputMediafile))
   )
 
   val ignoreMessagePrefix: Some[String] = Some("!")

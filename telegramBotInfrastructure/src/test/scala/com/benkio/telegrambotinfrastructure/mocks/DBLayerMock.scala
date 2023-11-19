@@ -61,7 +61,7 @@ object DBLayerMock {
       )
     override def getMediaByKind(kind: String, cache: Boolean = true): IO[List[DBMediaData]] =
       db.get.map(
-        _.filter(m => m.kind.fold(false)(_ == kind))
+        _.filter(m => m.kinds.contains(kind))
       )
     override def getMediaByMediaCount(
         limit: Int = 20,

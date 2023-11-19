@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.resources
 
-import cats._
-import cats.effect._
-import cats.implicits._
+import cats.*
+import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
@@ -17,12 +17,12 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.jar.JarFile
 import scala.collection.mutable.ArrayBuffer
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 trait ResourceAccess[F[_]] {
   def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]]
   def getResourcesByKind(criteria: String): Resource[F, List[File]]
-  def getResourceFile(mediaFile: MediaFile)(implicit syncF: Sync[F], log: LogWriter[F]): Resource[F, File] = {
+  def getResourceFile(mediaFile: MediaFile)(using syncF: Sync[F], log: LogWriter[F]): Resource[F, File] = {
     for {
       _           <- Resource.eval(log.info(s"getResourceFile of $mediaFile"))
       fileContent <- getResourceByteArray(mediaFile.filepath)

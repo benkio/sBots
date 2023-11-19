@@ -1,5 +1,7 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
+import telegramium.bots.client.Method
+import telegramium.bots.high.Api
 import little.time.CronSchedule
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -8,9 +10,8 @@ import java.time.Instant
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import java.util.UUID
 import cats.effect.IO
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
-import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.model.Reply
+
+
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
@@ -19,9 +20,11 @@ import cats.effect.kernel.Outcome
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
-  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty[Message])
   val testSubscriptionId: UUID      = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
   val botName                       = "botname"
+  given api: Api[IO] = new Api[IO] {
+    def execute[Res](method: Method[Res]): IO[Res] = IO(???)
+  }
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
@@ -37,10 +40,13 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     for {
       dbLayer <- fixture.resourceDBLayer
+
+      resourceAccess <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
           botName = botName
         )
       )
@@ -52,11 +58,13 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     for {
       dbLayer <- fixture.resourceDBLayer
+      resourceAccess <- fixture.resourceAccessResource
       _       <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
           botName = botName
         )
       )
@@ -82,13 +90,14 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     for {
       dbLayer <- fixture.resourceDBLayer
+      resourceAccess <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
           botName = botName
-        )
-      )
+        ))
       _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
       _ <- Resource.eval(
@@ -99,8 +108,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
             ._2
             .join,
           Outcome.succeeded[IO, Throwable, Unit](IO(()))
-        )
-      )
+        ))
     } yield {
       assert(backgroundJobManager.memSubscriptions.size == 1)
       assert(backgroundJobManager.memSubscriptions.find { case (SubscriptionKey(sId, _), _) =>
@@ -116,13 +124,14 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     for {
       dbLayer <- fixture.resourceDBLayer
+      resourceAccess <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
           botName = botName
-        )
-      )
+        ))
       _                      <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
       _                      <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))

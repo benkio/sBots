@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.syntax.all._
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
-import munit._
+import munit.*
 import org.http4s.Uri
 
 import java.time.Instant
@@ -11,7 +11,7 @@ class MediaSpec extends FunSuite {
   test("Media show instance should return the expected string") {
     val input: Media = Media(
       mediaName = "test_name",
-      kind = None,
+      kinds = List.empty,
       mediaUrl = Uri.unsafeFromString("https://benkio.github.io"),
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
@@ -21,7 +21,7 @@ class MediaSpec extends FunSuite {
   test("Media.mediaListToString should return the expected string") {
     val input: Media = Media(
       mediaName = "test_name",
-      kind = None,
+      kinds = List.empty,
       mediaUrl = Uri.unsafeFromString("https://benkio.github.io"),
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
@@ -40,7 +40,7 @@ class MediaSpec extends FunSuite {
   test("Media.apply should correctly parse a valid db record") {
     val input: DBMediaData = DBMediaData(
       media_name = "rphjb_Animali.mp3",
-      kind = None,
+      kinds = Some("[]"),
       media_url = "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AADgdXIhpbWU57v4_jZyc0G3a/rphjb_Animali.mp3?dl=1",
       media_count = 0,
       created_at = "1662126018293"

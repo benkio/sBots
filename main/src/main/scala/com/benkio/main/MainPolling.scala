@@ -15,7 +15,7 @@ import log.effect.LogWriter
 
 object MainPolling extends IOApp {
 
-  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def run(args: List[String]): IO[ExitCode] =
     MainSetup[IO]().use { mainSetup =>

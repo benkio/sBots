@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.implicits._
-import io.circe.generic.semiauto._
+import cats.implicits.*
+import io.circe.generic.semiauto.*
 import io.circe.Decoder
 import io.circe.HCursor
 import io.circe.DecodingFailure
@@ -9,16 +9,16 @@ import io.circe.DecodingFailure
 import java.net.URL
 import scala.util.Try
 
-final case class MediafileSource(
+final case class MediaFileSource(
     filename: String,
-    kind: Option[String],
+    kinds: Option[List[String]],
     mime: Option[String],
     url: URL
 )
 
-object MediafileSource {
+object MediaFileSource {
 
-  given Decoder[MediafileSource] = deriveDecoder
+  given Decoder[MediaFileSource] = deriveDecoder
   given Decoder[URL] = new Decoder[URL] {
     final def apply(c: HCursor): Decoder.Result[URL] =
       for {

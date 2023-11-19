@@ -1,9 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import munit._
+import munit.*
 
 import java.time.Instant
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
 class TimeoutSpec extends FunSuite {
   test("Timeout.isExpired should return true when the timeout is expired") {

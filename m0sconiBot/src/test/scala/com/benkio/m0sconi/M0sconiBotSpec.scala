@@ -1,19 +1,23 @@
 package com.benkio.M0sconi
 
-import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import telegramium.bots.high.Api
+import cats.effect.Async
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.model.ReplyValue
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.Show
 import cats.effect.IO
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.model.Reply
+
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import telegramium.bots.Chat
+
 import telegramium.bots.Message
 
 import java.io.File
@@ -23,18 +27,23 @@ import io.circe.parser.decode
 
 class M0sconiBotSpec extends CatsEffectSuite {
 
-  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
-  implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
-  private val privateTestMessage    = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer: DBLayer[IO]     = DBLayerMock.mock(M0sconiBot.botName)
-
+  given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(M0sconiBot.botName)
+  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
+    def reply[F[_]: Async: LogWriter: Api](
+        reply: ReplyValue,
+        msg: Message,
+        resourceAccess: ResourceAccess[F],
+        replyToMessage: Boolean
+    ): F[List[Message]] = Async[F].pure(List.empty[Message])
+  }
   test("triggerlist should return the link to the trigger txt file") {
-    val triggerlistUrl = M0sconiBot
+    val triggerlistUrl: String = M0sconiBot
       .commandRepliesData[IO](
         dbLayer = emptyDBLayer
       )
       .filter(_.trigger.command == "triggerlist")
-      .flatMap(_.text.get.text(privateTestMessage).unsafeRunSync())
+      .flatMap(_.reply.prettyPrint.unsafeRunSync())
       .mkString("")
     assertEquals(
       M0sconiBot
@@ -54,17 +63,18 @@ class M0sconiBotSpec extends CatsEffectSuite {
   test("the `mos_list.json` should contain all the triggers of the bot") {
     val listPath      = new File(".").getCanonicalPath + "/mos_list.json"
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
+    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
-    val botFile = M0sconiBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename))
+    val botFile: IO[List[String]] =
+      M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
     assert(jsonFilenames.isRight)
     jsonFilenames.fold(
       e => fail("test failed", e),
       files =>
-        botFile.foreach(filename =>
-          assert(files.contains(filename), s"$filename is not contained in mosconi data file")
-        )
+        botFile
+          .unsafeRunSync()
+          .foreach(filename => assert(files.contains(filename), s"$filename is not contained in mosconi data file"))
     )
 
   }
@@ -73,12 +83,13 @@ class M0sconiBotSpec extends CatsEffectSuite {
     val listPath       = new File(".").getCanonicalPath + "/mos_triggers.txt"
     val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
 
-    val botMediaFiles = M0sconiBot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botMediaFiles: IO[List[String]] =
+      M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
     val botTriggersFiles =
       M0sconiBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
-    botMediaFiles.foreach { mediaFileString =>
-      assert(triggerContent.contains(mediaFileString))
+    botMediaFiles.unsafeRunSync().foreach { mediaFileString =>
+      assert(triggerContent.contains(mediaFileString), s"$mediaFileString is not contained in trigger data file")
     }
     botTriggersFiles.foreach { triggerString =>
       assert(triggerContent.contains(triggerString), s"$triggerString is not contained in mosconi trigger file")
@@ -86,12 +97,12 @@ class M0sconiBotSpec extends CatsEffectSuite {
   }
 
   test("instructions command should return the expected message") {
-    val actual = M0sconiBot
+    val actual: IO[List[String]] = M0sconiBot
       .commandRepliesData[IO](
         dbLayer = emptyDBLayer
       )
       .filter(_.trigger.command == "instructions")
-      .flatTraverse(_.text.get.text(privateTestMessage))
+      .flatTraverse(_.reply.prettyPrint)
     assertIO(
       actual,
       List(

@@ -1,41 +1,65 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import telegramium.bots.client.Method
+import log.effect.LogLevels
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import telegramium.bots.high.Api
+import log.effect.LogWriter
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import cats.Applicative
-import cats.effect._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import cats.effect.*
+import cats.syntax.all.*
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
 class ReplyBundleSpec extends CatsEffectSuite {
 
-  implicit val replyAction: Action[IO] =
-    (r: Reply) =>
-      (m: Message) =>
-        IO.pure(r match {
-          case _: Mp3File      => List(m.copy(text = Some("Mp3")))
-          case _: GifFile      => List(m.copy(text = Some("Gif")))
-          case _: PhotoFile    => List(m.copy(text = Some("Photo")))
-          case _: VideoFile    => List(m.copy(text = Some("Video")))
-          case _: TextReply[_] => List(m.copy(text = Some("Text")))
-        })
+  given api: Api[IO] = new Api[IO] {
+    def execute[Res](method: Method[Res]): IO[Res] = IO(???)
+  }
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
+    def reply[F[_]: Async: LogWriter: Api](
+        reply: ReplyValue,
+        msg: Message,
+        resourceAccess: ResourceAccess[F],
+        replyToMessage: Boolean
+    ): F[List[Message]] = (reply match {
+      case _: Mp3File   => List(msg.copy(text = Some("Mp3")))
+      case _: GifFile   => List(msg.copy(text = Some("Gif")))
+      case _: PhotoFile => List(msg.copy(text = Some("Photo")))
+      case _: VideoFile => List(msg.copy(text = Some("Video")))
+      case _: Text      => List(msg.copy(text = Some("Text")))
+    }).pure[F]
+  }
 
   val inputMediafile: List[MediaFile] = List(
     Mp3File("audio.mp3"),
     PhotoFile("picture.jpg"),
     PhotoFile("picture.png"),
     GifFile("a.gif"),
-    VideoFile("video.mp4")
+    VideoFile("video.mp4"),
   )
 
   test("computeReplyBundle should return the expected message when the ReplyBundle and Message is provided") {
 
-    val replyBundleInput: ReplyBundleMessage[IO] = ReplyBundleMessage[IO](
-      trigger = TextTrigger(
-        StringTextTriggerValue("test")
-      ),
-      text = Some(TextReply(_ => IO.pure(List("some text that will be overwritten by the implicit")))),
-      mediafiles = inputMediafile
+    def input(reply: Reply[IO]): ReplyBundleMessage[IO] =
+      ReplyBundleMessage[IO](
+        trigger = TextTrigger(
+          StringTextTriggerValue("test")
+        ),
+        reply = reply,
+        replySelection = SelectAll
+      )
+
+    val replyBundleInput1: ReplyBundleMessage[IO] = input(MediaReply[IO](mediaFiles = inputMediafile.pure[IO]))
+    val replyBundleInput2: ReplyBundleMessage[IO] = input(
+      TextReply.fromList[IO](
+        "this string will be overwritten by the given"
+      )(false)
     )
 
     val message = Message(
@@ -44,16 +68,27 @@ class ReplyBundleSpec extends CatsEffectSuite {
       chat = Chat(id = 0, `type` = "test")
     )
 
-    val result: IO[List[Message]] =
-      ReplyBundle.computeReplyBundle(replyBundleInput, message, Applicative[IO].pure(true))
+    def computeResult(input: ReplyBundleMessage[IO]): IO[List[Message]] =
+      ReplyBundle.computeReplyBundle(
+        replyBundle = input,
+        message = message,
+        filter = Applicative[IO].pure(true),
+        resourceAccess = new ResourceAccessMock(List.empty)
+      )
+
+    val result1: IO[List[Message]] =
+      computeResult(replyBundleInput1)
+    val result2: IO[List[Message]] =
+      computeResult(replyBundleInput2)
 
     for {
-      _ <- assertIO(result.map(_.length), 6)
-      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Mp3")))), true)
-      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Photo")))), true)
-      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Gif")))), true)
-      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Text")))), true)
-      _ <- assertIO(result.map(_.contains(message.copy(text = Some("Video")))), true)
+      _ <- assertIO(result1.map(_.length), 5)
+      _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Mp3")))), true)
+      _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Photo")))), true)
+      _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Gif")))), true)
+      _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Video")))), true)
+      _ <- assertIO(result2.map(_.length), 1)
+      _ <- assertIO(result2.map(_.contains(message.copy(text = Some("Text")))), true)
     } yield ()
   }
 
@@ -63,10 +98,9 @@ class ReplyBundleSpec extends CatsEffectSuite {
         StringTextTriggerValue("stringTextTriggerValue"),
         RegexTextTriggerValue("regexTextTriggerValue".r, 21)
       ),
-      text = Some(TextReply(_ => IO.pure(List("some text that will be overwritten by the implicit")))),
-      mediafiles = inputMediafile
+      reply = MediaReply[IO](mediaFiles = inputMediafile.pure[IO])
     )
-    val result: Array[String] = ReplyBundleMessage.prettyPrint(replyBundleInput).split('\n')
+    val result: Array[String] = ReplyBundleMessage.prettyPrint(replyBundleInput).unsafeRunSync().split('\n')
     assertEquals(result.length, 7)
     assertEquals(result(0), "--------------------------------------------------")
     assertEquals(result(1), "audio.mp3                 | stringTextTriggerValue")

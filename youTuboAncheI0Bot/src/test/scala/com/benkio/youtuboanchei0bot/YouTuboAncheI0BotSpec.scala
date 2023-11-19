@@ -1,11 +1,17 @@
 package com.benkio.youtuboanchei0bot
 
-import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import telegramium.bots.client.Method
+import telegramium.bots.high.Api
+import cats.effect.Async
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.model.ReplyValue
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
+import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.Show
 import cats.effect.IO
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.Reply
 import com.benkio.telegrambotinfrastructure.model.Trigger
@@ -14,7 +20,6 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import telegramium.bots.Chat
 import telegramium.bots.Message
 import io.circe.parser.decode
 
@@ -24,13 +29,24 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class YouTuboAncheI0BotSpec extends CatsEffectSuite {
 
-  implicit val noAction: Action[IO] = (_: Reply) => (_: Message) => IO.pure(List.empty)
-  implicit val log: LogWriter[IO]   = consoleLogUpToLevel(LogLevels.Info)
-  private val privateTestMessage    = Message(0, date = 0, chat = Chat(0, `type` = "private"))
-  val emptyDBLayer: DBLayer[IO]     = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
+  val resourceAccessMock = new ResourceAccessMock(List.empty)
+  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
+    def reply[F[_]: Async: LogWriter: Api](
+        reply: ReplyValue,
+        msg: Message,
+        resourceAccess: ResourceAccess[F],
+        replyToMessage: Boolean
+    ): F[List[Message]] = Async[F].pure(List.empty[Message])
+  }
+  given api: Api[IO] = new Api[IO] {
+    def execute[Res](method: Method[Res]): IO[Res] = IO(???)
+  }
+  given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
   val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
     emptyDBLayer.dbShow,
+    resourceAccessMock,
     "youTuboAncheI0Bot"
   ).unsafeRunSync()
 
@@ -41,7 +57,7 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
         backgroundJobManager = emptyBackgroundJobManager
       )
       .filter(_.trigger.command == "triggerlist")
-      .flatMap(_.text.get.text(privateTestMessage).unsafeRunSync())
+      .flatMap(_.reply.prettyPrint.unsafeRunSync())
       .mkString("")
     assertEquals(
       YouTuboAncheI0Bot
@@ -62,17 +78,17 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
   test("the `ytai_list.json` should contain all the triggers of the bot") {
     val listPath      = new File(".").getCanonicalPath + "/ytai_list.json"
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
+    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
-    val botFile = YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.filename))
+    val botFile = YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
     assert(jsonFilenames.isRight)
     jsonFilenames.fold(
       e => fail("test failed", e),
       files =>
-        botFile.foreach(filename =>
-          assert(files.contains(filename), s"$filename is not contained in youtubo data file")
-        )
+        botFile
+          .unsafeRunSync()
+          .foreach(filename => assert(files.contains(filename), s"$filename is not contained in youtubo data file"))
     )
 
   }
@@ -81,11 +97,11 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
     val listPath       = new File(".").getCanonicalPath + "/ytai_triggers.txt"
     val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
 
-    val botMediaFiles = YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(_.mediafiles.map(_.show))
+    val botMediaFiles = YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
     val botTriggersFiles =
       YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
-    botMediaFiles.foreach { mediaFileString =>
+    botMediaFiles.unsafeRunSync().foreach { mediaFileString =>
       assert(triggerContent.contains(mediaFileString), s"$mediaFileString is not contained in youtubo trigger file")
     }
     botTriggersFiles.foreach { triggerString =>
@@ -100,7 +116,7 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
         dbLayer = emptyDBLayer
       )
       .filter(_.trigger.command == "instructions")
-      .flatTraverse(_.text.get.text(privateTestMessage))
+      .flatTraverse(_.reply.prettyPrint)
     assertIO(
       actual,
       List(

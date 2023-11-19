@@ -1,10 +1,10 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats._
-import cats.implicits._
+import cats.*
+import cats.implicits.*
 import log.effect.LogWriter
-import pureconfig._
-import pureconfig.generic.derivation.default._
+import pureconfig.*
+import pureconfig.generic.derivation.default.*
 
 final case class Config(
     driver: String,
@@ -15,15 +15,15 @@ final case class Config(
 object Config {
 
   // Try to load the config from normal application.conf and from main application.conf if fails
-  def loadConfig[F[_]](namespace: String)(implicit log: LogWriter[F], monadThrow: MonadThrow[F]): F[Config] =
-    loadConfigInternal("main." + namespace)(monadThrow).handleErrorWith(err =>
+  def loadConfig[F[_]: MonadThrow](namespace: String)(using log: LogWriter[F]): F[Config] =
+    loadConfigInternal("main." + namespace).handleErrorWith(err =>
       log.error(
         s"An error occurred loading the rphjbDB configuration from main. Ignore if run thorugh single bot: ${err.getMessage()}"
       ) >>
-        loadConfigInternal[F](namespace)(monadThrow)
+        loadConfigInternal[F](namespace)
     )
 
-  private def loadConfigInternal[F[_]](namespace: String)(implicit monadThrow: MonadThrow[F]): F[Config] =
+  private def loadConfigInternal[F[_]](namespace: String)(using monadThrow: MonadThrow[F]): F[Config] =
     ConfigSource.default
       .at(namespace)
       .load[Config]

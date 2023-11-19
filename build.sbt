@@ -1,4 +1,4 @@
-import Settings._
+import Settings.*
 
 // GLOBAL SETTINGS
 

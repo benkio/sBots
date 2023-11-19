@@ -14,12 +14,14 @@ import java.io._
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.calandrobot.CalandroBot
+import cats.syntax.all._
+import cats.effect.unsafe.implicits.global
 
-val inputRichardPHJBenson = RichardPHJBensonBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
-val inputBarbero = ABarberoBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
-val inputYouTuboAncheI0Bot = YouTuboAncheI0Bot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
-val inputM0sconi = M0sconiBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
-val inputCalandro = CalandroBot.messageRepliesData[IO].map(ReplyBundleMessage.prettyPrint).mkString("")
+val inputRichardPHJBenson = RichardPHJBensonBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
+val inputBarbero = ABarberoBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
+val inputYouTuboAncheI0Bot = YouTuboAncheI0Bot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
+val inputM0sconi = M0sconiBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().unsafeRunSync().mkString("")
+val inputCalandro = CalandroBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
 
 val pwRichard = new PrintWriter(new File("richardPHJBensonBot/rphjb_triggers.txt"))
 pwRichard.write(inputRichardPHJBenson)

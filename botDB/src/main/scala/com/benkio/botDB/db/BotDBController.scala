@@ -1,9 +1,9 @@
 package com.benkio.botDB.db
 
-import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.effect.Resource
 import cats.effect.Sync
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.botDB.db.schema.MediaEntity
 import com.benkio.botDB.Config
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -49,7 +49,7 @@ object BotDBController {
       jsons = allFiles.filter(f => f.getName.endsWith("json"))
       input <- Resource.eval(Sync[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")
-        decode[List[MediafileSource]](fileContent)
+        decode[List[MediaFileSource]](fileContent)
       })))
       _ <- Resource.eval(
         input.traverse_(i =>
@@ -59,13 +59,13 @@ object BotDBController {
               .insertMedia(
                 MediaEntity(
                   media_name = i.filename,
-                  kind = i.kind,
+                  kinds = i.kinds.getOrElse(List.empty),
                   mime_type = mime,
                   media_url = i.url,
                   created_at = Timestamp.from(Instant.now())
                 )
               )
-            _ <- Sync[F].delay(println(s"Inserted file ${i.filename} of kind ${i.kind} from ${i.url}, successfully"))
+            _ <- Sync[F].delay(println(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.url}, successfully"))
           } yield ()
         )
       )

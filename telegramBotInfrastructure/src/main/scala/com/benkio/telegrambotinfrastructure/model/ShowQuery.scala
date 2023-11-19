@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
-import org.http4s.QueryParamDecoder._
+import org.http4s.QueryParamDecoder.*
 import org.http4s.dsl.impl.QueryParamDecoderMatcher
 import org.http4s.Query
 import org.http4s.QueryParamDecoder
@@ -28,7 +28,7 @@ object ShowQuery {
   object MaxDateKeywordsQueryParamMatcher     extends QueryParamDecoderMatcher[LocalDate]("maxdate")
   object MinDateKeywordsQueryParamMatcher     extends QueryParamDecoderMatcher[LocalDate]("mindate")
 
-  implicit val deflocalDateQueryParamDecoder: QueryParamDecoder[LocalDate] = localDateQueryParamDecoder(
+  given deflocalDateQueryParamDecoder: QueryParamDecoder[LocalDate] = localDateQueryParamDecoder(
     DBShowData.dateTimeFormatter
   )
 

@@ -9,7 +9,7 @@ import log.effect.LogWriter
 
 object GeneralErrorHandling {
 
-  def dbLogAndRestart[F[_]: Async, A](dbLog: DBLog[F], server: Resource[F, A])(implicit
+  def dbLogAndRestart[F[_]: Async, A](dbLog: DBLog[F], server: Resource[F, A])(using
       log: LogWriter[F]
   ): Resource[F, A] =
     server.handleErrorWith((e: Throwable) =>
@@ -20,7 +20,7 @@ object GeneralErrorHandling {
       } yield restart
     )
 
-  def dbLogAndRestart(dbLog: DBLog[IO], app: IO[ExitCode])(implicit
+  def dbLogAndRestart(dbLog: DBLog[IO], app: IO[ExitCode])(using
       log: LogWriter[IO]
   ): IO[ExitCode] =
     app.handleErrorWith((e: Throwable) =>

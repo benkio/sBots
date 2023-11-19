@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS media(
   media_name TEXT PRIMARY KEY NOT NULL,
-  kind TEXT NULL,
+  kinds TEXT NULL,
   mime_type TEXT NOT NULL,
   media_url TEXT NOT NULL,
   media_count INTEGER NOT NULL DEFAULT 0,

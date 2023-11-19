@@ -6,7 +6,7 @@ import org.flywaydb.core.Flyway
 import org.flywaydb.core.api.Location
 import org.flywaydb.core.api.configuration.FluentConfiguration
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 trait DBMigrator[F[_]] {
   def migrate(config: Config): F[Int]

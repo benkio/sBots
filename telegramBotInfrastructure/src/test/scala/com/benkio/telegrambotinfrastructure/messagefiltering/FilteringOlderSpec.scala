@@ -2,12 +2,12 @@ package com.benkio.telegrambotinfrastructure.messagefiltering
 
 //import java.time.temporal.{ChronoField, ChronoUnit}
 
-import munit._
+import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
 import java.time.Instant
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
 class FilteringOlderSpec extends FunSuite {
   val now                        = Instant.now

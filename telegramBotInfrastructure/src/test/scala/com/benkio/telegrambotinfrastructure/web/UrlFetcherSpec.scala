@@ -1,21 +1,21 @@
 package com.benkio.telegrambotinfrastructure.web
 
-import cats.effect._
-import cats.implicits._
+import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher.UnexpectedDropboxResponse
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
 import org.http4s.ParseFailure
-import org.http4s.ember.client._
+import org.http4s.ember.client.*
 
 import java.io.File
 import java.nio.file.Files
 
 class UrlFetcherSpec extends CatsEffectSuite {
 
-  implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def buildUrlFetcher(): Resource[IO, UrlFetcher[IO]] =
     EmberClientBuilder

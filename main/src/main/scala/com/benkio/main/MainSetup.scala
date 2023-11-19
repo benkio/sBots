@@ -8,7 +8,7 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.client.Client
-import org.http4s.ember.client._
+import org.http4s.ember.client.*
 import telegramium.bots.InputPartFile
 
 import java.io.File
@@ -26,7 +26,7 @@ final case class MainSetup[F[_]](
 
 object MainSetup {
 
-  def apply[F[_]: Async: Network]()(implicit log: LogWriter[F]): Resource[F, MainSetup[F]] = for {
+  def apply[F[_]: Async: Network]()(using log: LogWriter[F]): Resource[F, MainSetup[F]] = for {
     config      <- Resource.eval(Config.loadConfig[F])
     _           <- Resource.eval(log.info(s"[Main] Configuration: $config"))
     httpClient  <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build

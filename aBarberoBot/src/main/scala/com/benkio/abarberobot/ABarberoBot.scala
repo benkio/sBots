@@ -1,14 +1,13 @@
 package com.benkio.abarberobot
 
-import cats._
-import cats.effect._
-import cats.implicits._
-import com.benkio.telegrambotinfrastructure._
-import com.benkio.telegrambotinfrastructure.default.Actions.Action
+import cats.*
+import cats.effect.*
+import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
-import com.benkio.telegrambotinfrastructure.model._
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns._
+import com.benkio.telegrambotinfrastructure.model.*
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -16,40 +15,40 @@ import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
 import org.http4s.client.Client
-import org.http4s.ember.client._
-import org.http4s.implicits._
-import telegramium.bots.high._
+import org.http4s.ember.client.*
+import org.http4s.implicits.*
+import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
-class ABarberoBotPolling[F[_]: Parallel: Async: Api: Action: LogWriter](
-    resAccess: ResourceAccess[F],
+class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    resourceAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
-) extends BotSkeletonPolling[F]
+) extends BotSkeletonPolling[F](resourceAccess)
     with ABarberoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
+  override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(implicit
+  override def filteringMatchesMessages(using
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 }
 
-class ABarberoBotWebhook[F[_]: Async: Api: Action: LogWriter](
+class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resAccess: ResourceAccess[F],
+    resourceAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate)
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with ABarberoBot[F] {
-  override def resourceAccess(implicit syncF: Sync[F]): ResourceAccess[F] = resAccess
-  override def postComputation(implicit appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
+  override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(implicit
+  override def filteringMatchesMessages(using
       applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
@@ -63,13 +62,13 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
   val linkSources                                  = ABarberoBot.linkSources
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override def messageRepliesDataF(implicit
+  override def messageRepliesDataF(using
       applicativeF: Applicative[F],
       log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
     ABarberoBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(implicit asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     ABarberoBot
       .commandRepliesData[F](
         backgroundJobManager,
@@ -88,865 +87,575 @@ object ABarberoBot {
   val tokenFilename: String   = "abar_ABarberoBot.token"
   val configNamespace: String = "abarDB"
 
-  def messageRepliesAudioData[F[_]]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("kimono")
-      ),
-      List(
-        MediaFile("abar_KimonoMaledetto.mp3"),
-        MediaFile("abar_KimonoStregato.mp3")
-      ),
-      replySelection = RandomSelection
+  def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage.textToMedia[F](
+      stt"kimono"
+    )(
+      mf"abar_KimonoMaledetto.mp3",
+      mf"abar_KimonoStregato.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("particelle cadaveriche")
-      ),
-      List(
-        MediaFile("abar_ParticelleCadaveriche.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"particelle cadaveriche"
+    )(
+      mf"abar_ParticelleCadaveriche.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("avrebbe (mai )?immaginato".r, 18)
-      ),
-      List(
-        MediaFile("abar_NessunoAvrebbeImmaginato.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "avrebbe (mai )?immaginato".r.tr(18)
+    )(
+      mf"abar_NessunoAvrebbeImmaginato.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("mortalit[aà]".r, 9)
-      ),
-      List(
-        MediaFile("abar_Mortalita.mp3")
-      ),
+    ReplyBundleMessage.textToMedia[F](
+      "mortalit[aà]".r.tr(9)
+    )(
+      mf"abar_Mortalita.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("carta"),
-        StringTextTriggerValue("legno leggero")
-      ),
-      List(
-        MediaFile("abar_LegnoLeggeroCarta.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"carta",
+      stt"legno leggero"
+    )(
+      mf"abar_LegnoLeggeroCarta.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("stregato")
-      ),
-      List(
-        MediaFile("abar_KimonoStregato.mp3")
-      ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"stregato"
+    )(
+      mf"abar_KimonoStregato.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("maledetto")
-      ),
-      List(
-        MediaFile("abar_Pestifero.mp3"),
-        MediaFile("abar_KimonoMaledetto.mp3")
-      ),
-      replySelection = RandomSelection
+    ReplyBundleMessage.textToMedia[F](
+      stt"maledetto"
+    )(
+      mf"abar_Pestifero.mp3",
+      mf"abar_KimonoMaledetto.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("pestifero")
-      ),
-      List(
-        MediaFile("abar_Pestifero.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"pestifero"
+    )(
+      mf"abar_Pestifero.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("distrutto"),
-        StringTextTriggerValue("mangiato dai topi"),
-        StringTextTriggerValue("bruciato"),
-        StringTextTriggerValue("sepolto"),
-        StringTextTriggerValue("nel fiume"),
-        StringTextTriggerValue("innondazione")
-      ),
-      List(
-        MediaFile("abar_Distrutto.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"distrutto",
+      stt"mangiato dai topi",
+      stt"bruciato",
+      stt"sepolto",
+      stt"nel fiume",
+      stt"innondazione"
+    )(
+      mf"abar_Distrutto.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bpratica\\b".r, 7)
-      ),
-      List(
-        MediaFile("abar_PraticaPocoPatriotticah.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "\\bpratica\\b".r.tr(7)
+    )(
+      mf"abar_PraticaPocoPatriotticah.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("ferro"),
-        StringTextTriggerValue("fuoco"),
-        StringTextTriggerValue("acqua bollente"),
-        StringTextTriggerValue("aceto")
-      ),
-      List(
-        MediaFile("abar_FerroFuocoAcquaBollenteAceto.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"ferro",
+      stt"fuoco",
+      stt"acqua bollente",
+      stt"aceto"
+    )(
+      mf"abar_FerroFuocoAcquaBollenteAceto.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("secolo")
-      ),
-      List(
-        MediaFile("abar_Secolo.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"secolo"
+    )(
+      mf"abar_Secolo.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("streghe"),
-        StringTextTriggerValue("maghi"),
-        StringTextTriggerValue("draghi"),
-        StringTextTriggerValue("roghi"),
-      ),
-      List(
-        MediaFile("abar_Draghi.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"streghe",
+      stt"maghi",
+      stt"draghi",
+      stt"roghi",
+    )(
+      mf"abar_Draghi.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("crociate")
-      ),
-      List(
-        MediaFile("abar_Crociate.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"crociate"
+    )(
+      mf"abar_Crociate.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("wikipedia")
-      ),
-      List(
-        MediaFile("abar_Wikipedia.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"wikipedia"
+    )(
+      mf"abar_Wikipedia.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\beccoh\\b".r, 5)
-      ),
-      List(
-        MediaFile("abar_Ecco.mp3"),
-        MediaFile("abar_Ecco2.mp3"),
-        MediaFile("abar_Ecco3.mp3")
-      ),
-      replySelection = RandomSelection
+    ReplyBundleMessage.textToMedia[F](
+      "\\beccoh\\b".r.tr(5)
+    )(
+      mf"abar_Ecco.mp3",
+      mf"abar_Ecco2.mp3",
+      mf"abar_Ecco3.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("maglio"),
-        StringTextTriggerValue("sbriciola"),
-        StringTextTriggerValue("schiaccia")
-      ),
-      List(
-        MediaFile("abar_Maglio.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"maglio",
+      stt"sbriciola",
+      stt"schiaccia"
+    )(
+      mf"abar_Maglio.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("chiese"),
-        StringTextTriggerValue("castelli"),
-        StringTextTriggerValue("villaggi"),
-        StringTextTriggerValue("assedi")
-      ),
-      List(
-        MediaFile("abar_Assedi.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"chiese",
+      stt"castelli",
+      stt"villaggi",
+      stt"assedi"
+    )(
+      mf"abar_Assedi.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("furore"),
-        StringTextTriggerValue("città")
-      ),
-      List(
-        MediaFile("abar_Furore.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"furore",
+      stt"città"
+    )(
+      mf"abar_Furore.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("demoni"),
-        StringTextTriggerValue("scatenat")
-      ),
-      List(
-        MediaFile("abar_Demoni.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"demoni",
+      stt"scatenat"
+    )(
+      mf"abar_Demoni.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("sensei")
-      ),
-      List(
-        MediaFile("abar_Sensei.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"sensei"
+    )(
+      mf"abar_Sensei.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("miserabile")
-      ),
-      List(
-        MediaFile("abar_Miserabile.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"miserabile"
+    )(
+      mf"abar_Miserabile.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("omicidio"),
-        StringTextTriggerValue("cosa che capita")
-      ),
-      List(
-        MediaFile("abar_CapitaOmicidio.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"omicidio",
+      stt"cosa che capita"
+    )(
+      mf"abar_CapitaOmicidio.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("cavallo"),
-        RegexTextTriggerValue("tiriamo(lo)? giù".r, 11),
-        StringTextTriggerValue("ammazziamolo")
-      ),
-      List(
-        MediaFile("abar_Ammazziamolo.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"cavallo",
+      "tiriamo(lo)? giù".r.tr(11),
+      stt"ammazziamolo"
+    )(
+      mf"abar_Ammazziamolo.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("bruciare"),
-        StringTextTriggerValue("saccheggiare"),
-        StringTextTriggerValue("fuoco")
-      ),
-      List(
-        MediaFile("abar_Bbq.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"bruciare",
+      stt"saccheggiare",
+      stt"fuoco"
+    )(
+      mf"abar_Bbq.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("cagarelli"),
-        StringTextTriggerValue("feci"),
-        StringTextTriggerValue("cacca")
-      ),
-      List(
-        MediaFile("abar_Homines.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"cagarelli",
+      stt"feci",
+      stt"cacca"
+    )(
+      mf"abar_Homines.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("monsignore"),
-        StringTextTriggerValue("vescovo"),
-        StringTextTriggerValue("in culo")
-      ),
-      List(
-        MediaFile("abar_Monsu.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"monsignore",
+      stt"vescovo",
+      stt"in culo"
+    )(
+      mf"abar_Monsu.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("ottimismo")
-      ),
-      List(
-        MediaFile("abar_Ottimismo.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"ottimismo"
+    )(
+      mf"abar_Ottimismo.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("latino")
-      ),
-      List(
-        MediaFile("abar_Homines.mp3"),
-        MediaFile("abar_Vagdavercustis.mp3"),
-        MediaFile("abar_Yersinia.mp3"),
-        MediaFile("abar_Culagium.mp3")
-      ),
-      replySelection = RandomSelection
+    ReplyBundleMessage.textToMedia[F](
+      stt"latino"
+    )(
+      mf"abar_Homines.mp3",
+      mf"abar_Vagdavercustis.mp3",
+      mf"abar_Yersinia.mp3",
+      mf"abar_Culagium.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("radetzky")
-      ),
-      List(
-        MediaFile("abar_Radetzky.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"radetzky"
+    )(
+      mf"abar_Radetzky.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("interrogateli"),
-        StringTextTriggerValue("tortura")
-      ),
-      List(
-        MediaFile("abar_Reinterrogateli.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"interrogateli",
+      stt"tortura"
+    )(
+      mf"abar_Reinterrogateli.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("i \\bre\\b".r, 2),
-        StringTextTriggerValue("decapita")
-      ),
-      List(
-        MediaFile("abar_Re.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "i \\bre\\b".r.tr(2),
+      stt"decapita"
+    )(
+      mf"abar_Re.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bascia\\b".r, 5),
-        StringTextTriggerValue("sangue")
-      ),
-      List(
-        MediaFile("abar_Sangue.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "\\bascia\\b".r.tr(5),
+      stt"sangue"
+    )(
+      mf"abar_Sangue.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("spranga")
-      ),
-      List(
-        MediaFile("abar_Spranga.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"spranga"
+    )(
+      mf"abar_Spranga.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("stupidi")
-      ),
-      List(
-        MediaFile("abar_Stupidi.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"stupidi"
+    )(
+      mf"abar_Stupidi.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bsubito(o|!){2,}".r, 6)
-      ),
-      List(
-        MediaFile("abar_Subito.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "\\bsubito(o|!){2,}".r.tr(6)
+    )(
+      mf"abar_Subito.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("vagdavercustis")
-      ),
-      List(
-        MediaFile("abar_Vagdavercustis.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"vagdavercustis"
+    )(
+      mf"abar_Vagdavercustis.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("peste"),
-        StringTextTriggerValue("yersinia")
-      ),
-      List(
-        MediaFile("abar_Yersinia.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"peste",
+      stt"yersinia"
+    )(
+      mf"abar_Yersinia.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("zazzera")
-      ),
-      List(
-        MediaFile("abar_Zazzera.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"zazzera"
+    )(
+      mf"abar_Zazzera.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("metallo")
-      ),
-      List(
-        MediaFile("abar_Metallo.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"metallo"
+    )(
+      mf"abar_Metallo.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("italiani"),
-        StringTextTriggerValue("arrendetevi")
-      ),
-      List(
-        MediaFile("abar_Taliani.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"italiani",
+      stt"arrendetevi"
+    )(
+      mf"abar_Taliani.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("c[a]{2,}[z]+[o]+".r, 5)
-      ),
-      List(
-        MediaFile("abar_Cazzo.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "c[a]{2,}[z]+[o]+".r.tr(5)
+    )(
+      mf"abar_Cazzo.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("eresia"),
-        StringTextTriggerValue("riti satanici"),
-        StringTextTriggerValue("rinnegamento di gesù cristo"),
-        StringTextTriggerValue("sputi sulla croce"),
-        StringTextTriggerValue("sodomia"),
-      ),
-      List(
-        MediaFile("abar_RitiSataniciSodomia.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"eresia",
+      stt"riti satanici",
+      stt"rinnegamento di gesù cristo",
+      stt"sputi sulla croce",
+      stt"sodomia",
+    )(
+      mf"abar_RitiSataniciSodomia.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("preoccupazione")
-      ),
-      List(
-        MediaFile("abar_Preoccupazione.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"preoccupazione"
+    )(
+      mf"abar_Preoccupazione.mp3"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("son(o)? tu[t]+e ba[l]+e".r, 13)
-      ),
-      List(
-        MediaFile("abar_Bale.mp3")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "son(o)? tu[t]+e ba[l]+e".r.tr(13)
+    )(
+      mf"abar_Bale.mp3"
     ),
   )
 
-  def messageRepliesGifData[F[_]]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("ha ragione")
-      ),
-      List(
-        MediaFile("abar_HaRagione.gif")
-      )
+  def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage.textToMedia[F](
+      stt"ha ragione"
+    )(
+      mf"abar_HaRagione.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("seziona"),
-        StringTextTriggerValue("cadaveri"),
-        StringTextTriggerValue("morti")
-      ),
-      List(
-        MediaFile("abar_Cadaveri.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"seziona",
+      stt"cadaveri",
+      stt"morti"
+    )(
+      mf"abar_Cadaveri.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("strappa"),
-        StringTextTriggerValue("gli arti"),
-        StringTextTriggerValue("le braccia")
-      ),
-      List(
-        MediaFile("abar_Strappare.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"strappa",
+      stt"gli arti",
+      stt"le braccia"
+    )(
+      mf"abar_Strappare.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("saltare la testa"),
-        StringTextTriggerValue("questa macchina")
-      ),
-      List(
-        MediaFile("abar_SaltareLaTesta.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"saltare la testa",
+      stt"questa macchina"
+    )(
+      mf"abar_SaltareLaTesta.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("un po' paura")
-      ),
-      List(
-        MediaFile("abar_Paura.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"un po' paura"
+    )(
+      mf"abar_Paura.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("sega"),
-        StringTextTriggerValue("dov'è")
-      ),
-      List(
-        MediaFile("abar_Sega.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"sega",
+      stt"dov'è"
+    )(
+      mf"abar_Sega.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("potere"),
-        StringTextTriggerValue("incarichi"),
-        StringTextTriggerValue("poltrone"),
-        StringTextTriggerValue("appalti"),
-        StringTextTriggerValue("spartir")
-      ),
-      List(
-        MediaFile("abar_Potere.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"potere",
+      stt"incarichi",
+      stt"poltrone",
+      stt"appalti",
+      stt"spartir"
+    )(
+      mf"abar_Potere.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("grandioso"),
-        StringTextTriggerValue("magnifico"),
-        StringTextTriggerValue("capolavoro")
-      ),
-      List(
-        MediaFile("abar_Capolavoro.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"grandioso",
+      stt"magnifico",
+      stt"capolavoro"
+    )(
+      mf"abar_Capolavoro.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("troppo facile"),
-        StringTextTriggerValue("easy")
-      ),
-      List(
-        MediaFile("abar_TroppoFacile.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"troppo facile",
+      stt"easy"
+    )(
+      mf"abar_TroppoFacile.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("chi(s| )se( )?ne( )?frega".r, 13)
-      ),
-      List(
-        MediaFile("abar_Chissenefrega.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "chi(s| )se( )?ne( )?frega".r.tr(13)
+    )(
+      mf"abar_Chissenefrega.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("buonasera")
-      ),
-      List(
-        MediaFile("abar_Buonasera.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"buonasera"
+    )(
+      mf"abar_Buonasera.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue(" a morte"),
-        RegexTextTriggerValue("\\bsi si si\\b".r, 4)
-      ),
-      List(
-        MediaFile("abar_SisiAMorte.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt" a morte",
+      "\\bsi si si\\b".r.tr(4)
+    )(
+      mf"abar_SisiAMorte.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("francesi")
-      ),
-      List(
-        MediaFile("abar_Francesi.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"francesi"
+    )(
+      mf"abar_Francesi.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("viva il popolo"),
-        StringTextTriggerValue("comunis")
-      ),
-      List(
-        MediaFile("abar_VivaIlPopolo.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"viva il popolo",
+      stt"comunis"
+    )(
+      mf"abar_VivaIlPopolo.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("fare qualcosa")
-      ),
-      List(
-        MediaFile("abar_FareQualcosa.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"fare qualcosa"
+    )(
+      mf"abar_FareQualcosa.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("(no|nessun|non c'è) problem(a)?"),
-        StringTextTriggerValue("ammazziamo tutti")
-      ),
-      List(
-        MediaFile("abar_AmmazziamoTuttiNoProblem.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"(no|nessun|non c'è) problem(a)?",
+      stt"ammazziamo tutti"
+    )(
+      mf"abar_AmmazziamoTuttiNoProblem.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bcert[o!]{3,}\\b".r, 5)
-      ),
-      List(
-        MediaFile("abar_Certo.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "\\bcert[o!]{3,}\\b".r.tr(5)
+    )(
+      mf"abar_Certo.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("rogo")
-      ),
-      List(
-        MediaFile("abar_Rogo.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"rogo"
+    )(
+      mf"abar_Rogo.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("semplific")
-      ),
-      List(
-        MediaFile("abar_Semplifico.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"semplific"
+    )(
+      mf"abar_Semplifico.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("bere il (suo )?sangue".r, 15),
-        RegexTextTriggerValue("taglia(re)? la gola".r, 14)
-      ),
-      List(
-        MediaFile("abar_TaglioGolaBereSangue.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "bere il (suo )?sangue".r.tr(15),
+      "taglia(re)? la gola".r.tr(14)
+    )(
+      mf"abar_TaglioGolaBereSangue.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("spacco la (testa|faccia)".r, 15)
-      ),
-      List(
-        MediaFile("abar_SpaccoLaTesta.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "spacco la (testa|faccia)".r.tr(15)
+    )(
+      mf"abar_SpaccoLaTesta.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r, 8)
-      ),
-      List(
-        MediaFile("abar_OrifizioPosteriore.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r.tr(8)
+    )(
+      mf"abar_OrifizioPosteriore.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("faccia tosta"),
-        StringTextTriggerValue("furfante")
-      ),
-      List(
-        MediaFile("abar_Furfante.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"faccia tosta",
+      stt"furfante"
+    )(
+      mf"abar_Furfante.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bbasta(a|!){2,}".r, 5)
-      ),
-      List(
-        MediaFile("abar_Basta.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "\\bbasta(a|!){2,}".r.tr(5)
+    )(
+      mf"abar_Basta.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("tutti insieme"),
-        StringTextTriggerValue("ghigliottina")
-      ),
-      List(
-        MediaFile("abar_GhigliottinaTuttiInsieme.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"tutti insieme",
+      stt"ghigliottina"
+    )(
+      mf"abar_GhigliottinaTuttiInsieme.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("economisti")
-      ),
-      List(
-        MediaFile("abar_Economisti.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"economisti"
+    )(
+      mf"abar_Economisti.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("vieni (un po' )?qui".r, 9)
-      ),
-      List(
-        MediaFile("abar_VieniQui.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "vieni (un po' )?qui".r.tr(9)
+    )(
+      mf"abar_VieniQui.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("si fa così")
-      ),
-      List(
-        MediaFile("abar_SiFaCosi.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"si fa così"
+    )(
+      mf"abar_SiFaCosi.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("rapire"),
-        StringTextTriggerValue("riscatto")
-      ),
-      List(
-        MediaFile("abar_Riscatto.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"rapire",
+      stt"riscatto"
+    )(
+      mf"abar_Riscatto.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bn[o]+!\\b".r, 3),
-        RegexTextTriggerValue("non (lo )?vogli(a|o)".r, 10)
-      ),
-      List(
-        MediaFile("abar_No.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "\\bn[o]+!\\b".r.tr(3),
+      "non (lo )?vogli(a|o)".r.tr(10)
+    )(
+      mf"abar_No.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("in un attimo"),
-        StringTextTriggerValue("in piazza")
-      ),
-      List(
-        MediaFile("abar_InPiazza.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"in un attimo",
+      stt"in piazza"
+    )(
+      mf"abar_InPiazza.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("in due pezzi")
-      ),
-      List(
-        MediaFile("abar_InDuePezzi.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      stt"in due pezzi"
+    )(
+      mf"abar_InDuePezzi.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("\\bgiusto(o|!){2,}".r, 6)
-      ),
-      List(
-        MediaFile("abar_Giusto.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "\\bgiusto(o|!){2,}".r.tr(6)
+    )(
+      mf"abar_Giusto.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("gli altri (che )?sono".r, 15)
-      ),
-      List(
-        MediaFile("abar_GliAltri.gif")
-      )
+    ReplyBundleMessage.textToMedia[F](
+      "gli altri (che )?sono".r.tr(15)
+    )(
+      mf"abar_GliAltri.gif"
     ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("👐"),
-        StringTextTriggerValue("🙌"),
-      ),
-      List(
-        MediaFile("abar_AlzaLeMani.mp4"),
-      ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"👐",
+      stt"🙌",
+    )(
+      mf"abar_AlzaLeMani.mp4",
+    )
+  )
+
+  def messageRepliesVideoData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage.textToMedia[F](
+      stt"parole longobarde",
+      stt"zuffa",
+      stt"spaccare",
+      stt"arraffare",
+      stt"tanfo",
+    )(
+      mf"abar_ParoleLongobarde.mp4",
     ),
   )
 
-  def messageRepliesVideoData[F[_]]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("parole longobarde"),
-        StringTextTriggerValue("zuffa"),
-        StringTextTriggerValue("spaccare"),
-        StringTextTriggerValue("arraffare"),
-        StringTextTriggerValue("tanfo"),
-      ),
-      List(
-        MediaFile("abar_ParoleLongobarde.mp4"),
-      ),
+  def messageRepliesSpecialData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage.textToMedia[F](
+      stt"tedesco"
+    )(
+      mf"abar_Kraft.mp3",
+      mf"abar_Von_Hohenheim.mp3",
+      mf"abar_Haushofer.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"genitali",
+      stt"cosi e coglioni"
+    )(
+      mf"abar_Cosi.mp3",
+      mf"abar_Sottaceto.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r.tr(13)
+    )(
+      mf"abar_FiglioDi.gif",
+      mf"abar_FiglioDi2.gif",
+      mf"abar_FiglioDi3.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sgozza"
+    )(
+      mf"abar_Sgozzamento.mp3",
+      mf"abar_Sgozzamento.gif"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"bruciargli",
+      stt"la casa"
+    )(
+      mf"abar_Bruciare.mp3",
+      mf"abar_Bruciare.gif"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"a pezzi",
+      stt"a pezzettini"
+    )(
+      mf"abar_APezzettini.mp3",
+      mf"abar_APezzettini.gif"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"allarme",
+      stt"priori",
+      stt"carne"
+    )(
+      mf"abar_Priori.mp3",
+      mf"abar_Priori.gif"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"zagaglia",
+      stt"nemico"
+    )(
+      mf"abar_Zagaglia.mp3",
+      mf"abar_Zagaglia.gif"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"guerra",
+    )(
+      mf"abar_ParoleLongobarde.mp4",
+      mf"abar_Guerra.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"faida",
+    )(
+      mf"abar_ParoleLongobarde.mp4",
+      mf"abar_Faida.gif",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"spranga"
+    )(
+      mf"abar_Spranga.gif",
+      mf"abar_ParoleLongobarde.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"trappola"
+    )(
+      mf"abar_Trappola.gif",
+      mf"abar_ParoleLongobarde.mp4"
     ),
   )
 
-  def messageRepliesSpecialData[F[_]]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("tedesco")
-      ),
-      List(
-        MediaFile("abar_Kraft.mp3"),
-        MediaFile("abar_Von_Hohenheim.mp3"),
-        MediaFile("abar_Haushofer.mp3")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("genitali"),
-        StringTextTriggerValue("cosi e coglioni")
-      ),
-      List(
-        MediaFile("abar_Cosi.mp3"),
-        MediaFile("abar_Sottaceto.mp3")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        RegexTextTriggerValue("(figlio|fijo) (di|de) (mignotta|puttana|troia)".r, 13)
-      ),
-      List(
-        MediaFile("abar_FiglioDi.gif"),
-        MediaFile("abar_FiglioDi2.gif"),
-        MediaFile("abar_FiglioDi3.mp3")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("sgozza")
-      ),
-      List(
-        MediaFile("abar_Sgozzamento.mp3"),
-        MediaFile("abar_Sgozzamento.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("bruciargli"),
-        StringTextTriggerValue("la casa")
-      ),
-      List(
-        MediaFile("abar_Bruciare.mp3"),
-        MediaFile("abar_Bruciare.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("a pezzi"),
-        StringTextTriggerValue("a pezzettini")
-      ),
-      List(
-        MediaFile("abar_APezzettini.mp3"),
-        MediaFile("abar_APezzettini.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("allarme"),
-        StringTextTriggerValue("priori"),
-        StringTextTriggerValue("carne")
-      ),
-      List(
-        MediaFile("abar_Priori.mp3"),
-        MediaFile("abar_Priori.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("zagaglia"),
-        StringTextTriggerValue("nemico")
-      ),
-      List(
-        MediaFile("abar_Zagaglia.mp3"),
-        MediaFile("abar_Zagaglia.gif")
-      )
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("guerra"),
-      ),
-      List(
-        MediaFile("abar_ParoleLongobarde.mp4"),
-        MediaFile("abar_Guerra.mp3"),
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("faida"),
-      ),
-      List(
-        MediaFile("abar_ParoleLongobarde.mp4"),
-        MediaFile("abar_Faida.gif"),
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("spranga")
-      ),
-      List(
-        MediaFile("abar_Spranga.gif"),
-        MediaFile("abar_ParoleLongobarde.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("trappola")
-      ),
-      List(
-        MediaFile("abar_Trappola.gif"),
-        MediaFile("abar_ParoleLongobarde.mp4")
-      ),
-      replySelection = RandomSelection
-    ),
-  )
-
-  def messageRepliesData[F[_]]: List[ReplyBundleMessage[F]] =
+  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesSpecialData[
       F
     ])
@@ -956,7 +665,7 @@ object ABarberoBot {
   def commandRepliesData[F[_]: Async](
       backgroundJobManager: BackgroundJobManager[F],
       dbLayer: DBLayer[F]
-  )(implicit
+  )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUrl),
@@ -1013,13 +722,13 @@ object ABarberoBot {
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
         TimeoutCommand.timeoutCommandDescriptionEng
-      )
-    ),
+      ),
+    )
   )
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: ABarberoBotPolling[F] => F[A]
-  )(implicit log: LogWriter[F]): F[A] = (for {
+  )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     botSetup <- BotSetup(
       httpClient = httpClient,
@@ -1030,10 +739,10 @@ object ABarberoBot {
   } yield botSetup).use { botSetup =>
     action(
       new ABarberoBotPolling[F](
-        resAccess = botSetup.resourceAccess,
+        resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager
-      )(Parallel[F], Async[F], botSetup.api, botSetup.action, log)
+      )(Parallel[F], Async[F], botSetup.api, log)
     )
   }
 
@@ -1041,7 +750,7 @@ object ABarberoBot {
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(implicit log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] =
+  )(using log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] =
     BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,
@@ -1052,10 +761,10 @@ object ABarberoBot {
       new ABarberoBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resAccess = botSetup.resourceAccess,
+        resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate
-      )(Async[F], botSetup.api, botSetup.action, log)
+      )(Async[F], botSetup.api, log)
     }
 }

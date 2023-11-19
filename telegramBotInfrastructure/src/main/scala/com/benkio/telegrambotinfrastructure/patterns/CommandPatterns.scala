@@ -1,31 +1,15 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
 import cats.effect.Async
-import cats.implicits._
+import cats.implicits.*
 import cats.Applicative
 import cats.ApplicativeThrow
 import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.Media
-import com.benkio.telegrambotinfrastructure.model.RandomQuery
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.Show
-import com.benkio.telegrambotinfrastructure.model.ShowQuery
-import com.benkio.telegrambotinfrastructure.model.ShowQueryKeyword
-import com.benkio.telegrambotinfrastructure.model.Subscription
-import com.benkio.telegrambotinfrastructure.model.TextReply
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.Timeout
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
+import com.benkio.telegrambotinfrastructure.model.*
+import com.benkio.telegrambotinfrastructure.resources.db.*
 import log.effect.LogWriter
 import org.http4s.Uri
 import telegramium.bots.Message
@@ -35,6 +19,25 @@ import scala.util.Random
 import scala.util.Try
 
 object CommandPatterns {
+
+  object MediaByKindCommand {
+
+    def mediaCommandByKind[F[_]: Async](
+        dbMedia: DBMedia[F],
+        botName: String,
+        commandName: String,
+        kind: Option[String]
+    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
+      ReplyBundleCommand[F](
+        trigger = CommandTrigger(commandName),
+        reply = MediaReply[F](
+          mediaFiles = for
+            dbMediaDatas <- dbMedia.getMediaByKind(kind = kind.getOrElse(commandName))
+            medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
+          yield medias.map(media => MediaFile(media.mediaName))
+        )
+      )
+  }
 
   object RandomLinkCommand {
 
@@ -68,28 +71,26 @@ Input as query string:
     def searchShowReplyBundleCommand[F[_]: Async](
         dbShow: DBShow[F],
         botName: String
-    )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
+    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("searchshow"),
-        text = Some(
-          TextReply[F](
-            m =>
-              handleCommandWithInput[F](
-                m,
-                "searchshow",
-                botName,
-                keywords =>
-                  RandomLinkCommand
-                    .selectRandomLinkByKeyword[F](
-                      keywords,
-                      dbShow,
-                      botName
-                    ),
-                s"Input non riconosciuto. Controlla le instruzioni per i dettagli",
-                allowEmptyString = true
-              ),
-            true
-          )
+        reply = TextReplyM[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "searchshow",
+              botName,
+              keywords =>
+                RandomLinkCommand
+                  .selectRandomLinkByKeyword[F](
+                    keywords,
+                    dbShow,
+                    botName
+                  ),
+              s"Input non riconosciuto. Controlla le instruzioni per i dettagli",
+              allowEmptyString = true
+            ),
+          true
         ),
       )
 
@@ -97,7 +98,7 @@ Input as query string:
         keywords: String,
         dbShow: DBShow[F],
         botName: String
-    )(implicit log: LogWriter[F]): F[List[String]] = {
+    )(using log: LogWriter[F]): F[List[String]] = {
       val query: ShowQuery = ShowQuery(keywords)
       val dbCall = query match {
         case RandomQuery         => dbShow.getShows(botName)
@@ -126,12 +127,7 @@ Input as query string:
     def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
-        text = Some(
-          TextReply(
-            _ => Applicative[F].pure(List(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")),
-            true
-          )
-        )
+        reply = TextReply.fromList(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")(true)
       )
   }
 
@@ -150,31 +146,27 @@ Input as query string:
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggersearch"),
-        text = Some(
-          TextReply[F](
-            m =>
-              handleCommandWithInput[F](
-                m,
-                "triggersearch",
-                botName,
-                t =>
-                  mdr
-                    .collectFirstSome(replyBundle =>
-                      replyBundle.trigger match {
-                        case TextTrigger(textTriggers @ _*)
-                            if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
-                          Some(textTriggers.toList)
-                        case _ => None
-                      }
-                    )
-                    .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
-                      textTriggers.map(_.show)
-                    )
-                    .pure[F],
-                """Input Required: Insert the test keyword to check if it's in some bot trigger"""
-              ),
-            false
-          )
+        reply = TextReplyM[F](m =>
+          handleCommandWithInput[F](
+            m,
+            "triggersearch",
+            botName,
+            t =>
+              mdr
+                .collectFirstSome(replyBundle =>
+                  replyBundle.trigger match {
+                    case TextTrigger(textTriggers @ _*)
+                        if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
+                      Some(textTriggers.toList)
+                    case _ => None
+                  }
+                )
+                .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
+                  textTriggers.map(_.show)
+                )
+                .pure[F],
+            """Input Required: Insert the test keyword to check if it's in some bot trigger"""
+          ),
         )
       )
 
@@ -230,24 +222,18 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("instructions"),
-        text = Some(
-          TextReply[F](
-            _ =>
-              List(
-                instructionMessageIta(
-                  botName = botName,
-                  ignoreMessagePrefix = ignoreMessagePrefix,
-                  commandDescriptions = commandDescriptionsIta
-                ),
-                instructionMessageEng(
-                  botName = botName,
-                  ignoreMessagePrefix = ignoreMessagePrefix,
-                  commandDescriptions = commandDescriptionsEng
-                )
-              ).pure[F],
-            false
+        reply = TextReply.fromList[F](
+          instructionMessageIta(
+            botName = botName,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commandDescriptions = commandDescriptionsIta
+          ),
+          instructionMessageEng(
+            botName = botName,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commandDescriptions = commandDescriptionsEng
           )
-        )
+        )(false)
       )
   }
 
@@ -272,27 +258,25 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscribe"),
-        text = Some(
-          TextReply[F](
-            m =>
-              handleCommandWithInput[F](
-                m,
-                "subscribe",
-                botName,
-                cronInput =>
-                  for {
-                    subscription <- Async[F].fromEither(Subscription(m.chat.id, botName, cronInput))
-                    nextOccurrence = subscription.cronScheduler
-                      .next()
-                      .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
-                    _ <- backgroundJobManager.scheduleSubscription(subscription)
-                  } yield List(
-                    s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
-                  ),
-                s"Input Required: insert a valid 〈cron time〉. Check the instructions"
-              ),
-            true
-          )
+        reply = TextReplyM[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "subscribe",
+              botName,
+              cronInput =>
+                for {
+                  subscription <- Async[F].fromEither(Subscription(m.chat.id, botName, cronInput))
+                  nextOccurrence = subscription.cronScheduler
+                    .next()
+                    .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
+                  _ <- backgroundJobManager.scheduleSubscription(subscription)
+                } yield List(
+                  s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
+                ),
+              s"Input Required: insert a valid 〈cron time〉. Check the instructions"
+            ),
+          true
         ),
       )
 
@@ -302,29 +286,27 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("unsubscribe"),
-        text = Some(
-          TextReply[F](
-            m =>
-              handleCommandWithInput[F](
-                m,
-                "unsubscribe",
-                botName,
-                subscriptionIdInput =>
-                  if (subscriptionIdInput.isEmpty)
-                    for {
-                      _ <- backgroundJobManager.cancelSubscriptions(m.chat.id)
-                    } yield List(s"All Subscriptions for current chat successfully cancelled")
-                  else
-                    for {
-                      subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
-                      _              <- backgroundJobManager.cancelSubscription(subscriptionId)
-                    } yield List(
-                      s"Subscription successfully cancelled"
-                    ),
-                s"Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
-              ),
-            true
-          )
+        reply = TextReplyM[F](
+          m =>
+            handleCommandWithInput[F](
+              m,
+              "unsubscribe",
+              botName,
+              subscriptionIdInput =>
+                if (subscriptionIdInput.isEmpty)
+                  for {
+                    _ <- backgroundJobManager.cancelSubscriptions(m.chat.id)
+                  } yield List(s"All Subscriptions for current chat successfully cancelled")
+                else
+                  for {
+                    subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
+                    _              <- backgroundJobManager.cancelSubscription(subscriptionId)
+                  } yield List(
+                    s"Subscription successfully cancelled"
+                  ),
+              s"Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
+            ),
+          true
         ),
       )
 
@@ -335,23 +317,21 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscriptions"),
-        text = Some(
-          TextReply[F](
-            m =>
-              for {
-                subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
-                subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
-                memSubscriptions     = backgroundJobManager.memSubscriptions.keys
-                memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid == m.chat.id }
-              } yield List(
-                s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
-                  .map(_.show)
-                  .mkString("\n") ++
-                  s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
-                  memChatSubscriptions.map(_.show).mkString("\n")
-              ),
-            true
-          )
+        reply = TextReplyM[F](
+          m =>
+            for {
+              subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
+              subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
+              memSubscriptions     = backgroundJobManager.memSubscriptions.keys
+              memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid == m.chat.id }
+            } yield List(
+              s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
+                .map(_.show)
+                .mkString("\n") ++
+                s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
+                memChatSubscriptions.map(_.show).mkString("\n")
+            ).toText,
+          true
         )
       )
   }
@@ -369,15 +349,13 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("toptwenty"),
-        text = Some(
-          TextReply[F](
-            _ =>
-              for {
-                dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
-                medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-              } yield List(Media.mediaListToString(medias)),
-            true
-          )
+        reply = TextReplyM[F](
+          _ =>
+            for {
+              dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
+              medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
+            } yield List(Media.mediaListToString(medias)).toText,
+          true
         ),
       )
 
@@ -397,33 +375,30 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("timeout"),
-        text = Some(
-          TextReply[F](
-            msg =>
-              handleCommandWithInput[F](
-                msg,
-                "timeout",
-                botName,
-                t => {
-                  Timeout(msg.chat.id, botName, t)
-                    .fold(
-                      error =>
-                        log.info(s"[ERROR] While parsing the timeout input: $error") *> List(
-                          s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
-                        ).pure[F],
-                      timeout =>
-                        dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List(
-                          s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}"
-                        ).pure[F]
-                    )
-                },
-                """Input Required: the input must be in the form '\timeout 00:00:00'"""
-              ),
-            true
-          )
+        reply = TextReplyM[F](
+          msg =>
+            handleCommandWithInput[F](
+              msg,
+              "timeout",
+              botName,
+              t => {
+                Timeout(msg.chat.id, botName, t)
+                  .fold(
+                    error =>
+                      log.info(s"[ERROR] While parsing the timeout input: $error") *> List(
+                        s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
+                      ).pure[F],
+                    timeout =>
+                      dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List(
+                        s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}"
+                      ).pure[F]
+                  )
+              },
+              """Input Required: the input must be in the form '\timeout 00:00:00'"""
+            ),
+          true
         )
       )
-
   }
 
   def handleCommandWithInput[F[_]: ApplicativeThrow](
@@ -433,7 +408,7 @@ ${ignoreMessagePrefix
       computation: String => F[List[String]],
       defaultReply: String,
       allowEmptyString: Boolean = false
-  ): F[List[String]] =
+  ): F[List[Text]] =
     msg.text
       .filterNot(t => !allowEmptyString && (t.trim == s"/$command" || t.trim == s"/$command@$botName"))
       .map(t => computation(t.dropWhile(_ != ' ').tail))
@@ -443,4 +418,5 @@ ${ignoreMessagePrefix
           s"An error occurred processing the command: $command from message: $msg by bot: $botName with error: ${e.getMessage}"
         ).pure[F]
       )
+      .map(_.toText)
 }

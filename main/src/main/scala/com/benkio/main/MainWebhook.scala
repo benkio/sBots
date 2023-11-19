@@ -19,7 +19,7 @@ import telegramium.bots.high.WebhookBot
 object MainWebhook extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] = {
-    implicit val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+    given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
     def server(mainSetup: MainSetup[IO]): Resource[IO, Server] = for {
       xahWebhook <- XahLeeBot.buildWebhookBot[IO](
