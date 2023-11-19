@@ -30,10 +30,12 @@ class CalandroBotSpec extends CatsEffectSuite {
     val botFile: IO[List[String]] =
       CalandroBot
         .messageRepliesData[IO]
-        .filter(r => r.reply match {
-          case MediaReply(_, _) => true
-          case _ => false
-        })
+        .filter(r =>
+          r.reply match {
+            case MediaReply(_, _) => true
+            case _                => false
+          }
+        )
         .flatTraverse(_.reply.prettyPrint)
         .both(
           CalandroBot
@@ -48,29 +50,28 @@ class CalandroBotSpec extends CatsEffectSuite {
       files =>
         botFile
           .unsafeRunSync()
-          .foreach(filename =>
-            assert(files.contains(filename), s"$filename is not contained in calandro data file")
-          )
+          .foreach(filename => assert(files.contains(filename), s"$filename is not contained in calandro data file"))
     )
 
   }
 
   test("the `cala_triggers.txt` should contain all the triggers of the bot") {
-    val listPath       = new File(".").getCanonicalPath + "/cala_triggers.txt"
-    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
+    val listPath        = new File(".").getCanonicalPath + "/cala_triggers.txt"
+    val triggerContent  = Source.fromFile(listPath).getLines().mkString("\n")
     val excludeTriggers = List("GIOCHI PER IL MIO PC")
 
     val botMediaFiles = CalandroBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
     val botTriggersFiles =
       CalandroBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
-    botMediaFiles.unsafeRunSync().filter(x => !excludeTriggers.exists(exc => x.startsWith(exc)) ).foreach { mediaFileString =>
-      val result = triggerContent.contains(mediaFileString)
-      if (!result) {
-        println(s"mediaFileString: $mediaFileString") 
-        println(s"triggerContent: $triggerContent")
-      }
-      assert(result)
+    botMediaFiles.unsafeRunSync().filter(x => !excludeTriggers.exists(exc => x.startsWith(exc))).foreach {
+      mediaFileString =>
+        val result = triggerContent.contains(mediaFileString)
+        if (!result) {
+          println(s"mediaFileString: $mediaFileString")
+          println(s"triggerContent: $triggerContent")
+        }
+        assert(result)
     }
     botTriggersFiles.foreach { triggerString =>
       assert(triggerContent.contains(triggerString), s"$triggerString is not contained in calandro trigger file")
