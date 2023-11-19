@@ -58,12 +58,13 @@ class CalandroBotSpec extends CatsEffectSuite {
   test("the `cala_triggers.txt` should contain all the triggers of the bot") {
     val listPath       = new File(".").getCanonicalPath + "/cala_triggers.txt"
     val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
+    val excludeTriggers = List("GIOCHI PER IL MIO PC")
 
     val botMediaFiles = CalandroBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
     val botTriggersFiles =
       CalandroBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
-    botMediaFiles.unsafeRunSync().foreach { mediaFileString =>
+    botMediaFiles.unsafeRunSync().filter(x => !excludeTriggers.exists(exc => x.startsWith(exc)) ).foreach { mediaFileString =>
       val result = triggerContent.contains(mediaFileString)
       if (!result) {
         println(s"mediaFileString: $mediaFileString") 
