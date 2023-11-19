@@ -1,6 +1,5 @@
 package com.benkio.integration.integrationmunit.xahleebot
 
-import com.benkio.xahleebot.XahLeeBot
 import io.circe.parser.decode
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import scala.io.Source
@@ -80,7 +79,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test(
     "commandRepliesData random files should be contained in the jsons"
   ) { fixture =>
-    val listPath      = new File(s"./../${XahLeeBot.botName}").getCanonicalPath + "/xah_list.json"
+    val listPath      = new File(s"./../xahLeeBot").getCanonicalPath + "/xah_list.json"
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
     val json : Either[io.circe.Error, List[String]] = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
