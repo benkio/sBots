@@ -136,10 +136,10 @@ object DBMedia {
   def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
     (fr"SELECT media_name, kinds, media_url, media_count, created_at FROM media" ++
       Fragments.whereOr(
-        fr"""kinds LIKE ${"""["""" + kind +  """",%"""}""",
+        fr"""kinds LIKE ${"""["""" + kind + """",%"""}""",
         fr"""kinds LIKE ${"""%,"""" + kind + """",%"""}""",
         fr"""kinds LIKE ${"""%,"""" + kind + """"]"""}""",
-        fr"""kinds LIKE ${"""["""" + kind +  """"]"""}""",
+        fr"""kinds LIKE ${"""["""" + kind + """"]"""}""",
       )).query[DBMediaData]
 
   def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
