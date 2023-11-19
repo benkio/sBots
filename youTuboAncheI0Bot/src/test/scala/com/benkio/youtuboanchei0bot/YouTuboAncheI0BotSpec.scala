@@ -41,8 +41,8 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
   given api: Api[IO] = new Api[IO] {
     def execute[Res](method: Method[Res]): IO[Res] = IO(???)
   }
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-  val emptyDBLayer: DBLayer[IO]   = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
+  given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
   val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
     emptyDBLayer.dbShow,

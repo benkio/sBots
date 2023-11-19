@@ -33,7 +33,7 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-  val resourceAccessMock          = new ResourceAccessMock(List.empty)
+  val resourceAccessMock   = new ResourceAccessMock(List.empty)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,

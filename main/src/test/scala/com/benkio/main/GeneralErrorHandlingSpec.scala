@@ -12,7 +12,7 @@ import scala.concurrent.duration.*
 
 class GeneralErrorHandlingSpec extends CatsEffectSuite {
 
-  given log: LogWriter[IO]  = consoleLogUpToLevel(LogLevels.Error)
+  given log: LogWriter[IO]         = consoleLogUpToLevel(LogLevels.Error)
   val expectedErrorMessage: String = "Test Throwable"
   val failedResource: Resource[IO, Unit] =
     Resource.raiseError(new Throwable(expectedErrorMessage))
