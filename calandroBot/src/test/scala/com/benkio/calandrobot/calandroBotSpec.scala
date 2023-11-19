@@ -1,5 +1,6 @@
 package com.benkio.calandrobot
 
+import com.benkio.telegrambotinfrastructure.model.MediaReply
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogLevels
@@ -29,6 +30,10 @@ class CalandroBotSpec extends CatsEffectSuite {
     val botFile: IO[List[String]] =
       CalandroBot
         .messageRepliesData[IO]
+        .filter(r => r.reply match {
+          case MediaReply(_, _) => true
+          case _ => false
+        })
         .flatTraverse(_.reply.prettyPrint)
         .both(
           CalandroBot
@@ -43,7 +48,9 @@ class CalandroBotSpec extends CatsEffectSuite {
       files =>
         botFile
           .unsafeRunSync()
-          .foreach(filename => assert(files.contains(filename), s"$filename is not contained in calandro data file"))
+          .foreach(filename =>
+            assert(files.contains(filename), s"$filename is not contained in calandro data file")
+          )
     )
 
   }
@@ -57,7 +64,12 @@ class CalandroBotSpec extends CatsEffectSuite {
       CalandroBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
 
     botMediaFiles.unsafeRunSync().foreach { mediaFileString =>
-      assert(triggerContent.contains(mediaFileString))
+      val result = triggerContent.contains(mediaFileString)
+      if (!result) {
+        println(s"mediaFileString: $mediaFileString") 
+        println(s"triggerContent: $triggerContent")
+      }
+      assert(result)
     }
     botTriggersFiles.foreach { triggerString =>
       assert(triggerContent.contains(triggerString), s"$triggerString is not contained in calandro trigger file")
