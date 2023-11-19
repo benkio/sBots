@@ -50,16 +50,10 @@ trait XahLeeBot[F[_]] extends BotSkeleton[F] {
       applicativeF: Applicative[F],
       log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
-    log.debug("[XahLeeBot] Empty message reply data") *> List.empty.pure[F]
+    log.debug("[XahLeeBot] Empty message reply data") *> XahLeeBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    CommandRepliesData
-      .values[F](
-        dbLayer = dbLayer,
-        backgroundJobManager = backgroundJobManager,
-        botName = botName
-      )
-      .pure[F]
+    XahLeeBot.commandRepliesData[F](backgroundJobManager, dbLayer).pure[F]
 
 }
 
@@ -69,6 +63,19 @@ object XahLeeBot {
   val botPrefix: String       = "xah"
   val tokenFilename: String   = "xah_XahLeeBot.token"
   val configNamespace: String = "xahDB"
+
+  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List.empty
+
+  def commandRepliesData[F[_]: Async: LogWriter](
+      backgroundJobManager: BackgroundJobManager[F],
+      dbLayer: DBLayer[F]
+  ): List[ReplyBundleCommand[F]] =
+    CommandRepliesData
+      .values[F](
+        dbLayer = dbLayer,
+        backgroundJobManager = backgroundJobManager,
+        botName = botName
+      )
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: XahLeeBotPolling[F] => F[A]

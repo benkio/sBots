@@ -54,7 +54,7 @@ trait CalandroBot[F[_]] extends BotSkeleton[F] {
     CalandroBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    CalandroBot.commandRepliesData[F](dbLayer = dbLayer, botName = botName).pure[F]
+    CalandroBot.commandRepliesData[F](dbLayer = dbLayer).pure[F]
 }
 
 object CalandroBot {
@@ -147,11 +147,11 @@ object CalandroBot {
     )
   )
 
-  def commandRepliesData[F[_]: Async: LogWriter](dbLayer: DBLayer[F], botName: String): List[ReplyBundleCommand[F]] =
+  def commandRepliesData[F[_]: Async: LogWriter](dbLayer: DBLayer[F]): List[ReplyBundleCommand[F]] =
     List(
       MediaByKindCommand.mediaCommandByKind(
         dbMedia = dbLayer.dbMedia,
-        botName = botName,
+        botName = CalandroBot.botName,
         commandName = "randomcard",
         kind = "cards".some
       ),

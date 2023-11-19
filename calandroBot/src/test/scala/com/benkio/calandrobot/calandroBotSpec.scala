@@ -35,7 +35,7 @@ class CalandroBotSpec extends CatsEffectSuite {
         .flatTraverse(_.reply.prettyPrint)
         .both(
           CalandroBot
-            .commandRepliesData[IO](dbLayer = emptyDBLayer, botName = CalandroBot.botName)
+            .commandRepliesData[IO](dbLayer = emptyDBLayer)
             .flatTraverse(_.reply.prettyPrint)
         )
         .map { case (m, c) => m ++ c }
