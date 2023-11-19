@@ -1,5 +1,6 @@
 package com.benkio.integration.integrationscalatest.main
 
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.integration.SlowTest
 import cats.effect.unsafe.implicits.global
 import log.effect.LogLevels
@@ -12,6 +13,7 @@ import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import cats.effect.IO
+import cats.syntax.all._
 import com.benkio.integration.DBFixture
 import org.scalatest._
 import org.scalatest.funsuite.FixtureAnyFunSuite
@@ -27,7 +29,10 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
     (RichardPHJBensonBot.messageRepliesData[IO] ++
       ABarberoBot.messageRepliesData[IO] ++
       YouTuboAncheI0Bot.messageRepliesData[IO] ++
-      M0sconiBot.messageRepliesData[IO]).flatMap(_.mediafiles).distinctBy(_.filename)
+      M0sconiBot.messageRepliesData[IO])
+      .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+      .map(_.distinctBy(_.filename))
+      .unsafeRunSync()
 
   def withFixture(test: OneArgTest): Outcome = {
     val fixtureParam = FixtureParam(DBFixture.fixtureSetup(null))

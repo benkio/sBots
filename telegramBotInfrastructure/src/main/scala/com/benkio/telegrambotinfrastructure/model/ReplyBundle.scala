@@ -95,6 +95,17 @@ object ReplyBundle {
   implicit def orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
     Trigger.orderingInstance.contramap(_.trigger)
 
+  def containsMediaReply[F[_]](r: ReplyBundle[F]): Boolean =
+    r.reply match {
+      case MediaReply(_, _) => true
+      case _                => false
+    }
+
+  def getMediaFiles[F[_]: Applicative](r: ReplyBundle[F]): F[List[MediaFile]] = r.reply match {
+    case MediaReply(mediaFiles, _) => mediaFiles
+    case _                         => List.empty.pure[F]
+  }
+
   def computeReplyBundle[F[_]: Async: LogWriter: Api](
       replyBundle: ReplyBundle[F],
       message: Message,

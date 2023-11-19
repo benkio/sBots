@@ -1,6 +1,6 @@
 package com.benkio.botDB.db
 
-import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.effect.Resource
 import cats.effect.Sync
 import cats.implicits._
@@ -49,7 +49,7 @@ object BotDBController {
       jsons = allFiles.filter(f => f.getName.endsWith("json"))
       input <- Resource.eval(Sync[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")
-        decode[List[MediafileSource]](fileContent)
+        decode[List[MediaFileSource]](fileContent)
       })))
       _ <- Resource.eval(
         input.traverse_(i =>

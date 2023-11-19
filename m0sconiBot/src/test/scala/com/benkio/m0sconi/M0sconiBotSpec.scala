@@ -5,7 +5,7 @@ import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.model.ReplyValue
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
@@ -63,7 +63,7 @@ class M0sconiBotSpec extends CatsEffectSuite {
   test("the `mos_list.json` should contain all the triggers of the bot") {
     val listPath      = new File(".").getCanonicalPath + "/mos_list.json"
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
+    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val botFile: IO[List[String]] =
       M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)

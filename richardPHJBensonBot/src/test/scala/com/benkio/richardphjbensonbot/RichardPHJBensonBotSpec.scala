@@ -7,7 +7,7 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.model.ReplyValue
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import telegramium.bots.high.Api
-import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import io.circe.parser.decode
 import cats.Show
 import cats.effect.IO
@@ -184,7 +184,7 @@ character: `!`
   test("the `rphjb_list.json` should contain all the triggers of the bot") {
     val listPath      = new File(".").getCanonicalPath + "/rphjb_list.json"
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
+    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val botFile = RichardPHJBensonBot.messageRepliesData[IO].flatMap(_.reply.prettyPrint.unsafeRunSync())
 

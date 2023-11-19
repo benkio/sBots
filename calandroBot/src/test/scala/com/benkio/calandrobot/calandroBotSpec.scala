@@ -1,12 +1,13 @@
 package com.benkio.calandrobot
 
-import com.benkio.telegrambotinfrastructure.model.MediaReply
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogLevels
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogWriter
-import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
@@ -25,17 +26,12 @@ class CalandroBotSpec extends CatsEffectSuite {
   test("the `cala_list.json` should contain all the triggers of the bot") {
     val listPath      = new File(".").getCanonicalPath + "/cala_list.json"
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
+    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val botFile: IO[List[String]] =
       CalandroBot
         .messageRepliesData[IO]
-        .filter(r =>
-          r.reply match {
-            case MediaReply(_, _) => true
-            case _                => false
-          }
-        )
+        .filter(ReplyBundle.containsMediaReply(_))
         .flatTraverse(_.reply.prettyPrint)
         .both(
           CalandroBot

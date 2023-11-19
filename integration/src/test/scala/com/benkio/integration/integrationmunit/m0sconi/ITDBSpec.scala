@@ -1,12 +1,13 @@
 package com.benkio.integration.integrationmunit.M0sconi
 
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 
 import cats.effect.IO
-import cats.effect.Resource
+
 import cats.implicits._
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import doobie.implicits._
@@ -21,9 +22,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
-    val resourceAssert = for {
-      mp3s <- Resource.pure(messageRepliesAudioData[IO].flatMap(_.mediafiles))
-      checks <- Resource.eval(
+    val testAssert = for {
+      mp3s <- messageRepliesAudioData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+      checks <-
         mp3s
           .traverse((mp3: MediaFile) =>
             DBMedia
@@ -34,18 +35,17 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .attempt
               .map(_.isRight)
           )
-      )
     } yield checks.foldLeft(true)(_ && _)
 
-    resourceAssert.use(IO.pure).assert
+    testAssert.assert
   }
 
   databaseFixture.test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
     fixture =>
       val transactor = fixture.transactor
-      val resourceAssert = for {
-        gifs <- Resource.pure(messageRepliesGifData[IO].flatMap(_.mediafiles))
-        checks <- Resource.eval(
+      val testAssert = for {
+        gifs <- messageRepliesGifData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+        checks <- 
           gifs
             .traverse((gif: MediaFile) =>
               DBMedia
@@ -55,20 +55,19 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 .onError(_ => IO.println(s"[ERROR] gif missing from the DB: " + gif))
                 .attempt
                 .map(_.isRight)
-            )
         )
       } yield checks.foldLeft(true)(_ && _)
 
-      resourceAssert.use(IO.pure).assert
+      testAssert.assert
   }
 
   databaseFixture.test(
     "messageRepliesSpecialData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
-    val resourceAssert = for {
-      specials <- Resource.pure(messageRepliesSpecialData[IO].flatMap(_.mediafiles))
-      checks <- Resource.eval(
+    val testAssert = for {
+      specials <- messageRepliesSpecialData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+      checks <- 
         specials
           .traverse((special: MediaFile) =>
             DBMedia
@@ -78,11 +77,11 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .onError(_ => IO.println(s"[ERROR] special missing from the DB: " + special))
               .attempt
               .map(_.isRight)
-          )
+          
       )
     } yield checks.foldLeft(true)(_ && _)
 
-    resourceAssert.use(IO.pure).assert
+    testAssert.assert
   }
 
 }

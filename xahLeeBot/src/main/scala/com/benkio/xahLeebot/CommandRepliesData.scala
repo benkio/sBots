@@ -1,5 +1,6 @@
 package com.benkio.xahleebot
 
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.model.*
@@ -7,6 +8,7 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkC
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
+import cats.syntax.all.*
 
 object CommandRepliesData {
 
@@ -34,93 +36,137 @@ object CommandRepliesData {
       backgroundJobManager = backgroundJobManager,
       botName = botName
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("alanmackenzie"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "alanmackenzie",
+      kind = "alanmackenzie".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("ass"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "ass",
+      kind = "ass".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("ccpp"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "ccpp",
+      kind = "ccpp".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("crap"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "crap",
+      kind = "crap".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("emacs"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "emacs",
+      kind = "emacs".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("fakhead"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "fakhead",
+      kind = "fakhead".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("fak"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "fak",
+      kind = "fak".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("google"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "google",
+      kind = "google".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("idiocy"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "idiocy",
+      kind = "idiocy".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("idiots"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "idiots",
+      kind = "idiots".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("laugh"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "laugh",
+      kind = "laugh".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("linux"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "linux",
+      kind = "linux".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("millennial"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "millennial",
+      kind = "millennial".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("opensource"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "opensource",
+      kind = "opensource".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("opera"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "opera",
+      kind = "opera".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("python"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "python",
+      kind = "python".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("richardstallman"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "richardstallman",
+      kind = "richardstallman".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("sucks"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "sucks",
+      kind = "sucks".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("unix"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "unix",
+      kind = "unix".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("wtf"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "wtf",
+      kind = "wtf".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("extra"),
-      reply = ???
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "extra",
+      kind = "extra".some
     ),
-    ReplyBundleCommand[F](
-      trigger = CommandTrigger("rantcompilation"),
-      reply = ???
-    ),
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
+      commandName = "rantcompilation",
+      kind = "rantcompilation".some
+    )
   )
 }

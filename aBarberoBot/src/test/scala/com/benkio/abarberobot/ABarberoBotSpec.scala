@@ -7,7 +7,7 @@ import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.model.ReplyValue
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import cats.Show
 import cats.effect.IO
 import cats.implicits._
@@ -77,7 +77,7 @@ class ABarberoBotSpec extends CatsEffectSuite {
   test("the `abar_list.json` should contain all the triggers of the bot") {
     val listPath      = new File(".").getCanonicalPath + "/abar_list.json"
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
+    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val botFile = ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 

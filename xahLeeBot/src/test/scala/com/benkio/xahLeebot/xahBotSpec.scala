@@ -7,7 +7,7 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import cats.effect.Async
 import telegramium.bots.client.Method
 import telegramium.bots.high.Api
-import com.benkio.telegrambotinfrastructure.model.MediafileSource
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import io.circe.parser.decode
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -51,7 +51,7 @@ class XahLeeBotSpec extends CatsEffectSuite {
   test("the jsons should contain all the triggers of the bot") {
     val listPath      = new File(".").getCanonicalPath + "/xah_list.json"
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
+    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val botFile =
       CommandRepliesData
@@ -65,8 +65,9 @@ class XahLeeBotSpec extends CatsEffectSuite {
     assert(jsonFilenames.isRight)
     jsonFilenames.fold(
       e => fail("test failed", e),
-      files =>
+      files => {
         botFile.foreach(filename => assert(files.contains(filename), s"$filename is not contained in xah data file"))
+      }
     )
   }
 }
