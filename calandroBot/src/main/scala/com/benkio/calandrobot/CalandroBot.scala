@@ -19,6 +19,7 @@ import org.http4s.implicits._
 import telegramium.bots.high._
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
 
 import scala.util.Random
 
@@ -53,7 +54,7 @@ trait CalandroBot[F[_]] extends BotSkeleton[F] {
     CalandroBot.messageRepliesData[F].pure[F]
 
   override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
-    CalandroBot.commandRepliesData[F].pure[F]
+    CalandroBot.commandRepliesData[F](dbLayer = dbLayer, botName = botName).pure[F]
 }
 
 object CalandroBot {
@@ -146,40 +147,43 @@ object CalandroBot {
     )
   )
 
-  def commandRepliesData[F[_]: Applicative]: List[ReplyBundleCommand[F]] = List(
-    ReplyBundleCommand(
-      trigger = CommandTrigger("randomcard"),
-      reply = ???
-    ),
-    ReplyBundleCommand.textToMedia[F]("porcoladro")(mf"cala_PorcoLadro.mp3"),
-    ReplyBundleCommand.textToMedia[F]("unoduetre")(mf"cala_Unoduetre.mp3"),
-    ReplyBundleCommand.textToMedia[F]("ancorauna")(mf"cala_AncoraUnaDoveLaMetto.mp3"),
-    ReplyBundleCommand.textToMedia[F]("lacipolla")(mf"cala_CipollaCalandrica.mp3"),
-    ReplyBundleCommand.textToMedia[F]("lavorogiusto")(mf"cala_IlLavoroVaPagato.mp3"),
-    ReplyBundleCommand.textToMedia[F]("motivazioniinternet")(mf"cala_InternetMotivazioniCalandriche.mp3"),
-    ReplyBundleCommand.textToMedia[F]("cazzomene")(mf"cala_IoSonVaccinato.mp3"),
-    ReplyBundleCommand.textToMedia[F]("arrivoarrivo")(mf"cala_SubmissionCalandra.mp3"),
-    ReplyBundleCommand.textToMedia[F]("vaginadepilata")(mf"cala_VaginaDepilataCalandra.mp3"),
-    ReplyBundleCommand.textToMedia[F]("whawha_fallout4")(mf"cala_Waawahaawha.mp3"),
-    ReplyBundleCommand.textToMedia[F]("whawha_short")(mf"cala_WwhaaawhaaaSingolo.mp3"),
-    ReplyBundleCommand.textToMedia[F]("daccordissimo")(mf"cala_D_accordissimo.mp3"),
-    ReplyBundleCommand.textToMedia[F]("stocazzo")(mf"cala_Stocazzo.mp3"),
-    ReplyBundleCommand.textToMedia[F]("cazzodibudda")(mf"cala_CazzoDiBudda.mp3"),
-    ReplyBundleCommand.textToMedia[F]("personapulita")(mf"cala_PersonaPulita.mp3"),
-    ReplyBundleCommand.textToMedia[F]("losquirt")(mf"cala_LoSquirt.mp3"),
-    ReplyBundleCommand.textToMedia[F]("fuoridalmondo")(mf"cala_FuoriDalMondo.mp3"),
-    ReplyBundleCommand.textToMedia[F]("qualitaolive")(mf"cala_QualitaOlive.mp3"),
-    ReplyBundleCommand.textToMedia[F]("gioielli")(mf"cala_Gioielli.mp3"),
-    ReplyBundleCommand.textToMedia[F]("risata")(mf"cala_RisataCalandrica.mp3"),
-    ReplyBundleCommand.textToMedia[F]("sonocosternato")(mf"cala_SonoCosternato.mp3"),
-    ReplyBundleCommand.textToMedia[F]("demenza")(mf"cala_LaDemenzaDiUnUomo.mp3"),
-    ReplyBundleCommand.textToMedia[F]("wha")(mf"cala_WhaSecco.mp3"),
-    ReplyBundleCommand.textToMedia[F]("imparatounafava")(mf"cala_ImparatoUnaFava.mp3"),
-    ReplyBundleCommand.textToMedia[F]("lesbiche")(mf"cala_SieteLesbiche.mp3"),
-    ReplyBundleCommand.textToMedia[F]("firstlesson")(mf"cala_FirstLessonPlease.mp3"),
-    ReplyBundleCommand.textToMedia[F]("noprogrammato")(mf"cala_NoGrazieProgrammato.mp3"),
-    ReplyBundleCommand.textToMedia[F]("fiammeinferno")(mf"cala_Fiamme.mp3")
-  )
+  def commandRepliesData[F[_]: Async: LogWriter](dbLayer: DBLayer[F], botName: String): List[ReplyBundleCommand[F]] =
+    List(
+      MediaByKindCommand.mediaCommandByKind(
+        dbMedia = dbLayer.dbMedia,
+        botName = botName,
+        commandName = "randomcard",
+        kind = "cards".some
+      ),
+      ReplyBundleCommand.textToMedia[F]("porcoladro")(mf"cala_PorcoLadro.mp3"),
+      ReplyBundleCommand.textToMedia[F]("unoduetre")(mf"cala_Unoduetre.mp3"),
+      ReplyBundleCommand.textToMedia[F]("ancorauna")(mf"cala_AncoraUnaDoveLaMetto.mp3"),
+      ReplyBundleCommand.textToMedia[F]("lacipolla")(mf"cala_CipollaCalandrica.mp3"),
+      ReplyBundleCommand.textToMedia[F]("lavorogiusto")(mf"cala_IlLavoroVaPagato.mp3"),
+      ReplyBundleCommand.textToMedia[F]("motivazioniinternet")(mf"cala_InternetMotivazioniCalandriche.mp3"),
+      ReplyBundleCommand.textToMedia[F]("cazzomene")(mf"cala_IoSonVaccinato.mp3"),
+      ReplyBundleCommand.textToMedia[F]("arrivoarrivo")(mf"cala_SubmissionCalandra.mp3"),
+      ReplyBundleCommand.textToMedia[F]("vaginadepilata")(mf"cala_VaginaDepilataCalandra.mp3"),
+      ReplyBundleCommand.textToMedia[F]("whawha_fallout4")(mf"cala_Waawahaawha.mp3"),
+      ReplyBundleCommand.textToMedia[F]("whawha_short")(mf"cala_WwhaaawhaaaSingolo.mp3"),
+      ReplyBundleCommand.textToMedia[F]("daccordissimo")(mf"cala_D_accordissimo.mp3"),
+      ReplyBundleCommand.textToMedia[F]("stocazzo")(mf"cala_Stocazzo.mp3"),
+      ReplyBundleCommand.textToMedia[F]("cazzodibudda")(mf"cala_CazzoDiBudda.mp3"),
+      ReplyBundleCommand.textToMedia[F]("personapulita")(mf"cala_PersonaPulita.mp3"),
+      ReplyBundleCommand.textToMedia[F]("losquirt")(mf"cala_LoSquirt.mp3"),
+      ReplyBundleCommand.textToMedia[F]("fuoridalmondo")(mf"cala_FuoriDalMondo.mp3"),
+      ReplyBundleCommand.textToMedia[F]("qualitaolive")(mf"cala_QualitaOlive.mp3"),
+      ReplyBundleCommand.textToMedia[F]("gioielli")(mf"cala_Gioielli.mp3"),
+      ReplyBundleCommand.textToMedia[F]("risata")(mf"cala_RisataCalandrica.mp3"),
+      ReplyBundleCommand.textToMedia[F]("sonocosternato")(mf"cala_SonoCosternato.mp3"),
+      ReplyBundleCommand.textToMedia[F]("demenza")(mf"cala_LaDemenzaDiUnUomo.mp3"),
+      ReplyBundleCommand.textToMedia[F]("wha")(mf"cala_WhaSecco.mp3"),
+      ReplyBundleCommand.textToMedia[F]("imparatounafava")(mf"cala_ImparatoUnaFava.mp3"),
+      ReplyBundleCommand.textToMedia[F]("lesbiche")(mf"cala_SieteLesbiche.mp3"),
+      ReplyBundleCommand.textToMedia[F]("firstlesson")(mf"cala_FirstLessonPlease.mp3"),
+      ReplyBundleCommand.textToMedia[F]("noprogrammato")(mf"cala_NoGrazieProgrammato.mp3"),
+      ReplyBundleCommand.textToMedia[F]("fiammeinferno")(mf"cala_Fiamme.mp3")
+    )
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: CalandroBotPolling[F] => F[A]

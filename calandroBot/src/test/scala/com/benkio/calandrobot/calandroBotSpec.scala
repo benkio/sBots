@@ -1,5 +1,10 @@
 package com.benkio.calandrobot
 
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import log.effect.LogLevels
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogWriter
 import com.benkio.telegrambotinfrastructure.model.MediafileSource
 import cats.Show
 import cats.effect.IO
@@ -13,15 +18,24 @@ import io.circe.parser.decode
 
 class CalandroBotSpec extends CatsEffectSuite {
 
+  given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(CalandroBot.botName)
+
   test("the `cala_list.json` should contain all the triggers of the bot") {
     val listPath      = new File(".").getCanonicalPath + "/cala_list.json"
     val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
     val jsonFilenames = decode[List[MediafileSource]](jsonContent).map(_.map(_.filename))
 
     val botFile: IO[List[String]] =
-      ??? // CalandroBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint) ++ CalandroBot
-    // .commandRepliesData[IO]
-    // .flatTraverse(_.reply.prettyPrint)
+      CalandroBot
+        .messageRepliesData[IO]
+        .flatTraverse(_.reply.prettyPrint)
+        .both(
+          CalandroBot
+            .commandRepliesData[IO](dbLayer = emptyDBLayer, botName = CalandroBot.botName)
+            .flatTraverse(_.reply.prettyPrint)
+        )
+        .map { case (m, c) => m ++ c }
 
     assert(jsonFilenames.isRight)
     jsonFilenames.fold(

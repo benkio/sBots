@@ -1,8 +1,5 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import com.benkio.telegrambotinfrastructure.model.TextReply
-import com.benkio.telegrambotinfrastructure.model.Text
-import com.benkio.telegrambotinfrastructure.model.toText
 import cats.effect.Async
 import cats.implicits._
 import cats.Applicative
@@ -11,24 +8,8 @@ import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.Media
-import com.benkio.telegrambotinfrastructure.model.RandomQuery
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.Show
-import com.benkio.telegrambotinfrastructure.model.ShowQuery
-import com.benkio.telegrambotinfrastructure.model.ShowQueryKeyword
-import com.benkio.telegrambotinfrastructure.model.Subscription
-import com.benkio.telegrambotinfrastructure.model.TextReplyM
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.Timeout
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
+import com.benkio.telegrambotinfrastructure.model.*
+import com.benkio.telegrambotinfrastructure.resources.db.*
 import log.effect.LogWriter
 import org.http4s.Uri
 import telegramium.bots.Message
@@ -38,6 +19,25 @@ import scala.util.Random
 import scala.util.Try
 
 object CommandPatterns {
+
+  object MediaByKindCommand {
+
+    def mediaCommandByKind[F[_]: Async](
+        dbMedia: DBMedia[F],
+        botName: String,
+        commandName: String,
+        kind: Option[String]
+    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
+      ReplyBundleCommand[F](
+        trigger = CommandTrigger(commandName),
+        reply = MediaReply[F](
+          mediaFiles = for
+            dbMediaDatas <- dbMedia.getMediaByKind(kind = kind.getOrElse(commandName))
+            medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
+          yield medias.map(media => MediaFile(media.mediaName))
+        )
+      )
+  }
 
   object RandomLinkCommand {
 
@@ -71,7 +71,7 @@ Input as query string:
     def searchShowReplyBundleCommand[F[_]: Async](
         dbShow: DBShow[F],
         botName: String
-    )(implicit log: LogWriter[F]): ReplyBundleCommand[F] =
+    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("searchshow"),
         reply = TextReplyM[F](
@@ -98,7 +98,7 @@ Input as query string:
         keywords: String,
         dbShow: DBShow[F],
         botName: String
-    )(implicit log: LogWriter[F]): F[List[String]] = {
+    )(using log: LogWriter[F]): F[List[String]] = {
       val query: ShowQuery = ShowQuery(keywords)
       val dbCall = query match {
         case RandomQuery         => dbShow.getShows(botName)
