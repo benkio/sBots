@@ -51,7 +51,8 @@ class ReplyBundleSpec extends CatsEffectSuite {
         trigger = TextTrigger(
           StringTextTriggerValue("test")
         ),
-        reply = reply
+        reply = reply,
+        replySelection = SelectAll
       )
 
     val replyBundleInput1: ReplyBundleMessage[IO] = input(MediaReply[IO](mediaFiles = inputMediafile.pure[IO]))

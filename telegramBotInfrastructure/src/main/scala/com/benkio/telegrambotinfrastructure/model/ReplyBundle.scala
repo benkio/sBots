@@ -76,7 +76,7 @@ object ReplyBundleCommand {
   def apply[F[_]](
       trigger: CommandTrigger,
       reply: Reply[F],
-      replySelection: ReplySelection = SelectAll
+      replySelection: ReplySelection = RandomSelection
   ): ReplyBundleCommand[F] = new ReplyBundleCommand[F](
     trigger = trigger,
     reply = reply,
