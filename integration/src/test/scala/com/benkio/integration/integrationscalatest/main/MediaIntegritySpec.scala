@@ -11,11 +11,11 @@ import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.model.MediaFile
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.xahleebot.XahLeeBot
-// import com.benkio.abarberobot.ABarberoBot
-// import com.benkio.calandrobot.CalandroBot
-// import com.benkio.m0sconibot.M0sconiBot
-// import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-// import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import com.benkio.abarberobot.ABarberoBot
+import com.benkio.calandrobot.CalandroBot
+import com.benkio.m0sconibot.M0sconiBot
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
+import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import log.effect.LogLevels
 import log.effect.LogWriter
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
