@@ -10,7 +10,7 @@ object Dependencies {
     val catsEffectTime     = "0.2.1"
     val catsEffectVersion  = "3.5.2"
     val circe              = "0.14.6"
-    val doobie             = "1.0.0-RC4"
+    val doobie             = "1.0.0-RC5"
     val fs2Core            = "3.9.3"
     val fs2IO              = "3.9.3"
     val flyway             = "10.0.1"
