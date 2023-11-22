@@ -9,18 +9,15 @@ jobs:
       pull-requests: write
     if: startsWith(github.head_ref, 'update/')
     steps:
-      - id: auto-approve
-        name: Auto Approve
+      - id: autoapprove
+        name: autoapprove
         uses: hmarr/auto-approve-action@v3
-      - id: add-automerge-label
-        name: Add automerge Label
-        uses: TobKed/label-when-approved-action@v1.2
-        with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
-          label: 'automerge'
-      - id: auto-merge
-        name: Auto Merge
+      - id: automerge
+        name: automerge
         uses: "pascalgn/automerge-action@v0.15.6"
         env:
+          MERGE_LABELS: ""
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_FILTER_AUTHOR: scala-steward
+          MERGE_DELETE_BRANCH: "true"
+          UPDATE_LABELS: ""
