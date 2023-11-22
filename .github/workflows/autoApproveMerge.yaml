@@ -12,12 +12,13 @@ jobs:
       - id: autoapprove
         name: autoapprove
         uses: hmarr/auto-approve-action@v3
+      - name: add label
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: automerge
       - id: automerge
         name: automerge
         uses: "pascalgn/automerge-action@v0.15.6"
         env:
-          MERGE_LABELS: ""
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          # MERGE_FILTER_AUTHOR: scala-steward
-          # MERGE_DELETE_BRANCH: "true"
-          # UPDATE_LABELS: ""
+          MERGE_FILTER_AUTHOR: scala-steward
