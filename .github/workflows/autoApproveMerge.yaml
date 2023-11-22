@@ -16,7 +16,7 @@ jobs:
         name: Add automerge Label
         uses: TobKed/label-when-approved-action@v1.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: "${{ secrets.GITHUB_TOKEN }}"
           label: 'automerge'
       - id: auto-merge
         name: Auto Merge
