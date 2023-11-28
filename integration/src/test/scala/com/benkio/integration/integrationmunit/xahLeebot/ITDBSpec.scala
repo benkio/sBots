@@ -99,7 +99,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
           .map((mediaFile: MediaFile) =>
             json.fold(
               e => fail("test failed", e),
-              jsonMediaFileSources =>{
+              jsonMediaFileSources => {
                 val result = jsonMediaFileSources.exists((mediaFilenameSource: String) => mediaFilenameSource == mediaFile.filename)
                 if (!result) {
                   println(s"${mediaFile.filename} is not contained in the json file")
