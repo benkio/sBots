@@ -5,8 +5,7 @@ on: pull_request_target
 jobs:
   autoApproveMerge:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write-all
+    permissions: write-all
     if: startsWith(github.head_ref, 'update/')
     steps:
       - id: autoapprove
