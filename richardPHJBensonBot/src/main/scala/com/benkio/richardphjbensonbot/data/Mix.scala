@@ -713,7 +713,9 @@ object Mix {
     )(
       mf"rphjb_DiventoBestia.mp3",
       mf"rphjb_Incazzo.mp3",
-      mf"rphjb_Incazzo2.mp3"
+      mf"rphjb_Incazzo2.mp3",
+      mf"rphjb_PrimoSbaglio.mp3",
+      mf"rphjb_PrimoSbaglio.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"dove stiamo",
@@ -1169,6 +1171,12 @@ object Mix {
     )(
       mf"rphjb_Mula.mp4",
       mf"rphjb_StoriaMula.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"primo sbaglio"
+    )(
+      mf"rphjb_PrimoSbaglio.mp3",
+      mf"rphjb_PrimoSbaglio.mp4",
     ),
   )
 

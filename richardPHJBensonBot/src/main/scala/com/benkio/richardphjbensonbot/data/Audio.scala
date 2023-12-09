@@ -48,11 +48,6 @@ object Audio {
       mf"rphjb_DevoSopportare.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"primo sbaglio"
-    )(
-      mf"rphjb_PrimoSbaglio.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"non mi ricordo più"
     )(
       mf"rphjb_NonMiRicordoPiu.mp3"

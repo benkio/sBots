@@ -784,7 +784,15 @@ object Video {
       stt"coniglio"
     )(
       mf"rphjb_StoriaSignorGionz.mp4",
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"brooklyn",
+      stt"carne morta",
+      stt"manhattan",
+      stt"cane da guerra",
+    )(
+      mf"rphjb_PrimoSbaglio.mp4",
+    ),
   )
 
 }
