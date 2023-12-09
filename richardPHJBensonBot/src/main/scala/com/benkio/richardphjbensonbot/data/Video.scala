@@ -64,12 +64,6 @@ object Video {
       mf"rphjb_FregataFregatura.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\bmula\\b".r.tr(4),
-      stt"storia della mula"
-    )(
-      mf"rphjb_Mula.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"si o no"
     )(
       mf"rphjb_SiONo.mp4"

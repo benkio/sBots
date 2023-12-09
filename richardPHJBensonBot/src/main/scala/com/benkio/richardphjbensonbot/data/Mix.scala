@@ -29,7 +29,7 @@ object Mix {
       mf"rphjb_DrogatiPiloti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\brock\\b".r, 4)
+      "\\brock\\b".r.tr(4)
     )(
       mf"rphjb_PoesiaRock.mp4",
       mf"rphjb_Rock.mp3",
@@ -45,7 +45,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       stt"cristo pinocchio",
       stt"lumicino",
-      RegexTextTriggerValue("(strade|vie) inferiori".r, 13)
+      "(strade|vie) inferiori".r.tr(13)
     )(
       mf"rphjb_CristoPinocchio.mp3",
       mf"rphjb_CristoPinocchio.mp4",
@@ -59,18 +59,18 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"lasciami in pace",
-      RegexTextTriggerValue("\\bstronza\\b".r, 7)
+      "\\bstronza\\b".r.tr(7)
     )(
       gif"rphjb_LasciamiInPace.mp4",
       mf"rphjb_LasciamiInPaceStronza.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"rimpinzati",
-      RegexTextTriggerValue("(g|c)io(g|c)+ola(d|t)a".r, 9),
+      "(g|c)io(g|c)+ola(d|t)a".r.tr(9),
       stt"pandori",
       stt"ciambelloni",
       stt"gli amari",
-      RegexTextTriggerValue("limoncell(o|i)".r, 10),
+      "limoncell(o|i)".r.tr(10),
       stt"ingrassati",
       stt"andati al cesso",
     )(
@@ -85,7 +85,7 @@ object Mix {
       mf"rphjb_MelensaStareMale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r, 10)
+      "[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r.tr(10)
     )(
       mf"rphjb_Attenzione.mp3",
       mf"rphjb_Attenzione.mp4"
@@ -97,7 +97,7 @@ object Mix {
       mf"rphjb_Paradosso.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\bsput[ao]\\b".r, 5)
+      "\\bsput[ao]\\b".r.tr(5)
     )(
       gif"rphjb_SputoGif.mp4",
       mf"rphjb_Sputo.mp4",
@@ -107,7 +107,7 @@ object Mix {
       stt"cobelini",
       stt"cobbolidi",
       stt"elfi",
-      RegexTextTriggerValue("\\bnani\\b".r, 4),
+      "\\bnani\\b".r.tr(4),
       stt"la mandragola",
       stt"gobellini",
       stt"fico sacro",
@@ -133,7 +133,7 @@ object Mix {
       mf"rphjb_ChiamaLaPolizia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("stori(a|e)".r, 6)
+      "stori(a|e)".r.tr(6)
     )(
       mf"rphjb_Storie.mp3",
       mf"rphjb_Storie2.mp3",
@@ -141,12 +141,13 @@ object Mix {
       mf"rphjb_StorieSonoTanteVecchiaccia.mp4",
       mf"rphjb_StoriaVeraPienaBugie.mp4",
       mf"rphjb_StoriaAmicoGrasso.mp4",
-      mf"rphjb_StoriaSignorGionz.mp4"
+      mf"rphjb_StoriaSignorGionz.mp4",
+      mf"rphjb_StoriaMula.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("au[ ]?de".r, 4),
-      RegexTextTriggerValue("\\btime\\b".r, 4),
-      RegexTextTriggerValue("uir[ ]?bi[ ]?taim".r, 9)
+      "au[ ]?de".r.tr(4),
+      "\\btime\\b".r.tr(4),
+      "uir[ ]?bi[ ]?taim".r.tr(9)
     )(
       mf"rphjb_Audeuirbitaim.mp3",
       mf"rphjb_Audeuirbitaim2.mp3",
@@ -163,9 +164,9 @@ object Mix {
       mf"rphjb_InnoAllaMorte.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\bspalle\\b".r, 6),
-      RegexTextTriggerValue("\\bbraccia\\b".r, 7),
-      RegexTextTriggerValue("t(i|e) strozzo".r, 10)
+      "\\bspalle\\b".r.tr(6),
+      "\\bbraccia\\b".r.tr(7),
+      "t(i|e) strozzo".r.tr(10)
     )(
       gif"rphjb_FaccioVedereSpalleBracciaGif.mp4",
       mf"rphjb_FaccioVedereSpalleBraccia.mp4",
@@ -173,7 +174,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non sapere",
-      RegexTextTriggerValue("aris(d|t)o(d|t)ele".r, 10)
+      "aris(d|t)o(d|t)ele".r.tr(10)
     )(
       gif"rphjb_SoDiNonSapereGif.mp4",
       mf"rphjb_SoDiNonSapere.mp4"
@@ -185,7 +186,7 @@ object Mix {
       mf"rphjb_RobaPerMe.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue(" io \\bn[o]{2,}\\b".r, 6)
+      " io \\bn[o]{2,}\\b".r.tr(6)
     )(
       mf"rphjb_IoNo.mp3",
       mf"rphjb_GesuCoglione.mp4",
@@ -219,13 +220,13 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non ci credete?",
-      RegexTextTriggerValue("grande s(d|t)ronza(d|t)(e|a)".r, 16)
+      "grande s(d|t)ronza(d|t)(e|a)".r.tr(16)
     )(
       gif"rphjb_NonCiCredete.mp4",
       mf"rphjb_NonCiCredete.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("non me ne (frega|fotte)".r, 15),
+      "non me ne (frega|fotte)".r.tr(15),
       stt"chissenefrega",
       stt"non mi interessa"
     )(
@@ -248,11 +249,11 @@ object Mix {
       mf"rphjb_StateZittiZozziUltimi.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("che (cazzo )?era quella roba".r, 19),
-      RegexTextTriggerValue("che (cazzo |cazzo di roba )?mi avete dato".r, 17),
+      "che (cazzo )?era quella roba".r.tr(19),
+      "che (cazzo |cazzo di roba )?mi avete dato".r.tr(17),
       stt"lampi negli occhi",
-      RegexTextTriggerValue("gira(re|ra|rà|ndo)? la testa".r, 13),
-      RegexTextTriggerValue("insieme alla (c|g)o(c|g)a (c|g)ola".r, 22)
+      "gira(re|ra|rà|ndo)? la testa".r.tr(13),
+      "insieme alla (c|g)o(c|g)a (c|g)ola".r.tr(22)
     )(
       mf"rphjb_CheCazzoEraQuellaRoba.mp3",
       mf"rphjb_CheCazzoEraQuellaRoba.mp4",
@@ -298,9 +299,9 @@ object Mix {
       mf"rphjb_AuguriPerPasqua.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\bgood\\b".r, 4),
-      RegexTextTriggerValue("\\bshow\\b".r, 4),
-      RegexTextTriggerValue("\\bfriends\\b".r, 7)
+      "\\bgood\\b".r.tr(4),
+      "\\bshow\\b".r.tr(4),
+      "\\bfriends\\b".r.tr(7)
     )(
       gif"rphjb_OkGoodShowFriends.mp4",
       gif"rphjb_OkGoodShowFriends2.mp4",
@@ -310,7 +311,7 @@ object Mix {
       mf"rphjb_NonPoteteGiudicarUrloThatsGood.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("vattene (a f|a[f]*)?fanculo".r, 16)
+      "vattene (a f|a[f]*)?fanculo".r.tr(16)
     )(
       gif"rphjb_MaVatteneAffanculo.mp4",
       mf"rphjb_MaVatteneAffanculo.mp3",
@@ -383,7 +384,7 @@ object Mix {
       mf"rphjb_CristoCanaro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("ma[ ]?s(c|g)us[a]?".r, 5)
+      "ma[ ]?s(c|g)us[a]?".r.tr(5)
     )(
       mf"rphjb_MaSgus.mp3",
       gif"rphjb_MaSgus.mp4"
@@ -396,7 +397,7 @@ object Mix {
       mf"rphjb_Grazie.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("cia[o]{3,}".r, 6)
+      "cia[o]{3,}".r.tr(6)
     )(
       mf"rphjb_Grazie.mp3",
       gif"rphjb_GrazieGif.mp4",
@@ -422,7 +423,7 @@ object Mix {
       mf"rphjb_StorieSonoTanteVecchiaccia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("infern[a]+l[ie]+[!]*".r, 9)
+      "infern[a]+l[ie]+[!]*".r.tr(9)
     )(
       mf"rphjb_Infernali.mp3",
       gif"rphjb_Infernali.mp4",
@@ -436,9 +437,9 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"sorriso",
-      RegexTextTriggerValue("(😂|🤣){4,}".r, 4),
-      RegexTextTriggerValue("(😄|😀|😃){4,}".r, 4),
-      RegexTextTriggerValue("(ah|ha){7,}".r, 14)
+      "(😂|🤣){4,}".r.tr(4),
+      "(😄|😀|😃){4,}".r.tr(4),
+      "(ah|ha){7,}".r.tr(14)
     )(
       mf"rphjb_Risata.mp3",
       mf"rphjb_Risata.mp4",
@@ -460,7 +461,7 @@ object Mix {
       gif"rphjb_Frocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("(fammi|chiedere)? (una|questa)? cortesia".r, 18)
+      "(fammi|chiedere)? (una|questa)? cortesia".r.tr(18)
     )(
       mf"rphjb_FammiQuestaCortesia.mp3",
       gif"rphjb_FammiQuestaCortesia.mp4"
@@ -503,7 +504,7 @@ object Mix {
       gif"rphjb_Note.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("te[r]+[i]+[b]+[i]+l[e]+".r, 8)
+      "te[r]+[i]+[b]+[i]+l[e]+".r.tr(8)
     )(
       mf"rphjb_Terribile.mp3",
       mf"rphjb_Terribile.mp4",
@@ -524,7 +525,7 @@ object Mix {
       mf"rphjb_CiaoComeState.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\bbasta(a|!){2,}".r, 7)
+      "\\bbasta(a|!){2,}".r.tr(7)
     )(
       mf"rphjb_Basta.mp3",
       gif"rphjb_Basta.mp4",
@@ -540,8 +541,8 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"assolo",
-      RegexTextTriggerValue("(g|c)hi(t|d)arra".r, 8),
-      RegexTextTriggerValue("(as)?solo di basso".r, 13)
+      "(g|c)hi(t|d)arra".r.tr(8),
+      "(as)?solo di basso".r.tr(13)
     )(
       mf"rphjb_Assolo.mp3",
       mf"rphjb_Assolo.mp4",
@@ -560,8 +561,8 @@ object Mix {
       mf"rphjb_AssoloBasso.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\b(g|c)a(b|p)i(d|t)o\\b".r, 6),
-      RegexTextTriggerValue("\\bcapissi\\b".r, 7),
+      "\\b(g|c)a(b|p)i(d|t)o\\b".r.tr(6),
+      "\\bcapissi\\b".r.tr(7),
     )(
       mf"rphjb_HoCapito.mp3",
       mf"rphjb_AveteCapito.mp3",
@@ -584,8 +585,8 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"esperiment",
-      RegexTextTriggerValue("1(,)? 2(,)? 3".r, 5),
-      RegexTextTriggerValue("uno(,)? due(,)? tre".r, 11)
+      "1(,)? 2(,)? 3".r.tr(5),
+      "uno(,)? due(,)? tre".r.tr(11)
     )(
       mf"rphjb_Esperimento.mp3",
       mf"rphjb_Esperimento.mp4",
@@ -617,7 +618,7 @@ object Mix {
       mf"rphjb_ConQuestaTecnica.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("schifos(o)+(!)*".r, 8)
+      "schifos(o)+(!)*".r.tr(8)
     )(
       gif"rphjb_Schifoso.mp4",
       mf"rphjb_Vigile.mp4",
@@ -648,7 +649,7 @@ object Mix {
       mf"rphjb_PannaOcchialiSpalla.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\bapplauso\\b".r, 8)
+      "\\bapplauso\\b".r.tr(8)
     )(
       gif"rphjb_Applauso.mp4",
       mf"rphjb_Applauso.mp3",
@@ -663,7 +664,7 @@ object Mix {
       mf"rphjb_VeniteQua.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\bpaga(re)?\\b".r, 4),
+      "\\bpaga(re)?\\b".r.tr(4),
       stt"soldi",
       stt"bollette",
       stt"tasse",
@@ -677,7 +678,7 @@ object Mix {
       mf"rphjb_InvestitoreGoverno.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("[od]?dio mio[,]? no".r, 10)
+      "[od]?dio mio[,]? no".r.tr(10)
     )(
       gif"rphjb_OddioMioNoGif.mp4",
       mf"rphjb_OddioMioNo.mp3",
@@ -685,15 +686,15 @@ object Mix {
       gif"rphjb_OddioMioNo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("[sono ]?a[r]{1,2}iva(d|t)o".r, 12),
-      RegexTextTriggerValue("(eccomi|ciao).*\\bpiacere\\b".r, 13)
+      "[sono ]?a[r]{1,2}iva(d|t)o".r.tr(12),
+      "(eccomi|ciao).*\\bpiacere\\b".r.tr(13)
     )(
       gif"rphjb_ArivatoGif.mp4",
       mf"rphjb_Arivato.mp3",
       gif"rphjb_Arivato.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("delu(s|d)".r, 5)
+      "delu(s|d)".r.tr(5)
     )(
       gif"rphjb_Deluso.mp4",
       mf"rphjb_Deluso.mp3",
@@ -701,7 +702,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"fate come vi pare",
-      RegexTextTriggerValue("sti (g|c)azzi".r, 9)
+      "sti (g|c)azzi".r.tr(9)
     )(
       gif"rphjb_ComeViPare.mp4",
       mf"rphjb_ComeViPare.mp3"
@@ -735,7 +736,7 @@ object Mix {
       mf"rphjb_MaiErrori.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\bpasqua\\b".r, 6)
+      "\\bpasqua\\b".r.tr(6)
     )(
       mf"rphjb_AuguriPasqua.mp3",
       mf"rphjb_AuguriPerPasqua.mp4"
@@ -743,7 +744,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       stt"vaniglia",
       stt"pandoro",
-      RegexTextTriggerValue("crema alla (g|c)io(g|c)+ola(d|t)a".r, 20),
+      "crema alla (g|c)io(g|c)+ola(d|t)a".r.tr(20),
     )(
       mf"rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3",
       mf"rphjb_AuguriPerPasqua.mp4"
@@ -751,7 +752,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       stt"c'hai timore",
       stt"c'hai paura",
-      RegexTextTriggerValue("diri[g]+en(d|t)i".r, 9),
+      "diri[g]+en(d|t)i".r.tr(9),
     )(
       gif"rphjb_Dirigenti.mp4",
       mf"rphjb_AncoraNoDirigenti.mp4"
@@ -785,20 +786,20 @@ object Mix {
       gif"rphjb_Bebop.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("(18|diciott['o]?) anni".r, 7)
+      "(18|diciott['o]?) anni".r.tr(7)
     )(
       mf"rphjb_DiciottoAnni.mp4",
       gif"rphjb_DiciottoAnniGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("(cinque|5) dita".r, 6),
+      "(cinque|5) dita".r.tr(6),
       stt"pugno"
     )(
       mf"rphjb_CinqueDita.mp4",
       mf"rphjb_CinqueDita.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\bratti\\b".r, 5),
+      "\\bratti\\b".r.tr(5),
       stt"topi"
     )(
       mf"rphjb_DubbioScantinatiGiocoRattoGatto.mp4",
@@ -813,7 +814,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"solo uno parló",
-      RegexTextTriggerValue("(c|g)ri(d|t)i(g|c)a(d|t)o".r, 9)
+      "(c|g)ri(d|t)i(g|c)a(d|t)o".r.tr(9)
     )(
       gif"rphjb_FuCriticatoGif.mp4",
       mf"rphjb_FuCriticato.mp4",
@@ -842,7 +843,7 @@ object Mix {
       mf"rphjb_MatematiciAnaliticiDiNoia.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\blo[g]+i(c|g)o\\b".r, 6)
+      "\\blo[g]+i(c|g)o\\b".r.tr(6)
     )(
       gif"rphjb_MiPareLogico.mp4",
       mf"rphjb_MiPareLogico.mp3",
@@ -855,15 +856,15 @@ object Mix {
       mf"rphjb_TiDovrestiVergognare.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("(non|mica) so(no)? (un |n )?co(gl|j)ione".r, 13),
-      RegexTextTriggerValue("sarete co(gl|j)ioni voi".r, 17)
+      "(non|mica) so(no)? (un |n )?co(gl|j)ione".r.tr(13),
+      "sarete co(gl|j)ioni voi".r.tr(17)
     )(
       gif"rphjb_SareteCoglioniVoi.mp4",
       mf"rphjb_SareteCoglioniVoi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non li sopporto",
-      RegexTextTriggerValue("che si deve f(à|are)".r, 14),
+      "che si deve f(à|are)".r.tr(14),
       stt"bisogna pure lavorà"
     )(
       gif"rphjb_NonLiSopporto.mp4",
@@ -905,21 +906,21 @@ object Mix {
       mf"rphjb_Feelings.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("(divento|diventare|sono) (matto|pazzo)".r, 10)
+      "(divento|diventare|sono) (matto|pazzo)".r.tr(10)
     )(
       gif"rphjb_StoDiventandoPazzo.mp4",
       mf"rphjb_CompletamentePazzo.mp4",
       mf"rphjb_CompletamentePazzo2.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("vo[l]+[o]*[u]+[ou]*me".r, 6)
+      "vo[l]+[o]*[u]+[ou]*me".r.tr(6)
     )(
       mf"rphjb_MenoVolume.mp3",
       mf"rphjb_VolumeTelevisori.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"generi musicali",
-      RegexTextTriggerValue("solo il me(t|d)al".r, 13)
+      "solo il me(t|d)al".r.tr(13)
     )(
       gif"rphjb_GeneriMusicali.mp4",
       mf"rphjb_GeneriMusicali2.mp4",
@@ -928,7 +929,7 @@ object Mix {
       stt"sorca",
       stt"patonza",
       stt"lecciso",
-      RegexTextTriggerValue("\\bfi[cg]a\\b".r, 4)
+      "\\bfi[cg]a\\b".r.tr(4)
     )(
       gif"rphjb_SorcaLecciso.mp4",
       mf"rphjb_SorcaLecciso2.mp4",
@@ -945,14 +946,14 @@ object Mix {
       mf"rphjb_ImparaASputareMignottaSchifose.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("e parl[a]+\\b".r, 7)
+      "e parl[a]+\\b".r.tr(7)
     )(
       gif"rphjb_Parla.mp4",
       mf"rphjb_Parla2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"cosa è successo",
-      RegexTextTriggerValue("\\bcosa[?]{1,}\\b".r, 5)
+      "\\bcosa[?]{1,}\\b".r.tr(5)
     )(
       gif"rphjb_CosaSuccesso.mp4",
       mf"rphjb_Cosa.mp4"
@@ -975,7 +976,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ratzinger",
-      RegexTextTriggerValue("(il|er) vaticano".r, 11)
+      "(il|er) vaticano".r.tr(11)
     )(
       mf"rphjb_AndateDaRatzinger.mp4",
       gif"rphjb_AndateDaRatzinger2.mp4",
@@ -998,13 +999,13 @@ object Mix {
       mf"rphjb_Cameriera.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("cos(a)? hai trovato?".r, 16)
+      "cos(a)? hai trovato?".r.tr(16)
     )(
       gif"rphjb_CosHaiTrovato.mp4",
       mf"rphjb_NonPossibile2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("accetto (le|qualsiasi) critich[ea]".r, 17),
+      "accetto (le|qualsiasi) critich[ea]".r.tr(17),
     )(
       gif"rphjb_Escerto.mp4",
       mf"rphjb_CriticaNoCazzate.mp4"
@@ -1023,20 +1024,20 @@ object Mix {
       gif"rphjb_Basso.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("è vero[!?]+".r, 6)
+      "è vero[!?]+".r.tr(6)
     )(
       gif"rphjb_Vero.mp4",
       mf"rphjb_EraVero.mp4",
       mf"rphjb_SuonatoAbbastanzaBeneEVero.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r, 24)
+      "perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r.tr(24)
     )(
       mf"rphjb_PercheCazzoMiHaiFattoVeni.mp3",
       mf"rphjb_PercheCazzoMiHaiFattoVeni.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("e[sc]+erto".r, 6),
+      "e[sc]+erto".r.tr(6),
       stt"non me ne frega un cazzo"
     )(
       gif"rphjb_Escerto.mp4",
@@ -1063,8 +1064,8 @@ object Mix {
       mf"rphjb_NonPoteteGiudicarUrloThatsGood.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("fregare come un co(gl|j)ione".r, 22),
-      RegexTextTriggerValue("ges[uùù]".r, 4)
+      "fregare come un co(gl|j)ione".r.tr(22),
+      "ges[uùù]".r.tr(4)
     )(
       mf"rphjb_GesuCoglione.mp4",
       mf"rphjb_GesuCoglione.mp3"
@@ -1077,7 +1078,7 @@ object Mix {
       stt"diluite le vostre droghe",
       stt"non sono uno da sangue",
       stt"aghi di culto",
-      RegexTextTriggerValue("bucati[,]? ma da quale chiodo".r, 25),
+      "bucati[,]? ma da quale chiodo".r.tr(25),
     )(
       mf"rphjb_GerarchieInfernali.mp4",
       mf"rphjb_GerarchieInfernali.mp3"
@@ -1106,21 +1107,21 @@ object Mix {
       mf"rphjb_DonnaTaglioSbadiglio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("\\bvino\\b".r, 4),
+      "\\bvino\\b".r.tr(4),
     )(
       mf"rphjb_ChitarraZuccheroAlgheVino.mp3",
       mf"rphjb_Rimpinzati.mp4",
       mf"rphjb_Pasqua.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("chi tocca (\\w)[,]? muore".r, 16),
-      RegexTextTriggerValue("ciao (2001|duemilauno)".r, 9)
+      "chi tocca (\\w)[,]? muore".r.tr(16),
+      "ciao (2001|duemilauno)".r.tr(9)
     )(
       mf"rphjb_Ciao2001.mp4",
       gif"rphjb_Ciao2001Gif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("alle (22|ventidue)".r, 7)
+      "alle (22|ventidue)".r.tr(7)
     )(
       mf"rphjb_Alle22.mp3",
       mf"rphjb_VenerdiAppuntamentoFissoFica.mp4"
@@ -1139,7 +1140,7 @@ object Mix {
       mf"rphjb_OlioDiCroce.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue("scu[-]?sa[h]? scu[-]?sa[h]?".r, 11)
+      "scu[-]?sa[h]? scu[-]?sa[h]?".r.tr(11)
     )(
       mf"rphjb_Scusa.mp3",
       mf"rphjb_ScusaScusa.mp4"
@@ -1161,6 +1162,13 @@ object Mix {
     )(
       mf"rphjb_EBastaETuHaiRottoIlCazzo.mp4",
       mf"rphjb_BastaRottoIlCazzo.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bmula\\b".r.tr(4),
+      stt"storia della mula"
+    )(
+      mf"rphjb_Mula.mp4",
+      mf"rphjb_StoriaMula.mp3"
     ),
   )
 
