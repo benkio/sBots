@@ -140,7 +140,8 @@ object Mix {
       mf"rphjb_StoriaNonDetta.mp4",
       mf"rphjb_StorieSonoTanteVecchiaccia.mp4",
       mf"rphjb_StoriaVeraPienaBugie.mp4",
-      mf"rphjb_StoriaAmicoGrasso.mp4"
+      mf"rphjb_StoriaAmicoGrasso.mp4",
+      mf"rphjb_StoriaSignorGionz.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       RegexTextTriggerValue("au[ ]?de".r, 4),

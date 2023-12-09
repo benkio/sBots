@@ -784,6 +784,13 @@ object Video {
     )(
       mf"rphjb_BucketheadGunsNRoses.mp4",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "signor (jones|jonz|jons|gionz)".r.tr(11),
+      stt"janet",
+      stt"coniglio"
+    )(
+      mf"rphjb_StoriaSignorGionz.mp4",
+    )
   )
 
 }
