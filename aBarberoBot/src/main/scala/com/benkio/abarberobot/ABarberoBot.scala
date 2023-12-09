@@ -357,6 +357,11 @@ object ABarberoBot {
     )(
       mf"abar_Bale.mp3"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"birra",
+    )(
+      mf"abar_Birra.mp3"
+    ),
   )
 
   def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
