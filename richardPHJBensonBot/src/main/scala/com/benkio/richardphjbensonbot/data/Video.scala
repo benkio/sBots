@@ -64,12 +64,6 @@ object Video {
       mf"rphjb_FregataFregatura.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\bmula\\b".r.tr(4),
-      stt"storia della mula"
-    )(
-      mf"rphjb_Mula.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"si o no"
     )(
       mf"rphjb_SiONo.mp4"
@@ -784,6 +778,31 @@ object Video {
     )(
       mf"rphjb_BucketheadGunsNRoses.mp4",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "signor (jones|jonz|jons|gionz)".r.tr(11),
+      stt"janet",
+      stt"coniglio"
+    )(
+      mf"rphjb_StoriaSignorGionz.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"brooklyn",
+      stt"carne morta",
+      stt"manhattan",
+      stt"cane da guerra",
+    )(
+      mf"rphjb_PrimoSbaglio.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sulla punta della lingua",
+      stt"agisse da sola",
+      "che me lo (in)?presti".r.tr(16),
+      stt"cani al cimitero",
+      stt"solo uomini",
+      stt"nemmeno una donna"
+    )(
+      mf"rphjb_CaniAlCimitero.mp4"
+    )
   )
 
 }

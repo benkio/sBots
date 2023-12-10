@@ -81,7 +81,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
   }
 
   test("fetch should fail if the response is empty") {
-    val emptyUrl = "https://httpbun.org/status/200"
+    val emptyUrl = "https://httpbin.org/status/200"
     val filename = "whaeverfilename"
     val result = for {
       urlFetcher <- buildUrlFetcher()
