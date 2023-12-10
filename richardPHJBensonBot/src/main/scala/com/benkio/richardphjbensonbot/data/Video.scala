@@ -794,12 +794,12 @@ object Video {
       mf"rphjb_PrimoSbaglio.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-     stt"sulla punta della lingua",
-     stt"agisse da sola",
-     "che me lo (in)?presti".r.tr(16)
-     stt"cani al cimitero",
-     stt"solo uomini",
-     stt"nemmeno una donna"
+      stt"sulla punta della lingua",
+      stt"agisse da sola",
+      "che me lo (in)?presti".r.tr(16),
+      stt"cani al cimitero",
+      stt"solo uomini",
+      stt"nemmeno una donna"
     )(
       mf"rphjb_CaniAlCimitero.mp4"
     )
