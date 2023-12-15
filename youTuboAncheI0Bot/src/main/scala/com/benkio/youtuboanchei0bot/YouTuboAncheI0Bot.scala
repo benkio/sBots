@@ -875,7 +875,8 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage.textToMedia[F](
       "mi (reputi|consideri) intelligente".r.tr(22),
-      "mi (reputi|consideri) sensibile".r.tr(19)
+      "mi (reputi|consideri) sensibile".r.tr(19),
+      "sensibile e intelligente"
     )(
       gif"ytai_SensibileIntelligente.mp4"
     ),
