@@ -880,7 +880,6 @@ object Mix {
       mf"rphjb_InnoSimposio.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"giuda",
       stt"chi è cristo",
       stt"si è fatto fregare",
       stt"bacio di un frocio",
@@ -1140,7 +1139,8 @@ object Mix {
       stt"olio di croce"
     )(
       gif"rphjb_OlioDiCroce.mp4",
-      mf"rphjb_OlioDiCroce.mp3"
+      mf"rphjb_OlioDiCroce.mp3",
+      mf"rphjb_PoesiaNatalizia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "scu[-]?sa[h]? scu[-]?sa[h]?".r.tr(11)
@@ -1178,6 +1178,42 @@ object Mix {
     )(
       mf"rphjb_PrimoSbaglio.mp3",
       mf"rphjb_PrimoSbaglio.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"poesia"
+    )(
+      mf"rphjb_PoesiaMadre.mp4",
+      mf"rphjb_PoesiaRock.mp4",
+      mf"rphjb_Blues.mp4",
+      mf"rphjb_PoesiaMaria.mp4",
+      mf"rphjb_PoesiaArtistiImpiegati.mp4",
+      mf"rphjb_CanzonettePoesieAuschwitzCervello.mp4",
+      mf"rphjb_PoesiaDirittoPaura.mp4",
+      mf"rphjb_PoesiaNatalizia.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"auguri di natale",
+      stt"buon natale",
+      stt"merry christmas",
+    )(
+      mf"rphjb_AuguriDiNatale.mp4",
+      mf"rphjb_RockChristmasHappyNewYear.mp3",
+      mf"rphjb_AuguriDiNataleCapodannoFeste.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"giuda"
+    )(
+      mf"rphjb_ChiECristo.mp3",
+      mf"rphjb_GiudaFrocio.mp4",
+      mf"rphjb_PoesiaNatalizia.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"buon anno",
+      stt"happy new year",
+      stt"capodanno",
+    )(
+      mf"rphjb_RockChristmasHappyNewYear.mp3",
+      mf"rphjb_AuguriDiNataleCapodannoFeste.mp4",
     ),
   )
 

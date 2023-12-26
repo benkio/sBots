@@ -286,7 +286,6 @@ object Audio {
       mf"rphjb_LucioDalla.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"chiesa",
       "preghier(a|ina)".r.tr(9),
       stt"io non credo",
       stt"la medicina",
@@ -578,6 +577,20 @@ object Audio {
       stt"l'ho trovata",
     )(
       mf"rphjb_LHoTrovata.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"inutili creature",
+      stt"aglioso",
+      stt"golgota",
+      stt"avverto pericolo",
+    )(
+      mf"rphjb_PoesiaNatalizia.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"chiesa"
+    )(
+      mf"rphjb_PoesiaNatalizia.mp3",
+      mf"rphjb_Chiesa.mp3"
     ),
   )
 }

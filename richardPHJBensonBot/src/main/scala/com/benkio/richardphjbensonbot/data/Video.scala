@@ -251,17 +251,6 @@ object Video {
       mf"rphjb_RockMachineIntro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"poesia"
-    )(
-      mf"rphjb_PoesiaMadre.mp4",
-      mf"rphjb_PoesiaRock.mp4",
-      mf"rphjb_Blues.mp4",
-      mf"rphjb_PoesiaMaria.mp4",
-      mf"rphjb_PoesiaArtistiImpiegati.mp4",
-      mf"rphjb_CanzonettePoesieAuschwitzCervello.mp4",
-      mf"rphjb_PoesiaDirittoPaura.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       "w[e]+[l]+[a]+".r.tr(4)
     )(
       mf"rphjb_WelaMyFriends.mp4"
@@ -482,12 +471,6 @@ object Video {
       stt"brescia"
     )(
       mf"rphjb_BresciaMiPiace.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"auguri di natale",
-      stt"buon natale",
-    )(
-      mf"rphjb_AuguriDiNatale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bdvd\\b".r.tr(3),
