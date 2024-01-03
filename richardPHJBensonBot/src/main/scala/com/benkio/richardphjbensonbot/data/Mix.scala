@@ -1217,6 +1217,14 @@ object Mix {
       mf"rphjb_AuguriDiNataleCapodannoFeste.mp4",
       mf"rphjb_PassatoAnnoVitaContinua.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"i rage",
+      "(sentiamo|ascoltiamo|senti|ascolta) la musica".r.tr(23)
+    )(
+      gif"rphjb_SentiamoMusicaRageGif.mp4",
+      mf"rphjb_SentiamoMusicaRage.mp4",
+      mf"rphjb_SentiamoMusicaRage.mp3"
+    ),
   )
 
 }
