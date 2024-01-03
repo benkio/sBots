@@ -1389,6 +1389,13 @@ object YouTuboAncheI0Bot {
     )(
       mf"ytai_Senape.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"gigantesco",
+      stt"sushi",
+      stt"che bellezza"
+    )(
+      mf"ytai_SushiQuestoEGigantescoBellezza.mp4"
+    )
   )
 
   def messageRepliesImageData[
