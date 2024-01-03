@@ -1114,7 +1114,7 @@ object Mix {
       mf"rphjb_ChitarraZuccheroAlgheVino.mp3",
       mf"rphjb_Rimpinzati.mp4",
       mf"rphjb_Pasqua.mp4",
-      gif"rphjb_LimoncelliVino.mp4"
+      gif"rphjb_LimoncelliVino.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chi tocca (\\w)[,]? muore".r.tr(16),
