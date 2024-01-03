@@ -1113,7 +1113,8 @@ object Mix {
     )(
       mf"rphjb_ChitarraZuccheroAlgheVino.mp3",
       mf"rphjb_Rimpinzati.mp4",
-      mf"rphjb_Pasqua.mp4"
+      mf"rphjb_Pasqua.mp4",
+      gif"rphjb_LimoncelliVino.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chi tocca (\\w)[,]? muore".r.tr(16),
@@ -1214,6 +1215,7 @@ object Mix {
     )(
       mf"rphjb_RockChristmasHappyNewYear.mp3",
       mf"rphjb_AuguriDiNataleCapodannoFeste.mp4",
+      mf"rphjb_PassatoAnnoVitaContinua.mp4"
     ),
   )
 

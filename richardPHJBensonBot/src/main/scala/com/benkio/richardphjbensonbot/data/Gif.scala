@@ -690,6 +690,11 @@ object Gif {
     )(
       gif"rphjb_AdolfHitler.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "limoncell[io]".r.tr(5)
+    )(
+      gif"rphjb_LimoncelliVino.gif"
+    ),
   )
 
 }
