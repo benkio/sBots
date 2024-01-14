@@ -735,8 +735,8 @@ object YouTuboAncheI0Bot {
       gif"ytai_M&MsLoop.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(😂|🤣){4,}".r.tr(4),
-      "(ah|ha){7,}".r.tr(14)
+      "(😂|🤣){3,}".r.tr(4),
+      "(ah|ha){5,}".r.tr(14)
     )(
       gif"ytai_Risata.mp4"
     ),

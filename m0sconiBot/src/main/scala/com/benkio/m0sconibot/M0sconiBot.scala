@@ -362,7 +362,7 @@ object M0sconiBot {
       mf"mos_Sigla.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "[dfdba]{5,}".r.tr(5),
+      "\\b(difa|ddbb|babba)\\b".r.tr(5),
       "farfugl(i|a|iare|iamento)".r.tr(7)
     )(
       mf"mos_Difabbddffbbaa.mp3"
