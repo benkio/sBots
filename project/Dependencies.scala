@@ -13,10 +13,10 @@ object Dependencies {
     val doobie             = "1.0.0-RC5"
     val fs2Core            = "3.9.3"
     val fs2IO              = "3.9.3"
-    val flyway             = "10.2.0"
+    val flyway             = "10.5.0"
     val http4s             = "0.23.25"
     val littleTime         = "4.0.2"
-    val logEffects         = "0.17.0"
+    val logEffects         = "0.19.0"
     val logbackClassic     = "1.4.14"
     val logbackLogstash    = "7.4"
     val mules              = "0.7.0"
@@ -27,7 +27,7 @@ object Dependencies {
     val shapeless          = "2.3.10"
     val scalatest          = "3.2.16"
     val sqlite             = "3.41.2.1"
-    val telegramiumVersion = "8.69.0"
+    val telegramiumVersion = "8.70.0"
     val vault              = "3.5.0"
   }
 
