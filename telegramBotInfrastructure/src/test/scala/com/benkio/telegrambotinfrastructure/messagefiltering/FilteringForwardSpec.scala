@@ -1,7 +1,9 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
+import telegramium.bots.MessageOriginHiddenUser
 import munit.*
 import telegramium.bots.Chat
+
 import telegramium.bots.Message
 
 class FilteringForwardSpec extends FunSuite {
@@ -15,7 +17,7 @@ class FilteringForwardSpec extends FunSuite {
       messageId = 0,
       date = 0,
       chat = Chat(id = 0, `type` = "test"),
-      forwardDate = Some(2)
+      forwardOrigin = Some(MessageOriginHiddenUser(date = 2, senderUserName = "senderUserName"))
     )
     assert(FilteringForward.filter(msg, false))
     assert(FilteringForward.filter(msg2, false))
@@ -35,7 +37,7 @@ class FilteringForwardSpec extends FunSuite {
       messageId = 0,
       date = 0,
       chat = Chat(id = 0, `type` = "test"),
-      forwardDate = Some(2)
+      forwardOrigin = Some(MessageOriginHiddenUser(date = 2, senderUserName = "senderUserName"))
     )
     assert(!FilteringForward.filter(msg, true))
   }

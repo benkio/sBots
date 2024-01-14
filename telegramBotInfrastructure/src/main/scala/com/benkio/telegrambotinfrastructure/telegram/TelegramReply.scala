@@ -5,6 +5,7 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.ChatIntId
 import com.benkio.telegrambotinfrastructure.model.*
 import telegramium.bots.ChatId
+import telegramium.bots.ReplyParameters
 import telegramium.bots.IFile
 import telegramium.bots.client.Method
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -176,7 +177,7 @@ object TelegramReply:
               .sendMessage(
                 chatId = chatId,
                 text = reply.value,
-                replyToMessageId = Option.when(replyToMessage)(msg.messageId)
+                replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId))
               )
               .exec
               .attemptT
