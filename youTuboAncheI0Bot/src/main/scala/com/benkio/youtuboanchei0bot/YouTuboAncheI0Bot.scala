@@ -220,7 +220,10 @@ object YouTuboAncheI0Bot {
       gif"ytai_Ciao3.mp4",
       gif"ytai_CiaoRagazzi.mp4",
       gif"ytai_CiaoFollowersNelBeneNelMale.mp4",
-      gif"ytai_CiaoCariAmiciFollowers.mp4"
+      gif"ytai_CiaoCariAmiciFollowers.mp4",
+      mp3"ytai_CiaoNonCiArrivo.mp3",
+      vid"ytai_CiaoNonCiArrivo.mp4",
+      gif"ytai_CiaoNonCiArrivoGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ciao ragazzi",
@@ -725,6 +728,9 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_MonoporzioniTiramisu.mp4",
       gif"ytai_Tiramisu.mp4",
+      mp3"ytai_CucchiaioBattagliaTiramisù.mp3",
+      vid"ytai_CucchiaioBattagliaTiramisù.mp4",
+      gif"ytai_CucchiaioBattagliaTiramisùGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"m&m's",
@@ -1196,7 +1202,9 @@ object YouTuboAncheI0Bot {
       "dentist[ia]".r.tr(8),
       "ho (ancora )?tanta fame".r.tr(13),
     )(
-      gif"ytai_DentistiFame.mp4"
+      mp3"ytai_DentistiDottoriFame.mp3",
+      vid"ytai_DentistiDottoriFame.mp4",
+      gif"ytai_DentistiDottoriFameGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"verza",
@@ -1249,8 +1257,12 @@ object YouTuboAncheI0Bot {
       stt"mi assomiglia",
       stt"stessa forma",
       stt"pomodoro",
+      stt"sta da solo",
+      stt"bisogno di sostegno"
     )(
-      gif"ytai_AssomigliaPomodoro.mp4",
+      mp3"ytai_PomodoroNanoStessaFormaSostegno.mp3",
+      vid"ytai_PomodoroNanoStessaFormaSostegno.mp4",
+      gif"ytai_PomodoroNanoStessaFormaSostegnoGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"condizione umana",
@@ -1359,6 +1371,152 @@ object YouTuboAncheI0Bot {
       gif"ytai_PuoCapitareGif.mp4",
       mf"ytai_PuoCapitare.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"strudel"
+    )(
+      mp3"ytai_30CentimentriStrudelBuonissimo.mp3",
+      vid"ytai_30CentimentriStrudelBuonissimo.mp4",
+      gif"ytai_30CentimentriStrudelBuonissimoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"boscaiolo",
+      stt"come si presenta"
+    )(
+      mp3"ytai_BoscaioloPresentaColFungo.mp3",
+      vid"ytai_BoscaioloPresentaColFungo.mp4",
+      gif"ytai_BoscaioloPresentaColFungoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"buon salame",
+      stt"cari amici"
+    )(
+      mp3"ytai_BuonSalameCariAmici.mp3",
+      vid"ytai_BuonSalameCariAmici.mp4",
+      gif"ytai_BuonSalameCariAmiciGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"buono!"
+    )(
+      mp3"ytai_Buono.mp3",
+      vid"ytai_Buono.mp4",
+      gif"ytai_BuonoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ragù"
+    )(
+      mp3"ytai_BuonoRagu.mp3",
+      vid"ytai_BuonoRagu.mp4",
+      gif"ytai_BuonoRaguGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"non ci arrivo",
+      "dopo (che ho )?mangiato".r.tr(13)
+    )(
+      mp3"ytai_CiaoNonCiArrivo.mp3",
+      vid"ytai_CiaoNonCiArrivo.mp4",
+      gif"ytai_CiaoNonCiArrivoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cocco e cioccolata",
+      stt"unione strepitosa"
+    )(
+      mp3"ytai_CoccoCioccolataUnioneStrepitosa.mp3",
+      vid"ytai_CoccoCioccolataUnioneStrepitosa.mp4",
+      gif"ytai_CoccoCioccolataUnioneStrepitosaGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cotto bene",
+      stt"croccante"
+    )(
+      mp3"ytai_CottoBeneMoltoCroccante.mp3",
+      vid"ytai_CottoBeneMoltoCroccante.mp4",
+      gif"ytai_CottoBeneMoltoCroccanteGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"vivete questo momento con me",
+      stt"sempre sul tubo",
+      stt"youtube"
+    )(
+      mp3"ytai_CredeteSempreSulTuboViveteMomentoConMe.mp3",
+      vid"ytai_CredeteSempreSulTuboViveteMomentoConMe.mp4",
+      gif"ytai_CredeteSempreSulTuboViveteMomentoConMeGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cucchiaio",
+      stt"da battaglia"
+    )(
+      mp3"ytai_CucchiaioBattagliaTiramisù.mp3",
+      vid"ytai_CucchiaioBattagliaTiramisù.mp4",
+      gif"ytai_CucchiaioBattagliaTiramisùGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"champignon",
+      stt"in un paio d'ore",
+      stt"rovinato lo stomaco",
+      stt"stetti male",
+      stt"continuando a bere",
+    )(
+      vid"ytai_StoriaChampignon.mp4",
+      gif"ytai_FungoChampignonRovinatoStomaco.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ho spinto a bere",
+      stt"un bicchiere tira l'altro",
+      stt"aspettavo che portassero la carne",
+      stt"cibi di sostanza",
+    )(
+      vid"ytai_StoriaChampignon.mp4",
+      gif"ytai_HoSpintoABere.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sapete come si chiama?",
+      stt"incoscienza",
+      stt"non pensarci",
+      stt"ha un'altro nome",
+    )(
+      mp3"ytai_NonIncoscienzaNonPensarci.mp3",
+      vid"ytai_NonIncoscienzaNonPensarci.mp4",
+      gif"ytai_NonIncoscienzaNonPensarciGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"prosciutto crudo",
+      stt"tutto uno spettacolo"
+    )(
+      mp3"ytai_ProsciuttoCrudoSpettacolo.mp3",
+      vid"ytai_ProsciuttoCrudoSpettacolo.mp4",
+      gif"ytai_ProsciuttoCrudoSpettacoloGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"rafforzare lo stomaco",
+      stt"polletto"
+    )(
+      mp3"ytai_RafforzareStomacoPolletto.mp3",
+      vid"ytai_RafforzareStomacoPolletto.mp4",
+      gif"ytai_RafforzareStomacoPollettoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"(30|trenta) centimetri"
+    )(
+      mp3"ytai_30CentimentriStrudelBuonissimo.mp3",
+      vid"ytai_30CentimentriStrudelBuonissimo.mp4",
+      gif"ytai_30CentimentriStrudelBuonissimoGif.mp4",
+      mp3"ytai_Serpentello30Centimetri.mp3",
+      vid"ytai_Serpentello30Centimetri.mp4",
+      gif"ytai_Serpentello30CentimetriGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"serpentello"
+    )(
+      mp3"ytai_Serpentello30Centimetri.mp3",
+      vid"ytai_Serpentello30Centimetri.mp4",
+      gif"ytai_Serpentello30CentimetriGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"matrimonio"
+    )(
+      mf"ytai_StoriaChampignon.mp4",
+      mf"ytai_StoriaChampignon.mp3",
+    ),
   )
 
   def messageRepliesVideoData[
@@ -1372,14 +1530,6 @@ object YouTuboAncheI0Bot {
       stt"sto risolvendo"
     )(
       mf"ytai_SognoAmericano.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"stetti male",
-      stt"rovinato lo stomaco",
-      stt"champignon",
-      stt"matrimonio",
-    )(
-      mf"ytai_StoriaChampignon.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"senape",

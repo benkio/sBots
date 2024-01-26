@@ -82,7 +82,6 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
 
     val botFile = YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
-    assert(jsonFilenames.isRight)
     jsonFilenames.fold(
       e => fail("test failed", e),
       files =>
