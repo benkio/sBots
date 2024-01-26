@@ -62,11 +62,11 @@ class XahLeeBotSpec extends CatsEffectSuite {
         )
         .flatMap(_.reply.prettyPrint.unsafeRunSync())
 
-    assert(jsonFilenames.isRight)
     jsonFilenames.fold(
       e => fail("test failed", e),
       files => {
         botFile.foreach(filename => assert(files.contains(filename), s"$filename is not contained in xah data file"))
+        assert(Set(files   :_*).size == files.length, s"there's a duplicate filename into the json ${files.diff(Set(files   :_*).toList)}")
       }
     )
   }
