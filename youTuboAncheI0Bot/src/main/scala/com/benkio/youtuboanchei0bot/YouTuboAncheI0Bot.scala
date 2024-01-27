@@ -728,9 +728,9 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_MonoporzioniTiramisu.mp4",
       gif"ytai_Tiramisu.mp4",
-      mp3"ytai_CucchiaioBattagliaTiramisù.mp3",
-      vid"ytai_CucchiaioBattagliaTiramisù.mp4",
-      gif"ytai_CucchiaioBattagliaTiramisùGif.mp4"
+      mp3"ytai_CucchiaioBattagliaTiramisu.mp3",
+      vid"ytai_CucchiaioBattagliaTiramisu.mp4",
+      gif"ytai_CucchiaioBattagliaTiramisuGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"m&m's",
@@ -1445,9 +1445,9 @@ object YouTuboAncheI0Bot {
       stt"cucchiaio",
       stt"da battaglia"
     )(
-      mp3"ytai_CucchiaioBattagliaTiramisù.mp3",
-      vid"ytai_CucchiaioBattagliaTiramisù.mp4",
-      gif"ytai_CucchiaioBattagliaTiramisùGif.mp4"
+      mp3"ytai_CucchiaioBattagliaTiramisu.mp3",
+      vid"ytai_CucchiaioBattagliaTiramisu.mp4",
+      gif"ytai_CucchiaioBattagliaTiramisuGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"champignon",
