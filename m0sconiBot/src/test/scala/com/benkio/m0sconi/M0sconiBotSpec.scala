@@ -75,7 +75,10 @@ class M0sconiBotSpec extends CatsEffectSuite {
         botFile
           .unsafeRunSync()
           .foreach(filename => assert(files.contains(filename), s"$filename is not contained in mosconi data file"))
-        assert(Set(files :_*).size == files.length, s"there's a duplicate filename into the json ${files.diff(Set(files   :_*).toList)}")
+        assert(
+          Set(files: _*).size == files.length,
+          s"there's a duplicate filename into the json ${files.diff(Set(files: _*).toList)}"
+        )
     )
 
   }
