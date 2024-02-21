@@ -37,8 +37,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .onError(_ => IO.println(s"[ERROR] mp3 missing from the DB: " + mp3))
               .attempt
               .map(_.isRight)
-
-      )
+          )
     } yield checks.foldLeft(true)(_ && _)
 
     testAssert.assert
@@ -59,8 +58,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 .onError(_ => IO.println(s"[ERROR] gif missing from the DB: " + gif))
                 .attempt
                 .map(_.isRight)
-            
-        )
+            )
       } yield checks.foldLeft(true)(_ && _)
 
       testAssert.assert
@@ -103,8 +101,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 .onError(_ => IO.println(s"[ERROR] mix missing from the DB: " + mix))
                 .attempt
                 .map(_.isRight)
-            
-        )
+            )
       } yield checks.foldLeft(true)(_ && _)
 
       testAssert.assert
@@ -126,8 +123,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .onError(_ => IO.println(s"[ERROR] special missing from the DB: " + special))
               .attempt
               .map(_.isRight)
-
-      )
+          )
     } yield checks.foldLeft(true)(_ && _)
 
     testAssert.assert

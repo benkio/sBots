@@ -47,8 +47,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
         )
       )
       mediaFiles <- Resource.eval(
-        (
-          RichardPHJBensonBot.messageRepliesData[IO] ++
+        (RichardPHJBensonBot.messageRepliesData[IO] ++
           RichardPHJBensonBot.commandRepliesData[IO](emptyBackgroundJobManager, dbLayer) ++
           ABarberoBot.messageRepliesData[IO] ++
           ABarberoBot.commandRepliesData[IO](emptyBackgroundJobManager, dbLayer) ++

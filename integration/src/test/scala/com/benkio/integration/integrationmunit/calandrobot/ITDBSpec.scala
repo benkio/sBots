@@ -46,19 +46,21 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val transactor = fixture.transactor
     val testAssert = for {
       dbLayer <- fixture.resourceDBLayer
-      files <- Resource.eval(commandRepliesData[IO](dbLayer).flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r)))
+      files <- Resource.eval(
+        commandRepliesData[IO](dbLayer).flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+      )
       checks <-
         Resource.eval(
-        files
-          .traverse((file: MediaFile) =>
-            DBMedia
-              .getMediaQueryByName(file.filename)
-              .unique
-              .transact(transactor)
-              .onError(_ => IO.println(s"[ERROR] file missing from the DB: " + file))
-              .attempt
-              .map(_.isRight)
-          )
+          files
+            .traverse((file: MediaFile) =>
+              DBMedia
+                .getMediaQueryByName(file.filename)
+                .unique
+                .transact(transactor)
+                .onError(_ => IO.println(s"[ERROR] file missing from the DB: " + file))
+                .attempt
+                .map(_.isRight)
+            )
         )
     } yield checks.foldLeft(true)(_ && _)
 

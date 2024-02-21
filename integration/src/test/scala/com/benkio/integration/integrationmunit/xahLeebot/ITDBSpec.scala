@@ -15,7 +15,6 @@ import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 
-
 import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 
@@ -27,12 +26,12 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  val botName: String               = "botname"
+  val botName: String = "botname"
   given api: Api[IO] = new Api[IO] {
     def execute[Res](method: Method[Res]): IO[Res] = IO(???)
   }
-  val emptyDBLayer: DBLayer[IO]     = DBLayerMock.mock(botName)
-  val resourceAccessMock = new ResourceAccessMock(List.empty)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botName)
+  val resourceAccessMock        = new ResourceAccessMock(List.empty)
   val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager(
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
@@ -79,9 +78,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test(
     "commandRepliesData random files should be contained in the jsons"
   ) { fixture =>
-    val listPath      = new File(s"./../xahLeeBot").getCanonicalPath + "/xah_list.json"
-    val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val json : Either[io.circe.Error, List[String]] = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
+    val listPath                                   = new File(s"./../xahLeeBot").getCanonicalPath + "/xah_list.json"
+    val jsonContent                                = Source.fromFile(listPath).getLines().mkString("\n")
+    val json: Either[io.circe.Error, List[String]] = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val resourceAssert = for {
       resourceDBLayer <- fixture.resourceDBLayer
@@ -100,7 +99,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
             json.fold(
               e => fail("test failed", e),
               jsonMediaFileSources => {
-                val result = jsonMediaFileSources.exists((mediaFilenameSource: String) => mediaFilenameSource == mediaFile.filename)
+                val result = jsonMediaFileSources.exists((mediaFilenameSource: String) =>
+                  mediaFilenameSource == mediaFile.filename
+                )
                 if (!result) {
                   println(s"${mediaFile.filename} is not contained in the json file")
                 }
@@ -112,5 +113,5 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     } yield checks.foldLeft(true)(_ && _)
 
     resourceAssert.use(IO.pure).assert
-}
+  }
 }

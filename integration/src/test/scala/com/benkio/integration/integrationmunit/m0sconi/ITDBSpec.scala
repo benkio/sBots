@@ -45,7 +45,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       val transactor = fixture.transactor
       val testAssert = for {
         gifs <- messageRepliesGifData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
-        checks <- 
+        checks <-
           gifs
             .traverse((gif: MediaFile) =>
               DBMedia
@@ -55,7 +55,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 .onError(_ => IO.println(s"[ERROR] gif missing from the DB: " + gif))
                 .attempt
                 .map(_.isRight)
-        )
+            )
       } yield checks.foldLeft(true)(_ && _)
 
       testAssert.assert
@@ -67,7 +67,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val transactor = fixture.transactor
     val testAssert = for {
       specials <- messageRepliesSpecialData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
-      checks <- 
+      checks <-
         specials
           .traverse((special: MediaFile) =>
             DBMedia
@@ -77,8 +77,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .onError(_ => IO.println(s"[ERROR] special missing from the DB: " + special))
               .attempt
               .map(_.isRight)
-          
-      )
+          )
     } yield checks.foldLeft(true)(_ && _)
 
     testAssert.assert
