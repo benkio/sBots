@@ -11,7 +11,6 @@ import com.benkio.telegrambotinfrastructure.model.Subscription
 import java.util.UUID
 import cats.effect.IO
 
-
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
@@ -20,8 +19,8 @@ import cats.effect.kernel.Outcome
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
-  val testSubscriptionId: UUID      = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
-  val botName                       = "botname"
+  val testSubscriptionId: UUID = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
+  val botName                  = "botname"
   given api: Api[IO] = new Api[IO] {
     def execute[Res](method: Method[Res]): IO[Res] = IO(???)
   }
@@ -57,9 +56,9 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "The creation of the BackgroundJobManager with non empty subscriptions should load subscriptions in memory and run the background tasks without errors"
   ) { fixture =>
     for {
-      dbLayer <- fixture.resourceDBLayer
+      dbLayer        <- fixture.resourceDBLayer
       resourceAccess <- fixture.resourceAccessResource
-      _       <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
+      _              <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -89,7 +88,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "BackgroundJobManager.scheduleSubscription should run a subscription, add it to the in memory map and store it in the DB"
   ) { fixture =>
     for {
-      dbLayer <- fixture.resourceDBLayer
+      dbLayer        <- fixture.resourceDBLayer
       resourceAccess <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
@@ -97,7 +96,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbShow = dbLayer.dbShow,
           resourceAccess = resourceAccess,
           botName = botName
-        ))
+        )
+      )
       _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
       _ <- Resource.eval(
@@ -108,7 +108,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
             ._2
             .join,
           Outcome.succeeded[IO, Throwable, Unit](IO(()))
-        ))
+        )
+      )
     } yield {
       assert(backgroundJobManager.memSubscriptions.size == 1)
       assert(backgroundJobManager.memSubscriptions.find { case (SubscriptionKey(sId, _), _) =>
@@ -123,7 +124,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "BackgroundJobManager.cancelSubscription should cancel in memory job, remove the in memory entry and it the db"
   ) { fixture =>
     for {
-      dbLayer <- fixture.resourceDBLayer
+      dbLayer        <- fixture.resourceDBLayer
       resourceAccess <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
@@ -131,7 +132,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbShow = dbLayer.dbShow,
           resourceAccess = resourceAccess,
           botName = botName
-        ))
+        )
+      )
       _                      <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
       _                      <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))
