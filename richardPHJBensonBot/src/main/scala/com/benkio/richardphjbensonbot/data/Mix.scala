@@ -1225,6 +1225,17 @@ object Mix {
       mf"rphjb_SentiamoMusicaRage.mp4",
       mf"rphjb_SentiamoMusicaRage.mp3"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sei cambiata tutta",
+      stt"piercing",
+      stt"mi fai male",
+      stt"in mezzo alle gambe",
+      "proprio[ ]?[l]+a".r.tr(9)
+    )(
+      mf"rphjb_CambiataTuttaPiercingPropriolla.mp4",
+      mf"rphjb_CambiataTuttaPiercingPropriolla.mp3",
+      gif"rphjb_CambiataTuttaPiercingPropriollaGif.mp4",
+    )
   )
 
 }

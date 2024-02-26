@@ -733,7 +733,7 @@ object YouTuboAncheI0Bot {
       gif"ytai_CucchiaioBattagliaTiramisuGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"m&m's",
+      "m[ ]?&[ ]?m['s]?".r.tr(3),
       stt"rotear",
       stt"ruotar",
     )(
