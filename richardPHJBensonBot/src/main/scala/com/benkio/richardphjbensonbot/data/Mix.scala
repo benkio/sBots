@@ -839,7 +839,10 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"calcolo",
-      stt"matematica"
+      stt"matematica",
+      stt"geometrici",
+      stt"matematici",
+      stt"analitici",
     )(
       gif"rphjb_MiPareLogico.mp4",
       mf"rphjb_MiPareLogico.mp3",
@@ -1235,6 +1238,15 @@ object Mix {
       mf"rphjb_CambiataTuttaPiercingPropriolla.mp4",
       mf"rphjb_CambiataTuttaPiercingPropriolla.mp3",
       gif"rphjb_CambiataTuttaPiercingPropriollaGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"luca di noia"
+    )(
+      mf"rphjb_LucaDiNoia.mp3",
+      mf"rphjb_LucaDiNoia2.mp3",
+      mf"rphjb_MatematiciAnaliticiDiNoia.mp3",
+      mf"rphjb_GrandeRegistaLucaDiNoia.mp3",
+      mf"rphjb_GrandeRegistaLucaDiNoia.mp4"
     )
   )
 
