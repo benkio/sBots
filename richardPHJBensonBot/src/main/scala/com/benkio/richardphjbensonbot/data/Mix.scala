@@ -1260,6 +1260,15 @@ object Mix {
       mf"rphjb_IstintiMusicali.mp3",
       mf"rphjb_IstintiMusicali.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"questa è una domanda",
+      stt"non ti rispondo",
+      "(qualche )?altra domanda".r.tr(14)
+    )(
+      gif"rphjb_QualcheAltraDomandaGif.mp4",
+      mf"rphjb_QualcheAltraDomanda.mp3",
+      mf"rphjb_QualcheAltraDomanda.mp4"
+    ),
   )
 
 }
