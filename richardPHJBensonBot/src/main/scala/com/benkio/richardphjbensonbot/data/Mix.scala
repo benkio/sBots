@@ -1247,7 +1247,19 @@ object Mix {
       mf"rphjb_MatematiciAnaliticiDiNoia.mp3",
       mf"rphjb_GrandeRegistaLucaDiNoia.mp3",
       mf"rphjb_GrandeRegistaLucaDiNoia.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"trovamelo",
+      stt"angelo",
+      stt"carpenelli",
+      stt"via delle albizzie",
+      stt"istinti musicali",
+    )(
+      mf"rphjb_AngeloTrovamelo.mp4",
+      mf"rphjb_AlbizziePerlaPioggia.mp4",
+      mf"rphjb_IstintiMusicali.mp3",
+      mf"rphjb_IstintiMusicali.mp4"
+    ),
   )
 
 }

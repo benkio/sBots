@@ -80,11 +80,6 @@ object Video {
       mf"rphjb_InnovazioneStiamoTornandoIndietro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"trovamelo"
-    )(
-      mf"rphjb_AngeloTrovamelo.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"plettro",
       stt"vicoletto"
     )(
@@ -96,12 +91,6 @@ object Video {
       stt"letti sfatti"
     )(
       mf"rphjb_LettiSfattiDiversiMondi.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"via delle albizzie",
-      stt"carpenelli"
-    )(
-      mf"rphjb_AlbizziePerlaPioggia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ramarro",
