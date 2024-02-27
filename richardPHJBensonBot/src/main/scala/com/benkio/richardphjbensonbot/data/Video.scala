@@ -158,12 +158,6 @@ object Video {
       mf"rphjb_AlbizziePerlaPioggia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"madre tortura",
-      "(madre )?parrucca".r.tr(8)
-    )(
-      mf"rphjb_MadreTorturaParrucca.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       "[l]+[i]+[b]+[e]+[r]+[i]+".r.tr(6)
     )(
       mf"rphjb_Liberi.mp4"

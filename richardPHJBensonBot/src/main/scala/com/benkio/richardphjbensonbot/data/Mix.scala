@@ -1269,6 +1269,31 @@ object Mix {
       mf"rphjb_QualcheAltraDomanda.mp3",
       mf"rphjb_QualcheAltraDomanda.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "occhi (come le donne )?degli anni (settanta|70)".r.tr(18)
+    )(
+      mf"rphjb_OcchiDonneAnniSettanta.mp3",
+      mf"rphjb_OcchiDonneAnniSettanta.mp4",
+      gif"rphjb_OcchiDonneAnniSettantaGif.mp4",
+      mf"rphjb_Ester2.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"tu non mi conosci",
+      stt"posso cambiare",
+      stt"sono camaleontico",
+      stt"sputarti in faccia",
+    )(
+      mf"rphjb_SputartiInFacciaCamaleontico.mp4",
+      mf"rphjb_SputartiInFacciaCamaleontico.mp3",
+      gif"rphjb_SputartiInFacciaCamaleonticoGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"madre tortura",
+      "(madre )?parrucca".r.tr(8)
+    )(
+      mf"rphjb_MadreTorturaParrucca.mp4",
+      mf"rphjb_MadreTorturaImprovvisata.mp3"
+    ),
   )
 
 }
