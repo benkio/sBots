@@ -733,7 +733,7 @@ object YouTuboAncheI0Bot {
       gif"ytai_CucchiaioBattagliaTiramisuGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"m&m's",
+      "m[ ]?&[ ]?m['s]?".r.tr(3),
       stt"rotear",
       stt"ruotar",
     )(
@@ -1479,12 +1479,14 @@ object YouTuboAncheI0Bot {
       gif"ytai_NonIncoscienzaNonPensarciGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"prosciutto crudo",
-      stt"tutto uno spettacolo"
+      stt"prosciutto crudo"
     )(
       mp3"ytai_ProsciuttoCrudoSpettacolo.mp3",
       vid"ytai_ProsciuttoCrudoSpettacolo.mp4",
-      gif"ytai_ProsciuttoCrudoSpettacoloGif.mp4"
+      gif"ytai_ProsciuttoCrudoSpettacoloGif.mp4",
+      mp3"ytai_ProsciuttoCrudoParla.mp3",
+      vid"ytai_ProsciuttoCrudoParla.mp4",
+      gif"ytai_ProsciuttoCrudoParlaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"rafforzare lo stomaco",
@@ -1516,6 +1518,32 @@ object YouTuboAncheI0Bot {
     )(
       mf"ytai_StoriaChampignon.mp4",
       mf"ytai_StoriaChampignon.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"superiamo questi limiti",
+      stt"limiti di pensiero",
+      stt"andiamo oltre"
+    )(
+      mf"ytai_SuperiamoLimitiPensiero.mp4",
+      mf"ytai_SuperiamoLimitiPensiero.mp3",
+      gif"ytai_SuperiamoLimitiPensieroGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"rovesciata l'acqua",
+      "\\bops\\b".r.tr(3)
+    )(
+      mf"ytai_OpsRovesciataAcqua.mp3",
+      gif"ytai_OpsRovesciataAcquaGif.mp4",
+      mf"ytai_OpsRovesciataAcqua.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ho fatto bene a farlo",
+      stt"non lo volevo fare",
+      "mi sto sentendo (bene|in compagnia)".r.tr(20)
+    )(
+      gif"ytai_NoVideoHoFattoBeneCompagniaGif.mp4",
+      mf"ytai_NoVideoHoFattoBeneCompagnia.mp3",
+      mf"ytai_NoVideoHoFattoBeneCompagnia.mp4"
     ),
   )
 

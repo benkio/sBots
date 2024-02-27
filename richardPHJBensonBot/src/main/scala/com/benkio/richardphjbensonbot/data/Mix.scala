@@ -839,7 +839,10 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"calcolo",
-      stt"matematica"
+      stt"matematica",
+      stt"geometrici",
+      stt"matematici",
+      stt"analitici",
     )(
       gif"rphjb_MiPareLogico.mp4",
       mf"rphjb_MiPareLogico.mp3",
@@ -1224,6 +1227,72 @@ object Mix {
       gif"rphjb_SentiamoMusicaRageGif.mp4",
       mf"rphjb_SentiamoMusicaRage.mp4",
       mf"rphjb_SentiamoMusicaRage.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sei cambiata tutta",
+      stt"piercing",
+      stt"mi fai male",
+      stt"in mezzo alle gambe",
+      "proprio[ ]?[l]+a".r.tr(9)
+    )(
+      mf"rphjb_CambiataTuttaPiercingPropriolla.mp4",
+      mf"rphjb_CambiataTuttaPiercingPropriolla.mp3",
+      gif"rphjb_CambiataTuttaPiercingPropriollaGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"luca di noia"
+    )(
+      mf"rphjb_LucaDiNoia.mp3",
+      mf"rphjb_LucaDiNoia2.mp3",
+      mf"rphjb_MatematiciAnaliticiDiNoia.mp3",
+      mf"rphjb_GrandeRegistaLucaDiNoia.mp3",
+      mf"rphjb_GrandeRegistaLucaDiNoia.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"trovamelo",
+      stt"angelo",
+      stt"carpenelli",
+      stt"via delle albizzie",
+      stt"istinti musicali",
+    )(
+      mf"rphjb_AngeloTrovamelo.mp4",
+      mf"rphjb_AlbizziePerlaPioggia.mp4",
+      mf"rphjb_IstintiMusicali.mp3",
+      mf"rphjb_IstintiMusicali.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"questa è una domanda",
+      stt"non ti rispondo",
+      "(qualche )?altra domanda".r.tr(14)
+    )(
+      gif"rphjb_QualcheAltraDomandaGif.mp4",
+      mf"rphjb_QualcheAltraDomanda.mp3",
+      mf"rphjb_QualcheAltraDomanda.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "occhi (come le donne )?degli anni (settanta|70)".r.tr(18)
+    )(
+      mf"rphjb_OcchiDonneAnniSettanta.mp3",
+      mf"rphjb_OcchiDonneAnniSettanta.mp4",
+      gif"rphjb_OcchiDonneAnniSettantaGif.mp4",
+      mf"rphjb_Ester2.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"tu non mi conosci",
+      stt"posso cambiare",
+      stt"sono camaleontico",
+      stt"sputarti in faccia",
+    )(
+      mf"rphjb_SputartiInFacciaCamaleontico.mp4",
+      mf"rphjb_SputartiInFacciaCamaleontico.mp3",
+      gif"rphjb_SputartiInFacciaCamaleonticoGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"madre tortura",
+      "(madre )?parrucca".r.tr(8)
+    )(
+      mf"rphjb_MadreTorturaParrucca.mp4",
+      mf"rphjb_MadreTorturaImprovvisata.mp3"
     ),
   )
 

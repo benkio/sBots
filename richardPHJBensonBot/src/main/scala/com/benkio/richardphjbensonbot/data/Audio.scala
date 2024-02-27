@@ -428,14 +428,6 @@ object Audio {
       mf"rphjb_KikoLoureiroSalvaSituazione.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"luca di noia",
-      stt"geometrici",
-      stt"matematici",
-      stt"analitici",
-    )(
-      mf"rphjb_MatematiciAnaliticiDiNoia.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"andre matos"
     )(
       mf"rphjb_MatosShaman.mp3",
@@ -459,12 +451,6 @@ object Audio {
       "manco trucc[aà] sai".r.tr(16),
     )(
       mf"rphjb_TruccareViaZara.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"luca di noia"
-    )(
-      mf"rphjb_LucaDiNoia.mp3",
-      mf"rphjb_LucaDiNoia2.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"che schifo!",

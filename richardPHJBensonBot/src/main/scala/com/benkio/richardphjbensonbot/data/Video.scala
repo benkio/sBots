@@ -80,11 +80,6 @@ object Video {
       mf"rphjb_InnovazioneStiamoTornandoIndietro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"trovamelo"
-    )(
-      mf"rphjb_AngeloTrovamelo.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"plettro",
       stt"vicoletto"
     )(
@@ -96,12 +91,6 @@ object Video {
       stt"letti sfatti"
     )(
       mf"rphjb_LettiSfattiDiversiMondi.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"via delle albizzie",
-      stt"carpenelli"
-    )(
-      mf"rphjb_AlbizziePerlaPioggia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ramarro",
@@ -167,12 +156,6 @@ object Video {
     )(
       mf"rphjb_PerlaDiPioggia.mp4",
       mf"rphjb_AlbizziePerlaPioggia.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"madre tortura",
-      "(madre )?parrucca".r.tr(8)
-    )(
-      mf"rphjb_MadreTorturaParrucca.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[l]+[i]+[b]+[e]+[r]+[i]+".r.tr(6)
