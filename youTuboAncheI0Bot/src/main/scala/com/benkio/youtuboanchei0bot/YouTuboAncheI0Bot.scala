@@ -1528,6 +1528,23 @@ object YouTuboAncheI0Bot {
       mf"ytai_SuperiamoLimitiPensiero.mp3",
       gif"ytai_SuperiamoLimitiPensieroGif.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"rovesciata l'acqua",
+      "\\bops\\b".r.tr(3)
+    )(
+      mf"ytai_OpsRovesciataAcqua.mp3",
+      gif"ytai_OpsRovesciataAcquaGif.mp4",
+      mf"ytai_OpsRovesciataAcqua.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ho fatto bene a farlo",
+      stt"non lo volevo fare",
+      "mi sto sentendo (bene|in compagnia)".r.tr(20)
+    )(
+      gif"ytai_NoVideoHoFattoBeneCompagniaGif.mp4",
+      mf"ytai_NoVideoHoFattoBeneCompagnia.mp3",
+      mf"ytai_NoVideoHoFattoBeneCompagnia.mp4"
+    ),
   )
 
   def messageRepliesVideoData[
