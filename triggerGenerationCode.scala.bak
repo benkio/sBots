@@ -20,7 +20,7 @@ import cats.effect.unsafe.implicits.global
 val inputRichardPHJBenson = RichardPHJBensonBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
 val inputBarbero = ABarberoBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
 val inputYouTuboAncheI0Bot = YouTuboAncheI0Bot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
-val inputM0sconi = M0sconiBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().unsafeRunSync().mkString("")
+val inputM0sconi = M0sconiBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
 val inputCalandro = CalandroBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
 
 val pwRichard = new PrintWriter(new File("richardPHJBensonBot/rphjb_triggers.txt"))
