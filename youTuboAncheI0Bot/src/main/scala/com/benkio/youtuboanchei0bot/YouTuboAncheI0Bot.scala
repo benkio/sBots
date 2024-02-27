@@ -1479,12 +1479,14 @@ object YouTuboAncheI0Bot {
       gif"ytai_NonIncoscienzaNonPensarciGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"prosciutto crudo",
-      stt"tutto uno spettacolo"
+      stt"prosciutto crudo"
     )(
       mp3"ytai_ProsciuttoCrudoSpettacolo.mp3",
       vid"ytai_ProsciuttoCrudoSpettacolo.mp4",
-      gif"ytai_ProsciuttoCrudoSpettacoloGif.mp4"
+      gif"ytai_ProsciuttoCrudoSpettacoloGif.mp4",
+      mp3"ytai_ProsciuttoCrudoParla.mp3",
+      vid"ytai_ProsciuttoCrudoParla.mp4",
+      gif"ytai_ProsciuttoCrudoParlaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"rafforzare lo stomaco",
@@ -1516,6 +1518,15 @@ object YouTuboAncheI0Bot {
     )(
       mf"ytai_StoriaChampignon.mp4",
       mf"ytai_StoriaChampignon.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"superiamo questi limiti",
+      stt"limiti di pensiero",
+      stt"andiamo oltre"
+    )(
+      mf"ytai_SuperiamoLimitiPensiero.mp4",
+      mf"ytai_SuperiamoLimitiPensiero.mp3",
+      gif"ytai_SuperiamoLimitiPensieroGif.mp4"
     ),
   )
 
