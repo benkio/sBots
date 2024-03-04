@@ -1,6 +1,6 @@
 addSbtPlugin("com.eed3si9n"          % "sbt-assembly"              % "2.1.5")
 addSbtPlugin("org.scalameta"         % "sbt-scalafmt"              % "2.5.2")
-addSbtPlugin("ch.epfl.scala"         % "sbt-scalafix"              % "0.11.1")
+addSbtPlugin("ch.epfl.scala"         % "sbt-scalafix"              % "0.12.0")
 addSbtPlugin("org.typelevel"         % "sbt-tpolecat"              % "0.5.0")
 addSbtPlugin("io.github.davidmweber" % "flyway-sbt"                % "7.4.0")
 addSbtPlugin("com.github.cb372"      % "sbt-explicit-dependencies" % "0.3.1")
