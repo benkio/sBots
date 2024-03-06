@@ -323,7 +323,10 @@ object Video {
       stt"orecchie sensibili",
       stt"rumore delle lacrime"
     )(
-      mf"rphjb_OrecchieSensibiliRumoreLacrime.mp4"
+      mf"rphjb_OrecchieSensibiliRumoreLacrime.mp4",
+      mf"rphjb_RumoreDelleLacrimeDegliAltri.mp4",
+      mf"rphjb_RumoreDelleLacrimeDegliAltri2.mp4",
+      mf"rphjb_RumoreDelleLacrimeDegliAltri3.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"sapere tutto",
