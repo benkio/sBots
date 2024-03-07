@@ -420,6 +420,8 @@ object Mix {
       mf"rphjb_LavoraTu.mp3",
       mf"rphjb_LavoraTu.mp4",
       mf"rphjb_LavoraTu2.mp4",
+      mf"rphjb_LavoraTu3.mp4",
+      mf"rphjb_LavoraTu4.mp4",
       gif"rphjb_LavoraTuGif.mp4",
       mf"rphjb_StorieSonoTanteVecchiaccia.mp4"
     ),
@@ -988,7 +990,6 @@ object Mix {
       mf"rphjb_AndateDaRatzinger.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"mare di cazzate",
       stt"non è possibile"
     )(
       gif"rphjb_NonPossibile.mp4",
@@ -1240,13 +1241,19 @@ object Mix {
       gif"rphjb_CambiataTuttaPiercingPropriollaGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"luca di noia"
+      stt"luca di noia",
+      stt"alla regia",
+      stt"regista",
     )(
       mf"rphjb_LucaDiNoia.mp3",
       mf"rphjb_LucaDiNoia2.mp3",
+      mf"rphjb_LucaDiNoia3.mp4",
+      mf"rphjb_LucaDiNoia4.mp4",
       mf"rphjb_MatematiciAnaliticiDiNoia.mp3",
       mf"rphjb_GrandeRegistaLucaDiNoia.mp3",
-      mf"rphjb_GrandeRegistaLucaDiNoia.mp4"
+      mf"rphjb_GrandeRegistaLucaDiNoia.mp4",
+      mf"rphjb_LucaDiNoiaGrandeRegista.mp4",
+      mf"rphjb_LucaDiNoiaRegia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"trovamelo",
@@ -1294,6 +1301,13 @@ object Mix {
       mf"rphjb_MadreTorturaParrucca.mp4",
       mf"rphjb_MadreTorturaImprovvisata.mp3"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"mare di cazzate"
+    )(
+      gif"rphjb_NonPossibile.mp4",
+      mf"rphjb_NonPossibile2.mp4",
+      mf"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
+    )
   )
 
 }
