@@ -420,6 +420,8 @@ object Mix {
       mf"rphjb_LavoraTu.mp3",
       mf"rphjb_LavoraTu.mp4",
       mf"rphjb_LavoraTu2.mp4",
+      mf"rphjb_LavoraTu3.mp4",
+      mf"rphjb_LavoraTu4.mp4",
       gif"rphjb_LavoraTuGif.mp4",
       mf"rphjb_StorieSonoTanteVecchiaccia.mp4"
     ),
