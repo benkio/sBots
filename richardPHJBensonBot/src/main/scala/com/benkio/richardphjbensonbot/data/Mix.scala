@@ -1239,13 +1239,19 @@ object Mix {
       gif"rphjb_CambiataTuttaPiercingPropriollaGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"luca di noia"
+      stt"luca di noia",
+      stt"alla regia",
+      stt"regista",
     )(
       mf"rphjb_LucaDiNoia.mp3",
       mf"rphjb_LucaDiNoia2.mp3",
+      mf"rphjb_LucaDiNoia3.mp4",
+      mf"rphjb_LucaDiNoia4.mp4",
       mf"rphjb_MatematiciAnaliticiDiNoia.mp3",
       mf"rphjb_GrandeRegistaLucaDiNoia.mp3",
-      mf"rphjb_GrandeRegistaLucaDiNoia.mp4"
+      mf"rphjb_GrandeRegistaLucaDiNoia.mp4",
+      mf"rphjb_LucaDiNoiaGrandeRegista.mp4",
+      mf"rphjb_LucaDiNoiaRegia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"trovamelo",
