@@ -524,7 +524,8 @@ object Mix {
       stt"come state",
       stt"belle gioie"
     )(
-      gif"rphjb_CiaoComeState.mp4",
+      gif"rphjb_CiaoComeStateGif.mp4",
+      mf"rphjb_CiaoComeState.mp4",
       mf"rphjb_CiaoComeState.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -1066,6 +1067,7 @@ object Mix {
       stt"giudica"
     )(
       gif"rphjb_Giudicate.mp4",
+      gif"rphjb_ComeFaiAGiudicareGif.mp4",
       gif"rphjb_ComeFaiAGiudicare.mp4",
       mf"rphjb_NonPoteteGiudicarUrloThatsGood.mp4"
     ),
