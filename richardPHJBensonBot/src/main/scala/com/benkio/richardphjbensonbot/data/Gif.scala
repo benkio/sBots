@@ -263,7 +263,8 @@ object Gif {
     ReplyBundleMessage.textToMedia[F](
       stt"capolavoro"
     )(
-      gif"rphjb_Capolavoro.mp4"
+      gif"rphjb_CapolavoroGif.mp4",
+      mf"rphjb_Capolavoro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bmetal\\b".r.tr(5)
