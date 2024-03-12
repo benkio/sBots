@@ -112,9 +112,9 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val expected: List[DBMediaData] = List(
       DBMediaData(
-        "rphjb_06.mp4",
+        "rphjb_06Gif.mp4",
         Some("[]"),
-        "https://www.dropbox.com/s/xndnmq4firkc9lu/rphjb_06.mp4?dl=1",
+        "https://www.dropbox.com/s/xndnmq4firkc9lu/rphjb_06Gif.mp4?dl=1",
         0,
         "1674248160144"
       ),

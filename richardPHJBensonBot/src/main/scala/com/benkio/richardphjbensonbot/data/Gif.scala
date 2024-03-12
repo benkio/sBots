@@ -115,12 +115,6 @@ object Gif {
       gif"rphjb_CheCHai.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\b06\\b".r.tr(2),
-      stt"prefisso"
-    )(
-      gif"rphjb_06.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"abbiamo vinto"
     )(
       gif"rphjb_AbbiamoVinto.mp4"

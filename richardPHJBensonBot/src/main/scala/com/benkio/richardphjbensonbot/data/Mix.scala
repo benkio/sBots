@@ -1309,7 +1309,14 @@ object Mix {
       gif"rphjb_NonPossibile.mp4",
       mf"rphjb_NonPossibile2.mp4",
       mf"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\b06\\b".r.tr(2),
+      stt"prefisso"
+    )(
+      gif"rphjb_06Gif.mp4",
+      mf"rphjb_06.mp4"
+    ),
   )
 
 }
