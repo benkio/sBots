@@ -1317,6 +1317,34 @@ object Mix {
       gif"rphjb_06Gif.mp4",
       mf"rphjb_06.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"vengognati",
+    )(
+      mf"rphjb_VergognatiMatosFalasci.mp3",
+      mf"rphjb_VergognatiMatosFalasci.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"andre matos"
+    )(
+      mf"rphjb_MatosShaman.mp3",
+      mf"rphjb_AndreMatosShaman.mp4",
+      mf"rphjb_VergognatiMatosFalasci.mp3",
+      mf"rphjb_VergognatiMatosFalasci.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"edu falasci",
+      stt"edoardo falaschi",
+    )(
+      mf"rphjb_EduFalasci.mp3",
+      mf"rphjb_VergognatiMatosFalasci.mp3",
+      mf"rphjb_VergognatiMatosFalasci.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"shaman",
+    )(
+      mf"rphjb_MatosShaman.mp3",
+      mf"rphjb_AndreMatosShaman.mp4"
+    ),
   )
 
 }

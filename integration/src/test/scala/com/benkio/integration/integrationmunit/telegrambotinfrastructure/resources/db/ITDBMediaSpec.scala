@@ -112,11 +112,11 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val expected: List[DBMediaData] = List(
       DBMediaData(
-        "rphjb_06Gif.mp4",
+        "rphjb_06.mp4",
         Some("[]"),
-        "https://www.dropbox.com/s/xndnmq4firkc9lu/rphjb_06Gif.mp4?dl=1",
+        "https://www.dropbox.com/scl/fi/mg3mcdosvdaxptstl5i9v/rphjb_06.mp4?rlkey=o4fd0d2elof6trhwi0enkm4yl&dl=1",
         0,
-        "1674248160144"
+        "1710261233210"
       ),
       DBMediaData(
         "rphjb_3Minuti.mp4",
@@ -137,6 +137,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       medias  <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3))
+      _ <- Resource.eval(IO.println(medias))
     } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) =>
       acc && checkMedia(actual, exp)
     }
