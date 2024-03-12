@@ -1256,7 +1256,6 @@ object Mix {
       mf"rphjb_LucaDiNoiaRegia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"trovamelo",
       stt"angelo",
       stt"carpenelli",
       stt"via delle albizzie",
@@ -1265,7 +1264,10 @@ object Mix {
       mf"rphjb_AngeloTrovamelo.mp4",
       mf"rphjb_AlbizziePerlaPioggia.mp4",
       mf"rphjb_IstintiMusicali.mp3",
-      mf"rphjb_IstintiMusicali.mp4"
+      mf"rphjb_IstintiMusicali.mp4",
+      mf"rphjb_GrandeAngelo.mp4",
+      mf"rphjb_AngeloCarpenelliGrandeViaDelleAlbizzie22NumeroUnoImmensoInGinocchio.mp4",
+      mf"rphjb_AngeloCarpenelliViaDelleAlbizzie22IstintiMusicali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"questa è una domanda",
