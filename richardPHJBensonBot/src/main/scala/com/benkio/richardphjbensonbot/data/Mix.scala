@@ -1345,6 +1345,13 @@ object Mix {
       mf"rphjb_MatosShaman.mp3",
       mf"rphjb_AndreMatosShaman.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"assolutamente no",
+      stt"non mi lamento"
+    )(
+      gif"rphjb_NonMiLamentoGif.mp4",
+      mf"rphjb_NonMiLamento.mp4",
+    ),
   )
 
 }

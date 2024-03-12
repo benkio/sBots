@@ -489,12 +489,6 @@ object Gif {
       gif"rphjb_FaccioLaParte.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"assolutamente no",
-      stt"non mi lamento"
-    )(
-      gif"rphjb_NonMiLamento.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"inizio della fine"
     )(
       gif"rphjb_InizioDellaFineGif.mp4",
