@@ -117,7 +117,8 @@ object Mix {
     )(
       mf"rphjb_FigureMitologiche.mp3",
       mf"rphjb_FigureMitologiche.mp4",
-      mf"rphjb_FigureMitologiche2.mp4"
+      mf"rphjb_FigureMitologiche2.mp4",
+      mf"rphjb_FigureMitologiche3.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"anche la merda",
@@ -491,6 +492,7 @@ object Mix {
       gif"rphjb_VitaNemicoGif.mp4",
       mf"rphjb_VitaNemico.mp4",
       mf"rphjb_VitaNemico2.mp4",
+      mf"rphjb_VitaNemico3.mp4",
       mf"rphjb_VitaNemicoCervello.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -524,7 +526,8 @@ object Mix {
       stt"come state",
       stt"belle gioie"
     )(
-      gif"rphjb_CiaoComeState.mp4",
+      gif"rphjb_CiaoComeStateGif.mp4",
+      mf"rphjb_CiaoComeState.mp4",
       mf"rphjb_CiaoComeState.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -598,6 +601,7 @@ object Mix {
       gif"rphjb_Esperimento2Gif.mp4",
       gif"rphjb_Esperimento3.mp4",
       mf"rphjb_DiciottoAnni.mp4",
+      mf"rphjb_DiciottoAnni2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"schifosi"
@@ -794,6 +798,7 @@ object Mix {
       "(18|diciott['o]?) anni".r.tr(7)
     )(
       mf"rphjb_DiciottoAnni.mp4",
+      mf"rphjb_DiciottoAnni2.mp4",
       gif"rphjb_DiciottoAnniGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -835,7 +840,8 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       stt"discoteca laziale"
     )(
-      gif"rphjb_DiscotecaLaziale.mp4",
+      gif"rphjb_DiscotecaLazialeGif.mp4",
+      mf"rphjb_DiscotecaLaziale.mp4",
       mf"rphjb_DiscotecaLaziale.mp3",
       mf"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
     ),
@@ -1066,6 +1072,7 @@ object Mix {
       stt"giudica"
     )(
       gif"rphjb_Giudicate.mp4",
+      gif"rphjb_ComeFaiAGiudicareGif.mp4",
       gif"rphjb_ComeFaiAGiudicare.mp4",
       mf"rphjb_NonPoteteGiudicarUrloThatsGood.mp4"
     ),
@@ -1351,6 +1358,41 @@ object Mix {
     )(
       gif"rphjb_NonMiLamentoGif.mp4",
       mf"rphjb_NonMiLamento.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"fa paura pure a",
+      stt"al di meola"
+    )(
+      mf"rphjb_PauraAdAlDiMeola.mp3",
+      mf"rphjb_PauraAdAlDiMeola.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"mettermi in difficoltà",
+      "amicizie (politiche| d[ie] polizia| d[ie] carabinieri| d[ei] tutt'altr[o]? genere)?".r.tr(9),
+      stt"amici potenti"
+    )(
+      gif"rphjb_DifficoltaAmicizieTelefonataGif.mp4",
+      mf"rphjb_DifficoltaAmicizieTelefonata.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"in un attimo",
+      stt"risolto tutto",
+      stt"telefonata",
+    )(
+      gif"rphjb_Telefonata.mp4",
+      mf"rphjb_DifficoltaAmicizieTelefonata.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "nudo([ -]nudo)+".r.tr(4),
+    )(
+      mf"rphjb_NudoFrocio.mp3",
+      mf"rphjb_NudoNudo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ragazza indemoniata",
+    )(
+      gif"rphjb_LaRagazzaIndemoniataGif.mp4",
+      mf"rphjb_LaRagazzaIndemoniata.mp4"
     ),
   )
 
