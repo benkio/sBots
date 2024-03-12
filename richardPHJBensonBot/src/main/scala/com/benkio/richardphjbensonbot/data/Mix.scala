@@ -117,7 +117,8 @@ object Mix {
     )(
       mf"rphjb_FigureMitologiche.mp3",
       mf"rphjb_FigureMitologiche.mp4",
-      mf"rphjb_FigureMitologiche2.mp4"
+      mf"rphjb_FigureMitologiche2.mp4",
+      mf"rphjb_FigureMitologiche3.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"anche la merda",
@@ -491,6 +492,7 @@ object Mix {
       gif"rphjb_VitaNemicoGif.mp4",
       mf"rphjb_VitaNemico.mp4",
       mf"rphjb_VitaNemico2.mp4",
+      mf"rphjb_VitaNemico3.mp4",
       mf"rphjb_VitaNemicoCervello.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
