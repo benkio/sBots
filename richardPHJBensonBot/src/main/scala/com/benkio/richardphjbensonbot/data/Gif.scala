@@ -115,12 +115,6 @@ object Gif {
       gif"rphjb_CheCHai.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\b06\\b".r.tr(2),
-      stt"prefisso"
-    )(
-      gif"rphjb_06.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"abbiamo vinto"
     )(
       gif"rphjb_AbbiamoVinto.mp4"
@@ -493,12 +487,6 @@ object Gif {
       stt"attrice"
     )(
       gif"rphjb_FaccioLaParte.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"assolutamente no",
-      stt"non mi lamento"
-    )(
-      gif"rphjb_NonMiLamento.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"inizio della fine"

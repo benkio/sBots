@@ -415,33 +415,10 @@ object Audio {
       mf"rphjb_CapitoCheMagagna.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"edu falasci",
-      stt"edoardo falaschi",
-    )(
-      mf"rphjb_EduFalasci.mp3",
-      mf"rphjb_VergognatiMatosFalasci.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"kiko loureiro",
       stt"che salva la situazione"
     )(
       mf"rphjb_KikoLoureiroSalvaSituazione.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"andre matos"
-    )(
-      mf"rphjb_MatosShaman.mp3",
-      mf"rphjb_VergognatiMatosFalasci.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"shaman",
-    )(
-      mf"rphjb_MatosShaman.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"vengognati",
-    )(
-      mf"rphjb_VergognatiMatosFalasci.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"via zara",

@@ -779,7 +779,18 @@ object Video {
       mf"rphjb_AncheLaRabbiaHaUnCuore2.mp4",
       mf"rphjb_AncheLaRabbiaHaUnCuore3.mp4",
       mf"rphjb_AncheLaRabbiaHaUnCuore4.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"trovamelo"
+    )(
+      mf"rphjb_AngeloTrovamelo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(due|2) orecchie".r.tr(10),
+      "(una|1) bocca".r.tr(6)
+    )(
+      mf"rphjb_2orecchie1Bocca.mp4",
+      mf"rphjb_2orecchie1Bocca2.mp4"
+    ),
   )
-
 }

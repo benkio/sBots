@@ -1256,7 +1256,6 @@ object Mix {
       mf"rphjb_LucaDiNoiaRegia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"trovamelo",
       stt"angelo",
       stt"carpenelli",
       stt"via delle albizzie",
@@ -1265,7 +1264,10 @@ object Mix {
       mf"rphjb_AngeloTrovamelo.mp4",
       mf"rphjb_AlbizziePerlaPioggia.mp4",
       mf"rphjb_IstintiMusicali.mp3",
-      mf"rphjb_IstintiMusicali.mp4"
+      mf"rphjb_IstintiMusicali.mp4",
+      mf"rphjb_GrandeAngelo.mp4",
+      mf"rphjb_AngeloCarpenelliGrandeViaDelleAlbizzie22NumeroUnoImmensoInGinocchio.mp4",
+      mf"rphjb_AngeloCarpenelliViaDelleAlbizzie22IstintiMusicali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"questa è una domanda",
@@ -1307,7 +1309,49 @@ object Mix {
       gif"rphjb_NonPossibile.mp4",
       mf"rphjb_NonPossibile2.mp4",
       mf"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\b06\\b".r.tr(2),
+      stt"prefisso"
+    )(
+      gif"rphjb_06Gif.mp4",
+      mf"rphjb_06.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"vengognati",
+    )(
+      mf"rphjb_VergognatiMatosFalasci.mp3",
+      mf"rphjb_VergognatiMatosFalasci.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"andre matos"
+    )(
+      mf"rphjb_MatosShaman.mp3",
+      mf"rphjb_AndreMatosShaman.mp4",
+      mf"rphjb_VergognatiMatosFalasci.mp3",
+      mf"rphjb_VergognatiMatosFalasci.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"edu falasci",
+      stt"edoardo falaschi",
+    )(
+      mf"rphjb_EduFalasci.mp3",
+      mf"rphjb_VergognatiMatosFalasci.mp3",
+      mf"rphjb_VergognatiMatosFalasci.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"shaman",
+    )(
+      mf"rphjb_MatosShaman.mp3",
+      mf"rphjb_AndreMatosShaman.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"assolutamente no",
+      stt"non mi lamento"
+    )(
+      gif"rphjb_NonMiLamentoGif.mp4",
+      mf"rphjb_NonMiLamento.mp4",
+    ),
   )
 
 }
