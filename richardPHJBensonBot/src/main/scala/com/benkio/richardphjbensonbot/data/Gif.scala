@@ -638,20 +638,6 @@ object Gif {
       gif"rphjb_CoviMaleInvidiaLivore.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"mettermi in difficoltà",
-      "amicizie (politiche| d[ie] polizia| d[ie] carabinieri| d[ei] tutt'altr[o]? genere)?".r.tr(9),
-      stt"amici potenti"
-    )(
-      gif"rphjb_DifficoltaAmicizieTelefonata.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"in un attimo",
-      stt"risolto tutto",
-      stt"telefonata",
-    )(
-      gif"rphjb_Telefonata.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"a questo punto",
       "andiamo[ci]? a sentire".r.tr(18),
       stt"l'originale",
@@ -663,11 +649,6 @@ object Gif {
       stt"sei l'ultimo",
     )(
       gif"rphjb_FaiSchifoSeiUltimo.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"ragazza indemoniata",
-    )(
-      gif"rphjb_LaRagazzaIndemoniata.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"lui si chiamava",

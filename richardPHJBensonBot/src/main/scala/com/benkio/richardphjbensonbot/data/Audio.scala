@@ -443,12 +443,6 @@ object Audio {
       mf"rphjb_NonParlareTeTrasmissioneMia.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"fa paura pure a",
-      stt"al di meola"
-    )(
-      mf"rphjb_PauraAdAlDiMeola.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"gelatina",
       stt"secchi d'acqua",
       stt"fazzoletti",
@@ -501,7 +495,6 @@ object Audio {
       mf"rphjb_DonneSperma.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "nudo([ -]nudo)+".r.tr(4),
       "fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr(5)
     )(
       mf"rphjb_NudoFrocio.mp3"
