@@ -162,9 +162,11 @@ object Audio {
       mf"rphjb_SoloIo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"saranno cazzi vostri"
+      "(s(ono|o'|ò)?|saranno) cazzi vostri".r.tr(15)
     )(
-      mf"rphjb_SarannoCazziVostri.mp3"
+      mf"rphjb_SarannoCazziVostri.mp3",
+      mf"rphjb_SoCazziVostriStasera.mp4",
+      mf"rphjb_SoCazziVostriGuaioPureCazziMia.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "poteri (ter[r]+ib[b]+ili|demoniaci)".r.tr(16)
@@ -493,11 +495,6 @@ object Audio {
       "mio (fidanzato|partner|moroso)".r.tr(11),
     )(
       mf"rphjb_DonneSperma.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr(5)
-    )(
-      mf"rphjb_NudoFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"incidente dal ponte",

@@ -176,10 +176,12 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non sapere",
-      "aris(d|t)o(d|t)ele".r.tr(10)
+      "aris(d|t)o(d|t)ele".r.tr(10),
+      stt"socrate"
     )(
       gif"rphjb_SoDiNonSapereGif.mp4",
-      mf"rphjb_SoDiNonSapere.mp4"
+      mf"rphjb_SoDiNonSapere.mp4",
+      mf"rphjb_SoDiNonSapere2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non è roba per me"
@@ -873,8 +875,9 @@ object Mix {
       "(non|mica) so(no)? (un |n )?co(gl|j)ione".r.tr(13),
       "sarete co(gl|j)ioni voi".r.tr(17)
     )(
-      gif"rphjb_SareteCoglioniVoi.mp4",
-      mf"rphjb_SareteCoglioniVoi.mp3"
+      gif"rphjb_SareteCoglioniVoiGif.mp4",
+      mf"rphjb_SareteCoglioniVoi.mp3",
+      mf"rphjb_SareteCoglioniVoi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non li sopporto",
@@ -1132,6 +1135,7 @@ object Mix {
       "ciao (2001|duemilauno)".r.tr(9)
     )(
       mf"rphjb_Ciao2001.mp4",
+      mf"rphjb_Ciao2001_2.mp4",
       gif"rphjb_Ciao2001Gif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -1393,6 +1397,26 @@ object Mix {
     )(
       gif"rphjb_LaRagazzaIndemoniataGif.mp4",
       mf"rphjb_LaRagazzaIndemoniata.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"non manca niente",
+      stt"c'è tutto"
+    )(
+      gif"rphjb_NonMancaNienteGif.mp4",
+      mf"rphjb_NonMancaNiente.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"un avvertimento",
+      stt"bastoni tra le ruote"
+    )(
+      gif"rphjb_Ciao2001Gif.mp4",
+      mf"rphjb_Ciao2001_2.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr(5)
+    )(
+      mf"rphjb_NudoFrocio.mp3",
+      mf"rphjb_FrocioFrocio.mp4"
     ),
   )
 

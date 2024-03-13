@@ -339,12 +339,6 @@ object Gif {
       gif"rphjb_Alcesso.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"non manca niente",
-      stt"c'è tutto"
-    )(
-      gif"rphjb_NonMancaNiente.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"in fila"
     )(
       gif"rphjb_MettitiInFila.mp4"
@@ -624,12 +618,6 @@ object Gif {
       stt"ultimo degli esseri umani"
     )(
       gif"rphjb_BruttoSquallidoSchifoso.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"un avvertimento",
-      stt"bastoni tra le ruote"
-    )(
-      gif"rphjb_Ciao2001Gif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"covi il male",
