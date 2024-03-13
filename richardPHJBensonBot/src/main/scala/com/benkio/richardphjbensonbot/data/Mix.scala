@@ -1135,6 +1135,7 @@ object Mix {
       "ciao (2001|duemilauno)".r.tr(9)
     )(
       mf"rphjb_Ciao2001.mp4",
+      mf"rphjb_Ciao2001_2.mp4",
       gif"rphjb_Ciao2001Gif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -1396,6 +1397,26 @@ object Mix {
     )(
       gif"rphjb_LaRagazzaIndemoniataGif.mp4",
       mf"rphjb_LaRagazzaIndemoniata.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"non manca niente",
+      stt"c'è tutto"
+    )(
+      gif"rphjb_NonMancaNienteGif.mp4",
+      mf"rphjb_NonMancaNiente.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"un avvertimento",
+      stt"bastoni tra le ruote"
+    )(
+      gif"rphjb_Ciao2001Gif.mp4",
+      mf"rphjb_Ciao2001_2.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr(5)
+    )(
+      mf"rphjb_NudoFrocio.mp3",
+      mf"rphjb_FrocioFrocio.mp4"
     ),
   )
 
