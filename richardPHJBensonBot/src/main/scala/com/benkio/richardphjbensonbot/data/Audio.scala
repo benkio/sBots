@@ -162,9 +162,11 @@ object Audio {
       mf"rphjb_SoloIo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"saranno cazzi vostri"
+      "(s(ono|o'|ò)?|saranno) cazzi vostri".r.tr(15)
     )(
-      mf"rphjb_SarannoCazziVostri.mp3"
+      mf"rphjb_SarannoCazziVostri.mp3",
+      mf"rphjb_SoCazziVostriStasera.mp4",
+      mf"rphjb_SoCazziVostriGuaioPureCazziMia.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "poteri (ter[r]+ib[b]+ili|demoniaci)".r.tr(16)

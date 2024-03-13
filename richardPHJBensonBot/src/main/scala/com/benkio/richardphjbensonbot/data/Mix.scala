@@ -176,10 +176,12 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non sapere",
-      "aris(d|t)o(d|t)ele".r.tr(10)
+      "aris(d|t)o(d|t)ele".r.tr(10),
+      stt"socrate"
     )(
       gif"rphjb_SoDiNonSapereGif.mp4",
-      mf"rphjb_SoDiNonSapere.mp4"
+      mf"rphjb_SoDiNonSapere.mp4",
+      mf"rphjb_SoDiNonSapere2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non è roba per me"
@@ -873,8 +875,9 @@ object Mix {
       "(non|mica) so(no)? (un |n )?co(gl|j)ione".r.tr(13),
       "sarete co(gl|j)ioni voi".r.tr(17)
     )(
-      gif"rphjb_SareteCoglioniVoi.mp4",
-      mf"rphjb_SareteCoglioniVoi.mp3"
+      gif"rphjb_SareteCoglioniVoiGif.mp4",
+      mf"rphjb_SareteCoglioniVoi.mp3",
+      mf"rphjb_SareteCoglioniVoi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non li sopporto",
