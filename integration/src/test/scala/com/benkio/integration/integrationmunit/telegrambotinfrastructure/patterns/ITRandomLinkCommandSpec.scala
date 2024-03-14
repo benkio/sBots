@@ -378,11 +378,11 @@ Dancing in Second Life to the tune of Michael Jackson's Thriller. The dancers ar
   val showByMinDate: List[TestInput] = List(
     TestInput(
       botName = "ABarberoBot",
-      randomLinkInput = "mindate=20230710",
-      expectedOutput = """2023-08-01 - https://open.spotify.com/episode/1uMauQlvf42YrAvfmLiCPg
- Episodio 12: A me gli occhi
+      randomLinkInput = "mindate=20240312",
+      expectedOutput = """2024-03-13 - https://open.spotify.com/episode/2232NCQbI48hW68RCYrtJK
+ Episodio 44: Canzoni e storia Prima parte (Puntata speciale live al Conservatorio di Milano)
 ----------
- Puntata dedicata al tema della vista e di come, nella storia, si è cercato di porre rimedio ai problemi e alle vicende a essa connessi."""
+ Dal conservatorio Giuseppe Verdi di Milano, Barbero risponde a molte domande con l’aiuto del pubblico, in chiave “musicale”."""
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",
