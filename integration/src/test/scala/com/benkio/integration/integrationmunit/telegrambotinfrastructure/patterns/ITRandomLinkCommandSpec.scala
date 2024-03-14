@@ -378,11 +378,11 @@ Dancing in Second Life to the tune of Michael Jackson's Thriller. The dancers ar
   val showByMinDate: List[TestInput] = List(
     TestInput(
       botName = "ABarberoBot",
-      randomLinkInput = "mindate=20230710",
-      expectedOutput = """2023-07-11 - https://open.spotify.com/episode/0kZoDER9sHb9g0vvjh1ixv
- Chiedilo a Barbero - Intesa Sanpaolo On Air - Episodio 9: Turismo medioevale
+      randomLinkInput = "mindate=20240312",
+      expectedOutput = """2024-03-13 - https://open.spotify.com/episode/2232NCQbI48hW68RCYrtJK
+ Episodio 44: Canzoni e storia Prima parte (Puntata speciale live al Conservatorio di Milano)
 ----------
- Il professore racconta della nascita del turismo e consiglia tre, tra le tantissime, mete “medievali” che meritano di essere visitate in Italia."""
+ Dal conservatorio Giuseppe Verdi di Milano, Barbero risponde a molte domande con l’aiuto del pubblico, in chiave “musicale”."""
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",

@@ -312,7 +312,8 @@ object Mix {
       mf"rphjb_LetSGoodStateBene.mp3",
       mf"rphjb_WelaMyFriends.mp4",
       mf"rphjb_LetsGoodMyFriends.mp4",
-      mf"rphjb_NonPoteteGiudicarUrloThatsGood.mp4"
+      mf"rphjb_NonPoteteGiudicarUrloThatsGood.mp4",
+      mf"rphjb_LetsGoodMyFriendsPassport.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vattene (a f|a[f]*)?fanculo".r.tr(16)
@@ -632,7 +633,8 @@ object Mix {
       gif"rphjb_Schifoso.mp4",
       mf"rphjb_Vigile.mp4",
       mf"rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4",
-      gif"rphjb_BruttoSquallidoSchifoso.mp4"
+      gif"rphjb_BruttoSquallidoSchifosoGif.mp4",
+      mf"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"mortacci vostri"
@@ -857,13 +859,15 @@ object Mix {
       gif"rphjb_MiPareLogico.mp4",
       mf"rphjb_MiPareLogico.mp3",
       mf"rphjb_MatematiciAnaliticiDiNoia.mp3",
+      mf"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\blo[g]+i(c|g)o\\b".r.tr(6)
     )(
       gif"rphjb_MiPareLogico.mp4",
       mf"rphjb_MiPareLogico.mp3",
-      gif"rphjb_SembraLogico.mp4"
+      gif"rphjb_SembraLogico.mp4",
+      mf"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ti dovresti vergognare"
@@ -919,7 +923,8 @@ object Mix {
       mf"rphjb_RelIllusions.mp4",
       gif"rphjb_TiDeviSpaventareGif.mp4",
       mf"rphjb_TiDeviSpaventare.mp3",
-      mf"rphjb_Feelings.mp4"
+      mf"rphjb_Feelings.mp4",
+      mf"rphjb_SteveVaiRamazzotti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(divento|diventare|sono) (matto|pazzo)".r.tr(10)
@@ -1261,6 +1266,7 @@ object Mix {
       mf"rphjb_LucaDiNoia3.mp4",
       mf"rphjb_LucaDiNoia4.mp4",
       mf"rphjb_MatematiciAnaliticiDiNoia.mp3",
+      mf"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4",
       mf"rphjb_GrandeRegistaLucaDiNoia.mp3",
       mf"rphjb_GrandeRegistaLucaDiNoia.mp4",
       mf"rphjb_LucaDiNoiaGrandeRegista.mp4",
@@ -1417,6 +1423,41 @@ object Mix {
     )(
       mf"rphjb_NudoFrocio.mp3",
       mf"rphjb_FrocioFrocio.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"kiko loureiro",
+      stt"che salva la situazione"
+    )(
+      mf"rphjb_KikoLoureiroSalvaSituazione.mp3",
+      mf"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"che magagna",
+      stt"che fregatura",
+    )(
+      mf"rphjb_CapitoCheMagagna.mp3",
+      mf"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"passaporto"
+    )(
+      mf"rphjb_PassaportoRiccardoBenzoni.mp3",
+      mf"rphjb_LetsGoodMyFriendsPassport.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"quante ore",
+      stt"quanti anni",
+      stt"quanto tempo"
+    )(
+      gif"rphjb_QuanteOreGif.mp4",
+      mf"rphjb_QuanteOreQuantiAnni.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"squallido",
+      stt"ultimo degli esseri umani"
+    )(
+      gif"rphjb_BruttoSquallidoSchifosoGif.mp4",
+      mf"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4"
     ),
   )
 

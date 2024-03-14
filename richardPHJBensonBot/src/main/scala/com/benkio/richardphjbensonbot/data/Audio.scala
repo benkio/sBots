@@ -411,18 +411,6 @@ object Audio {
       mf"rphjb_IoMiRicordoTutto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"che magagna",
-      stt"che fregatura",
-    )(
-      mf"rphjb_CapitoCheMagagna.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"kiko loureiro",
-      stt"che salva la situazione"
-    )(
-      mf"rphjb_KikoLoureiroSalvaSituazione.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"via zara",
       stt"sei brava a truccare",
       stt"non vali niente",
@@ -519,7 +507,6 @@ object Audio {
       mf"rphjb_TelevitaSonoInizioRisata.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"passaporto",
       stt"riccardo benzoni",
       stt"richard philip henry john benson",
     )(
