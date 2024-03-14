@@ -126,12 +126,6 @@ object Gif {
       gif"rphjb_TelefonataPilotata.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"quante ore",
-      stt"quanto tempo"
-    )(
-      gif"rphjb_QuanteOre.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       "come ha fatto a entr(à|are)".r.tr(23)
     )(
       gif"rphjb_ComeHaFattoAEntrare.mp4"
@@ -612,12 +606,6 @@ object Gif {
       stt"deal with it"
     )(
       gif"rphjb_Occhiali.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"squallido",
-      stt"ultimo degli esseri umani"
-    )(
-      gif"rphjb_BruttoSquallidoSchifoso.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"covi il male",

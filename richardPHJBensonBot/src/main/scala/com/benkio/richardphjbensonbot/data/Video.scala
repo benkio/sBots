@@ -792,5 +792,10 @@ object Video {
       mf"rphjb_2orecchie1Bocca.mp4",
       mf"rphjb_2orecchie1Bocca2.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ramazzotti"
+    )(
+      mf"rphjb_SteveVaiRamazzotti.mp4"
+    ),
   )
 }
