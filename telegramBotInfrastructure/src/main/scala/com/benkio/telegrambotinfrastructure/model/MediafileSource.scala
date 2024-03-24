@@ -6,6 +6,7 @@ import io.circe.Decoder
 import io.circe.HCursor
 import io.circe.DecodingFailure
 
+import java.net.URI
 import java.net.URL
 import scala.util.Try
 
@@ -23,7 +24,7 @@ object MediaFileSource {
     final def apply(c: HCursor): Decoder.Result[URL] =
       for {
         urlString <- c.as[String]
-        url <- Try(new URL(urlString)).toEither.leftMap(_ =>
+        url <- Try(URI.create(urlString).toURL()).toEither.leftMap(_ =>
           DecodingFailure(s"Couldn't parse the URL: $urlString", List.empty)
         )
       } yield url

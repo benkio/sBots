@@ -810,7 +810,8 @@ object Mix {
       stt"pugno"
     )(
       mf"rphjb_CinqueDita.mp4",
-      mf"rphjb_CinqueDita.mp3"
+      mf"rphjb_CinqueDita.mp3",
+      mf"rphjb_CinqueDita2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bratti\\b".r.tr(5),

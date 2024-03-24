@@ -393,7 +393,6 @@ object Video {
       stt"latte droga",
       stt"solo gregge",
       stt"gregge da discoteca",
-      stt"sputo in un bicchiere",
     )(mf"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4"),
     ReplyBundleMessage.textToMedia[F](
       "drogh[ae] (legger[ae]|pesant[ei])".r.tr(14),
@@ -692,10 +691,10 @@ object Video {
       mf"rphjb_GiudizioParolaFine.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"legati",
       stt"spago",
     )(
-      mf"rphjb_LegatiSpago.mp4"
+      mf"rphjb_LegatiSpago.mp4",
+      mf"rphjb_UnitiQualeSpago.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ci siamo sciolti",
@@ -796,6 +795,18 @@ object Video {
       stt"ramazzotti"
     )(
       mf"rphjb_SteveVaiRamazzotti.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"limitazioni dell'uomo",
+      stt"limitazioni della donna"
+    )(
+      mf"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sputo in un bicchiere",
+    )(
+      mf"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
+      mf"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
     ),
   )
 }

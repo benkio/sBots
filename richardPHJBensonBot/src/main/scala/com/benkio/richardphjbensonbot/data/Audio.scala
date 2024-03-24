@@ -98,7 +98,8 @@ object Audio {
     ReplyBundleMessage.textToMedia[F](
       stt"animali"
     )(
-      mf"rphjb_Animali.mp3"
+      mf"rphjb_Animali.mp3",
+      mf"rphjb_Animali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(mi sento|sto) meglio".r.tr(10)
