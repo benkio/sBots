@@ -502,7 +502,6 @@ object Audio {
       mf"rphjb_RaccondaStoriaTegaBaffoPeliCulo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"televita",
       stt"solo l'inizio",
     )(
       mf"rphjb_TelevitaSonoInizioRisata.mp3"

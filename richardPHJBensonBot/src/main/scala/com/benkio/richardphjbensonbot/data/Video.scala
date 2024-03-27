@@ -503,8 +503,7 @@ object Video {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"tempo al tempo",
-      stt"non ne ho più",
-      stt"mercoledì",
+      stt"non ne ho più"
     )(
       mf"rphjb_TempoAlTempo.mp4"
     ),
@@ -807,6 +806,14 @@ object Video {
     )(
       mf"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
       mf"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"sfuggono",
+      "\\bpols[io]\\b".r.tr(5),
+      "\\borolog[io]\\b".r.tr(7)
+    )(
+      gif"rphjb_QuattroSolo.mp4",
+      mf"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4"
     ),
   )
 }

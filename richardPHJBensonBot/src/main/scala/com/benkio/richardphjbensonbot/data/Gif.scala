@@ -463,12 +463,6 @@ object Gif {
       gif"rphjb_QuelPunto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"quattro solo",
-      stt"faccio in tempo"
-    )(
-      gif"rphjb_QuattroSolo.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"faccio la parte",
       stt" recit",
       stt" fing",

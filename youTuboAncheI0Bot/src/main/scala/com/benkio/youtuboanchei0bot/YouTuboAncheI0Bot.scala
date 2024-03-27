@@ -1434,8 +1434,7 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"vivete questo momento con me",
-      stt"sempre sul tubo",
-      stt"youtube"
+      stt"sempre sul tubo"
     )(
       mp3"ytai_CredeteSempreSulTuboViveteMomentoConMe.mp3",
       vid"ytai_CredeteSempreSulTuboViveteMomentoConMe.mp4",
