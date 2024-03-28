@@ -686,7 +686,8 @@ object Mix {
       mf"rphjb_ChiCacciaISoldi.mp3",
       mf"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
       mf"rphjb_BigMoney.mp4",
-      mf"rphjb_InvestitoreGoverno.mp4"
+      mf"rphjb_InvestitoreGoverno.mp4",
+      mf"rphjb_ButtareSoldiFinestra.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[od]?dio mio[,]? no".r.tr(10)
@@ -810,7 +811,8 @@ object Mix {
       stt"pugno"
     )(
       mf"rphjb_CinqueDita.mp4",
-      mf"rphjb_CinqueDita.mp3"
+      mf"rphjb_CinqueDita.mp3",
+      mf"rphjb_CinqueDita2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bratti\\b".r.tr(5),
@@ -834,7 +836,7 @@ object Mix {
       mf"rphjb_FuCriticato.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"venerdì"
+      "venerd[iì]".r.tr(7)
     )(
       mf"rphjb_Venerdi.mp3",
       mf"rphjb_Venerdi.mp4",
@@ -1147,7 +1149,8 @@ object Mix {
       "alle (22|ventidue)".r.tr(7)
     )(
       mf"rphjb_Alle22.mp3",
-      mf"rphjb_VenerdiAppuntamentoFissoFica.mp4"
+      mf"rphjb_VenerdiAppuntamentoFissoFica.mp4",
+      mf"rphjb_Alle22MercolediTelevita.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"appuntamento"
@@ -1458,6 +1461,31 @@ object Mix {
     )(
       gif"rphjb_BruttoSquallidoSchifosoGif.mp4",
       mf"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"quattro solo",
+      stt"faccio in tempo"
+    )(
+      gif"rphjb_QuattroSolo.mp4",
+      mf"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"televita"
+    )(
+      mf"rphjb_TelevitaSonoInizioRisata.mp3",
+      mf"rphjb_Alle22MercolediTelevita.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mercoled[iì]".r.tr(9)
+    )(
+      mf"rphjb_TempoAlTempo.mp4",
+      mf"rphjb_Alle22MercolediTelevita.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"brutto frocio"
+    )(
+      mf"rphjb_BruttoFrocio.mp3",
+      mf"rphjb_CambiaCanaleBruttoFrocio.mp4"
     ),
   )
 

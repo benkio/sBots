@@ -98,7 +98,8 @@ object Audio {
     ReplyBundleMessage.textToMedia[F](
       stt"animali"
     )(
-      mf"rphjb_Animali.mp3"
+      mf"rphjb_Animali.mp3",
+      mf"rphjb_Animali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(mi sento|sto) meglio".r.tr(10)
@@ -274,11 +275,6 @@ object Audio {
       stt"non riesco a suonare"
     )(
       mf"rphjb_Problema.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"brutto frocio"
-    )(
-      mf"rphjb_BruttoFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"questo ragazzo",
@@ -501,7 +497,6 @@ object Audio {
       mf"rphjb_RaccondaStoriaTegaBaffoPeliCulo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"televita",
       stt"solo l'inizio",
     )(
       mf"rphjb_TelevitaSonoInizioRisata.mp3"
