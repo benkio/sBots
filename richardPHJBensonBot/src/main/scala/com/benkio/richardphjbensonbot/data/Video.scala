@@ -815,5 +815,10 @@ object Video {
       gif"rphjb_QuattroSolo.mp4",
       mf"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cambia canale"
+    )(
+      mf"rphjb_CambiaCanaleBruttoFrocio.mp4"
+    ),
   )
 }

@@ -686,7 +686,8 @@ object Mix {
       mf"rphjb_ChiCacciaISoldi.mp3",
       mf"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
       mf"rphjb_BigMoney.mp4",
-      mf"rphjb_InvestitoreGoverno.mp4"
+      mf"rphjb_InvestitoreGoverno.mp4",
+      mf"rphjb_ButtareSoldiFinestra.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[od]?dio mio[,]? no".r.tr(10)
@@ -1479,6 +1480,12 @@ object Mix {
     )(
       mf"rphjb_TempoAlTempo.mp4",
       mf"rphjb_Alle22MercolediTelevita.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"brutto frocio"
+    )(
+      mf"rphjb_BruttoFrocio.mp3",
+      mf"rphjb_CambiaCanaleBruttoFrocio.mp4"
     ),
   )
 

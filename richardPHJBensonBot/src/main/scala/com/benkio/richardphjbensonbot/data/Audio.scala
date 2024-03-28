@@ -277,11 +277,6 @@ object Audio {
       mf"rphjb_Problema.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"brutto frocio"
-    )(
-      mf"rphjb_BruttoFrocio.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"questo ragazzo",
       stt"eccitare",
       stt"lucio dalla"
