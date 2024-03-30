@@ -114,10 +114,10 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       DBMediaData(
         "rphjb_06Gif.mp4",
         Some("[]"),
-      "https://www.dropbox.com/s/xndnmq4firkc9lu/rphjb_06Gif.mp4?dl=1",
-      0,
-      "1710379153288"
-    ),
+        "https://www.dropbox.com/s/xndnmq4firkc9lu/rphjb_06Gif.mp4?dl=1",
+        0,
+        "1710379153288"
+      ),
       DBMediaData(
         "rphjb_3Minuti.mp4",
         Some("[]"),
@@ -137,7 +137,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       medias  <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3))
-      _ <- Resource.eval(IO.println(medias))
+      _       <- Resource.eval(IO.println(medias))
     } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) =>
       acc && checkMedia(actual, exp)
     }
