@@ -820,5 +820,22 @@ object Video {
     )(
       mf"rphjb_CambiaCanaleBruttoFrocio.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"garage",
+      stt"varazze",
+      "\\banima\\b".r.tr(5),
+    )(
+      mf"rphjb_AnimaGarageVarazze.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "arbitri (truccati|pagati)".r.tr(14),
+      stt"giocatori dopati",
+      "(gioco del|il) calcio".r.tr(9),
+      stt"moggi",
+      stt"direttore del coni",
+      "(una|na) farsa".r.tr(8)
+    )(
+      mf"rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCalcio.mp4"
+    )
   )
 }
