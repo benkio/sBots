@@ -574,7 +574,8 @@ object Video {
       stt"colpa mia",
       "mi assumo (tutte )?le responsabilità".r.tr(27),
     )(
-      mf"rphjb_TuttaColpaMia.mp4"
+      mf"rphjb_TuttaColpaMia.mp4",
+      mf"rphjb_MiaColpaColpaMia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"i colpevoli",

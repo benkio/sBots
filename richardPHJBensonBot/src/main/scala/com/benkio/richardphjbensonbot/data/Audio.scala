@@ -76,11 +76,6 @@ object Audio {
       mf"rphjb_NonHoDettoTutto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"ogni volta"
-    )(
-      mf"rphjb_OgniVolta.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"non mi calmo"
     )(
       mf"rphjb_NonMiCalmo.mp3"

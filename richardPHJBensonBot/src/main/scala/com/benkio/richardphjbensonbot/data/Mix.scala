@@ -700,7 +700,8 @@ object Mix {
       gif"rphjb_OddioMioNoGif.mp4",
       mf"rphjb_OddioMioNo.mp3",
       mf"rphjb_OddioMioNo2.mp3",
-      gif"rphjb_OddioMioNo.mp4"
+      gif"rphjb_OddioMioNo.mp4",
+      gif"rphjb_OddioMioNo2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[sono ]?a[r]{1,2}iva(d|t)o".r.tr(12),
@@ -1491,6 +1492,12 @@ object Mix {
     )(
       mf"rphjb_BruttoFrocio.mp3",
       mf"rphjb_CambiaCanaleBruttoFrocio.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ogni volta"
+    )(
+      mf"rphjb_OgniVolta.mp3",
+      mf"rphjb_OgniVolta.mp4"
     ),
   )
 
