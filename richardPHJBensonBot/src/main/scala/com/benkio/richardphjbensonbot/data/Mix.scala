@@ -251,6 +251,7 @@ object Mix {
       mf"rphjb_ViCalpesto.mp4",
       gif"rphjb_Ultimi.mp4",
       mf"rphjb_StateZittiZozziUltimi.mp3",
+      mf"rphjb_RottoIlCazzoUltimi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "che (cazzo )?era quella roba".r.tr(19),
@@ -693,7 +694,8 @@ object Mix {
       mf"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
       mf"rphjb_BigMoney.mp4",
       mf"rphjb_InvestitoreGoverno.mp4",
-      mf"rphjb_ButtareSoldiFinestra.mp4"
+      mf"rphjb_ButtareSoldiFinestra.mp4",
+      mf"rphjb_CoiSoldiMiei.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[od]?dio mio[,]? no".r.tr(10)
@@ -1196,6 +1198,7 @@ object Mix {
     )(
       mf"rphjb_EBastaETuHaiRottoIlCazzo.mp4",
       mf"rphjb_BastaRottoIlCazzo.mp4",
+      mf"rphjb_RottoIlCazzoUltimi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bmula\\b".r.tr(4),
