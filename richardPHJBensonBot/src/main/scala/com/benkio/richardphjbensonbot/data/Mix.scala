@@ -465,7 +465,8 @@ object Mix {
       stt"quasi un frocio"
     )(
       mf"rphjb_Frocio.mp3",
-      gif"rphjb_Frocio.mp4"
+      gif"rphjb_FrocioGif.mp4",
+      mf"rphjb_EduFalasciQuasiFrocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(fammi|chiedere)? (una|questa)? cortesia".r.tr(18)
@@ -1363,7 +1364,8 @@ object Mix {
     )(
       mf"rphjb_EduFalasci.mp3",
       mf"rphjb_VergognatiMatosFalasci.mp3",
-      mf"rphjb_VergognatiMatosFalasci.mp4"
+      mf"rphjb_VergognatiMatosFalasci.mp4",
+      mf"rphjb_EduFalasciQuasiFrocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"shaman",
