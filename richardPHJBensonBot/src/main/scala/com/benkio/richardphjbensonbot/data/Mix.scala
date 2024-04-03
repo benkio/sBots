@@ -190,7 +190,7 @@ object Mix {
       mf"rphjb_RobaPerMe.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      " io \\bn[o]{2,}\\b".r.tr(6)
+      "io \\bn[o]{2,}\\b".r.tr(6)
     )(
       mf"rphjb_IoNo.mp3",
       mf"rphjb_GesuCoglione.mp4",
