@@ -48,11 +48,11 @@ object MediaFile {
 }
 
 extension (sc: StringContext)
-  def mf(args: Any*): MediaFile  = MediaFile(sc.s(args: _*))
-  def mp3(args: Any*): Mp3File   = Mp3File(sc.s(args: _*))
-  def gif(args: Any*): GifFile   = GifFile(sc.s(args: _*))
-  def vid(args: Any*): VideoFile = VideoFile(sc.s(args: _*))
-  def pho(args: Any*): PhotoFile = PhotoFile(sc.s(args: _*))
-  def txt(args: Any*): Text      = Text(sc.s(args: _*))
+  def mf(args: Any*): MediaFile  = MediaFile(sc.s(args*))
+  def mp3(args: Any*): Mp3File   = Mp3File(sc.s(args*))
+  def gif(args: Any*): GifFile   = GifFile(sc.s(args*))
+  def vid(args: Any*): VideoFile = VideoFile(sc.s(args*))
+  def pho(args: Any*): PhotoFile = PhotoFile(sc.s(args*))
+  def txt(args: Any*): Text      = Text(sc.s(args*))
 
 extension (values: List[String]) def toText: List[Text] = values.map(Text(_))

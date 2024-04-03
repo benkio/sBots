@@ -200,7 +200,7 @@ object CalandroBot {
       new CalandroBotPolling[F](
         resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer
-      )(Parallel[F], Async[F], botSetup.api, log)
+      )(using Parallel[F], Async[F], botSetup.api, log)
     )
   }
 
@@ -222,6 +222,6 @@ object CalandroBot {
         resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         webhookCertificate = webhookCertificate
-      )(Async[F], botSetup.api, log)
+      )(using Async[F], botSetup.api, log)
     }
 }

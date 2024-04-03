@@ -43,7 +43,7 @@ object DBMigrator {
       .locations(
         config.migrationsLocations
           .map(new Location(_))
-          .toList: _*
+          .toList*
       )
       .baselineOnMigrate(true)
 

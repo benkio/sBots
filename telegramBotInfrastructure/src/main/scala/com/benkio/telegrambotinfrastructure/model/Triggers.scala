@@ -13,7 +13,7 @@ object TextTriggerValue {
 
   def matchValue(trigger: TextTriggerValue, source: String): Boolean = trigger match {
     case RegexTextTriggerValue(v, _) => v.findFirstMatchIn(source).isDefined
-    case StringTextTriggerValue(v)   => source contains v
+    case StringTextTriggerValue(v)   => source `contains` v
   }
 
   given showInstance: Show[TextTriggerValue] = Show.show(ttv =>
@@ -31,7 +31,7 @@ case class RegexTextTriggerValue(trigger: Regex, minimalLengthMatch: Int) extend
   override def length: Int = minimalLengthMatch
 }
 
-extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args: _*))
+extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
 extension (r: Regex)
   def tr(minimalLengthMatch: Int): RegexTextTriggerValue = RegexTextTriggerValue(r, minimalLengthMatch)
 

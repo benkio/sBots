@@ -83,7 +83,7 @@ object DBShow {
     val q = fr"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description FROM show" ++
       Fragments.whereAnd(
         fr"bot_name = $botName",
-        showQueryToFragments(query): _*
+        showQueryToFragments(query)*
       )
 
     q.query[DBShowData]

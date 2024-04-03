@@ -42,14 +42,14 @@ object ReplyBundleMessage {
 
   def textToMedia[F[_]: Applicative](triggers: TextTriggerValue*)(mediaFiles: MediaFile*): ReplyBundleMessage[F] =
     ReplyBundleMessage[F](
-      trigger = TextTrigger(triggers: _*),
+      trigger = TextTrigger(triggers*),
       reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList)
     )
 
   def textToText[F[_]: Applicative](triggers: TextTriggerValue*)(texts: String*): ReplyBundleMessage[F] =
     ReplyBundleMessage[F](
-      trigger = TextTrigger(triggers: _*),
-      reply = TextReply.fromList[F](texts: _*)(false)
+      trigger = TextTrigger(triggers*),
+      reply = TextReply.fromList[F](texts*)(false)
     )
 
   def prettyPrint[F[_]: Applicative](rbm: ReplyBundleMessage[F])(using triggerShow: Show[Trigger]): F[String] = {

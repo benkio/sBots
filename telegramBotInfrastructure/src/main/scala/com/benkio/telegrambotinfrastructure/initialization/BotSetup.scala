@@ -102,7 +102,7 @@ object BotSetup {
         dbShow = dbLayer.dbShow,
         botName = botName,
         resourceAccess = resourceAccess
-      )(Async[F], api, telegramReply, log)
+      )(using Async[F], api, telegramReply, log)
     )
     path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))

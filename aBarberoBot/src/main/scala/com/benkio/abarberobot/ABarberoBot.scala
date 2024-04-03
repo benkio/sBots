@@ -747,7 +747,7 @@ object ABarberoBot {
         resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager
-      )(Parallel[F], Async[F], botSetup.api, log)
+      )(using Parallel[F], Async[F], botSetup.api, log)
     )
   }
 
@@ -770,6 +770,6 @@ object ABarberoBot {
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate
-      )(Async[F], botSetup.api, log)
+      )(using Async[F], botSetup.api, log)
     }
 }
