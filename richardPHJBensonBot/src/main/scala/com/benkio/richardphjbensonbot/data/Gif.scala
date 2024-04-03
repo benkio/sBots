@@ -147,7 +147,7 @@ object Gif {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"piano superiore",
-      stt"compete",
+      stt"si compete",
       stt"gerarca"
     )(
       gif"rphjb_PianoSuperioreCompete.mp4"
@@ -403,7 +403,7 @@ object Gif {
       gif"rphjb_Verita.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\bn[o]{2,}\\b".r.tr(3)
+      "\\bn[o]{2,}!\\b".r.tr(3)
     )(
       gif"rphjb_No.mp4"
     ),
