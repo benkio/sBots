@@ -590,7 +590,12 @@ object Mix {
       mf"rphjb_CapitoDoveStiamo.mp3",
       mf"rphjb_CapisciRidotti.mp3",
       mf"rphjb_CapitoCheMagagna.mp3",
-      mf"rphjb_DavantiGenteNonHaCapisceUnCazzo.mp3"
+      mf"rphjb_DavantiGenteNonHaCapisceUnCazzo.mp3",
+      mf"rphjb_AbbiamoCapito.mp4",
+      mf"rphjb_AveteCapitoNo.mp4",
+      mf"rphjb_StiamoNellaFollia.mp4",
+      mf"rphjb_HaiCapitoAveteRapitoONonAveteCapitoUnCazzo.mp4",
+      mf"rphjb_AveteCapito2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"esperiment",
