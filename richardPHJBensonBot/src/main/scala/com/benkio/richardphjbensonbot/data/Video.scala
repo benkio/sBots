@@ -836,6 +836,12 @@ object Video {
       "(una|na) farsa".r.tr(8)
     )(
       mf"rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCalcio.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"incompetente"
+    )(
+      mf"rphjb_PerfettoIncompetente.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F]("sono (proprio )?un coglione".r.tr(16))(mf"rphjb_SonoCoglione.mp4")
   )
 }
