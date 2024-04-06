@@ -94,8 +94,6 @@ object Video {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ramarro",
-      stt"yngwie",
-      stt"malmsteen",
       stt"impellitteri"
     )(
       mf"rphjb_Ramarro.mp4"
@@ -843,6 +841,21 @@ object Video {
     )(
       mf"rphjb_PerfettoIncompetente.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F]("sono (proprio )?un coglione".r.tr(16))(mf"rphjb_SonoCoglione.mp4")
+    ReplyBundleMessage.textToMedia[F]("sono (proprio )?un coglione".r.tr(16))(mf"rphjb_SonoCoglione.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"sta male", stt"canzoni di natale")(
+      mf"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4"
+    ),
+    ReplyBundleMessage
+      .textToMedia[F](stt"yngwie", stt"malmsteen")(
+        mf"rphjb_Ramarro.mp4",
+        mf"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4"
+      ),
+    ReplyBundleMessage.textToMedia[F](stt"invece no", stt"si ricomincia", stt"da capo")(
+      mf"rphjb_InveceNoRicominciaDaCapo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](stt"allora parlo")(mf"rphjb_AlloraParlo.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"fammelo avere", "al pi[ùu] presto".r.tr(13))(
+      mf"rphjb_FammeloAvereAlPiuPresto.mp4"
+    )
   )
 }

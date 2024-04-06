@@ -108,12 +108,8 @@ object Mix {
       stt"cobbolidi",
       stt"elfi",
       "\\bnani\\b".r.tr(4),
-      stt"la mandragola",
       stt"gobellini",
-      stt"fico sacro",
-      stt"la betulla",
-      stt"la canfora",
-      stt"le ossa dei morti"
+      stt"ossa dei morti"
     )(
       mf"rphjb_FigureMitologiche.mp3",
       mf"rphjb_FigureMitologiche.mp4",
@@ -251,6 +247,7 @@ object Mix {
       mf"rphjb_ViCalpesto.mp4",
       gif"rphjb_Ultimi.mp4",
       mf"rphjb_StateZittiZozziUltimi.mp3",
+      mf"rphjb_RottoIlCazzoUltimi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "che (cazzo )?era quella roba".r.tr(19),
@@ -465,7 +462,8 @@ object Mix {
       stt"quasi un frocio"
     )(
       mf"rphjb_Frocio.mp3",
-      gif"rphjb_Frocio.mp4"
+      gif"rphjb_FrocioGif.mp4",
+      mf"rphjb_EduFalasciQuasiFrocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(fammi|chiedere)? (una|questa)? cortesia".r.tr(18)
@@ -692,7 +690,8 @@ object Mix {
       mf"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
       mf"rphjb_BigMoney.mp4",
       mf"rphjb_InvestitoreGoverno.mp4",
-      mf"rphjb_ButtareSoldiFinestra.mp4"
+      mf"rphjb_ButtareSoldiFinestra.mp4",
+      mf"rphjb_CoiSoldiMiei.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[od]?dio mio[,]? no".r.tr(10)
@@ -1195,6 +1194,7 @@ object Mix {
     )(
       mf"rphjb_EBastaETuHaiRottoIlCazzo.mp4",
       mf"rphjb_BastaRottoIlCazzo.mp4",
+      mf"rphjb_RottoIlCazzoUltimi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bmula\\b".r.tr(4),
@@ -1363,7 +1363,8 @@ object Mix {
     )(
       mf"rphjb_EduFalasci.mp3",
       mf"rphjb_VergognatiMatosFalasci.mp3",
-      mf"rphjb_VergognatiMatosFalasci.mp4"
+      mf"rphjb_VergognatiMatosFalasci.mp4",
+      mf"rphjb_EduFalasciQuasiFrocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"shaman",
@@ -1499,6 +1500,26 @@ object Mix {
       mf"rphjb_OgniVolta.mp3",
       mf"rphjb_OgniVolta.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"mandragola",
+      stt"fico sacro",
+      stt"betulla",
+      stt"canfora"
+    )(
+      mf"rphjb_FigureMitologiche.mp3",
+      mf"rphjb_FigureMitologiche.mp4",
+      mf"rphjb_FigureMitologiche2.mp4",
+      mf"rphjb_FigureMitologiche3.mp4",
+      mf"rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"assaporare",
+      stt"incenso",
+      "\\bmenta\\b".r.tr(5),
+      "sapore (strano|indefinito)".r.tr(13),
+    )(
+      mf"rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4"
+    )
   )
 
 }
