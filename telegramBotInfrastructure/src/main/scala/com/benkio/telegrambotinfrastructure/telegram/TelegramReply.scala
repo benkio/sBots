@@ -84,9 +84,9 @@ object TelegramReply:
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
           Methods.sendAudio(
-            chatId,
-            ifile,
-            replyToMessageId
+            chatId = chatId,
+            audio = ifile,
+            messageThreadId = replyToMessageId
           )
       )
     }
@@ -107,9 +107,9 @@ object TelegramReply:
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
           Methods.sendAnimation(
-            chatId,
-            ifile,
-            replyToMessageId
+            chatId = chatId,
+            animation = ifile,
+            messageThreadId = replyToMessageId
           )
       )
     }
@@ -130,9 +130,9 @@ object TelegramReply:
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
           Methods.sendPhoto(
-            chatId,
-            ifile,
-            replyToMessageId
+            chatId = chatId,
+            photo = ifile,
+            messageThreadId = replyToMessageId
           )
       )
     }
@@ -153,9 +153,9 @@ object TelegramReply:
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
           Methods.sendVideo(
-            chatId,
-            ifile,
-            replyToMessageId
+            chatId = chatId,
+            video = ifile,
+            messageThreadId = replyToMessageId
           )
       )
     }
