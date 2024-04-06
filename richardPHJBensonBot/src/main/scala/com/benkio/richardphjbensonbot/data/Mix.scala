@@ -108,12 +108,8 @@ object Mix {
       stt"cobbolidi",
       stt"elfi",
       "\\bnani\\b".r.tr(4),
-      stt"la mandragola",
       stt"gobellini",
-      stt"fico sacro",
-      stt"la betulla",
-      stt"la canfora",
-      stt"le ossa dei morti"
+      stt"ossa dei morti"
     )(
       mf"rphjb_FigureMitologiche.mp3",
       mf"rphjb_FigureMitologiche.mp4",
@@ -1504,6 +1500,26 @@ object Mix {
       mf"rphjb_OgniVolta.mp3",
       mf"rphjb_OgniVolta.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"mandragola",
+      stt"fico sacro",
+      stt"betulla",
+      stt"canfora"
+    )(
+      mf"rphjb_FigureMitologiche.mp3",
+      mf"rphjb_FigureMitologiche.mp4",
+      mf"rphjb_FigureMitologiche2.mp4",
+      mf"rphjb_FigureMitologiche3.mp4",
+      mf"rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"assaporare",
+      stt"incenso",
+      "\\bmenta\\b".r.tr(5),
+      "sapore (strano|indefinito)".r.tr(13),
+    )(
+      mf"rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4"
+    )
   )
 
 }

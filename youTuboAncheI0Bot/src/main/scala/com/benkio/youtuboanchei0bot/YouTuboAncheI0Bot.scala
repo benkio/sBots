@@ -1297,7 +1297,7 @@ object YouTuboAncheI0Bot {
       gif"ytai_GrazieScaldatoPanini.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"terminato",
+      "\\bterminato\\b".r.tr(9),
       "facilit[aàá]".r.tr(7)
     )(
       gif"ytai_EstremaFacilita.mp4"
