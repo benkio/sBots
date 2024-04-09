@@ -17,7 +17,7 @@ object Dependencies {
     val http4s             = "0.23.26"
     val littleTime         = "4.0.2"
     val logEffects         = "0.19.0"
-    val logbackClassic     = "1.5.3"
+    val logbackClassic     = "1.5.4"
     val logbackLogstash    = "7.4"
     val mules              = "0.7.0"
     val mulesHttp4s        = "0.4.0"
