@@ -16,7 +16,7 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
   val testMedia: DBMediaData = DBMediaData(
     testMediaName,
     Some("[]"),
-    "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACBnRH33traQAKBGy9bidu0a/rphjb_MaSgus.mp3?dl=1",
+    "https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1",
     0,
     "1662126019680"
   )

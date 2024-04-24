@@ -41,7 +41,8 @@ class MediaSpec extends FunSuite {
     val input: DBMediaData = DBMediaData(
       media_name = "rphjb_Animali.mp3",
       kinds = Some("[]"),
-      media_url = "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AADgdXIhpbWU57v4_jZyc0G3a/rphjb_Animali.mp3?dl=1",
+      media_url =
+        "https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1",
       media_count = 0,
       created_at = "1662126018293"
     )
