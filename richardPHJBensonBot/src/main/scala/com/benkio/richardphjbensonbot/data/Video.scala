@@ -84,7 +84,7 @@ object Video {
       stt"vicoletto"
     )(
       mf"rphjb_ChitarraPlettroVicoletto.mp4",
-      mf"rphjb_ChitarraPlettroVicoletto2.mp4"
+      mf"rphjb_ChitarraVicolettoPlettro2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"diversi mondi",

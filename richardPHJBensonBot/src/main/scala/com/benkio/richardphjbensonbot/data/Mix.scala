@@ -389,7 +389,7 @@ object Mix {
       "ma[ ]?s(c|g)us[a]?".r.tr(5)
     )(
       mf"rphjb_MaSgus.mp3",
-      gif"rphjb_MaSgus.mp4"
+      gif"rphjb_MaSgusGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"grazie gianni",
@@ -561,7 +561,7 @@ object Mix {
       gif"rphjb_Chitarra2.mp4",
       gif"rphjb_Chitarra3.mp4",
       mf"rphjb_ChitarraPlettroVicoletto.mp4",
-      mf"rphjb_ChitarraPlettroVicoletto2.mp4",
+      mf"rphjb_ChitarraVicolettoPlettro2.mp4",
       mf"rphjb_ChitarraZuggherada.mp3",
       mf"rphjb_ChitarraZuccherada.mp4",
       mf"rphjb_ChitarraZuccheroAlgheVino.mp3",

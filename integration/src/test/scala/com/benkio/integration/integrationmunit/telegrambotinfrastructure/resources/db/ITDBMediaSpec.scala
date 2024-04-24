@@ -19,7 +19,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   val testMedia: DBMediaData = DBMediaData(
     testMediaName,
     Some("[]"),
-    "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACBnRH33traQAKBGy9bidu0a/rphjb_MaSgus.mp3?dl=1",
+    "https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1",
     0,
     "1669122662279"
   )
@@ -114,21 +114,21 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       DBMediaData(
         "rphjb_06Gif.mp4",
         Some("[]"),
-        "https://www.dropbox.com/s/xndnmq4firkc9lu/rphjb_06Gif.mp4?dl=1",
+        "https://www.dropbox.com/scl/fi/zy8omnl7nj63l7ff350qf/rphjb_06Gif.mp4?rlkey=w88ow3t4ktru6txkgw2vuc7xk&dl=1",
         0,
         "1710379153288"
       ),
       DBMediaData(
         "rphjb_3Minuti.mp4",
         Some("[]"),
-        "https://www.dropbox.com/s/axd2jcti4pxd1n7/rphjb_3Minuti.mp4?dl=1",
+        "https://www.dropbox.com/scl/fi/kzq7lkgzyle3tsp0ix292/rphjb_3Minuti.mp4?rlkey=pkaxiy7ue3w86ddczoz34gtc8&dl=1",
         0,
         "1674248160242"
       ),
       DBMediaData(
         "rphjb_9MesiUscireRientrare.mp3",
         Some("[]"),
-        "https://www.dropbox.com/s/fwvtyo9vxtxt2p5/rphjb_9MesiUscireRientrare.mp3?dl=1",
+        "https://www.dropbox.com/scl/fi/u4wuuygbhgsqs1qq50q98/rphjb_9MesiUscireRientrare.mp3?rlkey=unm5uv3mvzihzrekih3umhmt6&dl=1",
         0,
         "1681990713607"
       )

@@ -54,10 +54,10 @@ class UrlFetcherSpec extends CatsEffectSuite {
 
   test("fetch should return the expected urls content in a file if the urls is valid") {
     val input = List(
-      "https://www.dropbox.com/s/cy0onu1oq8dyyzs/rphjb_MaSgus.mp3?dl=1"   -> "rphjb_MaSgus.mp3",
-      "https://www.dropbox.com/s/efpsh6zt3qpn91s/rphjb_MeNeVado.mp3?dl=1" -> "rphjb_MeNeVado.mp3",
-      "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAsGKVUNNSJ_TzDZuzFmHJya/rphjb_Ritornata.mp3?dl=1" -> "rphjb_Ritornata.mp3",
-      "https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAfdMdV-91EhLTSJHmLN6Lca/rphjb_Schifo.mp3?dl=1" -> "rphjb_Schifo.mp3"
+      "https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1" -> "rphjb_MaSgus.mp3",
+      "https://www.dropbox.com/scl/fi/eb3h61camy0bsomtmxyn8/rphjb_MeNeVado.mp3?rlkey=ugnmubcnpig5phlluzonvy1wk&dl=1" -> "rphjb_MeNeVado.mp3",
+      "https://www.dropbox.com/scl/fi/crwwhqhlf8d61jav1gaw4/rphjb_Ritornata.mp3?rlkey=n4u6rwqfaj1pnotavsu1t1z0j&dl=1" -> "rphjb_Ritornata.mp3",
+      "https://www.dropbox.com/scl/fi/bbapesg0ghop422fqq4tm/rphjb_Schifo.mp3?rlkey=u1ol7p0i1xnvxahz150eiytq2&dl=1" -> "rphjb_Schifo.mp3"
     )
 
     val result = for {
