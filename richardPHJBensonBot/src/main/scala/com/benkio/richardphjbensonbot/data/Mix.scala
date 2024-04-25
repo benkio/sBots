@@ -964,7 +964,8 @@ object Mix {
       mf"rphjb_SorcaLecciso2.mp4",
       mf"rphjb_FigaLarga.mp4",
       mf"rphjb_FragolinaFichina.mp3",
-      mf"rphjb_Sorca.mp4"
+      mf"rphjb_Sorca.mp4",
+      mf"rphjb_LeccisoOffrire.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"schifose",
