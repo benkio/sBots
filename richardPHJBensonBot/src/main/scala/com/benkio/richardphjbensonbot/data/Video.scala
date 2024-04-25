@@ -854,6 +854,14 @@ object Video {
       mf"rphjb_InveceNoRicominciaDaCapo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](stt"allora parlo")(mf"rphjb_AlloraParlo.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"il ciano", stt"luciano")(mf"rphjb_IlCiano.mp4"),
+    ReplyBundleMessage.textToMedia[F](
+      stt"litfiba",
+      stt"piero pelù",
+      stt"ghigo renzulli",
+      "\\bpuzz[oi]\\b".r.tr(5),
+      "completamente fro(ci|sh)o".r.tr(20)
+    )(mf"rphjb_PuzzoGhigoRenzulliPieroPeluFrocio.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"fammelo avere", "al pi[ùu] presto".r.tr(13))(
       mf"rphjb_FammeloAvereAlPiuPresto.mp4"
     )

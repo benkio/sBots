@@ -140,7 +140,8 @@ object Mix {
       mf"rphjb_StoriaAmicoGrasso.mp4",
       mf"rphjb_StoriaSignorGionz.mp4",
       mf"rphjb_StoriaMula.mp3",
-      mf"rphjb_CaniAlCimitero.mp4"
+      mf"rphjb_CaniAlCimitero.mp4",
+      mf"rphjb_IlCiano.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
