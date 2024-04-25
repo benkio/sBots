@@ -854,6 +854,7 @@ object Video {
       mf"rphjb_InveceNoRicominciaDaCapo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](stt"allora parlo")(mf"rphjb_AlloraParlo.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"da paura")(mf"rphjb_DaPaura.mp4"),
     ReplyBundleMessage.textToMedia[F]("\\brbo\\b".r.tr(3), stt"cazzò", "(5|cinque) livelli".r.tr(9))(mf"rphjb_RBO.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"effettivamente")(mf"rphjb_Effettivamente.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"il ciano", stt"luciano")(mf"rphjb_IlCiano.mp4"),

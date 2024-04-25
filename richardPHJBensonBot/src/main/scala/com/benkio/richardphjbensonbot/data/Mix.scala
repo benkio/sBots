@@ -846,6 +846,7 @@ object Mix {
     )(
       mf"rphjb_Venerdi.mp3",
       mf"rphjb_Venerdi.mp4",
+      mf"rphjb_IlVenerdi.mp4",
       mf"rphjb_TempoAlTempo.mp4",
       mf"rphjb_VenerdiAppuntamentoFissoFica.mp4",
     ),
@@ -896,8 +897,9 @@ object Mix {
       "che si deve f(à|are)".r.tr(14),
       stt"bisogna pure lavorà"
     )(
-      gif"rphjb_NonLiSopporto.mp4",
-      mf"rphjb_NonLiSopporto.mp3"
+      gif"rphjb_NonLiSopportoGif.mp4",
+      mf"rphjb_NonLiSopporto.mp3",
+      mf"rphjb_NonLiSopporto.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"simposio"
