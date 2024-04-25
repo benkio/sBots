@@ -448,6 +448,9 @@ object Mix {
     )(
       mf"rphjb_Risata.mp3",
       mf"rphjb_Risata.mp4",
+      mf"rphjb_Risata2.mp4",
+      mf"rphjb_Risata3.mp4",
+      mf"rphjb_RisataInfernale.mp4",
       mf"rphjb_Risata.gif",
       gif"rphjb_RisataGif.mp4",
       mf"rphjb_OrmaiRisata.mp4",
