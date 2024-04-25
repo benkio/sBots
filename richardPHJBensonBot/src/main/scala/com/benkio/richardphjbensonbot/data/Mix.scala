@@ -140,7 +140,8 @@ object Mix {
       mf"rphjb_StoriaAmicoGrasso.mp4",
       mf"rphjb_StoriaSignorGionz.mp4",
       mf"rphjb_StoriaMula.mp3",
-      mf"rphjb_CaniAlCimitero.mp4"
+      mf"rphjb_CaniAlCimitero.mp4",
+      mf"rphjb_IlCiano.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -447,6 +448,9 @@ object Mix {
     )(
       mf"rphjb_Risata.mp3",
       mf"rphjb_Risata.mp4",
+      mf"rphjb_Risata2.mp4",
+      mf"rphjb_Risata3.mp4",
+      mf"rphjb_RisataInfernale.mp4",
       mf"rphjb_Risata.gif",
       gif"rphjb_RisataGif.mp4",
       mf"rphjb_OrmaiRisata.mp4",
@@ -845,6 +849,7 @@ object Mix {
     )(
       mf"rphjb_Venerdi.mp3",
       mf"rphjb_Venerdi.mp4",
+      mf"rphjb_IlVenerdi.mp4",
       mf"rphjb_TempoAlTempo.mp4",
       mf"rphjb_VenerdiAppuntamentoFissoFica.mp4",
     ),
@@ -895,8 +900,9 @@ object Mix {
       "che si deve f(à|are)".r.tr(14),
       stt"bisogna pure lavorà"
     )(
-      gif"rphjb_NonLiSopporto.mp4",
-      mf"rphjb_NonLiSopporto.mp3"
+      gif"rphjb_NonLiSopportoGif.mp4",
+      mf"rphjb_NonLiSopporto.mp3",
+      mf"rphjb_NonLiSopporto.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"simposio"
@@ -963,7 +969,8 @@ object Mix {
       mf"rphjb_SorcaLecciso2.mp4",
       mf"rphjb_FigaLarga.mp4",
       mf"rphjb_FragolinaFichina.mp3",
-      mf"rphjb_Sorca.mp4"
+      mf"rphjb_Sorca.mp4",
+      mf"rphjb_LeccisoOffrire.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"schifose",
