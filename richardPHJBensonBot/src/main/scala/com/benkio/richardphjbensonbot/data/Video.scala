@@ -244,7 +244,8 @@ object Video {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"sabato sera",
-      stt"suono sporco"
+      stt"suono sporco",
+      stt"john travolta"
     )(
       mf"rphjb_DelirioDelSabatoSera.mp4"
     ),
@@ -848,13 +849,25 @@ object Video {
     ReplyBundleMessage
       .textToMedia[F](stt"yngwie", stt"malmsteen")(
         mf"rphjb_Ramarro.mp4",
-        mf"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4"
+        mf"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4",
+        mf"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4"
       ),
     ReplyBundleMessage.textToMedia[F](stt"invece no", stt"si ricomincia", stt"da capo")(
       mf"rphjb_InveceNoRicominciaDaCapo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](stt"allora parlo")(mf"rphjb_AlloraParlo.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"da paura")(mf"rphjb_DaPaura.mp4"),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cipresso",
+      stt"guardando il padrone",
+      stt"all'ombra",
+      "aspett(a|ando|are)".r.tr(7)
+    )(mf"rphjb_CaneOmbraCipressoPadroneMortoIcaniPiangono.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"gay", stt"pride")(mf"rphjb_BarzellettaPapaSonoGayPride.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"barzelletta")(
+      mf"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
+      mf"rphjb_BarzellettaPapaSonoGayPride.mp4"
+    ),
     ReplyBundleMessage.textToMedia[F]("\\brbo\\b".r.tr(3), stt"cazzò", "(5|cinque) livelli".r.tr(9))(mf"rphjb_RBO.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"effettivamente")(mf"rphjb_Effettivamente.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"il ciano", stt"luciano")(mf"rphjb_IlCiano.mp4"),
@@ -867,6 +880,9 @@ object Video {
     )(mf"rphjb_PuzzoGhigoRenzulliPieroPeluFrocio.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"fammelo avere", "al pi[ùu] presto".r.tr(13))(
       mf"rphjb_FammeloAvereAlPiuPresto.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](stt"avvertire", stt"in guardia", stt"scelte giuste")(
+      mf"rphjb_AvvertireMettereInGuardiaAiutareScelteGiuste.mp4"
+    ),
   )
 }
