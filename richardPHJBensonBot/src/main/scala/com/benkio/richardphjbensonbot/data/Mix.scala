@@ -248,7 +248,8 @@ object Mix {
       mf"rphjb_ViCalpesto.mp4",
       gif"rphjb_Ultimi.mp4",
       mf"rphjb_StateZittiZozziUltimi.mp3",
-      mf"rphjb_RottoIlCazzoUltimi.mp4"
+      mf"rphjb_RottoIlCazzoUltimi.mp4",
+      mf"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "che (cazzo )?era quella roba".r.tr(19),
@@ -632,7 +633,8 @@ object Mix {
       gif"rphjb_Schifosi2.mp4",
       mf"rphjb_Vigile.mp4",
       mf"rphjb_ConQuestaTecnica.mp4",
-      mf"rphjb_ConQuestaTecnica.mp3"
+      mf"rphjb_ConQuestaTecnica.mp3",
+      mf"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "schifos(o)+(!)*".r.tr(8)

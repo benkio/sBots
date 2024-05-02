@@ -1,7 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits.*
-import io.circe.generic.semiauto.*
 import io.circe.Decoder
 import io.circe.HCursor
 import io.circe.DecodingFailure
@@ -19,7 +18,24 @@ final case class MediaFileSource(
 
 object MediaFileSource {
 
-  given Decoder[MediaFileSource] = deriveDecoder
+  given Decoder[MediaFileSource] =
+    new Decoder[MediaFileSource] {
+      final def apply(c: HCursor): Decoder.Result[MediaFileSource] =
+        for {
+          filename <- c.downField("filename").as[String]
+          url      <- c.downField("url").as[URL]
+          mime     <- c.downField("mime").as[Option[String]]
+          kinds    <- c.downField("kinds").as[Option[List[String]]]
+        } yield {
+          MediaFileSource(
+            filename = filename,
+            url = url,
+            mime = mime,
+            kinds = kinds
+          )
+        }
+    }
+
   given Decoder[URL] = new Decoder[URL] {
     final def apply(c: HCursor): Decoder.Result[URL] =
       for {
