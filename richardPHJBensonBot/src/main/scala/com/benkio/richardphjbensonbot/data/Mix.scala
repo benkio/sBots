@@ -1526,6 +1526,13 @@ object Mix {
       "sapore (strano|indefinito)".r.tr(13),
     )(
       mf"rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"fai schifo",
+      stt"sei l'ultimo",
+    )(
+      gif"rphjb_FaiSchifoSeiUltimoGif.mp4",
+      mf"rphjb_FaiSchifoSeiUltimo.mp4"
     )
   )
 

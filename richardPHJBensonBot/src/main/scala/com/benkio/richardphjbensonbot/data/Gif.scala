@@ -616,12 +616,6 @@ object Gif {
       gif"rphjb_SentireOriginale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"fai schifo",
-      stt"sei l'ultimo",
-    )(
-      gif"rphjb_FaiSchifoSeiUltimo.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"lui si chiamava",
       "\\badolf\\b".r.tr(5),
       stt"hitler",
