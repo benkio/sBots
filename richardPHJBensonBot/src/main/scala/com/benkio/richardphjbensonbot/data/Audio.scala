@@ -297,7 +297,8 @@ object Audio {
       stt"..magari",
       stt"magari..",
     )(
-      mf"rphjb_Magari.mp3"
+      mf"rphjb_Magari.mp3",
+      mf"rphjb_SentireMaleBeneCarezzaOppostoGraffiareGraceJonesMagari.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"io ti aiuto"
@@ -522,5 +523,16 @@ object Audio {
       mf"rphjb_PoesiaNatalizia.mp3",
       mf"rphjb_Chiesa.mp3"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"carezza",
+      stt"opposto",
+      stt"all'incontrario",
+      stt"grace jones",
+      stt"io godo",
+      stt"sentire il male",
+      stt"e se fosse"
+    )(
+      mf"rphjb_SentireMaleBeneCarezzaOppostoGraffiareGraceJonesMagari.mp3"
+    )
   )
 }

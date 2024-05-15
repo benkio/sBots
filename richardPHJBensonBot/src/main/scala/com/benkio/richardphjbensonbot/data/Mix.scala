@@ -864,7 +864,7 @@ object Mix {
       mf"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"calcolo",
+      stt"calcoli",
       stt"matematica",
       stt"geometrici",
       stt"matematici",
@@ -873,7 +873,8 @@ object Mix {
       gif"rphjb_MiPareLogico.mp4",
       mf"rphjb_MiPareLogico.mp3",
       mf"rphjb_MatematiciAnaliticiDiNoia.mp3",
-      mf"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4"
+      mf"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4",
+      mf"rphjb_CoseCheNonSopportoCalcoliSbagliati.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\blo[g]+i(c|g)o\\b".r.tr(6)
@@ -1535,7 +1536,13 @@ object Mix {
     )(
       gif"rphjb_FaiSchifoSeiUltimoGif.mp4",
       mf"rphjb_FaiSchifoSeiUltimo.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"graffi"
+    )(
+      gif"rphjb_Graffi.mp4",
+      mf"rphjb_SentireMaleBeneCarezzaOppostoGraffiareGraceJonesMagari.mp3"
+    ),
   )
 
 }
