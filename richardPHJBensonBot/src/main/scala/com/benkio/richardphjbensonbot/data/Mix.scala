@@ -1535,7 +1535,13 @@ object Mix {
     )(
       gif"rphjb_FaiSchifoSeiUltimoGif.mp4",
       mf"rphjb_FaiSchifoSeiUltimo.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"graffi"
+    )(
+      gif"rphjb_Graffi.mp4",
+      mf"rphjb_SentireMaleBeneCarezzaOppostoGraffiareGraceJonesMagari.mp3"
+    ),
   )
 
 }

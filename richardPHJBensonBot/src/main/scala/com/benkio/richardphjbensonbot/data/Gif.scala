@@ -34,11 +34,6 @@ object Gif {
       mf"rphjb_SiScivola.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"graffi"
-    )(
-      gif"rphjb_Graffi.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"pelle d'oca",
       stt"sussult",
       stt"brivid"
