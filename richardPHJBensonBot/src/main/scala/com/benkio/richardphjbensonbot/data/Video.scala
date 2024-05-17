@@ -905,6 +905,13 @@ object Video {
     )(
       mf"rphjb_AbbellimentiRivoltiRivoliMordentiImpennateColori.mp4"
     ),
-    
+    ReplyBundleMessage.textToMedia[F](
+      stt"cattegrale",
+      stt"canterbury",
+      stt"echo",
+      stt"ravenna"
+    )(
+      mf"rphjb_CattedraleCanterburyRavennaEcho.mp4"
+    ),
   )
 }
