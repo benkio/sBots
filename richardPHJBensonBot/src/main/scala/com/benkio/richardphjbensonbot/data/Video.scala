@@ -863,7 +863,8 @@ object Video {
       stt"all'ombra",
       "aspett(a|ando|are)".r.tr(7)
     )(mf"rphjb_CaneOmbraCipressoPadroneMortoIcaniPiangono.mp4"),
-    ReplyBundleMessage.textToMedia[F](stt"gay", stt"pride")(mf"rphjb_BarzellettaPapaSonoGayPride.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"pride")(mf"rphjb_BarzellettaPapaSonoGayPride.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"gay")(mf"rphjb_BarzellettaPapaSonoGayPride.mp4", "+rphjb_CantantePreferitoNonSonoGaio.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"barzelletta")(
       mf"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
       mf"rphjb_BarzellettaPapaSonoGayPride.mp4"
@@ -872,8 +873,9 @@ object Video {
     ReplyBundleMessage.textToMedia[F](stt"effettivamente")(mf"rphjb_Effettivamente.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"tigre")(mf"rphjb_LaTigre.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"il ciano", stt"luciano")(mf"rphjb_IlCiano.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"gaio")(mf"rphjb_CantantePreferitoNonSonoGaio.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"cantante")(mf"rphjb_CantantePreferitoNonSonoGaio.mp4", mf"rphjb_CantanteDonnaVoceDaUomoDueBocceCosìInnamoratoPerdutamente.mp4"),
     ReplyBundleMessage.textToMedia[F](
-      stt"cantante",
       stt"due bocce",
       stt"innamorato",
       stt"veronica frieman",
