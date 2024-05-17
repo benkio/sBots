@@ -244,8 +244,12 @@ object Video {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"sabato sera",
-      stt"suono sporco",
-      stt"john travolta"
+      stt"lo sporco",
+      stt"più pulito",
+      stt"john travolta",
+      stt"video didattico",
+      "questo n[o]{2,}".r.tr(10),
+      "fate venire le vostre (madri|mogli|fidanzate)".r.tr(27)
     )(
       mf"rphjb_DelirioDelSabatoSera.mp4"
     ),
