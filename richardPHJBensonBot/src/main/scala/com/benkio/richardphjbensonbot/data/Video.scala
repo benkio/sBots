@@ -873,6 +873,14 @@ object Video {
     ReplyBundleMessage.textToMedia[F](stt"tigre")(mf"rphjb_LaTigre.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"il ciano", stt"luciano")(mf"rphjb_IlCiano.mp4"),
     ReplyBundleMessage.textToMedia[F](
+      stt"cantante",
+      stt"due bocce",
+      stt"innamorato",
+      stt"veronica frieman",
+      stt"benedictum"
+    )(mf"rphjb_CantanteDonnaVoceDaUomoDueBocceCosìInnamoratoPerdutamente.mp4"),
+    ReplyBundleMessage.textToMedia[F]("\\bverit[aà]\\b".r.tr(6))(mf"rphjb_AltraCazzataVeritaSembranoCazzate.mp4", mf"rphjb_Verita.mp4"),
+    ReplyBundleMessage.textToMedia[F](
       stt"litfiba",
       stt"piero pelù",
       stt"ghigo renzulli",
@@ -885,5 +893,16 @@ object Video {
     ReplyBundleMessage.textToMedia[F](stt"avvertire", stt"in guardia", stt"scelte giuste")(
       mf"rphjb_AvvertireMettereInGuardiaAiutareScelteGiuste.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+     stt"abbellimenti",
+     stt"mordenti",
+     stt"rivolti",
+     stt"rivoli",
+     stt"impennate",
+     stt"colori"
+    )(
+      mf"rphjb_AbbellimentiRivoltiRivoliMordentiImpennateColori.mp4"
+    ),
+    
   )
 }

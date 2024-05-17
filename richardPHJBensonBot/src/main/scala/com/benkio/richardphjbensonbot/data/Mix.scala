@@ -1340,11 +1340,13 @@ object Mix {
       mf"rphjb_MadreTorturaImprovvisata.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"mare di cazzate"
+      stt"cazzate"
     )(
       gif"rphjb_NonPossibile.mp4",
       mf"rphjb_NonPossibile2.mp4",
-      mf"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
+      mf"rphjb_DecidoIoMareCazzatePerCortesia.mp4",
+      mf"rphjb_AltraCazzataVeritaSembranoCazzate.mp4",
+      mf"rphjb_CriticaNoCazzate.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\b06\\b".r.tr(2),
@@ -1543,6 +1545,12 @@ object Mix {
       gif"rphjb_Graffi.mp4",
       mf"rphjb_SentireMaleBeneCarezzaOppostoGraffiareGraceJonesMagari.mp3"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"voce da uomo"
+    )(
+      mf"rphjb_VoceDaUomo.mp3",
+      mf"rphjb_CantanteDonnaVoceDaUomoDueBocceCosìInnamoratoPerdutamente.mp4"
+    )
   )
 
 }
