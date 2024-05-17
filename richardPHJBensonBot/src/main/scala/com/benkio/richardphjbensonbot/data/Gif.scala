@@ -89,11 +89,6 @@ object Gif {
       gif"rphjb_PrendoIlNecessario.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"nella gola"
-    )(
-      gif"rphjb_NellaGola.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"siamo qua"
     )(
       gif"rphjb_SiamoQua.mp4"

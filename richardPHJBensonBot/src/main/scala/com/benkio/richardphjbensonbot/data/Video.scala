@@ -878,6 +878,8 @@ object Video {
     ReplyBundleMessage.textToMedia[F](stt"tigre")(mf"rphjb_LaTigre.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"il ciano", stt"luciano")(mf"rphjb_IlCiano.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"gaio")(mf"rphjb_CantantePreferitoNonSonoGaio.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"echo")(mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4", mf"rphjb_CattedraleCanterburyRavennaEcho.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"trasmissione da urlo", stt"delay", stt"vita natural durante")(mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"cantante")(mf"rphjb_CantantePreferitoNonSonoGaio.mp4", mf"rphjb_CantanteDonnaVoceDaUomoDueBocceCosìInnamoratoPerdutamente.mp4"),
     ReplyBundleMessage.textToMedia[F](
       stt"due bocce",
@@ -912,7 +914,6 @@ object Video {
     ReplyBundleMessage.textToMedia[F](
       stt"cattegrale",
       stt"canterbury",
-      stt"echo",
       stt"ravenna"
     )(
       mf"rphjb_CattedraleCanterburyRavennaEcho.mp4"
