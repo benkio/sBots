@@ -306,11 +306,6 @@ object Gif {
       gif"rphjb_LunghezzaDOnda.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"delirio"
-    )(
-      gif"rphjb_Delirio.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       "[gq]uerelare".r.tr(9),
     )(
       gif"rphjb_Querelare.mp4"

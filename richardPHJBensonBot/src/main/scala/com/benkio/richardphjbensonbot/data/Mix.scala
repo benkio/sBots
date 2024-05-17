@@ -1550,6 +1550,12 @@ object Mix {
     )(
       mf"rphjb_VoceDaUomo.mp3",
       mf"rphjb_CantanteDonnaVoceDaUomoDueBocceCosìInnamoratoPerdutamente.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"delirio"
+    )(
+      gif"rphjb_Delirio.mp4",
+      mf"rphjb_DelirioDelSabatoSera.mp4"
     )
   )
 
