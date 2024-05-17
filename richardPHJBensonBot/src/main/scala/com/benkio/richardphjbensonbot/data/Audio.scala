@@ -374,7 +374,6 @@ object Audio {
     ReplyBundleMessage.textToMedia[F](
       "funzioni gene[g]{2,}iative".r.tr(21),
       stt"non è un uomo",
-      stt"voce da uomo",
       "è (veramente )?una donna".r.tr(11)
     )(
       mf"rphjb_VoceDaUomo.mp3"
