@@ -433,7 +433,8 @@ object Mix {
     )(
       mf"rphjb_Infernali.mp3",
       gif"rphjb_Infernali.mp4",
-      mf"rphjb_Infernale.mp3"
+      mf"rphjb_Infernale.mp3",
+      mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"per il culo"
@@ -1555,8 +1556,15 @@ object Mix {
       stt"delirio"
     )(
       gif"rphjb_Delirio.mp4",
-      mf"rphjb_DelirioDelSabatoSera.mp4"
-    )
+      mf"rphjb_DelirioDelSabatoSera.mp4",
+      mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"nella gola"
+    )(
+      gif"rphjb_NellaGola.mp4",
+      mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
+    ),
   )
 
 }
