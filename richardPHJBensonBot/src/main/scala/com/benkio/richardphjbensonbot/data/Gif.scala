@@ -89,11 +89,6 @@ object Gif {
       gif"rphjb_PrendoIlNecessario.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"nella gola"
-    )(
-      gif"rphjb_NellaGola.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"siamo qua"
     )(
       gif"rphjb_SiamoQua.mp4"
@@ -306,11 +301,6 @@ object Gif {
       gif"rphjb_LunghezzaDOnda.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"delirio"
-    )(
-      gif"rphjb_Delirio.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       "[gq]uerelare".r.tr(9),
     )(
       gif"rphjb_Querelare.mp4"
@@ -391,11 +381,6 @@ object Gif {
       stt"abbia mai sentito"
     )(
       gif"rphjb_Squallida.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"la verità"
-    )(
-      gif"rphjb_Verita.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bn[o]{2,}!\\b".r.tr(3)

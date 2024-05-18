@@ -433,7 +433,8 @@ object Mix {
     )(
       mf"rphjb_Infernali.mp3",
       gif"rphjb_Infernali.mp4",
-      mf"rphjb_Infernale.mp3"
+      mf"rphjb_Infernale.mp3",
+      mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"per il culo"
@@ -1340,11 +1341,13 @@ object Mix {
       mf"rphjb_MadreTorturaImprovvisata.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"mare di cazzate"
+      stt"cazzate"
     )(
       gif"rphjb_NonPossibile.mp4",
       mf"rphjb_NonPossibile2.mp4",
-      mf"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
+      mf"rphjb_DecidoIoMareCazzatePerCortesia.mp4",
+      mf"rphjb_AltraCazzataVeritaSembranoCazzate.mp4",
+      mf"rphjb_CriticaNoCazzate.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\b06\\b".r.tr(2),
@@ -1542,6 +1545,25 @@ object Mix {
     )(
       gif"rphjb_Graffi.mp4",
       mf"rphjb_SentireMaleBeneCarezzaOppostoGraffiareGraceJonesMagari.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"voce da uomo"
+    )(
+      mf"rphjb_VoceDaUomo.mp3",
+      mf"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"delirio"
+    )(
+      gif"rphjb_Delirio.mp4",
+      mf"rphjb_DelirioDelSabatoSera.mp4",
+      mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"nella gola"
+    )(
+      gif"rphjb_NellaGola.mp4",
+      mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
     ),
   )
 
