@@ -890,6 +890,9 @@ object Video {
       mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](stt"gaio")(mf"rphjb_CantantePreferitoNonSonoGaio.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"vergognassero", stt"giornali")(
+      mf"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
+    ),
     ReplyBundleMessage.textToMedia[F](stt"echo")(
       mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4",
       mf"rphjb_CattedraleCanterburyRavennaEcho.mp4"

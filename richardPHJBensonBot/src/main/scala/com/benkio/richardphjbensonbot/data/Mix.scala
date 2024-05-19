@@ -636,7 +636,8 @@ object Mix {
       mf"rphjb_Vigile.mp4",
       mf"rphjb_ConQuestaTecnica.mp4",
       mf"rphjb_ConQuestaTecnica.mp3",
-      mf"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4"
+      mf"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4",
+      mf"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "schifos(o)+(!)*".r.tr(8)
