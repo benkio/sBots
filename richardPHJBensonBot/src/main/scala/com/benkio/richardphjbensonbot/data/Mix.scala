@@ -461,7 +461,8 @@ object Mix {
       gif"rphjb_SorrisoSognante.mp4",
       mf"rphjb_Risata2.mp3",
       mf"rphjb_SepolturaRisata.mp4",
-      gif"rphjb_RisataTrattenuta.mp4"
+      gif"rphjb_RisataTrattenuta.mp4",
+      mf"rphjb_CheGruppoMiRicordaRisata.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ammazza che sei",
