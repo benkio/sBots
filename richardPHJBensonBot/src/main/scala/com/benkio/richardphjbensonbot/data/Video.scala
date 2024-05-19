@@ -897,7 +897,7 @@ object Video {
       stt"benedictum"
     )(mf"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4"),
     ReplyBundleMessage
-      .textToMedia[F]("\\bverit[aà]\\b".r.tr(6))(mf"rphjb_AltraCazzataVeritaSembranoCazzate.mp4", mf"rphjb_Verita.mp4"),
+      .textToMedia[F](stt"verita", stt"verità")(mf"rphjb_AltraCazzataVeritaSembranoCazzate.mp4", mf"rphjb_Verita.mp4"),
     ReplyBundleMessage.textToMedia[F](
       stt"litfiba",
       stt"piero pelù",
