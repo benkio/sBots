@@ -531,7 +531,6 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ciao a tutti",
-      stt"come state",
       stt"belle gioie"
     )(
       gif"rphjb_CiaoComeStateGif.mp4",
@@ -1576,6 +1575,15 @@ object Mix {
       gif"rphjb_IlMartel.mp4",
       mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"come state"
+    )(
+      gif"rphjb_CiaoComeStateGif.mp4",
+      mf"rphjb_CiaoComeState.mp3",
+      mf"rphjb_CiaoComeState.mp4",
+      mf"rphjb_Arivato.mp4",
+      mf"rphjb_LetSGoodStateBene.mp3"
+    )
   )
 
 }
