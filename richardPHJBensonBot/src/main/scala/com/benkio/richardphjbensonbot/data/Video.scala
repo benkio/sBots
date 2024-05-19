@@ -880,6 +880,15 @@ object Video {
     ReplyBundleMessage
       .textToMedia[F](stt"che gruppo", "m[ei] ricorda".r.tr(10))(mf"rphjb_CheGruppoMiRicordaRisata.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"il ciano", stt"luciano")(mf"rphjb_IlCiano.mp4"),
+    ReplyBundleMessage.textToMedia[F](
+      stt"volta il cervello",
+      stt"principi veneziani",
+      stt"decaduti",
+      stt"rimorti",
+      stt"rinati"
+    )(
+      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
+    ),
     ReplyBundleMessage.textToMedia[F](stt"gaio")(mf"rphjb_CantantePreferitoNonSonoGaio.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"echo")(
       mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4",

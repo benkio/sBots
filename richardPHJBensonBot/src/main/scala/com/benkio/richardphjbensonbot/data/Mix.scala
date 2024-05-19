@@ -141,7 +141,8 @@ object Mix {
       mf"rphjb_StoriaSignorGionz.mp4",
       mf"rphjb_StoriaMula.mp3",
       mf"rphjb_CaniAlCimitero.mp4",
-      mf"rphjb_IlCiano.mp4"
+      mf"rphjb_IlCiano.mp4",
+      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -357,7 +358,6 @@ object Mix {
       mf"rphjb_TiDeviSpaventare.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"ma che cazzo sto dicendo",
       stt"il martell"
     )(
       mf"rphjb_MaCheCazzoStoDicendo.mp3",
@@ -1565,6 +1565,15 @@ object Mix {
     )(
       gif"rphjb_NellaGola.mp4",
       mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ma che (cazzo )?sto dicendo".r.tr(18)
+    )(
+      mf"rphjb_MaCheCazzoStoDicendo.mp3",
+      mf"rphjb_MaCheCazzoStoDicendo.mp4",
+      gif"rphjb_MaCheCazzoStoDicendoGif.mp4",
+      gif"rphjb_IlMartel.mp4",
+      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
     ),
   )
 
