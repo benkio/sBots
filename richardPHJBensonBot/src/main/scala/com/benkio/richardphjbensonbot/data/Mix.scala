@@ -1583,6 +1583,13 @@ object Mix {
       mf"rphjb_CiaoComeState.mp4",
       mf"rphjb_Arivato.mp4",
       mf"rphjb_LetSGoodStateBene.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(af)?fanculo in una maniera pazzesca".r.tr(33),
+      stt"altro che quel coglione",
+    )(
+      gif"rphjb_AffanculoManieraPazzescaGif.mp4",
+      mf"rphjb_AffanculoManieraPazzesca.mp4"
     )
   )
 

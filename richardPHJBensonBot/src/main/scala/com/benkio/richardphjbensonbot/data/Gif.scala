@@ -498,12 +498,6 @@ object Gif {
       gif"rphjb_AaaPrendereQuelloLa.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(af)?fanculo in una maniera pazzesca".r.tr(33),
-      stt"altro che quel coglione",
-    )(
-      gif"rphjb_AffanculoManieraPazzescaGif.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"col cazzo che non so suonà"
     )(
       gif"rphjb_ColCazzoSuona.mp4"
