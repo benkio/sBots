@@ -890,6 +890,7 @@ object Video {
       mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](stt"gaio")(mf"rphjb_CantantePreferitoNonSonoGaio.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"come si fa")(mf"rphjb_ComeSiFaItaliaIgnorante.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"vergognassero", stt"giornali")(
       mf"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
     ),
@@ -941,6 +942,12 @@ object Video {
       stt"ravenna"
     )(
       mf"rphjb_CattedraleCanterburyRavennaEcho.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vestito (nuovo|vecchio)".r.tr(13),
+      "(rammenda|rappezza|rattoppa|ricuci)".r.tr(6)
+    )(
+      mf"rphjb_CompriVestitoNuovoRammendaVecchio.mp4"
     ),
   )
 }
