@@ -877,8 +877,25 @@ object Video {
     ReplyBundleMessage.textToMedia[F]("\\brbo\\b".r.tr(3), stt"cazzò", "(5|cinque) livelli".r.tr(9))(mf"rphjb_RBO.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"effettivamente")(mf"rphjb_Effettivamente.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"tigre")(mf"rphjb_LaTigre.mp4"),
+    ReplyBundleMessage
+      .textToMedia[F](stt"che gruppo", "m[ei] ricorda".r.tr(10))(mf"rphjb_CheGruppoMiRicordaRisata.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"il ciano", stt"luciano")(mf"rphjb_IlCiano.mp4"),
+    ReplyBundleMessage.textToMedia[F](
+      stt"volta il cervello",
+      stt"principi veneziani",
+      stt"decaduti",
+      stt"rimorti",
+      stt"rinati"
+    )(
+      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
+    ),
     ReplyBundleMessage.textToMedia[F](stt"gaio")(mf"rphjb_CantantePreferitoNonSonoGaio.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"come si fa")(mf"rphjb_ComeSiFaItaliaIgnorante.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"commissionato", stt"trovare")(mf"rphjb_CommissionatoMeLoDeviTrovare.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"col sangue")(mf"rphjb_ColSangue.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"vergognassero", stt"giornali")(
+      mf"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
+    ),
     ReplyBundleMessage.textToMedia[F](stt"echo")(
       mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4",
       mf"rphjb_CattedraleCanterburyRavennaEcho.mp4"
@@ -927,6 +944,12 @@ object Video {
       stt"ravenna"
     )(
       mf"rphjb_CattedraleCanterburyRavennaEcho.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vestito (nuovo|vecchio)".r.tr(13),
+      "(rammenda|rappezza|rattoppa|ricuci)".r.tr(6)
+    )(
+      mf"rphjb_CompriVestitoNuovoRammendaVecchio.mp4"
     ),
   )
 }

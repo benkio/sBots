@@ -141,7 +141,8 @@ object Mix {
       mf"rphjb_StoriaSignorGionz.mp4",
       mf"rphjb_StoriaMula.mp3",
       mf"rphjb_CaniAlCimitero.mp4",
-      mf"rphjb_IlCiano.mp4"
+      mf"rphjb_IlCiano.mp4",
+      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -357,7 +358,6 @@ object Mix {
       mf"rphjb_TiDeviSpaventare.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"ma che cazzo sto dicendo",
       stt"il martell"
     )(
       mf"rphjb_MaCheCazzoStoDicendo.mp3",
@@ -461,7 +461,8 @@ object Mix {
       gif"rphjb_SorrisoSognante.mp4",
       mf"rphjb_Risata2.mp3",
       mf"rphjb_SepolturaRisata.mp4",
-      gif"rphjb_RisataTrattenuta.mp4"
+      gif"rphjb_RisataTrattenuta.mp4",
+      mf"rphjb_CheGruppoMiRicordaRisata.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ammazza che sei",
@@ -530,7 +531,6 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ciao a tutti",
-      stt"come state",
       stt"belle gioie"
     )(
       gif"rphjb_CiaoComeStateGif.mp4",
@@ -635,7 +635,8 @@ object Mix {
       mf"rphjb_Vigile.mp4",
       mf"rphjb_ConQuestaTecnica.mp4",
       mf"rphjb_ConQuestaTecnica.mp3",
-      mf"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4"
+      mf"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4",
+      mf"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "schifos(o)+(!)*".r.tr(8)
@@ -995,7 +996,8 @@ object Mix {
       "\\bcosa[?]{1,}\\b".r.tr(5)
     )(
       gif"rphjb_CosaSuccesso.mp4",
-      mf"rphjb_Cosa.mp4"
+      mf"rphjb_Cosa.mp4",
+      mf"rphjb_CosaCosaSuccessoMeNeVadoFacendoSoffrire.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"negozio",
@@ -1565,6 +1567,37 @@ object Mix {
       gif"rphjb_NellaGola.mp4",
       mf"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "ma che (cazzo )?sto dicendo".r.tr(18)
+    )(
+      mf"rphjb_MaCheCazzoStoDicendo.mp3",
+      mf"rphjb_MaCheCazzoStoDicendo.mp4",
+      gif"rphjb_MaCheCazzoStoDicendoGif.mp4",
+      gif"rphjb_IlMartel.mp4",
+      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"come state"
+    )(
+      gif"rphjb_CiaoComeStateGif.mp4",
+      mf"rphjb_CiaoComeState.mp3",
+      mf"rphjb_CiaoComeState.mp4",
+      mf"rphjb_Arivato.mp4",
+      mf"rphjb_LetSGoodStateBene.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(af)?fanculo in una maniera pazzesca".r.tr(33),
+      stt"altro che quel coglione",
+    )(
+      gif"rphjb_AffanculoManieraPazzescaGif.mp4",
+      mf"rphjb_AffanculoManieraPazzesca.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"facendo soffrire"
+    )(
+      gif"rphjb_FacendoSoffrire.mp4",
+      mf"rphjb_CosaCosaSuccessoMeNeVadoFacendoSoffrire.mp4"
+    )
   )
 
 }

@@ -268,11 +268,6 @@ object Gif {
       gif"rphjb_PorcaMiseria.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"facendo soffrire"
-    )(
-      gif"rphjb_FacendoSoffrire.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"dovete soffrire",
       "vi voglio far(e)? soffrire".r.tr(23),
     )(
@@ -496,12 +491,6 @@ object Gif {
       "prendere quello l[aà]".r.tr(18),
     )(
       gif"rphjb_AaaPrendereQuelloLa.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "(af)?fanculo in una maniera pazzesca".r.tr(33),
-      stt"altro che quel coglione",
-    )(
-      gif"rphjb_AffanculoManieraPazzesca.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"col cazzo che non so suonà"
