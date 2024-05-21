@@ -268,11 +268,6 @@ object Gif {
       gif"rphjb_PorcaMiseria.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"facendo soffrire"
-    )(
-      gif"rphjb_FacendoSoffrire.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"dovete soffrire",
       "vi voglio far(e)? soffrire".r.tr(23),
     )(

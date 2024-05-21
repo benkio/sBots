@@ -996,7 +996,8 @@ object Mix {
       "\\bcosa[?]{1,}\\b".r.tr(5)
     )(
       gif"rphjb_CosaSuccesso.mp4",
-      mf"rphjb_Cosa.mp4"
+      mf"rphjb_Cosa.mp4",
+      mf"rphjb_CosaCosaSuccessoMeNeVadoFacendoSoffrire.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"negozio",
@@ -1590,6 +1591,12 @@ object Mix {
     )(
       gif"rphjb_AffanculoManieraPazzescaGif.mp4",
       mf"rphjb_AffanculoManieraPazzesca.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"facendo soffrire"
+    )(
+      gif"rphjb_FacendoSoffrire.mp4",
+      mf"rphjb_CosaCosaSuccessoMeNeVadoFacendoSoffrire.mp4"
     )
   )
 

@@ -891,6 +891,7 @@ object Video {
     ),
     ReplyBundleMessage.textToMedia[F](stt"gaio")(mf"rphjb_CantantePreferitoNonSonoGaio.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"come si fa")(mf"rphjb_ComeSiFaItaliaIgnorante.mp4"),
+    ReplyBundleMessage.textToMedia[F](stt"commissionato", stt"trovare")(mf"rphjb_CommissionatoMeLoDeviTrovare.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"col sangue")(mf"rphjb_ColSangue.mp4"),
     ReplyBundleMessage.textToMedia[F](stt"vergognassero", stt"giornali")(
       mf"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
