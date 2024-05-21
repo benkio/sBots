@@ -218,7 +218,7 @@ object Mix {
     )(
       gif"rphjb_AndareAvanti.mp4",
       mf"rphjb_AndareAvanti.mp3",
-      mf"rphjb_InnovazioneStiamoTornandoIndietro.mp4"
+      mf"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non ci credete?",

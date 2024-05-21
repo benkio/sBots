@@ -75,9 +75,11 @@ object Video {
     ),
     ReplyBundleMessage.textToMedia[F](
       "(tornando|andando) (all')?indietro".r.tr(16),
-      stt"innovazione"
+      stt"innovazione",
+      stt"composizione",
+      "idea (nuova|fresca)".r.tr(10)
     )(
-      mf"rphjb_InnovazioneStiamoTornandoIndietro.mp4"
+      mf"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"plettro",
