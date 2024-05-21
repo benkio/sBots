@@ -524,10 +524,11 @@ object Mix {
       gif"rphjb_TerribileGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"viva napoli"
+      stt"napoli"
     )(
       mf"rphjb_VivaNapoli.mp3",
-      gif"rphjb_VivaNapoli.mp4"
+      gif"rphjb_VivaNapoli.mp4",
+      mf"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ciao a tutti",

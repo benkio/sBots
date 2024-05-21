@@ -953,5 +953,19 @@ object Video {
     )(
       mf"rphjb_CompriVestitoNuovoRammendaVecchio.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cugini di campagna",
+      stt"giardino dei semplici",
+      stt"homo sapiens",
+      stt"gli osanna",
+      stt"james senese",
+      stt"elio d'anna",
+      "(di|il) liscio".r.tr(9),
+      "(di|il) rumba".r.tr(8),
+      "cha[ ]?cha[ ]?cha".r.tr(9),
+      "canzon[ei] napoletan[ae]".r.tr(18)
+    )(
+      mf"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+    )
   )
 }
