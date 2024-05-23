@@ -983,6 +983,14 @@ object Video {
       "ultimo (disco|album)".r.tr(13)
     )(
       mf"rphjb_DeludendoQuasiTutto.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "donna (che merita|forte)".r.tr(11),
+      "profilo (fisico|intellettuale)".r.tr(14),
+      stt"simile a me",
+      stt"versione donna"
+    )(
+      mf"rphjb_DonnaMerita.mp4"
     )
   )
 }
