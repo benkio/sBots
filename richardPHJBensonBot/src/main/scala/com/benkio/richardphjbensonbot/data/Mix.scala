@@ -142,7 +142,8 @@ object Mix {
       mf"rphjb_StoriaMula.mp3",
       mf"rphjb_CaniAlCimitero.mp4",
       mf"rphjb_IlCiano.mp4",
-      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
+      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4",
+      mf"rphjb_StoriaDellaMiaVita.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -218,7 +219,7 @@ object Mix {
     )(
       gif"rphjb_AndareAvanti.mp4",
       mf"rphjb_AndareAvanti.mp3",
-      mf"rphjb_InnovazioneStiamoTornandoIndietro.mp4"
+      mf"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"non ci credete?",
@@ -524,10 +525,11 @@ object Mix {
       gif"rphjb_TerribileGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"viva napoli"
+      stt"napoli"
     )(
       mf"rphjb_VivaNapoli.mp3",
-      gif"rphjb_VivaNapoli.mp4"
+      gif"rphjb_VivaNapoli.mp4",
+      mf"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ciao a tutti",
@@ -1597,6 +1599,12 @@ object Mix {
     )(
       gif"rphjb_FacendoSoffrire.mp4",
       mf"rphjb_CosaCosaSuccessoMeNeVadoFacendoSoffrire.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bn[o]{2,}!\\b".r.tr(3)
+    )(
+      gif"rphjb_No.mp4",
+      mf"rphjb_FolliaQueenNo.mp4"
     )
   )
 

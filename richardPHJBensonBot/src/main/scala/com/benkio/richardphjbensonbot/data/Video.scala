@@ -75,9 +75,11 @@ object Video {
     ),
     ReplyBundleMessage.textToMedia[F](
       "(tornando|andando) (all')?indietro".r.tr(16),
-      stt"innovazione"
+      stt"innovazione",
+      stt"composizione",
+      "idea (nuova|fresca)".r.tr(10)
     )(
-      mf"rphjb_InnovazioneStiamoTornandoIndietro.mp4"
+      mf"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"plettro",
@@ -296,7 +298,6 @@ object Video {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"biscione",
-      stt"i piatti",
     )(
       mf"rphjb_BiscionePiatti.mp4"
     ),
@@ -951,5 +952,71 @@ object Video {
     )(
       mf"rphjb_CompriVestitoNuovoRammendaVecchio.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cugini di campagna",
+      stt"giardino dei semplici",
+      stt"homo sapiens",
+      stt"gli osanna",
+      stt"james senese",
+      stt"elio d'anna",
+      "(di|il) liscio".r.tr(9),
+      "(di|il) rumba".r.tr(8),
+      "cha[ ]?cha[ ]?cha".r.tr(9),
+      "canzon[ei] napoletan[ae]".r.tr(18)
+    )(
+      mf"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cuore affogato",
+      stt"affogato nel metallo",
+      stt"alla ricerca",
+      stt"in cerca",
+      stt"ferisca nel cervello"
+    )(
+      mf"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
+      mf"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"stratovarius",
+      stt"metallica",
+      "ultimo (disco|album)".r.tr(13)
+    )(
+      mf"rphjb_DeludendoQuasiTutto.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "donna (che merita|forte)".r.tr(11),
+      "profilo (fisico|intellettuale)".r.tr(14),
+      stt"simile a me",
+      stt"versione donna"
+    )(
+      mf"rphjb_DonnaMerita.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"alpheus",
+      stt"whiskey",
+      stt"etichette",
+      "mi sentivo (di fare)?così".r.tr(15),
+      stt"ho fatto così"
+    )(
+      mf"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"queen",
+      stt"follia"
+    )(
+      mf"rphjb_FolliaQueenNo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ghent",
+      stt"albania"
+    )(
+      mf"rphjb_GhentPiattiAlbania.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"piatti",
+    )(
+      mf"rphjb_BiscionePiatti.mp4",
+      mf"rphjb_GhentPiattiAlbania.mp4"
+    )
   )
 }
