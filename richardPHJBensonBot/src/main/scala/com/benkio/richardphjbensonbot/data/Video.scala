@@ -966,6 +966,23 @@ object Video {
       "canzon[ei] napoletan[ae]".r.tr(18)
     )(
       mf"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"cuore affogato",
+      stt"affogato nel metallo",
+      stt"alla ricerca",
+      stt"in cerca",
+      stt"ferisca nel cervello"
+    )(
+      mf"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
+      mf"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"stratovarius",
+      stt"metallica",
+      "ultimo (disco|album)".r.tr(13)
+    )(
+      mf"rphjb_DeludendoQuasiTutto.mp4"
     )
   )
 }

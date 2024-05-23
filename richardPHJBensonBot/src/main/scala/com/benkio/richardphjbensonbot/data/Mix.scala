@@ -142,7 +142,8 @@ object Mix {
       mf"rphjb_StoriaMula.mp3",
       mf"rphjb_CaniAlCimitero.mp4",
       mf"rphjb_IlCiano.mp4",
-      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
+      mf"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4",
+      mf"rphjb_StoriaDellaMiaVita.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
