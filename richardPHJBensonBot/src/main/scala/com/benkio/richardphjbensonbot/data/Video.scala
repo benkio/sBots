@@ -991,6 +991,15 @@ object Video {
       stt"versione donna"
     )(
       mf"rphjb_DonnaMerita.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+     stt"alpheus",
+     stt"whiskey",
+     stt"etichette",
+     "mi sentivo (di fare)?così",r.tr(15),
+     stt"ho fatto così"
+    )(
+      mf"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
     )
   )
 }
