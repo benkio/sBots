@@ -1599,6 +1599,12 @@ object Mix {
     )(
       gif"rphjb_FacendoSoffrire.mp4",
       mf"rphjb_CosaCosaSuccessoMeNeVadoFacendoSoffrire.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bn[o]{2,}!\\b".r.tr(3)
+    )(
+      gif"rphjb_No.mp4",
+      mf"rphjb_FolliaQueenNo.mp4"
     )
   )
 

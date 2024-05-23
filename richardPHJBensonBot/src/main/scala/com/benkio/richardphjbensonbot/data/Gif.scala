@@ -378,11 +378,6 @@ object Gif {
       gif"rphjb_Squallida.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\bn[o]{2,}!\\b".r.tr(3)
-    )(
-      gif"rphjb_No.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"destino",
       stt"incontrare"
     )(

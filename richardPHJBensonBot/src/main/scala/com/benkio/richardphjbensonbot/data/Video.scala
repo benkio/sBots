@@ -993,13 +993,19 @@ object Video {
       mf"rphjb_DonnaMerita.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-     stt"alpheus",
-     stt"whiskey",
-     stt"etichette",
-     "mi sentivo (di fare)?così",r.tr(15),
-     stt"ho fatto così"
+      stt"alpheus",
+      stt"whiskey",
+      stt"etichette",
+      "mi sentivo (di fare)?così".r.tr(15),
+      stt"ho fatto così"
     )(
       mf"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"queen",
+      stt"follia"
+    )(
+      mf"rphjb_FolliaQueenNo.mp4"
     )
   )
 }
