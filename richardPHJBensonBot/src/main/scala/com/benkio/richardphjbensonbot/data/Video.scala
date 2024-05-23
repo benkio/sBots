@@ -298,7 +298,6 @@ object Video {
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"biscione",
-      stt"i piatti",
     )(
       mf"rphjb_BiscionePiatti.mp4"
     ),
@@ -1006,6 +1005,18 @@ object Video {
       stt"follia"
     )(
       mf"rphjb_FolliaQueenNo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ghent",
+      stt"albania"
+    )(
+      mf"rphjb_GhentPiattiAlbania.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"piatti",
+    )(
+      mf"rphjb_BiscionePiatti.mp4",
+      mf"rphjb_GhentPiattiAlbania.mp4"
     )
   )
 }
