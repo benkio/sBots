@@ -26,7 +26,7 @@ object Mix {
       stt"disastri aerei"
     )(
       gif"rphjb_DrogatiPilotiGif.mp4",
-      mf"rphjb_DrogatiPiloti.mp4"
+      mf"rphjb_EricClaptonDrogaUominiAffari.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\brock\\b".r.tr(4)

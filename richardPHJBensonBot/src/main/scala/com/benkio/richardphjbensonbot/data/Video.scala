@@ -38,6 +38,7 @@ object Video {
     ReplyBundleMessage.textToMedia[F](
       stt"eric clapton",
       "uo[m]+ini d'affari".r.tr(15),
+      stt"andò in america"
     )(
       mf"rphjb_EricClaptonDrogaUominiAffari.mp4"
     ),

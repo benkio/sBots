@@ -400,7 +400,6 @@ object Gif {
       mf"rphjb_EricClaptonDrogaUominiAffari.mp4",
       gif"rphjb_DrogatiRockettari2.mp4",
       gif"rphjb_DrogatiPilotiGif.mp4",
-      mf"rphjb_DrogatiPiloti.mp4",
       mf"rphjb_Rampolli.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
