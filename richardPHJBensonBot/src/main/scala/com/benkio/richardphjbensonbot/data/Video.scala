@@ -1056,6 +1056,21 @@ object Video {
       stt"ultimo degli ultimi"
     )(
       mf"rphjb_DanzaMacabra.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"di tutti i colori",
+      stt"tramonto d'estate",
+      stt"boschi in penombra",
+      stt"per un ideale"
+    )(
+      mf"rphjb_PoesiaMadre.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"difficile guardare",
+      stt"tubo catodico",
+      "(vedere|guardare) l[aà]".r.tr(9)
+    )(
+      mf"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4"
     )
   )
 }
