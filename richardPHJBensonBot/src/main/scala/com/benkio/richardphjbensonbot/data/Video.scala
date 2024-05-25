@@ -283,7 +283,7 @@ object Video {
       stt"i genesis",
       "tecno(-| )thrash".r.tr(12),
       stt"van der graaf generator",
-      "emerson, lake (e|&) palmer".r.tr(22),
+      "emerson(,)? lake (e|&) palmer".r.tr(22),
       stt"gentle giant",
       stt"jetro tull",
       stt"Marillion",
@@ -1071,6 +1071,21 @@ object Video {
       "(vedere|guardare) l[aà]".r.tr(9)
     )(
       mf"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"negri"
+    )(
+      mf"rphjb_DueNegriMostruosi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"eccoci qua",
+      "io sto l[aà]\\b".r.tr(9),
+      "dove (ca[z]+[o]?)?sto".r.tr(8),
+      "sto d[ie] (qu[aà]|l[aà])".r.tr(9),
+      "sto l[iì]\\b".r.tr(6),
+      "luce[tta]? rossa".r.tr(10)
+    )(
+      mf"rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4"
     )
   )
 }

@@ -76,11 +76,6 @@ object Gif {
       gif"rphjb_StatoBrado.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\bport[a]+\\b".r.tr(5)
-    )(
-      gif"rphjb_Porta.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"prendo quello che cazzo c'è da prendere",
       stt"prendo il motorino",
       stt"prendo la macchina",
