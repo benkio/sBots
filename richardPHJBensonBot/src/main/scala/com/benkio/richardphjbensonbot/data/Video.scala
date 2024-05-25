@@ -1017,6 +1017,15 @@ object Video {
     )(
       mf"rphjb_BiscionePiatti.mp4",
       mf"rphjb_GhentPiattiAlbania.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"amicizia",
+      stt"amico del cuore",
+      stt"migliore amico",
+      stt"nella merda",
+      stt"subliminali"
+    )(
+      mf"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4"
     )
   )
 }
