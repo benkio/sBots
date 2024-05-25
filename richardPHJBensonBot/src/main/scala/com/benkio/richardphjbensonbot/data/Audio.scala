@@ -201,7 +201,6 @@ object Audio {
       stt"korn",
       stt"giovanni battista",
       stt"acque del giordano",
-      stt"battezzato",
       stt"battesimo"
     )(
       mf"rphjb_Battesimo.mp3"

@@ -34,7 +34,8 @@ object Mix {
       mf"rphjb_PoesiaRock.mp4",
       mf"rphjb_Rock.mp3",
       mf"rphjb_EricClaptonDrogaUominiAffari.mp4",
-      mf"rphjb_Rock.mp4"
+      mf"rphjb_Rock.mp4",
+      mf"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ti distruggo"
@@ -812,7 +813,7 @@ object Mix {
       stt"my baby"
     )(
       gif"rphjb_BebopGif.mp4",
-      gif"rphjb_Bebop.mp4"
+      gif"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(18|diciott['o]?) anni".r.tr(7)

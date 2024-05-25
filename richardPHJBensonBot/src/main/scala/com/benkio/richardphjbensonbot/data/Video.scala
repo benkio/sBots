@@ -239,8 +239,13 @@ object Video {
       mf"rphjb_WelaMyFriends.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"blues",
       stt"da piangere",
+      stt"negro",
+      stt"niente da perdere",
+      stt"interferenze",
+      stt"bestia offesa",
+      stt"giudeo",
+      stt"svastiche",
     )(
       mf"rphjb_Blues.mp4"
     ),
@@ -1026,6 +1031,25 @@ object Video {
       stt"subliminali"
     )(
       mf"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"battezzato"
+    )(
+      mf"rphjb_Blues.mp4",
+      mf"rphjb_Battesimo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ebbe un bambino",
+      stt"blues"
+    )(
+      mf"rphjb_Blues.mp4",
+      mf"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"monday",
+      stt"tuesday"
+    )(
+      mf"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
     )
   )
 }
