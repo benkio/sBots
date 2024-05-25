@@ -648,7 +648,8 @@ object Mix {
       mf"rphjb_Vigile.mp4",
       mf"rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4",
       gif"rphjb_BruttoSquallidoSchifosoGif.mp4",
-      mf"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4"
+      mf"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4",
+      mf"rphjb_DanzaMacabra.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"mortacci vostri"

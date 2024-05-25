@@ -413,7 +413,8 @@ object Video {
     ReplyBundleMessage.textToMedia[F](
       stt"peggio cose"
     )(
-      mf"rphjb_Venerdi.mp4"
+      mf"rphjb_Venerdi.mp4",
+      mf"rphjb_DanzaMacabra.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"albero grande",
@@ -1050,6 +1051,11 @@ object Video {
       stt"tuesday"
     )(
       mf"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ultimo degli ultimi"
+    )(
+      mf"rphjb_DanzaMacabra.mp4"
     )
   )
 }
