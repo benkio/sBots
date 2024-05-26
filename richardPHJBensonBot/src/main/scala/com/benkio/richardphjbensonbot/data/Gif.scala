@@ -567,13 +567,6 @@ object Gif {
       gif"rphjb_CoviMaleInvidiaLivore.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"a questo punto",
-      "andiamo[ci]? a sentire".r.tr(18),
-      stt"l'originale",
-    )(
-      gif"rphjb_SentireOriginale.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"lui si chiamava",
       "\\badolf\\b".r.tr(5),
       stt"hitler",

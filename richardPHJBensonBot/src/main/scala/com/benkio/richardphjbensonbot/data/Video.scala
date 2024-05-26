@@ -1001,7 +1001,6 @@ object Video {
     ReplyBundleMessage.textToMedia[F](
       stt"alpheus",
       stt"whiskey",
-      stt"etichette",
       "mi sentivo (di fare)?così".r.tr(15),
       stt"ho fatto così"
     )(
@@ -1087,6 +1086,19 @@ object Video {
       "luce[tta]? rossa".r.tr(10)
     )(
       mf"rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"etichette"
+    )(
+      mf"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
+      mf"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"supermercato",
+      stt"sputati nel mondo",
+      stt"gli altri siamo noi"
+    )(
+      mf"rphjb_EtichetteSupermercatoSputatiMondo.mp4"
     )
   )
 }

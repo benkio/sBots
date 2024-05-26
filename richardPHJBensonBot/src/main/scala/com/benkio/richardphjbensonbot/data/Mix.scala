@@ -332,7 +332,7 @@ object Mix {
       mf"rphjb_Feelings.gif",
       gif"rphjb_Feelings2.mp4",
       mf"rphjb_Feelings.mp3",
-      mf"rphjb_Feelings.mp4"
+      mf"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"me ne vado"
@@ -945,7 +945,7 @@ object Mix {
       mf"rphjb_RelIllusions.mp4",
       gif"rphjb_TiDeviSpaventareGif.mp4",
       mf"rphjb_TiDeviSpaventare.mp3",
-      mf"rphjb_Feelings.mp4",
+      mf"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
       mf"rphjb_SteveVaiRamazzotti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -1613,7 +1613,15 @@ object Mix {
     )(
       gif"rphjb_Porta.mp4",
       mf"rphjb_NonApriteQuellaPorta.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"a questo punto",
+      "andiamo[ci]? a sentire".r.tr(18),
+      stt"l'originale",
+    )(
+      gif"rphjb_SentireOriginale.mp4",
+      mf"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4"
+    ),
   )
 
 }
