@@ -30,7 +30,6 @@ object Video {
       stt"tullio pane",
       stt"otello profazio",
       stt"mario lanza",
-      stt"gianni celeste",
       stt"luciano tajoli"
     )(
       mf"rphjb_RapMusicaMelodicaListaCantanti.mp4"
@@ -38,6 +37,7 @@ object Video {
     ReplyBundleMessage.textToMedia[F](
       stt"eric clapton",
       "uo[m]+ini d'affari".r.tr(15),
+      stt"andò in america"
     )(
       mf"rphjb_EricClaptonDrogaUominiAffari.mp4"
     ),
@@ -239,8 +239,13 @@ object Video {
       mf"rphjb_WelaMyFriends.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"blues",
       stt"da piangere",
+      stt"negro",
+      stt"niente da perdere",
+      stt"interferenze",
+      stt"bestia offesa",
+      stt"giudeo",
+      stt"svastiche",
     )(
       mf"rphjb_Blues.mp4"
     ),
@@ -278,7 +283,7 @@ object Video {
       stt"i genesis",
       "tecno(-| )thrash".r.tr(12),
       stt"van der graaf generator",
-      "emerson, lake (e|&) palmer".r.tr(22),
+      "emerson(,)? lake (e|&) palmer".r.tr(22),
       stt"gentle giant",
       stt"jetro tull",
       stt"Marillion",
@@ -408,7 +413,8 @@ object Video {
     ReplyBundleMessage.textToMedia[F](
       stt"peggio cose"
     )(
-      mf"rphjb_Venerdi.mp4"
+      mf"rphjb_Venerdi.mp4",
+      mf"rphjb_DanzaMacabra.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"albero grande",
@@ -994,7 +1000,6 @@ object Video {
     ReplyBundleMessage.textToMedia[F](
       stt"alpheus",
       stt"whiskey",
-      stt"etichette",
       "mi sentivo (di fare)?così".r.tr(15),
       stt"ho fatto così"
     )(
@@ -1017,6 +1022,82 @@ object Video {
     )(
       mf"rphjb_BiscionePiatti.mp4",
       mf"rphjb_GhentPiattiAlbania.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"amicizia",
+      stt"amico del cuore",
+      stt"migliore amico",
+      stt"nella merda",
+      stt"subliminali"
+    )(
+      mf"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"battezzato"
+    )(
+      mf"rphjb_Blues.mp4",
+      mf"rphjb_Battesimo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ebbe un bambino",
+      stt"blues"
+    )(
+      mf"rphjb_Blues.mp4",
+      mf"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"monday",
+      stt"tuesday"
+    )(
+      mf"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"ultimo degli ultimi"
+    )(
+      mf"rphjb_DanzaMacabra.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"di tutti i colori",
+      stt"tramonto d'estate",
+      stt"boschi in penombra",
+      stt"per un ideale"
+    )(
+      mf"rphjb_PoesiaMadre.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"difficile guardare",
+      stt"tubo catodico",
+      "(vedere|guardare) l[aà]".r.tr(9)
+    )(
+      mf"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"negri"
+    )(
+      mf"rphjb_DueNegriMostruosi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"eccoci qua",
+      "io sto l[aà]\\b".r.tr(9),
+      "dove (ca[z]+[o]?)?sto".r.tr(8),
+      "sto d[ie] (qu[aà]|l[aà])".r.tr(9),
+      "sto l[iì]\\b".r.tr(6),
+      "luce[tta]? rossa".r.tr(10)
+    )(
+      mf"rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"etichette"
+    )(
+      mf"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
+      mf"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"supermercato",
+      stt"sputati nel mondo",
+      stt"gli altri siamo noi"
+    )(
+      mf"rphjb_EtichetteSupermercatoSputatiMondo.mp4"
     )
   )
 }

@@ -26,7 +26,7 @@ object Mix {
       stt"disastri aerei"
     )(
       gif"rphjb_DrogatiPilotiGif.mp4",
-      mf"rphjb_DrogatiPiloti.mp4"
+      mf"rphjb_EricClaptonDrogaUominiAffari.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\brock\\b".r.tr(4)
@@ -34,7 +34,8 @@ object Mix {
       mf"rphjb_PoesiaRock.mp4",
       mf"rphjb_Rock.mp3",
       mf"rphjb_EricClaptonDrogaUominiAffari.mp4",
-      mf"rphjb_Rock.mp4"
+      mf"rphjb_Rock.mp4",
+      mf"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"ti distruggo"
@@ -331,7 +332,7 @@ object Mix {
       mf"rphjb_Feelings.gif",
       gif"rphjb_Feelings2.mp4",
       mf"rphjb_Feelings.mp3",
-      mf"rphjb_Feelings.mp4"
+      mf"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"me ne vado"
@@ -647,7 +648,8 @@ object Mix {
       mf"rphjb_Vigile.mp4",
       mf"rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4",
       gif"rphjb_BruttoSquallidoSchifosoGif.mp4",
-      mf"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4"
+      mf"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4",
+      mf"rphjb_DanzaMacabra.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"mortacci vostri"
@@ -812,7 +814,7 @@ object Mix {
       stt"my baby"
     )(
       gif"rphjb_BebopGif.mp4",
-      gif"rphjb_Bebop.mp4"
+      gif"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(18|diciott['o]?) anni".r.tr(7)
@@ -943,7 +945,7 @@ object Mix {
       mf"rphjb_RelIllusions.mp4",
       gif"rphjb_TiDeviSpaventareGif.mp4",
       mf"rphjb_TiDeviSpaventare.mp3",
-      mf"rphjb_Feelings.mp4",
+      mf"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
       mf"rphjb_SteveVaiRamazzotti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -1605,7 +1607,33 @@ object Mix {
     )(
       gif"rphjb_No.mp4",
       mf"rphjb_FolliaQueenNo.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bport[a]+\\b".r.tr(5)
+    )(
+      gif"rphjb_Porta.mp4",
+      mf"rphjb_NonApriteQuellaPorta.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"a questo punto",
+      "andiamo[ci]? a sentire".r.tr(18),
+      stt"l'originale",
+    )(
+      gif"rphjb_SentireOriginale.mp4",
+      mf"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"gigi d'alessio"
+    )(
+      mf"rphjb_GigiDAlessioAnnaTatangelo.mp3",
+      mf"rphjb_GianniCelesteMeglioGigiDAlessio.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"gianni celeste"
+    )(
+      gif"rphjb_GianniCelesteMeglioGigiDAlessio.mp4",
+      mf"rphjb_RapMusicaMelodicaListaCantanti.mp4"
+    ),
   )
 
 }

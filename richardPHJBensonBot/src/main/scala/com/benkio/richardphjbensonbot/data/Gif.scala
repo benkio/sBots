@@ -76,11 +76,6 @@ object Gif {
       gif"rphjb_StatoBrado.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\bport[a]+\\b".r.tr(5)
-    )(
-      gif"rphjb_Porta.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"prendo quello che cazzo c'è da prendere",
       stt"prendo il motorino",
       stt"prendo la macchina",
@@ -405,7 +400,6 @@ object Gif {
       mf"rphjb_EricClaptonDrogaUominiAffari.mp4",
       gif"rphjb_DrogatiRockettari2.mp4",
       gif"rphjb_DrogatiPilotiGif.mp4",
-      mf"rphjb_DrogatiPiloti.mp4",
       mf"rphjb_Rampolli.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -571,13 +565,6 @@ object Gif {
       stt"livore"
     )(
       gif"rphjb_CoviMaleInvidiaLivore.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"a questo punto",
-      "andiamo[ci]? a sentire".r.tr(18),
-      stt"l'originale",
-    )(
-      gif"rphjb_SentireOriginale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"lui si chiamava",

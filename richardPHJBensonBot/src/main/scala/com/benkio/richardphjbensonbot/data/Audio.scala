@@ -201,7 +201,6 @@ object Audio {
       stt"korn",
       stt"giovanni battista",
       stt"acque del giordano",
-      stt"battezzato",
       stt"battesimo"
     )(
       mf"rphjb_Battesimo.mp3"
@@ -361,7 +360,6 @@ object Audio {
       mf"rphjb_ViSaluto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"gigi d'alessio",
       stt"anna tatangelo"
     )(
       mf"rphjb_GigiDAlessioAnnaTatangelo.mp3"
