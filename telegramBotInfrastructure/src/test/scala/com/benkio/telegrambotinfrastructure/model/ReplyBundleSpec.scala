@@ -92,15 +92,15 @@ class ReplyBundleSpec extends CatsEffectSuite {
     } yield ()
   }
 
-  test("prettyPrint of ReplyBundleMessage should return the expected string") {
-    val replyBundleInput: ReplyBundleMessage[IO] = ReplyBundleMessage[IO](
+  test("prettyPrint of ReplyBundle should return the expected string") {
+    val replyBundleInput: ReplyBundle[IO] = ReplyBundleMessage[IO](
       trigger = TextTrigger(
         StringTextTriggerValue("stringTextTriggerValue"),
         RegexTextTriggerValue("regexTextTriggerValue".r, 21)
       ),
       reply = MediaReply[IO](mediaFiles = inputMediafile.pure[IO])
     )
-    val result: Array[String] = ReplyBundleMessage.prettyPrint(replyBundleInput).unsafeRunSync().split('\n')
+    val result: Array[String] = ReplyBundle.prettyPrint(replyBundleInput).unsafeRunSync().split('\n')
     assertEquals(result.length, 7)
     assertEquals(result(0), "--------------------------------------------------")
     assertEquals(result(1), "audio.mp3                 | stringTextTriggerValue")

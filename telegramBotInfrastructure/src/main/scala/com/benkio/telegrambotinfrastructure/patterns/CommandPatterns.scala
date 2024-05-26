@@ -157,14 +157,12 @@ Input as query string:
                   replyBundle.trigger match {
                     case TextTrigger(textTriggers @ _*)
                         if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
-                      Some(textTriggers.toList)
+                      Some(replyBundle)
                     case _ => None
                   }
                 )
-                .fold(List(s"No matching trigger for $t"))((textTriggers: List[TextTriggerValue]) =>
-                  textTriggers.map(_.show)
-                )
-                .pure[F],
+                .fold(s"No matching trigger for $t".pure[F])(ReplyBundle.prettyPrint)
+                .map(List(_)),
             """Input Required: Insert the test keyword to check if it's in some bot trigger"""
           ),
         )
