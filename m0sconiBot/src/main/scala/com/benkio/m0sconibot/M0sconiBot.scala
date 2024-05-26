@@ -401,7 +401,7 @@ object M0sconiBot {
     ),
     ReplyBundleMessage.textToMedia[F](
       "formula (uno|1)".r.tr(9),
-      "donnington",
+      "donington",
       "prima sessione"
     )(
       mp3"mos_Formula1DonningtonPrimaSessioneVaffanculo.mp3"
