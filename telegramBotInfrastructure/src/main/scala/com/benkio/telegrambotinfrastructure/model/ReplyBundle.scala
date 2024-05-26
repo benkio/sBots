@@ -48,6 +48,26 @@ object ReplyBundleMessage {
       reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList)
     )
 
+  def textToVideo[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(videoFiles: VideoFile*): ReplyBundleMessage[F] =
+    textToMedia(triggers*)(videoFiles*)
+
+  def textToMp3[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(mp3Files: Mp3File*): ReplyBundleMessage[F] =
+    textToMedia(triggers*)(mp3Files*)
+
+  def textToGif[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(gifFiles: GifFile*): ReplyBundleMessage[F] =
+    textToMedia(triggers*)(gifFiles*)
+
+  def textToPhoto[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(photoFiles: PhotoFile*): ReplyBundleMessage[F] =
+    textToMedia(triggers*)(photoFiles*)
+
   def textToText[F[_]: Applicative](
       triggers: (String | RegexTextTriggerValue)*
   )(texts: String*): ReplyBundleMessage[F] =

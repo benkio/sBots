@@ -35,7 +35,7 @@ object MediaFile {
 
   given showInstance: Show[MediaFile] = Show.show(_.filename)
 
-  def apply(filepath: String, replyToMessage: Boolean = false): MediaFile = filepath match {
+  def fromFilePath(filepath: String, replyToMessage: Boolean = false): MediaFile = filepath match {
     case s if s.endsWith(".mp3")                         => Mp3File(s, replyToMessage)
     case s if s.endsWith(".gif")                         => GifFile(s, replyToMessage)
     case s if s.endsWith(".mp4")                         => VideoFile(s, replyToMessage)
@@ -48,7 +48,7 @@ object MediaFile {
 }
 
 extension (sc: StringContext)
-  def mf(args: Any*): MediaFile  = MediaFile(sc.s(args*))
+
   def mp3(args: Any*): Mp3File   = Mp3File(sc.s(args*))
   def gif(args: Any*): GifFile   = GifFile(sc.s(args*))
   def vid(args: Any*): VideoFile = VideoFile(sc.s(args*))
