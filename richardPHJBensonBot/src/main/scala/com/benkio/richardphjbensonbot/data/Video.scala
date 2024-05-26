@@ -1077,7 +1077,7 @@ object Video {
       mf"rphjb_DueNegriMostruosi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"eccoci qua",
+      "eccoci qu[aà]".r.tr(10),
       "io sto l[aà]\\b".r.tr(9),
       "dove (ca[z]+[o]?)?sto".r.tr(8),
       "sto d[ie] (qu[aà]|l[aà])".r.tr(9),

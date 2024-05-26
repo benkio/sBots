@@ -1634,6 +1634,13 @@ object Mix {
       gif"rphjb_GianniCelesteMeglioGigiDAlessio.mp4",
       mf"rphjb_RapMusicaMelodicaListaCantanti.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"negri",
+      stt"sezione ritmica"
+    )(
+      mf"rphjb_NegriSezioneRitmica.mp3",
+      mf"rphjb_DueNegriMostruosi.mp4"
+    ),
   )
 
 }

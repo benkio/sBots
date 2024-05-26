@@ -378,12 +378,6 @@ object Audio {
       mf"rphjb_CuloChiacchierato.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"negri",
-      stt"sezione ritmica"
-    )(
-      mf"rphjb_NegriSezioneRitmica.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       stt"incrinata la voce",
       "parlo come un(a specie di)? frocio".r.tr(20)
     )(
