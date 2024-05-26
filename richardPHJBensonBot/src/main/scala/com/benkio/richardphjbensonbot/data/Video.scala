@@ -1098,6 +1098,23 @@ object Video {
       stt"gli altri siamo noi"
     )(
       mf"rphjb_EtichetteSupermercatoSputatiMondo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"tendetemi le vostre spire"
+    )(
+      mf"rphjb_GerarchieInfernali2.mp4",
+      mf"rphjb_GerarchieInfernali3.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"uno da bere",
+      stt"sputatemi dalle vostre labbra",
+      "figlie(,)? ma di quale madre".r.tr(24),
+      stt"fetenti feti di fede",
+      stt"che ti inganna di notte",
+      stt"che muore di giorno",
+      stt"rovistandoti nell'immondo"
+    )(
+      mf"rphjb_GerarchieInfernali2.mp4"
     )
   )
 }

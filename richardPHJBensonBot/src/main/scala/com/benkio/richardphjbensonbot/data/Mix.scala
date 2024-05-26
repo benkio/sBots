@@ -1124,9 +1124,12 @@ object Mix {
       stt"non sono uno da sangue",
       stt"aghi di culto",
       "bucati[,]? ma da quale chiodo".r.tr(25),
+      stt"gerarchie infernali"
     )(
       mf"rphjb_GerarchieInfernali.mp4",
-      mf"rphjb_GerarchieInfernali.mp3"
+      mf"rphjb_GerarchieInfernali.mp3",
+      mf"rphjb_GerarchieInfernali2.mp4",
+      mf"rphjb_GerarchieInfernali3.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       stt"con questa tecnica"
