@@ -118,7 +118,7 @@ object M0sconiBot {
       mf"mos_VaInMonaCortesiaSimpatiaPorcoDioVaInCasinoVaffanculo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"dio cane"
+      "dio cane"
     )(
       mf"mos_AndateInMona.mp3",
       mf"mos_AntonioFossoCarteColla.mp3",
@@ -138,7 +138,7 @@ object M0sconiBot {
       mf"mos_SerraLaPortaDioCane.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"madonna"
+      "madonna"
     )(
       mf"mos_DioCaneLaMadonna.mp3",
       mf"mos_DioCaneX3MadonnaPuttana.mp3",
@@ -151,7 +151,7 @@ object M0sconiBot {
       mf"mos_TennisVaffanculoDioPorcoMadonnaPuttana.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"dio porco"
+      "dio porco"
     )(
       mf"mos_BasketSeiVantaggiDioPorco.mp3",
       mf"mos_BresciaFoggia.mp3",
@@ -169,13 +169,13 @@ object M0sconiBot {
       mf"mos_VaffanuloDai.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"dio boia"
+      "dio boia"
     )(
       mf"mos_DioPorcoCheNotiziaDioCaneBoia.mp3",
       mf"mos_NoVaInMonaNonTornoIndrio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"de dio"
+      "de dio"
     )(
       mf"mos_BresciaFoggia.mp3",
       mf"mos_DioPorcaMadonnaDeDio.mp3",
@@ -194,40 +194,40 @@ object M0sconiBot {
       mf"mos_AndateInMona.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"andiamo dai",
-      stt"lo fa apposta"
+      "andiamo dai",
+      "lo fa apposta"
     )(
       mf"mos_AndiamoDai.mp3",
       mf"mos_MarioFerrettoPorcoDioRumoreLiFaAposta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"colla",
-      stt"le carte"
+      "colla",
+      "le carte"
     )(
       mf"mos_DioBonDiUnDioLeSeaTagaENonLeSeStaga.mp3",
       mf"mos_AntonioFossoCarteColla.mp3",
       mf"mos_GuardaCheRobaLaCollaAttaccataAlleCarte.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"dio bono"
+      "dio bono"
     )(
       mf"mos_DioBonDiUnDioLeSeaTagaENonLeSeStaga.mp3",
       mf"mos_DioBono.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"antonio fosso",
-      stt"neo brigatista",
+      "antonio fosso",
+      "neo brigatista",
     )(
       mf"mos_AntonioFossoCarteColla.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"ostia",
+      "ostia",
     )(
       mf"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3",
       mf"mos_AntonioFossoCarteColla.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"aspetta un secondo",
+      "aspetta un secondo",
     )(
       mf"mos_AspettaUnSecondoDioCane.mp3"
     ),
@@ -237,40 +237,40 @@ object M0sconiBot {
       mf"mos_AvantiNdrioConQuellaPortaLi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"marco bisagno",
-      stt"la minoranza",
-      stt"assemblea",
-      stt"irregolare",
+      "marco bisagno",
+      "la minoranza",
+      "assemblea",
+      "irregolare",
     )(
       mf"mos_AvvocatoMarcoBisagnoAssembleaIrregolareMinoranze.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"basket",
-      stt"pallacanestro",
+      "basket",
+      "pallacanestro",
     )(
       mf"mos_BasketSeiVantaggiDioPorco.mp3",
       mf"mos_BasketDioCaneDipenDipanDaCapo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"palasport",
-      stt"piazzale olimpia",
-      stt"udine",
+      "palasport",
+      "piazzale olimpia",
+      "udine",
       "di[tp]an".r.tr(5),
-      stt"diche",
+      "diche",
       "\\bdipen\\b".r.tr(5),
     )(
       mf"mos_BasketDioCaneDipenDipanDaCapo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"manovre offersive",
-      stt"imprecisi al tiro",
-      stt"sei vantaggi"
+      "manovre offersive",
+      "imprecisi al tiro",
+      "sei vantaggi"
     )(
       mf"mos_BasketSeiVantaggiDioPorco.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"quadro completo",
-      stt"tanto tempo anche",
+      "quadro completo",
+      "tanto tempo anche",
       "brescia(-| )foggia".r.tr(14),
       "cagliari(-| )roma".r.tr(13),
       "fiorentina(-| )milan".r.tr(16),
@@ -280,7 +280,7 @@ object M0sconiBot {
       mf"mos_BresciaFoggia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"buongiorno"
+      "buongiorno"
     )(
       mf"mos_Buongiorno.mp3",
       mf"mos_Buongiorno2.mp3"
@@ -291,17 +291,17 @@ object M0sconiBot {
       mf"mos_ButtaPellAria.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"cos'è che è caduto"
+      "cos'è che è caduto"
     )(
       mf"mos_Caduto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"non si riesce a capire un cazzo"
+      "non si riesce a capire un cazzo"
     )(
       mf"mos_CapireUnCazzo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"chiude urlando"
+      "chiude urlando"
     )(
       mf"mos_ChiEQuelMonaSbatteLaPortaChiudeUrlando.mp3"
     ),
@@ -311,34 +311,34 @@ object M0sconiBot {
       mf"mos_ChissaCheNonMIncazzaEh.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"mancalacqua",
-      stt"lugagnano",
-      stt"vigasio",
-      stt"poveliano",
-      stt"tosse",
+      "mancalacqua",
+      "lugagnano",
+      "vigasio",
+      "poveliano",
+      "tosse",
     )(
       mf"mos_CiclismoAllieviDio.mp3",
       mf"mos_TosseDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"ciclismo"
+      "ciclismo"
     )(
       mf"mos_CiclismoAllieviDio.mp3",
       mf"mos_CiclismoGianniBugnoRitardo.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"nostra città"
+      "nostra città"
     )(
       mf"mos_CittaDioPorco.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"coppa delle coppe",
-      stt"sampdoria"
+      "coppa delle coppe",
+      "sampdoria"
     )(
       mf"mos_CoppaDelleCoppeSampdoriaDioPorco.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"orco dio"
+      "orco dio"
     )(
       mf"mos_CortiOrcoDio.mp3",
       mf"mos_Formula1DonningtonPrimaSessioneVaffanculo.mp3",
@@ -351,7 +351,7 @@ object M0sconiBot {
       mf"mos_CosaCheCazzoGheE.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"ripartiamo subito"
+      "ripartiamo subito"
     )(
       mf"mos_DaiVaLaRipartiamoSubito.mp3"
     ),
@@ -368,7 +368,7 @@ object M0sconiBot {
       mf"mos_Difabbddffbbaa.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"non è possibile"
+      "non è possibile"
     )(
       mf"mos_DioCaneMaNonEPossibile.mp3"
     ),
@@ -378,36 +378,36 @@ object M0sconiBot {
       mf"mos_DioPaPaPaPaPaPa.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"che notizia"
+      "che notizia"
     )(
       mf"mos_DioPorcoCheNotiziaDioCaneBoia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"dio schifoso"
+      "dio schifoso"
     )(
       mf"mos_DioSchifosoCan.mp3",
       mf"mos_InPrimoPianoIlCalcioDioSchifosoCan.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"dios"
+      "dios"
     )(
       mf"mos_Dios.mp3",
       mf"mos_RiprendoDallaTabella.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"entra dentro"
+      "entra dentro"
     )(
       mf"mos_EntraDentroMona.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "formula (uno|1)".r.tr(9),
-      stt"donnington",
-      stt"prima sessione"
+      "donnington",
+      "prima sessione"
     )(
       mf"mos_Formula1DonningtonPrimaSessioneVaffanculo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"vaffanculo"
+      "vaffanculo"
     )(
       mf"mos_Formula1DonningtonPrimaSessioneVaffanculo.mp3",
       mf"mos_TennisVaffanculoDioPorcoMadonnaPuttana.mp3",
@@ -417,48 +417,48 @@ object M0sconiBot {
     ),
     ReplyBundleMessage.textToMedia[F](
       "ges[uù] cristo".r.tr(11),
-      stt"no nessuno",
+      "no nessuno",
     )(
       mf"mos_GesuCristoNoNessuno.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"giochi olimpici",
-      stt"giorgio mazzetta",
-      stt"giorgio mazzetta",
+      "giochi olimpici",
+      "giorgio mazzetta",
+      "giorgio mazzetta",
       "m[ie] fermo un (secondo|attimo)".r.tr(18),
     )(
       mf"mos_GiochiOlimpiciAspettaCheMeFermoUnAttimo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"girato le foto"
+      "girato le foto"
     )(
       mf"mos_GiratoLeFoto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"imbecilli"
+      "imbecilli"
     )(
       mf"mos_Imbecilli.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"in primo piano"
+      "in primo piano"
     )(
       mf"mos_InPrimoPianoIlCalcioDioSchifosoCan.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"mi ha fatto innervosire",
-      stt"gli spacco la testa",
+      "mi ha fatto innervosire",
+      "gli spacco la testa",
     )(
       mf"mos_Innervosire.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"juventus",
-      stt"austria",
-      stt"vienna",
+      "juventus",
+      "austria",
+      "vienna",
     )(
       mf"mos_JuventusAustriaViennaPorcoDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"porco dio"
+      "porco dio"
     )(
       mf"mos_MaPorcoDio.mp3",
       mf"mos_JuventusAustriaViennaPorcoDio.mp3",
@@ -470,43 +470,43 @@ object M0sconiBot {
       mf"mos_VaInMonaCortesiaSimpatiaPorcoDioVaInCasinoVaffanculo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"lo troverò",
-      stt"prima o dopo",
+      "lo troverò",
+      "prima o dopo",
     )(
       mf"mos_LoTroveroDeficiente.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"ma è possibile"
+      "ma è possibile"
     )(
       mf"mos_MaEPossibilePortannaLaMadonna.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"puttina"
+      "puttina"
     )(
       mf"mos_MadonnaPuttina.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"il commercialista",
-      stt"il magistrato",
-      stt"gianfranco bertani",
+      "il commercialista",
+      "il magistrato",
+      "gianfranco bertani",
     )(
       mf"mos_MagistratoCuratoreFallimentareExDioPorcoDioCane.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"mario ferretto",
-      stt"accolto con sorpresa",
-      stt"rumore li",
+      "mario ferretto",
+      "accolto con sorpresa",
+      "rumore li",
     )(
       mf"mos_MarioFerrettoPorcoDioRumoreLiFaAposta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"mi vedo già"
+      "mi vedo già"
     )(
       mf"mos_MeVedoGia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"mi sono distratto",
-      stt"mi hai distratto"
+      "mi sono distratto",
+      "mi hai distratto"
     )(
       mf"mos_MiSonoDistratto.mp3",
       mf"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3"
@@ -518,55 +518,55 @@ object M0sconiBot {
       mf"mos_NonTornoIndietroDonadoni.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"monitor"
+      "monitor"
     )(
       mf"mos_NonCapiscoPiuNienteMonitor.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"non capisco più niente",
-      stt"non riesco a capire più niente"
+      "non capisco più niente",
+      "non riesco a capire più niente"
     )(
       mf"mos_NonRiescoACapireNiente.mp3",
       mf"mos_NonCapiscoPiuNienteMonitor.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"donadoni"
+      "donadoni"
     )(
       mf"mos_NonTornoIndietroDonadoni.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"in maiuscolo",
+      "in maiuscolo",
     )(
       mf"mos_NotizieInMaiuscolo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"notizie"
+      "notizie"
     )(
       mf"mos_NotizieScritteDaCul.mp3",
       mf"mos_NotizieInMaiuscolo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"da capo",
-      stt"venite dentro",
+      "da capo",
+      "venite dentro",
     )(
       mf"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"orientarmi"
+      "orientarmi"
     )(
       mf"mos_Orientarmi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"andrea de cesari",
-      stt"romano",
-      stt"dio canaia",
-      stt"il pilota",
+      "andrea de cesari",
+      "romano",
+      "dio canaia",
+      "il pilota",
     )(
       mf"mos_PilotaRomanoAndreaDeCesariDioCanariaDeDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"piovanelli",
-      stt"atalanta"
+      "piovanelli",
+      "atalanta"
     )(
       mf"mos_PiovanelliPorcoDio.mp3"
     ),
@@ -576,33 +576,33 @@ object M0sconiBot {
       mf"mos_PiproviamoDioBubu.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"quotazioni"
+      "quotazioni"
     )(
       mf"mos_QuotazioniPorcoDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"ricominciamo da capo"
+      "ricominciamo da capo"
     )(
       mf"mos_RicominciamoDaCapo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"dalla tabella"
+      "dalla tabella"
     )(
       mf"mos_RiprendoDallaTabella.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"sbattere le porte"
+      "sbattere le porte"
     )(
       mf"mos_SbattereLePorte.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"se non bestemmio"
+      "se non bestemmio"
     )(
       mf"mos_SeNonBestemmioGuarda.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vi do un pu[g]?nio".r.tr(14),
-      stt"se venite avanti"
+      "se venite avanti"
     )(
       mf"mos_SeVeniteAvantiAncoraViDoUnPunio.mp3"
     ),
@@ -612,60 +612,60 @@ object M0sconiBot {
       mf"mos_SeiVantaggiDiLunghezza.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"tecnocop",
-      stt"verona",
+      "tecnocop",
+      "verona",
     )(
       mf"mos_TecnocopVerona.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"telefono"
+      "telefono"
     )(
       mf"mos_TelefonoPorcoDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"tennis"
+      "tennis"
     )(
       mf"mos_TennisVaffanculoDioPorcoMadonnaPuttana.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"tocca ferro"
+      "tocca ferro"
     )(
       mf"mos_ToccaFerro.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"tutte le volte che"
+      "tutte le volte che"
     )(
       mf"mos_TutteLeVolteCheParto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"cortesia",
-      stt"simpatia",
-      stt"va in casino",
+      "cortesia",
+      "simpatia",
+      "va in casino",
     )(
       mf"mos_VaInMonaCortesiaSimpatiaPorcoDioVaInCasinoVaffanculo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"vice sindaco"
+      "vice sindaco"
     )(
       mf"mos_ViceSindaco.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"vedo tutto tranne",
-      stt"quello che dovrei vedere"
+      "vedo tutto tranne",
+      "quello che dovrei vedere"
     )(
       mf"mos_VedoTuttoMenoQuelloCheDovreiVedere.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"cesena",
+      "cesena",
       "\\btorino\\b".r.tr(6),
-      stt"avellino",
-      stt"walter shakner",
-      stt"austriaco"
+      "avellino",
+      "walter shakner",
+      "austriaco"
     )(
       mf"mos_WalterShaknerAustriacoCesenaTorinoAvellino.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"gaetano"
+      "gaetano"
     )(
       mf"mos_Gaetano.mp3"
     )

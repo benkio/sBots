@@ -66,25 +66,25 @@ object CalandroBot {
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToText[F](
-      stt"sbrighi"
+      "sbrighi"
     )("Passo"),
     ReplyBundleMessage.textToText[F](
-      stt"gay",
+      "gay",
       "froc[io]".r.tr(5),
-      stt"culattone",
-      stt"ricchione"
+      "culattone",
+      "ricchione"
     )("CHE SCHIFO!!!"),
     ReplyBundleMessage.textToText[F](
-      stt"caldo",
-      stt"scotta"
+      "caldo",
+      "scotta"
     )("Come i carbofreni della Brembo!!"),
     ReplyBundleMessage.textToText[F](
-      stt"ciao",
-      stt"buongiorno",
+      "ciao",
+      "buongiorno",
       "\\bsalve\\b".r.tr(5)
     )("Buongiorno Signori"),
     ReplyBundleMessage.textToText[F](
-      stt"film"
+      "film"
     )("Lo riguardo volentieri"),
     ReplyBundleMessage(
       TextTrigger(
@@ -97,14 +97,14 @@ object CalandroBot {
     ReplyBundleMessage.textToText[F](
       "\\bhd\\b".r.tr(2),
       "nitid(o|ezza)".r.tr(6),
-      stt"alta definizione"
+      "alta definizione"
     )("Eh sì, vedi...si nota l'indecisione dell'immagine"),
     ReplyBundleMessage.textToText[F](
-      stt"qualità"
+      "qualità"
     )("A 48x masterizza meglio"),
     ReplyBundleMessage.textToText[F](
-      stt"macchina",
-      stt"automobile"
+      "macchina",
+      "automobile"
     )("Hai visto l'ultima puntata di \"Top Gear\"?"),
     ReplyBundleMessage.textToText[F](
       "\\bfiga\\b".r.tr(4),
@@ -113,8 +113,8 @@ object CalandroBot {
       "\\bpatacca\\b".r.tr(7)
     )("Io so come fare con le donne...ho letto tutto..."),
     ReplyBundleMessage.textToText[F](
-      stt"ambulanza",
-      stt"🚑"
+      "ambulanza",
+      "🚑"
     )(
       "😤",
       "🤘",
@@ -124,16 +124,16 @@ object CalandroBot {
       "😤"
     ),
     ReplyBundleMessage.textToText[F](
-      stt"pc",
-      stt"computer"
+      "pc",
+      "computer"
     )("Il fisso performa meglio rispetto al portatile!!!"),
     ReplyBundleMessage.textToText[F](
-      stt"videogioc",
-      stt"🎮"
+      "videogioc",
+      "🎮"
     )(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
     ReplyBundleMessage.textToText[F](
-      stt" hs",
-      stt"hearthstone"
+      " hs",
+      "hearthstone"
     )("BASTA CON QUESTI TAUNT!!!"),
     ReplyBundleMessage(
       MessageLengthTrigger(280),
