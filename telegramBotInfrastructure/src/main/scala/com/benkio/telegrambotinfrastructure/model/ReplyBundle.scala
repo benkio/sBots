@@ -40,15 +40,39 @@ object ReplyBundleMessage {
     replySelection = replySelection
   )
 
-  def textToMedia[F[_]: Applicative](triggers: TextTriggerValue*)(mediaFiles: MediaFile*): ReplyBundleMessage[F] =
+  def textToMedia[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(mediaFiles: MediaFile*): ReplyBundleMessage[F] =
     ReplyBundleMessage[F](
-      trigger = TextTrigger(triggers*),
+      trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
       reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList)
     )
 
-  def textToText[F[_]: Applicative](triggers: TextTriggerValue*)(texts: String*): ReplyBundleMessage[F] =
+  def textToVideo[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(videoFiles: VideoFile*): ReplyBundleMessage[F] =
+    textToMedia(triggers*)(videoFiles*)
+
+  def textToMp3[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(mp3Files: Mp3File*): ReplyBundleMessage[F] =
+    textToMedia(triggers*)(mp3Files*)
+
+  def textToGif[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(gifFiles: GifFile*): ReplyBundleMessage[F] =
+    textToMedia(triggers*)(gifFiles*)
+
+  def textToPhoto[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(photoFiles: PhotoFile*): ReplyBundleMessage[F] =
+    textToMedia(triggers*)(photoFiles*)
+
+  def textToText[F[_]: Applicative](
+      triggers: (String | RegexTextTriggerValue)*
+  )(texts: String*): ReplyBundleMessage[F] =
     ReplyBundleMessage[F](
-      trigger = TextTrigger(triggers*),
+      trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
       reply = TextReply.fromList[F](texts*)(false)
     )
 

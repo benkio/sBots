@@ -6,49 +6,32 @@ import com.benkio.telegrambotinfrastructure.model.*
 object Gif {
 
   def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToMedia[F](
-      "\\bcontinua\\b".r.tr(8)
-    )(
-      mf"rphjb_Continua.mp3",
-      mf"rphjb_Continua.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "(a[f]+)?fanculo(,)? per contesia".r.tr(20)
-    )(
-      gif"rphjb_FanculoPerCortesia.mp4",
-      mf"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"gli autori"
+    ReplyBundleMessage.textToGif[F](
+      "gli autori"
     )(
       gif"rphjb_Autori.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"questo è matto"
+    ReplyBundleMessage.textToGif[F](
+      "questo è matto"
     )(
-      mf"rphjb_MattoRagazzi.gif"
+      gif"rphjb_MattoRagazzi.gif"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"scivola"
-    )(
-      mf"rphjb_SiScivola.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"pelle d'oca",
-      stt"sussult",
-      stt"brivid"
+    ReplyBundleMessage.textToGif[F](
+      "pelle d'oca",
+      "sussult",
+      "brivid"
     )(
       gif"rphjb_Brivido.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"che siamo noi",
-      stt"pezzi di merda",
+    ReplyBundleMessage.textToGif[F](
+      "che siamo noi",
+      "pezzi di merda",
     )(
       gif"rphjb_PezziDiMerda.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "\\burlo\\b".r.tr(4),
-      stt"\\b[a]{5,}",
+      "\\b[a]{5,}",
     )(
       gif"rphjb_Tuffo.mp4",
       gif"rphjb_Urlo.mp4",
@@ -58,173 +41,173 @@ object Gif {
       gif"rphjb_UrloCanaro.mp4",
       gif"rphjb_UrloRiso.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"rispondere"
+    ReplyBundleMessage.textToGif[F](
+      "rispondere"
     )(
       gif"rphjb_Rispondere.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"cuore in mano",
-      stt"mano nella mano",
-      stt"pelle contro la pelle"
+    ReplyBundleMessage.textToGif[F](
+      "cuore in mano",
+      "mano nella mano",
+      "pelle contro la pelle"
     )(
       gif"rphjb_CuoreInMano.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"stato brado"
+    ReplyBundleMessage.textToGif[F](
+      "stato brado"
     )(
       gif"rphjb_StatoBrado.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"prendo quello che cazzo c'è da prendere",
-      stt"prendo il motorino",
-      stt"prendo la macchina",
-      stt"prendo l'auto",
+    ReplyBundleMessage.textToGif[F](
+      "prendo quello che cazzo c'è da prendere",
+      "prendo il motorino",
+      "prendo la macchina",
+      "prendo l'auto",
     )(
       gif"rphjb_PrendoIlNecessario.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"siamo qua"
+    ReplyBundleMessage.textToGif[F](
+      "siamo qua"
     )(
       gif"rphjb_SiamoQua.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"cucciolo"
+    ReplyBundleMessage.textToGif[F](
+      "cucciolo"
     )(
       gif"rphjb_Cucciolo.mp4",
       gif"rphjb_Cucciolo2.mp4",
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"Che c'hai"
+    ReplyBundleMessage.textToGif[F](
+      "Che c'hai"
     )(
       gif"rphjb_CheCHai.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"abbiamo vinto"
+    ReplyBundleMessage.textToGif[F](
+      "abbiamo vinto"
     )(
       gif"rphjb_AbbiamoVinto.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"telefonata pilotata",
-      stt"falsità"
+    ReplyBundleMessage.textToGif[F](
+      "telefonata pilotata",
+      "falsità"
     )(
       gif"rphjb_TelefonataPilotata.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "come ha fatto a entr(à|are)".r.tr(23)
     )(
       gif"rphjb_ComeHaFattoAEntrare.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"donna cane"
+    ReplyBundleMessage.textToGif[F](
+      "donna cane"
     )(
       gif"rphjb_DonnaCane.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"menzion"
+    ReplyBundleMessage.textToGif[F](
+      "menzion"
     )(
       gif"rphjb_NonMiMenzionareQuestaParola.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"hollywood"
+    ReplyBundleMessage.textToGif[F](
+      "hollywood"
     )(
       gif"rphjb_Hollywood.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"piano superiore",
-      stt"si compete",
-      stt"gerarca"
+    ReplyBundleMessage.textToGif[F](
+      "piano superiore",
+      "si compete",
+      "gerarca"
     )(
       gif"rphjb_PianoSuperioreCompete.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"chi è"
+    ReplyBundleMessage.textToGif[F](
+      "chi è"
     )(
       gif"rphjb_QuestaPersonaScusate.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"tucul"
+    ReplyBundleMessage.textToGif[F](
+      "tucul"
     )(
       gif"rphjb_TuCul.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt";)",
-      stt"occhiolino",
-      stt"wink",
-      stt"😉"
+    ReplyBundleMessage.textToGif[F](
+      ";)",
+      "occhiolino",
+      "wink",
+      "😉"
     )(
       gif"rphjb_Occhiolino.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"soffro"
+    ReplyBundleMessage.textToGif[F](
+      "soffro"
     )(
       gif"rphjb_Soffro.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"indispettirmi",
-      stt"oltrepassare",
-      stt"divento cattivo"
+    ReplyBundleMessage.textToGif[F](
+      "indispettirmi",
+      "oltrepassare",
+      "divento cattivo"
     )(
       gif"rphjb_Indispettirmi.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"mannaggia",
-      stt"la salute"
+    ReplyBundleMessage.textToGif[F](
+      "mannaggia",
+      "la salute"
     )(
       gif"rphjb_MannaggiaLaSalute.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"mi rompi il cazzo",
-      stt"mi dai fastidio"
+    ReplyBundleMessage.textToGif[F](
+      "mi rompi il cazzo",
+      "mi dai fastidio"
     )(
       gif"rphjb_MiRompiErCazzo.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"c'ha [pure ]?ragione",
-      stt"o no?"
+    ReplyBundleMessage.textToGif[F](
+      "c'ha [pure ]?ragione",
+      "o no?"
     )(
       gif"rphjb_Ragione.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"perchè mi guardi"
+    ReplyBundleMessage.textToGif[F](
+      "perchè mi guardi"
     )(
       gif"rphjb_Guardi.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r.tr(21)
     )(
       gif"rphjb_Chitarrista.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"mi diverti",
-      stt"mi sono divertito",
+    ReplyBundleMessage.textToGif[F](
+      "mi diverti",
+      "mi sono divertito",
     )(
       gif"rphjb_Diverti.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"uno scherzo"
+    ReplyBundleMessage.textToGif[F](
+      "uno scherzo"
     )(
       gif"rphjb_Scherzo.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"che si deve fà",
-      stt"campà",
+    ReplyBundleMessage.textToGif[F](
+      "che si deve fà",
+      "campà",
     )(
       gif"rphjb_Campa.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"pensa alla deficienza",
+    ReplyBundleMessage.textToGif[F](
+      "pensa alla deficienza",
       "ma si può dire una cosa (del genere|così)".r.tr(28),
     )(
       gif"rphjb_Deficienza.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "levati[\\. ]*dai coglioni".r.tr(19),
       "fuori[\\. ]*dai coglioni".r.tr(18)
     )(
       gif"rphjb_LevatiDaiCoglioni.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "più co(gl|j)ione".r.tr(11),
       "dice co(gl|j)ione".r.tr(12),
       "co(gl|j)ion([e]{3,}|e[!]{3,})".r.tr(9)
@@ -233,281 +216,242 @@ object Gif {
       gif"rphjb_PiuCoglione.mp4",
       gif"rphjb_Coglione.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"bravo!!!",
-      stt"bravooo"
+    ReplyBundleMessage.textToGif[F](
+      "bravo!!!",
+      "bravooo"
     )(
       gif"rphjb_Bravo.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"capolavoro"
-    )(
-      gif"rphjb_CapolavoroGif.mp4",
-      mf"rphjb_Capolavoro.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "\\bmetal\\b".r.tr(5)
     )(
       gif"rphjb_Metal.mp4",
       gif"rphjb_IlMartel.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"allucinante"
+    ReplyBundleMessage.textToGif[F](
+      "allucinante"
     )(
       gif"rphjb_Allucinante.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"porca miseria",
-      stt"facendo incazzare"
+    ReplyBundleMessage.textToGif[F](
+      "porca miseria",
+      "facendo incazzare"
     )(
       gif"rphjb_PorcaMiseria.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"dovete soffrire",
+    ReplyBundleMessage.textToGif[F](
+      "dovete soffrire",
       "vi voglio far(e)? soffrire".r.tr(23),
     )(
       gif"rphjb_DoveteSoffrire.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"sarete puniti"
+    ReplyBundleMessage.textToGif[F](
+      "sarete puniti"
     )(
       gif"rphjb_SaretePuniti.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"cantanti",
-      stt"serie z"
+    ReplyBundleMessage.textToGif[F](
+      "cantanti",
+      "serie z"
     )(
       gif"rphjb_CantantiSerieZ.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"sentendo male"
+    ReplyBundleMessage.textToGif[F](
+      "sentendo male"
     )(
       gif"rphjb_MiStoSentendoMale.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"lunghezza d'onda",
-      stt"brave persone"
+    ReplyBundleMessage.textToGif[F](
+      "lunghezza d'onda",
+      "brave persone"
     )(
       gif"rphjb_LunghezzaDOnda.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "[gq]uerelare".r.tr(9),
     )(
       gif"rphjb_Querelare.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"cantate",
-      stt"arigliano"
+    ReplyBundleMessage.textToGif[F](
+      "cantate",
+      "arigliano"
     )(
       gif"rphjb_Arigliano.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"andati al cesso",
-      stt"diecimila volte"
+    ReplyBundleMessage.textToGif[F](
+      "andati al cesso",
+      "diecimila volte"
     )(
       gif"rphjb_Alcesso.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"in fila"
+    ReplyBundleMessage.textToGif[F](
+      "in fila"
     )(
       gif"rphjb_MettitiInFila.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"non male"
+    ReplyBundleMessage.textToGif[F](
+      "non male"
     )(
       gif"rphjb_NonMale.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"perchè si sente"
+    ReplyBundleMessage.textToGif[F](
+      "perchè si sente"
     )(
       gif"rphjb_SiSente.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"chi cazzo sei"
+    ReplyBundleMessage.textToGif[F](
+      "chi cazzo sei"
     )(
       gif"rphjb_ChiCazzoSei.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"feste"
+    ReplyBundleMessage.textToGif[F](
+      "feste"
     )(
       gif"rphjb_Feste.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"si ostina",
-      stt"foto vecchie"
+    ReplyBundleMessage.textToGif[F](
+      "si ostina",
+      "foto vecchie"
     )(
       gif"rphjb_Ostina.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "(è|diventa) vecchi[ao]".r.tr(9),
     )(
       gif"rphjb_Vecchio.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"scatta qualcosa",
-      stt"proprio in quel momento",
-      stt"nel suo cervello",
+    ReplyBundleMessage.textToGif[F](
+      "scatta qualcosa",
+      "proprio in quel momento",
+      "nel suo cervello",
     )(
       gif"rphjb_ScattaQualcosa.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"pure bona"
+    ReplyBundleMessage.textToGif[F](
+      "pure bona"
     )(
       gif"rphjb_Bona.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "sei [gc]ambiat[oa]".r.tr(12)
     )(
       gif"rphjb_SeiCambiata.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"mio discapito",
-      stt"disgabido"
+    ReplyBundleMessage.textToGif[F](
+      "mio discapito",
+      "disgabido"
     )(
       gif"rphjb_Discapito.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"squallida",
-      stt"abbia mai sentito"
+    ReplyBundleMessage.textToGif[F](
+      "squallida",
+      "abbia mai sentito"
     )(
       gif"rphjb_Squallida.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"destino",
-      stt"incontrare"
+    ReplyBundleMessage.textToGif[F](
+      "destino",
+      "incontrare"
     )(
       gif"rphjb_Destino.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"meridionale",
-      stt"terron"
+    ReplyBundleMessage.textToGif[F](
+      "meridionale",
+      "terron"
     )(
       gif"rphjb_Meridionale.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"baci",
-      stt"limonare"
-    )(
-      gif"rphjb_Bacio.mp4",
-      mf"rphjb_DanzaMacabra.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"drogati",
-      stt"sostanze improprie"
-    )(
-      gif"rphjb_DrogatiRockettari1.mp4",
-      mf"rphjb_DrogatiRockettari.mp4",
-      mf"rphjb_EricClaptonDrogaUominiAffari.mp4",
-      gif"rphjb_DrogatiRockettari2.mp4",
-      gif"rphjb_DrogatiPilotiGif.mp4",
-      mf"rphjb_Rampolli.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r.tr(10),
-      stt"stillati"
-    )(
-      gif"rphjb_DrogatiRockettari1.mp4",
-      mf"rphjb_DrogatiRockettari.mp4",
-      gif"rphjb_DrogatiRockettari2.mp4",
-      mf"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"sguardo"
+    ReplyBundleMessage.textToGif[F](
+      "sguardo"
     )(
       gif"rphjb_Sguardo.mp4",
       gif"rphjb_Sguardo2.mp4",
-      mf"rphjb_Confuso.mp4",
+      gif"rphjb_Confuso.mp4",
       gif"rphjb_Sguardo3.mp4",
       gif"rphjb_Sguardo4.mp4",
       gif"rphjb_SguardoCanaro.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"a quel punto"
+    ReplyBundleMessage.textToGif[F](
+      "a quel punto"
     )(
       gif"rphjb_QuelPunto.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"faccio la parte",
-      stt" recit",
-      stt" fing",
+    ReplyBundleMessage.textToGif[F](
+      "faccio la parte",
+      " recit",
+      " fing",
       "\\ba[t]{2,}[o]+re\\b".r.tr(7),
-      stt"attrice"
+      "attrice"
     )(
       gif"rphjb_FaccioLaParte.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"inizio della fine"
-    )(
-      gif"rphjb_InizioDellaFineGif.mp4",
-      mf"rphjb_InizioDellaFine.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"il senso"
+    ReplyBundleMessage.textToGif[F](
+      "il senso"
     )(
       gif"rphjb_IlSensoCapito.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "\\bester\\b".r.tr(5)
     )(
       gif"rphjb_Ester.mp4",
       gif"rphjb_Ester2.mp4",
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "abi(t|d)ua(t|d)o".r.tr(8),
       "proprioll(a|à)".r.tr(10),
     )(
       gif"rphjb_Propriolla.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"non vedo questo grande problema"
+    ReplyBundleMessage.textToGif[F](
+      "non vedo questo grande problema"
     )(
       gif"rphjb_VabbeProblema.mp4",
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"il bongo",
-      stt"non esiste un basso più pontente al mondo",
-      stt"music man"
+    ReplyBundleMessage.textToGif[F](
+      "il bongo",
+      "non esiste un basso più pontente al mondo",
+      "music man"
     )(
       gif"rphjb_IlBongo.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"inserirlo su internet",
+    ReplyBundleMessage.textToGif[F](
+      "inserirlo su internet",
       "immagini ama(d|t)oriali".r.tr(19)
     )(
       gif"rphjb_Internet.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "prendere quello l[aà]".r.tr(18),
     )(
       gif"rphjb_AaaPrendereQuelloLa.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"col cazzo che non so suonà"
+    ReplyBundleMessage.textToGif[F](
+      "col cazzo che non so suonà"
     )(
       gif"rphjb_ColCazzoSuona.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "proprio a me\\b".r.tr(12)
     )(
       gif"rphjb_ProprioAMe.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"where are you going?"
+    ReplyBundleMessage.textToGif[F](
+      "where are you going?"
     )(
       gif"rphjb_WhereAreYouGoing.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"🤨",
-      stt"🧐",
-      stt"sono confuso",
+    ReplyBundleMessage.textToGif[F](
+      "🤨",
+      "🧐",
+      "sono confuso",
       "[?]{3,}".r.tr(3),
     )(
       gif"rphjb_Confuso.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"😑",
-      stt"😒",
-      stt"🫤",
+    ReplyBundleMessage.textToGif[F](
+      "😑",
+      "😒",
+      "🫤",
       "\\bwtf[!]*\\b".r.tr(3),
     )(
       gif"rphjb_WTF.mp4",
@@ -515,16 +459,16 @@ object Gif {
       gif"rphjb_WTF3.mp4",
       gif"rphjb_WTF4.mp4",
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"🙏"
+    ReplyBundleMessage.textToGif[F](
+      "🙏"
     )(
       gif"rphjb_Prega.mp4",
       gif"rphjb_Prega2.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "\\bsorpresa\\b".r.tr(8),
       "\\bshock\\b".r.tr(5),
-      stt"😮",
+      "😮",
     )(
       gif"rphjb_Sorpresa.mp4",
       gif"rphjb_Sorpresa2.mp4"
@@ -540,42 +484,42 @@ object Gif {
         )
       )
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "[u]{3,}".r.tr(3)
     )(
       gif"rphjb_Uuu.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"☝️",
-      stt"👆",
-      stt"👉",
-      stt"👇",
-      stt"👈"
+    ReplyBundleMessage.textToGif[F](
+      "☝️",
+      "👆",
+      "👉",
+      "👇",
+      "👈"
     )(
       gif"rphjb_Indicare.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"deal with it"
+    ReplyBundleMessage.textToGif[F](
+      "deal with it"
     )(
       gif"rphjb_Occhiali.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"covi il male",
-      stt"invidia",
-      stt"livore"
+    ReplyBundleMessage.textToGif[F](
+      "covi il male",
+      "invidia",
+      "livore"
     )(
       gif"rphjb_CoviMaleInvidiaLivore.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      stt"lui si chiamava",
+    ReplyBundleMessage.textToGif[F](
+      "lui si chiamava",
       "\\badolf\\b".r.tr(5),
-      stt"hitler",
-      stt"belle arti",
+      "hitler",
+      "belle arti",
       "hitl[aà]".r.tr(5),
     )(
       gif"rphjb_AdolfHitler.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "limoncell[io]".r.tr(5)
     )(
       gif"rphjb_LimoncelliVino.gif"

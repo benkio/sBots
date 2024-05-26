@@ -34,7 +34,7 @@ object CommandPatterns {
           mediaFiles = for
             dbMediaDatas <- dbMedia.getMediaByKind(kind = kind.getOrElse(commandName))
             medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
-          yield medias.map(media => MediaFile(media.mediaName))
+          yield medias.map(media => MediaFile.fromFilePath(media.mediaName))
         )
       )
   }

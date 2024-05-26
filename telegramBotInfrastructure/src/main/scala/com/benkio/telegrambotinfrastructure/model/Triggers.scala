@@ -22,6 +22,11 @@ object TextTriggerValue {
       case RegexTextTriggerValue(t, _) => t.toString
     }
   )
+
+  def fromStringOrRegex(v: String | RegexTextTriggerValue): TextTriggerValue = v match {
+    case s: String                => StringTextTriggerValue(s)
+    case r: RegexTextTriggerValue => r
+  }
 }
 
 case class StringTextTriggerValue(trigger: String) extends TextTriggerValue {
