@@ -75,19 +75,6 @@ object ReplyBundleMessage {
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
       reply = TextReply.fromList[F](texts*)(false)
     )
-
-  def prettyPrint[F[_]: Applicative](rbm: ReplyBundleMessage[F])(using triggerShow: Show[Trigger]): F[String] = {
-    val triggerStrings: List[String] = triggerShow.show(rbm.trigger).split('\n').toList
-    val replyString: F[List[String]] = rbm.reply.prettyPrint
-    val result = replyString.map(x =>
-      x.zipAll(triggerStrings, "", "")
-        .map { case (mfs, trs) =>
-          s"${mfs.padTo(25, ' ')} | $trs"
-        }
-        .mkString("\n")
-    )
-    result.map(r => ("-" * 50) + s"\n$r\n" + ("-" * 50) + "\n")
-  }
 }
 
 final case class ReplyBundleCommand[F[_]](
@@ -116,8 +103,21 @@ object ReplyBundleCommand {
 
 object ReplyBundle {
 
-  implicit def orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
+  given orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
     Trigger.orderingInstance.contramap(_.trigger)
+
+  def prettyPrint[F[_]: Applicative](rb: ReplyBundle[F])(using triggerShow: Show[Trigger]): F[String] = {
+    val triggerStrings: List[String] = triggerShow.show(rb.trigger).split('\n').toList
+    val replyString: F[List[String]] = rb.reply.prettyPrint
+    val result = replyString.map(x =>
+      x.zipAll(triggerStrings, "", "")
+        .map { case (mfs, trs) =>
+          s"${mfs.padTo(25, ' ')} | $trs"
+        }
+        .mkString("\n")
+    )
+    result.map(r => ("-" * 50) + s"\n$r\n" + ("-" * 50) + "\n")
+  }
 
   def containsMediaReply[F[_]](r: ReplyBundle[F]): Boolean =
     r.reply match {
