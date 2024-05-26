@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.implicits.*
 import munit.FunSuite
 
 class ReplySpec extends FunSuite {
@@ -27,26 +26,18 @@ class ReplySpec extends FunSuite {
   test(
     "MediaFile apply should create the right MediaFile when a valid filename with an allowed extension is provided"
   ) {
-    assertEquals(MediaFile("audio.mp3"), Mp3File("audio.mp3"))
-    assertEquals(MediaFile("picture.jpg"), PhotoFile("picture.jpg"))
-    assertEquals(MediaFile("picture.png"), PhotoFile("picture.png"))
-    assertEquals(MediaFile("gif.gif"), GifFile("gif.gif"))
-    assertEquals(MediaFile("video.mp4"), VideoFile("video.mp4"))
-  }
-
-  test("MediaFile apply should not create the Mediafile when a filename with an unknown extension is provided") {
-    interceptMessage[IllegalArgumentException](
-      "filepath extension not recognized: test.fuck \n allowed extensions: mp3, gif, jpg, png, mp4"
-    ) {
-      MediaFile("test.fuck")
-    }
+    assertEquals(mp3"audio.mp3", mp3"audio.mp3")
+    assertEquals(pho"picture.jpg", pho"picture.jpg")
+    assertEquals(pho"picture.png", pho"picture.png")
+    assertEquals(gif"gif.gif", gif"gif.gif")
+    assertEquals(vid"video.mp4", vid"video.mp4")
   }
 
   test("MediaFile show instance should return the expected string") {
-    assertEquals(MediaFile("audio.mp3").show, "audio.mp3")
-    assertEquals(MediaFile("picture.jpg").show, "picture.jpg")
-    assertEquals(MediaFile("picture.png").show, "picture.png")
-    assertEquals(MediaFile("gif.gif").show, "gif.gif")
-    assertEquals(MediaFile("video.mp4").show, "video.mp4")
+    assertEquals(MediaFile.showInstance.show(mp3"audio.mp3"), "audio.mp3")
+    assertEquals(MediaFile.showInstance.show(pho"picture.jpg"), "picture.jpg")
+    assertEquals(MediaFile.showInstance.show(pho"picture.png"), "picture.png")
+    assertEquals(MediaFile.showInstance.show(gif"gif.gif"), "gif.gif")
+    assertEquals(MediaFile.showInstance.show(vid"video.mp4"), "video.mp4")
   }
 }

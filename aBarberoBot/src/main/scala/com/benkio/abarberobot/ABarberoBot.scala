@@ -91,45 +91,45 @@ object ABarberoBot {
     ReplyBundleMessage.textToMedia[F](
       "kimono"
     )(
-      mf"abar_KimonoMaledetto.mp3",
-      mf"abar_KimonoStregato.mp3"
+      mp3"abar_KimonoMaledetto.mp3",
+      mp3"abar_KimonoStregato.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "particelle cadaveriche"
     )(
-      mf"abar_ParticelleCadaveriche.mp3"
+      mp3"abar_ParticelleCadaveriche.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "avrebbe (mai )?immaginato".r.tr(18)
     )(
-      mf"abar_NessunoAvrebbeImmaginato.mp3"
+      mp3"abar_NessunoAvrebbeImmaginato.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "mortalit[aà]".r.tr(9)
     )(
-      mf"abar_Mortalita.mp3"
+      mp3"abar_Mortalita.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "carta",
       "legno leggero"
     )(
-      mf"abar_LegnoLeggeroCarta.mp3"
+      mp3"abar_LegnoLeggeroCarta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "stregato"
     )(
-      mf"abar_KimonoStregato.mp3"
+      mp3"abar_KimonoStregato.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "maledetto"
     )(
-      mf"abar_Pestifero.mp3",
-      mf"abar_KimonoMaledetto.mp3"
+      mp3"abar_Pestifero.mp3",
+      mp3"abar_KimonoMaledetto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "pestifero"
     )(
-      mf"abar_Pestifero.mp3"
+      mp3"abar_Pestifero.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "distrutto",
@@ -139,12 +139,12 @@ object ABarberoBot {
       "nel fiume",
       "innondazione"
     )(
-      mf"abar_Distrutto.mp3"
+      mp3"abar_Distrutto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bpratica\\b".r.tr(7)
     )(
-      mf"abar_PraticaPocoPatriotticah.mp3"
+      mp3"abar_PraticaPocoPatriotticah.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ferro",
@@ -152,12 +152,12 @@ object ABarberoBot {
       "acqua bollente",
       "aceto"
     )(
-      mf"abar_FerroFuocoAcquaBollenteAceto.mp3"
+      mp3"abar_FerroFuocoAcquaBollenteAceto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "secolo"
     )(
-      mf"abar_Secolo.mp3"
+      mp3"abar_Secolo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "streghe",
@@ -165,31 +165,31 @@ object ABarberoBot {
       "draghi",
       "roghi",
     )(
-      mf"abar_Draghi.mp3"
+      mp3"abar_Draghi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "crociate"
     )(
-      mf"abar_Crociate.mp3"
+      mp3"abar_Crociate.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "wikipedia"
     )(
-      mf"abar_Wikipedia.mp3"
+      mp3"abar_Wikipedia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\beccoh\\b".r.tr(5)
     )(
-      mf"abar_Ecco.mp3",
-      mf"abar_Ecco2.mp3",
-      mf"abar_Ecco3.mp3"
+      mp3"abar_Ecco.mp3",
+      mp3"abar_Ecco2.mp3",
+      mp3"abar_Ecco3.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "maglio",
       "sbriciola",
       "schiaccia"
     )(
-      mf"abar_Maglio.mp3"
+      mp3"abar_Maglio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chiese",
@@ -197,146 +197,146 @@ object ABarberoBot {
       "villaggi",
       "assedi"
     )(
-      mf"abar_Assedi.mp3"
+      mp3"abar_Assedi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "furore",
       "città"
     )(
-      mf"abar_Furore.mp3"
+      mp3"abar_Furore.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "demoni",
       "scatenat"
     )(
-      mf"abar_Demoni.mp3"
+      mp3"abar_Demoni.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "sensei"
     )(
-      mf"abar_Sensei.mp3"
+      mp3"abar_Sensei.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "miserabile"
     )(
-      mf"abar_Miserabile.mp3"
+      mp3"abar_Miserabile.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "omicidio",
       "cosa che capita"
     )(
-      mf"abar_CapitaOmicidio.mp3"
+      mp3"abar_CapitaOmicidio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "cavallo",
       "tiriamo(lo)? giù".r.tr(11),
       "ammazziamolo"
     )(
-      mf"abar_Ammazziamolo.mp3"
+      mp3"abar_Ammazziamolo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "bruciare",
       "saccheggiare",
       "fuoco"
     )(
-      mf"abar_Bbq.mp3"
+      mp3"abar_Bbq.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "cagarelli",
       "feci",
       "cacca"
     )(
-      mf"abar_Homines.mp3"
+      mp3"abar_Homines.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "monsignore",
       "vescovo",
       "in culo"
     )(
-      mf"abar_Monsu.mp3"
+      mp3"abar_Monsu.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ottimismo"
     )(
-      mf"abar_Ottimismo.mp3"
+      mp3"abar_Ottimismo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "latino"
     )(
-      mf"abar_Homines.mp3",
-      mf"abar_Vagdavercustis.mp3",
-      mf"abar_Yersinia.mp3",
-      mf"abar_Culagium.mp3"
+      mp3"abar_Homines.mp3",
+      mp3"abar_Vagdavercustis.mp3",
+      mp3"abar_Yersinia.mp3",
+      mp3"abar_Culagium.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "radetzky"
     )(
-      mf"abar_Radetzky.mp3"
+      mp3"abar_Radetzky.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "interrogateli",
       "tortura"
     )(
-      mf"abar_Reinterrogateli.mp3"
+      mp3"abar_Reinterrogateli.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "i \\bre\\b".r.tr(2),
       "decapita"
     )(
-      mf"abar_Re.mp3"
+      mp3"abar_Re.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bascia\\b".r.tr(5),
       "sangue"
     )(
-      mf"abar_Sangue.mp3"
+      mp3"abar_Sangue.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "spranga"
     )(
-      mf"abar_Spranga.mp3"
+      mp3"abar_Spranga.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "stupidi"
     )(
-      mf"abar_Stupidi.mp3"
+      mp3"abar_Stupidi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bsubito(o|!){2,}".r.tr(6)
     )(
-      mf"abar_Subito.mp3"
+      mp3"abar_Subito.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vagdavercustis"
     )(
-      mf"abar_Vagdavercustis.mp3"
+      mp3"abar_Vagdavercustis.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "peste",
       "yersinia"
     )(
-      mf"abar_Yersinia.mp3"
+      mp3"abar_Yersinia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "zazzera"
     )(
-      mf"abar_Zazzera.mp3"
+      mp3"abar_Zazzera.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "metallo"
     )(
-      mf"abar_Metallo.mp3"
+      mp3"abar_Metallo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "italiani",
       "arrendetevi"
     )(
-      mf"abar_Taliani.mp3"
+      mp3"abar_Taliani.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "c[a]{2,}[z]+[o]+".r.tr(5)
     )(
-      mf"abar_Cazzo.mp3"
+      mp3"abar_Cazzo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "eresia",
@@ -345,22 +345,22 @@ object ABarberoBot {
       "sputi sulla croce",
       "sodomia",
     )(
-      mf"abar_RitiSataniciSodomia.mp3"
+      mp3"abar_RitiSataniciSodomia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "preoccupazione"
     )(
-      mf"abar_Preoccupazione.mp3"
+      mp3"abar_Preoccupazione.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "son(o)? tu[t]+e ba[l]+e".r.tr(13)
     )(
-      mf"abar_Bale.mp3"
+      mp3"abar_Bale.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "birra",
     )(
-      mf"abar_Birra.mp3"
+      mp3"abar_Birra.mp3"
     ),
   )
 
@@ -368,38 +368,38 @@ object ABarberoBot {
     ReplyBundleMessage.textToMedia[F](
       "ha ragione"
     )(
-      mf"abar_HaRagione.gif"
+      gif"abar_HaRagione.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "seziona",
       "cadaveri",
       "morti"
     )(
-      mf"abar_Cadaveri.gif"
+      gif"abar_Cadaveri.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "strappa",
       "gli arti",
       "le braccia"
     )(
-      mf"abar_Strappare.gif"
+      gif"abar_Strappare.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "saltare la testa",
       "questa macchina"
     )(
-      mf"abar_SaltareLaTesta.gif"
+      gif"abar_SaltareLaTesta.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "un po' paura"
     )(
-      mf"abar_Paura.gif"
+      gif"abar_Paura.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "sega",
       "dov'è"
     )(
-      mf"abar_Sega.gif"
+      gif"abar_Sega.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "potere",
@@ -408,160 +408,160 @@ object ABarberoBot {
       "appalti",
       "spartir"
     )(
-      mf"abar_Potere.gif"
+      gif"abar_Potere.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "grandioso",
       "magnifico",
       "capolavoro"
     )(
-      mf"abar_Capolavoro.gif"
+      gif"abar_Capolavoro.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "troppo facile",
       "easy"
     )(
-      mf"abar_TroppoFacile.gif"
+      gif"abar_TroppoFacile.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chi(s| )se( )?ne( )?frega".r.tr(13)
     )(
-      mf"abar_Chissenefrega.gif"
+      gif"abar_Chissenefrega.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "buonasera"
     )(
-      mf"abar_Buonasera.gif"
+      gif"abar_Buonasera.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       " a morte",
       "\\bsi si si\\b".r.tr(4)
     )(
-      mf"abar_SisiAMorte.gif"
+      gif"abar_SisiAMorte.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "francesi"
     )(
-      mf"abar_Francesi.gif"
+      gif"abar_Francesi.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "viva il popolo",
       "comunis"
     )(
-      mf"abar_VivaIlPopolo.gif"
+      gif"abar_VivaIlPopolo.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "fare qualcosa"
     )(
-      mf"abar_FareQualcosa.gif"
+      gif"abar_FareQualcosa.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(no|nessun|non c'è) problem(a)?",
       "ammazziamo tutti"
     )(
-      mf"abar_AmmazziamoTuttiNoProblem.gif"
+      gif"abar_AmmazziamoTuttiNoProblem.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bcert[o!]{3,}\\b".r.tr(5)
     )(
-      mf"abar_Certo.gif"
+      gif"abar_Certo.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "rogo"
     )(
-      mf"abar_Rogo.gif"
+      gif"abar_Rogo.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "semplific"
     )(
-      mf"abar_Semplifico.gif"
+      gif"abar_Semplifico.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "bere il (suo )?sangue".r.tr(15),
       "taglia(re)? la gola".r.tr(14)
     )(
-      mf"abar_TaglioGolaBereSangue.gif"
+      gif"abar_TaglioGolaBereSangue.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "spacco la (testa|faccia)".r.tr(15)
     )(
-      mf"abar_SpaccoLaTesta.gif"
+      gif"abar_SpaccoLaTesta.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r.tr(8)
     )(
-      mf"abar_OrifizioPosteriore.gif"
+      gif"abar_OrifizioPosteriore.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "faccia tosta",
       "furfante"
     )(
-      mf"abar_Furfante.gif"
+      gif"abar_Furfante.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bbasta(a|!){2,}".r.tr(5)
     )(
-      mf"abar_Basta.gif"
+      gif"abar_Basta.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "tutti insieme",
       "ghigliottina"
     )(
-      mf"abar_GhigliottinaTuttiInsieme.gif"
+      gif"abar_GhigliottinaTuttiInsieme.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "economisti"
     )(
-      mf"abar_Economisti.gif"
+      gif"abar_Economisti.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vieni (un po' )?qui".r.tr(9)
     )(
-      mf"abar_VieniQui.gif"
+      gif"abar_VieniQui.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "si fa così"
     )(
-      mf"abar_SiFaCosi.gif"
+      gif"abar_SiFaCosi.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "rapire",
       "riscatto"
     )(
-      mf"abar_Riscatto.gif"
+      gif"abar_Riscatto.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bn[o]+!\\b".r.tr(3),
       "non (lo )?vogli(a|o)".r.tr(10)
     )(
-      mf"abar_No.gif"
+      gif"abar_No.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "in un attimo",
       "in piazza"
     )(
-      mf"abar_InPiazza.gif"
+      gif"abar_InPiazza.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "in due pezzi"
     )(
-      mf"abar_InDuePezzi.gif"
+      gif"abar_InDuePezzi.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bgiusto(o|!){2,}".r.tr(6)
     )(
-      mf"abar_Giusto.gif"
+      gif"abar_Giusto.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "gli altri (che )?sono".r.tr(15)
     )(
-      mf"abar_GliAltri.gif"
+      gif"abar_GliAltri.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "👐",
       "🙌",
     )(
-      mf"abar_AlzaLeMani.mp4",
+      vid"abar_AlzaLeMani.mp4",
     )
   )
 
@@ -573,7 +573,7 @@ object ABarberoBot {
       "arraffare",
       "tanfo",
     )(
-      mf"abar_ParoleLongobarde.mp4",
+      vid"abar_ParoleLongobarde.mp4",
     ),
   )
 
@@ -581,82 +581,82 @@ object ABarberoBot {
     ReplyBundleMessage.textToMedia[F](
       "tedesco"
     )(
-      mf"abar_Kraft.mp3",
-      mf"abar_Von_Hohenheim.mp3",
-      mf"abar_Haushofer.mp3"
+      mp3"abar_Kraft.mp3",
+      mp3"abar_Von_Hohenheim.mp3",
+      mp3"abar_Haushofer.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "genitali",
       "cosi e coglioni"
     )(
-      mf"abar_Cosi.mp3",
-      mf"abar_Sottaceto.mp3"
+      mp3"abar_Cosi.mp3",
+      mp3"abar_Sottaceto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r.tr(13)
     )(
-      mf"abar_FiglioDi.gif",
-      mf"abar_FiglioDi2.gif",
-      mf"abar_FiglioDi3.mp3"
+      gif"abar_FiglioDi.gif",
+      gif"abar_FiglioDi2.gif",
+      mp3"abar_FiglioDi3.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "sgozza"
     )(
-      mf"abar_Sgozzamento.mp3",
-      mf"abar_Sgozzamento.gif"
+      mp3"abar_Sgozzamento.mp3",
+      gif"abar_Sgozzamento.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "bruciargli",
       "la casa"
     )(
-      mf"abar_Bruciare.mp3",
-      mf"abar_Bruciare.gif"
+      mp3"abar_Bruciare.mp3",
+      gif"abar_Bruciare.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "a pezzi",
       "a pezzettini"
     )(
-      mf"abar_APezzettini.mp3",
-      mf"abar_APezzettini.gif"
+      mp3"abar_APezzettini.mp3",
+      gif"abar_APezzettini.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "allarme",
       "priori",
       "carne"
     )(
-      mf"abar_Priori.mp3",
-      mf"abar_Priori.gif"
+      mp3"abar_Priori.mp3",
+      gif"abar_Priori.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "zagaglia",
       "nemico"
     )(
-      mf"abar_Zagaglia.mp3",
-      mf"abar_Zagaglia.gif"
+      mp3"abar_Zagaglia.mp3",
+      gif"abar_Zagaglia.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "guerra",
     )(
-      mf"abar_ParoleLongobarde.mp4",
-      mf"abar_Guerra.mp3",
+      vid"abar_ParoleLongobarde.mp4",
+      mp3"abar_Guerra.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "faida",
     )(
-      mf"abar_ParoleLongobarde.mp4",
-      mf"abar_Faida.gif",
+      vid"abar_ParoleLongobarde.mp4",
+      gif"abar_Faida.gif",
     ),
     ReplyBundleMessage.textToMedia[F](
       "spranga"
     )(
-      mf"abar_Spranga.gif",
-      mf"abar_ParoleLongobarde.mp4"
+      gif"abar_Spranga.gif",
+      vid"abar_ParoleLongobarde.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "trappola"
     )(
-      mf"abar_Trappola.gif",
-      mf"abar_ParoleLongobarde.mp4"
+      gif"abar_Trappola.gif",
+      vid"abar_ParoleLongobarde.mp4"
     ),
   )
 

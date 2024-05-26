@@ -48,7 +48,6 @@ object MediaFile {
 }
 
 extension (sc: StringContext)
-
   def mp3(args: Any*): Mp3File   = Mp3File(sc.s(args*))
   def gif(args: Any*): GifFile   = GifFile(sc.s(args*))
   def vid(args: Any*): VideoFile = VideoFile(sc.s(args*))

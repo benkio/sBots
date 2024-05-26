@@ -97,48 +97,48 @@ object YouTuboAncheI0Bot {
     ReplyBundleMessage.textToMedia[F](
       "non vi costa nulla"
     )(
-      mf"ytai_Donazioni.mp3"
+      mp3"ytai_Donazioni.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "bengalino",
       "pappagallo",
       "uccellino",
     )(
-      mf"ytai_BengalinoDiamantino.mp3"
+      mp3"ytai_BengalinoDiamantino.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "cocod[eè]".r.tr(6),
       "gallina"
     )(
-      mf"ytai_Cocode.mp3"
+      mp3"ytai_Cocode.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bmisc\\b".r.tr(4),
       "\\bm[i]+[a]+[o]+\\b".r.tr(4)
     )(
-      mf"ytai_Misc.mp3"
+      mp3"ytai_Misc.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\btopolin[oi]\\b".r.tr(8)
     )(
-      mf"ytai_Topolino.mp3"
+      mp3"ytai_Topolino.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "francesismo"
     )(
-      mf"ytai_Francesismo.mp3"
+      mp3"ytai_Francesismo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "grazie"
     )(
-      mf"ytai_Grazie.mp3",
+      mp3"ytai_Grazie.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "3000",
       "tremila",
       "multa",
     )(
-      mf"ytai_Multa3000euro.mp3"
+      mp3"ytai_Multa3000euro.mp3"
     )
   )
 
@@ -429,7 +429,7 @@ object YouTuboAncheI0Bot {
       "ricordami fino a domani"
     )(
       gif"ytai_Ricordami.mp4",
-      mf"ytai_RicordamiFinoADomani.mp4",
+      vid"ytai_RicordamiFinoADomani.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "ringraziamento",
@@ -1213,7 +1213,7 @@ object YouTuboAncheI0Bot {
       "ma che m(i |')hai detto".r.tr(8),
     )(
       gif"ytai_VerzaGiuseppeGif.mp4",
-      mf"ytai_VerzaGiuseppe.mp4"
+      vid"ytai_VerzaGiuseppe.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "più piccoline",
@@ -1311,7 +1311,7 @@ object YouTuboAncheI0Bot {
       "ho perso (di nuovo )?qualcosa".r.tr(18)
     )(
       gif"ytai_HoPersoQualcosa.mp4",
-      mf"ytai_HoPersoQualcosa.mp3"
+      mp3"ytai_HoPersoQualcosa.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "reputazione"
@@ -1323,14 +1323,14 @@ object YouTuboAncheI0Bot {
       "donazioni"
     )(
       gif"ytai_Donazioni.mp4",
-      mf"ytai_Donazioni.mp3"
+      mp3"ytai_Donazioni.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "a me niente va bene",
       "non [tm]i va bene niente".r.tr(21)
     )(
       gif"ytai_NienteVaBene.mp4",
-      mf"ytai_NienteVaBene.mp3",
+      mp3"ytai_NienteVaBene.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "ciccione"
@@ -1342,7 +1342,7 @@ object YouTuboAncheI0Bot {
       "allora l[iì]".r.tr(9)
     )(
       gif"ytai_AlloraLi.mp4",
-      mf"ytai_AlloraLi.mp3"
+      mp3"ytai_AlloraLi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "che vergogna",
@@ -1351,25 +1351,25 @@ object YouTuboAncheI0Bot {
       "tutti (quanti )?mi criticheranno".r.tr(22)
     )(
       gif"ytai_CheVergogna.mp4",
-      mf"ytai_CheVergogna.mp3",
+      mp3"ytai_CheVergogna.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "ti voglio (tanto )?bene".r.tr(14),
     )(
       gif"ytai_TVTB.mp4",
-      mf"ytai_AncheIoTiVoglioTantoBene.mp3"
+      mp3"ytai_AncheIoTiVoglioTantoBene.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vi voglio (tanto )*bene".r.tr(14)
     )(
       gif"ytai_ViVoglioTantoBeneGif.mp4",
-      mf"ytai_ViVoglioTantoBene.mp4"
+      vid"ytai_ViVoglioTantoBene.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "pu[oò] capitare".r.tr(12)
     )(
       gif"ytai_PuoCapitareGif.mp4",
-      mf"ytai_PuoCapitare.mp4"
+      vid"ytai_PuoCapitare.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "strudel"
@@ -1515,25 +1515,25 @@ object YouTuboAncheI0Bot {
     ReplyBundleMessage.textToMedia[F](
       "matrimonio"
     )(
-      mf"ytai_StoriaChampignon.mp4",
-      mf"ytai_StoriaChampignon.mp3",
+      vid"ytai_StoriaChampignon.mp4",
+      mp3"ytai_StoriaChampignon.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "superiamo questi limiti",
       "limiti di pensiero",
       "andiamo oltre"
     )(
-      mf"ytai_SuperiamoLimitiPensiero.mp4",
-      mf"ytai_SuperiamoLimitiPensiero.mp3",
+      vid"ytai_SuperiamoLimitiPensiero.mp4",
+      mp3"ytai_SuperiamoLimitiPensiero.mp3",
       gif"ytai_SuperiamoLimitiPensieroGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "rovesciata l'acqua",
       "\\bops\\b".r.tr(3)
     )(
-      mf"ytai_OpsRovesciataAcqua.mp3",
+      mp3"ytai_OpsRovesciataAcqua.mp3",
       gif"ytai_OpsRovesciataAcquaGif.mp4",
-      mf"ytai_OpsRovesciataAcqua.mp4"
+      vid"ytai_OpsRovesciataAcqua.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ho fatto bene a farlo",
@@ -1541,8 +1541,8 @@ object YouTuboAncheI0Bot {
       "mi sto sentendo (bene|in compagnia)".r.tr(20)
     )(
       gif"ytai_NoVideoHoFattoBeneCompagniaGif.mp4",
-      mf"ytai_NoVideoHoFattoBeneCompagnia.mp3",
-      mf"ytai_NoVideoHoFattoBeneCompagnia.mp4"
+      mp3"ytai_NoVideoHoFattoBeneCompagnia.mp3",
+      vid"ytai_NoVideoHoFattoBeneCompagnia.mp4"
     ),
   )
 
@@ -1556,7 +1556,7 @@ object YouTuboAncheI0Bot {
       "attraverso i commenti",
       "sto risolvendo"
     )(
-      mf"ytai_SognoAmericano.mp4"
+      vid"ytai_SognoAmericano.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "senape",
@@ -1564,14 +1564,14 @@ object YouTuboAncheI0Bot {
       "ha un gusto strano",
       "non ne mangio più",
     )(
-      mf"ytai_Senape.mp4"
+      vid"ytai_Senape.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "gigantesco",
       "sushi",
       "che bellezza"
     )(
-      mf"ytai_SushiQuestoEGigantescoBellezza.mp4"
+      vid"ytai_SushiQuestoEGigantescoBellezza.mp4"
     )
   )
 
@@ -1583,19 +1583,19 @@ object YouTuboAncheI0Bot {
       "collera",
       "[🤬😡😠]".r.tr(1),
     )(
-      mf"ytai_Rabbia.jpg"
+      pho"ytai_Rabbia.jpg"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[😦😧]".r.tr(1),
       "shock",
     )(
-      mf"ytai_Shock.jpg"
+      pho"ytai_Shock.jpg"
     ),
     ReplyBundleMessage.textToMedia[F](
       "😐",
       "attonito"
     )(
-      mf"ytai_Attonito.jpg"
+      pho"ytai_Attonito.jpg"
     ),
   )
 

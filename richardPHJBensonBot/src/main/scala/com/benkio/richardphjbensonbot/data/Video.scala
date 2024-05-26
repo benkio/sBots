@@ -174,13 +174,6 @@ object Video {
       vid"rphjb_SepolturaRisata.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "colla tra serpe e serpe"
-    )(
-      vid"rphjb_CollaSerpe.mp4",
-      vid"rphjb_CollaSerpe.mp3",
-      vid"rphjb_CollaSerpeSigarettePercussionista.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "big money"
     )(
       vid"rphjb_BigMoney.mp4"
@@ -1030,12 +1023,6 @@ object Video {
       "subliminali"
     )(
       vid"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "battezzato"
-    )(
-      vid"rphjb_Blues.mp4",
-      vid"rphjb_Battesimo.mp3"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ebbe un bambino",
