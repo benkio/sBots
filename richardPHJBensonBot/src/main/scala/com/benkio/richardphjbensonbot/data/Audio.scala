@@ -360,7 +360,6 @@ object Audio {
       mf"rphjb_ViSaluto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      stt"gigi d'alessio",
       stt"anna tatangelo"
     )(
       mf"rphjb_GigiDAlessioAnnaTatangelo.mp3"

@@ -30,7 +30,6 @@ object Video {
       stt"tullio pane",
       stt"otello profazio",
       stt"mario lanza",
-      stt"gianni celeste",
       stt"luciano tajoli"
     )(
       mf"rphjb_RapMusicaMelodicaListaCantanti.mp4"

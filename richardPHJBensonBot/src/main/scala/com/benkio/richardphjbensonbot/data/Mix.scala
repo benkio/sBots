@@ -1622,6 +1622,18 @@ object Mix {
       gif"rphjb_SentireOriginale.mp4",
       mf"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"gigi d'alessio"
+    )(
+      mf"rphjb_GigiDAlessioAnnaTatangelo.mp3",
+      mf"rphjb_GianniCelesteMeglioGigiDAlessio.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      stt"gianni celeste"
+    )(
+      gif"rphjb_GianniCelesteMeglioGigiDAlessio.mp4",
+      mf"rphjb_RapMusicaMelodicaListaCantanti.mp4"
+    ),
   )
 
 }
