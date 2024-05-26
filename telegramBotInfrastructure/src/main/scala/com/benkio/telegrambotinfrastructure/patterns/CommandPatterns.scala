@@ -138,6 +138,23 @@ Input as query string:
     val triggerSearchCommandDescriptionEng: String =
       "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
 
+    private[patterns] def searchTrigger[F[_]: ApplicativeThrow](
+        mdr: List[ReplyBundleMessage[F]],
+        m: Message,
+        ignoreMessagePrefix: Option[String]
+    ): String => F[List[String]] =
+      t =>
+        mdr
+          .collectFirstSome(replyBundle =>
+            replyBundle.trigger match {
+              case TextTrigger(textTriggers @ _*) if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
+                Some(replyBundle)
+              case _ => None
+            }
+          )
+          .fold(s"No matching trigger for $t".pure[F])(ReplyBundle.prettyPrint)
+          .map(List(_))
+
     // TODO: Return the closest match on failure
     def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](
         botName: String,
@@ -151,18 +168,7 @@ Input as query string:
             m,
             "triggersearch",
             botName,
-            t =>
-              mdr
-                .collectFirstSome(replyBundle =>
-                  replyBundle.trigger match {
-                    case TextTrigger(textTriggers @ _*)
-                        if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
-                      Some(replyBundle)
-                    case _ => None
-                  }
-                )
-                .fold(s"No matching trigger for $t".pure[F])(ReplyBundle.prettyPrint)
-                .map(List(_)),
+            searchTrigger(mdr, m, ignoreMessagePrefix),
             """Input Required: Insert the test keyword to check if it's in some bot trigger"""
           ),
         )
