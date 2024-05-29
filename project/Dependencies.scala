@@ -6,7 +6,7 @@ object Dependencies {
 
   lazy val versions = new {
     val caseInsensitive    = "1.4.0"
-    val cats               = "2.10.0"
+    val cats               = "2.12.0"
     val catsEffectTime     = "0.2.1"
     val catsEffectVersion  = "3.5.4"
     val circe              = "0.14.7"
