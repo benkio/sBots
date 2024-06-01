@@ -853,7 +853,8 @@ object Video {
       .textToVideo[F]("yngwie", "malmsteen")(
         vid"rphjb_Ramarro.mp4",
         vid"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4",
-        vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4"
+        vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
+        vid"rphjb_FotoMalmsteen.mp4",
       ),
     ReplyBundleMessage.textToVideo[F]("invece no", "si ricomincia", "da capo")(
       vid"rphjb_InveceNoRicominciaDaCapo.mp4"
@@ -1101,6 +1102,14 @@ object Video {
       "rovistandoti nell'immondo"
     )(
       vid"rphjb_GerarchieInfernali2.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "cambiato totalmente",
+      "un maiale",
+      "diventato grasso",
+      "simpatico"
+    )(
+      vid"rphjb_FotoMalmsteen.mp4"
     )
   )
 }

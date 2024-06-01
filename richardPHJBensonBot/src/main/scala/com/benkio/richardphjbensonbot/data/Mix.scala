@@ -1741,6 +1741,19 @@ object Mix {
       mp3"rphjb_AndareAvanti.mp3",
       vid"rphjb_AndareAvantiStringereIDenti.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "si ostina",
+      "foto vecchie"
+    )(
+      gif"rphjb_Ostina.mp4",
+      vid"rphjb_FotoMalmsteen.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "questo ragazzo"
+    )(
+      mp3"rphjb_LucioDalla.mp3",
+      vid"rphjb_FotoMalmsteen.mp4"
+    )
   )
 
 }

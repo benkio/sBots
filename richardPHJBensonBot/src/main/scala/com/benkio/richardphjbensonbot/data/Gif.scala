@@ -310,12 +310,6 @@ object Gif {
       gif"rphjb_Feste.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "si ostina",
-      "foto vecchie"
-    )(
-      gif"rphjb_Ostina.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "(è|diventa) vecchi[ao]".r.tr(9),
     )(
       gif"rphjb_Vecchio.mp4"

@@ -240,7 +240,6 @@ object Audio {
       mp3"rphjb_Problema.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "questo ragazzo",
       "eccitare",
       "lucio dalla"
     )(
