@@ -939,6 +939,7 @@ object Mix {
     )(
       vid"rphjb_SteveVaiRiciclando.mp4",
       vid"rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4",
+      vid"rphjb_GambeInesistentiDueOssa.mp4",
       mp3"rphjb_DueOssa.mp3",
       gif"rphjb_Note.mp4",
       vid"rphjb_Paradosso.mp4",
@@ -1753,6 +1754,12 @@ object Mix {
     )(
       mp3"rphjb_LucioDalla.mp3",
       vid"rphjb_FotoMalmsteen.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "due ossa"
+    )(
+      mp3"rphjb_DueOssa.mp3",
+      vid"rphjb_GambeInesistentiDueOssa.mp4"
     )
   )
 

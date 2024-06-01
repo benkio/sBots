@@ -1110,6 +1110,12 @@ object Video {
       "simpatico"
     )(
       vid"rphjb_FotoMalmsteen.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "le gambe"
+    )(
+      vid"rphjb_GambeInesistentiDueOssa.mp4",
+      vid"rphjb_DanzaMacabra.mp4"
     )
   )
 }
