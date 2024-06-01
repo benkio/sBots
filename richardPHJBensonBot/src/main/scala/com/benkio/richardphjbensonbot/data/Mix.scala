@@ -215,12 +215,12 @@ object Mix {
       vid"rphjb_ViCalpesto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "stringere i denti",
-      "andare avanti",
+      "andare avanti"
     )(
       gif"rphjb_AndareAvanti.mp4",
       mp3"rphjb_AndareAvanti.mp3",
-      vid"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4"
+      vid"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4",
+      vid"rphjb_AndareAvantiStringereIDenti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "non ci credete?",
@@ -1733,7 +1733,14 @@ object Mix {
     )(
       vid"rphjb_Blues.mp4",
       mp3"rphjb_Battesimo.mp3"
-    )
+    ),
+        ReplyBundleMessage.textToMedia[F](
+      "stringere i denti",
+    )(
+      gif"rphjb_AndareAvanti.mp4",
+      mp3"rphjb_AndareAvanti.mp3",
+      vid"rphjb_AndareAvantiStringereIDenti.mp4"
+    ),
   )
 
 }
