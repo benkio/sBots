@@ -148,7 +148,8 @@ object Video {
       "percussionista",
       "batterista"
     )(
-      vid"rphjb_CollaSerpeSigarettePercussionista.mp4"
+      vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
+      vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "perla di pioggia",
@@ -855,6 +856,7 @@ object Video {
         vid"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4",
         vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
         vid"rphjb_FotoMalmsteen.mp4",
+        vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
       ),
     ReplyBundleMessage.textToVideo[F]("invece no", "si ricomincia", "da capo")(
       vid"rphjb_InveceNoRicominciaDaCapo.mp4"
@@ -1116,6 +1118,18 @@ object Video {
     )(
       vid"rphjb_GambeInesistentiDueOssa.mp4",
       vid"rphjb_DanzaMacabra.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tommy aldridge",
+      "white[ ]?snake".r.tr(10),
+      "pat travers",
+      "manona",
+      "I('m|am) the leader",
+      "quello stronzo",
+      "io sono dio",
+      "is god"
+    )(
+      vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
     )
   )
 }

@@ -430,11 +430,6 @@ object Gif {
       gif"rphjb_ProprioAMe.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "where are you going?"
-    )(
-      gif"rphjb_WhereAreYouGoing.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "🤨",
       "🧐",
       "sono confuso",
