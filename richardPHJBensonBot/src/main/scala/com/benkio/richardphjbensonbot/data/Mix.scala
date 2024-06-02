@@ -516,7 +516,8 @@ object Mix {
       "le note"
     )(
       mp3"rphjb_Note.mp3",
-      gif"rphjb_Note.mp4"
+      gif"rphjb_Note.mp4",
+      vid"rphjb_TraTutteLeNote.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "te[r]+[i]+[b]+[i]+l[e]+".r.tr(8)
@@ -942,6 +943,7 @@ object Mix {
       vid"rphjb_GambeInesistentiDueOssa.mp4",
       mp3"rphjb_DueOssa.mp3",
       gif"rphjb_Note.mp4",
+      vid"rphjb_TraTutteLeNote.mp4",
       vid"rphjb_Paradosso.mp4",
       vid"rphjb_RelIllusions.mp4",
       gif"rphjb_TiDeviSpaventareGif.mp4",

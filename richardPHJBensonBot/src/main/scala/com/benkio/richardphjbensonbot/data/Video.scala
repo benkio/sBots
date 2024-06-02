@@ -1130,6 +1130,12 @@ object Video {
       "is god"
     )(
       vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "dire e il fare",
+      "di mezzo il mare"
+    )(
+      vid"rphjb_TraDireFareMezzoMare.mp4"
     )
   )
 }
