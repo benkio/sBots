@@ -433,12 +433,10 @@ object Mix {
       vid"rphjb_StorieSonoTanteVecchiaccia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "infern[a]+l[ie]+[!]*".r.tr(9)
+      "infern[a]+l[i]+[!]*".r.tr(9)
     )(
       mp3"rphjb_Infernali.mp3",
-      gif"rphjb_Infernali.mp4",
-      mp3"rphjb_Infernale.mp3",
-      vid"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
+      gif"rphjb_Infernali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "per il culo"
@@ -1772,6 +1770,13 @@ object Mix {
       gif"rphjb_WhereAreYouGoing.mp4",
       vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "infern[a]+l[e]+[!]*".r.tr(9)
+    )(
+      gif"rphjb_Infernale.mp4",
+      mp3"rphjb_Infernale.mp3",
+      vid"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
+    )
   )
 
 }
