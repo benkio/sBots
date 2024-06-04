@@ -240,7 +240,6 @@ object Audio {
       mp3"rphjb_Problema.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "questo ragazzo",
       "eccitare",
       "lucio dalla"
     )(
@@ -287,11 +286,6 @@ object Audio {
       "che succede"
     )(
       mp3"rphjb_CheSuccede.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
-      "due ossa"
-    )(
-      mp3"rphjb_DueOssa.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "m[ie] fai( proprio)? schifo".r.tr(13)

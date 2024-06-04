@@ -310,12 +310,6 @@ object Gif {
       gif"rphjb_Feste.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "si ostina",
-      "foto vecchie"
-    )(
-      gif"rphjb_Ostina.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "(è|diventa) vecchi[ao]".r.tr(9),
     )(
       gif"rphjb_Vecchio.mp4"
@@ -434,11 +428,6 @@ object Gif {
       "proprio a me\\b".r.tr(12)
     )(
       gif"rphjb_ProprioAMe.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "where are you going?"
-    )(
-      gif"rphjb_WhereAreYouGoing.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "🤨",

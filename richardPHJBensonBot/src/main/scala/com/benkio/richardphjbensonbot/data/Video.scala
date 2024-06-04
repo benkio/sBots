@@ -139,7 +139,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "cervello pensante",
-      "questa volta no",
       "stupidità incresciosa"
     )(
       vid"rphjb_CervelloPensante.mp4"
@@ -148,7 +147,8 @@ object Video {
       "percussionista",
       "batterista"
     )(
-      vid"rphjb_CollaSerpeSigarettePercussionista.mp4"
+      vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
+      vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "perla di pioggia",
@@ -853,7 +853,9 @@ object Video {
       .textToVideo[F]("yngwie", "malmsteen")(
         vid"rphjb_Ramarro.mp4",
         vid"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4",
-        vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4"
+        vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
+        vid"rphjb_FotoMalmsteen.mp4",
+        vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
       ),
     ReplyBundleMessage.textToVideo[F]("invece no", "si ricomincia", "da capo")(
       vid"rphjb_InveceNoRicominciaDaCapo.mp4"
@@ -1101,6 +1103,60 @@ object Video {
       "rovistandoti nell'immondo"
     )(
       vid"rphjb_GerarchieInfernali2.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "cambiato totalmente",
+      "un maiale",
+      "diventato grasso",
+      "simpatico"
+    )(
+      vid"rphjb_FotoMalmsteen.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "le gambe"
+    )(
+      vid"rphjb_GambeInesistentiDueOssa.mp4",
+      vid"rphjb_DanzaMacabra.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tommy aldridge",
+      "white[ ]?snake".r.tr(10),
+      "pat travers",
+      "manona",
+      "I('m|am) the leader",
+      "quello stronzo",
+      "io sono dio",
+      "is god"
+    )(
+      vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "dire e il fare",
+      "di mezzo il mare"
+    )(
+      vid"rphjb_TraDireFareMezzoMare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "figura di merda"
+    )(
+      vid"rphjb_FiguraDiMerdaQuestaVoltaNo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "la mia faccia",
+      "figuracc(e|ia)".r.tr(9)
+    )(
+      vid"rphjb_FiguracceDiscoSteveVai.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "il demonio",
+      "venuto a trovarmi"
+    )(
+      vid"rphjb_IlDemonioVenutoATrovarmi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sta sul cazzo"
+    )(
+      vid"rphjb_MiStaSulCazzo.mp4"
     )
   )
 }

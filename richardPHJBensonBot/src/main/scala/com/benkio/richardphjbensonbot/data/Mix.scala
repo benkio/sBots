@@ -215,12 +215,12 @@ object Mix {
       vid"rphjb_ViCalpesto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "stringere i denti",
-      "andare avanti",
+      "andare avanti"
     )(
       gif"rphjb_AndareAvanti.mp4",
       mp3"rphjb_AndareAvanti.mp3",
-      vid"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4"
+      vid"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4",
+      vid"rphjb_AndareAvantiStringereIDenti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "non ci credete?",
@@ -371,7 +371,9 @@ object Mix {
       "questa volta no"
     )(
       mp3"rphjb_QuestaVoltaNo.mp3",
-      gif"rphjb_QuestaVoltaNo.mp4"
+      gif"rphjb_QuestaVoltaNo.mp4",
+      vid"rphjb_CervelloPensante.mp4",
+      vid"rphjb_FiguraDiMerdaQuestaVoltaNo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "una vergogna"
@@ -431,12 +433,10 @@ object Mix {
       vid"rphjb_StorieSonoTanteVecchiaccia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "infern[a]+l[ie]+[!]*".r.tr(9)
+      "infern[a]+l[i]+[!]*".r.tr(9)
     )(
       mp3"rphjb_Infernali.mp3",
-      gif"rphjb_Infernali.mp4",
-      mp3"rphjb_Infernale.mp3",
-      vid"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
+      gif"rphjb_Infernali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "per il culo"
@@ -516,7 +516,8 @@ object Mix {
       "le note"
     )(
       mp3"rphjb_Note.mp3",
-      gif"rphjb_Note.mp4"
+      gif"rphjb_Note.mp4",
+      vid"rphjb_TraTutteLeNote.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "te[r]+[i]+[b]+[i]+l[e]+".r.tr(8)
@@ -939,14 +940,17 @@ object Mix {
     )(
       vid"rphjb_SteveVaiRiciclando.mp4",
       vid"rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4",
+      vid"rphjb_GambeInesistentiDueOssa.mp4",
       mp3"rphjb_DueOssa.mp3",
       gif"rphjb_Note.mp4",
+      vid"rphjb_TraTutteLeNote.mp4",
       vid"rphjb_Paradosso.mp4",
       vid"rphjb_RelIllusions.mp4",
       gif"rphjb_TiDeviSpaventareGif.mp4",
       mp3"rphjb_TiDeviSpaventare.mp3",
       vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
-      vid"rphjb_SteveVaiRamazzotti.mp4"
+      vid"rphjb_SteveVaiRamazzotti.mp4",
+      vid"rphjb_FiguracceDiscoSteveVai.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(divento|diventare|sono) (matto|pazzo)".r.tr(10)
@@ -1733,6 +1737,45 @@ object Mix {
     )(
       vid"rphjb_Blues.mp4",
       mp3"rphjb_Battesimo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "stringere i denti",
+    )(
+      gif"rphjb_AndareAvanti.mp4",
+      mp3"rphjb_AndareAvanti.mp3",
+      vid"rphjb_AndareAvantiStringereIDenti.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "si ostina",
+      "foto vecchie"
+    )(
+      gif"rphjb_Ostina.mp4",
+      vid"rphjb_FotoMalmsteen.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "questo ragazzo"
+    )(
+      mp3"rphjb_LucioDalla.mp3",
+      vid"rphjb_FotoMalmsteen.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "due ossa"
+    )(
+      mp3"rphjb_DueOssa.mp3",
+      vid"rphjb_GambeInesistentiDueOssa.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "where are you going?"
+    )(
+      gif"rphjb_WhereAreYouGoing.mp4",
+      vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "infern[a]+l[e]+[!]*".r.tr(9)
+    )(
+      gif"rphjb_Infernale.mp4",
+      mp3"rphjb_Infernale.mp3",
+      vid"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
     )
   )
 
