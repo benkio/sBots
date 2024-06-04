@@ -1146,6 +1146,17 @@ object Video {
       "figuracc(e|ia)".r.tr(9)
     )(
       vid"rphjb_FiguracceDiscoSteveVai.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "il demonio",
+      "venuto a trovarmi"
+    )(
+      vid"rphjb_IlDemonioVenutoATrovarmi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sta sul cazzo"
+    )(
+      vid"rphjb_MiStaSulCazzo.mp4"
     )
   )
 }
