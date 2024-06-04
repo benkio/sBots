@@ -1136,6 +1136,17 @@ object Video {
       "di mezzo il mare"
     )(
       vid"rphjb_TraDireFareMezzoMare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "figura di merda"
+    )(
+      vid"rphjb_FiguraDiMerdaQuestaVoltaNo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "la mia faccia",
+      "figuracc(e|ia)".r.tr(9)
+    )(
+      vid"rphjb_FiguracceDiscoSteveVai.mp4"
     )
   )
 }
