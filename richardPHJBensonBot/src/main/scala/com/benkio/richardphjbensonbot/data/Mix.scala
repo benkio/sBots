@@ -371,7 +371,9 @@ object Mix {
       "questa volta no"
     )(
       mp3"rphjb_QuestaVoltaNo.mp3",
-      gif"rphjb_QuestaVoltaNo.mp4"
+      gif"rphjb_QuestaVoltaNo.mp4",
+      vid"rphjb_CervelloPensante.mp4",
+      vid"rphjb_FiguraDiMerdaQuestaVoltaNo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "una vergogna"

@@ -139,7 +139,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "cervello pensante",
-      "questa volta no",
       "stupidità incresciosa"
     )(
       vid"rphjb_CervelloPensante.mp4"
