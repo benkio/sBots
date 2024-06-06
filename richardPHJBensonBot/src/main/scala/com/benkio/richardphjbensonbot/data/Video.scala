@@ -1010,14 +1010,16 @@ object Video {
       "albania"
     )(
       vid"rphjb_GhentPiattiAlbania.mp4",
-      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4"
+      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4",
+      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "piatti",
     )(
       vid"rphjb_BiscionePiatti.mp4",
       vid"rphjb_GhentPiattiAlbania.mp4",
-      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4"
+      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4",
+      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "amicizia",
@@ -1175,6 +1177,12 @@ object Video {
     )(
       vid"rphjb_Obama.mp4",
       vid"rphjb_ObamaRichardBensonInsieme.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "dischi volanti",
+      "posa cenere"
+    )(
+      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"     
     )
   )
 }
