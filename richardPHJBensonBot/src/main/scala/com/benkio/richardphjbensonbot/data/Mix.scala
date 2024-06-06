@@ -1790,6 +1790,17 @@ object Mix {
     )(
       mp3"rphjb_Battesimo.mp3",
       vid"rphjb_ParlandoDeiKorn.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "preghier(a|ina)".r.tr(9),
+      "io non credo",
+      "la medicina",
+      "andare dal dottore",
+      "\\billusi\\b".r.tr(6),
+      "manfrine",
+    )(
+      mp3"rphjb_Chiesa.mp3",
+      vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4"
     )
   )
 

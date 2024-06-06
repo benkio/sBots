@@ -245,16 +245,6 @@ object Audio {
       mp3"rphjb_LucioDalla.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "preghier(a|ina)".r.tr(9),
-      "io non credo",
-      "la medicina",
-      "andare dal dottore",
-      "\\billusi\\b".r.tr(6),
-      "manfrine",
-    )(
-      mp3"rphjb_Chiesa.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "maledetto"
     )(
       mp3"rphjb_Maledetto.mp3"
