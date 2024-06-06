@@ -1778,7 +1778,7 @@ object Mix {
       mp3"rphjb_Infernale.mp3",
       vid"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
     ),
-    ReplyBundleMessage.textToGif[F](
+    ReplyBundleMessage.textToMedia[F](
       "lunghezza d'onda",
       "brave persone"
     )(

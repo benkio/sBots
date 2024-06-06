@@ -1182,7 +1182,7 @@ object Video {
       "dischi volanti",
       "posa cenere"
     )(
-      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"     
+      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"
     )
   )
 }
