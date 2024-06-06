@@ -1009,13 +1009,15 @@ object Video {
       "ghent",
       "albania"
     )(
-      vid"rphjb_GhentPiattiAlbania.mp4"
+      vid"rphjb_GhentPiattiAlbania.mp4",
+      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "piatti",
     )(
       vid"rphjb_BiscionePiatti.mp4",
-      vid"rphjb_GhentPiattiAlbania.mp4"
+      vid"rphjb_GhentPiattiAlbania.mp4",
+      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "amicizia",
