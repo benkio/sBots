@@ -1785,6 +1785,12 @@ object Mix {
       gif"rphjb_LunghezzaDOnda.mp4",
       vid"rphjb_GiudizioParolaFine.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "korn"
+    )(
+      mp3"rphjb_Battesimo.mp3",
+      vid"rphjb_ParlandoDeiKorn.mp4"
+    )
   )
 
 }

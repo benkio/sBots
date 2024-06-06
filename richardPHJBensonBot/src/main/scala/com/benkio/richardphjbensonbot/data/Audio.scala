@@ -172,7 +172,6 @@ object Audio {
       mp3"rphjb_Preservativo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "korn",
       "giovanni battista",
       "acque del giordano",
       "battesimo"
