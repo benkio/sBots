@@ -140,7 +140,7 @@ object Audio {
       mp3"rphjb_SoloIo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "poteri (ter[r]+ib[b]+ili|demoniaci)".r.tr(16)
+      "poteri demoniaci"
     )(
       mp3"rphjb_PoteriDemoniaci.mp3"
     ),

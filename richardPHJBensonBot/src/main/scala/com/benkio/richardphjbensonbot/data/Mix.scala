@@ -1801,6 +1801,17 @@ object Mix {
     )(
       mp3"rphjb_Chiesa.mp3",
       vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sarete puniti"
+    )(
+      gif"rphjb_SaretePuniti.mp4",
+      vid"rphjb_SaretePuntitiPoteriTerribili.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "poteri ter[r]+ib[b]+ili".r.tr(17)
+    )(
+      vid"rphjb_SaretePuntitiPoteriTerribili.mp4"
     )
   )
 

@@ -246,11 +246,6 @@ object Gif {
       gif"rphjb_DoveteSoffrire.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "sarete puniti"
-    )(
-      gif"rphjb_SaretePuniti.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "cantanti",
       "serie z"
     )(
