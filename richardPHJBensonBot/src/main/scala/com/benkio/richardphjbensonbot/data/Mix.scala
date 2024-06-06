@@ -464,7 +464,8 @@ object Mix {
       mp3"rphjb_Risata2.mp3",
       vid"rphjb_SepolturaRisata.mp4",
       gif"rphjb_RisataTrattenuta.mp4",
-      vid"rphjb_CheGruppoMiRicordaRisata.mp4"
+      vid"rphjb_CheGruppoMiRicordaRisata.mp4",
+      vid"rphjb_MomentiGloria.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ammazza che sei",
@@ -1776,6 +1777,41 @@ object Mix {
       gif"rphjb_Infernale.mp4",
       mp3"rphjb_Infernale.mp3",
       vid"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "lunghezza d'onda",
+      "brave persone"
+    )(
+      gif"rphjb_LunghezzaDOnda.mp4",
+      vid"rphjb_GiudizioParolaFine.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "korn"
+    )(
+      mp3"rphjb_Battesimo.mp3",
+      vid"rphjb_ParlandoDeiKorn.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "preghier(a|ina)".r.tr(9),
+      "io non credo",
+      "la medicina",
+      "andare dal dottore",
+      "\\billusi\\b".r.tr(6),
+      "manfrine",
+    )(
+      mp3"rphjb_Chiesa.mp3",
+      vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sarete puniti"
+    )(
+      gif"rphjb_SaretePuniti.mp4",
+      vid"rphjb_SaretePuntitiPoteriTerribili.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "poteri ter[r]+ib[b]+ili".r.tr(17)
+    )(
+      vid"rphjb_SaretePuntitiPoteriTerribili.mp4"
     )
   )
 

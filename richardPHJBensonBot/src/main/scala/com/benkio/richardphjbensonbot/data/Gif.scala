@@ -246,11 +246,6 @@ object Gif {
       gif"rphjb_DoveteSoffrire.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "sarete puniti"
-    )(
-      gif"rphjb_SaretePuniti.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "cantanti",
       "serie z"
     )(
@@ -260,12 +255,6 @@ object Gif {
       "sentendo male"
     )(
       gif"rphjb_MiStoSentendoMale.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "lunghezza d'onda",
-      "brave persone"
-    )(
-      gif"rphjb_LunghezzaDOnda.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "[gq]uerelare".r.tr(9),

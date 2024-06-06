@@ -140,7 +140,7 @@ object Audio {
       mp3"rphjb_SoloIo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "poteri (ter[r]+ib[b]+ili|demoniaci)".r.tr(16)
+      "poteri demoniaci"
     )(
       mp3"rphjb_PoteriDemoniaci.mp3"
     ),
@@ -172,7 +172,6 @@ object Audio {
       mp3"rphjb_Preservativo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "korn",
       "giovanni battista",
       "acque del giordano",
       "battesimo"
@@ -244,16 +243,6 @@ object Audio {
       "lucio dalla"
     )(
       mp3"rphjb_LucioDalla.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
-      "preghier(a|ina)".r.tr(9),
-      "io non credo",
-      "la medicina",
-      "andare dal dottore",
-      "\\billusi\\b".r.tr(6),
-      "manfrine",
-    )(
-      mp3"rphjb_Chiesa.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "maledetto"

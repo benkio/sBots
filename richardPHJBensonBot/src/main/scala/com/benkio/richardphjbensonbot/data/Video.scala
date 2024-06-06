@@ -621,9 +621,9 @@ object Video {
       vid"rphjb_PesceAvariato.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "obama",
       "governo americano",
       "rock('n'| n |&)roll presidence band".r.tr(25),
+      "sax"
     )(
       vid"rphjb_Obama.mp4"
     ),
@@ -1009,13 +1009,17 @@ object Video {
       "ghent",
       "albania"
     )(
-      vid"rphjb_GhentPiattiAlbania.mp4"
+      vid"rphjb_GhentPiattiAlbania.mp4",
+      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4",
+      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "piatti",
     )(
       vid"rphjb_BiscionePiatti.mp4",
-      vid"rphjb_GhentPiattiAlbania.mp4"
+      vid"rphjb_GhentPiattiAlbania.mp4",
+      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4",
+      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "amicizia",
@@ -1157,6 +1161,28 @@ object Video {
       "sta sul cazzo"
     )(
       vid"rphjb_MiStaSulCazzo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "momenti di gloria"
+    )(
+      vid"rphjb_MomentiGloria.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sepultura"
+    )(
+      vid"rphjb_SepolturaRisata.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "obama"
+    )(
+      vid"rphjb_Obama.mp4",
+      vid"rphjb_ObamaRichardBensonInsieme.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "dischi volanti",
+      "posa cenere"
+    )(
+      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"
     )
   )
 }
