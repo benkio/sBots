@@ -262,12 +262,6 @@ object Gif {
       gif"rphjb_MiStoSentendoMale.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "lunghezza d'onda",
-      "brave persone"
-    )(
-      gif"rphjb_LunghezzaDOnda.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "[gq]uerelare".r.tr(9),
     )(
       gif"rphjb_Querelare.mp4"

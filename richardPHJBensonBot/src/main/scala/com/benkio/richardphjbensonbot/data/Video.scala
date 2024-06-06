@@ -1157,6 +1157,16 @@ object Video {
       "sta sul cazzo"
     )(
       vid"rphjb_MiStaSulCazzo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "momenti di gloria"
+    )(
+      vid"rphjb_MomentiGloria.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sepultura"
+    )(
+      vid"rphjb_SepolturaRisata.mp4"
     )
   )
 }

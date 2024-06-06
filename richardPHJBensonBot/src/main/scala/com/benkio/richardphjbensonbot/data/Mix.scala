@@ -464,7 +464,8 @@ object Mix {
       mp3"rphjb_Risata2.mp3",
       vid"rphjb_SepolturaRisata.mp4",
       gif"rphjb_RisataTrattenuta.mp4",
-      vid"rphjb_CheGruppoMiRicordaRisata.mp4"
+      vid"rphjb_CheGruppoMiRicordaRisata.mp4",
+      vid"rphjb_MomentiGloria.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ammazza che sei",
@@ -1776,7 +1777,14 @@ object Mix {
       gif"rphjb_Infernale.mp4",
       mp3"rphjb_Infernale.mp3",
       vid"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToGif[F](
+      "lunghezza d'onda",
+      "brave persone"
+    )(
+      gif"rphjb_LunghezzaDOnda.mp4",
+      vid"rphjb_GiudizioParolaFine.mp4"
+    ),
   )
 
 }
