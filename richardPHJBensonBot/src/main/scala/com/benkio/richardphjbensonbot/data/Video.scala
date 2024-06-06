@@ -621,9 +621,9 @@ object Video {
       vid"rphjb_PesceAvariato.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "obama",
       "governo americano",
       "rock('n'| n |&)roll presidence band".r.tr(25),
+      "sax"
     )(
       vid"rphjb_Obama.mp4"
     ),
@@ -1167,6 +1167,12 @@ object Video {
       "sepultura"
     )(
       vid"rphjb_SepolturaRisata.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "obama"
+    )(
+      vid"rphjb_Obama.mp4",
+      vid"rphjb_ObamaRichardBensonInsieme.mp4"
     )
   )
 }
