@@ -702,6 +702,7 @@ object Mix {
       gif"rphjb_ChiCacciaISoldi.mp4",
       mp3"rphjb_ChiCacciaISoldi.mp3",
       mp3"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
+      vid"rphjb_SoldiButtatiDiscotecaLaziale.mp4",
       vid"rphjb_BigMoney.mp4",
       vid"rphjb_InvestitoreGoverno.mp4",
       vid"rphjb_ButtareSoldiFinestra.mp4",
@@ -870,6 +871,7 @@ object Mix {
       vid"rphjb_DiscotecaLaziale.mp4",
       mp3"rphjb_DiscotecaLaziale.mp3",
       mp3"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
+      vid"rphjb_SoldiButtatiDiscotecaLaziale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "calcoli",
