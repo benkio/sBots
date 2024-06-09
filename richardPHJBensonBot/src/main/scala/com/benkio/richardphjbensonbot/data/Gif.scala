@@ -109,11 +109,6 @@ object Gif {
       gif"rphjb_NonMiMenzionareQuestaParola.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "hollywood"
-    )(
-      gif"rphjb_Hollywood.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "piano superiore",
       "si compete",
       "gerarca"

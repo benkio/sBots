@@ -906,7 +906,8 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F]("cantante")(
       vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
-      vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4"
+      vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4",
+      vid"rphjb_DaHollywood.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "due bocce",
@@ -1232,6 +1233,16 @@ object Video {
       "migliorare"
     )(
       vid"rphjb_SiPuoMigliorare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+     "ballerino",
+     "attore",
+     "non posso salutare",
+     "fornaio",
+     "barman",
+     "altro piano"
+    )(
+      vid"rphjb_DaHollywood.mp4"
     )
   )
 }

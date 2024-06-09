@@ -1824,6 +1824,12 @@ object Mix {
     )(
       gif"rphjb_Guardi.mp4",
       vid"rphjb_PercheGuardiCosiManieraStrana.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "hollywood"
+    )(
+      gif"rphjb_Hollywood.mp4",
+      vid"rphjb_DaHollywood.mp4"
     )
   )
 
