@@ -113,7 +113,7 @@ object Video {
       vid"rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "riciclando il (suo )?peggio".r.tr(20)
+      "riciclando"
     )(
       vid"rphjb_SteveVaiRiciclando.mp4"
     ),
@@ -906,7 +906,8 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F]("cantante")(
       vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
-      vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4"
+      vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4",
+      vid"rphjb_DaHollywood.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "due bocce",
@@ -1183,6 +1184,65 @@ object Video {
       "posa cenere"
     )(
       vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "è troppo tempo",
+      "non ti vedo"
+    )(
+      vid"rphjb_TroppoTempoNonTiVedo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tagliano le gambe"
+    )(
+      vid"rphjb_QuaTaglianoGambe.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "proselito"
+    )(
+      vid"rphjb_NuovoProselito.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "colpa di uno"
+    )(
+      vid"rphjb_PerColpaUno.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "fassino",
+      "ritratto della salute",
+      "sembra un cadavere"
+    )(
+      vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vuoi (questo|la merda)".r.tr(11),
+      "io te (lo d[òo]|la suono)".r.tr(11)
+    )(
+      vid"rphjb_VuoiMerdaIoSuono.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "schifosa"
+    )(
+      vid"rphjb_GenteSchifosa.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "prendere in giro"
+    )(
+      vid"rphjb_GenteSchifosa.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "migliorare"
+    )(
+      vid"rphjb_SiPuoMigliorare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "ballerino",
+      "attore",
+      "non posso salutare",
+      "fornaio",
+      "barman",
+      "altro piano"
+    )(
+      vid"rphjb_DaHollywood.mp4"
     )
   )
 }

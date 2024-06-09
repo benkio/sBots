@@ -488,6 +488,7 @@ object Mix {
       mp3"rphjb_NonMiStaBene2.mp3",
       gif"rphjb_NonMiStaBeneGif.mp4",
       gif"rphjb_NonMiStaBene2.mp4",
+      vid"rphjb_NonMiStaBeneDelusioneStorica.mp4",
       vid"rphjb_NonMiStaBene.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -702,6 +703,7 @@ object Mix {
       gif"rphjb_ChiCacciaISoldi.mp4",
       mp3"rphjb_ChiCacciaISoldi.mp3",
       mp3"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
+      vid"rphjb_SoldiButtatiDiscotecaLaziale.mp4",
       vid"rphjb_BigMoney.mp4",
       vid"rphjb_InvestitoreGoverno.mp4",
       vid"rphjb_ButtareSoldiFinestra.mp4",
@@ -870,6 +872,7 @@ object Mix {
       vid"rphjb_DiscotecaLaziale.mp4",
       mp3"rphjb_DiscotecaLaziale.mp3",
       mp3"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
+      vid"rphjb_SoldiButtatiDiscotecaLaziale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "calcoli",
@@ -951,7 +954,8 @@ object Mix {
       mp3"rphjb_TiDeviSpaventare.mp3",
       vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
       vid"rphjb_SteveVaiRamazzotti.mp4",
-      vid"rphjb_FiguracceDiscoSteveVai.mp4"
+      vid"rphjb_FiguracceDiscoSteveVai.mp4",
+      vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(divento|diventare|sono) (matto|pazzo)".r.tr(10)
@@ -1186,7 +1190,8 @@ object Mix {
       "appuntamento"
     )(
       mp3"rphjb_Appuntamento.mp3",
-      vid"rphjb_VenerdiAppuntamentoFissoFica.mp4"
+      vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
+      vid"rphjb_RicordateviAppuntamento.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "succh",
@@ -1812,6 +1817,19 @@ object Mix {
       "poteri ter[r]+ib[b]+ili".r.tr(17)
     )(
       vid"rphjb_SaretePuntitiPoteriTerribili.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "perchè mi guardi",
+      "maniera strana"
+    )(
+      gif"rphjb_Guardi.mp4",
+      vid"rphjb_PercheGuardiCosiManieraStrana.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "hollywood"
+    )(
+      gif"rphjb_Hollywood.mp4",
+      vid"rphjb_DaHollywood.mp4"
     )
   )
 
