@@ -113,7 +113,7 @@ object Video {
       vid"rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "riciclando il (suo )?peggio".r.tr(20)
+      "riciclando"
     )(
       vid"rphjb_SteveVaiRiciclando.mp4"
     ),
@@ -1204,6 +1204,13 @@ object Video {
       "colpa di uno"
     )(
       vid"rphjb_PerColpaUno.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "fassino",
+      "ritratto della salute",
+      "sembra un cadavere"
+    )(
+      vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4"
     )
   )
 }
