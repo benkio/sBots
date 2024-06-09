@@ -1189,6 +1189,11 @@ object Video {
       "non ti vedo"
     )(
       vid"rphjb_TroppoTempoNonTiVedo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tagliano le gambe"
+    )(
+      vid"rphjb_QuaTaglianoGambe.mp4"
     )
   )
 }
