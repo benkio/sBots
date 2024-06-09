@@ -1217,6 +1217,16 @@ object Video {
       "io te (lo d[òo]|la suono)".r.tr(11)
     )(
       vid"rphjb_VuoiMerdaIoSuono.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "schifosa"
+    )(
+      vid"rphjb_GenteSchifosa.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "prendere in giro"
+    )(
+      vid"rphjb_GenteSchifosa.mp4"
     )
   )
 }
