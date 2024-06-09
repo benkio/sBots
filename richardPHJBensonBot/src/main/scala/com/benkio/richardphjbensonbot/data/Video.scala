@@ -1194,6 +1194,16 @@ object Video {
       "tagliano le gambe"
     )(
       vid"rphjb_QuaTaglianoGambe.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "proselito"
+    )(
+      vid"rphjb_NuovoProselito.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "colpa di uno"
+    )(
+      vid"rphjb_PerColpaUno.mp4"
     )
   )
 }
