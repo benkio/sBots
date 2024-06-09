@@ -1227,6 +1227,11 @@ object Video {
       "prendere in giro"
     )(
       vid"rphjb_GenteSchifosa.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "migliorare"
+    )(
+      vid"rphjb_SiPuoMigliorare.mp4"
     )
   )
 }
