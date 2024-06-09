@@ -488,6 +488,7 @@ object Mix {
       mp3"rphjb_NonMiStaBene2.mp3",
       gif"rphjb_NonMiStaBeneGif.mp4",
       gif"rphjb_NonMiStaBene2.mp4",
+      vid"rphjb_NonMiStaBeneDelusioneStorica.mp4",
       vid"rphjb_NonMiStaBene.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
