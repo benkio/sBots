@@ -1190,7 +1190,8 @@ object Mix {
       "appuntamento"
     )(
       mp3"rphjb_Appuntamento.mp3",
-      vid"rphjb_VenerdiAppuntamentoFissoFica.mp4"
+      vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
+      vid"rphjb_RicordateviAppuntamento.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "succh",

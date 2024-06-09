@@ -1211,6 +1211,12 @@ object Video {
       "sembra un cadavere"
     )(
       vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vuoi (questo|la merda)".r.tr(11),
+      "io te (lo d[òo]|la suono)".r.tr(11)
+    )(
+      vid"rphjb_VuoiMerdaIoSuono.mp4"
     )
   )
 }
