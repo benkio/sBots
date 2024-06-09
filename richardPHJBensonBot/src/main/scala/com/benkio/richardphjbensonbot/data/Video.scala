@@ -1235,12 +1235,12 @@ object Video {
       vid"rphjb_SiPuoMigliorare.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-     "ballerino",
-     "attore",
-     "non posso salutare",
-     "fornaio",
-     "barman",
-     "altro piano"
+      "ballerino",
+      "attore",
+      "non posso salutare",
+      "fornaio",
+      "barman",
+      "altro piano"
     )(
       vid"rphjb_DaHollywood.mp4"
     )
