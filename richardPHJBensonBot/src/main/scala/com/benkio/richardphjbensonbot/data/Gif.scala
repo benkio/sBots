@@ -169,11 +169,6 @@ object Gif {
       gif"rphjb_Ragione.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "perchè mi guardi"
-    )(
-      gif"rphjb_Guardi.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r.tr(21)
     )(
       gif"rphjb_Chitarrista.mp4"

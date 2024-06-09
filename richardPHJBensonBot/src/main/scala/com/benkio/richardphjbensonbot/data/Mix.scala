@@ -1814,6 +1814,13 @@ object Mix {
       "poteri ter[r]+ib[b]+ili".r.tr(17)
     )(
       vid"rphjb_SaretePuntitiPoteriTerribili.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "perchè mi guardi",
+      "maniera strana"
+    )(
+      gif"rphjb_Guardi.mp4",
+      vid"rphjb_PercheGuardiCosiManieraStrana.mp4",
     )
   )
 
