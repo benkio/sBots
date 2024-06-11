@@ -335,12 +335,6 @@ object Audio {
       mp3"rphjb_CuloChiacchierato.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "incrinata la voce",
-      "parlo come un(a specie di)? frocio".r.tr(20)
-    )(
-      mp3"rphjb_IncrinataLaVoceFrocio.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "io mi ricordo tutto"
     )(
       mp3"rphjb_IoMiRicordoTutto.mp3"

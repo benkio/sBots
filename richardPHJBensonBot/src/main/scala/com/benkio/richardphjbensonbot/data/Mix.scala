@@ -1845,6 +1845,13 @@ object Mix {
     )(
       gif"rphjb_MiStoSentendoMale.mp4",
       vid"rphjb_PeggioDelPeggio.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "incrinata la voce",
+      "parlo come un(a specie di)? frocio".r.tr(20)
+    )(
+      mp3"rphjb_IncrinataLaVoceFrocio.mp3",
+      vid"rphjb_IncrinataLaVoceFrocio.mp4"
     )
   )
 
