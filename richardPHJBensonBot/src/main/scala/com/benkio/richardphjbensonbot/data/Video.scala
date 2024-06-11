@@ -1248,7 +1248,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "non mi fa rabbia",
-      "mi fa ridere"
+      "fa ridere"
     )(
       vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
     ),
