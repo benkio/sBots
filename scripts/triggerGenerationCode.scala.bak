@@ -6,7 +6,7 @@
  *  profit
  */
 
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import cats.effect.IO
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.abarberobot.ABarberoBot
@@ -17,11 +17,11 @@ import com.benkio.calandrobot.CalandroBot
 import cats.syntax.all._
 import cats.effect.unsafe.implicits.global
 
-val inputRichardPHJBenson = RichardPHJBensonBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
-val inputBarbero = ABarberoBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
-val inputYouTuboAncheI0Bot = YouTuboAncheI0Bot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
-val inputM0sconi = M0sconiBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
-val inputCalandro = CalandroBot.messageRepliesData[IO].traverse(ReplyBundleMessage.prettyPrint).unsafeRunSync().mkString("")
+val inputRichardPHJBenson = RichardPHJBensonBot.messageRepliesData[IO].traverse(ReplyBundle.prettyPrint).unsafeRunSync().mkString("")
+val inputBarbero = ABarberoBot.messageRepliesData[IO].traverse(ReplyBundle.prettyPrint).unsafeRunSync().mkString("")
+val inputYouTuboAncheI0Bot = YouTuboAncheI0Bot.messageRepliesData[IO].traverse(ReplyBundle.prettyPrint).unsafeRunSync().mkString("")
+val inputM0sconi = M0sconiBot.messageRepliesData[IO].traverse(ReplyBundle.prettyPrint).unsafeRunSync().mkString("")
+val inputCalandro = CalandroBot.messageRepliesData[IO].traverse(ReplyBundle.prettyPrint).unsafeRunSync().mkString("")
 
 val pwRichard = new PrintWriter(new File("richardPHJBensonBot/rphjb_triggers.txt"))
 pwRichard.write(inputRichardPHJBenson)
