@@ -83,6 +83,7 @@ object Mix {
       "melensa"
     )(
       gif"rphjb_MiFaStareMale.mp4",
+      vid"rphjb_PeggioDelPeggio.mp4",
       vid"rphjb_MelensaStareMale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -232,7 +233,8 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "non me ne (frega|fotte)".r.tr(15),
       "chissenefrega",
-      "non mi interessa"
+      "non mi interessa",
+      "me ne (frego|sbatto)".r.tr(21)
     )(
       gif"rphjb_NonMeNeFotte.mp4",
       gif"rphjb_NonMeNeFrega.mp4",
@@ -241,7 +243,8 @@ object Mix {
       mp3"rphjb_NonLeggoQuelloCheScrivete.mp3",
       mp3"rphjb_IncidentePonte.mp3",
       vid"rphjb_EscertoCritiche.mp4",
-      vid"rphjb_Escerto.mp4"
+      vid"rphjb_Escerto.mp4",
+      vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ultimi"
@@ -315,7 +318,8 @@ object Mix {
       vid"rphjb_WelaMyFriends.mp4",
       vid"rphjb_LetsGoodMyFriends.mp4",
       vid"rphjb_NonPoteteGiudicarUrloThatsGood.mp4",
-      vid"rphjb_LetsGoodMyFriendsPassport.mp4"
+      vid"rphjb_LetsGoodMyFriendsPassport.mp4",
+      vid"rphjb_LetsGoodMyFriendsForTheShowThatNeverEnds.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vattene (a f|a[f]*)?fanculo".r.tr(16)
@@ -955,7 +959,8 @@ object Mix {
       vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
       vid"rphjb_SteveVaiRamazzotti.mp4",
       vid"rphjb_FiguracceDiscoSteveVai.mp4",
-      vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4"
+      vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4",
+      vid"rphjb_FesteACasaNicolaArigliano.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(divento|diventare|sono) (matto|pazzo)".r.tr(10)
@@ -1090,8 +1095,7 @@ object Mix {
       vid"rphjb_PercheCazzoMiHaiFattoVeni.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      "e[sc]+erto".r.tr(6),
-      "non me ne frega un cazzo"
+      "e[sc]+erto".r.tr(6)
     )(
       gif"rphjb_Escerto.mp4",
       vid"rphjb_EscertoCritiche.mp4"
@@ -1231,7 +1235,8 @@ object Mix {
       "storia della mula"
     )(
       vid"rphjb_Mula.mp4",
-      mp3"rphjb_StoriaMula.mp3"
+      mp3"rphjb_StoriaMula.mp3",
+      vid"rphjb_FregataFregatura.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "primo sbaglio"
@@ -1830,6 +1835,44 @@ object Mix {
     )(
       gif"rphjb_Hollywood.mp4",
       vid"rphjb_DaHollywood.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r.tr(21)
+    )(
+      gif"rphjb_Chitarrista.mp4",
+      vid"rphjb_PeggioDelPeggio.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sentendo male"
+    )(
+      gif"rphjb_MiStoSentendoMale.mp4",
+      vid"rphjb_PeggioDelPeggio.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "incrinata la voce",
+      "parlo come un(a specie di)? frocio".r.tr(20)
+    )(
+      mp3"rphjb_IncrinataLaVoceFrocio.mp3",
+      vid"rphjb_IncrinataLaVoceFrocio.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "feste"
+    )(
+      gif"rphjb_Feste.mp4",
+      vid"rphjb_FesteACasaNicolaArigliano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\burlo\\b".r.tr(4),
+      "\\b[a]{5,}",
+    )(
+      gif"rphjb_Tuffo.mp4",
+      gif"rphjb_Urlo.mp4",
+      gif"rphjb_Urlo3.mp4",
+      gif"rphjb_Urlo4.mp4",
+      gif"rphjb_Urlo2.mp4",
+      gif"rphjb_UrloCanaro.mp4",
+      gif"rphjb_UrloRiso.mp4",
+      vid"rphjb_UrloSignorGionz.mp4"
     )
   )
 

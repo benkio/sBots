@@ -59,7 +59,9 @@ object Video {
       vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "fregat(a|ura)".r.tr(7)
+      "fregat(a|ura)".r.tr(7),
+      "canaro",
+      "magliana"
     )(
       vid"rphjb_FregataFregatura.mp4"
     ),
@@ -423,7 +425,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "loculi",
       "la pace",
-      "genitori",
       "tarpare le ali"
     )(
       vid"rphjb_TrovatoPaceGenitori.mp4",
@@ -482,7 +483,8 @@ object Video {
       "gallinaceo",
       "lisa dagli occhi blu",
       "vibrato melodico",
-      "mario tessuto"
+      "mario tessuto",
+      "disco solistico"
     )(
       vid"rphjb_Labrie.mp4"
     ),
@@ -892,7 +894,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F]("gaio")(vid"rphjb_CantantePreferitoNonSonoGaio.mp4"),
     ReplyBundleMessage.textToVideo[F]("come si fa")(vid"rphjb_ComeSiFaItaliaIgnorante.mp4"),
-    ReplyBundleMessage.textToVideo[F]("commissionato", "trovare")(vid"rphjb_CommissionatoMeLoDeviTrovare.mp4"),
+    ReplyBundleMessage.textToVideo[F]("commissionato")(vid"rphjb_CommissionatoMeLoDeviTrovare.mp4"),
     ReplyBundleMessage.textToVideo[F]("col sangue")(vid"rphjb_ColSangue.mp4"),
     ReplyBundleMessage.textToVideo[F]("vergognassero", "giornali")(
       vid"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
@@ -1243,6 +1245,41 @@ object Video {
       "altro piano"
     )(
       vid"rphjb_DaHollywood.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "non mi fa rabbia",
+      "fa ridere"
+    )(
+      vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "melensa"
+    )(
+      vid"rphjb_MelensaStareMale.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "questa sera",
+      "ancora di pi[uù]".r.tr(13)
+    )(
+      vid"rphjb_QuestaSeraAncoraDiPiù.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "paul gilbert",
+      "nicola arigliano"
+    )(
+      vid"rphjb_FesteACasaNicolaArigliano.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "genitori"
+    )(
+      vid"rphjb_TrovatoPaceGenitori.mp4",
+      vid"rphjb_CristoPinocchio.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "trovare"
+    )(
+      vid"rphjb_CommissionatoMeLoDeviTrovare.mp4",
+      vid"rphjb_MoltoDifficileDaTrovare.mp4"
     )
   )
 }
