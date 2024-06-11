@@ -1309,6 +1309,16 @@ object Video {
       "([ ]?hey[ ]?){2,}".r.tr(8)
     )(
       vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sono simpatico"
+    )(
+      vid"rphjb_TantoSimpatico.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "micetto"
+    )(
+      vid"rphjb_SembriMicetto.mp4"
     )
   )
 }
