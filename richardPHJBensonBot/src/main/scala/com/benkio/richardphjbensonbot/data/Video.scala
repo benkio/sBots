@@ -423,7 +423,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "loculi",
       "la pace",
-      "genitori",
       "tarpare le ali"
     )(
       vid"rphjb_TrovatoPaceGenitori.mp4",
@@ -1267,6 +1266,12 @@ object Video {
       "nicola arigliano"
     )(
       vid"rphjb_FesteACasaNicolaArigliano.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "genitori"
+    )(
+      vid"rphjb_TrovatoPaceGenitori.mp4",
+      vid"rphjb_CristoPinocchio.mp4"
     )
   )
 }
