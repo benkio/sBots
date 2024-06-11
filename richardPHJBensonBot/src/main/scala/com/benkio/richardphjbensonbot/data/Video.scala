@@ -482,7 +482,8 @@ object Video {
       "gallinaceo",
       "lisa dagli occhi blu",
       "vibrato melodico",
-      "mario tessuto"
+      "mario tessuto",
+      "disco solistico"
     )(
       vid"rphjb_Labrie.mp4"
     ),
@@ -1249,6 +1250,11 @@ object Video {
       "mi fa ridere"
     )(
       vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "melensa"
+    )(
+      vid"rphjb_MelensaStareMale.mp4"
+    ),
   )
 }

@@ -83,6 +83,7 @@ object Mix {
       "melensa"
     )(
       gif"rphjb_MiFaStareMale.mp4",
+      vid"rphjb_PeggioDelPeggio.mp4",
       vid"rphjb_MelensaStareMale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -1832,6 +1833,18 @@ object Mix {
     )(
       gif"rphjb_Hollywood.mp4",
       vid"rphjb_DaHollywood.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r.tr(21)
+    )(
+      gif"rphjb_Chitarrista.mp4",
+      vid"rphjb_PeggioDelPeggio.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sentendo male"
+    )(
+      gif"rphjb_MiStoSentendoMale.mp4",
+      vid"rphjb_PeggioDelPeggio.mp4"
     )
   )
 

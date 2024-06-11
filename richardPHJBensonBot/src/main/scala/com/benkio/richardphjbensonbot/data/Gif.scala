@@ -164,11 +164,6 @@ object Gif {
       gif"rphjb_Ragione.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r.tr(21)
-    )(
-      gif"rphjb_Chitarrista.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "mi diverti",
       "mi sono divertito",
     )(
@@ -240,11 +235,6 @@ object Gif {
       "serie z"
     )(
       gif"rphjb_CantantiSerieZ.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "sentendo male"
-    )(
-      gif"rphjb_MiStoSentendoMale.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "[gq]uerelare".r.tr(9),
