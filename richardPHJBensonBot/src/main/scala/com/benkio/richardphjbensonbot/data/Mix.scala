@@ -1881,6 +1881,13 @@ object Mix {
     )(
       gif"rphjb_Arigliano.mp4",
       vid"rphjb_FesteACasaNicolaArigliano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sbattuto[ ]?[l]+[aà]".r.tr(10),
+      "sono abituato"
+    )(
+      vid"rphjb_SbatteControPiselloSonoAbituatoEssereSbattutoLa.mp4",
+      gif"rphjb_SbattutoLaGif.mp4"
     )
   )
 

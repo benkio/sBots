@@ -1319,6 +1319,11 @@ object Video {
       "micetto"
     )(
       vid"rphjb_SembriMicetto.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "contro il pisello"
+    )(
+      vid"rphjb_SbatteControPiselloSonoAbituatoEssereSbattutoLa.mp4"
     )
   )
 }
