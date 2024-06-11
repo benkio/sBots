@@ -232,7 +232,8 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "non me ne (frega|fotte)".r.tr(15),
       "chissenefrega",
-      "non mi interessa"
+      "non mi interessa",
+      "me ne (frego|sbatto)".r.tr(21)
     )(
       gif"rphjb_NonMeNeFotte.mp4",
       gif"rphjb_NonMeNeFrega.mp4",
@@ -241,7 +242,8 @@ object Mix {
       mp3"rphjb_NonLeggoQuelloCheScrivete.mp3",
       mp3"rphjb_IncidentePonte.mp3",
       vid"rphjb_EscertoCritiche.mp4",
-      vid"rphjb_Escerto.mp4"
+      vid"rphjb_Escerto.mp4",
+      vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ultimi"
@@ -1091,8 +1093,7 @@ object Mix {
       vid"rphjb_PercheCazzoMiHaiFattoVeni.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      "e[sc]+erto".r.tr(6),
-      "non me ne frega un cazzo"
+      "e[sc]+erto".r.tr(6)
     )(
       gif"rphjb_Escerto.mp4",
       vid"rphjb_EscertoCritiche.mp4"

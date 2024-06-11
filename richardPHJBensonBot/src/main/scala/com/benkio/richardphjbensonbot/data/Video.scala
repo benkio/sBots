@@ -1243,6 +1243,12 @@ object Video {
       "altro piano"
     )(
       vid"rphjb_DaHollywood.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "non mi fa rabbia",
+      "mi fa ridere"
+    )(
+      vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
     )
   )
 }
