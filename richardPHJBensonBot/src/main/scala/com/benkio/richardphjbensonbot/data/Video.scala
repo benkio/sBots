@@ -1256,5 +1256,11 @@ object Video {
     )(
       vid"rphjb_MelensaStareMale.mp4"
     ),
+    ReplyBundleMessage.textToVideo[F](
+      "questa sera",
+      "ancora di pi[uù]".r.tr(13)
+    )(
+      vid"rphjb_QuestaSeraAncoraDiPiù.mp4"
+    )
   )
 }
