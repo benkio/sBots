@@ -1873,6 +1873,13 @@ object Mix {
       gif"rphjb_UrloCanaro.mp4",
       gif"rphjb_UrloRiso.mp4",
       vid"rphjb_UrloSignorGionz.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "cantate",
+      "arigliano"
+    )(
+      gif"rphjb_Arigliano.mp4",
+      vid"rphjb_FesteACasaNicolaArigliano.mp4"
     )
   )
 

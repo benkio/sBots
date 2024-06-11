@@ -1264,8 +1264,7 @@ object Video {
       vid"rphjb_QuestaSeraAncoraDiPiù.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "paul gilbert",
-      "nicola arigliano"
+      "paul gilbert"
     )(
       vid"rphjb_FesteACasaNicolaArigliano.mp4"
     ),

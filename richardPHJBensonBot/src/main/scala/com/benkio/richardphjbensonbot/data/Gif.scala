@@ -230,12 +230,6 @@ object Gif {
       gif"rphjb_Querelare.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "cantate",
-      "arigliano"
-    )(
-      gif"rphjb_Arigliano.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "andati al cesso",
       "diecimila volte"
     )(
