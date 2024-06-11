@@ -315,7 +315,8 @@ object Mix {
       vid"rphjb_WelaMyFriends.mp4",
       vid"rphjb_LetsGoodMyFriends.mp4",
       vid"rphjb_NonPoteteGiudicarUrloThatsGood.mp4",
-      vid"rphjb_LetsGoodMyFriendsPassport.mp4"
+      vid"rphjb_LetsGoodMyFriendsPassport.mp4",
+      vid"rphjb_LetsGoodMyFriendsForTheShowThatNeverEnds.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vattene (a f|a[f]*)?fanculo".r.tr(16)
