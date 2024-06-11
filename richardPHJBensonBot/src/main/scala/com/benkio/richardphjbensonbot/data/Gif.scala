@@ -30,18 +30,6 @@ object Gif {
       gif"rphjb_PezziDiMerda.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\burlo\\b".r.tr(4),
-      "\\b[a]{5,}",
-    )(
-      gif"rphjb_Tuffo.mp4",
-      gif"rphjb_Urlo.mp4",
-      gif"rphjb_Urlo3.mp4",
-      gif"rphjb_Urlo4.mp4",
-      gif"rphjb_Urlo2.mp4",
-      gif"rphjb_UrloCanaro.mp4",
-      gif"rphjb_UrloRiso.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "rispondere"
     )(
       gif"rphjb_Rispondere.mp4"

@@ -1842,24 +1842,37 @@ object Mix {
       gif"rphjb_Chitarrista.mp4",
       vid"rphjb_PeggioDelPeggio.mp4"
     ),
-    ReplyBundleMessage.textToVideo[F](
+    ReplyBundleMessage.textToMedia[F](
       "sentendo male"
     )(
       gif"rphjb_MiStoSentendoMale.mp4",
       vid"rphjb_PeggioDelPeggio.mp4"
     ),
-    ReplyBundleMessage.textToVideo[F](
+    ReplyBundleMessage.textToMedia[F](
       "incrinata la voce",
       "parlo come un(a specie di)? frocio".r.tr(20)
     )(
       mp3"rphjb_IncrinataLaVoceFrocio.mp3",
       vid"rphjb_IncrinataLaVoceFrocio.mp4"
     ),
-    ReplyBundleMessage.textTVideo[F](
+    ReplyBundleMessage.textToMedia[F](
       "feste"
     )(
       gif"rphjb_Feste.mp4",
       vid"rphjb_FesteACasaNicolaArigliano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\burlo\\b".r.tr(4),
+      "\\b[a]{5,}",
+    )(
+      gif"rphjb_Tuffo.mp4",
+      gif"rphjb_Urlo.mp4",
+      gif"rphjb_Urlo3.mp4",
+      gif"rphjb_Urlo4.mp4",
+      gif"rphjb_Urlo2.mp4",
+      gif"rphjb_UrloCanaro.mp4",
+      gif"rphjb_UrloRiso.mp4",
+      vid"rphjb_UrloSignorGionz.mp4"
     )
   )
 

@@ -1275,7 +1275,7 @@ object Video {
       vid"rphjb_TrovatoPaceGenitori.mp4",
       vid"rphjb_CristoPinocchio.mp4"
     ),
-    ReplyBundleMessage.textTVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "trovare"
     )(
       vid"rphjb_CommissionatoMeLoDeviTrovare.mp4",
