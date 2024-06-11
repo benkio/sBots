@@ -1332,6 +1332,11 @@ object Video {
       "morire oggi"
     )(
       vid"rphjb_SognateViverePerSempreViveteMorireOggi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "(quanta|troppa) gente".r.tr(12)
+    )(
+      vid"rphjb_QuantaGenteTroppa.mp4"
     )
   )
 }
