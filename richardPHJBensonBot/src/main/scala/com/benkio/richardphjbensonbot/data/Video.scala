@@ -892,7 +892,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F]("gaio")(vid"rphjb_CantantePreferitoNonSonoGaio.mp4"),
     ReplyBundleMessage.textToVideo[F]("come si fa")(vid"rphjb_ComeSiFaItaliaIgnorante.mp4"),
-    ReplyBundleMessage.textToVideo[F]("commissionato", "trovare")(vid"rphjb_CommissionatoMeLoDeviTrovare.mp4"),
+    ReplyBundleMessage.textToVideo[F]("commissionato")(vid"rphjb_CommissionatoMeLoDeviTrovare.mp4"),
     ReplyBundleMessage.textToVideo[F]("col sangue")(vid"rphjb_ColSangue.mp4"),
     ReplyBundleMessage.textToVideo[F]("vergognassero", "giornali")(
       vid"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
@@ -1272,6 +1272,12 @@ object Video {
     )(
       vid"rphjb_TrovatoPaceGenitori.mp4",
       vid"rphjb_CristoPinocchio.mp4"
+    ),
+    ReplyBundleMessage.textTVideo[F](
+      "trovare"
+    )(
+      vid"rphjb_CommissionatoMeLoDeviTrovare.mp4",
+      vid"rphjb_MoltoDifficileDaTrovare.mp4"
     )
   )
 }
