@@ -231,7 +231,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "w[e]+[l]+[a]+".r.tr(4)
     )(
-      vid"rphjb_WelaMyFriends.mp4"
+      vid"rphjb_WelaMyFriends.mp4",
+      vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "da piangere",
@@ -1301,6 +1302,13 @@ object Video {
       "nella mente"
     )(
       vid"rphjb_ViaggioMenteUmana.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "eccoci qua",
+      "di nuovo insieme",
+      "([ ]?hey[ ]?){2,}".r.tr(8)
+    )(
+      vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4"
     )
   )
 }
