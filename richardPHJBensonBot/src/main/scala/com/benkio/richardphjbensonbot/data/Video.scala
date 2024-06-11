@@ -1295,6 +1295,12 @@ object Video {
       "in bestia"
     )(
       vid"rphjb_VicissitudiniPersoneInBestia.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "un viaggio",
+      "nella mente"
+    )(
+      vid"rphjb_ViaggioMenteUmana.mp4"
     )
   )
 }
