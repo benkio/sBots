@@ -231,7 +231,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "w[e]+[l]+[a]+".r.tr(4)
     )(
-      vid"rphjb_WelaMyFriends.mp4"
+      vid"rphjb_WelaMyFriends.mp4",
+      vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "da piangere",
@@ -1279,6 +1280,63 @@ object Video {
     )(
       vid"rphjb_CommissionatoMeLoDeviTrovare.mp4",
       vid"rphjb_MoltoDifficileDaTrovare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "le vie sono tante"
+    )(
+      vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "essere libero"
+    )(
+      vid"rphjb_VoglioEssereLibero.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vicissitudini",
+      "in bestia"
+    )(
+      vid"rphjb_VicissitudiniPersoneInBestia.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "un viaggio",
+      "nella mente"
+    )(
+      vid"rphjb_ViaggioMenteUmana.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "eccoci qua",
+      "di nuovo insieme",
+      "([ ]?hey[ ]?){2,}".r.tr(8)
+    )(
+      vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sono simpatico"
+    )(
+      vid"rphjb_TantoSimpatico.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "micetto"
+    )(
+      vid"rphjb_SembriMicetto.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "contro il pisello"
+    )(
+      vid"rphjb_SbatteControPiselloSonoAbituatoEssereSbattutoLa.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vivete",
+      "sognate",
+      "vivere per sempre",
+      "morire oggi"
+    )(
+      vid"rphjb_SognateViverePerSempreViveteMorireOggi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "(quanta|troppa) gente".r.tr(12)
+    )(
+      vid"rphjb_QuantaGenteTroppa.mp4"
     )
   )
 }

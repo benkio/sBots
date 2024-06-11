@@ -1328,7 +1328,8 @@ object Mix {
       vid"rphjb_IstintiMusicali.mp4",
       vid"rphjb_GrandeAngelo.mp4",
       vid"rphjb_AngeloCarpenelliGrandeViaDelleAlbizzie22NumeroUnoImmensoInGinocchio.mp4",
-      vid"rphjb_AngeloCarpenelliViaDelleAlbizzie22IstintiMusicali.mp4"
+      vid"rphjb_AngeloCarpenelliViaDelleAlbizzie22IstintiMusicali.mp4",
+      vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "questa è una domanda",
@@ -1880,6 +1881,13 @@ object Mix {
     )(
       gif"rphjb_Arigliano.mp4",
       vid"rphjb_FesteACasaNicolaArigliano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sbattuto[ ]?[l]+[aà]".r.tr(10),
+      "sono abituato"
+    )(
+      vid"rphjb_SbatteControPiselloSonoAbituatoEssereSbattutoLa.mp4",
+      gif"rphjb_SbattutoLaGif.mp4"
     )
   )
 
