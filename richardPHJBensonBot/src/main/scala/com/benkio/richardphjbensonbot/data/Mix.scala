@@ -959,7 +959,8 @@ object Mix {
       vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
       vid"rphjb_SteveVaiRamazzotti.mp4",
       vid"rphjb_FiguracceDiscoSteveVai.mp4",
-      vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4"
+      vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4",
+      vid"rphjb_FesteACasaNicolaArigliano.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(divento|diventare|sono) (matto|pazzo)".r.tr(10)
@@ -1852,6 +1853,12 @@ object Mix {
     )(
       mp3"rphjb_IncrinataLaVoceFrocio.mp3",
       vid"rphjb_IncrinataLaVoceFrocio.mp4"
+    ),
+    ReplyBundleMessage.textTVideo[F](
+      "feste"
+    )(
+      gif"rphjb_Feste.mp4",
+      vid"rphjb_FesteACasaNicolaArigliano.mp4"
     )
   )
 

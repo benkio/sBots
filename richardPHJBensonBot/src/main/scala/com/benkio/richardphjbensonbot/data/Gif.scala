@@ -274,11 +274,6 @@ object Gif {
       gif"rphjb_ChiCazzoSei.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "feste"
-    )(
-      gif"rphjb_Feste.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "(è|diventa) vecchi[ao]".r.tr(9),
     )(
       gif"rphjb_Vecchio.mp4"
