@@ -1235,7 +1235,8 @@ object Mix {
       "storia della mula"
     )(
       vid"rphjb_Mula.mp4",
-      mp3"rphjb_StoriaMula.mp3"
+      mp3"rphjb_StoriaMula.mp3",
+      vid"rphjb_FregataFregatura.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "primo sbaglio"

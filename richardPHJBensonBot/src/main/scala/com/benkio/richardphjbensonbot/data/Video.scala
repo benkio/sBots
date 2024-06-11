@@ -59,7 +59,9 @@ object Video {
       vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "fregat(a|ura)".r.tr(7)
+      "fregat(a|ura)".r.tr(7),
+      "canaro",
+      "magliana"
     )(
       vid"rphjb_FregataFregatura.mp4"
     ),
