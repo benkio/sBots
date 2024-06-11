@@ -1324,6 +1324,14 @@ object Video {
       "contro il pisello"
     )(
       vid"rphjb_SbatteControPiselloSonoAbituatoEssereSbattutoLa.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vivete",
+      "sognate",
+      "vivere per sempre",
+      "morire oggi"
+    )(
+      vid"rphjb_SognateViverePerSempreViveteMorireOggi.mp4"
     )
   )
 }
