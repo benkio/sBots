@@ -1328,7 +1328,8 @@ object Mix {
       vid"rphjb_IstintiMusicali.mp4",
       vid"rphjb_GrandeAngelo.mp4",
       vid"rphjb_AngeloCarpenelliGrandeViaDelleAlbizzie22NumeroUnoImmensoInGinocchio.mp4",
-      vid"rphjb_AngeloCarpenelliViaDelleAlbizzie22IstintiMusicali.mp4"
+      vid"rphjb_AngeloCarpenelliViaDelleAlbizzie22IstintiMusicali.mp4",
+      vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "questa è una domanda",

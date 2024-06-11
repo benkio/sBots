@@ -1279,6 +1279,11 @@ object Video {
     )(
       vid"rphjb_CommissionatoMeLoDeviTrovare.mp4",
       vid"rphjb_MoltoDifficileDaTrovare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "le vie sono tante"
+    )(
+      vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4"
     )
   )
 }
