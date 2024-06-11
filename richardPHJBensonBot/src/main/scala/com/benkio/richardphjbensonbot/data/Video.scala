@@ -1284,6 +1284,17 @@ object Video {
       "le vie sono tante"
     )(
       vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "essere libero"
+    )(
+      vid"rphjb_VoglioEssereLibero.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vicissitudini",
+      "in bestia"
+    )(
+      vid"rphjb_VicissitudiniPersoneInBestia.mp4"
     )
   )
 }
