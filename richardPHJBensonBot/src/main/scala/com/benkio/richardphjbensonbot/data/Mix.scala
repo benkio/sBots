@@ -1738,11 +1738,13 @@ object Mix {
       vid"rphjb_Animali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "colla tra serpe e serpe"
+      "\\bcolla\\b".r.tr(5),
+      "\\bserp[ie]\\b".r.tr(5)
     )(
       vid"rphjb_CollaSerpe.mp4",
       mp3"rphjb_CollaSerpe.mp3",
-      vid"rphjb_CollaSerpeSigarettePercussionista.mp4"
+      vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
+      vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "battezzato"

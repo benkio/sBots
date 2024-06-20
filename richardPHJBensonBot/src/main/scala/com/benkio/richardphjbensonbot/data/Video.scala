@@ -85,7 +85,13 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "plettro",
-      "vicoletto"
+    )(
+      vid"rphjb_ChitarraPlettroVicoletto.mp4",
+      vid"rphjb_ChitarraVicolettoPlettro2.mp4",
+      vid"rphjb_CollaSerpe.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vicoletto",
     )(
       vid"rphjb_ChitarraPlettroVicoletto.mp4",
       vid"rphjb_ChitarraVicolettoPlettro2.mp4"
@@ -1337,6 +1343,12 @@ object Video {
       "(quanta|troppa) gente".r.tr(12)
     )(
       vid"rphjb_QuantaGenteTroppa.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "una fossa",
+      "felicità"
+    )(
+      vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4"
     )
   )
 }
