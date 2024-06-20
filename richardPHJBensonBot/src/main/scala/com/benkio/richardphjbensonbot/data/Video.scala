@@ -1068,8 +1068,13 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "difficile guardare",
-      "tubo catodico",
       "(vedere|guardare) l[aà]".r.tr(9)
+    )(
+      vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4",
+      vid"rphjb_LaDoveDifficileGuardare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tubo catodico",
     )(
       vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4"
     ),
