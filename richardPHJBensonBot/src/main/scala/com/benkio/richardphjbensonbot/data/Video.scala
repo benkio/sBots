@@ -1367,12 +1367,12 @@ object Video {
       vid"rphjb_GustiPubblicoRappresentanoMieiDisgusti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-     "che stronzo",
-     "male di mente",
-     "interviste",
-     "non (ci|cene) siamo (mai )?accorti".r.tr(20),
-     "fuori di testa",
-     "timo tolkki",
+      "che stronzo",
+      "male di mente",
+      "interviste",
+      "non (ci|cene) siamo (mai )?accorti".r.tr(20),
+      "fuori di testa",
+      "timo tolkki",
     )(
       vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
     ),
@@ -1381,6 +1381,11 @@ object Video {
       "si è riformata"
     )(
       vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "non (ne )?posso (più|continuare|più continuare)".r.tr(13)
+    )(
+      vid"rphjb_NonPossoContinuareCosiGianni.mp4"
     )
   )
 }
