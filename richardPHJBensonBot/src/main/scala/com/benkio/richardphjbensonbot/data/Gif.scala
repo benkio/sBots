@@ -175,8 +175,8 @@ object Gif {
       gif"rphjb_Deficienza.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "levati[\\. ]*dai coglioni".r.tr(19),
-      "fuori[\\. ]*dai coglioni".r.tr(18)
+      "e levati((...|..|.| )dai coglioni)?".r.tr(8),
+      "fuori(...|..|.| )dai coglioni".r.tr(18)
     )(
       gif"rphjb_LevatiDaiCoglioni.mp4"
     ),

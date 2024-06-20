@@ -23,11 +23,6 @@ object Audio {
       mp3"rphjb_ListaMaleCollo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "lo sapevo"
-    )(
-      mp3"rphjb_LoSapevoIo.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "mi auguro"
     )(
       mp3"rphjb_IoMiAuguro.mp3"

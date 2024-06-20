@@ -1359,6 +1359,16 @@ object Video {
       "i (dis)?gusti".r.tr(7)
     )(
       vid"rphjb_GustiPubblicoRappresentanoMieiDisgusti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+     "che stronzo",
+     "male di mente",
+     "interviste",
+     "non (ci|cene) siamo (mai )?accorti".r.tr(20),
+     "fuori di testa",
+     "timo tolkki",
+    )(
+      vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
     )
   )
 }
