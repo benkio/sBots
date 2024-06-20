@@ -1259,7 +1259,7 @@ object Video {
     )(
       vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "melensa"
     )(
       vid"rphjb_MelensaStareMale.mp4"
@@ -1349,6 +1349,11 @@ object Video {
       "felicità"
     )(
       vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "i (dis)?gusti".r.tr(7)
+    )(
+      vid"rphjb_GustiPubblicoRappresentanoMieiDisgusti.mp4"
     )
   )
 }
