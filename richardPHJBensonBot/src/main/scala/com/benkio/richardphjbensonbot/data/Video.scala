@@ -843,7 +843,7 @@ object Video {
       "arbitri (truccati|pagati)".r.tr(14),
       "giocatori dopati",
       "(gioco del|il) calcio".r.tr(9),
-      "moggi",
+      "\\bmoggi\\b".r.tr(5),
       "direttore del coni",
       "(una|na) farsa".r.tr(8)
     )(
