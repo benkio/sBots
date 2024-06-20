@@ -17,7 +17,8 @@ object Video {
     )(
       vid"rphjb_RingraziareGianniTraffico.mp4",
       vid"rphjb_GianniNeriCoppiaMiciciale.mp4",
-      vid"rphjb_GianniNeriCheFineHaiFatto.mp4"
+      vid"rphjb_GianniNeriCheFineHaiFatto.mp4",
+      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "accor(data|dana)".r.tr(9)
@@ -85,7 +86,13 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "plettro",
-      "vicoletto"
+    )(
+      vid"rphjb_ChitarraPlettroVicoletto.mp4",
+      vid"rphjb_ChitarraVicolettoPlettro2.mp4",
+      vid"rphjb_CollaSerpe.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vicoletto",
     )(
       vid"rphjb_ChitarraPlettroVicoletto.mp4",
       vid"rphjb_ChitarraVicolettoPlettro2.mp4"
@@ -837,7 +844,7 @@ object Video {
       "arbitri (truccati|pagati)".r.tr(14),
       "giocatori dopati",
       "(gioco del|il) calcio".r.tr(9),
-      "moggi",
+      "\\bmoggi\\b".r.tr(5),
       "direttore del coni",
       "(una|na) farsa".r.tr(8)
     )(
@@ -1028,11 +1035,16 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "amicizia",
       "amico del cuore",
-      "migliore amico",
       "nella merda",
       "subliminali"
     )(
       vid"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "migliore amico"
+    )(
+      vid"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4",
+      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ebbe un bambino",
@@ -1062,8 +1074,13 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "difficile guardare",
-      "tubo catodico",
       "(vedere|guardare) l[aà]".r.tr(9)
+    )(
+      vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4",
+      vid"rphjb_LaDoveDifficileGuardare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tubo catodico",
     )(
       vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4"
     ),
@@ -1253,7 +1270,7 @@ object Video {
     )(
       vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "melensa"
     )(
       vid"rphjb_MelensaStareMale.mp4"
@@ -1337,6 +1354,38 @@ object Video {
       "(quanta|troppa) gente".r.tr(12)
     )(
       vid"rphjb_QuantaGenteTroppa.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "una fossa",
+      "felicità"
+    )(
+      vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "i (dis)?gusti".r.tr(7)
+    )(
+      vid"rphjb_GustiPubblicoRappresentanoMieiDisgusti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "che stronzo",
+      "male di mente",
+      "interviste",
+      "non (ci|cene) siamo (mai )?accorti".r.tr(20),
+      "fuori di testa",
+      "timo tolkki",
+    )(
+      vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "coppia micidiale",
+      "si è riformata"
+    )(
+      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "non (ne )?posso (più|continuare|più continuare)".r.tr(13)
+    )(
+      vid"rphjb_NonPossoContinuareCosiGianni.mp4"
     )
   )
 }

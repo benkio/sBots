@@ -1738,11 +1738,13 @@ object Mix {
       vid"rphjb_Animali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "colla tra serpe e serpe"
+      "\\bcolla\\b".r.tr(5),
+      "\\bserp[ie]\\b".r.tr(5)
     )(
       vid"rphjb_CollaSerpe.mp4",
       mp3"rphjb_CollaSerpe.mp3",
-      vid"rphjb_CollaSerpeSigarettePercussionista.mp4"
+      vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
+      vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "battezzato"
@@ -1817,12 +1819,13 @@ object Mix {
       "sarete puniti"
     )(
       gif"rphjb_SaretePuniti.mp4",
-      vid"rphjb_SaretePuntitiPoteriTerribili.mp4"
+      vid"rphjb_SaretePunitiPoteriTerribili.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "poteri ter[r]+ib[b]+ili".r.tr(17)
+      "poteri te[r]+i[b]+ili".r.tr(17),
+      "sono arrivati poteri"
     )(
-      vid"rphjb_SaretePuntitiPoteriTerribili.mp4"
+      vid"rphjb_SaretePunitiPoteriTerribili.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "perchè mi guardi",
@@ -1888,6 +1891,12 @@ object Mix {
     )(
       vid"rphjb_SbatteControPiselloSonoAbituatoEssereSbattutoLa.mp4",
       gif"rphjb_SbattutoLaGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "lo sapevo"
+    )(
+      mp3"rphjb_LoSapevoIo.mp3",
+      vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
     )
   )
 

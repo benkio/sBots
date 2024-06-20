@@ -188,9 +188,10 @@ rphjb_NonParlareTeTrasmissioneMia.mp3 | non parlare
                           | la trasmissione è la mia
 --------------------------------------------------
 --------------------------------------------------
-rphjb_CollaSerpe.mp4      | colla tra serpe e serpe
-rphjb_CollaSerpe.mp3      | 
-rphjb_CollaSerpeSigarettePercussionista.mp4 | 
+rphjb_CollaSerpe.mp4      | \bcolla\b
+rphjb_CollaSerpe.mp3      | \bserp[ie]\b
+rphjb_CollaSerpeSigarettePercussionista.mp4 |
+rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4 |
 --------------------------------------------------
 --------------------------------------------------
 rphjb_KikoLoureiroSalvaSituazione.mp3 | kiko loureiro
@@ -555,8 +556,8 @@ rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4 | amore nello suonare
                           | buddisti
 --------------------------------------------------
 --------------------------------------------------
-rphjb_LevatiDaiCoglioni.mp4 | levati[\. ]*dai coglioni
-                          | fuori[\. ]*dai coglioni
+rphjb_LevatiDaiCoglioni.mp4 | e levati((...|..|.| )dai coglioni)?
+                          | fuori(...|..|.| )dai coglioni
 --------------------------------------------------
 --------------------------------------------------
 rphjb_TelefonataPilotata.mp4 | telefonata pilotata
@@ -671,8 +672,10 @@ rphjb_DaHollywood.mp4     | ballerino
 --------------------------------------------------
 --------------------------------------------------
 rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4 | difficile guardare
-                          | tubo catodico
-                          | (vedere|guardare) l[aà]
+rphjb_LaDoveDifficileGuardare.mp4 | (vedere|guardare) l[aà]
+--------------------------------------------------
+--------------------------------------------------
+rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4 | tubo catodico
 --------------------------------------------------
 --------------------------------------------------
 rphjb_PoesiaMadre.mp4     | di tutti i colori
@@ -691,7 +694,7 @@ rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4 | volta il cervello
 rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCalcio.mp4 | arbitri (truccati|pagati)
                           | giocatori dopati
                           | (gioco del|il) calcio
-                          | moggi
+                          | \bmoggi\b
                           | direttore del coni
                           | (una|na) farsa
 --------------------------------------------------
@@ -741,7 +744,8 @@ rphjb_PensatoATutto.mp3   | pensato a tutto
 rphjb_NonMiRicordoPiu.mp3 | non mi ricordo più
 --------------------------------------------------
 --------------------------------------------------
-rphjb_SaretePuntitiPoteriTerribili.mp4 | poteri ter[r]+ib[b]+ili
+rphjb_SaretePunitiPoteriTerribili.mp4 | poteri te[r]+i[b]+ili
+                                      | sono arrivati poteri
 --------------------------------------------------
 --------------------------------------------------
 rphjb_AndareAvanti.mp4    | stringere i denti
@@ -1113,9 +1117,12 @@ rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4 |
 --------------------------------------------------
 rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4 | amicizia
                           | amico del cuore
-                          | migliore amico
                           | nella merda
                           | subliminali
+--------------------------------------------------
+--------------------------------------------------
+rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4 | migliore amico
+rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4 |
 --------------------------------------------------
 --------------------------------------------------
 rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4 | alpheus
@@ -1387,7 +1394,7 @@ rphjb_PeggioDelPeggio.mp4 |
 --------------------------------------------------
 --------------------------------------------------
 rphjb_SaretePuniti.mp4    | sarete puniti
-rphjb_SaretePuntitiPoteriTerribili.mp4 | 
+rphjb_SaretePunitiPoteriTerribili.mp4 | 
 --------------------------------------------------
 --------------------------------------------------
 rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4 | assaporare
@@ -1803,7 +1810,8 @@ rphjb_RingraziareGianniTraffico.mp4 | ringraziare
 --------------------------------------------------
 rphjb_RingraziareGianniTraffico.mp4 | gianni neri
 rphjb_GianniNeriCoppiaMiciciale.mp4 | 
-rphjb_GianniNeriCheFineHaiFatto.mp4 | 
+rphjb_GianniNeriCheFineHaiFatto.mp4 |
+rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4 |
 --------------------------------------------------
 --------------------------------------------------
 rphjb_Meridionale.mp4     | meridionale
@@ -2176,7 +2184,12 @@ rphjb_SepolturaRisata.mp4 | sepoltura
 --------------------------------------------------
 --------------------------------------------------
 rphjb_ChitarraPlettroVicoletto.mp4 | plettro
-rphjb_ChitarraVicolettoPlettro2.mp4 | vicoletto
+rphjb_ChitarraVicolettoPlettro2.mp4 | 
+rphjb_CollaSerpe.mp4                |
+--------------------------------------------------
+--------------------------------------------------
+rphjb_ChitarraPlettroVicoletto.mp4 | vicoletto
+rphjb_ChitarraVicolettoPlettro2.mp4 | 
 --------------------------------------------------
 --------------------------------------------------
 rphjb_Accordana.mp4       | accor(data|dana)
@@ -2226,6 +2239,7 @@ rphjb_IoMiAuguro.mp3      | mi auguro
 --------------------------------------------------
 --------------------------------------------------
 rphjb_LoSapevoIo.mp3      | lo sapevo
+rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4 | 
 --------------------------------------------------
 --------------------------------------------------
 rphjb_DueOssa.mp3         | due ossa
@@ -2873,8 +2887,30 @@ rphjb_Prega.mp4           | 🙏
 rphjb_Prega2.mp4          | 
 --------------------------------------------------
 --------------------------------------------------
+rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4 | una fossa
+                                             | felicità
+--------------------------------------------------
+--------------------------------------------------
 rphjb_LevatiDaiCoglioni.mp4 | Trigger when a member leaves a group
 --------------------------------------------------
 --------------------------------------------------
 rphjb_QuestaPersonaScusate.mp4 | Trigger on new member joining a group
+--------------------------------------------------
+--------------------------------------------------
+rphjb_GustiPubblicoRappresentanoMieiDisgusti.mp4 | i (dis)?gusti
+--------------------------------------------------
+--------------------------------------------------
+rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4 | che stronzo
+                                         | male di mente
+                                         | interviste
+                                         | non (ci|cene) siamo (mai )?accorti
+                                         | fuori di testa
+                                         | timo tolkki
+--------------------------------------------------
+--------------------------------------------------
+rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4 | coppia micidiale
+                                                | si è riformata
+--------------------------------------------------
+--------------------------------------------------
+rphjb_NonPossoContinuareCosiGianni.mp4 | non (ne )?posso (più|continuare|più continuare)
 --------------------------------------------------
