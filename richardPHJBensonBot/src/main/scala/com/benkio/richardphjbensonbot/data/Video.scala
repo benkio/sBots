@@ -17,7 +17,8 @@ object Video {
     )(
       vid"rphjb_RingraziareGianniTraffico.mp4",
       vid"rphjb_GianniNeriCoppiaMiciciale.mp4",
-      vid"rphjb_GianniNeriCheFineHaiFatto.mp4"
+      vid"rphjb_GianniNeriCheFineHaiFatto.mp4",
+      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "accor(data|dana)".r.tr(9)
@@ -1034,11 +1035,16 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "amicizia",
       "amico del cuore",
-      "migliore amico",
       "nella merda",
       "subliminali"
     )(
       vid"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "migliore amico"
+    )(
+      vid"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4",
+      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ebbe un bambino",
@@ -1369,6 +1375,12 @@ object Video {
      "timo tolkki",
     )(
       vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "coppia micidiale",
+      "si è riformata"
+    )(
+      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4"
     )
   )
 }
