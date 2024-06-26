@@ -1386,6 +1386,11 @@ object Video {
       "non (ne )?posso (più|continuare|più continuare)".r.tr(13)
     )(
       vid"rphjb_NonPossoContinuareCosiGianni.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "grazie",
+      "mancano le parole",
+      "le parole non esistono"
+    )(vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4")
   )
 }
