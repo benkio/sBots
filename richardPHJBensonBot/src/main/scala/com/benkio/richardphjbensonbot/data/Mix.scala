@@ -1922,6 +1922,12 @@ object Mix {
       gif"rphjb_SguardoCanaro.mp4",
       vid"rphjb_FeelingsSguardoPreghiera.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "non capisco"
+    )(
+      gif"rphjb_IlSensoCapito.mp4",
+      vid"rphjb_IlCervelloStaFondendoNonCapiscoUnCazzo.mp4"
+    )
   )
 
 }

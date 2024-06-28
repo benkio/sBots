@@ -1412,6 +1412,12 @@ object Video {
       "me la sposo"
     )(
       vid"rphjb_GiovencaVarzettaSposoChissenefrega.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sono fuso",
+      "si sta fondendo"
+    )(
+      vid"rphjb_IlCervelloStaFondendoNonCapiscoUnCazzo.mp4"
     )
   )
 }
