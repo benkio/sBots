@@ -103,7 +103,8 @@ object Mix {
     )(
       gif"rphjb_SputoGif.mp4",
       vid"rphjb_Sputo.mp4",
-      vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
+      vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
+      vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "cobelini",
