@@ -1393,16 +1393,16 @@ object Video {
       "le parole non esistono"
     )(vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4"),
     ReplyBundleMessage.textToVideo[F](
-     "non siamo niente",
-     "siamo esseri umani",
-     "sudore",
-     "pelle",
-     "zozzeria",
-     "carne",
-     "sperma",
-     "da togliere",
-     "levare d[ia] dosso".r.tr(15),
-     "non contiamo niente",
+      "non siamo niente",
+      "siamo esseri umani",
+      "sudore",
+      "pelle",
+      "zozzeria",
+      "carne",
+      "sperma",
+      "da togliere",
+      "levare d[ia] dosso".r.tr(15),
+      "non contiamo niente",
     )(
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
     ),
