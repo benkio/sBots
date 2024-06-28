@@ -102,7 +102,7 @@ object Mix {
       "\\bsput[ao]\\b".r.tr(5)
     )(
       gif"rphjb_SputoGif.mp4",
-      vid"rphjb_Sputo.mp4",
+      vid"rphjb_FeelingsSputo.mp4",
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
     ),
@@ -338,7 +338,8 @@ object Mix {
       gif"rphjb_Feelings2.mp4",
       mp3"rphjb_Feelings.mp3",
       vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
-      vid"rphjb_FeelingsSguardoPreghiera.mp4"
+      vid"rphjb_FeelingsSguardoPreghiera.mp4",
+      vid"rphjb_FeelingsSputo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "me ne vado"
@@ -963,7 +964,8 @@ object Mix {
       vid"rphjb_FiguracceDiscoSteveVai.mp4",
       vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4",
       vid"rphjb_FesteACasaNicolaArigliano.mp4",
-      vid"rphjb_FeelingsSguardoPreghiera.mp4"
+      vid"rphjb_FeelingsSguardoPreghiera.mp4",
+      vid"rphjb_FeelingsSputo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(divento|diventare|sono) (matto|pazzo)".r.tr(10)
