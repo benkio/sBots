@@ -1927,6 +1927,18 @@ object Mix {
     )(
       gif"rphjb_IlSensoCapito.mp4",
       vid"rphjb_IlCervelloStaFondendoNonCapiscoUnCazzo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "via zara",
+      "sei brava a truccare",
+      "non vali niente",
+      "sei l'ultima",
+      "manco trucc[aà](re)? sai".r.tr(16),
+      "marciapiede",
+      "truccatrice"
+    )(
+      mp3"rphjb_TruccareViaZara.mp3",
+      vid"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZara.mp4"
     )
   )
 

@@ -335,15 +335,6 @@ object Audio {
       mp3"rphjb_IoMiRicordoTutto.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "via zara",
-      "sei brava a truccare",
-      "non vali niente",
-      "sei l'ultima",
-      "manco trucc[aà] sai".r.tr(16),
-    )(
-      mp3"rphjb_TruccareViaZara.mp3",
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "che schifo!",
       "che( )?(s)+chifo".r.tr(10),
     )(
