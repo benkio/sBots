@@ -245,7 +245,8 @@ object Mix {
       mp3"rphjb_IncidentePonte.mp3",
       vid"rphjb_EscertoCritiche.mp4",
       vid"rphjb_Escerto.mp4",
-      vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
+      vid"rphjb_NoRabbiaRidereMeNeFrego.mp4",
+      vid"rphjb_GiovencaVarzettaSposoChissenefrega.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ultimi"

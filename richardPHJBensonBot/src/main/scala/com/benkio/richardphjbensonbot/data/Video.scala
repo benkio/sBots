@@ -1405,6 +1405,13 @@ object Video {
      "non contiamo niente",
     )(
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "giovenca",
+      "varzetta",
+      "me la sposo"
+    )(
+      vid"rphjb_GiovencaVarzettaSposoChissenefrega.mp4"
     )
   )
 }
