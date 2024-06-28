@@ -337,7 +337,8 @@ object Mix {
       gif"rphjb_Feelings.gif",
       gif"rphjb_Feelings2.mp4",
       mp3"rphjb_Feelings.mp3",
-      vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4"
+      vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
+      vid"rphjb_FeelingsSguardoPreghiera.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "me ne vado"
@@ -961,7 +962,8 @@ object Mix {
       vid"rphjb_SteveVaiRamazzotti.mp4",
       vid"rphjb_FiguracceDiscoSteveVai.mp4",
       vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4",
-      vid"rphjb_FesteACasaNicolaArigliano.mp4"
+      vid"rphjb_FesteACasaNicolaArigliano.mp4",
+      vid"rphjb_FeelingsSguardoPreghiera.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(divento|diventare|sono) (matto|pazzo)".r.tr(10)
@@ -1898,7 +1900,25 @@ object Mix {
     )(
       mp3"rphjb_LoSapevoIo.mp3",
       vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "🙏"
+    )(
+      gif"rphjb_Prega.mp4",
+      gif"rphjb_Prega2.mp4",
+      vid"rphjb_FeelingsSguardoPreghiera.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sguardo"
+    )(
+      gif"rphjb_Sguardo.mp4",
+      gif"rphjb_Sguardo2.mp4",
+      gif"rphjb_Confuso.mp4",
+      gif"rphjb_Sguardo3.mp4",
+      gif"rphjb_Sguardo4.mp4",
+      gif"rphjb_SguardoCanaro.mp4",
+      vid"rphjb_FeelingsSguardoPreghiera.mp4"
+    ),
   )
 
 }

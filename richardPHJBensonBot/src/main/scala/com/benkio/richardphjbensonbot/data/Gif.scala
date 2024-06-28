@@ -302,16 +302,6 @@ object Gif {
       gif"rphjb_Meridionale.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "sguardo"
-    )(
-      gif"rphjb_Sguardo.mp4",
-      gif"rphjb_Sguardo2.mp4",
-      gif"rphjb_Confuso.mp4",
-      gif"rphjb_Sguardo3.mp4",
-      gif"rphjb_Sguardo4.mp4",
-      gif"rphjb_SguardoCanaro.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "a quel punto"
     )(
       gif"rphjb_QuelPunto.mp4"
@@ -393,12 +383,6 @@ object Gif {
       gif"rphjb_WTF2.mp4",
       gif"rphjb_WTF3.mp4",
       gif"rphjb_WTF4.mp4",
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "🙏"
-    )(
-      gif"rphjb_Prega.mp4",
-      gif"rphjb_Prega2.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "\\bsorpresa\\b".r.tr(8),
