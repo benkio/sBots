@@ -1418,6 +1418,12 @@ object Video {
       "si sta fondendo"
     )(
       vid"rphjb_IlCervelloStaFondendoNonCapiscoUnCazzo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "è pieno",
+      "dischi"
+    )(
+      vid"rphjb_PienoDiDischi.mp4"
     )
   )
 }
