@@ -102,8 +102,9 @@ object Mix {
       "\\bsput[ao]\\b".r.tr(5)
     )(
       gif"rphjb_SputoGif.mp4",
-      vid"rphjb_Sputo.mp4",
-      vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
+      vid"rphjb_FeelingsSputo.mp4",
+      vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
+      vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "cobelini",
@@ -244,7 +245,8 @@ object Mix {
       mp3"rphjb_IncidentePonte.mp3",
       vid"rphjb_EscertoCritiche.mp4",
       vid"rphjb_Escerto.mp4",
-      vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
+      vid"rphjb_NoRabbiaRidereMeNeFrego.mp4",
+      vid"rphjb_GiovencaVarzettaSposoChissenefrega.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ultimi"
@@ -336,7 +338,9 @@ object Mix {
       gif"rphjb_Feelings.gif",
       gif"rphjb_Feelings2.mp4",
       mp3"rphjb_Feelings.mp3",
-      vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4"
+      vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
+      vid"rphjb_FeelingsSguardoPreghiera.mp4",
+      vid"rphjb_FeelingsSputo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "me ne vado"
@@ -960,7 +964,9 @@ object Mix {
       vid"rphjb_SteveVaiRamazzotti.mp4",
       vid"rphjb_FiguracceDiscoSteveVai.mp4",
       vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4",
-      vid"rphjb_FesteACasaNicolaArigliano.mp4"
+      vid"rphjb_FesteACasaNicolaArigliano.mp4",
+      vid"rphjb_FeelingsSguardoPreghiera.mp4",
+      vid"rphjb_FeelingsSputo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(divento|diventare|sono) (matto|pazzo)".r.tr(10)
@@ -1897,6 +1903,42 @@ object Mix {
     )(
       mp3"rphjb_LoSapevoIo.mp3",
       vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "🙏"
+    )(
+      gif"rphjb_Prega.mp4",
+      gif"rphjb_Prega2.mp4",
+      vid"rphjb_FeelingsSguardoPreghiera.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sguardo"
+    )(
+      gif"rphjb_Sguardo.mp4",
+      gif"rphjb_Sguardo2.mp4",
+      gif"rphjb_Confuso.mp4",
+      gif"rphjb_Sguardo3.mp4",
+      gif"rphjb_Sguardo4.mp4",
+      gif"rphjb_SguardoCanaro.mp4",
+      vid"rphjb_FeelingsSguardoPreghiera.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "non capisco"
+    )(
+      gif"rphjb_IlSensoCapito.mp4",
+      vid"rphjb_IlCervelloStaFondendoNonCapiscoUnCazzo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "via zara",
+      "sei brava a truccare",
+      "non vali niente",
+      "sei l'ultima",
+      "manco trucc[aà](re)? sai".r.tr(16),
+      "marciapiede",
+      "truccatrice"
+    )(
+      mp3"rphjb_TruccareViaZara.mp3",
+      vid"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZara.mp4"
     )
   )
 

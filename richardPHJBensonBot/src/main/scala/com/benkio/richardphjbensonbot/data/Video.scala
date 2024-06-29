@@ -1386,6 +1386,44 @@ object Video {
       "non (ne )?posso (più|continuare|più continuare)".r.tr(13)
     )(
       vid"rphjb_NonPossoContinuareCosiGianni.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "grazie",
+      "mancano le parole",
+      "le parole non esistono"
+    )(vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4"),
+    ReplyBundleMessage.textToVideo[F](
+      "non siamo niente",
+      "siamo esseri umani",
+      "sudore",
+      "pelle",
+      "zozzeria",
+      "carne",
+      "sperma",
+      "da togliere",
+      "levare d[ia] dosso".r.tr(15),
+      "non contiamo niente",
+    )(
+      vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "giovenca",
+      "varzetta",
+      "me la sposo"
+    )(
+      vid"rphjb_GiovencaVarzettaSposoChissenefrega.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sono fuso",
+      "si sta fondendo"
+    )(
+      vid"rphjb_IlCervelloStaFondendoNonCapiscoUnCazzo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "è pieno",
+      "dischi"
+    )(
+      vid"rphjb_PienoDiDischi.mp4"
     )
   )
 }
