@@ -86,7 +86,8 @@ object Mix {
     )(
       gif"rphjb_MiFaStareMale.mp4",
       vid"rphjb_PeggioDelPeggio.mp4",
-      vid"rphjb_MelensaStareMale.mp4"
+      vid"rphjb_MelensaStareMale.mp4",
+      vid"rphjb_RelIllusions.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r.tr(10)

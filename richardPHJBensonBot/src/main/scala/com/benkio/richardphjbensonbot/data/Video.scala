@@ -128,7 +128,10 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "già il titolo",
-      "coi due punti",
+      "(coi|quei) due punti".r.tr(13),
+      "illusioni",
+      "copertina",
+      "musica (non )?è grande".r.tr(15),
       "re[a]?l illusions".r.tr(13)
     )(
       vid"rphjb_RelIllusions.mp4"
@@ -1268,11 +1271,6 @@ object Video {
       "fa ridere"
     )(
       vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "melensa"
-    )(
-      vid"rphjb_MelensaStareMale.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "questa sera",
