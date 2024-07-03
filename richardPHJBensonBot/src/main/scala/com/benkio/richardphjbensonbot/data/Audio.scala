@@ -462,5 +462,12 @@ object Audio {
     )(
       mp3"rphjb_SiScivola.mp3"
     ),
+    ReplyBundleMessage.textToMp3[F](
+      "baraccone",
+      "furgone",
+      "televisione"
+    )(
+      mp3"rphjb_BaracconeFurgoneTelevisione.mp3"
+    ),
   )
 }
