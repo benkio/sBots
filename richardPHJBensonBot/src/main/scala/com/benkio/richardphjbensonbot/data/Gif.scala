@@ -109,11 +109,6 @@ object Gif {
       gif"rphjb_QuestaPersonaScusate.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "tucul"
-    )(
-      gif"rphjb_TuCul.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       ";)",
       "occhiolino",
       "wink",
@@ -290,30 +285,9 @@ object Gif {
       gif"rphjb_Squallida.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "destino",
-      "incontrare"
-    )(
-      gif"rphjb_Destino.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "meridionale",
-      "terron"
-    )(
-      gif"rphjb_Meridionale.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "a quel punto"
     )(
       gif"rphjb_QuelPunto.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "faccio la parte",
-      " recit",
-      " fing",
-      "\\ba[t]{2,}[o]+re\\b".r.tr(7),
-      "attrice"
-    )(
-      gif"rphjb_FaccioLaParte.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "il senso"

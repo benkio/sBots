@@ -1943,7 +1943,37 @@ object Mix {
     )(
       mp3"rphjb_TruccareViaZara.mp3",
       vid"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZara.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "faccio la parte",
+      " recit",
+      " fing",
+      "\\ba[t]{2,}[o]+re\\b".r.tr(7),
+      "attrice"
+    )(
+      gif"rphjb_FaccioLaParte.mp4",
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "meridionale",
+      "terron"
+    )(
+      gif"rphjb_Meridionale.mp4",
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "destino",
+      "incontrare"
+    )(
+      gif"rphjb_Destino.mp4",
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tu( )?cul".r.tr(6)
+    )(
+      gif"rphjb_TuCul.mp4",
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
   )
 
 }
