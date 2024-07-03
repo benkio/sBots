@@ -1441,12 +1441,17 @@ object Video {
     )(
       vid"rphjb_GaioInGiallo.mp4"
     ),
-    ReplyBundleMessage.textToMp3[F](
+    ReplyBundleMessage.textToVideo[F](
       "napoletani",
       "fatevi vivi",
       "(ndo|dove) stanno i".r.tr(12)
     )(
       vid"rphjb_NapoletaniDoveStannoFateviVivi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "mi sento un (pezzo di merda|l'ultimo)".r.tr(20)
+    )(
+      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
     ),
   )
 }

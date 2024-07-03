@@ -1981,6 +1981,26 @@ object Mix {
       mp3"rphjb_PercheLHoFatto.mp3",
       vid"rphjb_PercheLHoFatto.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "giù( giù)+".r.tr(7)
+    )(
+      mp3"rphjb_GiuGiuGiu.mp3",
+      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        stt"sono",
+        stt"ultimo"
+      ),
+      reply = MediaReply.fromList[F](
+        List(
+          mp3"rphjb_SonoUltimo.mp3",
+          mp3"rphjb_SonoIoUltimo.mp3",
+          vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+        )
+      ),
+      matcher = ContainsAll
+    ),
   )
 
 }

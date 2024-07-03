@@ -96,11 +96,6 @@ object Audio {
       mp3"rphjb_LavareCazzo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "giù( giù)+".r.tr(7)
-    )(
-      mp3"rphjb_GiuGiuGiu.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "viale zara",
       "cas(a|e) chius(a|e)".r.tr(11)
     )(
@@ -204,19 +199,6 @@ object Audio {
       "veri valori",
     )(
       mp3"rphjb_Conoscere.mp3"
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        stt"sono",
-        stt"ultimo"
-      ),
-      reply = MediaReply.fromList[F](
-        List(
-          mp3"rphjb_SonoUltimo.mp3",
-          mp3"rphjb_SonoIoUltimo.mp3"
-        )
-      ),
-      matcher = ContainsAll
     ),
     ReplyBundleMessage.textToMp3[F](
       "anguille",
