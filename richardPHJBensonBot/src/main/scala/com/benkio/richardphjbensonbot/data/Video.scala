@@ -1441,5 +1441,12 @@ object Video {
     )(
       vid"rphjb_GaioInGiallo.mp4"
     ),
+    ReplyBundleMessage.textToMp3[F](
+      "napoletani",
+      "fatevi vivi",
+      "(ndo|dove) stanno i".r.tr(12)
+    )(
+      vid"rphjb_NapoletaniDoveStannoFateviVivi.mp4"
+    ),
   )
 }
