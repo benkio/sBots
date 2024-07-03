@@ -128,7 +128,10 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "già il titolo",
-      "coi due punti",
+      "(coi|quei) due punti".r.tr(13),
+      "illusioni",
+      "copertina",
+      "musica (non )?è grande".r.tr(15),
       "re[a]?l illusions".r.tr(13)
     )(
       vid"rphjb_RelIllusions.mp4"
@@ -900,7 +903,6 @@ object Video {
     )(
       vid"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4"
     ),
-    ReplyBundleMessage.textToVideo[F]("gaio")(vid"rphjb_CantantePreferitoNonSonoGaio.mp4"),
     ReplyBundleMessage.textToVideo[F]("come si fa")(vid"rphjb_ComeSiFaItaliaIgnorante.mp4"),
     ReplyBundleMessage.textToVideo[F]("commissionato")(vid"rphjb_CommissionatoMeLoDeviTrovare.mp4"),
     ReplyBundleMessage.textToVideo[F]("col sangue")(vid"rphjb_ColSangue.mp4"),
@@ -1271,11 +1273,6 @@ object Video {
       vid"rphjb_NoRabbiaRidereMeNeFrego.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "melensa"
-    )(
-      vid"rphjb_MelensaStareMale.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "questa sera",
       "ancora di pi[uù]".r.tr(13)
     )(
@@ -1424,6 +1421,35 @@ object Video {
       "dischi"
     )(
       vid"rphjb_PienoDiDischi.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToVideo[F]("gaio")(
+      vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in giallo",
+      "capelli (imbiondati|gialli)".r.tr(14),
+      "pazienza (d[ie] ferro| che hanno i marines)".r.tr(17),
+      "non sentire più emozioni",
+      "fa[s]+( )?[b]+inder".r.tr(9),
+      "dizione",
+      "indigeni",
+      "selvaggina",
+      "palme"
+    )(
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "napoletani",
+      "fatevi vivi",
+      "(ndo|dove) stanno i".r.tr(12)
+    )(
+      vid"rphjb_NapoletaniDoveStannoFateviVivi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "mi sento un (pezzo di merda|l'ultimo)".r.tr(20)
+    )(
+      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+    ),
   )
 }

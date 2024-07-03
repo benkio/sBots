@@ -1,7 +1,7 @@
 package com.benkio.richardphjbensonbot.data
 
 import cats.Applicative
-import com.benkio.telegrambotinfrastructure.messagefiltering.*
+
 import com.benkio.telegrambotinfrastructure.model.*
 
 object Audio {
@@ -54,12 +54,6 @@ object Audio {
       mp3"rphjb_VedereAmico.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "perchè l'ho fatto",
-      "non do spiegazioni"
-    )(
-      mp3"rphjb_PercheLHoFatto.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "non ho detto tutto",
       "ascoltami"
     )(
@@ -100,11 +94,6 @@ object Audio {
       "il cazzo me lo pulisci un'altra volta",
     )(
       mp3"rphjb_LavareCazzo.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
-      "giù( giù)+".r.tr(7)
-    )(
-      mp3"rphjb_GiuGiuGiu.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "viale zara",
@@ -210,19 +199,6 @@ object Audio {
       "veri valori",
     )(
       mp3"rphjb_Conoscere.mp3"
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        stt"sono",
-        stt"ultimo"
-      ),
-      reply = MediaReply.fromList[F](
-        List(
-          mp3"rphjb_SonoUltimo.mp3",
-          mp3"rphjb_SonoIoUltimo.mp3"
-        )
-      ),
-      matcher = ContainsAll
     ),
     ReplyBundleMessage.textToMp3[F](
       "anguille",
@@ -461,6 +437,13 @@ object Audio {
       "scivola"
     )(
       mp3"rphjb_SiScivola.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "baraccone",
+      "furgone",
+      "televisione"
+    )(
+      mp3"rphjb_BaracconeFurgoneTelevisione.mp3"
     ),
   )
 }

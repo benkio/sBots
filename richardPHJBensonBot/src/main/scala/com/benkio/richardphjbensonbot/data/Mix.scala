@@ -57,6 +57,8 @@ object Mix {
     )(
       mp3"rphjb_Pappalardo.mp3",
       vid"rphjb_Pappalardo.mp4",
+      mp3"rphjb_FrocioFrocio.mp3",
+      vid"rphjb_FrocioFrocio2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "lasciami in pace",
@@ -84,7 +86,8 @@ object Mix {
     )(
       gif"rphjb_MiFaStareMale.mp4",
       vid"rphjb_PeggioDelPeggio.mp4",
-      vid"rphjb_MelensaStareMale.mp4"
+      vid"rphjb_MelensaStareMale.mp4",
+      vid"rphjb_RelIllusions.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r.tr(10)
@@ -1476,7 +1479,9 @@ object Mix {
       "fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr(5)
     )(
       mp3"rphjb_NudoFrocio.mp3",
-      vid"rphjb_FrocioFrocio.mp4"
+      vid"rphjb_FrocioFrocio.mp4",
+      vid"rphjb_FrocioFrocio2.mp4",
+      mp3"rphjb_FrocioFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "kiko loureiro",
@@ -1939,7 +1944,64 @@ object Mix {
     )(
       mp3"rphjb_TruccareViaZara.mp3",
       vid"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZara.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "faccio la parte",
+      " recit",
+      " fing",
+      "\\ba[t]{2,}[o]+re\\b".r.tr(7),
+      "attrice"
+    )(
+      gif"rphjb_FaccioLaParte.mp4",
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "meridionale",
+      "terron"
+    )(
+      gif"rphjb_Meridionale.mp4",
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "destino",
+      "incontrare"
+    )(
+      gif"rphjb_Destino.mp4",
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tu( )?cul".r.tr(6)
+    )(
+      gif"rphjb_TuCul.mp4",
+      vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "perchè l'ho fatto",
+      "non do spiegazioni"
+    )(
+      mp3"rphjb_PercheLHoFatto.mp3",
+      vid"rphjb_PercheLHoFatto.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "giù( giù)+".r.tr(7)
+    )(
+      mp3"rphjb_GiuGiuGiu.mp3",
+      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+    ),
+    ReplyBundleMessage(
+      trigger = TextTrigger(
+        stt"sono",
+        stt"ultimo"
+      ),
+      reply = MediaReply.fromList[F](
+        List(
+          mp3"rphjb_SonoUltimo.mp3",
+          mp3"rphjb_SonoIoUltimo.mp3",
+          vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+        )
+      ),
+      matcher = ContainsAll
+    ),
   )
 
 }
