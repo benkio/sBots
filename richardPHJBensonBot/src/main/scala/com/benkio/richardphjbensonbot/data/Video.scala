@@ -147,7 +147,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "peso di un cervello"
     )(
-      vid"rphjb_VitaNemicoCervello.mp4"
+      vid"rphjb_VitaNemicoCervello.mp4",
+      vid"rphjb_PoesiaDirittoPaura.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "cervello pensante",
@@ -261,7 +262,6 @@ object Video {
       "più pulito",
       "john travolta",
       "video didattico",
-      "questo n[o]{2,}".r.tr(10),
       "fate venire le vostre (madri|mogli|fidanzate)".r.tr(27)
     )(
       vid"rphjb_DelirioDelSabatoSera.mp4"
@@ -651,7 +651,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "sangue (caldo )di un cavallo".r.tr(22),
-      "il peso di un cervello",
       "diritto alla paura",
       "come una tigre",
       "migliaia di animali",
@@ -1244,7 +1243,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "schifosa"
     )(
-      vid"rphjb_GenteSchifosa.mp4"
+      vid"rphjb_GenteSchifosa.mp4",
+      vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "prendere in giro"
@@ -1450,6 +1450,19 @@ object Video {
       "mi sento un (pezzo di merda|l'ultimo)".r.tr(20)
     )(
       vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "questo n[o]{2,}".r.tr(10),
+    )(
+      vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4",
+      vid"rphjb_DelirioDelSabatoSera.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "è troppo",
+      "indicibile",
+      "non ci sta col cervello"
+    )(
+      vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
     ),
   )
 }
