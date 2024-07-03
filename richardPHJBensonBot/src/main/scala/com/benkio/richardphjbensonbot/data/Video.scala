@@ -1451,16 +1451,16 @@ object Video {
     )(
       vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "questo n[o]{2,}".r.tr(10),
     )(
       vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4",
       vid"rphjb_DelirioDelSabatoSera.mp4"
     ),
-    ReplyBundleMessage.textToMp3[F](
-     "è troppo",
-     "indicibile",
-     "non ci sta col cervello"
+    ReplyBundleMessage.textToVideo[F](
+      "è troppo",
+      "indicibile",
+      "non ci sta col cervello"
     )(
       vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
     ),
