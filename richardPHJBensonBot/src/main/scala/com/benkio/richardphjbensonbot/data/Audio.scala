@@ -54,12 +54,6 @@ object Audio {
       mp3"rphjb_VedereAmico.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "perchè l'ho fatto",
-      "non do spiegazioni"
-    )(
-      mp3"rphjb_PercheLHoFatto.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "non ho detto tutto",
       "ascoltami"
     )(

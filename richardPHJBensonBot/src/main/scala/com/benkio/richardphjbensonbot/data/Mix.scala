@@ -1974,6 +1974,13 @@ object Mix {
       gif"rphjb_TuCul.mp4",
       vid"rphjb_GaioInGiallo.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "perchè l'ho fatto",
+      "non do spiegazioni"
+    )(
+      mp3"rphjb_PercheLHoFatto.mp3",
+      vid"rphjb_PercheLHoFatto.mp4"
+    ),
   )
 
 }
