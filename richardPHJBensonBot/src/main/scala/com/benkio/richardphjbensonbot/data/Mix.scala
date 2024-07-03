@@ -57,6 +57,7 @@ object Mix {
     )(
       mp3"rphjb_Pappalardo.mp3",
       vid"rphjb_Pappalardo.mp4",
+      mp3"rphjb_FrocioFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "lasciami in pace",
@@ -1476,7 +1477,8 @@ object Mix {
       "fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr(5)
     )(
       mp3"rphjb_NudoFrocio.mp3",
-      vid"rphjb_FrocioFrocio.mp4"
+      vid"rphjb_FrocioFrocio.mp4",
+      mp3"rphjb_FrocioFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "kiko loureiro",
