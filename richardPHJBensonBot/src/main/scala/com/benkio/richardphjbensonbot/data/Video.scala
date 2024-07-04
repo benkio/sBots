@@ -1252,9 +1252,10 @@ object Video {
       vid"rphjb_GenteSchifosa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "migliorare"
+      "migliora(re)?".r.tr(8)
     )(
-      vid"rphjb_SiPuoMigliorare.mp4"
+      vid"rphjb_SiPuoMigliorare.mp4",
+      vid"rphjb_QuandoMiglioraStima.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ballerino",
@@ -1513,6 +1514,11 @@ object Video {
       "mi faccio schifo"
     )(
       vid"rphjb_SputareAddossoQuantoFaccioSchifo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mia stima"
+    )(
+      vid"rphjb_QuandoMiglioraStima.mp4"
     )
   )
 }
