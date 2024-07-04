@@ -1497,5 +1497,16 @@ object Video {
     )(
       vid"rphjb_PoesiaMaria.mp4"
     ),
+    ReplyBundleMessage.textToVideo[F](
+      "italia di oggi"
+    )(
+      vid"rphjb_ItaliaOggiFaSchifo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sparisce",
+      "nel nulla"
+    )(
+      vid"rphjb_SparisceNelNulla.mp4"
+    )
   )
 }
