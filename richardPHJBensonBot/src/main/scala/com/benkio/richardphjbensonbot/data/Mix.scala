@@ -879,6 +879,7 @@ object Mix {
       vid"rphjb_IlVenerdi.mp4",
       vid"rphjb_TempoAlTempo.mp4",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "discoteca laziale"
@@ -1202,7 +1203,8 @@ object Mix {
     )(
       mp3"rphjb_Alle22.mp3",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
-      vid"rphjb_Alle22MercolediTelevita.mp4"
+      vid"rphjb_Alle22MercolediTelevita.mp4",
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "appuntamento"
@@ -1518,10 +1520,11 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "squallido",
-      "ultimo degli esseri umani"
+      "ultimo (nella lista)?degli (esseri )?umani".r.tr(18)
     )(
       gif"rphjb_BruttoSquallidoSchifosoGif.mp4",
-      vid"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4"
+      vid"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4",
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "quattro solo",
@@ -2002,7 +2005,8 @@ object Mix {
         List(
           mp3"rphjb_SonoUltimo.mp3",
           mp3"rphjb_SonoIoUltimo.mp3",
-          vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+          vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4",
+          vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
         )
       ),
       matcher = ContainsAll
