@@ -2002,6 +2002,14 @@ object Mix {
       ),
       matcher = ContainsAll
     ),
+        ReplyBundleMessage.textToMedia[F](
+      "covi il male",
+      "invidia",
+      "livore"
+    )(
+      gif"rphjb_CoviMaleInvidiaLivoreGif.mp4",
+      vid"rphjb_CoviMaleInvidiaLivore.mp4"
+    ),
   )
 
 }
