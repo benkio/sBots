@@ -1532,7 +1532,7 @@ object Video {
     )(
       vid"rphjb_RifaQuello25AnniStoMale.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "(1|un) minuto".r.tr(8),
       "(2|due) minuti".r.tr(8),
       "quanto c'ho?"
