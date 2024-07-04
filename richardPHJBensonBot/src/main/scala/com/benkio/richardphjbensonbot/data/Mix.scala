@@ -448,7 +448,8 @@ object Mix {
       "infern[a]+l[i]+[!]*".r.tr(9)
     )(
       mp3"rphjb_Infernali.mp3",
-      gif"rphjb_Infernali.mp4"
+      gif"rphjb_Infernali.mp4",
+      vid"rphjb_StacchiDiBatteriaMikeTerranaInfernali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "per il culo"
@@ -2012,6 +2013,13 @@ object Mix {
       gif"rphjb_CoviMaleInvidiaLivoreGif.mp4",
       vid"rphjb_CoviMaleInvidiaLivore.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "mike terrana",
+      "stacchi di batteria"
+    )(
+      vid"rphjb_StacchiDiBatteriaMikeTerranaInfernali.mp4",
+      mp3"rphjb_Infernali.mp3"
+    )
   )
 
 }
