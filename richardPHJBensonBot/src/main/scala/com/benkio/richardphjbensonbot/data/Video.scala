@@ -1524,6 +1524,13 @@ object Video {
       "suonare libero"
     )(
       vid"rphjb_SuonareLibero.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sto male",
+      "rif[aà]".r.tr(4),
+      "(25|venticinque) anni".r.tr(7)
+    )(
+      vid"rphjb_RifaQuello25AnniStoMale.mp4"
     )
   )
 }
