@@ -452,7 +452,7 @@ object Video {
       vid"rphjb_AuguriCompleanno.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "3 minuti",
+      "(3|tre) minuti".r.tr(8),
       "ti va bene cos[iì]".r.tr(15),
     )(
       vid"rphjb_3Minuti.mp4"
@@ -1531,6 +1531,13 @@ object Video {
       "(25|venticinque) anni".r.tr(7)
     )(
       vid"rphjb_RifaQuello25AnniStoMale.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(1|un) minuto".r.tr(8),
+      "(2|due) minuti".r.tr(8),
+      "quanto c'ho?"
+    )(
+      vid"rphjb_UnMinutoDueMinuti.mp4"
     )
   )
 }
