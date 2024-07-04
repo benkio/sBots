@@ -1481,7 +1481,12 @@ object Video {
       "dragata",
       "a ruota d'incenso",
       "gravidanza scorretta",
-      "falegname da croci",
+      "falegname da croci"
+    )(
+      vid"rphjb_PoesiaMaria.mp4",
+      vid"rphjb_MiDragaStradeInferioriCristoPinocchioGerarchieInfernali.mp4"
+    ),
+    ReplyBundleMessage.textToMp3[F](
       "chiesa inferiore",
       "dio minore",
       "rabbia di un giudeo",
