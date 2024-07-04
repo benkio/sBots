@@ -352,7 +352,9 @@ object Mix {
       mp3"rphjb_MeNeVado.mp3",
       vid"rphjb_EBastaETuHaiRottoIlCazzo.mp4",
       gif"rphjb_MiRompiErCazzo.mp4",
-      gif"rphjb_MeNeVado.mp4"
+      gif"rphjb_MeNeVado.mp4",
+      vid"rphjb_MeNeVado2.mp4",
+      mp3"rphjb_MeNeVado2.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "mignotta",
@@ -2019,6 +2021,13 @@ object Mix {
     )(
       vid"rphjb_StacchiDiBatteriaMikeTerranaInfernali.mp4",
       mp3"rphjb_Infernali.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ridare i soldi",
+      "stronzi"
+    )(
+      vid"rphjb_MeNeVado2.mp4",
+      mp3"rphjb_MeNeVado2.mp3"
     )
   )
 
