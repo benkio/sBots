@@ -1464,5 +1464,12 @@ object Video {
     )(
       vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
     ),
+    ReplyBundleMessage.textToMp3[F](
+      "cazzi tuoi",
+      "cazz[oi] piccol[io]".r.tr(13),
+      "essere umano"
+    )(
+      vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4"
+    ),
   )
 }
