@@ -1519,6 +1519,11 @@ object Video {
       "mia stima"
     )(
       vid"rphjb_QuandoMiglioraStima.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "suonare libero"
+    )(
+      vid"rphjb_SuonareLibero.mp4"
     )
   )
 }
