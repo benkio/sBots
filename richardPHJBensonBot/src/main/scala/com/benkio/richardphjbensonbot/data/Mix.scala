@@ -50,7 +50,8 @@ object Mix {
     )(
       mp3"rphjb_CristoPinocchio.mp3",
       vid"rphjb_CristoPinocchio.mp4",
-      vid"rphjb_PoesiaMaria.mp4"
+      vid"rphjb_PoesiaMaria.mp4",
+      vid"rphjb_MiDragaStradeInferioriCristoPinocchioGerarchieInfernali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "pappalardo"
@@ -351,7 +352,9 @@ object Mix {
       mp3"rphjb_MeNeVado.mp3",
       vid"rphjb_EBastaETuHaiRottoIlCazzo.mp4",
       gif"rphjb_MiRompiErCazzo.mp4",
-      gif"rphjb_MeNeVado.mp4"
+      gif"rphjb_MeNeVado.mp4",
+      vid"rphjb_MeNeVado2.mp4",
+      mp3"rphjb_MeNeVado2.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "mignotta",
@@ -447,7 +450,8 @@ object Mix {
       "infern[a]+l[i]+[!]*".r.tr(9)
     )(
       mp3"rphjb_Infernali.mp3",
-      gif"rphjb_Infernali.mp4"
+      gif"rphjb_Infernali.mp4",
+      vid"rphjb_StacchiDiBatteriaMikeTerranaInfernali.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "per il culo"
@@ -875,6 +879,7 @@ object Mix {
       vid"rphjb_IlVenerdi.mp4",
       vid"rphjb_TempoAlTempo.mp4",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "discoteca laziale"
@@ -934,6 +939,7 @@ object Mix {
     )(
       vid"rphjb_PellegrinaggioSimposioMetallo.mp4",
       mp3"rphjb_InnoSimposio.mp3",
+      vid"rphjb_PoesiaMaria.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chi è cristo",
@@ -1197,7 +1203,8 @@ object Mix {
     )(
       mp3"rphjb_Alle22.mp3",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
-      vid"rphjb_Alle22MercolediTelevita.mp4"
+      vid"rphjb_Alle22MercolediTelevita.mp4",
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "appuntamento"
@@ -1513,10 +1520,11 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "squallido",
-      "ultimo degli esseri umani"
+      "ultimo (nella lista )?degli (esseri )?umani".r.tr(18)
     )(
       gif"rphjb_BruttoSquallidoSchifosoGif.mp4",
-      vid"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4"
+      vid"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4",
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "quattro solo",
@@ -1997,11 +2005,34 @@ object Mix {
         List(
           mp3"rphjb_SonoUltimo.mp3",
           mp3"rphjb_SonoIoUltimo.mp3",
-          vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+          vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4",
+          vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
         )
       ),
       matcher = ContainsAll
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "covi il male",
+      "invidia",
+      "livore"
+    )(
+      gif"rphjb_CoviMaleInvidiaLivoreGif.mp4",
+      vid"rphjb_CoviMaleInvidiaLivore.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mike terrana",
+      "stacchi di batteria"
+    )(
+      vid"rphjb_StacchiDiBatteriaMikeTerranaInfernali.mp4",
+      mp3"rphjb_Infernali.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ridare i soldi",
+      "stronzi"
+    )(
+      vid"rphjb_MeNeVado2.mp4",
+      mp3"rphjb_MeNeVado2.mp3"
+    )
   )
 
 }

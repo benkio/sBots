@@ -397,13 +397,6 @@ object Gif {
       gif"rphjb_Occhiali.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "covi il male",
-      "invidia",
-      "livore"
-    )(
-      gif"rphjb_CoviMaleInvidiaLivore.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "lui si chiamava",
       "\\badolf\\b".r.tr(5),
       "hitler",
