@@ -1509,18 +1509,18 @@ object Video {
     )(
       vid"rphjb_SparisceNelNulla.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "sputare addosso",
       "mi faccio schifo"
     )(
       vid"rphjb_SputareAddossoQuantoFaccioSchifo.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "mia stima"
     )(
       vid"rphjb_QuandoMiglioraStima.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "suonare libero"
     )(
       vid"rphjb_SuonareLibero.mp4"
