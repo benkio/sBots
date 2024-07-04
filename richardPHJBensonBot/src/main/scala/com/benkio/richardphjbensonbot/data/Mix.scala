@@ -1520,7 +1520,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "squallido",
-      "ultimo (nella lista)?degli (esseri )?umani".r.tr(18)
+      "ultimo (nella lista )?degli (esseri )?umani".r.tr(18)
     )(
       gif"rphjb_BruttoSquallidoSchifosoGif.mp4",
       vid"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4",

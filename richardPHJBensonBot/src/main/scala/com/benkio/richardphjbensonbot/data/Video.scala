@@ -1473,7 +1473,7 @@ object Video {
       vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "gicattol(o|ino)".r.tr(9)
+      "giocattol(o|ino)".r.tr(9)
     )(
       vid"rphjb_CristoPinocchio.mp4"
     ),
