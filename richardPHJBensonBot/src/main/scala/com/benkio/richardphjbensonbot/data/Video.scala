@@ -1507,6 +1507,12 @@ object Video {
       "nel nulla"
     )(
       vid"rphjb_SparisceNelNulla.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sputare addosso",
+      "mi faccio schifo"
+    )(
+      vid"rphjb_SputareAddossoQuantoFaccioSchifo.mp4"
     )
   )
 }
