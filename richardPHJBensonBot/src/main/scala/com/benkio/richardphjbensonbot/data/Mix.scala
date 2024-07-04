@@ -2004,7 +2004,7 @@ object Mix {
       ),
       matcher = ContainsAll
     ),
-        ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia[F](
       "covi il male",
       "invidia",
       "livore"

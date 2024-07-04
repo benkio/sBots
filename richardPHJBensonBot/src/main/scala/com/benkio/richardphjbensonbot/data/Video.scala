@@ -1464,19 +1464,19 @@ object Video {
     )(
       vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
     ),
-    ReplyBundleMessage.textToMp3[F](
+    ReplyBundleMessage.textToVideo[F](
       "cazzi tuoi",
       "cazz[oi] piccol[io]".r.tr(13),
       "essere umano"
     )(
       vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4"
     ),
-    ReplyBundleMessage.textToMp3[F](
+    ReplyBundleMessage.textToVideo[F](
       "gicattol(o|ino)".r.tr(9)
     )(
       vid"rphjb_CristoPinocchio.mp4"
     ),
-    ReplyBundleMessage.textToMp3[F](
+    ReplyBundleMessage.textToVideo[F](
       "terribile maria",
       "dragata",
       "a ruota d'incenso",
@@ -1486,7 +1486,7 @@ object Video {
       vid"rphjb_PoesiaMaria.mp4",
       vid"rphjb_MiDragaStradeInferioriCristoPinocchioGerarchieInfernali.mp4"
     ),
-    ReplyBundleMessage.textToMp3[F](
+    ReplyBundleMessage.textToVideo[F](
       "chiesa inferiore",
       "dio minore",
       "rabbia di un giudeo",
