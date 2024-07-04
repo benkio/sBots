@@ -1471,5 +1471,26 @@ object Video {
     )(
       vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4"
     ),
+    ReplyBundleMessage.textToMp3[F](
+      "gicattol(o|ino)".r.tr(9)
+    )(
+      vid"rphjb_CristoPinocchio.mp4"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "terribile maria",
+      "dragata",
+      "a ruota d'incenso",
+      "gravidanza scorretta",
+      "falegname da croci",
+      "chiesa inferiore",
+      "dio minore",
+      "rabbia di un giudeo",
+      "svastiche appese",
+      "satanista acceso",
+      "sahara di neve",
+      "il mio fallo"
+    )(
+      vid"rphjb_PoesiaMaria.mp4"
+    ),
   )
 }
