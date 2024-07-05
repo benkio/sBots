@@ -1621,6 +1621,24 @@ object Video {
       "armonie",
     )(
       vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "che h[ao] trovato".r.tr(14),
+      "tutti coglioni",
+      "dispendio",
+      "intelletto",
+      "per prova",
+      "manici",
+      "legni",
+      "magneti",
+      "pedali",
+      "coni da (15|12|quindici|dodici)".r.tr(10),
+      "vari intrugli",
+      "casse",
+      "jack",
+      "basta che non sia rotto",
+    )(
+      vid"rphjb_HoTrovatoIoTuttiCoglioniFortunaDispendioIntellettoProvaCasseConiPedaliJack.mp4"
     )
   )
 }
