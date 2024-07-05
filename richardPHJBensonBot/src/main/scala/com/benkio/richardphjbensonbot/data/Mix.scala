@@ -940,7 +940,8 @@ object Mix {
     )(
       vid"rphjb_PellegrinaggioSimposioMetallo.mp4",
       mp3"rphjb_InnoSimposio.mp3",
-      vid"rphjb_PoesiaMaria.mp4"
+      vid"rphjb_PoesiaMaria.mp4",
+      vid"rphjb_IlSimposioDelMetalloCristoEdicolantePerFerireTramontoCristo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chi è cristo",

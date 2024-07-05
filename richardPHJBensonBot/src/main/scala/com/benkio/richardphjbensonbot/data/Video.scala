@@ -1646,6 +1646,18 @@ object Video {
       "chi ti sta vicino",
     )(
       vid"rphjb_IlGrandeAmoreDalMaleAmoreVero.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "confraternita",
+      "alla collina",
+      "edicolante",
+      "bibbie usate",
+      "inchioda le mani",
+      "sul suo portone",
+      "ferire il tramonto",
+      "tramonto di cristo",
+    )(
+      vid"rphjb_IlSimposioDelMetalloCristoEdicolantePerFerireTramontoCristo.mp4"
     )
   )
 }
