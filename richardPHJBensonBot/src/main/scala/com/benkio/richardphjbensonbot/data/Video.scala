@@ -52,12 +52,17 @@ object Video {
       vid"rphjb_Rampolli.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "capelli corti",
       "giacca",
       "cravatta",
       "passaporto degli stronzi"
     )(
       vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "capelli corti",
+    )(
+      vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4",
+      vid"rphjb_PetrucciCapelliCorti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "fregat(a|ura)".r.tr(7),
@@ -272,17 +277,22 @@ object Video {
       vid"rphjb_Ciao2001.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "petrucci",
-      "capelli (lunghi|corti)".r.tr(13),
-      "(impiegato statale|impiegati statali)".r.tr(17),
+      "capelli lunghi"
     )(
-      vid"rphjb_PetrucciCapelliCorti.mp4"
+      vid"rphjb_PetrucciCapelliCorti.mp4",
+      vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "impiegat[oi]".r.tr(9),
     )(
       vid"rphjb_PetrucciCapelliCorti.mp4",
       vid"rphjb_PoesiaArtistiImpiegati.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "petrucci"
+    )(
+      vid"rphjb_PetrucciCapelliCorti.mp4",
+      vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "progressive",
@@ -346,11 +356,16 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "sapere tutto",
       "se non le sai le cose",
-      "jordan rudess",
       "radio rock",
       "informazioni sbagliate"
     )(
       vid"rphjb_RadioRockErrori.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "jordan rudess"
+    )(
+      vid"rphjb_RadioRockErrori.mp4",
+      vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "uccidere"
@@ -489,7 +504,6 @@ object Video {
       vid"rphjb_LeonNeon.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "james labrie",
       "james la lagna",
       "gallinaceo",
       "lisa dagli occhi blu",
@@ -498,6 +512,12 @@ object Video {
       "disco solistico"
     )(
       vid"rphjb_Labrie.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "james labrie"
+    )(
+      vid"rphjb_Labrie.mp4",
+      vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "non ho bisogno di consigli"
@@ -1545,6 +1565,17 @@ object Video {
       "tiene per la coda"
     )(
       vid"rphjb_Attenzione.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "dream theater",
+      "le ultime foto",
+      "pelato",
+      "mike portnoy",
+      "capelli colorati",
+      "john myung",
+      "\\blook\\b".r.tr(4),
+    )(
+      vid"rphjb_FotoLookDreamTheater.mp4"
     )
   )
 }
