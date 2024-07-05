@@ -52,12 +52,17 @@ object Video {
       vid"rphjb_Rampolli.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "capelli corti",
       "giacca",
       "cravatta",
       "passaporto degli stronzi"
     )(
       vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "capelli corti",
+    )(
+      vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4",
+      vid"rphjb_PetrucciCapelliCorti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "fregat(a|ura)".r.tr(7),
@@ -158,10 +163,16 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "percussionista",
-      "batterista"
     )(
       vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
       vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "batterista"
+    )(
+      vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
+      vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "perla di pioggia",
@@ -272,17 +283,22 @@ object Video {
       vid"rphjb_Ciao2001.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "petrucci",
-      "capelli (lunghi|corti)".r.tr(13),
-      "(impiegato statale|impiegati statali)".r.tr(17),
+      "capelli lunghi"
     )(
-      vid"rphjb_PetrucciCapelliCorti.mp4"
+      vid"rphjb_PetrucciCapelliCorti.mp4",
+      vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "impiegat[oi]".r.tr(9),
     )(
       vid"rphjb_PetrucciCapelliCorti.mp4",
       vid"rphjb_PoesiaArtistiImpiegati.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "petrucci"
+    )(
+      vid"rphjb_PetrucciCapelliCorti.mp4",
+      vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "progressive",
@@ -346,11 +362,16 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "sapere tutto",
       "se non le sai le cose",
-      "jordan rudess",
       "radio rock",
       "informazioni sbagliate"
     )(
       vid"rphjb_RadioRockErrori.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "jordan rudess"
+    )(
+      vid"rphjb_RadioRockErrori.mp4",
+      vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "uccidere"
@@ -489,7 +510,6 @@ object Video {
       vid"rphjb_LeonNeon.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "james labrie",
       "james la lagna",
       "gallinaceo",
       "lisa dagli occhi blu",
@@ -498,6 +518,12 @@ object Video {
       "disco solistico"
     )(
       vid"rphjb_Labrie.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "james labrie"
+    )(
+      vid"rphjb_Labrie.mp4",
+      vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "non ho bisogno di consigli"
@@ -918,7 +944,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F]("cantante")(
       vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
       vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4",
-      vid"rphjb_DaHollywood.mp4"
+      vid"rphjb_DaHollywood.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "due bocce",
@@ -942,14 +969,19 @@ object Video {
       vid"rphjb_AvvertireMettereInGuardiaAiutareScelteGiuste.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "abbellimenti",
-      "mordenti",
-      "rivolti",
       "rivoli",
       "impennate",
       "colori"
     )(
       vid"rphjb_AbbellimentiRivoltiRivoliMordentiImpennateColori.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "abbellimenti",
+      "mordenti",
+      "rivolti"
+    )(
+      vid"rphjb_AbbellimentiRivoltiRivoliMordentiImpennateColori.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "cattegrale",
@@ -981,12 +1013,18 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "cuore affogato",
       "affogato nel metallo",
-      "alla ricerca",
       "in cerca",
       "ferisca nel cervello"
     )(
       vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
       vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "alla ricerca"
+    )(
+      vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
+      vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "stratovarius",
@@ -1538,6 +1576,88 @@ object Video {
       "quanto c'ho?"
     )(
       vid"rphjb_UnMinutoDueMinuti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "spinge in avanti",
+      "una forza",
+      "tiene per la coda"
+    )(
+      vid"rphjb_Attenzione.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "dream theater",
+      "le ultime foto",
+      "pelato",
+      "mike portnoy",
+      "capelli colorati",
+      "john myung",
+      "\\blook\\b".r.tr(4),
+    )(
+      vid"rphjb_FotoLookDreamTheater.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "malvagia",
+      "la mia fine",
+      "togliermi di mezzo",
+      "[s]?parla alle spalle".r.tr(17),
+      "giornalisti",
+      "carpi",
+      "mingoli",
+      "antonella",
+      "dario",
+      "mi volete distruggere",
+    )(
+      vid"rphjb_GenteMalvagiaDistruggereSparlaGiornalistiSchifosiCarpiMingoliAntonellaDario.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "gruppi (nuovi|che spaccano il culo)".r.tr(13),
+      "chitarrista",
+      "intramezzate",
+      "ibride",
+      "contrappunt[oi]".r.tr(12),
+      "alterazioni",
+      "stacchi all'unisono",
+      "tempi (composti|dispari|pari)".r.tr(10),
+      "armonie",
+    )(
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "che h[ao] trovato".r.tr(14),
+      "tutti coglioni",
+      "dispendio",
+      "intelletto",
+      "per prova",
+      "manici",
+      "legni",
+      "magneti",
+      "pedali",
+      "coni da (15|12|quindici|dodici)".r.tr(10),
+      "vari intrugli",
+      "casse",
+      "jack",
+      "basta che non sia rotto",
+    )(
+      vid"rphjb_HoTrovatoIoTuttiCoglioniFortunaDispendioIntellettoProvaCasseConiPedaliJack.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "(il grande |l')amore".r.tr(7),
+      "dal (bene|male)".r.tr(8),
+      "chi ti sta vicino",
+    )(
+      vid"rphjb_IlGrandeAmoreDalMaleAmoreVero.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "confraternita",
+      "alla collina",
+      "edicolante",
+      "bibbie usate",
+      "inchioda le mani",
+      "sul suo portone",
+      "ferire il tramonto",
+      "tramonto di cristo",
+    )(
+      vid"rphjb_IlSimposioDelMetalloCristoEdicolantePerFerireTramontoCristo.mp4"
     )
   )
 }

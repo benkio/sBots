@@ -657,7 +657,8 @@ object Mix {
       vid"rphjb_ConQuestaTecnica.mp4",
       mp3"rphjb_ConQuestaTecnica.mp3",
       vid"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4",
-      vid"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
+      vid"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4",
+      vid"rphjb_GenteMalvagiaDistruggereSparlaGiornalistiSchifosiCarpiMingoliAntonellaDario.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "schifos(o)+(!)*".r.tr(8)
@@ -939,7 +940,8 @@ object Mix {
     )(
       vid"rphjb_PellegrinaggioSimposioMetallo.mp4",
       mp3"rphjb_InnoSimposio.mp3",
-      vid"rphjb_PoesiaMaria.mp4"
+      vid"rphjb_PoesiaMaria.mp4",
+      vid"rphjb_IlSimposioDelMetalloCristoEdicolantePerFerireTramontoCristo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chi è cristo",
@@ -1063,8 +1065,14 @@ object Mix {
       vid"rphjb_NonPossibile2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
+      "moglie"
+    )(
+      mp3"rphjb_Cameriera.mp3",
+      vid"rphjb_Cameriera.mp4",
+      vid"rphjb_Attenzione.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "cameriera",
-      "moglie",
       "si sposa",
       "matrimonio"
     )(
@@ -1090,11 +1098,17 @@ object Mix {
       gif"rphjb_ProntoDimmi2.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      "bassista",
       "slap"
     )(
       gif"rphjb_Bassista.gif",
       gif"rphjb_Basso.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "bassista",
+    )(
+      gif"rphjb_Bassista.gif",
+      gif"rphjb_Basso.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "è vero[!?]+".r.tr(6)
