@@ -163,10 +163,16 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "percussionista",
-      "batterista"
     )(
       vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
       vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "batterista"
+    )(
+      vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
+      vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "perla di pioggia",
@@ -938,7 +944,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F]("cantante")(
       vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
       vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4",
-      vid"rphjb_DaHollywood.mp4"
+      vid"rphjb_DaHollywood.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "due bocce",
@@ -962,14 +969,19 @@ object Video {
       vid"rphjb_AvvertireMettereInGuardiaAiutareScelteGiuste.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "abbellimenti",
-      "mordenti",
-      "rivolti",
       "rivoli",
       "impennate",
       "colori"
     )(
       vid"rphjb_AbbellimentiRivoltiRivoliMordentiImpennateColori.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "abbellimenti",
+      "mordenti",
+      "rivolti"
+    )(
+      vid"rphjb_AbbellimentiRivoltiRivoliMordentiImpennateColori.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "cattegrale",
@@ -1001,12 +1013,18 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "cuore affogato",
       "affogato nel metallo",
-      "alla ricerca",
       "in cerca",
       "ferisca nel cervello"
     )(
       vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
       vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "alla ricerca"
+    )(
+      vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
+      vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "stratovarius",
@@ -1590,6 +1608,19 @@ object Video {
       "mi volete distruggere",
     )(
       vid"rphjb_GenteMalvagiaDistruggereSparlaGiornalistiSchifosiCarpiMingoliAntonellaDario.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "gruppi (nuovi|che spaccano il culo)".r.tr(13),
+      "chitarrista",
+      "intramezzate",
+      "ibride",
+      "contrappunt[oi]".r.tr(12),
+      "alterazioni",
+      "stacchi all'unisono",
+      "tempi (composti|dispari|pari)".r.tr(10),
+      "armonie",
+    )(
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     )
   )
 }

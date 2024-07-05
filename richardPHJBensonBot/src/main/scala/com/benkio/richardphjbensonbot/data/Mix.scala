@@ -1097,11 +1097,17 @@ object Mix {
       gif"rphjb_ProntoDimmi2.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      "bassista",
       "slap"
     )(
       gif"rphjb_Bassista.gif",
       gif"rphjb_Basso.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "bassista",
+    )(
+      gif"rphjb_Bassista.gif",
+      gif"rphjb_Basso.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "è vero[!?]+".r.tr(6)
