@@ -1576,6 +1576,20 @@ object Video {
       "\\blook\\b".r.tr(4),
     )(
       vid"rphjb_FotoLookDreamTheater.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "malvagia",
+      "la mia fine",
+      "togliermi di mezzo",
+      "[s]?parla alle spalle".r.tr(17),
+      "giornalisti",
+      "carpi",
+      "mingoli",
+      "antonella",
+      "dario",
+      "mi volete distruggere",
+    )(
+      vid"rphjb_GenteMalvagiaDistruggereSparlaGiornalistiSchifosiCarpiMingoliAntonellaDario.mp4"
     )
   )
 }

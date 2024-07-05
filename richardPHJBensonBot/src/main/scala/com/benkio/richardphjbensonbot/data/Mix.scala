@@ -657,7 +657,8 @@ object Mix {
       vid"rphjb_ConQuestaTecnica.mp4",
       mp3"rphjb_ConQuestaTecnica.mp3",
       vid"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4",
-      vid"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
+      vid"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4",
+      vid"rphjb_GenteMalvagiaDistruggereSparlaGiornalistiSchifosiCarpiMingoliAntonellaDario.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "schifos(o)+(!)*".r.tr(8)
