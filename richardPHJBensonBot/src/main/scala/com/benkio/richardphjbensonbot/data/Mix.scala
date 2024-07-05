@@ -1063,8 +1063,14 @@ object Mix {
       vid"rphjb_NonPossibile2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
+      "moglie"
+    )(
+      mp3"rphjb_Cameriera.mp3",
+      vid"rphjb_Cameriera.mp4",
+      vid"rphjb_Attenzione.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "cameriera",
-      "moglie",
       "si sposa",
       "matrimonio"
     )(

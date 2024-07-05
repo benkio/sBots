@@ -1538,6 +1538,13 @@ object Video {
       "quanto c'ho?"
     )(
       vid"rphjb_UnMinutoDueMinuti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "spinge in avanti",
+      "una forza",
+      "tiene per la coda"
+    )(
+      vid"rphjb_Attenzione.mp4"
     )
   )
 }
