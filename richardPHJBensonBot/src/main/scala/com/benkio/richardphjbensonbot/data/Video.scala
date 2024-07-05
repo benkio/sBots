@@ -1639,6 +1639,13 @@ object Video {
       "basta che non sia rotto",
     )(
       vid"rphjb_HoTrovatoIoTuttiCoglioniFortunaDispendioIntellettoProvaCasseConiPedaliJack.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "(il grande |l')amore".r.tr(7),
+      "dal (bene|male)".r.tr(8),
+      "chi ti sta vicino",
+    )(
+      vid"rphjb_IlGrandeAmoreDalMaleAmoreVero.mp4"
     )
   )
 }
