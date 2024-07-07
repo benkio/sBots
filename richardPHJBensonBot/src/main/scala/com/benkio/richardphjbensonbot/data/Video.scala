@@ -737,7 +737,8 @@ object Video {
     )(
       vid"rphjb_LegatiSpago.mp4",
       vid"rphjb_UnitiQualeSpago.mp4",
-      vid"rphjb_LacciMaleficiSpaghiCordeCateneRetoricheOstrogoteBislamicheCirconcisoPrigioneVita.mp4"
+      vid"rphjb_LacciMaleficiSpaghiCordeCateneRetoricheOstrogoteBislamicheCirconcisoPrigioneVita.mp4",
+      vid"rphjb_LegatiMaDaQualeSpagoCateneInvisibiliFilamentiOroFinoAlleStelleForzaRitraeIndietro.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ci siamo sciolti",
@@ -1591,7 +1592,8 @@ object Video {
       "una forza",
       "tiene per la coda"
     )(
-      vid"rphjb_Attenzione.mp4"
+      vid"rphjb_Attenzione.mp4",
+      vid"rphjb_LegatiMaDaQualeSpagoCateneInvisibiliFilamentiOroFinoAlleStelleForzaRitraeIndietro.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "dream theater",
@@ -1700,7 +1702,6 @@ object Video {
       "lacci malefici",
       "spaghi",
       "corde",
-      "catene",
       "retoriche",
       "ostrogote",
       "bilsamiche",
@@ -1710,6 +1711,18 @@ object Video {
       "prigione",
     )(
       vid"rphjb_LacciMaleficiSpaghiCordeCateneRetoricheOstrogoteBislamicheCirconcisoPrigioneVita.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "catene"
+    )(
+      vid"rphjb_LacciMaleficiSpaghiCordeCateneRetoricheOstrogoteBislamicheCirconcisoPrigioneVita.mp4",
+      vid"rphjb_LegatiMaDaQualeSpagoCateneInvisibiliFilamentiOroFinoAlleStelleForzaRitraeIndietro.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "filamenti d'oro",
+      "fino alle stelle"
+    )(
+      vid"rphjb_LegatiMaDaQualeSpagoCateneInvisibiliFilamentiOroFinoAlleStelleForzaRitraeIndietro.mp4"
     )
   )
 }
