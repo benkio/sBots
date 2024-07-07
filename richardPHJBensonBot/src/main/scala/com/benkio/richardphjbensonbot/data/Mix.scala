@@ -941,7 +941,8 @@ object Mix {
       vid"rphjb_PellegrinaggioSimposioMetallo.mp4",
       mp3"rphjb_InnoSimposio.mp3",
       vid"rphjb_PoesiaMaria.mp4",
-      vid"rphjb_IlSimposioDelMetalloCristoEdicolantePerFerireTramontoCristo.mp4"
+      vid"rphjb_IlSimposioDelMetalloCristoEdicolantePerFerireTramontoCristo.mp4",
+      vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chi è cristo",
@@ -2046,6 +2047,18 @@ object Mix {
     )(
       vid"rphjb_MeNeVado2.mp4",
       mp3"rphjb_MeNeVado2.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "proprio a me\\b".r.tr(12)
+    )(
+      gif"rphjb_ProprioAMe.mp4",
+      vid"rphjb_ProprioAMe2.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mi auguro"
+    )(
+      mp3"rphjb_IoMiAuguro.mp3",
+      vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
     )
   )
 

@@ -335,11 +335,6 @@ object Gif {
       gif"rphjb_ColCazzoSuona.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "proprio a me\\b".r.tr(12)
-    )(
-      gif"rphjb_ProprioAMe.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "🤨",
       "🧐",
       "sono confuso",

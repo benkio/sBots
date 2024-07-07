@@ -270,6 +270,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "sabato sera",
       "lo sporco",
+      "distorsione",
       "più pulito",
       "john travolta",
       "video didattico",
@@ -446,8 +447,15 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "albero grande",
       "anche un('| )amplificatore".r.tr(22),
+      "tutti i (suoi )?frutti ti d[aà]".r.tr(20),
+      "per quanti gliene domandi",
+      "sempre uno ne troverà",
+      "il (fiore|frutto)".r.tr(8),
+      "la foglia",
+      "di tutto s[ie] spoglia".r.tr(19),
     )(
       vid"rphjb_PoesiaRock.mp4",
+      vid"rphjb_PoesiaRockAlberoGrande.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "brutto vigile"
@@ -597,9 +605,10 @@ object Video {
       vid"rphjb_IngrassatoCinema.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "parlo io"
+      "parlo"
     )(
-      vid"rphjb_NonMiFregaParloIo.mp4"
+      vid"rphjb_NonMiFregaParloIo.mp4",
+      vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "sono il demonio"
@@ -735,7 +744,9 @@ object Video {
       "spago",
     )(
       vid"rphjb_LegatiSpago.mp4",
-      vid"rphjb_UnitiQualeSpago.mp4"
+      vid"rphjb_UnitiQualeSpago.mp4",
+      vid"rphjb_LacciMaleficiSpaghiCordeCateneRetoricheOstrogoteBislamicheCirconcisoPrigioneVita.mp4",
+      vid"rphjb_LegatiMaDaQualeSpagoCateneInvisibiliFilamentiOroFinoAlleStelleForzaRitraeIndietro.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ci siamo sciolti",
@@ -954,7 +965,14 @@ object Video {
       "benedictum"
     )(vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4"),
     ReplyBundleMessage
-      .textToVideo[F]("verita", "verità")(vid"rphjb_AltraCazzataVeritaSembranoCazzate.mp4", vid"rphjb_Verita.mp4"),
+      .textToVideo[F](
+        "verita",
+        "verità"
+      )(
+        vid"rphjb_AltraCazzataVeritaSembranoCazzate.mp4",
+        vid"rphjb_Verita.mp4",
+        vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
+      ),
     ReplyBundleMessage.textToVideo[F](
       "litfiba",
       "piero pelù",
@@ -1408,9 +1426,14 @@ object Video {
       "interviste",
       "non (ci|cene) siamo (mai )?accorti".r.tr(20),
       "fuori di testa",
-      "timo tolkki",
     )(
       vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "timo tolkki"
+    )(
+      vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4",
+      vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "coppia micidiale",
@@ -1582,7 +1605,8 @@ object Video {
       "una forza",
       "tiene per la coda"
     )(
-      vid"rphjb_Attenzione.mp4"
+      vid"rphjb_Attenzione.mp4",
+      vid"rphjb_LegatiMaDaQualeSpagoCateneInvisibiliFilamentiOroFinoAlleStelleForzaRitraeIndietro.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "dream theater",
@@ -1658,6 +1682,81 @@ object Video {
       "tramonto di cristo",
     )(
       vid"rphjb_IlSimposioDelMetalloCristoEdicolantePerFerireTramontoCristo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in alto",
+      "cieli dell'arte",
+      "incontrare dio"
+    )(
+      vid"rphjb_InAltoCieliArteDioDonna.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "insegnanti",
+      "dove stanno"
+    )(
+      vid"rphjb_InsegnantiImportantiInsegnantiColtiDoveStanno.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "(mica|non) sono come gli altri".r.tr(23),
+      "fuori dal (coro|gregge)".r.tr(14)
+    )(
+      vid"rphjb_IoMicaSonoComeGliAltriBestiaFuoriDalGreggeVoceFuoriDalCoro.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "contratti",
+      "vieni (qu[iì]|anche te|ad affrontare me)".r.tr(9),
+      "la tua faccia",
+      "se (c')?hai il coraggio".r.tr(18),
+      "covo del metallo",
+    )(
+      vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "lacci malefici",
+      "spaghi",
+      "corde",
+      "retoriche",
+      "ostrogote",
+      "bilsamiche",
+      "non mi interessano",
+      "circonciso",
+      "che ci uniscono",
+      "prigione",
+    )(
+      vid"rphjb_LacciMaleficiSpaghiCordeCateneRetoricheOstrogoteBislamicheCirconcisoPrigioneVita.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "catene"
+    )(
+      vid"rphjb_LacciMaleficiSpaghiCordeCateneRetoricheOstrogoteBislamicheCirconcisoPrigioneVita.mp4",
+      vid"rphjb_LegatiMaDaQualeSpagoCateneInvisibiliFilamentiOroFinoAlleStelleForzaRitraeIndietro.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "filamenti d'oro",
+      "fino alle stelle"
+    )(
+      vid"rphjb_LegatiMaDaQualeSpagoCateneInvisibiliFilamentiOroFinoAlleStelleForzaRitraeIndietro.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "malattia",
+      "behringer",
+      "ferma(rsi|ti)".r.tr(7)
+    )(
+      vid"rphjb_MalattiaBehringerNonRiesconoAFermarsi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tourn[eèé]{2}".r.tr(7),
+      "(è|deve essere|dev'essere) ripreso".r.tr(9)
+    )(
+      vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "non tutto il male viene per nuocere",
+      "non sono (uno )?(scemo|stolto)",
+      "so dove voglio",
+      "so (quello che|cosa) sto facendo",
+    )(
+      vid"rphjb_NonTuttoIlMaleVieneNuocereSoQuelloCheStoFacendoNoScemoStolto.mp4"
     )
   )
 }
