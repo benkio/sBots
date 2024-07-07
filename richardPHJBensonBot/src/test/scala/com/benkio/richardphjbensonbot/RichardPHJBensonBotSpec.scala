@@ -1,5 +1,6 @@
 package com.benkio.richardphjbensonbot
 
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import telegramium.bots.client.Method
 import cats.effect.Async
@@ -44,12 +45,20 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     def execute[Res](method: Method[Res]): IO[Res] = IO(???)
   }
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(RichardPHJBensonBot.botName)
-  val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager(
+  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     resourceAccessMock,
     botName = "RichardPHJBensonBot"
-  ).unsafeRunSync()
+  ).map(bjm =>
+    RichardPHJBensonBot
+      .commandRepliesData[IO](
+        backgroundJobManager = bjm,
+        dbLayer = emptyDBLayer
+      )
+  )
+  val messageRepliesDataPrettyPrint: IO[List[String]] =
+    RichardPHJBensonBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {
     val result =
@@ -76,44 +85,28 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   }
 
   triggerlistCommandTest(
-    commandRepliesData = RichardPHJBensonBot
-      .commandRepliesData[IO](
-        backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer
-      ),
+    commandRepliesData = commandRepliesData,
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
   )
 
   test("RichardPHJBensonBot should contain the expected number of commands") {
-    assertEquals(
-      RichardPHJBensonBot
-        .commandRepliesData[IO](
-          backgroundJobManager = emptyBackgroundJobManager,
-          dbLayer = emptyDBLayer
-        )
-        .length,
-      10
-    )
+    assertIO(commandRepliesData.map(_.length), 10)
   }
 
   jsonContainsFilenames(
     jsonFilename = "rphjb_list.json",
-    botData = RichardPHJBensonBot.messageRepliesData[IO].flatMap(_.reply.prettyPrint.unsafeRunSync())
+    botData = messageRepliesDataPrettyPrint
   )
 
   triggerFileContainsTriggers(
     triggerFilename = "rphjb_triggers.txt",
-    botMediaFiles = RichardPHJBensonBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync(),
+    botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = RichardPHJBensonBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )
 
   instructionsCommandTest(
-    commandRepliesData = RichardPHJBensonBot
-      .commandRepliesData[IO](
-        backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer
-      ),
+    commandRepliesData = commandRepliesData,
     italianInstructions = s"""
 ---- Instruzioni Per RichardPHJBensonBot ----
 
