@@ -597,9 +597,10 @@ object Video {
       vid"rphjb_IngrassatoCinema.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "parlo io"
+      "parlo"
     )(
-      vid"rphjb_NonMiFregaParloIo.mp4"
+      vid"rphjb_NonMiFregaParloIo.mp4",
+      vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "sono il demonio"
@@ -954,7 +955,13 @@ object Video {
       "benedictum"
     )(vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4"),
     ReplyBundleMessage
-      .textToVideo[F]("verita", "verità")(vid"rphjb_AltraCazzataVeritaSembranoCazzate.mp4", vid"rphjb_Verita.mp4"),
+      .textToVideo[F](
+        "verita", "verità"
+      )(
+        vid"rphjb_AltraCazzataVeritaSembranoCazzate.mp4",
+        vid"rphjb_Verita.mp4",
+        vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
+      ),
     ReplyBundleMessage.textToVideo[F](
       "litfiba",
       "piero pelù",
@@ -1677,6 +1684,15 @@ object Video {
       "fuori dal (coro|gregge)".r.tr(14)
     )(
       vid"rphjb_IoMicaSonoComeGliAltriBestiaFuoriDalGreggeVoceFuoriDalCoro.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "contratti",
+      "vieni (qu[iì]|anche te|ad affrontare me)".r.tr(9),
+      "la tua faccia",
+      "se (c')?hai il coraggio".r.tr(18),
+      "covo del metallo",
+    )(
+      vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
     )
   )
 }
