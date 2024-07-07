@@ -1419,9 +1419,14 @@ object Video {
       "interviste",
       "non (ci|cene) siamo (mai )?accorti".r.tr(20),
       "fuori di testa",
-      "timo tolkki",
     )(
       vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "timo tolkki"
+    )(
+      vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4",
+      vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "coppia micidiale",
@@ -1731,6 +1736,12 @@ object Video {
       "ferma(rsi|ti)".r.tr(7)
     )(
       vid"rphjb_MalattiaBehringerNonRiesconoAFermarsi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tourn[eèé]{2}".r.tr(7),
+      "(è|deve essere|dev'essere) ripreso".r.tr(9)
+    )(
+      vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
     )
   )
 }
