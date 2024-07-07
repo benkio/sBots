@@ -7,30 +7,32 @@ import java.nio.file.Files
 import cats.effect.IO
 import doobie.Transactor
 import munit.*
-import cats.effect.unsafe.implicits.global
+
 import doobie.implicits.*
 
-class ITSpec extends FunSuite with DBConstants {
+class ITSpec extends CatsEffectSuite with DBConstants {
 
   test("botDB main should populate the migration with the files in resources") {
 
     // val _                       = setEnv("DB_CONNECTION_URL", dbUrl)
     val testApplicationConfPath = s"$resourcePath$testApplicationConf"
-    val config                  = Config.loadConfig(Some(testApplicationConfPath)).unsafeRunSync()
-    val _                       = Main.run(List(testApplicationConfPath, "test")).unsafeRunSync()
 
-    val transactor = Transactor.fromDriverManager[IO](
-      "org.sqlite.JDBC",
-      config.url,
-      "",
-      "",
-      None
-    )
-    val mediaContent = sql"SELECT media_name FROM media;".query[String].to[List].transact(transactor).unsafeRunSync()
-    Files.deleteIfExists(Paths.get(config.dbName))
+    for
+      config <- Config.loadConfig(Some(testApplicationConfPath))
+      _      <- Main.run(List(testApplicationConfPath, "test"))
 
-    assert(mediaContent.length == 3)
-    assert(mediaContent.diff(List("amazon.mp4", "facebook.mp3", "google.gif")).isEmpty)
+      transactor = Transactor.fromDriverManager[IO](
+        "org.sqlite.JDBC",
+        config.url,
+        "",
+        "",
+        None
+      )
+      mediaContent <- sql"SELECT media_name FROM media;".query[String].to[List].transact(transactor)
+      _            <- IO(Files.deleteIfExists(Paths.get(config.dbName)))
+    yield
+      assert(mediaContent.length == 3)
+      assert(mediaContent.diff(List("amazon.mp4", "facebook.mp3", "google.gif")).isEmpty)
 
   }
 }

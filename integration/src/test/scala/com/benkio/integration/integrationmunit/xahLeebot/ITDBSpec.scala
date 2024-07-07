@@ -1,5 +1,6 @@
 package com.benkio.integration.integrationmunit.xahleebot
 
+import cats.effect.Resource
 import io.circe.parser.decode
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import scala.io.Source
@@ -32,12 +33,14 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   }
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botName)
   val resourceAccessMock        = new ResourceAccessMock(List.empty)
-  val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager(
-    dbSubscription = emptyDBLayer.dbSubscription,
-    dbShow = emptyDBLayer.dbShow,
-    resourceAccess = resourceAccessMock,
-    botName = botName
-  ).unsafeRunSync()
+  val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(
+    BackgroundJobManager(
+      dbSubscription = emptyDBLayer.dbSubscription,
+      dbShow = emptyDBLayer.dbShow,
+      resourceAccess = resourceAccessMock,
+      botName = botName
+    )
+  )
 
   // File Reference Check
 
@@ -47,12 +50,13 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val transactor = fixture.transactor
     val resourceAssert = for {
       resourceDBLayer <- fixture.resourceDBLayer
+      bjm             <- emptyBackgroundJobManager
       files <- Resource.eval(
         CommandRepliesData
           .values[IO](
             botName = botName,
             dbLayer = resourceDBLayer,
-            backgroundJobManager = emptyBackgroundJobManager,
+            backgroundJobManager = bjm,
           )
           .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       )
@@ -84,12 +88,13 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
     val resourceAssert = for {
       resourceDBLayer <- fixture.resourceDBLayer
+      bjm             <- emptyBackgroundJobManager
       mediaFiles <- Resource.eval(
         CommandRepliesData
           .values[IO](
             botName = botName,
             dbLayer = resourceDBLayer,
-            backgroundJobManager = emptyBackgroundJobManager,
+            backgroundJobManager = bjm,
           )
           .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       )
