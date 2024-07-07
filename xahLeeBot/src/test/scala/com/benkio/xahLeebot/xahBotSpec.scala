@@ -1,5 +1,7 @@
 package com.benkio.xahleebot
 
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.model.ReplyValue
@@ -7,8 +9,8 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import cats.effect.Async
 import telegramium.bots.client.Method
 import telegramium.bots.high.Api
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
-import io.circe.parser.decode
+
+import cats.implicits.*
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
@@ -19,11 +21,9 @@ import log.effect.LogWriter
 import munit.CatsEffectSuite
 import telegramium.bots.Message
 
-import java.io.File
-import scala.io.Source
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
-class XahLeeBotSpec extends CatsEffectSuite {
+class XahLeeBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
@@ -41,36 +41,23 @@ class XahLeeBotSpec extends CatsEffectSuite {
     def execute[Res](method: Method[Res]): IO[Res] = IO(???)
   }
 
-  val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager(
+  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     resourceAccess = resourceAccessMock,
     botName = "XahLeeBot"
-  ).unsafeRunSync()
+  ).map(bjm =>
+    XahLeeBot
+      .commandRepliesData[IO](
+        backgroundJobManager = bjm,
+        dbLayer = emptyDBLayer
+      )
+  )
+  val messageRepliesDataPrettyPrint: IO[List[String]] =
+    XahLeeBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
-  test("the jsons should contain all the triggers of the bot") {
-    val listPath      = new File(".").getCanonicalPath + "/xah_list.json"
-    val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
-
-    val botFile =
-      CommandRepliesData
-        .values[IO](
-          botName = "XahLeeBot",
-          backgroundJobManager = emptyBackgroundJobManager,
-          dbLayer = emptyDBLayer
-        )
-        .flatMap(_.reply.prettyPrint.unsafeRunSync())
-
-    jsonFilenames.fold(
-      e => fail("test failed", e),
-      files => {
-        botFile.foreach(filename => assert(files.contains(filename), s"$filename is not contained in xah data file"))
-        assert(
-          Set(files*).size == files.length,
-          s"there's a duplicate filename into the json ${files.diff(Set(files*).toList)}"
-        )
-      }
-    )
-  }
+  jsonContainsFilenames(
+    jsonFilename = "xah_list.json",
+    botData = messageRepliesDataPrettyPrint
+  )
 }

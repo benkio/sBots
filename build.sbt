@@ -18,6 +18,7 @@ addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
 addCommandAlias("check", "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck")
 addCommandAlias("validate", ";clean; compile; fix; test; integration/runIntegrationMUnitTests")
+addCommandAlias("checkAllLinksTest", "integration/runIntegrationScalaTests")
 
 // PROJECTS
 

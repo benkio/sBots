@@ -1,11 +1,14 @@
 package com.benkio.M0sconi
 
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+
+import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import telegramium.bots.high.Api
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.model.ReplyValue
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
+
 import cats.Show
 import cats.effect.IO
 import cats.implicits.*
@@ -20,12 +23,9 @@ import munit.CatsEffectSuite
 
 import telegramium.bots.Message
 
-import java.io.File
-import scala.io.Source
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import io.circe.parser.decode
 
-class M0sconiBotSpec extends CatsEffectSuite {
+class M0sconiBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(M0sconiBot.botName)
@@ -37,80 +37,37 @@ class M0sconiBotSpec extends CatsEffectSuite {
         replyToMessage: Boolean
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
-  test("triggerlist should return the link to the trigger txt file") {
-    val triggerlistUrl: String = M0sconiBot
-      .commandRepliesData[IO](
-        dbLayer = emptyDBLayer
-      )
-      .filter(_.trigger.command == "triggerlist")
-      .flatMap(_.reply.prettyPrint.unsafeRunSync())
-      .mkString("")
-    assertEquals(
-      M0sconiBot
-        .commandRepliesData[IO](
-          dbLayer = emptyDBLayer
-        )
-        .length,
-      5
+  val commandRepliesData: List[ReplyBundleCommand[IO]] = M0sconiBot
+    .commandRepliesData[IO](
+      dbLayer = emptyDBLayer
     )
-    assertEquals(
-      triggerlistUrl,
+  val messageRepliesDataPrettyPrint: IO[List[String]] =
+    M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
+
+  triggerlistCommandTest(
+    commandRepliesData = commandRepliesData.pure[IO],
+    expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/m0sconiBot/mos_triggers.txt"
-    )
+  )
 
+  test("M0sconiBot should contain the expected number of commands") {
+    assertEquals(commandRepliesData.length, 5)
   }
 
-  test("the `mos_list.json` should contain all the triggers of the bot") {
-    val listPath      = new File(".").getCanonicalPath + "/mos_list.json"
-    val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
+  jsonContainsFilenames(
+    jsonFilename = "mos_list.json",
+    botData = messageRepliesDataPrettyPrint
+  )
 
-    val botFile: IO[List[String]] =
-      M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
+  triggerFileContainsTriggers(
+    triggerFilename = "mos_triggers.txt",
+    botMediaFiles = messageRepliesDataPrettyPrint,
+    botTriggers = M0sconiBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+  )
 
-    assert(jsonFilenames.isRight)
-    jsonFilenames.fold(
-      e => fail("test failed", e),
-      files =>
-        botFile
-          .unsafeRunSync()
-          .foreach(filename => assert(files.contains(filename), s"$filename is not contained in mosconi data file"))
-        assert(
-          Set(files*).size == files.length,
-          s"there's a duplicate filename into the json ${files.diff(Set(files*).toList)}"
-        )
-    )
-
-  }
-
-  test("the `mos_triggers.txt` should contain all the triggers of the bot") {
-    val listPath       = new File(".").getCanonicalPath + "/mos_triggers.txt"
-    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
-
-    val botMediaFiles: IO[List[String]] =
-      M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
-    val botTriggersFiles =
-      M0sconiBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
-
-    botMediaFiles.unsafeRunSync().foreach { mediaFileString =>
-      assert(triggerContent.contains(mediaFileString), s"$mediaFileString is not contained in trigger data file")
-    }
-    botTriggersFiles.foreach { triggerString =>
-      assert(triggerContent.contains(triggerString), s"$triggerString is not contained in mosconi trigger file")
-    }
-  }
-
-  test("instructions command should return the expected message") {
-    val actual: IO[List[String]] = M0sconiBot
-      .commandRepliesData[IO](
-        dbLayer = emptyDBLayer
-      )
-      .filter(_.trigger.command == "instructions")
-      .flatTraverse(_.reply.prettyPrint)
-    assertIO(
-      actual,
-      List(
-        s"""
+  instructionsCommandTest(
+    commandRepliesData = commandRepliesData.pure[IO],
+    s"""
 ---- Instruzioni Per M0sconiBot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -128,7 +85,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-        s"""
+    s"""
 ---- Instructions for M0sconiBot ----
 
 to report issues, write to: https://t.me/Benkio
@@ -145,7 +102,5 @@ character: `!`
 
 ! Message
 """
-      )
-    )
-  }
+  )
 }

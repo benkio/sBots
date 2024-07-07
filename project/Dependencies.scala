@@ -48,6 +48,7 @@ object Dependencies {
     val flyway            = "org.flywaydb"         % "flyway-core"              % versions.flyway
     val fs2Core           = "co.fs2"              %% "fs2-core"                 % versions.fs2Core
     val fs2IO             = "co.fs2"              %% "fs2-io"                   % versions.fs2IO
+    val http4sCirce       = "org.http4s"          %% "http4s-circe"             % versions.http4s
     val http4sClient      = "org.http4s"          %% "http4s-client"            % versions.http4s
     val http4sCore        = "org.http4s"          %% "http4s-core"              % versions.http4s
     val http4sDsl         = "org.http4s"          %% "http4s-dsl"               % versions.http4s
@@ -78,6 +79,7 @@ object Dependencies {
     libs.catsEffectKernel,
     libs.circeParser,
     libs.fs2IO,
+    libs.http4sCirce,
     libs.http4sClient,
     libs.http4sCore,
     libs.http4sEmberClient,
@@ -143,10 +145,11 @@ object Dependencies {
     libs.doobieCore,
     libs.doobieFree,
     libs.flyway,
-    libs.logbackClassic,
-    libs.logbackLogstash,
+    libs.http4sCore,
     libs.logEffectsCore,
     libs.logEffectsFs2,
+    libs.logbackClassic,
+    libs.logbackLogstash,
     libs.munit,
     libs.pureConfigCore,
   )

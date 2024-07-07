@@ -1,15 +1,15 @@
 package com.benkio.botDB.db.schema
 
+import org.http4s.Uri
 import cats.ApplicativeThrow
 
-import java.net.URL
 import java.sql.Timestamp
 
 final case class MediaEntity(
     media_name: String,
     kinds: List[String],
     mime_type: String,
-    media_url: URL,
+    media_uri: Uri,
     created_at: Timestamp
 )
 

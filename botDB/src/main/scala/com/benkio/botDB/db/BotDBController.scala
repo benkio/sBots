@@ -61,11 +61,11 @@ object BotDBController {
                   media_name = i.filename,
                   kinds = i.kinds.getOrElse(List.empty),
                   mime_type = mime,
-                  media_url = i.url,
+                  media_uri = i.uri,
                   created_at = Timestamp.from(Instant.now())
                 )
               )
-            _ <- Sync[F].delay(println(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.url}, successfully"))
+            _ <- Sync[F].delay(println(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.uri}, successfully"))
           } yield ()
         )
       )

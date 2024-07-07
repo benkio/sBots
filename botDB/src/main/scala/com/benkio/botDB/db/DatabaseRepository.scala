@@ -29,9 +29,9 @@ object DatabaseRepository {
       }
 
     private def insertSql(mediaEntity: MediaEntity): Update0 =
-      sql"INSERT INTO media (media_name, kinds, mime_type, media_url, created_at, media_count) VALUES (${mediaEntity.media_name}, ${mediaEntity.kinds.asJson.noSpaces}, ${mediaEntity.mime_type}, ${mediaEntity.media_url.toString}, ${mediaEntity.created_at}, 0);".update
+      sql"INSERT INTO media (media_name, kinds, mime_type, media_url, created_at, media_count) VALUES (${mediaEntity.media_name}, ${mediaEntity.kinds.asJson.noSpaces}, ${mediaEntity.mime_type}, ${mediaEntity.media_uri.toString}, ${mediaEntity.created_at}, 0);".update
 
     private def updateOnConflictSql(mediaEntity: MediaEntity): Update0 =
-      sql"UPDATE media SET kinds = ${mediaEntity.kinds.asJson.noSpaces}, media_url = ${mediaEntity.media_url.toString} WHERE media_name = ${mediaEntity.media_name};".update
+      sql"UPDATE media SET kinds = ${mediaEntity.kinds.asJson.noSpaces}, media_url = ${mediaEntity.media_uri.toString} WHERE media_name = ${mediaEntity.media_name};".update
   }
 }

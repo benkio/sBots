@@ -100,14 +100,18 @@ class ReplyBundleSpec extends CatsEffectSuite {
       ),
       reply = MediaReply[IO](mediaFiles = inputMediafile.pure[IO])
     )
-    val result: Array[String] = ReplyBundle.prettyPrint(replyBundleInput).unsafeRunSync().split('\n')
-    assertEquals(result.length, 7)
-    assertEquals(result(0), "--------------------------------------------------")
-    assertEquals(result(1), "audio.mp3                 | stringTextTriggerValue")
-    assertEquals(result(2), "picture.jpg               | regexTextTriggerValue")
-    assertEquals(result(3), "picture.png               | ")
-    assertEquals(result(4), "a.gif                     | ")
-    assertEquals(result(5), "video.mp4                 | ")
-    assertEquals(result(6), "--------------------------------------------------")
+    val result: IO[String] = ReplyBundle.prettyPrint(replyBundleInput)
+
+    assertIO(
+      result,
+      """--------------------------------------------------
+audio.mp3                 | stringTextTriggerValue
+picture.jpg               | regexTextTriggerValue
+picture.png               | 
+a.gif                     | 
+video.mp4                 | 
+--------------------------------------------------
+"""
+    )
   }
 }

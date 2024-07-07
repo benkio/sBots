@@ -3,7 +3,7 @@ package com.benkio.integration.integrationscalatest.main
 import cats.effect.IO
 import cats.effect.Resource
 import cats.effect.unsafe.implicits.global
-import cats.syntax.all.*
+import cats.implicits.*
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.SlowTest
@@ -34,8 +34,8 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
   given LogWriter[IO]                    = consoleLogUpToLevel(LogLevels.Info)
   val initialFixture: DBFixtureResources = DBFixture.fixtureSetup(null)
 
-  val allMessageMediaFiles: List[MediaFile] =
-    (for
+  val allMessageMediaFiles: Resource[IO, List[MediaFile]] =
+    for
       dbLayer        <- initialFixture.resourceDBLayer
       resourceAccess <- initialFixture.resourceAccessResource
       emptyBackgroundJobManager <- Resource.eval(
@@ -61,9 +61,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           XahLeeBot.commandRepliesData[IO](emptyBackgroundJobManager, dbLayer))
           .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       )
-    yield mediaFiles.distinctBy(_.filename))
-      .use(IO.pure)
-      .unsafeRunSync()
+    yield mediaFiles.distinctBy(_.filename)
 
   def withFixture(test: OneArgTest): Outcome = {
     val fixtureParam = FixtureParam(DBFixture.fixtureSetup(null))
@@ -73,15 +71,14 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
     } finally DBFixture.teardownFixture(fixtureParam.fixture)
   }
 
-  def checkFile(mf: MediaFile): Unit =
+  def checkFile(mf: MediaFile): IO[Unit] =
     // ignore to not run in CI, remove sometimes to check all the messages files
     test(s"${mf.filename} should return some data", SlowTest) { case FixtureParam(fixture) =>
-      val resourceAssert = for {
+      (for {
         resourceAccess <- fixture.resourceAccessResource
         file           <- resourceAccess.getResourceFile(mf)
-      } yield file.length > (5 * 1024)
-      assert(resourceAssert.use(IO.pure).unsafeRunSync())
-    }
+      } yield assert(file.length > (5 * 1024))).use_
+    }.pure[IO]
 
-  allMessageMediaFiles.foreach(checkFile)
+  allMessageMediaFiles.use(files => files.traverse(file => checkFile(file))).void.unsafeRunSync()
 }

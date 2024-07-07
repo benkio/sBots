@@ -44,39 +44,26 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   databaseFixture.test(
     "DBTimeout.getOrDefault should return the default timeout if the chat id is not present in the database"
   ) { fixture =>
-    val actual: Resource[IO, DBTimeoutData] =
-      fixture.resourceDBLayer.evalMap(dbLayer => dbLayer.dbTimeout.getOrDefault(100L, testBotName) // Not present ChatID
-      )
-
-    actual
-      .use { timeout =>
-        IO {
-          assertEquals(timeout.chat_id, 100L)
-          assertEquals(timeout.timeout_value, "0")
-        }
-      }
-      .unsafeRunSync()
-
+    (for
+      // Not present ChatID
+      timeout <- fixture.resourceDBLayer.evalMap(dbLayer => dbLayer.dbTimeout.getOrDefault(100L, testBotName))
+    yield
+      assertEquals(timeout.chat_id, 100L)
+      assertEquals(timeout.timeout_value, "0")
+    ).use_
   }
 
   databaseFixture.test(
     "DBTimeout.getOrDefault should return the timeout if the chat id is present in the database"
   ) { fixture =>
-    val actual = for {
+    (for {
       dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
       _         <- Resource.eval(dbTimeout.setTimeout(testTimeout))
       timeout   <- Resource.eval(dbTimeout.getOrDefault(1L, testBotName)) // Present ChatID
-    } yield timeout
-
-    actual
-      .use { timeout =>
-        IO {
-          assertEquals(timeout.chat_id, 1L)
-          assertEquals(timeout.timeout_value, "15000")
-        }
-      }
-      .unsafeRunSync()
-
+    } yield {
+      assertEquals(timeout.chat_id, 1L)
+      assertEquals(timeout.timeout_value, "15000")
+    }).use_
   }
 
   databaseFixture.test(
@@ -85,19 +72,14 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val chatId = 2L
     val timeout =
       DBTimeoutData(chatId, testBotName, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
-    val actual = for {
+    (for {
       dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
       _         <- Resource.eval(dbTimeout.setTimeout(timeout))
-      result    <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
-    } yield result
-    actual
-      .use { timeout =>
-        IO {
-          assertEquals(timeout.chat_id, 2L)
-          assertEquals(timeout.timeout_value, "2000")
-        }
-      }
-      .unsafeRunSync()
+      timeout   <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+    } yield
+      assertEquals(timeout.chat_id, 2L)
+      assertEquals(timeout.timeout_value, "2000")
+    ).use_
   }
 
   databaseFixture.test("DBTimeout.setTimeout should update the timeout if the chat id is present in the database") {
@@ -105,39 +87,28 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
       val chatId = 1L
       val timeout =
         DBTimeoutData(chatId, testBotName, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
-      val actual = for {
+      (for {
         dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
         _         <- Resource.eval(dbTimeout.setTimeout(timeout))
         result    <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
-      } yield result
-      actual
-        .use { timeout =>
-          IO {
-            assertEquals(timeout.chat_id, 1L)
-            assertEquals(timeout.timeout_value, "2000")
-          }
-        }
-        .unsafeRunSync()
-
+      } yield
+        assertEquals(timeout.chat_id, 1L)
+        assertEquals(timeout.timeout_value, "2000")
+      ).use_
   }
 
   databaseFixture.test(
     "DBTimeout.logLastInteraction should insert the timeout if the chat id is not present in the database"
   ) { fixture =>
     val chatId = 2L
-    val actual = for {
+    (for {
       dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
       _         <- Resource.eval(dbTimeout.logLastInteraction(chatId, testBotName))
-      result    <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
-    } yield result
-    actual
-      .use { timeout =>
-        IO {
-          assertEquals(timeout.chat_id, 2L)
-          assertEquals(timeout.timeout_value, "0")
-        }
-      }
-      .unsafeRunSync()
+      timeout   <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+    } yield
+      assertEquals(timeout.chat_id, 2L)
+      assertEquals(timeout.timeout_value, "0")
+    ).use_
 
   }
 
@@ -146,24 +117,18 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val chatId = 1L
 
-    val actual = for {
-      dbTimeout   <- fixture.resourceDBLayer.map(_.dbTimeout)
-      _           <- Resource.eval(dbTimeout.setTimeout(testTimeout))
-      prevResult  <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
-      _           <- Resource.eval(dbTimeout.logLastInteraction(chatId, testBotName))
-      afterResult <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
-    } yield (prevResult, afterResult)
-    actual
-      .use { case (prevTimeout, afterTimeout) =>
-        IO {
-          assertEquals(prevTimeout.chat_id, 1L)
-          assertEquals(prevTimeout.timeout_value, "15000")
-          assertEquals(afterTimeout.chat_id, 1L)
-          assertEquals(afterTimeout.timeout_value, "15000")
-          assert(prevTimeout.last_interaction.toLong < afterTimeout.last_interaction.toLong)
-        }
-      }
-      .unsafeRunSync()
-
+    (for {
+      dbTimeout    <- fixture.resourceDBLayer.map(_.dbTimeout)
+      _            <- Resource.eval(dbTimeout.setTimeout(testTimeout))
+      prevTimeout  <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+      _            <- Resource.eval(dbTimeout.logLastInteraction(chatId, testBotName))
+      afterTimeout <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+    } yield
+      assertEquals(prevTimeout.chat_id, 1L)
+      assertEquals(prevTimeout.timeout_value, "15000")
+      assertEquals(afterTimeout.chat_id, 1L)
+      assertEquals(afterTimeout.timeout_value, "15000")
+      assert(prevTimeout.last_interaction.toLong < afterTimeout.last_interaction.toLong)
+    ).use_
   }
 }
