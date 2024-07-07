@@ -270,6 +270,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "sabato sera",
       "lo sporco",
+      "distorsione",
       "più pulito",
       "john travolta",
       "video didattico",
@@ -1723,6 +1724,13 @@ object Video {
       "fino alle stelle"
     )(
       vid"rphjb_LegatiMaDaQualeSpagoCateneInvisibiliFilamentiOroFinoAlleStelleForzaRitraeIndietro.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "malattia",
+      "behringer",
+      "ferma(rsi|ti)".r.tr(7)
+    )(
+      vid"rphjb_MalattiaBehringerNonRiesconoAFermarsi.mp4"
     )
   )
 }
