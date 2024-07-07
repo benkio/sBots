@@ -736,7 +736,8 @@ object Video {
       "spago",
     )(
       vid"rphjb_LegatiSpago.mp4",
-      vid"rphjb_UnitiQualeSpago.mp4"
+      vid"rphjb_UnitiQualeSpago.mp4",
+      vid"rphjb_LacciMaleficiSpaghiCordeCateneRetoricheOstrogoteBislamicheCirconcisoPrigioneVita.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ci siamo sciolti",
@@ -1694,6 +1695,21 @@ object Video {
       "covo del metallo",
     )(
       vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "lacci malefici",
+      "spaghi",
+      "corde",
+      "catene",
+      "retoriche",
+      "ostrogote",
+      "bilsamiche",
+      "non mi interessano",
+      "circonciso",
+      "che ci uniscono",
+      "prigione",
+    )(
+      vid"rphjb_LacciMaleficiSpaghiCordeCateneRetoricheOstrogoteBislamicheCirconcisoPrigioneVita.mp4"
     )
   )
 }
