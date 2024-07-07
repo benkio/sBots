@@ -33,7 +33,6 @@ class CalandroBotSpec extends BaseBotSpec {
           .flatTraverse(_.reply.prettyPrint)
       )
       .map { case (m, c) => m ++ c }
-      .unsafeRunSync(),
   )
 
   triggerFileContainsTriggers(
@@ -41,8 +40,7 @@ class CalandroBotSpec extends BaseBotSpec {
     botMediaFiles = CalandroBot
       .messageRepliesData[IO]
       .flatTraverse(_.reply.prettyPrint)
-      .unsafeRunSync()
-      .filter(x => !excludeTriggers.exists(exc => x.startsWith(exc))),
+      .map(_.filterNot(x => excludeTriggers.exists(exc => x.startsWith(exc)))),
     botTriggers = CalandroBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')),
   )
 }

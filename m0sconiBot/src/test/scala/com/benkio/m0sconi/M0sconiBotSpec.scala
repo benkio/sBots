@@ -1,5 +1,7 @@
 package com.benkio.M0sconi
 
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import telegramium.bots.high.Api
 import cats.effect.Async
@@ -35,43 +37,36 @@ class M0sconiBotSpec extends BaseBotSpec {
         replyToMessage: Boolean
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
+  val commandRepliesData: List[ReplyBundleCommand[IO]] = M0sconiBot
+    .commandRepliesData[IO](
+      dbLayer = emptyDBLayer
+    )
+  val messageRepliesDataPrettyPrint: IO[List[String]] =
+    M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
   triggerlistCommandTest(
-    commandRepliesData = M0sconiBot
-      .commandRepliesData[IO](
-        dbLayer = emptyDBLayer
-      ),
+    commandRepliesData = commandRepliesData.pure[IO],
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/m0sconiBot/mos_triggers.txt"
   )
 
   test("M0sconiBot should contain the expected number of commands") {
-    assertEquals(
-      M0sconiBot
-        .commandRepliesData[IO](
-          dbLayer = emptyDBLayer
-        )
-        .length,
-      5
-    )
+    assertEquals(commandRepliesData.length, 5)
   }
 
   jsonContainsFilenames(
     jsonFilename = "mos_list.json",
-    botData = M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync()
+    botData = messageRepliesDataPrettyPrint
   )
 
   triggerFileContainsTriggers(
     triggerFilename = "mos_triggers.txt",
-    botMediaFiles = M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync(),
+    botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = M0sconiBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )
 
   instructionsCommandTest(
-    commandRepliesData = M0sconiBot
-      .commandRepliesData[IO](
-        dbLayer = emptyDBLayer
-      ),
+    commandRepliesData = commandRepliesData.pure[IO],
     s"""
 ---- Instruzioni Per M0sconiBot ----
 

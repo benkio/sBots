@@ -1,5 +1,6 @@
 package com.benkio.xahleebot
 
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
@@ -40,15 +41,23 @@ class XahLeeBotSpec extends BaseBotSpec {
     def execute[Res](method: Method[Res]): IO[Res] = IO(???)
   }
 
-  val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager(
+  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     resourceAccess = resourceAccessMock,
     botName = "XahLeeBot"
-  ).unsafeRunSync()
+  ).map(bjm =>
+    XahLeeBot
+      .commandRepliesData[IO](
+        backgroundJobManager = bjm,
+        dbLayer = emptyDBLayer
+      )
+  )
+  val messageRepliesDataPrettyPrint: IO[List[String]] =
+    XahLeeBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
   jsonContainsFilenames(
     jsonFilename = "xah_list.json",
-    botData = XahLeeBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync()
+    botData = messageRepliesDataPrettyPrint
   )
 }

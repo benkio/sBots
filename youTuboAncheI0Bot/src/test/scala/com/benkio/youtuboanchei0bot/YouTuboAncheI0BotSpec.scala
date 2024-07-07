@@ -1,5 +1,6 @@
 package com.benkio.youtuboanchei0bot
 
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import telegramium.bots.client.Method
 import telegramium.bots.high.Api
@@ -41,52 +42,44 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   }
   given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
-  val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager[IO](
+  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
     emptyDBLayer.dbShow,
     resourceAccessMock,
     "youTuboAncheI0Bot"
-  ).unsafeRunSync()
+  ).map(bjm =>
+    YouTuboAncheI0Bot
+      .commandRepliesData[IO](
+        backgroundJobManager = bjm,
+        dbLayer = emptyDBLayer
+      )
+  )
 
   triggerlistCommandTest(
-    commandRepliesData = YouTuboAncheI0Bot
-      .commandRepliesData[IO](
-        dbLayer = emptyDBLayer,
-        backgroundJobManager = emptyBackgroundJobManager
-      ),
+    commandRepliesData = commandRepliesData,
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/youTuboAncheI0Bot/ytai_triggers.txt"
   )
 
   test("YoutuboAncheI0Bot sholud return the expected number of commands") {
-    assertEquals(
-      YouTuboAncheI0Bot
-        .commandRepliesData[IO](
-          backgroundJobManager = emptyBackgroundJobManager,
-          dbLayer = emptyDBLayer
-        )
-        .length,
-      9
-    )
+    assertIO(commandRepliesData.map(_.length), 9)
   }
+  val messageRepliesDataPrettyPrint: IO[List[String]] =
+    YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
   jsonContainsFilenames(
     jsonFilename = "ytai_list.json",
-    botData = YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync()
+    botData = messageRepliesDataPrettyPrint
   )
 
   triggerFileContainsTriggers(
     triggerFilename = "ytai_triggers.txt",
-    botMediaFiles = YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync(),
+    botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')),
   )
 
   instructionsCommandTest(
-    commandRepliesData = YouTuboAncheI0Bot
-      .commandRepliesData[IO](
-        backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer
-      ),
+    commandRepliesData = commandRepliesData,
     s"""
 ---- Instruzioni Per YouTuboAncheI0Bot ----
 
