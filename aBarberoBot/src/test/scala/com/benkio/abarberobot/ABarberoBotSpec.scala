@@ -1,5 +1,6 @@
 package com.benkio.abarberobot
 
+import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import telegramium.bots.client.Method
 import telegramium.bots.high.Api
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -7,7 +8,7 @@ import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.model.ReplyValue
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
+
 import cats.Show
 import cats.effect.IO
 import cats.implicits.*
@@ -20,13 +21,10 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
 import telegramium.bots.Message
-import io.circe.parser.decode
 
-import java.io.File
-import scala.io.Source
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
-class ABarberoBotSpec extends CatsEffectSuite {
+class ABarberoBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(ABarberoBot.botName)
@@ -50,15 +48,17 @@ class ABarberoBotSpec extends CatsEffectSuite {
     "ABarberoBot"
   ).unsafeRunSync()
 
-  test("triggerlist should return a list of all triggers when called") {
-    val triggerlist: String = ABarberoBot
+  triggerlistCommandTest(
+    commandRepliesData = ABarberoBot
       .commandRepliesData[IO](
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer
-      )
-      .filter(_.trigger.command == "triggerlist")
-      .flatMap(_.reply.prettyPrint.unsafeRunSync())
-      .mkString("\n")
+      ),
+    expectedReply =
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/aBarberoBot/abar_triggers.txt"
+  )
+
+  test("ABarberoBot should contain the expected number of commands") {
     assertEquals(
       ABarberoBot
         .commandRepliesData[IO](
@@ -68,62 +68,26 @@ class ABarberoBotSpec extends CatsEffectSuite {
         .length,
       9
     )
-    assertEquals(
-      triggerlist,
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/aBarberoBot/abar_triggers.txt"
-    )
   }
 
-  test("the `abar_list.json` should contain all the triggers of the bot") {
-    val listPath      = new File(".").getCanonicalPath + "/abar_list.json"
-    val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
+  jsonContainsFilenames(
+    jsonFilename = "abar_list.json",
+    botData = ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync()
+  )
 
-    val botFile = ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
+  triggerFileContainsTriggers(
+    triggerFilename = "abar_triggers.txt",
+    botMediaFiles = ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync(),
+    botTriggers = ABarberoBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+  )
 
-    assert(jsonFilenames.isRight)
-    jsonFilenames.fold(
-      e => fail("test failed", e),
-      files =>
-        botFile
-          .unsafeRunSync()
-          .foreach(filename => assert(files.contains(filename), s"$filename is not contained in barbero data file"))
-        assert(
-          Set(files*).size == files.length,
-          s"there's a duplicate filename into the json ${files.diff(Set(files*).toList)}"
-        )
-    )
-
-  }
-
-  test("the `abar_triggers.txt` should contain all the triggers of the bot") {
-    val listPath       = new File(".").getCanonicalPath + "/abar_triggers.txt"
-    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
-
-    val botMediaFiles = ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
-    val botTriggersFiles =
-      ABarberoBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
-
-    botMediaFiles.unsafeRunSync().foreach { mediaFileString =>
-      assert(triggerContent.contains(mediaFileString))
-    }
-    botTriggersFiles.foreach { triggerString =>
-      assert(triggerContent.contains(triggerString), s"$triggerString is not contained in barbero trigger file")
-    }
-  }
-
-  test("instructions command should return the expected message") {
-    val actual = ABarberoBot
+  instructionsCommandTest(
+    commandRepliesData = ABarberoBot
       .commandRepliesData[IO](
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer
-      )
-      .filter(_.trigger.command == "instructions")
-      .flatTraverse(_.reply.prettyPrint)
-    assertIO(
-      actual,
-      List(
-        s"""
+      ),
+    italianInstructions = s"""
 ---- Instruzioni Per ABarberoBot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -155,7 +119,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-        s"""
+    englishInstructions = s"""
 ---- Instructions for ABarberoBot ----
 
 to report issues, write to: https://t.me/Benkio
@@ -185,8 +149,6 @@ if you wish to disable the bot for a specific message, blocking its reply/intera
 character: `!`
 
 ! Message
-"""
-      )
-    )
-  }
+""",
+  )
 }

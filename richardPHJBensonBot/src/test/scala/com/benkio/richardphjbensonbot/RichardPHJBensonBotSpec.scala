@@ -1,5 +1,6 @@
 package com.benkio.richardphjbensonbot
 
+import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import telegramium.bots.client.Method
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
@@ -7,8 +8,7 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.model.ReplyValue
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import telegramium.bots.high.Api
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
-import io.circe.parser.decode
+
 import cats.Show
 import cats.effect.IO
 import cats.implicits.*
@@ -24,11 +24,9 @@ import log.effect.LogWriter
 import munit.CatsEffectSuite
 import telegramium.bots.Message
 
-import java.io.File
-import scala.io.Source
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
-class RichardPHJBensonBotSpec extends CatsEffectSuite {
+class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 
@@ -77,15 +75,17 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
     assert(result, true)
   }
 
-  test("triggerlist should return a list of all triggers when called") {
-    val triggerlist = RichardPHJBensonBot
+  triggerlistCommandTest(
+    commandRepliesData = RichardPHJBensonBot
       .commandRepliesData[IO](
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer
-      )
-      .filter(_.trigger.command == "triggerlist")
-      .flatMap(_.reply.prettyPrint.unsafeRunSync())
-      .mkString("")
+      ),
+    expectedReply =
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
+  )
+
+  test("RichardPHJBensonBot should contain the expected number of commands") {
     assertEquals(
       RichardPHJBensonBot
         .commandRepliesData[IO](
@@ -95,24 +95,26 @@ class RichardPHJBensonBotSpec extends CatsEffectSuite {
         .length,
       10
     )
-    assertEquals(
-      triggerlist,
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
-    )
   }
 
-  test("instructions command should return the expected message") {
-    val actual = RichardPHJBensonBot
+  jsonContainsFilenames(
+    jsonFilename = "rphjb_list.json",
+    botData = RichardPHJBensonBot.messageRepliesData[IO].flatMap(_.reply.prettyPrint.unsafeRunSync())
+  )
+
+  triggerFileContainsTriggers(
+    triggerFilename = "rphjb_triggers.txt",
+    botMediaFiles = RichardPHJBensonBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync(),
+    botTriggers = RichardPHJBensonBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+  )
+
+  instructionsCommandTest(
+    commandRepliesData = RichardPHJBensonBot
       .commandRepliesData[IO](
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer
-      )
-      .filter(_.trigger.command == "instructions")
-      .flatTraverse(_.reply.prettyPrint)
-    assertIO(
-      actual,
-      List(
-        s"""
+      ),
+    italianInstructions = s"""
 ---- Instruzioni Per RichardPHJBensonBot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -145,7 +147,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-        s"""
+    englishInstructions = s"""
 ---- Instructions for RichardPHJBensonBot ----
 
 to report issues, write to: https://t.me/Benkio
@@ -177,49 +179,6 @@ character: `!`
 
 ! Message
 """
-      )
-    )
-  }
+  )
 
-  test("the `rphjb_list.json` should contain all the triggers of the bot") {
-    val listPath      = new File(".").getCanonicalPath + "/rphjb_list.json"
-    val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
-
-    val botFile = RichardPHJBensonBot.messageRepliesData[IO].flatMap(_.reply.prettyPrint.unsafeRunSync())
-
-    assert(jsonFilenames.isRight)
-    jsonFilenames.fold(
-      e => fail("test failed", e),
-      files =>
-        botFile.foreach(filename =>
-          assert(files.contains(filename), s"$filename is not contained in richard data file")
-        )
-        assert(
-          Set(files*).size == files.length,
-          s"there's a duplicate filename into the json ${files.diff(Set(files*).toList)}"
-        )
-    )
-
-  }
-
-  test("the `rphjb_triggers.txt` should contain all the triggers of the bot") {
-    val listPath       = new File(".").getCanonicalPath + "/rphjb_triggers.txt"
-    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
-
-    val botMediaFiles = RichardPHJBensonBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
-    val botTriggersFiles =
-      RichardPHJBensonBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
-
-    botMediaFiles.unsafeRunSync().foreach { mediaFileString =>
-      val result = triggerContent.contains(mediaFileString)
-      if (!result) {
-        println(s"Mediafile missing: $mediaFileString")
-      }
-      assert(result)
-    }
-    botTriggersFiles.foreach { triggerString =>
-      assert(triggerContent.contains(triggerString), s"$triggerString is not contained in richard trigger file")
-    }
-  }
 }

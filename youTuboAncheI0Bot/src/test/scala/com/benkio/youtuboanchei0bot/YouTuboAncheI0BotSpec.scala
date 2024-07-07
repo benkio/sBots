@@ -1,5 +1,6 @@
 package com.benkio.youtuboanchei0bot
 
+import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import telegramium.bots.client.Method
 import telegramium.bots.high.Api
 import cats.effect.Async
@@ -7,7 +8,7 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.model.ReplyValue
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
+
 import cats.Show
 import cats.effect.IO
 import cats.implicits.*
@@ -21,13 +22,10 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
 import telegramium.bots.Message
-import io.circe.parser.decode
 
-import java.io.File
-import scala.io.Source
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
-class YouTuboAncheI0BotSpec extends CatsEffectSuite {
+class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
   val resourceAccessMock = new ResourceAccessMock(List.empty)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
@@ -50,15 +48,17 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
     "youTuboAncheI0Bot"
   ).unsafeRunSync()
 
-  test("triggerlist should return the link to the trigger txt file") {
-    val triggerlistUrl = YouTuboAncheI0Bot
+  triggerlistCommandTest(
+    commandRepliesData = YouTuboAncheI0Bot
       .commandRepliesData[IO](
         dbLayer = emptyDBLayer,
         backgroundJobManager = emptyBackgroundJobManager
-      )
-      .filter(_.trigger.command == "triggerlist")
-      .flatMap(_.reply.prettyPrint.unsafeRunSync())
-      .mkString("")
+      ),
+    expectedReply =
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/youTuboAncheI0Bot/ytai_triggers.txt"
+  )
+
+  test("YoutuboAncheI0Bot sholud return the expected number of commands") {
     assertEquals(
       YouTuboAncheI0Bot
         .commandRepliesData[IO](
@@ -68,62 +68,26 @@ class YouTuboAncheI0BotSpec extends CatsEffectSuite {
         .length,
       9
     )
-    assertEquals(
-      triggerlistUrl,
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/youTuboAncheI0Bot/ytai_triggers.txt"
-    )
-
   }
 
-  test("the `ytai_list.json` should contain all the triggers of the bot") {
-    val listPath      = new File(".").getCanonicalPath + "/ytai_list.json"
-    val jsonContent   = Source.fromFile(listPath).getLines().mkString("\n")
-    val jsonFilenames = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
+  jsonContainsFilenames(
+    jsonFilename = "ytai_list.json",
+    botData = YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync()
+  )
 
-    val botFile = YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
+  triggerFileContainsTriggers(
+    triggerFilename = "ytai_triggers.txt",
+    botMediaFiles = YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync(),
+    botTriggers = YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')),
+  )
 
-    jsonFilenames.fold(
-      e => fail("test failed", e),
-      files =>
-        botFile
-          .unsafeRunSync()
-          .foreach(filename => assert(files.contains(filename), s"$filename is not contained in youtubo data file"))
-        assert(
-          Set(files*).size == files.length,
-          s"there's a duplicate filename into the json ${files.diff(Set(files*).toList)}"
-        )
-    )
-
-  }
-
-  test("the `ytai_triggers.txt` should contain all the triggers of the bot") {
-    val listPath       = new File(".").getCanonicalPath + "/ytai_triggers.txt"
-    val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
-
-    val botMediaFiles = YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
-    val botTriggersFiles =
-      YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
-
-    botMediaFiles.unsafeRunSync().foreach { mediaFileString =>
-      assert(triggerContent.contains(mediaFileString), s"$mediaFileString is not contained in youtubo trigger file")
-    }
-    botTriggersFiles.foreach { triggerString =>
-      assert(triggerContent.contains(triggerString), s"$triggerString is not contained in youtubo trigger file")
-    }
-  }
-
-  test("instructions command should return the expected message") {
-    val actual = YouTuboAncheI0Bot
+  instructionsCommandTest(
+    commandRepliesData = YouTuboAncheI0Bot
       .commandRepliesData[IO](
         backgroundJobManager = emptyBackgroundJobManager,
         dbLayer = emptyDBLayer
-      )
-      .filter(_.trigger.command == "instructions")
-      .flatTraverse(_.reply.prettyPrint)
-    assertIO(
-      actual,
-      List(
-        s"""
+      ),
+    s"""
 ---- Instruzioni Per YouTuboAncheI0Bot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -155,7 +119,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-        s"""
+    s"""
 ---- Instructions for YouTuboAncheI0Bot ----
 
 to report issues, write to: https://t.me/Benkio
@@ -186,7 +150,5 @@ character: `!`
 
 ! Message
 """
-      )
-    )
-  }
+  )
 }
