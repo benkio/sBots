@@ -2047,6 +2047,12 @@ object Mix {
     )(
       vid"rphjb_MeNeVado2.mp4",
       mp3"rphjb_MeNeVado2.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "proprio a me\\b".r.tr(12)
+    )(
+      gif"rphjb_ProprioAMe.mp4",
+      vid"rphjb_ProprioAMe2.mp4"
     )
   )
 
