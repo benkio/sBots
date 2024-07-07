@@ -1665,6 +1665,12 @@ object Video {
       "incontrare dio"
     )(
       vid"rphjb_InAltoCieliArteDioDonna.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "insegnanti",
+      "dove stanno"
+    )(
+      vid"rphjb_InsegnantiImportantiInsegnantiColtiDoveStanno.mp4"
     )
   )
 }
