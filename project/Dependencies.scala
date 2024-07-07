@@ -145,10 +145,11 @@ object Dependencies {
     libs.doobieCore,
     libs.doobieFree,
     libs.flyway,
-    libs.logbackClassic,
-    libs.logbackLogstash,
+    libs.http4sCore,
     libs.logEffectsCore,
     libs.logEffectsFs2,
+    libs.logbackClassic,
+    libs.logbackLogstash,
     libs.munit,
     libs.pureConfigCore,
   )
