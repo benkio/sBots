@@ -1742,6 +1742,14 @@ object Video {
       "(è|deve essere|dev'essere) ripreso".r.tr(9)
     )(
       vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "non tutto il male viene per nuocere",
+      "non sono (uno )?(scemo|stolto)",
+      "so dove voglio",
+      "so (quello che|cosa) sto facendo",
+    )(
+      vid"rphjb_NonTuttoIlMaleVieneNuocereSoQuelloCheStoFacendoNoScemoStolto.mp4"
     )
   )
 }
