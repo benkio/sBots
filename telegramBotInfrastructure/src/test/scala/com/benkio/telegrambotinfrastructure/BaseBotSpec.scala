@@ -86,14 +86,15 @@ trait BaseBotSpec extends CatsEffectSuite:
       expectedReply: String
   ): Unit =
     test("triggerlist should return a list of all triggers when called") {
-      val triggerlist = commandRepliesData.map(
-        _.filter(_.trigger.command == "triggerlist")
-          .flatMap(_.reply.prettyPrint.unsafeRunSync())
-          .mkString("")
-      )
-
-      assertIO(
-        triggerlist,
-        expectedReply
-      )
+      for
+        commands <- commandRepliesData
+        triggerListCommand = commands.filter(_.trigger.command == "triggerlist")
+        triggerListCommandPrettyPrint <- triggerListCommand.flatTraverse(_.reply.prettyPrint)
+      yield {
+        assert(triggerListCommandPrettyPrint.length == 1)
+        assertEquals(
+          triggerListCommandPrettyPrint.headOption,
+          expectedReply.some
+        )
+      }
     }
