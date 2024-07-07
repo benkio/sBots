@@ -1671,6 +1671,12 @@ object Video {
       "dove stanno"
     )(
       vid"rphjb_InsegnantiImportantiInsegnantiColtiDoveStanno.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "(mica|non) sono come gli altri".r.tr(23),
+      "fuori dal (coro|gregge)".r.tr(14)
+    )(
+      vid"rphjb_IoMicaSonoComeGliAltriBestiaFuoriDalGreggeVoceFuoriDalCoro.mp4"
     )
   )
 }
