@@ -447,8 +447,15 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "albero grande",
       "anche un('| )amplificatore".r.tr(22),
+      "tutti i (suoi )?frutti ti d[aà]".r.tr(20),
+      "per quanti gliene domandi",
+      "sempre uno ne troverà",
+      "il (fiore|frutto)".r.tr(8),
+      "la foglia",
+      "di tutto s[ie] spoglia".r.tr(19),
     )(
       vid"rphjb_PoesiaRock.mp4",
+      vid"rphjb_PoesiaRockAlberoGrande.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "brutto vigile"
