@@ -1,5 +1,6 @@
 package com.benkio.abarberobot
 
+import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import telegramium.bots.client.Method
 import telegramium.bots.high.Api
@@ -41,52 +42,48 @@ class ABarberoBotSpec extends BaseBotSpec {
     def execute[Res](method: Method[Res]): IO[Res] = IO(???)
   }
 
-  val emptyBackgroundJobManager: BackgroundJobManager[IO] = BackgroundJobManager[IO](
+  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,
     emptyDBLayer.dbShow,
     resourceAccessMock,
     "ABarberoBot"
-  ).unsafeRunSync()
+  ).map(bjm =>
+    ABarberoBot
+      .commandRepliesData[IO](
+        backgroundJobManager = bjm,
+        dbLayer = emptyDBLayer
+      )
+  )
+
+  val messageRepliesDataPrettyPrint: IO[List[String]] =
+    ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
   triggerlistCommandTest(
-    commandRepliesData = ABarberoBot
-      .commandRepliesData[IO](
-        backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer
-      ),
+    commandRepliesData = commandRepliesData,
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/aBarberoBot/abar_triggers.txt"
   )
 
   test("ABarberoBot should contain the expected number of commands") {
-    assertEquals(
-      ABarberoBot
-        .commandRepliesData[IO](
-          backgroundJobManager = emptyBackgroundJobManager,
-          dbLayer = emptyDBLayer
-        )
-        .length,
+    assertIO(
+      commandRepliesData.map(_.length),
       9
     )
   }
 
   jsonContainsFilenames(
     jsonFilename = "abar_list.json",
-    botData = ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync()
+    botData = messageRepliesDataPrettyPrint
   )
 
   triggerFileContainsTriggers(
     triggerFilename = "abar_triggers.txt",
-    botMediaFiles = ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint).unsafeRunSync(),
+    botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = ABarberoBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )
 
   instructionsCommandTest(
-    commandRepliesData = ABarberoBot
-      .commandRepliesData[IO](
-        backgroundJobManager = emptyBackgroundJobManager,
-        dbLayer = emptyDBLayer
-      ),
+    commandRepliesData = commandRepliesData,
     italianInstructions = s"""
 ---- Instruzioni Per ABarberoBot ----
 
