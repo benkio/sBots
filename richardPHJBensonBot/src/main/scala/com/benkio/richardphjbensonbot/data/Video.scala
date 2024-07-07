@@ -1658,6 +1658,13 @@ object Video {
       "tramonto di cristo",
     )(
       vid"rphjb_IlSimposioDelMetalloCristoEdicolantePerFerireTramontoCristo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in alto",
+      "cieli dell'arte",
+      "incontrare dio"
+    )(
+      vid"rphjb_InAltoCieliArteDioDonna.mp4"
     )
   )
 }
