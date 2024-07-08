@@ -220,9 +220,17 @@ object Video {
       vid"rphjb_DiventarePapa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r.tr(22)
+      "(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r.tr(22),
+      "gli uomini(, |...)?mi fanno schifo",
+      "le donne un po' meno"
     )(
       vid"rphjb_Arivato.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "il più veloce"
+    )(
+      vid"rphjb_Arivato.mp4",
+      vid"rphjb_PistoleroVeloceAmmazzarePersoneServitorePubblico.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "\\bbeat\\b".r.tr(4),
@@ -1777,13 +1785,18 @@ object Video {
       vid"rphjb_MetallariPiuIncallitiFinoInFondoInContinuazioneMonaci.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "mio pubblico",
-      "servitore",
       "tagliare con un coltello",
       "sangue (vero )?che scende".r.tr(17),
       "amore (col|miscelato al) dolore".r.tr(16),
     )(
       vid"rphjb_MioPubblicoIoAmoServitoreTagliareConUnColtelloSangueVeroAmoreMiscelatoAlDolore.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "mio pubblico",
+      "servitore"
+    )(
+      vid"rphjb_MioPubblicoIoAmoServitoreTagliareConUnColtelloSangueVeroAmoreMiscelatoAlDolore.mp4",
+      vid"rphjb_PistoleroVeloceAmmazzarePersoneServitorePubblico.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ripetitiva",
@@ -1830,6 +1843,15 @@ object Video {
       "un'altra donna",
     )(
       vid"rphjb_ParloDiDNonSonoGayCosiDifficileSemplice.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "pistolero",
+      "la pistola",
+      "ammazzare",
+      "lo farei ancora adesso",
+      "amo la gente",
+    )(
+      vid"rphjb_PistoleroVeloceAmmazzarePersoneServitorePubblico.mp4"
     )
   )
 }

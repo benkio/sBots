@@ -735,7 +735,7 @@ object Mix {
       gif"rphjb_OddioMioNo2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "[sono ]?a[r]{1,2}iva(d|t)o".r.tr(12),
+      "(sono |so )?a[r]{1,2}iva(d|t)o".r.tr(12),
       "(eccomi|ciao).*\\bpiacere\\b".r.tr(13)
     )(
       gif"rphjb_ArivatoGif.mp4",
