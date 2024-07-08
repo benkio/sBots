@@ -220,9 +220,17 @@ object Video {
       vid"rphjb_DiventarePapa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r.tr(22)
+      "(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r.tr(22),
+      "gli uomini(, |...)?mi fanno schifo",
+      "le donne un po' meno"
     )(
       vid"rphjb_Arivato.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "il più veloce"
+    )(
+      vid"rphjb_Arivato.mp4",
+      vid"rphjb_PistoleroVeloceAmmazzarePersoneServitorePubblico.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "\\bbeat\\b".r.tr(4),
@@ -919,7 +927,12 @@ object Video {
     )(vid"rphjb_CaneOmbraCipressoPadroneMortoIcaniPiangono.mp4"),
     ReplyBundleMessage.textToVideo[F]("pride")(vid"rphjb_BarzellettaPapaSonoGayPride.mp4"),
     ReplyBundleMessage
-      .textToVideo[F]("gay")(vid"rphjb_BarzellettaPapaSonoGayPride.mp4", vid"rphjb_CantantePreferitoNonSonoGaio.mp4"),
+      .textToVideo[F]("gay")(
+        vid"rphjb_BarzellettaPapaSonoGayPride.mp4",
+        vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
+        vid"rphjb_NonSonoGay.mp4",
+        vid"rphjb_ParloDiDNonSonoGayCosiDifficileSemplice.mp4"
+      ),
     ReplyBundleMessage.textToVideo[F]("barzelletta")(
       vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
       vid"rphjb_BarzellettaPapaSonoGayPride.mp4"
@@ -1134,7 +1147,8 @@ object Video {
       "(vedere|guardare) l[aà]".r.tr(9)
     )(
       vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4",
-      vid"rphjb_LaDoveDifficileGuardare.mp4"
+      vid"rphjb_LaDoveDifficileGuardare.mp4",
+      vid"rphjb_OcchiVistoLaDifficileGuardareTrasmissioneLetaleTiCambiaGerarchieInfernali.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "tubo catodico",
@@ -1757,6 +1771,87 @@ object Video {
       "so (quello che|cosa) sto facendo",
     )(
       vid"rphjb_NonTuttoIlMaleVieneNuocereSoQuelloCheStoFacendoNoScemoStolto.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "metallari",
+      "incalliti",
+      "costretto",
+      "ingiurie",
+      "ci credono",
+      "fino in fondo",
+      "mi (faccio|lavo) i denti".r.tr(15),
+      "come dei monaci",
+    )(
+      vid"rphjb_MetallariPiuIncallitiFinoInFondoInContinuazioneMonaci.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tagliare con un coltello",
+      "sangue (vero )?che scende".r.tr(17),
+      "amore (col|miscelato al) dolore".r.tr(16),
+    )(
+      vid"rphjb_MioPubblicoIoAmoServitoreTagliareConUnColtelloSangueVeroAmoreMiscelatoAlDolore.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "mio pubblico",
+      "servitore"
+    )(
+      vid"rphjb_MioPubblicoIoAmoServitoreTagliareConUnColtelloSangueVeroAmoreMiscelatoAlDolore.mp4",
+      vid"rphjb_PistoleroVeloceAmmazzarePersoneServitorePubblico.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "ripetitiva",
+      "si ripetono",
+      "storie d'amore",
+      "sempre le stesse",
+      "nei particolari",
+      "(freg[aà]|fregare) d[ie] meno".r.tr(12),
+    )(
+      vid"rphjb_NonPiaceEssereRipetitivoVarzettaStorieAmoreMeNePuoFregaDeMeno.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "i tuoi occhi",
+      "fari abbaglianti",
+      "ci sono davanti",
+      "ammaestrato",
+      "non sono malato",
+    )(
+      vid"rphjb_OcchiFariAbbagliantiCiSonoDavantiAmmaestratoNonSonoMalato.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sono (spariti|falliti)".r.tr(12),
+      "non c'è più nessuno",
+      "per colpa vostra",
+      "negozi importanti",
+    )(
+      vid"rphjb_SonoSparitiNegoziSonoFallitiColpaVostra.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in degli occhi",
+      "hanno visto l[aà]",
+      "trasmissione",
+      "può essere (anche )?un (piacere|letale)".r.tr(20),
+      "cambia la percezione",
+      "auditiva",
+      "discorsiva",
+      "dire altre cose",
+    )(
+      vid"rphjb_OcchiVistoLaDifficileGuardareTrasmissioneLetaleTiCambiaGerarchieInfernali.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "è difficile",
+      "potrebbe essere (così )?semplice".r.tr(24),
+      "un'altra donna",
+    )(
+      vid"rphjb_ParloDiDNonSonoGayCosiDifficileSemplice.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "pistolero",
+      "la pistola",
+      "ammazzare",
+      "lo farei ancora adesso",
+      "amo la gente",
+    )(
+      vid"rphjb_PistoleroVeloceAmmazzarePersoneServitorePubblico.mp4"
     )
   )
 }
