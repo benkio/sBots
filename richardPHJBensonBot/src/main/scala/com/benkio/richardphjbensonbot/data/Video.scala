@@ -919,7 +919,11 @@ object Video {
     )(vid"rphjb_CaneOmbraCipressoPadroneMortoIcaniPiangono.mp4"),
     ReplyBundleMessage.textToVideo[F]("pride")(vid"rphjb_BarzellettaPapaSonoGayPride.mp4"),
     ReplyBundleMessage
-      .textToVideo[F]("gay")(vid"rphjb_BarzellettaPapaSonoGayPride.mp4", vid"rphjb_CantantePreferitoNonSonoGaio.mp4"),
+      .textToVideo[F]("gay")(
+        vid"rphjb_BarzellettaPapaSonoGayPride.mp4",
+        vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
+        vid"rphjb_NonSonoGay.mp4"
+      ),
     ReplyBundleMessage.textToVideo[F]("barzelletta")(
       vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
       vid"rphjb_BarzellettaPapaSonoGayPride.mp4"
