@@ -922,7 +922,8 @@ object Video {
       .textToVideo[F]("gay")(
         vid"rphjb_BarzellettaPapaSonoGayPride.mp4",
         vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
-        vid"rphjb_NonSonoGay.mp4"
+        vid"rphjb_NonSonoGay.mp4",
+        vid"rphjb_ParloDiDNonSonoGayCosiDifficileSemplice.mp4"
       ),
     ReplyBundleMessage.textToVideo[F]("barzelletta")(
       vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
@@ -1822,6 +1823,13 @@ object Video {
       "dire altre cose",
     )(
       vid"rphjb_OcchiVistoLaDifficileGuardareTrasmissioneLetaleTiCambiaGerarchieInfernali.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "è difficile",
+      "potrebbe essere (così )?semplice".r.tr(24),
+      "un'altra donna",
+    )(
+      vid"rphjb_ParloDiDNonSonoGayCosiDifficileSemplice.mp4"
     )
   )
 }
