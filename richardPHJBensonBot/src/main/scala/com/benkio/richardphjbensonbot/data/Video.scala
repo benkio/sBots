@@ -1801,6 +1801,14 @@ object Video {
       "non sono malato",
     )(
       vid"rphjb_OcchiFariAbbagliantiCiSonoDavantiAmmaestratoNonSonoMalato.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sono (spariti|falliti)".r.tr(12),
+      "non c'è più nessuno",
+      "per colpa vostra",
+      "negozi importanti",
+    )(
+      vid"rphjb_SonoSparitiNegoziSonoFallitiColpaVostra.mp4"
     )
   )
 }
