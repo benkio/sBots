@@ -1757,6 +1757,18 @@ object Video {
       "so (quello che|cosa) sto facendo",
     )(
       vid"rphjb_NonTuttoIlMaleVieneNuocereSoQuelloCheStoFacendoNoScemoStolto.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "metallari",
+      "incalliti",
+      "costretto",
+      "ingiurie",
+      "ci credono",
+      "fino in fondo",
+      "mi (faccio|lavo) i denti".r.tr(15),
+      "come dei monaci",
+    )(
+      vid"rphjb_MetallariPiuIncallitiFinoInFondoInContinuazioneMonaci.mp4"
     )
   )
 }
