@@ -1782,6 +1782,16 @@ object Video {
       "amore (col|miscelato al) dolore".r.tr(16),
     )(
       vid"rphjb_MioPubblicoIoAmoServitoreTagliareConUnColtelloSangueVeroAmoreMiscelatoAlDolore.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "ripetitiva",
+      "si ripetono",
+      "storie d'amore",
+      "sempre le stesse",
+      "nei particolari",
+      "(freg[aà]|fregare) d[ie] meno".r.tr(12),
+    )(
+      vid"rphjb_NonPiaceEssereRipetitivoVarzettaStorieAmoreMeNePuoFregaDeMeno.mp4"
     )
   )
 }
