@@ -1792,6 +1792,15 @@ object Video {
       "(freg[aà]|fregare) d[ie] meno".r.tr(12),
     )(
       vid"rphjb_NonPiaceEssereRipetitivoVarzettaStorieAmoreMeNePuoFregaDeMeno.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "i tuoi occhi",
+      "fari abbaglianti",
+      "ci sono davanti",
+      "ammaestrato",
+      "non sono malato",
+    )(
+      vid"rphjb_OcchiFariAbbagliantiCiSonoDavantiAmmaestratoNonSonoMalato.mp4"
     )
   )
 }
