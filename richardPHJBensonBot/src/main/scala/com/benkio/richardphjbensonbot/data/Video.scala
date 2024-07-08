@@ -1138,7 +1138,8 @@ object Video {
       "(vedere|guardare) l[aà]".r.tr(9)
     )(
       vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4",
-      vid"rphjb_LaDoveDifficileGuardare.mp4"
+      vid"rphjb_LaDoveDifficileGuardare.mp4",
+      vid"rphjb_OcchiVistoLaDifficileGuardareTrasmissioneLetaleTiCambiaGerarchieInfernali.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "tubo catodico",
@@ -1809,6 +1810,18 @@ object Video {
       "negozi importanti",
     )(
       vid"rphjb_SonoSparitiNegoziSonoFallitiColpaVostra.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in degli occhi",
+      "hanno visto l[aà]",
+      "trasmissione",
+      "può essere (anche )?un (piacere|letale)".r.tr(20),
+      "cambia la percezione",
+      "auditiva",
+      "discorsiva",
+      "dire altre cose",
+    )(
+      vid"rphjb_OcchiVistoLaDifficileGuardareTrasmissioneLetaleTiCambiaGerarchieInfernali.mp4"
     )
   )
 }

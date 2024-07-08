@@ -1164,10 +1164,18 @@ object Mix {
       "figli dei figli",
       "quali fiori",
       "diluite le vostre droghe",
+      "gerarchie infernali"
+    )(
+      vid"rphjb_GerarchieInfernali.mp4",
+      mp3"rphjb_GerarchieInfernali.mp3",
+      vid"rphjb_GerarchieInfernali2.mp4",
+      vid"rphjb_GerarchieInfernali3.mp4",
+      vid"rphjb_OcchiVistoLaDifficileGuardareTrasmissioneLetaleTiCambiaGerarchieInfernali.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "non sono uno da sangue",
       "aghi di culto",
       "bucati[,]? ma da quale chiodo".r.tr(25),
-      "gerarchie infernali"
     )(
       vid"rphjb_GerarchieInfernali.mp4",
       mp3"rphjb_GerarchieInfernali.mp3",
