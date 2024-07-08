@@ -1769,6 +1769,15 @@ object Video {
       "come dei monaci",
     )(
       vid"rphjb_MetallariPiuIncallitiFinoInFondoInContinuazioneMonaci.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "mio pubblico",
+      "servitore",
+      "tagliare con un coltello",
+      "sangue (vero )?che scende".r.tr(17),
+      "amore (col|miscelato al) dolore".r.tr(16),
+    )(
+      vid"rphjb_MioPubblicoIoAmoServitoreTagliareConUnColtelloSangueVeroAmoreMiscelatoAlDolore.mp4"
     )
   )
 }
