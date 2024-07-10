@@ -18,7 +18,8 @@ object Video {
       vid"rphjb_RingraziareGianniTraffico.mp4",
       vid"rphjb_GianniNeriCoppiaMiciciale.mp4",
       vid"rphjb_GianniNeriCheFineHaiFatto.mp4",
-      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4"
+      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4",
+      vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "accor(data|dana)".r.tr(9)
@@ -1852,6 +1853,13 @@ object Video {
       "amo la gente",
     )(
       vid"rphjb_PistoleroVeloceAmmazzarePersoneServitorePubblico.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "belle donne",
+      "valletta",
+      "grande amico"
+    )(
+      vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4"
     )
   )
 }
