@@ -6,16 +6,7 @@ on:
         - "**"
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Formatting
-      run: |
-        echo this workflow was triggered by ${{github.actor}}
-        sbt "check"
-  test:
+  lint & test:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -25,5 +16,9 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
         cache: 'sbt'
+    - name: Formatting
+      run: |
+        echo this workflow was triggered by ${{github.actor}}
+        sbt "check"
     - name: Validate the project (clean, compile, format, test, itTest)
       run: sbt validate
