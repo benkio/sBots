@@ -2067,6 +2067,22 @@ object Mix {
     )(
       mp3"rphjb_IoMiAuguro.mp3",
       vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "un casino",
+      "il ritardo",
+      "non c'entro"
+    )(
+      vid"rphjb_RitardoCasinoFuoriPolizia.mp4",
+      mp3"rphjb_RitardoCasinoFuoriPolizia.mp3",
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "colpa mia"
+    )(
+      vid"rphjb_TuttaColpaMia.mp4",
+      vid"rphjb_RitardoCasinoFuoriPolizia.mp4",
+      mp3"rphjb_RitardoCasinoFuoriPolizia.mp3",
+      vid"rphjb_MiaColpaColpaMia.mp4"
     )
   )
 

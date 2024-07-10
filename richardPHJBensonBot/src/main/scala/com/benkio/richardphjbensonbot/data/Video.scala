@@ -636,7 +636,6 @@ object Video {
       vid"rphjb_JovanottiUltimo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "colpa mia",
       "mi assumo (tutte )?le responsabilità".r.tr(27),
     )(
       vid"rphjb_TuttaColpaMia.mp4",
