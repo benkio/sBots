@@ -1860,6 +1860,13 @@ object Video {
       "grande amico"
     )(
       vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "donne (trasgressive|dominatrici)".r.tr(17),
+      "soggiogare dal marito",
+      "le nostre (madri|nonne|trisavole)".r.tr(15),
+    )(
+      vid"rphjb_PiaccionoDonneTrasgressiveDominatrici.mp4"
     )
   )
 }
