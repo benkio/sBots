@@ -136,10 +136,15 @@ object Video {
       "già il titolo",
       "(coi|quei) due punti".r.tr(13),
       "illusioni",
-      "copertina",
       "musica (non )?è grande".r.tr(15),
       "re[a]?l illusions".r.tr(13)
     )(
+      vid"rphjb_RelIllusions.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "copertina"
+    )(
+      vid"rphjb_PrimoDiscoBeatlesRagioneVenutoMondoTroppoForte.mp4",
       vid"rphjb_RelIllusions.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
@@ -1876,6 +1881,14 @@ object Video {
       "accento (all')?inglese".r.tr(16),
     )(
       vid"rphjb_PiuItalianoItalianizzareStoFrocio.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "il primo disco",
+      "beatles",
+      "ragione per cui io ero (venuto al mondo|nato)".r.tr(27),
+      "troppo forte",
+    )(
+      vid"rphjb_PrimoDiscoBeatlesRagioneVenutoMondoTroppoForte.mp4"
     )
   )
 }
