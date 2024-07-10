@@ -311,7 +311,8 @@ object Mix {
       mp3"rphjb_ChitarraZuccheroAlgheVino.mp3",
       mp3"rphjb_Zucchero.mp3",
       mp3"rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3",
-      vid"rphjb_AuguriPerPasqua.mp4"
+      vid"rphjb_AuguriPerPasqua.mp4",
+      vid"rphjb_SuonatoAbbastanzaBeneManicoIntrisoZuccheroLiquidiSeminaliBirreAcqua.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bgood\\b".r.tr(4),
@@ -2067,6 +2068,28 @@ object Mix {
     )(
       mp3"rphjb_IoMiAuguro.mp3",
       vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "un casino",
+      "il ritardo",
+      "non c'entro"
+    )(
+      vid"rphjb_RitardoCasinoFuoriPolizia.mp4",
+      mp3"rphjb_RitardoCasinoFuoriPolizia.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "colpa mia"
+    )(
+      vid"rphjb_TuttaColpaMia.mp4",
+      vid"rphjb_RitardoCasinoFuoriPolizia.mp4",
+      mp3"rphjb_RitardoCasinoFuoriPolizia.mp3",
+      vid"rphjb_MiaColpaColpaMia.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "suonato (abbastanza )?bene".r.tr(12),
+    )(
+      mp3"rphjb_SuonatoAbbastanzaBeneEVero.mp3",
+      vid"rphjb_SuonatoAbbastanzaBeneManicoIntrisoZuccheroLiquidiSeminaliBirreAcqua.mp4"
     )
   )
 
