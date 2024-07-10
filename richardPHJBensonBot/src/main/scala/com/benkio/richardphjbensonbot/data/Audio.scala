@@ -327,7 +327,6 @@ object Audio {
       mp3"rphjb_GelatinaFazzolettiSecchiAcquaSapone.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "suonato (abbastanza )?bene".r.tr(12),
       "e che cazz[o!]{2,}".r.tr(12),
     )(
       mp3"rphjb_SuonatoAbbastanzaBeneEVero.mp3"
