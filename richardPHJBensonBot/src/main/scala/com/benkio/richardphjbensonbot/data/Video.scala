@@ -1867,6 +1867,15 @@ object Video {
       "le nostre (madri|nonne|trisavole)".r.tr(15),
     )(
       vid"rphjb_PiaccionoDonneTrasgressiveDominatrici.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sto frocio",
+      "più italiano",
+      "(non|nun) (te|ti) capiscono".r.tr(16),
+      "italianizzare",
+      "accento (all')?inglese".r.tr(16),
+    )(
+      vid"rphjb_PiuItalianoItalianizzareStoFrocio.mp4"
     )
   )
 }
