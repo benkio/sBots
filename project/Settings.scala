@@ -11,9 +11,10 @@ object Settings {
   lazy val runIntegrationScalaTests = taskKey[Unit]("Run ScalaTest tests")
 
   lazy val settings = Seq(
-    organization      := "com.benkio",
-    version           := "2.3.0",
-    scalaVersion      := "3.4.2",
+    organization := "com.benkio",
+    version      := "2.3.0",
+    scalaVersion := "3.4.2",
+    scalacOptions += "-release:21",
     publishMavenStyle := true,
     semanticdbEnabled := true,
     semanticdbCompilerPlugin := {
