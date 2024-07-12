@@ -863,7 +863,7 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage.textToMedia[F](
       "ne ho già parlato",
-      "ritornare sugli stessi punti",
+      "tornare sugli stessi punti",
       "lamentato con me"
     )(
       gif"ytai_NeHoGiaParlato.mp4"
