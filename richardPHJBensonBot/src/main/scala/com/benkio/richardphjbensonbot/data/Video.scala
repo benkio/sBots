@@ -29,12 +29,18 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "\\brap\\b".r.tr(3),
       "musica italiana",
+      "vi regalo"
+    )(
+      vid"rphjb_RapMusicaMelodicaListaCantanti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
       "tullio pane",
       "otello profazio",
       "mario lanza",
       "luciano tajoli"
     )(
-      vid"rphjb_RapMusicaMelodicaListaCantanti.mp4"
+      vid"rphjb_RapMusicaMelodicaListaCantanti.mp4",
+      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "eric clapton",
@@ -1905,6 +1911,13 @@ object Video {
       "distrutto totalmente"
     )(
       vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "chi risponde",
+      "quesito",
+      "in regalo"
+    )(
+      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
     )
   )
 }

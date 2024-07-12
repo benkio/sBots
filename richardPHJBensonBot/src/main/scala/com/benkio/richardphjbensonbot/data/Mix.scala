@@ -1694,7 +1694,8 @@ object Mix {
       "gianni celeste"
     )(
       gif"rphjb_GianniCelesteMeglioGigiDAlessio.mp4",
-      vid"rphjb_RapMusicaMelodicaListaCantanti.mp4"
+      vid"rphjb_RapMusicaMelodicaListaCantanti.mp4",
+      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "negri",
@@ -2094,10 +2095,10 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "quello che ti meriti",
       "fino alla fine"
-      )(
-        gif"rphjb_QuelloCheTiMeriti.mp4",
-        vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
-      ),
+    )(
+      gif"rphjb_QuelloCheTiMeriti.mp4",
+      vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
+    ),
   )
 
 }

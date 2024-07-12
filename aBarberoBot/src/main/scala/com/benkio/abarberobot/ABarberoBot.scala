@@ -147,7 +147,7 @@ object ABarberoBot {
       mp3"abar_PraticaPocoPatriotticah.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "ferro",
+      "\\bferro\\b".r.tr(5),
       "fuoco",
       "acqua bollente",
       "aceto"
