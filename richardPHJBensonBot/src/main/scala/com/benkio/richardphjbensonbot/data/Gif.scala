@@ -39,7 +39,7 @@ object Gif {
       "mano nella mano",
       "pelle contro la pelle"
     )(
-      gif"rphjb_CuoreInMano.mp4"
+      gif"rphjb_CuoreInManoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "stato brado"
