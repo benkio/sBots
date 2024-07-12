@@ -868,10 +868,16 @@ object Video {
       vid"rphjb_SteveVaiRamazzotti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "limitazioni dell'uomo",
-      "limitazioni della donna"
+      "limitazioni",
+      "quante(,|...)? troppe".r.tr(12)
     )(
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "l'uomo(,|...)? la donna".r.tr(15)
+    )(
+      vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
+      vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "sputo in un bicchiere",
@@ -1918,6 +1924,13 @@ object Video {
       "in regalo"
     )(
       vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "questa no",
+      "questa è (mistica|ibrida|contorta)".r.tr(15),
+      "può essere (anche )?dolce".r.tr(16)
+    )(
+      vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
     )
   )
 }
