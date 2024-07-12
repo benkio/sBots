@@ -361,17 +361,6 @@ object Gif {
       gif"rphjb_Sorpresa.mp4",
       gif"rphjb_Sorpresa2.mp4"
     ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        stt"quello che ti meriti",
-        stt"fino alla fine",
-      ),
-      reply = MediaReply.fromList[F](
-        List(
-          gif"rphjb_QuelloCheTiMeriti.mp4"
-        )
-      )
-    ),
     ReplyBundleMessage.textToGif[F](
       "[u]{3,}".r.tr(3)
     )(

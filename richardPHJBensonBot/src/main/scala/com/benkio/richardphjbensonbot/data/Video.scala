@@ -1900,6 +1900,11 @@ object Video {
       "potrei raccontare"
     )(
       vid"rphjb_QuanteCoseViPotreiRaccontare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "distrutto totalmente"
+    )(
+      vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
     )
   )
 }

@@ -2090,7 +2090,14 @@ object Mix {
     )(
       mp3"rphjb_SuonatoAbbastanzaBeneEVero.mp3",
       vid"rphjb_SuonatoAbbastanzaBeneManicoIntrisoZuccheroLiquidiSeminaliBirreAcqua.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "quello che ti meriti",
+      "fino alla fine"
+      )(
+        gif"rphjb_QuelloCheTiMeriti.mp4",
+        vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
+      ),
   )
 
 }
