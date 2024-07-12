@@ -1895,6 +1895,11 @@ object Video {
       "siete solo voi"
     )(
       vid"rphjb_QuandoGuardateDentroVoiStessiNonTrovateNessunAltroSoloVoi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "potrei raccontare"
+    )(
+      vid"rphjb_QuanteCoseViPotreiRaccontare.mp4"
     )
   )
 }
