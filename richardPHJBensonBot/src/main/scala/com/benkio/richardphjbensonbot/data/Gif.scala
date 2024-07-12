@@ -35,13 +35,6 @@ object Gif {
       gif"rphjb_Rispondere.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "cuore in mano",
-      "mano nella mano",
-      "pelle contro la pelle"
-    )(
-      gif"rphjb_CuoreInManoGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "stato brado"
     )(
       gif"rphjb_StatoBrado.mp4"

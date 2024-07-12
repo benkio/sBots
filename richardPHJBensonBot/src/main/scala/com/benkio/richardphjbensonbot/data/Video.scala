@@ -7,10 +7,16 @@ object Video {
 
   def messageRepliesVideoData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToVideo[F](
-      "amici veri",
       "soldati"
     )(
       vid"rphjb_AmiciVeriVecchiSoldati.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "amici veri",
+      "veri amici"
+    )(
+      vid"rphjb_AmiciVeriVecchiSoldati.mp4",
+      vid"rphjb_CuoreInMano.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "gianni neri"
@@ -1478,10 +1484,17 @@ object Video {
       vid"rphjb_NonPossoContinuareCosiGianni.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "grazie",
       "mancano le parole",
       "le parole non esistono"
-    )(vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4"),
+    )(
+      vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "grazie"
+    )(
+      vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4",
+      vid"rphjb_CuoreInMano.mp4"
+    ),
     ReplyBundleMessage.textToVideo[F](
       "non siamo niente",
       "siamo esseri umani",
@@ -1931,6 +1944,11 @@ object Video {
       "può essere (anche )?dolce".r.tr(16)
     )(
       vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "preoccupata"
+    )(
+      vid"rphjb_CuoreInMano.mp4"
     )
   )
 }

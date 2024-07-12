@@ -2099,6 +2099,14 @@ object Mix {
       gif"rphjb_QuelloCheTiMeriti.mp4",
       vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "cuore in mano",
+      "mano nella mano",
+      "pelle contro la pelle"
+    )(
+      gif"rphjb_CuoreInManoGif.mp4",
+      gif"rphjb_CuoreInMano.mp4"
+    )
   )
 
 }
