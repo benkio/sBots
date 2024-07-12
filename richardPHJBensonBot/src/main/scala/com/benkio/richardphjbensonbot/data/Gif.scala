@@ -35,13 +35,6 @@ object Gif {
       gif"rphjb_Rispondere.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "cuore in mano",
-      "mano nella mano",
-      "pelle contro la pelle"
-    )(
-      gif"rphjb_CuoreInMano.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "stato brado"
     )(
       gif"rphjb_StatoBrado.mp4"
@@ -360,17 +353,6 @@ object Gif {
     )(
       gif"rphjb_Sorpresa.mp4",
       gif"rphjb_Sorpresa2.mp4"
-    ),
-    ReplyBundleMessage(
-      trigger = TextTrigger(
-        stt"quello che ti meriti",
-        stt"fino alla fine",
-      ),
-      reply = MediaReply.fromList[F](
-        List(
-          gif"rphjb_QuelloCheTiMeriti.mp4"
-        )
-      )
     ),
     ReplyBundleMessage.textToGif[F](
       "[u]{3,}".r.tr(3)

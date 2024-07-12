@@ -7,10 +7,16 @@ object Video {
 
   def messageRepliesVideoData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToVideo[F](
-      "amici veri",
       "soldati"
     )(
       vid"rphjb_AmiciVeriVecchiSoldati.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "amici veri",
+      "veri amici"
+    )(
+      vid"rphjb_AmiciVeriVecchiSoldati.mp4",
+      vid"rphjb_CuoreInMano.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "gianni neri"
@@ -29,12 +35,18 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "\\brap\\b".r.tr(3),
       "musica italiana",
+      "vi regalo"
+    )(
+      vid"rphjb_RapMusicaMelodicaListaCantanti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
       "tullio pane",
       "otello profazio",
       "mario lanza",
       "luciano tajoli"
     )(
-      vid"rphjb_RapMusicaMelodicaListaCantanti.mp4"
+      vid"rphjb_RapMusicaMelodicaListaCantanti.mp4",
+      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "eric clapton",
@@ -57,7 +69,8 @@ object Video {
       "cravatta",
       "passaporto degli stronzi"
     )(
-      vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
+      vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4",
+      vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "capelli corti",
@@ -862,10 +875,16 @@ object Video {
       vid"rphjb_SteveVaiRamazzotti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "limitazioni dell'uomo",
-      "limitazioni della donna"
+      "limitazioni",
+      "quante(,|...)? troppe".r.tr(12)
     )(
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "l'uomo(,|...)? la donna".r.tr(15)
+    )(
+      vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
+      vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "sputo in un bicchiere",
@@ -1466,10 +1485,17 @@ object Video {
       vid"rphjb_NonPossoContinuareCosiGianni.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "grazie",
       "mancano le parole",
       "le parole non esistono"
-    )(vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4"),
+    )(
+      vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "grazie"
+    )(
+      vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4",
+      vid"rphjb_CuoreInMano.mp4"
+    ),
     ReplyBundleMessage.textToVideo[F](
       "non siamo niente",
       "siamo esseri umani",
@@ -1888,6 +1914,49 @@ object Video {
       "troppo forte",
     )(
       vid"rphjb_PrimoDiscoBeatlesRagioneVenutoMondoTroppoForte.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "voi stessi",
+      "non trovate nessun'altro",
+      "siete solo voi"
+    )(
+      vid"rphjb_QuandoGuardateDentroVoiStessiNonTrovateNessunAltroSoloVoi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "potrei raccontare"
+    )(
+      vid"rphjb_QuanteCoseViPotreiRaccontare.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "distrutto totalmente"
+    )(
+      vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "chi risponde",
+      "quesito",
+      "in regalo"
+    )(
+      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "questa no",
+      "questa è (mistica|ibrida|contorta)".r.tr(15),
+      "può essere (anche )?dolce".r.tr(16)
+    )(
+      vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "preoccupata"
+    )(
+      vid"rphjb_CuoreInMano.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "una bestia",
+      "il bello d",
+      "distinguiamo"
+    )(
+      vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4"
     )
   )
 }
