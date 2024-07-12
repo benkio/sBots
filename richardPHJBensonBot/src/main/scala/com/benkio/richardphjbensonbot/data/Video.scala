@@ -1888,6 +1888,13 @@ object Video {
       "troppo forte",
     )(
       vid"rphjb_PrimoDiscoBeatlesRagioneVenutoMondoTroppoForte.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "noi stessi",
+      "non trovate nessun'altro",
+      "siete solo voi"
+    )(
+      vid"rphjb_QuandoGuardateDentroVoiStessiNonTrovateNessunAltroSoloVoi.mp4"
     )
   )
 }
