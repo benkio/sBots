@@ -1741,13 +1741,21 @@ object Mix {
       vid"rphjb_DanzaMacabra.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r.tr(10),
       "stillati"
     )(
       gif"rphjb_DrogatiRockettari1.mp4",
       vid"rphjb_DrogatiRockettari.mp4",
       gif"rphjb_DrogatiRockettari2.mp4",
       vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r.tr(10),
+    )(
+      gif"rphjb_DrogatiRockettari1.mp4",
+      vid"rphjb_DrogatiRockettari.mp4",
+      gif"rphjb_DrogatiRockettari2.mp4",
+      vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4",
+      vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "inizio della fine"

@@ -69,7 +69,8 @@ object Video {
       "cravatta",
       "passaporto degli stronzi"
     )(
-      vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
+      vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4",
+      vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "capelli corti",
@@ -1915,7 +1916,7 @@ object Video {
       vid"rphjb_PrimoDiscoBeatlesRagioneVenutoMondoTroppoForte.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "noi stessi",
+      "voi stessi",
       "non trovate nessun'altro",
       "siete solo voi"
     )(
@@ -1949,6 +1950,13 @@ object Video {
       "preoccupata"
     )(
       vid"rphjb_CuoreInMano.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "una bestia",
+      "il bello d",
+      "distinguiamo"
+    )(
+      vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4"
     )
   )
 }
