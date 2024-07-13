@@ -811,12 +811,17 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "dylan (dog|thomas)".r.tr(9),
-      "poeti maledetti",
       "un po' gay",
       "la (collezione|colazione)".r.tr(12),
       "t[ei] sei sbagliato".r.tr(12),
     )(
       vid"rphjb_DylanDog.mp4",
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "poeti maledetti"
+    )(
+      vid"rphjb_DylanDog.mp4",
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "buckethead",
@@ -1957,6 +1962,18 @@ object Video {
       "distinguiamo"
     )(
       vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "rolling stones",
+      "jimi hendrix",
+      "femministe",
+      "contro( )?cultura".r.tr(13),
+      "ribellioni",
+      "rivoluzioni",
+      "il sangue",
+      "giustiziere",
+    )(
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4"
     )
   )
 }

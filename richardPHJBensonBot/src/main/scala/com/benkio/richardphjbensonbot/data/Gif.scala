@@ -34,7 +34,7 @@ object Gif {
     )(
       gif"rphjb_Rispondere.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToGif[F](
       "baci",
       "limonare"
     )(
