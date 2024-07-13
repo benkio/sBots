@@ -1980,6 +1980,12 @@ object Video {
       "s(i |')ammazza".r.tr(9)
     )(
       vid"rphjb_SembravaAllegroPoiSAmmazzaMioPensiero.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sfumato",
+      "grande richiesta"
+    )(
+      vid"rphjb_SfumatoGrandeRichiesta.mp4"
     )
   )
 }
