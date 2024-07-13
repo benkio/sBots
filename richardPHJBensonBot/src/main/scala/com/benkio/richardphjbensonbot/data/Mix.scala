@@ -1734,13 +1734,6 @@ object Mix {
       vid"rphjb_Capolavoro.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "baci",
-      "limonare"
-    )(
-      gif"rphjb_Bacio.mp4",
-      vid"rphjb_DanzaMacabra.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       "stillati"
     )(
       gif"rphjb_DrogatiRockettari1.mp4",
