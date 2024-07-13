@@ -1974,6 +1974,12 @@ object Video {
       "giustiziere",
     )(
       vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "allegro",
+      "s(i |')ammazza".r.tr(9)
+    )(
+      vid"rphjb_SembravaAllegroPoiSAmmazzaMioPensiero.mp4"
     )
   )
 }
