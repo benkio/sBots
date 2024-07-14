@@ -1583,7 +1583,6 @@ object Mix {
       vid"rphjb_OgniVolta.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "mandragola",
       "fico sacro",
       "betulla",
       "canfora"
@@ -1593,6 +1592,16 @@ object Mix {
       vid"rphjb_FigureMitologiche2.mp4",
       vid"rphjb_FigureMitologiche3.mp4",
       vid"rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mandragola"
+    )(
+      mp3"rphjb_FigureMitologiche.mp3",
+      vid"rphjb_FigureMitologiche.mp4",
+      vid"rphjb_FigureMitologiche2.mp4",
+      vid"rphjb_FigureMitologiche3.mp4",
+      vid"rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4",
+      vid"rphjb_Streghe.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "assaporare",

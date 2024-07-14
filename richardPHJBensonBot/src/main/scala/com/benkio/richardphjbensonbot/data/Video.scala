@@ -91,7 +91,10 @@ object Video {
       vid"rphjb_SiONo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "streghe"
+      "streghe",
+      "inquisizione",
+      "al rogo",
+      "effetti (impropri|ipnotici)".r.tr(16)
     )(
       vid"rphjb_Streghe.mp4"
     ),
