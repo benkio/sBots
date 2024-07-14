@@ -60,7 +60,8 @@ object Video {
       "studi a boston",
       "borghesia alta",
       "idoli delle mamme",
-      "figliole"
+      "figliole",
+      "con tanti soldi"
     )(
       vid"rphjb_Rampolli.mp4"
     ),
@@ -2012,7 +2013,6 @@ object Video {
       "tipo cazzuto",
       "calmatev[ei]".r.tr(8),
       "\\bseni\\b".r.tr(4),
-      "anni (settanta|70)".r.tr(7),
       "letti (circolari|pieni)".r.tr(11),
       "l'erba",
       "la coca",
@@ -2020,10 +2020,25 @@ object Video {
       vid"rphjb_RingrazioPersoneAttenteDonneToccavanoSeniAnni70LettiPieniErbaCoca.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
+      "anni (settanta|70)".r.tr(7),
+    )(
+      vid"rphjb_RingrazioPersoneAttenteDonneToccavanoSeniAnni70LettiPieniErbaCoca.mp4",
+      vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
       "sarà lei",
       "a farmi male"
     )(
       vid"rphjb_SaraLeiAFarmiMale.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "verano",
+      "si muore",
+      "tanti muoiono",
+      "non sono mai morto",
+      "caus[ae] natural[ei]".r.tr(14)
+    )(
+      vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
     )
   )
 }

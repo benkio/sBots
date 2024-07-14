@@ -1721,15 +1721,21 @@ object Mix {
       vid"rphjb_Continua.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "drogati",
-      "sostanze improprie"
+      "drogati"
     )(
       gif"rphjb_DrogatiRockettari1.mp4",
       vid"rphjb_DrogatiRockettari.mp4",
       vid"rphjb_EricClaptonDrogaUominiAffari.mp4",
-      gif"rphjb_DrogatiRockettari2.mp4",
       gif"rphjb_DrogatiPilotiGif.mp4",
       vid"rphjb_Rampolli.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sostanze improprie"
+    )(
+      vid"rphjb_DrogatiRockettari.mp4",
+      vid"rphjb_EricClaptonDrogaUominiAffari.mp4",
+      gif"rphjb_DrogatiRockettari1.mp4",
+      vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(a[f]+)?fanculo(,)? per contesia".r.tr(20)
