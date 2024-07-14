@@ -850,7 +850,8 @@ object Mix {
     )(
       vid"rphjb_CinqueDita.mp4",
       mp3"rphjb_CinqueDita.mp3",
-      vid"rphjb_CinqueDita2.mp4"
+      vid"rphjb_CinqueDita2.mp4",
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bratti\\b".r.tr(5),
@@ -1582,7 +1583,6 @@ object Mix {
       vid"rphjb_OgniVolta.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "mandragola",
       "fico sacro",
       "betulla",
       "canfora"
@@ -1592,6 +1592,16 @@ object Mix {
       vid"rphjb_FigureMitologiche2.mp4",
       vid"rphjb_FigureMitologiche3.mp4",
       vid"rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mandragola"
+    )(
+      mp3"rphjb_FigureMitologiche.mp3",
+      vid"rphjb_FigureMitologiche.mp4",
+      vid"rphjb_FigureMitologiche2.mp4",
+      vid"rphjb_FigureMitologiche3.mp4",
+      vid"rphjb_AssaporarePezzoMentaMandragolaFicoSacroIncensoBetullaCanforaSaporeStrano.mp4",
+      vid"rphjb_Streghe.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "assaporare",
@@ -1711,15 +1721,21 @@ object Mix {
       vid"rphjb_Continua.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "drogati",
-      "sostanze improprie"
+      "drogati"
     )(
       gif"rphjb_DrogatiRockettari1.mp4",
       vid"rphjb_DrogatiRockettari.mp4",
       vid"rphjb_EricClaptonDrogaUominiAffari.mp4",
-      gif"rphjb_DrogatiRockettari2.mp4",
       gif"rphjb_DrogatiPilotiGif.mp4",
       vid"rphjb_Rampolli.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sostanze improprie"
+    )(
+      vid"rphjb_DrogatiRockettari.mp4",
+      vid"rphjb_EricClaptonDrogaUominiAffari.mp4",
+      gif"rphjb_DrogatiRockettari1.mp4",
+      vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(a[f]+)?fanculo(,)? per contesia".r.tr(20)
@@ -1732,13 +1748,6 @@ object Mix {
     )(
       gif"rphjb_CapolavoroGif.mp4",
       vid"rphjb_Capolavoro.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "baci",
-      "limonare"
-    )(
-      gif"rphjb_Bacio.mp4",
-      vid"rphjb_DanzaMacabra.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "stillati"

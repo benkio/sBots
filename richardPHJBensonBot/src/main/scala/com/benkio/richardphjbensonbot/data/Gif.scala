@@ -35,6 +35,12 @@ object Gif {
       gif"rphjb_Rispondere.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
+      "baci",
+      "limonare"
+    )(
+      gif"rphjb_Bacio.mp4"
+    ),
+    ReplyBundleMessage.textToGif[F](
       "stato brado"
     )(
       gif"rphjb_StatoBrado.mp4"

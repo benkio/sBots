@@ -60,7 +60,8 @@ object Video {
       "studi a boston",
       "borghesia alta",
       "idoli delle mamme",
-      "figliole"
+      "figliole",
+      "con tanti soldi"
     )(
       vid"rphjb_Rampolli.mp4"
     ),
@@ -91,7 +92,10 @@ object Video {
       vid"rphjb_SiONo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "streghe"
+      "streghe",
+      "inquisizione",
+      "al rogo",
+      "effetti (impropri|ipnotici)".r.tr(16)
     )(
       vid"rphjb_Streghe.mp4"
     ),
@@ -811,12 +815,17 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "dylan (dog|thomas)".r.tr(9),
-      "poeti maledetti",
       "un po' gay",
       "la (collezione|colazione)".r.tr(12),
       "t[ei] sei sbagliato".r.tr(12),
     )(
       vid"rphjb_DylanDog.mp4",
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "poeti maledetti"
+    )(
+      vid"rphjb_DylanDog.mp4",
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "buckethead",
@@ -1159,12 +1168,17 @@ object Video {
       vid"rphjb_DanzaMacabra.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "di tutti i colori",
       "tramonto d'estate",
       "boschi in penombra",
       "per un ideale"
     )(
       vid"rphjb_PoesiaMadre.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "di tutti i colori"
+    )(
+      vid"rphjb_PoesiaMadre.mp4",
+      vid"rphjb_RingrazioPersoneAttenteDonneToccavanoSeniAnni70LettiPieniErbaCoca.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "difficile guardare",
@@ -1574,9 +1588,14 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "cazzi tuoi",
       "cazz[oi] piccol[io]".r.tr(13),
-      "essere umano"
     )(
       vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "essere umano"
+    )(
+      vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4",
+      vid"rphjb_ScusateEssereUmanoTosse.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "giocattol(o|ino)".r.tr(9)
@@ -1957,6 +1976,69 @@ object Video {
       "distinguiamo"
     )(
       vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "rolling stones",
+      "jimi hendrix",
+      "femministe",
+      "contro( )?cultura".r.tr(13),
+      "ribellioni",
+      "rivoluzioni",
+      "il sangue",
+      "giustiziere",
+    )(
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "allegro",
+      "s(i |')ammazza".r.tr(9)
+    )(
+      vid"rphjb_SembravaAllegroPoiSAmmazzaMioPensiero.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sfumato",
+      "grande richiesta"
+    )(
+      vid"rphjb_SfumatoGrandeRichiesta.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tosse",
+      "scusate"
+    )(
+      vid"rphjb_ScusateEssereUmanoTosse.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "ringrazio molto",
+      "persone attente",
+      "tipo cazzuto",
+      "calmatev[ei]".r.tr(8),
+      "\\bseni\\b".r.tr(4),
+      "letti (circolari|pieni)".r.tr(11),
+      "l'erba",
+      "la coca",
+    )(
+      vid"rphjb_RingrazioPersoneAttenteDonneToccavanoSeniAnni70LettiPieniErbaCoca.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "anni (settanta|70)".r.tr(7),
+    )(
+      vid"rphjb_RingrazioPersoneAttenteDonneToccavanoSeniAnni70LettiPieniErbaCoca.mp4",
+      vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sarà lei",
+      "a farmi male"
+    )(
+      vid"rphjb_SaraLeiAFarmiMale.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "verano",
+      "si muore",
+      "tanti muoiono",
+      "non sono mai morto",
+      "caus[ae] natural[ei]".r.tr(14)
+    )(
+      vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
     )
   )
 }
