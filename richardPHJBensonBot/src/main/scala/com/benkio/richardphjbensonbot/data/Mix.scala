@@ -1729,7 +1729,7 @@ object Mix {
       gif"rphjb_DrogatiPilotiGif.mp4",
       vid"rphjb_Rampolli.mp4"
     ),
-    ReplyBundleMessage.textToVideo[F](
+    ReplyBundleMessage.textToMedia[F](
       "sostanze improprie"
     )(
       vid"rphjb_DrogatiRockettari.mp4",
