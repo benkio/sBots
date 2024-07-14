@@ -1164,12 +1164,17 @@ object Video {
       vid"rphjb_DanzaMacabra.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "di tutti i colori",
       "tramonto d'estate",
       "boschi in penombra",
       "per un ideale"
     )(
       vid"rphjb_PoesiaMadre.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "di tutti i colori"
+    )(
+      vid"rphjb_PoesiaMadre.mp4",
+      vid"rphjb_RingrazioPersoneAttenteDonneToccavanoSeniAnni70LettiPieniErbaCoca.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "difficile guardare",
@@ -1997,6 +2002,19 @@ object Video {
       "scusate"
     )(
       vid"rphjb_ScusateEssereUmanoTosse.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "ringrazio molto",
+      "persone attente",
+      "tipo cazzuto",
+      "calmatev[ei]".r.tr(8),
+      "\\bseni\\b".r.tr(4),
+      "anni (settanta|70)".r.tr(7),
+      "letti (circolari|pieni)".r.tr(11),
+      "l'erba",
+      "la coca",
+    )(
+      vid"rphjb_RingrazioPersoneAttenteDonneToccavanoSeniAnni70LettiPieniErbaCoca.mp4"
     )
   )
 }
