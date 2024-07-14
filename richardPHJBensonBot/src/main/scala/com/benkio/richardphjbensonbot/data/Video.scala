@@ -1579,9 +1579,14 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "cazzi tuoi",
       "cazz[oi] piccol[io]".r.tr(13),
-      "essere umano"
     )(
       vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "essere umano"
+    )(
+      vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4",
+      vid"rphjb_ScusateEssereUmanoTosse.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "giocattol(o|ino)".r.tr(9)
@@ -1986,6 +1991,12 @@ object Video {
       "grande richiesta"
     )(
       vid"rphjb_SfumatoGrandeRichiesta.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tosse",
+      "scusate"
+    )(
+      vid"rphjb_ScusateEssereUmanoTosse.mp4"
     )
   )
 }
