@@ -2124,6 +2124,12 @@ object Mix {
     )(
       gif"rphjb_CuoreInManoGif.mp4",
       gif"rphjb_CuoreInMano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "squallida"
+    )(
+      gif"rphjb_Squallida.mp4",
+      vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
     )
   )
 

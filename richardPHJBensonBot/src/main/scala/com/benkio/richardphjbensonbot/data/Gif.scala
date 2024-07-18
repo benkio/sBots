@@ -278,7 +278,6 @@ object Gif {
       gif"rphjb_Discapito.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "squallida",
       "abbia mai sentito"
     )(
       gif"rphjb_Squallida.mp4"

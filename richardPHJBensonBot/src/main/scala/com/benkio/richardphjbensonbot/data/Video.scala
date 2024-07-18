@@ -1220,7 +1220,7 @@ object Video {
     )(
       vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "sputat[oi] nel mondo".r.tr(17),
     )(
       vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
@@ -1421,9 +1421,14 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "vicissitudini",
-      "in bestia"
     )(
       vid"rphjb_VicissitudiniPersoneInBestia.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in bestia",
+    )(
+      vid"rphjb_VicissitudiniPersoneInBestia.mp4",
+      vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "un viaggio",
@@ -1471,7 +1476,7 @@ object Video {
     )(
       vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "felicità"
     )(
       vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4",
@@ -2050,7 +2055,7 @@ object Video {
     )(
       vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "può significare",
       "sono attento",
       "foglia che si muove",
@@ -2059,7 +2064,7 @@ object Video {
     )(
       vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "nell'inferno",
       "guerre",
       "malattie",
@@ -2070,6 +2075,19 @@ object Video {
       "stabilità",
     )(
       vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "intenditrice",
+      "scorfano",
+      "ragana",
+      "catafalco ambulante",
+      "pamela anderson",
+      "luce più eterna",
+      "non sopporto",
+      "spaccherei tutto",
+      "",
+    )(
+      vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
     )
   )
 }
