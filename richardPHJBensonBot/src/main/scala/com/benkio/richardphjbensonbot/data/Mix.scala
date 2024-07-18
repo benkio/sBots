@@ -151,7 +151,8 @@ object Mix {
       vid"rphjb_CaniAlCimitero.mp4",
       vid"rphjb_IlCiano.mp4",
       vid"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4",
-      vid"rphjb_StoriaDellaMiaVita.mp4"
+      vid"rphjb_StoriaDellaMiaVita.mp4",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
