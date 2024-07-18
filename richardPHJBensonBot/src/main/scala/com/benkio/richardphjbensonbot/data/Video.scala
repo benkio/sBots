@@ -2088,7 +2088,7 @@ object Video {
     )(
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "andrea carpi",
       "paolo bianco",
       "mancusi"
