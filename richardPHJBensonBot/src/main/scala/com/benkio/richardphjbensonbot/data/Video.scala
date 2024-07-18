@@ -1216,10 +1216,15 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "supermercato",
-      "sputati nel mondo",
       "gli altri siamo noi"
     )(
       vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sputat[oi] nel mondo".r.tr(17),
+    )(
+      vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
+      vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "tendetemi le vostre spire"
@@ -1416,9 +1421,14 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "vicissitudini",
-      "in bestia"
     )(
       vid"rphjb_VicissitudiniPersoneInBestia.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in bestia",
+    )(
+      vid"rphjb_VicissitudiniPersoneInBestia.mp4",
+      vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "un viaggio",
@@ -1463,9 +1473,14 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "una fossa",
-      "felicità"
     )(
       vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "felicità"
+    )(
+      vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4",
+      vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "i (dis)?gusti".r.tr(7)
@@ -2039,6 +2054,46 @@ object Video {
       "caus[ae] natural[ei]".r.tr(14)
     )(
       vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "può significare",
+      "sono attento",
+      "foglia che si muove",
+      "attagliato dal tempo",
+      "tutto ok",
+    )(
+      vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "nell'inferno",
+      "guerre",
+      "malattie",
+      "malvagi",
+      "nemici",
+      "tocca a te",
+      "momento (ibrido|contorto|instabile)".r.tr(15),
+      "stabilità",
+    )(
+      vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "intenditrice",
+      "scorfano",
+      "ragana",
+      "catafalco ambulante",
+      "pamela anderson",
+      "luce più eterna",
+      "non sopporto",
+      "spaccherei tutto"
+    )(
+      vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "andrea carpi",
+      "paolo bianco",
+      "mancusi"
+    )(
+      vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
     )
   )
 }

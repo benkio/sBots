@@ -128,7 +128,8 @@ object Mix {
       "senza culo"
     )(
       mp3"rphjb_Merda.mp3",
-      vid"rphjb_AncheLaMerda.mp4"
+      vid"rphjb_AncheLaMerda.mp4",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chiama la polizia"
@@ -150,7 +151,8 @@ object Mix {
       vid"rphjb_CaniAlCimitero.mp4",
       vid"rphjb_IlCiano.mp4",
       vid"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4",
-      vid"rphjb_StoriaDellaMiaVita.mp4"
+      vid"rphjb_StoriaDellaMiaVita.mp4",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -432,7 +434,14 @@ object Mix {
       "per strada"
     )(
       mp3"rphjb_IncontratePerStrada.mp3",
-      gif"rphjb_IncontratePerStrada.mp4"
+      gif"rphjb_IncontratePerStrada.mp4",
+      vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tastierista"
+    )(
+      mp3"rphjb_Tastierista.mp3",
+      vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "lavora tu vecchiaccia",
@@ -851,7 +860,8 @@ object Mix {
       vid"rphjb_CinqueDita.mp4",
       mp3"rphjb_CinqueDita.mp3",
       vid"rphjb_CinqueDita2.mp4",
-      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4"
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4",
+      vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bratti\\b".r.tr(5),
@@ -1427,6 +1437,7 @@ object Mix {
     )(
       mp3"rphjb_VergognatiMatosFalasci.mp3",
       vid"rphjb_VergognatiMatosFalasci.mp4",
+      vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "andre matos"
@@ -2123,6 +2134,38 @@ object Mix {
     )(
       gif"rphjb_CuoreInManoGif.mp4",
       gif"rphjb_CuoreInMano.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "squallida"
+    )(
+      gif"rphjb_Squallida.mp4",
+      vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "musica tecnica",
+      "antonacci",
+      "grignani",
+      "jovanotti",
+    )(
+      mp3"rphjb_Rock.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "conosce(nza|re)".r.tr(9),
+      "il sapere",
+      "veri valori",
+    )(
+      mp3"rphjb_Conoscere.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "prendo quello che( cazzo)? c'è da prendere",
+      "prendo (il motorino|il coso|la macchina|l'auto)",
+      "\\bvengo\\b".r.tr(5),
+      "non vengo\\b".r.tr(9)
+    )(
+      gif"rphjb_PrendoIlNecessario.mp4",
+      vid"rphjb_VengoNonVengoPrendoCosoAutoMacchinaMotorino.mp4"
     )
   )
 

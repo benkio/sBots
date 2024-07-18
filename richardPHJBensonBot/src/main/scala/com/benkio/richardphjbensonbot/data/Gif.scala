@@ -46,14 +46,6 @@ object Gif {
       gif"rphjb_StatoBrado.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "prendo quello che cazzo c'è da prendere",
-      "prendo il motorino",
-      "prendo la macchina",
-      "prendo l'auto",
-    )(
-      gif"rphjb_PrendoIlNecessario.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "siamo qua"
     )(
       gif"rphjb_SiamoQua.mp4"
@@ -278,7 +270,6 @@ object Gif {
       gif"rphjb_Discapito.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "squallida",
       "abbia mai sentito"
     )(
       gif"rphjb_Squallida.mp4"
