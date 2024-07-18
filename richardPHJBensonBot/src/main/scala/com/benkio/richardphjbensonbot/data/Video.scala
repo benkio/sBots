@@ -2039,6 +2039,15 @@ object Video {
       "caus[ae] natural[ei]".r.tr(14)
     )(
       vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "può significare",
+      "sono attento",
+      "foglia che si muove",
+      "attagliato dal tempo",
+      "tutto ok",
+    )(
+      vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4"
     )
   )
 }

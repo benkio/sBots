@@ -851,7 +851,8 @@ object Mix {
       vid"rphjb_CinqueDita.mp4",
       mp3"rphjb_CinqueDita.mp3",
       vid"rphjb_CinqueDita2.mp4",
-      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4"
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4",
+      vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bratti\\b".r.tr(5),
