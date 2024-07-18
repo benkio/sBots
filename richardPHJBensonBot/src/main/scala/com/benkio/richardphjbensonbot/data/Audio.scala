@@ -8,11 +8,6 @@ object Audio {
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMp3[F](
-      "tastierista"
-    )(
-      mp3"rphjb_Tastierista.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "caprette",
       "acidi",
       "pomodori",

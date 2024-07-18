@@ -2087,6 +2087,13 @@ object Video {
       "spaccherei tutto"
     )(
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "andrea carpi",
+      "paolo bianco",
+      "mancusi"
+    )(
+      vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
     )
   )
 }

@@ -434,7 +434,14 @@ object Mix {
       "per strada"
     )(
       mp3"rphjb_IncontratePerStrada.mp3",
-      gif"rphjb_IncontratePerStrada.mp4"
+      gif"rphjb_IncontratePerStrada.mp4",
+      vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tastierista"
+    )(
+      mp3"rphjb_Tastierista.mp3",
+      vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "lavora tu vecchiaccia",
@@ -1430,6 +1437,7 @@ object Mix {
     )(
       mp3"rphjb_VergognatiMatosFalasci.mp3",
       vid"rphjb_VergognatiMatosFalasci.mp4",
+      vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "andre matos"
