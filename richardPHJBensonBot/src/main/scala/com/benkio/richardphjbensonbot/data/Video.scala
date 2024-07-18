@@ -1216,10 +1216,15 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "supermercato",
-      "sputati nel mondo",
       "gli altri siamo noi"
     )(
       vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "sputat[oi] nel mondo".r.tr(17),
+    )(
+      vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
+      vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "tendetemi le vostre spire"
@@ -1463,9 +1468,14 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "una fossa",
-      "felicità"
     )(
       vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "felicità"
+    )(
+      vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4",
+      vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "i (dis)?gusti".r.tr(7)
@@ -2048,6 +2058,18 @@ object Video {
       "tutto ok",
     )(
       vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "nell'inferno",
+      "guerre",
+      "malattie",
+      "malvagi",
+      "nemici",
+      "tocca a te",
+      "momento (ibrido|contorto|instabile)".r.tr(15),
+      "stabilità",
+    )(
+      vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
     )
   )
 }
