@@ -2149,6 +2149,15 @@ object Mix {
     )(
       mp3"rphjb_Conoscere.mp3",
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "prendo quello che( cazzo)? c'è da prendere",
+      "prendo (il motorino|il coso|la macchina|l'auto)",
+      "\\vengo\\b".r.tr(5),
+      "non vengo\\b".r.tr(9)
+    )(
+      gif"rphjb_PrendoIlNecessario.mp4",
+      vid"rphjb_VengoNonVengoPrendoCosoAutoMacchinaMotorino.mp4"
     )
   )
 
