@@ -181,21 +181,6 @@ object Audio {
       mp3"rphjb_FinireMale.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "musica tecnica",
-      "antonacci",
-      "grignani",
-      "jovanotti",
-    )(
-      mp3"rphjb_Rock.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
-      "conosce(nza|re)".r.tr(9),
-      "il sapere",
-      "veri valori",
-    )(
-      mp3"rphjb_Conoscere.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "anguille",
       "polipi",
       "cetrioli",

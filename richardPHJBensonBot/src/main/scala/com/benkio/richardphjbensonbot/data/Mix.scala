@@ -128,7 +128,8 @@ object Mix {
       "senza culo"
     )(
       mp3"rphjb_Merda.mp3",
-      vid"rphjb_AncheLaMerda.mp4"
+      vid"rphjb_AncheLaMerda.mp4",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "chiama la polizia"
@@ -2130,6 +2131,23 @@ object Mix {
     )(
       gif"rphjb_Squallida.mp4",
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "musica tecnica",
+      "antonacci",
+      "grignani",
+      "jovanotti",
+    )(
+      mp3"rphjb_Rock.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "conosce(nza|re)".r.tr(9),
+      "il sapere",
+      "veri valori",
+    )(
+      mp3"rphjb_Conoscere.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
     )
   )
 

@@ -2084,8 +2084,7 @@ object Video {
       "pamela anderson",
       "luce più eterna",
       "non sopporto",
-      "spaccherei tutto",
-      "",
+      "spaccherei tutto"
     )(
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
     )
