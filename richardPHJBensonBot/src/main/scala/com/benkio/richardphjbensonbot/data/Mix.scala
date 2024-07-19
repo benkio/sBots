@@ -154,7 +154,8 @@ object Mix {
       vid"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4",
       vid"rphjb_StoriaDellaMiaVita.mp4",
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
-      vid"rphjb_StoriaMarlinManson.mp4"
+      vid"rphjb_StoriaMarlinManson.mp4",
+      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -735,7 +736,8 @@ object Mix {
       vid"rphjb_BigMoney.mp4",
       vid"rphjb_InvestitoreGoverno.mp4",
       vid"rphjb_ButtareSoldiFinestra.mp4",
-      vid"rphjb_CoiSoldiMiei.mp4"
+      vid"rphjb_CoiSoldiMiei.mp4",
+      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[od]?dio mio[,]? no".r.tr(10)

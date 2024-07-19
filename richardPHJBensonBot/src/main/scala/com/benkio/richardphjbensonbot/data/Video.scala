@@ -2113,6 +2113,15 @@ object Video {
       "ai concerti col papà"
     )(
       vid"rphjb_StoriaMarlinManson.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "come l'olio",
+      "sotto il tavolo",
+      "leccare per terra",
+      "più spazio",
+      "25 minuti",
+    )(
+      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
     )
   )
 }
