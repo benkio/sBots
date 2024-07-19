@@ -1891,7 +1891,7 @@ object Mix {
       mp3"rphjb_Chiesa.mp3",
       vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToMedia[F](
       "manfrin[ea]".r.tr(8),
     )(
       mp3"rphjb_Chiesa.mp3",
