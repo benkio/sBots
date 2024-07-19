@@ -382,7 +382,8 @@ object Video {
       "sigarett[ea]".r.tr(9)
     )(
       vid"rphjb_Sigarette.mp4",
-      vid"rphjb_CollaSerpeSigarettePercussionista.mp4"
+      vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
+      vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "orecchie sensibili",
@@ -2150,6 +2151,15 @@ object Video {
       "se te lo meriti",
     )(
       vid"rphjb_StringerciLaManoNonTiConoscoSalutoMetalAbbracceremoForseMeriti.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "caramelle",
+      "succhiarvi",
+      "fumarvi",
+      "tacchi a spillo",
+      "dominatore",
+    )(
+      vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4"
     )
   )
 }
