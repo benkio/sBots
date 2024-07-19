@@ -59,7 +59,8 @@ object Mix {
       mp3"rphjb_Pappalardo.mp3",
       vid"rphjb_Pappalardo.mp4",
       mp3"rphjb_FrocioFrocio.mp3",
-      vid"rphjb_FrocioFrocio2.mp4"
+      vid"rphjb_FrocioFrocio2.mp4",
+      vid"rphjb_StoriaMarlinManson.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "lasciami in pace",
@@ -152,7 +153,9 @@ object Mix {
       vid"rphjb_IlCiano.mp4",
       vid"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4",
       vid"rphjb_StoriaDellaMiaVita.mp4",
-      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
+      vid"rphjb_StoriaMarlinManson.mp4",
+      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -171,7 +174,8 @@ object Mix {
       vid"rphjb_LaMorteMicetta.mp4",
       vid"rphjb_LaMorte.mp4",
       vid"rphjb_LaMorte2.mp4",
-      vid"rphjb_InnoAllaMorte.mp4"
+      vid"rphjb_InnoAllaMorte.mp4",
+      vid"rphjb_UnicoMezzoUccidereMorteMateriaSpirito.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bspalle\\b".r.tr(6),
@@ -733,7 +737,8 @@ object Mix {
       vid"rphjb_BigMoney.mp4",
       vid"rphjb_InvestitoreGoverno.mp4",
       vid"rphjb_ButtareSoldiFinestra.mp4",
-      vid"rphjb_CoiSoldiMiei.mp4"
+      vid"rphjb_CoiSoldiMiei.mp4",
+      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[od]?dio mio[,]? no".r.tr(10)
@@ -1882,10 +1887,16 @@ object Mix {
       "la medicina",
       "andare dal dottore",
       "\\billusi\\b".r.tr(6),
-      "manfrine",
     )(
       mp3"rphjb_Chiesa.mp3",
       vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "manfrin[ea]".r.tr(8),
+    )(
+      mp3"rphjb_Chiesa.mp3",
+      vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4",
+      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "sarete puniti"

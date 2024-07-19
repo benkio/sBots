@@ -7,7 +7,8 @@ object Video {
 
   def messageRepliesVideoData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToVideo[F](
-      "soldati"
+      "soldati",
+      "vorrei (tanto )?risentirlo".r.tr(17)
     )(
       vid"rphjb_AmiciVeriVecchiSoldati.mp4"
     ),
@@ -312,7 +313,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "marilyn manson"
     )(
-      vid"rphjb_Ciao2001.mp4"
+      vid"rphjb_Ciao2001.mp4",
+      vid"rphjb_StoriaMarlinManson.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "capelli lunghi"
@@ -380,7 +382,8 @@ object Video {
       "sigarett[ea]".r.tr(9)
     )(
       vid"rphjb_Sigarette.mp4",
-      vid"rphjb_CollaSerpeSigarettePercussionista.mp4"
+      vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
+      vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "orecchie sensibili",
@@ -577,10 +580,14 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "se non ci credi",
       "[pb]or[dt]land".r.tr(8),
-      "vancuver",
-      "vancuva",
     )(
       vid"rphjb_PortlandVancuverFanculo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vancuv(er|a)".r.tr(7)
+    )(
+      vid"rphjb_PortlandVancuverFanculo.mp4",
+      vid"rphjb_StoriaMarlinManson.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "tempo al tempo",
@@ -591,9 +598,15 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "barzelletta",
       "ginecologo",
-      "partiti politici",
     )(
       vid"rphjb_BarzellettaPoliticaGinecologo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "partiti politici",
+      "politica"
+    )(
+      vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
+      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "questa è una trasmissione",
@@ -2094,6 +2107,98 @@ object Video {
       "mancusi"
     )(
       vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sporco frocio",
+      "sto su di (chi|te)".r.tr(12)
+    )(
+      vid"rphjb_StoSuDiChiTeSembrareSporcoFrocio.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tic nervosi",
+      "truccato",
+      "fottuta in un cesso",
+      "ai concerti col papà"
+    )(
+      vid"rphjb_StoriaMarlinManson.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "come l'olio",
+      "sotto il tavolo",
+      "leccare per terra",
+      "più spazio",
+      "25 minuti",
+    )(
+      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "l'unico mezzo",
+      "trasformare la materia",
+      "in spirito",
+    )(
+      vid"rphjb_UnicoMezzoUccidereMorteMateriaSpirito.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "ti ho chiamato",
+      "richiamarmi",
+      "non c[ie] posso fa(re)? niente".r.tr(22),
+      "faccio quello che posso",
+      "arrivo fino a[d]? un certo punto".r.tr(28),
+      "m[ei] butto d[ei] sotto".r.tr(17),
+    )(
+      vid"rphjb_TiHoChiamatoRichiamarmiFaccioQuelloChePosso.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "stringer(e|si) la mano".r.tr(17),
+      "non ti conosco",
+      "saluto metal",
+      "🤘",
+      "ci abbracceremo",
+      "se te lo meriti",
+    )(
+      vid"rphjb_StringerciLaManoNonTiConoscoSalutoMetalAbbracceremoForseMeriti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "caramelle",
+      "succhiarvi",
+      "fumarvi",
+      "dominatore",
+    )(
+      vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tacchi a spillo"
+    )(
+      vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4",
+      vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vi salut[ao]".r.tr(9),
+      "lingua",
+      "donna giusta",
+      "donne sbagliate",
+      "egregia",
+    )(
+      vid"rphjb_ViSalutaLinguaSuDonnaGiusta.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "volto nuovo",
+      "ogni settimana",
+      "sempre un'uomo",
+      "un po' i seni",
+      "un po' le cosce",
+      "calze a rete",
+      "camerawoman"
+    )(
+      vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "mente (abbietta|calpestata)".r.tr(14),
+      "mafia",
+      "punto di partenza",
+      "estremismo",
+    )(
+      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     )
   )
 }
