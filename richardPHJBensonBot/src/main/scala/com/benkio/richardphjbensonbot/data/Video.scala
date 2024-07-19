@@ -7,7 +7,8 @@ object Video {
 
   def messageRepliesVideoData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToVideo[F](
-      "soldati"
+      "soldati",
+      "vorrei (tanto )?risentirlo".r.tr(17)
     )(
       vid"rphjb_AmiciVeriVecchiSoldati.mp4"
     ),
