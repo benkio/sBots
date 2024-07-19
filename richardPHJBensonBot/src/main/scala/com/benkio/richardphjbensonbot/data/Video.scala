@@ -312,7 +312,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "marilyn manson"
     )(
-      vid"rphjb_Ciao2001.mp4"
+      vid"rphjb_Ciao2001.mp4",
+      vid"rphjb_StoriaMarlinManson.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "capelli lunghi"
@@ -577,10 +578,14 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "se non ci credi",
       "[pb]or[dt]land".r.tr(8),
-      "vancuver",
-      "vancuva",
     )(
       vid"rphjb_PortlandVancuverFanculo.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "vancuv(er|a)".r.tr(7)
+    )(
+      vid"rphjb_PortlandVancuverFanculo.mp4",
+      vid"rphjb_StoriaMarlinManson.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "tempo al tempo",
@@ -2094,6 +2099,20 @@ object Video {
       "mancusi"
     )(
       vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "sporco frocio",
+      "sto su di (chi|te)".r.tr(12)
+    )(
+      vid"rphjb_StoSuDiChiTeSembrareSporcoFrocio.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "tic nervosi",
+      "truccato",
+      "fottuta in un cesso",
+      "ai concerti col papà"
+    )(
+      vid"rphjb_StoriaMarlinManson.mp4"
     )
   )
 }

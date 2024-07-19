@@ -59,7 +59,8 @@ object Mix {
       mp3"rphjb_Pappalardo.mp3",
       vid"rphjb_Pappalardo.mp4",
       mp3"rphjb_FrocioFrocio.mp3",
-      vid"rphjb_FrocioFrocio2.mp4"
+      vid"rphjb_FrocioFrocio2.mp4",
+      vid"rphjb_StoriaMarlinManson.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "lasciami in pace",
@@ -152,7 +153,8 @@ object Mix {
       vid"rphjb_IlCiano.mp4",
       vid"rphjb_CheStoDicendoDiVoltaIlCervelloPrincipiVeneziani.mp4",
       vid"rphjb_StoriaDellaMiaVita.mp4",
-      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
+      vid"rphjb_StoriaMarlinManson.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
