@@ -1887,10 +1887,16 @@ object Mix {
       "la medicina",
       "andare dal dottore",
       "\\billusi\\b".r.tr(6),
-      "manfrine",
     )(
       mp3"rphjb_Chiesa.mp3",
       vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "manfrin[ea]".r.tr(8),
+    )(
+      mp3"rphjb_Chiesa.mp3",
+      vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4",
+      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "sarete puniti"

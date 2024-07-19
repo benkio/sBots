@@ -598,9 +598,15 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "barzelletta",
       "ginecologo",
-      "partiti politici",
     )(
       vid"rphjb_BarzellettaPoliticaGinecologo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "partiti politici",
+      "politica"
+    )(
+      vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
+      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "questa è una trasmissione",
@@ -2152,14 +2158,47 @@ object Video {
     )(
       vid"rphjb_StringerciLaManoNonTiConoscoSalutoMetalAbbracceremoForseMeriti.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "caramelle",
       "succhiarvi",
       "fumarvi",
-      "tacchi a spillo",
       "dominatore",
     )(
       vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "tacchi a spillo"
+    )(
+      vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4",
+      vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "vi salut[ao]".r.tr(9),
+      "lingua",
+      "donna giusta",
+      "donne sbagliate",
+      "egregia",
+    )(
+      vid"rphjb_ViSalutaLinguaSuDonnaGiusta.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "volto nuovo",
+      "ogni settimana",
+      "sempre un'uomo",
+      "un po' i seni",
+      "un po' le cosce",
+      "calze a rete",
+      "camerawoman"
+    )(
+      vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "mente (abbietta|calpestata)".r.tr(14),
+      "mafia",
+      "punto di partenza",
+      "estremismo",
+    )(
+      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     )
   )
 }
