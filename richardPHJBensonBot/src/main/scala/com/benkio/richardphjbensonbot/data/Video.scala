@@ -2140,6 +2140,16 @@ object Video {
       "m[ei] butto d[ei] sotto".r.tr(17),
     )(
       vid"rphjb_TiHoChiamatoRichiamarmiFaccioQuelloChePosso.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "stringer(e|si) la mano".r.tr(17),
+      "non ti conosco",
+      "saluto metal",
+      "🤘",
+      "ci abbracceremo",
+      "se te lo meriti",
+    )(
+      vid"rphjb_StringerciLaManoNonTiConoscoSalutoMetalAbbracceremoForseMeriti.mp4"
     )
   )
 }
