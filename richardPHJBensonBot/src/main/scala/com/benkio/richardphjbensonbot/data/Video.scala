@@ -582,7 +582,7 @@ object Video {
     )(
       vid"rphjb_PortlandVancuverFanculo.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "vancuv(er|a)".r.tr(7)
     )(
       vid"rphjb_PortlandVancuverFanculo.mp4",
@@ -2101,13 +2101,13 @@ object Video {
     )(
       vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "sporco frocio",
       "sto su di (chi|te)".r.tr(12)
     )(
       vid"rphjb_StoSuDiChiTeSembrareSporcoFrocio.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "tic nervosi",
       "truccato",
       "fottuta in un cesso",
@@ -2115,7 +2115,7 @@ object Video {
     )(
       vid"rphjb_StoriaMarlinManson.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "come l'olio",
       "sotto il tavolo",
       "leccare per terra",
@@ -2124,12 +2124,22 @@ object Video {
     )(
       vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
     ),
-    ReplyBundleMessage,textToVideo[F](
+    ReplyBundleMessage.textToVideo[F](
       "l'unico mezzo",
       "trasformare la materia",
       "in spirito",
     )(
       vid"rphjb_UnicoMezzoUccidereMorteMateriaSpirito.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "ti ho chiamato",
+      "richiamarmi",
+      "non c[ie] posso fa(re)? niente".r.tr(22),
+      "faccio quello che posso",
+      "arrivo fino a[d]? un certo punto".r.tr(28),
+      "m[ei] butto d[ei] sotto".r.tr(17),
+    )(
+      vid"rphjb_TiHoChiamatoRichiamarmiFaccioQuelloChePosso.mp4"
     )
   )
 }
