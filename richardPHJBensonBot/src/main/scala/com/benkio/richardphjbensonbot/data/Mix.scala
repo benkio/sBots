@@ -174,7 +174,8 @@ object Mix {
       vid"rphjb_LaMorteMicetta.mp4",
       vid"rphjb_LaMorte.mp4",
       vid"rphjb_LaMorte2.mp4",
-      vid"rphjb_InnoAllaMorte.mp4"
+      vid"rphjb_InnoAllaMorte.mp4",
+      vid"rphjb_UnicoMezzoUccidereMorteMateriaSpirito.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bspalle\\b".r.tr(6),

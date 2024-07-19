@@ -2122,6 +2122,13 @@ object Video {
       "25 minuti",
     )(
       vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
+    ),
+    ReplyBundleMessage,textToVideo[F](
+      "l'unico mezzo",
+      "trasformare la materia",
+      "in spirito",
+    )(
+      vid"rphjb_UnicoMezzoUccidereMorteMateriaSpirito.mp4"
     )
   )
 }
