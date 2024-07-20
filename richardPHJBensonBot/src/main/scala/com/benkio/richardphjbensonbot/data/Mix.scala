@@ -341,7 +341,8 @@ object Mix {
       mp3"rphjb_MaVatteneAffanculo.mp3",
       vid"rphjb_PortlandVancuverFanculo.mp4",
       gif"rphjb_FanculoPerCortesia.mp4",
-      vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
+      vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4",
+      vid"rphjb_CambiaCanaleBruttoFrocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "feelings"
