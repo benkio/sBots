@@ -2178,6 +2178,14 @@ object Mix {
     )(
       gif"rphjb_PrendoIlNecessario.mp4",
       vid"rphjb_VengoNonVengoPrendoCosoAutoMacchinaMotorino.mp4"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "non parlare",
+      "non hai il diritto",
+      "la trasmissione è la mia",
+    )(
+      mp3"rphjb_NonParlareTeTrasmissioneMia.mp3",
+      vid"rphjb_NonParlareTeDirittoIoTrasmissioneMia.mp4"
     )
   )
 

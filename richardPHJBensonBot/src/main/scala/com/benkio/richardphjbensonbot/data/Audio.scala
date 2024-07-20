@@ -292,13 +292,6 @@ object Audio {
       mp3"rphjb_Schifosi4.mp3",
     ),
     ReplyBundleMessage.textToMp3[F](
-      "non parlare",
-      "non hai il diritto",
-      "la trasmissione è la mia",
-    )(
-      mp3"rphjb_NonParlareTeTrasmissioneMia.mp3",
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "gelatina",
       "secchi d'acqua",
       "fazzoletti",
