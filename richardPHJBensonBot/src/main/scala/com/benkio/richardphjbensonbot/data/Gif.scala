@@ -155,12 +155,6 @@ object Gif {
       gif"rphjb_Campa.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "pensa alla deficienza",
-      "ma si può dire una cosa (del genere|così)".r.tr(28),
-    )(
-      gif"rphjb_Deficienza.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "e levati((...|..|.| )dai coglioni)?".r.tr(8),
       "fuori(...|..|.| )dai coglioni".r.tr(18)
     )(

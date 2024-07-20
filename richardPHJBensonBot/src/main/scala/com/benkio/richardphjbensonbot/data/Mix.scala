@@ -341,7 +341,8 @@ object Mix {
       mp3"rphjb_MaVatteneAffanculo.mp3",
       vid"rphjb_PortlandVancuverFanculo.mp4",
       gif"rphjb_FanculoPerCortesia.mp4",
-      vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
+      vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4",
+      vid"rphjb_CambiaCanaleBruttoFrocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "feelings"
@@ -2177,6 +2178,21 @@ object Mix {
     )(
       gif"rphjb_PrendoIlNecessario.mp4",
       vid"rphjb_VengoNonVengoPrendoCosoAutoMacchinaMotorino.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "non parlare",
+      "non hai il diritto",
+      "la trasmissione è la mia",
+    )(
+      mp3"rphjb_NonParlareTeTrasmissioneMia.mp3",
+      vid"rphjb_NonParlareTeDirittoIoTrasmissioneMia.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "pensa alla deficienza",
+      "ma si può dire una cosa (del genere|così)".r.tr(28),
+    )(
+      gif"rphjb_DeficienzaGif.mp4",
+      vid"rphjb_Deficienza.mp4"
     )
   )
 
