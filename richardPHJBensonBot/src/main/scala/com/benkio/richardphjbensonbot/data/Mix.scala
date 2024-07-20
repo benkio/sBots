@@ -2179,7 +2179,7 @@ object Mix {
       gif"rphjb_PrendoIlNecessario.mp4",
       vid"rphjb_VengoNonVengoPrendoCosoAutoMacchinaMotorino.mp4"
     ),
-    ReplyBundleMessage.textToMp3[F](
+    ReplyBundleMessage.textToMedia[F](
       "non parlare",
       "non hai il diritto",
       "la trasmissione è la mia",
