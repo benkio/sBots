@@ -2186,6 +2186,13 @@ object Mix {
     )(
       mp3"rphjb_NonParlareTeTrasmissioneMia.mp3",
       vid"rphjb_NonParlareTeDirittoIoTrasmissioneMia.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "pensa alla deficienza",
+      "ma si può dire una cosa (del genere|così)".r.tr(28),
+    )(
+      gif"rphjb_DeficienzaGif.mp4",
+      vid"rphjb_Deficienza.mp4"
     )
   )
 
