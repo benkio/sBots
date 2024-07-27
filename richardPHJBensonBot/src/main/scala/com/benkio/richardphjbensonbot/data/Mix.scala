@@ -284,7 +284,6 @@ object Mix {
       mp3"rphjb_MaCheCazzoEraQuellaRobaDroghe.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "canzonette",
       "balera",
       "sagra dell'uva",
       "feste condominiali",
@@ -293,6 +292,14 @@ object Mix {
       mp3"rphjb_Canzonette.mp3",
       vid"rphjb_Canzonette.mp4",
       gif"rphjb_Canzonette.gif"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "canzonette"
+    )(
+      mp3"rphjb_Canzonette.mp3",
+      vid"rphjb_Canzonette.mp4",
+      gif"rphjb_Canzonette.gif",
+      vid"rphjb_CanzonettePoesieAuschwitzCervello.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "un pollo"
