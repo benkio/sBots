@@ -198,7 +198,6 @@ object Gif {
       gif"rphjb_DoveteSoffrire.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "cantanti",
       "serie z"
     )(
       gif"rphjb_CantantiSerieZ.mp4"

@@ -61,7 +61,9 @@ object Mix {
       mp3"rphjb_FrocioFrocio.mp3",
       vid"rphjb_FrocioFrocio2.mp4",
       vid"rphjb_StoriaMarlinManson.mp4",
-      vid"rphjb_TelefonataPappalardoFanculo.mp4"
+      vid"rphjb_TelefonataPappalardoFanculo.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "lasciami in pace",
@@ -1757,7 +1759,9 @@ object Mix {
     )(
       gif"rphjb_GianniCelesteMeglioGigiDAlessio.mp4",
       vid"rphjb_RapMusicaMelodicaListaCantanti.mp4",
-      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
+      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "negri",
@@ -2259,6 +2263,30 @@ object Mix {
     )(
       mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
       vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "cantanti"
+    )(
+      gif"rphjb_CantantiSerieZ.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
+    ), ReplyBundleMessage.textToMedia[F](
+      "dove ce lo metti",
+      "george michael",
+      "cesso pubblico",
+      "sbaciucchia",
+      "tutti nudi",
+      "lo soffocano",
+      "non riesce più a (parlà|cantà|respirà)".r.tr(22),
+      "nazaro saurio",
+      "eddy napoli",
+      "ray gelato",
+      "tony sant'agata",
+      "frate cionfoli",
+      "rovinato (la vita|(pure )?il culo)".r.tr(16),
+    )(
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
     ),
   )
 
