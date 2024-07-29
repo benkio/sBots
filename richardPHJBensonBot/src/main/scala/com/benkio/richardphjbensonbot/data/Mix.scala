@@ -2270,7 +2270,8 @@ object Mix {
       gif"rphjb_CantantiSerieZ.mp4",
       vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
       mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
-    ), ReplyBundleMessage.textToMedia[F](
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "dove ce lo metti",
       "george michael",
       "cesso pubblico",
@@ -2287,6 +2288,27 @@ object Mix {
     )(
       vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
       mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "riccardo benzoni",
+      "richard (philip henry john )?benson".r.tr(14),
+    )(
+      mp3"rphjb_PassaportoRiccardoBenzoni.mp3",
+      mp3"rphjb_FotoDocumentoCheComprova.mp3",
+      vid"rphjb_FotoDocumentoCheComprova.mp4",
+      gif"rphjb_FotoDocumentoCheComprovaGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "e soprattutto",
+      "foto del (mio )?documento".r.tr(18),
+      "dopo quella foto",
+      "documento ufficiale",
+      "che comprova",
+      "il mio nome è"
+    )(
+      mp3"rphjb_FotoDocumentoCheComprova.mp3",
+      vid"rphjb_FotoDocumentoCheComprova.mp4",
+      gif"rphjb_FotoDocumentoCheComprovaGif.mp4",
     ),
   )
 

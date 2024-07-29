@@ -363,12 +363,6 @@ object Audio {
       mp3"rphjb_TelevitaSonoInizioRisata.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "riccardo benzoni",
-      "richard philip henry john benson",
-    )(
-      mp3"rphjb_PassaportoRiccardoBenzoni.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "ah eccola",
       "l'ho trovata",
     )(
