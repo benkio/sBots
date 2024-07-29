@@ -343,7 +343,6 @@ object Audio {
       mp3"rphjb_DonneSperma.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "incidente dal ponte",
       "ponte sisto",
       "manco il tevere",
       "cercando di farmi del male",

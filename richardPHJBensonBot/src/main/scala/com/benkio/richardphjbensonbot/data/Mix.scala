@@ -156,7 +156,9 @@ object Mix {
       vid"rphjb_StoriaDellaMiaVita.mp4",
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
       vid"rphjb_StoriaMarlinManson.mp4",
-      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
+      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4",
+      vid"rphjb_StoriaIncidenteMotoAmico.mp4",
+      mp3"rphjb_StoriaIncidenteMotoAmico.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -2209,7 +2211,28 @@ object Mix {
     )(
       gif"rphjb_DeficienzaGif.mp4",
       vid"rphjb_Deficienza.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "incidente"
+    )(
+      mp3"rphjb_IncidentePonte.mp3",
+      vid"rphjb_StoriaIncidenteMotoAmico.mp4",
+      mp3"rphjb_StoriaIncidenteMotoAmico.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bmoto\\b".r.tr(4),
+      "cilindrata",
+      "rincoglionito",
+      "pronto soccorso",
+      "non mi sono fatto niente",
+      "una roba da poco",
+      "a far[st]i vedere".r.tr(14),
+      "il casco",
+      "si apre in due"
+    )(
+      vid"rphjb_StoriaIncidenteMotoAmico.mp4",
+      mp3"rphjb_StoriaIncidenteMotoAmico.mp3"
+    ),
   )
 
 }
