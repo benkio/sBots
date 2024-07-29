@@ -60,7 +60,10 @@ object Mix {
       vid"rphjb_Pappalardo.mp4",
       mp3"rphjb_FrocioFrocio.mp3",
       vid"rphjb_FrocioFrocio2.mp4",
-      vid"rphjb_StoriaMarlinManson.mp4"
+      vid"rphjb_StoriaMarlinManson.mp4",
+      vid"rphjb_TelefonataPappalardoFanculo.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "lasciami in pace",
@@ -155,7 +158,11 @@ object Mix {
       vid"rphjb_StoriaDellaMiaVita.mp4",
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
       vid"rphjb_StoriaMarlinManson.mp4",
-      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
+      vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4",
+      vid"rphjb_StoriaIncidenteMotoAmico.mp4",
+      mp3"rphjb_StoriaIncidenteMotoAmico.mp3",
+      mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -349,7 +356,8 @@ object Mix {
       vid"rphjb_PortlandVancuverFanculo.mp4",
       gif"rphjb_FanculoPerCortesia.mp4",
       vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4",
-      vid"rphjb_CambiaCanaleBruttoFrocio.mp4"
+      vid"rphjb_CambiaCanaleBruttoFrocio.mp4",
+      vid"rphjb_TelefonataPappalardoFanculo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "feelings"
@@ -1321,13 +1329,20 @@ object Mix {
       mp3"rphjb_PoesiaNatalizia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "auguri di natale",
-      "buon natale",
       "merry christmas",
     )(
       vid"rphjb_AuguriDiNatale.mp4",
       mp3"rphjb_RockChristmasHappyNewYear.mp3",
       vid"rphjb_AuguriDiNataleCapodannoFeste.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "natale"
+    )(
+      vid"rphjb_AuguriDiNatale.mp4",
+      mp3"rphjb_RockChristmasHappyNewYear.mp3",
+      vid"rphjb_AuguriDiNataleCapodannoFeste.mp4",
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
+      mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "giuda"
@@ -1339,11 +1354,19 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "buon anno",
       "happy new year",
-      "capodanno",
     )(
       mp3"rphjb_RockChristmasHappyNewYear.mp3",
       vid"rphjb_AuguriDiNataleCapodannoFeste.mp4",
       vid"rphjb_PassatoAnnoVitaContinua.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "capodanno",
+    )(
+      mp3"rphjb_RockChristmasHappyNewYear.mp3",
+      vid"rphjb_AuguriDiNataleCapodannoFeste.mp4",
+      vid"rphjb_PassatoAnnoVitaContinua.mp4",
+      mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "i rage",
@@ -1500,10 +1523,17 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "in un attimo",
       "risolto tutto",
-      "telefonata",
     )(
       gif"rphjb_Telefonata.mp4",
       vid"rphjb_DifficoltaAmicizieTelefonata.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "telefonata",
+    )(
+      gif"rphjb_TelefonataPilotata.mp4",
+      gif"rphjb_Telefonata.mp4",
+      vid"rphjb_DifficoltaAmicizieTelefonata.mp4",
+      vid"rphjb_TelefonataPappalardoFanculo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "nudo([ -]nudo)+".r.tr(4),
@@ -1729,7 +1759,9 @@ object Mix {
     )(
       gif"rphjb_GianniCelesteMeglioGigiDAlessio.mp4",
       vid"rphjb_RapMusicaMelodicaListaCantanti.mp4",
-      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
+      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "negri",
@@ -2005,7 +2037,8 @@ object Mix {
       gif"rphjb_Sguardo3.mp4",
       gif"rphjb_Sguardo4.mp4",
       gif"rphjb_SguardoCanaro.mp4",
-      vid"rphjb_FeelingsSguardoPreghiera.mp4"
+      vid"rphjb_FeelingsSguardoPreghiera.mp4",
+      vid"rphjb_Messaggio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "non capisco"
@@ -2200,7 +2233,124 @@ object Mix {
     )(
       gif"rphjb_DeficienzaGif.mp4",
       vid"rphjb_Deficienza.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "incidente"
+    )(
+      mp3"rphjb_IncidentePonte.mp3",
+      vid"rphjb_StoriaIncidenteMotoAmico.mp4",
+      mp3"rphjb_StoriaIncidenteMotoAmico.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bmoto\\b".r.tr(4),
+      "cilindrata",
+      "rincoglionito",
+      "pronto soccorso",
+      "non mi sono fatto niente",
+      "una roba da poco",
+      "a far[st]i vedere".r.tr(14),
+      "il casco",
+      "si apre in due"
+    )(
+      vid"rphjb_StoriaIncidenteMotoAmico.mp4",
+      mp3"rphjb_StoriaIncidenteMotoAmico.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "rifiutato",
+      "lavor(a|à|are) troppo".r.tr(13),
+      "non (mi va di|ho voglia di|voglio) lavor(a|à|are)".r.tr(17),
+      "andare a lavorare",
+      "grande divertimento"
+    )(
+      mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "cantanti"
+    )(
+      gif"rphjb_CantantiSerieZ.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "dove ce lo metti",
+      "george michael",
+      "cesso pubblico",
+      "sbaciucchia",
+      "tutti nudi",
+      "lo soffocano",
+      "non riesce più a (parlà|cantà|respirà)".r.tr(22),
+      "nazaro saurio",
+      "eddy napoli",
+      "ray gelato",
+      "tony sant'agata",
+      "frate cionfoli",
+      "rovinato (la vita|(pure )?il culo)".r.tr(16),
+    )(
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "riccardo benzoni",
+      "richard (philip henry john )?benson".r.tr(14),
+    )(
+      mp3"rphjb_PassaportoRiccardoBenzoni.mp3",
+      mp3"rphjb_FotoDocumentoCheComprova.mp3",
+      vid"rphjb_FotoDocumentoCheComprova.mp4",
+      gif"rphjb_FotoDocumentoCheComprovaGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "e soprattutto",
+      "foto del (mio )?documento".r.tr(18),
+      "dopo quella foto",
+      "documento ufficiale",
+      "che comprova",
+      "il mio nome è"
+    )(
+      mp3"rphjb_FotoDocumentoCheComprova.mp3",
+      vid"rphjb_FotoDocumentoCheComprova.mp4",
+      gif"rphjb_FotoDocumentoCheComprovaGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "c'ho un cuore",
+      "dov'è andato a (finire|filare)".r.tr(21),
+      "tra le palle",
+      "dovrei ritrovarlo",
+      "da qualche parte",
+      "andato giù",
+      "tirare (s[uù]|i fili)".r.tr(9)
+    )(
+      mp3"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFili.mp3",
+      vid"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFili.mp4",
+      gif"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFiliGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "futurista",
+      "che (volevo|cerco) io".r.tr(12),
+      "il (futuro|passato)".r.tr(9),
+      "mi ha rotto",
+    )(
+      mp3"rphjb_FuturistaPassatoRotto.mp3",
+      vid"rphjb_FuturistaPassatoRotto.mp4",
+      gif"rphjb_FuturistaPassatoRottoGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ho un messaggio",
+      "aspetta!",
+      "non resisto più",
+      "non so più resistere",
+      "aprite le finestre",
+      "buio spaventoso",
+      "non ho mai pace",
+      "supplizio",
+      "martirio",
+      "strapparmi (gli occhi|le bende)".r.tr(19),
+      "nell'oscurità",
+      "sempre vedo"
+    )(
+      mp3"rphjb_Messaggio.mp3",
+      vid"rphjb_Messaggio.mp4",
+    ),
   )
 
 }

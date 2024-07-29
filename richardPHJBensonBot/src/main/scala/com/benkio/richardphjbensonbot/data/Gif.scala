@@ -67,7 +67,6 @@ object Gif {
       gif"rphjb_AbbiamoVinto.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "telefonata pilotata",
       "falsità"
     )(
       gif"rphjb_TelefonataPilotata.mp4"
@@ -199,7 +198,6 @@ object Gif {
       gif"rphjb_DoveteSoffrire.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "cantanti",
       "serie z"
     )(
       gif"rphjb_CantantiSerieZ.mp4"
