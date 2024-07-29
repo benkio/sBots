@@ -2323,6 +2323,16 @@ object Mix {
       vid"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFili.mp4",
       gif"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFiliGif.mp4",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "futurista",
+      "che (volevo|cerco) io".r.tr(12),
+      "il (futuro|passato)".r.tr(9),
+      "mi ha rotto",
+    )(
+      mp3"phjb_FuturistaPassatoRotto.mp3",
+      vid"rphjb_FuturistaPassatoRotto.mp4",
+      gif"rphjb_FuturistaPassatoRottoGif.mp4",
+    ),
   )
 
 }
