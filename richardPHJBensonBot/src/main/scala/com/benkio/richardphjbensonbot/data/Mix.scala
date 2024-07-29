@@ -2280,10 +2280,10 @@ object Mix {
       "tutti nudi",
       "lo soffocano",
       "non riesce più a (parlà|cantà|respirà)".r.tr(22),
-      "nazaro saurio",
+      "nazario saurio",
       "eddy napoli",
       "ray gelato",
-      "tony sant'agata",
+      "toni santagata",
       "frate cionfoli",
       "rovinato (la vita|(pure )?il culo)".r.tr(16),
     )(
