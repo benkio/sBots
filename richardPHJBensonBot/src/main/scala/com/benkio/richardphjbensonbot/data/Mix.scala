@@ -1341,7 +1341,7 @@ object Mix {
       vid"rphjb_AuguriDiNataleCapodannoFeste.mp4",
       vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
       mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3"
-    )
+    ),
     ReplyBundleMessage.textToMedia[F](
       "giuda"
     )(
@@ -2250,7 +2250,7 @@ object Mix {
       vid"rphjb_StoriaIncidenteMotoAmico.mp4",
       mp3"rphjb_StoriaIncidenteMotoAmico.mp3"
     ),
-        ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia[F](
       "rifiutato",
       "lavor(a|à|are) troppo".r.tr(13),
       "non (mi va di|ho voglia di|voglio) lavor(a|à|are)".r.tr(17),
