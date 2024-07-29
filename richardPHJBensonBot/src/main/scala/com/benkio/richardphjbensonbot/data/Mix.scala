@@ -2330,7 +2330,7 @@ object Mix {
       "il (futuro|passato)".r.tr(9),
       "mi ha rotto",
     )(
-      mp3"phjb_FuturistaPassatoRotto.mp3",
+      mp3"rphjb_FuturistaPassatoRotto.mp3",
       vid"rphjb_FuturistaPassatoRotto.mp4",
       gif"rphjb_FuturistaPassatoRottoGif.mp4",
     ),
