@@ -158,7 +158,9 @@ object Mix {
       vid"rphjb_StoriaMarlinManson.mp4",
       vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4",
       vid"rphjb_StoriaIncidenteMotoAmico.mp4",
-      mp3"rphjb_StoriaIncidenteMotoAmico.mp3"
+      mp3"rphjb_StoriaIncidenteMotoAmico.mp3",
+      mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -1325,14 +1327,21 @@ object Mix {
       mp3"rphjb_PoesiaNatalizia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "auguri di natale",
-      "buon natale",
       "merry christmas",
     )(
       vid"rphjb_AuguriDiNatale.mp4",
       mp3"rphjb_RockChristmasHappyNewYear.mp3",
       vid"rphjb_AuguriDiNataleCapodannoFeste.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "natale"
+    )(
+      vid"rphjb_AuguriDiNatale.mp4",
+      mp3"rphjb_RockChristmasHappyNewYear.mp3",
+      vid"rphjb_AuguriDiNataleCapodannoFeste.mp4",
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
+      mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3"
+    )
     ReplyBundleMessage.textToMedia[F](
       "giuda"
     )(
@@ -1343,11 +1352,19 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "buon anno",
       "happy new year",
-      "capodanno",
     )(
       mp3"rphjb_RockChristmasHappyNewYear.mp3",
       vid"rphjb_AuguriDiNataleCapodannoFeste.mp4",
       vid"rphjb_PassatoAnnoVitaContinua.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "capodanno",
+    )(
+      mp3"rphjb_RockChristmasHappyNewYear.mp3",
+      vid"rphjb_AuguriDiNataleCapodannoFeste.mp4",
+      vid"rphjb_PassatoAnnoVitaContinua.mp4",
+      mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "i rage",
@@ -2232,6 +2249,16 @@ object Mix {
     )(
       vid"rphjb_StoriaIncidenteMotoAmico.mp4",
       mp3"rphjb_StoriaIncidenteMotoAmico.mp3"
+    ),
+        ReplyBundleMessage.textToMedia[F](
+      "rifiutato",
+      "lavor(a|à|are) troppo".r.tr(13),
+      "non (mi va di|ho voglia di|voglio) lavor(a|à|are)".r.tr(17),
+      "andare a lavorare",
+      "grande divertimento"
+    )(
+      mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
     ),
   )
 
