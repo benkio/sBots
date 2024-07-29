@@ -2310,6 +2310,19 @@ object Mix {
       vid"rphjb_FotoDocumentoCheComprova.mp4",
       gif"rphjb_FotoDocumentoCheComprovaGif.mp4",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "c'ho un cuore",
+      "dov'è andato a (finire|filare)".r.tr(21),
+      "tra le palle",
+      "dovrei ritrovarlo",
+      "da qualche parte",
+      "andato giù",
+      "tirare (s[uù]|i fili)".r.tr(9)
+    )(
+      mp3"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFili.mp3",
+      vid"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFili.mp4",
+      gif"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFiliGif.mp4",
+    ),
   )
 
 }
