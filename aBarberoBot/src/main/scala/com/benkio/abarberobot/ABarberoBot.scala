@@ -362,6 +362,18 @@ object ABarberoBot {
     )(
       mp3"abar_Birra.mp3"
     ),
+    ReplyBundleMessage.textToMp3[F](
+      "tonnellate",
+      "zirconio"
+    )(
+      mp3"abar_Zirconio.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "a roma",
+      "gobeto"
+    )(
+      mp3"abar_Gobeto.mp3"
+    ),
   )
 
   def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
