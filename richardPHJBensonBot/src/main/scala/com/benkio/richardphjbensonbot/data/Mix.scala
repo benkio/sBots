@@ -2037,7 +2037,8 @@ object Mix {
       gif"rphjb_Sguardo3.mp4",
       gif"rphjb_Sguardo4.mp4",
       gif"rphjb_SguardoCanaro.mp4",
-      vid"rphjb_FeelingsSguardoPreghiera.mp4"
+      vid"rphjb_FeelingsSguardoPreghiera.mp4",
+      vid"rphjb_Messaggio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "non capisco"
@@ -2332,6 +2333,23 @@ object Mix {
       mp3"phjb_FuturistaPassatoRotto.mp3",
       vid"rphjb_FuturistaPassatoRotto.mp4",
       gif"rphjb_FuturistaPassatoRottoGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ho un messaggio",
+      "aspetta!",
+      "non resisto più",
+      "non so più resistere",
+      "aprite le finestre",
+      "buio spaventoso",
+      "non ho mai pace",
+      "supplizio",
+      "martirio",
+      "strapparmi (gli occhi|le bende)".r.tr(19),
+      "nell'oscurità",
+      "sempre vedo"
+    )(
+      mp3"rphjb_Messaggio.mp3",
+      vid"rphjb_Messaggio.mp4",
     ),
   )
 
