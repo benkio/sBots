@@ -60,7 +60,8 @@ object Mix {
       vid"rphjb_Pappalardo.mp4",
       mp3"rphjb_FrocioFrocio.mp3",
       vid"rphjb_FrocioFrocio2.mp4",
-      vid"rphjb_StoriaMarlinManson.mp4"
+      vid"rphjb_StoriaMarlinManson.mp4",
+      vid"rphjb_TelefonataPappalardoFanculo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "lasciami in pace",
@@ -349,7 +350,8 @@ object Mix {
       vid"rphjb_PortlandVancuverFanculo.mp4",
       gif"rphjb_FanculoPerCortesia.mp4",
       vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4",
-      vid"rphjb_CambiaCanaleBruttoFrocio.mp4"
+      vid"rphjb_CambiaCanaleBruttoFrocio.mp4",
+      vid"rphjb_TelefonataPappalardoFanculo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "feelings"
@@ -1500,10 +1502,17 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "in un attimo",
       "risolto tutto",
-      "telefonata",
     )(
       gif"rphjb_Telefonata.mp4",
       vid"rphjb_DifficoltaAmicizieTelefonata.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "telefonata",
+    )(
+      gif"rphjb_TelefonataPilotata.mp4",
+      gif"rphjb_Telefonata.mp4",
+      vid"rphjb_DifficoltaAmicizieTelefonata.mp4",
+      vid"rphjb_TelefonataPappalardoFanculo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "nudo([ -]nudo)+".r.tr(4),

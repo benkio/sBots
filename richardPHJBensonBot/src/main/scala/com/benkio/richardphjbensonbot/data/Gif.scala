@@ -67,7 +67,6 @@ object Gif {
       gif"rphjb_AbbiamoVinto.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "telefonata pilotata",
       "falsità"
     )(
       gif"rphjb_TelefonataPilotata.mp4"
