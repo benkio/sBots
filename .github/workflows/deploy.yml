@@ -37,6 +37,6 @@ jobs:
     - name: Replace and Restart Bots
       run: |
         ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'java --version; killall java || true'"
-        rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/main/target/scala-3.4.2/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/main.jar
+        rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/main/target/scala-3.4.3/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/main.jar
         rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3
         ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"
