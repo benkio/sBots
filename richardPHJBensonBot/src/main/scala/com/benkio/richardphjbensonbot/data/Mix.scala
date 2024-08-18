@@ -357,7 +357,8 @@ object Mix {
       gif"rphjb_FanculoPerCortesia.mp4",
       vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4",
       vid"rphjb_CambiaCanaleBruttoFrocio.mp4",
-      vid"rphjb_TelefonataPappalardoFanculo.mp4"
+      vid"rphjb_TelefonataPappalardoFanculo.mp4",
+      gif"rphjb_VatteneAFanculo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "feelings"
