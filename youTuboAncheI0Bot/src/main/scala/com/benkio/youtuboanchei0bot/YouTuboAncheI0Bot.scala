@@ -908,7 +908,7 @@ object YouTuboAncheI0Bot {
     ReplyBundleMessage.textToMedia[F](
       "meno di un minuto"
     )(
-      gif"ytai_MenoDiMinuto.mp4"
+      gif"ytai_TiramisuMenoDiUnMinuto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "fetta al latte"
