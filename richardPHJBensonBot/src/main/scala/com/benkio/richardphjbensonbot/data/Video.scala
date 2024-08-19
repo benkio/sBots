@@ -466,7 +466,7 @@ object Video {
       "gregge da discoteca",
     )(vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4"),
     ReplyBundleMessage.textToVideo[F](
-      "drogh[ae] (legger[ae]|pesant[ei])".r.tr(14),
+      "drog(a|he) (legger[ae]|pesant[ei])".r.tr(14),
       "ammoniaca",
       "(sprecano|allungano) le foglie".r.tr(18),
       "veleno per topi",
