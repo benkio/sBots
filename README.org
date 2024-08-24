@@ -107,7 +107,7 @@
     - Destination Port Range: 8443
     This should allow telegram to reach your server through that port.
   - Test the port is open :: by spawning a server with the command ~python3 -m http.server 8443~ and try to open a browser tab to the server. eg http://129.152.27.196:8443/
-  - Generate a keystore JKS :: On the server, using the commands on [[https://core.telegram.org/bots/self-signed][this page]], follow the instruction for the java keystore, pasting each command one by one. Example
+  - Generate a keystore JKS :: On the server, using the commands on [[https://core.telegram.org/bots/self-signed][this page]], follow the instruction for the java keystore, pasting each command one by one. For the correct keystore password to use, check the `application.conf`. Example
     #+begin_src sh
     $ keytool -genkey -alias sbots -keyalg RSA -keystore sbotsKeystore.jks -keysize 2048 -validity 360
     Enter keystore password:
