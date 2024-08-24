@@ -13,7 +13,7 @@ object Settings {
   lazy val settings = Seq(
     organization := "com.benkio",
     version      := "2.3.0",
-    scalaVersion := "3.4.2",
+    scalaVersion := "3.4.3",
     scalacOptions ++= Seq("-java-output-version", "17"),
     publishMavenStyle := true,
     semanticdbEnabled := true,
