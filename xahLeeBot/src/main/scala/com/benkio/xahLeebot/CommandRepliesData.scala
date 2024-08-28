@@ -117,6 +117,12 @@ object CommandRepliesData {
     MediaByKindCommand.mediaCommandByKind(
       dbMedia = dbLayer.dbMedia,
       botName = botName,
+      commandName = "zoomer",
+      kind = "zoomer".some
+    ),
+    MediaByKindCommand.mediaCommandByKind(
+      dbMedia = dbLayer.dbMedia,
+      botName = botName,
       commandName = "opensource",
       kind = "opensource".some
     ),

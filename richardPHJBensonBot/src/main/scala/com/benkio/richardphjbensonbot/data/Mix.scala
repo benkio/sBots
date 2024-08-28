@@ -779,7 +779,8 @@ object Mix {
     )(
       gif"rphjb_Deluso.mp4",
       mp3"rphjb_Deluso.mp3",
-      vid"rphjb_DeludendoQuasiTutto.mp4"
+      vid"rphjb_DeludendoQuasiTutto.mp4",
+      vid"rphjb_GambaleCHaDeluso.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "fate come vi pare",
