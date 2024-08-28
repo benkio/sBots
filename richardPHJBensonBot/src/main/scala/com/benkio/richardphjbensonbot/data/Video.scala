@@ -2205,6 +2205,12 @@ object Video {
       "melense"
     )(
       vid"rphjb_CanzonettePoesieAuschwitzCervello.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "gambale",
+      "di una volta"
+    )(
+      vid"rphjb_GambaleCHaDeluso.mp4"
     )
   )
 }
