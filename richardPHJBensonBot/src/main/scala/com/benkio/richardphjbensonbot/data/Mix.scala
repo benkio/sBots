@@ -274,7 +274,10 @@ object Mix {
       gif"rphjb_Ultimi.mp4",
       mp3"rphjb_StateZittiZozziUltimi.mp3",
       vid"rphjb_RottoIlCazzoUltimi.mp4",
-      vid"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4"
+      vid"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4",
+      gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
+      vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
+      mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "che (cazzo )?era quella roba".r.tr(19),
@@ -2410,6 +2413,15 @@ object Mix {
       gif"rphjb_CocktailMicidialeGif.mp4",
       vid"rphjb_CocktailMicidiale.mp4",
       mp3"rphjb_CocktailMicidiale.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sul palco",
+      "da soli",
+      "in (fondo|branco)".r.tr(8),
+    )(
+      gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
+      vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
+      mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3"
     )
   )
 
