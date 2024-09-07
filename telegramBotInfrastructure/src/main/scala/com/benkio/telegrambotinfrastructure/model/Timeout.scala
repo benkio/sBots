@@ -4,7 +4,7 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 
 import java.time.Instant
-import scala.concurrent.duration.FiniteDuration
+
 import scala.concurrent.duration.*
 import scala.util.Try
 

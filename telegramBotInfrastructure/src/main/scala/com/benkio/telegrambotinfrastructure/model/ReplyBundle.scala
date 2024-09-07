@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.model
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import telegramium.bots.high.Api
 import log.effect.LogWriter
-import cats.effect.Async
+
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import cats.*
 import cats.effect.*

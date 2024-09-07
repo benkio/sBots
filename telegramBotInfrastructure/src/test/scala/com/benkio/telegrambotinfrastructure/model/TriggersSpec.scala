@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue.*
+
 import munit.FunSuite
 
 class TriggersSpec extends FunSuite {
