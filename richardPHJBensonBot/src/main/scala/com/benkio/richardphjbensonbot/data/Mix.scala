@@ -2403,6 +2403,13 @@ object Mix {
       mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
       vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
       gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "cocktail micidiale"
+    )(
+      gif"rphjb_CocktailMicidialeGif.mp4",
+      vid"rphjb_CocktailMicidiale.mp4",
+      mp3"rphjb_CocktailMicidiale.mp3"
     )
   )
 
