@@ -1,6 +1,6 @@
 package com.benkio.integration.integrationmunit.xahleebot
 
-import cats.effect.Resource
+
 import io.circe.parser.decode
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import scala.io.Source
