@@ -2209,7 +2209,7 @@ object Mix {
       "musica tecnica",
       "antonacci",
       "grignani",
-      "jovanotti",
+      "carboni",
     )(
       mp3"rphjb_Rock.mp3",
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
@@ -2369,7 +2369,15 @@ object Mix {
       gif"rphjb_AmmazzareIlTempoGif.mp4",
       vid"rphjb_AmmazzareIlTempo.mp4",
       mp3"rphjb_AmmazzareIlTempo.mp3"
-    )
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "jovanotti",
+      "lorenzo cherubini",
+    )(
+      vid"rphjb_JovanottiUltimo.mp4",
+      mp3"rphjb_Rock.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+    ),
   )
 
 }
