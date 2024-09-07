@@ -884,7 +884,17 @@ object Mix {
       mp3"rphjb_CinqueDita.mp3",
       vid"rphjb_CinqueDita2.mp4",
       vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4",
-      vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4"
+      vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4",
+      gif"rphjb_5DitaRivoltaGif.mp4",
+      vid"rphjb_5DitaRivolta.mp4",
+      mp3"rphjb_5DitaRivolta.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "rivolta"
+    )(
+      gif"rphjb_5DitaRivoltaGif.mp4",
+      vid"rphjb_5DitaRivolta.mp4",
+      mp3"rphjb_5DitaRivolta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bratti\\b".r.tr(5),
@@ -2353,6 +2363,13 @@ object Mix {
       mp3"rphjb_Messaggio.mp3",
       vid"rphjb_Messaggio.mp4",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "ammazz(are|o) il tempo".r.tr(16)
+    )(
+      gif"rphjb_AmmazzareIlTempoGif.mp4",
+      vid"rphjb_AmmazzareIlTempo.mp4",
+      mp3"rphjb_AmmazzareIlTempo.mp3"
+    )
   )
 
 }
