@@ -886,11 +886,6 @@ object Video {
       vid"rphjb_2orecchie1Bocca2.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "ramazzotti"
-    )(
-      vid"rphjb_SteveVaiRamazzotti.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "limitazioni",
       "quante(,|...)? troppe".r.tr(12)
     )(

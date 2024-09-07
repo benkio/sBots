@@ -2207,7 +2207,6 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "musica tecnica",
-      "antonacci",
       "grignani",
       "carboni",
     )(
@@ -2370,14 +2369,41 @@ object Mix {
       vid"rphjb_AmmazzareIlTempo.mp4",
       mp3"rphjb_AmmazzareIlTempo.mp3"
     ),
-    ReplyBundleMessage.textToVideo[F](
+    ReplyBundleMessage.textToMedia[F](
       "jovanotti",
       "lorenzo cherubini",
     )(
       vid"rphjb_JovanottiUltimo.mp4",
       mp3"rphjb_Rock.mp3",
-      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
+      mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
+      vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "antonacci"
+    )(
+      mp3"rphjb_Rock.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
+      mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
+      vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ramazzotti"
+    )(
+      vid"rphjb_SteveVaiRamazzotti.mp4",
+      mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
+      vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tutti uguali"
+    )(
+      mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
+      vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+    )
   )
 
 }
