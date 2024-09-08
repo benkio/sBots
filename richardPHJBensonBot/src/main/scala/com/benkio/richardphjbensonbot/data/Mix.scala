@@ -2428,9 +2428,9 @@ object Mix {
       "tante vite in una sola",
       "da quello che hai dentro",
     )(
-     gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
-     vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
-     mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3",
+      gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
+      vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
+      mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bripete[rà]?\\b".r.tr(6)
@@ -2439,7 +2439,7 @@ object Mix {
       mp3"rphjb_RipeteRipete.mp3",
       gif"rphjb_RipeteRipeteGif.mp4",
     ),
-    ReplyBundleMessage.textToGif[F](
+    ReplyBundleMessage.textToMedia[F](
       "questo è matto",
       "di colore",
       "lugher"
@@ -2455,8 +2455,8 @@ object Mix {
       "tra i più",
       "\\bbecco\\b".r.tr(5)
     )(
-     vid"rphjb_BeccoTraIPiu.mp4",
-     mp3"rphjb_BeccoTraIPiu.mp3",
+      vid"rphjb_BeccoTraIPiu.mp4",
+      mp3"rphjb_BeccoTraIPiu.mp3",
     )
   )
 
