@@ -2422,6 +2422,15 @@ object Mix {
       gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
       vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
       mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "stato mentale",
+      "tante vite in una sola",
+      "da quello che hai dentro",
+    )(
+     gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
+     vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
+     mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3",
     )
   )
 
