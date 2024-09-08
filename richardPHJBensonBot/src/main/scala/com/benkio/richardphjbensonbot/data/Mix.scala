@@ -2494,6 +2494,22 @@ object Mix {
     )(
       vid"rphjb_PasseggiataAgireSubito.mp4",
       mp3"rphjb_PasseggiataAgireSubito.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "uomini pecora",
+      "ogni minuto è importante",
+    )(
+     gif"rphjb_UominiPecoraGif.mp4",
+     vid"rphjb_UominiPecora.mp4",
+     mp3"rphjb_UominiPecora.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "non sopporto"
+    )(
+     gif"rphjb_UominiPecoraGif.mp4",
+     vid"rphjb_UominiPecora.mp4",
+      mp3"rphjb_UominiPecora.mp3",
+      vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
     )
   )
 
