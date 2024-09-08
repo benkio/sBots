@@ -2438,7 +2438,16 @@ object Mix {
       vid"rphjb_RipeteRipete.mp4",
       mp3"rphjb_RipeteRipete.mp3",
       gif"rphjb_RipeteRipeteGif.mp4",
-    )
+    ),
+    ReplyBundleMessage.textToGif[F](
+      "questo è matto",
+      "di colore",
+      "lugher"
+    )(
+      gif"rphjb_QuestoMatto6ColoreLugherGif.mp4",
+      vid"rphjb_QuestoMatto6ColoreLugher.mp4",
+      mp3"rphjb_QuestoMatto6ColoreLugher.mp3",
+    ),
   )
 
 }
