@@ -2431,6 +2431,13 @@ object Mix {
      gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
      vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
      mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bripete[rà]?\\b".r.tr(6)
+    )(
+      vid"rphjb_RipeteRipete.mp4",
+      mp3"rphjb_RipeteRipete.mp3",
+      gif"rphjb_RipeteRipeteGif.mp4",
     )
   )
 
