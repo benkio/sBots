@@ -2448,6 +2448,16 @@ object Mix {
       vid"rphjb_QuestoMatto6ColoreLugher.mp4",
       mp3"rphjb_QuestoMatto6ColoreLugher.mp3",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "colpo in testa",
+      "aquila",
+      "volatile",
+      "tra i più",
+      "\\bbecco\\b".r.tr(5)
+    )(
+     vid"rphjb_BeccoTraIPiu.mp4",
+     mp3"rphjb_BeccoTraIPiu.mp3",
+    )
   )
 
 }
