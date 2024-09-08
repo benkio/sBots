@@ -15,8 +15,7 @@ import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.client.Client
-import org.http4s.Status
-import org.http4s.Uri
+
 import org.http4s.*
 import telegramium.bots.high.Api
 import telegramium.bots.high.BotApi

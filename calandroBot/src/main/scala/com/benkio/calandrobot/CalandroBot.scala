@@ -1,6 +1,5 @@
 package com.benkio.calandrobot
 
-import com.benkio.telegrambotinfrastructure.model.TextReplyM
 import cats.*
 import cats.effect.*
 import cats.implicits.*

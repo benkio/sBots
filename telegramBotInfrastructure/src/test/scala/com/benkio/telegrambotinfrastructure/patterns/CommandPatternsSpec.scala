@@ -2,7 +2,6 @@ package com.benkio.telegrambotinfrastructure.patterns
 
 import java.time.Instant
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 
 import munit.*
 import cats.effect.*

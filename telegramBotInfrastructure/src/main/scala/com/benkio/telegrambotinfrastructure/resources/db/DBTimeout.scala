@@ -4,7 +4,7 @@ import cats.effect.Async
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import doobie.implicits.*
-import doobie.Transactor
+
 import doobie.*
 import log.effect.LogWriter
 

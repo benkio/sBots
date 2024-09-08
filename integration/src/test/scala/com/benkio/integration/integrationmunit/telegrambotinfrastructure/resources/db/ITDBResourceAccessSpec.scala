@@ -8,7 +8,7 @@ import munit.CatsEffectSuite
 
 import cats.effect.IO
 
-import cats.implicits.*
+
 
 class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 

@@ -3,7 +3,6 @@ package com.benkio.telegrambotinfrastructure.resources
 import cats.effect.IO
 import munit.FunSuite
 
-import java.nio.file.Files
 import java.nio.file.*
 import scala.util.Random
 

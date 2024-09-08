@@ -1,6 +1,5 @@
 package com.benkio.main
 
-import cats.effect.ExitCode
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

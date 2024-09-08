@@ -8,7 +8,7 @@ import java.time.Duration
 import scala.util.Try
 import java.time.LocalDateTime
 import cats.*
-import cats.effect.Fiber
+
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Subscription

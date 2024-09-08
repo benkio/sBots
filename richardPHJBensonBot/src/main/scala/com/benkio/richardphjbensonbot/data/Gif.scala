@@ -12,11 +12,6 @@ object Gif {
       gif"rphjb_Autori.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "questo è matto"
-    )(
-      gif"rphjb_MattoRagazzi.gif"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "pelle d'oca",
       "sussult",
       "brivid"

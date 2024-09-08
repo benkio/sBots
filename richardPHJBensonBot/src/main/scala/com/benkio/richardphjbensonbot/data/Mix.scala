@@ -274,7 +274,10 @@ object Mix {
       gif"rphjb_Ultimi.mp4",
       mp3"rphjb_StateZittiZozziUltimi.mp3",
       vid"rphjb_RottoIlCazzoUltimi.mp4",
-      vid"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4"
+      vid"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4",
+      gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
+      vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
+      mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "che (cazzo )?era quella roba".r.tr(19),
@@ -884,7 +887,17 @@ object Mix {
       mp3"rphjb_CinqueDita.mp3",
       vid"rphjb_CinqueDita2.mp4",
       vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4",
-      vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4"
+      vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4",
+      gif"rphjb_5DitaRivoltaGif.mp4",
+      vid"rphjb_5DitaRivolta.mp4",
+      mp3"rphjb_5DitaRivolta.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "rivolta"
+    )(
+      gif"rphjb_5DitaRivoltaGif.mp4",
+      vid"rphjb_5DitaRivolta.mp4",
+      mp3"rphjb_5DitaRivolta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bratti\\b".r.tr(5),
@@ -2197,9 +2210,8 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "musica tecnica",
-      "antonacci",
       "grignani",
-      "jovanotti",
+      "carboni",
     )(
       mp3"rphjb_Rock.mp3",
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
@@ -2353,6 +2365,99 @@ object Mix {
       mp3"rphjb_Messaggio.mp3",
       vid"rphjb_Messaggio.mp4",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "ammazz(are|o) il tempo".r.tr(16)
+    )(
+      gif"rphjb_AmmazzareIlTempoGif.mp4",
+      vid"rphjb_AmmazzareIlTempo.mp4",
+      mp3"rphjb_AmmazzareIlTempo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "jovanotti",
+      "lorenzo cherubini",
+    )(
+      vid"rphjb_JovanottiUltimo.mp4",
+      mp3"rphjb_Rock.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
+      mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
+      vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "antonacci"
+    )(
+      mp3"rphjb_Rock.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
+      mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
+      vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ramazzotti"
+    )(
+      vid"rphjb_SteveVaiRamazzotti.mp4",
+      mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
+      vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tutti uguali"
+    )(
+      mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
+      vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "cocktail micidiale"
+    )(
+      gif"rphjb_CocktailMicidialeGif.mp4",
+      vid"rphjb_CocktailMicidiale.mp4",
+      mp3"rphjb_CocktailMicidiale.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sul palco",
+      "da soli",
+      "in (fondo|branco)".r.tr(8),
+    )(
+      gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
+      vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
+      mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "stato mentale",
+      "tante vite in una sola",
+      "da quello che hai dentro",
+    )(
+      gif"rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
+      vid"rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
+      mp3"rphjb_InFondoInBrancoSulPalcoDaSoli.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bripete[rà]?\\b".r.tr(6)
+    )(
+      vid"rphjb_RipeteRipete.mp4",
+      mp3"rphjb_RipeteRipete.mp3",
+      gif"rphjb_RipeteRipeteGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "questo è matto",
+      "di colore",
+      "lugher"
+    )(
+      gif"rphjb_QuestoMatto6ColoreLugherGif.mp4",
+      vid"rphjb_QuestoMatto6ColoreLugher.mp4",
+      mp3"rphjb_QuestoMatto6ColoreLugher.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "colpo in testa",
+      "aquila",
+      "volatile",
+      "tra i più",
+      "\\bbecco\\b".r.tr(5)
+    )(
+      vid"rphjb_BeccoTraIPiu.mp4",
+      mp3"rphjb_BeccoTraIPiu.mp3",
+    )
   )
 
 }
