@@ -1139,7 +1139,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "amicizia",
-      "amico del cuore",
       "nella merda",
       "subliminali"
     )(

@@ -2457,6 +2457,22 @@ object Mix {
     )(
       vid"rphjb_BeccoTraIPiu.mp4",
       mp3"rphjb_BeccoTraIPiu.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "da mario",
+      "il liga",
+      "ligabue",
+      "amico intimo"
+    )(
+      vid"rphjb_AmicoIntimoTavernaDaMario.mp4",
+      mp3"rphjb_AmicoIntimoTavernaDaMario.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "amico del cuore"
+    )(
+      vid"rphjb_AmicoIntimoTavernaDaMario.mp4",
+      mp3"rphjb_AmicoIntimoTavernaDaMario.mp3",
+      vid"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4"
     )
   )
 
