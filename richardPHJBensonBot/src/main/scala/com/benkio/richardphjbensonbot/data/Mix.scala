@@ -2444,12 +2444,20 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "questo è matto",
-      "di colore",
       "lugher"
     )(
       gif"rphjb_QuestoMatto6ColoreLugherGif.mp4",
       vid"rphjb_QuestoMatto6ColoreLugher.mp4",
       mp3"rphjb_QuestoMatto6ColoreLugher.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "di colore",
+    )(
+      gif"rphjb_QuestoMatto6ColoreLugherGif.mp4",
+      vid"rphjb_QuestoMatto6ColoreLugher.mp4",
+      mp3"rphjb_QuestoMatto6ColoreLugher.mp3",
+      vid"rphjb_PasseggiataAgireSubito.mp4",
+      mp3"rphjb_PasseggiataAgireSubito.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "colpo in testa",
@@ -2476,6 +2484,16 @@ object Mix {
       vid"rphjb_AmicoIntimoTavernaDaMario.mp4",
       mp3"rphjb_AmicoIntimoTavernaDaMario.mp3",
       vid"rphjb_AmicoDelCuoreLasciatoNellaMerdaParoleSubliminaliPoesiaAmiciziaVera.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "agire subito",
+      "passeggiata",
+      "ossigena i polmoni",
+      "in sedia a rotelle",
+      "pensa(re|to) (due volte| un secondo)".r.tr(17)
+    )(
+      vid"rphjb_PasseggiataAgireSubito.mp4",
+      mp3"rphjb_PasseggiataAgireSubito.mp3",
     )
   )
 
