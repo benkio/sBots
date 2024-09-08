@@ -826,7 +826,10 @@ object Mix {
       "\\bpasqua\\b".r.tr(6)
     )(
       mp3"rphjb_AuguriPasqua.mp3",
-      vid"rphjb_AuguriPerPasqua.mp4"
+      vid"rphjb_AuguriPerPasqua.mp4",
+      vid"rphjb_PasquaInsiemeRisorti.mp4",
+      gif"rphjb_PasquaInsiemeRisortiGif.mp4",
+      mp3"rphjb_PasquaInsiemeRisorti.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vaniglia",
