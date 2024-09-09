@@ -2216,11 +2216,18 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "musica tecnica",
-      "grignani",
       "carboni",
     )(
       mp3"rphjb_Rock.mp3",
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "grignani",
+    )(
+      mp3"rphjb_Rock.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
+      vid"rphjb_ManagerAmericanoGrignianiShit.mp4",
+      mp3"rphjb_ManagerAmericanoGrignianiShit.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "conosce(nza|re)".r.tr(9),
@@ -2513,6 +2520,12 @@ object Mix {
      vid"rphjb_UominiPecora.mp4",
       mp3"rphjb_UominiPecora.mp3",
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bmanager\\b".r.tr(7)
+    )(
+      vid"rphjb_ManagerAmericanoGrignianiShit.mp4",
+      mp3"rphjb_ManagerAmericanoGrignianiShit.mp3",
     )
   )
 
