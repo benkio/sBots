@@ -653,7 +653,10 @@ object Mix {
       vid"rphjb_AveteCapitoNo.mp4",
       vid"rphjb_StiamoNellaFollia.mp4",
       vid"rphjb_HaiCapitoAveteRapitoONonAveteCapitoUnCazzo.mp4",
-      vid"rphjb_AveteCapito2.mp4"
+      vid"rphjb_AveteCapito2.mp4",
+      gif"rphjb_AveteCapitoUnCazzoDiNuovoComeSempreGif.mp4"
+      vid"rphjb_AveteCapitoUnCazzoDiNuovoComeSempre.mp4",
+      mp3"rphjb_AveteCapitoUnCazzoDiNuovoComeSempre.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "esperiment",
