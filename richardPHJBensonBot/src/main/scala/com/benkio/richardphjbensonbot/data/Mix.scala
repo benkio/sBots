@@ -655,7 +655,7 @@ object Mix {
       vid"rphjb_StiamoNellaFollia.mp4",
       vid"rphjb_HaiCapitoAveteRapitoONonAveteCapitoUnCazzo.mp4",
       vid"rphjb_AveteCapito2.mp4",
-      gif"rphjb_AveteCapitoUnCazzoDiNuovoComeSempreGif.mp4"
+      gif"rphjb_AveteCapitoUnCazzoDiNuovoComeSempreGif.mp4",
       vid"rphjb_AveteCapitoUnCazzoDiNuovoComeSempre.mp4",
       mp3"rphjb_AveteCapitoUnCazzoDiNuovoComeSempre.mp3"
     ),
@@ -2500,7 +2500,7 @@ object Mix {
       "passeggiata",
       "ossigena i polmoni",
       "in sedia a rotelle",
-      "pensa(re|to) (due volte| un secondo)".r.tr(17)
+      "pensa(re|to) (due volte|un secondo)".r.tr(17)
     )(
       vid"rphjb_PasseggiataAgireSubito.mp4",
       mp3"rphjb_PasseggiataAgireSubito.mp3",
@@ -2509,15 +2509,15 @@ object Mix {
       "uomini pecora",
       "ogni minuto è importante",
     )(
-     gif"rphjb_UominiPecoraGif.mp4",
-     vid"rphjb_UominiPecora.mp4",
-     mp3"rphjb_UominiPecora.mp3",
+      gif"rphjb_UominiPecoraGif.mp4",
+      vid"rphjb_UominiPecora.mp4",
+      mp3"rphjb_UominiPecora.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "non sopporto"
     )(
-     gif"rphjb_UominiPecoraGif.mp4",
-     vid"rphjb_UominiPecora.mp4",
+      gif"rphjb_UominiPecoraGif.mp4",
+      vid"rphjb_UominiPecora.mp4",
       mp3"rphjb_UominiPecora.mp3",
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
     ),
