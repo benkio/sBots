@@ -220,9 +220,10 @@ object Mix {
       "un'arma"
     )(
       gif"rphjb_Bastone1.mp4",
-      gif"rphjb_Bastone2.mp4",
       gif"rphjb_Bastone3.mp4",
-      vid"rphjb_BastoneInfernale.mp4"
+      vid"rphjb_BastoneInfernale.mp4",
+      vid"rphjb_BastoneArmaMicidiale.mp4",
+      mp3"rphjb_BastoneArmaMicidiale.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vi calpesto",
