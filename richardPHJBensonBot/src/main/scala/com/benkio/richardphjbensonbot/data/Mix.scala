@@ -638,7 +638,6 @@ object Mix {
       mp3"rphjb_Capito.mp3",
       mp3"rphjb_NonHannoCapitoUnCazzo.mp3",
       vid"rphjb_NonAveteCapitoUnCazzo.mp4",
-      gif"rphjb_AveteCapitoComeSempre.mp4",
       gif"rphjb_NonAveteCapitoUnCazzoGif.mp4",
       gif"rphjb_VoiNonAveteCapitoUnCazzo.mp4",
       gif"rphjb_IlSensoCapito.mp4",
