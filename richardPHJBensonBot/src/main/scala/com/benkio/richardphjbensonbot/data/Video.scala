@@ -1139,7 +1139,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "amicizia",
-      "amico del cuore",
       "nella merda",
       "subliminali"
     )(
@@ -2085,7 +2084,6 @@ object Video {
       "catafalco ambulante",
       "pamela anderson",
       "luce più eterna",
-      "non sopporto",
       "spaccherei tutto"
     )(
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
