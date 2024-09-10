@@ -2549,6 +2549,25 @@ object Mix {
       vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
       mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
     ),
+            ReplyBundleMessage.textToMedia[F](
+      "valletta",
+    )(
+      vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4",
+      vid"rphjb_BisognoValletta.mp4",
+      mp3"rphjb_BisognoValletta.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "corpicini",
+      "da (succhiare|mangiare)".r.tr(11),
+      "in jeans",
+      "scarpe da tennis",
+      "vanno sempre bene",
+      "m[ei] sta tutto bene".r.tr(17),
+      "vita (rock|dura|violenta|piena di gioie|piena di ferite)".r.tr(9)
+    )(
+            vid"rphjb_BisognoValletta.mp4",
+      mp3"rphjb_BisognoValletta.mp3"
+    )
   )
 
 }

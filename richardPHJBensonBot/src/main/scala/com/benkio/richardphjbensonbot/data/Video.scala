@@ -1921,7 +1921,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "belle donne",
-      "valletta",
       "grande amico"
     )(
       vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4"
