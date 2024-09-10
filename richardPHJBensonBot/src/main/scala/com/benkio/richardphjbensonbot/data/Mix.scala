@@ -2592,7 +2592,7 @@ object Mix {
       mp3"rphjb_DentiScazzottata.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "femministe",
+      "femminis",
       "contro( )?cultura".r.tr(13),
     )(
       vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
