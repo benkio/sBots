@@ -223,7 +223,10 @@ object Mix {
       gif"rphjb_Bastone3.mp4",
       vid"rphjb_BastoneInfernale.mp4",
       vid"rphjb_BastoneArmaMicidiale.mp4",
-      mp3"rphjb_BastoneArmaMicidiale.mp3"
+      mp3"rphjb_BastoneArmaMicidiale.mp3",
+      gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
+      vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
+      mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vi calpesto",
@@ -2474,10 +2477,18 @@ object Mix {
       "aquila",
       "volatile",
       "tra i più",
+    )(
+      vid"rphjb_BeccoTraIPiu.mp4",
+      mp3"rphjb_BeccoTraIPiu.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "\\bbecco\\b".r.tr(5)
     )(
       vid"rphjb_BeccoTraIPiu.mp4",
       mp3"rphjb_BeccoTraIPiu.mp3",
+      gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
+      vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
+      mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "da mario",
@@ -2526,7 +2537,18 @@ object Mix {
     )(
       vid"rphjb_ManagerAmericanoGrignianiShit.mp4",
       mp3"rphjb_ManagerAmericanoGrignianiShit.mp3",
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "di metallo",
+      "artigian(i|ale)".r.tr(9),
+      "avorio",
+      "teschio",
+      "intarsi(ato)?".r.tr(7)
+    )(
+      gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
+      vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
+      mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
+    ),
   )
 
 }
