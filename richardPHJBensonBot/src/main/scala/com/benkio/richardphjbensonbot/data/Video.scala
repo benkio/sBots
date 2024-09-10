@@ -602,14 +602,6 @@ object Video {
       vid"rphjb_BarzellettaPoliticaGinecologo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "partiti politici",
-      "politica"
-    )(
-      vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
-     vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
-      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3", vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "questa è una trasmissione",
       "caro avvocato",
       "punto di morte",

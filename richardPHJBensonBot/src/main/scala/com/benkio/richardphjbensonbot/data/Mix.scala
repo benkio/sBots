@@ -2604,8 +2604,17 @@ object Mix {
       "donne (vissute|con le palle)".r.tr(13),
       "groupies"
     )(
-    vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
       mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "partiti politici",
+      "politica"
+    )(
+      vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
   )
 
