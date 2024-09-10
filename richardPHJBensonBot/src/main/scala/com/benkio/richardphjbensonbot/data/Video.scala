@@ -606,7 +606,8 @@ object Video {
       "politica"
     )(
       vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
-      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
+     vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3", vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "questa è una trasmissione",
@@ -631,7 +632,6 @@ object Video {
       vid"rphjb_PerfidiLacci.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "cortei femministi",
       "amplessi macisti",
     )(
       vid"rphjb_CorteiFemministiAmplessiMacisti.mp4"
@@ -1995,8 +1995,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "rolling stones",
       "jimi hendrix",
-      "femministe",
-      "contro( )?cultura".r.tr(13),
       "ribellioni",
       "rivoluzioni",
       "il sangue",

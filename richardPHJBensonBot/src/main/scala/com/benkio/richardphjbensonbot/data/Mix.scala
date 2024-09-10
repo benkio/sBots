@@ -1456,8 +1456,8 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "occhi (come le donne )?degli anni (settanta|70)".r.tr(18)
     )(
-      mp3"rphjb_OcchiDonneAnniSettanta.mp3",
-      vid"rphjb_OcchiDonneAnniSettanta.mp4",
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
       gif"rphjb_OcchiDonneAnniSettantaGif.mp4",
       vid"rphjb_Ester2.mp4"
     ),
@@ -2590,6 +2590,22 @@ object Mix {
     )(
       vid"rphjb_DentiScazzottata.mp4",
       mp3"rphjb_DentiScazzottata.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "femministe",
+      "contro( )?cultura".r.tr(13),
+    )(
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4",
+      vid"rphjb_CorteiFemministiAmplessiMacisti.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "donne (vissute|con le palle)".r.tr(13),
+      "groupies"
+    )(
+    vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
     ),
   )
 
