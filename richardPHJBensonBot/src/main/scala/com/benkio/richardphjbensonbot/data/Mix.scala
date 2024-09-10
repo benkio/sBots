@@ -162,7 +162,9 @@ object Mix {
       vid"rphjb_StoriaIncidenteMotoAmico.mp4",
       mp3"rphjb_StoriaIncidenteMotoAmico.mp3",
       mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
-      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4"
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
+      vid"rphjb_DentiScazzottata.mp4",
+      mp3"rphjb_DentiScazzottata.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -2549,7 +2551,7 @@ object Mix {
       vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
       mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
     ),
-            ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia[F](
       "valletta",
     )(
       vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4",
@@ -2565,9 +2567,30 @@ object Mix {
       "m[ei] sta tutto bene".r.tr(17),
       "vita (rock|dura|violenta|piena di gioie|piena di ferite)".r.tr(9)
     )(
-            vid"rphjb_BisognoValletta.mp4",
+      vid"rphjb_BisognoValletta.mp4",
       mp3"rphjb_BisognoValletta.mp3"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "allucinante"
+    )(
+      gif"rphjb_Allucinante.mp4",
+      vid"rphjb_DentiScazzottata.mp4",
+      mp3"rphjb_DentiScazzottata.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "scusatemi per i denti",
+      "a botte\\b".r.tr(7),
+      "cazzott[oi]".r.tr(8),
+      "bastonata",
+      "dare pugni",
+      "aggredisce",
+      "per nessun motivo logico",
+      "essere alterato",
+      "battibecco",
+    )(
+      vid"rphjb_DentiScazzottata.mp4",
+      mp3"rphjb_DentiScazzottata.mp3"
+    ),
   )
 
 }

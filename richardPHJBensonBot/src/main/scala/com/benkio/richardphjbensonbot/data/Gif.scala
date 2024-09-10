@@ -176,11 +176,6 @@ object Gif {
       gif"rphjb_IlMartel.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "allucinante"
-    )(
-      gif"rphjb_Allucinante.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "porca miseria",
       "facendo incazzare"
     )(
