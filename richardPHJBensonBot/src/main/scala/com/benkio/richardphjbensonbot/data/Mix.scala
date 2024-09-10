@@ -162,7 +162,9 @@ object Mix {
       vid"rphjb_StoriaIncidenteMotoAmico.mp4",
       mp3"rphjb_StoriaIncidenteMotoAmico.mp3",
       mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
-      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4"
+      vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
+      vid"rphjb_DentiScazzottata.mp4",
+      mp3"rphjb_DentiScazzottata.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -223,7 +225,10 @@ object Mix {
       gif"rphjb_Bastone3.mp4",
       vid"rphjb_BastoneInfernale.mp4",
       vid"rphjb_BastoneArmaMicidiale.mp4",
-      mp3"rphjb_BastoneArmaMicidiale.mp3"
+      mp3"rphjb_BastoneArmaMicidiale.mp3",
+      gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
+      vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
+      mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vi calpesto",
@@ -1451,8 +1456,8 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "occhi (come le donne )?degli anni (settanta|70)".r.tr(18)
     )(
-      mp3"rphjb_OcchiDonneAnniSettanta.mp3",
-      vid"rphjb_OcchiDonneAnniSettanta.mp4",
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
       gif"rphjb_OcchiDonneAnniSettantaGif.mp4",
       vid"rphjb_Ester2.mp4"
     ),
@@ -2474,10 +2479,18 @@ object Mix {
       "aquila",
       "volatile",
       "tra i più",
+    )(
+      vid"rphjb_BeccoTraIPiu.mp4",
+      mp3"rphjb_BeccoTraIPiu.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "\\bbecco\\b".r.tr(5)
     )(
       vid"rphjb_BeccoTraIPiu.mp4",
       mp3"rphjb_BeccoTraIPiu.mp3",
+      gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
+      vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
+      mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "da mario",
@@ -2526,7 +2539,83 @@ object Mix {
     )(
       vid"rphjb_ManagerAmericanoGrignianiShit.mp4",
       mp3"rphjb_ManagerAmericanoGrignianiShit.mp3",
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "di metallo",
+      "artigian(i|ale)".r.tr(9),
+      "avorio",
+      "teschio",
+      "intarsi(ato)?".r.tr(7)
+    )(
+      gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
+      vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
+      mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "valletta",
+    )(
+      vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4",
+      vid"rphjb_BisognoValletta.mp4",
+      mp3"rphjb_BisognoValletta.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "corpicini",
+      "da (succhiare|mangiare)".r.tr(11),
+      "in jeans",
+      "scarpe da tennis",
+      "vanno sempre bene",
+      "m[ei] sta tutto bene".r.tr(17),
+      "vita (rock|dura|violenta|piena di gioie|piena di ferite)".r.tr(9)
+    )(
+      vid"rphjb_BisognoValletta.mp4",
+      mp3"rphjb_BisognoValletta.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "allucinante"
+    )(
+      gif"rphjb_Allucinante.mp4",
+      vid"rphjb_DentiScazzottata.mp4",
+      mp3"rphjb_DentiScazzottata.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "scusatemi per i denti",
+      "a botte\\b".r.tr(7),
+      "cazzott[oi]".r.tr(8),
+      "bastonata",
+      "dare pugni",
+      "aggredisce",
+      "per nessun motivo logico",
+      "essere alterato",
+      "battibecco",
+    )(
+      vid"rphjb_DentiScazzottata.mp4",
+      mp3"rphjb_DentiScazzottata.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "femminis",
+      "contro( )?cultura".r.tr(13),
+    )(
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4",
+      vid"rphjb_CorteiFemministiAmplessiMacisti.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "donne (vissute|con le palle)".r.tr(13),
+      "groupies"
+    )(
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "partiti politici",
+      "politica"
+    )(
+      vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
+    ),
   )
 
 }

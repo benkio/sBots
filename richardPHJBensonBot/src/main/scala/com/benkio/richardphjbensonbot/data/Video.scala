@@ -602,13 +602,6 @@ object Video {
       vid"rphjb_BarzellettaPoliticaGinecologo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "partiti politici",
-      "politica"
-    )(
-      vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
-      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "questa è una trasmissione",
       "caro avvocato",
       "punto di morte",
@@ -631,7 +624,6 @@ object Video {
       vid"rphjb_PerfidiLacci.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "cortei femministi",
       "amplessi macisti",
     )(
       vid"rphjb_CorteiFemministiAmplessiMacisti.mp4"
@@ -1921,7 +1913,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "belle donne",
-      "valletta",
       "grande amico"
     )(
       vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4"
@@ -1996,8 +1987,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "rolling stones",
       "jimi hendrix",
-      "femministe",
-      "contro( )?cultura".r.tr(13),
       "ribellioni",
       "rivoluzioni",
       "il sangue",
