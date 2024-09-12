@@ -2637,7 +2637,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "osanna"
     )(
-     vid"rphjb_StoriaBambiniBiondi.mp4",
+      vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3",
       vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
     ),
@@ -2653,7 +2653,7 @@ object Mix {
       "commesso viaggiatore",
       "bambina in mutande"
     )(
-            vid"rphjb_StoriaNapoliBambinaMutande.mp4",
+      vid"rphjb_StoriaNapoliBambinaMutande.mp4",
       mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -2663,9 +2663,9 @@ object Mix {
       "l'ultima delle bestie",
       "in cerca di cibo",
     )(
-     gif"rphjb_VomitasteAnimaGif.mp4",
-     vid"rphjb_VomitasteAnima.mp4",
-     mp3"rphjb_VomitasteAnima.mp3",
+      gif"rphjb_VomitasteAnimaGif.mp4",
+      vid"rphjb_VomitasteAnima.mp4",
+      mp3"rphjb_VomitasteAnima.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\banima\\b".r.tr(5)
