@@ -2616,6 +2616,14 @@ object Mix {
       mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
       vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "bin laden",
+      "torri gemelle",
+      "(11|undici) settembre".r.tr(12)
+    )(
+      mp3"rphjb_911TorriGemelleBinLaden.mp3",
+      vid"rphjb_911TorriGemelleBinLaden.mp4"
+    )
   )
 
 }
