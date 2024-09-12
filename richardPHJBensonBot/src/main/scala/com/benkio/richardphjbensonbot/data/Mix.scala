@@ -166,7 +166,9 @@ object Mix {
       vid"rphjb_DentiScazzottata.mp4",
       mp3"rphjb_DentiScazzottata.mp3",
       vid"rphjb_StoriaBambiniBiondi.mp4",
-      mp3"rphjb_StoriaBambiniBiondi.mp3"
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaNapoliBambinaMutande.mp4",
+      mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -592,7 +594,9 @@ object Mix {
       gif"rphjb_VivaNapoli.mp4",
       vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4",
       vid"rphjb_StoriaBambiniBiondi.mp4",
-      mp3"rphjb_StoriaBambiniBiondi.mp3"
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaNapoliBambinaMutande.mp4",
+      mp3"rphjb_StoriaNapoliBambinaMutande.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ciao a tutti",
@@ -2644,6 +2648,13 @@ object Mix {
     )(
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "commesso viaggiatore",
+      "bambina in mutande"
+    )(
+            vid"rphjb_StoriaNapoliBambinaMutande.mp4",
+      mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
     )
   )
 
