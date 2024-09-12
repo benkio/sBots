@@ -164,7 +164,9 @@ object Mix {
       mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
       vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
       vid"rphjb_DentiScazzottata.mp4",
-      mp3"rphjb_DentiScazzottata.mp3"
+      mp3"rphjb_DentiScazzottata.mp3",
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -588,7 +590,9 @@ object Mix {
     )(
       mp3"rphjb_VivaNapoli.mp3",
       gif"rphjb_VivaNapoli.mp4",
-      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4",
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ciao a tutti",
@@ -1846,7 +1850,9 @@ object Mix {
       vid"rphjb_DrogatiRockettari.mp4",
       gif"rphjb_DrogatiRockettari2.mp4",
       vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4",
-      vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4"
+      vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4",
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "inizio della fine"
@@ -2623,6 +2629,21 @@ object Mix {
     )(
       mp3"rphjb_911TorriGemelleBinLaden.mp3",
       vid"rphjb_911TorriGemelleBinLaden.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "osanna"
+    )(
+     vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tony esposito",
+      "balletto di bronzo",
+      "bambini biondi"
+    )(
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
     )
   )
 
