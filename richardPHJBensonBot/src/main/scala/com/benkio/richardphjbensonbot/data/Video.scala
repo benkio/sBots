@@ -910,7 +910,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "garage",
       "varazze",
-      "\\banima\\b".r.tr(5),
     )(
       vid"rphjb_AnimaGarageVarazze.mp4"
     ),

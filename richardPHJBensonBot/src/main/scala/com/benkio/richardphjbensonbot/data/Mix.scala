@@ -2655,6 +2655,25 @@ object Mix {
     )(
             vid"rphjb_StoriaNapoliBambinaMutande.mp4",
       mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ma è tutto qui?",
+      "vomitaste",
+      "rantolando",
+      "l'ultima delle bestie",
+      "in cerca di cibo",
+    )(
+     gif"rphjb_VomitasteAnimaGif.mp4",
+     vid"rphjb_VomitasteAnima.mp4",
+     mp3"rphjb_VomitasteAnima.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\banima\\b".r.tr(5)
+    )(
+      gif"rphjb_VomitasteAnimaGif.mp4",
+      vid"rphjb_VomitasteAnima.mp4",
+      mp3"rphjb_VomitasteAnima.mp3",
+      vid"rphjb_AnimaGarageVarazze.mp4"
     )
   )
 
