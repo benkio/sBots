@@ -2673,7 +2673,10 @@ object Mix {
       gif"rphjb_VomitasteAnimaGif.mp4",
       vid"rphjb_VomitasteAnima.mp4",
       mp3"rphjb_VomitasteAnima.mp3",
-      vid"rphjb_AnimaGarageVarazze.mp4"
+      vid"rphjb_AnimaGarageVarazze.mp4",
+      gif"rphjb_ColpirannoAnimaGif.mp4",
+      vid"rphjb_ColpirannoAnima.mp4",
+      mp3"rphjb_ColpirannoAnima.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "benissimo e malissimo",
@@ -2682,6 +2685,14 @@ object Mix {
         gif"rphjb_BenissimoEMalissimoGif.mp4",
         vid"rphjb_BenissimoEMalissimo.mp4",
         mp3"rphjb_BenissimoEMalissimo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vi (assicuro|colpiranno)".r.tr(11),
+      "in realtà non esiste"
+    )(
+      gif"rphjb_ColpirannoAnimaGif.mp4",
+     vid"rphjb_ColpirannoAnima.mp4",
+     mp3"rphjb_ColpirannoAnima.mp3"
     )
 
 }
