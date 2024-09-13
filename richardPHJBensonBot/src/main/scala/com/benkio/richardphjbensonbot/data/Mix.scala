@@ -164,7 +164,11 @@ object Mix {
       mp3"rphjb_RifiutatoLavorareStoriaMusicista.mp3",
       vid"rphjb_RifiutatoLavorareStoriaMusicista.mp4",
       vid"rphjb_DentiScazzottata.mp4",
-      mp3"rphjb_DentiScazzottata.mp3"
+      mp3"rphjb_DentiScazzottata.mp3",
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaNapoliBambinaMutande.mp4",
+      mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -588,7 +592,11 @@ object Mix {
     )(
       mp3"rphjb_VivaNapoli.mp3",
       gif"rphjb_VivaNapoli.mp4",
-      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4",
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaNapoliBambinaMutande.mp4",
+      mp3"rphjb_StoriaNapoliBambinaMutande.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ciao a tutti",
@@ -1846,7 +1854,9 @@ object Mix {
       vid"rphjb_DrogatiRockettari.mp4",
       gif"rphjb_DrogatiRockettari2.mp4",
       vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4",
-      vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4"
+      vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4",
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "inizio della fine"
@@ -2616,6 +2626,74 @@ object Mix {
       mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
       vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "bin laden",
+      "torri gemelle",
+      "(11|undici) settembre".r.tr(12)
+    )(
+      mp3"rphjb_911TorriGemelleBinLaden.mp3",
+      vid"rphjb_911TorriGemelleBinLaden.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "osanna"
+    )(
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tony esposito",
+      "balletto di bronzo",
+      "bambini biondi"
+    )(
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "commesso viaggiatore",
+      "bambina in mutande"
+    )(
+      vid"rphjb_StoriaNapoliBambinaMutande.mp4",
+      mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ma è tutto qui?",
+      "vomitaste",
+      "rantolando",
+      "l'ultima delle bestie",
+      "in cerca di cibo",
+    )(
+      gif"rphjb_VomitasteAnimaGif.mp4",
+      vid"rphjb_VomitasteAnima.mp4",
+      mp3"rphjb_VomitasteAnima.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\banima\\b".r.tr(5)
+    )(
+      gif"rphjb_VomitasteAnimaGif.mp4",
+      vid"rphjb_VomitasteAnima.mp4",
+      mp3"rphjb_VomitasteAnima.mp3",
+      vid"rphjb_AnimaGarageVarazze.mp4",
+      gif"rphjb_ColpirannoAnimaGif.mp4",
+      vid"rphjb_ColpirannoAnima.mp4",
+      mp3"rphjb_ColpirannoAnima.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "benissimo e malissimo",
+      "la cosa migliore"
+    )(
+      gif"rphjb_BenissimoEMalissimoGif.mp4",
+      vid"rphjb_BenissimoEMalissimo.mp4",
+      mp3"rphjb_BenissimoEMalissimo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vi (assicuro|colpiranno)".r.tr(11),
+      "in realtà non esiste"
+    )(
+      gif"rphjb_ColpirannoAnimaGif.mp4",
+      vid"rphjb_ColpirannoAnima.mp4",
+      mp3"rphjb_ColpirannoAnima.mp3"
+    )
   )
 
 }

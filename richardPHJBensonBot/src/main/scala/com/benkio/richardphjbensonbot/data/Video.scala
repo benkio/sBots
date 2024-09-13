@@ -910,7 +910,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "garage",
       "varazze",
-      "\\banima\\b".r.tr(5),
     )(
       vid"rphjb_AnimaGarageVarazze.mp4"
     ),
@@ -1058,7 +1057,6 @@ object Video {
       "cugini di campagna",
       "giardino dei semplici",
       "homo sapiens",
-      "gli osanna",
       "james senese",
       "elio d'anna",
       "(di|il) liscio".r.tr(9),
