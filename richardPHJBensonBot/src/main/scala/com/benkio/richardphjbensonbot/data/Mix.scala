@@ -2674,7 +2674,14 @@ object Mix {
       vid"rphjb_VomitasteAnima.mp4",
       mp3"rphjb_VomitasteAnima.mp3",
       vid"rphjb_AnimaGarageVarazze.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "benissimo e malissimo",
+      "la cosa migliore"
+    )(
+        gif"rphjb_BenissimoEMalissimoGif.mp4",
+        vid"rphjb_BenissimoEMalissimo.mp4",
+        mp3"rphjb_BenissimoEMalissimo.mp3"
     )
-  )
 
 }
