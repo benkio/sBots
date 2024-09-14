@@ -364,9 +364,26 @@ object ABarberoBot {
     ),
     ReplyBundleMessage.textToMp3[F](
       "tonnellate",
-      "zirconio"
+      "zirconio",
+      "carbone",
+      "acciaio",
+      "oli minerali",
+      "legname",
+      "rame",
+      "nitrato di sodio",
+      "sali potassici",
+      "gomma",
+      "toluolo",
+      "trementina",
+      "piombo",
+      "stagno",
+      "nichelio",
+      "molibdeno",
+      "tungsteno",
+      "titanio",
     )(
-      mp3"abar_Zirconio.mp3"
+      mp3"abar_ListaMolibdeno.mp3",
+      vid"abar_ListaMolibdeno.mp4",
     ),
     ReplyBundleMessage.textToMp3[F](
       "a roma",
