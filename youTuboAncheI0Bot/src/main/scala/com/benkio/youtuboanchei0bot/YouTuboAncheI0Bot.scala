@@ -94,46 +94,46 @@ object YouTuboAncheI0Bot {
   def messageRepliesAudioData[
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMp3[F](
       "non vi costa nulla"
     )(
       mp3"ytai_Donazioni.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMp3[F](
       "bengalino",
       "pappagallo",
       "uccellino",
     )(
       mp3"ytai_BengalinoDiamantino.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMp3[F](
       "cocod[eè]".r.tr(6),
       "gallina"
     )(
       mp3"ytai_Cocode.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMp3[F](
       "\\bmisc\\b".r.tr(4),
       "\\bm[i]+[a]+[o]+\\b".r.tr(4)
     )(
       mp3"ytai_Misc.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMp3[F](
       "\\btopolin[oi]\\b".r.tr(8)
     )(
       mp3"ytai_Topolino.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMp3[F](
       "francesismo"
     )(
       mp3"ytai_Francesismo.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMp3[F](
       "grazie"
     )(
       mp3"ytai_Grazie.mp3",
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMp3[F](
       "3000",
       "tremila",
       "multa",
@@ -275,10 +275,8 @@ object YouTuboAncheI0Bot {
       gif"ytai_BagnarloAcqua.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      RegexTextTriggerValue(
-        "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r,
-        6
-      )
+      "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r
+        .tr(6)
     )(
       gif"ytai_Frustrazione.mp4"
     ),
@@ -1544,12 +1542,27 @@ object YouTuboAncheI0Bot {
       mp3"ytai_NoVideoHoFattoBeneCompagnia.mp3",
       vid"ytai_NoVideoHoFattoBeneCompagnia.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "venticinque (milioni|mila euro)".r.tr(19)
+    )(
+      gif"ytai_25MilioniVisualizzazioni25MilaEuroGif.mp4",
+      vid"ytai_25MilioniVisualizzazioni25MilaEuro.mp4",
+      mp3"ytai_25MilioniVisualizzazioni25MilaEuro.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "autori",
+      "massicci piedi",
+    )(
+      gif"ytai_AutoriMassicciPiediGif.mp4",
+      vid"ytai_AutoriMassicciPiedi.mp4",
+      mp3"ytai_AutoriMassicciPiedi.mp3"
+    )
   )
 
   def messageRepliesVideoData[
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "in america",
       "(posto|carico) i video".r.tr(13),
       "restiamo in contatto",
@@ -1558,7 +1571,7 @@ object YouTuboAncheI0Bot {
     )(
       vid"ytai_SognoAmericano.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "senape",
       "non è scaduta",
       "ha un gusto strano",
@@ -1566,19 +1579,12 @@ object YouTuboAncheI0Bot {
     )(
       vid"ytai_Senape.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToVideo[F](
       "gigantesco",
       "sushi",
       "che bellezza"
     )(
       vid"ytai_SushiQuestoEGigantescoBellezza.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "venticinque (milioni|mila euro)".r.tr(19)
-    )(
-      gif"ytai_25MilioniVisualizzazioni25MilaEuroGif.mp4",
-      vid"ytai_25MilioniVisualizzazioni25MilaEuro.mp4",
-      mp3"ytai_25MilioniVisualizzazioni25MilaEuro.mp3"
     )
   )
 
