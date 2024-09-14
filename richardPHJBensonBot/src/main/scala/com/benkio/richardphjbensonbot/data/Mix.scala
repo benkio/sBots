@@ -596,7 +596,9 @@ object Mix {
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3",
       vid"rphjb_StoriaNapoliBambinaMutande.mp4",
-      mp3"rphjb_StoriaNapoliBambinaMutande.mp3"
+      mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ciao a tutti",
@@ -1786,7 +1788,9 @@ object Mix {
       "gigi d'alessio"
     )(
       mp3"rphjb_GigiDAlessioAnnaTatangelo.mp3",
-      vid"rphjb_GianniCelesteMeglioGigiDAlessio.mp4"
+      vid"rphjb_GianniCelesteMeglioGigiDAlessio.mp4",
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "gianni celeste"
@@ -2639,13 +2643,22 @@ object Mix {
     )(
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3",
-      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4",
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "tony esposito",
-      "balletto di bronzo",
       "bambini biondi"
     )(
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "balletto di bronzo",
+    )(
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3"
     ),
@@ -2702,14 +2715,14 @@ object Mix {
       mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "bian may",
+      "brian may",
       "non è (uno )?stolto".r.tr(12),
       "spranga",
       "nel retto"
     )(
       vid"rphjb_NelRettoBrianMay.mp4"
     ),
-    ReplyBundleMessage.textToGif[F](
+    ReplyBundleMessage.textToMedia[F](
       "mic drop",
       "microfono",
       "🎤",
@@ -2717,6 +2730,33 @@ object Mix {
     )(
       gif"rphjb_MicDrop.mp4",
       vid"rphjb_NelRettoBrianMay.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "james senese",
+      "elio d'anna"
+    )(
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "merola",
+      "murolo",
+      "nino d'angelo",
+      "bennato",
+      "pino daniele",
+      "gli showmen",
+      "città frontale",
+      "battitori selvaggi",
+      "il cervello",
+      "napoli centrale",
+      "enzo (abitabile|granagnello)".r.tr(14),
+      "joe amoruso",
+      "ernesto vitolo",
+      "tullio de piscopo",
+    )(
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
     )
   )
 

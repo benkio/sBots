@@ -1057,8 +1057,6 @@ object Video {
       "cugini di campagna",
       "giardino dei semplici",
       "homo sapiens",
-      "james senese",
-      "elio d'anna",
       "(di|il) liscio".r.tr(9),
       "(di|il) rumba".r.tr(8),
       "cha[ ]?cha[ ]?cha".r.tr(9),
