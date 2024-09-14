@@ -365,14 +365,6 @@ object Gif {
       "limoncell[io]".r.tr(5)
     )(
       gif"rphjb_LimoncelliVino.gif"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "mic drop",
-      "microfono",
-      "🎤",
-      "🎙",
-    )(
-      gif"rphjb_MicDrop.mp4"
     )
   )
 

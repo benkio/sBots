@@ -596,7 +596,9 @@ object Mix {
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3",
       vid"rphjb_StoriaNapoliBambinaMutande.mp4",
-      mp3"rphjb_StoriaNapoliBambinaMutande.mp3"
+      mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ciao a tutti",
@@ -1786,7 +1788,9 @@ object Mix {
       "gigi d'alessio"
     )(
       mp3"rphjb_GigiDAlessioAnnaTatangelo.mp3",
-      vid"rphjb_GianniCelesteMeglioGigiDAlessio.mp4"
+      vid"rphjb_GianniCelesteMeglioGigiDAlessio.mp4",
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "gianni celeste"
@@ -2639,13 +2643,22 @@ object Mix {
     )(
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3",
-      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4",
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "tony esposito",
-      "balletto di bronzo",
       "bambini biondi"
     )(
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "balletto di bronzo",
+    )(
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3"
     ),
@@ -2693,6 +2706,109 @@ object Mix {
       gif"rphjb_ColpirannoAnimaGif.mp4",
       vid"rphjb_ColpirannoAnima.mp4",
       mp3"rphjb_ColpirannoAnima.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "freddie mercury"
+    )(
+      vid"rphjb_NelRettoBrianMay.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "brian may",
+      "non è (uno )?stolto".r.tr(12),
+      "spranga",
+      "nel retto"
+    )(
+      vid"rphjb_NelRettoBrianMay.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mic drop",
+      "microfono",
+      "🎤",
+      "🎙",
+    )(
+      gif"rphjb_MicDrop.mp4",
+      vid"rphjb_NelRettoBrianMay.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "james senese",
+      "elio d'anna"
+    )(
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "merola",
+      "murolo",
+      "nino d'angelo",
+      "bennato",
+      "pino daniele",
+      "gli showmen",
+      "città frontale",
+      "battitori selvaggi",
+      "il cervello",
+      "napoli centrale",
+      "enzo (abitabile|granagnello)".r.tr(14),
+      "joe amoruso",
+      "ernesto vitolo",
+      "tullio de piscopo",
+    )(
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F]("progressiv[oe]".r.tr(11))(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_Regressive.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "blues"
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_Blues.mp4",
+      vid"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "whiskey"
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "etichette"
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
+      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "jazz",
+      "musica (sinfonica|acustica)".r.tr(15)
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "consideravo degli amici",
+      "inchinatevi",
+      "che avete fatto voi?",
+      "passaggio terreno",
+      "criticare",
+      "trasportatori",
+      "doganieri",
+    )(
+      vid"rphjb_ExAmiciReMetalloTrasportatori.mp4",
+      mp3"rphjb_ExAmiciReMetalloTrasportatori.mp3"
     )
   )
 
