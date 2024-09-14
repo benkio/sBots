@@ -670,6 +670,36 @@ object ABarberoBot {
       gif"abar_Trappola.gif",
       vid"abar_ParoleLongobarde.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "pistola",
+      "mitragliatrice",
+      "fucile da caccia",
+      "calibro",
+      "beretta",
+      "salame",
+      "mortadella",
+      "provolone",
+      "marmellata",
+      "burro",
+      "(dadi|pomodori) star".r.tr(9),
+      "valigett[ae] 24[ ]?ore".r.tr(15),
+      "giubbotto anti[ ]?proiettile".r.tr(24),
+      "libri (gialli|fantascienza)".r.tr(12),
+      "fumetti",
+      "charlie brown",
+      "documenti d'identità",
+      "targhe di auto (rubate)?".r.tr(15),
+      "timbri",
+      "(divise|palette) della polizia".r.tr(14),
+      "pacchetti di sigarette",
+      "piselli de rica",
+      "fagioli cirio",
+      "pasta (buitoni|barilla|corta)".r.tr(11),
+      "spaghetti",
+    )(
+      vid"abar_ListaSpesaPartigiani.mp4",
+      mp3"abar_ListaSpesaPartigiani.mp3"
+    )
   )
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
