@@ -2693,6 +2693,30 @@ object Mix {
       gif"rphjb_ColpirannoAnimaGif.mp4",
       vid"rphjb_ColpirannoAnima.mp4",
       mp3"rphjb_ColpirannoAnima.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "freddie mercury"
+    )(
+      vid"rphjb_NelRettoBrianMay.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "bian may",
+      "non è (uno )?stolto".r.tr(12),
+      "spranga",
+      "nel retto"
+    )(
+      vid"rphjb_NelRettoBrianMay.mp4"
+    ),
+    ReplyBundleMessage.textToGif[F](
+      "mic drop",
+      "microfono",
+      "🎤",
+      "🎙",
+    )(
+      gif"rphjb_MicDrop.mp4",
+      vid"rphjb_NelRettoBrianMay.mp4"
     )
   )
 
