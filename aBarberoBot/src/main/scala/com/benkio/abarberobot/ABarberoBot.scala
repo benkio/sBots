@@ -362,7 +362,7 @@ object ABarberoBot {
     )(
       mp3"abar_Birra.mp3"
     ),
-    ReplyBundleMessage.textToMp3[F](
+    ReplyBundleMessage.textToMedia[F](
       "tonnellate",
       "zirconio",
       "carbone",
