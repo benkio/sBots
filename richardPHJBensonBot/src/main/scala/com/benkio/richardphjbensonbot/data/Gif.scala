@@ -365,6 +365,11 @@ object Gif {
       "limoncell[io]".r.tr(5)
     )(
       gif"rphjb_LimoncelliVino.gif"
+    ),
+    ReplyBundleMessage.textToGif[F](
+      "non è male"
+    )(
+      gif"rphjb_NonEMale.mp4"
     )
   )
 
