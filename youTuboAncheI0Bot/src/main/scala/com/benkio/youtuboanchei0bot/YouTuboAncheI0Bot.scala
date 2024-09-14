@@ -728,7 +728,8 @@ object YouTuboAncheI0Bot {
       gif"ytai_Tiramisu.mp4",
       mp3"ytai_CucchiaioBattagliaTiramisu.mp3",
       vid"ytai_CucchiaioBattagliaTiramisu.mp4",
-      gif"ytai_CucchiaioBattagliaTiramisuGif.mp4"
+      gif"ytai_CucchiaioBattagliaTiramisuGif.mp4",
+      gif"ytai_LoopAperturaTiramisu.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "m[ ]?&[ ]?m['s]?".r.tr(3),
