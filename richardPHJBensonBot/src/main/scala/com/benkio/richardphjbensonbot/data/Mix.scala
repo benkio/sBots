@@ -2757,6 +2757,58 @@ object Mix {
     )(
       vid"rphjb_MusicaNapoletanaRockLista.mp4",
       mp3"rphjb_MusicaNapoletanaRockLista.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F]("progressiv[oe]".r.tr(11))(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_Regressive.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "blues"
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_Blues.mp4",
+      vid"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "whiskey"
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "etichette"
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
+      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "jazz",
+      "musica (sinfonica|acustica)".r.tr(15)
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "consideravo degli amici",
+      "inchinatevi",
+      "che avete fatto voi?",
+      "passaggio terreno",
+      "criticare",
+      "trasportatori",
+      "doganieri",
+    )(
+      vid"rphjb_ExAmiciReMetalloTrasportatori.mp4",
+      mp3"rphjb_ExAmiciReMetalloTrasportatori.mp3"
     )
   )
 

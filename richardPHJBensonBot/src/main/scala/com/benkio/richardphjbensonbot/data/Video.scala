@@ -335,7 +335,6 @@ object Video {
       vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "progressive",
       "i genesis",
       "tecno(-| )thrash".r.tr(12),
       "van der graaf generator",
@@ -1097,7 +1096,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "alpheus",
-      "whiskey",
       "mi sentivo (di fare)?così".r.tr(15),
       "ho fatto così"
     )(
@@ -1140,7 +1138,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "ebbe un bambino",
-      "blues"
     )(
       vid"rphjb_Blues.mp4",
       vid"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
@@ -1196,12 +1193,6 @@ object Video {
       "luce[tta]? rossa".r.tr(10)
     )(
       vid"rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "etichette"
-    )(
-      vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
-      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "supermercato",
