@@ -1572,6 +1572,13 @@ object YouTuboAncheI0Bot {
       "che bellezza"
     )(
       vid"ytai_SushiQuestoEGigantescoBellezza.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "venticinque (milioni|mila euro)".r.tr(19)
+    )(
+      gif"ytai_25MilioniVisualizzazioni25MilaEuroGif.mp4",
+      vid"ytai_25MilioniVisualizzazioni25MilaEuro.mp4",
+      mp3"ytai_25MilioniVisualizzazioni25MilaEuro.mp3"
     )
   )
 
