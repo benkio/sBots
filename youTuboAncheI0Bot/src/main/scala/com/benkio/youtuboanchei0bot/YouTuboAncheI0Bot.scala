@@ -1329,7 +1329,10 @@ object YouTuboAncheI0Bot {
       gif"ytai_BuonSalameCariAmiciGif.mp4",
       gif"ytai_CariAmiciFollowersBuongiornoSabatoGif.mp4",
       vid"ytai_CariAmiciFollowersBuongiornoSabato.mp4",
-      mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3"
+      mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3",
+      gif"ytai_SpezzanoAlbaneseGif.mp4",
+      vid"ytai_SpezzanoAlbanese.mp4",
+      mp3"ytai_SpezzanoAlbanese.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "buono!"
@@ -1516,7 +1519,10 @@ object YouTuboAncheI0Bot {
       gif"ytai_PersonaliLotteFollowers.mp4",
       gif"ytai_CariAmiciFollowersBuongiornoSabatoGif.mp4",
       vid"ytai_CariAmiciFollowersBuongiornoSabato.mp4",
-      mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3"
+      mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3",
+      gif"ytai_SpezzanoAlbaneseGif.mp4",
+      vid"ytai_SpezzanoAlbanese.mp4",
+      mp3"ytai_SpezzanoAlbanese.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "allora l[iì]".r.tr(9)
@@ -1663,6 +1669,20 @@ object YouTuboAncheI0Bot {
       gif"ytai_VideoImprevistiGif.mp4",
       vid"ytai_VideoImprevisti.mp4",
       mp3"ytai_VideoImprevisti.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "benvenuto",
+      "convenevoli",
+      "sono fermo",
+      "salerno[ -]?reggio[- ]?calabria".r.tr(21),
+      "sibari",
+      "spezzano",
+      "albanese",
+      "(700|settecento) metri".r.tr(9),
+    )(
+      gif"ytai_SpezzanoAlbaneseGif.mp4",
+      vid"ytai_SpezzanoAlbanese.mp4",
+      mp3"ytai_SpezzanoAlbanese.mp3"
     )
   )
 
