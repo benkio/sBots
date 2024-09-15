@@ -1245,6 +1245,15 @@ object YouTuboAncheI0Bot {
       "facilit[aàá]".r.tr(7)
     )(
       gif"ytai_EstremaFacilita.mp4"
+    ),
+    ReplyBundleMessage.textToGif[F](
+      "ciotola",
+      "🍜",
+      "🥣",
+      "🍲",
+    )(
+      gif"ytai_LoopCiotola.mp4",
+      gif"ytai_LoopCiotola2.mp4",
     )
   )
 
@@ -1320,7 +1329,10 @@ object YouTuboAncheI0Bot {
       gif"ytai_BuonSalameCariAmiciGif.mp4",
       gif"ytai_CariAmiciFollowersBuongiornoSabatoGif.mp4",
       vid"ytai_CariAmiciFollowersBuongiornoSabato.mp4",
-      mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3"
+      mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3",
+      gif"ytai_SpezzanoAlbaneseGif.mp4",
+      vid"ytai_SpezzanoAlbanese.mp4",
+      mp3"ytai_SpezzanoAlbanese.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "buono!"
@@ -1507,7 +1519,10 @@ object YouTuboAncheI0Bot {
       gif"ytai_PersonaliLotteFollowers.mp4",
       gif"ytai_CariAmiciFollowersBuongiornoSabatoGif.mp4",
       vid"ytai_CariAmiciFollowersBuongiornoSabato.mp4",
-      mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3"
+      mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3",
+      gif"ytai_SpezzanoAlbaneseGif.mp4",
+      vid"ytai_SpezzanoAlbanese.mp4",
+      mp3"ytai_SpezzanoAlbanese.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "allora l[iì]".r.tr(9)
@@ -1603,6 +1618,116 @@ object YouTuboAncheI0Bot {
       gif"ytai_TecnicaDelCricetoGif.mp4",
       vid"ytai_TecnicaDelCriceto.mp4",
       mp3"ytai_TecnicaDelCriceto.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\btermina\\b".r.tr(7),
+      "nella vita"
+    )(
+      gif"ytai_TecnicaDelCricetoGif.mp4",
+      vid"ytai_TecnicaDelCriceto.mp4",
+      mp3"ytai_TecnicaDelCriceto.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "torcia",
+      "🔦"
+    )(
+      gif"ytai_TorciaGif.mp4",
+      vid"ytai_Torcia.mp4",
+      mp3"ytai_Torcia.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "molto emozionato",
+      "cominciare subito"
+    )(
+      gif"ytai_MoltoEmozionatoCominciareSubitoGif.mp4",
+      vid"ytai_MoltoEmozionatoCominciareSubito.mp4",
+      mp3"ytai_MoltoEmozionatoCominciareSubito.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "non posso dire niente",
+      "restate iscritti",
+      "mi raccomando"
+    )(
+      gif"ytai_NonPossoDireNienteRestateIscrittiGif.mp4",
+      vid"ytai_NonPossoDireNienteRestateIscritti.mp4",
+      mp3"ytai_NonPossoDireNienteRestateIscritti.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "spese (inattese|pretestuose)".r.tr(14),
+      "non ho soldi",
+      "pagare"
+    )(
+      gif"ytai_SpeseInattesePretestuoseGif.mp4",
+      vid"ytai_SpeseInattesePretestuose.mp4",
+      mp3"ytai_SpeseInattesePretestuose.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "in un video",
+      "ti riescono",
+      "si blocca tutto"
+    )(
+      gif"ytai_VideoImprevistiGif.mp4",
+      vid"ytai_VideoImprevisti.mp4",
+      mp3"ytai_VideoImprevisti.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "benvenuto",
+      "convenevoli",
+      "salerno[ -]?reggio[- ]?calabria".r.tr(21),
+      "sibari",
+      "spezzano",
+      "albanese",
+      "(700|settecento) metri".r.tr(9),
+    )(
+      gif"ytai_SpezzanoAlbaneseGif.mp4",
+      vid"ytai_SpezzanoAlbanese.mp4",
+      mp3"ytai_SpezzanoAlbanese.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sono fermo"
+    )(
+      gif"ytai_SpezzanoAlbaneseGif.mp4",
+      vid"ytai_SpezzanoAlbanese.mp4",
+      mp3"ytai_SpezzanoAlbanese.mp3",
+      gif"ytai_IncidenteGif.mp4",
+      vid"ytai_Incidente.mp4",
+      mp3"ytai_Incidente.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "incidente",
+      "feriti",
+      "gravi o meno",
+      "non gravi",
+      "intrappolato nelle lamiere",
+      "nell'ordine",
+      "sono venuti",
+      "macchine della polizia",
+      "camion anas",
+      "ambulanza",
+      "carabinieri",
+      "elicottero",
+    )(
+      gif"ytai_IncidenteGif.mp4",
+      vid"ytai_Incidente.mp4",
+      mp3"ytai_Incidente.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "inquadro",
+      "fare riprese",
+      "censura",
+      "non riesco a fare",
+      "collaborare",
+      "iphone",
+      "collaboratore",
+      "a distanza",
+      "trasferire i file",
+      "wetransfer",
+      "dropbox",
+      "telegram",
+    )(
+      gif"ytai_CensuraIphoneDropboxTelegramGif.mp4",
+      vid"ytai_CensuraIphoneDropboxTelegram.mp4",
+      mp3"ytai_CensuraIphoneDropboxTelegram.mp3"
     )
   )
 
