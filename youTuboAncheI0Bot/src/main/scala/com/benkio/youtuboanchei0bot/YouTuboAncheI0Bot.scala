@@ -1628,6 +1628,14 @@ object YouTuboAncheI0Bot {
       gif"ytai_TorciaGif.mp4",
       vid"ytai_Torcia.mp4",
       mp3"ytai_Torcia.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "molto emozionato",
+      "cominciare subito"
+    )(
+      gif"ytai_MoltoEmozionatoCominciareSubitoGif.mp4",
+      vid"ytai_MoltoEmozionatoCominciareSubito.mp4",
+      mp3"ytai_MoltoEmozionatoCominciareSubito".mp3
     )
   )
 
