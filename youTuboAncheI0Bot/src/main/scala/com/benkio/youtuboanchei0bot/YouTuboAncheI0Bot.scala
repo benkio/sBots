@@ -1493,7 +1493,10 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_BellaTecnicaDelCricetoGif.mp4",
       vid"ytai_BellaTecnicaDelCriceto.mp4",
-      mp3"ytai_BellaTecnicaDelCriceto.mp3"
+      mp3"ytai_BellaTecnicaDelCriceto.mp3",
+      gif"ytai_TecnicaDelCricetoGif.mp4",
+      vid"ytai_TecnicaDelCriceto.mp4",
+      mp3"ytai_TecnicaDelCriceto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "followers",
@@ -1576,7 +1579,10 @@ object YouTuboAncheI0Bot {
       vid"ytai_CiaoNonCiArrivo.mp4",
       gif"ytai_CiaoNonCiArrivoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F]("buongiorno", "buon sabato")(
+    ReplyBundleMessage.textToMedia[F](
+      "buongiorno",
+      "buon sabato"
+    )(
       gif"ytai_CariAmiciFollowersBuongiornoSabatoGif.mp4",
       vid"ytai_CariAmiciFollowersBuongiornoSabato.mp4",
       mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3"
@@ -1589,6 +1595,14 @@ object YouTuboAncheI0Bot {
       gif"ytai_ImbeccareComeBengaliniGif.mp4",
       vid"ytai_ImbeccareComeBengalini.mp4",
       mp3"ytai_ImbeccareComeBengalini.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "hamburger",
+      "🍔"
+    )(
+      gif"ytai_TecnicaDelCricetoGif.mp4",
+      vid"ytai_TecnicaDelCriceto.mp4",
+      mp3"ytai_TecnicaDelCriceto.mp3"
     )
   )
 
