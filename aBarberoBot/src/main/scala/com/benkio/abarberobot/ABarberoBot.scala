@@ -362,29 +362,6 @@ object ABarberoBot {
     )(
       mp3"abar_Birra.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      "tonnellate",
-      "zirconio",
-      "carbone",
-      "acciaio",
-      "oli minerali",
-      "legname",
-      "rame",
-      "nitrato di sodio",
-      "sali potassici",
-      "gomma",
-      "toluolo",
-      "trementina",
-      "piombo",
-      "stagno",
-      "nichelio",
-      "molibdeno",
-      "tungsteno",
-      "titanio",
-    )(
-      mp3"abar_ListaMolibdeno.mp3",
-      vid"abar_ListaMolibdeno.mp4",
-    ),
     ReplyBundleMessage.textToMp3[F](
       "a roma",
       "gobeto"
@@ -716,6 +693,29 @@ object ABarberoBot {
     )(
       vid"abar_ListaSpesaPartigiani.mp4",
       mp3"abar_ListaSpesaPartigiani.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tonnellate",
+      "zirconio",
+      "carbone",
+      "acciaio",
+      "oli minerali",
+      "legname",
+      "rame",
+      "nitrato di sodio",
+      "sali potassici",
+      "gomma",
+      "toluolo",
+      "trementina",
+      "piombo",
+      "stagno",
+      "nichelio",
+      "molibdeno",
+      "tungsteno",
+      "titanio",
+    )(
+      mp3"abar_ListaMolibdeno.mp3",
+      vid"abar_ListaMolibdeno.mp4",
     )
   )
 
