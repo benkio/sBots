@@ -1710,6 +1710,24 @@ object YouTuboAncheI0Bot {
       gif"ytai_IncidenteGif.mp4",
       vid"ytai_Incidente.mp4",
       mp3"ytai_Incidente.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "inquadro",
+      "fare riprese",
+      "censura",
+      "non riesco a fare",
+      "collaborare",
+      "iphone",
+      "collaboratore",
+      "a distanza",
+      "trasferire i file",
+      "wetransfer",
+      "dropbox",
+      "telegram",
+    )(
+      gif"ytai_CensuraIphoneDropboxTelegramGif.mp4",
+      vid"ytai_CensuraIphoneDropboxTelegram.mp4",
+      mp3"ytai_CensuraIphoneDropboxTelegram.mp3"
     )
   )
 
