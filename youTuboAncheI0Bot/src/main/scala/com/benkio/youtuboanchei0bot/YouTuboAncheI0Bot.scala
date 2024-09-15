@@ -1557,6 +1557,14 @@ object YouTuboAncheI0Bot {
       gif"ytai_AutoriMassicciPiediGif.mp4",
       vid"ytai_AutoriMassicciPiedi.mp4",
       mp3"ytai_AutoriMassicciPiedi.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "criceto",
+      "🐹"
+    )(
+      gif"ytai_BellaTecnicaDelCricetoGif.mp4",
+      vid"ytai_BellaTecnicaDelCriceto.mp4",
+      mp3"ytai_BellaTecnicaDelCriceto.mp3"
     )
   )
 
