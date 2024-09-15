@@ -1673,7 +1673,6 @@ object YouTuboAncheI0Bot {
     ReplyBundleMessage.textToMedia[F](
       "benvenuto",
       "convenevoli",
-      "sono fermo",
       "salerno[ -]?reggio[- ]?calabria".r.tr(21),
       "sibari",
       "spezzano",
@@ -1683,6 +1682,34 @@ object YouTuboAncheI0Bot {
       gif"ytai_SpezzanoAlbaneseGif.mp4",
       vid"ytai_SpezzanoAlbanese.mp4",
       mp3"ytai_SpezzanoAlbanese.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sono fermo"
+    )(
+      gif"ytai_SpezzanoAlbaneseGif.mp4",
+      vid"ytai_SpezzanoAlbanese.mp4",
+      mp3"ytai_SpezzanoAlbanese.mp3",
+      gif"ytai_IncidenteGif.mp4",
+      vid"ytai_Incidente.mp4",
+      mp3"ytai_Incidente.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "incidente",
+      "feriti",
+      "gravi o meno",
+      "non gravi",
+      "intrappolato nelle lamiere",
+      "nell'ordine",
+      "sono venuti",
+      "macchine della polizia",
+      "camion anas",
+      "ambulanza",
+      "carabinieri",
+      "elicottero",
+    )(
+      gif"ytai_IncidenteGif.mp4",
+      vid"ytai_Incidente.mp4",
+      mp3"ytai_Incidente.mp3"
     )
   )
 
