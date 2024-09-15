@@ -1644,7 +1644,7 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_NonPossoDireNienteRestateIscrittiGif.mp4",
       vid"ytai_NonPossoDireNienteRestateIscritti.mp4",
-      mp3"ytai_NonPossoDireNienteRestateIscritti".mp3
+      mp3"ytai_NonPossoDireNienteRestateIscritti.mp3"
     )
   )
 
