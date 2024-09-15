@@ -1603,6 +1603,14 @@ object YouTuboAncheI0Bot {
       gif"ytai_TecnicaDelCricetoGif.mp4",
       vid"ytai_TecnicaDelCriceto.mp4",
       mp3"ytai_TecnicaDelCriceto.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\btermina\\b".r.tr(7),
+      "nella vita"
+    )(
+        gif"ytai_TecnicaDelCricetoGif.mp4",
+        vid"ytai_TecnicaDelCriceto.mp4",
+        mp3"ytai_TecnicaDelCriceto.mp3"
     )
   )
 
