@@ -1645,6 +1645,24 @@ object YouTuboAncheI0Bot {
       gif"ytai_NonPossoDireNienteRestateIscrittiGif.mp4",
       vid"ytai_NonPossoDireNienteRestateIscritti.mp4",
       mp3"ytai_NonPossoDireNienteRestateIscritti.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "spese (inattese|pretestuose)".r.tr(14),
+      "non ho soldi",
+      "pagare"
+    )(
+      gif"ytai_SpeseInattesePretestuoseGif.mp4",
+      vid"ytai_SpeseInattesePretestuose.mp4",
+      mp3"ytai_SpeseInattesePretestuose.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "in un video",
+      "ti riescono",
+      "si blocca tutto"
+    )(
+      gif"ytai_VideoImprevistiGif.mp4",
+      vid"ytai_VideoImprevisti.mp4",
+      mp3"ytai_VideoImprevisti.mp3",
     )
   )
 
