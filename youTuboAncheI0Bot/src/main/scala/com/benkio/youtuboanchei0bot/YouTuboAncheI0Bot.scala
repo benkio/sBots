@@ -1580,6 +1580,15 @@ object YouTuboAncheI0Bot {
       gif"ytai_CariAmiciFollowersBuongiornoSabatoGif.mp4",
       vid"ytai_CariAmiciFollowersBuongiornoSabato.mp4",
       mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "eh (no|allora)".r.tr(5),
+      "imbeccare",
+      "bengalini"
+    )(
+      gif"ytai_ImbeccareComeBengaliniGif.mp4",
+      vid"ytai_ImbeccareComeBengalini.mp4",
+      mp3"ytai_ImbeccareComeBengalini.mp3"
     )
   )
 
