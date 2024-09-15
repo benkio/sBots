@@ -1635,7 +1635,16 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_MoltoEmozionatoCominciareSubitoGif.mp4",
       vid"ytai_MoltoEmozionatoCominciareSubito.mp4",
-      mp3"ytai_MoltoEmozionatoCominciareSubito".mp3
+      mp3"ytai_MoltoEmozionatoCominciareSubito.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "non posso dire niente",
+      "restate iscritti",
+      "mi raccomando"
+    )(
+      gif"ytai_NonPossoDireNienteRestateIscrittiGif.mp4",
+      vid"ytai_NonPossoDireNienteRestateIscritti.mp4",
+      mp3"ytai_NonPossoDireNienteRestateIscritti".mp3
     )
   )
 
