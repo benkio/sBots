@@ -1245,6 +1245,15 @@ object YouTuboAncheI0Bot {
       "facilit[aàá]".r.tr(7)
     )(
       gif"ytai_EstremaFacilita.mp4"
+    ),
+    ReplyBundleMessage.textToGif[F](
+      "ciotola",
+      "🍜",
+      "🥣",
+      "🍲",
+    )(
+      gif"ytai_LoopCiotola.mp4",
+      gif"ytai_LoopCiotola2.mp4",
     )
   )
 
