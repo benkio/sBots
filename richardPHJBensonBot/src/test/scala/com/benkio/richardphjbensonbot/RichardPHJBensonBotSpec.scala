@@ -100,7 +100,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = "rphjb_triggers.txt",
+    triggerFilename = RichardPHJBensonBot.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = RichardPHJBensonBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )

@@ -77,7 +77,7 @@ class ABarberoBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = "abar_triggers.txt",
+    triggerFilename = ABarberoBot.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = ABarberoBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )

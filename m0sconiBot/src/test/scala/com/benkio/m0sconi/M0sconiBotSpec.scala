@@ -60,7 +60,7 @@ class M0sconiBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = "mos_triggers.txt",
+    triggerFilename = M0sconiBot.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = M0sconiBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )

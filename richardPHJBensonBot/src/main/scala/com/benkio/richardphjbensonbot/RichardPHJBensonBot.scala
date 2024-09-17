@@ -66,6 +66,9 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = RichardPHJBensonBot.botName
   override val botPrefix: String                   = RichardPHJBensonBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
+  override val triggerFilename: String             = RichardPHJBensonBot.triggerFilename
+  override val triggerListUri: Uri                 = RichardPHJBensonBot.triggerListUri
+
   val backgroundJobManager: BackgroundJobManager[F]
 
   override def messageRepliesDataF(using
@@ -95,6 +98,7 @@ object RichardPHJBensonBot {
   val botName: String                     = "RichardPHJBensonBot"
   val botPrefix: String                   = "rphjb"
   val ignoreMessagePrefix: Option[String] = Some("!")
+  val triggerFilename: String             = "rphjb_triggers.txt"
   val triggerListUri: Uri =
     uri"https://github.com/benkio/sBots/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
@@ -121,7 +125,7 @@ object RichardPHJBensonBot {
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
-      ignoreMessagePrefix = ignoreMessagePrefix,
+      ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
       mdr = messageRepliesData
     ),
     StatisticsCommands.topTwentyReplyBundleCommand[F](
@@ -152,7 +156,7 @@ object RichardPHJBensonBot {
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
-      ignoreMessagePrefix = ignoreMessagePrefix,
+      ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,

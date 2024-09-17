@@ -65,6 +65,8 @@ trait YouTuboAncheI0Bot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = YouTuboAncheI0Bot.botName
   override val botPrefix: String                   = YouTuboAncheI0Bot.botPrefix
   override val ignoreMessagePrefix: Option[String] = YouTuboAncheI0Bot.ignoreMessagePrefix
+  override val triggerListUri: Uri                 = YouTuboAncheI0Bot.triggerListUri
+  override val triggerFilename: String             = YouTuboAncheI0Bot.triggerFilename
   val backgroundJobManager: BackgroundJobManager[F]
 
   override def messageRepliesDataF(using
@@ -88,6 +90,7 @@ object YouTuboAncheI0Bot {
   val botName: String                     = "YouTuboAncheI0Bot"
   val botPrefix: String                   = "ytai"
   val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/master/youTuboAncheI0Bot/ytai_triggers.txt"
+  val triggerFilename: String = "ytai_triggers.txt"
   val tokenFilename: String   = "ytai_YouTuboAncheI0Bot.token"
   val configNamespace: String = "ytaiDB"
 
@@ -1804,7 +1807,7 @@ object YouTuboAncheI0Bot {
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
-      ignoreMessagePrefix = ignoreMessagePrefix,
+      ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
       mdr = messageRepliesData[F]
     ),
     RandomLinkCommand.searchShowReplyBundleCommand(
@@ -1835,7 +1838,7 @@ object YouTuboAncheI0Bot {
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
-      ignoreMessagePrefix = ignoreMessagePrefix,
+      ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,

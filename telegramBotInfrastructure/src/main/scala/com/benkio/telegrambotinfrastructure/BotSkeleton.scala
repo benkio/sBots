@@ -61,6 +61,7 @@ trait BotSkeleton[F[_]] {
   val disableForward: Boolean                                 = true
   val botName: String
   val botPrefix: String
+  val triggerListUri: Uri
   val dbLayer: DBLayer[F]
   def filteringMatchesMessages(using appF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_: ReplyBundleMessage[F], _: Message) => Applicative[F].pure(true)
@@ -72,6 +73,12 @@ trait BotSkeleton[F[_]] {
     log.debug(s"$botName: Empty message reply data") *> List.empty[ReplyBundleMessage[F]].pure[F]
   def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     log.debug(s"$botName: Empty command reply data") *> List.empty[ReplyBundleCommand[F]].pure[F]
+
+  // Trigger file generation ////////////////////////////////////////////////////
+
+  val triggerFilename: String
+  // TODO: logic to generate the triggerFilename file starting from the list of ReplyBundleMessage
+  def generateTriggerFile: F[Unit] = ???
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
