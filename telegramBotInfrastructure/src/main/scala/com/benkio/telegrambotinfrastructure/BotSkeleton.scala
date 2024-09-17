@@ -1,5 +1,7 @@
 package com.benkio.telegrambotinfrastructure
 
+import scala.io.Source
+import java.io.File
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
@@ -78,8 +80,10 @@ trait BotSkeleton[F[_]] {
 
   val triggerFilename: String
   // TODO: logic to generate the triggerFilename file starting from the list of ReplyBundleMessage
-  def generateTriggerFile: F[Unit] = ???
-
+  def generateTriggerFile(using syncF: Sync[F]): F[String] = {
+    val listPath       = new File(".").getCanonicalPath + s"/$triggerFilename"
+    syncF.delay(Source.fromFile(listPath).getLines().mkString("\n"))
+  }
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   def messageLogic(
