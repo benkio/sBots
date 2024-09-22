@@ -5,7 +5,6 @@ import cats.implicits.*
 import com.benkio.botDB.db.schema.MediaEntity
 import doobie.*
 import doobie.implicits.*
-import doobie.implicits.javasql.*
 import io.circe.syntax.*
 
 trait DatabaseRepository[F[_]] {

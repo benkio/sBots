@@ -271,6 +271,7 @@ object YouTuboAncheI0Bot {
       "filet[ -]?o[ -]?fish".r.tr(10),
     )(
       gif"ytai_FiletOFish.mp4",
+      gif"ytai_FiletOFish2.mp4",
       gif"ytai_BagnarloAcqua.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
@@ -439,6 +440,7 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_Sete.mp4",
       gif"ytai_AcquaMeravigliosa.mp4",
+      gif"ytai_FameSeteNotturna.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "🤷"
@@ -1254,7 +1256,10 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_LoopCiotola.mp4",
       gif"ytai_LoopCiotola2.mp4",
-    )
+    ),
+    ReplyBundleMessage.textToGif[F](
+      "notturna"
+    )(gif"ytai_FameSeteNotturna.mp4")
   )
 
   def messageRepliesMixData[
@@ -1728,7 +1733,23 @@ object YouTuboAncheI0Bot {
       gif"ytai_CensuraIphoneDropboxTelegramGif.mp4",
       vid"ytai_CensuraIphoneDropboxTelegram.mp4",
       mp3"ytai_CensuraIphoneDropboxTelegram.mp3"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\b(ar)?rabbi([oa]|at[oa])\\b".r.tr(6),
+      "collera",
+      "indignato",
+      "[🤬😡😠]".r.tr(1),
+    )(
+      pho"ytai_Rabbia.jpg",
+      gif"ytai_LoopArrabbiatoIndignato.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "[😦😧]".r.tr(1),
+      "shock",
+    )(
+      pho"ytai_Shock.jpg",
+      gif"ytai_LoopArrabbiatoIndignato.mp4"
+    ),
   )
 
   def messageRepliesVideoData[
@@ -1763,19 +1784,6 @@ object YouTuboAncheI0Bot {
   def messageRepliesImageData[
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToMedia[F](
-      "\\b(ar)?rabbi([oa]|at[oa])\\b".r.tr(6),
-      "collera",
-      "[🤬😡😠]".r.tr(1),
-    )(
-      pho"ytai_Rabbia.jpg"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "[😦😧]".r.tr(1),
-      "shock",
-    )(
-      pho"ytai_Shock.jpg"
-    ),
     ReplyBundleMessage.textToMedia[F](
       "😐",
       "attonito"
