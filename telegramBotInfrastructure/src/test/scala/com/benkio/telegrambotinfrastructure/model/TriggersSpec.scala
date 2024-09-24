@@ -42,9 +42,9 @@ class TriggersSpec extends FunSuite {
     val commandTrigger: Trigger       = CommandTrigger("/testcommand")
 
     assertEquals(textTrigger.show, "textTriggerValue\nregexTriggerValue")
-    assertEquals(messageLengthTrigger.show, "Trigger when the length of message exceed 42")
-    assertEquals(newMemberTrigger.show, "Trigger on new member joining a group")
-    assertEquals(leftMemberTrigger.show, "Trigger when a member leaves a group")
+    assertEquals(messageLengthTrigger.show, "trigger when the length of message exceed 42")
+    assertEquals(newMemberTrigger.show, "trigger on new member joining a group")
+    assertEquals(leftMemberTrigger.show, "trigger when a member leaves a group")
     assertEquals(commandTrigger.show, "/testcommand")
 
   }

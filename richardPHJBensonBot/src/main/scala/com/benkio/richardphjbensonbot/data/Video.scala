@@ -341,7 +341,7 @@ object Video {
       "emerson(,)? lake (e|&) palmer".r.tr(22),
       "gentle giant",
       "jetro tull",
-      "Marillion",
+      "marillion",
     )(
       vid"rphjb_Regressive.mp4"
     ),
@@ -1242,7 +1242,7 @@ object Video {
       "white[ ]?snake".r.tr(10),
       "pat travers",
       "manona",
-      "I('m|am) the leader",
+      "i('m|am) the leader",
       "quello stronzo",
       "io sono dio",
       "is god"

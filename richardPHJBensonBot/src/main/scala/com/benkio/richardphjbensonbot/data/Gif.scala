@@ -52,7 +52,7 @@ object Gif {
       gif"rphjb_Cucciolo2.mp4",
     ),
     ReplyBundleMessage.textToGif[F](
-      "Che c'hai"
+      "che c'hai"
     )(
       gif"rphjb_CheCHai.mp4"
     ),

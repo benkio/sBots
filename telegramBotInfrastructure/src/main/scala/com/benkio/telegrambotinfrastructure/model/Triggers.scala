@@ -55,9 +55,9 @@ object Trigger {
   given showInstance: Show[Trigger] = Show.show(t =>
     t match {
       case TextTrigger(tvs @ _*)   => tvs.map(_.show).mkString("\n")
-      case MessageLengthTrigger(l) => s"Trigger when the length of message exceed $l"
-      case NewMemberTrigger        => "Trigger on new member joining a group"
-      case LeftMemberTrigger       => "Trigger when a member leaves a group"
+      case MessageLengthTrigger(l) => s"trigger when the length of message exceed $l"
+      case NewMemberTrigger        => "trigger on new member joining a group"
+      case LeftMemberTrigger       => "trigger when a member leaves a group"
       case CommandTrigger(c)       => c
     }
   )
