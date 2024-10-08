@@ -762,9 +762,11 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage.textToGif[F](
       "salmone",
+      "🐟",
     )(
       gif"ytai_SalmoneUnico.mp4",
-      gif"ytai_TartinaSalmone.mp4"
+      gif"ytai_TartinaSalmone.mp4",
+      gif"ytai_SalmoneLoop.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "un successo",
@@ -1750,6 +1752,13 @@ object YouTuboAncheI0Bot {
       pho"ytai_Shock.jpg",
       gif"ytai_LoopArrabbiatoIndignato.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "saluto",
+      "obesit[àa]".r.tr(7),
+    )(
+      vid"ytai_SalutoDaObesita.mp4",
+      gif"ytai_SalutoDaObesitaGif.mp4",
+    )
   )
 
   def messageRepliesVideoData[
