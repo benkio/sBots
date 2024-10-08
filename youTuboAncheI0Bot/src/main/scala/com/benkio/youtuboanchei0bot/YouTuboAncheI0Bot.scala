@@ -1753,8 +1753,9 @@ object YouTuboAncheI0Bot {
       gif"ytai_LoopArrabbiatoIndignato.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "saluto",
+      "un (caro )?saluto".r.tr(9),
       "obesit[àa]".r.tr(7),
+      "scusate"
     )(
       vid"ytai_SalutoDaObesita.mp4",
       gif"ytai_SalutoDaObesitaGif.mp4",
