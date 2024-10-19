@@ -1630,9 +1630,9 @@ object YouTuboAncheI0Bot {
       "\\btermina\\b".r.tr(7),
       "nella vita"
     )(
-      gif"ytai_TecnicaDelCricetoGif.mp4",
-      vid"ytai_TecnicaDelCriceto.mp4",
-      mp3"ytai_TecnicaDelCriceto.mp3"
+      gif"ytai_TuttoNellaVitaTerminaGif.mp4",
+      vid"ytai_TuttoNellaVitaTermina.mp4",
+      mp3"ytai_TuttoNellaVitaTermina.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "torcia",
