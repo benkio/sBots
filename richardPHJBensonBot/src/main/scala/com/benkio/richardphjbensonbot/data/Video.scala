@@ -260,6 +260,8 @@ object Video {
       "\\bbeat\\b".r.tr(4),
       "(e poi[ ,]?[ ]?){2,}".r.tr(10),
       "qualche volta vedo lei",
+      "non la vedo pi[uù]".r.tr(15),
+      "mi (si )?piange il cuor[e]?".r.tr(20),
       "sfasciavamo tutti gli strumenti",
     )(
       vid"rphjb_AssoloBeat.mp4"
