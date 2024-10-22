@@ -714,7 +714,8 @@ object YouTuboAncheI0Bot {
       "panino"
     )(
       gif"ytai_PaninoBuonoSpuntito.mp4",
-      gif"ytai_Panino.mp4"
+      gif"ytai_Panino.mp4",
+      gif"ytai_PaninoAlpino.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "m[ ]?&[ ]?m['s]?".r.tr(3),
@@ -1261,7 +1262,17 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage.textToGif[F](
       "notturna"
-    )(gif"ytai_FameSeteNotturna.mp4")
+    )(gif"ytai_FameSeteNotturna.mp4"),
+    ReplyBundleMessage.textToGif[F](
+      "alpino",
+      "eccolo qui",
+      "si chiama"
+    )(gif"ytai_PaninoAlpino.mp4"),
+    ReplyBundleMessage.textToGif[F](
+      "waffel",
+      "inzuppati",
+      "profumo gradevolissimo"
+    )(gif"ytai_WaffelInzuppati.mp4")
   )
 
   def messageRepliesMixData[
