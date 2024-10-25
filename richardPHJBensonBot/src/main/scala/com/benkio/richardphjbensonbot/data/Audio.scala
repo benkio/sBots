@@ -331,7 +331,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "misero antro",
-      "addibiti ad agnelli",
+      "adibiti ad agnelli",
       "una pisciata",
     )(
       mp3"rphjb_MiseroAntroGanciAgnelliPisciata.mp3"
