@@ -333,6 +333,8 @@ object Audio {
       "misero antro",
       "adibiti ad agnelli",
       "una pisciata",
+      "appendila a",
+      "\\bganci\\b".r.tr(5)
     )(
       mp3"rphjb_MiseroAntroGanciAgnelliPisciata.mp3"
     ),
