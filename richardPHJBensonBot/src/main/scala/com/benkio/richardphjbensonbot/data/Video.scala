@@ -52,7 +52,10 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "eric clapton",
       "uo[m]+ini d'affari".r.tr(15),
-      "andò in america"
+      "andò in america",
+      "non c'è la benzina",
+      "a sbattere da tutte le parti",
+      "mancano i motori"
     )(
       vid"rphjb_EricClaptonDrogaUominiAffari.mp4"
     ),
