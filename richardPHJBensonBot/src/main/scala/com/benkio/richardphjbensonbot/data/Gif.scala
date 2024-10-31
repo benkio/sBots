@@ -126,7 +126,7 @@ object Gif {
       gif"rphjb_MiRompiErCazzo.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "c'ha [pure ]?ragione",
+      "[c']?ha [pure ]?ragione[ questo]?".r.tr(10),
       "o no?"
     )(
       gif"rphjb_Ragione.mp4"

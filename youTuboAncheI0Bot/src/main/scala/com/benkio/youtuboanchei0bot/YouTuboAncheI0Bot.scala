@@ -1779,8 +1779,8 @@ object YouTuboAncheI0Bot {
     ReplyBundleMessage.textToVideo[F](
       "in america",
       "(posto|carico) i video".r.tr(13),
-      "restiamo in contatto",
-      "attraverso i commenti",
+      "(restiamo|teniamo) in contatto".r.tr(19),
+      "(attraverso i|nei) commenti".r.tr(12),
       "sto risolvendo"
     )(
       vid"ytai_SognoAmericano.mp4"
