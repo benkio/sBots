@@ -13,7 +13,6 @@ import cats.implicits._
 import java.io._
 import cats.effect.IO
 
-
 import cats.effect.IOApp
 
 object GenerateTriggers extends IOApp {
