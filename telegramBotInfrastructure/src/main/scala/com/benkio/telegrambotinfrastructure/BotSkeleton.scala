@@ -1,7 +1,5 @@
 package com.benkio.telegrambotinfrastructure
 
-import scala.io.Source
-import java.io.File
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
@@ -64,6 +62,7 @@ trait BotSkeleton[F[_]] {
   val botName: String
   val botPrefix: String
   val triggerListUri: Uri
+  val triggerFilename: String
   val dbLayer: DBLayer[F]
   def filteringMatchesMessages(using appF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_: ReplyBundleMessage[F], _: Message) => Applicative[F].pure(true)
@@ -76,14 +75,6 @@ trait BotSkeleton[F[_]] {
   def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
     log.debug(s"$botName: Empty command reply data") *> List.empty[ReplyBundleCommand[F]].pure[F]
 
-  // Trigger file generation ////////////////////////////////////////////////////
-
-  val triggerFilename: String
-  // TODO: logic to generate the triggerFilename file starting from the list of ReplyBundleMessage
-  def generateTriggerFile(using syncF: Sync[F]): F[String] = {
-    val listPath       = new File(".").getCanonicalPath + s"/$triggerFilename"
-    syncF.delay(Source.fromFile(listPath).getLines().mkString("\n"))
-  }
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   def messageLogic(
