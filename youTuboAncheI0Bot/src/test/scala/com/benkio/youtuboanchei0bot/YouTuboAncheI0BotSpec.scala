@@ -73,7 +73,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = "ytai_triggers.txt",
+    triggerFilename = YouTuboAncheI0Bot.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')),
   )

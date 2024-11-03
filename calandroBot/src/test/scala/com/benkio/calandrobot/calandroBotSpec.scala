@@ -36,7 +36,7 @@ class CalandroBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = "cala_triggers.txt",
+    triggerFilename = CalandroBot.triggerFilename,
     botMediaFiles = CalandroBot
       .messageRepliesData[IO]
       .flatTraverse(_.reply.prettyPrint)

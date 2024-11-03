@@ -58,8 +58,9 @@ trait ABarberoBot[F[_]] extends BotSkeleton[F] {
 
   override val botName: String                     = ABarberoBot.botName
   override val botPrefix: String                   = ABarberoBot.botPrefix
+  override val triggerListUri: Uri                 = ABarberoBot.triggerListUri
+  override val triggerFilename: String             = ABarberoBot.triggerFilename
   override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
-  val linkSources                                  = ABarberoBot.linkSources
   val backgroundJobManager: BackgroundJobManager[F]
 
   override def messageRepliesDataF(using
@@ -82,8 +83,8 @@ object ABarberoBot {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "ABarberoBot"
   val botPrefix: String                   = "abar"
-  val triggerListUrl: Uri     = uri"https://github.com/benkio/sBots/blob/master/aBarberoBot/abar_triggers.txt"
-  val linkSources: String     = "abar_LinkSources"
+  val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/master/aBarberoBot/abar_triggers.txt"
+  val triggerFilename: String = "abar_triggers.txt"
   val tokenFilename: String   = "abar_ABarberoBot.token"
   val configNamespace: String = "abarDB"
 
@@ -742,10 +743,10 @@ object ABarberoBot {
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
-    TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUrl),
+    TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
-      ignoreMessagePrefix = ignoreMessagePrefix,
+      ignoreMessagePrefix = ABarberoBot.ignoreMessagePrefix,
       mdr = messageRepliesData[F]
     ),
     RandomLinkCommand.searchShowReplyBundleCommand(
@@ -776,7 +777,7 @@ object ABarberoBot {
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
-      ignoreMessagePrefix = ignoreMessagePrefix,
+      ignoreMessagePrefix = ABarberoBot.ignoreMessagePrefix,
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,

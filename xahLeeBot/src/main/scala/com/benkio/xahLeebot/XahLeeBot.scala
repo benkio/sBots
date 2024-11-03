@@ -41,8 +41,10 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait XahLeeBot[F[_]] extends BotSkeleton[F] {
 
-  override val botName: String   = XahLeeBot.botName
-  override val botPrefix: String = XahLeeBot.botPrefix
+  override val botName: String         = XahLeeBot.botName
+  override val botPrefix: String       = XahLeeBot.botPrefix
+  override val triggerFilename: String = XahLeeBot.triggerFilename
+  override val triggerListUri: Uri     = XahLeeBot.triggerListUri
   val backgroundJobManager: BackgroundJobManager[F]
   val dbLayer: DBLayer[F]
 
@@ -63,6 +65,8 @@ object XahLeeBot {
   val botPrefix: String       = "xah"
   val tokenFilename: String   = "xah_XahLeeBot.token"
   val configNamespace: String = "xahDB"
+  val triggerFilename: String = "xah_triggers.txt"
+  val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/master/XahLeeBot/xah_triggers.txt"
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List.empty
 

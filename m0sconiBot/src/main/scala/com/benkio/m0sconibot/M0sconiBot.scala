@@ -63,6 +63,8 @@ trait M0sconiBot[F[_]] extends BotSkeleton[F] {
   override val botName: String                     = M0sconiBot.botName
   override val botPrefix: String                   = M0sconiBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = M0sconiBot.ignoreMessagePrefix
+  override val triggerFilename: String             = M0sconiBot.triggerFilename
+  override val triggerListUri: Uri                 = M0sconiBot.triggerListUri
   val backgroundJobManager: BackgroundJobManager[F]
 
   override def messageRepliesDataF(using
@@ -82,6 +84,7 @@ trait M0sconiBot[F[_]] extends BotSkeleton[F] {
 object M0sconiBot {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
+  val triggerFilename: String             = "mos_triggers.txt"
   val botName: String                     = "M0sconiBot"
   val botPrefix: String                   = "mos"
   val triggerListUri: Uri                 = uri"https://github.com/benkio/sBots/blob/master/m0sconiBot/mos_triggers.txt"
@@ -701,7 +704,7 @@ object M0sconiBot {
     TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
     TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
       botName = botName,
-      ignoreMessagePrefix = ignoreMessagePrefix,
+      ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix,
       mdr = messageRepliesData[F]
     ),
     StatisticsCommands.topTwentyReplyBundleCommand[F](
@@ -715,7 +718,7 @@ object M0sconiBot {
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
-      ignoreMessagePrefix = ignoreMessagePrefix,
+      ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix,
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,

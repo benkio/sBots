@@ -61,6 +61,8 @@ trait BotSkeleton[F[_]] {
   val disableForward: Boolean                                 = true
   val botName: String
   val botPrefix: String
+  val triggerListUri: Uri
+  val triggerFilename: String
   val dbLayer: DBLayer[F]
   def filteringMatchesMessages(using appF: Applicative[F]): (ReplyBundleMessage[F], Message) => F[Boolean] =
     (_: ReplyBundleMessage[F], _: Message) => Applicative[F].pure(true)

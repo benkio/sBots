@@ -43,8 +43,10 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait CalandroBot[F[_]] extends BotSkeleton[F] {
 
-  override val botName: String   = CalandroBot.botName
-  override val botPrefix: String = CalandroBot.botPrefix
+  override val botName: String         = CalandroBot.botName
+  override val botPrefix: String       = CalandroBot.botPrefix
+  override val triggerFilename: String = CalandroBot.triggerFilename
+  override val triggerListUri: Uri     = CalandroBot.triggerListUri
 
   override def messageRepliesDataF(using
       applicativeF: Applicative[F],
@@ -62,6 +64,8 @@ object CalandroBot {
   val botPrefix: String       = "cala"
   val tokenFilename: String   = "cala_CalandroBot.token"
   val configNamespace: String = "calaDB"
+  val triggerFilename: String = "cala_triggers.txt"
+  val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/master/CalandroBot/abar_triggers.txt"
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToText[F](
