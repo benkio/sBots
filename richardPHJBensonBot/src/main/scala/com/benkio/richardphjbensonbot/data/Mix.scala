@@ -201,7 +201,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "non sapere",
-      "aris(d|t)o(d|t)ele".r.tr(10),
+      "aris[dt]o[dt][ie]le".r.tr(10),
       "socrate"
     )(
       gif"rphjb_SoDiNonSapereGif.mp4",
@@ -2598,7 +2598,7 @@ object Mix {
       "bastonata",
       "dare pugni",
       "aggredisce",
-      "per nessun motivo logico",
+      "per nessun motivo lo[g]+ico".r.tr(24),
       "essere alterato",
       "battibecco",
     )(

@@ -52,7 +52,10 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "eric clapton",
       "uo[m]+ini d'affari".r.tr(15),
-      "andò in america"
+      "andò in america",
+      "non c'è la benzina",
+      "a sbattere da tutte le parti",
+      "mancano i motori"
     )(
       vid"rphjb_EricClaptonDrogaUominiAffari.mp4"
     ),
@@ -260,6 +263,8 @@ object Video {
       "\\bbeat\\b".r.tr(4),
       "(e poi[ ,]?[ ]?){2,}".r.tr(10),
       "qualche volta vedo lei",
+      "non la vedo pi[uù]".r.tr(15),
+      "mi (si )?piange il cuor[e]?".r.tr(20),
       "sfasciavamo tutti gli strumenti",
     )(
       vid"rphjb_AssoloBeat.mp4"
@@ -341,7 +346,7 @@ object Video {
       "emerson(,)? lake (e|&) palmer".r.tr(22),
       "gentle giant",
       "jetro tull",
-      "Marillion",
+      "marillion",
     )(
       vid"rphjb_Regressive.mp4"
     ),
@@ -1242,7 +1247,7 @@ object Video {
       "white[ ]?snake".r.tr(10),
       "pat travers",
       "manona",
-      "I('m|am) the leader",
+      "i('m|am) the leader",
       "quello stronzo",
       "io sono dio",
       "is god"

@@ -289,6 +289,11 @@ object M0sconiBot {
       mp3"mos_Buongiorno2.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
+      "stata una giornata"
+    )(
+      mp3"mos_Buongiorno2.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "but(tato|ta) per aria tutto".r.tr(22)
     )(
       mp3"mos_ButtaPellAria.mp3"

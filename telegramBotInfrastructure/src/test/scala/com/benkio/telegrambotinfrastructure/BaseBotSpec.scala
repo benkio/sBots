@@ -11,6 +11,11 @@ import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import munit.*
 
 trait BaseBotSpec extends CatsEffectSuite:
+  def checkContains(triggerContent: String, values: List[String]): Unit =
+    values.foreach { value =>
+      assert(triggerContent.contains(value), s"$value is not contained in trigger file")
+    }
+
   def jsonContainsFilenames(
       jsonFilename: String,
       botData: IO[List[String]]
@@ -45,21 +50,16 @@ trait BaseBotSpec extends CatsEffectSuite:
       botTriggers: List[String]
   ): Unit =
     test(s"the `$triggerFilename` should contain all the triggers of the bot") {
-      val listPath       = new File(".").getCanonicalPath + s"/$triggerFilename"
-      val triggerContent = Source.fromFile(listPath).getLines().mkString("\n")
+      val listPath: String       = new File(".").getCanonicalPath + s"/$triggerFilename"
+      val triggerContent: String = Source.fromFile(listPath).getLines().mkString("\n")
 
-      botMediaFiles.map(_.foreach { mediaFileString =>
-        val result = triggerContent.contains(mediaFileString)
-        if (!result) {
-          println(s"Mediafile missing: $mediaFileString")
-        }
-        assert(result)
-      }) >>
-        botTriggers
-          .foreach { triggerString =>
-            assert(triggerContent.contains(triggerString), s"$triggerString is not contained in richard trigger file")
-          }
-          .pure[IO]
+      for mediaFileStrings <- botMediaFiles
+      yield {
+        checkContains(triggerContent, mediaFileStrings)
+        checkContains(triggerContent, botTriggers)
+        val noLowercaseTriggers = botTriggers.filter(s => s != s.toLowerCase)
+        assert(noLowercaseTriggers.isEmpty, s"some triggers are not lowercase: $noLowercaseTriggers")
+      }
     }
 
   def instructionsCommandTest(

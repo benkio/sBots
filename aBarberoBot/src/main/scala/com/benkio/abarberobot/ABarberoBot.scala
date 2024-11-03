@@ -702,10 +702,10 @@ object ABarberoBot {
       "acciaio",
       "oli minerali",
       "legname",
-      "rame",
+      "\\brame\\b".r.tr(4),
       "nitrato di sodio",
       "sali potassici",
-      "gomma",
+      "\\bgomma\\b".r.tr(5),
       "toluolo",
       "trementina",
       "piombo",
@@ -717,6 +717,16 @@ object ABarberoBot {
     )(
       mp3"abar_ListaMolibdeno.mp3",
       vid"abar_ListaMolibdeno.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "error[ie]".r.tr(6),
+      "pernicios[oi]".r.tr(10),
+      "scandalos[oi]".r.tr(10),
+      "penstilenzial[ie]".r.tr(14),
+      "velenosis[s]+imo".r.tr(13),
+    )(
+      vid"abar_ErrorePestilenzialeVelenosissimo.mp4",
+      mp3"abar_ErrorePestilenzialeVelenosissimo.mp3"
     )
   )
 
