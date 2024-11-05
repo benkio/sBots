@@ -83,7 +83,7 @@ class TriggersSpec extends FunSuite {
     assertEquals(Trigger.triggerLongestString(input2), 11)
   }
 
-  test("Regex Json decode/encode should work as expected") {
+  test("Regex JSON decode/encode should work as expected") {
     val jsonInputs = List(
       """"prendo (il motorino|il coso|la macchina|l'auto)"""",
       """"non sono (uno )?(scemo|stolto)"""",
@@ -102,6 +102,53 @@ class TriggersSpec extends FunSuite {
       eitherRegex.fold(
         e => fail("failed in parsing the input string as regex", e),
         r => assertEquals(r.asJson.toString, inputString)
+      )
+    }
+  }
+
+  test("Message Trigger JSON decode/encode should work as expected") {
+    val jsonInputs = List(
+      """{
+  "TextTrigger" : {
+    "triggers" : [
+      {
+        "StringTextTriggerValue" : {
+          "trigger" : "stringtrigger"
+        }
+      },
+      {
+        "RegexTextTriggerValue" : {
+          "trigger" : "\brege[Xx]?(trigger|test)\b",
+          "minimalLengthMatch" : 8
+        }
+      }
+    ]
+  }
+}""",
+      """{
+  "MessageLengthTrigger" : {
+    "messageLength" : 12
+  }
+}""",
+      // """{"CommandTrigger":{"command": "/acommand"}}""" ,
+      """{
+  "NewMemberTrigger" : {
+    
+  }
+}""",
+      """{
+  "LeftMemberTrigger" : {
+    
+  }
+}""",
+    )
+
+    for inputString <- jsonInputs
+    yield {
+      val eitherMessageTrigger = decode[MessageTrigger](inputString)
+      eitherMessageTrigger.fold(
+        e => fail("failed in parsing the input string as message trigger", e),
+        ms => assertEquals(ms.asJson.toString, inputString)
       )
     }
   }
