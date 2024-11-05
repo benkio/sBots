@@ -1,5 +1,7 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
+import io.circe.parser.decode
+import io.circe.syntax.*
 import cats.effect.IO
 
 import com.benkio.telegrambotinfrastructure.model.*
@@ -52,13 +54,13 @@ class MessageMatchesSpec extends FunSuite {
 
     assert(!result)
   }
-  test("doesMatch should return false when the input text does not contain(ContainsAll) the triggers") {
+  test("doesMatch should return false when the input text does not contain(MessageMatches.ContainsAll) the triggers") {
     val replyBundleInputLength = replyBundleInput.copy(
       trigger = TextTrigger(
         StringTextTriggerValue("test"),
         StringTextTriggerValue("missing")
       ),
-      matcher = ContainsAll
+      matcher = MessageMatches.ContainsAll
     )
     val messageText = "test shortText"
     val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(messageText))
@@ -102,13 +104,13 @@ class MessageMatchesSpec extends FunSuite {
 
     assert(result)
   }
-  test("doesMatch should return true when the input text does not contain(ContainsAll) the triggers") {
+  test("doesMatch should return true when the input text does not contain(MessageMatches.ContainsAll) the triggers") {
     val replyBundleInputLength = replyBundleInput.copy(
       trigger = TextTrigger(
         StringTextTriggerValue("test"),
         StringTextTriggerValue("missing")
       ),
-      matcher = ContainsAll
+      matcher = MessageMatches.ContainsAll
     )
     val messageText = "test shortText is not missing"
     val testMessage = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(messageText))
@@ -159,5 +161,29 @@ class MessageMatchesSpec extends FunSuite {
 
     val result = MessageMatches.doesMatch(replyBundleInputLeaveMembers, testMessage, ignoreMessagePrefix)
     assert(result)
+  }
+
+  test("MessageMatches JSON Decoder/Encoder should works as expected") {
+    val jsonInputs = List(
+      """{
+        |  "ContainsOnce" : {
+        |    
+        |  }
+        |}""".stripMargin,
+      """{
+        |  "ContainsAll" : {
+        |    
+        |  }
+        |}""".stripMargin,
+    )
+
+    for inputString <- jsonInputs
+    yield {
+      val eitherMessageTrigger = decode[MessageMatches](inputString)
+      eitherMessageTrigger.fold(
+        e => fail("failed in parsing the input string as message matches", e),
+        ms => assertEquals(ms.asJson.toString, inputString)
+      )
+    }
   }
 }

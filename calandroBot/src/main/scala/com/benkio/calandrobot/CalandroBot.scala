@@ -95,7 +95,7 @@ object CalandroBot {
         StringTextTriggerValue("?")
       ),
       reply = TextReplyM[F](_ => Applicative[F].pure(List(Text("Facciamo qualcosa tutti assieme?"))), false),
-      matcher = ContainsAll
+      matcher = MessageMatches.ContainsAll
     ),
     ReplyBundleMessage.textToText[F](
       "\\bhd\\b".r.tr(2),

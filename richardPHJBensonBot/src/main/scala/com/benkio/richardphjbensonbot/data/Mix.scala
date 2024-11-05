@@ -14,7 +14,7 @@ object Mix {
       )(
         vid"rphjb_ViviMorti.mp4"
       )
-      .copy(matcher = ContainsAll),
+      .copy(matcher = MessageMatches.ContainsAll),
     ReplyBundleMessage.textToMedia[F](
       "è un ordine"
     )(
@@ -2154,7 +2154,7 @@ object Mix {
           vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
         )
       ),
-      matcher = ContainsAll
+      matcher = MessageMatches.ContainsAll
     ),
     ReplyBundleMessage.textToMedia[F](
       "covi il male",

@@ -4,6 +4,8 @@ import telegramium.bots.Message
 
 import cats.effect.*
 import cats.implicits.*
+import io.circe.*
+import io.circe.generic.semiauto.*
 
 import scala.util.Random
 
@@ -26,4 +28,9 @@ case object RandomSelection extends ReplySelection {
       replies      <- SelectAll.logic[F](reply, message)
       randomVal    <- Sync[F].delay(randomNumGen.between(0, replies.size))
     } yield List(replies(randomVal))
+}
+
+object ReplySelection {
+  given Decoder[ReplySelection] = deriveDecoder[ReplySelection]
+  given Encoder[ReplySelection] = deriveEncoder[ReplySelection]
 }

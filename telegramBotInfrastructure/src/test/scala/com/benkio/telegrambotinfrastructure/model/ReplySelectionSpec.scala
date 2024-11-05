@@ -4,6 +4,8 @@ import telegramium.bots.Chat
 import telegramium.bots.Message
 import cats.effect.*
 import munit.CatsEffectSuite
+import io.circe.parser.decode
+import io.circe.syntax.*
 
 class ReplySelectionSpec extends CatsEffectSuite {
 
@@ -45,5 +47,29 @@ class ReplySelectionSpec extends CatsEffectSuite {
       ),
       input
     )
+  }
+
+  test("ReplySelection JSON Decoder/Encoder should works as expected") {
+    val jsonInputs = List(
+      """{
+        |  "SelectAll" : {
+        |    
+        |  }
+        |}""".stripMargin,
+      """{
+        |  "RandomSelection" : {
+        |    
+        |  }
+        |}""".stripMargin,
+    )
+
+    for inputString <- jsonInputs
+    yield {
+      val eitherMessageTrigger = decode[ReplySelection](inputString)
+      eitherMessageTrigger.fold(
+        e => fail("failed in parsing the input string as reply selection", e),
+        ms => assertEquals(ms.asJson.toString, inputString)
+      )
+    }
   }
 }

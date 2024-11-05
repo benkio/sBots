@@ -8,7 +8,6 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import cats.*
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.messagefiltering.ContainsOnce
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import telegramium.bots.Message
 import com.benkio.telegrambotinfrastructure.model.Reply.prettyPrint
@@ -31,7 +30,7 @@ object ReplyBundleMessage {
   def apply[F[_]](
       trigger: MessageTrigger,
       reply: Reply[F],
-      matcher: MessageMatches = ContainsOnce,
+      matcher: MessageMatches = MessageMatches.ContainsOnce,
       replySelection: ReplySelection = RandomSelection
   ): ReplyBundleMessage[F] = new ReplyBundleMessage[F](
     trigger = trigger,
