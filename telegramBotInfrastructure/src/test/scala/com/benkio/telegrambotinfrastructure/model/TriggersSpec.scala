@@ -109,38 +109,37 @@ class TriggersSpec extends FunSuite {
   test("Message Trigger JSON decode/encode should work as expected") {
     val jsonInputs = List(
       """{
-  "TextTrigger" : {
-    "triggers" : [
-      {
-        "StringTextTriggerValue" : {
-          "trigger" : "stringtrigger"
-        }
-      },
-      {
-        "RegexTextTriggerValue" : {
-          "trigger" : "\brege[Xx]?(trigger|test)\b",
-          "minimalLengthMatch" : 8
-        }
-      }
-    ]
-  }
-}""",
+        |  "TextTrigger" : {
+        |    "triggers" : [
+        |      {
+        |        "StringTextTriggerValue" : {
+        |          "trigger" : "stringtrigger"
+        |        }
+        |      },
+        |      {
+        |        "RegexTextTriggerValue" : {
+        |          "trigger" : "\brege[Xx]?(trigger|test)\b",
+        |          "minimalLengthMatch" : 8
+        |        }
+        |      }
+        |    ]
+        |  }
+        |}""".stripMargin,
       """{
-  "MessageLengthTrigger" : {
-    "messageLength" : 12
-  }
-}""",
-      // """{"CommandTrigger":{"command": "/acommand"}}""" ,
+        |  "MessageLengthTrigger" : {
+        |    "messageLength" : 12
+        |  }
+        |}""".stripMargin,
       """{
-  "NewMemberTrigger" : {
-    
-  }
-}""",
+        |  "NewMemberTrigger" : {
+        |    
+        |  }
+        |}""".stripMargin,
       """{
-  "LeftMemberTrigger" : {
-    
-  }
-}""",
+        |  "LeftMemberTrigger" : {
+        |    
+        |  }
+        |}""".stripMargin,
     )
 
     for inputString <- jsonInputs
