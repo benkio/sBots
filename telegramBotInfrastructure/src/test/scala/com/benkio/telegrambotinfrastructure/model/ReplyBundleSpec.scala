@@ -14,6 +14,8 @@ import cats.syntax.all.*
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
+import io.circe.parser.decode
+import io.circe.syntax.*
 
 class ReplyBundleSpec extends CatsEffectSuite {
 
@@ -113,5 +115,112 @@ video.mp4                 |
 --------------------------------------------------
 """
     )
+  }
+
+  test("Reply Bundle Message JSON decode/encode should work as expected") {
+    val jsonInputs = List(
+      """{
+        |  "trigger" : {
+        |    "TextTrigger" : {
+        |      "triggers" : [
+        |        {
+        |          "StringTextTriggerValue" : "crociate"
+        |        }
+        |      ]
+        |    }
+        |  },
+        |  "reply" : {
+        |    "MediaReply" : {
+        |      "mediaFiles" : [
+        |        {
+        |          "Mp3File" : {
+        |            "filepath" : "abar_Crociate.mp3",
+        |            "replyToMessage" : false
+        |          }
+        |        }
+        |      ],
+        |      "replyToMessage" : false
+        |    }
+        |  },
+        |  "matcher" : "ContainsOnce",
+        |  "replySelection" : "RandomSelection"
+        |}""".stripMargin,
+      """{
+        |  "trigger" : {
+        |    "TextTrigger" : {
+        |      "triggers" : [
+        |        {
+        |          "StringTextTriggerValue" : "no pain"
+        |        },
+        |        {
+        |          "StringTextTriggerValue" : "no gain"
+        |        }
+        |      ]
+        |    }
+        |  },
+        |  "reply" : {
+        |    "MediaReply" : {
+        |      "mediaFiles" : [
+        |        {
+        |          "GifFile" : {
+        |            "filepath" : "ytai_NoPainNoGain.mp4",
+        |            "replyToMessage" : false
+        |          }
+        |        }
+        |      ],
+        |      "replyToMessage" : false
+        |    }
+        |  },
+        |  "matcher" : "ContainsOnce",
+        |  "replySelection" : "RandomSelection"
+        |}""".stripMargin,
+      """{
+        |  "trigger" : {
+        |    "TextTrigger" : {
+        |      "triggers" : [
+        |        {
+        |          "RegexTextTriggerValue" : {
+        |            "trigger" : "donne (vissute|con le palle)",
+        |            "minimalLengthMatch" : 13
+        |          }
+        |        },
+        |        {
+        |          "StringTextTriggerValue" : "groupies"
+        |        }
+        |      ]
+        |    }
+        |  },
+        |  "reply" : {
+        |    "MediaReply" : {
+        |      "mediaFiles" : [
+        |        {
+        |          "VideoFile" : {
+        |            "filepath" : "rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+        |            "replyToMessage" : false
+        |          }
+        |        },
+        |        {
+        |          "Mp3File" : {
+        |            "filepath" : "rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+        |            "replyToMessage" : false
+        |          }
+        |        }
+        |      ],
+        |      "replyToMessage" : false
+        |    }
+        |  },
+        |  "matcher" : "ContainsOnce",
+        |  "replySelection" : "RandomSelection"
+        |}""".stripMargin.stripMargin
+    )
+
+    for inputString <- jsonInputs
+    yield {
+      val eitherMessageTrigger = decode[ReplyBundleMessage[SyncIO]](inputString)
+      eitherMessageTrigger.fold(
+        e => fail("failed in parsing the input string as reply bundle message", e),
+        ms => assertEquals(ms.asJson.toString, inputString)
+      )
+    }
   }
 }

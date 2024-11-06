@@ -1,5 +1,7 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
+import io.circe.*
+import io.circe.generic.semiauto.*
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
@@ -8,12 +10,21 @@ import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import telegramium.bots.Message
 
-trait MessageMatches
-
-object ContainsOnce extends MessageMatches
-object ContainsAll  extends MessageMatches
+enum MessageMatches:
+  case ContainsOnce extends MessageMatches
+  case ContainsAll  extends MessageMatches
 
 object MessageMatches {
+
+  given Decoder[MessageMatches] =
+    Decoder.decodeString.emap(s =>
+      s match {
+        case "ContainsOnce" => Right(ContainsOnce)
+        case "ContainsAll"  => Right(ContainsAll)
+        case _              => Left(s"$s not recognized when decoding `MessageMatches`")
+      }
+    )
+  given Encoder[MessageMatches] = Encoder[MessageMatches](mm => Json.fromString(mm.toString))
 
   def doesMatch[F[_]](
       replyMessageBundle: ReplyBundleMessage[F],

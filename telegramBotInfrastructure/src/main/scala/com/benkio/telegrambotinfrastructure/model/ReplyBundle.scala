@@ -8,10 +8,12 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import cats.*
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.messagefiltering.ContainsOnce
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.model.Reply.prettyPrint
+import com.benkio.telegrambotinfrastructure.model.Reply.given
+import com.benkio.telegrambotinfrastructure.model.Reply.*
+import io.circe.*
+import io.circe.generic.semiauto.*
 
 sealed trait ReplyBundle[F[_]] {
 
@@ -28,10 +30,16 @@ final case class ReplyBundleMessage[F[_]](
 ) extends ReplyBundle[F]
 
 object ReplyBundleMessage {
+
+  given replyBundleMessageDecoder[F[_]: Applicative]: Decoder[ReplyBundleMessage[F]] =
+    deriveDecoder[ReplyBundleMessage[F]]
+  given replyBundleMessageEncoder: Encoder[ReplyBundleMessage[SyncIO]] =
+    deriveEncoder[ReplyBundleMessage[SyncIO]]
+
   def apply[F[_]](
       trigger: MessageTrigger,
       reply: Reply[F],
-      matcher: MessageMatches = ContainsOnce,
+      matcher: MessageMatches = MessageMatches.ContainsOnce,
       replySelection: ReplySelection = RandomSelection
   ): ReplyBundleMessage[F] = new ReplyBundleMessage[F](
     trigger = trigger,

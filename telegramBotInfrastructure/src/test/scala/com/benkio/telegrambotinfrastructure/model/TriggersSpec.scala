@@ -1,6 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import scala.util.matching.Regex
 import cats.implicits.*
+import io.circe.parser.decode
+import io.circe.syntax.*
 
 import munit.FunSuite
 
@@ -78,5 +81,72 @@ class TriggersSpec extends FunSuite {
 
     assertEquals(Trigger.triggerLongestString(input1), 6)
     assertEquals(Trigger.triggerLongestString(input2), 11)
+  }
+
+  test("Regex JSON decode/encode should work as expected") {
+    val jsonInputs = List(
+      """"prendo (il motorino|il coso|la macchina|l'auto)"""",
+      """"non sono (uno )?(scemo|stolto)"""",
+      """"(e poi[ ,]?[ ]?){2,}"""",
+      """"tutti i (suoi )?frutti ti d[aà]"""",
+      """"gioco (io )? del gatto e (voi )? del (ratto|topo)"""",
+      """"(mica|non) sono come gli altri"""",
+      """"(un po'|un attimo) (di|de) esercitazione"""",
+      """"amicizie (politiche| d[ie] polizia| d[ie] carabinieri| d[ei] tutt'altr[o]? genere)?"""",
+      """"che (cazzo |cazzo di roba )?mi avete dato""""
+    )
+
+    for inputString <- jsonInputs
+    yield {
+      val eitherRegex = decode[Regex](inputString)
+      eitherRegex.fold(
+        e => fail("failed in parsing the input string as regex", e),
+        r => assertEquals(r.asJson.toString, inputString)
+      )
+    }
+  }
+
+  test("Message Trigger JSON decode/encode should work as expected") {
+    val jsonInputs = List(
+      """{
+        |  "TextTrigger" : {
+        |    "triggers" : [
+        |      {
+        |        "StringTextTriggerValue" : "stringtrigger"
+        |      },
+        |      {
+        |        "RegexTextTriggerValue" : {
+        |          "trigger" : "\brege[Xx]?(trigger|test)\b",
+        |          "minimalLengthMatch" : 8
+        |        }
+        |      }
+        |    ]
+        |  }
+        |}""".stripMargin,
+      """{
+        |  "MessageLengthTrigger" : {
+        |    "messageLength" : 12
+        |  }
+        |}""".stripMargin,
+      """{
+        |  "NewMemberTrigger" : {
+        |    
+        |  }
+        |}""".stripMargin,
+      """{
+        |  "LeftMemberTrigger" : {
+        |    
+        |  }
+        |}""".stripMargin,
+    )
+
+    for inputString <- jsonInputs
+    yield {
+      val eitherMessageTrigger = decode[MessageTrigger](inputString)
+      eitherMessageTrigger.fold(
+        e => fail("failed in parsing the input string as message trigger", e),
+        ms => assertEquals(ms.asJson.toString, inputString)
+      )
+    }
   }
 }
