@@ -51,16 +51,8 @@ class ReplySelectionSpec extends CatsEffectSuite {
 
   test("ReplySelection JSON Decoder/Encoder should works as expected") {
     val jsonInputs = List(
-      """{
-        |  "SelectAll" : {
-        |    
-        |  }
-        |}""".stripMargin,
-      """{
-        |  "RandomSelection" : {
-        |    
-        |  }
-        |}""".stripMargin,
+      """"SelectAll"""",
+      """"RandomSelection"""".stripMargin,
     )
 
     for inputString <- jsonInputs

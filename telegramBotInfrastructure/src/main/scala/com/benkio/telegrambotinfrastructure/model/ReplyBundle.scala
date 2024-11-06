@@ -10,7 +10,8 @@ import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.model.Reply.{given, *}
+import com.benkio.telegrambotinfrastructure.model.Reply.given
+import com.benkio.telegrambotinfrastructure.model.Reply.*
 import io.circe.*
 import io.circe.generic.semiauto.*
 

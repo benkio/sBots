@@ -16,8 +16,15 @@ enum MessageMatches:
 
 object MessageMatches {
 
-  given Decoder[MessageMatches] = deriveDecoder[MessageMatches]
-  given Encoder[MessageMatches] = deriveEncoder[MessageMatches]
+  given Decoder[MessageMatches] =
+    Decoder.decodeString.emap(s =>
+      s match {
+        case "ContainsOnce" => Right(ContainsOnce)
+        case "ContainsAll"  => Right(ContainsAll)
+        case _              => Left(s"$s not recognized when decoding `MessageMatches`")
+      }
+    )
+  given Encoder[MessageMatches] = Encoder[MessageMatches](mm => Json.fromString(mm.toString))
 
   def doesMatch[F[_]](
       replyMessageBundle: ReplyBundleMessage[F],

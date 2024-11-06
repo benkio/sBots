@@ -144,16 +144,8 @@ video.mp4                 |
         |      "replyToMessage" : false
         |    }
         |  },
-        |  "matcher" : {
-        |    "ContainsOnce" : {
-        |      
-        |    }
-        |  },
-        |  "replySelection" : {
-        |    "RandomSelection" : {
-        |      
-        |    }
-        |  }
+        |  "matcher" : "ContainsOnce",
+        |  "replySelection" : "RandomSelection"
         |}""".stripMargin,
       """{
         |  "trigger" : {
@@ -185,16 +177,8 @@ video.mp4                 |
         |      "replyToMessage" : false
         |    }
         |  },
-        |  "matcher" : {
-        |    "ContainsOnce" : {
-        |      
-        |    }
-        |  },
-        |  "replySelection" : {
-        |    "RandomSelection" : {
-        |      
-        |    }
-        |  }
+        |  "matcher" : "ContainsOnce",
+        |  "replySelection" : "RandomSelection"
         |}""".stripMargin,
       """{
         |  "trigger" : {
@@ -233,16 +217,8 @@ video.mp4                 |
         |      "replyToMessage" : false
         |    }
         |  },
-        |  "matcher" : {
-        |    "ContainsOnce" : {
-        |      
-        |    }
-        |  },
-        |  "replySelection" : {
-        |    "RandomSelection" : {
-        |      
-        |    }
-        |  }
+        |  "matcher" : "ContainsOnce",
+        |  "replySelection" : "RandomSelection"
         |}""".stripMargin.stripMargin
     )
 

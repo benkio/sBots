@@ -31,6 +31,13 @@ case object RandomSelection extends ReplySelection {
 }
 
 object ReplySelection {
-  given Decoder[ReplySelection] = deriveDecoder[ReplySelection]
-  given Encoder[ReplySelection] = deriveEncoder[ReplySelection]
+  given Decoder[ReplySelection] =
+    Decoder.decodeString.emap(s =>
+      s match {
+        case "SelectAll"       => Right(SelectAll)
+        case "RandomSelection" => Right(RandomSelection)
+        case _                 => Left(s"$s not recognized when decoding `ReplySelection`")
+      }
+    )
+  given Encoder[ReplySelection] = Encoder[ReplySelection](rs => Json.fromString(rs.toString))
 }

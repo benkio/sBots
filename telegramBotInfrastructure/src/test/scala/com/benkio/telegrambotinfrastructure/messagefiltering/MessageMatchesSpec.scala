@@ -165,16 +165,8 @@ class MessageMatchesSpec extends FunSuite {
 
   test("MessageMatches JSON Decoder/Encoder should works as expected") {
     val jsonInputs = List(
-      """{
-        |  "ContainsOnce" : {
-        |    
-        |  }
-        |}""".stripMargin,
-      """{
-        |  "ContainsAll" : {
-        |    
-        |  }
-        |}""".stripMargin,
+      """"ContainsOnce"""",
+      """"ContainsAll"""",
     )
 
     for inputString <- jsonInputs
