@@ -41,8 +41,8 @@ object TextTriggerValue {
 
   given Encoder[StringTextTriggerValue] = Encoder[StringTextTriggerValue](sttv => Json.fromString(sttv.trigger))
   given Decoder[StringTextTriggerValue] = Decoder.decodeString.map(StringTextTriggerValue(_))
-  given Decoder[TextTriggerValue] = deriveDecoder[TextTriggerValue]
-  given Encoder[TextTriggerValue] = deriveEncoder[TextTriggerValue]
+  given Decoder[TextTriggerValue]       = deriveDecoder[TextTriggerValue]
+  given Encoder[TextTriggerValue]       = deriveEncoder[TextTriggerValue]
 
   def fromStringOrRegex(v: String | RegexTextTriggerValue): TextTriggerValue = v match {
     case s: String                => StringTextTriggerValue(s)
