@@ -39,6 +39,8 @@ object TextTriggerValue {
     }
   )
 
+  given Encoder[StringTextTriggerValue] = Encoder[StringTextTriggerValue](sttv => Json.fromString(sttv.trigger))
+  given Decoder[StringTextTriggerValue] = Decoder.decodeString.map(StringTextTriggerValue(_))
   given Decoder[TextTriggerValue] = deriveDecoder[TextTriggerValue]
   given Encoder[TextTriggerValue] = deriveEncoder[TextTriggerValue]
 

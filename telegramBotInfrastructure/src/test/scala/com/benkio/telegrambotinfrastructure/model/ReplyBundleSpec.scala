@@ -124,9 +124,7 @@ video.mp4                 |
         |    "TextTrigger" : {
         |      "triggers" : [
         |        {
-        |          "StringTextTriggerValue" : {
-        |            "trigger" : "crociate"
-        |          }
+        |          "StringTextTriggerValue" : "crociate"
         |        }
         |      ]
         |    }
@@ -152,14 +150,10 @@ video.mp4                 |
         |    "TextTrigger" : {
         |      "triggers" : [
         |        {
-        |          "StringTextTriggerValue" : {
-        |            "trigger" : "no pain"
-        |          }
+        |          "StringTextTriggerValue" : "no pain"
         |        },
         |        {
-        |          "StringTextTriggerValue" : {
-        |            "trigger" : "no gain"
-        |          }
+        |          "StringTextTriggerValue" : "no gain"
         |        }
         |      ]
         |    }
@@ -191,9 +185,7 @@ video.mp4                 |
         |          }
         |        },
         |        {
-        |          "StringTextTriggerValue" : {
-        |            "trigger" : "groupies"
-        |          }
+        |          "StringTextTriggerValue" : "groupies"
         |        }
         |      ]
         |    }

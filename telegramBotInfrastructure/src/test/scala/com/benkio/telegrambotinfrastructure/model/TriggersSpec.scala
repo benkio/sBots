@@ -112,9 +112,7 @@ class TriggersSpec extends FunSuite {
         |  "TextTrigger" : {
         |    "triggers" : [
         |      {
-        |        "StringTextTriggerValue" : {
-        |          "trigger" : "stringtrigger"
-        |        }
+        |        "StringTextTriggerValue" : "stringtrigger"
         |      },
         |      {
         |        "RegexTextTriggerValue" : {
