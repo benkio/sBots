@@ -1,13 +1,21 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.Show
+import io.circe.*
+import io.circe.generic.semiauto.*
 
 sealed trait ReplyValue
+
+object ReplyValue:
+  given Decoder[ReplyValue] = deriveDecoder[ReplyValue]
+  given Encoder[ReplyValue] = deriveEncoder[ReplyValue]
 
 final case class Text(value: String) extends ReplyValue
 
 object Text:
-  given Show[Text] = Show.show(_.value)
+  given Show[Text]    = Show.show(_.value)
+  given Decoder[Text] = deriveDecoder[Text]
+  given Encoder[Text] = deriveEncoder[Text]
 
 sealed trait MediaFile extends ReplyValue {
   def filepath: String
@@ -32,6 +40,9 @@ final case class VideoFile(filepath: String, replyToMessage: Boolean = false) ex
 }
 
 object MediaFile {
+
+  given Decoder[MediaFile] = deriveDecoder[MediaFile]
+  given Encoder[MediaFile] = deriveEncoder[MediaFile]
 
   given showInstance: Show[MediaFile] = Show.show(_.filename)
 
