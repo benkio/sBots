@@ -16,7 +16,7 @@ sealed trait ReplySelection {
 case object SelectAll extends ReplySelection {
   def logic[F[_]: Sync](reply: Reply[F], message: Message): F[List[ReplyValue]] =
     reply match {
-      case TextReply(text, _)        => Sync[F].widen(text)
+      case TextReply(text, _)        => Sync[F].pure(text)
       case TextReplyM(textM, _)      => Sync[F].widen(textM(message))
       case MediaReply(mediaFiles, _) => Sync[F].widen(mediaFiles)
     }

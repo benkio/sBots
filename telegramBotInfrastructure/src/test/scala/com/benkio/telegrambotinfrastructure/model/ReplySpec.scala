@@ -1,6 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import munit.FunSuite
+import io.circe.parser.decode
+import io.circe.syntax.*
+import cats.effect.SyncIO
 
 class ReplySpec extends FunSuite {
 
@@ -39,5 +42,42 @@ class ReplySpec extends FunSuite {
     assertEquals(MediaFile.showInstance.show(pho"picture.png"), "picture.png")
     assertEquals(MediaFile.showInstance.show(gif"gif.gif"), "gif.gif")
     assertEquals(MediaFile.showInstance.show(vid"video.mp4"), "video.mp4")
+  }
+
+  test("Reply JSON decode/encode should work as expected") {
+    val jsonInputs = List(
+      s"""{
+         |  "TextReply" : {
+         |    "text" : [
+         |      {
+         |        "value" : "testText"
+         |      }
+         |    ],
+         |    "replyToMessage" : false
+         |  }
+         |}""".stripMargin,
+      s"""{
+         |  "MediaReply" : {
+         |    "mediaFiles" : [
+         |      {
+         |        "VideoFile" : {
+         |          "filepath" : "testFilePath.mp4",
+         |          "replyToMessage" : false
+         |        }
+         |      }
+         |    ],
+         |    "replyToMessage" : false
+         |  }
+         |}""".stripMargin,
+    )
+
+    for inputString <- jsonInputs
+    yield {
+      val eitherMessageTrigger = decode[Reply[SyncIO]](inputString)
+      eitherMessageTrigger.fold(
+        e => fail("failed in parsing the input string as Reply", e),
+        ms => assertEquals(ms.asJson.toString, inputString)
+      )
+    }
   }
 }

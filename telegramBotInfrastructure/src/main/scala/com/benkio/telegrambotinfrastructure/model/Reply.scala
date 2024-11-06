@@ -3,6 +3,9 @@ package com.benkio.telegrambotinfrastructure.model
 import com.benkio.telegrambotinfrastructure.model.toText
 import cats.Applicative
 import cats.syntax.all.*
+import cats.effect.SyncIO
+import io.circe.*
+import io.circe.generic.semiauto.*
 
 import telegramium.bots.Message
 
@@ -25,7 +28,7 @@ object TextReplyM:
     )
 
 final case class TextReply[F[_]](
-    text: F[List[Text]],
+    text: List[Text],
     replyToMessage: Boolean = false
 ) extends Reply[F]
 
@@ -34,7 +37,7 @@ object TextReply:
       replyToMessage: Boolean
   ): TextReply[F] =
     TextReply(
-      text = Applicative[F].pure(values.toList.toText),
+      text = values.toList.toText,
       replyToMessage = replyToMessage
     )
 
@@ -49,9 +52,29 @@ object MediaReply:
   )
 
 object Reply:
+
+  given replyDecoder[F[_]: Applicative]: Decoder[Reply[F]] = deriveDecoder[Reply[F]]
+  given replyEncoder: Encoder[Reply[SyncIO]]               = deriveEncoder[Reply[SyncIO]]
+
+  given mediaFileListDecoder[F[_]: Applicative]: Decoder[F[List[MediaFile]]] =
+    Decoder[List[MediaFile]]
+      .map(Applicative[F].pure)
+  given mediaFileListEncoder: Encoder[SyncIO[List[MediaFile]]] =
+    Encoder[List[MediaFile]]
+      .contramap(_.unsafeRunSync())
+
+  // We can't translate to json such functions. This should never
+  // being called and the `TextReplyM` should remain in scala code only
+  given failingDecoder[F[_]]: Decoder[Message => F[List[Text]]] =
+    Decoder.failed[Message => F[List[Text]]](
+      DecodingFailure("Can't decode fuction `Message => F[List[Text]]`", List.empty)
+    )
+  given failingEncoder[F[_]]: Encoder[Message => F[List[Text]]] =
+    Encoder.instance[Message => F[List[Text]]](_ => Json.Null)
+
   extension [F[_]: Applicative](r: Reply[F])
     def prettyPrint: F[List[String]] = r match {
-      case TextReply(textF, _)        => textF.map(txt => txt.map(_.show))
+      case TextReply(txt, _)          => Applicative[F].pure(txt.map(_.show))
       case TextReplyM(_, _)           => Applicative[F].pure(List.empty)
       case MediaReply(mediaFilesF, _) => mediaFilesF.map(mfs => mfs.map(_.show))
     }
