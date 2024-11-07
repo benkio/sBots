@@ -1629,10 +1629,21 @@ object Video {
       vid"rphjb_ItaliaOggiFaSchifo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sparisce",
       "nel nulla"
     )(
+      vid"rphjb_SparisceNelNulla.mp4",
+      vid"rphjb_TuttiFinitiNelNulla.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "sparisce nel",
+      "pi[uù] nero".r.tr(8)
+    )(
       vid"rphjb_SparisceNelNulla.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "finiti nel"
+    )(
+      vid"rphjb_TuttiFinitiNelNulla.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "sputare addosso",
@@ -2179,6 +2190,38 @@ object Video {
       "di una volta"
     )(
       vid"rphjb_GambaleCHaDeluso.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "molto colpito"
+    )(
+      vid"rphjb_MoltoColpito.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "grande!"
+    )(
+      vid"rphjb_Grande.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "figlio di puttana"
+    )(
+      vid"rphjb_FiglioDiPuttana.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "ciao bella",
+      "\\bcome va\\b".r.tr(7),
+      "bella gioia"
+    )(
+      vid"rphjb_CiaoBellaCameVaBellaGioia.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "che sicuramente"
+    )(
+      vid"rphjb_CheSicuramente.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "andate (direttamente )?(a f|a[f]*)?fanculo".r.tr(16)
+    )(
+      vid"rphjb_AndateAFanculo.mp4"
     )
   )
 }

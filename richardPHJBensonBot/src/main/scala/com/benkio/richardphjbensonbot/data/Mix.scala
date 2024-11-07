@@ -273,7 +273,8 @@ object Mix {
       vid"rphjb_EscertoCritiche.mp4",
       vid"rphjb_Escerto.mp4",
       vid"rphjb_NoRabbiaRidereMeNeFrego.mp4",
-      vid"rphjb_GiovencaVarzettaSposoChissenefrega.mp4"
+      vid"rphjb_GiovencaVarzettaSposoChissenefrega.mp4",
+      vid"rphjb_NonMiInteressano.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ultimi"
@@ -1218,7 +1219,8 @@ object Mix {
       gif"rphjb_Giudicate.mp4",
       gif"rphjb_ComeFaiAGiudicareGif.mp4",
       gif"rphjb_ComeFaiAGiudicare.mp4",
-      vid"rphjb_NonPoteteGiudicarUrloThatsGood.mp4"
+      vid"rphjb_NonPoteteGiudicarUrloThatsGood.mp4",
+      vid"rphjb_SareteVoiAGiudicare.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "fregare come un co(gl|j)ione".r.tr(22),
@@ -2034,9 +2036,10 @@ object Mix {
     )(
       gif"rphjb_Tuffo.mp4",
       gif"rphjb_Urlo.mp4",
+      gif"rphjb_Urlo2.mp4",
       gif"rphjb_Urlo3.mp4",
       gif"rphjb_Urlo4.mp4",
-      gif"rphjb_Urlo2.mp4",
+      vid"rphjb_Urlo5.mp4",
       gif"rphjb_UrloCanaro.mp4",
       gif"rphjb_UrloRiso.mp4",
       vid"rphjb_UrloSignorGionz.mp4"
@@ -2214,10 +2217,16 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "quello che ti meriti",
-      "fino alla fine"
     )(
       gif"rphjb_QuelloCheTiMeriti.mp4",
       vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "fino alla fine"
+    )(
+      gif"rphjb_QuelloCheTiMeriti.mp4",
+      vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4",
+      vid"rphjb_FinoAllaFine.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "cuore in mano",
