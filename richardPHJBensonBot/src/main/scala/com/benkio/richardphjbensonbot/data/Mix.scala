@@ -363,7 +363,7 @@ object Mix {
       vid"rphjb_LetsGoodMyFriendsForTheShowThatNeverEnds.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "vattene (a f|a[f]*)?fanculo".r.tr(16)
+      "vattene a[ ]?[f]*fanculo".r.tr(16)
     )(
       gif"rphjb_MaVatteneAffanculo.mp4",
       mp3"rphjb_MaVatteneAffanculo.mp3",
@@ -1754,7 +1754,7 @@ object Mix {
       mp3"rphjb_LetSGoodStateBene.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(af)?fanculo in una maniera pazzesca".r.tr(33),
+      "a[ ]?[f]*fanculo in una maniera pazzesca".r.tr(33),
       "altro che quel coglione",
     )(
       gif"rphjb_AffanculoManieraPazzescaGif.mp4",
@@ -1834,7 +1834,7 @@ object Mix {
       vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(a[f]+)?fanculo(,)? per contesia".r.tr(20)
+      "a[ ]?[f]*fanculo(,)? per contesia".r.tr(20)
     )(
       gif"rphjb_FanculoPerCortesia.mp4",
       vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
