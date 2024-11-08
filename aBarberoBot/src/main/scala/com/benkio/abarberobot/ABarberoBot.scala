@@ -775,6 +775,10 @@ object ABarberoBot {
       dbTimeout = dbLayer.dbTimeout,
       log = log
     ),
+    RandomDataCommand.randomDataReplyBundleCommand[F](
+      botName = botName,
+      dbMedia = dbLayer.dbMedia
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = ABarberoBot.ignoreMessagePrefix,
@@ -786,7 +790,8 @@ object ABarberoBot {
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
-        TimeoutCommand.timeoutCommandDescriptionIta
+        TimeoutCommand.timeoutCommandDescriptionIta,
+        RandomDataCommand.randomDataCommandIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
@@ -796,7 +801,8 @@ object ABarberoBot {
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
-        TimeoutCommand.timeoutCommandDescriptionEng
+        TimeoutCommand.timeoutCommandDescriptionEng,
+        RandomDataCommand.randomDataCommandEng
       ),
     )
   )

@@ -154,6 +154,10 @@ object RichardPHJBensonBot {
       dbTimeout = dbLayer.dbTimeout,
       log = log
     ),
+    RandomDataCommand.randomDataReplyBundleCommand[F](
+      botName = botName,
+      dbMedia = dbLayer.dbMedia
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
@@ -167,6 +171,7 @@ object RichardPHJBensonBot {
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
         TimeoutCommand.timeoutCommandDescriptionIta,
         bensonifyCommandDescriptionIta,
+        RandomDataCommand.randomDataCommandIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
@@ -177,7 +182,8 @@ object RichardPHJBensonBot {
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
         TimeoutCommand.timeoutCommandDescriptionEng,
-        bensonifyCommandDescriptionEng
+        bensonifyCommandDescriptionEng,
+        RandomDataCommand.randomDataCommandEng
       )
     ),
     ReplyBundleCommand(
