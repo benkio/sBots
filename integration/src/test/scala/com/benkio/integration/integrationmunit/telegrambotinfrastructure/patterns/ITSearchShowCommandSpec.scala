@@ -11,7 +11,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
 
   def testBot(botName: String, dbShow: DBShow[IO], input: String, optExpected: Option[String] = None): IO[Boolean] =
     SearchShowCommand
-      .selectRandomLinkByKeyword[IO](
+      .selectLinkByKeyword[IO](
         keywords = input,
         dbShow = dbShow,
         botName = botName
@@ -25,7 +25,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       })
 
   databaseFixture.test(
-    "RandomLink Command should return a random show foreach bots if the input is an empty string"
+    "SearchShow Command should return a random show foreach bots if the input is an empty string"
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
@@ -37,7 +37,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "RandomLink Command should return a show if the input title matches a show per bot"
+    "SearchShow Command should return a show if the input title matches a show per bot"
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
@@ -51,7 +51,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "RandomLink Command should return a show if the input description matches a show per bot"
+    "SearchShow Command should return a show if the input description matches a show per bot"
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
@@ -65,7 +65,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "RandomLink Command should return a show if the input minduration matches a show per bot"
+    "SearchShow Command should return a show if the input minduration matches a show per bot"
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
@@ -79,7 +79,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "RandomLink Command should return a show if the input maxduration matches a show per bot"
+    "SearchShow Command should return a show if the input maxduration matches a show per bot"
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
@@ -93,11 +93,11 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "RandomLink Command should return a show if the input mindate matches a show per bot"
+    "SearchShow Command should return a show if the input mindate matches a show per bot"
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITRandomLinkCommandSpec.showByMinDate
+      check <- ITSearchShowCommandSpec.showByMinDate
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -107,11 +107,11 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "RandomLink Command should return a show if the input maxdate matches a show per bot"
+    "SearchShow Command should return a show if the input maxdate matches a show per bot"
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITRandomLinkCommandSpec.showByMaxDate
+      check <- ITSearchShowCommandSpec.showByMaxDate
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -121,7 +121,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   }
 }
 
-object ITRandomLinkCommandSpec {
+object ITSearchShowCommandSpec {
 
   final case class TestInput(botName: String, randomLinkInput: String, expectedOutput: String)
 
