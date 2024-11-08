@@ -59,6 +59,7 @@ object DBLayerMock {
         _.find(m => m.media_name == filename)
           .fold[IO[DBMediaData]](IO.raiseError(new Throwable(s"[TEST ERROR] Media not found: $filename")))(IO.pure)
       )
+    override def getRandomMedia(): IO[DBMediaData] = ??? // TODO: imprement
     override def getMediaByKind(kind: String, cache: Boolean = true): IO[List[DBMediaData]] =
       db.get.map(
         _.filter(m => m.kinds.contains(kind))

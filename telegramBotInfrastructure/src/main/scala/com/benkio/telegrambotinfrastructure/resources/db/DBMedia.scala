@@ -33,6 +33,7 @@ object DBMediaData {
 
 trait DBMedia[F[_]] {
   def getMedia(filename: String, cache: Boolean = true): F[DBMediaData]
+  def getRandomMedia(): F[DBMediaData]
   def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]]
   def getMediaByMediaCount(
       limit: Int = 20,
@@ -100,6 +101,8 @@ object DBMedia {
               else Async[F].unit
           } yield media
       )
+
+    override def getRandomMedia(): F[DBMediaData] = ??? // TODO: implement
 
     override def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]] =
       getMediaInternal[List[DBMediaData]](
