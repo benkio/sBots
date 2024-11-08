@@ -8,7 +8,7 @@ import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.*
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
@@ -1839,7 +1839,7 @@ object YouTuboAncheI0Bot {
       ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
       mdr = messageRepliesData[F]
     ),
-    RandomLinkCommand.searchShowReplyBundleCommand(
+    SearchShowCommand.searchShowReplyBundleCommand(
       botName = botName,
       dbShow = dbLayer.dbShow
     ),
@@ -1871,7 +1871,7 @@ object YouTuboAncheI0Bot {
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-        RandomLinkCommand.searchShowCommandIta,
+        SearchShowCommand.searchShowCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
@@ -1881,7 +1881,7 @@ object YouTuboAncheI0Bot {
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-        RandomLinkCommand.searchShowCommandEng,
+        SearchShowCommand.searchShowCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,

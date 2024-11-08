@@ -4,7 +4,7 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKind
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.model.*
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
@@ -19,7 +19,7 @@ object CommandRepliesData {
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
-    RandomLinkCommand.searchShowReplyBundleCommand[F](
+    SearchShowCommand.searchShowReplyBundleCommand[F](
       dbShow = dbLayer.dbShow,
       botName = botName,
     ),

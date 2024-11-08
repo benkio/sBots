@@ -1,16 +1,16 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.patterns
 
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
 import cats.effect.IO
 import cats.implicits.*
 import munit.CatsEffectSuite
 import com.benkio.integration.DBFixture
 
-class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
+class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
 
   def testBot(botName: String, dbShow: DBShow[IO], input: String, optExpected: Option[String] = None): IO[Boolean] =
-    RandomLinkCommand
+    SearchShowCommand
       .selectRandomLinkByKeyword[IO](
         keywords = input,
         dbShow = dbShow,
@@ -41,7 +41,7 @@ class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITRandomLinkCommandSpec.showByTitle
+      check <- ITSearchShowCommandSpec.showByTitle
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -55,7 +55,7 @@ class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITRandomLinkCommandSpec.showByDescription
+      check <- ITSearchShowCommandSpec.showByDescription
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -69,7 +69,7 @@ class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITRandomLinkCommandSpec.showByDescription
+      check <- ITSearchShowCommandSpec.showByDescription
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -83,7 +83,7 @@ class ITRandomLinkCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITRandomLinkCommandSpec.showByDescription
+      check <- ITSearchShowCommandSpec.showByDescription
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )

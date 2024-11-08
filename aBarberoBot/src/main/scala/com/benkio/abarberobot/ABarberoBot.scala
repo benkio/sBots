@@ -749,7 +749,7 @@ object ABarberoBot {
       ignoreMessagePrefix = ABarberoBot.ignoreMessagePrefix,
       mdr = messageRepliesData[F]
     ),
-    RandomLinkCommand.searchShowReplyBundleCommand(
+    SearchShowCommand.searchShowReplyBundleCommand(
       botName = botName,
       dbShow = dbLayer.dbShow
     ),
@@ -781,7 +781,7 @@ object ABarberoBot {
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-        RandomLinkCommand.searchShowCommandIta,
+        SearchShowCommand.searchShowCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
@@ -791,7 +791,7 @@ object ABarberoBot {
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-        RandomLinkCommand.searchShowCommandEng,
+        SearchShowCommand.searchShowCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,

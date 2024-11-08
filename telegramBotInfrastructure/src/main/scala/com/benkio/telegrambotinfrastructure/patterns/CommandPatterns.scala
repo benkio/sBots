@@ -39,7 +39,7 @@ object CommandPatterns {
       )
   }
 
-  object RandomLinkCommand {
+  object SearchShowCommand {
 
     val searchShowCommandIta: String =
       """'/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
@@ -81,7 +81,7 @@ Input as query string:
               "searchshow",
               botName,
               keywords =>
-                RandomLinkCommand
+                SearchShowCommand
                   .selectRandomLinkByKeyword[F](
                     keywords,
                     dbShow,

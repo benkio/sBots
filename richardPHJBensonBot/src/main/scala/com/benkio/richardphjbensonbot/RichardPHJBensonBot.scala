@@ -132,7 +132,7 @@ object RichardPHJBensonBot {
       botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia
     ),
-    RandomLinkCommand.searchShowReplyBundleCommand(
+    SearchShowCommand.searchShowReplyBundleCommand(
       dbShow = dbLayer.dbShow,
       botName = botName
     ),
@@ -160,7 +160,7 @@ object RichardPHJBensonBot {
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-        RandomLinkCommand.searchShowCommandIta,
+        SearchShowCommand.searchShowCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
@@ -171,7 +171,7 @@ object RichardPHJBensonBot {
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-        RandomLinkCommand.searchShowCommandEng,
+        SearchShowCommand.searchShowCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
