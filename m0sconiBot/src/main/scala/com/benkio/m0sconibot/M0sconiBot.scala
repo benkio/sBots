@@ -7,11 +7,7 @@ import com.benkio.telegrambotinfrastructure.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.*
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -716,6 +712,10 @@ object M0sconiBot {
       dbTimeout = dbLayer.dbTimeout,
       log = log
     ),
+    RandomDataCommand.randomDataReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix,
@@ -723,13 +723,15 @@ object M0sconiBot {
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
-        TimeoutCommand.timeoutCommandDescriptionIta
+        TimeoutCommand.timeoutCommandDescriptionIta,
+        RandomDataCommand.randomDataCommandIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
-        TimeoutCommand.timeoutCommandDescriptionEng
+        TimeoutCommand.timeoutCommandDescriptionEng,
+        RandomDataCommand.randomDataCommandEng
       ),
     )
   )

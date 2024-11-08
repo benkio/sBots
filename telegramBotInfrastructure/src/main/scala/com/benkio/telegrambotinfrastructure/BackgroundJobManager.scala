@@ -152,8 +152,8 @@ object BackgroundJobManager {
         chat = Chat(id = subscription.chatId, `type` = "private")
       ) // Only the chat id matters here
       reply <- Stream.evalSeq(
-        CommandPatterns.RandomLinkCommand
-          .selectRandomLinkByKeyword[F]("", dbShow, botName)
+        CommandPatterns.SearchShowCommand
+          .selectLinkByKeyword[F]("", dbShow, botName)
       )
       _ <- Stream
         .eval(

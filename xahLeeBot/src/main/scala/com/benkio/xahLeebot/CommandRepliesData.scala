@@ -1,25 +1,25 @@
 package com.benkio.xahleebot
 
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
 import cats.effect.Async
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.model.*
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
+
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
-import cats.syntax.all.*
 
 object CommandRepliesData {
 
   def values[F[_]: Async](
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
-      botName: String
+      botName: String,
+      botPrefix: String
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
-    RandomLinkCommand.searchShowReplyBundleCommand[F](
+    SearchShowCommand.searchShowReplyBundleCommand[F](
       dbShow = dbLayer.dbShow,
       botName = botName,
     ),
@@ -35,6 +35,10 @@ object CommandRepliesData {
       dbSubscription = dbLayer.dbSubscription,
       backgroundJobManager = backgroundJobManager,
       botName = botName
+    ),
+    RandomDataCommand.randomDataReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
     ),
     MediaByKindCommand.mediaCommandByKind(
       dbMedia = dbLayer.dbMedia,

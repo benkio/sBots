@@ -7,13 +7,7 @@ import com.benkio.telegrambotinfrastructure.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.*
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomLinkCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -1839,7 +1833,7 @@ object YouTuboAncheI0Bot {
       ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
       mdr = messageRepliesData[F]
     ),
-    RandomLinkCommand.searchShowReplyBundleCommand(
+    SearchShowCommand.searchShowReplyBundleCommand(
       botName = botName,
       dbShow = dbLayer.dbShow
     ),
@@ -1865,28 +1859,34 @@ object YouTuboAncheI0Bot {
       dbTimeout = dbLayer.dbTimeout,
       log = log
     ),
+    RandomDataCommand.randomDataReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-        RandomLinkCommand.searchShowCommandIta,
+        SearchShowCommand.searchShowCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
-        TimeoutCommand.timeoutCommandDescriptionIta
+        TimeoutCommand.timeoutCommandDescriptionIta,
+        RandomDataCommand.randomDataCommandIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-        RandomLinkCommand.searchShowCommandEng,
+        SearchShowCommand.searchShowCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
-        TimeoutCommand.timeoutCommandDescriptionEng
+        TimeoutCommand.timeoutCommandDescriptionEng,
+        RandomDataCommand.randomDataCommandEng
       ),
     )
   )

@@ -132,7 +132,7 @@ object RichardPHJBensonBot {
       botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia
     ),
-    RandomLinkCommand.searchShowReplyBundleCommand(
+    SearchShowCommand.searchShowReplyBundleCommand(
       dbShow = dbLayer.dbShow,
       botName = botName
     ),
@@ -154,30 +154,36 @@ object RichardPHJBensonBot {
       dbTimeout = dbLayer.dbTimeout,
       log = log
     ),
+    RandomDataCommand.randomDataReplyBundleCommand[F](
+      botPrefix = botPrefix,
+      dbMedia = dbLayer.dbMedia
+    ),
     InstructionsCommand.instructionsReplyBundleCommand[F](
       botName = botName,
       ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
       commandDescriptionsIta = List(
         TriggerListCommand.triggerListCommandDescriptionIta,
         TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-        RandomLinkCommand.searchShowCommandIta,
+        SearchShowCommand.searchShowCommandIta,
         StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
         TimeoutCommand.timeoutCommandDescriptionIta,
         bensonifyCommandDescriptionIta,
+        RandomDataCommand.randomDataCommandIta
       ),
       commandDescriptionsEng = List(
         TriggerListCommand.triggerListCommandDescriptionEng,
         TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-        RandomLinkCommand.searchShowCommandEng,
+        SearchShowCommand.searchShowCommandEng,
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
         SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
         TimeoutCommand.timeoutCommandDescriptionEng,
-        bensonifyCommandDescriptionEng
+        bensonifyCommandDescriptionEng,
+        RandomDataCommand.randomDataCommandEng
       )
     ),
     ReplyBundleCommand(

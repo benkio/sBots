@@ -19,7 +19,6 @@ object GenerateTriggers extends IOApp {
 
   // Trigger file generation ////////////////////////////////////////////////////
 
-  // TODO: logic to generate the triggerFilename file starting from the list of ReplyBundleMessage
   def generateTriggerFile(
       botModuleRelativeFolderPath: String,
       triggerFilename: String,

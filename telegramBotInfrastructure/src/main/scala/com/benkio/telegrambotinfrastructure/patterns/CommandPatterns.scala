@@ -39,7 +39,29 @@ object CommandPatterns {
       )
   }
 
-  object RandomLinkCommand {
+  object RandomDataCommand {
+
+    val randomDataCommandIta: String =
+      """'/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot"""
+    val randomDataCommandEng: String =
+      """'/random': Returns a data (photo/video/audio/text) random about the bot character"""
+
+    def randomDataReplyBundleCommand[F[_]: Async](
+        dbMedia: DBMedia[F],
+        botPrefix: String
+    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
+      ReplyBundleCommand[F](
+        trigger = CommandTrigger("random"),
+        reply = MediaReply[F](
+          mediaFiles = for
+            dbMediaData <- dbMedia.getRandomMedia(botPrefix)
+            media       <- Async[F].fromEither(Media(dbMediaData))
+          yield List(MediaFile.fromFilePath(media.mediaName))
+        )
+      )
+  }
+
+  object SearchShowCommand {
 
     val searchShowCommandIta: String =
       """'/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
@@ -81,8 +103,8 @@ Input as query string:
               "searchshow",
               botName,
               keywords =>
-                RandomLinkCommand
-                  .selectRandomLinkByKeyword[F](
+                SearchShowCommand
+                  .selectLinkByKeyword[F](
                     keywords,
                     dbShow,
                     botName
@@ -94,7 +116,7 @@ Input as query string:
         ),
       )
 
-    def selectRandomLinkByKeyword[F[_]: Async](
+    def selectLinkByKeyword[F[_]: Async](
         keywords: String,
         dbShow: DBShow[F],
         botName: String
