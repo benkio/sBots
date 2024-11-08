@@ -91,7 +91,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   )
 
   test("RichardPHJBensonBot should contain the expected number of commands") {
-    assertIO(commandRepliesData.map(_.length), 10)
+    assertIO(commandRepliesData.map(_.length), 11)
   }
 
   jsonContainsFilenames(
@@ -133,6 +133,7 @@ Input come query string:
 - '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
 - '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00
 - '/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio
+- '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
 
 Se si vuole disabilitare il bot per un particolare messaggio impedendo
 che interagisca, è possibile farlo iniziando il messaggio con il
@@ -166,6 +167,7 @@ Input as query string:
 - '/subscriptions': Return the amout of subscriptions for the current chat
 - '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00
 - '/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory
+- '/random': Returns a data (photo/video/audio/text) random about the bot character
 
 if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
 character: `!`

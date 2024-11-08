@@ -102,7 +102,9 @@ object DBMedia {
           } yield media
       )
 
-    override def getRandomMedia(): F[DBMediaData] = ??? // TODO: implement
+    override def getRandomMedia(): F[DBMediaData] =
+      getMediaQueryByRandom().unique
+        .transact(transactor)
 
     override def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]] =
       getMediaInternal[List[DBMediaData]](
@@ -156,7 +158,9 @@ object DBMedia {
 
     q.query[DBMediaData]
   }
-
+  def getMediaQueryByRandom(): Query0[DBMediaData] =
+    sql"SELECT media_name, kinds, media_url, media_count, created_at FROM media ORDER BY RANDOM() LIMIT 1"
+      .query[DBMediaData]
   def incrementMediaCountQuery(media: DBMediaData): Update0 =
     sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update
 

@@ -2,6 +2,7 @@ package com.benkio.telegrambotinfrastructure.mocks
 
 import cats.effect.IO
 import cats.effect.kernel.Ref
+import cats.effect.std.Random
 import com.benkio.telegrambotinfrastructure.model.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -59,7 +60,19 @@ object DBLayerMock {
         _.find(m => m.media_name == filename)
           .fold[IO[DBMediaData]](IO.raiseError(new Throwable(s"[TEST ERROR] Media not found: $filename")))(IO.pure)
       )
-    override def getRandomMedia(): IO[DBMediaData] = ??? // TODO: imprement
+    override def getRandomMedia(): IO[DBMediaData] =
+      for
+        ls         <- db.get
+        rnd        <- Random.scalaUtilRandom[IO]
+        lsShuffled <- rnd.shuffleList(ls)
+        result <- lsShuffled.headOption.fold(
+          IO.raiseError(
+            Throwable(
+              "[TEST ERROR]: got no results from the `getRandomMedia` mock, expected 1 result or the mock is empty"
+            )
+          )
+        )(IO.pure)
+      yield result
     override def getMediaByKind(kind: String, cache: Boolean = true): IO[List[DBMediaData]] =
       db.get.map(
         _.filter(m => m.kinds.contains(kind))

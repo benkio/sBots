@@ -61,8 +61,8 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/youTuboAncheI0Bot/ytai_triggers.txt"
   )
 
-  test("YoutuboAncheI0Bot sholud return the expected number of commands") {
-    assertIO(commandRepliesData.map(_.length), 9)
+  test("YoutuboAncheI0Bot should return the expected number of commands") {
+    assertIO(commandRepliesData.map(_.length), 10)
   }
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     YouTuboAncheI0Bot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
@@ -105,6 +105,7 @@ Input come query string:
 - '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input
 - '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
 - '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00
+- '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
 
 Se si vuole disabilitare il bot per un particolare messaggio impedendo
 che interagisca, è possibile farlo iniziando il messaggio con il
@@ -137,6 +138,7 @@ Input as query string:
 - '/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted
 - '/subscriptions': Return the amout of subscriptions for the current chat
 - '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00
+- '/random': Returns a data (photo/video/audio/text) random about the bot character
 
 if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
 character: `!`
