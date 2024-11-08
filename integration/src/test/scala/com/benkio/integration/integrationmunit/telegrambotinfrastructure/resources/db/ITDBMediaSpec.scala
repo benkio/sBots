@@ -45,7 +45,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     "DBMedia queries should check"
   ) {
     check(DBMedia.getMediaQueryByName(testMediaName))
-    check(DBMedia.getMediaQueryByRandom())
+    check(DBMedia.getMediaQueryByRandom(testMediaPrefix))
     check(DBMedia.getMediaQueryByKind(testMediaKind))
     check(DBMedia.getMediaQueryByMediaCount(mediaNamePrefix = Some(testMediaPrefix)))
   }
@@ -150,7 +150,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      media   <- Resource.eval(dbMedia.getRandomMedia()).attempt
+      media   <- Resource.eval(dbMedia.getRandomMedia(testMediaPrefix)).attempt
     } yield media.isRight // Just check if we get something back
     resourceAssert.use(IO.pure).assert
   }

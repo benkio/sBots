@@ -155,7 +155,7 @@ object RichardPHJBensonBot {
       log = log
     ),
     RandomDataCommand.randomDataReplyBundleCommand[F](
-      botName = botName,
+      botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia
     ),
     InstructionsCommand.instructionsReplyBundleCommand[F](

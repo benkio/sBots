@@ -14,7 +14,8 @@ object CommandRepliesData {
   def values[F[_]: Async](
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
-      botName: String
+      botName: String,
+      botPrefix: String
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] = List(
@@ -36,7 +37,7 @@ object CommandRepliesData {
       botName = botName
     ),
     RandomDataCommand.randomDataReplyBundleCommand[F](
-      botName = botName,
+      botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia
     ),
     MediaByKindCommand.mediaCommandByKind(

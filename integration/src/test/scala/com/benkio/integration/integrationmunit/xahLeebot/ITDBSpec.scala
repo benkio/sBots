@@ -28,6 +28,7 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   val botName: String = "botname"
+  val botPrefix: String = "xah"
   given api: Api[IO] = new Api[IO] {
     def execute[Res](method: Method[Res]): IO[Res] = IO(???)
   }
@@ -55,6 +56,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         CommandRepliesData
           .values[IO](
             botName = botName,
+            botPrefix = botPrefix,
             dbLayer = resourceDBLayer,
             backgroundJobManager = bjm,
           )
@@ -93,6 +95,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         CommandRepliesData
           .values[IO](
             botName = botName,
+            botPrefix = botPrefix,
             dbLayer = resourceDBLayer,
             backgroundJobManager = bjm,
           )

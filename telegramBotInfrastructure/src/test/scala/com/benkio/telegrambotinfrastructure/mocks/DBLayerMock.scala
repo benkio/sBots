@@ -60,11 +60,11 @@ object DBLayerMock {
         _.find(m => m.media_name == filename)
           .fold[IO[DBMediaData]](IO.raiseError(new Throwable(s"[TEST ERROR] Media not found: $filename")))(IO.pure)
       )
-    override def getRandomMedia(): IO[DBMediaData] =
+    override def getRandomMedia(botPrefix: String): IO[DBMediaData] =
       for
         ls         <- db.get
         rnd        <- Random.scalaUtilRandom[IO]
-        lsShuffled <- rnd.shuffleList(ls)
+        lsShuffled <- rnd.shuffleList(ls.filter(_.media_name.startsWith(botPrefix)))
         result <- lsShuffled.headOption.fold(
           IO.raiseError(
             Throwable(

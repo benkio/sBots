@@ -48,13 +48,13 @@ object CommandPatterns {
 
     def randomDataReplyBundleCommand[F[_]: Async](
         dbMedia: DBMedia[F],
-        botName: String
+        botPrefix: String
     )(using log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("random"),
         reply = MediaReply[F](
           mediaFiles = for
-            dbMediaData <- dbMedia.getRandomMedia()
+            dbMediaData <- dbMedia.getRandomMedia(botPrefix)
             media       <- Async[F].fromEither(Media(dbMediaData))
           yield List(MediaFile.fromFilePath(media.mediaName))
         )

@@ -78,7 +78,8 @@ object XahLeeBot {
       .values[F](
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
-        botName = botName
+        botName = botName,
+        botPrefix = botPrefix,
       )
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](

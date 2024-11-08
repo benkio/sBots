@@ -33,7 +33,7 @@ object DBMediaData {
 
 trait DBMedia[F[_]] {
   def getMedia(filename: String, cache: Boolean = true): F[DBMediaData]
-  def getRandomMedia(): F[DBMediaData]
+  def getRandomMedia(botPrefix: String): F[DBMediaData]
   def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]]
   def getMediaByMediaCount(
       limit: Int = 20,
@@ -102,8 +102,8 @@ object DBMedia {
           } yield media
       )
 
-    override def getRandomMedia(): F[DBMediaData] =
-      getMediaQueryByRandom().unique
+    override def getRandomMedia(botPrefix: String): F[DBMediaData] =
+      getMediaQueryByRandom(botPrefix).unique
         .transact(transactor)
 
     override def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]] =
@@ -158,8 +158,9 @@ object DBMedia {
 
     q.query[DBMediaData]
   }
-  def getMediaQueryByRandom(): Query0[DBMediaData] =
-    sql"SELECT media_name, kinds, media_url, media_count, created_at FROM media ORDER BY RANDOM() LIMIT 1"
+  def getMediaQueryByRandom(botPrefix: String): Query0[DBMediaData] =
+    val like = botPrefix + "%"
+    sql"SELECT media_name, kinds, media_url, media_count, created_at FROM media WHERE media_name LIKE $like ORDER BY RANDOM() LIMIT 1"
       .query[DBMediaData]
   def incrementMediaCountQuery(media: DBMediaData): Update0 =
     sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update
