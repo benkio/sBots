@@ -1357,7 +1357,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "ballerino",
-      "attore",
       "non posso salutare",
       "fornaio",
       "barman",
@@ -2222,6 +2221,57 @@ object Video {
       "andate (direttamente )?a[ ]?[f]*fanculo".r.tr(16)
     )(
       vid"rphjb_AndateAFanculo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "il pubblico sta cambiando",
+      "stanno invecchiando",
+      "non riescono a seguire",
+      "il loro pubblico"
+    )(
+      vid"rphjb_IlPubblicoStaCambiandoLoroInvecchiando.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "questo è il bello",
+      "riesco a seguire",
+      "vi controllo",
+      "metallaro",
+      "skinhead",
+      "punkabbestia",
+      "tossicomane",
+      "case di cura",
+      "in galera",
+      "non (c'ha|c'è) più futuro".r.tr(18),
+      "senza futuro",
+      "litiga coi genitori",
+      "che si ribella",
+      "ribelle",
+      "musicista",
+      "incazzato per natura",
+      "forse (un giorno)? lo troverai".r.tr(18),
+      "attraverso noi",
+      "armi da guerra"
+    )(
+      vid"rphjb_SeguireTuttiListaPersone.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "romeo",
+      "(settanta |settant'|70 )anni",
+      "actor studio",
+      "new york",
+      "piccolo pubblico",
+      "gli alievi",
+      "entra in scena",
+      "settant'enne",
+      "alla prima battuta",
+      "insistere"
+    )(
+      vid"rphjb_ParteDiRomeo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "attore"
+    )(
+      vid"rphjb_ParteDiRomeo.mp4",
+      vid"rphjb_DaHollywood.mp4"
     )
   )
 }

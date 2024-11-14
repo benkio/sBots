@@ -169,6 +169,7 @@ object Mix {
       mp3"rphjb_StoriaBambiniBiondi.mp3",
       vid"rphjb_StoriaNapoliBambinaMutande.mp4",
       mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
+      vid"rphjb_ParteDiRomeo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -2226,7 +2227,8 @@ object Mix {
     )(
       gif"rphjb_QuelloCheTiMeriti.mp4",
       vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4",
-      vid"rphjb_FinoAllaFine.mp4"
+      vid"rphjb_FinoAllaFine.mp4",
+      vid"rphjb_ParteDiRomeo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "cuore in mano",
