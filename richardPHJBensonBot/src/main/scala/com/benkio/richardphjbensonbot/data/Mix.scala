@@ -6,7 +6,10 @@ import com.benkio.telegrambotinfrastructure.model.*
 
 object Mix {
 
-  def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+  def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
+    messageRepliesMixData1[F] ++ messageRepliesMixData2[F]
+
+  private def messageRepliesMixData1[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage
       .textToMedia[F](
         "vivi",
@@ -115,11 +118,10 @@ object Mix {
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "cobelini",
-      "cobbolidi",
+      "[gc]o[b]+e[l]+ini".r.tr(8),
+      "co[b]+olidi".r.tr(8),
       "elfi",
       "\\bnani\\b".r.tr(4),
-      "gobellini",
       "ossa dei morti"
     )(
       mp3"rphjb_FigureMitologiche.mp3",
@@ -2558,7 +2560,10 @@ object Mix {
       vid"rphjb_UominiPecora.mp4",
       mp3"rphjb_UominiPecora.mp3",
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
-    ),
+    )
+  )
+
+  private def messageRepliesMixData2[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
       "\\bmanager\\b".r.tr(7)
     )(
