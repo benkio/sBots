@@ -170,12 +170,6 @@ object Gif {
       gif"rphjb_Bravo.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bmetal\\b".r.tr(5)
-    )(
-      gif"rphjb_Metal.mp4",
-      gif"rphjb_IlMartel.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "porca miseria",
       "facendo incazzare"
     )(

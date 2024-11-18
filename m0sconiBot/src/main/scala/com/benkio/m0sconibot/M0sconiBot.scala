@@ -200,7 +200,7 @@ object M0sconiBot {
       mp3"mos_MarioFerrettoPorcoDioRumoreLiFaAposta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "colla",
+      "\\b(in)?colla\\b".r.tr(5),
       "le carte"
     )(
       mp3"mos_DioBonDiUnDioLeSeaTagaENonLeSeStaga.mp3",

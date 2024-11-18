@@ -288,12 +288,6 @@ object Video {
       vid"rphjb_RockMachineIntro.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "w[e]+[l]+[a]+".r.tr(4)
-    )(
-      vid"rphjb_WelaMyFriends.mp4",
-      vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "da piangere",
       "negro",
       "niente da perdere",
