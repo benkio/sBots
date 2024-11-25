@@ -822,7 +822,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "fate come vi pare",
-      "sti (g|c)azzi".r.tr(9)
+      "sti[ ]?(g|c)azzi".r.tr(8)
     )(
       gif"rphjb_ComeViPare.mp4",
       mp3"rphjb_ComeViPare.mp3"
@@ -2306,7 +2306,7 @@ object Mix {
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "prendo quello che( cazzo)? c'è da prendere",
+      "che( cazzo)? c'è da prendere",
       "prendo (il motorino|il coso|la macchina|l'auto)",
       "\\bvengo\\b".r.tr(5),
       "non vengo\\b".r.tr(9)

@@ -283,6 +283,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "(roba|droga) tagliata male".r.tr(18),
       "one television",
+      "rock machine",
       "(un po'|un attimo) (di|de) esercitazione".r.tr(23)
     )(
       vid"rphjb_RockMachineIntro.mp4"
@@ -371,7 +372,8 @@ object Video {
       vid"rphjb_DanzaMacabra.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "mettetevi in ginocchio",
+      "in ginocchio",
+      "inginocchiatevi",
       "nuovo messia"
     )(
       vid"rphjb_MetteteviInGinocchio.mp4"
