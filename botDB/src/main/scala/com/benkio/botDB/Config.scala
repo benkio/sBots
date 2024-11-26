@@ -3,7 +3,6 @@ package com.benkio.botDB
 import cats.effect.IO
 import doobie.Transactor
 import pureconfig.*
-import pureconfig.generic.derivation.default.*
 
 final case class Config(
     driver: String,

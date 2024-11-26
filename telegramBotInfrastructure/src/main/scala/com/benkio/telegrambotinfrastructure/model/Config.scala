@@ -4,7 +4,6 @@ import cats.*
 import cats.implicits.*
 import log.effect.LogWriter
 import pureconfig.*
-import pureconfig.generic.derivation.default.*
 
 final case class Config(
     driver: String,

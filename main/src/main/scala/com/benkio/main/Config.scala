@@ -3,7 +3,6 @@ package com.benkio.main
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.model.{ Config => DBConfig }
 import pureconfig.*
-import pureconfig.generic.derivation.default.*
 
 final case class Config(
     webhookBaseUrl: String,
