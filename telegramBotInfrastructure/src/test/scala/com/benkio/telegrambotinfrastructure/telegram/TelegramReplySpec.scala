@@ -33,10 +33,11 @@ class TelegramReplySpec extends CatsEffectSuite {
 
   test("TelegramReply[VideoFile] reply should work as expected") {
     val message = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val video    = VideoFile("testVideo.mp4")
+    val video   = VideoFile("testVideo.mp4")
     val resourceAccessMock = ResourceAccessMock(
-      getResourceByteArrayHandler = (filepath) =>
-      IO.raiseUnless(filepath == video.filepath)(Throwable(s"[resourceAccessMock] $filepath ≠ ${video.filepath}")).as(Array.fill(20)((scala.util.Random.nextInt(256) - 128).toByte))
+      getResourceByteArrayHandler = filepath =>
+        IO.raiseUnless(filepath == video.filepath)(Throwable(s"[resourceAccessMock] $filepath ≠ ${video.filepath}"))
+          .as(Array.fill(20)((scala.util.Random.nextInt(256) - 128).toByte))
     )
     val result = TelegramReply.telegramVideoReply
       .reply[IO](
@@ -51,10 +52,11 @@ class TelegramReplySpec extends CatsEffectSuite {
 
   test("TelegramReply[PhotoFile] reply should work as expected") {
     val message = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val photo    = PhotoFile("testPhoto.jpg")
+    val photo   = PhotoFile("testPhoto.jpg")
     val resourceAccessMock = ResourceAccessMock(
-      getResourceByteArrayHandler = (filepath) =>
-      IO.raiseUnless(filepath == photo.filepath)(Throwable(s"[resourceAccessMock] $filepath ≠ ${photo.filepath}")).as(Array.fill(20)((scala.util.Random.nextInt(256) - 128).toByte))
+      getResourceByteArrayHandler = filepath =>
+        IO.raiseUnless(filepath == photo.filepath)(Throwable(s"[resourceAccessMock] $filepath ≠ ${photo.filepath}"))
+          .as(Array.fill(20)((scala.util.Random.nextInt(256) - 128).toByte))
     )
     val result = TelegramReply.telegramPhotoReply
       .reply[IO](
@@ -69,10 +71,11 @@ class TelegramReplySpec extends CatsEffectSuite {
 
   test("TelegramReply[GifFile] reply should work as expected") {
     val message = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val gif    = GifFile("testGif.mp4")
+    val gif     = GifFile("testGif.mp4")
     val resourceAccessMock = ResourceAccessMock(
-      getResourceByteArrayHandler = (filepath) =>
-      IO.raiseUnless(filepath == gif.filepath)(Throwable(s"[resourceAccessMock] $filepath ≠ ${gif.filepath}")).as(Array.fill(20)((scala.util.Random.nextInt(256) - 128).toByte))
+      getResourceByteArrayHandler = filepath =>
+        IO.raiseUnless(filepath == gif.filepath)(Throwable(s"[resourceAccessMock] $filepath ≠ ${gif.filepath}"))
+          .as(Array.fill(20)((scala.util.Random.nextInt(256) - 128).toByte))
     )
     val result = TelegramReply.telegramGifReply
       .reply[IO](
@@ -87,10 +90,11 @@ class TelegramReplySpec extends CatsEffectSuite {
 
   test("TelegramReply[Mp3File] reply should work as expected") {
     val message = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val mp3    = Mp3File("testMp3.mp3")
+    val mp3     = Mp3File("testMp3.mp3")
     val resourceAccessMock = ResourceAccessMock(
-      getResourceByteArrayHandler = (filepath) =>
-      IO.raiseUnless(filepath == mp3.filepath)(Throwable(s"[resourceAccessMock] $filepath ≠ ${mp3.filepath}")).as(Array.fill(20)((scala.util.Random.nextInt(256) - 128).toByte))
+      getResourceByteArrayHandler = filepath =>
+        IO.raiseUnless(filepath == mp3.filepath)(Throwable(s"[resourceAccessMock] $filepath ≠ ${mp3.filepath}"))
+          .as(Array.fill(20)((scala.util.Random.nextInt(256) - 128).toByte))
     )
     val result = TelegramReply.telegramMp3Reply
       .reply[IO](

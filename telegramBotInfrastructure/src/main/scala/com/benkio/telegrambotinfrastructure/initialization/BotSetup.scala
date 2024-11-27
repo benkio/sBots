@@ -48,9 +48,11 @@ object BotSetup {
     response <- httpClient.run(deleteWebhookRequest)
   } yield response
 
-  def token[F[_]: Async](tokenFilename: String): Resource[F, String] =
-    ResourceAccess
-      .fromResources[F]()
+  def token[F[_]: Async](
+      tokenFilename: String,
+      resourceAccess: ResourceAccess[F]
+  ): Resource[F, String] =
+    resourceAccess
       .getResourceByteArray(tokenFilename)
       .map(_.map(_.toChar).mkString)
 
@@ -74,7 +76,7 @@ object BotSetup {
       botName: String,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(using log: LogWriter[F], telegramReply: TelegramReply[Text]): Resource[F, BotSetup[F]] = for {
-    tk         <- token[F](tokenFilename)
+    tk         <- token[F](tokenFilename, ResourceAccess.fromResources[F]())
     config     <- Resource.eval(Config.loadConfig[F](namespace))
     _          <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
     urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
