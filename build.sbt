@@ -9,9 +9,9 @@ enablePlugins(FlywayPlugin)
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 // SCoverage
-coverageEnabled               := true
-coverageFailOnMinimum         := true
-coverageMinimumStmtTotal      := 74 // TODO: INCREASE THIS
+coverageEnabled          := true
+coverageFailOnMinimum    := true
+coverageMinimumStmtTotal := 82 // TODO: INCREASE THIS
 
 // TASKS
 
@@ -23,7 +23,10 @@ addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
 addCommandAlias("check", "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck")
 addCommandAlias("generateTriggerTxt", "main/runMain com.benkio.main.GenerateTriggers")
-addCommandAlias("validate", ";clean; compile; fix; generateTriggerTxt; test; coverageAggregate; integration/runIntegrationMUnitTests")
+addCommandAlias(
+  "validate",
+  ";clean; compile; fix; generateTriggerTxt; coverage; test; integration/runIntegrationMUnitTests; coverageAggregate"
+)
 addCommandAlias("checkAllLinksTest", "integration/runIntegrationScalaTests")
 
 // PROJECTS
