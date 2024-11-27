@@ -11,7 +11,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 // SCoverage
 coverageEnabled          := true
 coverageFailOnMinimum    := true
-coverageMinimumStmtTotal := 82 // TODO: INCREASE THIS
+coverageMinimumStmtTotal := 84 // TODO: INCREASE THIS
 
 // TASKS
 
