@@ -22,7 +22,7 @@ import log.effect.LogWriter
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import org.scalatest.*
 import org.scalatest.funsuite.FixtureAnyFunSuite
-import telegramium.bots.client.Method
+
 import telegramium.bots.high.Api
 
 class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {

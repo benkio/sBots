@@ -1,7 +1,7 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock
-import telegramium.bots.client.Method
+
 import telegramium.bots.high.Api
 import little.time.CronSchedule
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey

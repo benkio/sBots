@@ -8,7 +8,7 @@ import scala.io.Source
 import java.io.File
 
 import com.benkio.telegrambotinfrastructure.model.ReplyBundle
-import telegramium.bots.client.Method
+
 import telegramium.bots.high.Api
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.xahleebot.CommandRepliesData
