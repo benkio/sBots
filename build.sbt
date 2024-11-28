@@ -8,6 +8,11 @@ organization := "com.benkio"
 enablePlugins(FlywayPlugin)
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
+// SCoverage
+coverageEnabled          := true
+coverageFailOnMinimum    := true
+coverageMinimumStmtTotal := 85 // TODO: INCREASE THIS
+
 // TASKS
 
 lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
@@ -18,7 +23,10 @@ addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
 addCommandAlias("check", "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck")
 addCommandAlias("generateTriggerTxt", "main/runMain com.benkio.main.GenerateTriggers")
-addCommandAlias("validate", ";clean; compile; fix; generateTriggerTxt; test; integration/runIntegrationMUnitTests")
+addCommandAlias(
+  "validate",
+  ";clean; compile; fix; generateTriggerTxt; coverage; test; integration/runIntegrationMUnitTests; coverageAggregate"
+)
 addCommandAlias("checkAllLinksTest", "integration/runIntegrationScalaTests")
 
 // PROJECTS

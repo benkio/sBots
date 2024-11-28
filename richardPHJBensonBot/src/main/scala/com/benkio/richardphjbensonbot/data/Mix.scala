@@ -7,7 +7,9 @@ import com.benkio.telegrambotinfrastructure.model.*
 object Mix {
 
   def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
-    messageRepliesMixData1[F] ++ messageRepliesMixData2[F]
+    messageRepliesMixData1[F] ++
+      messageRepliesMixData2[F] ++
+      messageRepliesMixData3[F]
 
   private def messageRepliesMixData1[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage
@@ -1295,7 +1297,355 @@ object Mix {
     )(
       vid"rphjb_Platinette.mp4",
       mp3"rphjb_Platinette.mp3"
+    )
+  )
+
+  private def messageRepliesMixData2[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage.textToMedia[F](
+      "\\bmanager\\b".r.tr(7)
+    )(
+      vid"rphjb_ManagerAmericanoGrignianiShit.mp4",
+      mp3"rphjb_ManagerAmericanoGrignianiShit.mp3",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "di metallo",
+      "artigian(i|ale)".r.tr(9),
+      "avorio",
+      "teschio",
+      "intarsi(ato)?".r.tr(7)
+    )(
+      gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
+      vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
+      mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "valletta",
+    )(
+      vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4",
+      vid"rphjb_BisognoValletta.mp4",
+      mp3"rphjb_BisognoValletta.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "corpicini",
+      "da (succhiare|mangiare)".r.tr(11),
+      "in jeans",
+      "scarpe da tennis",
+      "vanno sempre bene",
+      "m[ei] sta tutto bene".r.tr(17),
+      "vita (rock|dura|violenta|piena di gioie|piena di ferite)".r.tr(9)
+    )(
+      vid"rphjb_BisognoValletta.mp4",
+      mp3"rphjb_BisognoValletta.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "allucinante"
+    )(
+      gif"rphjb_Allucinante.mp4",
+      vid"rphjb_DentiScazzottata.mp4",
+      mp3"rphjb_DentiScazzottata.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "scusatemi per i denti",
+      "a botte\\b".r.tr(7),
+      "cazzott[oi]".r.tr(8),
+      "bastonata",
+      "dare pugni",
+      "aggredisce",
+      "per nessun motivo lo[g]+ico".r.tr(24),
+      "essere alterato",
+      "battibecco",
+    )(
+      vid"rphjb_DentiScazzottata.mp4",
+      mp3"rphjb_DentiScazzottata.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "femminis",
+      "contro( )?cultura".r.tr(13),
+    )(
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4",
+      vid"rphjb_CorteiFemministiAmplessiMacisti.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "donne (vissute|con le palle)".r.tr(13),
+      "groupies"
+    )(
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "partiti politici",
+      "politica"
+    )(
+      vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
+      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
+      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
+      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "bin laden",
+      "torri gemelle",
+      "(11|undici) settembre".r.tr(12)
+    )(
+      mp3"rphjb_911TorriGemelleBinLaden.mp3",
+      vid"rphjb_911TorriGemelleBinLaden.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "osanna"
+    )(
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4",
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tony esposito",
+      "bambini biondi"
+    )(
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "balletto di bronzo",
+    )(
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
+      vid"rphjb_StoriaBambiniBiondi.mp4",
+      mp3"rphjb_StoriaBambiniBiondi.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "commesso viaggiatore",
+      "bambina in mutande"
+    )(
+      vid"rphjb_StoriaNapoliBambinaMutande.mp4",
+      mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ma è tutto qui?",
+      "vomitaste",
+      "rantolando",
+      "l'ultima delle bestie",
+      "in cerca di cibo",
+    )(
+      gif"rphjb_VomitasteAnimaGif.mp4",
+      vid"rphjb_VomitasteAnima.mp4",
+      mp3"rphjb_VomitasteAnima.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\banima\\b".r.tr(5)
+    )(
+      gif"rphjb_VomitasteAnimaGif.mp4",
+      vid"rphjb_VomitasteAnima.mp4",
+      mp3"rphjb_VomitasteAnima.mp3",
+      vid"rphjb_AnimaGarageVarazze.mp4",
+      gif"rphjb_ColpirannoAnimaGif.mp4",
+      vid"rphjb_ColpirannoAnima.mp4",
+      mp3"rphjb_ColpirannoAnima.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "benissimo e malissimo",
+      "la cosa migliore"
+    )(
+      gif"rphjb_BenissimoEMalissimoGif.mp4",
+      vid"rphjb_BenissimoEMalissimo.mp4",
+      mp3"rphjb_BenissimoEMalissimo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vi (assicuro|colpiranno)".r.tr(11),
+      "in realtà non esiste"
+    )(
+      gif"rphjb_ColpirannoAnimaGif.mp4",
+      vid"rphjb_ColpirannoAnima.mp4",
+      mp3"rphjb_ColpirannoAnima.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "freddie mercury"
+    )(
+      vid"rphjb_NelRettoBrianMay.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "brian may",
+      "non è (uno )?stolto".r.tr(12),
+      "spranga",
+      "nel retto"
+    )(
+      vid"rphjb_NelRettoBrianMay.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mic drop",
+      "microfono",
+      "🎤",
+      "🎙",
+    )(
+      gif"rphjb_MicDrop.mp4",
+      vid"rphjb_NelRettoBrianMay.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "james senese",
+      "elio d'anna"
+    )(
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
+      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "merola",
+      "murolo",
+      "nino d'angelo",
+      "bennato",
+      "pino daniele",
+      "gli showmen",
+      "città frontale",
+      "battitori selvaggi",
+      "il cervello",
+      "napoli centrale",
+      "enzo (abitabile|granagnello)".r.tr(14),
+      "joe amoruso",
+      "ernesto vitolo",
+      "tullio de piscopo",
+    )(
+      vid"rphjb_MusicaNapoletanaRockLista.mp4",
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F]("progressiv[oe]".r.tr(11))(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_Regressive.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "blues"
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_Blues.mp4",
+      vid"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "whiskey"
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "etichette"
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+      vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
+      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "jazz",
+      "musica (sinfonica|acustica)".r.tr(15)
+    )(
+      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
+      vid"rphjb_MusicaEtichetteWhiskey.mp4",
+      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "consideravo degli amici",
+      "inchinatevi",
+      "che avete fatto voi?",
+      "passaggio terreno",
+      "criticare",
+      "trasportatori",
+      "doganieri",
+    )(
+      vid"rphjb_ExAmiciReMetalloTrasportatori.mp4",
+      mp3"rphjb_ExAmiciReMetalloTrasportatori.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tempo libero",
+      "flotta navale",
+      "(secondo|doppio) lavoro".r.tr(13),
+      "gioco infernale"
+    )(
+      vid"rphjb_CapitanoMarinaMilitareSecondoLavoro.mp4",
+      mp3"rphjb_CapitanoMarinaMilitareSecondoLavoro.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "su youtube"
+    )(
+      vid"rphjb_EsperimentoSuYoutube.mp4",
+      mp3"rphjb_EsperimentoSuYoutube.mp3",
+      gif"rphjb_EsperimentoSuYoutubeGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "co(gl|j)ione([- ]co(gl|j)ione)+"
+    )(
+      vid"rphjb_FrocioCoglione.mp4",
+      mp3"rphjb_FrocioCoglione.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sconvolto"
+    )(
+      gif"rphjb_SconvoltoGif.mp4",
+      vid"rphjb_Sconvolto.mp4",
+      mp3"rphjb_Sconvolto.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "incazzat",
+      "pi[uù] siete felici".r.tr(16)
+    )(
+      gif"rphjb_PiuIncazzatoPiuFeliciMortacciVostriGif.mp4",
+      vid"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp4",
+      mp3"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "w[e]+[l]+[a]+".r.tr(4)
+    )(
+      vid"rphjb_WelaMyFriends.mp4",
+      vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4",
+      gif"rphjb_WelaCiaoSonoRichardBensonGif.mp4",
+      vid"rphjb_WelaCiaoSonoRichardBenson.mp4",
+      mp3"rphjb_WelaCiaoSonoRichardBenson.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "richard benson"
+    )(
+      gif"rphjb_WelaCiaoSonoRichardBensonGif.mp4",
+      vid"rphjb_WelaCiaoSonoRichardBenson.mp4",
+      mp3"rphjb_WelaCiaoSonoRichardBenson.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bmetal\\b".r.tr(5)
+    )(
+      gif"rphjb_Metal.mp4",
+      gif"rphjb_IlMartel.mp4",
+      vid"rphjb_SonyVaMaleMetalRock.mp4",
+      mp3"rphjb_SonyVaMaleMetalRock.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sony",
+      "\\bbond[s]?\\b".r.tr(4),
+      "azion(i|ario)".r.tr(6),
+      "obbligazioni",
+      "in tutti i campi",
+      "va male",
+      "hanno chiamato me"
+    )(
+      vid"rphjb_SonyVaMaleMetalRock.mp4",
+      mp3"rphjb_SonyVaMaleMetalRock.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "in preghiera",
+      "desertici"
+    )(
+      vid"rphjb_IlBastoneDiGesu.mp4",
+      mp3"rphjb_IlBastoneDiGesu.mp3"
+    )
+  )
+
+  private def messageRepliesMixData3[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
       "il mio sbadiglio",
       "donna solo per un taglio",
@@ -2596,351 +2946,6 @@ object Mix {
       vid"rphjb_UominiPecora.mp4",
       mp3"rphjb_UominiPecora.mp3",
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
-    )
-  )
-
-  private def messageRepliesMixData2[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToMedia[F](
-      "\\bmanager\\b".r.tr(7)
-    )(
-      vid"rphjb_ManagerAmericanoGrignianiShit.mp4",
-      mp3"rphjb_ManagerAmericanoGrignianiShit.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "di metallo",
-      "artigian(i|ale)".r.tr(9),
-      "avorio",
-      "teschio",
-      "intarsi(ato)?".r.tr(7)
-    )(
-      gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
-      vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
-      mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "valletta",
-    )(
-      vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4",
-      vid"rphjb_BisognoValletta.mp4",
-      mp3"rphjb_BisognoValletta.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "corpicini",
-      "da (succhiare|mangiare)".r.tr(11),
-      "in jeans",
-      "scarpe da tennis",
-      "vanno sempre bene",
-      "m[ei] sta tutto bene".r.tr(17),
-      "vita (rock|dura|violenta|piena di gioie|piena di ferite)".r.tr(9)
-    )(
-      vid"rphjb_BisognoValletta.mp4",
-      mp3"rphjb_BisognoValletta.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "allucinante"
-    )(
-      gif"rphjb_Allucinante.mp4",
-      vid"rphjb_DentiScazzottata.mp4",
-      mp3"rphjb_DentiScazzottata.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "scusatemi per i denti",
-      "a botte\\b".r.tr(7),
-      "cazzott[oi]".r.tr(8),
-      "bastonata",
-      "dare pugni",
-      "aggredisce",
-      "per nessun motivo lo[g]+ico".r.tr(24),
-      "essere alterato",
-      "battibecco",
-    )(
-      vid"rphjb_DentiScazzottata.mp4",
-      mp3"rphjb_DentiScazzottata.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "femminis",
-      "contro( )?cultura".r.tr(13),
-    )(
-      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
-      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
-      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4",
-      vid"rphjb_CorteiFemministiAmplessiMacisti.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "donne (vissute|con le palle)".r.tr(13),
-      "groupies"
-    )(
-      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
-      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "partiti politici",
-      "politica"
-    )(
-      vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
-      vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
-      mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
-      vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "bin laden",
-      "torri gemelle",
-      "(11|undici) settembre".r.tr(12)
-    )(
-      mp3"rphjb_911TorriGemelleBinLaden.mp3",
-      vid"rphjb_911TorriGemelleBinLaden.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "osanna"
-    )(
-      vid"rphjb_StoriaBambiniBiondi.mp4",
-      mp3"rphjb_StoriaBambiniBiondi.mp3",
-      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4",
-      vid"rphjb_MusicaNapoletanaRockLista.mp4",
-      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "tony esposito",
-      "bambini biondi"
-    )(
-      vid"rphjb_StoriaBambiniBiondi.mp4",
-      mp3"rphjb_StoriaBambiniBiondi.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "balletto di bronzo",
-    )(
-      vid"rphjb_MusicaNapoletanaRockLista.mp4",
-      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
-      vid"rphjb_StoriaBambiniBiondi.mp4",
-      mp3"rphjb_StoriaBambiniBiondi.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "commesso viaggiatore",
-      "bambina in mutande"
-    )(
-      vid"rphjb_StoriaNapoliBambinaMutande.mp4",
-      mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "ma è tutto qui?",
-      "vomitaste",
-      "rantolando",
-      "l'ultima delle bestie",
-      "in cerca di cibo",
-    )(
-      gif"rphjb_VomitasteAnimaGif.mp4",
-      vid"rphjb_VomitasteAnima.mp4",
-      mp3"rphjb_VomitasteAnima.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "\\banima\\b".r.tr(5)
-    )(
-      gif"rphjb_VomitasteAnimaGif.mp4",
-      vid"rphjb_VomitasteAnima.mp4",
-      mp3"rphjb_VomitasteAnima.mp3",
-      vid"rphjb_AnimaGarageVarazze.mp4",
-      gif"rphjb_ColpirannoAnimaGif.mp4",
-      vid"rphjb_ColpirannoAnima.mp4",
-      mp3"rphjb_ColpirannoAnima.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "benissimo e malissimo",
-      "la cosa migliore"
-    )(
-      gif"rphjb_BenissimoEMalissimoGif.mp4",
-      vid"rphjb_BenissimoEMalissimo.mp4",
-      mp3"rphjb_BenissimoEMalissimo.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "vi (assicuro|colpiranno)".r.tr(11),
-      "in realtà non esiste"
-    )(
-      gif"rphjb_ColpirannoAnimaGif.mp4",
-      vid"rphjb_ColpirannoAnima.mp4",
-      mp3"rphjb_ColpirannoAnima.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "freddie mercury"
-    )(
-      vid"rphjb_NelRettoBrianMay.mp4",
-      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
-      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "brian may",
-      "non è (uno )?stolto".r.tr(12),
-      "spranga",
-      "nel retto"
-    )(
-      vid"rphjb_NelRettoBrianMay.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "mic drop",
-      "microfono",
-      "🎤",
-      "🎙",
-    )(
-      gif"rphjb_MicDrop.mp4",
-      vid"rphjb_NelRettoBrianMay.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "james senese",
-      "elio d'anna"
-    )(
-      vid"rphjb_MusicaNapoletanaRockLista.mp4",
-      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
-      vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "merola",
-      "murolo",
-      "nino d'angelo",
-      "bennato",
-      "pino daniele",
-      "gli showmen",
-      "città frontale",
-      "battitori selvaggi",
-      "il cervello",
-      "napoli centrale",
-      "enzo (abitabile|granagnello)".r.tr(14),
-      "joe amoruso",
-      "ernesto vitolo",
-      "tullio de piscopo",
-    )(
-      vid"rphjb_MusicaNapoletanaRockLista.mp4",
-      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F]("progressiv[oe]".r.tr(11))(
-      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
-      vid"rphjb_MusicaEtichetteWhiskey.mp4",
-      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
-      vid"rphjb_Regressive.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "blues"
-    )(
-      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
-      vid"rphjb_MusicaEtichetteWhiskey.mp4",
-      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
-      vid"rphjb_Blues.mp4",
-      vid"rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "whiskey"
-    )(
-      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
-      vid"rphjb_MusicaEtichetteWhiskey.mp4",
-      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
-      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "etichette"
-    )(
-      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
-      vid"rphjb_MusicaEtichetteWhiskey.mp4",
-      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
-      vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
-      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "jazz",
-      "musica (sinfonica|acustica)".r.tr(15)
-    )(
-      gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
-      vid"rphjb_MusicaEtichetteWhiskey.mp4",
-      mp3"rphjb_MusicaEtichetteWhiskey.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "consideravo degli amici",
-      "inchinatevi",
-      "che avete fatto voi?",
-      "passaggio terreno",
-      "criticare",
-      "trasportatori",
-      "doganieri",
-    )(
-      vid"rphjb_ExAmiciReMetalloTrasportatori.mp4",
-      mp3"rphjb_ExAmiciReMetalloTrasportatori.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "tempo libero",
-      "flotta navale",
-      "(secondo|doppio) lavoro".r.tr(13),
-      "gioco infernale"
-    )(
-      vid"rphjb_CapitanoMarinaMilitareSecondoLavoro.mp4",
-      mp3"rphjb_CapitanoMarinaMilitareSecondoLavoro.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "su youtube"
-    )(
-      vid"rphjb_EsperimentoSuYoutube.mp4",
-      mp3"rphjb_EsperimentoSuYoutube.mp3",
-      gif"rphjb_EsperimentoSuYoutubeGif.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "co(gl|j)ione([- ]co(gl|j)ione)+"
-    )(
-      vid"rphjb_FrocioCoglione.mp4",
-      mp3"rphjb_FrocioCoglione.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "sconvolto"
-    )(
-      gif"rphjb_SconvoltoGif.mp4",
-      vid"rphjb_Sconvolto.mp4",
-      mp3"rphjb_Sconvolto.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "incazzat",
-      "pi[uù] siete felici".r.tr(16)
-    )(
-      gif"rphjb_PiuIncazzatoPiuFeliciMortacciVostriGif.mp4",
-      vid"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp4",
-      mp3"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "w[e]+[l]+[a]+".r.tr(4)
-    )(
-      vid"rphjb_WelaMyFriends.mp4",
-      vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4",
-      gif"rphjb_WelaCiaoSonoRichardBensonGif.mp4",
-      vid"rphjb_WelaCiaoSonoRichardBenson.mp4",
-      mp3"rphjb_WelaCiaoSonoRichardBenson.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "richard benson"
-    )(
-      gif"rphjb_WelaCiaoSonoRichardBensonGif.mp4",
-      vid"rphjb_WelaCiaoSonoRichardBenson.mp4",
-      mp3"rphjb_WelaCiaoSonoRichardBenson.mp3"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "\\bmetal\\b".r.tr(5)
-    )(
-      gif"rphjb_Metal.mp4",
-      gif"rphjb_IlMartel.mp4",
-      vid"rphjb_SonyVaMaleMetalRock.mp4",
-      mp3"rphjb_SonyVaMaleMetalRock.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "sony",
-      "\\bbond[s]?\\b".r.tr(4),
-      "azion(i|ario)".r.tr(6),
-      "obbligazioni",
-      "in tutti i campi",
-      "va male",
-      "hanno chiamato me"
-    )(
-      vid"rphjb_SonyVaMaleMetalRock.mp4",
-      mp3"rphjb_SonyVaMaleMetalRock.mp3",
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "in preghiera",
-      "desertici"
-    )(
-      vid"rphjb_IlBastoneDiGesu.mp4",
-      mp3"rphjb_IlBastoneDiGesu.mp3"
     )
   )
 

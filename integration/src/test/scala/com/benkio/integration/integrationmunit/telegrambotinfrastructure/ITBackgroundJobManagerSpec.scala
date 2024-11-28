@@ -1,6 +1,7 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
-import telegramium.bots.client.Method
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock
+
 import telegramium.bots.high.Api
 import little.time.CronSchedule
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
@@ -21,9 +22,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId: UUID = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
   val botName                  = "botname"
-  given api: Api[IO] = new Api[IO] {
-    def execute[Res](method: Method[Res]): IO[Res] = IO(???)
-  }
+  given api: Api[IO] = new ApiMock
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,

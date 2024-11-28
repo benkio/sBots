@@ -1,8 +1,9 @@
 package com.benkio.richardphjbensonbot
 
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import telegramium.bots.client.Method
+
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -41,9 +42,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         replyToMessage: Boolean
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
-  given api: Api[IO] = new Api[IO] {
-    def execute[Res](method: Method[Res]): IO[Res] = IO(???)
-  }
+  given api: Api[IO]            = new ApiMock
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(RichardPHJBensonBot.botName)
   val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,

@@ -1,8 +1,9 @@
 package com.benkio.youtuboanchei0bot
 
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import telegramium.bots.client.Method
+
 import telegramium.bots.high.Api
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -37,9 +38,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
         replyToMessage: Boolean
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
-  given api: Api[IO] = new Api[IO] {
-    def execute[Res](method: Method[Res]): IO[Res] = IO(???)
-  }
+  given api: Api[IO]            = new ApiMock
   given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
   val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
