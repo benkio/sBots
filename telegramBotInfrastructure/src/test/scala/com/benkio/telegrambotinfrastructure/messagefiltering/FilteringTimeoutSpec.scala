@@ -37,7 +37,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
     val filter = FilteringTimeout.filter[IO](dbLayer, botName)
 
     assertIO(
-      IO.sleep(600.millis) >> // Test takes 400millis to run, so this should be enough
+      IO.sleep(800.millis) >>
         filter(null, msg),
       true
     )

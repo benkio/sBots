@@ -369,6 +369,68 @@ object ABarberoBot {
     )(
       mp3"abar_Gobeto.mp3"
     ),
+    ReplyBundleMessage.textToMp3[F](
+      "mussolini",
+      "fascismo",
+      "fatto cose buone"
+    )(
+      mp3"abar_Mussolini.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "premio di maggioranza",
+      "legge (acerbo|elettorale)",
+      "parlamento",
+      "maggioranza assoluta",
+      "camicie nere",
+      "listone mussolini",
+      "(trenta|30) maggio"
+    )(
+      mp3"abar_LeggeAcerbo.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "alla fiera",
+      "dei cazzi",
+      "e coglioni",
+      "affare"
+    )(
+      mp3"abar_LaVogliaDeiCazzi.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "dichiarazione di guerra",
+      "è stata (presentata/consegnata)",
+      "palazzo venezia",
+      "ambasciatori"
+    )(
+      mp3"abar_DichiarazioneDiGuerra.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "schiavetti",
+      "facevano sesso",
+      "me lo sono fatto",
+      "divertentissima"
+    )(
+      mp3"abar_CosaDivertentissima.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "ebrei",
+      "bibbia",
+      "diaspora",
+      "mitologia",
+      "religione",
+      "antico testamento"
+    )(
+      mp3"abar_Bibbia.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "excelsior",
+      "belle epoque",
+      "nel progresso",
+      "benessere",
+      "\\b1914\\b".r.tr(4),
+      "\\b1915\\b".r.tr(4)
+    )(
+      mp3"abar_BelleEpoqueProgresso.mp3"
+    )
   )
 
   def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
