@@ -241,7 +241,6 @@ object Audio {
       "cosa preferisci",
       "ragazzetta",
       "carne bianca",
-      "carne saporita"
     )(
       mp3"rphjb_RagazzettaCarne.mp3"
     ),

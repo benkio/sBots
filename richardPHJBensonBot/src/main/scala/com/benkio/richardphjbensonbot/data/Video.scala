@@ -415,7 +415,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "distruggere il proprio sesso",
-      "ammaestrare il dolore"
     )(
       vid"rphjb_AmmaestrareIlDolore.mp4"
     ),
@@ -524,11 +523,6 @@ object Video {
       "impara a sputare"
     )(
       vid"rphjb_ImparaASputareMignottaSchifose.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "aiutatemi"
-    )(
-      vid"rphjb_Aiutatemi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "brescia"
@@ -894,13 +888,6 @@ object Video {
     )(
       vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "sfuggono",
-      "\\bpols[io]\\b".r.tr(5),
-      "\\borolog[io]\\b".r.tr(7)
-    )(
-      vid"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "cambia canale"
@@ -2005,12 +1992,6 @@ object Video {
       vid"rphjb_SfumatoGrandeRichiesta.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "tosse",
-      "scusate"
-    )(
-      vid"rphjb_ScusateEssereUmanoTosse.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "ringrazio molto",
       "persone attente",
       "tipo cazzuto",
@@ -2268,6 +2249,11 @@ object Video {
     )(
       vid"rphjb_ParteDiRomeo.mp4",
       vid"rphjb_DaHollywood.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "come mai"
+    )(
+      vid"rphjb_ComeMai.mp4"
     )
   )
 }

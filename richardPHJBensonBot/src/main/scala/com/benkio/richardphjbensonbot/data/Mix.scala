@@ -176,6 +176,8 @@ object Mix {
       mp3"rphjb_DentiScazzottata.mp3",
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaBambiniBiondi2.mp4",
+      mp3"rphjb_StoriaBambiniBiondi2.mp3",
       vid"rphjb_StoriaNapoliBambinaMutande.mp4",
       mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
       vid"rphjb_ParteDiRomeo.mp4"
@@ -188,6 +190,7 @@ object Mix {
       mp3"rphjb_Audeuirbitaim.mp3",
       mp3"rphjb_Audeuirbitaim2.mp3",
       vid"rphjb_Audeuirbitaim.mp4",
+      gif"rphjb_AudeuirbitaimGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "micetta",
@@ -575,7 +578,9 @@ object Mix {
       vid"rphjb_VitaNemico.mp4",
       vid"rphjb_VitaNemico2.mp4",
       vid"rphjb_VitaNemico3.mp4",
-      vid"rphjb_VitaNemicoCervello.mp4"
+      vid"rphjb_VitaNemicoCervello.mp4",
+      mp3"rphjb_PoesiaDolcezzaViolenta.mp3",
+      vid"rphjb_PoesiaDolcezzaViolenta.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "permettere"
@@ -596,7 +601,9 @@ object Mix {
     )(
       mp3"rphjb_Terribile.mp3",
       vid"rphjb_Terribile.mp4",
-      gif"rphjb_TerribileGif.mp4"
+      gif"rphjb_TerribileGif.mp4",
+      vid"rphjb_Audeuirbitaim.mp4",
+      gif"rphjb_AudeuirbitaimGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "napoli"
@@ -606,6 +613,8 @@ object Mix {
       vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4",
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaBambiniBiondi2.mp4",
+      mp3"rphjb_StoriaBambiniBiondi2.mp3",
       vid"rphjb_StoriaNapoliBambinaMutande.mp4",
       mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
       vid"rphjb_MusicaNapoletanaRockLista.mp4",
@@ -653,7 +662,10 @@ object Mix {
       mp3"rphjb_ChitarraZuggherada.mp3",
       vid"rphjb_ChitarraZuccherada.mp4",
       mp3"rphjb_ChitarraZuccheroAlgheVino.mp3",
-      vid"rphjb_AssoloBasso.mp4"
+      vid"rphjb_AssoloBasso.mp4",
+      mp3"rphjb_AllucinanteAssolo.mp3",
+      vid"rphjb_AllucinanteAssolo.mp4",
+      gif"rphjb_AllucinanteAssoloGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\b(g|c)a(b|p)i(d|t)o\\b".r.tr(6),
@@ -895,7 +907,8 @@ object Mix {
       "mentre lavoro"
     )(
       gif"rphjb_NonVoglioNessunoGif.mp4",
-      vid"rphjb_NonVoglioNessuno.mp4"
+      vid"rphjb_NonVoglioNessuno.mp4",
+      vid"rphjb_NonApriteQuellaPorta.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "peggio del peggio"
@@ -917,7 +930,10 @@ object Mix {
     )(
       vid"rphjb_DiciottoAnni.mp4",
       vid"rphjb_DiciottoAnni2.mp4",
-      gif"rphjb_DiciottoAnniGif.mp4"
+      gif"rphjb_DiciottoAnniGif.mp4",
+      gif"rphjb_Avremo18anniPerSempreGif.mp4",
+      vid"rphjb_Avremo18anniPerSempre.mp4",
+      mp3"rphjb_Avremo18anniPerSempre.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "(cinque|5) dita".r.tr(6),
@@ -930,7 +946,9 @@ object Mix {
       vid"rphjb_SonoAttentoVaTuttoBeneAttagliatoTempo5DitaPugno.mp4",
       gif"rphjb_5DitaRivoltaGif.mp4",
       vid"rphjb_5DitaRivolta.mp4",
-      mp3"rphjb_5DitaRivolta.mp3"
+      mp3"rphjb_5DitaRivolta.mp3",
+      mp3"rphjb_PoesiaDolcezzaViolenta.mp3",
+      vid"rphjb_PoesiaDolcezzaViolenta.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "rivolta"
@@ -1342,7 +1360,10 @@ object Mix {
     )(
       gif"rphjb_Allucinante.mp4",
       vid"rphjb_DentiScazzottata.mp4",
-      mp3"rphjb_DentiScazzottata.mp3"
+      mp3"rphjb_DentiScazzottata.mp3",
+      mp3"rphjb_AllucinanteAssolo.mp3",
+      vid"rphjb_AllucinanteAssolo.mp4",
+      gif"rphjb_AllucinanteAssoloGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "scusatemi per i denti",
@@ -1396,6 +1417,8 @@ object Mix {
     )(
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaBambiniBiondi2.mp4",
+      mp3"rphjb_StoriaBambiniBiondi2.mp3",
       vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4",
       vid"rphjb_MusicaNapoletanaRockLista.mp4",
       mp3"rphjb_MusicaNapoletanaRockLista.mp3",
@@ -1405,7 +1428,9 @@ object Mix {
       "bambini biondi"
     )(
       vid"rphjb_StoriaBambiniBiondi.mp4",
-      mp3"rphjb_StoriaBambiniBiondi.mp3"
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaBambiniBiondi2.mp4",
+      mp3"rphjb_StoriaBambiniBiondi2.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "balletto di bronzo",
@@ -1413,7 +1438,9 @@ object Mix {
       vid"rphjb_MusicaNapoletanaRockLista.mp4",
       mp3"rphjb_MusicaNapoletanaRockLista.mp3",
       vid"rphjb_StoriaBambiniBiondi.mp4",
-      mp3"rphjb_StoriaBambiniBiondi.mp3"
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaBambiniBiondi2.mp4",
+      mp3"rphjb_StoriaBambiniBiondi2.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "commesso viaggiatore",
@@ -1742,7 +1769,9 @@ object Mix {
       vid"rphjb_PoesiaArtistiImpiegati.mp4",
       vid"rphjb_CanzonettePoesieAuschwitzCervello.mp4",
       vid"rphjb_PoesiaDirittoPaura.mp4",
-      mp3"rphjb_PoesiaNatalizia.mp3"
+      mp3"rphjb_PoesiaNatalizia.mp3",
+      mp3"rphjb_PoesiaDolcezzaViolenta.mp3",
+      vid"rphjb_PoesiaDolcezzaViolenta.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "merry christmas",
@@ -2248,7 +2277,9 @@ object Mix {
       vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4",
       vid"rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4",
       vid"rphjb_StoriaBambiniBiondi.mp4",
-      mp3"rphjb_StoriaBambiniBiondi.mp3"
+      mp3"rphjb_StoriaBambiniBiondi.mp3",
+      vid"rphjb_StoriaBambiniBiondi2.mp4",
+      mp3"rphjb_StoriaBambiniBiondi2.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "inizio della fine"
@@ -2946,6 +2977,96 @@ object Mix {
       vid"rphjb_UominiPecora.mp4",
       mp3"rphjb_UominiPecora.mp3",
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "emule"
+    )(
+      mp3"rphjb_Emule.mp3",
+      vid"rphjb_Emule.mp4",
+      gif"rphjb_EmuleGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "milioni"
+    )(
+      mp3"rphjb_Milioni.mp3",
+      vid"rphjb_Milioni.mp4",
+      gif"rphjb_MilioniGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "va curato",
+      "aiutatelo"
+    )(
+      mp3"rphjb_TosseInvernaleAiutatelo.mp3",
+      vid"rphjb_TosseInvernaleAiutatelo.mp4",
+      gif"rphjb_TosseInvernaleAiutateloGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "aiutatemi"
+    )(
+      vid"rphjb_Aiutatemi.mp4",
+      mp3"rphjb_TosseInvernaleAiutatelo.mp3",
+      vid"rphjb_TosseInvernaleAiutatelo.mp4",
+      gif"rphjb_TosseInvernaleAiutateloGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tosse",
+      "scusate"
+    )(
+      vid"rphjb_ScusateEssereUmanoTosse.mp4",
+      mp3"rphjb_TosseInvernaleAiutatelo.mp3",
+      vid"rphjb_TosseInvernaleAiutatelo.mp4",
+      gif"rphjb_TosseInvernaleAiutateloGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "detesto",
+      "con tutto me stesso",
+      "adesione",
+      "(levare|togliere) dalle palle".r.tr(18)
+    )(
+      mp3"rphjb_LiDetestoLevareDallePalle.mp3",
+      vid"rphjb_LiDetestoLevareDallePalle.mp4",
+      gif"rphjb_LiDetestoLevareDallePalleGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "carne saporita"
+    )(
+      mp3"rphjb_RagazzettaCarne.mp3",
+      mp3"rphjb_CarneFrescaSaporita.mp3",
+      vid"rphjb_CarneFrescaSaporita.mp4",
+      gif"rphjb_CarneFrescaSaporitaGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "carne (dura|vecchia|fresca)".r.tr(10),
+    )(
+      mp3"rphjb_CarneFrescaSaporita.mp3",
+      vid"rphjb_CarneFrescaSaporita.mp4",
+      gif"rphjb_CarneFrescaSaporitaGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "dolcezza violenta",
+      "gemiti da bestia",
+      "sembravano fate",
+      "distingue la tua razza",
+      "tutto quello che c'è"
+    )(
+      mp3"rphjb_PoesiaDolcezzaViolenta.mp3",
+      vid"rphjb_PoesiaDolcezzaViolenta.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ammaestrare il dolore"
+    )(
+      vid"rphjb_AmmaestrareIlDolore.mp4",
+      mp3"rphjb_PoesiaDolcezzaViolenta.mp3",
+      vid"rphjb_PoesiaDolcezzaViolenta.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sfuggono",
+      "\\bpols[io]\\b".r.tr(5),
+      "\\borolog[io]\\b".r.tr(7)
+    )(
+      vid"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4",
+      mp3"rphjb_PoesiaDolcezzaViolenta.mp3",
+      vid"rphjb_PoesiaDolcezzaViolenta.mp4",
     )
   )
 
