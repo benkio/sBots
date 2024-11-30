@@ -188,6 +188,7 @@ object Mix {
       mp3"rphjb_Audeuirbitaim.mp3",
       mp3"rphjb_Audeuirbitaim2.mp3",
       vid"rphjb_Audeuirbitaim.mp4",
+      gif"rphjb_AudeuirbitaimGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "micetta",
@@ -596,7 +597,9 @@ object Mix {
     )(
       mp3"rphjb_Terribile.mp3",
       vid"rphjb_Terribile.mp4",
-      gif"rphjb_TerribileGif.mp4"
+      gif"rphjb_TerribileGif.mp4",
+      vid"rphjb_Audeuirbitaim.mp4",
+      gif"rphjb_AudeuirbitaimGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "napoli"
@@ -653,7 +656,10 @@ object Mix {
       mp3"rphjb_ChitarraZuggherada.mp3",
       vid"rphjb_ChitarraZuccherada.mp4",
       mp3"rphjb_ChitarraZuccheroAlgheVino.mp3",
-      vid"rphjb_AssoloBasso.mp4"
+      vid"rphjb_AssoloBasso.mp4",
+      mp3"rphjb_AllucinanteAssolo.mp3",
+      vid"rphjb_AllucinanteAssolo.mp4",
+      gif"rphjb_AllucinanteAssoloGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\b(g|c)a(b|p)i(d|t)o\\b".r.tr(6),
@@ -1342,7 +1348,10 @@ object Mix {
     )(
       gif"rphjb_Allucinante.mp4",
       vid"rphjb_DentiScazzottata.mp4",
-      mp3"rphjb_DentiScazzottata.mp3"
+      mp3"rphjb_DentiScazzottata.mp3",
+      mp3"rphjb_AllucinanteAssolo.mp3",
+      vid"rphjb_AllucinanteAssolo.mp4",
+      gif"rphjb_AllucinanteAssoloGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "scusatemi per i denti",
