@@ -526,11 +526,6 @@ object Video {
       vid"rphjb_ImparaASputareMignottaSchifose.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "aiutatemi"
-    )(
-      vid"rphjb_Aiutatemi.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "brescia"
     )(
       vid"rphjb_BresciaMiPiace.mp4"
@@ -2005,12 +2000,6 @@ object Video {
       vid"rphjb_SfumatoGrandeRichiesta.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "tosse",
-      "scusate"
-    )(
-      vid"rphjb_ScusateEssereUmanoTosse.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "ringrazio molto",
       "persone attente",
       "tipo cazzuto",
@@ -2268,6 +2257,11 @@ object Video {
     )(
       vid"rphjb_ParteDiRomeo.mp4",
       vid"rphjb_DaHollywood.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "come mai"
+    )(
+      vid"rphjb_ComeMai.mp4"
     )
   )
 }

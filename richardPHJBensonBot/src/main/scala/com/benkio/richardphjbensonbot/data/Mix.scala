@@ -901,7 +901,8 @@ object Mix {
       "mentre lavoro"
     )(
       gif"rphjb_NonVoglioNessunoGif.mp4",
-      vid"rphjb_NonVoglioNessuno.mp4"
+      vid"rphjb_NonVoglioNessuno.mp4",
+      vid"rphjb_NonApriteQuellaPorta.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "peggio del peggio"
@@ -923,7 +924,10 @@ object Mix {
     )(
       vid"rphjb_DiciottoAnni.mp4",
       vid"rphjb_DiciottoAnni2.mp4",
-      gif"rphjb_DiciottoAnniGif.mp4"
+      gif"rphjb_DiciottoAnniGif.mp4",
+      gif"rphjb_Avremo18anniPerSempreGif.mp4",
+      vid"rphjb_Avremo18anniPerSempre.mp4",
+      mp3"rphjb_Avremo18anniPerSempre.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "(cinque|5) dita".r.tr(6),
@@ -2955,7 +2959,46 @@ object Mix {
       vid"rphjb_UominiPecora.mp4",
       mp3"rphjb_UominiPecora.mp3",
       vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "emule"
+    )(
+      mp3"rphjb_Emule.mp3",
+      vid"rphjb_Emule.mp4",
+      gif"rphjb_EmuleGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "milioni"
+    )(
+      mp3"rphjb_Milioni.mp3",
+      vid"rphjb_Milioni.mp4",
+      gif"rphjb_MilioniGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "va curato",
+      "aiutatelo"
+    )(
+      mp3"rphjb_TosseInvernaleAiutatelo.mp3",
+      vid"rphjb_TosseInvernaleAiutatelo.mp4",
+      gif"rphjb_TosseInvernaleAiutateloGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "aiutatemi"
+    )(
+      vid"rphjb_Aiutatemi.mp4",
+      mp3"rphjb_TosseInvernaleAiutatelo.mp3",
+      vid"rphjb_TosseInvernaleAiutatelo.mp4",
+      gif"rphjb_TosseInvernaleAiutateloGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tosse",
+      "scusate"
+    )(
+      vid"rphjb_ScusateEssereUmanoTosse.mp4",
+      mp3"rphjb_TosseInvernaleAiutatelo.mp3",
+      vid"rphjb_TosseInvernaleAiutatelo.mp4",
+      gif"rphjb_TosseInvernaleAiutateloGif.mp4"
+    ),
   )
 
 }
