@@ -415,7 +415,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "distruggere il proprio sesso",
-      "ammaestrare il dolore"
     )(
       vid"rphjb_AmmaestrareIlDolore.mp4"
     ),
@@ -889,13 +888,6 @@ object Video {
     )(
       vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "sfuggono",
-      "\\bpols[io]\\b".r.tr(5),
-      "\\borolog[io]\\b".r.tr(7)
-    )(
-      vid"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "cambia canale"
