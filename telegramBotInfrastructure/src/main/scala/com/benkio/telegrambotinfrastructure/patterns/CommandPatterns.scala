@@ -166,16 +166,12 @@ Input as query string:
         ignoreMessagePrefix: Option[String]
     ): String => F[List[String]] =
       t =>
-        mdr
-          .collectFirstSome(replyBundle =>
-            replyBundle.trigger match {
-              case TextTrigger(textTriggers @ _*) if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
-                Some(replyBundle)
-              case _ => None
-            }
-          )
-          .fold(s"No matching trigger for $t".pure[F])(ReplyBundle.prettyPrint)
-          .map(List(_))
+        val matches = mdr
+          .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
+          .sortBy(_._1)(Trigger.orderingInstance.reverse)
+        if matches.isEmpty
+        then List(s"No matching trigger for $t").pure[F]
+        else matches.traverse { case (_, rbm) => ReplyBundle.prettyPrint(rbm) }
 
     // TODO: Return the closest match on failure
     def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](
