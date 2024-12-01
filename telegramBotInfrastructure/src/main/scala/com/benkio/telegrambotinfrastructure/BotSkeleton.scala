@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
@@ -77,27 +78,37 @@ trait BotSkeleton[F[_]] {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
+  private[telegrambotinfrastructure] def selectReplyBundle(
+      resourceAccess: ResourceAccess[F],
+      msg: Message
+  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleMessage[F]]] =
+    messageRepliesDataF.map(
+      _.mapFilter(messageReplyBundle =>
+        MessageMatches
+          .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
+          .filter(_ => FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg))
+      ).sortBy(_._1)(Trigger.orderingInstance.reverse)
+        .headOption
+        .map(_._2)
+    )
+
   def messageLogic(
       resourceAccess: ResourceAccess[F],
       msg: Message
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
-    for {
-      messageRepliesData <- messageRepliesDataF
-      replies <- messageRepliesData
-        .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
-        .filter(_ => FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg))
-        .traverse(replyBundle =>
-          log
-            .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
-            ReplyBundle
-              .computeReplyBundle[F](
-                replyBundle,
-                msg,
-                filteringMatchesMessages(using Applicative[F])(replyBundle, msg),
-                resourceAccess
-              )
-        )
-    } yield replies
+    selectReplyBundle(resourceAccess, msg).flatMap(
+      _.traverse(replyBundle =>
+        log
+          .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
+          ReplyBundle
+            .computeReplyBundle[F](
+              replyBundle,
+              msg,
+              filteringMatchesMessages(using Applicative[F])(replyBundle, msg),
+              resourceAccess
+            )
+      )
+    )
 
   def commandLogic(
       resourceAccess: ResourceAccess[F],
