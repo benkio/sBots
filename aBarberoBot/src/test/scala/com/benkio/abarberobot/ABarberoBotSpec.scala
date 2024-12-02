@@ -1,6 +1,6 @@
 package com.benkio.abarberobot
 
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 
@@ -39,7 +39,6 @@ class ABarberoBotSpec extends BaseBotSpec {
         replyToMessage: Boolean
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
-  given api: Api[IO] = new ApiMock
 
   val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
     emptyDBLayer.dbSubscription,

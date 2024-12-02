@@ -1,6 +1,6 @@
 package com.benkio.xahleebot
 
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
@@ -38,7 +38,6 @@ class XahLeeBotSpec extends BaseBotSpec {
         replyToMessage: Boolean
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
-  given api: Api[IO] = new ApiMock
 
   val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,
