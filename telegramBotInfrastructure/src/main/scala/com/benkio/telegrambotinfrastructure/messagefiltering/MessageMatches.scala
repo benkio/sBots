@@ -41,9 +41,13 @@ object MessageMatches {
       case (_, _, _: LeftMemberTrigger.type, _) if message.leftChatMember.nonEmpty =>
         Some((LeftMemberTrigger, replyBundleMessage))
       case (_, ContainsOnce, TextTrigger(triggers @ _*), Some(messageText)) =>
-        triggers.find(TextTriggerValue.matchValue(_, messageText.toLowerCase())).map(t => (TextTrigger(t), replyBundleMessage))
-      case (_, ContainsAll, TextTrigger(triggers @ _*), Some(messageText)) if triggers.forall(TextTriggerValue.matchValue(_, messageText.toLowerCase())) =>
-        Some((replyBundleMessage.trigger, replyBundleMessage))
+        triggers
+          .sorted(TextTriggerValue.orderingInstance.reverse)
+          .find(TextTriggerValue.matchValue(_, messageText.toLowerCase()))
+          .map(t => (TextTrigger(t), replyBundleMessage))
+      case (_, ContainsAll, TextTrigger(triggers @ _*), Some(messageText))
+          if triggers.forall(TextTriggerValue.matchValue(_, messageText.toLowerCase())) =>
+        Some((TextTrigger(triggers.sorted(TextTriggerValue.orderingInstance.reverse)*), replyBundleMessage))
       case _ => None
     }
 }

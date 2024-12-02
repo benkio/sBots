@@ -32,6 +32,10 @@ object TextTriggerValue {
     case StringTextTriggerValue(v)   => source `contains` v
   }
 
+  given orderingInstance: Ordering[TextTriggerValue] = new Ordering[TextTriggerValue] {
+    def compare(triggerValue1: TextTriggerValue, triggerValue2: TextTriggerValue) =
+      triggerValue1.length.compare(triggerValue2.length)
+  }
   given showInstance: Show[TextTriggerValue] = Show.show(ttv =>
     ttv match {
       case StringTextTriggerValue(t)   => t
@@ -92,7 +96,7 @@ object Trigger {
   given Encoder[MessageTrigger] = deriveEncoder[MessageTrigger]
 
   def triggerLongestString(trigger: Trigger): Int = trigger match {
-    case TextTrigger(lt @ _*)      => lt.map(_.length).max
+    case TextTrigger(lt @ _*)      => lt.max(TextTriggerValue.orderingInstance).length
     case MessageLengthTrigger(_)   => 0
     case _: NewMemberTrigger.type  => 0
     case _: LeftMemberTrigger.type => 0
