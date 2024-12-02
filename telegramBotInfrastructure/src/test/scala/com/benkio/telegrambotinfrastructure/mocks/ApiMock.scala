@@ -17,6 +17,7 @@ class ApiMock extends Api[IO] {
 }
 
 object ApiMock {
+  given Api[IO] = new ApiMock
   val expectedResponses: Map[String, Json] = Map(
     "sendChatAction" -> Json.False,
     "sendMessage" -> Message(

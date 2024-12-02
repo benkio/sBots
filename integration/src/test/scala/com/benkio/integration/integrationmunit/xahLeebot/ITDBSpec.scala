@@ -1,6 +1,6 @@
 package com.benkio.integration.integrationmunit.xahleebot
 
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 
 import io.circe.parser.decode
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
@@ -30,7 +30,6 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   val botName: String = "botname"
   val botPrefix: String = "xah"
-  given api: Api[IO] = new ApiMock
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botName)
   val resourceAccessMock        = new ResourceAccessMock(List.empty)
   val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(

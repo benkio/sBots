@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import log.effect.LogLevels
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
@@ -19,7 +19,6 @@ import io.circe.syntax.*
 
 class ReplyBundleSpec extends CatsEffectSuite {
 
-  given api: Api[IO]       = new ApiMock
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     def reply[F[_]: Async: LogWriter: Api](

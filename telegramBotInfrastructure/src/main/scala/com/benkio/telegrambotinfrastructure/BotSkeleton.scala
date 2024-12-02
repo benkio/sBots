@@ -79,7 +79,6 @@ trait BotSkeleton[F[_]] {
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   private[telegrambotinfrastructure] def selectReplyBundle(
-      resourceAccess: ResourceAccess[F],
       msg: Message
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleMessage[F]]] =
     messageRepliesDataF.map(
@@ -96,7 +95,7 @@ trait BotSkeleton[F[_]] {
       resourceAccess: ResourceAccess[F],
       msg: Message
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
-    selectReplyBundle(resourceAccess, msg).flatMap(
+    selectReplyBundle(msg).flatMap(
       _.traverse(replyBundle =>
         log
           .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>

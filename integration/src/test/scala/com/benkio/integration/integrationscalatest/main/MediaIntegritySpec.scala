@@ -1,6 +1,6 @@
 package com.benkio.integration.integrationscalatest.main
 
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import cats.effect.IO
 import cats.effect.Resource
 import cats.effect.unsafe.implicits.global
@@ -29,7 +29,6 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
 
   case class FixtureParam(fixture: DBFixtureResources)
 
-  given Api[IO] = new ApiMock
   given LogWriter[IO]                    = consoleLogUpToLevel(LogLevels.Info)
   val initialFixture: DBFixtureResources = DBFixture.fixtureSetup(null)
 
