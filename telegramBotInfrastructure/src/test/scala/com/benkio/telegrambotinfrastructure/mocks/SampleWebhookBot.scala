@@ -6,11 +6,12 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import cats.Applicative
 import cats.effect.IO
 import cats.effect.Sync
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.*
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -27,7 +28,8 @@ class SampleWebhookBot(
     val backgroundJobManager: BackgroundJobManager[IO],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-)(using logWriterIO: LogWriter[IO]) extends BotSkeletonWebhook[IO](uri, path, webhookCertificate, resourceAccess) {
+)(using logWriterIO: LogWriter[IO])
+    extends BotSkeletonWebhook[IO](uri, path, webhookCertificate, resourceAccess) {
   override def resourceAccess(using syncIO: Sync[IO]): ResourceAccess[IO] = resourceAccess
   override def postComputation(using appIO: Applicative[IO]): Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
@@ -40,7 +42,58 @@ class SampleWebhookBot(
   override val botPrefix: String                   = "sbot"
   override val ignoreMessagePrefix: Option[String] = Some("!")
   override val triggerFilename: String             = "sbot_triggers.txt"
-  override val triggerListUri: Uri                 = uri"https://github.com/benkio/sBots/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
+  override val triggerListUri: Uri =
+    uri"https://github.com/benkio/sBots/blob/master/richardPHJBensonBot/rphjb_triggers.txt"
+
+  override def messageRepliesDataF(using
+      applicativeIO: Applicative[IO],
+      log: LogWriter[IO]
+  ): IO[List[ReplyBundleMessage[IO]]] = List(
+    ReplyBundleMessage.textToMp3[IO](
+      "cosa preferisci",
+      "ragazzetta",
+      "carne bianca",
+    )(
+      mp3"rphjb_RagazzettaCarne.mp3"
+    ),
+    ReplyBundleMessage.textToVideo[IO](
+      "brooklyn",
+      "carne morta",
+      "manhattan",
+      "cane da guerra",
+    )(
+      vid"rphjb_PrimoSbaglio.mp4",
+    ),
+    ReplyBundleMessage.textToVideo[IO](
+      "non siamo niente",
+      "siamo esseri umani",
+      "sudore",
+      "pelle",
+      "zozzeria",
+      "carne",
+      "sperma",
+      "da togliere",
+      "levare d[ia] dosso".r.tr(15),
+      "non contiamo niente",
+    )(
+      vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[IO](
+      "carne saporita"
+    )(
+      mp3"rphjb_RagazzettaCarne.mp3",
+      mp3"rphjb_CarneFrescaSaporita.mp3",
+      vid"rphjb_CarneFrescaSaporita.mp4",
+      gif"rphjb_CarneFrescaSaporitaGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[IO](
+      "carne (dura|vecchia|fresca)".r.tr(10),
+    )(
+      mp3"rphjb_CarneFrescaSaporita.mp3",
+      vid"rphjb_CarneFrescaSaporita.mp4",
+      gif"rphjb_CarneFrescaSaporitaGif.mp4"
+    )
+  ).pure[IO]
 }
 
 object SampleWebhookBot {
@@ -49,18 +102,20 @@ object SampleWebhookBot {
 
   def apply(): IO[SampleWebhookBot] = {
     val resourceAccessMock = new ResourceAccessMock()
-    val dbLayerMock = DBLayerMock.mock("SampleWebhookBot")
+    val dbLayerMock        = DBLayerMock.mock("SampleWebhookBot")
     val ioBackgroundJobManagerMock = BackgroundJobManager(
-          dbSubscription = dbLayerMock.dbSubscription,
-          dbShow = dbLayerMock.dbShow,
-          resourceAccess = resourceAccessMock,
-          botName = "SampleWebhookBot"
+      dbSubscription = dbLayerMock.dbSubscription,
+      dbShow = dbLayerMock.dbShow,
+      resourceAccess = resourceAccessMock,
+      botName = "SampleWebhookBot"
     )
     ioBackgroundJobManagerMock.map(backgroundJobManagerMock =>
-    new SampleWebhookBot(
-      uri = uri"https://localhost",
-      resourceAccess = resourceAccessMock,
-      dbLayer = dbLayerMock,
-      backgroundJobManager = backgroundJobManagerMock
-    ))}
+      new SampleWebhookBot(
+        uri = uri"https://localhost",
+        resourceAccess = resourceAccessMock,
+        dbLayer = dbLayerMock,
+        backgroundJobManager = backgroundJobManagerMock
+      )
+    )
+  }
 }

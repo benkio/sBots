@@ -28,7 +28,7 @@ object GenerateTriggers extends IOApp {
 
     for
       triggersStringList <- Resource.eval(
-        triggers.traverse(ReplyBundle.prettyPrint)
+        triggers.traverse(_.prettyPrint())
       )
       pw <- Resource.fromAutoCloseable(IO(new PrintWriter(triggerFilesPath)))
     yield pw.write(triggersStringList.mkString(""))

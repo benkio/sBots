@@ -99,7 +99,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
       ),
       reply = MediaReply[IO](mediaFiles = inputMediafile.pure[IO])
     )
-    val result: IO[String] = ReplyBundle.prettyPrint(replyBundleInput)
+    val result: IO[String] = replyBundleInput.prettyPrint()
 
     assertIO(
       result,
