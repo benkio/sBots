@@ -1,30 +1,23 @@
 package com.benkio.integration.integrationmunit.xahleebot
 
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-
-import io.circe.parser.decode
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
-import scala.io.Source
-import java.io.File
-
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
-
-import telegramium.bots.high.Api
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import com.benkio.xahleebot.CommandRepliesData
-
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-
-import com.benkio.integration.DBFixture
-import munit.CatsEffectSuite
-
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.integration.DBFixture
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.model.MediaFile
-import doobie.implicits.*
+import com.benkio.telegrambotinfrastructure.model.MediaFileSource
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.xahleebot.CommandRepliesData
+import doobie.implicits.*
+import io.circe.parser.decode
+import java.io.File
+import munit.CatsEffectSuite
+import scala.io.Source
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 

@@ -1,7 +1,6 @@
 package com.benkio.richardphjbensonbot.data
 
 import cats.Applicative
-
 import com.benkio.telegrambotinfrastructure.model.*
 
 object Audio {
