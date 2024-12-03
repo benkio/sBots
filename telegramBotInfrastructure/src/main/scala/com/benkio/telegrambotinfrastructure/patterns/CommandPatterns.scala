@@ -171,7 +171,7 @@ Input as query string:
           .sortBy(_._1)(Trigger.orderingInstance.reverse)
         if matches.isEmpty
         then List(s"No matching trigger for $t").pure[F]
-        else matches.traverse { case (_, rbm) => ReplyBundle.prettyPrint(rbm) }
+        else matches.traverse { case (_, rbm) => rbm.prettyPrint() }
 
     // TODO: Return the closest match on failure
     def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](

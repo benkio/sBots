@@ -1,17 +1,18 @@
 package com.benkio.telegrambotinfrastructure
 
-import log.effect.LogLevels
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogWriter
+import cats.effect.IO
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
-import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.model.*
-import telegramium.bots.Chat
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import java.time.Instant
-import telegramium.bots.Message
+import log.effect.LogLevels
+import log.effect.LogWriter
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import munit.CatsEffectSuite
-import cats.syntax.all.*
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 class BotSkeletonSpec extends CatsEffectSuite {
 
@@ -38,11 +39,14 @@ class BotSkeletonSpec extends CatsEffectSuite {
         vid"rphjb_CarneFrescaSaporita.mp4",
         gif"rphjb_CarneFrescaSaporitaGif.mp4"
       )
-      .some
 
     for
       sampleWebhookBot <- SampleWebhookBot()
-      result           <- sampleWebhookBot.selectReplyBundle(inputMessage)
-    yield assertEquals(result, expected)
+      resultOpt        <- sampleWebhookBot.selectReplyBundle(inputMessage)
+      result <- resultOpt.fold(Throwable("BotSkeletonSpec expected Some, got None").raiseError[IO, String]) {
+        _.prettyPrint()
+      }
+      expectedPP <- expected.prettyPrint()
+    yield assertEquals(result, expectedPP)
   }
 }
