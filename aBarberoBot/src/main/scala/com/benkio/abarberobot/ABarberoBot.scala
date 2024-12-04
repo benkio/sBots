@@ -509,7 +509,7 @@ object ABarberoBot {
       gif"abar_SisiAMorte.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "francesi"
+      "\\bfrancesi\\b".r.tr(8)
     )(
       gif"abar_Francesi.gif"
     ),
