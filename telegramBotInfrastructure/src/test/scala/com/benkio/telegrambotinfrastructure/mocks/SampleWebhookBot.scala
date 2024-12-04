@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
+import cats.effect.Async
 import log.effect.LogLevels
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 
@@ -94,6 +95,16 @@ class SampleWebhookBot(
       gif"rphjb_CarneFrescaSaporitaGif.mp4"
     )
   ).pure[IO]
+
+  override def commandRepliesDataF(using asyncIO: Async[IO], log: LogWriter[IO]): IO[List[ReplyBundleCommand[IO]]] =
+    List(
+      ReplyBundleCommand(
+        trigger = CommandTrigger("testcommand"),
+        reply = TextReply.fromList[IO](
+          "test command reply"
+        )(false)
+      )
+    ).pure[IO]
 }
 
 object SampleWebhookBot {

@@ -91,6 +91,20 @@ trait BotSkeleton[F[_]] {
         .map(_._2)
     )
 
+  private[telegrambotinfrastructure] def selectCommandReplyBundle(
+      msg: Message
+  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleCommand[F]]] =
+    commandRepliesDataF(using asyncF, log).map(commandRepliesData =>
+      for {
+        text <- msg.text
+        result <- commandRepliesData.find(rbc =>
+          text.startsWith(s"/${rbc.trigger.command} ")
+            || text == s"/${rbc.trigger.command}"
+            || text.startsWith(s"/${rbc.trigger.command}@${botName}")
+        )
+      } yield result
+    )
+
   def messageLogic(
       resourceAccess: ResourceAccess[F],
       msg: Message
@@ -113,27 +127,17 @@ trait BotSkeleton[F[_]] {
       resourceAccess: ResourceAccess[F],
       msg: Message
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
-    for {
-      commandRepliesData <- commandRepliesDataF(using asyncF, log)
-      commandMatch = for {
-        text <- msg.text
-        result <- commandRepliesData.find(rbc =>
-          text.startsWith(s"/${rbc.trigger.command} ")
-            || text == s"/${rbc.trigger.command}"
-            || text.startsWith(s"/${rbc.trigger.command}@${botName}")
-        )
-      } yield result
-      commands <- commandMatch
-        .traverse(commandReply =>
-          summon[LogWriter[F]].info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>
-            ReplyBundle.computeReplyBundle[F](
-              commandReply,
-              msg,
-              Applicative[F].pure(true),
-              resourceAccess
-            )
-        )
-    } yield commands
+    selectCommandReplyBundle(msg).flatMap(
+      _.traverse(commandReply =>
+        log.info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>
+          ReplyBundle.computeReplyBundle[F](
+            commandReply,
+            msg,
+            Applicative[F].pure(true),
+            resourceAccess
+          )
+      )
+    )
 
   def botLogic(
       resourceAccess: ResourceAccess[F],
