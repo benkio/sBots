@@ -1,8 +1,7 @@
 package com.benkio.telegrambotinfrastructure.telegram
 
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import telegramium.bots.high.Api
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import log.effect.LogLevels
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogWriter
@@ -15,7 +14,6 @@ import munit._
 
 class TelegramReplySpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-  given Api[IO]            = new ApiMock
 
   test("TelegramReply[Text] reply should work as expected") {
     val message = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))

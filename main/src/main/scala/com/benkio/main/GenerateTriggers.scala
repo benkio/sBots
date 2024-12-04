@@ -1,19 +1,18 @@
 package com.benkio.main
 
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.calandrobot.CalandroBot
-import com.benkio.abarberobot.ABarberoBot
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import cats.effect.ExitCode
+import cats.effect.IO
+import cats.effect.IOApp
 import cats.effect.Resource
+import cats.implicits._
+import com.benkio.abarberobot.ABarberoBot
+import com.benkio.calandrobot.CalandroBot
+import com.benkio.m0sconibot.M0sconiBot
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
+import com.benkio.telegrambotinfrastructure.model.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
-import cats.effect.ExitCode
-import cats.implicits._
 import java.io._
-import cats.effect.IO
-
-import cats.effect.IOApp
 
 object GenerateTriggers extends IOApp {
 
@@ -28,7 +27,7 @@ object GenerateTriggers extends IOApp {
 
     for
       triggersStringList <- Resource.eval(
-        triggers.traverse(ReplyBundle.prettyPrint)
+        triggers.traverse(_.prettyPrint())
       )
       pw <- Resource.fromAutoCloseable(IO(new PrintWriter(triggerFilesPath)))
     yield pw.write(triggersStringList.mkString(""))

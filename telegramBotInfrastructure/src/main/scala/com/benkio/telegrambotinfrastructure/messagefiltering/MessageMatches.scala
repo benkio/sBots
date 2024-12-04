@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.*
 import io.circe.generic.semiauto.*
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
@@ -27,21 +28,26 @@ object MessageMatches {
   given Encoder[MessageMatches] = Encoder[MessageMatches](mm => Json.fromString(mm.toString))
 
   def doesMatch[F[_]](
-      replyMessageBundle: ReplyBundleMessage[F],
+      replyBundleMessage: ReplyBundleMessage[F],
       message: Message,
       ignoreMessagePrefix: Option[String]
-  ): Boolean =
-    (ignoreMessagePrefix, replyMessageBundle.matcher, replyMessageBundle.trigger, message.text) match {
-      case (Some(prefix), _, _, Some(messageText)) if messageText.startsWith(prefix) => false
-      case (_, ContainsOnce, TextTrigger(triggers @ _*), Some(messageText))
-          if triggers.exists(TextTriggerValue.matchValue(_, messageText.toLowerCase())) =>
-        true
+  ): Option[(Trigger, ReplyBundleMessage[F])] =
+    (ignoreMessagePrefix, replyBundleMessage.matcher, replyBundleMessage.trigger, message.text) match {
+      case (Some(prefix), _, _, Some(messageText)) if messageText.startsWith(prefix) => None
+      case (_, _, MessageLengthTrigger(messageLength), Some(messageText)) if messageText.size >= messageLength =>
+        Some((MessageLengthTrigger(messageLength), replyBundleMessage))
+      case (_, _, _: NewMemberTrigger.type, _) if message.newChatMembers.nonEmpty =>
+        Some((NewMemberTrigger, replyBundleMessage))
+      case (_, _, _: LeftMemberTrigger.type, _) if message.leftChatMember.nonEmpty =>
+        Some((LeftMemberTrigger, replyBundleMessage))
+      case (_, ContainsOnce, TextTrigger(triggers @ _*), Some(messageText)) =>
+        triggers
+          .sorted(TextTriggerValue.orderingInstance.reverse)
+          .find(TextTriggerValue.matchValue(_, messageText.toLowerCase()))
+          .map(t => (TextTrigger(t), replyBundleMessage))
       case (_, ContainsAll, TextTrigger(triggers @ _*), Some(messageText))
           if triggers.forall(TextTriggerValue.matchValue(_, messageText.toLowerCase())) =>
-        true
-      case (_, _, MessageLengthTrigger(messageLength), Some(messageText)) if messageText.size >= messageLength => true
-      case (_, _, _: NewMemberTrigger.type, _) if message.newChatMembers.nonEmpty                              => true
-      case (_, _, _: LeftMemberTrigger.type, _) if message.leftChatMember.nonEmpty                             => true
-      case _                                                                                                   => false
+        Some((TextTrigger(triggers.sorted(TextTriggerValue.orderingInstance.reverse)*), replyBundleMessage))
+      case _ => None
     }
 }

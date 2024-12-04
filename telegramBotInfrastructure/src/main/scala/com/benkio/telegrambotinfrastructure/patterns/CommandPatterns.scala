@@ -1,22 +1,21 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import cats.effect.Async
-import cats.implicits.*
 import cats.Applicative
 import cats.ApplicativeThrow
 import cats.MonadThrow
+import cats.effect.Async
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.*
 import com.benkio.telegrambotinfrastructure.resources.db.*
+import java.util.UUID
 import log.effect.LogWriter
 import org.http4s.Uri
-import telegramium.bots.Message
-
-import java.util.UUID
 import scala.util.Random
 import scala.util.Try
+import telegramium.bots.Message
 
 object CommandPatterns {
 
@@ -166,16 +165,12 @@ Input as query string:
         ignoreMessagePrefix: Option[String]
     ): String => F[List[String]] =
       t =>
-        mdr
-          .collectFirstSome(replyBundle =>
-            replyBundle.trigger match {
-              case TextTrigger(textTriggers @ _*) if MessageMatches.doesMatch(replyBundle, m, ignoreMessagePrefix) =>
-                Some(replyBundle)
-              case _ => None
-            }
-          )
-          .fold(s"No matching trigger for $t".pure[F])(ReplyBundle.prettyPrint)
-          .map(List(_))
+        val matches = mdr
+          .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
+          .sortBy(_._1)(Trigger.orderingInstance.reverse)
+        if matches.isEmpty
+        then List(s"No matching trigger for $t").pure[F]
+        else matches.traverse { case (_, rbm) => rbm.prettyPrint() }
 
     // TODO: Return the closest match on failure
     def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](

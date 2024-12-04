@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
@@ -77,35 +78,24 @@ trait BotSkeleton[F[_]] {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  def messageLogic(
-      resourceAccess: ResourceAccess[F],
+  private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
-  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
-    for {
-      messageRepliesData <- messageRepliesDataF
-      replies <- messageRepliesData
-        .find(MessageMatches.doesMatch(_, msg, ignoreMessagePrefix))
-        .filter(_ => FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg))
-        .traverse(replyBundle =>
-          log
-            .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
-            ReplyBundle
-              .computeReplyBundle[F](
-                replyBundle,
-                msg,
-                filteringMatchesMessages(using Applicative[F])(replyBundle, msg),
-                resourceAccess
-              )
-        )
-    } yield replies
+  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleMessage[F]]] =
+    messageRepliesDataF.map(
+      _.mapFilter(messageReplyBundle =>
+        MessageMatches
+          .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
+          .filter(_ => FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg))
+      ).sortBy(_._1)(Trigger.orderingInstance.reverse)
+        .headOption
+        .map(_._2)
+    )
 
-  def commandLogic(
-      resourceAccess: ResourceAccess[F],
+  private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
-  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
-    for {
-      commandRepliesData <- commandRepliesDataF(using asyncF, log)
-      commandMatch = for {
+  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleCommand[F]]] =
+    commandRepliesDataF(using asyncF, log).map(commandRepliesData =>
+      for {
         text <- msg.text
         result <- commandRepliesData.find(rbc =>
           text.startsWith(s"/${rbc.trigger.command} ")
@@ -113,17 +103,41 @@ trait BotSkeleton[F[_]] {
             || text.startsWith(s"/${rbc.trigger.command}@${botName}")
         )
       } yield result
-      commands <- commandMatch
-        .traverse(commandReply =>
-          summon[LogWriter[F]].info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>
-            ReplyBundle.computeReplyBundle[F](
-              commandReply,
+    )
+
+  def messageLogic(
+      resourceAccess: ResourceAccess[F],
+      msg: Message
+  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
+    selectReplyBundle(msg).flatMap(
+      _.traverse(replyBundle =>
+        log
+          .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
+          ReplyBundle
+            .computeReplyBundle[F](
+              replyBundle,
               msg,
-              Applicative[F].pure(true),
+              filteringMatchesMessages(using Applicative[F])(replyBundle, msg),
               resourceAccess
             )
-        )
-    } yield commands
+      )
+    )
+
+  def commandLogic(
+      resourceAccess: ResourceAccess[F],
+      msg: Message
+  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
+    selectCommandReplyBundle(msg).flatMap(
+      _.traverse(commandReply =>
+        log.info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>
+          ReplyBundle.computeReplyBundle[F](
+            commandReply,
+            msg,
+            Applicative[F].pure(true),
+            resourceAccess
+          )
+      )
+    )
 
   def botLogic(
       resourceAccess: ResourceAccess[F],

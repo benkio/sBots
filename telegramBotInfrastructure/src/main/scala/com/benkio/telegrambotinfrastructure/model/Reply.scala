@@ -1,12 +1,11 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import com.benkio.telegrambotinfrastructure.model.toText
 import cats.Applicative
-import cats.syntax.all.*
 import cats.effect.SyncIO
+import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.model.toText
 import io.circe.*
 import io.circe.generic.semiauto.*
-
 import telegramium.bots.Message
 
 sealed trait Reply[F[_]] {

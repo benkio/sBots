@@ -1,19 +1,18 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import telegramium.bots.high.Api
-import log.effect.LogWriter
-
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import cats.*
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.model.Reply.given
 import com.benkio.telegrambotinfrastructure.model.Reply.*
+import com.benkio.telegrambotinfrastructure.model.Reply.given
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import io.circe.*
 import io.circe.generic.semiauto.*
+import log.effect.LogWriter
+import telegramium.bots.Message
+import telegramium.bots.high.Api
 
 sealed trait ReplyBundle[F[_]] {
 
@@ -114,18 +113,19 @@ object ReplyBundle {
   given orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
     Trigger.orderingInstance.contramap(_.trigger)
 
-  def prettyPrint[F[_]: Applicative](rb: ReplyBundle[F])(using triggerShow: Show[Trigger]): F[String] = {
-    val triggerStrings: List[String] = triggerShow.show(rb.trigger).split('\n').toList
-    val replyString: F[List[String]] = rb.reply.prettyPrint
-    val result = replyString.map(x =>
-      x.zipAll(triggerStrings, "", "")
-        .map { case (mfs, trs) =>
-          s"${mfs.padTo(25, ' ')} | $trs"
-        }
-        .mkString("\n")
-    )
-    result.map(r => ("-" * 50) + s"\n$r\n" + ("-" * 50) + "\n")
-  }
+  extension [F[_]: Applicative](rb: ReplyBundle[F])
+    def prettyPrint()(using triggerShow: Show[Trigger]): F[String] = {
+      val triggerStrings: List[String] = triggerShow.show(rb.trigger).split('\n').toList
+      val replyString: F[List[String]] = rb.reply.prettyPrint
+      val result = replyString.map(x =>
+        x.zipAll(triggerStrings, "", "")
+          .map { case (mfs, trs) =>
+            s"${mfs.padTo(25, ' ')} | $trs"
+          }
+          .mkString("\n")
+      )
+      result.map(r => ("-" * 50) + s"\n$r\n" + ("-" * 50) + "\n")
+    }
 
   def containsMediaReply[F[_]](r: ReplyBundle[F]): Boolean =
     r.reply match {

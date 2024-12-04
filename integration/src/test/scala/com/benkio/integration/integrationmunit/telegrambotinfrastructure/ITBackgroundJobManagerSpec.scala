@@ -1,28 +1,23 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock
-
-import telegramium.bots.high.Api
-import little.time.CronSchedule
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
+import cats.effect.IO
+import cats.effect.Resource
+import cats.effect.kernel.Outcome
+import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import java.time.Instant
-import com.benkio.telegrambotinfrastructure.model.Subscription
 import java.util.UUID
-import cats.effect.IO
-
-import cats.effect.Resource
-import com.benkio.integration.DBFixture
+import little.time.CronSchedule
 import munit.CatsEffectSuite
-
-import cats.effect.kernel.Outcome
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId: UUID = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
   val botName                  = "botname"
-  given api: Api[IO] = new ApiMock
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
