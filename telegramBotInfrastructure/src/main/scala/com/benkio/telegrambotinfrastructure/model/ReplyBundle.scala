@@ -1,19 +1,18 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import telegramium.bots.high.Api
-import log.effect.LogWriter
-
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import cats.*
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.model.Reply.given
 import com.benkio.telegrambotinfrastructure.model.Reply.*
+import com.benkio.telegrambotinfrastructure.model.Reply.given
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import io.circe.*
 import io.circe.generic.semiauto.*
+import log.effect.LogWriter
+import telegramium.bots.Message
+import telegramium.bots.high.Api
 
 sealed trait ReplyBundle[F[_]] {
 

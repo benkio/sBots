@@ -4,7 +4,6 @@ import cats.Show
 import cats.implicits.*
 import io.circe.*
 import io.circe.generic.semiauto.*
-
 import scala.util.matching.Regex
 
 ///////////////////////////////////////////////////////////////////////////////
