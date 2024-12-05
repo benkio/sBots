@@ -1500,7 +1500,8 @@ object YouTuboAncheI0Bot {
       vid"ytai_NoVideoHoFattoBeneCompagnia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "venticinque (milioni|mila euro)".r.tr(19)
+      "(25|venticinque) (milioni|mila euro)".r.tr(10),
+      "visualizzazioni"
     )(
       gif"ytai_25MilioniVisualizzazioni25MilaEuroGif.mp4",
       vid"ytai_25MilioniVisualizzazioni25MilaEuro.mp4",

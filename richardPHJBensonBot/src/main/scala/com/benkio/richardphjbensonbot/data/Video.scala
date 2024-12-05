@@ -860,7 +860,8 @@ object Video {
       vid"rphjb_AncheLaRabbiaHaUnCuore4.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "trovamelo"
+      "trovamelo",
+      "me l'ha trovato"
     )(
       vid"rphjb_AngeloTrovamelo.mp4"
     ),
