@@ -285,7 +285,6 @@ object Gif {
       gif"rphjb_IlBongo.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "inserirlo su internet",
       "immagini ama(d|t)oriali".r.tr(19)
     )(
       gif"rphjb_Internet.mp4"

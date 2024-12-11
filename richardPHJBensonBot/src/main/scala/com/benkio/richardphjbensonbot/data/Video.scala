@@ -50,7 +50,6 @@ object Video {
       vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "eric clapton",
       "uo[m]+ini d'affari".r.tr(15),
       "andò in america",
       "non c'è la benzina",
@@ -842,7 +841,6 @@ object Video {
       vid"rphjb_PrimoSbaglio.mp4",
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sulla punta della lingua",
       "agisse da sola",
       "che me lo (in)?presti".r.tr(16),
       "cani al cimitero",
@@ -1693,7 +1691,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "gruppi (nuovi|che spaccano il culo)".r.tr(13),
-      "chitarrista",
       "intramezzate",
       "ibride",
       "contrappunt[oi]".r.tr(12),
@@ -1935,11 +1932,6 @@ object Video {
       vid"rphjb_QuandoGuardateDentroVoiStessiNonTrovateNessunAltroSoloVoi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "potrei raccontare"
-    )(
-      vid"rphjb_QuanteCoseViPotreiRaccontare.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "distrutto totalmente"
     )(
       vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
@@ -1972,7 +1964,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "rolling stones",
-      "jimi hendrix",
       "ribellioni",
       "rivoluzioni",
       "il sangue",

@@ -180,7 +180,10 @@ object Mix {
       mp3"rphjb_StoriaBambiniBiondi2.mp3",
       vid"rphjb_StoriaNapoliBambinaMutande.mp4",
       mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
-      vid"rphjb_ParteDiRomeo.mp4"
+      vid"rphjb_ParteDiRomeo.mp4",
+      vid"rphjb_TroppeStorieRaccontare.mp4",
+      gif"rphjb_TroppeStorieRaccontareGif.mp4",
+      mp3"rphjb_TroppeStorieRaccontare.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -287,7 +290,8 @@ object Mix {
       vid"rphjb_Escerto.mp4",
       vid"rphjb_NoRabbiaRidereMeNeFrego.mp4",
       vid"rphjb_GiovencaVarzettaSposoChissenefrega.mp4",
-      vid"rphjb_NonMiInteressano.mp4"
+      vid"rphjb_NonMiInteressano.mp4",
+      mp3"rphjb_NonMiInteressa.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ultimi"
@@ -2423,10 +2427,13 @@ object Mix {
       vid"rphjb_DaHollywood.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "[cg]hi[td]a[r]+is[td]a [bp]referi[dt]o".r.tr(21)
+      "[cg]hi[td]a[r]+is[td][ai]".r.tr(10)
     )(
       gif"rphjb_Chitarrista.mp4",
-      vid"rphjb_PeggioDelPeggio.mp4"
+      vid"rphjb_PeggioDelPeggio.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4",
+      vid"rphjb_ChitarristiProsciuttoOrecchie.mp4",
+      mp3"rphjb_ChitarristiProsciuttoOrecchie.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "sentendo male"
@@ -3067,6 +3074,80 @@ object Mix {
       vid"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4",
       mp3"rphjb_PoesiaDolcezzaViolenta.mp3",
       vid"rphjb_PoesiaDolcezzaViolenta.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "bibbia",
+      "giacobbe",
+      "gli angeli",
+      "gradin[oi]".r.tr(7),
+      "sergio",
+      "stefano",
+      "babilonia",
+      "non s[ie] capisce".r.tr(14),
+      "quale ruolo"
+    )(
+      mp3"rphjb_AngeliDiGiacobbe.mp3",
+      vid"rphjb_AngeliDiGiacobbe.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "raccontare"
+    )(
+      vid"rphjb_QuanteCoseViPotreiRaccontare.mp4",
+      vid"rphjb_TroppeStorieRaccontare.mp4",
+      gif"rphjb_TroppeStorieRaccontareGif.mp4",
+      mp3"rphjb_TroppeStorieRaccontare.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sulla punta della lingua"
+    )(
+      vid"rphjb_TroppeStorieRaccontare.mp4",
+      gif"rphjb_TroppeStorieRaccontareGif.mp4",
+      mp3"rphjb_TroppeStorieRaccontare.mp3",
+      vid"rphjb_CaniAlCimitero.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "internet"
+    )(
+      gif"rphjb_Internet.mp4",
+      vid"rphjb_ReteInternettaria.mp4",
+      gif"rphjb_ReteInternettariaGif.mp4",
+      mp3"rphjb_ReteInternettaria.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "una rete (fitta|internettaria)?".r.tr(9)
+    )(
+      gif"rphjb_Internet.mp4",
+      vid"rphjb_ReteInternettaria.mp4",
+      gif"rphjb_ReteInternettariaGif.mp4",
+      mp3"rphjb_ReteInternettaria.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "eric clapton",
+    )(
+      vid"rphjb_EricClaptonDrogaUominiAffari.mp4",
+      vid"rphjb_ChitarristiProsciuttoOrecchie.mp4",
+      mp3"rphjb_ChitarristiProsciuttoOrecchie.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "jimi hendrix"
+    )(
+      vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4",
+      vid"rphjb_ChitarristiProsciuttoOrecchie.mp4",
+      mp3"rphjb_ChitarristiProsciuttoOrecchie.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "gilmour",
+      "sono sempre quelli",
+      "jimmy page",
+      "blackmore",
+      "knopfler",
+      "nelle palle di vostro padre",
+      "c'è molto di più",
+      "dove stavate",
+      "prosciutto nelle orecchie"
+    )(
+      vid"rphjb_ChitarristiProsciuttoOrecchie.mp4",
+      mp3"rphjb_ChitarristiProsciuttoOrecchie.mp3",
     )
   )
 
