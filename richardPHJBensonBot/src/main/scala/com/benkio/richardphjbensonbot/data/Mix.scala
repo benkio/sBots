@@ -123,7 +123,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "[gc]o[b]+e[l]+ini".r.tr(8),
-      "co[b]+olidi".r.tr(8),
+      "co[b]+oldi".r.tr(8),
       "elfi",
       "\\bnani\\b".r.tr(4),
       "ossa dei morti"
