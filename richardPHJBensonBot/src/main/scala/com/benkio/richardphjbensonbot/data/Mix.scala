@@ -1658,7 +1658,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "sony",
       "\\bbond[s]?\\b".r.tr(4),
-      "azion(i|ario)".r.tr(6),
+      "\\bazion(i|ario)\\b".r.tr(6),
       "obbligazioni",
       "in tutti i campi",
       "va male",
