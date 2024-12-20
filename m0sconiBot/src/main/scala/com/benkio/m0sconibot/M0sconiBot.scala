@@ -216,6 +216,8 @@ object M0sconiBot {
     ReplyBundleMessage.textToMedia[F](
       "antonio fosso",
       "neo brigatista",
+      "rigurgito",
+      "terrorismo"
     )(
       mp3"mos_AntonioFossoCarteColla.mp3"
     ),
