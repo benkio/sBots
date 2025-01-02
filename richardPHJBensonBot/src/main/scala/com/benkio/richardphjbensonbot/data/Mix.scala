@@ -3195,6 +3195,14 @@ object Mix {
     )(
       vid"rphjb_PienoDiDischi.mp4",
       gif"rphjb_EPienoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "musicalmente",
+      "non capisce un cazzo",
+      "tanta gente"
+    )(
+      vid"rphjb_SvegiareMusicalmente.mp4",
+      mp3"rphjb_SvegiareMusicalmente.mp3"
     )
   )
 
