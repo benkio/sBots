@@ -19,6 +19,7 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
         cache: 'sbt'
+    - uses: sbt/setup-sbt@v1
     - name: assembly
       run: |
         sed -i 's!\"\.\./botDB\.sqlite3"!\"botDB\.sqlite3\"!g' /home/runner/work/sBots/sBots/main/src/main/resources/application.conf
