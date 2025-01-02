@@ -990,7 +990,10 @@ object Mix {
       vid"rphjb_IlVenerdi.mp4",
       vid"rphjb_TempoAlTempo.mp4",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
-      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4",
+      vid"rphjb_SteveVai.mp4",
+      mp3"rphjb_SteveVai.mp3",
+      gif"rphjb_SteveVaiGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "discoteca laziale"
@@ -1088,7 +1091,10 @@ object Mix {
       vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4",
       vid"rphjb_FesteACasaNicolaArigliano.mp4",
       vid"rphjb_FeelingsSguardoPreghiera.mp4",
-      vid"rphjb_FeelingsSputo.mp4"
+      vid"rphjb_FeelingsSputo.mp4",
+      vid"rphjb_SteveVai.mp4",
+      mp3"rphjb_SteveVai.mp3",
+      gif"rphjb_SteveVaiGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(matto|pazzo)".r.tr(5)
@@ -1351,11 +1357,18 @@ object Mix {
       "corpicini",
       "da (succhiare|mangiare)".r.tr(11),
       "in jeans",
-      "scarpe da tennis",
       "vanno sempre bene",
       "m[ei] sta tutto bene".r.tr(17),
       "vita (rock|dura|violenta|piena di gioie|piena di ferite)".r.tr(9)
     )(
+      vid"rphjb_BisognoValletta.mp4",
+      mp3"rphjb_BisognoValletta.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "scarpe da tennis",
+    )(
+      vid"rphjb_GhentScarpeDaTennis.mp4",
+      mp3"rphjb_GhentScarpeDaTennis.mp3",
       vid"rphjb_BisognoValletta.mp4",
       mp3"rphjb_BisognoValletta.mp3"
     ),
@@ -1707,7 +1720,10 @@ object Mix {
       mp3"rphjb_Alle22.mp3",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
       vid"rphjb_Alle22MercolediTelevita.mp4",
-      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4",
+      vid"rphjb_SteveVai.mp4",
+      mp3"rphjb_SteveVai.mp3",
+      gif"rphjb_SteveVaiGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "appuntamento"
@@ -1850,7 +1866,12 @@ object Mix {
       mp3"rphjb_GrandeRegistaLucaDiNoia.mp3",
       vid"rphjb_GrandeRegistaLucaDiNoia.mp4",
       vid"rphjb_LucaDiNoiaGrandeRegista.mp4",
-      vid"rphjb_LucaDiNoiaRegia.mp4"
+      vid"rphjb_LucaDiNoiaRegia.mp4",
+      vid"rphjb_GrandeRegistaLucaDiNoia2.mp4",
+      mp3"rphjb_GrandeRegistaLucaDiNoia2.mp3",
+      gif"rphjb_GrandeRegistaLucaDiNoia2Gif.mp4",
+      vid"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp4",
+      mp3"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "angelo",
@@ -1982,7 +2003,8 @@ object Mix {
       gif"rphjb_TelefonataPilotata.mp4",
       gif"rphjb_Telefonata.mp4",
       vid"rphjb_DifficoltaAmicizieTelefonata.mp4",
-      vid"rphjb_TelefonataPappalardoFanculo.mp4"
+      vid"rphjb_TelefonataPappalardoFanculo.mp4",
+      vid"rphjb_TelefonataInLinea.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "nudo([ -]nudo)+".r.tr(4),
@@ -3148,6 +3170,80 @@ object Mix {
     )(
       vid"rphjb_ChitarristiProsciuttoOrecchie.mp4",
       mp3"rphjb_ChitarristiProsciuttoOrecchie.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "chi è"
+    )(
+      gif"rphjb_QuestaPersonaScusate.mp4",
+      vid"rphjb_TelefonataInLinea.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ghent",
+      "albania"
+    )(
+      vid"rphjb_GhentPiattiAlbania.mp4",
+      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4",
+      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4",
+      vid"rphjb_GhentScarpeDaTennis.mp4",
+      mp3"rphjb_GhentScarpeDaTennis.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sponsor",
+      "sarcina",
+      "figuraccia"
+    )(
+      vid"rphjb_GhentScarpeDaTennis.mp4",
+      mp3"rphjb_GhentScarpeDaTennis.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "è pieno",
+    )(
+      vid"rphjb_PienoDiDischi.mp4",
+      gif"rphjb_EPienoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "musicalmente",
+      "non capisce un cazzo",
+      "tanta gente"
+    )(
+      vid"rphjb_SvegiareMusicalmente.mp4",
+      mp3"rphjb_SvegiareMusicalmente.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "caramell"
+    )(
+      vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4",
+      vid"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp4",
+      mp3"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "doti (tecniche|ingegneristiche)".r.tr(13),
+      "computer",
+      "aggeggi",
+      "bere un bicchiere d'acqua"
+    )(
+      vid"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp4",
+      mp3"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "lo sai fare"
+    )(
+      vid"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp4",
+      mp3"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp3",
+      gif"rphjb_OLoSaiFareONonLoSaiFareGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "non è semplice",
+      "(richiedo|voglio) il massimo",
+      "lavorante",
+      "non maschero",
+      "mascher(a|ina)".r.tr(8),
+      "veneziana",
+      "non c'è problema",
+      "fidatevi"
+    )(
+      vid"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp4",
+      mp3"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp3"
     )
   )
 

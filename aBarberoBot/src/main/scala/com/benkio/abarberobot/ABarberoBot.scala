@@ -430,6 +430,35 @@ object ABarberoBot {
       "\\b1915\\b".r.tr(4)
     )(
       mp3"abar_BelleEpoqueProgresso.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "\\bgoti\\b".r.tr(4),
+      "siamo (qui|dentro|tanti)".r.tr(9)
+    )(
+      mp3"abar_Goti.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "d'orleans",
+      "ateo",
+      "ateismo",
+      "irriveren",
+      "non crede in",
+      "bella figura",
+      "ostenta",
+      "\\borge\\b".r.tr(4),
+      "venerd[iì] santo".r.tr(13),
+      "il diavolo"
+    )(
+      mp3"abar_AteoIrriverente.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "dal mare",
+      "una bestia",
+      "bestemmia",
+      "del(l'orso| leone)",
+      "leopardo"
+    )(
+      mp3"abar_BestiaBestemmie.mp3"
     )
   )
 

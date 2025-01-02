@@ -16,6 +16,7 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
         cache: 'sbt'
+    - uses: sbt/setup-sbt@v1
     - name: Formatting
       run: |
         echo this workflow was triggered by ${{github.actor}}

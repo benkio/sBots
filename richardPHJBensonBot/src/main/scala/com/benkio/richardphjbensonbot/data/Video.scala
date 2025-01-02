@@ -1095,14 +1095,6 @@ object Video {
       vid"rphjb_FolliaQueenNo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "ghent",
-      "albania"
-    )(
-      vid"rphjb_GhentPiattiAlbania.mp4",
-      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4",
-      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "piatti",
     )(
       vid"rphjb_BiscionePiatti.mp4",
@@ -1519,7 +1511,6 @@ object Video {
       vid"rphjb_IlCervelloStaFondendoNonCapiscoUnCazzo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "è pieno",
       "dischi"
     )(
       vid"rphjb_PienoDiDischi.mp4"
@@ -2106,7 +2097,6 @@ object Video {
       vid"rphjb_StringerciLaManoNonTiConoscoSalutoMetalAbbracceremoForseMeriti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "caramelle",
       "succhiarvi",
       "fumarvi",
       "dominatore",
@@ -2246,6 +2236,11 @@ object Video {
       "come mai"
     )(
       vid"rphjb_ComeMai.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in linea"
+    )(
+      vid"rphjb_TelefonataInLinea.mp4"
     )
   )
 }
