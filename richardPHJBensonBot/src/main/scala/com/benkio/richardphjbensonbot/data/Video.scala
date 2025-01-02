@@ -2097,7 +2097,6 @@ object Video {
       vid"rphjb_StringerciLaManoNonTiConoscoSalutoMetalAbbracceremoForseMeriti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "caramelle",
       "succhiarvi",
       "fumarvi",
       "dominatore",

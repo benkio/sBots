@@ -1870,6 +1870,8 @@ object Mix {
       vid"rphjb_GrandeRegistaLucaDiNoia2.mp4",
       mp3"rphjb_GrandeRegistaLucaDiNoia2.mp3",
       gif"rphjb_GrandeRegistaLucaDiNoia2Gif.mp4",
+      vid"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp4",
+      mp3"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "angelo",
@@ -3206,6 +3208,42 @@ object Mix {
     )(
       vid"rphjb_SvegiareMusicalmente.mp4",
       mp3"rphjb_SvegiareMusicalmente.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "caramell"
+    )(
+      vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4",
+      vid"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp4",
+      mp3"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "doti (tecniche|ingegneristiche)".r.tr(13),
+      "computer",
+      "aggeggi",
+      "bere un bicchiere d'acqua"
+    )(
+      vid"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp4",
+      mp3"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "lo sai fare"
+    )(
+      vid"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp4",
+      mp3"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp3",
+      gif"rphjb_OLoSaiFareONonLoSaiFareGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "non è semplice",
+      "(richiedo|voglio) il massimo",
+      "lavorante",
+      "non maschero",
+      "mascher(a|ina)".r.tr(8),
+      "veneziana",
+      "non c'è problema",
+      "fidatevi"
+    )(
+      vid"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp4",
+      mp3"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp3"
     )
   )
 
