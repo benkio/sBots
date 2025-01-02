@@ -89,11 +89,6 @@ object Gif {
       gif"rphjb_PianoSuperioreCompete.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "chi è"
-    )(
-      gif"rphjb_QuestaPersonaScusate.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       ";)",
       "occhiolino",
       "wink",

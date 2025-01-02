@@ -1982,7 +1982,8 @@ object Mix {
       gif"rphjb_TelefonataPilotata.mp4",
       gif"rphjb_Telefonata.mp4",
       vid"rphjb_DifficoltaAmicizieTelefonata.mp4",
-      vid"rphjb_TelefonataPappalardoFanculo.mp4"
+      vid"rphjb_TelefonataPappalardoFanculo.mp4",
+      vid"rphjb_TelefonataInLinea.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "nudo([ -]nudo)+".r.tr(4),
@@ -3148,6 +3149,12 @@ object Mix {
     )(
       vid"rphjb_ChitarristiProsciuttoOrecchie.mp4",
       mp3"rphjb_ChitarristiProsciuttoOrecchie.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "chi è"
+    )(
+      gif"rphjb_QuestaPersonaScusate.mp4",
+      vid"rphjb_TelefonataInLinea.mp4"
     )
   )
 

@@ -2246,6 +2246,11 @@ object Video {
       "come mai"
     )(
       vid"rphjb_ComeMai.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in linea"
+    )(
+      vid"rphjb_TelefonataInLinea.mp4"
     )
   )
 }
