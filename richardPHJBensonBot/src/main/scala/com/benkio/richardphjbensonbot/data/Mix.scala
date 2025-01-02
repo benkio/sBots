@@ -990,7 +990,10 @@ object Mix {
       vid"rphjb_IlVenerdi.mp4",
       vid"rphjb_TempoAlTempo.mp4",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
-      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4",
+      vid"rphjb_SteveVai.mp4",
+      mp3"rphjb_SteveVai.mp3",
+      gif"rphjb_SteveVaiGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "discoteca laziale"
@@ -1088,7 +1091,10 @@ object Mix {
       vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4",
       vid"rphjb_FesteACasaNicolaArigliano.mp4",
       vid"rphjb_FeelingsSguardoPreghiera.mp4",
-      vid"rphjb_FeelingsSputo.mp4"
+      vid"rphjb_FeelingsSputo.mp4",
+      vid"rphjb_SteveVai.mp4",
+      mp3"rphjb_SteveVai.mp3",
+      gif"rphjb_SteveVaiGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(matto|pazzo)".r.tr(5)
@@ -1351,11 +1357,18 @@ object Mix {
       "corpicini",
       "da (succhiare|mangiare)".r.tr(11),
       "in jeans",
-      "scarpe da tennis",
       "vanno sempre bene",
       "m[ei] sta tutto bene".r.tr(17),
       "vita (rock|dura|violenta|piena di gioie|piena di ferite)".r.tr(9)
     )(
+      vid"rphjb_BisognoValletta.mp4",
+      mp3"rphjb_BisognoValletta.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "scarpe da tennis",
+    )(
+      vid"rphjb_GhentScarpeDaTennis.mp4",
+      mp3"rphjb_GhentScarpeDaTennis.mp3",
       vid"rphjb_BisognoValletta.mp4",
       mp3"rphjb_BisognoValletta.mp3"
     ),
@@ -1707,7 +1720,10 @@ object Mix {
       mp3"rphjb_Alle22.mp3",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
       vid"rphjb_Alle22MercolediTelevita.mp4",
-      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
+      vid"rphjb_UltimoListaUmaniVenerdì22.mp4",
+      vid"rphjb_SteveVai.mp4",
+      mp3"rphjb_SteveVai.mp3",
+      gif"rphjb_SteveVaiGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "appuntamento"
@@ -3155,6 +3171,24 @@ object Mix {
     )(
       gif"rphjb_QuestaPersonaScusate.mp4",
       vid"rphjb_TelefonataInLinea.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ghent",
+      "albania"
+    )(
+      vid"rphjb_GhentPiattiAlbania.mp4",
+      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4",
+      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4",
+      vid"rphjb_GhentScarpeDaTennis.mp4",
+      mp3"rphjb_GhentScarpeDaTennis.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sponsor",
+      "sarcina",
+      "figuraccia"
+    )(
+      vid"rphjb_GhentScarpeDaTennis.mp4",
+      mp3"rphjb_GhentScarpeDaTennis.mp3"
     )
   )
 

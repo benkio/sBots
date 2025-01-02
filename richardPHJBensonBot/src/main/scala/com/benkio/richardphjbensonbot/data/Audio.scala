@@ -292,9 +292,14 @@ object Audio {
     ReplyBundleMessage.textToMp3[F](
       "gelatina",
       "secchi d'acqua",
-      "fazzoletti",
       "sapone"
     )(
+      mp3"rphjb_GelatinaFazzolettiSecchiAcquaSapone.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "fazzoletti"
+    )(
+      mp3"rphjb_Fazzoletti.mp3",
       mp3"rphjb_GelatinaFazzolettiSecchiAcquaSapone.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
@@ -405,5 +410,12 @@ object Audio {
     )(
       mp3"rphjb_BaracconeFurgoneTelevisione.mp3"
     ),
+    ReplyBundleMessage.textToMp3[F](
+      "sperma",
+      "mio (fidanzato|ragazzo|moroso)".r.tr(10),
+      "capito che roba"
+    )(
+      mp3"rphjb_Fazzoletti.mp3"
+    )
   )
 }
