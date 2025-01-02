@@ -1866,7 +1866,10 @@ object Mix {
       mp3"rphjb_GrandeRegistaLucaDiNoia.mp3",
       vid"rphjb_GrandeRegistaLucaDiNoia.mp4",
       vid"rphjb_LucaDiNoiaGrandeRegista.mp4",
-      vid"rphjb_LucaDiNoiaRegia.mp4"
+      vid"rphjb_LucaDiNoiaRegia.mp4",
+      vid"rphjb_GrandeRegistaLucaDiNoia2.mp4",
+      mp3"rphjb_GrandeRegistaLucaDiNoia2.mp3",
+      gif"rphjb_GrandeRegistaLucaDiNoia2Gif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "angelo",
