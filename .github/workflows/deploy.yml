@@ -35,6 +35,9 @@ jobs:
       run: |
         install -m 600 -D /dev/null ~/.ssh/id_rsa
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+    - name: Check Java & Install it on Server
+      run: |
+        ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'if java --version; then 1; else sudo apt-get install openjdk-21-jdk; fi'"
     - name: Replace and Restart Bots
       run: |
         ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'java --version; killall java || true'"
