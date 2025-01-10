@@ -459,6 +459,20 @@ object ABarberoBot {
       "leopardo"
     )(
       mp3"abar_BestiaBestemmie.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "ignobile",
+      "inesperta",
+      "abietta",
+      "servile",
+      "cognizione (governo|giustizia|religione)".r.tr(18),
+      "carnali",
+      "lussuria",
+      "avarizia",
+      "arroganza",
+      "superbia"
+    )(
+      "abar_GenteIgnobile.mp3"
     )
   )
 
