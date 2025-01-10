@@ -1712,10 +1712,7 @@ object Mix {
     )(
       vid"rphjb_IlBastoneDiGesu.mp4",
       mp3"rphjb_IlBastoneDiGesu.mp3"
-    )
-  )
-
-  private def messageRepliesMixData3[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
+    ),
     ReplyBundleMessage.textToMedia[F](
       "il mio sbadiglio",
       "donna solo per un taglio",
@@ -2237,6 +2234,9 @@ object Mix {
       gif"rphjb_FacendoSoffrire.mp4",
       vid"rphjb_CosaCosaSuccessoMeNeVadoFacendoSoffrire.mp4"
     ),
+  )
+
+  private def messageRepliesMixData3[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
       "\\bn[o]{2,}!\\b".r.tr(3)
     )(
