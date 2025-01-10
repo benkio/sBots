@@ -3487,6 +3487,51 @@ object Mix {
     )(
       vid"rphjb_EmuleReteInternettariaSitoScoppia.mp4",
       mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "telecomando",
+      "rimanete (l[iì] )fermi".r.tr(14),
+      "tiziano ferro",
+      "nek",
+      "pausini",
+      "zucchero",
+      "celentano",
+      "massimo ranieri"
+    )(
+      mp3"rphjb_TelecomandoCambiareCanaleDischiNuovi.mp3",
+      vid"rphjb_TelecomandoCambiareCanaleDischiNuovi.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "arsenale",
+      "maglietta",
+      "giubbotti",
+      "mostri",
+      "pugnali",
+      "maschere",
+      "co[lr]telli".r.tr(8),
+      "non (l[iì] )vendo".r.tr(9)
+    )(
+      mp3"rphjb_MagliettaBiancaNonVendoArsenale.mp3",
+      vid"rphjb_MagliettaBiancaNonVendoArsenale.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "latte droga",
+      "solo gregge",
+      "gregge da discoteca",
+    )(
+      vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
+      mp3"rphjb_PoesiaAltroSenso.mp3",
+      vid"rphjb_PoesiaAltroSenso.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sintesi del sintetico",
+      "ecstasi",
+      "cannabinoidi",
+      "sconquassati",
+      "la realt[aà] sanguin[oò]".r.tr(18)
+    )(
+      mp3"rphjb_PoesiaAltroSenso.mp3",
+      vid"rphjb_PoesiaAltroSenso.mp4",
     )
   )
 
