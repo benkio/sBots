@@ -3263,7 +3263,22 @@ object Mix {
       gif"rphjb_TosseRospoInGolaGif.mp4",
       mp3"rphjb_TosseRospoInGola.mp3",
       vid"rphjb_TosseRospoInGola.mp4",
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vi controllo",
+    )(
+      vid"rphjb_SeguireTuttiListaPersone.mp4",
+      gif"rphjb_NonViScordateViControlloGif.mp4",
+      mp3"rphjb_NonViScordateViControllo.mp3",
+      vid"rphjb_NonViScordateViControllo.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "scordate",
+    )(
+      gif"rphjb_NonViScordateViControlloGif.mp4",
+      mp3"rphjb_NonViScordateViControllo.mp3",
+      vid"rphjb_NonViScordateViControllo.mp4",
+    ),
   )
 
 }

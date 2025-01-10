@@ -2192,7 +2192,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "questo è il bello",
       "riesco a seguire",
-      "vi controllo",
       "metallaro",
       "skinhead",
       "punkabbestia",
