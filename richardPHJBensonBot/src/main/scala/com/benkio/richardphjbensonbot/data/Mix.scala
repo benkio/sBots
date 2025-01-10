@@ -70,7 +70,10 @@ object Mix {
       vid"rphjb_StoriaMarlinManson.mp4",
       vid"rphjb_TelefonataPappalardoFanculo.mp4",
       vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
-      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3",
+      vid"rphjb_ChiCazzoLHaDettoPappalardo.mp4",
+      gif"rphjb_ChiCazzoLHaDettoPappalardoGif.mp4",
+      mp3"rphjb_ChiCazzoLHaDettoPappalardo.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "lasciami in pace",
@@ -3310,6 +3313,22 @@ object Mix {
       vid"rphjb_ApplausoPiuNutrito.mp4",
       gif"rphjb_ApplausoPiuNutritoGif.mp4",
       mp3"rphjb_ApplausoPiuNutrito.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "questo n[o]{2,}".r.tr(10),
+    )(
+      vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4",
+      vid"rphjb_DelirioDelSabatoSera.mp4",
+      vid"rphjb_ChiCazzoLHaDettoPappalardo.mp4",
+      gif"rphjb_ChiCazzoLHaDettoPappalardoGif.mp4",
+      mp3"rphjb_ChiCazzoLHaDettoPappalardo.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "chi (cazzo )?l'ha detto".r.tr(14)
+    )(
+      vid"rphjb_ChiCazzoLHaDettoPappalardo.mp4",
+      gif"rphjb_ChiCazzoLHaDettoPappalardoGif.mp4",
+      mp3"rphjb_ChiCazzoLHaDettoPappalardo.mp3",
     )
   )
 
