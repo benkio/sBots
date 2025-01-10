@@ -3436,7 +3436,38 @@ object Mix {
       gif"rphjb_GenteStranaBicchiereSputoGif.mp4",
       mp3"rphjb_GenteStranaBicchiereSputo.mp3",
       vid"rphjb_GenteStranaBicchiereSputo.mp4",
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "com'è possibile",
+      "il cuore",
+      "la mente",
+      "gli occhi",
+      "le orecchie",
+      "le vene",
+      "corda sensibile",
+      "centro del motore",
+      "non vi arriva"
+    )(
+      mp3"rphjb_ComePossibileCentroMotore.mp3",
+      vid"rphjb_ComePossibileCentroMotore.mp4",
+      vid"rphjb_CordeCheVibranoCentroMotoreFattiDiTutto.mp4",
+      mp3"rphjb_CordeCheVibranoCentroMotoreFattiDiTutto.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bsperma\\b".r.tr(5),
+    )(
+      mp3"rphjb_DonneSperma.mp3",
+      vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4",
+      mp3"rphjb_Fazzoletti.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "pelle",
+      "carne",
+    )(
+      vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4",
+      vid"rphjb_CordeCheVibranoCentroMotoreFattiDiTutto.mp4",
+      mp3"rphjb_CordeCheVibranoCentroMotoreFattiDiTutto.mp3"
+    ),
   )
 
 }

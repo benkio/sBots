@@ -342,8 +342,7 @@ object Audio {
       mp3"rphjb_MiseroAntroGanciAgnelliPisciata.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bsperma\\b".r.tr(5),
-      "mio (fidanzato|partner|moroso)".r.tr(11),
+      "mio (fidanzato|partner|moroso)".r.tr(11)
     )(
       mp3"rphjb_DonneSperma.mp3"
     ),
@@ -411,7 +410,6 @@ object Audio {
       mp3"rphjb_BaracconeFurgoneTelevisione.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "sperma",
       "mio (fidanzato|ragazzo|moroso)".r.tr(10),
       "capito che roba"
     )(
