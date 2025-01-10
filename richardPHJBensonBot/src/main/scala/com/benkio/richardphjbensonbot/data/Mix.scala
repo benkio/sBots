@@ -190,6 +190,9 @@ object Mix {
       vid"rphjb_TroppeStorieRaccontare.mp4",
       gif"rphjb_TroppeStorieRaccontareGif.mp4",
       mp3"rphjb_TroppeStorieRaccontare.mp3",
+      vid"rphjb_StorieSonoTanteTroppoAlMioCervello.mp4",
+      gif"rphjb_StorieSonoTanteTroppoAlMioCervelloGif.mp4",
+      mp3"rphjb_StorieSonoTanteTroppoAlMioCervello.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -3389,6 +3392,13 @@ object Mix {
     )(
       mp3"rphjb_Avremo18AnniLong.mp3",
       vid"rphjb_Avremo18AnniLong.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "chiedere troppo"
+    )(
+      vid"rphjb_StorieSonoTanteTroppoAlMioCervello.mp4",
+      gif"rphjb_StorieSonoTanteTroppoAlMioCervelloGif.mp4",
+      mp3"rphjb_StorieSonoTanteTroppoAlMioCervello.mp3",
     )
   )
 
