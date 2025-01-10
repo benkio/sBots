@@ -3244,6 +3244,13 @@ object Mix {
     )(
       vid"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp4",
       mp3"rphjb_NonSempliceDonnaLavoranteAffettoMascherinaSaiFare.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "micidiale"
+    )(
+      gif"rphjb_MicidialeGif.mp4",
+      mp3"rphjb_Micidiale.mp3",
+      vid"rphjb_Micidiale.mp4",
     )
   )
 
