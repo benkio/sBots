@@ -1042,15 +1042,6 @@ object Video {
       vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "cuore affogato",
-      "affogato nel metallo",
-      "in cerca",
-      "ferisca nel cervello"
-    )(
-      vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
-      vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "stratovarius",
       "metallica",
       "ultimo (disco|album)".r.tr(13)

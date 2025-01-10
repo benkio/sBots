@@ -3353,6 +3353,9 @@ object Mix {
       vid"rphjb_RicercaGianni.mp4",
       mp3"rphjb_RicercaGianni.mp3",
       vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4",
+      vid"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp4",
+      gif"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervelloGif.mp4",
+      mp3"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp3",
       vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -3399,6 +3402,18 @@ object Mix {
       vid"rphjb_StorieSonoTanteTroppoAlMioCervello.mp4",
       gif"rphjb_StorieSonoTanteTroppoAlMioCervelloGif.mp4",
       mp3"rphjb_StorieSonoTanteTroppoAlMioCervello.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "cuore (affogato|intriso)".r.tr(13),
+      "affogato nel metallo",
+      "in cerca",
+      "ferisca nel cervello"
+    )(
+      vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
+      vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4",
+      vid"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp4",
+      gif"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervelloGif.mp4",
+      mp3"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp3",
     )
   )
 
