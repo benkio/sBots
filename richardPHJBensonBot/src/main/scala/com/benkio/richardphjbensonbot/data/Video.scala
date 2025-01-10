@@ -20,15 +20,6 @@ object Video {
       vid"rphjb_CuoreInMano.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "gianni neri"
-    )(
-      vid"rphjb_RingraziareGianniTraffico.mp4",
-      vid"rphjb_GianniNeriCoppiaMiciciale.mp4",
-      vid"rphjb_GianniNeriCheFineHaiFatto.mp4",
-      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4",
-      vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "accor(data|dana)".r.tr(9)
     )(
       vid"rphjb_Accordana.mp4"
@@ -459,11 +450,6 @@ object Video {
       "londra"
     )(vid"rphjb_Londra.mp4"),
     ReplyBundleMessage.textToVideo[F](
-      "latte droga",
-      "solo gregge",
-      "gregge da discoteca",
-    )(vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4"),
-    ReplyBundleMessage.textToVideo[F](
       "drog(a|he) (legger[ae]|pesant[ei])".r.tr(14),
       "ammoniaca",
       "(sprecano|allungano) le foglie".r.tr(18),
@@ -883,12 +869,6 @@ object Video {
       vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sputo in un bicchiere",
-    )(
-      vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
-      vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "cambia canale"
     )(
       vid"rphjb_CambiaCanaleBruttoFrocio.mp4"
@@ -1049,22 +1029,6 @@ object Video {
       "canzon[ei] napoletan[ae]".r.tr(18)
     )(
       vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "cuore affogato",
-      "affogato nel metallo",
-      "in cerca",
-      "ferisca nel cervello"
-    )(
-      vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
-      vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "alla ricerca"
-    )(
-      vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
-      vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4",
-      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "stratovarius",
@@ -1362,12 +1326,6 @@ object Video {
       vid"rphjb_CristoPinocchio.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "trovare"
-    )(
-      vid"rphjb_CommissionatoMeLoDeviTrovare.mp4",
-      vid"rphjb_MoltoDifficileDaTrovare.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "le vie sono tante"
     )(
       vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4"
@@ -1487,10 +1445,7 @@ object Video {
       "non siamo niente",
       "siamo esseri umani",
       "sudore",
-      "pelle",
       "zozzeria",
-      "carne",
-      "sperma",
       "da togliere",
       "levare d[ia] dosso".r.tr(15),
       "non contiamo niente",
@@ -1543,12 +1498,6 @@ object Video {
       "mi sento un (pezzo di merda|l'ultimo)".r.tr(20)
     )(
       vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "questo n[o]{2,}".r.tr(10),
-    )(
-      vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4",
-      vid"rphjb_DelirioDelSabatoSera.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "è troppo",
@@ -2192,7 +2141,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "questo è il bello",
       "riesco a seguire",
-      "vi controllo",
       "metallaro",
       "skinhead",
       "punkabbestia",
@@ -2241,6 +2189,16 @@ object Video {
       "in linea"
     )(
       vid"rphjb_TelefonataInLinea.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "viva l'italia"
+    )(
+      vid"rphjb_VivaLItalia.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "abruzzo"
+    )(
+      vid"rphjb_VivaLAbruzzo.mp4"
     )
   )
 }
