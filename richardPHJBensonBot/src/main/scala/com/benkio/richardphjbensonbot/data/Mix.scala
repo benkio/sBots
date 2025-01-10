@@ -267,6 +267,9 @@ object Mix {
     )(
       gif"rphjb_AndareAvanti.mp4",
       mp3"rphjb_AndareAvanti.mp3",
+      gif"rphjb_AndareAvanti2Gif.mp4",
+      mp3"rphjb_AndareAvanti2.mp3",
+      vid"rphjb_AndareAvanti2.mp4",
       vid"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4",
       vid"rphjb_AndareAvantiStringereIDenti.mp4"
     ),
