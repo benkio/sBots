@@ -2830,13 +2830,21 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "c'ho un cuore",
-      "dov'è andato a (finire|filare)".r.tr(21),
       "tra le palle",
       "dovrei ritrovarlo",
       "da qualche parte",
       "andato giù",
       "tirare (s[uù]|i fili)".r.tr(9)
     )(
+      mp3"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFili.mp3",
+      vid"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFili.mp4",
+      gif"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFiliGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "dov'è andato a (finire|filare)".r.tr(21),
+    )(
+      vid"rphjb_RicercaGianni.mp4",
+      mp3"rphjb_RicercaGianni.mp3",
       mp3"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFili.mp3",
       vid"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFili.mp4",
       gif"rphjb_CHoUnCuoreDovreiRitrovarloTirareIFiliGif.mp4",
@@ -3328,6 +3336,41 @@ object Mix {
       vid"rphjb_ChiCazzoLHaDettoPappalardo.mp4",
       gif"rphjb_ChiCazzoLHaDettoPappalardoGif.mp4",
       mp3"rphjb_ChiCazzoLHaDettoPappalardo.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "alla ricerca"
+    )(
+      vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
+      vid"rphjb_RicercaGianni.mp4",
+      mp3"rphjb_RicercaGianni.mp3",
+      vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4",
+      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "gianni neri"
+    )(
+      vid"rphjb_RingraziareGianniTraffico.mp4",
+      vid"rphjb_GianniNeriCoppiaMiciciale.mp4",
+      vid"rphjb_GianniNeriCheFineHaiFatto.mp4",
+      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4",
+      vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4",
+      vid"rphjb_RicercaGianni.mp4",
+      mp3"rphjb_RicercaGianni.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "trovare"
+    )(
+      vid"rphjb_CommissionatoMeLoDeviTrovare.mp4",
+      vid"rphjb_MoltoDifficileDaTrovare.mp4",
+      vid"rphjb_RicercaGianni.mp4",
+      mp3"rphjb_RicercaGianni.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "adinolfi",
+      "forze dell'ordine"
+    )(
+      vid"rphjb_RicercaGianni.mp4",
+      mp3"rphjb_RicercaGianni.mp3",
     )
   )
 

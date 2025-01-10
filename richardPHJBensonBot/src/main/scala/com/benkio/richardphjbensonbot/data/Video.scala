@@ -20,15 +20,6 @@ object Video {
       vid"rphjb_CuoreInMano.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "gianni neri"
-    )(
-      vid"rphjb_RingraziareGianniTraffico.mp4",
-      vid"rphjb_GianniNeriCoppiaMiciciale.mp4",
-      vid"rphjb_GianniNeriCheFineHaiFatto.mp4",
-      vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4",
-      vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "accor(data|dana)".r.tr(9)
     )(
       vid"rphjb_Accordana.mp4"
@@ -1060,13 +1051,6 @@ object Video {
       vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "alla ricerca"
-    )(
-      vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
-      vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4",
-      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "stratovarius",
       "metallica",
       "ultimo (disco|album)".r.tr(13)
@@ -1360,12 +1344,6 @@ object Video {
     )(
       vid"rphjb_TrovatoPaceGenitori.mp4",
       vid"rphjb_CristoPinocchio.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "trovare"
-    )(
-      vid"rphjb_CommissionatoMeLoDeviTrovare.mp4",
-      vid"rphjb_MoltoDifficileDaTrovare.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "le vie sono tante"
