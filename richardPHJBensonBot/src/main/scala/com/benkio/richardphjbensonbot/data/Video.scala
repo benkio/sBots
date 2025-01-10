@@ -2241,6 +2241,16 @@ object Video {
       "in linea"
     )(
       vid"rphjb_TelefonataInLinea.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "viva l'italia"
+    )(
+      "rphjb_VivaLItalia.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "abruzzo"
+    )(
+      "rphjb_VivaLAbruzzo.mp4"
     )
   )
 }
