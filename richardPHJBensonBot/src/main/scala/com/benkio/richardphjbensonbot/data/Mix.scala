@@ -790,9 +790,13 @@ object Mix {
       "\\bapplauso\\b".r.tr(8)
     )(
       gif"rphjb_Applauso.mp4",
+
       mp3"rphjb_Applauso.mp3",
       mp3"rphjb_Applauso2.mp3",
-      vid"rphjb_ApplausoPiuForte.mp4"
+      vid"rphjb_ApplausoPiuForte.mp4",
+      vid"rphjb_ApplausoPiuNutrito.mp4",
+      gif"rphjb_ApplausoPiuNutritoGif.mp4",
+      mp3"rphjb_ApplausoPiuNutrito.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "venite qua"
@@ -3299,6 +3303,13 @@ object Mix {
       vid"rphjb_AttenzioneSarcinaCuoia.mp4",
       mp3"rphjb_AttenzioneSarcinaCuoia.mp3",
       gif"rphjb_AttenzioneSarcinaCuoiaGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "nutrito"
+    )(
+      vid"rphjb_ApplausoPiuNutrito.mp4",
+      gif"rphjb_ApplausoPiuNutritoGif.mp4",
+      mp3"rphjb_ApplausoPiuNutrito.mp3",
     )
   )
 
