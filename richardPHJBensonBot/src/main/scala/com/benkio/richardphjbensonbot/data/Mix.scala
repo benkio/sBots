@@ -231,7 +231,10 @@ object Mix {
     )(
       gif"rphjb_SoDiNonSapereGif.mp4",
       vid"rphjb_SoDiNonSapere.mp4",
-      vid"rphjb_SoDiNonSapere2.mp4"
+      vid"rphjb_SoDiNonSapere2.mp4",
+      vid"rphjb_NonHoIlSapereQuelloCheNonSo.mp4",
+      gif"rphjb_NonHoIlSapereQuelloCheNonSoGif.mp4",
+      mp3"rphjb_NonHoIlSapereQuelloCheNonSoGif.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "non è roba per me"
@@ -2730,11 +2733,19 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "conosce(nza|re)".r.tr(9),
-      "il sapere",
       "veri valori",
     )(
       mp3"rphjb_Conoscere.mp3",
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "il sapere"
+    )(
+      mp3"rphjb_Conoscere.mp3",
+      vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
+      gif"rphjb_NonHoIlSapereQuelloCheNonSoGif.mp4",
+      mp3"rphjb_NonHoIlSapereQuelloCheNonSo.mp3",
+      vid"rphjb_NonHoIlSapereQuelloCheNonSo.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "che( cazzo)? c'è da prendere",
