@@ -472,7 +472,7 @@ object ABarberoBot {
       "arroganza",
       "superbia"
     )(
-      "abar_GenteIgnobile.mp3"
+      mp3"abar_GenteIgnobile.mp3"
     )
   )
 

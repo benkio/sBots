@@ -793,7 +793,6 @@ object Mix {
       "\\bapplauso\\b".r.tr(8)
     )(
       gif"rphjb_Applauso.mp4",
-
       mp3"rphjb_Applauso.mp3",
       mp3"rphjb_Applauso2.mp3",
       vid"rphjb_ApplausoPiuForte.mp4",

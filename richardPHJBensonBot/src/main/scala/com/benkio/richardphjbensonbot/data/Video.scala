@@ -2238,12 +2238,12 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "viva l'italia"
     )(
-      "rphjb_VivaLItalia.mp4"
+      vid"rphjb_VivaLItalia.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "abruzzo"
     )(
-      "rphjb_VivaLAbruzzo.mp4"
+      vid"rphjb_VivaLAbruzzo.mp4"
     )
   )
 }
