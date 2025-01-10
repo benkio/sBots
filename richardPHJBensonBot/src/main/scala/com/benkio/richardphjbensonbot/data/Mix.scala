@@ -725,7 +725,9 @@ object Mix {
       vid"rphjb_DiciottoAnni2.mp4",
       vid"rphjb_EsperimentoSuYoutube.mp4",
       mp3"rphjb_EsperimentoSuYoutube.mp3",
-      gif"rphjb_EsperimentoSuYoutubeGif.mp4"
+      gif"rphjb_EsperimentoSuYoutubeGif.mp4",
+      mp3"rphjb_Avremo18AnniLong.mp3",
+      vid"rphjb_Avremo18AnniLong.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "schifosi"
@@ -950,6 +952,8 @@ object Mix {
       gif"rphjb_Avremo18anniPerSempreGif.mp4",
       vid"rphjb_Avremo18anniPerSempre.mp4",
       mp3"rphjb_Avremo18anniPerSempre.mp3",
+      mp3"rphjb_Avremo18AnniLong.mp3",
+      vid"rphjb_Avremo18AnniLong.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "(cinque|5) dita".r.tr(6),
@@ -1898,7 +1902,9 @@ object Mix {
       vid"rphjb_GrandeAngelo.mp4",
       vid"rphjb_AngeloCarpenelliGrandeViaDelleAlbizzie22NumeroUnoImmensoInGinocchio.mp4",
       vid"rphjb_AngeloCarpenelliViaDelleAlbizzie22IstintiMusicali.mp4",
-      vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4"
+      vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4",
+      mp3"rphjb_Avremo18AnniLong.mp3",
+      vid"rphjb_Avremo18AnniLong.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "questa è una domanda",
@@ -3371,6 +3377,18 @@ object Mix {
     )(
       vid"rphjb_RicercaGianni.mp4",
       mp3"rphjb_RicercaGianni.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "trastevere",
+      "tor marancia",
+      "tor pagnotta",
+      "fidene",
+      "mandrione",
+      "parioli",
+      "in coro",
+    )(
+      mp3"rphjb_Avremo18AnniLong.mp3",
+      vid"rphjb_Avremo18AnniLong.mp4",
     )
   )
 
