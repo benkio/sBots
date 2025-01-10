@@ -874,12 +874,6 @@ object Video {
       vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sputo in un bicchiere",
-    )(
-      vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
-      vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "cambia canale"
     )(
       vid"rphjb_CambiaCanaleBruttoFrocio.mp4"

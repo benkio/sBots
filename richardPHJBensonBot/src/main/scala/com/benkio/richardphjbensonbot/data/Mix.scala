@@ -125,7 +125,11 @@ object Mix {
       gif"rphjb_SputoGif.mp4",
       vid"rphjb_FeelingsSputo.mp4",
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
-      vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
+      vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
+      vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
+      vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4",
+      vid"rphjb_GenteStranaBicchiereSputo.mp4",
+      mp3"rphjb_GenteStranaBicchiereSputo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[gc]o[b]+e[l]+ini".r.tr(8),
@@ -3425,6 +3429,13 @@ object Mix {
       vid"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp4",
       gif"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervelloGif.mp4",
       mp3"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "gente strana"
+    )(
+      gif"rphjb_GenteStranaBicchiereSputoGif.mp4",
+      mp3"rphjb_GenteStranaBicchiereSputo.mp3",
+      vid"rphjb_GenteStranaBicchiereSputo.mp4",
     )
   )
 
