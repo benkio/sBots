@@ -3044,7 +3044,10 @@ object Mix {
       vid"rphjb_ScusateEssereUmanoTosse.mp4",
       mp3"rphjb_TosseInvernaleAiutatelo.mp3",
       vid"rphjb_TosseInvernaleAiutatelo.mp4",
-      gif"rphjb_TosseInvernaleAiutateloGif.mp4"
+      gif"rphjb_TosseInvernaleAiutateloGif.mp4",
+      vid"rphjb_TosseRospoInGola.mp4",
+      gif"rphjb_TosseRospoInGolaGif.mp4",
+      mp3"rphjb_TosseRospoInGola.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "detesto",
@@ -3251,6 +3254,15 @@ object Mix {
       gif"rphjb_MicidialeGif.mp4",
       mp3"rphjb_Micidiale.mp3",
       vid"rphjb_Micidiale.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "rospo in gola",
+      "fantasmagorico",
+      "soffocavo"
+    )(
+      gif"rphjb_TosseRospoInGolaGif.mp4",
+      mp3"rphjb_TosseRospoInGola.mp3",
+      vid"rphjb_TosseRospoInGola.mp4",
     )
   )
 
