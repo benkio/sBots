@@ -238,7 +238,7 @@ object Mix {
       vid"rphjb_SoDiNonSapere2.mp4",
       vid"rphjb_NonHoIlSapereQuelloCheNonSo.mp4",
       gif"rphjb_NonHoIlSapereQuelloCheNonSoGif.mp4",
-      mp3"rphjb_NonHoIlSapereQuelloCheNonSoGif.mp3"
+      mp3"rphjb_NonHoIlSapereQuelloCheNonSo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "non è roba per me"
@@ -2117,7 +2117,9 @@ object Mix {
       "televita"
     )(
       mp3"rphjb_TelevitaSonoInizioRisata.mp3",
-      vid"rphjb_Alle22MercolediTelevita.mp4"
+      vid"rphjb_Alle22MercolediTelevita.mp4",
+      vid"rphjb_EmuleReteInternettariaSitoScoppia.mp4",
+      mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "mercoled[iì]".r.tr(9)
@@ -3056,7 +3058,9 @@ object Mix {
     )(
       mp3"rphjb_Emule.mp3",
       vid"rphjb_Emule.mp4",
-      gif"rphjb_EmuleGif.mp4"
+      gif"rphjb_EmuleGif.mp4",
+      vid"rphjb_EmuleReteInternettariaSitoScoppia.mp4",
+      mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "milioni"
@@ -3181,6 +3185,8 @@ object Mix {
       vid"rphjb_ReteInternettaria.mp4",
       gif"rphjb_ReteInternettariaGif.mp4",
       mp3"rphjb_ReteInternettaria.mp3",
+      vid"rphjb_EmuleReteInternettariaSitoScoppia.mp4",
+      mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "una rete (fitta|internettaria)?".r.tr(9)
@@ -3189,6 +3195,8 @@ object Mix {
       vid"rphjb_ReteInternettaria.mp4",
       gif"rphjb_ReteInternettariaGif.mp4",
       mp3"rphjb_ReteInternettaria.mp3",
+      vid"rphjb_EmuleReteInternettariaSitoScoppia.mp4",
+      mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "eric clapton",
@@ -3433,7 +3441,6 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "gente strana"
     )(
-      gif"rphjb_GenteStranaBicchiereSputoGif.mp4",
       mp3"rphjb_GenteStranaBicchiereSputo.mp3",
       vid"rphjb_GenteStranaBicchiereSputo.mp4",
     ),
@@ -3468,6 +3475,19 @@ object Mix {
       vid"rphjb_CordeCheVibranoCentroMotoreFattiDiTutto.mp4",
       mp3"rphjb_CordeCheVibranoCentroMotoreFattiDiTutto.mp3"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "decodificatore",
+      "diecimila persone",
+      "giappone",
+      "australia",
+      "finlandia",
+      "norvegia",
+      "asia",
+      "etiopia",
+    )(
+      vid"rphjb_EmuleReteInternettariaSitoScoppia.mp4",
+      mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3"
+    )
   )
 
 }
