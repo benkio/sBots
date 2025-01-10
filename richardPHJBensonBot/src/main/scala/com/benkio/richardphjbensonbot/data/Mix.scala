@@ -105,7 +105,10 @@ object Mix {
       "[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r.tr(10)
     )(
       mp3"rphjb_Attenzione.mp3",
-      vid"rphjb_Attenzione.mp4"
+      vid"rphjb_Attenzione.mp4",
+      vid"rphjb_AttenzioneSarcinaCuoia.mp4",
+      mp3"rphjb_AttenzioneSarcinaCuoia.mp3",
+      gif"rphjb_AttenzioneSarcinaCuoiaGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "paradosso"
@@ -3192,11 +3195,19 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "sponsor",
-      "sarcina",
       "figuraccia"
     )(
       vid"rphjb_GhentScarpeDaTennis.mp4",
       mp3"rphjb_GhentScarpeDaTennis.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sarcina",
+    )(
+      vid"rphjb_GhentScarpeDaTennis.mp4",
+      mp3"rphjb_GhentScarpeDaTennis.mp3",
+      vid"rphjb_AttenzioneSarcinaCuoia.mp4",
+      mp3"rphjb_AttenzioneSarcinaCuoia.mp3",
+      gif"rphjb_AttenzioneSarcinaCuoiaGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "è pieno",
@@ -3279,6 +3290,13 @@ object Mix {
       mp3"rphjb_NonViScordateViControllo.mp3",
       vid"rphjb_NonViScordateViControllo.mp4",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "cuoia"
+    )(
+      vid"rphjb_AttenzioneSarcinaCuoia.mp4",
+      mp3"rphjb_AttenzioneSarcinaCuoia.mp3",
+      gif"rphjb_AttenzioneSarcinaCuoiaGif.mp4",
+    )
   )
 
 }
