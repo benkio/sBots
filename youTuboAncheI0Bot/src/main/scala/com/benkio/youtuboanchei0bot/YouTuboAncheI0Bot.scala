@@ -1269,7 +1269,19 @@ object YouTuboAncheI0Bot {
       "waffel",
       "inzuppati",
       "profumo gradevolissimo"
-    )(gif"ytai_WaffelInzuppati.mp4")
+    )(gif"ytai_WaffelInzuppati.mp4"),
+    ReplyBundleMessage.textToGif[F](
+      "oliva"
+    )(
+      gif"ytai_MoltoGustosaOliva.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "calabria",
+      "mpincia",
+      "cosa (mi )bevo".r.tr(9)
+    )(
+      gif"ytai_Mpincia.mp4"
+    )
   )
 
   def messageRepliesMixData[

@@ -22,6 +22,7 @@
     - [[https://git-scm.com/][git]]
     - [[https://www.scala-sbt.org/][sbt - Scala Build Tool]]
     - [[https://www.scala-lang.org/][scala]]
+    - [[https://www.sqlite.org/][sqlite]]
     - [[https://www.openssl.org/][openSSL]]
 
 ** Add Data to the Bots
@@ -35,6 +36,18 @@
      or just set up the specific environment variables. No need to put
      the files in resources since those will be fetched from the web
      via URLs.
+
+     To add data to the bots you need to add the file name and
+     downloadable link (usually Dropbox), to the json at the root of
+     each bot folder. Then modify the scala code to add the type that
+     creates the mappings between the triggers and the files. See
+     planty of examples of any kind throughout the code, especially
+     under RichardPHJBensonBot's data package.
+
+     The old video guide below refers to a time where also the
+     ~trigger.txt~ as to be updated manually. Now it's automatic.
+
+*** Old Video Guide
 
      Check [[https://youtu.be/T-AfAvJLSJE][this video]] for a complete rundown on how to add files to a bot.
 
@@ -54,8 +67,12 @@
   - ~fix~ :: Run the ~scalafmt~ and ~scalafix~ in the whole project.
   - ~check~ :: Check the project for formatting and dependencies using ~sbt~ plugins such as ~scalafmt~.
   - ~validate~ :: compile clean and test. It includes the ~fix~ command and it is run in the CI.
-
-  Moreover, there are tests excluded from the CI because they are quite slow. In this category, there is one that checks all the media links in the DB and can be called manually by ~sbt integration/runIntegrationScalaTests~
+  - ~checkAllLinksTest~ :: Run a parallel test and checks all the
+    media links in the DB and can be called manually by ~sbt
+    integration/runIntegrationScalaTests~. Run it once in a while
+    (especially after a series of new additions or changes in links)
+    to be sure everything is still reachable and up. These tests
+    excluded from the CI because they are quite slow.
 
 ** Run the Bots
 *** Long Polling
