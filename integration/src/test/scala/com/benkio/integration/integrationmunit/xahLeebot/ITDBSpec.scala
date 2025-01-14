@@ -21,8 +21,8 @@ import scala.io.Source
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  val botName: String = "botname"
-  val botPrefix: String = "xah"
+  val botName: String           = "botname"
+  val botPrefix: String         = "xah"
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botName)
   val resourceAccessMock        = new ResourceAccessMock(List.empty)
   val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(
