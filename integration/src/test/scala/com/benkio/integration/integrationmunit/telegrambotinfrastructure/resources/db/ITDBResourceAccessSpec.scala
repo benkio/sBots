@@ -8,8 +8,6 @@ import munit.CatsEffectSuite
 
 import cats.effect.IO
 
-
-
 class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
   val testMediaName = "rphjb_MaSgus.mp3"
