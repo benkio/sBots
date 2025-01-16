@@ -1003,10 +1003,13 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "solo uno parló",
-      "(c|g)ri(d|t)i(g|c)a(d|t)o".r.tr(9)
+      "(c|g)ri(d|t)i(g|c)a(d|t)o".r.tr(9),
+      "sapevano tutto",
+      "nessuno parlava"
     )(
-      gif"rphjb_FuCriticatoGif.mp4",
-      vid"rphjb_FuCriticato.mp4",
+      gif"rphjb_SapevanoTuttoFuCriticatoGif.mp4",
+      vid"rphjb_SapevanoTuttoFuCriticato.mp4",
+      mp3"rphjb_SapevanoTuttoFuCriticato.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "venerd[iì]".r.tr(7)
