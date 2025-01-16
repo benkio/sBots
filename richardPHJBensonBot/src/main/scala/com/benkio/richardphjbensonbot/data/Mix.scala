@@ -2122,7 +2122,10 @@ object Mix {
       "mercoled[iì]".r.tr(9)
     )(
       vid"rphjb_TempoAlTempo.mp4",
-      vid"rphjb_Alle22MercolediTelevita.mp4"
+      vid"rphjb_Alle22MercolediTelevita.mp4",
+      mp3"rphjb_FineSettimanaMercoledìInizio.mp3",
+      vid"rphjb_FineSettimanaMercoledìInizio.mp4",
+      gif"rphjb_FineSettimanaMercoledìInizioGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "brutto frocio"
@@ -3545,6 +3548,14 @@ object Mix {
       gif"rphjb_DrogaLeggeraFoglieGif.mp4",
       mp3"rphjb_DrogaLeggeraFoglie.mp3"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "fine( )?settimana".r.tr(13),
+      "weekend"
+    )(
+      mp3"rphjb_FineSettimanaMercoledìInizio.mp3",
+      vid"rphjb_FineSettimanaMercoledìInizio.mp4",
+      gif"rphjb_FineSettimanaMercoledìInizioGif.mp4",
+    )
   )
 
 }
