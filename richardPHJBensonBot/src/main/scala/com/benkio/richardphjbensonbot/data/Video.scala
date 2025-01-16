@@ -450,13 +450,6 @@ object Video {
       "londra"
     )(vid"rphjb_Londra.mp4"),
     ReplyBundleMessage.textToVideo[F](
-      "drog(a|he) (legger[ae]|pesant[ei])".r.tr(14),
-      "ammoniaca",
-      "(sprecano|allungano) le foglie".r.tr(18),
-      "veleno per topi",
-      "borotalco"
-    )(vid"rphjb_DrogheLeggere.mp4"),
-    ReplyBundleMessage.textToVideo[F](
       "peggio cose"
     )(
       vid"rphjb_Venerdi.mp4",

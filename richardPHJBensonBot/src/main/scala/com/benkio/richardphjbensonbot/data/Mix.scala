@@ -3532,7 +3532,19 @@ object Mix {
     )(
       mp3"rphjb_PoesiaAltroSenso.mp3",
       vid"rphjb_PoesiaAltroSenso.mp4",
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "drog(a|he) (legger[ae]|pesant[ei])".r.tr(14),
+      "ammoniaca",
+      "(sprecano|allungano) le foglie".r.tr(18),
+      "veleno per topi",
+      "borotalco",
+      "contraffatt[ao]".r.tr(12)
+    )(
+      vid"rphjb_DrogheLeggere.mp4",
+      gif"rphjb_DrogaLeggeraFoglieGif.mp4",
+      mp3"rphjb_DrogaLeggeraFoglie.mp3"
+    ),
   )
 
 }
