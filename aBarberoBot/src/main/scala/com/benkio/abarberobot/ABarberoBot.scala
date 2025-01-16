@@ -90,6 +90,26 @@ object ABarberoBot {
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMp3[F](
+      "luigi (14|quattordicesimo)".r.tr(8),
+      "louis[- ]le[- ]grand".r.tr(14)
+    )(
+      mp3"abar_Luigi14.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "tedesco"
+    )(
+      mp3"abar_Kraft.mp3",
+      mp3"abar_Von_Hohenheim.mp3",
+      mp3"abar_Haushofer.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "genitali",
+      "cosi e coglioni"
+    )(
+      mp3"abar_Cosi.mp3",
+      mp3"abar_Sottaceto.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
       "kimono"
     )(
       mp3"abar_KimonoMaledetto.mp3",
@@ -552,11 +572,6 @@ object ABarberoBot {
       gif"abar_SisiAMorte.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bfrancesi\\b".r.tr(8)
-    )(
-      gif"abar_Francesi.gif"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "viva il popolo",
       "comunis"
     )(
@@ -690,19 +705,11 @@ object ABarberoBot {
   )
 
   def messageRepliesSpecialData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToMp3[F](
-      "tedesco"
+    ReplyBundleMessage.textToMedia[F](
+      "\\bfrancesi\\b".r.tr(8)
     )(
-      mp3"abar_Kraft.mp3",
-      mp3"abar_Von_Hohenheim.mp3",
-      mp3"abar_Haushofer.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
-      "genitali",
-      "cosi e coglioni"
-    )(
-      mp3"abar_Cosi.mp3",
-      mp3"abar_Sottaceto.mp3"
+      gif"abar_Francesi.gif",
+      mp3"abar_Luigi14.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r.tr(13)

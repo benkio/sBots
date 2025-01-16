@@ -1003,10 +1003,13 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "solo uno parló",
-      "(c|g)ri(d|t)i(g|c)a(d|t)o".r.tr(9)
+      "(c|g)ri(d|t)i(g|c)a(d|t)o".r.tr(9),
+      "sapevano tutto",
+      "nessuno parlava"
     )(
-      gif"rphjb_FuCriticatoGif.mp4",
-      vid"rphjb_FuCriticato.mp4",
+      gif"rphjb_SapevanoTuttoFuCriticatoGif.mp4",
+      vid"rphjb_SapevanoTuttoFuCriticato.mp4",
+      mp3"rphjb_SapevanoTuttoFuCriticato.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "venerd[iì]".r.tr(7)
@@ -2122,7 +2125,10 @@ object Mix {
       "mercoled[iì]".r.tr(9)
     )(
       vid"rphjb_TempoAlTempo.mp4",
-      vid"rphjb_Alle22MercolediTelevita.mp4"
+      vid"rphjb_Alle22MercolediTelevita.mp4",
+      mp3"rphjb_FineSettimanaMercoledìInizio.mp3",
+      vid"rphjb_FineSettimanaMercoledìInizio.mp4",
+      gif"rphjb_FineSettimanaMercoledìInizioGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "brutto frocio"
@@ -3532,6 +3538,26 @@ object Mix {
     )(
       mp3"rphjb_PoesiaAltroSenso.mp3",
       vid"rphjb_PoesiaAltroSenso.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "drog(a|he) (legger[ae]|pesant[ei])".r.tr(14),
+      "ammoniaca",
+      "(sprecano|allungano) le foglie".r.tr(18),
+      "veleno per topi",
+      "borotalco",
+      "contraffatt[ao]".r.tr(12)
+    )(
+      vid"rphjb_DrogheLeggere.mp4",
+      gif"rphjb_DrogaLeggeraFoglieGif.mp4",
+      mp3"rphjb_DrogaLeggeraFoglie.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "fine( )?settimana".r.tr(13),
+      "weekend"
+    )(
+      mp3"rphjb_FineSettimanaMercoledìInizio.mp3",
+      vid"rphjb_FineSettimanaMercoledìInizio.mp4",
+      gif"rphjb_FineSettimanaMercoledìInizioGif.mp4",
     )
   )
 
