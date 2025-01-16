@@ -658,6 +658,11 @@ object Video {
       "investi(re|tore)".r.tr(9),
       "zurigo",
       "dubai",
+      "bel[s]?ize".r.tr(6),
+      "nei punti più rilevanti",
+      "non figura il mio nome",
+      "sotto codici",
+      "non si possono risalire",
       "governo (svizzero|germanico|tedesco)".r.tr(15),
       "affar(i|isti)".r.tr(6),
     )(
