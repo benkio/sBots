@@ -1288,6 +1288,15 @@ object YouTuboAncheI0Bot {
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
+      "parma",
+      "eccellenza",
+      "bel paese"
+    )(
+      mp3"ytai_CrudoParma.mp3",
+      vid"ytai_CrudoParma.mp4",
+      gif"ytai_CrudoParmaGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "ricordami fino a domani"
     )(
       gif"ytai_Ricordami.mp4",
@@ -1452,7 +1461,10 @@ object YouTuboAncheI0Bot {
       gif"ytai_ProsciuttoCrudoSpettacoloGif.mp4",
       mp3"ytai_ProsciuttoCrudoParla.mp3",
       vid"ytai_ProsciuttoCrudoParla.mp4",
-      gif"ytai_ProsciuttoCrudoParlaGif.mp4"
+      gif"ytai_ProsciuttoCrudoParlaGif.mp4",
+      vid"ytai_CrudoParma.mp4",
+      mp3"ytai_CrudoParma.mp3",
+      gif"ytai_CrudoParmaGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "rafforzare lo stomaco",
