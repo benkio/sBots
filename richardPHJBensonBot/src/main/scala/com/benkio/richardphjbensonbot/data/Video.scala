@@ -444,7 +444,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "scantinati",
-      "gioco (io )? del gatto e (voi )? del (ratto|topo)".r.tr(24)
+      "gioco (io )?del gatto e (voi )?del (ratto|topo)".r.tr(24)
     )(vid"rphjb_DubbioScantinatiGiocoRattoGatto.mp4"),
     ReplyBundleMessage.textToVideo[F](
       "londra"
@@ -665,7 +665,7 @@ object Video {
       "investi(re|tore)".r.tr(9),
       "zurigo",
       "dubai",
-      "governo svizzero",
+      "governo (svizzero|germanico|tedesco)".r.tr(15),
       "affar(i|isti)".r.tr(6),
     )(
       vid"rphjb_InvestitoreGoverno.mp4",
@@ -766,7 +766,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "una bella fi[cg]a".r.tr(14),
       "la fate aspettare",
-      "in silenzio( dovuto)?".r.tr(11),
+      "silenzio[,]?( dovuto)?".r.tr(11),
       "consumare dopo",
       "consumare durante",
     )(
