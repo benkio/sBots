@@ -234,11 +234,6 @@ object YouTuboAncheI0Bot {
       gif"ytai_CiDivertiremoPercorso.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "colore meraviglioso"
-    )(
-      gif"ytai_ColoreMeraviglioso.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "corpulenti",
       "ciccioni"
     )(
@@ -1268,7 +1263,7 @@ object YouTuboAncheI0Bot {
     ReplyBundleMessage.textToGif[F](
       "waffel",
       "inzuppati",
-      "profumo gradevolissimo"
+      "profumo gradevol(e|issimo)".r.tr(16)
     )(gif"ytai_WaffelInzuppati.mp4"),
     ReplyBundleMessage.textToGif[F](
       "oliva"
@@ -1287,6 +1282,32 @@ object YouTuboAncheI0Bot {
   def messageRepliesMixData[
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage.textToMedia[F](
+      "colore"
+    )(
+      gif"ytai_ColoreMeraviglioso.mp4",
+      mp3"ytai_VeritàPegnoPeperoncino.mp3",
+      gif"ytai_VeritàPegnoPeperoncinoGif.mp4",
+      vid"ytai_VeritàPegnoPeperoncino.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "velit[aà]".r.tr(6),
+      "pagare pegno",
+      "per intero",
+      "peperoncino"
+    )(
+      mp3"ytai_VeritàPegnoPeperoncino.mp3",
+      gif"ytai_VeritàPegnoPeperoncinoGif.mp4",
+      vid"ytai_VeritàPegnoPeperoncino.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "prezzemolo",
+      "profumo incantevole",
+    )(
+      mp3"ytai_PrezzemoloProfumoIncantevole.mp3",
+      gif"ytai_PrezzemoloProfumoIncantevoleGif.mp4",
+      vid"ytai_PrezzemoloProfumoIncantevole.mp4"
+    ),
     ReplyBundleMessage.textToMedia[F](
       "parma",
       "eccellenza",
