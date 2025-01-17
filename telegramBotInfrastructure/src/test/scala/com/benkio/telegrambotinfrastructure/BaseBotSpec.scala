@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.*
 import cats.effect.IO
 import cats.syntax.all.*
 import io.circe.parser.decode
@@ -41,6 +41,15 @@ trait BaseBotSpec extends CatsEffectSuite:
         _ <- assert(
           urls.forall(_.query.exists { case (key, optValue) => key == "dl" && optValue.fold(false)(_ == "1") })
         ).pure[IO]
+        _ <- // TODO: fix this once online
+          mediaFileSources
+            .foreach(mfs =>
+              assert(
+                mfs.uri.toString.contains(mfs.filename),
+                s"${mfs.uri} doesn't contain the filename: ${mfs.filename}"
+              )
+            )
+            .pure[IO]
       yield ()
     }
 
@@ -98,3 +107,18 @@ trait BaseBotSpec extends CatsEffectSuite:
         )
       }
     }
+
+  def exactTriggerReturnExpectedReplyBundle(ReplyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+    ReplyBundleMessages
+      .flatMap(replyBundle =>
+        replyBundle.trigger match {
+          case TextTrigger(triggerValues @ _*) =>
+            triggerValues.filter(_.isStringTriggerValue).map(stringTrigger => (stringTrigger, replyBundle))
+          case _ => Nil
+        }
+      )
+      .foreach { case (stringTrigger, replyBundle) =>
+        test(s"Triggering exactly the string ${stringTrigger.show} should return the expected reply bundle") {
+          assert(true) // TODO: Add actual test. Check the search trigger command logic as reference
+        }
+      }

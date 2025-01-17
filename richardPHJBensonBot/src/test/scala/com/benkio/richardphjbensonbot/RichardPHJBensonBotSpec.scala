@@ -58,6 +58,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     RichardPHJBensonBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
+  exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData[IO])
+
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {
     val result =
       messageRepliesSpecialData[IO]

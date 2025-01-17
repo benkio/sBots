@@ -54,6 +54,8 @@ class XahLeeBotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     XahLeeBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
+  exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData[IO])
+
   jsonContainsFilenames(
     jsonFilename = "xah_list.json",
     botData = messageRepliesDataPrettyPrint

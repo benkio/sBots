@@ -157,7 +157,7 @@ Input as query string:
     val triggerSearchCommandDescriptionIta: String =
       "'/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger"
     val triggerSearchCommandDescriptionEng: String =
-      "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
+      "'/tmriggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
 
     private[patterns] def searchTrigger[F[_]: ApplicativeThrow](
         mdr: List[ReplyBundleMessage[F]],

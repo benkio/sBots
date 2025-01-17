@@ -53,6 +53,8 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
       )
   )
 
+  exactTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData[IO])
+
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,
     expectedReply =
