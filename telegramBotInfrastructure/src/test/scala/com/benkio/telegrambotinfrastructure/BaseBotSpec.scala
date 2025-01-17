@@ -9,6 +9,9 @@ import scala.io.Source
 import java.io.File
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import munit.*
+import telegramium.bots.Chat
+import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 
 trait BaseBotSpec extends CatsEffectSuite:
   def checkContains(triggerContent: String, values: List[String]): Unit =
@@ -108,8 +111,8 @@ trait BaseBotSpec extends CatsEffectSuite:
       }
     }
 
-  def exactTriggerReturnExpectedReplyBundle(ReplyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
-    ReplyBundleMessages
+  def exactTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+    replyBundleMessages
       .flatMap(replyBundle =>
         replyBundle.trigger match {
           case TextTrigger(triggerValues @ _*) =>
@@ -119,6 +122,19 @@ trait BaseBotSpec extends CatsEffectSuite:
       )
       .foreach { case (stringTrigger, replyBundle) =>
         test(s"Triggering exactly the string ${stringTrigger.show} should return the expected reply bundle") {
-          assert(true) // TODO: Add actual test. Check the search trigger command logic as reference
+          val exactStringMessage = Message(
+            messageId = 0,
+            date = 0,
+            chat = Chat(id = 0, `type` = "test"),
+            text = Some(stringTrigger.show)
+          )
+          replyBundleMessages
+            .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+            .sortBy(_._1)(Trigger.orderingInstance.reverse)
+            .headOption
+            .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
+              assert(tr == TextTrigger(stringTrigger), s"$tr ≠ ${TextTrigger(stringTrigger)}")
+              assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
+            }
         }
       }
