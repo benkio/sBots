@@ -90,6 +90,12 @@ object ABarberoBot {
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMp3[F](
+      "fuoco"
+    )(
+      mp3"abar_Bbq.mp3",
+      mp3"abar_FerroFuocoAcquaBollenteAceto.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
       "luigi (14|quattordicesimo)".r.tr(8),
       "louis[- ]le[- ]grand".r.tr(14)
     )(
@@ -169,7 +175,6 @@ object ABarberoBot {
     ),
     ReplyBundleMessage.textToMp3[F](
       "\\bferro\\b".r.tr(5),
-      "fuoco",
       "acqua bollente",
       "aceto"
     )(
@@ -258,7 +263,6 @@ object ABarberoBot {
     ReplyBundleMessage.textToMp3[F](
       "bruciare",
       "saccheggiare",
-      "fuoco"
     )(
       mp3"abar_Bbq.mp3"
     ),
@@ -311,11 +315,6 @@ object ABarberoBot {
       "sangue"
     )(
       mp3"abar_Sangue.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
-      "spranga"
-    )(
-      mp3"abar_Spranga.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "stupidi"
@@ -741,8 +740,14 @@ object ABarberoBot {
     ReplyBundleMessage.textToMedia[F](
       "allarme",
       "priori",
+    )(
+      mp3"abar_Priori.mp3",
+      gif"abar_Priori.gif"
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "carne"
     )(
+      mp3"abar_Bbq.mp3",
       mp3"abar_Priori.mp3",
       gif"abar_Priori.gif"
     ),
@@ -769,7 +774,8 @@ object ABarberoBot {
       "spranga"
     )(
       gif"abar_Spranga.gif",
-      vid"abar_ParoleLongobarde.mp4"
+      vid"abar_ParoleLongobarde.mp4",
+      mp3"abar_Spranga.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "trappola"

@@ -86,14 +86,19 @@ object Mix {
       "rimpinzati",
       "(g|c)io(g|c)+ola(d|t)a".r.tr(9),
       "pandori",
+      "goldoni",
       "ciambelloni",
+      "ciambellina",
       "gli amari",
+      "abbacchi",
       "limoncell(o|i)".r.tr(10),
       "ingrassati",
       "andati al cesso",
+      "(diecimila|10000) volte".r.tr(11)
     )(
-      gif"rphjb_Rimpinzati.mp4",
-      vid"rphjb_Pasqua.mp4",
+      gif"rphjb_ConseguenzeDellaPasquaGif.mp4",
+      mp3"rphjb_ConseguenzeDellaPasqua.mp3",
+      vid"rphjb_ConseguenzeDellaPasqua.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "stare male",
@@ -1019,7 +1024,7 @@ object Mix {
       vid"rphjb_IlVenerdi.mp4",
       vid"rphjb_TempoAlTempo.mp4",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
-      vid"rphjb_UltimoListaUmaniVenerdì22.mp4",
+      vid"rphjb_UltimoListaUmaniVenerdi22.mp4",
       vid"rphjb_SteveVai.mp4",
       mp3"rphjb_SteveVai.mp3",
       gif"rphjb_SteveVaiGif.mp4"
@@ -1070,12 +1075,19 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "non li sopporto",
-      "che si deve f(à|are)".r.tr(14),
       "bisogna pure lavorà"
     )(
       gif"rphjb_NonLiSopportoGif.mp4",
       mp3"rphjb_NonLiSopporto.mp3",
       vid"rphjb_NonLiSopporto.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "che si deve f(à|are)".r.tr(14),
+    )(
+      gif"rphjb_NonLiSopportoGif.mp4",
+      mp3"rphjb_NonLiSopporto.mp3",
+      vid"rphjb_NonLiSopporto.mp4",
+      gif"rphjb_Campa.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "simposio"
@@ -1683,11 +1695,15 @@ object Mix {
       mp3"rphjb_WelaCiaoSonoRichardBenson.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "richard benson"
+      "richard (philip henry john )?benson".r.tr(14),
     )(
       gif"rphjb_WelaCiaoSonoRichardBensonGif.mp4",
       vid"rphjb_WelaCiaoSonoRichardBenson.mp4",
-      mp3"rphjb_WelaCiaoSonoRichardBenson.mp3"
+      mp3"rphjb_WelaCiaoSonoRichardBenson.mp3",
+      mp3"rphjb_PassaportoRiccardoBenzoni.mp3",
+      mp3"rphjb_FotoDocumentoCheComprova.mp3",
+      vid"rphjb_FotoDocumentoCheComprova.mp4",
+      gif"rphjb_FotoDocumentoCheComprovaGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\bmetal\\b".r.tr(5)
@@ -1728,9 +1744,9 @@ object Mix {
       "\\bvino\\b".r.tr(4),
     )(
       mp3"rphjb_ChitarraZuccheroAlgheVino.mp3",
-      vid"rphjb_Rimpinzati.mp4",
-      vid"rphjb_Pasqua.mp4",
-      gif"rphjb_LimoncelliVino.gif"
+      gif"rphjb_ConseguenzeDellaPasquaGif.mp4",
+      mp3"rphjb_ConseguenzeDellaPasqua.mp3",
+      vid"rphjb_ConseguenzeDellaPasqua.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "chi tocca (\\w)[,]? muore".r.tr(16),
@@ -1746,7 +1762,7 @@ object Mix {
       mp3"rphjb_Alle22.mp3",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
       vid"rphjb_Alle22MercolediTelevita.mp4",
-      vid"rphjb_UltimoListaUmaniVenerdì22.mp4",
+      vid"rphjb_UltimoListaUmaniVenerdi22.mp4",
       vid"rphjb_SteveVai.mp4",
       mp3"rphjb_SteveVai.mp3",
       gif"rphjb_SteveVaiGif.mp4"
@@ -1915,6 +1931,7 @@ object Mix {
       vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4",
       mp3"rphjb_Avremo18AnniLong.mp3",
       vid"rphjb_Avremo18AnniLong.mp4",
+      vid"rphjb_PellegrinaggioSimposioMetallo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "questa è una domanda",
@@ -2104,7 +2121,7 @@ object Mix {
     )(
       gif"rphjb_BruttoSquallidoSchifosoGif.mp4",
       vid"rphjb_BruttoSquallidoSchifosoUltimoEsseriUmani.mp4",
-      vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
+      vid"rphjb_UltimoListaUmaniVenerdi22.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "quattro solo",
@@ -2126,9 +2143,9 @@ object Mix {
     )(
       vid"rphjb_TempoAlTempo.mp4",
       vid"rphjb_Alle22MercolediTelevita.mp4",
-      mp3"rphjb_FineSettimanaMercoledìInizio.mp3",
-      vid"rphjb_FineSettimanaMercoledìInizio.mp4",
-      gif"rphjb_FineSettimanaMercoledìInizioGif.mp4",
+      mp3"rphjb_FineSettimanaMercolediInizio.mp3",
+      vid"rphjb_FineSettimanaMercolediInizio.mp4",
+      gif"rphjb_FineSettimanaMercolediInizioGif.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
       "brutto frocio"
@@ -2590,11 +2607,19 @@ object Mix {
       "faccio la parte",
       " recit",
       " fing",
+      "attrice",
       "\\ba[t]{2,}[o]+re\\b".r.tr(7),
-      "attrice"
     )(
+      vid"rphjb_ParteDiRomeo.mp4",
+      vid"rphjb_DaHollywood.mp4",
       gif"rphjb_FaccioLaParte.mp4",
       vid"rphjb_GaioInGiallo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vi salut[ao]".r.tr(9),
+    )(
+      mp3"rphjb_ViSaluto.mp3",
+      vid"rphjb_ViSalutaLinguaSuDonnaGiusta.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "meridionale",
@@ -2627,7 +2652,7 @@ object Mix {
       "giù( giù)+".r.tr(7)
     )(
       mp3"rphjb_GiuGiuGiu.mp3",
-      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4"
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -2638,8 +2663,8 @@ object Mix {
         List(
           mp3"rphjb_SonoUltimo.mp3",
           mp3"rphjb_SonoIoUltimo.mp3",
-          vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4",
-          vid"rphjb_UltimoListaUmaniVenerdì22.mp4"
+          vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4",
+          vid"rphjb_UltimoListaUmaniVenerdi22.mp4"
         )
       ),
       matcher = MessageMatches.ContainsAll
@@ -2840,8 +2865,7 @@ object Mix {
       mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "riccardo benzoni",
-      "richard (philip henry john )?benson".r.tr(14),
+      "riccardo benzoni"
     )(
       mp3"rphjb_PassaportoRiccardoBenzoni.mp3",
       mp3"rphjb_FotoDocumentoCheComprova.mp3",
@@ -3500,7 +3524,6 @@ object Mix {
       "tiziano ferro",
       "nek",
       "pausini",
-      "zucchero",
       "celentano",
       "massimo ranieri"
     )(
@@ -3555,9 +3578,9 @@ object Mix {
       "fine( )?settimana".r.tr(13),
       "weekend"
     )(
-      mp3"rphjb_FineSettimanaMercoledìInizio.mp3",
-      vid"rphjb_FineSettimanaMercoledìInizio.mp4",
-      gif"rphjb_FineSettimanaMercoledìInizioGif.mp4",
+      mp3"rphjb_FineSettimanaMercolediInizio.mp3",
+      vid"rphjb_FineSettimanaMercolediInizio.mp4",
+      gif"rphjb_FineSettimanaMercolediInizioGif.mp4",
     )
   )
 

@@ -262,7 +262,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "buon compleanno"
     )(
-      vid"rphjb_Compleanno.mp4"
+      vid"rphjb_Compleanno.mp4",
+      vid"rphjb_AuguriCompleanno.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ringraziare",
@@ -415,7 +416,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "pellegrinaggio",
-      "istinti musicali",
     )(
       vid"rphjb_PellegrinaggioSimposioMetallo.mp4"
     ),
@@ -482,7 +482,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "io non so mai",
-      "buon compleanno",
       "più vicino alla fine",
       "hai un anno di più",
       "felicitazioni",
@@ -568,7 +567,6 @@ object Video {
       vid"rphjb_TempoAlTempo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "barzelletta",
       "ginecologo",
     )(
       vid"rphjb_BarzellettaPoliticaGinecologo.mp4"
@@ -851,8 +849,8 @@ object Video {
       "(due|2) orecchie".r.tr(10),
       "(una|1) bocca".r.tr(6)
     )(
-      vid"rphjb_2orecchie1Bocca.mp4",
-      vid"rphjb_2orecchie1Bocca2.mp4"
+      vid"rphjb_2Orecchie1Bocca.mp4",
+      vid"rphjb_2Orecchie1Bocca2.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "limitazioni",
@@ -925,7 +923,8 @@ object Video {
       ),
     ReplyBundleMessage.textToVideo[F]("barzelletta")(
       vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
-      vid"rphjb_BarzellettaPapaSonoGayPride.mp4"
+      vid"rphjb_BarzellettaPapaSonoGayPride.mp4",
+      vid"rphjb_BarzellettaPoliticaGinecologo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F]("\\brbo\\b".r.tr(3), "cazzò", "(5|cinque) livelli".r.tr(9))(vid"rphjb_RBO.mp4"),
     ReplyBundleMessage.textToVideo[F]("effettivamente")(vid"rphjb_Effettivamente.mp4"),
@@ -1121,11 +1120,6 @@ object Video {
       vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "negri"
-    )(
-      vid"rphjb_DueNegriMostruosi.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "eccoci qu[aà]".r.tr(10),
       "io sto l[aà]\\b".r.tr(9),
       "dove (ca[z]+[o]?)?sto".r.tr(8),
@@ -1310,7 +1304,7 @@ object Video {
       "questa sera",
       "ancora di pi[uù]+".r.tr(13)
     )(
-      vid"rphjb_QuestaSeraAncoraDiPiù.mp4"
+      vid"rphjb_QuestaSeraAncoraDiPiu.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "paul gilbert"
@@ -1495,7 +1489,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "mi sento un (pezzo di merda|l'ultimo)".r.tr(20)
     )(
-      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiùGiù.mp4"
+      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "è troppo",
@@ -2171,12 +2165,6 @@ object Video {
       "insistere"
     )(
       vid"rphjb_ParteDiRomeo.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "attore"
-    )(
-      vid"rphjb_ParteDiRomeo.mp4",
-      vid"rphjb_DaHollywood.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "come mai"

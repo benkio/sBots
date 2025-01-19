@@ -719,8 +719,8 @@ object YouTuboAncheI0Bot {
       "rotear",
       "ruotar",
     )(
-      gif"ytai_M&Ms.mp4",
-      gif"ytai_M&MsLoop.mp4",
+      gif"ytai_M_Ms.mp4",
+      gif"ytai_M_MsLoop.mp4",
     ),
     ReplyBundleMessage.textToGif[F](
       "(😂|🤣){3,}".r.tr(4),
@@ -1148,8 +1148,7 @@ object YouTuboAncheI0Bot {
     ),
     ReplyBundleMessage.textToGif[F](
       "rinfrescante",
-      "calabria",
-      "s(\\.)?r(\\.)?l(\\.)?".r.tr(3),
+      "s(\\.)?r(\\.)?l(\\.)?".r.tr(3), // s.r.l.
     )(
       gif"ytai_RinfrescanteDiCalabria.mp4",
     ),
@@ -1275,12 +1274,17 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_MoltoGustosaOliva.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
-      "calabria",
+    ReplyBundleMessage.textToGif[F](
       "mpincia",
       "cosa (mi )bevo".r.tr(9)
     )(
-      gif"ytai_Mpincia.mp4"
+      gif"ytai_Mpincia.mp4",
+    ),
+    ReplyBundleMessage.textToGif[F](
+      "calabria"
+    )(
+      gif"ytai_Mpincia.mp4",
+      gif"ytai_RinfrescanteDiCalabria.mp4"
     )
   )
 

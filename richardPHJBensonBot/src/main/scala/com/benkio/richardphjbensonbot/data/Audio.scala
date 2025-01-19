@@ -255,7 +255,6 @@ object Audio {
       mp3"rphjb_NonViDeludero.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "vi saluto",
       "(col|con il) (cuore|cervello|anima|pisello|martello)".r.tr(9),
     )(
       mp3"rphjb_ViSaluto.mp3"

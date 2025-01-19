@@ -115,7 +115,7 @@ trait BaseBotSpec extends CatsEffectSuite:
     replyBundleMessages
       .flatMap(replyBundle =>
         replyBundle.trigger match {
-          case TextTrigger(triggerValues @ _*) =>
+          case TextTrigger(triggerValues @ _*) if replyBundle.matcher == MessageMatches.ContainsOnce =>
             triggerValues.filter(_.isStringTriggerValue).map(stringTrigger => (stringTrigger, replyBundle))
           case _ => Nil
         }
