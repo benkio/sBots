@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.*
 import cats.effect.IO
 import cats.syntax.all.*
 import io.circe.parser.decode
@@ -9,6 +9,9 @@ import scala.io.Source
 import java.io.File
 import com.benkio.telegrambotinfrastructure.model.MediaFileSource
 import munit.*
+import telegramium.bots.Chat
+import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 
 trait BaseBotSpec extends CatsEffectSuite:
   def checkContains(triggerContent: String, values: List[String]): Unit =
@@ -41,6 +44,15 @@ trait BaseBotSpec extends CatsEffectSuite:
         _ <- assert(
           urls.forall(_.query.exists { case (key, optValue) => key == "dl" && optValue.fold(false)(_ == "1") })
         ).pure[IO]
+        _ <- // TODO: fix this once online
+          mediaFileSources
+            .foreach(mfs =>
+              assert(
+                mfs.uri.toString.contains(mfs.filename),
+                s"${mfs.uri} doesn't contain the filename: ${mfs.filename}"
+              )
+            )
+            .pure[IO]
       yield ()
     }
 
@@ -98,3 +110,31 @@ trait BaseBotSpec extends CatsEffectSuite:
         )
       }
     }
+
+  def exactTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+    replyBundleMessages
+      .flatMap(replyBundle =>
+        replyBundle.trigger match {
+          case TextTrigger(triggerValues @ _*) if replyBundle.matcher == MessageMatches.ContainsOnce =>
+            triggerValues.filter(_.isStringTriggerValue).map(stringTrigger => (stringTrigger, replyBundle))
+          case _ => Nil
+        }
+      )
+      .foreach { case (stringTrigger, replyBundle) =>
+        test(s"Triggering exactly the string ${stringTrigger.show} should return the expected reply bundle") {
+          val exactStringMessage = Message(
+            messageId = 0,
+            date = 0,
+            chat = Chat(id = 0, `type` = "test"),
+            text = Some(stringTrigger.show)
+          )
+          replyBundleMessages
+            .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+            .sortBy(_._1)(Trigger.orderingInstance.reverse)
+            .headOption
+            .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
+              assert(tr == TextTrigger(stringTrigger), s"$tr ≠ ${TextTrigger(stringTrigger)}")
+              assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
+            }
+        }
+      }

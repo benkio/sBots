@@ -56,6 +56,8 @@ class ABarberoBotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
+  exactTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData[IO])
+
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,
     expectedReply =

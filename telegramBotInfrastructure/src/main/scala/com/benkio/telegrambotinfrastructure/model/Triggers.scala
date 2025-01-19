@@ -13,6 +13,11 @@ import scala.util.matching.Regex
 extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
 extension (r: Regex)
   def tr(minimalLengthMatch: Int): RegexTextTriggerValue = RegexTextTriggerValue(r, minimalLengthMatch)
+extension (textTriggerValue: TextTriggerValue)
+  def isStringTriggerValue: Boolean = textTriggerValue match {
+    case RegexTextTriggerValue(_, _) => false
+    case StringTextTriggerValue(_)   => true
+  }
 
 given Decoder[Regex] = Decoder.decodeString.map(_.r)
 given Encoder[Regex] = Encoder.encodeString.contramap[Regex](_.toString())

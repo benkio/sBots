@@ -138,7 +138,6 @@ object Gif {
       gif"rphjb_Scherzo.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "che si deve fà",
       "campà",
     )(
       gif"rphjb_Campa.mp4"
@@ -185,12 +184,6 @@ object Gif {
       "[gq]uerelare".r.tr(9),
     )(
       gif"rphjb_Querelare.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "andati al cesso",
-      "diecimila volte"
-    )(
-      gif"rphjb_Alcesso.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "in fila"
@@ -348,11 +341,6 @@ object Gif {
       "hitl[aà]".r.tr(5),
     )(
       gif"rphjb_AdolfHitler.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "limoncell[io]".r.tr(5)
-    )(
-      gif"rphjb_LimoncelliVino.gif"
     ),
     ReplyBundleMessage.textToGif[F](
       "non è male"

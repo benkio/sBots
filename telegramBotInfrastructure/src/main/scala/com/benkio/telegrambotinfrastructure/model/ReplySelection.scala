@@ -30,6 +30,16 @@ case object RandomSelection extends ReplySelection {
     } yield List(replies(randomVal))
 }
 
+extension (replySelection: ReplySelection)
+  def isRandomSelection: Boolean = replySelection match {
+    case RandomSelection => true
+    case _               => false
+  }
+  def isSelectAllSelection: Boolean = replySelection match {
+    case SelectAll => true
+    case _         => false
+  }
+
 object ReplySelection {
   given Decoder[ReplySelection] =
     Decoder.decodeString.emap(s =>

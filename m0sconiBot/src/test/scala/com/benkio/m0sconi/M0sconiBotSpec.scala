@@ -44,6 +44,8 @@ class M0sconiBotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     M0sconiBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
 
+  exactTriggerReturnExpectedReplyBundle(M0sconiBot.messageRepliesData[IO])
+
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData.pure[IO],
     expectedReply =
