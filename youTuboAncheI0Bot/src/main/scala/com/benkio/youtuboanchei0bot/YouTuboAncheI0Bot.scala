@@ -1290,9 +1290,9 @@ object YouTuboAncheI0Bot {
       "colore"
     )(
       gif"ytai_ColoreMeraviglioso.mp4",
-      mp3"ytai_VeritàPegnoPeperoncino.mp3",
-      gif"ytai_VeritàPegnoPeperoncinoGif.mp4",
-      vid"ytai_VeritàPegnoPeperoncino.mp4"
+      mp3"ytai_VeritaPegnoPeperoncino.mp3",
+      gif"ytai_VeritaPegnoPeperoncinoGif.mp4",
+      vid"ytai_VeritaPegnoPeperoncino.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "velit[aà]".r.tr(6),
@@ -1300,9 +1300,9 @@ object YouTuboAncheI0Bot {
       "per intero",
       "peperoncino"
     )(
-      mp3"ytai_VeritàPegnoPeperoncino.mp3",
-      gif"ytai_VeritàPegnoPeperoncinoGif.mp4",
-      vid"ytai_VeritàPegnoPeperoncino.mp4"
+      mp3"ytai_VeritaPegnoPeperoncino.mp3",
+      gif"ytai_VeritaPegnoPeperoncinoGif.mp4",
+      vid"ytai_VeritaPegnoPeperoncino.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "prezzemolo",
