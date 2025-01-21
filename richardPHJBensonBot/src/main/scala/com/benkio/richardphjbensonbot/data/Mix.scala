@@ -2786,7 +2786,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "che( cazzo)? c'è da prendere",
-      "prendo (il motorino|il coso|la macchina|l'auto)",
+      "prend(o|ere) ((il|er) motorino|(il|er) coso|la macchina|l'auto)",
       "\\bvengo\\b".r.tr(5),
       "non vengo\\b".r.tr(9)
     )(

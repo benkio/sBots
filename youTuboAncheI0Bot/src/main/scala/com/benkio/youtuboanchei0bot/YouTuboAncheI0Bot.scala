@@ -1817,7 +1817,15 @@ object YouTuboAncheI0Bot {
     )(
       vid"ytai_SalutoDaObesita.mp4",
       gif"ytai_SalutoDaObesitaGif.mp4",
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\btazza\\b".r.tr(5),
+      "che differenza"
+    )(
+      mp3"ytai_TazzaGrande.mp3",
+      gif"ytai_TazzaGrandeGif.mp4",
+      vid"ytai_TazzaGrande.mp4"
+    ),
   )
 
   def messageRepliesVideoData[
