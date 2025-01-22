@@ -16,7 +16,7 @@ object Dependencies {
     val flyway             = "11.2.0"
     val http4s             = "0.23.30"
     val littleTime         = "4.0.2"
-    val logEffects         = "0.19.2"
+    val logEffects         = "0.19.3"
     val logbackClassic     = "1.5.16"
     val logbackLogstash    = "8.0"
     val mules              = "0.7.0"
