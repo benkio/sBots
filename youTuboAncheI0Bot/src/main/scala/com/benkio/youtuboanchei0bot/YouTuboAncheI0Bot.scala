@@ -707,7 +707,8 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_PaninoBuonoSpuntito.mp4",
       gif"ytai_Panino.mp4",
-      gif"ytai_PaninoAlpino.mp4"
+      gif"ytai_PaninoAlpino.mp4",
+      gif"ytai_LoopPaninoCottoGalbanone.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "m[ ]?&[ ]?m['s]?".r.tr(3),
@@ -1280,6 +1281,9 @@ object YouTuboAncheI0Bot {
     )(
       gif"ytai_Mpincia.mp4",
       gif"ytai_RinfrescanteDiCalabria.mp4"
+    ),
+    ReplyBundleMessage.textToGif[F]("galbanone")(
+      gif"ytai_LoopPaninoCottoGalbanone.mp4"
     )
   )
 
