@@ -880,7 +880,11 @@ object Video {
       "giocatori dopati",
       "(gioco del|il) calcio".r.tr(9),
       "\\bmoggi\\b".r.tr(5),
+      "il coni\\b".r.tr(7),
+      "\\bultr(à|as)\\b".r.tr(5),
       "direttore del coni",
+      "parole grosse",
+      "fare del (male|bene)".r.tr(13),
       "(una|na) farsa".r.tr(8)
     )(
       vid"rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCalcio.mp4"
