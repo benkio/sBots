@@ -2185,6 +2185,13 @@ object Video {
       "abruzzo"
     )(
       vid"rphjb_VivaLAbruzzo.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "palermo",
+      "balatonicus",
+      "coglioni rotti"
+    )(
+      vid"rphjb_GeneriMusicali2.mp4"
     )
   )
 }

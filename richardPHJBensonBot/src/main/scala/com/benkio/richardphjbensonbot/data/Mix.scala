@@ -566,7 +566,8 @@ object Mix {
       vid"rphjb_SepolturaRisata.mp4",
       gif"rphjb_RisataTrattenuta.mp4",
       vid"rphjb_CheGruppoMiRicordaRisata.mp4",
-      vid"rphjb_MomentiGloria.mp4"
+      vid"rphjb_MomentiGloria.mp4",
+      vid"rphjb_GeneriMusicali2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ammazza che sei",
