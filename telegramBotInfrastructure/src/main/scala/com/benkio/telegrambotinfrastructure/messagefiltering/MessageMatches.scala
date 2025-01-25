@@ -32,7 +32,12 @@ object MessageMatches {
       message: Message,
       ignoreMessagePrefix: Option[String]
   ): Option[(Trigger, ReplyBundleMessage[F])] =
-    (ignoreMessagePrefix, replyBundleMessage.matcher, replyBundleMessage.trigger, message.text) match {
+    (
+      ignoreMessagePrefix,
+      replyBundleMessage.matcher,
+      replyBundleMessage.trigger,
+      message.text.orElse(message.caption)
+    ) match {
       case (Some(prefix), _, _, Some(messageText)) if messageText.startsWith(prefix) => None
       case (_, _, MessageLengthTrigger(messageLength), Some(messageText)) if messageText.size >= messageLength =>
         Some((MessageLengthTrigger(messageLength), replyBundleMessage))

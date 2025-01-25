@@ -1498,7 +1498,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "è troppo",
       "indicibile",
-      "non ci sta col cervello"
+      "non (ci sta|c'è) col cervello".r.tr(20)
     )(
       vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
     ),
