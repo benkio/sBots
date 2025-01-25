@@ -31,9 +31,17 @@ class MessageMatchesSpec extends FunSuite {
 
   val ignoreMessagePrefix: Some[String] = Some("!")
 
-  test("doesMatch should return None when the matchingMessageText starts with the ignoreMessagePrefix") {
-    val matchingMessageText = "!messageIgnored"
+  test("doesMatch should return None when the message text starts with the ignoreMessagePrefix") {
+    val matchingMessageText = "!messageIgnored test"
     val testMessage         = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some(matchingMessageText))
+
+    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
+
+    assert(result.isEmpty)
+  }
+  test("doesMatch should return None when the message caption starts with the ignoreMessagePrefix") {
+    val matchingMessageText = "!messageIgnored test"
+    val testMessage         = Message(0, date = 0, chat = Chat(0, `type` = "private"), caption = Some(matchingMessageText))
 
     val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
 
