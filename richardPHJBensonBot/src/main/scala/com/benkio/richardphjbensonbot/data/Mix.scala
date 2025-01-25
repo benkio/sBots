@@ -3451,7 +3451,8 @@ object Mix {
       vid"rphjb_Avremo18AnniLong.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      "chiedere troppo"
+      "chiedere troppo",
+      "al mio cervello"
     )(
       vid"rphjb_StorieSonoTanteTroppoAlMioCervello.mp4",
       gif"rphjb_StorieSonoTanteTroppoAlMioCervelloGif.mp4",
