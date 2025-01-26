@@ -13,9 +13,6 @@ object YouTuboAncheI0BotMainPolling extends IOApp {
     YouTuboAncheI0Bot
       .buildPollingBot[IO, Unit]((ab: YouTuboAncheI0BotPolling[IO]) => ab.start())
       .as(ExitCode.Success)
-    // YouTuboAncheI0Bot
-    //   .buildPollingBot[IO, Unit]((ab: YouTuboAncheI0BotPolling[IO]) => ab.generateTriggerFile.flatMap(IO.println))
-    //   .as(ExitCode.Success)
   }
 
   def run(args: List[String]): IO[ExitCode] =

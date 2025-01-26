@@ -43,10 +43,12 @@ then
     if [ "$WEBHOOK" = false ] ;
     then
         echo "-------------------------Run Polling Bots-------------------------"
-        (cd ./main/target/scala-2.13/; java -cp main.jar com.benkio.main.MainPolling)
+        cp ./botDB.sqlite3 ./main/target/
+        (cd ./main/target/scala-3.6.3/; java -cp main.jar com.benkio.main.MainPolling)
     else
         echo "-------------------------Run Webhook Bots-------------------------"
-        (cd ./main/target/scala-2.13/; java -cp main.jar com.benkio.main.MainWebhook)
+        cp ./botDB.sqlite3 ./main/target/
+        (cd ./main/target/scala-3.6.3/; java -cp main.jar com.benkio.main.MainWebhook)
     fi
 
 
