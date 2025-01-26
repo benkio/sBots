@@ -45,8 +45,7 @@ abstract class BotSkeletonWebhook[F[_]: Async: Api: LogWriter](
   override def onMessage(msg: Message): F[Unit] = {
     val x: OptionT[F, Unit] = for {
       _    <- OptionT.liftF(summon[LogWriter[F]].trace(s"$botName: A message arrived: $msg"))
-      text <- OptionT.fromOption[F](msg.text)
-      _    <- OptionT.liftF(summon[LogWriter[F]].info(s"$botName: A message arrived with content: $text"))
+      _    <- OptionT.liftF(summon[LogWriter[F]].info(s"$botName: A message arrived with content: ${msg.text}"))
       _    <- OptionT(botLogic(resourceAccess, msg)(using Async[F], summon[Api[F]], summon[LogWriter[F]]))
       _    <- OptionT.liftF(postComputation(msg))
     } yield ()
