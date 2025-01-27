@@ -1256,7 +1256,7 @@ object Mix {
       vid"rphjb_CriticaNoCazzate.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "pronto dimmi"
+      "pronto[,]? dimmi".r.tr(12)
     )(
       gif"rphjb_ProntoDimmi.mp4",
       gif"rphjb_ProntoDimmi2.mp4",
@@ -1363,7 +1363,7 @@ object Mix {
       "platinette",
       "due persone in una",
       "quando scopo me la levo",
-      "mi levo tutto",
+      "m[ei] levo tutto".r.tr(13),
     )(
       vid"rphjb_Platinette.mp4",
       mp3"rphjb_Platinette.mp3"

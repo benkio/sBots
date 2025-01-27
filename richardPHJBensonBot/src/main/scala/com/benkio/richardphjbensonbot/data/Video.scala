@@ -2055,7 +2055,6 @@ object Video {
       vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "vi salut[ao]".r.tr(9),
       "lingua",
       "donna giusta",
       "donne sbagliate",
