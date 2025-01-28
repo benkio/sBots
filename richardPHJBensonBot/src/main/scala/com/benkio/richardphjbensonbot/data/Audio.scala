@@ -380,12 +380,6 @@ object Audio {
       mp3"rphjb_PoesiaNatalizia.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "chiesa"
-    )(
-      mp3"rphjb_PoesiaNatalizia.mp3",
-      mp3"rphjb_Chiesa.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "carezza",
       "opposto",
       "all'incontrario",

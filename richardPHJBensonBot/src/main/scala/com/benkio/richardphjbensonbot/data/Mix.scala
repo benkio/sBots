@@ -2478,6 +2478,13 @@ object Mix {
       vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
+      "chiesa"
+    )(
+      mp3"rphjb_PoesiaNatalizia.mp3",
+      mp3"rphjb_Chiesa.mp3",
+      vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "sarete puniti"
     )(
       gif"rphjb_SaretePuniti.mp4",

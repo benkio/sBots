@@ -1536,7 +1536,11 @@ object Video {
       "svastiche appese",
       "satanista acceso",
       "sahara di neve",
-      "il mio fallo"
+      "il mio fallo",
+      "legata ai fili",
+      "cesso d'amplificatore",
+      "esibirne i fasti",
+      "ultimo dei camionisti",
     )(
       vid"rphjb_PoesiaMaria.mp4"
     ),

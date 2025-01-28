@@ -526,12 +526,6 @@ object YouTuboAncheI0Bot {
       gif"ytai_Benvenuti.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "buon appetito"
-    )(
-      gif"ytai_BuonAppetito.mp4",
-      gif"ytai_BuonAppetito2.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "diploma",
       "per pisciare",
       "ma (che )?stiamo scherzando".r.tr(20)
@@ -881,9 +875,8 @@ object YouTuboAncheI0Bot {
       "parlo poco",
       "ingozzo",
       "non ve la prendete",
-      "vostra compagnia",
     )(
-      gif"ytai_SeParloPoco.mp4"
+      gif"ytai_SeParloPoco.mp4",
     ),
     ReplyBundleMessage.textToGif[F](
       "meno di un minuto"
@@ -1830,6 +1823,30 @@ object YouTuboAncheI0Bot {
       gif"ytai_TazzaGrandeGif.mp4",
       vid"ytai_TazzaGrande.mp4"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "buon appetito"
+    )(
+      gif"ytai_BuonAppetito.mp4",
+      gif"ytai_BuonAppetito2.mp4",
+      vid"ytai_BuonAppetitoCompagnia.mp4",
+      mp3"ytai_BuonAppetitoCompagnia.mp3",
+      gif"ytai_BuonAppetitoCompagniaGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vostra compagnia"
+    )(
+      gif"ytai_SeParloPoco.mp4",
+      vid"ytai_BuonAppetitoCompagnia.mp4",
+      mp3"ytai_BuonAppetitoCompagnia.mp3",
+      gif"ytai_BuonAppetitoCompagniaGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sarei (stato )?da solo"
+    )(
+      vid"ytai_BuonAppetitoCompagnia.mp4",
+      mp3"ytai_BuonAppetitoCompagnia.mp3",
+      gif"ytai_BuonAppetitoCompagniaGif.mp4"
+    )
   )
 
   def messageRepliesVideoData[
