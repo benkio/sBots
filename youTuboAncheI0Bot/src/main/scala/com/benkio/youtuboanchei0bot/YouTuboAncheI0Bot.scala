@@ -307,7 +307,7 @@ object YouTuboAncheI0Bot {
       gif"ytai_IncredibileInimitabile.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "io non lo so"
+      "non lo so"
     )(
       gif"ytai_IoNonLoSo.mp4"
     ),

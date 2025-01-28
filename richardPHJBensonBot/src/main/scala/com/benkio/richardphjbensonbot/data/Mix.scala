@@ -695,6 +695,9 @@ object Mix {
       mp3"rphjb_AllucinanteAssolo.mp3",
       vid"rphjb_AllucinanteAssolo.mp4",
       gif"rphjb_AllucinanteAssoloGif.mp4",
+      vid"rphjb_TiraFuoriIlCazzo.mp4",
+      mp3"rphjb_TiraFuoriIlCazzo.mp3",
+      gif"rphjb_TiraFuoriIlCazzoGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\b(g|c)a(b|p)i(d|t)o\\b".r.tr(6),
@@ -1028,7 +1031,8 @@ object Mix {
       vid"rphjb_UltimoListaUmaniVenerdi22.mp4",
       vid"rphjb_SteveVai.mp4",
       mp3"rphjb_SteveVai.mp3",
-      gif"rphjb_SteveVaiGif.mp4"
+      gif"rphjb_SteveVaiGif.mp4",
+      vid"rphjb_BiscionePiatti.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "discoteca laziale"
@@ -2375,10 +2379,11 @@ object Mix {
       vid"rphjb_SoCazziVostriGuaioPureCazziMia.mp4",
     ),
     ReplyBundleMessage.textToMedia[F](
-      "vi spacco il culo"
+      "spacco il culo"
     )(
       mp3"rphjb_ViSpaccoIlCulo.mp3",
-      vid"rphjb_ViSpaccoIlCulo.mp4"
+      vid"rphjb_ViSpaccoIlCulo.mp4",
+      vid"rphjb_FacevoSchifoOraSpacco.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "altari",
@@ -3504,7 +3509,9 @@ object Mix {
     )(
       mp3"rphjb_DonneSperma.mp3",
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4",
-      mp3"rphjb_Fazzoletti.mp3"
+      mp3"rphjb_Fazzoletti.mp3",
+      vid"rphjb_IlPubblicoDavanti.mp4",
+      mp3"rphjb_IlPubblicoDavanti.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "pelle",
@@ -3590,6 +3597,75 @@ object Mix {
       mp3"rphjb_FineSettimanaMercolediInizio.mp3",
       vid"rphjb_FineSettimanaMercolediInizio.mp4",
       gif"rphjb_FineSettimanaMercolediInizioGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "donna cane"
+    )(
+      gif"rphjb_DonnaCaneGif.mp4",
+      vid"rphjb_DonnaCane.mp4",
+      mp3"rphjb_DonnaCane.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "guinzaglio",
+      "e la tiro"
+    )(
+      vid"rphjb_DonnaCane.mp4",
+      mp3"rphjb_DonnaCane.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "di una volta"
+    )(
+      vid"rphjb_GambaleCHaDeluso.mp4",
+      vid"rphjb_DonneDiUnaVoltaSeniCuomoMadonna.mp4",
+      mp3"rphjb_DonneDiUnaVoltaSeniCuomoMadonna.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "i seni\\b".r.tr(6),
+      "\\btette\\b".r.tr(5),
+      "fatti lecc(are|a|à)\\b".r.tr(11),
+      "katy monique cuomo",
+      "mi vergogno",
+      "porno[ ]?(diva|star|)".r.tr(9)
+    )(
+      vid"rphjb_DonneDiUnaVoltaSeniCuomoMadonna.mp4",
+      mp3"rphjb_DonneDiUnaVoltaSeniCuomoMadonna.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(pubblico|gente) davanti".r.tr(13),
+      "\\ba fro(ci|sh)o\\b".r.tr(8),
+      "facc[ei] ved(e|ere) (il|er) culo".r.tr(18),
+      "quando scopi",
+      "te lo faccio vedere",
+      "oxford"
+    )(
+      vid"rphjb_IlPubblicoDavanti.mp4",
+      mp3"rphjb_IlPubblicoDavanti.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\btega\\b".r.tr(4),
+      "(il|er) baffo".r.tr(9),
+    )(
+      mp3"rphjb_RaccondaStoriaTegaBaffoPeliCulo.mp3",
+      vid"rphjb_IlPubblicoDavanti.mp4",
+      mp3"rphjb_IlPubblicoDavanti.mp3",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sto tavolo",
+      "piena (di|de) curve",
+      "tira fuori il"
+    )(
+      vid"rphjb_TiraFuoriIlCazzo.mp4",
+      mp3"rphjb_TiraFuoriIlCazzo.mp3",
+      gif"rphjb_TiraFuoriIlCazzoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "non lo so",
+      "idee più chiare",
+      "idee (molto )?confuse".r.tr(12),
+    )(
+      vid"rphjb_IdeeConfuse.mp4",
+      mp3"rphjb_IdeeConfuse.mp3",
+      gif"rphjb_IdeeConfuseGif.mp4"
     )
   )
 

@@ -389,7 +389,8 @@ object Video {
       "sapere tutto",
       "se non le sai le cose",
       "radio rock",
-      "informazioni sbagliate"
+      "informazioni sbagliate",
+      "errore tragico"
     )(
       vid"rphjb_RadioRockErrori.mp4"
     ),
@@ -600,7 +601,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "facevo schifo",
-      "(ora|adesso) spacco il culo",
     )(
       vid"rphjb_FacevoSchifoOraSpacco.mp4"
     ),
@@ -1047,7 +1047,6 @@ object Video {
       vid"rphjb_DonnaMerita.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "alpheus",
       "mi sentivo (di fare)?così".r.tr(15),
       "ho fatto così"
     )(
@@ -2092,8 +2091,7 @@ object Video {
       vid"rphjb_CanzonettePoesieAuschwitzCervello.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "gambale",
-      "di una volta"
+      "gambale"
     )(
       vid"rphjb_GambaleCHaDeluso.mp4"
     ),
@@ -2199,6 +2197,12 @@ object Video {
       "coglioni rotti"
     )(
       vid"rphjb_GeneriMusicali2.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "alpheus",
+    )(
+      vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4",
+      vid"rphjb_BiscionePiatti.mp4"
+    ),
   )
 }

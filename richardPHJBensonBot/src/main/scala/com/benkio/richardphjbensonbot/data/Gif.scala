@@ -72,11 +72,6 @@ object Gif {
       gif"rphjb_ComeHaFattoAEntrare.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "donna cane"
-    )(
-      gif"rphjb_DonnaCane.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "menzion"
     )(
       gif"rphjb_NonMiMenzionareQuestaParola.mp4"

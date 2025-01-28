@@ -354,9 +354,7 @@ object Audio {
       mp3"rphjb_IncidentePonte.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\btega\\b".r.tr(4),
       "peli (a[rl]|del) culo".r.tr(12),
-      "il baffo",
     )(
       mp3"rphjb_RaccondaStoriaTegaBaffoPeliCulo.mp3"
     ),
