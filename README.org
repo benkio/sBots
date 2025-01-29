@@ -37,12 +37,9 @@
      the files in resources since those will be fetched from the web
      via URLs.
 
-     To add data to the bots you need to add the file name and
-     downloadable link (usually Dropbox), to the json at the root of
-     each bot folder. Then modify the scala code to add the type that
-     creates the mappings between the triggers and the files. See
-     planty of examples of any kind throughout the code, especially
-     under RichardPHJBensonBot's data package.
+     To add data to the bots you need to:
+     - Add the file name and downloadable link (usually Dropbox), to the json at the root of each bot folder.
+     - Modify the scala code to add the type that creates the mappings between the triggers and the files. See planty of examples of any kind throughout the code, especially under RichardPHJBensonBot's data package.
 
      The old video guide below refers to a time where also the
      ~trigger.txt~ as to be updated manually. Now it's automatic.
