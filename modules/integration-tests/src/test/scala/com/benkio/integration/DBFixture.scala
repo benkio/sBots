@@ -42,7 +42,7 @@ object DBFixture {
 
   val dbName: String         = "botDB.sqlite3"
   val resourcePath: String   = new File("./..").getCanonicalPath
-  val dbPath: String         = s"$resourcePath/$dbName"
+  val dbPath: String         = s"$resourcePath/../$dbName"
   val dbUrl: String          = s"jdbc:sqlite:$dbPath";
   val deleteDB: Boolean      = false
   val migrationPath: String  = "filesystem:" + resourcePath + "/botDB/src/main/resources/db/migrations"

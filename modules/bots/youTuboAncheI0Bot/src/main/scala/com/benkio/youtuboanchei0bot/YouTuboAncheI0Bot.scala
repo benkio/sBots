@@ -83,7 +83,8 @@ object YouTuboAncheI0Bot {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "YouTuboAncheI0Bot"
   val botPrefix: String                   = "ytai"
-  val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/master/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
+  val triggerListUri: Uri =
+    uri"https://github.com/benkio/sBots/blob/master/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   val triggerFilename: String = "ytai_triggers.txt"
   val tokenFilename: String   = "ytai_YouTuboAncheI0Bot.token"
   val configNamespace: String = "ytaiDB"
