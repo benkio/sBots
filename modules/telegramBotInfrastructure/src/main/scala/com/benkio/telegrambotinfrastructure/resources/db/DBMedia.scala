@@ -28,7 +28,7 @@ object DBMediaData {
     media_name = media.mediaName,
     kinds = media.kinds.asJson.noSpaces.some,
     mime_type = mimeTypeOrDefault(media.mediaName, None),
-    media_sources = media.mediaSources.asJson.toString,
+    media_sources = media.mediaSources.asJson.noSpaces,
     media_count = media.mediaCount,
     created_at = media.createdAt.toString
   )

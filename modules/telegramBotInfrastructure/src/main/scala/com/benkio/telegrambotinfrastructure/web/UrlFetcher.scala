@@ -18,7 +18,7 @@ import scala.concurrent.duration.*
 
 trait UrlFetcher[F[_]] {
 
-  def fetchFromDropbox(filename: String, url: String): Resource[F, File]
+  def fetchFromDropbox(filename: String, url: Uri): Resource[F, File]
 
 }
 
@@ -38,16 +38,16 @@ object UrlFetcher {
 
   private class UrlFetcherImpl[F[_]: Async](httpClient: Client[F], log: LogWriter[F]) extends UrlFetcher[F] {
 
-    def fetchFromDropbox(filename: String, url: String): Resource[F, File] = {
-      val req = Request[F](GET, Uri.unsafeFromString(url))
+    def fetchFromDropbox(filename: String, url: Uri): Resource[F, File] = {
+      val req = Request[F](GET, url)
       httpClient
         .run(req)
         .flatMap(response => {
           val followup: Resource[F, File] = (
             response.status,
-            response.headers.get(ci"Location")
+            response.headers.get(ci"Location").flatMap(hl => Uri.fromString(hl.head.value).toOption)
           ) match { // non standard redirect because dropbox
-            case (Status.Found, Some(loc)) => fetchFromDropbox(filename, loc.head.value)
+            case (Status.Found, Some(locationUri)) => fetchFromDropbox(filename, locationUri)
             case (Status.Found, None) =>
               Resource.raiseError[F, File, Throwable](DropboxLocationHeaderNotFound[F](response))
             case _ =>

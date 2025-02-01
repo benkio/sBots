@@ -17,7 +17,7 @@ class MediaSpec extends FunSuite {
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
     )
-    assertEquals(input.show, "0    | test_name | https://benkio.github.io")
+    assertEquals(input.show, """0    | test_name | ["https://benkio.github.io"]""")
   }
   test("Media.mediaListToString should return the expected string") {
     val input: Media = Media(
@@ -32,9 +32,9 @@ class MediaSpec extends FunSuite {
     val inputList: List[Media] = List(input, input2, input3)
     assertEquals(
       Media.mediaListToString(inputList),
-      """0    | test_name | https://benkio.github.io
-1    | test name 2 | https://benkio.github.io
-2    | test name 3 | https://benkio.github.io""".stripMargin
+      """0    | test_name | ["https://benkio.github.io"]
+1    | test name 2 | ["https://benkio.github.io"]
+2    | test name 3 | ["https://benkio.github.io"]""".stripMargin
     )
   }
 

@@ -1,15 +1,14 @@
 package com.benkio.telegrambotinfrastructure.resources
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import cats.*
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import log.effect.LogWriter
-
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
@@ -18,12 +17,14 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.jar.JarFile
+import log.effect.LogWriter
+import org.http4s.Uri
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters.*
 
 trait ResourceAccess[F[_]] {
   def getResourcesByKind(criteria: String): Resource[F, List[MediaResource]]
-  def getResourceFile(mediaFile: MediaFile)(using syncF: Sync[F], log: LogWriter[F]): Resource[F, MediaResource]
+  def getResourceFile(mediaFile: MediaFile): Resource[F, MediaResource]
 }
 
 object ResourceAccess {
@@ -45,8 +46,8 @@ object ResourceAccess {
       subResourceFilePath
     )
 
-  def fromResources[F[_]: Sync](stage: Option[String] = None): fromResources[F] = new fromResources[F](stage)
-  class fromResources[F[_]: Sync](stage: Option[String] = None) extends ResourceAccess[F] {
+  def fromResources[F[_]: Sync: LogWriter](stage: Option[String] = None): fromResources[F] = new fromResources[F](stage)
+  class fromResources[F[_]: Sync: LogWriter](stage: Option[String] = None) extends ResourceAccess[F] {
 
     private def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       (for {
@@ -108,12 +109,12 @@ object ResourceAccess {
 
     override def getResourceFile(
         mediaFile: MediaFile
-    )(using syncF: Sync[F], log: LogWriter[F]): Resource[F, MediaResource] = {
+    ): Resource[F, MediaResource] = {
       for {
-        _           <- Resource.eval(log.info(s"getResourceFile of $mediaFile"))
+        _           <- Resource.eval(LogWriter.info(s"getResourceFile of $mediaFile"))
         fileContent <- getResourceByteArray(mediaFile.filepath)
         tempFile = ResourceAccess.toTempFile(mediaFile.filename, Array.empty)
-        fos <- Resource.make(syncF.delay(new FileOutputStream(tempFile)))(fos => Sync[F].delay(fos.close()))
+        fos <- Resource.make(Sync[F].delay(new FileOutputStream(tempFile)))(fos => Sync[F].delay(fos.close()))
       } yield {
         fos.write(fileContent)
         MediaResource.MediaResourceFile(tempFile)
@@ -121,31 +122,52 @@ object ResourceAccess {
     }
   }
 
-  def dbResources[F[_]: Async](dbMedia: DBMedia[F], urlFetcher: UrlFetcher[F]): ResourceAccess[F] =
+  def dbResources[F[_]: Async: LogWriter](dbMedia: DBMedia[F], urlFetcher: UrlFetcher[F]): ResourceAccess[F] =
     new ResourceAccess[F] {
 
-      private def dbMediaDataToMediaResource(media: DBMediaData): F[MediaResource] = ???
+      private def dbMediaDataToMediaResource(dbMedia: DBMediaData): Resource[F, MediaResource] = {
+        def findFirstSuccedingSource(
+            mediaName: String,
+            sources: List[Either[String, Uri]]
+        ): Resource[F, MediaResource] = sources match
+          case Nil =>
+            Resource.eval(
+              LogWriter.error(s"[ResourcesAccess] couldn't find a successful source for $dbMedia") >> Async[F]
+                .raiseError(Throwable(s"[ResourcesAccess] couldn't find a successful source for $dbMedia"))
+            )
+          case Left(iFile) :: _ => Resource.pure(MediaResource.MediaResourceIFile(iFile))
+          case Right(uri) :: t =>
+            urlFetcher
+              .fetchFromDropbox(mediaName, uri)
+              .map(MediaResource.MediaResourceFile(_))
+              .handleErrorWith[MediaResource, Throwable](e =>
+                Resource.eval(
+                  LogWriter.error(s"[ResourcesAccess] Uri $uri for $dbMedia failed to fetch the data")
+                ) >> findFirstSuccedingSource(mediaName, t)
+              )
+        for
+          media         <- Resource.eval(Async[F].fromEither(Media(dbMedia)))
+          mediaResource <- findFirstSuccedingSource(media.mediaName, media.mediaSources)
+        yield mediaResource
+      }
 
       override def getResourcesByKind(criteria: String): Resource[F, List[MediaResource]] =
         for {
           medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
-          files <- Resource.eval(
+          files <-
             medias.traverse(
-              dbMediaDataToMediaResource // urlFetcher.fetchFromDropbox(media.media_name, media.media_url)
+              dbMediaDataToMediaResource
             )
-          )
         } yield files
 
       override def getResourceFile(
           mediaFile: MediaFile
-      )(using syncF: Sync[F], log: LogWriter[F]): Resource[F, MediaResource] = {
+      ): Resource[F, MediaResource] = {
         for {
-          _     <- Resource.eval(log.info(s"getResourceFile of $mediaFile"))
-          media <- Resource.eval(dbMedia.getMedia(mediaFile.filepath))
-          _     <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
-          mediaResource <- Resource.eval(
-            dbMediaDataToMediaResource(media)
-          ) // urlFetcher.fetchFromDropbox(resourceName, media.media_url)
+          _             <- Resource.eval(LogWriter.info(s"[ResourcesAccess] `getResourceFile` of $mediaFile"))
+          media         <- Resource.eval(dbMedia.getMedia(mediaFile.filepath))
+          _             <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
+          mediaResource <- dbMediaDataToMediaResource(media)
         } yield mediaResource
       }
     }

@@ -97,7 +97,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
       computeResult(replyBundleInput2)
 
     for {
-      _ <- assertIO(result1.map(_.length), 5)
+      _ <- assertIO(result1.map(_.length), 6)
       _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Mp3")))), true)
       _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Photo")))), true)
       _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Gif")))), true)
@@ -120,13 +120,14 @@ class ReplyBundleSpec extends CatsEffectSuite {
     assertIO(
       result,
       """--------------------------------------------------
-audio.mp3                 | stringTextTriggerValue
-picture.jpg               | regexTextTriggerValue
-picture.png               | 
-a.gif                     | 
-video.mp4                 | 
---------------------------------------------------
-"""
+        |audio.mp3                 | stringTextTriggerValue
+        |picture.jpg               | regexTextTriggerValue
+        |picture.png               | 
+        |a.gif                     | 
+        |video.mp4                 | 
+        |document.pdf              | 
+        |--------------------------------------------------
+        |""".stripMargin
     )
   }
 

@@ -39,7 +39,7 @@ class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F](resourceAccess)
     with M0sconiBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using syncF: Sync[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
   override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using
@@ -57,7 +57,7 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resAccess)
     with M0sconiBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Sync[F], log: LogWriter[F]): ResourceAccess[F] = resAccess
   override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using

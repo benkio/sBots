@@ -39,7 +39,7 @@ class SampleWebhookBot(
     webhookCertificate: Option[InputPartFile] = None
 )(using logWriterIO: LogWriter[IO])
     extends BotSkeletonWebhook[IO](uri, path, webhookCertificate, resourceAccess) {
-  override def resourceAccess(using syncIO: Sync[IO]): ResourceAccess[IO] = resourceAccess
+  override def resourceAccess(using syncF: Sync[IO], log: LogWriter[IO]): ResourceAccess[IO] = resourceAccess
   override def postComputation(using appIO: Applicative[IO]): Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using

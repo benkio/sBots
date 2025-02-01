@@ -33,7 +33,10 @@ trait BaseBotSpec extends CatsEffectSuite:
       val jsonMediaFileSource = decode[List[MediaFileSource]](jsonContent)
 
       for
-        _                <- assert(jsonMediaFileSource.isRight).pure[IO]
+        _ <- assert(
+          jsonMediaFileSource.isRight,
+          s"got an error trying to open/parse $jsonFilename @ $listPath: $jsonMediaFileSource"
+        ).pure[IO]
         mediaFileSources <- IO.fromEither(jsonMediaFileSource)
         files = mediaFileSources.map(_.filename)
         urls  = mediaFileSources.flatMap(_.sources.collect { case Right(uri) => uri })

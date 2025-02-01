@@ -27,7 +27,7 @@ class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F](resourceAccess)
     with XahLeeBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using syncF: Sync[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
 }
 
 class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
@@ -39,7 +39,7 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with XahLeeBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using syncF: Sync[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
 }
 
 trait XahLeeBot[F[_]] extends BotSkeleton[F] {

@@ -33,7 +33,7 @@ object Media {
 
   given mediaShowInstance: Show[Media] =
     Show.show(media =>
-      s"${media.mediaCount.toString.padTo(4, ' ')} | ${media.mediaName} | ${media.mediaSources.asJson.toString}"
+      s"${media.mediaCount.toString.padTo(4, ' ')} | ${media.mediaName} | ${media.mediaSources.asJson.noSpaces}"
     )
 
   def mediaListToString(medias: List[Media]): String =
