@@ -13,7 +13,6 @@ import io.circe.parser.decode
 import io.circe.syntax.*
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 
-
 import java.time.Instant
 import scala.io.Source
 
@@ -69,7 +68,9 @@ object BotDBController {
                   created_at = Instant.now().getEpochSecond.toString
                 )
               )
-            _ <- Sync[F].delay(println(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully"))
+            _ <- Sync[F].delay(
+              println(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully")
+            )
           } yield ()
         )
       )

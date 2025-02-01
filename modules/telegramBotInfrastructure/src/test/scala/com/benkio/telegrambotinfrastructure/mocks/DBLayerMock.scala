@@ -96,6 +96,20 @@ object DBLayerMock {
         ms.find(m => m.media_name == filename)
           .fold(ms)(oldValue => ms.filterNot(_ == oldValue) :+ oldValue.copy(media_count = oldValue.media_count + 1))
       )
+    override def insertMedia(dbMediaData: DBMediaData): IO[Unit] =
+      db.flatModify(ms =>
+        ms.find(m => m.media_name == dbMediaData.media_name)
+          .fold((dbMediaData :: ms, IO.unit))(oldValue =>
+            (
+              ms,
+              IO.raiseError(
+                Throwable(
+                  s"[DBLayerMock] trying to insert $dbMediaData, but another one with the same media name exists: $oldValue"
+                )
+              )
+            )
+          )
+      )
   }
 
   class DBSubscriptionMock(db: Ref[IO, List[DBSubscriptionData]]) extends DBSubscription[IO] {

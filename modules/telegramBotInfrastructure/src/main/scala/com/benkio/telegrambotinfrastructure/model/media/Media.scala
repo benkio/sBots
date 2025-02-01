@@ -26,13 +26,15 @@ object Media {
   } yield Media(
     mediaName = dbMediaData.media_name,
     kinds = decode[List[String]](dbMediaData.kinds.getOrElse("[]")).getOrElse(List.empty),
-    mediaSources = decode[List[Either[String,Uri]]](dbMediaData.media_sources).getOrElse(List.empty),
+    mediaSources = decode[List[Either[String, Uri]]](dbMediaData.media_sources).getOrElse(List.empty),
     mediaCount = dbMediaData.media_count,
     createdAt = createdAt,
   )
 
   given mediaShowInstance: Show[Media] =
-    Show.show(media => s"${media.mediaCount.toString.padTo(4, ' ')} | ${media.mediaName} | ${media.mediaSources.asJson.toString}")
+    Show.show(media =>
+      s"${media.mediaCount.toString.padTo(4, ' ')} | ${media.mediaName} | ${media.mediaSources.asJson.toString}"
+    )
 
   def mediaListToString(medias: List[Media]): String =
     medias.map(_.show).mkString("\n")

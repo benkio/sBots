@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.reply.Reply
@@ -45,6 +46,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
       case _: PhotoFile => List(msg.copy(text = Some("Photo")))
       case _: VideoFile => List(msg.copy(text = Some("Video")))
       case _: Text      => List(msg.copy(text = Some("Text")))
+      case _: Document  => List(msg.copy(text = Some("Document")))
     }).pure[F]
   }
 
@@ -54,6 +56,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
     PhotoFile("picture.png"),
     GifFile("a.gif"),
     VideoFile("video.mp4"),
+    Document("document.pdf")
   )
 
   test("computeReplyBundle should return the expected message when the ReplyBundle and Message is provided") {

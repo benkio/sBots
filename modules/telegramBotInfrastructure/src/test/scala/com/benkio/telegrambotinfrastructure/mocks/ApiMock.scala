@@ -50,5 +50,11 @@ object ApiMock {
       chat = Chat(0, `type` = "private"),
       text = Some("[apiMock] sendPhoto reply")
     ).asJson,
+    "sendDocument" -> Message(
+      0,
+      date = 0,
+      chat = Chat(0, `type` = "private"),
+      text = Some("[apiMock] sendDocument reply")
+    ).asJson,
   )
 }

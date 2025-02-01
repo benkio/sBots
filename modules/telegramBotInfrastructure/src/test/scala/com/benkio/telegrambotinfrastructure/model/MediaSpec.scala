@@ -13,7 +13,7 @@ class MediaSpec extends FunSuite {
     val input: Media = Media(
       mediaName = "test_name",
       kinds = List.empty,
-      mediaUrl = Uri.unsafeFromString("https://benkio.github.io"),
+      mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
     )
@@ -23,7 +23,7 @@ class MediaSpec extends FunSuite {
     val input: Media = Media(
       mediaName = "test_name",
       kinds = List.empty,
-      mediaUrl = Uri.unsafeFromString("https://benkio.github.io"),
+      mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
     )
@@ -42,8 +42,9 @@ class MediaSpec extends FunSuite {
     val input: DBMediaData = DBMediaData(
       media_name = "rphjb_Animali.mp3",
       kinds = Some("[]"),
-      media_url =
-        "https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1",
+      media_sources =
+        """["https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1"]""",
+      mime_type = "audio/mpeg",
       media_count = 0,
       created_at = "1662126018293"
     )

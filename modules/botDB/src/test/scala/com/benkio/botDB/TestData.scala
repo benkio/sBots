@@ -1,32 +1,32 @@
 package com.benkio.botDB
 
-import com.benkio.botDB.db.schema.MediaEntity
-import org.http4s.syntax.all.*
-
-import java.sql.Timestamp
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 
 object TestData {
 
-  val google: MediaEntity = MediaEntity(
+  val google: DBMediaData = DBMediaData(
     media_name = "google.gif",
-    kinds = List.empty,
+    kinds = None,
     mime_type = "image/gif",
-    media_uri = uri"https://www.google.com",
-    created_at = new Timestamp(1658054878L)
+    media_sources = """["https://www.google.com"]""",
+    created_at = 1658054878L.toString,
+    media_count = 0
   )
-  val amazon: MediaEntity = MediaEntity(
+  val amazon: DBMediaData = DBMediaData(
     media_name = "amazon.mp4",
-    kinds = List("kind"),
+    kinds = Some("kind"),
     mime_type = "video/mp4",
-    media_uri = uri"https://www.amazon.com",
-    created_at = new Timestamp(1658054878L)
+    media_sources = """["https://www.amazon.com"]""",
+    created_at = 1658054878L.toString,
+    media_count = 0
   )
-  val facebook: MediaEntity = MediaEntity(
+  val facebook: DBMediaData = DBMediaData(
     media_name = "facebook.mp3",
-    kinds = List("kind_innerKind"),
+    kinds = Some("kind_innerKind"),
     mime_type = "audio/mpeg",
-    media_uri = uri"https://www.facebook.com",
-    created_at = new Timestamp(1658054878L)
+    media_sources = """["https://www.facebook.com"]""",
+    created_at = 1658054878L.toString,
+    media_count = 0
   )
 
   val config: Config = Config(

@@ -68,12 +68,12 @@ object TelegramReply:
         resourceAccess: ResourceAccess[F],
         replyToMessage: Boolean
     ): F[List[Message]] = reply match {
-      case mp3: Mp3File     => telegramMp3Reply.reply(mp3, msg, resourceAccess, replyToMessage)
-      case gif: GifFile     => telegramGifReply.reply(gif, msg, resourceAccess, replyToMessage)
-      case photo: PhotoFile => telegramPhotoReply.reply(photo, msg, resourceAccess, replyToMessage)
-      case video: VideoFile => telegramVideoReply.reply(video, msg, resourceAccess, replyToMessage)
+      case mp3: Mp3File       => telegramMp3Reply.reply(mp3, msg, resourceAccess, replyToMessage)
+      case gif: GifFile       => telegramGifReply.reply(gif, msg, resourceAccess, replyToMessage)
+      case photo: PhotoFile   => telegramPhotoReply.reply(photo, msg, resourceAccess, replyToMessage)
+      case video: VideoFile   => telegramVideoReply.reply(video, msg, resourceAccess, replyToMessage)
       case document: Document => telegramDocumentReply.reply(document, msg, resourceAccess, replyToMessage)
-      case text: Text       => telegramTextReply.reply(text, msg, resourceAccess, replyToMessage)
+      case text: Text         => telegramTextReply.reply(text, msg, resourceAccess, replyToMessage)
     }
   }
 

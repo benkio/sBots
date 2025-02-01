@@ -36,7 +36,7 @@ trait BaseBotSpec extends CatsEffectSuite:
         _                <- assert(jsonMediaFileSource.isRight).pure[IO]
         mediaFileSources <- IO.fromEither(jsonMediaFileSource)
         files = mediaFileSources.map(_.filename)
-        urls  = mediaFileSources.map(_.uri)
+        urls  = mediaFileSources.flatMap(_.sources.collect { case Right(uri) => uri })
         filenames <- botData
         _ <- filenames
           .foreach(filename => assert(files.contains(filename), s"$filename is not contained in bot data file"))
@@ -51,10 +51,14 @@ trait BaseBotSpec extends CatsEffectSuite:
         _ <- // TODO: fix this once online
           mediaFileSources
             .foreach(mfs =>
-              assert(
-                mfs.uri.toString.contains(mfs.filename),
-                s"${mfs.uri} doesn't contain the filename: ${mfs.filename}"
-              )
+              mfs.sources.foreach {
+                case Right(uri) =>
+                  assert(
+                    uri.toString.contains(mfs.filename),
+                    s"$uri doesn't contain the filename: ${mfs.filename}"
+                  )
+                case _ => assert(true)
+              }
             )
             .pure[IO]
       yield ()

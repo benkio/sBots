@@ -1,11 +1,16 @@
 package com.benkio.telegrambotinfrastructure.resources
 
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import log.effect.LogLevels
+import com.benkio.telegrambotinfrastructure.model.reply.Document
 import cats.effect.IO
+import cats.syntax.all.*
 import munit.FunSuite
 
 import java.nio.file.*
 import scala.util.Random
-
+import log.effect.LogWriter
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 class ResourcesAccessSpec extends FunSuite {
 
   val testfile       = "testFile"
@@ -29,15 +34,14 @@ class ResourcesAccessSpec extends FunSuite {
 
 object ResourceAccessSpec {
 
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+
   def testFilename(filename: String)(using resourceAccess: ResourceAccess[IO]): IO[Boolean] =
     resourceAccess
-      .getResourceByteArray(filename)
-      .use((fileBytes: Array[Byte]) => {
-        if (fileBytes.nonEmpty) IO(true)
-        else
-          IO {
-            println(s"ERROR: filename $filename is missing!!!!")
-            false
-          }
-      })
+      .getResourceFile(Document(filename))
+      .use {
+        case MediaResource.MediaResourceFile(f) => Files.readAllBytes(f.toPath).map(_.toChar).mkString.nonEmpty.pure
+        case MediaResource.MediaResourceIFile(x) =>
+          IO.raiseError(Throwable(s"[ResourcesAccessSpec]: filename $filename is missing!!!!"))
+      }
 }

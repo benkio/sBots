@@ -91,11 +91,17 @@ object ResourceAccess {
               .asScala
               .toList
               .tail
-              .map((fl: Path) => MediaResource.MediaResourceFile(new File(buildPath(criteria, stage).toString + "/" + fl.getFileName.toString)))
+              .map((fl: Path) =>
+                MediaResource.MediaResourceFile(
+                  new File(buildPath(criteria, stage).toString + "/" + fl.getFileName.toString)
+                )
+              )
           )
       } else {
         result.toList.traverse(s =>
-          getResourceByteArray(s).map(content => MediaResource.MediaResourceFile(toTempFile(s.stripPrefix(s"$criteria/"), content)))
+          getResourceByteArray(s).map(content =>
+            MediaResource.MediaResourceFile(toTempFile(s.stripPrefix(s"$criteria/"), content))
+          )
         )
       }
     }
@@ -123,19 +129,23 @@ object ResourceAccess {
       override def getResourcesByKind(criteria: String): Resource[F, List[MediaResource]] =
         for {
           medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
-          files  <- Resource.eval(medias.traverse(
-            dbMediaDataToMediaResource// urlFetcher.fetchFromDropbox(media.media_name, media.media_url)
-          ))
+          files <- Resource.eval(
+            medias.traverse(
+              dbMediaDataToMediaResource // urlFetcher.fetchFromDropbox(media.media_name, media.media_url)
+            )
+          )
         } yield files
 
       override def getResourceFile(
           mediaFile: MediaFile
       )(using syncF: Sync[F], log: LogWriter[F]): Resource[F, MediaResource] = {
         for {
-          _           <- Resource.eval(log.info(s"getResourceFile of $mediaFile"))
+          _     <- Resource.eval(log.info(s"getResourceFile of $mediaFile"))
           media <- Resource.eval(dbMedia.getMedia(mediaFile.filepath))
           _     <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
-          mediaResource  <- Resource.eval(dbMediaDataToMediaResource(media)) // urlFetcher.fetchFromDropbox(resourceName, media.media_url)
+          mediaResource <- Resource.eval(
+            dbMediaDataToMediaResource(media)
+          ) // urlFetcher.fetchFromDropbox(resourceName, media.media_url)
         } yield mediaResource
       }
     }

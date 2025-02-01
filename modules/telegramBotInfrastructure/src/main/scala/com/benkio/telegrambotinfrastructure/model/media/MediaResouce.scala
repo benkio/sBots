@@ -1,10 +1,12 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
 import java.io.File
-import telegramium.bots.{InputLinkFile, InputPartFile, IFile}
+import telegramium.bots.InputLinkFile
+import telegramium.bots.InputPartFile
+import telegramium.bots.IFile
 
 enum MediaResource:
-  case MediaResourceFile(file: File) extends MediaResource
+  case MediaResourceFile(file: File)     extends MediaResource
   case MediaResourceIFile(iFile: String) extends MediaResource
 
 extension (mediaResource: MediaResource)
@@ -12,7 +14,7 @@ extension (mediaResource: MediaResource)
     case MediaResource.MediaResourceFile(file: File)     => InputPartFile(file)
     case MediaResource.MediaResourceIFile(iFile: String) => InputLinkFile(iFile)
   }
-  def getMediaResourceFile : Option[File] = mediaResource match {
-    case MediaResource.MediaResourceFile(file: File)     => Some(file)
-    case MediaResource.MediaResourceIFile(_) => None
+  def getMediaResourceFile: Option[File] = mediaResource match {
+    case MediaResource.MediaResourceFile(file: File) => Some(file)
+    case MediaResource.MediaResourceIFile(_)         => None
   }

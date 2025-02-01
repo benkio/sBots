@@ -22,7 +22,7 @@ object MediaFileSource {
         Uri.fromString(str).leftMap(_ => str)
       }
 
-  given Encoder[Either[String,Uri]] =
+  given Encoder[Either[String, Uri]] =
     encodeString.contramap(_.fold(identity, _.toString))
 
   given Decoder[MediaFileSource] =

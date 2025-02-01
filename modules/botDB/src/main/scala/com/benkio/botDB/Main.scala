@@ -20,10 +20,10 @@ object Main extends IOApp {
       _   <- IO(log.info(s"Migrating database configuration"))
       cfg <- Config.loadConfig(args.headOption)
       _   <- IO(log.info(s"Input Configuration: $cfg"))
-      transactor         = Config.buildTransactor(cfg = cfg)
+      transactor = Config.buildTransactor(cfg = cfg)
       databaseRepository <- DBMedia[IO](transactor)
-      resourceAccess     = ResourceAccess.fromResources[IO](args.lastOption)
-      migrator           = DBMigrator[IO]
+      resourceAccess = ResourceAccess.fromResources[IO](args.lastOption)
+      migrator       = DBMigrator[IO]
       _ <- IO(log.info(s"Build BotDBController"))
       botDBController = BotDBController[IO](
         cfg = cfg,
