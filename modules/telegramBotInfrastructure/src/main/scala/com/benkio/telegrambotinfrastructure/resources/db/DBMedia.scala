@@ -3,6 +3,7 @@ package com.benkio.telegrambotinfrastructure.resources.db
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.media.Media
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import doobie.*
 import doobie.util.Read
 import doobie.implicits.*
@@ -15,6 +16,7 @@ import scala.concurrent.duration.*
 final case class DBMediaData(
     media_name: String,
     kinds: Option[String],
+    mime_type: String,
     media_sources: String,
     media_count: Int,
     created_at: String
@@ -25,10 +27,21 @@ object DBMediaData {
   def apply(media: Media): DBMediaData = DBMediaData(
     media_name = media.mediaName,
     kinds = media.kinds.asJson.noSpaces.some,
-    media_sources = media.mediaSources.map(_.fold(identity, _.toString)).asJson.toString,
+    mime_type = mimeTypeOrDefault(media.mediaName, None),
+    media_sources = media.mediaSources.asJson.toString,
     media_count = media.mediaCount,
     created_at = media.createdAt.toString
   )
+
+  def mimeTypeOrDefault(media_name: String, mime_type: Option[String]): String =
+    mime_type.getOrElse(media_name.takeRight(3) match {
+      case "gif" => "image/gif"
+      case "jpg" => "image/jpeg"
+      case "png" => "image/png"
+      case "mp3" => "audio/mpeg"
+      case "mp4" => "video/mp4"
+      case _     => "application/octet-stream"
+    })
 }
 
 trait DBMedia[F[_]] {
@@ -41,6 +54,7 @@ trait DBMedia[F[_]] {
   ): F[List[DBMediaData]]
   def incrementMediaCount(filename: String): F[Unit]
   def decrementMediaCount(filename: String): F[Unit]
+  def insertMedia(dbMediaData: DBMediaData): F[Unit]
 }
 
 object DBMedia {
@@ -132,7 +146,23 @@ object DBMedia {
         .compile
         .toList
         .transact(transactor)
+
+    override def insertMedia(dbMediaData: DBMediaData): F[Unit] =
+      insertSql(dbMediaData).run.transact(transactor).void.exceptSql {
+        case e if e.getMessage().contains("UNIQUE constraint failed") =>
+          updateOnConflictSql(dbMediaData).run.transact(transactor).void
+        case e =>
+          MonadCancelThrow[F].raiseError(
+            new RuntimeException(s"An error occurred in inserting $dbMediaData with exception: $e")
+          )
+      }
   }
+
+  def insertSql(dbMediaData: DBMediaData): Update0 =
+    sql"INSERT INTO media (media_name, kinds, mime_type, media_url, created_at, media_count) VALUES (${dbMediaData.media_name}, ${dbMediaData.kinds.asJson.noSpaces}, ${dbMediaData.mime_type}, json('${dbMediaData.media_sources.asJson.noSpaces}'), ${dbMediaData.created_at}, 0);".update
+
+  def updateOnConflictSql(dbMediaData: DBMediaData): Update0 =
+    sql"UPDATE media SET kinds = ${dbMediaData.kinds.asJson.noSpaces}, media_url = ${dbMediaData.media_sources.asJson.noSpaces} WHERE media_name = ${dbMediaData.media_name};".update
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
     sql"SELECT media_name, kinds, media_source, media_count, created_at FROM media WHERE media_name = $resourceName"

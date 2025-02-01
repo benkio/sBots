@@ -2,10 +2,9 @@ package com.benkio.telegrambotinfrastructure.model.media
 
 import cats.implicits.*
 import io.circe.Decoder
+import io.circe.Encoder
+import io.circe.Encoder.encodeString
 import io.circe.HCursor
-
-
-
 import org.http4s.Uri
 
 final case class MediaFileSource(
@@ -22,6 +21,9 @@ object MediaFileSource {
       c.as[String].map { str =>
         Uri.fromString(str).leftMap(_ => str)
       }
+
+  given Encoder[Either[String,Uri]] =
+    encodeString.contramap(_.fold(identity, _.toString))
 
   given Decoder[MediaFileSource] =
     new Decoder[MediaFileSource] {

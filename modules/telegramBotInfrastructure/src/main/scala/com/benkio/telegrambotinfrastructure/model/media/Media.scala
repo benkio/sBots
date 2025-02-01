@@ -32,7 +32,7 @@ object Media {
   )
 
   given mediaShowInstance: Show[Media] =
-    Show.show(media => s"${media.mediaCount.toString.padTo(4, ' ')} | ${media.mediaName} | ${media.mediaSources.map(_.fold(identity, _.toString)).asJson.toString}")
+    Show.show(media => s"${media.mediaCount.toString.padTo(4, ' ')} | ${media.mediaName} | ${media.mediaSources.asJson.toString}")
 
   def mediaListToString(medias: List[Media]): String =
     medias.map(_.show).mkString("\n")

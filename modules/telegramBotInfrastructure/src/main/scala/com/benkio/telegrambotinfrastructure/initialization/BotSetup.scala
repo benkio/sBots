@@ -1,5 +1,8 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import java.nio.file.Files
+import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 
@@ -48,13 +51,16 @@ object BotSetup {
     response <- httpClient.run(deleteWebhookRequest)
   } yield response
 
-  def token[F[_]: Async](
+  def token[F[_]: Async: LogWriter](
       tokenFilename: String,
       resourceAccess: ResourceAccess[F]
   ): Resource[F, String] =
     resourceAccess
-      .getResourceByteArray(tokenFilename)
-      .map(_.map(_.toChar).mkString)
+      .getResourceFile(Document(tokenFilename))
+      .evalMap{
+        case MediaResource.MediaResourceFile(f) => Files.readAllBytes(f.toPath).map(_.toChar).mkString.pure
+        case MediaResource.MediaResourceIFile(x) => Async[F].raiseError(Throwable(s"[BotSetup] Cannot find bot token. Expected: MediaResourceFile, got: ${MediaResource.MediaResourceIFile(x)}"))
+      }
 
   def loadDB[F[_]: Async](config: Config)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(

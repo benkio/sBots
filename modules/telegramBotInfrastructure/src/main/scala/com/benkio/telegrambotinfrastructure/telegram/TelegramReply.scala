@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.telegram
 
+import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.GifFile
@@ -7,7 +8,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
 import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-import telegramium.bots.InputPartFile
+
 import telegramium.bots.ChatIntId
 import telegramium.bots.ChatId
 import telegramium.bots.ReplyParameters
@@ -22,6 +23,7 @@ import cats.*
 import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.model.media.toTelegramApi
 
 trait TelegramReply[A] {
   def reply[F[_]: Async: LogWriter: Api](
@@ -50,7 +52,7 @@ object TelegramReply:
           .use[Message](file =>
             sendFileAPIMethod(
               chatId,
-              InputPartFile(file),
+              file.toTelegramApi,
               Option.when(replyToMessage)(msg.messageId)
             ).exec
           )
@@ -70,6 +72,7 @@ object TelegramReply:
       case gif: GifFile     => telegramGifReply.reply(gif, msg, resourceAccess, replyToMessage)
       case photo: PhotoFile => telegramPhotoReply.reply(photo, msg, resourceAccess, replyToMessage)
       case video: VideoFile => telegramVideoReply.reply(video, msg, resourceAccess, replyToMessage)
+      case document: Document => telegramDocumentReply.reply(document, msg, resourceAccess, replyToMessage)
       case text: Text       => telegramTextReply.reply(text, msg, resourceAccess, replyToMessage)
     }
   }
@@ -160,6 +163,29 @@ object TelegramReply:
           Methods.sendVideo(
             chatId = chatId,
             video = ifile,
+            messageThreadId = replyToMessageId
+          )
+      )
+    }
+  }
+
+  given telegramDocumentReply: TelegramReply[Document] = new TelegramReply[Document] {
+    def reply[F[_]: Async: LogWriter: Api](
+        reply: Document,
+        msg: Message,
+        resourceAccess: ResourceAccess[F],
+        replyToMessage: Boolean
+    ): F[List[Message]] = {
+      TelegramReply.telegramFileReplyPattern[F](
+        msg = msg,
+        resourceAccess = resourceAccess,
+        "upload_video",
+        mediaFile = reply,
+        replyToMessage = replyToMessage,
+        sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
+          Methods.sendDocument(
+            chatId = chatId,
+            document = ifile,
             messageThreadId = replyToMessageId
           )
       )
