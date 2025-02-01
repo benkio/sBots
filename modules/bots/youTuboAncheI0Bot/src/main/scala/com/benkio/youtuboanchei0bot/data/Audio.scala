@@ -1,0 +1,59 @@
+package com.benkio.youtuboanchei0bot.data
+
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import cats.Applicative
+import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.tr
+
+object Audio:
+
+  def messageRepliesAudioData[
+      F[_]: Applicative
+  ]: List[ReplyBundleMessage[F]] = List(
+    ReplyBundleMessage.textToMp3[F](
+      "non vi costa nulla"
+    )(
+      mp3"ytai_Donazioni.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "bengalino",
+      "pappagallo",
+      "uccellino",
+    )(
+      mp3"ytai_BengalinoDiamantino.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "cocod[eè]".r.tr(6),
+      "gallina"
+    )(
+      mp3"ytai_Cocode.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "\\bmisc\\b".r.tr(4),
+      "\\bm[i]+[a]+[o]+\\b".r.tr(4)
+    )(
+      mp3"ytai_Misc.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "\\btopolin[oi]\\b".r.tr(8)
+    )(
+      mp3"ytai_Topolino.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "francesismo"
+    )(
+      mp3"ytai_Francesismo.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "grazie"
+    )(
+      mp3"ytai_Grazie.mp3",
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "3000",
+      "tremila",
+      "multa",
+    )(
+      mp3"ytai_Multa3000euro.mp3"
+    )
+  )

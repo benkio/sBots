@@ -2,10 +2,10 @@ package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect.Async
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.RandomQuery
-import com.benkio.telegrambotinfrastructure.model.Show
-import com.benkio.telegrambotinfrastructure.model.ShowQuery
-import com.benkio.telegrambotinfrastructure.model.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
+import com.benkio.telegrambotinfrastructure.model.show.Show
+import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
 import doobie.*
 import doobie.implicits.*
 import log.effect.LogWriter

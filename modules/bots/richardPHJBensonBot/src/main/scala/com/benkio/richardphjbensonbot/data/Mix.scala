@@ -1,8 +1,15 @@
 package com.benkio.richardphjbensonbot.data
 
+import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.Applicative
-import com.benkio.telegrambotinfrastructure.messagefiltering.*
-import com.benkio.telegrambotinfrastructure.model.*
+import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.reply.vid
+import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.tr
+import com.benkio.telegrambotinfrastructure.model.stt
 
 object Mix {
 

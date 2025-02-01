@@ -1,6 +1,6 @@
 package com.benkio.integration.integrationmunit.richardphjbensonbot
 
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import munit.CatsEffectSuite
@@ -8,7 +8,7 @@ import munit.CatsEffectSuite
 import cats.effect.IO
 
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import doobie.implicits.*
 
 import com.benkio.richardphjbensonbot.data.Audio.messageRepliesAudioData

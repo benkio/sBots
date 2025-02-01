@@ -1,4 +1,4 @@
-package com.benkio.telegrambotinfrastructure.model
+package com.benkio.telegrambotinfrastructure.model.media
 
 import cats.implicits.*
 import io.circe.Decoder

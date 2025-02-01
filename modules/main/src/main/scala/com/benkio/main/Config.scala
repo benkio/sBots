@@ -1,7 +1,7 @@
 package com.benkio.main
 
 import cats.effect.Async
-import com.benkio.telegrambotinfrastructure.model.{ Config => DBConfig }
+import com.benkio.telegrambotinfrastructure.{ Config => DBConfig }
 import pureconfig.*
 
 final case class Config(

@@ -12,7 +12,7 @@ import cats.*
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Subscription
-import com.benkio.telegrambotinfrastructure.model.Text
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription

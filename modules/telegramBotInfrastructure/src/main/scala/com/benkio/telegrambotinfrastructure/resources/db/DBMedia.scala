@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.Media
+import com.benkio.telegrambotinfrastructure.model.media.Media
 import doobie.*
 import doobie.util.Read
 import doobie.implicits.*

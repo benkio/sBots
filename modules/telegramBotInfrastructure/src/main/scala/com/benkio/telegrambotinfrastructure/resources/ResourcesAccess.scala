@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.resources
 import cats.*
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import log.effect.LogWriter

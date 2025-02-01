@@ -1,12 +1,21 @@
 package com.benkio.calandrobot
 
+import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
+import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import com.benkio.telegrambotinfrastructure.BotSkeleton
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
 import cats.*
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.messagefiltering.*
-import com.benkio.telegrambotinfrastructure.model.*
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import fs2.io.net.Network
@@ -19,6 +28,8 @@ import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
+import com.benkio.telegrambotinfrastructure.model.tr
+import com.benkio.telegrambotinfrastructure.model.reply.mp3
 
 import scala.util.Random
 

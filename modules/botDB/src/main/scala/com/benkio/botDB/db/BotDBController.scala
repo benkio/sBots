@@ -1,6 +1,6 @@
 package com.benkio.botDB.db
 
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import cats.effect.Resource
 import cats.effect.Sync
 import cats.implicits.*

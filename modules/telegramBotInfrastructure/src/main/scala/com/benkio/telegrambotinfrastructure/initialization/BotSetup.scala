@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
-import com.benkio.telegrambotinfrastructure.model.Text
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 
 import cats.MonadThrow
@@ -8,7 +8,7 @@ import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.model.Config
+import com.benkio.telegrambotinfrastructure.Config
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher

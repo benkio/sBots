@@ -1,8 +1,8 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
-import com.benkio.telegrambotinfrastructure.model.ShowQuery
-import com.benkio.telegrambotinfrastructure.model.RandomQuery
+import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import doobie.Transactor
 import java.sql.DriverManager

@@ -1,5 +1,10 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.effect.Async
 import log.effect.LogLevels
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -12,7 +17,6 @@ import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.model.*
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -21,6 +25,10 @@ import org.http4s.implicits.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 import log.effect.LogWriter
+import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.reply.vid
+import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.tr
 
 class SampleWebhookBot(
     uri: Uri,

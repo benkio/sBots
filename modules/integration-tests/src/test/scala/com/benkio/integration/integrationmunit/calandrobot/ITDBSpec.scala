@@ -1,7 +1,7 @@
 package com.benkio.integration.integrationmunit.calandrobot
 
 import com.benkio.calandrobot.CalandroBot
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.integration.DBFixture
 import munit.CatsEffectSuite
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
@@ -9,7 +9,7 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import doobie.implicits.*
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {

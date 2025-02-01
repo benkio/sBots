@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
-import com.benkio.telegrambotinfrastructure.model.Media
+import com.benkio.telegrambotinfrastructure.model.media.Media
 import org.http4s.Uri
 import java.time.Instant
 import munit._

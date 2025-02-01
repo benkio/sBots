@@ -1,8 +1,14 @@
 package com.benkio.telegrambotinfrastructure.telegram
 
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.GifFile
+import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
+import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
+import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import telegramium.bots.InputPartFile
 import telegramium.bots.ChatIntId
-import com.benkio.telegrambotinfrastructure.model.*
 import telegramium.bots.ChatId
 import telegramium.bots.ReplyParameters
 import telegramium.bots.IFile

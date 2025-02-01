@@ -1,7 +1,7 @@
 package com.benkio.calandrobot
 
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer

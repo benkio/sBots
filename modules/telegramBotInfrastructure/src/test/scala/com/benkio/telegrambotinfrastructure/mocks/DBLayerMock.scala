@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.mocks
 import cats.effect.IO
 import cats.effect.kernel.Ref
 import cats.effect.std.Random
-import com.benkio.telegrambotinfrastructure.model.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBLog

@@ -13,8 +13,8 @@ import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.model.MediaFile
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.xahleebot.XahLeeBot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import log.effect.LogLevels

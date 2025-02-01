@@ -1,17 +1,21 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.*
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.effect.IO
 import cats.syntax.all.*
 import io.circe.parser.decode
 
 import scala.io.Source
 import java.io.File
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
 
 trait BaseBotSpec extends CatsEffectSuite:
   def checkContains(triggerContent: String, values: List[String]): Unit =

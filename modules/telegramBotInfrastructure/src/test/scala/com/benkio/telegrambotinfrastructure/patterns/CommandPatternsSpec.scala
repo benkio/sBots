@@ -1,15 +1,17 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import java.time.Instant
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 
 import munit.*
 import cats.effect.*
 import cats.syntax.all.*
-
+import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.reply.vid
+import com.benkio.telegrambotinfrastructure.model.reply.gif
 import telegramium.bots.Chat
-import com.benkio.telegrambotinfrastructure.model.*
-
+import com.benkio.telegrambotinfrastructure.model.tr
 import telegramium.bots.Message
 
 class CommandPatternsSpec extends CatsEffectSuite {

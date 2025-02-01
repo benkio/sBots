@@ -1,5 +1,10 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import com.benkio.telegrambotinfrastructure.model.reply.Reply
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
+import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
 import telegramium.bots.Message
 
 import cats.effect.*

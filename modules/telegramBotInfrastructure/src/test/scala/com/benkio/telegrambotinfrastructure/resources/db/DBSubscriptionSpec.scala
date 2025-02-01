@@ -1,10 +1,8 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
+import com.benkio.telegrambotinfrastructure.model.Subscription
 import little.time.CronSchedule
 import java.util.UUID
-
-import com.benkio.telegrambotinfrastructure.model.*
-
 import java.time.Instant
 import munit._
 
