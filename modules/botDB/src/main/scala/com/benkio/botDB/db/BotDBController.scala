@@ -1,5 +1,6 @@
 package com.benkio.botDB.db
 
+import log.effect.LogWriter
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
@@ -23,7 +24,7 @@ sealed trait BotDBController[F[_]] {
 }
 
 object BotDBController {
-  def apply[F[_]: Sync](
+  def apply[F[_]: Sync: LogWriter](
       cfg: Config,
       databaseRepository: DBMedia[F],
       resourceAccess: ResourceAccess[F],
@@ -36,7 +37,7 @@ object BotDBController {
       migrator = migrator
     )
 
-  private class BotDBControllerImpl[F[_]: Sync](
+  private class BotDBControllerImpl[F[_]: Sync: LogWriter](
       cfg: Config,
       databaseRepository: DBMedia[F],
       resourceAccess: ResourceAccess[F],
@@ -49,10 +50,12 @@ object BotDBController {
 
     override def populateMediaTable: Resource[F, Unit] = for {
       allFiles <- cfg.jsonLocation.flatTraverse(resourceAccess.getResourcesByKind)
+      _ <- Resource.eval(LogWriter.info(s"[BotDBController]: all files from ${cfg.jsonLocation}: ${allFiles.length}"))
       jsons = allFiles.mapFilter(mediaSource => mediaSource.getMediaResourceFile.filter(_.getName.endsWith("json")))
+      _ <- Resource.eval(LogWriter.info(s"[BotDBController]: Json file to be computed: $jsons"))
       input <- Resource.eval(Sync[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")
-        decode[List[MediaFileSource]](fileContent)
+        decode[List[MediaFileSource]](fileContent).leftMap(e => Throwable(e.show))
       })))
       _ <- Resource.eval(
         input.traverse_(i =>
@@ -68,9 +71,7 @@ object BotDBController {
                   created_at = Instant.now().getEpochSecond.toString
                 )
               )
-            _ <- Sync[F].delay(
-              println(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully")
-            )
+            _ <- LogWriter.info(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully")
           } yield ()
         )
       )

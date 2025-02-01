@@ -159,10 +159,10 @@ object DBMedia {
   }
 
   def insertSql(dbMediaData: DBMediaData): Update0 =
-    sql"INSERT INTO media (media_name, kinds, mime_type, media_url, created_at, media_count) VALUES (${dbMediaData.media_name}, ${dbMediaData.kinds.asJson.noSpaces}, ${dbMediaData.mime_type}, json('${dbMediaData.media_sources.asJson.noSpaces}'), ${dbMediaData.created_at}, 0);".update
+    sql"INSERT INTO media (media_name, kinds, mime_type, media_sources, created_at, media_count) VALUES (${dbMediaData.media_name}, ${dbMediaData.kinds.asJson.noSpaces}, ${dbMediaData.mime_type}, ${dbMediaData.media_sources.asJson.noSpaces}, ${dbMediaData.created_at}, 0);".update
 
   def updateOnConflictSql(dbMediaData: DBMediaData): Update0 =
-    sql"UPDATE media SET kinds = ${dbMediaData.kinds.asJson.noSpaces}, media_url = ${dbMediaData.media_sources.asJson.noSpaces} WHERE media_name = ${dbMediaData.media_name};".update
+    sql"UPDATE media SET kinds = ${dbMediaData.kinds.asJson.noSpaces}, media_sources = ${dbMediaData.media_sources.asJson.noSpaces} WHERE media_name = ${dbMediaData.media_name};".update
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
     sql"SELECT media_name, kinds, media_source, media_count, created_at FROM media WHERE media_name = $resourceName"

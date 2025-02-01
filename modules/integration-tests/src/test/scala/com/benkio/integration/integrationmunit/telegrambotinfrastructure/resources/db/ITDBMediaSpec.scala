@@ -26,7 +26,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
   def checkMedia(actual: DBMediaData, expected: DBMediaData): Boolean = {
     val result = actual.media_name == expected.media_name &&
-      actual.media_url == expected.media_url &&
+      actual.media_sources == expected.media_sources &&
       actual.kinds == expected.kinds &&
       actual.media_count == expected.media_count
     if (!result) println(s"checkMedia test failure: $actual ≄ $expected")
