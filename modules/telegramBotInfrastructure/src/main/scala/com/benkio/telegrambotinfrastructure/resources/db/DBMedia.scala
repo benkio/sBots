@@ -15,7 +15,7 @@ import scala.concurrent.duration.*
 final case class DBMediaData(
     media_name: String,
     kinds: Option[String],
-    media_url: String,
+    media_sources: String,
     media_count: Int,
     created_at: String
 )
@@ -25,7 +25,7 @@ object DBMediaData {
   def apply(media: Media): DBMediaData = DBMediaData(
     media_name = media.mediaName,
     kinds = media.kinds.asJson.noSpaces.some,
-    media_url = media.mediaUrl.renderString,
+    media_sources = media.mediaSources.map(_.fold(identity, _.toString)).asJson.toString,
     media_count = media.mediaCount,
     created_at = media.createdAt.toString
   )
@@ -135,11 +135,11 @@ object DBMedia {
   }
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
-    sql"SELECT media_name, kinds, media_url, media_count, created_at FROM media WHERE media_name = $resourceName"
+    sql"SELECT media_name, kinds, media_source, media_count, created_at FROM media WHERE media_name = $resourceName"
       .query[DBMediaData]
 
   def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
-    (fr"SELECT media_name, kinds, media_url, media_count, created_at FROM media" ++
+    (fr"SELECT media_name, kinds, media_source, media_count, created_at FROM media" ++
       Fragments.whereOr(
         fr"""kinds LIKE ${"""["""" + kind + """",%"""}""",
         fr"""kinds LIKE ${"""%,"""" + kind + """",%"""}""",
@@ -149,7 +149,7 @@ object DBMedia {
 
   def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
     val q: Fragment =
-      fr"SELECT media_name, kinds, media_url, media_count, created_at FROM media" ++
+      fr"SELECT media_name, kinds, media_source, media_count, created_at FROM media" ++
         Fragments.whereAndOpt(mediaNamePrefix.map(s => {
           val like = s + "%"
           fr"media_name LIKE $like"
@@ -160,7 +160,7 @@ object DBMedia {
   }
   def getMediaQueryByRandom(botPrefix: String): Query0[DBMediaData] =
     val like = botPrefix + "%"
-    sql"SELECT media_name, kinds, media_url, media_count, created_at FROM media WHERE media_name LIKE $like ORDER BY RANDOM() LIMIT 1"
+    sql"SELECT media_name, kinds, media_source, media_count, created_at FROM media WHERE media_name LIKE $like ORDER BY RANDOM() LIMIT 1"
       .query[DBMediaData]
   def incrementMediaCountQuery(media: DBMediaData): Update0 =
     sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update

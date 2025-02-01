@@ -4,7 +4,7 @@ import cats.implicits.*
 import io.circe.Decoder
 import io.circe.HCursor
 
-import org.http4s.circe.*
+
 
 import org.http4s.Uri
 
@@ -12,23 +12,29 @@ final case class MediaFileSource(
     filename: String,
     kinds: Option[List[String]],
     mime: Option[String],
-    uri: Uri
+    sources: List[Either[String, Uri]]
 )
 
 object MediaFileSource {
+
+  given Decoder[Either[String, Uri]] with
+    def apply(c: HCursor): Decoder.Result[Either[String, Uri]] =
+      c.as[String].map { str =>
+        Uri.fromString(str).leftMap(_ => str)
+      }
 
   given Decoder[MediaFileSource] =
     new Decoder[MediaFileSource] {
       final def apply(c: HCursor): Decoder.Result[MediaFileSource] =
         for {
           filename <- c.downField("filename").as[String]
-          uri      <- c.downField("url").as[Uri]
+          sources  <- c.downField("sources").as[List[Either[String, Uri]]]
           mime     <- c.downField("mime").as[Option[String]]
           kinds    <- c.downField("kinds").as[Option[List[String]]]
         } yield {
           MediaFileSource(
             filename = filename,
-            uri = uri,
+            sources = sources,
             mime = mime,
             kinds = kinds
           )
