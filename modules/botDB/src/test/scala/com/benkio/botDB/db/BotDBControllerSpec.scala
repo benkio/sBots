@@ -1,5 +1,8 @@
 package com.benkio.botDB.db
 
+import log.effect.LogWriter
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock.DBMediaMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
@@ -15,6 +18,7 @@ import cats.effect.IO
 
 class BotDBControllerSpec extends CatsEffectSuite {
 
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
   val inputJson: MediaResource =
     MediaResource.MediaResourceFile(
       new File(getClass.getResource("/").toURI).listFiles().toList.filterNot(_.getName == "com").head

@@ -41,7 +41,7 @@ class MediaSpec extends FunSuite {
   test("Media.apply should correctly parse a valid db record") {
     val input: DBMediaData = DBMediaData(
       media_name = "rphjb_Animali.mp3",
-      kinds = Some("[]"),
+      kinds = "[]",
       media_sources =
         """["https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1"]""",
       mime_type = "audio/mpeg",

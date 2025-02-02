@@ -31,7 +31,7 @@ class ITSpec extends CatsEffectSuite with DBConstants {
       mediaContent <- sql"SELECT media_name FROM media;".query[String].to[List].transact(transactor)
       _            <- IO(Files.deleteIfExists(Paths.get(config.dbName)))
     yield
-      assert(mediaContent.length == 3)
+      assert(mediaContent.length == 3, s"[ITSpec] Expected 3 content, got: ${mediaContent.length}")
       assert(mediaContent.diff(List("amazon.mp4", "facebook.mp3", "google.gif")).isEmpty)
 
   }

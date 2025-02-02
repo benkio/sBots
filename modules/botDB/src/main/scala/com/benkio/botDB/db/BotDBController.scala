@@ -64,9 +64,9 @@ object BotDBController {
               .insertMedia(
                 DBMediaData(
                   media_name = i.filename,
-                  kinds = i.kinds.map(_.asJson.toString),
-                  mime_type = DBMediaData.mimeTypeOrDefault(i.filename, i.mime),
-                  media_sources = i.sources.asJson.toString,
+                  kinds = i.kinds.asJson.noSpaces,
+                  mime_type = i.mime,
+                  media_sources = i.sources.asJson.noSpaces,
                   media_count = 0,
                   created_at = Instant.now().getEpochSecond.toString
                 )

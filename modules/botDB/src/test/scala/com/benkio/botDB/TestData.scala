@@ -6,7 +6,7 @@ object TestData {
 
   val google: DBMediaData = DBMediaData(
     media_name = "google.gif",
-    kinds = None,
+    kinds = "[]",
     mime_type = "image/gif",
     media_sources = """["https://www.google.com"]""",
     created_at = 1658054878L.toString,
@@ -14,7 +14,7 @@ object TestData {
   )
   val amazon: DBMediaData = DBMediaData(
     media_name = "amazon.mp4",
-    kinds = Some("kind"),
+    kinds = """["kind"]""",
     mime_type = "video/mp4",
     media_sources = """["https://www.amazon.com"]""",
     created_at = 1658054878L.toString,
@@ -22,7 +22,7 @@ object TestData {
   )
   val facebook: DBMediaData = DBMediaData(
     media_name = "facebook.mp3",
-    kinds = Some("kind_innerKind"),
+    kinds = """["kind_innerKind"]""",
     mime_type = "audio/mpeg",
     media_sources = """["https://www.facebook.com"]""",
     created_at = 1658054878L.toString,

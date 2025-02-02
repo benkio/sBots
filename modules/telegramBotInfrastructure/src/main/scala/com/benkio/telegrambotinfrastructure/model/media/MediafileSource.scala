@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import cats.implicits.*
 import io.circe.Decoder
 import io.circe.Encoder
@@ -9,8 +10,8 @@ import org.http4s.Uri
 
 final case class MediaFileSource(
     filename: String,
-    kinds: Option[List[String]],
-    mime: Option[String],
+    kinds: List[String],
+    mime: String,
     sources: List[Either[String, Uri]]
 )
 
@@ -37,8 +38,8 @@ object MediaFileSource {
           MediaFileSource(
             filename = filename,
             sources = sources,
-            mime = mime,
-            kinds = kinds
+            mime = DBMediaData.mimeTypeOrDefault(filename, mime),
+            kinds = kinds.getOrElse(List.empty)
           )
         }
     }

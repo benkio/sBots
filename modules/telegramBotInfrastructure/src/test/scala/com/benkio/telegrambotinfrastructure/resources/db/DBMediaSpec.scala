@@ -18,7 +18,7 @@ class DBMediaSpec extends FunSuite {
     )
     val expected = DBMediaData(
       media_name = actual.mediaName,
-      kinds = Some("""["kind"]"""),
+      kinds = """["kind"]""",
       media_sources = """["http://something.com"]""",
       mime_type = "application/octet-stream",
       media_count = actual.mediaCount,
