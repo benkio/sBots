@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.telegram
 
+import com.benkio.telegrambotinfrastructure.model.reply.Sticker
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
@@ -73,6 +74,7 @@ object TelegramReply:
       case photo: PhotoFile   => telegramPhotoReply.reply(photo, msg, resourceAccess, replyToMessage)
       case video: VideoFile   => telegramVideoReply.reply(video, msg, resourceAccess, replyToMessage)
       case document: Document => telegramDocumentReply.reply(document, msg, resourceAccess, replyToMessage)
+      case sticker: Sticker   => telegramStickerReply.reply(sticker, msg, resourceAccess, replyToMessage)
       case text: Text         => telegramTextReply.reply(text, msg, resourceAccess, replyToMessage)
     }
   }
@@ -186,6 +188,29 @@ object TelegramReply:
           Methods.sendDocument(
             chatId = chatId,
             document = ifile,
+            messageThreadId = replyToMessageId
+          )
+      )
+    }
+  }
+
+  given telegramStickerReply: TelegramReply[Sticker] = new TelegramReply[Sticker] {
+    def reply[F[_]: Async: LogWriter: Api](
+        reply: Sticker,
+        msg: Message,
+        resourceAccess: ResourceAccess[F],
+        replyToMessage: Boolean
+    ): F[List[Message]] = {
+      TelegramReply.telegramFileReplyPattern[F](
+        msg = msg,
+        resourceAccess = resourceAccess,
+        "upload_video",
+        mediaFile = reply,
+        replyToMessage = replyToMessage,
+        sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
+          Methods.sendSticker(
+            chatId = chatId,
+            sticker = ifile,
             messageThreadId = replyToMessageId
           )
       )

@@ -23,15 +23,6 @@ object Gif:
       gif"ytai_CiccioneObesoMangiTanto.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "acqua calabria"
-    )(
-      gif"ytai_AcquaSguardo.mp4",
-      gif"ytai_Sete.mp4",
-      gif"ytai_AcquaCalabria.mp4",
-      gif"ytai_AcquaCalabriaOttima.mp4",
-      gif"ytai_AcquaMeravigliosa.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "fatica",
       "sudore",
       "sudato"
@@ -72,12 +63,6 @@ object Gif:
       gif"ytai_Buonanotte.mp4",
       gif"ytai_BuonanotteBrunchPlus.mp4",
       gif"ytai_BuonanotteFollowers.mp4",
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "(buona )?pizza".r.tr(5)
-    )(
-      gif"ytai_BuonaPizza.mp4",
-      gif"ytai_PizzaAllegria.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "buonasera"
@@ -508,12 +493,6 @@ object Gif:
       "faenza",
     )(
       gif"ytai_SenzaFaenza.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "caffè",
-      "☕"
-    )(
-      gif"ytai_BuonCaffeATutti.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "capolavoro",
@@ -1104,15 +1083,6 @@ object Gif:
       "facilit[aàá]".r.tr(7)
     )(
       gif"ytai_EstremaFacilita.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "ciotola",
-      "🍜",
-      "🥣",
-      "🍲",
-    )(
-      gif"ytai_LoopCiotola.mp4",
-      gif"ytai_LoopCiotola2.mp4",
     ),
     ReplyBundleMessage.textToGif[F](
       "notturna"

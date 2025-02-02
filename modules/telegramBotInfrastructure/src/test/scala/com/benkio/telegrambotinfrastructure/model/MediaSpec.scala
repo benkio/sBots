@@ -43,7 +43,7 @@ class MediaSpec extends FunSuite {
       media_name = "rphjb_Animali.mp3",
       kinds = """"[\"kind\"]"""",
       media_sources =
-        """"[\"https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1\"]"""",
+        """"[\"CQACAgQAAxkBAAEC15xnn5dbOnZ6NOodXkiKvxMsJrHqVAACjRgAAjmJAVFDx6HUqYYeWzYE\",\"https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1\"]"""",
       mime_type = "audio/mpeg",
       media_count = 0,
       created_at = "1662126018293"
@@ -62,6 +62,7 @@ class MediaSpec extends FunSuite {
     assert(
       result.map(_.mediaSources) == Right(
         List(
+          Left("CQACAgQAAxkBAAEC15xnn5dbOnZ6NOodXkiKvxMsJrHqVAACjRgAAjmJAVFDx6HUqYYeWzYE"),
           Right(
             Uri.unsafeFromString(
               "https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1"
@@ -69,7 +70,7 @@ class MediaSpec extends FunSuite {
           )
         )
       ),
-      s"""[MediaSpec] Expected: List(Right(uri"https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1")), got: ${result
+      s"""[MediaSpec] Expected: List(Left("CQACAgQAAxkBAAEC15xnn5dbOnZ6NOodXkiKvxMsJrHqVAACjRgAAjmJAVFDx6HUqYYeWzYE"),Right(uri"https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1")), got: ${result
           .map(_.mediaSources)}"""
     )
     assert(

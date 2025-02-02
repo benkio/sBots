@@ -20,7 +20,7 @@ object MediaFileSource {
   given Decoder[Either[String, Uri]] with
     def apply(c: HCursor): Decoder.Result[Either[String, Uri]] =
       c.as[String].map { str =>
-        Uri.fromString(str).leftMap(_ => str)
+        Uri.requestTarget(str).leftMap(_ => str)
       }
 
   given Encoder[Either[String, Uri]] =

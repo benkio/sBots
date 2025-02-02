@@ -115,7 +115,7 @@ object ResourceAccess {
         mediaFile: MediaFile
     ): Resource[F, MediaResource] = {
       for {
-        _           <- Resource.eval(LogWriter.info(s"getResourceFile of $mediaFile"))
+        _           <- Resource.eval(LogWriter.info(s"getResourceFile for $mediaFile"))
         fileContent <- getResourceByteArray(mediaFile.filepath)
         tempFile = ResourceAccess.toTempFile(mediaFile.filename, Array.empty)
         fos <- Resource.make(Sync[F].delay(new FileOutputStream(tempFile)))(fos => Sync[F].delay(fos.close()))

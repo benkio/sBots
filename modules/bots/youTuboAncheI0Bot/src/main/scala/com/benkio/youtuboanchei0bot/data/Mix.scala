@@ -6,6 +6,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.pho
+import com.benkio.telegrambotinfrastructure.model.reply.sticker
 import com.benkio.telegrambotinfrastructure.model.tr
 
 object Mix:
@@ -384,7 +385,8 @@ object Mix:
       gif"ytai_CiaoCariAmiciFollowers.mp4",
       mp3"ytai_CiaoNonCiArrivo.mp3",
       vid"ytai_CiaoNonCiArrivo.mp4",
-      gif"ytai_CiaoNonCiArrivoGif.mp4"
+      gif"ytai_CiaoNonCiArrivoGif.mp4",
+      sticker"ytai_CiaoYtancheio.sticker"
     ),
     ReplyBundleMessage.textToMedia[F](
       "buongiorno",
@@ -576,5 +578,47 @@ object Mix:
       vid"ytai_BuonAppetitoCompagnia.mp4",
       mp3"ytai_BuonAppetitoCompagnia.mp3",
       gif"ytai_BuonAppetitoCompagniaGif.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(buona )?pizza".r.tr(5),
+      "🍕"
+    )(
+      gif"ytai_BuonaPizza.mp4",
+      gif"ytai_PizzaAllegria.mp4",
+      sticker"ytai_PizzaYtancheio.sticker"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "acqua calabria"
+    )(
+      gif"ytai_AcquaSguardo.mp4",
+      gif"ytai_Sete.mp4",
+      gif"ytai_AcquaCalabria.mp4",
+      gif"ytai_AcquaCalabriaOttima.mp4",
+      gif"ytai_AcquaMeravigliosa.mp4",
+      sticker"ytai_AcquaYtancheio.sticker",
+      sticker"ytai_Acqua2Ytancheio.sticker"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\btopolin[oi]\\b".r.tr(8)
+    )(
+      mp3"ytai_Topolino.mp3",
+      sticker"ytai_TopolinoYtancheio.sticker"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "caffè",
+      "☕"
+    )(
+      gif"ytai_BuonCaffeATutti.mp4",
+      sticker"ytai_CaffeYtancheio.sticker"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "ciotola",
+      "🍜",
+      "🥣",
+      "🍲",
+    )(
+      gif"ytai_LoopCiotola.mp4",
+      gif"ytai_LoopCiotola2.mp4",
+      sticker"ytai_CiotolaYtancheio.sticker"
+    ),
   )

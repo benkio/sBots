@@ -19,6 +19,7 @@ import com.benkio.youtuboanchei0bot.data.Audio
 import com.benkio.youtuboanchei0bot.data.Gif
 import com.benkio.youtuboanchei0bot.data.Mix
 import com.benkio.youtuboanchei0bot.data.Video
+import com.benkio.youtuboanchei0bot.data.Sticker
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
@@ -121,6 +122,11 @@ object YouTuboAncheI0Bot {
   ]: List[ReplyBundleMessage[F]] =
     Mix.messageRepliesMixData[F]
 
+  def messageRepliesStickerData[
+      F[_]: Applicative
+  ]: List[ReplyBundleMessage[F]] =
+    Sticker.messageRepliesStickerData[F]
+
   def messageRepliesVideoData[
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] =
@@ -140,7 +146,9 @@ object YouTuboAncheI0Bot {
   def messageRepliesData[
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] =
-    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesVideoData[
+    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesStickerData[
+      F
+    ] ++ messageRepliesVideoData[
       F
     ] ++ messageRepliesImageData[F])
       .sorted(ReplyBundle.orderingInstance[F])
