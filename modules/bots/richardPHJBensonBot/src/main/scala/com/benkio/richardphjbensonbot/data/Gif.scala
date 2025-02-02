@@ -32,12 +32,6 @@ object Gif {
       gif"rphjb_Rispondere.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "baci",
-      "limonare"
-    )(
-      gif"rphjb_Bacio.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "stato brado"
     )(
       gif"rphjb_StatoBrado.mp4"
@@ -220,11 +214,6 @@ object Gif {
       gif"rphjb_Bona.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "sei [gc]ambiat[oa]".r.tr(12)
-    )(
-      gif"rphjb_SeiCambiata.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "mio discapito",
       "disgabido"
     )(
@@ -317,27 +306,9 @@ object Gif {
       gif"rphjb_Uuu.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "☝️",
-      "👆",
-      "👉",
-      "👇",
-      "👈"
-    )(
-      gif"rphjb_Indicare.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "deal with it"
     )(
       gif"rphjb_Occhiali.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "lui si chiamava",
-      "\\badolf\\b".r.tr(5),
-      "hitler",
-      "belle arti",
-      "hitl[aà]".r.tr(5),
-    )(
-      gif"rphjb_AdolfHitler.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "non è male"

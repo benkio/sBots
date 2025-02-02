@@ -31,14 +31,15 @@
      the ~.token~ file containing the telegram key specific to each
      bot.
 
-     Each  bot also uses a ~SQLite~ Database! So you need
-     to provide the path to the database into the ~application.conf~
-     or just set up the specific environment variables. No need to put
-     the files in resources since those will be fetched from the web
-     via URLs.
+     Each bot also uses a ~SQLite~ Database! So you need to provide
+     the path to the database into the ~application.conf~ or just set
+     up the specific environment variables. No need to put the files
+     in ~resources~ folder anymore (even if it's still potentially
+     possible a little code change) since those will be fetched from
+     the web via URLs or by Telegram Ids.
 
      To add data to the bots you need to:
-     - Add the file name and downloadable link (usually Dropbox), to the json at the root of each bot folder.
+     - Add the file name, Telegram ~file_id~ and downloadable link (usually Dropbox), to the json at the root of each bot folder. To get the ~file_id_~ you can take advantage of [[https://t.me/jsoonbot][@jsonbot]] by just sending the file and copy the id from the reply.
      - Modify the scala code to add the type that creates the mappings between the triggers and the files. See planty of examples of any kind throughout the code, especially under RichardPHJBensonBot's data package.
 
      The old video guide below refers to a time where also the

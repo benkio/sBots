@@ -345,11 +345,6 @@ object Video {
       vid"rphjb_CrestaOnda.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "stronzo"
-    )(
-      vid"rphjb_StronzoFiglioMignotta.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "biscione",
     )(
       vid"rphjb_BiscionePiatti.mp4"
@@ -406,11 +401,6 @@ object Video {
       "uccidere"
     )(
       vid"rphjb_UccidereUnaPersona.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "distruggere il proprio sesso",
-    )(
-      vid"rphjb_AmmaestrareIlDolore.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "insegnante di [cg]hi[dt]arra".r.tr(22)
@@ -1061,14 +1051,6 @@ object Video {
       vid"rphjb_FolliaQueenNo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "piatti",
-    )(
-      vid"rphjb_BiscionePiatti.mp4",
-      vid"rphjb_GhentPiattiAlbania.mp4",
-      vid"rphjb_PiattiGhentAlbaniaCiPensa.mp4",
-      vid"rphjb_PiattiGhentDischiVolantiAlbaniaPortaCenere.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "amicizia",
       "nella merda",
       "subliminali"
@@ -1226,12 +1208,6 @@ object Video {
       "sepultura"
     )(
       vid"rphjb_SepolturaRisata.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "obama"
-    )(
-      vid"rphjb_Obama.mp4",
-      vid"rphjb_ObamaRichardBensonInsieme.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "dischi volanti",
@@ -1461,11 +1437,6 @@ object Video {
       "si sta fondendo"
     )(
       vid"rphjb_IlCervelloStaFondendoNonCapiscoUnCazzo.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "dischi"
-    )(
-      vid"rphjb_PienoDiDischi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F]("gaio")(
       vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
@@ -1937,12 +1908,6 @@ object Video {
       vid"rphjb_RingrazioPersoneAttenteDonneToccavanoSeniAnni70LettiPieniErbaCoca.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "anni (settanta|70)".r.tr(7),
-    )(
-      vid"rphjb_RingrazioPersoneAttenteDonneToccavanoSeniAnni70LettiPieniErbaCoca.mp4",
-      vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "sarà lei",
       "a farmi male"
     )(
@@ -2060,7 +2025,6 @@ object Video {
       vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "lingua",
       "donna giusta",
       "donne sbagliate",
       "egregia",
