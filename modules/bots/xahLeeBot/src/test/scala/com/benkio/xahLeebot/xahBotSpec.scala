@@ -1,11 +1,11 @@
 package com.benkio.xahleebot
 
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import com.benkio.telegrambotinfrastructure.model.ReplyValue
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import cats.effect.Async
 
@@ -15,7 +15,7 @@ import cats.implicits.*
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.model.Reply
+import com.benkio.telegrambotinfrastructure.model.reply.Reply
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter

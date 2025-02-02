@@ -3,11 +3,12 @@ package com.benkio.telegrambotinfrastructure.resources
 import cats.*
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.MediaFile
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.media.Media
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
-import log.effect.LogWriter
-
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
@@ -16,23 +17,15 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.jar.JarFile
+import log.effect.LogWriter
+import org.http4s.Uri
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters.*
+import scala.util.Try
 
 trait ResourceAccess[F[_]] {
-  def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]]
-  def getResourcesByKind(criteria: String): Resource[F, List[File]]
-  def getResourceFile(mediaFile: MediaFile)(using syncF: Sync[F], log: LogWriter[F]): Resource[F, File] = {
-    for {
-      _           <- Resource.eval(log.info(s"getResourceFile of $mediaFile"))
-      fileContent <- getResourceByteArray(mediaFile.filepath)
-      tempFile = ResourceAccess.toTempFile(mediaFile.filename, Array.empty)
-      fos <- Resource.make(syncF.delay(new FileOutputStream(tempFile)))(fos => Sync[F].delay(fos.close()))
-    } yield {
-      fos.write(fileContent)
-      tempFile
-    }
-  }
+  def getResourcesByKind(criteria: String): Resource[F, List[MediaResource]]
+  def getResourceFile(mediaFile: MediaFile): Resource[F, MediaResource]
 }
 
 object ResourceAccess {
@@ -54,14 +47,17 @@ object ResourceAccess {
       subResourceFilePath
     )
 
-  def fromResources[F[_]: Sync](stage: Option[String] = None): fromResources[F] = new fromResources[F](stage)
-  class fromResources[F[_]: Sync](stage: Option[String] = None) extends ResourceAccess[F] {
+  def fromResources[F[_]: Sync: LogWriter](stage: Option[String] = None): fromResources[F] = new fromResources[F](stage)
+  class fromResources[F[_]: Sync: LogWriter](stage: Option[String] = None) extends ResourceAccess[F] {
 
-    def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
+    private def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       (for {
-        fis <- Resource.make(Sync[F].delay {
+        _ <- Resource.eval(LogWriter.info(s"""[ResourcesAccess] Retrieve the file locally at ${getClass().getResource(
+            "/" + resourceName
+          )}"""))
+        fis <- Resource.make(Sync[F].fromTry {
           val stream = getClass().getResourceAsStream("/" + resourceName)
-          if (stream == null) new FileInputStream(resourceName) else stream
+          Try(if (stream == null) new FileInputStream(resourceName) else stream)
         })(fis => Sync[F].delay(fis.close()))
         bais <- Resource.make(Sync[F].delay(new ByteArrayOutputStream()))(bais => Sync[F].delay(bais.close()))
       } yield (fis, bais)).evalMap { case (fis, bais) =>
@@ -74,7 +70,7 @@ object ResourceAccess {
         } yield bais.toByteArray()
       }
 
-    def getResourcesByKind(criteria: String): Resource[F, List[File]] = {
+    def getResourcesByKind(criteria: String): Resource[F, List[MediaResource]] = {
       val jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())
       val result: ArrayBuffer[String] = new ArrayBuffer();
 
@@ -93,37 +89,91 @@ object ResourceAccess {
 
       if (result.size == 0) {
         Resource
-          .pure[F, List[File]](
+          .pure[F, List[MediaResource.MediaResourceFile]](
             Files
               .walk(buildPath(criteria, stage))
               .iterator
               .asScala
               .toList
               .tail
-              .map((fl: Path) => new File(buildPath(criteria, stage).toString + "/" + fl.getFileName.toString))
+              .map((fl: Path) =>
+                MediaResource.MediaResourceFile(
+                  new File(buildPath(criteria, stage).toString + "/" + fl.getFileName.toString)
+                )
+              )
           )
       } else {
         result.toList.traverse(s =>
-          getResourceByteArray(s).map(content => toTempFile(s.stripPrefix(s"$criteria/"), content))
+          getResourceByteArray(s).map(content =>
+            MediaResource.MediaResourceFile(toTempFile(s.stripPrefix(s"$criteria/"), content))
+          )
         )
+      }
+    }
+
+    override def getResourceFile(
+        mediaFile: MediaFile
+    ): Resource[F, MediaResource] = {
+      for {
+        _           <- Resource.eval(LogWriter.info(s"getResourceFile of $mediaFile"))
+        fileContent <- getResourceByteArray(mediaFile.filepath)
+        tempFile = ResourceAccess.toTempFile(mediaFile.filename, Array.empty)
+        fos <- Resource.make(Sync[F].delay(new FileOutputStream(tempFile)))(fos => Sync[F].delay(fos.close()))
+      } yield {
+        fos.write(fileContent)
+        MediaResource.MediaResourceFile(tempFile)
       }
     }
   }
 
-  def dbResources[F[_]: Async](dbMedia: DBMedia[F], urlFetcher: UrlFetcher[F]): ResourceAccess[F] =
+  def dbResources[F[_]: Async: LogWriter](dbMedia: DBMedia[F], urlFetcher: UrlFetcher[F]): ResourceAccess[F] =
     new ResourceAccess[F] {
 
-      def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
-        for {
-          media <- Resource.eval(dbMedia.getMedia(resourceName))
-          _     <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
-          file  <- urlFetcher.fetchFromDropbox(resourceName, media.media_url)
-        } yield Files.readAllBytes(file.toPath)
+      private[resources] def dbMediaDataToMediaResource(dbMedia: DBMediaData): Resource[F, MediaResource] = {
+        def findFirstSuccedingSource(
+            mediaName: String,
+            sources: List[Either[String, Uri]]
+        ): Resource[F, MediaResource] = sources match
+          case Nil =>
+            Resource.eval(
+              LogWriter.error(s"[ResourcesAccess] couldn't find a successful source for $dbMedia") >> Async[F]
+                .raiseError(Throwable(s"[ResourcesAccess] couldn't find a successful source for $dbMedia"))
+            )
+          case Left(iFile) :: _ => Resource.pure(MediaResource.MediaResourceIFile(iFile))
+          case Right(uri) :: t =>
+            urlFetcher
+              .fetchFromDropbox(mediaName, uri)
+              .map(MediaResource.MediaResourceFile(_))
+              .handleErrorWith[MediaResource, Throwable](e =>
+                Resource.eval(
+                  LogWriter.error(s"[ResourcesAccess] Uri $uri for $dbMedia failed to fetch the data")
+                ) >> findFirstSuccedingSource(mediaName, t)
+              )
+        for
+          media <- Resource.eval(Async[F].fromEither(Media(dbMedia)))
+          _ <- Resource.eval(LogWriter.info(s"[ResourcesAccess] fetching data for $media from ${media.mediaSources}"))
+          mediaResource <- findFirstSuccedingSource(media.mediaName, media.mediaSources)
+        yield mediaResource
+      }
 
-      def getResourcesByKind(criteria: String): Resource[F, List[File]] =
+      override def getResourcesByKind(criteria: String): Resource[F, List[MediaResource]] =
         for {
           medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
-          files  <- medias.traverse(media => urlFetcher.fetchFromDropbox(media.media_name, media.media_url))
+          files <-
+            medias.traverse(
+              dbMediaDataToMediaResource
+            )
         } yield files
+
+      override def getResourceFile(
+          mediaFile: MediaFile
+      ): Resource[F, MediaResource] = {
+        for {
+          _             <- Resource.eval(LogWriter.info(s"[ResourcesAccess] `getResourceFile` of $mediaFile"))
+          media         <- Resource.eval(dbMedia.getMedia(mediaFile.filepath))
+          _             <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
+          mediaResource <- dbMediaDataToMediaResource(media)
+        } yield mediaResource
+      }
     }
 }

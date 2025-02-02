@@ -1,9 +1,19 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.Reply
+import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
+import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
+import com.benkio.telegrambotinfrastructure.model.reply.GifFile
+import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import munit.FunSuite
 import io.circe.parser.decode
 import io.circe.syntax.*
 import cats.effect.SyncIO
+import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.reply.vid
+import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.reply.pho
 
 class ReplySpec extends FunSuite {
 

@@ -1,15 +1,15 @@
 package com.benkio.richardphjbensonbot
 
-import com.benkio.telegrambotinfrastructure.model.TextReplyM
+import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import cats.*
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -34,7 +34,7 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F](resourceAccess)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using syncF: Sync[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
   override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using
@@ -52,7 +52,7 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using syncF: Sync[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
   override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using

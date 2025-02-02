@@ -1,11 +1,14 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.effect.IO
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
-import com.benkio.telegrambotinfrastructure.model.*
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import java.time.Instant
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -13,6 +16,10 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.reply.vid
+import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.tr
 
 class BotSkeletonSpec extends CatsEffectSuite {
 

@@ -1,10 +1,23 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
+import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
+import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
+import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
+import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
+import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.GifFile
+import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
+import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
+import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import io.circe.parser.decode
 import io.circe.syntax.*
 import cats.effect.IO
 
-import com.benkio.telegrambotinfrastructure.model.*
 import munit.FunSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message

@@ -9,9 +9,9 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageOps
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogWriter
@@ -56,9 +56,9 @@ abstract class BotSkeletonWebhook[F[_]: Async: Api: LogWriter](
 trait BotSkeleton[F[_]] {
 
   // Configuration values & functions /////////////////////////////////////////////////////
-  def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = ResourceAccess.fromResources[F]()
-  val ignoreMessagePrefix: Option[String]                     = Some("!")
-  val disableForward: Boolean                                 = true
+  def resourceAccess(using syncF: Sync[F], log: LogWriter[F]): ResourceAccess[F] = ResourceAccess.fromResources[F]()
+  val ignoreMessagePrefix: Option[String]                                        = Some("!")
+  val disableForward: Boolean                                                    = true
   val botName: String
   val botPrefix: String
   val triggerListUri: Uri

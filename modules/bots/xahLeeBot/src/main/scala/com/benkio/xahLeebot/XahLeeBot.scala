@@ -1,14 +1,17 @@
 package com.benkio.xahleebot
 
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BotSkeleton
+import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
 import cats.*
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.model.*
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-
-import com.benkio.telegrambotinfrastructure.*
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.Uri
@@ -24,7 +27,7 @@ class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F](resourceAccess)
     with XahLeeBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using syncF: Sync[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
 }
 
 class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
@@ -36,7 +39,7 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with XahLeeBot[F] {
-  override def resourceAccess(using syncF: Sync[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using syncF: Sync[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
 }
 
 trait XahLeeBot[F[_]] extends BotSkeleton[F] {

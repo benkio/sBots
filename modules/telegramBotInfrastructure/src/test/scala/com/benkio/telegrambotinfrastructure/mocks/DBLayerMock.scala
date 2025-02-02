@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.mocks
 import cats.effect.IO
 import cats.effect.kernel.Ref
 import cats.effect.std.Random
-import com.benkio.telegrambotinfrastructure.model.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBLog
@@ -95,6 +95,20 @@ object DBLayerMock {
       db.update(ms =>
         ms.find(m => m.media_name == filename)
           .fold(ms)(oldValue => ms.filterNot(_ == oldValue) :+ oldValue.copy(media_count = oldValue.media_count + 1))
+      )
+    override def insertMedia(dbMediaData: DBMediaData): IO[Unit] =
+      db.flatModify(ms =>
+        ms.find(m => m.media_name == dbMediaData.media_name)
+          .fold((dbMediaData :: ms, IO.unit))(oldValue =>
+            (
+              ms,
+              IO.raiseError(
+                Throwable(
+                  s"[DBLayerMock] trying to insert $dbMediaData, but another one with the same media name exists: $oldValue"
+                )
+              )
+            )
+          )
       )
   }
 

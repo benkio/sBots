@@ -1,4 +1,4 @@
-package com.benkio.telegrambotinfrastructure.model
+package com.benkio.telegrambotinfrastructure.model.reply
 
 import cats.Show
 import io.circe.*
@@ -39,6 +39,8 @@ final case class VideoFile(filepath: String, replyToMessage: Boolean = false) ex
   require(List(".mp4").exists(filepath.endsWith(_)))
 }
 
+final case class Document(filepath: String, replyToMessage: Boolean = false) extends MediaFile {}
+
 object MediaFile {
 
   given Decoder[MediaFile] = deriveDecoder[MediaFile]
@@ -64,5 +66,6 @@ extension (sc: StringContext)
   def vid(args: Any*): VideoFile = VideoFile(sc.s(args*))
   def pho(args: Any*): PhotoFile = PhotoFile(sc.s(args*))
   def txt(args: Any*): Text      = Text(sc.s(args*))
+  def doc(args: Any*): Document  = Document(sc.s(args*))
 
 extension (values: List[String]) def toText: List[Text] = values.map(Text(_))

@@ -1,12 +1,20 @@
 package com.benkio.telegrambotinfrastructure.resources
 
+import munit.CatsEffectSuite
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import log.effect.LogLevels
+import com.benkio.telegrambotinfrastructure.model.reply.Document
 import cats.effect.IO
-import munit.FunSuite
+import cats.syntax.all.*
 
 import java.nio.file.*
 import scala.util.Random
+import log.effect.LogWriter
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 
-class ResourcesAccessSpec extends FunSuite {
+class ResourcesAccessSpec extends CatsEffectSuite {
+
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   val testfile       = "testFile"
   val rootPath: Path = Paths.get("").toAbsolutePath()
@@ -25,19 +33,29 @@ class ResourcesAccessSpec extends FunSuite {
     assert(obtained.getName().endsWith(".txt"))
     assertEquals(Files.readAllBytes(obtained.toPath).toSeq, inputContent.toSeq)
   }
+
+  test("ResourceAccess Local should retrieve a mediafile from the resources correctly") {
+    val resourceAccess = ResourceAccess.fromResources[IO]()
+    /*
+    Use the class of tihs test becouse the local resource access will
+    search in the `getClass()` that's convenient when packing
+    everything with `assembly`
+     */
+    val filename = "test.txt"
+    ResourceAccessSpec.testFilename(filename)(using resourceAccess).assert
+  }
 }
 
 object ResourceAccessSpec {
 
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+
   def testFilename(filename: String)(using resourceAccess: ResourceAccess[IO]): IO[Boolean] =
     resourceAccess
-      .getResourceByteArray(filename)
-      .use((fileBytes: Array[Byte]) => {
-        if (fileBytes.nonEmpty) IO(true)
-        else
-          IO {
-            println(s"ERROR: filename $filename is missing!!!!")
-            false
-          }
-      })
+      .getResourceFile(Document(filename))
+      .use {
+        case MediaResource.MediaResourceFile(f) => Files.readAllBytes(f.toPath).map(_.toChar).mkString.nonEmpty.pure
+        case MediaResource.MediaResourceIFile(x) =>
+          IO.raiseError(Throwable(s"[ResourcesAccessSpec]: filename $filename is missing!!!!"))
+      }
 }

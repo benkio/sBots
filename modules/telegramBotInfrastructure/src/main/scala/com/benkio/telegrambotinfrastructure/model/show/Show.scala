@@ -1,4 +1,4 @@
-package com.benkio.telegrambotinfrastructure.model
+package com.benkio.telegrambotinfrastructure.model.show
 
 import cats.implicits.*
 import cats.MonadThrow

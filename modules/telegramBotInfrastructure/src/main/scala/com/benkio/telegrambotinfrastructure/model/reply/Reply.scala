@@ -1,9 +1,9 @@
-package com.benkio.telegrambotinfrastructure.model
+package com.benkio.telegrambotinfrastructure.model.reply
 
 import cats.Applicative
 import cats.effect.SyncIO
 import cats.syntax.all.*
-import com.benkio.telegrambotinfrastructure.model.toText
+import com.benkio.telegrambotinfrastructure.model.reply.toText
 import io.circe.*
 import io.circe.generic.semiauto.*
 import telegramium.bots.Message

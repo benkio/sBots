@@ -1,4 +1,4 @@
-package com.benkio.telegrambotinfrastructure.model
+package com.benkio.telegrambotinfrastructure.model.show
 
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import org.http4s.QueryParamDecoder.*

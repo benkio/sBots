@@ -1,12 +1,12 @@
 package com.benkio.M0sconi
 
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import telegramium.bots.high.Api
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.model.ReplyValue
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 
 import cats.Show

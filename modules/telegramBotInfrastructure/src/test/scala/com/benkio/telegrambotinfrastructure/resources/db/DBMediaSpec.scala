@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
-import com.benkio.telegrambotinfrastructure.model.Media
+import com.benkio.telegrambotinfrastructure.model.media.Media
 import org.http4s.Uri
 import java.time.Instant
 import munit._
@@ -12,14 +12,15 @@ class DBMediaSpec extends FunSuite {
     val actual = Media(
       mediaName = "mediaName",
       kinds = List("kind"),
-      mediaUrl = uri"http://something.com",
+      mediaSources = List(Right(uri"http://something.com")),
       mediaCount = 0,
       createdAt = now,
     )
     val expected = DBMediaData(
       media_name = actual.mediaName,
-      kinds = Some("""["kind"]"""),
-      media_url = "http://something.com",
+      kinds = """["kind"]""",
+      media_sources = """["http://something.com"]""",
+      mime_type = "application/octet-stream",
       media_count = actual.mediaCount,
       created_at = now.toString
     )

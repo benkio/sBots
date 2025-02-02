@@ -1,17 +1,21 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.*
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.effect.IO
 import cats.syntax.all.*
 import io.circe.parser.decode
 
 import scala.io.Source
 import java.io.File
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
 
 trait BaseBotSpec extends CatsEffectSuite:
   def checkContains(triggerContent: String, values: List[String]): Unit =
@@ -29,10 +33,13 @@ trait BaseBotSpec extends CatsEffectSuite:
       val jsonMediaFileSource = decode[List[MediaFileSource]](jsonContent)
 
       for
-        _                <- assert(jsonMediaFileSource.isRight).pure[IO]
+        _ <- assert(
+          jsonMediaFileSource.isRight,
+          s"got an error trying to open/parse $jsonFilename @ $listPath: $jsonMediaFileSource"
+        ).pure[IO]
         mediaFileSources <- IO.fromEither(jsonMediaFileSource)
         files = mediaFileSources.map(_.filename)
-        urls  = mediaFileSources.map(_.uri)
+        urls  = mediaFileSources.flatMap(_.sources.collect { case Right(uri) => uri })
         filenames <- botData
         _ <- filenames
           .foreach(filename => assert(files.contains(filename), s"$filename is not contained in bot data file"))
@@ -47,10 +54,14 @@ trait BaseBotSpec extends CatsEffectSuite:
         _ <- // TODO: fix this once online
           mediaFileSources
             .foreach(mfs =>
-              assert(
-                mfs.uri.toString.contains(mfs.filename),
-                s"${mfs.uri} doesn't contain the filename: ${mfs.filename}"
-              )
+              mfs.sources.foreach {
+                case Right(uri) =>
+                  assert(
+                    uri.toString.contains(mfs.filename),
+                    s"$uri doesn't contain the filename: ${mfs.filename}"
+                  )
+                case _ => assert(true)
+              }
             )
             .pure[IO]
       yield ()

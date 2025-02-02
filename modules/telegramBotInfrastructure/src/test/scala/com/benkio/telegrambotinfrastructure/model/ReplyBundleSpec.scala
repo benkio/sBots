@@ -1,5 +1,19 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.reply.Reply
+
+import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
+import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
+import com.benkio.telegrambotinfrastructure.model.reply.GifFile
+import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import cats.Applicative
 import cats.effect.*
 import cats.syntax.all.*
@@ -32,6 +46,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
       case _: PhotoFile => List(msg.copy(text = Some("Photo")))
       case _: VideoFile => List(msg.copy(text = Some("Video")))
       case _: Text      => List(msg.copy(text = Some("Text")))
+      case _: Document  => List(msg.copy(text = Some("Document")))
     }).pure[F]
   }
 
@@ -41,6 +56,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
     PhotoFile("picture.png"),
     GifFile("a.gif"),
     VideoFile("video.mp4"),
+    Document("document.pdf")
   )
 
   test("computeReplyBundle should return the expected message when the ReplyBundle and Message is provided") {
@@ -81,7 +97,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
       computeResult(replyBundleInput2)
 
     for {
-      _ <- assertIO(result1.map(_.length), 5)
+      _ <- assertIO(result1.map(_.length), 6)
       _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Mp3")))), true)
       _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Photo")))), true)
       _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Gif")))), true)
@@ -104,13 +120,14 @@ class ReplyBundleSpec extends CatsEffectSuite {
     assertIO(
       result,
       """--------------------------------------------------
-audio.mp3                 | stringTextTriggerValue
-picture.jpg               | regexTextTriggerValue
-picture.png               | 
-a.gif                     | 
-video.mp4                 | 
---------------------------------------------------
-"""
+        |audio.mp3                 | stringTextTriggerValue
+        |picture.jpg               | regexTextTriggerValue
+        |picture.png               | 
+        |a.gif                     | 
+        |video.mp4                 | 
+        |document.pdf              | 
+        |--------------------------------------------------
+        |""".stripMargin
     )
   }
 

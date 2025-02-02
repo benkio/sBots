@@ -9,8 +9,8 @@ import com.benkio.abarberobot.ABarberoBot
 import com.benkio.calandrobot.CalandroBot
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import java.io._
 

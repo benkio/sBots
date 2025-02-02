@@ -1,8 +1,11 @@
 package com.benkio.integration.integrationmunit.botDB
 
+import log.effect.LogWriter
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.botDB.db.DBMigrator
 import munit.CatsEffectSuite
-import com.benkio.botDB.db.DatabaseRepository
 import cats.effect.IO
 import java.nio.file.Paths
 import java.nio.file.Files
@@ -16,6 +19,8 @@ import com.benkio.botDB.TestData
 
 class DBSpec extends CatsEffectSuite with DBConstants {
 
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  
   val databaseConnection: FunFixture[Connection] = FunFixture[Connection](
     setup = { _ =>
       Files.deleteIfExists(Paths.get(dbPath))
@@ -66,18 +71,21 @@ class DBSpec extends CatsEffectSuite with DBConstants {
     assertEquals(actualTimeoutLastInteraction, "2008-01-01 00:00:01")
   }
 
-  // DatabaseRepository /////////////////////////////////////////////////////////
+  // DBMedia /////////////////////////////////////////////////////////
 
-  databaseConnection.test("DatabaseRepository should be able to insert a Media") { connection =>
-    val databaseRepository = DatabaseRepository[IO](transactor(connection))
-    assertIO_(databaseRepository.insertMedia(TestData.google))
+  databaseConnection.test("DBMedia should be able to insert a Media") { connection =>
+    assertIO_(
+      DBMedia[IO](transactor(connection)).flatMap(
+        _.insertMedia(TestData.google)
+      )
+    )
   }
 }
 
 object DBSpec {
 
   val mediaSQL: String = """
-INSERT INTO media (media_name, kinds, mime_type, media_url, created_at, media_count) VALUES ('test media.mp3', NULL, 'audio/mpeg', 'https://www.google.com', '2008-01-01 00:00:01', 0);
+INSERT INTO media (media_name, kinds, mime_type, media_sources, created_at, media_count) VALUES ('test media.mp3', '', 'audio/mpeg', json('["https://www.google.com"]'), '2008-01-01 00:00:01', 0);
 """
 
   val timeoutSQL = """

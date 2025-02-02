@@ -1,11 +1,17 @@
-package com.benkio.telegrambotinfrastructure.model
+package com.benkio.telegrambotinfrastructure.model.reply
 
+import com.benkio.telegrambotinfrastructure.model.ReplySelection
+import com.benkio.telegrambotinfrastructure.model.RandomSelection
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.MessageTrigger
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import cats.*
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.Reply.*
-import com.benkio.telegrambotinfrastructure.model.Reply.given
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import io.circe.*

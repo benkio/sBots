@@ -1,5 +1,13 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
+import com.benkio.telegrambotinfrastructure.model.Timeout
+import com.benkio.telegrambotinfrastructure.model.Subscription
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
+import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.show.Show
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import cats.Applicative
 import cats.ApplicativeThrow
 import cats.MonadThrow
@@ -8,8 +16,18 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.*
+
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
+import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.reply.toText
+import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.resources.db.*
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import java.util.UUID
 import log.effect.LogWriter
 import org.http4s.Uri

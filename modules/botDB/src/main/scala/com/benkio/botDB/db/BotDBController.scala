@@ -1,15 +1,19 @@
 package com.benkio.botDB.db
 
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
+import log.effect.LogWriter
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import cats.effect.Resource
 import cats.effect.Sync
 import cats.implicits.*
-import com.benkio.botDB.db.schema.MediaEntity
 import com.benkio.botDB.Config
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.circe.parser.decode
+import io.circe.syntax.*
+import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 
-import java.sql.Timestamp
 import java.time.Instant
 import scala.io.Source
 
@@ -20,9 +24,9 @@ sealed trait BotDBController[F[_]] {
 }
 
 object BotDBController {
-  def apply[F[_]: Sync](
+  def apply[F[_]: Sync: LogWriter](
       cfg: Config,
-      databaseRepository: DatabaseRepository[F],
+      databaseRepository: DBMedia[F],
       resourceAccess: ResourceAccess[F],
       migrator: DBMigrator[F]
   ): BotDBController[F] =
@@ -33,9 +37,9 @@ object BotDBController {
       migrator = migrator
     )
 
-  private class BotDBControllerImpl[F[_]: Sync](
+  private class BotDBControllerImpl[F[_]: Sync: LogWriter](
       cfg: Config,
-      databaseRepository: DatabaseRepository[F],
+      databaseRepository: DBMedia[F],
       resourceAccess: ResourceAccess[F],
       migrator: DBMigrator[F]
   ) extends BotDBController[F] {
@@ -46,26 +50,28 @@ object BotDBController {
 
     override def populateMediaTable: Resource[F, Unit] = for {
       allFiles <- cfg.jsonLocation.flatTraverse(resourceAccess.getResourcesByKind)
-      jsons = allFiles.filter(f => f.getName.endsWith("json"))
+      _ <- Resource.eval(LogWriter.info(s"[BotDBController]: all files from ${cfg.jsonLocation}: ${allFiles.length}"))
+      jsons = allFiles.mapFilter(mediaSource => mediaSource.getMediaResourceFile.filter(_.getName.endsWith("json")))
+      _ <- Resource.eval(LogWriter.info(s"[BotDBController]: Json file to be computed: $jsons"))
       input <- Resource.eval(Sync[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")
-        decode[List[MediaFileSource]](fileContent)
+        decode[List[MediaFileSource]](fileContent).leftMap(e => Throwable(e.show))
       })))
       _ <- Resource.eval(
         input.traverse_(i =>
           for {
-            mime <- MediaEntity.mimeTypeOrDefault[F](i.filename, i.mime)
             _ <- databaseRepository
               .insertMedia(
-                MediaEntity(
+                DBMediaData(
                   media_name = i.filename,
-                  kinds = i.kinds.getOrElse(List.empty),
-                  mime_type = mime,
-                  media_uri = i.uri,
-                  created_at = Timestamp.from(Instant.now())
+                  kinds = i.kinds.asJson.noSpaces,
+                  mime_type = i.mime,
+                  media_sources = i.sources.asJson.noSpaces,
+                  media_count = 0,
+                  created_at = Instant.now().getEpochSecond.toString
                 )
               )
-            _ <- Sync[F].delay(println(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.uri}, successfully"))
+            _ <- LogWriter.info(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully")
           } yield ()
         )
       )

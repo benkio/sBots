@@ -7,9 +7,9 @@ import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import com.benkio.telegrambotinfrastructure.model.MediaFile
-import com.benkio.telegrambotinfrastructure.model.MediaFileSource
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.xahleebot.CommandRepliesData

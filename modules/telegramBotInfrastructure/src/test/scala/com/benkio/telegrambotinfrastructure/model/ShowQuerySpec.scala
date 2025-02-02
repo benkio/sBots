@@ -1,5 +1,8 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
+import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import munit.*
 
 import java.time.LocalDate

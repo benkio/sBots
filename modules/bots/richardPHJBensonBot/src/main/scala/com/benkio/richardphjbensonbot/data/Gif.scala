@@ -1,7 +1,9 @@
 package com.benkio.richardphjbensonbot.data
 
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.Applicative
-import com.benkio.telegrambotinfrastructure.model.*
+import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.tr
 
 object Gif {
 

@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.web
 
+import org.http4s.Uri
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher.UnexpectedDropboxResponse
@@ -7,7 +8,7 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import org.http4s.ParseFailure
+
 import org.http4s.ember.client.*
 
 import java.io.File
@@ -28,17 +29,17 @@ class UrlFetcherSpec extends CatsEffectSuite {
     val input = List(
       (
         "rphjb_AmmaestrareIlDolore.mp4",
-        "https://www.dropbox.com/s/syd0ivnsyq1r5pk/rphjb_AmmaestrareIlDolore.mp4?dl=1",
+        Uri.unsafeFromString("https://www.dropbox.com/s/syd0ivnsyq1r5pk/rphjb_AmmaestrareIlDolore.mp4?dl=1"),
         1024 * 10
       ),
       (
         "rphjb_TiDovrestiVergognare.mp3",
-        "https://www.dropbox.com/s/fjhnlf32njs8nec/rphjb_TiDovrestiVergognare.mp3?dl=1",
+        Uri.unsafeFromString("https://www.dropbox.com/s/fjhnlf32njs8nec/rphjb_TiDovrestiVergognare.mp3?dl=1"),
         1024 * 10
       )
     )
 
-    def check(f: String, u: String, size: Int) = for {
+    def check(f: String, u: Uri, size: Int) = for {
       urlFetcher <- buildUrlFetcher()
       file       <- urlFetcher.fetchFromDropbox(f, u)
       bytes = Files.readAllBytes(file.toPath).length
@@ -54,10 +55,18 @@ class UrlFetcherSpec extends CatsEffectSuite {
 
   test("fetch should return the expected urls content in a file if the urls is valid") {
     val input = List(
-      "https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1" -> "rphjb_MaSgus.mp3",
-      "https://www.dropbox.com/scl/fi/eb3h61camy0bsomtmxyn8/rphjb_MeNeVado.mp3?rlkey=ugnmubcnpig5phlluzonvy1wk&dl=1" -> "rphjb_MeNeVado.mp3",
-      "https://www.dropbox.com/scl/fi/crwwhqhlf8d61jav1gaw4/rphjb_Ritornata.mp3?rlkey=n4u6rwqfaj1pnotavsu1t1z0j&dl=1" -> "rphjb_Ritornata.mp3",
-      "https://www.dropbox.com/scl/fi/bbapesg0ghop422fqq4tm/rphjb_Schifo.mp3?rlkey=u1ol7p0i1xnvxahz150eiytq2&dl=1" -> "rphjb_Schifo.mp3"
+      Uri.unsafeFromString(
+        "https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1"
+      ) -> "rphjb_MaSgus.mp3",
+      Uri.unsafeFromString(
+        "https://www.dropbox.com/scl/fi/eb3h61camy0bsomtmxyn8/rphjb_MeNeVado.mp3?rlkey=ugnmubcnpig5phlluzonvy1wk&dl=1"
+      ) -> "rphjb_MeNeVado.mp3",
+      Uri.unsafeFromString(
+        "https://www.dropbox.com/scl/fi/crwwhqhlf8d61jav1gaw4/rphjb_Ritornata.mp3?rlkey=n4u6rwqfaj1pnotavsu1t1z0j&dl=1"
+      ) -> "rphjb_Ritornata.mp3",
+      Uri.unsafeFromString(
+        "https://www.dropbox.com/scl/fi/bbapesg0ghop422fqq4tm/rphjb_Schifo.mp3?rlkey=u1ol7p0i1xnvxahz150eiytq2&dl=1"
+      ) -> "rphjb_Schifo.mp3"
     )
 
     val result = for {
@@ -69,19 +78,8 @@ class UrlFetcherSpec extends CatsEffectSuite {
     result.use(IO.pure).assert
   }
 
-  test("fetch should fail if the url is malformed") {
-    val invalidUrl = "bad url"
-    val filename   = "rphjb_06Gif.mp4"
-    val result = for {
-      urlFetcher <- buildUrlFetcher()
-      file       <- urlFetcher.fetchFromDropbox(filename, invalidUrl)
-    } yield file
-
-    interceptIO[ParseFailure](result.use_)
-  }
-
   test("fetch should fail if the response is empty") {
-    val emptyUrl = "https://httpbin.org/status/200"
+    val emptyUrl = Uri.unsafeFromString("https://httpbin.org/status/200")
     val filename = "whaeverfilename"
     val result = for {
       urlFetcher <- buildUrlFetcher()

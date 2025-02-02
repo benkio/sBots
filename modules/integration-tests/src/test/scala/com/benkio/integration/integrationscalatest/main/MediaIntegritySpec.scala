@@ -13,8 +13,8 @@ import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.model.MediaFile
-import com.benkio.telegrambotinfrastructure.model.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.xahleebot.XahLeeBot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import log.effect.LogLevels
@@ -22,6 +22,7 @@ import log.effect.LogWriter
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import org.scalatest.*
 import org.scalatest.funsuite.FixtureAnyFunSuite
+import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 
 class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
 
@@ -72,7 +73,8 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
     test(s"${mf.filename} should return some data", SlowTest) { case FixtureParam(fixture) =>
       (for {
         resourceAccess <- fixture.resourceAccessResource
-        file           <- resourceAccess.getResourceFile(mf)
+        mediaSource <- resourceAccess.getResourceFile(mf)
+        file = mediaSource.getMediaResourceFile.getOrElse(fail("expect a file"))
       } yield assert(file.length > (5 * 1024))).use_
     }.pure[IO]
 
