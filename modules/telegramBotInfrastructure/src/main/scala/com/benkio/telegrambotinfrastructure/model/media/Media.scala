@@ -25,8 +25,12 @@ object Media {
     createdAt <- Try(Instant.ofEpochSecond(dbMediaData.created_at.toLong)).toEither
   } yield Media(
     mediaName = dbMediaData.media_name,
-    kinds = decode[List[String]](dbMediaData.kinds).getOrElse(List.empty),
-    mediaSources = decode[List[Either[String, Uri]]](dbMediaData.media_sources).getOrElse(List.empty),
+    kinds = decode[List[String]](dbMediaData.kinds)
+      .handleErrorWith(_ => decode[String](dbMediaData.kinds).flatMap(decode[List[String]]))
+      .getOrElse(List.empty),
+    mediaSources = decode[List[Either[String, Uri]]](dbMediaData.media_sources)
+      .handleErrorWith(_ => decode[String](dbMediaData.media_sources).flatMap(decode[List[Either[String, Uri]]]))
+      .getOrElse(List.empty),
     mediaCount = dbMediaData.media_count,
     createdAt = createdAt,
   )

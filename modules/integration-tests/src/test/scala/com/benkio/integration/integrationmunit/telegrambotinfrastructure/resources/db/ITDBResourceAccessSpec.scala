@@ -1,8 +1,8 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
-//import java.nio.file.Files
+import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
+import java.nio.file.Files
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
-//import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 
 import cats.effect.Resource
@@ -29,11 +29,22 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       dbMedia          <- fixture.resourceDBLayer.map(_.dbMedia)
       preMedia         <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _ = println(s"debug preMedia: $preMedia")
-    } yield true
+      dbResourceAccess <- fixture.resourceAccessResource
+      mediaSource      <- dbResourceAccess.getResourceFile(Mp3File(testMediaName))
+      _ = println(s"debug mediaSource: $mediaSource")
+            postMedia        <- Resource.eval(dbMedia.getMedia(testMediaName, false))
+      _ = println(s"debug postMedia: $postMedia")
+      _                <- Resource.eval(dbMedia.decrementMediaCount(testMediaName))
+      initialMedia     <- Resource.eval(dbMedia.getMedia(testMediaName, false))
+    } yield {
+      val assert1 = postMedia == preMedia.copy(media_count = preMedia.media_count + 1)
+      val assert2 = mediaSource.getMediaResourceFile.fold(false)(f =>
+        Files.readAllBytes(f.toPath).length >= (1024 * 5)
+      )
+      val assert3 = preMedia == initialMedia
+      assert1 && assert2 && assert3
+    }
     resourceAssert.use(IO.pure).assert
-    //   dbResourceAccess <- fixture.resourceAccessResource
-    //   mediaSource      <- dbResourceAccess.getResourceFile(Mp3File(testMediaName))
-    //   _ = println(s"debug mediaSource: $mediaSource")
     //   postMedia        <- Resource.eval(dbMedia.getMedia(testMediaName, false))
     //   _ = println(s"debug postMedia: $postMedia")
     //   _                <- Resource.eval(dbMedia.decrementMediaCount(testMediaName))
@@ -45,11 +56,12 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
     //   )
     //   val assert3 = preMedia == initialMedia
     //   assert1 && assert2 && assert3
-    }
+    //}
 
   //   resourceAssert.use(IO.pure).assert
   // }
-
+  }
+  
   databaseFixture.test(
     "DBResourceAccess.getResourcesByKind should return the expected list of files with expected content"
   ) { fixture =>

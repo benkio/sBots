@@ -1,17 +1,20 @@
 package com.benkio.telegrambotinfrastructure.resources
 
+import munit.CatsEffectSuite
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import log.effect.LogLevels
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import cats.effect.IO
 import cats.syntax.all.*
-import munit.FunSuite
 
 import java.nio.file.*
 import scala.util.Random
 import log.effect.LogWriter
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-class ResourcesAccessSpec extends FunSuite {
+
+class ResourcesAccessSpec extends CatsEffectSuite {
+
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   val testfile       = "testFile"
   val rootPath: Path = Paths.get("").toAbsolutePath()
@@ -29,6 +32,17 @@ class ResourcesAccessSpec extends FunSuite {
     assert(obtained.getName().startsWith("test"))
     assert(obtained.getName().endsWith(".txt"))
     assertEquals(Files.readAllBytes(obtained.toPath).toSeq, inputContent.toSeq)
+  }
+
+  test("ResourceAccess Local should retrieve a mediafile from the resources correctly") {
+    val resourceAccess = ResourceAccess.fromResources[IO]()
+    /*
+    Use the class of tihs test becouse the local resource access will
+    search in the `getClass()` that's convenient when packing
+    everything with `assembly`
+     */
+    val filename = "test.txt"
+    ResourceAccessSpec.testFilename(filename)(using resourceAccess).assert
   }
 }
 

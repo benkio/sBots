@@ -21,6 +21,7 @@ import log.effect.LogWriter
 import org.http4s.Uri
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters.*
+import scala.util.Try
 
 trait ResourceAccess[F[_]] {
   def getResourcesByKind(criteria: String): Resource[F, List[MediaResource]]
@@ -51,9 +52,12 @@ object ResourceAccess {
 
     private def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       (for {
-        fis <- Resource.make(Sync[F].delay {
+        _ <- Resource.eval(LogWriter.info(s"""[ResourcesAccess] Retrieve the file locally at ${getClass().getResource(
+            "/" + resourceName
+          )}"""))
+        fis <- Resource.make(Sync[F].fromTry {
           val stream = getClass().getResourceAsStream("/" + resourceName)
-          if (stream == null) new FileInputStream(resourceName) else stream
+          Try(if (stream == null) new FileInputStream(resourceName) else stream)
         })(fis => Sync[F].delay(fis.close()))
         bais <- Resource.make(Sync[F].delay(new ByteArrayOutputStream()))(bais => Sync[F].delay(bais.close()))
       } yield (fis, bais)).evalMap { case (fis, bais) =>
@@ -125,7 +129,7 @@ object ResourceAccess {
   def dbResources[F[_]: Async: LogWriter](dbMedia: DBMedia[F], urlFetcher: UrlFetcher[F]): ResourceAccess[F] =
     new ResourceAccess[F] {
 
-      private def dbMediaDataToMediaResource(dbMedia: DBMediaData): Resource[F, MediaResource] = {
+      private[resources] def dbMediaDataToMediaResource(dbMedia: DBMediaData): Resource[F, MediaResource] = {
         def findFirstSuccedingSource(
             mediaName: String,
             sources: List[Either[String, Uri]]
@@ -146,7 +150,8 @@ object ResourceAccess {
                 ) >> findFirstSuccedingSource(mediaName, t)
               )
         for
-          media         <- Resource.eval(Async[F].fromEither(Media(dbMedia)))
+          media <- Resource.eval(Async[F].fromEither(Media(dbMedia)))
+          _ <- Resource.eval(LogWriter.info(s"[ResourcesAccess] fetching data for $media from ${media.mediaSources}"))
           mediaResource <- findFirstSuccedingSource(media.mediaName, media.mediaSources)
         yield mediaResource
       }
