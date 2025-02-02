@@ -40,6 +40,7 @@ final case class VideoFile(filepath: String, replyToMessage: Boolean = false) ex
 }
 
 final case class Document(filepath: String, replyToMessage: Boolean = false) extends MediaFile {}
+final case class Sticker(filepath: String, replyToMessage: Boolean = false)  extends MediaFile {}
 
 object MediaFile {
 
@@ -53,19 +54,18 @@ object MediaFile {
     case s if s.endsWith(".gif")                         => GifFile(s, replyToMessage)
     case s if s.endsWith(".mp4")                         => VideoFile(s, replyToMessage)
     case s if List(".jpg", ".png").exists(s.endsWith(_)) => PhotoFile(s, replyToMessage)
-    case _ =>
-      throw new IllegalArgumentException(
-        s"filepath extension not recognized: $filepath \n allowed extensions: mp3, gif, jpg, png, mp4"
-      )
+    case s =>
+      Document(s, replyToMessage)
   }
 }
 
 extension (sc: StringContext)
-  def mp3(args: Any*): Mp3File   = Mp3File(sc.s(args*))
-  def gif(args: Any*): GifFile   = GifFile(sc.s(args*))
-  def vid(args: Any*): VideoFile = VideoFile(sc.s(args*))
-  def pho(args: Any*): PhotoFile = PhotoFile(sc.s(args*))
-  def txt(args: Any*): Text      = Text(sc.s(args*))
-  def doc(args: Any*): Document  = Document(sc.s(args*))
+  def mp3(args: Any*): Mp3File     = Mp3File(sc.s(args*))
+  def gif(args: Any*): GifFile     = GifFile(sc.s(args*))
+  def vid(args: Any*): VideoFile   = VideoFile(sc.s(args*))
+  def pho(args: Any*): PhotoFile   = PhotoFile(sc.s(args*))
+  def txt(args: Any*): Text        = Text(sc.s(args*))
+  def doc(args: Any*): Document    = Document(sc.s(args*))
+  def sticker(args: Any*): Sticker = Sticker(sc.s(args*))
 
 extension (values: List[String]) def toText: List[Text] = values.map(Text(_))

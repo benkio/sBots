@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import com.benkio.telegrambotinfrastructure.model.reply.Sticker
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
@@ -47,6 +48,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
       case _: VideoFile => List(msg.copy(text = Some("Video")))
       case _: Text      => List(msg.copy(text = Some("Text")))
       case _: Document  => List(msg.copy(text = Some("Document")))
+      case _: Sticker   => List(msg.copy(text = Some("Sticker")))
     }).pure[F]
   }
 

@@ -35,11 +35,6 @@ object Audio:
       mp3"ytai_Misc.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\btopolin[oi]\\b".r.tr(8)
-    )(
-      mp3"ytai_Topolino.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "francesismo"
     )(
       mp3"ytai_Francesismo.mp3"
