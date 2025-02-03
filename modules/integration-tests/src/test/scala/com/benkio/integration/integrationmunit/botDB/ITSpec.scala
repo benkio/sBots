@@ -1,6 +1,6 @@
 package com.benkio.integration.integrationmunit.botDB
 
-import com.benkio.botDB.Config
+import com.benkio.botDB.config.Config
 import com.benkio.botDB.Main
 import java.nio.file.Paths
 import java.nio.file.Files

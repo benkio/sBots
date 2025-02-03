@@ -1,5 +1,7 @@
 package com.benkio.botDB
 
+import com.benkio.botDB.config.Config
+import com.benkio.botDB.show.ShowFetcher
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import log.effect.LogLevels
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -24,12 +26,14 @@ object Main extends IOApp {
       databaseRepository <- DBMedia[IO](transactor)
       resourceAccess = ResourceAccess.fromResources[IO](args.lastOption)
       migrator       = DBMigrator[IO]
+      showFetcher    = ShowFetcher[IO]()
       _ <- IO(log.info(s"Build BotDBController"))
       botDBController = BotDBController[IO](
         cfg = cfg,
         databaseRepository = databaseRepository,
         resourceAccess = resourceAccess,
-        migrator = migrator
+        migrator = migrator,
+        showFetcher = showFetcher
       )
       _ <- botDBController.build.use_
       _ <- IO(log.info(s"Bot DB Setup Excuted"))

@@ -9,6 +9,8 @@ import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
 import doobie.*
 import doobie.implicits.*
 import log.effect.LogWriter
+import io.circe.*
+import io.circe.generic.semiauto.*
 
 import java.time.format.DateTimeFormatter
 
@@ -18,11 +20,14 @@ final case class DBShowData(
     show_title: String,
     show_upload_date: String,
     show_duration: Int,
-    show_description: Option[String]
+    show_description: Option[String],
+    show_is_live: Boolean,
+    show_origin_automatic_caption: Option[String]
 )
 
 object DBShowData {
 
+  given Decoder[DBShowData]                = deriveDecoder[DBShowData]
   val dateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
 
   def apply(show: Show): DBShowData = DBShowData(
@@ -31,7 +36,9 @@ object DBShowData {
     show_title = show.title,
     show_upload_date = show.uploadDate.format(dateTimeFormatter),
     show_duration = show.duration,
-    show_description = show.description
+    show_description = show.description,
+    show_is_live = show.isLive,
+    show_origin_automatic_caption = show.originAutomaticCaption
   )
 }
 
@@ -77,14 +84,15 @@ object DBShow {
   }
 
   def getShowsQuery(botName: String): Query0[DBShowData] =
-    sql"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description FROM show WHERE bot_name = $botName"
+    sql"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_name = $botName"
       .query[DBShowData]
   def getShowByShowQueryQuery(query: ShowQuery, botName: String): Query0[DBShowData] = {
-    val q = fr"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description FROM show" ++
-      Fragments.whereAnd(
-        fr"bot_name = $botName",
-        showQueryToFragments(query)*
-      )
+    val q =
+      fr"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++
+        Fragments.whereAnd(
+          fr"bot_name = $botName",
+          showQueryToFragments(query)*
+        )
 
     q.query[DBShowData]
   }

@@ -1,5 +1,7 @@
 package com.benkio.botDB
 
+import com.benkio.botDB.config.ShowConfig
+import com.benkio.botDB.config.Config
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 
 object TestData {
@@ -35,6 +37,7 @@ object TestData {
     url = "jdbc:sqlite:C:/sqlite/db/chinook.db",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
-    jsonLocation = List.empty
+    jsonLocation = List.empty,
+    showConfig = ShowConfig(List.empty, false, false)
   )
 }

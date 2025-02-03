@@ -1,5 +1,6 @@
 package com.benkio.botDB.db
 
+import com.benkio.botDB.mocks.ShowFetcherMock
 import log.effect.LogWriter
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -27,12 +28,14 @@ class BotDBControllerSpec extends CatsEffectSuite {
 
   val resourceAccessMock = new ResourceAccessMock(List(inputJson))
   val migratorMock       = new MigratorMock()
+  val showFetcherMock    = new ShowFetcherMock()
   val dbMediaMock        = new DBMediaMock(Ref.unsafe[IO, List[DBMediaData]](mediaEntities))
   val botDBController: BotDBController[IO] = BotDBController(
     cfg = config,
     databaseRepository = dbMediaMock,
     resourceAccess = resourceAccessMock,
-    migrator = migratorMock
+    migrator = migratorMock,
+    showFetcher = showFetcherMock
   )
 
   test("BotDBController populateMediaTable should call the databaseRepository for data insertion") {

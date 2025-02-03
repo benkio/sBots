@@ -1,5 +1,9 @@
 package com.benkio.botDB.db
 
+import java.io.File
+import com.benkio.botDB.config.ShowConfig
+import com.benkio.botDB.show.ShowSource
+import com.benkio.botDB.show.ShowFetcher
 import log.effect.LogWriter
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
@@ -8,7 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import cats.effect.Resource
 import cats.effect.Sync
 import cats.implicits.*
-import com.benkio.botDB.Config
+import com.benkio.botDB.config.Config
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.circe.parser.decode
 import io.circe.syntax.*
@@ -28,25 +32,43 @@ object BotDBController {
       cfg: Config,
       databaseRepository: DBMedia[F],
       resourceAccess: ResourceAccess[F],
-      migrator: DBMigrator[F]
+      migrator: DBMigrator[F],
+      showFetcher: ShowFetcher[F]
   ): BotDBController[F] =
     new BotDBControllerImpl(
       cfg = cfg,
       databaseRepository = databaseRepository,
       resourceAccess = resourceAccess,
-      migrator = migrator
+      migrator = migrator,
+      showFetcher = showFetcher
     )
 
   private class BotDBControllerImpl[F[_]: Sync: LogWriter](
       cfg: Config,
       databaseRepository: DBMedia[F],
       resourceAccess: ResourceAccess[F],
-      migrator: DBMigrator[F]
+      migrator: DBMigrator[F],
+      showFetcher: ShowFetcher[F]
   ) extends BotDBController[F] {
     override def build: Resource[F, Unit] = for {
       _ <- Resource.eval(migrator.migrate(cfg))
       _ <- populateMediaTable
     } yield ()
+
+    private def showFetching(showConfig: ShowConfig): F[Unit] =
+      if showConfig.runShowFetching
+      then
+        showConfig.showSources
+          .traverse(ms =>
+            for
+              showSource <- ShowSource(ms.url, ms.botName, ms.outputFilePath)
+              _    <- if showConfig.dryRun then Sync[F].delay(File(ms.outputFilePath).delete).void else Sync[F].unit
+              json <- showFetcher.generateShowJson(showSource)
+            yield json
+          )
+          .map(jsons => println(s"debug: $jsons"))
+          .void
+      else Sync[F].unit
 
     override def populateMediaTable: Resource[F, Unit] = for {
       allFiles <- cfg.jsonLocation.flatTraverse(resourceAccess.getResourcesByKind)
@@ -75,6 +97,7 @@ object BotDBController {
           } yield ()
         )
       )
+      _ <- Resource.eval(showFetching(cfg.showConfig))
     } yield ()
   }
 }

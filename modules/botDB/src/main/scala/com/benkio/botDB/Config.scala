@@ -1,4 +1,4 @@
-package com.benkio.botDB
+package com.benkio.botDB.config
 
 import cats.effect.IO
 import doobie.Transactor
@@ -11,6 +11,7 @@ final case class Config(
     migrationsLocations: List[String],
     migrationsTable: String,
     jsonLocation: List[String],
+    showConfig: ShowConfig
 ) derives ConfigReader
 
 object Config {
@@ -35,3 +36,15 @@ object Config {
       None
     )
 }
+
+case class ShowConfig(
+    showSources: List[ShowSourceConfig],
+    runShowFetching: Boolean,
+    dryRun: Boolean
+) derives ConfigReader
+
+case class ShowSourceConfig(
+    url: String,
+    botName: String,
+    outputFilePath: String,
+) derives ConfigReader
