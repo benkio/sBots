@@ -223,71 +223,83 @@ object ITSearchShowCommandSpec {
   val showByDescription: List[TestInput] = List(
     TestInput(
       botName = "ABarberoBot",
-      randomLinkInput = "description=Michail+Bulgakov",
-      expectedOutput = """2020-04-19 - https://barberopodcast.it/episode/095-il-maestro-e-margherita-di-bulgakov-extrabarbero-scandicci-cultura-2017
- #095 Il Maestro e Margherita di Bulgakov - Extrabarbero (Scandicci Cultura, 2017)
-----------
- Da Il Libro della Vita (Scandicci Cultura) il professor Barbero racconta “Il Maestro e Margherita” di Michail Bulgakov. Video originale: https://www.youtube.com/watch?v=nwZ1i2I15ps Twitter: https://twitter.com/barberopodcast Facebook: https://facebook.com/barberopodcast Instagram: https://instagram...."""
+      randomLinkInput = "description=mikhail+bulgakov",
+      expectedOutput = """2022-09-09 - https://www.youtube.com/watch?v=e65OEEQz8ck
+                         | Festival della Mente 2022 - Alessandro Barbero (1/3)
+                         |----------
+                         | Vite e destini: Mikhail Bulgakov""".stripMargin
     ),
     TestInput(
       botName = "ABarberoBot",
-      randomLinkInput = "description=Liceo&description=Sassuolo",
-      expectedOutput = """2021-10-24 - https://barberopodcast.it/episode/142-dante-e-la-sua-opera-1000vocix100canti-sassuolo-2021
- #142 Dante e la sua opera (1000VociX100Canti, Sassuolo 2021)
-----------
- Il prof. Barbero risponde alle domande preparate dagli studenti del Liceo Formiggini di Sassuolo nell’ambito del progetto 1000VociX100Canti, organizzato dall’Istituto e dalla compagnia teatrale H.O.T. Minds di Sassuolo. Progetto 1000VociX100Canti: https://www.instagram.com/1000vocix100canti/ Video o..."""
+      randomLinkInput = "description=Mussolini&description=Torino",
+      expectedOutput =
+        """2021-05-27 - https://www.youtube.com/watch?v=vX_yj69z0tQ
+          | Podcast A. Barbero ￢ﾀﾓ Monsￃﾹ Cerruti: Mussolini, il fascismo e il Piemonte ￢ﾀﾓ Intesa Sanpaolo On Air
+          |----------
+          | Il fascismo ebbe a Torino un radicamento piￃﾹ superficiale che altrove. Mussolini lo sapeva e nel corso del ventennio assunse verso la Capitale del Piemonte un atteggiamento ambivalente. A parole rendeva omaggio a quella ￢ﾀﾜsplendida cittￃﾠ del lavoro￢ﾀﾝ, in realtￃﾠ, diffidava tanto dei veri padroni di Torino, gli Agnelli, quanto dei loro operai, che lo soprannominavano beffardamente Monsￃﾹ Cerruti. Finchￃﾩ, durante la repubblica di Salￃﾲ, Mussolini non nascose piￃﾹ la sua avversione per il Piemonte ￢ﾀﾜcentro della Vandea monarchica, reazionaria, bolscevica￢ﾀﾝ.
+          |
+          |Iscriviti al canale per non perderti nessun aggiornamento su ￢ﾀﾜAlessandro Barbero. La storia, le storie￢ﾀﾝ e seguici su:
+          |Spotify https://open.spotify.com/show/3iAPIfy2DGtsy5nfj3eycS?si=X3AU0l8KTF2gefpNigZmjg 
+          |Apple Podcast https://podcasts.apple.com/it/podcast/alessandro-barbero-la-storia-le-storie-intesa-sanpaolo/id1521869598 
+          |Google Podcast https://podcasts.google.com/feed/aHR0cHM6Ly9kMTcycTN0b2o3dzFtZC5jbG91ZGZyb250Lm5ldC9yc3MteG1sLWZpbGVzLzBjZWM4MTU4LWNmYWQtNDc0YS1iZDM0LTFmMjY1YjdjNTYxMy54bWw?sa=X&ved=0CAYQrrcFahcKEwjY_4ui-b7wAhUAAAAAHQAAAAAQGA 
+          |Intesa Sanpaolo Group https://group.intesasanpaolo.com/it/sezione-editoriale/intesa-sanpaolo-on-air""".stripMargin
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",
-      randomLinkInput = "description=grazie+a+tutti",
-      expectedOutput = """2018-11-23 - https://www.youtube.com/watch?v=l4W7-lCCif0
- Unboxing www.norcineriacoccia.it   Pt 2^
-----------
- Shop online:
-
-www.norcineriacoccia.it
-
-
-Se anche tu desideri i prodotti che ho ricevuto io , guarda il sito indicato sopra ; scegli e compra!
-
-Grazie a Tutti 🤩"""
+      randomLinkInput = "description=mio+bellissimo+bengalino",
+      expectedOutput =
+        """2017-12-12 - https://www.youtube.com/watch?v=o__bw45D5vU
+          | ￃﾈ nato un bellissimo bengalino figlio di Gigio ￢ﾀﾘsprint￢ﾀﾙ
+          |----------
+          | Piￃﾹ o meno due settimane fa , usciva per la prima volta dal nido questo mio bellissimo bengalino ￰ﾟﾍﾀ a cui auguro una vita felice e lunga : da me avrￃﾠ tutte le attenzioni possibili ￰ﾟﾑﾍ Anche se questo non lo terrￃﾳ , ma l￢ﾀﾙho giￃﾠ promesso ad un mio carissimo cugino ... ed anche lui lo accudirￃﾠ sempre al ￰ﾟﾔﾝ.
+          |
+          |Buona visione a voi tutti e arrivederci al prossimo video .""".stripMargin
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",
       randomLinkInput = "description=acqua+calabria&description=ketchup+kania",
-      expectedOutput = """2018-10-01 - https://www.youtube.com/watch?v=UNZebs_Cg0s
- FISH & CHIPS  Abbondante ma non troppo
-----------
- Buongiorno cari followers e buon inizio di settimana con questo mio nuovo video, che dovrebbe piacervi; mi auguro molto.
-
-Mi raccomando Condividete, Iscrivetevi, Lasciate il vostro Like, Attivate la campanella, Commentate...
-
-Nel video si vedono i seguenti prodotti: acqua Calabria, Coca Cola lattina da 1/2 litro, ketchup Kania, bastoncini di merluzzo Lidl e patatine da ristorante Mc Cain... tutti da me amatissimi 🤩
-
-Dunque una buona visione e Grazie per la tua personale visualizzazione 👍
-
-Ciaooo da YouTubo Anche Io 🌞"""
+      expectedOutput =
+        """2018-10-01 - https://www.youtube.com/watch?v=UNZebs_Cg0s
+          | FISH & CHIPS  Abbondante ma non troppo
+          |----------
+          | Buongiorno cari followers e buon inizio di settimana con questo mio nuovo video, che dovrebbe piacervi; mi auguro molto.
+          |
+          |Mi raccomando Condividete, Iscrivetevi, Lasciate il vostro Like, Attivate la campanella, Commentate...
+          |
+          |Nel video si vedono i seguenti prodotti: acqua Calabria, Coca Cola lattina da 1/2 litro, ketchup Kania, bastoncini di merluzzo Lidl e patatine da ristorante Mc Cain... tutti da me amatissimi ￰ﾟﾤﾩ
+          |
+          |Dunque una buona visione e Grazie per la tua personale visualizzazione ￰ﾟﾑﾍ
+          |
+          |Ciaooo da YouTubo Anche Io ￰ﾟﾌﾞ""".stripMargin
     ),
     TestInput(
       botName = "RichardPHJBensonBot",
-      randomLinkInput = "description=hardtodie",
-      expectedOutput = """2022-05-11 - https://www.youtube.com/watch?v=CWK8yoOO934
- Richard Benson | RicHARDtoDIE (Blob, 10 maggio 2022)
-----------
- #RichardBenson #Blob #HardToDie
-
-GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
-CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
-PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook"""
+      randomLinkInput = "description=LaBefanaDelMale",
+      expectedOutput =
+        """2021-05-28 - https://www.youtube.com/watch?v=CcJbvKKfeHE
+          | Richard Benson live @ Alpheus | LA BEFANA DEL MALE 6/1/2006 (Ripresa Alternativa) [INEDITO FULL HD]
+          |----------
+          | #RichardBenson #Live #Alpheus #LaBefanaDelMale #UnPollo
+          |
+          |Un ringraziamento speciale va a Chiara Zoli che ci ha fornito questo reperto in ALTA QUALITￃﾀ! Ella gestisce anche un blog: www.daftbunziblogger.blogspot.it che tratta principalmente tutto ciￃﾲ che riguarda la pop culture anni 80-90! 
+          |
+          |NUOVO GRUPPO E CANALE TELEGRAM:
+          |
+          |GRUPPO: https://t.me/bbensonreloaded
+          |
+          |CANALE: https://t.me/simposiodelmedallo""".stripMargin
     ),
     TestInput(
       botName = "RichardPHJBensonBot",
-      randomLinkInput = "description=carpi&description=covo+del+medallo",
-      expectedOutput = """2018-06-11 - https://www.youtube.com/watch?v=nZOhrQ4jZzI
- Cocktail Micidiale 04 febbraio 2005 (puntata completa) Andrea Carpi
-----------
- #RichardBenson #CocktailMicidiale #GianniNeri
-Andrea Carpi, vieni qui, vieni ad affrontare me, nel vero covo del medallo e del simposio."""
+      randomLinkInput = "description=brucekulick&description=RichardBenson",
+      expectedOutput = """2024-09-06 - https://www.youtube.com/watch?v=bIZXDutgAHI
+                         | Richard Benson | Cocktail Micidiale | La cinta di Bruce Kulick (200X)
+                         |----------
+                         | #RichardBenson #brucekulick #giannineri 
+                         |
+                         |GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
+                         |CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
+                         |PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook""".stripMargin
     ),
     TestInput(
       botName = "XahLeeBot",
@@ -305,11 +317,28 @@ using xah-fly-keys.el and xah-html-mode.el"""
     ),
     TestInput(
       botName = "XahLeeBot",
-      randomLinkInput = "description=david&description=suzuki",
-      expectedOutput = """2019-09-29 - https://www.youtube.com/watch?v=L_Q7_F83DVY
- Open Source, Richard Stallman, Recycling, Global Warming, Democracy Dies in Darkness. 2019-09-29
-----------
- topics talked -• lisp  〈SAIL Keyboard〉 [ http -_xahlee.info_kbd_sail_keyboard.html ] • biggest flamewar online  〈The One True History of Meow〉 [ http -_xahlee.info_Netiquette_dir_meow_wars.html ] •  〈Richard Stallman Resigned from FSF, 2019-09-16〉 [ http -_ergoemacs.org_misc_rms_resign.html ] •  〈Richard Stallman Speech Requirement (2011)〉 [ http -_ergoemacs.org_misc_rms_speech_requirement.html ] • Why Utopian Communities Fail 2018-03-08 By Ewan Morrison• The Washington Post “democracy dies in darkness”• PBS• search YouTube - Penn and Teller Recycling• David Suzuki s daughter, Severn Cullis-Suzuki s speech to the UN in 1992 on climate change sounds an awful lot like Greta Thunberg s in 2019.  https -_twitter.com_CalebJHull_status_1177221680999124992"""
+      randomLinkInput = "description=xah_talk_show_2024-01-26&description=sorting",
+      expectedOutput = """2024-01-27 - https://www.youtube.com/watch?v=teoSUATrXOA
+                         | Xah Talk Show Ep534 Advent of Code, Day 7, Live Coding in WolframLang
+                         |----------
+                         | notes at
+                         |http://xahlee.info/talk_show/xah_talk_show_2024-01-26.html
+                         |
+                         |04:09 reading the problem
+                         |19:23 start coding
+                         |20:58 analize the problem
+                         |26:48 analize hand ranking
+                         |30:56 WolframLang SortBy
+                         |37:43 find repetitions in string
+                         |42:26 CharacterCounts
+                         |01:00:46 download WolframLang
+                         |1:20:04 done function for sorting hand type
+                         |1:26:33 emacs pixel scroll
+                         |01:39:45 5 min break
+                         |01:52:23 function for card ordering
+                         |01:59:23 emacs keyboard macro
+                         |02:19:31 answer for sample input
+                         |02:23:24 answer for user input""".stripMargin
     ),
   )
 
@@ -402,82 +431,101 @@ Dancing in Second Life to the tune of Michael Jackson's Thriller. The dancers ar
   val showByMinDate: List[TestInput] = List(
     TestInput(
       botName = "ABarberoBot",
-      randomLinkInput = "mindate=20240312",
-      expectedOutput = """2024-03-13 - https://open.spotify.com/episode/2232NCQbI48hW68RCYrtJK
- Episodio 44: Canzoni e storia Prima parte (Puntata speciale live al Conservatorio di Milano)
-----------
- Dal conservatorio Giuseppe Verdi di Milano, Barbero risponde a molte domande con l’aiuto del pubblico, in chiave “musicale”."""
+      randomLinkInput = "mindate=20240312&title=Episodio+64",
+      expectedOutput =
+        """2024-07-30 - https://www.youtube.com/watch?v=ABG7zjXVwwE
+          | Episodio 64: L'alba dei libri
+          |----------
+          | Chi ￃﾨ stato il primo a realizzare un libro? Puntata dedicata a uno degli strumenti piￃﾹ rivoluzionari della storia.""".stripMargin
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",
       randomLinkInput = "mindate=20190607",
-      expectedOutput = """2019-06-08 - https://www.youtube.com/watch?v=MbTXCvrxbTY
- Capricciosa con Acciughe Alla Pala
-----------
- Buongiorno cari Amici followers , ritorno con questo video di Pizza Unboxing — il numero 5– spero vivamente sia di Vs gradimento 🤩
-Mi raccomando Iscriviti al Canale, lascia il tuo Like e — se proprio devi— un commento ... .. ....
-Grazie per questa Tua importante visualizzazione 👍"""
+      expectedOutput =
+        """2019-06-08 - https://www.youtube.com/watch?v=MbTXCvrxbTY
+          | Capricciosa con Acciughe Alla Pala
+          |----------
+          | Buongiorno cari Amici followers , ritorno con questo video di Pizza Unboxing ￢ﾀﾔ il numero 5￢ﾀﾓ spero vivamente sia di Vs gradimento ￰ﾟﾤﾩ
+          |Mi raccomando Iscriviti al Canale, lascia il tuo Like e ￢ﾀﾔ se proprio devi￢ﾀﾔ un commento ... .. ....
+          |Grazie per questa Tua importante visualizzazione ￰ﾟﾑﾍ""".stripMargin
     ),
     TestInput(
       botName = "RichardPHJBensonBot",
-      randomLinkInput = "mindate=20220928",
-      expectedOutput = """2022-09-29 - https://www.youtube.com/watch?v=cQSdK7sOh38
- Lino Vairetti (degli Osanna) saluta le Brigate Benson
-----------
- #RichardBenson #LinoVairetti #Osanna #BrigateBenson
-
-GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
-CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
-PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook"""
+      randomLinkInput = "mindate=20220928&title=amicizia&title=Pino+Scotto",
+      expectedOutput = """2023-01-23 - https://www.youtube.com/watch?v=m3N_76dXALg
+                         | La grande amicizia tra Pino Scotto e Richard Benson (Rock TV, 23 gennaio 2023)
+                         |----------
+                         | #RichardBenson #pinoscotto #rocktv
+                         |
+                         |GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
+                         |CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
+                         |PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook""".stripMargin
     ),
     TestInput(
       botName = "XahLeeBot",
-      randomLinkInput = "mindate=20221124",
-      expectedOutput = """2022-11-25 - https://www.youtube.com/watch?v=B-PkmWMbFfY
- xah talk show 2022-11-25 emacs lisp coding live session
-----------
- """
+      randomLinkInput = "mindate=20221124&title=Ep534",
+      expectedOutput = """2024-01-27 - https://www.youtube.com/watch?v=teoSUATrXOA
+                         | Xah Talk Show Ep534 Advent of Code, Day 7, Live Coding in WolframLang
+                         |----------
+                         | notes at
+                         |http://xahlee.info/talk_show/xah_talk_show_2024-01-26.html
+                         |
+                         |04:09 reading the problem
+                         |19:23 start coding
+                         |20:58 analize the problem
+                         |26:48 analize hand ranking
+                         |30:56 WolframLang SortBy
+                         |37:43 find repetitions in string
+                         |42:26 CharacterCounts
+                         |01:00:46 download WolframLang
+                         |1:20:04 done function for sorting hand type
+                         |1:26:33 emacs pixel scroll
+                         |01:39:45 5 min break
+                         |01:52:23 function for card ordering
+                         |01:59:23 emacs keyboard macro
+                         |02:19:31 answer for sample input
+                         |02:23:24 answer for user input""".stripMargin
     ),
   )
 
   val showByMaxDate: List[TestInput] = List(
     TestInput(
       botName = "ABarberoBot",
-      randomLinkInput = "title=terroristi&maxdate=20181002",
-      expectedOutput = """2018-10-01 - https://barberopodcast.it/episode/003-il-rapimento-di-aldo-moro-una-rete-di-terroristi-barbero-riserva-festival-della-mente-2018
- #003 Il rapimento di Aldo Moro - Una rete di terroristi - Barbero Riserva (Festival della Mente, 2018)
-----------
- Il 16 maggio 1978 le Brigate Rosse rapirono, a Roma, l’allora presidente della DC Aldo Moro. Nella settimana dell’anniversario ascoltiamo il professor Barbero raccontare come l’operazione fu organizzata ed eseguita dalle Brigate Rosse, la più importante rete di terroristi che abbia mai agito in Ital..."""
+      randomLinkInput = "title=fake+news&maxdate=20191227",
+      expectedOutput =
+        """2019-09-27 - https://www.youtube.com/watch?v=Oo0v_cgPGpg
+          | Tutte le fake news sulle donne nel Medioevo - Alessandro Barbero e Franco Cardini
+          |----------
+          | Dialogo fra Alessandro Barbero e Franco Cardini al Festival del Medioevo di Gubbio del 2019.
+          |
+          |￰ﾟﾔﾔ Iscriviti al Canale per non perderti i nuovi video del Festival del Medioevo: https://www.youtube.com/c/FestivaldelMedioevo
+          |￰ﾟﾓﾌScarica la App per guardare da casa la diretta del festival e accedere on demand a tutte le lezioni dal 2015 a oggi https://www.festivaldelmedioevo.it/portal/prodotto/app-fdm/
+          |￰ﾟﾒﾻ Scopri il programma della X edizione: "Secoli di luce. Sulle spalle dei giganti" Gubbio, 25-29 settembre 2024 https://www.festivaldelmedioevo.it/portal/programma-2024/
+          |￰ﾟﾑﾉ Acquista un biglietto delle serate del Festival del Medioevo https://www.liveticket.it/festivaldelmedioevo""".stripMargin
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",
-      randomLinkInput = "maxdate=20170819",
-      expectedOutput = """2017-08-18 - https://www.youtube.com/watch?v=2Q66egvMkyU
- Canto sprint del mio piccolo diamantino bengalino ... in compagnia con gli altri miei uccellini .
-----------
- Piccola clip che osserva i miei bengalini e i due canarini che dividono con loro la gabbia , andando d'amore d'accordo : rispettano gli spazi altrui e basta un niente per capirsi .
-Viene poi ripreso più particolarmente il bengalino piccolino che canta , ancora un po' acerbo , peró lo fà con continuità : è bello sentirlo e vederlo mentre canta ...
-
-Mi raccomando , Iscriviti al mio canale e , se gradisci , lascia puntualmente il tuo like 👍
-
-Grazie. E al prossimo video : buona visione !"""
+      randomLinkInput = "maxdate=20181131&title=Anno+Nuovo",
+      expectedOutput = """2017-12-31 - https://www.youtube.com/watch?v=CQi-0VJJSSs
+                         | Auguri per un Felice Anno Nuovo : 2018 !
+                         |----------
+                         | """.stripMargin
     ),
     TestInput(
       botName = "RichardPHJBensonBot",
-      randomLinkInput = "maxdate=20180611&title=gilbert",
-      expectedOutput = """2018-06-10 - https://www.youtube.com/watch?v=8lNe8xmtgc8
- Cocktail Micidiale 21 gennaio 2005 (puntata completa) il segreto di Brian May, Paul Gilbert
-----------
- #RichardBenson #CocktailMicidiale #PaulGilbert
-arriva il peggio del peggio"""
+      randomLinkInput = "maxdate=20191027&title=Non+scaricate+i+nani",
+      expectedOutput = """2018-11-27 - https://www.youtube.com/watch?v=G7CoPKpvNSk
+                         | Non scaricate i nani (Richard Benson, 2015)
+                         |----------
+                         | #RichardBenson #Inani #Linfernodeivivi""".stripMargin
     ),
     TestInput(
       botName = "XahLeeBot",
-      randomLinkInput = "maxdate=20080301",
-      expectedOutput = """2008-02-29 - https://www.youtube.com/watch?v=OAPwh_w5JD4
- "色，戒" clip: 天涯歌
-----------
- The 天涯歌 song clip from movie "色，戒" (Lust,Caution)."""
+      randomLinkInput = "maxdate=20130704&title=Food+of+a+Genius",
+      expectedOutput = """2013-05-04 - https://www.youtube.com/watch?v=GHr-5ktpQys
+                         | Xah's Log: Food of a Genius
+                         |----------
+                         | a documentation of my life.""".stripMargin
     ),
   )
 }

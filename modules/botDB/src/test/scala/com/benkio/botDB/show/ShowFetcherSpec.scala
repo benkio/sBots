@@ -20,7 +20,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
 
   // TODO: make the tests faster and remove this eventually
   override val munitIOTimeout = 2.minutes
-  given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO]    = consoleLogUpToLevel(LogLevels.Info)
 
   test("generateShowJson should return a json if the input is valid") {
     val showFetcher = ShowFetcher[IO]()

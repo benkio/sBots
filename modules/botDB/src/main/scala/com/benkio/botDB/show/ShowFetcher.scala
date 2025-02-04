@@ -29,7 +29,10 @@ object ShowFetcher {
         _ <-
           if file.exists() && Files.size(file.toPath()) > 100
           then LogWriter.info(s"[ShowFetcher] show file exists at ${file.toPath().toAbsolutePath()}") >> Async[F].unit
-          else LogWriter.info(s"[ShowFetcher] fetch show file for $source into ${file.toPath().toAbsolutePath()}") >> fetchJson(source).use(filterJson(_, source))
+          else
+            LogWriter.info(
+              s"[ShowFetcher] fetch show file for $source into ${file.toPath().toAbsolutePath()}"
+            ) >> fetchJson(source).use(filterJson(_, source))
         dbShowDatas <- parseJson(source)
       yield dbShowDatas
 
