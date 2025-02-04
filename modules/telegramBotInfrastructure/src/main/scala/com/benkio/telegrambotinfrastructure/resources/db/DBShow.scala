@@ -45,6 +45,7 @@ object DBShowData {
 trait DBShow[F[_]] {
   def getShows(botName: String): F[List[DBShowData]]
   def getShowByShowQuery(query: ShowQuery, botName: String): F[List[DBShowData]]
+  def insertShow(dbShowData: DBShowData): F[Unit]
 }
 
 object DBShow {
@@ -70,6 +71,8 @@ object DBShow {
       DBShow.getShowByShowQueryQuery(query, botName).stream.compile.toList.transact(transactor) <* log.info(
         s"get shows by bot name: $botName and keyword: $query"
       )
+
+    override def insertShow(dbShowData: DBShowData): F[Unit] = ???
   }
 
   private def showQueryToFragments(query: ShowQuery): List[Fragment] = query match {
@@ -96,5 +99,6 @@ object DBShow {
 
     q.query[DBShowData]
   }
-
+  def insertShowQuery(dbShowData: DBShowData): Update0 =
+    sql"INSERT INTO show (show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption) VALUES (${dbShowData.show_url}, ${dbShowData.bot_name}, ${dbShowData.show_title}, ${dbShowData.show_upload_date}, ${dbShowData.show_duration}, ${dbShowData.show_description}, ${dbShowData.show_is_live}, ${dbShowData.show_origin_automatic_caption})".update
 }

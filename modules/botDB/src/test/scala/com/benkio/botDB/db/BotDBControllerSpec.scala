@@ -1,14 +1,15 @@
 package com.benkio.botDB.db
 
+
 import com.benkio.botDB.mocks.ShowFetcherMock
 import log.effect.LogWriter
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
-import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock.DBMediaMock
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import cats.effect.kernel.Ref
+
 import com.benkio.botDB.TestData.*
 
 import com.benkio.botDB.mocks.MigratorMock
@@ -29,10 +30,13 @@ class BotDBControllerSpec extends CatsEffectSuite {
   val resourceAccessMock = new ResourceAccessMock(List(inputJson))
   val migratorMock       = new MigratorMock()
   val showFetcherMock    = new ShowFetcherMock()
-  val dbMediaMock        = new DBMediaMock(Ref.unsafe[IO, List[DBMediaData]](mediaEntities))
+  val dbLayerMock        = DBLayerMock.mock(
+    botName = "testBot",
+    medias = mediaEntities
+  )
   val botDBController: BotDBController[IO] = BotDBController(
     cfg = config,
-    databaseRepository = dbMediaMock,
+    dbLayer = dbLayerMock,
     resourceAccess = resourceAccessMock,
     migrator = migratorMock,
     showFetcher = showFetcherMock

@@ -2,7 +2,7 @@ package com.benkio.botDB
 
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.show.ShowFetcher
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import log.effect.LogLevels
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import cats.effect.*
@@ -23,14 +23,14 @@ object Main extends IOApp {
       cfg <- Config.loadConfig(args.headOption)
       _   <- IO(log.info(s"Input Configuration: $cfg"))
       transactor = Config.buildTransactor(cfg = cfg)
-      databaseRepository <- DBMedia[IO](transactor)
+      dbLayer <- DBLayer[IO](transactor)
       resourceAccess = ResourceAccess.fromResources[IO](args.lastOption)
       migrator       = DBMigrator[IO]
       showFetcher    = ShowFetcher[IO]()
       _ <- IO(log.info(s"Build BotDBController"))
       botDBController = BotDBController[IO](
         cfg = cfg,
-        databaseRepository = databaseRepository,
+        dbLayer = dbLayer,
         resourceAccess = resourceAccess,
         migrator = migrator,
         showFetcher = showFetcher

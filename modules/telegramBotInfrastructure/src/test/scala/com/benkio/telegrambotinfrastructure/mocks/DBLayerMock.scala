@@ -141,6 +141,7 @@ object DBLayerMock {
       db.get.map(_.filter(s => s.bot_name == botName))
     override def getShowByShowQuery(query: ShowQuery, botName: String): IO[List[DBShowData]] =
       ???
+    override def insertShow(dbShowData: DBShowData): IO[Unit] = ???
   }
 
   class DBLogMock(db: Ref[IO, List[DBLogData]]) extends DBLog[IO] {
