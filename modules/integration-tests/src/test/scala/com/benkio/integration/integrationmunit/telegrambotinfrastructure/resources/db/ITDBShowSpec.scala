@@ -1,5 +1,6 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
+import io.circe.parser.decode
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
@@ -17,17 +18,17 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
   val botName = "RichardPHJBensonBot"
 
-  val testShow: DBShowData = DBShowData(
-    show_url = "https://www.youtube.com/watch?v=8lNe8xmtgc8",
-    bot_name = botName,
-    show_title = "Cocktail Micidiale 21 gennaio 2005 (puntata completa) il segreto di Brian May, Paul Gilbert",
-    show_upload_date = "20180610",
-    show_duration = 1367,
-    show_description = Some("""#RichardBenson #CocktailMicidiale #PaulGilbert
-arriva il peggio del peggio"""),
-    show_is_live = false,
-    show_origin_automatic_caption = None
-  )
+  val testShowRaw: String =
+    """{
+|    "show_url": "https://www.youtube.com/watch?v=t3kx8KMfdKo",
+|    "show_title": "Richard Benson | Ottava Nota | Alex Britti e Mario Magnotta da L'Aquila (8 Gennaio 1997) [INEDITA]",
+|    "show_upload_date": "20250108",
+|    "show_duration": 3453,
+|    "show_description": "Si ringrazia Renzo Di Pietro, che ha messo a disposizione per le Brigate Benson il suo prezioso archivio di nastri di Ottava Nota. \n\nGRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram\nCANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram\nPAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook\n#richardbenson #ottavanota",
+|    "show_is_live": false,
+|    "show_origin_automatic_caption": "https://www.youtube.com/api/timedtext?v=t3kx8KMfdKo&ei=MnehZ7efN9y-kucP0sHU-AU&caps=asr&opi=112496729&xoaf=4&hl=en&ip=0.0.0.0&ipbits=0&expire=1738660258&sparams=ip%2Cipbits%2Cexpire%2Cv%2Cei%2Ccaps%2Copi%2Cxoaf&signature=6799F2EA1441D4000C3E778D7ADE93FB77D663BA.D97F90383702A3D5EE65D14648B99350951A1C7F&key=yt8&kind=asr&lang=it&fmt=json3",
+|    "bot_name": "RichardPHJBensonBot"
+|  }""".stripMargin
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
     Class.forName("org.sqlite.JDBC")
@@ -51,14 +52,15 @@ arriva il peggio del peggio"""),
     "DBShow: should return the test show sample"
   ) { fixture =>
     val resourceAssert = for {
+      testShow <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw)))
       dbShow      <- fixture.resourceDBLayer.map(_.dbShow)
       bensonShows <- Resource.eval(dbShow.getShows(botName))
       bensonShowsByKeyword <- Resource.eval(
-        dbShow.getShowByShowQuery(ShowQuery("title=il+segreto+di+Brian+May,+Paul+Gilbert"), botName)
+        dbShow.getShowByShowQuery(ShowQuery("title=Alex+Britti+e+Mario+Magnotta"), botName)
       )
-    } yield (bensonShows, bensonShowsByKeyword)
+    } yield (bensonShows, bensonShowsByKeyword, testShow)
 
-    resourceAssert.use { case (bensonShows, bensonShowsByKeyword) =>
+    resourceAssert.use { case (bensonShows, bensonShowsByKeyword, testShow) =>
       IO {
         assert(bensonShows.exists(_ == testShow))
         assert(bensonShowsByKeyword.exists(_ == testShow))

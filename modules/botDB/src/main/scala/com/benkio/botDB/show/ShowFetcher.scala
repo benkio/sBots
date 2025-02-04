@@ -1,5 +1,6 @@
 package com.benkio.botDB.show
 
+import log.effect.LogWriter
 import java.nio.file.Files
 
 import java.util.UUID
@@ -17,17 +18,18 @@ trait ShowFetcher[F[_]]:
   def generateShowJson(source: ShowSource): F[List[DBShowData]]
 
 object ShowFetcher {
-  def apply[F[_]: Async](): ShowFetcher[F] = ShowFetcherImpl[F]()
+  def apply[F[_]: Async: LogWriter](): ShowFetcher[F] = ShowFetcherImpl[F]()
 
-  private class ShowFetcherImpl[F[_]: Async]() extends ShowFetcher[F] {
+  private class ShowFetcherImpl[F[_]: Async: LogWriter]() extends ShowFetcher[F] {
     override def generateShowJson(source: ShowSource): F[List[DBShowData]] =
       val file = File(source.outputFilePath)
       for
+        _ <- LogWriter.info(s"[ShowFetcher] check dependencies: $shellDependencies")
         _ <- checkDependencies
         _ <-
           if file.exists() && Files.size(file.toPath()) > 100
-          then Async[F].unit
-          else fetchJson(source).use(filterJson(_, source))
+          then LogWriter.info(s"[ShowFetcher] show file exists at ${file.toPath().toAbsolutePath()}") >> Async[F].unit
+          else LogWriter.info(s"[ShowFetcher] fetch show file for $source into ${file.toPath().toAbsolutePath()}") >> fetchJson(source).use(filterJson(_, source))
         dbShowDatas <- parseJson(source)
       yield dbShowDatas
 

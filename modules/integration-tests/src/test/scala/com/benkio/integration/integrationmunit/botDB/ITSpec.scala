@@ -7,14 +7,16 @@ import java.nio.file.Files
 import cats.effect.IO
 import doobie.Transactor
 import munit.*
+import scala.concurrent.duration.*
 
 import doobie.implicits.*
 
 class ITSpec extends CatsEffectSuite with DBConstants {
+  // TODO: make the tests faster and remove this eventually
+  override val munitIOTimeout = 2.minutes
 
   test("botDB main should populate the migration with the files in resources") {
 
-    // val _                       = setEnv("DB_CONNECTION_URL", dbUrl)
     val testApplicationConfPath = s"$resourcePath$testApplicationConf"
 
     for

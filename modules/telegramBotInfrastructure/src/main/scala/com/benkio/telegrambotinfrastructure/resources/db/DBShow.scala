@@ -65,20 +65,24 @@ object DBShow {
 
     override def getShows(botName: String): F[List[DBShowData]] =
       DBShow.getShowsQuery(botName).stream.compile.toList.transact(transactor) <* log.info(
-        s"get shows by bot name: $botName"
+        s"[DBShow] Get shows by bot name: $botName, sql: ${DBShow.getShowsQuery(botName).sql}"
       )
     override def getShowByShowQuery(query: ShowQuery, botName: String): F[List[DBShowData]] =
       DBShow.getShowByShowQueryQuery(query, botName).stream.compile.toList.transact(transactor) <* log.info(
-        s"get shows by bot name: $botName and keyword: $query"
+        s"[DBShow] Get shows by bot name: $botName and keyword: $query, sql: ${DBShow.getShowByShowQueryQuery(query, botName).sql}"
       )
 
     override def insertShow(dbShowData: DBShowData): F[Unit] =
       insertShowQuery(dbShowData).run.transact(transactor).void.exceptSql {
         case e if e.getMessage().contains("UNIQUE constraint failed") =>
-          updateOnConflictSql(dbShowData).run.transact(transactor).void
+          updateOnConflictSql(dbShowData).run.transact(transactor).void <* log.info(
+            s"[DBShow] conflict detected for shows $dbShowData, recovering with sql: ${updateOnConflictSql(dbShowData).sql}"
+          )
         case e =>
           Async[F].raiseError(
             new RuntimeException(s"An error occurred in inserting $dbShowData with exception: $e")
+          ) <* log.info(
+            s"[DBShow] insert shows $dbShowData, sql: ${insertShowQuery(dbShowData).sql}"
           )
       }
   }
@@ -86,8 +90,10 @@ object DBShow {
   private def showQueryToFragments(query: ShowQuery): List[Fragment] = query match {
     case RandomQuery => List.empty
     case ShowQueryKeyword(titleKeywords, descriptionKeywords, minDuration, maxDuration, minDate, maxDate) =>
-      titleKeywords.toList.flatten.map(k => fr"""lower(show_title) LIKE ${"%" + k + "%"}""") ++
-        descriptionKeywords.toList.flatten.map(k => fr"""lower(show_description) LIKE ${"%" + k + "%"}""") ++
+      titleKeywords.toList.flatten.map(k => fr"""lower(show_title) LIKE ${"%" + k.toLowerCase + "%"}""") ++
+        descriptionKeywords.toList.flatten.map(k =>
+          fr"""lower(show_description) LIKE ${"%" + k.toLowerCase + "%"}"""
+        ) ++
         minDuration.toList.map(mind => fr"show_duration > $mind") ++
         maxDuration.toList.map(maxd => fr"show_duration < $maxd") ++
         minDate.toList.map(mind => fr"show_upload_date > ${mind.format(DBShowData.dateTimeFormatter)}") ++

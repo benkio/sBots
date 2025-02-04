@@ -128,71 +128,95 @@ object ITSearchShowCommandSpec {
   val showByTitle: List[TestInput] = List(
     TestInput(
       botName = "ABarberoBot",
-      randomLinkInput = "001 I GAP",
-      expectedOutput = """2018-10-01 - https://barberopodcast.it/episode/001-i-gap-di-roma-e-lattentato-di-via-rasella-barbero-riserva-festival-della-mente-2017
- #001 I GAP di Roma e l’attentato di Via Rasella - Barbero Riserva (Festival della Mente, 2017)
-----------
- Il professor Barbero racconta di cosa erano i GAP, i gruppi di azione patriottica, e di come fu pianificato ed eseguito l’attentato all’esercito tedesco a Roma, in via Rasella, il 24 marzo del ‘44. (in foto: Gruppo di gappisti romani, da "Achtung Banditen!" di Rosario Bentivegna) Festival della Ment..."""
+      randomLinkInput = "bruciare i libri",
+      expectedOutput =
+        """2023-05-18 - https://www.youtube.com/watch?v=x0cvonF0GYU
+          | Chiedilo a Barbero - Bruciare i libri - Intesa Sanpaolo On Air
+          |----------
+          | Barbero risponde a domande sulla ￢ﾀﾜbibliolitia￢ﾀﾝ nella storia, ovvero la triste pratica di bruciare i libri, spesso promossa da autoritￃﾠ politiche o religiose.
+          |
+          |Iscriviti al canale per non perderti nessun aggiornamento su ￢ﾀﾜChiedilo a Barbero￢ﾀﾝ e seguici su:
+          |Spotify: https://open.spotify.com/show/7JLDPffy6du4rAy8xW3hTT
+          |Apple Podcast: https://podcasts.apple.com/it/podcast/chiedilo-a-barbero-intesa-sanpaolo-on-air/id1688392438
+          |Google Podcast: https://podcasts.google.com/feed/aHR0cHM6Ly9kMTcycTN0b2o3dzFtZC5jbG91ZGZyb250Lm5ldC9yc3MteG1sLWZpbGVzLzhmYjliOGYyLTU5MGItNDhmOS1hNTY2LWE5NWI3OTUwYWY2OC54bWw
+          |Intesa Sanpaolo Group: https://group.intesasanpaolo.com/it/sezione-editoriale/intesa-sanpaolo-on-air""".stripMargin
     ),
     TestInput(
       botName = "ABarberoBot",
-      randomLinkInput = "title=sessuale&title=riserva&title=Festival+del+Medioevo",
-      expectedOutput = """2021-06-06 - https://barberopodcast.it/episode/69-la-vita-sessuale-nel-medioevo-barbero-riserva-festival-del-medioevo-gubbio-2019
- #69 La vita sessuale nel medioevo - Barbero Riserva (Festival del Medioevo, Gubbio 2019)
-----------
- Dal Festival del Medioevo di Gubbio (ed. 2019) il professor Barbero ci racconta com’era vissuta la sessualità nel medioevo, sfatando i miti che lo vedono come un periodo represso. Video originale: https://www.youtube.com/watch?v=wBgCDgSauXw Community: https://barberopodcast.it/community Twitter: htt..."""
+      randomLinkInput = "title=storia&title=al+contrario&title=on+air",
+      expectedOutput =
+        """2023-05-23 - https://www.youtube.com/watch?v=m3eF0adEZe0
+          | Chiedilo a Barbero - La storia al contrario - Intesa Sanpaolo On Air
+          |----------
+          | Si puￃﾲ insegnare la storia dal presente al passato? Cosa succederebbe se andassimo a ritroso nell￢ﾀﾙinsegnamento dei programmi scolastici? 
+          |
+          |Iscriviti al canale per non perderti nessun aggiornamento su ￢ﾀﾜChiedilo a Barbero￢ﾀﾝ e seguici su:
+          |Spotify: https://open.spotify.com/show/7JLDPffy6du4rAy8xW3hTT
+          |Apple Podcast: https://podcasts.apple.com/it/podcast/chiedilo-a-barbero-intesa-sanpaolo-on-air/id1688392438
+          |Google Podcast: https://podcasts.google.com/feed/aHR0cHM6Ly9kMTcycTN0b2o3dzFtZC5jbG91ZGZyb250Lm5ldC9yc3MteG1sLWZpbGVzLzhmYjliOGYyLTU5MGItNDhmOS1hNTY2LWE5NWI3OTUwYWY2OC54bWw
+          |Intesa Sanpaolo Group: https://group.intesasanpaolo.com/it/sezione-editoriale/intesa-sanpaolo-on-air""".stripMargin
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",
       randomLinkInput = "1/2 pollo",
       expectedOutput = """2018-02-17 - https://www.youtube.com/watch?v=s3zI2UGcRu0
- 1 kg Tiramisù + 1/2 pollo : circa 3600 kcal !
-----------
- """
+                         | 1 kg Tiramisￃﾹ + 1/2 pollo : circa 3600 kcal !
+                         |----------
+                         | """.stripMargin
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",
-      randomLinkInput = "title=Insana&title=in+piena+notte",
-      expectedOutput = """2018-03-02 - https://www.youtube.com/watch?v=JafZCx1_HVA
- Insana fame notturna : +1500 kcal in piena notte
-----------
- """
+      randomLinkInput = "title=autostrada&title=quasi+fatto&title=addosso",
+      expectedOutput = """2019-01-22 - https://www.youtube.com/watch?v=wzXGHazXM1w
+                         | Fermo in autostrada per incidente; mi sono quasi fatto la pipￃﾬ addosso ￰ﾟﾘﾢ
+                         |----------
+                         | """.stripMargin
     ),
     TestInput(
       botName = "RichardPHJBensonBot",
-      randomLinkInput = "Timo Tollki",
-      expectedOutput = """2018-06-12 - https://www.youtube.com/watch?v=Nb2yUKUt0sE
- Cocktail Micidiale 09 settembre 2005 (puntata completa) La pazzia di Timo Tollki
-----------
- #RichardBenson #CocktailMicidiale #TimoTollki
-lo sapevo IOOOOH
-lo sapevo iooo che stava male di menteh da annih...
-però che sdronzo sto timo tolki...."""
+      randomLinkInput = "inghilterra elisabettiana",
+      expectedOutput =
+        """2025-01-22 - https://www.youtube.com/watch?v=yJHfzSNjsC0
+          | Richard Benson | Ottava Nota | L'Inghilterra elisabettiana degli ex-Marillion (22/01/1997) [INEDITA]
+          |----------
+          | Si ringrazia Renzo Di Pietro, che ha messo a disposizione per le Brigate Benson il suo prezioso archivio di nastri di Ottava Nota. 
+          |
+          |GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
+          |CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
+          |PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook
+          |
+          |#richardbenson #ottavanota""".stripMargin
     ),
     TestInput(
       botName = "RichardPHJBensonBot",
-      randomLinkInput = "title=dissacrazione&title=vai",
-      expectedOutput = """2018-06-11 - https://www.youtube.com/watch?v=2uSxC-_rd4I
- Cocktail Micidiale 04 marzo 2005 (puntata completa) La Dissacrazione Di Steve Vai
-----------
- #RichardBenson #CocktailMicidiale #SteveVai
-prende due note, e le ripete in continuazione....."""
+      randomLinkInput = "title=squallore&title=steve+vai",
+      expectedOutput =
+        """2024-10-02 - https://www.youtube.com/watch?v=S3dDXbpjQVs
+          | Richard Benson | Ottava Nota | Lo squallore che regna in Steve Vai (25 Settembre 1996) [INEDITA]
+          |----------
+          | Si ringrazia Renzo Di Pietro, che ha messo a disposizione per le Brigate Benson il suo prezioso archivio di nastri di Ottava Nota. 
+          |
+          |GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
+          |CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
+          |PAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook
+          |#richardbenson #ottavanota""".stripMargin
     ),
     TestInput(
       botName = "XahLeeBot",
-      randomLinkInput = "Lex Fridman",
-      expectedOutput = """2022-11-24 - https://www.youtube.com/watch?v=ohbqrSW-fAc
- Xah Talk Show 2022-11-24 Generative Art, Raytracing, Myers-Briggs, Psychology, Lex Fridman
-----------
- notes at http -_xahlee.info_talk_show_xah_talk_show_2022-11-24.html"""
+      randomLinkInput = "Kinesis Advantage",
+      expectedOutput = """2018-05-30 - https://www.youtube.com/watch?v=FR6Ujuo6seY
+                         | Xah Kinesis Advantage2 Keyboard Review
+                         |----------
+                         | For detail and where to buy, see http://xahlee.info/kbd/keyboard_Kinesis.html""".stripMargin
     ),
     TestInput(
       botName = "XahLeeBot",
-      randomLinkInput = "title=Alice+in+Wonderland",
-      expectedOutput = """2022-11-02 - https://www.youtube.com/watch?v=eu23CKDTydM
- Xah Talk Show 2022-11-01 WolframLang Coding, Count Words in Arabian Nights and Alice in Wonderland
-----------
- notes at http -_xahlee.info_talk_show_xah_talk_show_2022-11-01.html"""
+      randomLinkInput = "title=realtime&title=elisp",
+      expectedOutput =
+        """2018-09-19 - https://www.youtube.com/watch?v=1JgNEpiZ_wo
+          | emacs realtime. mwe log command, editing elisp
+          |----------
+          | Real world use of emacs. First 20 min is running mwe log commands package. From 20:00 to end, modifying a emacs lisp code that creates ATOM/RSS entry. Elisp code shows beginning at 25:30.""".stripMargin
     ),
   )
 

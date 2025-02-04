@@ -79,7 +79,7 @@ object BotDBController {
     override def populateMediaTable: Resource[F, Unit] = for {
       allFiles <- cfg.jsonLocation.flatTraverse(resourceAccess.getResourcesByKind)
       _ <- Resource.eval(LogWriter.info(s"[BotDBController]: all files from ${cfg.jsonLocation}: ${allFiles.length}"))
-      jsons = allFiles.mapFilter(mediaSource => mediaSource.getMediaResourceFile.filter(_.getName.endsWith("json")))
+      jsons = allFiles.mapFilter(mediaSource => mediaSource.getMediaResourceFile.filter(_.getName.endsWith("_list.json")))
       _ <- Resource.eval(LogWriter.info(s"[BotDBController]: Json file to be computed: $jsons"))
       input <- Resource.eval(Async[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")

@@ -1,5 +1,8 @@
 package com.benkio.botDB.show
 
+import log.effect.LogLevels
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogWriter
 import java.nio.file.Files
 import io.circe.parser.decode
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
@@ -17,6 +20,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
 
   // TODO: make the tests faster and remove this eventually
   override val munitIOTimeout = 2.minutes
+  given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
 
   test("generateShowJson should return a json if the input is valid") {
     val showFetcher = ShowFetcher[IO]()
