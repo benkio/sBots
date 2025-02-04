@@ -1,5 +1,9 @@
 package com.benkio.botDB.show
 
+import java.nio.file.Files
+
+import java.util.UUID
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import cats.effect.Resource
 import cats.effect.kernel.Async
 import cats.implicits.*
@@ -17,11 +21,15 @@ object ShowFetcher {
 
   private class ShowFetcherImpl[F[_]: Async]() extends ShowFetcher[F] {
     override def generateShowJson(source: ShowSource): F[List[DBShowData]] =
+      val file = File(source.outputFilePath)
       for
-        _            <- checkDependencies
-        jsonFiltered <- fetchJson(source).use(filterJson(_, source))
-        json         <- parseJson(jsonFiltered)
-      yield json
+        _ <- checkDependencies
+        _ <-
+          if file.exists() && Files.size(file.toPath()) > 100
+          then Async[F].unit
+          else fetchJson(source).use(filterJson(_, source))
+        dbShowDatas <- parseJson(source)
+      yield dbShowDatas
 
     private val shellDependencies: List[String] = List("yt-dlp", "jq")
     private def checkDependencies: F[Unit] =
@@ -38,25 +46,26 @@ object ShowFetcher {
 
     // Download the json from the source in a temp file
     private def fetchJson(source: ShowSource): Resource[F, File] =
-      val file = File(source.outputFilePath)
-      if file.exists() then Resource.pure(file)
-      else
-        Resource
-          .pure(file)
-          .evalMap(f =>
-            Async[F].delay(
-              Process(source.toYTDLPCommand).#>(f).!
-            ) >> Async[F].pure(f)
-          )
+      Resource
+        .make(ResourceAccess.toTempFile(s"${UUID.randomUUID.toString}.json", Array.empty).pure)(f =>
+          Async[F].delay(f.delete()).void
+        )
+        .evalMap(f =>
+          Async[F].delay(
+            Process(source.toYTDLPCommand).#>(f).!
+          ) >> Async[F].pure(f)
+        )
 
-    // Parse the json temp File from the source to Json
-    private def filterJson(sourceJson: File, source: ShowSource): F[String] =
-      val jqCommand = Process(source.toJqCommand).#<(sourceJson)
-      for jsonString <- Async[F].delay(jqCommand.!!)
-      yield jsonString
+    private def filterJson(sourceJson: File, source: ShowSource): F[Unit] =
+      val jqCommand = Process(source.toJqCommand).#<(sourceJson).#>(File(source.outputFilePath))
+      Async[F].delay(jqCommand.!!).void
 
-      // Parse the json temp File from the source to Json
-    private def parseJson(jsonString: String): F[List[DBShowData]] =
-      Async[F].fromEither(decode[List[DBShowData]](jsonString))
+    private def parseJson(source: ShowSource): F[List[DBShowData]] =
+      val input = Files.readAllBytes(File(source.outputFilePath).toPath()).map(_.toChar).mkString
+      Async[F].fromEither(
+        decode[List[DBShowData]](
+          input
+        )
+      )
   }
 }

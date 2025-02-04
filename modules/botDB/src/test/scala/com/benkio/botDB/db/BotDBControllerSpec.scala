@@ -1,6 +1,5 @@
 package com.benkio.botDB.db
 
-
 import com.benkio.botDB.mocks.ShowFetcherMock
 import log.effect.LogWriter
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -30,7 +29,7 @@ class BotDBControllerSpec extends CatsEffectSuite {
   val resourceAccessMock = new ResourceAccessMock(List(inputJson))
   val migratorMock       = new MigratorMock()
   val showFetcherMock    = new ShowFetcherMock()
-  val dbLayerMock        = DBLayerMock.mock(
+  val dbLayerMock = DBLayerMock.mock(
     botName = "testBot",
     medias = mediaEntities
   )

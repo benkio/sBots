@@ -60,13 +60,19 @@ object BotDBController {
       if showConfig.runShowFetching
       then
         showConfig.showSources
-          .parTraverse_(ms =>
+          .parTraverse(ms =>
             for
               showSource <- ShowSource(ms.url, ms.botName, ms.outputFilePath)
-              _    <- if showConfig.dryRun then Async[F].delay(File(ms.outputFilePath).delete).void else Async[F].unit
+              _ <- if showConfig.dryRun then Async[F].delay(File(ms.outputFilePath).delete).void else Async[F].unit
               dbShowDatas <- showFetcher.generateShowJson(showSource)
-              _ <- dbShowDatas.parTraverse_(dbLayer.dbShow.insertShow(_))
-            yield ()
+            yield dbShowDatas
+          )
+          .flatMap(
+            _.flatten.traverse_(dbShowData =>
+              LogWriter.info(
+                s"Inserted show ${dbShowData.show_title} of url ${dbShowData.show_url}, successfully"
+              ) >> dbLayer.dbShow.insertShow(dbShowData)
+            )
           )
       else Async[F].unit
 
@@ -82,8 +88,7 @@ object BotDBController {
       _ <- Resource.eval(
         input.traverse_(i =>
           for {
-            _ <- dbLayer
-              .dbMedia
+            _ <- dbLayer.dbMedia
               .insertMedia(
                 DBMediaData(
                   media_name = i.filename,

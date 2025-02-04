@@ -72,7 +72,15 @@ object DBShow {
         s"get shows by bot name: $botName and keyword: $query"
       )
 
-    override def insertShow(dbShowData: DBShowData): F[Unit] = ???
+    override def insertShow(dbShowData: DBShowData): F[Unit] =
+      insertShowQuery(dbShowData).run.transact(transactor).void.exceptSql {
+        case e if e.getMessage().contains("UNIQUE constraint failed") =>
+          updateOnConflictSql(dbShowData).run.transact(transactor).void
+        case e =>
+          Async[F].raiseError(
+            new RuntimeException(s"An error occurred in inserting $dbShowData with exception: $e")
+          )
+      }
   }
 
   private def showQueryToFragments(query: ShowQuery): List[Fragment] = query match {
@@ -101,4 +109,7 @@ object DBShow {
   }
   def insertShowQuery(dbShowData: DBShowData): Update0 =
     sql"INSERT INTO show (show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption) VALUES (${dbShowData.show_url}, ${dbShowData.bot_name}, ${dbShowData.show_title}, ${dbShowData.show_upload_date}, ${dbShowData.show_duration}, ${dbShowData.show_description}, ${dbShowData.show_is_live}, ${dbShowData.show_origin_automatic_caption})".update
+
+  def updateOnConflictSql(dbShowData: DBShowData): Update0 =
+    sql"UPDATE show SET bot_name = ${dbShowData.bot_name}, show_title = ${dbShowData.show_title}, show_upload_date = ${dbShowData.show_upload_date}, show_duration = ${dbShowData.show_duration}, show_description = ${dbShowData.show_description}, show_is_live = ${dbShowData.show_is_live}, show_origin_automatic_caption = ${dbShowData.show_origin_automatic_caption} WHERE show_url = ${dbShowData.show_url};".update
 }
