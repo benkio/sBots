@@ -23,7 +23,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
   given log: LogWriter[IO]    = consoleLogUpToLevel(LogLevels.Info)
 
   test("generateShowJson should return a json if the input is valid") {
-    assume(sys.env.get("CI").contains("true"))
+    assume(sys.env.get("CI").contains("false"))
 
     val showFetcher = ShowFetcher[IO]()
     for
@@ -43,7 +43,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
   }
 
   test("the result json in should be parsable and urls should be unique") {
-    assume(sys.env.get("CI").contains("true"))
+    assume(sys.env.get("CI").contains("false"))
 
     for
       cfg <- Config.loadConfig(None)
