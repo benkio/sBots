@@ -24,7 +24,9 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     show_upload_date = "20180610",
     show_duration = 1367,
     show_description = Some("""#RichardBenson #CocktailMicidiale #PaulGilbert
-arriva il peggio del peggio""")
+arriva il peggio del peggio"""),
+    show_is_live = false,
+    show_origin_automatic_caption = None
   )
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
