@@ -1,9 +1,10 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
-import java.io.File
+import telegramium.bots.IFile
 import telegramium.bots.InputLinkFile
 import telegramium.bots.InputPartFile
-import telegramium.bots.IFile
+
+import java.io.File
 
 enum MediaResource:
   case MediaResourceFile(file: File)     extends MediaResource

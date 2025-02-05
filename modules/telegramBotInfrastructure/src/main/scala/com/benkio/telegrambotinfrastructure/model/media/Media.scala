@@ -1,12 +1,12 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
+import cats.syntax.all.*
+import cats.Show
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import io.circe.parser.decode
 import io.circe.syntax.EncoderOps
-import cats.Show
-import cats.syntax.all.*
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import org.http4s.Uri
-import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 
 import java.time.Instant
 import scala.util.Try
@@ -32,7 +32,7 @@ object Media {
       .handleErrorWith(_ => decode[String](dbMediaData.media_sources).flatMap(decode[List[Either[String, Uri]]]))
       .getOrElse(List.empty),
     mediaCount = dbMediaData.media_count,
-    createdAt = createdAt,
+    createdAt = createdAt
   )
 
   given mediaShowInstance: Show[Media] =

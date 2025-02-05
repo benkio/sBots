@@ -1,7 +1,7 @@
 package com.benkio.main
 
-import munit.CatsEffectSuite
 import cats.effect.IO
+import munit.CatsEffectSuite
 
 class ConfigSpec extends CatsEffectSuite {
 

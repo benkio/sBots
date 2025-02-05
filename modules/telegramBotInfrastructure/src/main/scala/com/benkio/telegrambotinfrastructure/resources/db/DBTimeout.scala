@@ -3,9 +3,8 @@ package com.benkio.telegrambotinfrastructure.resources.db
 import cats.effect.Async
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.Timeout
-import doobie.implicits.*
-
 import doobie.*
+import doobie.implicits.*
 import log.effect.LogWriter
 
 import java.time.Instant

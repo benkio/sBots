@@ -1,27 +1,26 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
-import java.nio.file.Files
-import com.benkio.telegrambotinfrastructure.model.reply.Document
-import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-
-import cats.MonadThrow
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
+import cats.MonadThrow
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
+import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.Config
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import doobie.Transactor
 import log.effect.LogWriter
-import org.http4s.client.Client
-
 import org.http4s.*
+import org.http4s.client.Client
 import telegramium.bots.high.Api
 import telegramium.bots.high.BotApi
+
+import java.nio.file.Files
 
 final case class BotSetup[F[_]](
     token: String,
@@ -38,7 +37,7 @@ object BotSetup {
 
   def deleteWebhooks[F[_]: Async](
       httpClient: Client[F],
-      token: String,
+      token: String
   ): Resource[F, Response[F]] = for {
     uri <- Resource.eval(
       MonadThrow[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$token/setWebhook?url="))

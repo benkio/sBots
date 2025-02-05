@@ -1,25 +1,26 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.reply.TextReply
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.effect.IO
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
+import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import java.time.Instant
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.tr
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.model.reply.mp3
-import com.benkio.telegrambotinfrastructure.model.reply.vid
-import com.benkio.telegrambotinfrastructure.model.reply.gif
-import com.benkio.telegrambotinfrastructure.model.tr
+
+import java.time.Instant
 
 class BotSkeletonSpec extends CatsEffectSuite {
 
@@ -34,7 +35,7 @@ class BotSkeletonSpec extends CatsEffectSuite {
     )
     val expected = ReplyBundleMessage
       .textToMedia[IO](
-        "carne (dura|vecchia|fresca)".r.tr(10),
+        "carne (dura|vecchia|fresca)".r.tr(10)
       )(
         mp3"rphjb_CarneFrescaSaporita.mp3",
         vid"rphjb_CarneFrescaSaporita.mp4",

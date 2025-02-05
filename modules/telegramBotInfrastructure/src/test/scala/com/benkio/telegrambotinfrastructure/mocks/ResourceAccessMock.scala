@@ -1,9 +1,9 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
-import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import cats.effect.IO
 import cats.effect.Resource
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 
 class ResourceAccessMock(

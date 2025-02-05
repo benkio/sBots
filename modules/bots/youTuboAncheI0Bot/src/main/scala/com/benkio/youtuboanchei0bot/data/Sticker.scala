@@ -1,8 +1,8 @@
 package com.benkio.youtuboanchei0bot.data
 
+import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.sticker
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.tr
 
 object Sticker:
@@ -15,7 +15,7 @@ object Sticker:
       "🍝"
     )(
       sticker"ytai_PastaYtancheio.sticker",
-      sticker"ytai_Pasta2Ytancheio.sticker",
+      sticker"ytai_Pasta2Ytancheio.sticker"
     ),
     ReplyBundleMessage.textToSticker[F](
       "\\bduplo\\b".r.tr(5),

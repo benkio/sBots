@@ -1,21 +1,19 @@
 package com.benkio.botDB.db
 
+import cats.effect.IO
+import com.benkio.botDB.mocks.MigratorMock
 import com.benkio.botDB.mocks.ShowFetcherMock
-import log.effect.LogWriter
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogLevels
+import com.benkio.botDB.TestData.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-
-import com.benkio.botDB.TestData.*
-
-import com.benkio.botDB.mocks.MigratorMock
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
 import munit.CatsEffectSuite
 
 import java.io.File
-import cats.effect.IO
 
 class BotDBControllerSpec extends CatsEffectSuite {
 

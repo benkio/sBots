@@ -151,7 +151,7 @@ object Dependencies {
     libs.logbackClassic,
     libs.logbackLogstash,
     libs.munit,
-    libs.pureConfigCore,
+    libs.pureConfigCore
   )
 
   val IntegrationDependencies: Seq[ModuleID] =

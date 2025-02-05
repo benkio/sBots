@@ -1,16 +1,16 @@
 package com.benkio.botDB.show
 
-import java.nio.file.Files
-import log.effect.LogWriter
-import java.nio.file.Path
-
+import cats.effect.implicits.*
 import cats.effect.kernel.Async
 import cats.implicits.*
-import cats.effect.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import io.circe.parser.decode
 import io.circe.syntax.*
+import log.effect.LogWriter
+
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.Path
 import scala.sys.process.*
 import scala.sys.process.Process
 

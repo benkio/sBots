@@ -1,25 +1,25 @@
 package com.benkio.xahleebot
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.BotSkeleton
-import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
 import cats.*
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BotSkeleton
+import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
+import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
 import fs2.io.net.Network
 import log.effect.LogWriter
-import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client.*
 import org.http4s.implicits.*
-import telegramium.bots.InputPartFile
+import org.http4s.Uri
 import telegramium.bots.high.*
+import telegramium.bots.InputPartFile
 
 class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     resourceAccess: ResourceAccess[F],
@@ -82,7 +82,7 @@ object XahLeeBot {
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
         botName = botName,
-        botPrefix = botPrefix,
+        botPrefix = botPrefix
       )
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](

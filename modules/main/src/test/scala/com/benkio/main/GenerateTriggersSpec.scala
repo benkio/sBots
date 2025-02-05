@@ -6,9 +6,10 @@ import com.benkio.calandrobot.CalandroBot
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
-import java.io._
-import java.time.Instant
 import munit.CatsEffectSuite
+
+import java.io.*
+import java.time.Instant
 import scala.concurrent.duration.*
 
 class GenerateTriggersSpec extends CatsEffectSuite {
@@ -21,7 +22,7 @@ class GenerateTriggersSpec extends CatsEffectSuite {
         File(s"../bots/m0sconiBot/${M0sconiBot.triggerFilename}"),
         File(s"../bots/calandroBot/${CalandroBot.triggerFilename}"),
         File(s"../bots/richardPHJBensonBot/${RichardPHJBensonBot.triggerFilename}"),
-        File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.triggerFilename}"),
+        File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.triggerFilename}")
       )
     yield {
       assert(exitCode == ExitCode.Success)

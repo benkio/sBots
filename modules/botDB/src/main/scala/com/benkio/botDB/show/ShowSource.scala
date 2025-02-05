@@ -1,8 +1,8 @@
 package com.benkio.botDB.show
 
-import org.http4s.Uri
-import cats.ApplicativeThrow
 import cats.syntax.all.*
+import cats.ApplicativeThrow
+import org.http4s.Uri
 
 final case class ShowSource(youtubeSources: List[YoutubeSource], botName: String, outputFilePath: String)
 

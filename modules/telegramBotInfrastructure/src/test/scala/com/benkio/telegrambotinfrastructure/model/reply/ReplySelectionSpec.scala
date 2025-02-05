@@ -1,14 +1,14 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import com.benkio.telegrambotinfrastructure.model.SelectAll
+import cats.effect.*
 import com.benkio.telegrambotinfrastructure.model.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.ReplySelection
-import telegramium.bots.Chat
-import telegramium.bots.Message
-import cats.effect.*
-import munit.CatsEffectSuite
+import com.benkio.telegrambotinfrastructure.model.SelectAll
 import io.circe.parser.decode
 import io.circe.syntax.*
+import munit.CatsEffectSuite
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 class ReplySelectionSpec extends CatsEffectSuite {
 
@@ -55,7 +55,7 @@ class ReplySelectionSpec extends CatsEffectSuite {
   test("ReplySelection JSON Decoder/Encoder should works as expected") {
     val jsonInputs = List(
       """"SelectAll"""",
-      """"RandomSelection"""".stripMargin,
+      """"RandomSelection"""".stripMargin
     )
 
     for inputString <- jsonInputs

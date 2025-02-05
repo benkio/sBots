@@ -1,30 +1,29 @@
 package com.benkio.telegrambotinfrastructure.telegram
 
-import com.benkio.telegrambotinfrastructure.model.reply.Sticker
-import com.benkio.telegrambotinfrastructure.model.reply.Document
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
-import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.reply.GifFile
-import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
-import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
-import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
-import com.benkio.telegrambotinfrastructure.model.reply.Text
-
-import telegramium.bots.ChatIntId
-import telegramium.bots.ChatId
-import telegramium.bots.ReplyParameters
-import telegramium.bots.IFile
-import telegramium.bots.client.Method
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import telegramium.bots.high.*
-import telegramium.bots.high.implicits.*
-import log.effect.LogWriter
-import telegramium.bots.Message
 import cats.*
 import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.media.toTelegramApi
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.GifFile
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
+import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
+import com.benkio.telegrambotinfrastructure.model.reply.Sticker
+import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import log.effect.LogWriter
+import telegramium.bots.client.Method
+import telegramium.bots.high.*
+import telegramium.bots.high.implicits.*
+import telegramium.bots.ChatId
+import telegramium.bots.ChatIntId
+import telegramium.bots.IFile
+import telegramium.bots.Message
+import telegramium.bots.ReplyParameters
 
 trait TelegramReply[A] {
   def reply[F[_]: Async: LogWriter: Api](

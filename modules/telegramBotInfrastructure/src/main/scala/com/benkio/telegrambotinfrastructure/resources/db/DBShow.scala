@@ -8,9 +8,9 @@ import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
 import doobie.*
 import doobie.implicits.*
-import log.effect.LogWriter
 import io.circe.*
 import io.circe.generic.semiauto.*
+import log.effect.LogWriter
 
 import java.time.format.DateTimeFormatter
 
@@ -53,7 +53,7 @@ trait DBShow[F[_]] {
 object DBShow {
 
   def apply[F[_]: Async](
-      transactor: Transactor[F],
+      transactor: Transactor[F]
   )(using log: LogWriter[F]): DBShow[F] =
     new DBShowImpl[F](
       transactor = transactor,

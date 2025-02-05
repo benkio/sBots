@@ -1,11 +1,11 @@
 package com.benkio.abarberobot.data
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.Applicative
-import com.benkio.telegrambotinfrastructure.model.tr
+import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
-import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.tr
 object Mix:
 
   def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
@@ -44,7 +44,7 @@ object Mix:
     ),
     ReplyBundleMessage.textToMedia[F](
       "allarme",
-      "priori",
+      "priori"
     )(
       mp3"abar_Priori.mp3",
       gif"abar_Priori.gif"
@@ -64,16 +64,16 @@ object Mix:
       gif"abar_Zagaglia.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "guerra",
+      "guerra"
     )(
       vid"abar_ParoleLongobarde.mp4",
-      mp3"abar_Guerra.mp3",
+      mp3"abar_Guerra.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "faida",
+      "faida"
     )(
       vid"abar_ParoleLongobarde.mp4",
-      gif"abar_Faida.gif",
+      gif"abar_Faida.gif"
     ),
     ReplyBundleMessage.textToMedia[F](
       "spranga"
@@ -113,7 +113,7 @@ object Mix:
       "piselli de rica",
       "fagioli cirio",
       "pasta (buitoni|barilla|corta)".r.tr(11),
-      "spaghetti",
+      "spaghetti"
     )(
       vid"abar_ListaSpesaPartigiani.mp4",
       mp3"abar_ListaSpesaPartigiani.mp3"
@@ -136,19 +136,20 @@ object Mix:
       "nichelio",
       "molibdeno",
       "tungsteno",
-      "titanio",
+      "titanio"
     )(
       mp3"abar_ListaMolibdeno.mp3",
-      vid"abar_ListaMolibdeno.mp4",
+      vid"abar_ListaMolibdeno.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "error[ie]".r.tr(6),
       "pernicios[oi]".r.tr(10),
       "scandalos[oi]".r.tr(10),
       "penstilenzial[ie]".r.tr(14),
-      "velenosis[s]+imo".r.tr(13),
+      "velenosis[s]+imo".r.tr(13)
     )(
       vid"abar_ErrorePestilenzialeVelenosissimo.mp4",
       mp3"abar_ErrorePestilenzialeVelenosissimo.mp3"
     )
   )
+end Mix

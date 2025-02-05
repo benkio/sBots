@@ -1,11 +1,10 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
-import telegramium.bots.MessageOriginHiddenUser
+import iozhik.OpenEnum
 import munit.*
 import telegramium.bots.Chat
-import iozhik.OpenEnum
-
 import telegramium.bots.Message
+import telegramium.bots.MessageOriginHiddenUser
 
 class FilteringForwardSpec extends FunSuite {
   test("FilteringForward.filter should return true if the disableForward is false") {

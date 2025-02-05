@@ -1,19 +1,18 @@
 package com.benkio.botDB.show
 
-import log.effect.LogLevels
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogWriter
-import java.nio.file.Files
-import io.circe.parser.decode
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
-import com.benkio.botDB.config.Config
-import cats.implicits.*
-import java.io.File
 import cats.effect.IO
+import cats.implicits.*
+import com.benkio.botDB.config.Config
+import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
+import io.circe.parser.decode
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
+import munit.*
 
+import java.io.File
+import java.nio.file.Files
 import scala.concurrent.duration.*
-
-import munit._
 
 class ShowFetcherSpec extends CatsEffectSuite {
   val outputFileName = "./delirioBaldazzi.json"

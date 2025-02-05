@@ -1,18 +1,18 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import java.time.Instant
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
-
-import munit.*
 import cats.effect.*
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
-import com.benkio.telegrambotinfrastructure.model.reply.gif
-import telegramium.bots.Chat
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import munit.*
+import telegramium.bots.Chat
 import telegramium.bots.Message
+
+import java.time.Instant
 
 class CommandPatternsSpec extends CatsEffectSuite {
 
@@ -52,7 +52,7 @@ rphjb_Vergogna2.mp4       |
     (
       List(
         ReplyBundleMessage.textToMedia[IO](
-          "ostia",
+          "ostia"
         )(
           mp3"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3",
           mp3"mos_AntonioFossoCarteColla.mp3"
@@ -70,7 +70,7 @@ mos_AntonioFossoCarteColla.mp3 |
           "ciclismo"
         )(
           mp3"mos_CiclismoAllieviDio.mp3",
-          mp3"mos_CiclismoGianniBugnoRitardo.mp3",
+          mp3"mos_CiclismoGianniBugnoRitardo.mp3"
         )
       ),
       "ciclismo"
@@ -95,7 +95,7 @@ ytai_Francesismo.mp3      | francesismo
     (
       List(
         ReplyBundleMessage.textToMedia[IO](
-          "miele",
+          "miele"
         )(
           gif"ytai_ForteProfumoMiele.mp4",
           gif"ytai_AppiccicaticcioMiele.mp4"

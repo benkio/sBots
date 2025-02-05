@@ -1,8 +1,8 @@
 package com.benkio.youtuboanchei0bot.data
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.vid
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 object Video:
 
@@ -22,7 +22,7 @@ object Video:
       "senape",
       "non è scaduta",
       "ha un gusto strano",
-      "non ne mangio più",
+      "non ne mangio più"
     )(
       vid"ytai_Senape.mp4"
     ),
@@ -34,3 +34,4 @@ object Video:
       vid"ytai_SushiQuestoEGigantescoBellezza.mp4"
     )
   )
+end Video

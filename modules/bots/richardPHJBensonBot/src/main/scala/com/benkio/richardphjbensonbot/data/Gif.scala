@@ -1,8 +1,8 @@
 package com.benkio.richardphjbensonbot.data
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
 object Gif {
@@ -22,7 +22,7 @@ object Gif {
     ),
     ReplyBundleMessage.textToGif[F](
       "che siamo noi",
-      "pezzi di merda",
+      "pezzi di merda"
     )(
       gif"rphjb_PezziDiMerda.mp4"
     ),
@@ -45,7 +45,7 @@ object Gif {
       "cucciolo"
     )(
       gif"rphjb_Cucciolo.mp4",
-      gif"rphjb_Cucciolo2.mp4",
+      gif"rphjb_Cucciolo2.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "che c'hai"
@@ -119,7 +119,7 @@ object Gif {
     ),
     ReplyBundleMessage.textToGif[F](
       "mi diverti",
-      "mi sono divertito",
+      "mi sono divertito"
     )(
       gif"rphjb_Diverti.mp4"
     ),
@@ -129,7 +129,7 @@ object Gif {
       gif"rphjb_Scherzo.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "campà",
+      "campà"
     )(
       gif"rphjb_Campa.mp4"
     ),
@@ -162,7 +162,7 @@ object Gif {
     ),
     ReplyBundleMessage.textToGif[F](
       "dovete soffrire",
-      "vi voglio far(e)? soffrire".r.tr(23),
+      "vi voglio far(e)? soffrire".r.tr(23)
     )(
       gif"rphjb_DoveteSoffrire.mp4"
     ),
@@ -172,7 +172,7 @@ object Gif {
       gif"rphjb_CantantiSerieZ.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "[gq]uerelare".r.tr(9),
+      "[gq]uerelare".r.tr(9)
     )(
       gif"rphjb_Querelare.mp4"
     ),
@@ -197,14 +197,14 @@ object Gif {
       gif"rphjb_ChiCazzoSei.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "(è|diventa) vecchi[ao]".r.tr(9),
+      "(è|diventa) vecchi[ao]".r.tr(9)
     )(
       gif"rphjb_Vecchio.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "scatta qualcosa",
       "proprio in quel momento",
-      "nel suo cervello",
+      "nel suo cervello"
     )(
       gif"rphjb_ScattaQualcosa.mp4"
     ),
@@ -238,18 +238,18 @@ object Gif {
       "\\bester\\b".r.tr(5)
     )(
       gif"rphjb_Ester.mp4",
-      gif"rphjb_Ester2.mp4",
+      gif"rphjb_Ester2.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "abi(t|d)ua(t|d)o".r.tr(8),
-      "proprioll(a|à)".r.tr(10),
+      "proprioll(a|à)".r.tr(10)
     )(
       gif"rphjb_Propriolla.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "non vedo questo grande problema"
     )(
-      gif"rphjb_VabbeProblema.mp4",
+      gif"rphjb_VabbeProblema.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "il bongo",
@@ -264,7 +264,7 @@ object Gif {
       gif"rphjb_Internet.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "prendere quello l[aà]".r.tr(18),
+      "prendere quello l[aà]".r.tr(18)
     )(
       gif"rphjb_AaaPrendereQuelloLa.mp4"
     ),
@@ -277,7 +277,7 @@ object Gif {
       "🤨",
       "🧐",
       "sono confuso",
-      "[?]{3,}".r.tr(3),
+      "[?]{3,}".r.tr(3)
     )(
       gif"rphjb_Confuso.mp4"
     ),
@@ -285,17 +285,17 @@ object Gif {
       "😑",
       "😒",
       "🫤",
-      "\\bwtf[!]*\\b".r.tr(3),
+      "\\bwtf[!]*\\b".r.tr(3)
     )(
       gif"rphjb_WTF.mp4",
       gif"rphjb_WTF2.mp4",
       gif"rphjb_WTF3.mp4",
-      gif"rphjb_WTF4.mp4",
+      gif"rphjb_WTF4.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "\\bsorpresa\\b".r.tr(8),
       "\\bshock\\b".r.tr(5),
-      "😮",
+      "😮"
     )(
       gif"rphjb_Sorpresa.mp4",
       gif"rphjb_Sorpresa2.mp4"

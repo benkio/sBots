@@ -1,14 +1,13 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
-import telegramium.bots.Chat
-import telegramium.bots.Message
 import cats.effect.IO
-import telegramium.bots.high.Api
-import telegramium.bots.client.Method
-import telegramium.bots.CirceImplicits.*
-
 import io.circe.*
 import io.circe.syntax.*
+import telegramium.bots.client.Method
+import telegramium.bots.high.Api
+import telegramium.bots.Chat
+import telegramium.bots.CirceImplicits.*
+import telegramium.bots.Message
 
 class ApiMock extends Api[IO] {
   def execute[Res](method: Method[Res]): IO[Res] =
@@ -55,6 +54,6 @@ object ApiMock {
       date = 0,
       chat = Chat(0, `type` = "private"),
       text = Some("[apiMock] sendDocument reply")
-    ).asJson,
+    ).asJson
   )
 }

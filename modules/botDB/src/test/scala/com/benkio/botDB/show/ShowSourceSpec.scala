@@ -1,8 +1,7 @@
 package com.benkio.botDB.show
 
+import munit.*
 import org.http4s.Uri
-
-import munit._
 
 class ShowSourceSpec extends FunSuite {
 

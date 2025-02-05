@@ -7,10 +7,10 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.chrisdavenport.mules.*
 import io.chrisdavenport.mules.http4s.*
 import log.effect.LogWriter
-import org.http4s.Method.GET
 import org.http4s.*
-import org.http4s.client.Client
 import org.http4s.client.middleware.FollowRedirect
+import org.http4s.client.Client
+import org.http4s.Method.GET
 import org.typelevel.ci.*
 
 import java.io.File

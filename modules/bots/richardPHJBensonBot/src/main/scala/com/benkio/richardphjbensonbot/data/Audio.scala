@@ -1,8 +1,8 @@
 package com.benkio.richardphjbensonbot.data
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
 object Audio {
@@ -14,7 +14,7 @@ object Audio {
       "pomodori",
       "legumi",
       "ragni",
-      "male il collo",
+      "male il collo"
     )(
       mp3"rphjb_ListaMaleCollo.mp3"
     ),
@@ -82,7 +82,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "dovrei lavarmelo di più",
-      "il cazzo me lo pulisci un'altra volta",
+      "il cazzo me lo pulisci un'altra volta"
     )(
       mp3"rphjb_LavareCazzo.mp3"
     ),
@@ -100,7 +100,7 @@ object Audio {
     ReplyBundleMessage.textToMp3[F](
       "negli occhiali",
       "sulla spalla",
-      "gianguido",
+      "gianguido"
     )(
       mp3"rphjb_PannaOcchialiSpalla.mp3"
     ),
@@ -198,7 +198,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "..magari",
-      "magari..",
+      "magari.."
     )(
       mp3"rphjb_Magari.mp3",
       mp3"rphjb_SentireMaleBeneCarezzaOppostoGraffiareGraceJonesMagari.mp3"
@@ -241,7 +241,7 @@ object Audio {
     ReplyBundleMessage.textToMp3[F](
       "cosa preferisci",
       "ragazzetta",
-      "carne bianca",
+      "carne bianca"
     )(
       mp3"rphjb_RagazzettaCarne.mp3"
     ),
@@ -257,7 +257,7 @@ object Audio {
       mp3"rphjb_NonViDeludero.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "(col|con il) (cuore|cervello|anima|pisello|martello)".r.tr(9),
+      "(col|con il) (cuore|cervello|anima|pisello|martello)".r.tr(9)
     )(
       mp3"rphjb_ViSaluto.mp3"
     ),
@@ -286,9 +286,9 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "che schifo!",
-      "che( )?(s)+chifo".r.tr(10),
+      "che( )?(s)+chifo".r.tr(10)
     )(
-      mp3"rphjb_Schifosi4.mp3",
+      mp3"rphjb_Schifosi4.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "gelatina",
@@ -304,7 +304,7 @@ object Audio {
       mp3"rphjb_GelatinaFazzolettiSecchiAcquaSapone.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "e che cazz[o!]{2,}".r.tr(12),
+      "e che cazz[o!]{2,}".r.tr(12)
     )(
       mp3"rphjb_SuonatoAbbastanzaBeneEVero.mp3"
     ),
@@ -329,7 +329,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "suono che cosa",
-      "alghe marine",
+      "alghe marine"
     )(
       mp3"rphjb_ChitarraZuccheroAlgheVino.mp3"
     ),
@@ -356,18 +356,18 @@ object Audio {
       mp3"rphjb_IncidentePonte.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "peli (a[rl]|del) culo".r.tr(12),
+      "peli (a[rl]|del) culo".r.tr(12)
     )(
       mp3"rphjb_RaccondaStoriaTegaBaffoPeliCulo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "solo l'inizio",
+      "solo l'inizio"
     )(
       mp3"rphjb_TelevitaSonoInizioRisata.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "ah eccola",
-      "l'ho trovata",
+      "l'ho trovata"
     )(
       mp3"rphjb_LHoTrovata.mp3"
     ),
@@ -375,7 +375,7 @@ object Audio {
       "inutili creature",
       "aglioso",
       "golgota",
-      "avverto pericolo",
+      "avverto pericolo"
     )(
       mp3"rphjb_PoesiaNatalizia.mp3"
     ),

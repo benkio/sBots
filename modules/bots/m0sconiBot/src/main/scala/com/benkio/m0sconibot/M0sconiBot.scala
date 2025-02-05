@@ -1,34 +1,33 @@
 package com.benkio.m0sconibot
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
-import com.benkio.m0sconibot.data.Audio
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-
-import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
-import com.benkio.telegrambotinfrastructure.BotSkeleton
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import cats.*
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.m0sconibot.data.Audio
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BotSkeleton
+import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
+import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
 import fs2.io.net.Network
 import log.effect.LogWriter
-import org.http4s.Uri
 import org.http4s.client.Client
 import org.http4s.ember.client.*
 import org.http4s.implicits.*
+import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
@@ -153,7 +152,7 @@ object M0sconiBot {
         StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
         TimeoutCommand.timeoutCommandDescriptionEng,
         RandomDataCommand.randomDataCommandEng
-      ),
+      )
     )
   )
 

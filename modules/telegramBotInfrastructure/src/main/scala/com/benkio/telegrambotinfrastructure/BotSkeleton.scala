@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.Trigger
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
@@ -12,11 +11,12 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.MessageOps
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import log.effect.LogWriter
-import org.http4s.Uri
 import org.http4s.implicits.*
+import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
@@ -144,7 +144,7 @@ trait BotSkeleton[F[_]] {
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
     for {
       messagesOpt <-
-        if (!MessageOps.isCommand(msg)) messageLogic(resourceAccess, msg)(using asyncF, api, log)
+        if !MessageOps.isCommand(msg) then messageLogic(resourceAccess, msg)(using asyncF, api, log)
         else Async[F].pure[Option[List[Message]]](None)
       commandsOpt <- commandLogic(resourceAccess, msg)
     } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)

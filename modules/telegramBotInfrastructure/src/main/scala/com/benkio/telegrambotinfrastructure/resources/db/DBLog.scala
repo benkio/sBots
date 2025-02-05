@@ -17,7 +17,7 @@ trait DBLog[F[_]] {
 object DBLog {
 
   def apply[F[_]: Async](
-      transactor: Transactor[F],
+      transactor: Transactor[F]
   ): DBLog[F] =
     new DBLogImpl[F](
       transactor = transactor

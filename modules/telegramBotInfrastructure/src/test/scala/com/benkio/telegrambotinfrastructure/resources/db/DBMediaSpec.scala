@@ -1,10 +1,11 @@
 package com.benkio.telegrambotinfrastructure.resources.db
 
 import com.benkio.telegrambotinfrastructure.model.media.Media
-import org.http4s.Uri
-import java.time.Instant
-import munit._
+import munit.*
 import org.http4s.implicits.*
+import org.http4s.Uri
+
+import java.time.Instant
 
 class DBMediaSpec extends FunSuite {
   test("DBMediaData should be correctly converted from Media") {
@@ -14,7 +15,7 @@ class DBMediaSpec extends FunSuite {
       kinds = List("kind"),
       mediaSources = List(Right(uri"http://something.com")),
       mediaCount = 0,
-      createdAt = now,
+      createdAt = now
     )
     val expected = DBMediaData(
       media_name = actual.mediaName,

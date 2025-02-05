@@ -5,11 +5,12 @@ import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
-import java.time.Instant
 import munit.*
-import scala.concurrent.duration.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
+
+import java.time.Instant
+import scala.concurrent.duration.*
 
 class FilteringTimeoutSpec extends CatsEffectSuite {
 
@@ -25,7 +26,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
             chat_id = chatId,
             bot_name = botName,
             timeout_value = 800.millis.toMillis.toString,
-            last_interaction = Instant.now.getEpochSecond.toString,
+            last_interaction = Instant.now.getEpochSecond.toString
           )
         )
       )
@@ -54,7 +55,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
             chat_id = chatId,
             bot_name = botName,
             timeout_value = 30.seconds.toMillis.toString,
-            last_interaction = Instant.now.getEpochSecond.toString,
+            last_interaction = Instant.now.getEpochSecond.toString
           )
         )
       )

@@ -4,7 +4,7 @@ import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
-import cats.implicits._
+import cats.implicits.*
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.calandrobot.CalandroBot
 import com.benkio.m0sconibot.M0sconiBot
@@ -12,7 +12,8 @@ import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
-import java.io._
+
+import java.io.*
 
 object GenerateTriggers extends IOApp {
 

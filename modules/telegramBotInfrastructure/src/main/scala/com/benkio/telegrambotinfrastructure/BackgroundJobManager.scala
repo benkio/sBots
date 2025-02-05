@@ -1,29 +1,28 @@
 package com.benkio.telegrambotinfrastructure
 
-import telegramium.bots.high.Api
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import scala.concurrent.duration.FiniteDuration
-import java.time.Duration
-import scala.util.Try
-import java.time.LocalDateTime
 import cats.*
-
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import fs2.Stream
 import log.effect.LogWriter
+import telegramium.bots.high.Api
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
+import java.time.Duration
+import java.time.LocalDateTime
 import java.util.UUID
-import scala.collection.mutable.{ Map => MMap }
+import scala.collection.mutable.Map as MMap
+import scala.concurrent.duration.FiniteDuration
+import scala.util.Try
 
 trait BackgroundJobManager[F[_]] {
 

@@ -2,9 +2,9 @@ package com.benkio.botDB.db
 
 import cats.effect.Sync
 import com.benkio.botDB.config.Config
-import org.flywaydb.core.Flyway
-import org.flywaydb.core.api.Location
 import org.flywaydb.core.api.configuration.FluentConfiguration
+import org.flywaydb.core.api.Location
+import org.flywaydb.core.Flyway
 
 import scala.jdk.CollectionConverters.*
 
@@ -57,9 +57,8 @@ object DBMigrator {
       .load()
       .validateWithResult()
 
-    if (!validated.validationSuccessful)
-      for (error <- validated.invalidMigrations.asScala)
-        println(s"""
+    if !validated.validationSuccessful then
+      for error <- validated.invalidMigrations.asScala do println(s"""
                    |Failed validation:
                    |  - version: ${error.version}
                    |  - path: ${error.filepath}

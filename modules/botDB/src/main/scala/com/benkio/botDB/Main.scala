@@ -1,14 +1,14 @@
 package com.benkio.botDB
 
-import com.benkio.botDB.config.Config
-import com.benkio.botDB.show.ShowFetcher
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import log.effect.LogLevels
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import cats.effect.*
+import com.benkio.botDB.config.Config
 import com.benkio.botDB.db.BotDBController
 import com.benkio.botDB.db.DBMigrator
+import com.benkio.botDB.show.ShowFetcher
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
 import log.effect.LogWriter
 
 object Main extends IOApp {

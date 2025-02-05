@@ -1,9 +1,10 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.Show
 import cats.implicits.*
+import cats.Show
 import io.circe.*
 import io.circe.generic.semiauto.*
+
 import scala.util.matching.Regex
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -83,7 +84,7 @@ object Trigger {
 
   given showInstance: Show[Trigger] = Show.show(t =>
     t match {
-      case TextTrigger(tvs @ _*)   => tvs.map(_.show).mkString("\n")
+      case TextTrigger(tvs*)       => tvs.map(_.show).mkString("\n")
       case MessageLengthTrigger(l) => s"trigger when the length of message exceed $l"
       case NewMemberTrigger        => "trigger on new member joining a group"
       case LeftMemberTrigger       => "trigger when a member leaves a group"
@@ -100,7 +101,7 @@ object Trigger {
   given Encoder[MessageTrigger] = deriveEncoder[MessageTrigger]
 
   def triggerLongestString(trigger: Trigger): Int = trigger match {
-    case TextTrigger(lt @ _*)      => lt.max(TextTriggerValue.orderingInstance).length
+    case TextTrigger(lt*)          => lt.max(TextTriggerValue.orderingInstance).length
     case MessageLengthTrigger(_)   => 0
     case _: NewMemberTrigger.type  => 0
     case _: LeftMemberTrigger.type => 0

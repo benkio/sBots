@@ -1,9 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import munit.FunSuite
+import cats.effect.SyncIO
 import io.circe.parser.decode
 import io.circe.syntax.*
-import cats.effect.SyncIO
+import munit.FunSuite
 
 class ReplySpec extends FunSuite {
 
@@ -68,7 +68,7 @@ class ReplySpec extends FunSuite {
         |    ],
         |    "replyToMessage" : false
         |  }
-        |}""".stripMargin,
+        |}""".stripMargin
     )
 
     for inputString <- jsonInputs

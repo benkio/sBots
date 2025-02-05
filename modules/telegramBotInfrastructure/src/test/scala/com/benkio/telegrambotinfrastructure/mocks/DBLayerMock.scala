@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
-import cats.effect.IO
 import cats.effect.kernel.Ref
 import cats.effect.std.Random
+import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -38,13 +38,13 @@ object DBLayerMock {
 
   class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]], botNameI: String) extends DBTimeout[IO] {
     override def getOrDefault(chatId: Long, botName: String): IO[DBTimeoutData] =
-      if (botName == botNameI)
+      if botName == botNameI then
         db.get.map(_.find(t => t.chat_id == chatId).getOrElse(DBTimeoutData(Timeout(chatId, botName))))
       else IO.raiseError(new Throwable(s"Unexpected botName, actual: $botName - expected: $botNameI"))
     override def setTimeout(timeout: DBTimeoutData): IO[Unit] =
       db.update(ts => ts.filterNot(t => t.chat_id == timeout.chat_id) :+ timeout)
     override def logLastInteraction(chatId: Long, botName: String): IO[Unit] =
-      if (botName == botNameI)
+      if botName == botNameI then
         db.update(ts =>
           ts.find(t => t.chat_id == chatId)
             .fold(ts)(oldValue =>
@@ -117,7 +117,7 @@ object DBLayerMock {
       db.get.map(_.filter(subs => subs.bot_name == botName && chatId.fold(true)(_ == subs.chat_id)))
     override def insertSubscription(subscription: DBSubscriptionData): IO[Unit] =
       db.update((subs: List[DBSubscriptionData]) =>
-        if (subs.exists((s: DBSubscriptionData) => s.id == subscription.id))
+        if subs.exists((s: DBSubscriptionData) => s.id == subscription.id) then
           throw new Throwable("[TEST ERROR] Subscription id already present when inserting")
         else subs :+ subscription
       )

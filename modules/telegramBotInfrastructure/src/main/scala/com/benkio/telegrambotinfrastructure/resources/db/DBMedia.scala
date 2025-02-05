@@ -5,11 +5,10 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import doobie.*
-
 import doobie.implicits.*
 import io.chrisdavenport.mules.*
-import log.effect.LogWriter
 import io.circe.syntax.*
+import log.effect.LogWriter
 
 import scala.concurrent.duration.*
 
@@ -60,7 +59,7 @@ trait DBMedia[F[_]] {
 object DBMedia {
 
   def apply[F[_]: Async](
-      transactor: Transactor[F],
+      transactor: Transactor[F]
   )(using log: LogWriter[F]): F[DBMedia[F]] = for {
     dbCache <- MemoryCache.ofSingleImmutableMap[F, String, List[DBMediaData]](defaultExpiration =
       TimeSpec.fromDuration(6.hours)
@@ -110,8 +109,7 @@ object DBMedia {
                 getMediaQueryByName(filename).unique.transact(transactor)
               )(Async[F].pure)
             _ <-
-              if (cachedValueOpt.fold(true)(_.length != 1))
-                dbCache.insert(filename, List(media))
+              if cachedValueOpt.fold(true)(_.length != 1) then dbCache.insert(filename, List(media))
               else Async[F].unit
           } yield media
       )
@@ -131,8 +129,7 @@ object DBMedia {
                 getMediaQueryByKind(kind).stream.compile.toList.transact(transactor)
               )(Async[F].pure)
             _ <-
-              if (cachedValueOpt.isEmpty)
-                dbCache.insert(kind, medias)
+              if cachedValueOpt.isEmpty then dbCache.insert(kind, medias)
               else Async[F].unit
           } yield medias
       )
@@ -174,7 +171,7 @@ object DBMedia {
         fr"""kinds LIKE ${"""["""" + kind + """",%"""}""",
         fr"""kinds LIKE ${"""%,"""" + kind + """",%"""}""",
         fr"""kinds LIKE ${"""%,"""" + kind + """"]"""}""",
-        fr"""kinds LIKE ${"""["""" + kind + """"]"""}""",
+        fr"""kinds LIKE ${"""["""" + kind + """"]"""}"""
       )).query[DBMediaData]
 
   def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {

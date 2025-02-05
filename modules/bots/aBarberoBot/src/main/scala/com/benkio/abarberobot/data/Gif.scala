@@ -1,8 +1,8 @@
 package com.benkio.abarberobot.data
 
 import cats.Applicative
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
 object Gif:
@@ -197,8 +197,9 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "👐",
-      "🙌",
+      "🙌"
     )(
-      gif"abar_AlzaLeMani.mp4",
+      gif"abar_AlzaLeMani.mp4"
     )
   )
+end Gif

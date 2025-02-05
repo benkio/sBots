@@ -1,18 +1,16 @@
 package com.benkio.calandrobot
 
-import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-
-import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import log.effect.LogLevels
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogWriter
-
-import cats.Show
 import cats.effect.IO
 import cats.implicits.*
+import cats.Show
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
 import munit.CatsEffectSuite
 
 class CalandroBotSpec extends BaseBotSpec {
@@ -43,6 +41,6 @@ class CalandroBotSpec extends BaseBotSpec {
       .messageRepliesData[IO]
       .flatTraverse(_.reply.prettyPrint)
       .map(_.filterNot(x => excludeTriggers.exists(exc => x.startsWith(exc)))),
-    botTriggers = CalandroBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')),
+    botTriggers = CalandroBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )
 }
