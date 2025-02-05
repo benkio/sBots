@@ -21,9 +21,10 @@ class ShowFetcherSpec extends CatsEffectSuite {
   // TODO: make the tests faster and remove this eventually
   override val munitIOTimeout = 2.minutes
   given log: LogWriter[IO]    = consoleLogUpToLevel(LogLevels.Info)
+  val ciEnvVar                = sys.env.get("CI")
 
   test("generateShowJson should return a json if the input is valid") {
-    assume(sys.env.get("CI").contains("false"))
+    assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
 
     val showFetcher = ShowFetcher[IO]()
     for
@@ -43,7 +44,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
   }
 
   test("the result json in should be parsable and urls should be unique") {
-    assume(sys.env.get("CI").contains("false"))
+    assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
 
     for
       cfg <- Config.loadConfig(None)

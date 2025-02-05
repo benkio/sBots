@@ -17,7 +17,7 @@ object Config {
   def loadConfig[F[_]: MonadThrow](namespace: String)(using log: LogWriter[F]): F[Config] =
     loadConfigInternal("main." + namespace).handleErrorWith(err =>
       log.error(
-        s"An error occurred loading the rphjbDB configuration from main. Ignore if run thorugh single bot: ${err.getMessage()}"
+        s"An error occurred loading the $namespace configuration from main. Ignore if run thorugh single bot: ${err.getMessage()}"
       ) >>
         loadConfigInternal[F](namespace)
     )
