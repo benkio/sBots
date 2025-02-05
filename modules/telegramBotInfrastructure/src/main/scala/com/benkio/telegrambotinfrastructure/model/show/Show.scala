@@ -15,7 +15,9 @@ final case class Show(
     title: String,
     uploadDate: LocalDate,
     duration: Int,
-    description: Option[String]
+    description: Option[String],
+    isLive: Boolean,
+    originAutomaticCaption: Option[String]
 )
 
 object Show {
@@ -32,7 +34,9 @@ object Show {
     title = dbShow.show_title,
     uploadDate = uploadDate,
     duration = dbShow.show_duration,
-    description = dbShow.show_description
+    description = dbShow.show_description,
+    isLive = dbShow.show_is_live,
+    originAutomaticCaption = dbShow.show_origin_automatic_caption
   )
 
   given showInstance: CatsShow[Show] =

@@ -1,12 +1,8 @@
-package com.benkio.telegrambotinfrastructure.model
+package com.benkio.telegrambotinfrastructure.model.reply
 
-import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
-import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
-import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
-import com.benkio.telegrambotinfrastructure.model.reply.GifFile
-import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
-import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.SelectAll
+import com.benkio.telegrambotinfrastructure.model.RandomSelection
+import com.benkio.telegrambotinfrastructure.model.ReplySelection
 import telegramium.bots.Chat
 import telegramium.bots.Message
 import cats.effect.*

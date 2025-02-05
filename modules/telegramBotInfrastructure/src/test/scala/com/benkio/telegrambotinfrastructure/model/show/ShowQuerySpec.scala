@@ -1,10 +1,6 @@
-package com.benkio.telegrambotinfrastructure.model
+package com.benkio.telegrambotinfrastructure.model.show
 
-import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
-import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
-import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import munit.*
-
 import java.time.LocalDate
 
 class ShowQuerySpec extends FunSuite {
@@ -30,6 +26,10 @@ class ShowQuerySpec extends FunSuite {
     assertEquals(
       ShowQuery("title=richard&title=benson"),
       ShowQueryKeyword(titleKeywords = Some(List("richard", "benson")))
+    )
+    assertEquals(
+      ShowQuery("title=autostrada&title=pip+addosso"),
+      ShowQueryKeyword(titleKeywords = Some(List("autostrada", "pip addosso")))
     )
     assertEquals(ShowQuery("title=richard&someotherKey=value"), ShowQueryKeyword(titleKeywords = Some(List("richard"))))
     assertEquals(

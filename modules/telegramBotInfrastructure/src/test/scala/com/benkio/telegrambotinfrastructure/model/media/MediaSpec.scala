@@ -1,6 +1,5 @@
-package com.benkio.telegrambotinfrastructure.model
+package com.benkio.telegrambotinfrastructure.model.media
 
-import com.benkio.telegrambotinfrastructure.model.media.Media
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import munit.*

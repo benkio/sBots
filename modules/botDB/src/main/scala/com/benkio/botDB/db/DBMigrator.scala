@@ -1,7 +1,7 @@
 package com.benkio.botDB.db
 
 import cats.effect.Sync
-import com.benkio.botDB.Config
+import com.benkio.botDB.config.Config
 import org.flywaydb.core.Flyway
 import org.flywaydb.core.api.Location
 import org.flywaydb.core.api.configuration.FluentConfiguration
