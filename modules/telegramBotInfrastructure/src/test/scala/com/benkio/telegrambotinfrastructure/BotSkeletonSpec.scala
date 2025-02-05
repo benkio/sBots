@@ -30,7 +30,7 @@ class BotSkeletonSpec extends CatsEffectSuite {
       messageId = 0,
       date = Instant.now.getEpochSecond().toInt,
       chat = Chat(id = 0, `type` = "test"),
-      text = Some(s"carne dura")
+      text = Some("carne dura")
     )
     val expected = ReplyBundleMessage
       .textToMedia[IO](
@@ -56,7 +56,7 @@ class BotSkeletonSpec extends CatsEffectSuite {
       messageId = 0,
       date = Instant.now.getEpochSecond().toInt,
       chat = Chat(id = 0, `type` = "test"),
-      text = Some(s"/testcommand")
+      text = Some("/testcommand")
     )
     val expected =
       ReplyBundleCommand(

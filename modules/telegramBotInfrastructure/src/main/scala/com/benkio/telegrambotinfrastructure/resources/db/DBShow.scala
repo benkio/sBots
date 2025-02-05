@@ -28,6 +28,7 @@ final case class DBShowData(
 object DBShowData {
 
   given Decoder[DBShowData]                = deriveDecoder[DBShowData]
+  given Encoder[DBShowData]                = deriveEncoder[DBShowData]
   val dateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
 
   def apply(show: Show): DBShowData = DBShowData(

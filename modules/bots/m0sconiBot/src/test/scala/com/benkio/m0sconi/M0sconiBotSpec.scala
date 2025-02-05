@@ -69,7 +69,7 @@ class M0sconiBotSpec extends BaseBotSpec {
 
   instructionsCommandTest(
     commandRepliesData = commandRepliesData.pure[IO],
-    s"""
+    """
 ---- Instruzioni Per M0sconiBot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -88,7 +88,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-    s"""
+    """
 ---- Instructions for M0sconiBot ----
 
 to report issues, write to: https://t.me/Benkio

@@ -46,29 +46,29 @@ class ReplySpec extends FunSuite {
 
   test("Reply JSON decode/encode should work as expected") {
     val jsonInputs = List(
-      s"""{
-         |  "TextReply" : {
-         |    "text" : [
-         |      {
-         |        "value" : "testText"
-         |      }
-         |    ],
-         |    "replyToMessage" : false
-         |  }
-         |}""".stripMargin,
-      s"""{
-         |  "MediaReply" : {
-         |    "mediaFiles" : [
-         |      {
-         |        "VideoFile" : {
-         |          "filepath" : "testFilePath.mp4",
-         |          "replyToMessage" : false
-         |        }
-         |      }
-         |    ],
-         |    "replyToMessage" : false
-         |  }
-         |}""".stripMargin,
+      """{
+        |  "TextReply" : {
+        |    "text" : [
+        |      {
+        |        "value" : "testText"
+        |      }
+        |    ],
+        |    "replyToMessage" : false
+        |  }
+        |}""".stripMargin,
+      """{
+        |  "MediaReply" : {
+        |    "mediaFiles" : [
+        |      {
+        |        "VideoFile" : {
+        |          "filepath" : "testFilePath.mp4",
+        |          "replyToMessage" : false
+        |        }
+        |      }
+        |    ],
+        |    "replyToMessage" : false
+        |  }
+        |}""".stripMargin,
     )
 
     for inputString <- jsonInputs

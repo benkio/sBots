@@ -84,7 +84,7 @@ class ABarberoBotSpec extends BaseBotSpec {
 
   instructionsCommandTest(
     commandRepliesData = commandRepliesData,
-    italianInstructions = s"""
+    italianInstructions = """
 ---- Instruzioni Per ABarberoBot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -117,7 +117,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-    englishInstructions = s"""
+    englishInstructions = """
 ---- Instructions for ABarberoBot ----
 
 to report issues, write to: https://t.me/Benkio

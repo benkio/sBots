@@ -80,7 +80,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
   instructionsCommandTest(
     commandRepliesData = commandRepliesData,
-    s"""
+    """
 ---- Instruzioni Per YouTuboAncheI0Bot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -113,7 +113,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-    s"""
+    """
 ---- Instructions for YouTuboAncheI0Bot ----
 
 to report issues, write to: https://t.me/Benkio

@@ -126,7 +126,7 @@ Input as query string:
                     dbShow,
                     botName
                   ),
-              s"Input non riconosciuto. Controlla le instruzioni per i dettagli",
+              "Input non riconosciuto. Controlla le instruzioni per i dettagli",
               allowEmptyString = true
             ),
           true
@@ -313,7 +313,7 @@ ${ignoreMessagePrefix
                 } yield List(
                   s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
                 ),
-              s"Input Required: insert a valid 〈cron time〉. Check the instructions"
+              "Input Required: insert a valid 〈cron time〉. Check the instructions"
             ),
           true
         ),
@@ -335,15 +335,15 @@ ${ignoreMessagePrefix
                 if (subscriptionIdInput.isEmpty)
                   for {
                     _ <- backgroundJobManager.cancelSubscriptions(m.chat.id)
-                  } yield List(s"All Subscriptions for current chat successfully cancelled")
+                  } yield List("All Subscriptions for current chat successfully cancelled")
                 else
                   for {
                     subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
                     _              <- backgroundJobManager.cancelSubscription(subscriptionId)
                   } yield List(
-                    s"Subscription successfully cancelled"
+                    "Subscription successfully cancelled"
                   ),
-              s"Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
+              "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
             ),
           true
         ),

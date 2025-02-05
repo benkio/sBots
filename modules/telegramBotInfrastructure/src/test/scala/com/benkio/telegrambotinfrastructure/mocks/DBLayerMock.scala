@@ -118,7 +118,7 @@ object DBLayerMock {
     override def insertSubscription(subscription: DBSubscriptionData): IO[Unit] =
       db.update((subs: List[DBSubscriptionData]) =>
         if (subs.exists((s: DBSubscriptionData) => s.id == subscription.id))
-          throw new Throwable(s"[TEST ERROR] Subscription id already present when inserting")
+          throw new Throwable("[TEST ERROR] Subscription id already present when inserting")
         else subs :+ subscription
       )
     override def deleteSubscription(

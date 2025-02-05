@@ -1,15 +1,15 @@
 package com.benkio.botDB.show
 
-import log.effect.LogWriter
 import java.nio.file.Files
+import log.effect.LogWriter
+import java.nio.file.Path
 
-import java.util.UUID
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import cats.effect.Resource
 import cats.effect.kernel.Async
 import cats.implicits.*
+import cats.effect.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import io.circe.parser.decode
+import io.circe.syntax.*
 import java.io.File
 import scala.sys.process.*
 import scala.sys.process.Process
@@ -26,15 +26,11 @@ object ShowFetcher {
       for
         _ <- LogWriter.info(s"[ShowFetcher] check dependencies: $shellDependencies")
         _ <- checkDependencies
-        _ <-
+        dbShowDatass <-
           if file.exists() && Files.size(file.toPath()) > 100
-          then LogWriter.info(s"[ShowFetcher] show file exists at ${file.toPath().toAbsolutePath()}") >> Async[F].unit
-          else
-            LogWriter.info(
-              s"[ShowFetcher] fetch show file for $source into ${file.toPath().toAbsolutePath()}"
-            ) >> fetchJson(source).use(filterJson(_, source))
-        dbShowDatas <- parseJson(source)
-      yield dbShowDatas
+          then dbShowDataFromFile(file)
+          else dbShowDataFromYoutube(source)
+      yield dbShowDatass
 
     private val shellDependencies: List[String] = List("yt-dlp", "jq")
     private def checkDependencies: F[Unit] =
@@ -49,28 +45,39 @@ object ShowFetcher {
             )
         )
 
-    // Download the json from the source in a temp file
-    private def fetchJson(source: ShowSource): Resource[F, File] =
-      Resource
-        .make(ResourceAccess.toTempFile(s"${UUID.randomUUID.toString}.json", Array.empty).pure)(f =>
-          Async[F].delay(f.delete()).void
-        )
-        .evalMap(f =>
-          Async[F].delay(
-            Process(source.toYTDLPCommand).#>(f).!
-          ) >> Async[F].pure(f)
-        )
+    private def dbShowDataFromFile(file: File): F[List[DBShowData]] =
+      for
+        _ <- LogWriter.info(s"[ShowFetcher] show file exists at ${file.toPath().toAbsolutePath()}")
+        fileContent = Files.readAllBytes(file.toPath()).map(_.toChar).mkString
+        dbShowData <- parseJson(fileContent)
+      yield dbShowData
 
-    private def filterJson(sourceJson: File, source: ShowSource): F[Unit] =
-      val jqCommand = Process(source.toJqCommand).#<(sourceJson).#>(File(source.outputFilePath))
-      Async[F].delay(jqCommand.!!).void
-
-    private def parseJson(source: ShowSource): F[List[DBShowData]] =
-      val input = Files.readAllBytes(File(source.outputFilePath).toPath()).map(_.toChar).mkString
-      Async[F].fromEither(
-        decode[List[DBShowData]](
-          input
+    private def dbShowDataFromYoutube(source: ShowSource): F[List[DBShowData]] =
+      val path = Path.of(source.outputFilePath)
+      for {
+        _ <- LogWriter.info(s"[ShowFetcher] fetch show file for $source into ${path.toAbsolutePath()}")
+        dbShowDatass <- source.youtubeSources.parTraverse(youtubeSource =>
+          for
+            youtubeSourceContent         <- fetchJson(youtubeSource)
+            youtubeSourceContentFiltered <- filterJson(youtubeSourceContent, youtubeSource, source.botName)
+            result                       <- parseJson(youtubeSourceContentFiltered)
+          yield result
         )
+        dbShowDatas = dbShowDatass.flatten
+        _ <- Async[F].delay(Files.writeString(path, dbShowDatas.asJson.noSpaces))
+      } yield dbShowDatas
+
+    private def fetchJson(source: YoutubeSource): F[String] =
+      Async[F].delay(
+        Process(source.toYTDLPCommand).!!
       )
+
+    private def filterJson(sourceJson: String, youtubeSource: YoutubeSource, botName: String): F[String] =
+      val jqCommand = Process(youtubeSource.toJqCommand(botName)).#<(s"echo $sourceJson")
+      Async[F].delay(jqCommand.!!)
+
+    private def parseJson(input: String): F[List[DBShowData]] =
+      Async[F].fromEither(decode[List[DBShowData]](input))
+
   }
 }

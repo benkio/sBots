@@ -107,7 +107,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   instructionsCommandTest(
     commandRepliesData = commandRepliesData,
-    italianInstructions = s"""
+    italianInstructions = """
 ---- Instruzioni Per RichardPHJBensonBot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -141,7 +141,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-    englishInstructions = s"""
+    englishInstructions = """
 ---- Instructions for RichardPHJBensonBot ----
 
 to report issues, write to: https://t.me/Benkio

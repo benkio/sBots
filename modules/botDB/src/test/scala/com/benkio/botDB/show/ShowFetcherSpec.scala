@@ -30,7 +30,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
     for
       _ <- IO(File(outputFileName).delete())
       showSource <- ShowSource[IO](
-        "https://www.youtube.com/playlist?list=PLO1i4nEhzCLYvR6gBHuZJS4z28he2S8yh",
+        List("https://www.youtube.com/playlist?list=PLO1i4nEhzCLYvR6gBHuZJS4z28he2S8yh"),
         "testBot",
         outputFileName
       )
