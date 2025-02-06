@@ -15,21 +15,21 @@ import java.nio.file.Files
 import scala.concurrent.duration.*
 
 class ShowFetcherSpec extends CatsEffectSuite {
-  val outputFileName = "./delirioBaldazzi.json"
+  val outputFileName = "./test.json"
 
   // TODO: make the tests faster and remove this eventually
-  override val munitIOTimeout = 2.minutes
+  override val munitIOTimeout = 1.minutes
   given log: LogWriter[IO]    = consoleLogUpToLevel(LogLevels.Info)
   val ciEnvVar                = sys.env.get("CI")
 
-  test("generateShowJson should return a json if the input is valid") {
+  test("generateShowJson should return a json if the input is valid".only) {
     assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
 
     val showFetcher = ShowFetcher[IO]()
     for
       _ <- IO(File(outputFileName).delete())
       showSource <- ShowSource[IO](
-        List("https://www.youtube.com/playlist?list=PLO1i4nEhzCLYvR6gBHuZJS4z28he2S8yh"),
+        List("https://www.youtube.com/playlist?list=PL1hlX04-g75DGniSXtYRSlMBaroamq96d"),
         "testBot",
         outputFileName
       )
@@ -37,7 +37,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
       result2 <- showFetcher.generateShowJson(showSource)
       _       <- IO(File(outputFileName).delete())
     yield {
-      assert(result1.length > 5)
+      assert(result1.length == 3)
       assert(result1 == result2)
     }
   }

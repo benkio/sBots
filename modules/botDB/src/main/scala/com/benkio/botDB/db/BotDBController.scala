@@ -62,7 +62,7 @@ object BotDBController {
         showConfig.showSources
           .parTraverse(ms =>
             for
-              showSource <- ShowSource(ms.url, ms.botName, ms.outputFilePath)
+              showSource <- ShowSource(ms.urls, ms.botName, ms.outputFilePath)
               _ <- if showConfig.dryRun then Async[F].delay(File(ms.outputFilePath).delete).void else Async[F].unit
               dbShowDatas <- showFetcher.generateShowJson(showSource)
             yield dbShowDatas

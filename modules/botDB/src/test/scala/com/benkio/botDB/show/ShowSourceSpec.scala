@@ -21,7 +21,7 @@ class ShowSourceSpec extends FunSuite {
     val url = "https://www.youtube.com/@youtuboancheio1365"
     assertEquals(
       ShowSource[EitherThrow](List(url), botName, outputFilePath),
-      Right(ShowSource(List(YoutubePlaylist(Uri.unsafeFromString(url))), botName, outputFilePath))
+      Right(ShowSource(List(YoutubeChannel(Uri.unsafeFromString(url))), botName, outputFilePath))
     )
   }
   test("fromString should fail if the url is invalid") {

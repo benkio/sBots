@@ -11,6 +11,7 @@ import log.effect.LogWriter
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
+import java.nio.charset.StandardCharsets
 import scala.sys.process.*
 import scala.sys.process.Process
 
@@ -63,7 +64,7 @@ object ShowFetcher {
             result                       <- parseJson(youtubeSourceContentFiltered)
           yield result
         )
-        dbShowDatas = dbShowDatass.flatten
+        dbShowDatas = dbShowDatass.flatten.distinct
         _ <- Async[F].delay(Files.writeString(path, dbShowDatas.asJson.noSpaces))
       } yield dbShowDatas
 
@@ -73,7 +74,7 @@ object ShowFetcher {
       )
 
     private def filterJson(sourceJson: String, youtubeSource: YoutubeSource, botName: String): F[String] =
-      val jqCommand = Process(youtubeSource.toJqCommand(botName)).#<(s"echo $sourceJson")
+      val jqCommand = Process(youtubeSource.toJqCommand(botName)).#<(new java.io.ByteArrayInputStream(sourceJson.getBytes(StandardCharsets.UTF_8)))
       Async[F].delay(jqCommand.!!)
 
     private def parseJson(input: String): F[List[DBShowData]] =
