@@ -22,7 +22,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
   given log: LogWriter[IO]    = consoleLogUpToLevel(LogLevels.Info)
   val ciEnvVar                = sys.env.get("CI")
 
-  test("generateShowJson should return a json if the input is valid".only) {
+  test("generateShowJson should return a json if the input is valid") {
     assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
 
     val showFetcher = ShowFetcher[IO]()

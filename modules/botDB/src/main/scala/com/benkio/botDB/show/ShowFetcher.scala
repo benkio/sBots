@@ -2,16 +2,18 @@ package com.benkio.botDB.show
 
 import cats.effect.implicits.*
 import cats.effect.kernel.Async
+import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
-import io.circe.parser.decode
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import io.circe.parser.*
 import io.circe.syntax.*
 import log.effect.LogWriter
 
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.charset.StandardCharsets
+import java.util.UUID
 import scala.sys.process.*
 import scala.sys.process.Process
 
@@ -33,7 +35,7 @@ object ShowFetcher {
           else dbShowDataFromYoutube(source)
       yield dbShowDatass
 
-    private val shellDependencies: List[String] = List("yt-dlp", "jq")
+    private val shellDependencies: List[String] = List("yt-dlp")
     private def checkDependencies: F[Unit] =
       shellDependencies
         .traverse_(program =>
@@ -48,9 +50,9 @@ object ShowFetcher {
 
     private def dbShowDataFromFile(file: File): F[List[DBShowData]] =
       for
-        _ <- LogWriter.info(s"[ShowFetcher] show file exists at ${file.toPath().toAbsolutePath()}")
-        fileContent = Files.readAllBytes(file.toPath()).map(_.toChar).mkString
-        dbShowData <- parseJson(fileContent)
+        _           <- LogWriter.info(s"[ShowFetcher] show file exists at ${file.toPath().toAbsolutePath()}")
+        fileContent <- fileToString(file)
+        dbShowData  <- Async[F].fromEither(decode[List[DBShowData]](fileContent))
       yield dbShowData
 
     private def dbShowDataFromYoutube(source: ShowSource): F[List[DBShowData]] =
@@ -59,26 +61,41 @@ object ShowFetcher {
         _ <- LogWriter.info(s"[ShowFetcher] fetch show file for $source into ${path.toAbsolutePath()}")
         dbShowDatass <- source.youtubeSources.parTraverse(youtubeSource =>
           for
-            youtubeSourceContent         <- fetchJson(youtubeSource)
-            youtubeSourceContentFiltered <- filterJson(youtubeSourceContent, youtubeSource, source.botName)
-            result                       <- parseJson(youtubeSourceContentFiltered)
+            _ <- LogWriter.info(s"[ShowFetcher] start fetching $youtubeSource for $source")
+            youtubeResourceFile = fetchJson(youtubeSource)
+            _ <- LogWriter.info(s"[ShowFetcher] fetch completed for $youtubeSource for $source")
+            result <- youtubeResourceFile.use(inputFile =>
+              LogWriter.info(
+                s"[ShowFetcher] filter & parse tarted for $youtubeSource for $source, data to filter ${Files.size(inputFile.toPath())}"
+              ) >>
+                filterAndParseJson(inputFile, source)
+            )
           yield result
         )
         dbShowDatas = dbShowDatass.flatten.distinct
         _ <- Async[F].delay(Files.writeString(path, dbShowDatas.asJson.noSpaces))
       } yield dbShowDatas
 
-    private def fetchJson(source: YoutubeSource): F[String] =
-      Async[F].delay(
-        Process(source.toYTDLPCommand).!!
-      )
+    private def fetchJson(source: YoutubeSource): Resource[F, File] =
+      Resource
+        .make(ResourceAccess.toTempFile(s"${UUID.randomUUID.toString}.json", Array.empty).pure)(f =>
+          Async[F].delay(f.delete()).void
+        )
+        .evalMap(f =>
+          Async[F].delay(
+            Process(source.toYTDLPCommand).#>(f).!
+          ) >> Async[F].pure(f)
+        )
 
-    private def filterJson(sourceJson: String, youtubeSource: YoutubeSource, botName: String): F[String] =
-      val jqCommand = Process(youtubeSource.toJqCommand(botName)).#<(new java.io.ByteArrayInputStream(sourceJson.getBytes(StandardCharsets.UTF_8)))
-      Async[F].delay(jqCommand.!!)
+    private def filterAndParseJson(sourceJson: File, source: ShowSource): F[List[DBShowData]] =
+      for
+        inputFileContent <- fileToString(sourceJson)
+        json <- Async[F].fromEither(parse(inputFileContent))
+        dbShowDatas      <- YoutubeJSONParser.parseYoutube[F](json, source.botName)
+        _ <- Async[F].delay(Files.write(Path.of(source.outputFilePath), dbShowDatas.asJson.toString.getBytes()))
+      yield dbShowDatas
 
-    private def parseJson(input: String): F[List[DBShowData]] =
-      Async[F].fromEither(decode[List[DBShowData]](input))
-
+    private def fileToString(file: File): F[String] =
+      Async[F].delay(Files.readAllBytes(file.toPath()).map(_.toChar).mkString)
   }
 }

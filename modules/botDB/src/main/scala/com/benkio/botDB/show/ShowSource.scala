@@ -27,11 +27,4 @@ object ShowSource:
       )
       .map(youtubeSources => ShowSource(youtubeSources, botName, outputFilePath))
 
-extension (youtubeSource: YoutubeSource)
-  def toYTDLPCommand: String = s"""yt-dlp -J --verbose ${youtubeSource.url}"""
-  def toJqCommand(botName: String): String = youtubeSource match {
-    case YoutubeChannel(_) =>
-      s"""jq 'del(..|nulls) | .entries[] | select(.title|contains("Videos")) | [.entries[] | {show_url: .webpage_url, show_title: .title, show_upload_date: .upload_date, show_duration: .duration, show_description: .description, show_is_live: .is_live, show_origin_automatic_caption: .automatic_captions | with_entries(if (.key|test(".*orig")) then ( {key: .key, value: .value } ) else empty end)[][] | select(.ext|contains("json")) | .url }] | map(. + {"bot_name": "$botName"})'"""
-    case YoutubePlaylist(_) =>
-      s"""jq 'del(..|nulls) | [.entries[] | {show_url: .webpage_url, show_title: .title, show_upload_date: .upload_date, show_duration: .duration, show_description: .description, show_is_live: .is_live, show_origin_automatic_caption: .automatic_captions | with_entries(if (.key|test(".*orig")) then ( {key: .key, value: .value } ) else empty end)[][] | select(.ext|contains("json")) | .url }] | map(. + {"bot_name": "$botName"})'"""
-  }
+extension (youtubeSource: YoutubeSource) def toYTDLPCommand: String = s"""yt-dlp -J --verbose ${youtubeSource.url}"""
