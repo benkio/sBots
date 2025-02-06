@@ -92,7 +92,6 @@ object ShowFetcher {
         inputFileContent <- fileToString(sourceJson)
         json <- Async[F].fromEither(parse(inputFileContent))
         dbShowDatas      <- YoutubeJSONParser.parseYoutube[F](json, source.botName)
-        _ <- Async[F].delay(Files.write(Path.of(source.outputFilePath), dbShowDatas.asJson.toString.getBytes()))
       yield dbShowDatas
 
     private def fileToString(file: File): F[String] =

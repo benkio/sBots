@@ -25,7 +25,7 @@ object YoutubeJSONParser:
   private def youtubeVideoToDBSHowData[F[_]: Async](json: Json, botName: String): F[Json] =
     Async[F].fromEither(
       for
-        show_url <- json.hcursor.get[String]("webpage_url")
+        id <- json.hcursor.get[String]("id")
         show_title <- json.hcursor.get[String]("title")
         show_upload_date <- json.hcursor.get[String]("upload_date")
         show_duration <- json.hcursor.get[Int]("duration")
@@ -33,7 +33,7 @@ object YoutubeJSONParser:
         show_is_live <- json.hcursor.get[Boolean]("is_live")
         show_origin_automatic_caption = extractOriginCaptions(json)
       yield Json.obj(
-        "show_url"                      -> Json.fromString(show_url),
+        "show_url"                      -> Json.fromString(s"https://www.youtube.com/watch?v=$id"),
         "bot_name"                      -> Json.fromString(botName),
         "show_title"                    -> Json.fromString(show_title),
         "show_upload_date"              -> Json.fromString(show_upload_date),
