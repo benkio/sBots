@@ -64,7 +64,12 @@ object BotDBController {
             for
               showSource <- ShowSource(ms.urls, ms.botName, ms.outputFilePath)
               _ <- if showConfig.dryRun then Async[F].delay(File(ms.outputFilePath).delete).void else Async[F].unit
-              dbShowDatas <- showFetcher.generateShowJson(showSource)
+              EitherDbShowDatas <- showFetcher.generateShowJson(showSource).attempt
+              dbShowDatas <- EitherDbShowDatas.fold(
+                err =>
+                  LogWriter.error(s"[BotDBController] ERROR when computing $showSource with $err") >> List.empty.pure,
+                _.pure
+              )
             yield dbShowDatas
           )
           .flatMap(
