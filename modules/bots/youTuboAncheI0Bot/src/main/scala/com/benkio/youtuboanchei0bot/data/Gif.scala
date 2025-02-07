@@ -884,7 +884,9 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "\\bball(o|are|i)\\b".r.tr(5),
-      "\\bdanz(a|are|i)\\b".r.tr(5)
+      "\\bdanz(a|are|i)\\b".r.tr(5),
+      "💃",
+      "🕺"
     )(
       gif"ytai_Ballo.mp4"
     ),

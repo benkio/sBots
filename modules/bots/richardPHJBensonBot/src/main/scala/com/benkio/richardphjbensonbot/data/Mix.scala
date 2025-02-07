@@ -1168,7 +1168,9 @@ object Mix {
       vid"rphjb_GiudaFrocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "danza macabra"
+      "danza macabra",
+      "💃",
+      "🕺"
     )(
       gif"rphjb_DanzaMacabraGif.mp4",
       vid"rphjb_DanzaMacabra.mp4",

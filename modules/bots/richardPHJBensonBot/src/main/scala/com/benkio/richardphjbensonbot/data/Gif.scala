@@ -314,6 +314,11 @@ object Gif {
       "non è male"
     )(
       gif"rphjb_NonEMale.mp4"
+    ),
+    ReplyBundleMessage.textToGif[F](
+      "\\btuffo\\b".r.tr(5)
+    )(
+      gif"rphjb_Tuffo.mp4"
     )
   )
 
