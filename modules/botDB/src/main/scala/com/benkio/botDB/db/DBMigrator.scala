@@ -58,7 +58,8 @@ object DBMigrator {
       .validateWithResult()
 
     if !validated.validationSuccessful then
-      for error <- validated.invalidMigrations.asScala do println(s"""
+      for error <- validated.invalidMigrations.asScala do
+        println(s"""
                    |Failed validation:
                    |  - version: ${error.version}
                    |  - path: ${error.filepath}

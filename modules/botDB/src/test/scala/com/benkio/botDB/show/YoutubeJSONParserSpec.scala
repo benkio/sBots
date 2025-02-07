@@ -24,12 +24,12 @@ class YoutubeJSONParserSpec extends CatsEffectSuite {
         show_duration = 192,
         show_description = Some(
           value = """#RichardBenson #QuelliDellaNotte #RenzoArbore
-          |
-          |NUOVO GRUPPO E CANALE TELEGRAM:
-          |
-          |GRUPPO: https://t.me/bbensonreloaded
-          |
-          |CANALE:https://t.me/simposiodelmedallo""".stripMargin
+                    |
+                    |NUOVO GRUPPO E CANALE TELEGRAM:
+                    |
+                    |GRUPPO: https://t.me/bbensonreloaded
+                    |
+                    |CANALE:https://t.me/simposiodelmedallo""".stripMargin
         ),
         show_is_live = false,
         show_origin_automatic_caption = Some(
@@ -45,13 +45,13 @@ class YoutubeJSONParserSpec extends CatsEffectSuite {
         show_duration = 114,
         show_description = Some(
           value = """Video integro: https://www.facebook.com/archiviobenson/videos/513055709331468/
-          |#RichardBenson #QuelliDellaNotte #RenzoArbore
-          |
-          |NUOVO GRUPPO E CANALE TELEGRAM:
-          |
-          |GRUPPO: https://t.me/bbensonreloaded
-          |
-          |CANALE:https://t.me/simposiodelmedallo""".stripMargin
+                    |#RichardBenson #QuelliDellaNotte #RenzoArbore
+                    |
+                    |NUOVO GRUPPO E CANALE TELEGRAM:
+                    |
+                    |GRUPPO: https://t.me/bbensonreloaded
+                    |
+                    |CANALE:https://t.me/simposiodelmedallo""".stripMargin
         ),
         show_is_live = false,
         show_origin_automatic_caption = Some(

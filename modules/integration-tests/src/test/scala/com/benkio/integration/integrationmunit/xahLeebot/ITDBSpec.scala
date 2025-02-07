@@ -3,20 +3,21 @@ package com.benkio.integration.integrationmunit.xahleebot
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.integration.DBFixture
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.xahleebot.CommandRepliesData
 import doobie.implicits.*
 import io.circe.parser.decode
-import java.io.File
 import munit.CatsEffectSuite
+
+import java.io.File
 import scala.io.Source
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
@@ -49,7 +50,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
             botName = botName,
             botPrefix = botPrefix,
             dbLayer = resourceDBLayer,
-            backgroundJobManager = bjm,
+            backgroundJobManager = bjm
           )
           .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       )
@@ -60,7 +61,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println(s"[ERROR] file missing from the DB: " + file))
+              .onError(_ => IO.println("[ERROR] file missing from the DB: " + file))
               .attempt
               .map(_.isRight)
           )
@@ -75,7 +76,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test(
     "commandRepliesData random files should be contained in the jsons"
   ) { fixture =>
-    val listPath                                   = new File(s"./../bots/xahLeeBot").getCanonicalPath + "/xah_list.json"
+    val listPath                                   = new File("./../bots/xahLeeBot").getCanonicalPath + "/xah_list.json"
     val jsonContent                                = Source.fromFile(listPath).getLines().mkString("\n")
     val json: Either[io.circe.Error, List[String]] = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
@@ -88,7 +89,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
             botName = botName,
             botPrefix = botPrefix,
             dbLayer = resourceDBLayer,
-            backgroundJobManager = bjm,
+            backgroundJobManager = bjm
           )
           .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       )
@@ -101,7 +102,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 val result = jsonMediaFileSources.exists((mediaFilenameSource: String) =>
                   mediaFilenameSource == mediaFile.filename
                 )
-                if (!result) {
+                if !result then {
                   println(s"${mediaFile.filename} is not contained in the json file")
                 }
                 result

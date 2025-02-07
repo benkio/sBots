@@ -1,18 +1,19 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
+import cats.effect.kernel.Outcome
 import cats.effect.IO
 import cats.effect.Resource
-import cats.effect.kernel.Outcome
 import com.benkio.integration.DBFixture
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
-import java.time.Instant
-import java.util.UUID
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import little.time.CronSchedule
 import munit.CatsEffectSuite
+
+import java.time.Instant
+import java.util.UUID
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 

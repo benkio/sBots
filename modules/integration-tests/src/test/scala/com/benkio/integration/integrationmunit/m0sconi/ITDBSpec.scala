@@ -1,16 +1,14 @@
 package com.benkio.integration.integrationmunit.M0sconi
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.integration.DBFixture
-import munit.CatsEffectSuite
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-
 import cats.effect.IO
-
 import cats.implicits.*
+import com.benkio.integration.DBFixture
+import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import doobie.implicits.*
+import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
@@ -31,7 +29,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(mp3.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println(s"[ERROR] mp3 missing from the DB: " + mp3))
+              .onError(_ => IO.println("[ERROR] mp3 missing from the DB: " + mp3))
               .attempt
               .map(_.isRight)
           )

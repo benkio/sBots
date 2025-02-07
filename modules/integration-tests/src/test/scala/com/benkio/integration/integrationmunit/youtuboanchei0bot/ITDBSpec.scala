@@ -1,16 +1,14 @@
 package com.benkio.integration.integrationmunit.youtuboanchei0bot
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
-import com.benkio.integration.DBFixture
-import munit.CatsEffectSuite
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-
 import cats.effect.IO
-
 import cats.implicits.*
+import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import doobie.implicits.*
+import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
@@ -31,7 +29,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(mp3.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println(s"[ERROR] mp3 missing from the DB: " + mp3))
+              .onError(_ => IO.println("[ERROR] mp3 missing from the DB: " + mp3))
               .attempt
               .map(_.isRight)
           )
@@ -53,7 +51,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 .getMediaQueryByName(gif.filename)
                 .unique
                 .transact(transactor)
-                .onError(_ => IO.println(s"[ERROR] gif missing from the DB: " + gif))
+                .onError(_ => IO.println("[ERROR] gif missing from the DB: " + gif))
                 .attempt
                 .map(_.isRight)
             )
@@ -75,7 +73,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(special.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println(s"[ERROR] special missing from the DB: " + special))
+              .onError(_ => IO.println("[ERROR] special missing from the DB: " + special))
               .attempt
               .map(_.isRight)
           )
@@ -98,7 +96,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(special.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println(s"[ERROR] special missing from the DB: " + special))
+              .onError(_ => IO.println("[ERROR] special missing from the DB: " + special))
               .attempt
               .map(_.isRight)
           )

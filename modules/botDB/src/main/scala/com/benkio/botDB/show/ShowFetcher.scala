@@ -75,7 +75,7 @@ object ShowFetcher {
             LogWriter.error(s"[ShowFetcher] ERROR when computing $source with $err") >> List.empty.pure
           )
         )
-        dbShowDatas = dbShowDatass.flatten.distinct
+        dbShowDatas = dbShowDatass.flatten.distinctBy(_.show_url)
         _ <- LogWriter.info(s"[ShowFetcher] outputFileWritten for $source. Total Shows: ${dbShowDatas.length}")
         _ <- Async[F].delay(Files.writeString(path, dbShowDatas.asJson.noSpaces))
       } yield dbShowDatas

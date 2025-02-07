@@ -1,18 +1,18 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
-import io.circe.parser.decode
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
-import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
-import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
-import doobie.Transactor
-import java.sql.DriverManager
+import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
-import munit.CatsEffectSuite
+import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
+import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.resources.db.DBShow
+import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import doobie.munit.analysisspec.IOChecker
+import doobie.Transactor
+import io.circe.parser.decode
+import munit.CatsEffectSuite
 
-import cats.effect.IO
+import java.sql.DriverManager
 
 class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
@@ -20,14 +20,14 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
   val testShowRaw: String =
     """{
-      |    "show_url": "https://www.youtube.com/watch?v=t3kx8KMfdKo",
-      |    "show_title": "Richard Benson | Ottava Nota | Alex Britti e Mario Magnotta da L'Aquila (8 Gennaio 1997) [INEDITA]",
-      |    "show_upload_date": "20250108",
-      |    "show_duration": 3453,
-      |    "show_description": "Si ringrazia Renzo Di Pietro, che ha messo a disposizione per le Brigate Benson il suo prezioso archivio di nastri di Ottava Nota. \n\nGRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram\nCANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram\nPAGINA FACEBOOK: https://bit.ly/brigate-benson-facebook\n#richardbenson #ottavanota",
+      |    "show_url": "https://www.youtube.com/watch?v=J60iupukb6c",
+      |    "bot_name": "RichardPHJBensonBot",
+      |    "show_title": "Cocktail Micidiale 25 febbraio 2005 (puntata completa) l'ultima regia di Ghent",
+      |    "show_upload_date": "20180611",
+      |    "show_duration": 831,
+      |    "show_description": "#RichardBenson #CocktailMicidiale",
       |    "show_is_live": false,
-      |    "show_origin_automatic_caption": "https://www.youtube.com/api/timedtext?v=t3kx8KMfdKo&ei=MnehZ7efN9y-kucP0sHU-AU&caps=asr&opi=112496729&xoaf=4&hl=en&ip=0.0.0.0&ipbits=0&expire=1738660258&sparams=ip%2Cipbits%2Cexpire%2Cv%2Cei%2Ccaps%2Copi%2Cxoaf&signature=6799F2EA1441D4000C3E778D7ADE93FB77D663BA.D97F90383702A3D5EE65D14648B99350951A1C7F&key=yt8&kind=asr&lang=it&fmt=json3",
-      |    "bot_name": "RichardPHJBensonBot"
+      |    "show_origin_automatic_caption": "https://www.youtube.com/api/timedtext?v=J60iupukb6c&ei=rz6lZ_-LHPm3kucP1dfk6Ao&caps=asr&opi=112496729&xoaf=4&hl=en&ip=0.0.0.0&ipbits=0&expire=1738907935&sparams=ip%2Cipbits%2Cexpire%2Cv%2Cei%2Ccaps%2Copi%2Cxoaf&signature=C2C1973F010B5F08BC840B19B71964CCA36BA458.C0E4842069419D32BED2B351101080B1FB5A94A3&key=yt8&kind=asr&lang=it&fmt=json3"
       |  }""".stripMargin
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
@@ -56,7 +56,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
       dbShow      <- fixture.resourceDBLayer.map(_.dbShow)
       bensonShows <- Resource.eval(dbShow.getShows(botName))
       bensonShowsByKeyword <- Resource.eval(
-        dbShow.getShowByShowQuery(ShowQuery("title=Alex+Britti+e+Mario+Magnotta"), botName)
+        dbShow.getShowByShowQuery(ShowQuery("title=Cocktail+Micidiale&title=ghent"), botName)
       )
     } yield (bensonShows, bensonShowsByKeyword, testShow)
 

@@ -1,15 +1,15 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
-import doobie.Transactor
-import java.sql.DriverManager
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
-import munit.CatsEffectSuite
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import doobie.munit.analysisspec.IOChecker
+import doobie.Transactor
+import munit.CatsEffectSuite
 
-import cats.effect.IO
+import java.sql.DriverManager
 
 class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
@@ -31,7 +31,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       actual.media_sources == expected.media_sources &&
       actual.kinds == expected.kinds &&
       actual.media_count == expected.media_count
-    if (!result)
+    if !result then
       println(s"checkMedia test failure: $actual ≄ $expected")
       println(s"test 1 - ${actual.media_name == expected.media_name}")
       println(s"test 2 - ${actual.media_sources == expected.media_sources}")

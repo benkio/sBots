@@ -1,18 +1,17 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
-
-import doobie.Transactor
-import java.sql.DriverManager
+import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
+import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
+import doobie.munit.analysisspec.IOChecker
+import doobie.Transactor
 import munit.CatsEffectSuite
-import cats.effect.IO
 
+import java.sql.DriverManager
 import java.time.Instant
 import scala.concurrent.duration.*
-import doobie.munit.analysisspec.IOChecker
 
 class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   val testTimeoutChatId = 1L

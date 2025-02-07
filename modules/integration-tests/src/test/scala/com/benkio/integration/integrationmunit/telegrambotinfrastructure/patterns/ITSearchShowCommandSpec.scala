@@ -1,11 +1,11 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.patterns
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
 import cats.effect.IO
 import cats.implicits.*
-import munit.CatsEffectSuite
 import com.benkio.integration.DBFixture
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
+import com.benkio.telegrambotinfrastructure.resources.db.DBShow
+import munit.CatsEffectSuite
 
 class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
 
@@ -18,9 +18,9 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       )
       .map(result => {
         val check = optExpected.fold(
-          result.length == 1 && result != List(s"Nessuna puntata/show contenente '' è stata trovata")
+          result.length == 1 && result != List("Nessuna puntata/show contenente '' è stata trovata")
         )(e => result == List(e))
-        if (!check) println(s"ERROR: $botName - $input - $optExpected - $result")
+        if !check then println(s"ERROR: $botName - $input - $optExpected - $result")
         check
       })
 
@@ -133,9 +133,9 @@ object ITSearchShowCommandSpec {
         """2023-05-18 - https://www.youtube.com/watch?v=x0cvonF0GYU
           | Chiedilo a Barbero - Bruciare i libri - Intesa Sanpaolo On Air
           |----------
-          | Barbero risponde a domande sulla ￢ﾀﾜbibliolitia￢ﾀﾝ nella storia, ovvero la triste pratica di bruciare i libri, spesso promossa da autoritￃﾠ politiche o religiose.
+          | Barbero risponde a domande sulla “bibliolitia” nella storia, ovvero la triste pratica di bruciare i libri, spesso promossa da autorità politiche o religiose.
           |
-          |Iscriviti al canale per non perderti nessun aggiornamento su ￢ﾀﾜChiedilo a Barbero￢ﾀﾝ e seguici su:
+          |Iscriviti al canale per non perderti nessun aggiornamento su “Chiedilo a Barbero” e seguici su:
           |Spotify: https://open.spotify.com/show/7JLDPffy6du4rAy8xW3hTT
           |Apple Podcast: https://podcasts.apple.com/it/podcast/chiedilo-a-barbero-intesa-sanpaolo-on-air/id1688392438
           |Google Podcast: https://podcasts.google.com/feed/aHR0cHM6Ly9kMTcycTN0b2o3dzFtZC5jbG91ZGZyb250Lm5ldC9yc3MteG1sLWZpbGVzLzhmYjliOGYyLTU5MGItNDhmOS1hNTY2LWE5NWI3OTUwYWY2OC54bWw
@@ -148,9 +148,9 @@ object ITSearchShowCommandSpec {
         """2023-05-23 - https://www.youtube.com/watch?v=m3eF0adEZe0
           | Chiedilo a Barbero - La storia al contrario - Intesa Sanpaolo On Air
           |----------
-          | Si puￃﾲ insegnare la storia dal presente al passato? Cosa succederebbe se andassimo a ritroso nell￢ﾀﾙinsegnamento dei programmi scolastici? 
+          | Si può insegnare la storia dal presente al passato? Cosa succederebbe se andassimo a ritroso nell’insegnamento dei programmi scolastici? 
           |
-          |Iscriviti al canale per non perderti nessun aggiornamento su ￢ﾀﾜChiedilo a Barbero￢ﾀﾝ e seguici su:
+          |Iscriviti al canale per non perderti nessun aggiornamento su “Chiedilo a Barbero” e seguici su:
           |Spotify: https://open.spotify.com/show/7JLDPffy6du4rAy8xW3hTT
           |Apple Podcast: https://podcasts.apple.com/it/podcast/chiedilo-a-barbero-intesa-sanpaolo-on-air/id1688392438
           |Google Podcast: https://podcasts.google.com/feed/aHR0cHM6Ly9kMTcycTN0b2o3dzFtZC5jbG91ZGZyb250Lm5ldC9yc3MteG1sLWZpbGVzLzhmYjliOGYyLTU5MGItNDhmOS1hNTY2LWE5NWI3OTUwYWY2OC54bWw
@@ -160,7 +160,7 @@ object ITSearchShowCommandSpec {
       botName = "YouTuboAncheI0Bot",
       randomLinkInput = "1/2 pollo",
       expectedOutput = """2018-02-17 - https://www.youtube.com/watch?v=s3zI2UGcRu0
-                         | 1 kg Tiramisￃﾹ + 1/2 pollo : circa 3600 kcal !
+                         | 1 kg Tiramisù + 1/2 pollo : circa 3600 kcal !
                          |----------
                          | """.stripMargin
     ),
@@ -168,7 +168,7 @@ object ITSearchShowCommandSpec {
       botName = "YouTuboAncheI0Bot",
       randomLinkInput = "title=autostrada&title=quasi+fatto&title=addosso",
       expectedOutput = """2019-01-22 - https://www.youtube.com/watch?v=wzXGHazXM1w
-                         | Fermo in autostrada per incidente; mi sono quasi fatto la pipￃﾬ addosso ￰ﾟﾘﾢ
+                         | Fermo in autostrada per incidente; mi sono quasi fatto la pipì addosso 😢
                          |----------
                          | """.stripMargin
     ),
@@ -203,7 +203,7 @@ object ITSearchShowCommandSpec {
     ),
     TestInput(
       botName = "XahLeeBot",
-      randomLinkInput = "Kinesis Advantage",
+      randomLinkInput = "Kinesis Advantage2 Keyboard Review",
       expectedOutput = """2018-05-30 - https://www.youtube.com/watch?v=FR6Ujuo6seY
                          | Xah Kinesis Advantage2 Keyboard Review
                          |----------
@@ -217,7 +217,7 @@ object ITSearchShowCommandSpec {
           | emacs realtime. mwe log command, editing elisp
           |----------
           | Real world use of emacs. First 20 min is running mwe log commands package. From 20:00 to end, modifying a emacs lisp code that creates ATOM/RSS entry. Elisp code shows beginning at 25:30.""".stripMargin
-    ),
+    )
   )
 
   val showByDescription: List[TestInput] = List(
@@ -234,11 +234,11 @@ object ITSearchShowCommandSpec {
       randomLinkInput = "description=Mussolini&description=Torino",
       expectedOutput =
         """2021-05-27 - https://www.youtube.com/watch?v=vX_yj69z0tQ
-          | Podcast A. Barbero ￢ﾀﾓ Monsￃﾹ Cerruti: Mussolini, il fascismo e il Piemonte ￢ﾀﾓ Intesa Sanpaolo On Air
+          | Podcast A. Barbero – Monsù Cerruti: Mussolini, il fascismo e il Piemonte – Intesa Sanpaolo On Air
           |----------
-          | Il fascismo ebbe a Torino un radicamento piￃﾹ superficiale che altrove. Mussolini lo sapeva e nel corso del ventennio assunse verso la Capitale del Piemonte un atteggiamento ambivalente. A parole rendeva omaggio a quella ￢ﾀﾜsplendida cittￃﾠ del lavoro￢ﾀﾝ, in realtￃﾠ, diffidava tanto dei veri padroni di Torino, gli Agnelli, quanto dei loro operai, che lo soprannominavano beffardamente Monsￃﾹ Cerruti. Finchￃﾩ, durante la repubblica di Salￃﾲ, Mussolini non nascose piￃﾹ la sua avversione per il Piemonte ￢ﾀﾜcentro della Vandea monarchica, reazionaria, bolscevica￢ﾀﾝ.
+          | Il fascismo ebbe a Torino un radicamento più superficiale che altrove. Mussolini lo sapeva e nel corso del ventennio assunse verso la Capitale del Piemonte un atteggiamento ambivalente. A parole rendeva omaggio a quella “splendida città del lavoro”, in realtà, diffidava tanto dei veri padroni di Torino, gli Agnelli, quanto dei loro operai, che lo soprannominavano beffardamente Monsù Cerruti. Finché, durante la repubblica di Salò, Mussolini non nascose più la sua avversione per il Piemonte “centro della Vandea monarchica, reazionaria, bolscevica”.
           |
-          |Iscriviti al canale per non perderti nessun aggiornamento su ￢ﾀﾜAlessandro Barbero. La storia, le storie￢ﾀﾝ e seguici su:
+          |Iscriviti al canale per non perderti nessun aggiornamento su “Alessandro Barbero. La storia, le storie” e seguici su:
           |Spotify https://open.spotify.com/show/3iAPIfy2DGtsy5nfj3eycS?si=X3AU0l8KTF2gefpNigZmjg 
           |Apple Podcast https://podcasts.apple.com/it/podcast/alessandro-barbero-la-storia-le-storie-intesa-sanpaolo/id1521869598 
           |Google Podcast https://podcasts.google.com/feed/aHR0cHM6Ly9kMTcycTN0b2o3dzFtZC5jbG91ZGZyb250Lm5ldC9yc3MteG1sLWZpbGVzLzBjZWM4MTU4LWNmYWQtNDc0YS1iZDM0LTFmMjY1YjdjNTYxMy54bWw?sa=X&ved=0CAYQrrcFahcKEwjY_4ui-b7wAhUAAAAAHQAAAAAQGA 
@@ -249,9 +249,9 @@ object ITSearchShowCommandSpec {
       randomLinkInput = "description=mio+bellissimo+bengalino",
       expectedOutput =
         """2017-12-12 - https://www.youtube.com/watch?v=o__bw45D5vU
-          | ￃﾈ nato un bellissimo bengalino figlio di Gigio ￢ﾀﾘsprint￢ﾀﾙ
+          | È nato un bellissimo bengalino figlio di Gigio ‘sprint’
           |----------
-          | Piￃﾹ o meno due settimane fa , usciva per la prima volta dal nido questo mio bellissimo bengalino ￰ﾟﾍﾀ a cui auguro una vita felice e lunga : da me avrￃﾠ tutte le attenzioni possibili ￰ﾟﾑﾍ Anche se questo non lo terrￃﾳ , ma l￢ﾀﾙho giￃﾠ promesso ad un mio carissimo cugino ... ed anche lui lo accudirￃﾠ sempre al ￰ﾟﾔﾝ.
+          | Più o meno due settimane fa , usciva per la prima volta dal nido questo mio bellissimo bengalino 🍀 a cui auguro una vita felice e lunga : da me avrà tutte le attenzioni possibili 👍 Anche se questo non lo terró , ma l’ho già promesso ad un mio carissimo cugino ... ed anche lui lo accudirà sempre al 🔝.
           |
           |Buona visione a voi tutti e arrivederci al prossimo video .""".stripMargin
     ),
@@ -266,11 +266,11 @@ object ITSearchShowCommandSpec {
           |
           |Mi raccomando Condividete, Iscrivetevi, Lasciate il vostro Like, Attivate la campanella, Commentate...
           |
-          |Nel video si vedono i seguenti prodotti: acqua Calabria, Coca Cola lattina da 1/2 litro, ketchup Kania, bastoncini di merluzzo Lidl e patatine da ristorante Mc Cain... tutti da me amatissimi ￰ﾟﾤﾩ
+          |Nel video si vedono i seguenti prodotti: acqua Calabria, Coca Cola lattina da 1/2 litro, ketchup Kania, bastoncini di merluzzo Lidl e patatine da ristorante Mc Cain... tutti da me amatissimi 🤩
           |
-          |Dunque una buona visione e Grazie per la tua personale visualizzazione ￰ﾟﾑﾍ
+          |Dunque una buona visione e Grazie per la tua personale visualizzazione 👍
           |
-          |Ciaooo da YouTubo Anche Io ￰ﾟﾌﾞ""".stripMargin
+          |Ciaooo da YouTubo Anche Io 🌞""".stripMargin
     ),
     TestInput(
       botName = "RichardPHJBensonBot",
@@ -281,7 +281,7 @@ object ITSearchShowCommandSpec {
           |----------
           | #RichardBenson #Live #Alpheus #LaBefanaDelMale #UnPollo
           |
-          |Un ringraziamento speciale va a Chiara Zoli che ci ha fornito questo reperto in ALTA QUALITￃﾀ! Ella gestisce anche un blog: www.daftbunziblogger.blogspot.it che tratta principalmente tutto ciￃﾲ che riguarda la pop culture anni 80-90! 
+          |Un ringraziamento speciale va a Chiara Zoli che ci ha fornito questo reperto in ALTA QUALITÀ! Ella gestisce anche un blog: www.daftbunziblogger.blogspot.it che tratta principalmente tutto ciò che riguarda la pop culture anni 80-90! 
           |
           |NUOVO GRUPPO E CANALE TELEGRAM:
           |
@@ -339,7 +339,7 @@ using xah-fly-keys.el and xah-html-mode.el"""
                          |01:59:23 emacs keyboard macro
                          |02:19:31 answer for sample input
                          |02:23:24 answer for user input""".stripMargin
-    ),
+    )
   )
 
   val showByMinDuration: List[TestInput] = List(
@@ -436,7 +436,7 @@ Dancing in Second Life to the tune of Michael Jackson's Thriller. The dancers ar
         """2024-07-30 - https://www.youtube.com/watch?v=ABG7zjXVwwE
           | Episodio 64: L'alba dei libri
           |----------
-          | Chi ￃﾨ stato il primo a realizzare un libro? Puntata dedicata a uno degli strumenti piￃﾹ rivoluzionari della storia.""".stripMargin
+          | Chi è stato il primo a realizzare un libro? Puntata dedicata a uno degli strumenti più rivoluzionari della storia.""".stripMargin
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",
@@ -445,9 +445,9 @@ Dancing in Second Life to the tune of Michael Jackson's Thriller. The dancers ar
         """2019-06-08 - https://www.youtube.com/watch?v=MbTXCvrxbTY
           | Capricciosa con Acciughe Alla Pala
           |----------
-          | Buongiorno cari Amici followers , ritorno con questo video di Pizza Unboxing ￢ﾀﾔ il numero 5￢ﾀﾓ spero vivamente sia di Vs gradimento ￰ﾟﾤﾩ
-          |Mi raccomando Iscriviti al Canale, lascia il tuo Like e ￢ﾀﾔ se proprio devi￢ﾀﾔ un commento ... .. ....
-          |Grazie per questa Tua importante visualizzazione ￰ﾟﾑﾍ""".stripMargin
+          | Buongiorno cari Amici followers , ritorno con questo video di Pizza Unboxing — il numero 5– spero vivamente sia di Vs gradimento 🤩
+          |Mi raccomando Iscriviti al Canale, lascia il tuo Like e — se proprio devi— un commento ... .. ....
+          |Grazie per questa Tua importante visualizzazione 👍""".stripMargin
     ),
     TestInput(
       botName = "RichardPHJBensonBot",
@@ -485,7 +485,7 @@ Dancing in Second Life to the tune of Michael Jackson's Thriller. The dancers ar
                          |01:59:23 emacs keyboard macro
                          |02:19:31 answer for sample input
                          |02:23:24 answer for user input""".stripMargin
-    ),
+    )
   )
 
   val showByMaxDate: List[TestInput] = List(
@@ -498,10 +498,10 @@ Dancing in Second Life to the tune of Michael Jackson's Thriller. The dancers ar
           |----------
           | Dialogo fra Alessandro Barbero e Franco Cardini al Festival del Medioevo di Gubbio del 2019.
           |
-          |￰ﾟﾔﾔ Iscriviti al Canale per non perderti i nuovi video del Festival del Medioevo: https://www.youtube.com/c/FestivaldelMedioevo
-          |￰ﾟﾓﾌScarica la App per guardare da casa la diretta del festival e accedere on demand a tutte le lezioni dal 2015 a oggi https://www.festivaldelmedioevo.it/portal/prodotto/app-fdm/
-          |￰ﾟﾒﾻ Scopri il programma della X edizione: "Secoli di luce. Sulle spalle dei giganti" Gubbio, 25-29 settembre 2024 https://www.festivaldelmedioevo.it/portal/programma-2024/
-          |￰ﾟﾑﾉ Acquista un biglietto delle serate del Festival del Medioevo https://www.liveticket.it/festivaldelmedioevo""".stripMargin
+          |🔔 Iscriviti al Canale per non perderti i nuovi video del Festival del Medioevo: https://www.youtube.com/c/FestivaldelMedioevo
+          |📌Scarica la App per guardare da casa la diretta del festival e accedere on demand a tutte le lezioni dal 2015 a oggi https://www.festivaldelmedioevo.it/portal/prodotto/app-fdm/
+          |💻 Scopri il programma della X edizione: "Secoli di luce. Sulle spalle dei giganti" Gubbio, 25-29 settembre 2024 https://www.festivaldelmedioevo.it/portal/programma-2024/
+          |👉 Acquista un biglietto delle serate del Festival del Medioevo https://www.liveticket.it/festivaldelmedioevo""".stripMargin
     ),
     TestInput(
       botName = "YouTuboAncheI0Bot",
@@ -526,6 +526,6 @@ Dancing in Second Life to the tune of Michael Jackson's Thriller. The dancers ar
                          | Xah's Log: Food of a Genius
                          |----------
                          | a documentation of my life.""".stripMargin
-    ),
+    )
   )
 }

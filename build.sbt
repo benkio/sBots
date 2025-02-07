@@ -20,7 +20,7 @@ lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
 // COMMAND ALIASES
 
 addCommandAlias("dbSetup", "runMigrate")
-addCommandAlias("fix", ";scalafixAll; scalafmtAll; scalafmtSbt")
+addCommandAlias("fix", ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt")
 addCommandAlias("check", "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck")
 addCommandAlias("generateTriggerTxt", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
