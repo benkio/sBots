@@ -44,7 +44,7 @@ case class ShowConfig(
 ) derives ConfigReader
 
 case class ShowSourceConfig(
-    url: String,
+    urls: List[String],
     botName: String,
-    outputFilePath: String,
+    outputFilePath: String
 ) derives ConfigReader

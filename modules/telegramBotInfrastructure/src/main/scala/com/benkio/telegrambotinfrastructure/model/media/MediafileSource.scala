@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import io.circe.Decoder
 import io.circe.Encoder
 import io.circe.Encoder.encodeString

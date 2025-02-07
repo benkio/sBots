@@ -1,16 +1,16 @@
 package com.benkio.telegrambotinfrastructure.resources
 
-import munit.CatsEffectSuite
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
-import log.effect.LogLevels
-import com.benkio.telegrambotinfrastructure.model.reply.Document
 import cats.effect.IO
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
+import munit.CatsEffectSuite
 
 import java.nio.file.*
 import scala.util.Random
-import log.effect.LogWriter
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 
 class ResourcesAccessSpec extends CatsEffectSuite {
 

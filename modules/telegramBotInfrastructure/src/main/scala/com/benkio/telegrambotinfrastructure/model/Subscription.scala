@@ -2,11 +2,11 @@ package com.benkio.telegrambotinfrastructure.model
 
 import cats.Show
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
+import little.time.CronSchedule
 
 import java.time.Instant
 import java.util.UUID
 import scala.util.Try
-import little.time.CronSchedule
 
 final case class Subscription(
     id: UUID,

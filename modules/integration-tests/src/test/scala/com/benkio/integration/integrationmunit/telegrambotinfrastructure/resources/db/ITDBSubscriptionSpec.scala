@@ -1,16 +1,16 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
-import doobie.Transactor
-import java.sql.DriverManager
-import java.util.UUID
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
+import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
-import munit.CatsEffectSuite
+import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
+import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import doobie.munit.analysisspec.IOChecker
+import doobie.Transactor
+import munit.CatsEffectSuite
 
-import cats.effect.IO
+import java.sql.DriverManager
+import java.util.UUID
 
 class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker {
 

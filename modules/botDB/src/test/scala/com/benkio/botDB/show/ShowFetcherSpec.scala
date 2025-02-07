@@ -1,25 +1,24 @@
 package com.benkio.botDB.show
 
-import log.effect.LogLevels
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogWriter
-import java.nio.file.Files
-import io.circe.parser.decode
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
-import com.benkio.botDB.config.Config
-import cats.implicits.*
-import java.io.File
 import cats.effect.IO
+import cats.implicits.*
+import com.benkio.botDB.config.Config
+import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
+import io.circe.parser.decode
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
+import munit.*
 
+import java.io.File
+import java.nio.file.Files
 import scala.concurrent.duration.*
 
-import munit._
-
 class ShowFetcherSpec extends CatsEffectSuite {
-  val outputFileName = "./delirioBaldazzi.json"
+  val outputFileName = "./test.json"
 
   // TODO: make the tests faster and remove this eventually
-  override val munitIOTimeout = 2.minutes
+  override val munitIOTimeout = 1.minutes
   given log: LogWriter[IO]    = consoleLogUpToLevel(LogLevels.Info)
   val ciEnvVar                = sys.env.get("CI")
 
@@ -30,7 +29,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
     for
       _ <- IO(File(outputFileName).delete())
       showSource <- ShowSource[IO](
-        "https://www.youtube.com/playlist?list=PLO1i4nEhzCLYvR6gBHuZJS4z28he2S8yh",
+        List("https://www.youtube.com/playlist?list=PL1hlX04-g75DGniSXtYRSlMBaroamq96d"),
         "testBot",
         outputFileName
       )
@@ -38,7 +37,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
       result2 <- showFetcher.generateShowJson(showSource)
       _       <- IO(File(outputFileName).delete())
     yield {
-      assert(result1.length > 5)
+      assert(result1.length == 3)
       assert(result1 == result2)
     }
   }

@@ -1,15 +1,15 @@
 package com.benkio.integration.integrationmunit.botDB
 
+import cats.effect.IO
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.Main
-import java.nio.file.Paths
-import java.nio.file.Files
-import cats.effect.IO
+import doobie.implicits.*
 import doobie.Transactor
 import munit.*
-import scala.concurrent.duration.*
 
-import doobie.implicits.*
+import java.nio.file.Files
+import java.nio.file.Paths
+import scala.concurrent.duration.*
 
 class ITSpec extends CatsEffectSuite with DBConstants {
   // TODO: make the tests faster and remove this eventually

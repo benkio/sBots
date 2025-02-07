@@ -44,7 +44,7 @@ trait DBSubscription[F[_]] {
 object DBSubscription {
 
   def apply[F[_]: Async](
-      transactor: Transactor[F],
+      transactor: Transactor[F]
   )(using log: LogWriter[F]): DBSubscription[F] =
     new DBSubscriptionImpl[F](
       transactor = transactor,
@@ -77,7 +77,7 @@ object DBSubscription {
 
     override def getSubscriptions(botName: String, chatId: Option[Long]): F[List[DBSubscriptionData]] =
       getSubscriptionsQuery(botName, chatId).stream.compile.toList.transact(transactor) <* log.info(
-        s"Get subscriptions"
+        "Get subscriptions"
       )
 
     override def getSubscription(id: String): F[Option[DBSubscriptionData]] =

@@ -1,9 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import munit.FunSuite
+import cats.effect.SyncIO
 import io.circe.parser.decode
 import io.circe.syntax.*
-import cats.effect.SyncIO
+import munit.FunSuite
 
 class ReplySpec extends FunSuite {
 
@@ -46,29 +46,29 @@ class ReplySpec extends FunSuite {
 
   test("Reply JSON decode/encode should work as expected") {
     val jsonInputs = List(
-      s"""{
-         |  "TextReply" : {
-         |    "text" : [
-         |      {
-         |        "value" : "testText"
-         |      }
-         |    ],
-         |    "replyToMessage" : false
-         |  }
-         |}""".stripMargin,
-      s"""{
-         |  "MediaReply" : {
-         |    "mediaFiles" : [
-         |      {
-         |        "VideoFile" : {
-         |          "filepath" : "testFilePath.mp4",
-         |          "replyToMessage" : false
-         |        }
-         |      }
-         |    ],
-         |    "replyToMessage" : false
-         |  }
-         |}""".stripMargin,
+      """{
+        |  "TextReply" : {
+        |    "text" : [
+        |      {
+        |        "value" : "testText"
+        |      }
+        |    ],
+        |    "replyToMessage" : false
+        |  }
+        |}""".stripMargin,
+      """{
+        |  "MediaReply" : {
+        |    "mediaFiles" : [
+        |      {
+        |        "VideoFile" : {
+        |          "filepath" : "testFilePath.mp4",
+        |          "replyToMessage" : false
+        |        }
+        |      }
+        |    ],
+        |    "replyToMessage" : false
+        |  }
+        |}""".stripMargin
     )
 
     for inputString <- jsonInputs

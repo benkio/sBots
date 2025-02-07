@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.web
 
-import org.http4s.Uri
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher.UnexpectedDropboxResponse
@@ -8,8 +7,8 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-
 import org.http4s.ember.client.*
+import org.http4s.Uri
 
 import java.io.File
 import java.nio.file.Files

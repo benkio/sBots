@@ -1,21 +1,21 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.Trigger
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.effect.IO
 import cats.syntax.all.*
-import io.circe.parser.decode
-
-import scala.io.Source
-import java.io.File
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.Trigger
+import io.circe.parser.decode
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
+
+import java.io.File
+import scala.io.Source
 
 trait BaseBotSpec extends CatsEffectSuite:
   def checkContains(triggerContent: String, values: List[String]): Unit =
@@ -65,6 +65,7 @@ trait BaseBotSpec extends CatsEffectSuite:
             )
             .pure[IO]
       yield ()
+      end for
     }
 
   def triggerFileContainsTriggers(
@@ -126,7 +127,7 @@ trait BaseBotSpec extends CatsEffectSuite:
     replyBundleMessages
       .flatMap(replyBundle =>
         replyBundle.trigger match {
-          case TextTrigger(triggerValues @ _*) if replyBundle.matcher == MessageMatches.ContainsOnce =>
+          case TextTrigger(triggerValues*) if replyBundle.matcher == MessageMatches.ContainsOnce =>
             triggerValues.filter(_.isStringTriggerValue).map(stringTrigger => (stringTrigger, replyBundle))
           case _ => Nil
         }
@@ -149,3 +150,4 @@ trait BaseBotSpec extends CatsEffectSuite:
             }
         }
       }
+end BaseBotSpec

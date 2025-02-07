@@ -1,8 +1,8 @@
 package com.benkio.abarberobot.data
 
 import cats.Applicative
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
 object Audio:
@@ -108,7 +108,7 @@ object Audio:
       "streghe",
       "maghi",
       "draghi",
-      "roghi",
+      "roghi"
     )(
       mp3"abar_Draghi.mp3"
     ),
@@ -181,7 +181,7 @@ object Audio:
     ),
     ReplyBundleMessage.textToMp3[F](
       "bruciare",
-      "saccheggiare",
+      "saccheggiare"
     )(
       mp3"abar_Bbq.mp3"
     ),
@@ -282,7 +282,7 @@ object Audio:
       "riti satanici",
       "rinnegamento di gesù cristo",
       "sputi sulla croce",
-      "sodomia",
+      "sodomia"
     )(
       mp3"abar_RitiSataniciSodomia.mp3"
     ),
@@ -297,7 +297,7 @@ object Audio:
       mp3"abar_Bale.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "birra",
+      "birra"
     )(
       mp3"abar_Birra.mp3"
     ),
@@ -413,3 +413,4 @@ object Audio:
       mp3"abar_GenteIgnobile.mp3"
     )
   )
+end Audio

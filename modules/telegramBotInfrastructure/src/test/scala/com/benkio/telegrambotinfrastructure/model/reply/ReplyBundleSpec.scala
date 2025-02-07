@@ -1,25 +1,25 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
+import cats.effect.*
+import cats.syntax.all.*
+import cats.Applicative
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.SelectAll
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import cats.Applicative
-import cats.effect.*
-import cats.syntax.all.*
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import io.circe.parser.decode
 import io.circe.syntax.*
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import munit.CatsEffectSuite
+import telegramium.bots.high.Api
 import telegramium.bots.Chat
 import telegramium.bots.Message
-import telegramium.bots.high.Api
 
 class ReplyBundleSpec extends CatsEffectSuite {
 

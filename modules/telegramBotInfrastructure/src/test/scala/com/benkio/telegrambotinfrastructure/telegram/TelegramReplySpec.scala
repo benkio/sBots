@@ -1,22 +1,21 @@
 package com.benkio.telegrambotinfrastructure.telegram
 
-import com.benkio.telegrambotinfrastructure.model.reply.Document
+import cats.effect.IO
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.GifFile
 import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
-import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
 import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import log.effect.LogLevels
+import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
 import log.effect.LogWriter
-import cats.effect.IO
+import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
-
-import munit._
 
 class TelegramReplySpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)

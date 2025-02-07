@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
-import cats.MonadThrow
 import cats.implicits.*
+import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer

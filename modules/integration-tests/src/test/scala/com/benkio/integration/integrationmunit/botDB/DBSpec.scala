@@ -1,33 +1,31 @@
 package com.benkio.integration.integrationmunit.botDB
 
-import log.effect.LogWriter
+import cats.effect.IO
+import com.benkio.botDB.db.DBMigrator
+import com.benkio.botDB.TestData
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-import com.benkio.botDB.db.DBMigrator
+import log.effect.LogWriter
 import munit.CatsEffectSuite
-import cats.effect.IO
-import java.nio.file.Paths
+
 import java.nio.file.Files
-
-import java.sql.DriverManager;
-
+import java.nio.file.Paths
 import java.sql.Connection
-
-import doobie.Transactor
-import com.benkio.botDB.TestData
+import java.sql.DriverManager
 
 class DBSpec extends CatsEffectSuite with DBConstants {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-  
+
   val databaseConnection: FunFixture[Connection] = FunFixture[Connection](
     setup = { _ =>
       Files.deleteIfExists(Paths.get(dbPath))
       val _       = DBMigrator.unsafeMigrate(TestData.config.copy(url = dbUrl))
       val conn    = DriverManager.getConnection(dbUrl)
       val isValid = conn.isValid(10)
-      println(s"conn is valid: " + isValid)
+      println("conn is valid: " + isValid)
       conn
     },
     teardown = { conn =>

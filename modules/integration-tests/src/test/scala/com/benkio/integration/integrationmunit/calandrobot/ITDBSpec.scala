@@ -1,16 +1,15 @@
 package com.benkio.integration.integrationmunit.calandrobot
 
-import com.benkio.calandrobot.CalandroBot
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.integration.DBFixture
-import munit.CatsEffectSuite
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
+import com.benkio.calandrobot.CalandroBot
+import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import doobie.implicits.*
+import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
@@ -31,7 +30,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println(s"[ERROR] file missing from the DB: " + file))
+              .onError(_ => IO.println("[ERROR] file missing from the DB: " + file))
               .attempt
               .map(_.isRight)
           )
@@ -57,7 +56,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 .getMediaQueryByName(file.filename)
                 .unique
                 .transact(transactor)
-                .onError(_ => IO.println(s"[ERROR] file missing from the DB: " + file))
+                .onError(_ => IO.println("[ERROR] file missing from the DB: " + file))
                 .attempt
                 .map(_.isRight)
             )

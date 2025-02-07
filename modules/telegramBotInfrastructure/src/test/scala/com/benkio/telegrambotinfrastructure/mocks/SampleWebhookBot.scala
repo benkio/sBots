@@ -1,34 +1,32 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
-import com.benkio.telegrambotinfrastructure.model.reply.TextReply
-import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.effect.Async
-import log.effect.LogLevels
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-
-import cats.Applicative
 import cats.effect.IO
 import cats.effect.Sync
 import cats.syntax.all.*
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import cats.Applicative
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import org.http4s.Uri
-import org.http4s.implicits.*
-import telegramium.bots.InputPartFile
-import telegramium.bots.Message
-import log.effect.LogWriter
+import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
-import com.benkio.telegrambotinfrastructure.model.reply.gif
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.tr
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
+import org.http4s.implicits.*
+import org.http4s.Uri
+import telegramium.bots.InputPartFile
+import telegramium.bots.Message
 
 class SampleWebhookBot(
     uri: Uri,
@@ -61,7 +59,7 @@ class SampleWebhookBot(
     ReplyBundleMessage.textToMp3[IO](
       "cosa preferisci",
       "ragazzetta",
-      "carne bianca",
+      "carne bianca"
     )(
       mp3"rphjb_RagazzettaCarne.mp3"
     ),
@@ -69,9 +67,9 @@ class SampleWebhookBot(
       "brooklyn",
       "carne morta",
       "manhattan",
-      "cane da guerra",
+      "cane da guerra"
     )(
-      vid"rphjb_PrimoSbaglio.mp4",
+      vid"rphjb_PrimoSbaglio.mp4"
     ),
     ReplyBundleMessage.textToVideo[IO](
       "non siamo niente",
@@ -83,7 +81,7 @@ class SampleWebhookBot(
       "sperma",
       "da togliere",
       "levare d[ia] dosso".r.tr(15),
-      "non contiamo niente",
+      "non contiamo niente"
     )(
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
     ),
@@ -96,7 +94,7 @@ class SampleWebhookBot(
       gif"rphjb_CarneFrescaSaporitaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[IO](
-      "carne (dura|vecchia|fresca)".r.tr(10),
+      "carne (dura|vecchia|fresca)".r.tr(10)
     )(
       mp3"rphjb_CarneFrescaSaporita.mp3",
       vid"rphjb_CarneFrescaSaporita.mp4",

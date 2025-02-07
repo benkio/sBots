@@ -1,19 +1,19 @@
 package com.benkio.integration
 
+import annotation.unused
 import cats.effect.IO
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.*
-import org.flywaydb.core.Flyway
 import org.flywaydb.core.api.configuration.FluentConfiguration
+import org.flywaydb.core.Flyway
 import org.http4s.ember.client.*
-import annotation.unused
 
 import java.io.File
 import java.nio.file.Files
@@ -51,8 +51,8 @@ object DBFixture {
   def fixtureSetup(@unused testOptions: TestOptions)(using log: LogWriter[IO]): DBFixtureResources = {
     Class.forName("org.sqlite.JDBC")
     val conn = DriverManager.getConnection(DBFixture.dbUrl)
-    println(s"DbUrl: $dbUrl") 
-    println(s"migrations path: $migrationPath") 
+    println(s"DbUrl: $dbUrl")
+    println(s"migrations path: $migrationPath")
     runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
     val transactor                                 = Transactor.fromConnection[IO](conn, None)
     val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
@@ -79,7 +79,7 @@ object DBFixture {
   }
 
   def teardownFixture(fixture: DBFixtureResources): Unit = {
-    if (deleteDB) Files.deleteIfExists(Paths.get(dbPath))
+    if deleteDB then Files.deleteIfExists(Paths.get(dbPath))
     else cleanDB(fixture.connection)
     fixture.connection.close()
     ()

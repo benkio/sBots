@@ -1,39 +1,39 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import com.benkio.telegrambotinfrastructure.model.Timeout
-import com.benkio.telegrambotinfrastructure.model.Subscription
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
-import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
-import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
-import com.benkio.telegrambotinfrastructure.model.show.Show
-import com.benkio.telegrambotinfrastructure.model.Trigger
+import cats.effect.Async
+import cats.implicits.*
 import cats.Applicative
 import cats.ApplicativeThrow
 import cats.MonadThrow
-import cats.effect.Async
-import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-
-import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.media.Media
+import com.benkio.telegrambotinfrastructure.model.reply.toText
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
-import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
-import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.reply.toText
-import com.benkio.telegrambotinfrastructure.model.media.Media
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
+import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
+import com.benkio.telegrambotinfrastructure.model.show.Show
+import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.Subscription
+import com.benkio.telegrambotinfrastructure.model.Timeout
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.resources.db.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-import java.util.UUID
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
 import log.effect.LogWriter
 import org.http4s.Uri
+import telegramium.bots.Message
+
+import java.util.UUID
 import scala.util.Random
 import scala.util.Try
-import telegramium.bots.Message
 
 object CommandPatterns {
 
@@ -126,11 +126,11 @@ Input as query string:
                     dbShow,
                     botName
                   ),
-              s"Input non riconosciuto. Controlla le instruzioni per i dettagli",
+              "Input non riconosciuto. Controlla le instruzioni per i dettagli",
               allowEmptyString = true
             ),
           true
-        ),
+        )
       )
 
     def selectLinkByKeyword[F[_]: Async](
@@ -148,10 +148,8 @@ Input as query string:
         _       <- log.info(s"Select random Show: $botName - $keywords - $query")
         results <- dbCall
         result <-
-          if (results.isEmpty)
-            List(s"Nessuna puntata/show contenente '$keywords' è stata trovata").pure[F]
-          else
-            Show.apply[F](results(random.nextInt(results.length))).map(show => List(show.show))
+          if results.isEmpty then List(s"Nessuna puntata/show contenente '$keywords' è stata trovata").pure[F]
+          else Show.apply[F](results(random.nextInt(results.length))).map(show => List(show.show))
       } yield result
     }
   }
@@ -205,7 +203,7 @@ Input as query string:
             botName,
             searchTrigger(mdr, m, ignoreMessagePrefix),
             """Input Required: Insert the test keyword to check if it's in some bot trigger"""
-          ),
+          )
         )
       )
 
@@ -313,10 +311,10 @@ ${ignoreMessagePrefix
                 } yield List(
                   s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
                 ),
-              s"Input Required: insert a valid 〈cron time〉. Check the instructions"
+              "Input Required: insert a valid 〈cron time〉. Check the instructions"
             ),
           true
-        ),
+        )
       )
 
     def unsubscribeReplyBundleCommand[F[_]: Async](
@@ -332,21 +330,22 @@ ${ignoreMessagePrefix
               "unsubscribe",
               botName,
               subscriptionIdInput =>
-                if (subscriptionIdInput.isEmpty)
+                if subscriptionIdInput.isEmpty then
                   for {
                     _ <- backgroundJobManager.cancelSubscriptions(m.chat.id)
-                  } yield List(s"All Subscriptions for current chat successfully cancelled")
+                  } yield List("All Subscriptions for current chat successfully cancelled")
                 else
                   for {
                     subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
                     _              <- backgroundJobManager.cancelSubscription(subscriptionId)
                   } yield List(
-                    s"Subscription successfully cancelled"
-                  ),
-              s"Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
+                    "Subscription successfully cancelled"
+                  )
+              ,
+              "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
             ),
           true
-        ),
+        )
       )
 
     def subscriptionsReplyBundleCommand[F[_]: Async](
@@ -395,7 +394,7 @@ ${ignoreMessagePrefix
               medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
             } yield List(Media.mediaListToString(medias)).toText,
           true
-        ),
+        )
       )
 
   }

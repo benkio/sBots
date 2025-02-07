@@ -2,7 +2,6 @@ package com.benkio.main
 
 import cats.effect.Async
 import cats.effect.Resource
-
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import fs2.io.net.Network
@@ -30,11 +29,11 @@ object MainSetup {
     config      <- Resource.eval(Config.loadConfig[F])
     _           <- Resource.eval(log.info(s"[Main] Configuration: $config"))
     httpClient  <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-    _           <- Resource.eval(log.info(s"[Main] httpClient"))
+    _           <- Resource.eval(log.info("[Main] httpClient"))
     dbLayer     <- BotSetup.loadDB[F](config.mainDB)
-    _           <- Resource.eval(log.info(s"[Main] dbLayer"))
+    _           <- Resource.eval(log.info("[Main] dbLayer"))
     certificate <- Resource.eval(Async[F].pure(config.webhookCertificate.map(fp => InputPartFile(new File(fp)))))
-    _           <- Resource.eval(log.info(s"[Main] webhook certificate"))
+    _           <- Resource.eval(log.info("[Main] webhook certificate"))
   } yield MainSetup(
     httpClient = httpClient,
     dbLayer = dbLayer,

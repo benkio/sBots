@@ -1,23 +1,22 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
-import com.benkio.telegrambotinfrastructure.model.Trigger
-import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
-import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
-import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
-import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
-import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.model.reply.GifFile
-import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
-import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
-import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
+import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
+import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
+import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
+import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
+import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
+import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.parser.decode
 import io.circe.syntax.*
-import cats.effect.IO
-
 import munit.FunSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
@@ -37,7 +36,7 @@ class MessageMatchesSpec extends FunSuite {
     trigger = TextTrigger(
       StringTextTriggerValue("test"),
       StringTextTriggerValue("some other long trigger"),
-      RegexTextTriggerValue("test regex with (optional|maybe)? values".r, 28),
+      RegexTextTriggerValue("test regex with (optional|maybe)? values".r, 28)
     ),
     reply = MediaReply[IO](mediaFiles = IO.pure(inputMediafile))
   )
@@ -252,9 +251,9 @@ class MessageMatchesSpec extends FunSuite {
       chat = Chat(
         -444726279,
         "group",
-        Some("Via delle Albizzie 22"),
+        Some("Via delle Albizzie 22")
       ),
-      newChatMembers = List(User(87680068, false, "Silvio", None, None, Some("it"), None, None, None)),
+      newChatMembers = List(User(87680068, false, "Silvio", None, None, Some("it"), None, None, None))
     )
     val expected: Option[(Trigger, ReplyBundleMessage[IO])] = Some(NewMemberTrigger, replyBundleInputNewMembers)
 
@@ -275,9 +274,9 @@ class MessageMatchesSpec extends FunSuite {
       chat = Chat(
         -444726279,
         "group",
-        Some("Via delle Albizzie 22"),
+        Some("Via delle Albizzie 22")
       ),
-      leftChatMember = Some(User(87680068, false, "Silvio", None, None, Some("it"), None, None, None)),
+      leftChatMember = Some(User(87680068, false, "Silvio", None, None, Some("it"), None, None, None))
     )
     val expected: Option[(Trigger, ReplyBundleMessage[IO])] = Some(LeftMemberTrigger, replyBundleInputLeaveMembers)
 
@@ -324,7 +323,7 @@ class MessageMatchesSpec extends FunSuite {
   test("MessageMatches JSON Decoder/Encoder should works as expected") {
     val jsonInputs = List(
       """"ContainsOnce"""",
-      """"ContainsAll"""",
+      """"ContainsAll""""
     )
 
     for inputString <- jsonInputs

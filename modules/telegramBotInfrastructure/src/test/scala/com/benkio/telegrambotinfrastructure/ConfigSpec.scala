@@ -1,10 +1,10 @@
 package com.benkio.telegrambotinfrastructure
 
-import log.effect.LogLevels
+import cats.effect.IO
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import cats.effect.IO
 
 class ConfigSpec extends CatsEffectSuite {
 

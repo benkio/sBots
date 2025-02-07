@@ -1,8 +1,8 @@
 package com.benkio.m0sconibot.data
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
 object Audio:
@@ -108,7 +108,7 @@ object Audio:
       mp3"mos_AhNonLoSo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "non posso (mica )?improvvisar(e|me)".r.tr(21),
+      "non posso (mica )?improvvisar(e|me)".r.tr(21)
     )(
       mp3"mos_AndateInMona.mp3"
     ),
@@ -131,7 +131,7 @@ object Audio:
       "dio bono"
     )(
       mp3"mos_DioBonDiUnDioLeSeaTagaENonLeSeStaga.mp3",
-      mp3"mos_DioBono.mp3",
+      mp3"mos_DioBono.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "antonio fosso",
@@ -142,18 +142,18 @@ object Audio:
       mp3"mos_AntonioFossoCarteColla.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "ostia",
+      "ostia"
     )(
       mp3"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3",
       mp3"mos_AntonioFossoCarteColla.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "aspetta un secondo",
+      "aspetta un secondo"
     )(
       mp3"mos_AspettaUnSecondoDioCane.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "avanti (indrio|indietro)".r.tr(13),
+      "avanti (indrio|indietro)".r.tr(13)
     )(
       mp3"mos_AvantiNdrioConQuellaPortaLi.mp3"
     ),
@@ -161,13 +161,13 @@ object Audio:
       "marco bisagno",
       "la minoranza",
       "assemblea",
-      "irregolare",
+      "irregolare"
     )(
       mp3"mos_AvvocatoMarcoBisagnoAssembleaIrregolareMinoranze.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "basket",
-      "pallacanestro",
+      "pallacanestro"
     )(
       mp3"mos_BasketSeiVantaggiDioPorco.mp3",
       mp3"mos_BasketDioCaneDipenDipanDaCapo.mp3"
@@ -178,7 +178,7 @@ object Audio:
       "udine",
       "di[tp]an".r.tr(5),
       "diche",
-      "\\bdipen\\b".r.tr(5),
+      "\\bdipen\\b".r.tr(5)
     )(
       mp3"mos_BasketDioCaneDipenDipanDaCapo.mp3"
     ),
@@ -241,7 +241,7 @@ object Audio:
       "lugagnano",
       "vigasio",
       "poveliano",
-      "tosse",
+      "tosse"
     )(
       mp3"mos_CiclismoAllieviDio.mp3",
       mp3"mos_TosseDio.mp3"
@@ -250,7 +250,7 @@ object Audio:
       "ciclismo"
     )(
       mp3"mos_CiclismoAllieviDio.mp3",
-      mp3"mos_CiclismoGianniBugnoRitardo.mp3",
+      mp3"mos_CiclismoGianniBugnoRitardo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "nostra città"
@@ -343,7 +343,7 @@ object Audio:
     ),
     ReplyBundleMessage.textToMedia[F](
       "ges[uù] cristo".r.tr(11),
-      "no nessuno",
+      "no nessuno"
     )(
       mp3"mos_GesuCristoNoNessuno.mp3"
     ),
@@ -351,7 +351,7 @@ object Audio:
       "giochi olimpici",
       "giorgio mazzetta",
       "giorgio mazzetta",
-      "m[ie] fermo un (secondo|attimo)".r.tr(18),
+      "m[ie] fermo un (secondo|attimo)".r.tr(18)
     )(
       mp3"mos_GiochiOlimpiciAspettaCheMeFermoUnAttimo.mp3"
     ),
@@ -372,14 +372,14 @@ object Audio:
     ),
     ReplyBundleMessage.textToMedia[F](
       "mi ha fatto innervosire",
-      "gli spacco la testa",
+      "gli spacco la testa"
     )(
       mp3"mos_Innervosire.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "juventus",
       "austria",
-      "vienna",
+      "vienna"
     )(
       mp3"mos_JuventusAustriaViennaPorcoDio.mp3"
     ),
@@ -397,7 +397,7 @@ object Audio:
     ),
     ReplyBundleMessage.textToMedia[F](
       "lo troverò",
-      "prima o dopo",
+      "prima o dopo"
     )(
       mp3"mos_LoTroveroDeficiente.mp3"
     ),
@@ -414,14 +414,14 @@ object Audio:
     ReplyBundleMessage.textToMedia[F](
       "il commercialista",
       "il magistrato",
-      "gianfranco bertani",
+      "gianfranco bertani"
     )(
       mp3"mos_MagistratoCuratoreFallimentareExDioPorcoDioCane.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "mario ferretto",
       "accolto con sorpresa",
-      "rumore li",
+      "rumore li"
     )(
       mp3"mos_MarioFerrettoPorcoDioRumoreLiFaAposta.mp3"
     ),
@@ -461,7 +461,7 @@ object Audio:
       mp3"mos_NonTornoIndietroDonadoni.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "in maiuscolo",
+      "in maiuscolo"
     )(
       mp3"mos_NotizieInMaiuscolo.mp3"
     ),
@@ -473,7 +473,7 @@ object Audio:
     ),
     ReplyBundleMessage.textToMedia[F](
       "da capo",
-      "venite dentro",
+      "venite dentro"
     )(
       mp3"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3"
     ),
@@ -486,7 +486,7 @@ object Audio:
       "andrea de cesari",
       "romano",
       "dio canaia",
-      "il pilota",
+      "il pilota"
     )(
       mp3"mos_PilotaRomanoAndreaDeCesariDioCanariaDeDio.mp3"
     ),
@@ -539,7 +539,7 @@ object Audio:
     ),
     ReplyBundleMessage.textToMedia[F](
       "tecnocop",
-      "verona",
+      "verona"
     )(
       mp3"mos_TecnocopVerona.mp3"
     ),
@@ -566,7 +566,7 @@ object Audio:
     ReplyBundleMessage.textToMedia[F](
       "cortesia",
       "simpatia",
-      "va in casino",
+      "va in casino"
     )(
       mp3"mos_VaInMonaCortesiaSimpatiaPorcoDioVaInCasinoVaffanculo.mp3"
     ),
@@ -596,3 +596,4 @@ object Audio:
       mp3"mos_Gaetano.mp3"
     )
   )
+end Audio

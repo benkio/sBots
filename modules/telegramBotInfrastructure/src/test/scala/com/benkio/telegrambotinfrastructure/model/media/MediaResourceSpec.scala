@@ -1,9 +1,10 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
+import munit.*
 import telegramium.bots.InputLinkFile
 import telegramium.bots.InputPartFile
+
 import java.io.File
-import munit._
 
 class MediaResourceSpec extends FunSuite {
   test("toTelegramApi should return the expected1 Telegram Type") {

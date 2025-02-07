@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.model.show
 
 import cats.implicits.*
 import cats.MonadThrow
-import cats.{ Show => CatsShow }
+import cats.Show as CatsShow
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import org.http4s.Uri
 

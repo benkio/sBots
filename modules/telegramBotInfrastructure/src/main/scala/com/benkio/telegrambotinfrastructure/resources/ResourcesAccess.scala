@@ -3,12 +3,15 @@ package com.benkio.telegrambotinfrastructure.resources
 import cats.*
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.media.Media
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
+import log.effect.LogWriter
+import org.http4s.Uri
+
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
@@ -17,8 +20,6 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.jar.JarFile
-import log.effect.LogWriter
-import org.http4s.Uri
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters.*
 import scala.util.Try
@@ -57,7 +58,7 @@ object ResourceAccess {
           )}"""))
         fis <- Resource.make(Sync[F].fromTry {
           val stream = getClass().getResourceAsStream("/" + resourceName)
-          Try(if (stream == null) new FileInputStream(resourceName) else stream)
+          Try(if stream == null then new FileInputStream(resourceName) else stream)
         })(fis => Sync[F].delay(fis.close()))
         bais <- Resource.make(Sync[F].delay(new ByteArrayOutputStream()))(bais => Sync[F].delay(bais.close()))
       } yield (fis, bais)).evalMap { case (fis, bais) =>
@@ -75,19 +76,21 @@ object ResourceAccess {
       val result: ArrayBuffer[String] = new ArrayBuffer();
 
       // from https://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file
-      if (jarFile.isFile()) { // Run with JAR file
+      if jarFile.isFile() then { // Run with JAR file
         val jar     = new JarFile(jarFile)
         val entries = jar.entries() // gives ALL entries in jar
-        while (entries.hasMoreElements()) {
+        while entries.hasMoreElements() do {
           val name = entries.nextElement().getName()
-          if (name.startsWith(criteria + "/") && name.length > (criteria.length + 1)) { // filter according to the path
+          if name
+              .startsWith(criteria + "/") && name.length > (criteria.length + 1)
+          then { // filter according to the path
             result += name
           }
         }
         jar.close()
       }
 
-      if (result.size == 0) {
+      if result.size == 0 then {
         Resource
           .pure[F, List[MediaResource.MediaResourceFile]](
             Files

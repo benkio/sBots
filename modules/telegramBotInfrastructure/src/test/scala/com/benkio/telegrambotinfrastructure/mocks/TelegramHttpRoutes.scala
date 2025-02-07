@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
-import cats.syntax.all.*
 import cats.effect.*
+import cats.syntax.all.*
 import org.http4s.*
 import org.http4s.dsl.io.*
 

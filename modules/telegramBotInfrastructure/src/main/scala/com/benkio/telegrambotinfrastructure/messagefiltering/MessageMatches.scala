@@ -1,14 +1,14 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
-import com.benkio.telegrambotinfrastructure.model.Trigger
-import io.circe.*
-import io.circe.generic.semiauto.*
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.Trigger
+import io.circe.*
+import io.circe.generic.semiauto.*
 import telegramium.bots.Message
 
 enum MessageMatches:
@@ -45,12 +45,12 @@ object MessageMatches {
         Some((NewMemberTrigger, replyBundleMessage))
       case (_, _, _: LeftMemberTrigger.type, _) if message.leftChatMember.nonEmpty =>
         Some((LeftMemberTrigger, replyBundleMessage))
-      case (_, ContainsOnce, TextTrigger(triggers @ _*), Some(messageText)) =>
+      case (_, ContainsOnce, TextTrigger(triggers*), Some(messageText)) =>
         triggers
           .sorted(TextTriggerValue.orderingInstance.reverse)
           .find(TextTriggerValue.matchValue(_, messageText.toLowerCase()))
           .map(t => (TextTrigger(t), replyBundleMessage))
-      case (_, ContainsAll, TextTrigger(triggers @ _*), Some(messageText))
+      case (_, ContainsAll, TextTrigger(triggers*), Some(messageText))
           if triggers.forall(TextTriggerValue.matchValue(_, messageText.toLowerCase())) =>
         Some((TextTrigger(triggers.sorted(TextTriggerValue.orderingInstance.reverse)*), replyBundleMessage))
       case _ => None

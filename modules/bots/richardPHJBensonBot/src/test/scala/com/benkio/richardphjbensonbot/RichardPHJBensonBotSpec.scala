@@ -1,32 +1,29 @@
 package com.benkio.richardphjbensonbot
 
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.BaseBotSpec
-
 import cats.effect.Async
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import telegramium.bots.high.Api
-
-import cats.Show
 import cats.effect.IO
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import cats.Show
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.model.reply.Reply
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
-import com.benkio.telegrambotinfrastructure.model.reply.Reply
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
+import telegramium.bots.high.Api
 import telegramium.bots.Message
-
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class RichardPHJBensonBotSpec extends BaseBotSpec {
 
@@ -107,7 +104,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   instructionsCommandTest(
     commandRepliesData = commandRepliesData,
-    italianInstructions = s"""
+    italianInstructions = """
 ---- Instruzioni Per RichardPHJBensonBot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -141,7 +138,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-    englishInstructions = s"""
+    englishInstructions = """
 ---- Instructions for RichardPHJBensonBot ----
 
 to report issues, write to: https://t.me/Benkio

@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import munit.FunSuite
 import io.circe.parser.decode
 import io.circe.syntax.*
+import munit.FunSuite
 
 class ReplyValueSpec extends FunSuite {
 
@@ -36,7 +36,7 @@ class ReplyValueSpec extends FunSuite {
         |    "filepath" : "testFilePath.mp4",
         |    "replyToMessage" : false
         |  }
-        |}""".stripMargin,
+        |}""".stripMargin
     )
 
     for inputString <- jsonInputs

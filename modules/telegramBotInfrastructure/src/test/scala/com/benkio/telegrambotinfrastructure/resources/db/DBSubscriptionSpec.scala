@@ -2,9 +2,10 @@ package com.benkio.telegrambotinfrastructure.resources.db
 
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import little.time.CronSchedule
-import java.util.UUID
+import munit.*
+
 import java.time.Instant
-import munit._
+import java.util.UUID
 
 class DBSubscriptionSpec extends FunSuite {
   test("DBSubscriptionData should be correctly converted from Subscription") {
@@ -15,7 +16,7 @@ class DBSubscriptionSpec extends FunSuite {
       botName = "botName",
       cron = "5 4 * * *",
       cronScheduler = CronSchedule("0 4 8-14 * *"),
-      subscribedAt = now,
+      subscribedAt = now
     )
     val expected = DBSubscriptionData(
       id = actual.id.toString,

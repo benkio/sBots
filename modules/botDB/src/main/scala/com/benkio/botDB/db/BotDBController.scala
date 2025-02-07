@@ -1,24 +1,24 @@
 package com.benkio.botDB.db
 
-import java.io.File
+import cats.effect.implicits.*
+import cats.effect.kernel.Async
+import cats.effect.Resource
+import cats.implicits.*
+import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.ShowConfig
-import com.benkio.botDB.show.ShowSource
 import com.benkio.botDB.show.ShowFetcher
-import log.effect.LogWriter
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
+import com.benkio.botDB.show.ShowSource
+import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
-import cats.effect.Resource
-import cats.effect.kernel.Async
-import cats.implicits.*
-import cats.effect.implicits.*
-import com.benkio.botDB.config.Config
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import io.circe.parser.decode
 import io.circe.syntax.*
-import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
+import log.effect.LogWriter
 
+import java.io.File
 import java.time.Instant
 import scala.io.Source
 
@@ -62,9 +62,14 @@ object BotDBController {
         showConfig.showSources
           .parTraverse(ms =>
             for
-              showSource <- ShowSource(ms.url, ms.botName, ms.outputFilePath)
+              showSource <- ShowSource(ms.urls, ms.botName, ms.outputFilePath)
               _ <- if showConfig.dryRun then Async[F].delay(File(ms.outputFilePath).delete).void else Async[F].unit
-              dbShowDatas <- showFetcher.generateShowJson(showSource)
+              EitherDbShowDatas <- showFetcher.generateShowJson(showSource).attempt
+              dbShowDatas <- EitherDbShowDatas.fold(
+                err =>
+                  LogWriter.error(s"[BotDBController] ERROR when computing $showSource with $err") >> List.empty.pure,
+                _.pure
+              )
             yield dbShowDatas
           )
           .flatMap(

@@ -1,19 +1,20 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
-import java.nio.file.Files
-import java.io.File
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
-import log.effect.LogLevels
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import org.http4s.*
-import org.http4s.implicits.*
-import com.benkio.telegrambotinfrastructure.mocks.TelegramHttpRoutes
-import munit.*
 import cats.effect.*
 import cats.syntax.all.*
-import org.http4s.client.Client
-import log.effect.LogWriter
+import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.mocks.TelegramHttpRoutes
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import log.effect.LogLevels
+import log.effect.LogWriter
+import munit.*
+import org.http4s.*
+import org.http4s.client.Client
+import org.http4s.implicits.*
+
+import java.io.File
+import java.nio.file.Files
 
 class BotSetupSpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)

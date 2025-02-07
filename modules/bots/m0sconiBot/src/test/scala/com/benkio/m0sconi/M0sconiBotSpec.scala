@@ -1,29 +1,24 @@
 package com.benkio.M0sconi
 
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-
-import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import telegramium.bots.high.Api
 import cats.effect.Async
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-
-import cats.Show
 import cats.effect.IO
 import cats.implicits.*
+import cats.Show
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
+import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-
+import telegramium.bots.high.Api
 import telegramium.bots.Message
-
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 
 class M0sconiBotSpec extends BaseBotSpec {
 
@@ -69,7 +64,7 @@ class M0sconiBotSpec extends BaseBotSpec {
 
   instructionsCommandTest(
     commandRepliesData = commandRepliesData.pure[IO],
-    s"""
+    """
 ---- Instruzioni Per M0sconiBot ----
 
 Per segnalare problemi, scrivere a: https://t.me/Benkio
@@ -88,7 +83,7 @@ carattere: `!`
 
 ! Messaggio
 """,
-    s"""
+    """
 ---- Instructions for M0sconiBot ----
 
 to report issues, write to: https://t.me/Benkio

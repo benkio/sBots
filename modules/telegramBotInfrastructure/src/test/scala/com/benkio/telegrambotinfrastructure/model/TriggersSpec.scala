@@ -1,11 +1,11 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import scala.util.matching.Regex
 import cats.implicits.*
 import io.circe.parser.decode
 import io.circe.syntax.*
-
 import munit.FunSuite
+
+import scala.util.matching.Regex
 
 class TriggersSpec extends FunSuite {
 
@@ -137,7 +137,7 @@ class TriggersSpec extends FunSuite {
         |  "LeftMemberTrigger" : {
         |    
         |  }
-        |}""".stripMargin,
+        |}""".stripMargin
     )
 
     for inputString <- jsonInputs
