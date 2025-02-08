@@ -5,6 +5,7 @@ import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.media.toTelegramApi
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.GifFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
@@ -44,17 +45,28 @@ object TelegramReply:
       sendFileAPIMethod: (ChatId, IFile, Option[Int]) => Method[Message]
   ): F[List[Message]] = {
     val chatId: ChatId = ChatIntId(msg.chat.id)
+    def computeMediaResource(mediaResource: MediaResource[F]): F[Message] =
+      mediaResource.toTelegramApi.flatMap(iFile =>
+        sendFileAPIMethod(
+          chatId,
+          iFile,
+          Option.when(replyToMessage)(msg.messageId)
+        ).exec
+      )
     val result: EitherT[F, Throwable, List[Message]] = for {
       _ <- Methods.sendChatAction(chatId, chatAction).exec.attemptT
       message <-
         resourceAccess
           .getResourceFile(mediaFile)
-          .use[Message](file =>
-            sendFileAPIMethod(
-              chatId,
-              file.toTelegramApi,
-              Option.when(replyToMessage)(msg.messageId)
-            ).exec
+          .use[Message](mediaResources =>
+            mediaResources.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
+              prevExec.handleErrorWith(e =>
+                LogWriter.error(
+                  s"[TelegramReply] ERROR while executing media resource for $mediaFile. Fallback to $nextRes"
+                ) >>
+                  computeMediaResource(nextRes)
+              )
+            )
           )
           .attemptT
     } yield List(message)

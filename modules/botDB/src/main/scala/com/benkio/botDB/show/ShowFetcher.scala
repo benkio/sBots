@@ -81,10 +81,7 @@ object ShowFetcher {
       } yield dbShowDatas
 
     private def fetchJson(source: YoutubeSource): Resource[F, File] =
-      Resource
-        .make(ResourceAccess.toTempFile(s"${UUID.randomUUID.toString}.json", Array.empty).pure)(f =>
-          Async[F].delay(f.delete()).void
-        )
+      ResourceAccess.toTempFile(s"${UUID.randomUUID.toString}.json", Array.empty)
         .evalMap(f =>
           Async[F].delay(
             Process(source.toYTDLPCommand).#>(f).!

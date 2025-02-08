@@ -51,17 +51,11 @@ object UrlFetcher {
             case (Status.Found, None) =>
               Resource.raiseError[F, File, Throwable](DropboxLocationHeaderNotFound[F](response))
             case _ =>
-              Resource
-                .make(
-                  for {
-                    content <- response.body.compile.toList
-                    _       <- Async[F].raiseWhen(content.isEmpty)(UnexpectedDropboxResponse[F](response))
-                    result <- Async[F].delay(
-                      ResourceAccess.toTempFile(filename, content.toArray)
-                    )
-                  } yield result
-                )((f: File) => Async[F].delay(f.delete()).void)
-
+              for {
+                content <- Resource.eval(response.body.compile.toList)
+                _       <- Resource.eval(Async[F].raiseWhen(content.isEmpty)(UnexpectedDropboxResponse[F](response)))
+                result  <- ResourceAccess.toTempFile(filename, content.toArray)
+              } yield result
           }
 
           Resource.eval(log.info(s"Received response $response")) *> followup
