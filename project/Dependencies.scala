@@ -140,6 +140,7 @@ object Dependencies {
     libs.catsEffect,
     libs.catsEffectKernel,
     libs.catsFree,
+    libs.catsKernel,
     libs.circeCore,
     libs.circeParser,
     libs.doobieCore,
