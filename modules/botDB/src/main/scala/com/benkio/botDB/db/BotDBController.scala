@@ -63,11 +63,15 @@ object BotDBController {
           .parTraverse(ms =>
             for
               showSource <- ShowSource(ms.urls, ms.botName, ms.outputFilePath)
-              _ <- if showConfig.dryRun then Async[F].delay(File(ms.outputFilePath).delete).void else Async[F].unit
+              _ <-
+                if showConfig.dryRun
+                then Async[F].delay(File(ms.outputFilePath).delete).void
+                else Async[F].unit
               EitherDbShowDatas <- showFetcher.generateShowJson(showSource).attempt
               dbShowDatas <- EitherDbShowDatas.fold(
                 err =>
-                  LogWriter.error(s"[BotDBController] ERROR when computing $showSource with $err") >> List.empty.pure,
+                  LogWriter.error(s"[BotDBController] ERROR when computing $showSource with $err") >>
+                    List.empty.pure,
                 _.pure
               )
             yield dbShowDatas
@@ -82,11 +86,17 @@ object BotDBController {
       else Async[F].unit
 
     override def populateMediaTable: Resource[F, Unit] = for {
-      allFiles <- cfg.jsonLocation.flatTraverse(resourceAccess.getResourcesByKind)
-      _ <- Resource.eval(LogWriter.info(s"[BotDBController]: all files from ${cfg.jsonLocation}: ${allFiles.length}"))
-      jsons = allFiles.mapFilter(mediaSource =>
-        mediaSource.getMediaResourceFile.filter(_.getName.endsWith("_list.json"))
+      allFiles <- cfg.jsonLocation.flatTraverse(location =>
+        resourceAccess.getResourcesByKind(location).map(_.reduce.toList)
       )
+      _ <- Resource.eval(
+        LogWriter.info(s"[BotDBController]: all files from ${cfg.jsonLocation}: ${allFiles.length}")
+      )
+      jsons <- allFiles
+        .mapFilter(_.getMediaResourceFile)
+        .traverseFilter(resourceFile =>
+          resourceFile.map(f => if f.getName.endsWith("_list.json") then Some(f) else None)
+        )
       _ <- Resource.eval(LogWriter.info(s"[BotDBController]: Json file to be computed: $jsons"))
       input <- Resource.eval(Async[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")

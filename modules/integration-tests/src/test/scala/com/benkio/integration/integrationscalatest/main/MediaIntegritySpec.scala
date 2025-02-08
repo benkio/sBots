@@ -73,8 +73,8 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
     test(s"${mf.filename} should return some data", SlowTest) { case FixtureParam(fixture) =>
       (for {
         resourceAccess <- fixture.resourceAccessResource
-        mediaSource    <- resourceAccess.getResourceFile(mf)
-        file = mediaSource.getMediaResourceFile.getOrElse(fail("expect a file"))
+        mediaSources   <- resourceAccess.getResourceFile(mf)
+        file           <- mediaSources.traverse(_.getMediaResourceFile.getOrElse(fail("expect a file")))
       } yield assert(file.length > (5 * 1024))).use_
     }.pure[IO]
 

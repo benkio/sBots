@@ -2,7 +2,6 @@ package com.benkio.telegrambotinfrastructure.mocks
 
 import cats.effect.Async
 import cats.effect.IO
-import cats.effect.Sync
 import cats.syntax.all.*
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
@@ -37,7 +36,7 @@ class SampleWebhookBot(
     webhookCertificate: Option[InputPartFile] = None
 )(using logWriterIO: LogWriter[IO])
     extends BotSkeletonWebhook[IO](uri, path, webhookCertificate, resourceAccess) {
-  override def resourceAccess(using syncF: Sync[IO], log: LogWriter[IO]): ResourceAccess[IO] = resourceAccess
+  override def resourceAccess(using AsyncF: Async[IO], log: LogWriter[IO]): ResourceAccess[IO] = resourceAccess
   override def postComputation(using appIO: Applicative[IO]): Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using

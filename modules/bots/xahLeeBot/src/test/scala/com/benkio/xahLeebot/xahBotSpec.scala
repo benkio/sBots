@@ -1,11 +1,13 @@
 package com.benkio.xahleebot
 
+import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.Reply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
@@ -26,7 +28,11 @@ class XahLeeBotSpec extends BaseBotSpec {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(XahLeeBot.botName)
-  val resourceAccessMock        = new ResourceAccessMock(List.empty)
+  val mediaResource: MediaResourceIFile[IO] =
+    MediaResourceIFile(
+      "test mediafile"
+    )
+  val resourceAccessMock = new ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,

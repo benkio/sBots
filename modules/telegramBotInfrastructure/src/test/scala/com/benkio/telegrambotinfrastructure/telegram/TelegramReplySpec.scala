@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.telegram
 
+import cats.data.NonEmptyList
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
@@ -41,7 +42,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == video.filepath)(
           Throwable(s"[resourceAccessMock] ${mediaFile.filepath} ≠ ${video.filepath}")
-        ).as(MediaResource.MediaResourceIFile("test value"))
+        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramVideoReply
       .reply[IO](
@@ -61,7 +62,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == photo.filepath)(
           Throwable(s"[resourceAccessMock] ${mediaFile.filepath} ≠ ${photo.filepath}")
-        ).as(MediaResource.MediaResourceIFile("test value"))
+        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramPhotoReply
       .reply[IO](
@@ -81,7 +82,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == document.filepath)(
           Throwable(s"[resourceAccessMock] ${mediaFile.filepath} ≠ ${document.filepath}")
-        ).as(MediaResource.MediaResourceIFile("test value"))
+        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramDocumentReply
       .reply[IO](
@@ -101,7 +102,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == gif.filepath)(
           Throwable(s"[resourceAccessMock] ${mediaFile.filepath} ≠ ${gif.filepath}")
-        ).as(MediaResource.MediaResourceIFile("test value"))
+        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramGifReply
       .reply[IO](
@@ -121,7 +122,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == mp3.filepath)(
           Throwable(s"[resourceAccessMock] ${mediaFile.filepath} ≠ ${mp3.filepath}")
-        ).as(MediaResource.MediaResourceIFile("test value"))
+        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramMp3Reply
       .reply[IO](

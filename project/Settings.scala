@@ -6,9 +6,9 @@ import Keys.*
 
 object Settings {
 
-  lazy val runIntegrationMUnitTests = taskKey[Unit]("Run MUnit tests")
+  lazy val mUnitTests = taskKey[Unit]("Run MUnit tests")
 
-  lazy val runIntegrationScalaTests = taskKey[Unit]("Run ScalaTest tests")
+  lazy val scalaTests = taskKey[Unit]("Run ScalaTest tests")
 
   lazy val settings = Seq(
     organization := "com.benkio",
@@ -44,10 +44,10 @@ object Settings {
     name                := "Integration",
     libraryDependencies := IntegrationDependencies,
     publish / skip      := true,
-    runIntegrationMUnitTests := {
+    mUnitTests := {
       (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.*").value
     },
-    runIntegrationScalaTests := {
+    scalaTests := {
       (Test / testOnly).toTask(" com.benkio.integration.integrationscalatest.*").value
     }
   )

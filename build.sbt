@@ -25,9 +25,10 @@ addCommandAlias("check", "undeclaredCompileDependenciesTest; scalafmtSbtCheck; s
 addCommandAlias("generateTriggerTxt", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
   "validate",
-  ";clean; compile; fix; generateTriggerTxt; coverage; test; integration/runIntegrationMUnitTests; coverageAggregate"
+  ";clean; compile; fix; generateTriggerTxt; coverage; test; integration/mUnitTests; coverageAggregate"
 )
-addCommandAlias("checkAllLinksTest", "integration/runIntegrationScalaTests")
+addCommandAlias("checkAllLinksTest", "integration/scalaTests")
+addCommandAlias("integrationTests", "integration/mUnitTests")
 
 // PROJECTS
 
