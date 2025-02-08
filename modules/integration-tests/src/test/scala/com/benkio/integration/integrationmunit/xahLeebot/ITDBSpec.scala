@@ -1,5 +1,6 @@
 package com.benkio.integration.integrationmunit.xahleebot
 
+import cats.data.NonEmptyList
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.integration.DBFixture
@@ -7,6 +8,7 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -25,7 +27,11 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   val botName: String           = "botname"
   val botPrefix: String         = "xah"
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botName)
-  val resourceAccessMock        = new ResourceAccessMock(List.empty)
+  val mediaResource: MediaResourceIFile[IO] =
+    MediaResourceIFile(
+      "test mediafile"
+    )
+  val resourceAccessMock = ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
   val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(
     BackgroundJobManager(
       dbSubscription = emptyDBLayer.dbSubscription,

@@ -1,5 +1,6 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
+import cats.data.NonEmptyList
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
@@ -31,16 +32,17 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       dbMedia  <- fixture.resourceDBLayer.map(_.dbMedia)
       preMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _ = println(s"debug preMedia: $preMedia")
-      dbResourceAccess <- fixture.resourceAccessResource
-      mediaSource      <- dbResourceAccess.getResourceFile(Mp3File(testMediaName))
-      _ = println(s"debug mediaSource: $mediaSource")
+      dbResourceAccess    <- fixture.resourceAccessResource
+      mediaSourcesWrapped <- dbResourceAccess.getResourceFile(Mp3File(testMediaName))
+      mediaSources        <- mediaSourcesWrapped.traverse(_.getMediaResourceFile.sequence)
+      _ = println(s"debug mediaSource: $mediaSources")
       postMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _ = println(s"debug postMedia: $postMedia")
       _            <- Resource.eval(dbMedia.decrementMediaCount(testMediaName))
       initialMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
     } yield {
       val assert1 = postMedia == preMedia.copy(media_count = preMedia.media_count + 1)
-      val assert2 = mediaSource.getMediaResourceFile.fold(false)(f => Files.readAllBytes(f.toPath).length >= (1024 * 5))
+      val assert2 = mediaSources.exists(_.fold(false)(f => Files.readAllBytes(f.toPath).length >= (1024 * 5)))
       val assert3 = preMedia == initialMedia
       assert1 && assert2 && assert3
     }
@@ -61,10 +63,14 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
       initialMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
     } yield {
       val assert1 = postMedia == preMedia.copy(media_count = preMedia.media_count + 1)
-      val assert2 = mediaSource == MediaResource.MediaResourceIFile(
-        "CAACAgQAAxkBAAEC14Fnn4qAwqMd2BGYk0rsC5oTZvsMrAACzQEAAsMN4w3VywfrQeOnhTYE"
+      val assert2 = mediaSource == NonEmptyList.one(
+        MediaResource.MediaResourceIFile(
+          "CAACAgQAAxkBAAEC14Fnn4qAwqMd2BGYk0rsC5oTZvsMrAACzQEAAsMN4w3VywfrQeOnhTYE"
+        )
       )
       val assert3 = preMedia == initialMedia
+      if assert1 && assert2 && assert3 then ()
+      else println(s"[ITDBResourceAccessSpec:69] ERROR. $assert1 && $assert2 && $assert3")
       assert1 && assert2 && assert3
     }
     resourceAssert.use(IO.pure).assert
@@ -74,16 +80,19 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
     "DBResourceAccess.getResourcesByKind should return the expected list of files with expected content"
   ) { fixture =>
     val expectedFilenames = List(
-      "ancheLaRabbiaHaUnCuore.txt",
-      "live.txt",
-      "perCordeEGrida.txt",
-      "puntateCocktailMicidiale.txt",
-      "puntateRockMachine.txt"
+      "cala_CalandraCamiciaGialla.jpg",
+      "cala_CalandraMagliaRossa.jpg",
+      "cala_CazzoDiBudda.jpg",
+      "cala_EvilPencil.jpg",
+      "cala_FattorinoGLS.jpg",
+      "cala_GiamaRhythmLord.jpg",
+      "cala_PorcoLadro.jpg"
     )
     val resourceAssert = for {
       dbResourceAccess <- fixture.resourceAccessResource
-      mediaSources     <- dbResourceAccess.getResourcesByKind("rphjb_LinkSources")
-      files = mediaSources.mapFilter(_.getMediaResourceFile)
+      mediaSources     <- dbResourceAccess.getResourcesByKind("cards")
+      _ = println("DEBUG: I arrived here")
+      files <- mediaSources.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
     } yield files
       .map(file => expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
       .foldLeft(true)(_ && _)

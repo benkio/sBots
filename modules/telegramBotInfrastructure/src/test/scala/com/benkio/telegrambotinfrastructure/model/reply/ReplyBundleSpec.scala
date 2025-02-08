@@ -1,10 +1,12 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
+import cats.data.NonEmptyList
 import cats.effect.*
 import cats.syntax.all.*
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.SelectAll
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
@@ -79,7 +81,8 @@ class ReplyBundleSpec extends CatsEffectSuite {
         replyBundle = input,
         message = message,
         filter = Applicative[IO].pure(true),
-        resourceAccess = new ResourceAccessMock(List.empty)
+        resourceAccess =
+          ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO])
       )
 
     val result1: IO[List[Message]] =

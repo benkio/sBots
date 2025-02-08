@@ -92,9 +92,11 @@ object BotDBController {
       _ <- Resource.eval(
         LogWriter.info(s"[BotDBController]: all files from ${cfg.jsonLocation}: ${allFiles.length}")
       )
-      jsons <- allFiles.mapFilter(_.getMediaResourceFile).traverseFilter(resourceFile =>
-        resourceFile.map(f => if f.getName.endsWith("_list.json") then Some(f) else None)
-      )
+      jsons <- allFiles
+        .mapFilter(_.getMediaResourceFile)
+        .traverseFilter(resourceFile =>
+          resourceFile.map(f => if f.getName.endsWith("_list.json") then Some(f) else None)
+        )
       _ <- Resource.eval(LogWriter.info(s"[BotDBController]: Json file to be computed: $jsons"))
       input <- Resource.eval(Async[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")

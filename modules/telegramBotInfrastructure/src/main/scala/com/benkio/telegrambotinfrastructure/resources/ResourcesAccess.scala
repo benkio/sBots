@@ -159,6 +159,9 @@ object ResourceAccess {
 
       override def getResourcesByKind(criteria: String): Resource[F, NonEmptyList[NonEmptyList[MediaResource[F]]]] =
         for {
+          _ <- Resource.eval(
+            LogWriter.info(s"[ResourcesAccess:162:53] getMediaByKind fetching mediaResources by $criteria")
+          )
           medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
           files <-
             medias.traverse(
@@ -171,7 +174,7 @@ object ResourceAccess {
           mediaFile: MediaFile
       ): Resource[F, NonEmptyList[MediaResource[F]]] = {
         for {
-          _             <- Resource.eval(LogWriter.info(s"[ResourcesAccess] `getResourceFile` of $mediaFile"))
+          _             <- Resource.eval(LogWriter.info(s"[ResourcesAccess] getResourceFile of $mediaFile"))
           media         <- Resource.eval(dbMedia.getMedia(mediaFile.filepath))
           _             <- Resource.eval(dbMedia.incrementMediaCount(media.media_name))
           mediaResource <- dbMediaDataToMediaResource(media)
@@ -198,16 +201,7 @@ object ResourceAccess {
                   )
               )
           })
-          // sources match
-          // case Right(uri) :: t =>
-          //   urlFetcher
-          //     .fetchFromDropbox(mediaName, uri)
-          //     .map(MediaResourceFile(_))
-          //     .handleErrorWith[MediaResource, Throwable](e =>
-          //       Resource.eval(
-          //         LogWriter.error(s"[ResourcesAccess] Uri $uri for $dbMediaData failed to fetch the data")
-          //       ) >> findFirstSuccedingSource(mediaName, t)
-          //     )
+
         for
           media <- Resource.eval(Async[F].fromEither(Media(dbMediaData)))
           _ <- Resource.eval(LogWriter.info(s"[ResourcesAccess] fetching data for $media from ${media.mediaSources}"))

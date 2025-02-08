@@ -1,10 +1,12 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
+import cats.data.NonEmptyList
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.mocks.TelegramHttpRoutes
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -45,7 +47,7 @@ class BotSetupSpec extends CatsEffectSuite {
       getResourceFileHandler = resourceName =>
         IO.raiseUnless(resourceName.filepath == tokenFilename)(
           Throwable(s"[ResourceAccessMock] getResourceByteArrayHandler input mismatch: $resourceName ≠ $tokenFilename")
-        ).as(MediaResource.MediaResourceFile(expectedFile))
+        ).as(NonEmptyList.one(MediaResourceFile(Resource.pure(expectedFile))))
     )
 
     BotSetup

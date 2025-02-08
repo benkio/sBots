@@ -1,5 +1,6 @@
 package com.benkio.richardphjbensonbot
 
+import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
 import cats.implicits.*
@@ -7,6 +8,7 @@ import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.Reply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
@@ -30,7 +32,11 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-  val resourceAccessMock   = new ResourceAccessMock(List.empty)
+  val mediaResource: MediaResourceIFile[IO] =
+    MediaResourceIFile(
+      "test mediafile"
+    )
+  val resourceAccessMock = new ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,

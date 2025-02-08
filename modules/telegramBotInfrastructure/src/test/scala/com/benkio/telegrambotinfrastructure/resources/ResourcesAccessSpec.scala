@@ -2,7 +2,8 @@ package com.benkio.telegrambotinfrastructure.resources
 
 import cats.effect.IO
 import cats.syntax.all.*
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -28,10 +29,14 @@ class ResourcesAccessSpec extends CatsEffectSuite {
   test("toTempFile should create a temporary file with the expected content and name") {
     val (inputFileName, inputContent) = ("test.txt", random.nextBytes(100))
 
-    val obtained = ResourceAccess.toTempFile(inputFileName, inputContent)
-    assert(obtained.getName().startsWith("test"))
-    assert(obtained.getName().endsWith(".txt"))
-    assertEquals(Files.readAllBytes(obtained.toPath).toSeq, inputContent.toSeq)
+    val obtainedResource = ResourceAccess.toTempFile[IO](inputFileName, inputContent)
+    obtainedResource.use(obtained =>
+      IO {
+        assert(obtained.getName().startsWith("test"))
+        assert(obtained.getName().endsWith(".txt"))
+        assertEquals(Files.readAllBytes(obtained.toPath).toSeq, inputContent.toSeq)
+      }
+    )
   }
 
   test("ResourceAccess Local should retrieve a mediafile from the resources correctly") {
@@ -53,9 +58,8 @@ object ResourceAccessSpec {
   def testFilename(filename: String)(using resourceAccess: ResourceAccess[IO]): IO[Boolean] =
     resourceAccess
       .getResourceFile(Document(filename))
-      .use {
-        case MediaResource.MediaResourceFile(f) => Files.readAllBytes(f.toPath).map(_.toChar).mkString.nonEmpty.pure
-        case MediaResource.MediaResourceIFile(x) =>
-          IO.raiseError(Throwable(s"[ResourcesAccessSpec]: filename $filename is missing!!!!"))
-      }
+      .use(_.exists {
+        case MediaResourceFile(_)  => true
+        case MediaResourceIFile(_) => false
+      }.pure)
 }

@@ -80,20 +80,25 @@ object DBMedia {
         cacheLookupValue: String,
         cacheResultHandler: Option[List[DBMediaData]] => F[A]
     ): F[A] = for {
-      _              <- log.info(s"DB fetching media by $cacheLookupValue")
+      _              <- log.info(s"[DBMedia:83:62] DB fetching media with $cacheLookupValue")
       cachedValueOpt <- dbCache.lookup(cacheLookupValue)
       media          <- cacheResultHandler(cachedValueOpt)
+      _              <- log.info("[DBMedia:86:49] DB Fetching completed")
     } yield media
 
     override def incrementMediaCount(filename: String): F[Unit] = for {
+      _     <- log.info(s"DB increment media count for $filename")
       _     <- dbCache.delete(filename)
       media <- getMedia(filename)
+      _     <- log.info(s"[DBMedia:92:49] SQL: ${incrementMediaCountQuery(media).sql}")
       _     <- incrementMediaCountQuery(media).run.transact(transactor)
     } yield ()
 
     override def decrementMediaCount(filename: String): F[Unit] = for {
+      _     <- log.info(s"DB decrement media count for $filename")
       _     <- dbCache.delete(filename)
       media <- getMedia(filename)
+      _     <- log.info(s"[DBMedia:100:49] SQL: ${decrementMediaCountQuery(media).sql}")
       _     <- decrementMediaCountQuery(media).run.transact(transactor)
     } yield ()
 
@@ -106,7 +111,8 @@ object DBMedia {
               .filter(_ => cache)
               .flatMap(_.headOption)
               .fold[F[DBMediaData]](
-                getMediaQueryByName(filename).unique.transact(transactor)
+                log.info(s"[DBMedia:113:54] fetch media for $filename. SQL: ${getMediaQueryByName(filename).sql}") >>
+                  getMediaQueryByName(filename).unique.transact(transactor)
               )(Async[F].pure)
             _ <-
               if cachedValueOpt.fold(true)(_.length != 1) then dbCache.insert(filename, List(media))
@@ -115,8 +121,9 @@ object DBMedia {
       )
 
     override def getRandomMedia(botPrefix: String): F[DBMediaData] =
-      getMediaQueryByRandom(botPrefix).unique
-        .transact(transactor)
+      log.info(s"[DBMedia:123:44] getRandomMedia for $botPrefix. SQL: ${getMediaQueryByRandom(botPrefix).sql}") >>
+        getMediaQueryByRandom(botPrefix).unique
+          .transact(transactor)
 
     override def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]] =
       getMediaInternal[List[DBMediaData]](
@@ -126,7 +133,9 @@ object DBMedia {
             medias <- cachedValueOpt
               .filter(_ => cache)
               .fold(
-                getMediaQueryByKind(kind).stream.compile.toList.transact(transactor)
+                log.info(s"[DBMedia:135:54] getMediaByKind for $kind. SQL: ${getMediaQueryByKind(kind).sql}") >>
+                  getMediaQueryByKind(kind).stream.compile.toList.transact(transactor)
+                  <* log.info(s"[DBMedia:138:54] getMediaByKind for $kind completed")
               )(Async[F].pure)
             _ <-
               if cachedValueOpt.isEmpty then dbCache.insert(kind, medias)
@@ -138,21 +147,29 @@ object DBMedia {
         limit: Int = 20,
         mediaNamePrefix: Option[String] = None
     ): F[List[DBMediaData]] =
-      getMediaQueryByMediaCount(mediaNamePrefix = mediaNamePrefix).stream
-        .take(limit.toLong)
-        .compile
-        .toList
-        .transact(transactor)
+      log.info(
+        s"[DBMedia:148:44] getMediaByMediaCount for prefix $mediaNamePrefix. SQL: ${getMediaQueryByMediaCount(mediaNamePrefix = mediaNamePrefix).sql}"
+      ) >>
+        getMediaQueryByMediaCount(mediaNamePrefix = mediaNamePrefix).stream
+          .take(limit.toLong)
+          .compile
+          .toList
+          .transact(transactor)
 
     override def insertMedia(dbMediaData: DBMediaData): F[Unit] =
-      insertSql(dbMediaData).run.transact(transactor).void.exceptSql {
-        case e if e.getMessage().contains("UNIQUE constraint failed") =>
-          updateOnConflictSql(dbMediaData).run.transact(transactor).void
-        case e =>
-          MonadCancelThrow[F].raiseError(
-            new RuntimeException(s"An error occurred in inserting $dbMediaData with exception: $e")
-          )
-      }
+      log.info(s"[DBMedia:156:44] insertMedia for $dbMediaData. SQL: ${insertSql(dbMediaData).sql}") >>
+        insertSql(dbMediaData).run.transact(transactor).void.exceptSql {
+          case e if e.getMessage().contains("UNIQUE constraint failed") =>
+            log.info(
+              s"[DBMedia:159:48] insertMedia unique constraint failed. Update $dbMediaData. SQL: ${updateOnConflictSql(dbMediaData).sql}"
+            ) >>
+              updateOnConflictSql(dbMediaData).run.transact(transactor).void
+          case e =>
+            log.error(s"[DBMedia:162:49]] ERROR insertMedia for $dbMediaData. Error: $e") >>
+              MonadCancelThrow[F].raiseError(
+                new RuntimeException(s"An error occurred in inserting $dbMediaData with exception: $e")
+              )
+        }
   }
 
   def insertSql(dbMediaData: DBMediaData): Update0 =
@@ -166,12 +183,14 @@ object DBMedia {
       .query[DBMediaData]
 
   def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
+    val kindLike1 = s""""[\\"${kind}\\"%"""
+    val kindLike2 = s"""%\\"${kind}\\"%"""
+    val kindLike3 = s"""%\\"${kind}\\"]""""
     (fr"SELECT media_name, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
       Fragments.whereOr(
-        fr"""kinds LIKE ${"""["""" + kind + """",%"""}""",
-        fr"""kinds LIKE ${"""%,"""" + kind + """",%"""}""",
-        fr"""kinds LIKE ${"""%,"""" + kind + """"]"""}""",
-        fr"""kinds LIKE ${"""["""" + kind + """"]"""}"""
+        fr"""kinds LIKE $kindLike1""",
+        fr"""kinds LIKE $kindLike2""",
+        fr"""kinds LIKE $kindLike3"""
       )).query[DBMediaData]
 
   def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {

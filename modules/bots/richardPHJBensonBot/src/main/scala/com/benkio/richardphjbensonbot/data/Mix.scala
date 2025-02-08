@@ -2908,8 +2908,8 @@ object Mix {
       vid"rphjb_NonHoIlSapereQuelloCheNonSo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "che( cazzo)? c'è da prendere",
-      "prend(o|ere) ((il|er) motorino|(il|er) coso|la macchina|l'auto)",
+      "che( cazzo)? c'è da prendere".r.tr(19),
+      "prend(o|ere) ((il|er) motorino|(il|er) coso|la macchina|l'auto)".r.tr(12),
       "\\bvengo\\b".r.tr(5),
       "non vengo\\b".r.tr(9)
     )(

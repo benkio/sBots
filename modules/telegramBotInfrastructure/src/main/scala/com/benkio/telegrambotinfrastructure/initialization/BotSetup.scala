@@ -56,15 +56,17 @@ object BotSetup {
   ): Resource[F, String] =
     resourceAccess
       .getResourceFile(Document(tokenFilename))
-      .flatMap(mediaResources => mediaResources.head match {
-        case MediaResource.MediaResourceFile(rf) => rf.map(f => Files.readAllBytes(f.toPath()).map(_.toChar).mkString)
-        case MediaResource.MediaResourceIFile(x) =>
-          Resource.raiseError(
-            Throwable(
-              s"[BotSetup] Cannot find bot token. Expected: MediaResourceFile, got: ${MediaResource.MediaResourceIFile(x)}"
+      .flatMap(mediaResources =>
+        mediaResources.head match {
+          case MediaResource.MediaResourceFile(rf) => rf.map(f => Files.readAllBytes(f.toPath()).map(_.toChar).mkString)
+          case MediaResource.MediaResourceIFile(x) =>
+            Resource.raiseError(
+              Throwable(
+                s"[BotSetup] Cannot find bot token. Expected: MediaResourceFile, got: ${MediaResource.MediaResourceIFile(x)}"
+              )
             )
-          )
-      })
+        }
+      )
 
   def loadDB[F[_]: Async](config: Config)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(

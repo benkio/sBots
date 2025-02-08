@@ -1,29 +1,39 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
+import cats.effect.IO
+import cats.effect.Resource
+import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.model.media
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import munit.*
 import telegramium.bots.InputLinkFile
 import telegramium.bots.InputPartFile
 
 import java.io.File
 
-class MediaResourceSpec extends FunSuite {
+class MediaResourceSpec extends CatsEffectSuite {
   test("toTelegramApi should return the expected1 Telegram Type") {
     val file      = File(".")
-    val actual1   = MediaResource.MediaResourceFile(file).toTelegramApi
+    val actual1   = MediaResourceFile(Resource.pure[IO, File](file)).toTelegramApi
     val expected1 = InputPartFile(file)
-    assertEquals(actual1, expected1)
-    val ifile     = "ifile"
-    val actual2   = MediaResource.MediaResourceIFile(ifile).toTelegramApi
-    val expected2 = InputLinkFile(ifile)
-    assertEquals(actual2, expected2)
+    // --------------------------------------------------
+    val ifile                            = "ifile"
+    val mediaResource: MediaResource[IO] = MediaResourceIFile(ifile)
+    val actual2                          = mediaResource.toTelegramApi
+    val expected2                        = InputLinkFile(ifile)
+    assertIO(actual1, expected1) *>
+      assertIO(actual2, expected2)
   }
   test("getMediaResourceFile should extrac the file or return None") {
     val file      = File(".")
-    val actual1   = MediaResource.MediaResourceFile(file).getMediaResourceFile
+    val actual1   = MediaResourceFile(Resource.pure[IO, File](file)).getMediaResourceFile.sequence
     val expected1 = Some(file)
-    assertEquals(actual1, expected1)
-    val ifile   = "ifile"
-    val actual2 = MediaResource.MediaResourceIFile(ifile).getMediaResourceFile
-    assertEquals(actual2, None)
+
+    val ifile                            = "ifile"
+    val mediaResource: MediaResource[IO] = MediaResourceIFile(ifile)
+    val actual2                          = mediaResource.getMediaResourceFile
+    assertIO(actual1.use(_.pure[IO]), expected1) *>
+      assertIO(actual2.pure[IO], None)
   }
 }

@@ -1,12 +1,15 @@
 package com.benkio.botDB.db
 
+import cats.data.NonEmptyList
 import cats.effect.IO
+import cats.effect.Resource
+import cats.syntax.all.*
 import com.benkio.botDB.mocks.MigratorMock
 import com.benkio.botDB.mocks.ShowFetcherMock
 import com.benkio.botDB.TestData.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -18,13 +21,13 @@ import java.io.File
 class BotDBControllerSpec extends CatsEffectSuite {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-  val inputJson: MediaResource =
-    MediaResource.MediaResourceFile(
-      new File(getClass.getResource("/").toURI).listFiles().toList.filterNot(_.getName == "com").head
+  val inputJson: MediaResourceFile[IO] =
+    MediaResourceFile(
+      Resource.pure(File(getClass.getResource("/").toURI).listFiles().toList.filterNot(_.getName == "com").head)
     )
   val mediaEntities: List[DBMediaData] = List(google, amazon, facebook)
 
-  val resourceAccessMock = new ResourceAccessMock(List(inputJson))
+  val resourceAccessMock = new ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(inputJson)).pure[IO])
   val migratorMock       = new MigratorMock()
   val showFetcherMock    = new ShowFetcherMock()
   val dbLayerMock = DBLayerMock.mock(

@@ -57,8 +57,8 @@ trait BotSkeleton[F[_]] {
 
   // Configuration values & functions /////////////////////////////////////////////////////
   def resourceAccess(using syncF: Async[F], log: LogWriter[F]): ResourceAccess[F] = ResourceAccess.fromResources[F]()
-  val ignoreMessagePrefix: Option[String]                                        = Some("!")
-  val disableForward: Boolean                                                    = true
+  val ignoreMessagePrefix: Option[String]                                         = Some("!")
+  val disableForward: Boolean                                                     = true
   val botName: String
   val botPrefix: String
   val triggerListUri: Uri
