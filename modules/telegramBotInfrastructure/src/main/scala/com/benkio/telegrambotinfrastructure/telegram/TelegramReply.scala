@@ -46,7 +46,7 @@ object TelegramReply:
   ): F[List[Message]] = {
     val chatId: ChatId = ChatIntId(msg.chat.id)
     def computeMediaResource(mediaResource: MediaResource[F]): F[Message] =
-      mediaResource.toTelegramApi.flatMap(iFile =>
+      mediaResource.toTelegramApi.use(iFile =>
         sendFileAPIMethod(
           chatId,
           iFile,
@@ -62,12 +62,13 @@ object TelegramReply:
             mediaResources.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
               prevExec.handleErrorWith(e =>
                 LogWriter.error(
-                  s"[TelegramReply] ERROR while executing media resource for $mediaFile. Fallback to $nextRes"
+                  s"[TelegramReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
                 ) >>
                   computeMediaResource(nextRes)
               )
             )
           )
+          .onError(e => LogWriter.error(s"[TelegramReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"))
           .attemptT
     } yield List(message)
     result.getOrElse(List.empty)

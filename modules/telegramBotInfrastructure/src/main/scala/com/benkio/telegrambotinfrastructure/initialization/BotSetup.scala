@@ -4,7 +4,7 @@ import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
 import cats.MonadThrow
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -19,8 +19,6 @@ import org.http4s.*
 import org.http4s.client.Client
 import telegramium.bots.high.Api
 import telegramium.bots.high.BotApi
-
-import java.nio.file.Files
 
 final case class BotSetup[F[_]](
     token: String,
@@ -54,19 +52,25 @@ object BotSetup {
       tokenFilename: String,
       resourceAccess: ResourceAccess[F]
   ): Resource[F, String] =
-    resourceAccess
-      .getResourceFile(Document(tokenFilename))
-      .flatMap(mediaResources =>
-        mediaResources.head match {
-          case MediaResource.MediaResourceFile(rf) => rf.map(f => Files.readAllBytes(f.toPath()).map(_.toChar).mkString)
-          case MediaResource.MediaResourceIFile(x) =>
-            Resource.raiseError(
-              Throwable(
-                s"[BotSetup] Cannot find bot token. Expected: MediaResourceFile, got: ${MediaResource.MediaResourceIFile(x)}"
-              )
-            )
-        }
+    for
+      _                   <- Resource.eval(LogWriter.info(s"[BotSetup:58:47] Retrieving Token $tokenFilename"))
+      tokenMediaResources <- resourceAccess.getResourceFile(Document(tokenFilename))
+      tokenFiles <- tokenMediaResources.collect { case MediaResourceFile(rf) =>
+        rf
+      }.sequence
+      tokenFileContent <-
+        tokenFiles.headOption.fold(Resource.raiseError(Throwable(s"[BotSetup] Cannot find the token $tokenFilename")))(
+          f => ResourceAccess.fileToString(f)
+        )
+      _ <- Resource.eval(
+        Async[F].raiseWhen(tokenFileContent.isEmpty)(
+          Throwable(s"[BotSetup] the retrieved token $tokenFilename is empty")
+        )
       )
+      _ <- Resource.eval(
+        LogWriter.info(s"[BotSetup:58:47] Token $tokenFilename successfully retrieved")
+      )
+    yield tokenFileContent
 
   def loadDB[F[_]: Async](config: Config)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(

@@ -22,8 +22,8 @@ class MediaResourceSpec extends CatsEffectSuite {
     val mediaResource: MediaResource[IO] = MediaResourceIFile(ifile)
     val actual2                          = mediaResource.toTelegramApi
     val expected2                        = InputLinkFile(ifile)
-    assertIO(actual1, expected1) *>
-      assertIO(actual2, expected2)
+    actual1.use(assertEquals(_, expected1).pure[IO]) *>
+      actual2.use(assertEquals(_, expected2).pure[IO])
   }
   test("getMediaResourceFile should extrac the file or return None") {
     val file      = File(".")

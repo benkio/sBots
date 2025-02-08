@@ -25,7 +25,7 @@ object GeneralErrorHandling {
   ): IO[ExitCode] =
     app.handleErrorWith((e: Throwable) =>
       for {
-        _       <- IO.pure(log.error("[Main] ERROR: " + e.getMessage))
+        _       <- log.error("[Main] ERROR: " + e.getMessage)
         _       <- dbLogError[IO](dbLog, e)
         restart <- dbLogAndRestart(dbLog, app)
       } yield restart

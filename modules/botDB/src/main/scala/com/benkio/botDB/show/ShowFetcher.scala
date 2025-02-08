@@ -14,7 +14,6 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 import java.util.UUID
-import scala.io.Source
 import scala.sys.process.*
 import scala.sys.process.Process
 
@@ -26,14 +25,14 @@ object ShowFetcher {
 
   private class ShowFetcherImpl[F[_]: Async: LogWriter]() extends ShowFetcher[F] {
     override def generateShowJson(source: ShowSource): F[List[DBShowData]] =
-      val file = File(source.outputFilePath)
       for
-        _ <- LogWriter.info(s"[ShowFetcher] check dependencies: $shellDependencies")
-        _ <- checkDependencies
-        _ <- LogWriter.info(s"[ShowFetcher] get shows for: $source")
+        _           <- LogWriter.info(s"[ShowFetcher] check dependencies: $shellDependencies")
+        _           <- checkDependencies
+        _           <- LogWriter.info(s"[ShowFetcher] get shows for: $source")
+        fileContent <- ResourceAccess.fileToString(File(source.outputFilePath)).use(_.pure[F])
         dbShowDatass <-
-          if file.exists()
-          then dbShowDataFromFile(file)
+          if fileContent.length > 1000
+          then dbShowDataFromFile(fileContent)
           else dbShowDataFromYoutube(source)
       yield dbShowDatass
 
@@ -50,11 +49,10 @@ object ShowFetcher {
             )
         )
 
-    private def dbShowDataFromFile(file: File): F[List[DBShowData]] =
+    private def dbShowDataFromFile(fileContent: String): F[List[DBShowData]] =
       for
-        _ <- LogWriter.info(s"[ShowFetcher] show file exists at ${file.toPath().toAbsolutePath()}")
-        fileContent = fileToString(file)
-        dbShowData <- fileContent.use(c => Async[F].fromEither(decode[List[DBShowData]](c)))
+        _          <- LogWriter.info(s"[ShowFetcher] show file exists with content: ${fileContent.take(100)}...")
+        dbShowData <- Async[F].fromEither(decode[List[DBShowData]](fileContent))
       yield dbShowData
 
     private def dbShowDataFromYoutube(source: ShowSource): F[List[DBShowData]] =
@@ -92,23 +90,24 @@ object ShowFetcher {
   }
 
   def filterAndParseJson[F[_]: Async: LogWriter](sourceJson: File, botName: String): F[List[DBShowData]] =
-    fileToString(sourceJson).use(inputFileContent =>
-      for
-        json <- Async[F].fromEither(parse(inputFileContent))
-        dbShowDatas <- YoutubeJSONParser
-          .parseYoutube[F](json, botName)
-          .handleErrorWith(err =>
-            LogWriter.error(s"[ShowFetcher] ERROR during parsing of $botName with $err") >>
-              Async[F].delay(
-                Files
-                  .writeString(Path.of(s"ERR-${scala.util.Random.nextInt()}-${sourceJson.getName()}"), inputFileContent)
-              ) >>
-              List.empty.pure
-          )
-      yield dbShowDatas
-    )
-
-  def fileToString[F[_]: Async: LogWriter](file: File): Resource[F, String] =
-    Resource.make(Async[F].delay(Source.fromFile(file)))(bs => Async[F].delay(bs.close)).map(_.getLines.mkString("\n"))
-//    Async[F].delay(Files.readAllLines(file.toPath()).mkString("\n"))
+    ResourceAccess
+      .fileToString(sourceJson)
+      .use(inputFileContent =>
+        for
+          json <- Async[F].fromEither(parse(inputFileContent))
+          dbShowDatas <- YoutubeJSONParser
+            .parseYoutube[F](json, botName)
+            .handleErrorWith(err =>
+              LogWriter.error(s"[ShowFetcher] ERROR during parsing of $botName with $err") >>
+                Async[F].delay(
+                  Files
+                    .writeString(
+                      Path.of(s"ERR-${scala.util.Random.nextInt()}-${sourceJson.getName()}"),
+                      inputFileContent
+                    )
+                ) >>
+                List.empty.pure
+            )
+        yield dbShowDatas
+      )
 }

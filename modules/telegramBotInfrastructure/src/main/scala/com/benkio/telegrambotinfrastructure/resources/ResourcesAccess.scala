@@ -18,12 +18,12 @@ import org.http4s.Uri
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
-import java.io.FileOutputStream
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.jar.JarFile
 import scala.collection.mutable.ArrayBuffer
+import scala.io.Source
 import scala.jdk.CollectionConverters.*
 import scala.util.Try
 
@@ -49,6 +49,12 @@ object ResourceAccess {
     }
   )(f => Async[F].delay(f.delete()).void)
 
+  def fileToString[F[_]: Async: LogWriter](file: File): Resource[F, String] =
+    Resource
+      .make(Async[F].delay(Source.fromFile(file)))(bs => Async[F].delay(bs.close))
+      .map(_.getLines.mkString("\n"))
+      .handleErrorWith((e: Throwable) => Resource.pure[F, String](""))
+
   def buildPath(subResourceFilePath: String, stage: Option[String] = None): Path =
     Paths.get(
       Paths.get("").toAbsolutePath().toString(),
@@ -64,9 +70,13 @@ object ResourceAccess {
 
     private def getResourceByteArray(resourceName: String): Resource[F, Array[Byte]] =
       (for {
-        _ <- Resource.eval(LogWriter.info(s"""[ResourcesAccess] Retrieve the file locally at ${getClass().getResource(
-            "/" + resourceName
-          )}"""))
+        _ <- Resource.eval(
+          LogWriter.info(
+            s"""[ResourcesAccess] getResourceByteArray Retrieve the file locally at ${getClass().getResource(
+                "/" + resourceName
+              )}"""
+          )
+        )
         fis <- Resource.make(Async[F].fromTry {
           val stream = getClass().getResourceAsStream("/" + resourceName)
           Try(if stream == null then new FileInputStream(resourceName) else stream)
@@ -79,7 +89,9 @@ object ResourceAccess {
           _ <- Monad[F].iterateWhileM(firstChunk)(chunk =>
             Async[F].delay(bais.write(tempArray, 0, chunk)) *> Async[F].delay(fis.read(tempArray, 0, tempArray.length))
           )(_ != -1)
-        } yield bais.toByteArray()
+          result = bais.toByteArray()
+          _ <- LogWriter.info(s"[ResourcesAccess:86:48] getResourceByteArray total bytes read: ${result.size}")
+        } yield result
       }
 
     def getResourcesByKind(criteria: String): Resource[F, NonEmptyList[NonEmptyList[MediaResource[F]]]] = {
@@ -145,12 +157,8 @@ object ResourceAccess {
       for {
         _           <- Resource.eval(LogWriter.info(s"getResourceFile for $mediaFile"))
         fileContent <- getResourceByteArray(mediaFile.filepath)
-        tempFile = ResourceAccess.toTempFile(mediaFile.filename, Array.empty)
-        fos <- tempFile.map(FileOutputStream(_))
-      } yield {
-        fos.write(fileContent)
-        NonEmptyList.one(MediaResourceFile(tempFile))
-      }
+        tempFile = ResourceAccess.toTempFile(mediaFile.filename, fileContent)
+      } yield NonEmptyList.one(MediaResourceFile(tempFile))
     }
   }
 
@@ -184,7 +192,7 @@ object ResourceAccess {
       private[resources] def dbMediaDataToMediaResource(
           dbMediaData: DBMediaData
       ): Resource[F, NonEmptyList[MediaResource[F]]] = {
-        def findFirstSuccedingSource(
+        def buildMediaResources(
             mediaName: String,
             sources: NonEmptyList[Either[String, Uri]]
         ): Resource[F, NonEmptyList[MediaResource[F]]] =
@@ -208,7 +216,7 @@ object ResourceAccess {
           nonEmptyMediaSources <- Resource.eval(
             Async[F].fromOption(NonEmptyList.fromList(media.mediaSources), NoResourcesFoundDBMediaData(dbMediaData))
           )
-          mediaResource <- findFirstSuccedingSource(media.mediaName, nonEmptyMediaSources)
+          mediaResource <- buildMediaResources(media.mediaName, nonEmptyMediaSources)
         yield mediaResource
       }
     }

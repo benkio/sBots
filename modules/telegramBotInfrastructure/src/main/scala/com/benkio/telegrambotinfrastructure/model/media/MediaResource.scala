@@ -14,9 +14,9 @@ enum MediaResource[F[_]]:
   case MediaResourceIFile(iFile: String)          extends MediaResource[F]
 
 extension [F[_]: Async](mediaResource: MediaResource[F])
-  def toTelegramApi: F[IFile] = mediaResource match {
-    case MediaResource.MediaResourceFile(rFile: Resource[F, File]) => rFile.use(InputPartFile(_).pure[F])
-    case MediaResource.MediaResourceIFile(iFile: String)           => InputLinkFile(iFile).pure[F]
+  def toTelegramApi: Resource[F, IFile] = mediaResource match {
+    case MediaResource.MediaResourceFile(rFile: Resource[F, File]) => rFile.map(InputPartFile(_))
+    case MediaResource.MediaResourceIFile(iFile: String)           => Resource.pure(InputLinkFile(iFile))
   }
   def getMediaResourceFile: Option[Resource[F, File]] = mediaResource match {
     case MediaResource.MediaResourceFile(file: Resource[F, File]) => Some(file)
