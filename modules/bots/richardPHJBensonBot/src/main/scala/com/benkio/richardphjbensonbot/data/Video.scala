@@ -229,7 +229,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "(mi|me) so(n|no)? rotto il ca\\b".r.tr(17),
       "impazzi(to|sce|ta) totalmente".r.tr(20),
-      "a(gia[s]?){2,}".r.tr(7)
+      "a([cg]ia[s]?){2,}".r.tr(7)
     )(
       vid"rphjb_RottoIlCa.mp4"
     ),
