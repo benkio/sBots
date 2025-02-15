@@ -962,15 +962,6 @@ object Video {
       "veronica frieman",
       "benedictum"
     )(vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4"),
-    ReplyBundleMessage
-      .textToVideo[F](
-        "verita",
-        "verità"
-      )(
-        vid"rphjb_AltraCazzataVeritaSembranoCazzate.mp4",
-        vid"rphjb_Verita.mp4",
-        vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
-      ),
     ReplyBundleMessage.textToVideo[F](
       "litfiba",
       "piero pelù",

@@ -26,10 +26,10 @@ class CommandPatternsSpec extends CatsEffectSuite {
       ),
       "frocio frocio"
     ) -> """--------------------------------------------------
-rphjb_NudoFrocio.mp3      | fro(ci|sh)o([ -]fro(ci|sh)o)+
-rphjb_FrocioFrocio.mp4    | 
---------------------------------------------------
-""",
+           |rphjb_NudoFrocio.mp3      | fro(ci|sh)o([ -]fro(ci|sh)o)+
+           |rphjb_FrocioFrocio.mp4    | 
+           |--------------------------------------------------
+           |""".stripMargin,
     (
       List(
         ReplyBundleMessage.textToMedia[IO](
@@ -38,17 +38,17 @@ rphjb_FrocioFrocio.mp4    |
           mp3"rphjb_Vergogna.mp3",
           vid"rphjb_Vergogna.mp4",
           gif"rphjb_VergognaGif.mp4",
-          gif"rphjb_Vergogna2.mp4"
+          gif"rphjb_Vergogna2Gif.mp4"
         )
       ),
       "una vergogna!"
     ) -> """--------------------------------------------------
-rphjb_Vergogna.mp3        | una vergogna
-rphjb_Vergogna.mp4        | 
-rphjb_VergognaGif.mp4     | 
-rphjb_Vergogna2.mp4       | 
---------------------------------------------------
-""",
+           |rphjb_Vergogna.mp3        | una vergogna
+           |rphjb_Vergogna.mp4        | 
+           |rphjb_VergognaGif.mp4     | 
+           |rphjb_Vergogna2Gif.mp4    | 
+           |--------------------------------------------------
+           |""".stripMargin,
     (
       List(
         ReplyBundleMessage.textToMedia[IO](
@@ -60,10 +60,10 @@ rphjb_Vergogna2.mp4       |
       ),
       "ostia!!!"
     ) -> """--------------------------------------------------
-mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3 | ostia
-mos_AntonioFossoCarteColla.mp3 | 
---------------------------------------------------
-""",
+           |mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3 | ostia
+           |mos_AntonioFossoCarteColla.mp3 | 
+           |--------------------------------------------------
+           |""".stripMargin,
     (
       List(
         ReplyBundleMessage.textToMedia[IO](
@@ -75,10 +75,10 @@ mos_AntonioFossoCarteColla.mp3 |
       ),
       "ciclismo"
     ) -> """--------------------------------------------------
-mos_CiclismoAllieviDio.mp3 | ciclismo
-mos_CiclismoGianniBugnoRitardo.mp3 | 
---------------------------------------------------
-""",
+           |mos_CiclismoAllieviDio.mp3 | ciclismo
+           |mos_CiclismoGianniBugnoRitardo.mp3 | 
+           |--------------------------------------------------
+           |""".stripMargin,
     (
       List(
         ReplyBundleMessage.textToMedia[IO](
@@ -89,24 +89,24 @@ mos_CiclismoGianniBugnoRitardo.mp3 |
       ),
       "un francesismo"
     ) -> """--------------------------------------------------
-ytai_Francesismo.mp3      | francesismo
---------------------------------------------------
-""",
+           |ytai_Francesismo.mp3      | francesismo
+           |--------------------------------------------------
+           |""".stripMargin,
     (
       List(
         ReplyBundleMessage.textToMedia[IO](
           "miele"
         )(
-          gif"ytai_ForteProfumoMiele.mp4",
-          gif"ytai_AppiccicaticcioMiele.mp4"
+          gif"ytai_ForteProfumoMieleGif.mp4",
+          gif"ytai_AppiccicaticcioMieleGif.mp4"
         )
       ),
       "splendido miele"
     ) -> """--------------------------------------------------
-ytai_ForteProfumoMiele.mp4 | miele
-ytai_AppiccicaticcioMiele.mp4 | 
---------------------------------------------------
-""",
+           |ytai_ForteProfumoMieleGif.mp4 | miele
+           |ytai_AppiccicaticcioMieleGif.mp4 | 
+           |--------------------------------------------------
+           |""".stripMargin,
     (
       List(
         ReplyBundleMessage.textToMedia[IO](
@@ -118,10 +118,10 @@ ytai_AppiccicaticcioMiele.mp4 |
       ),
       "italiani!!!"
     ) -> """--------------------------------------------------
-abar_Taliani.mp3          | italiani
-                          | arrendetevi
---------------------------------------------------
-""",
+           |abar_Taliani.mp3          | italiani
+           |                          | arrendetevi
+           |--------------------------------------------------
+           |""".stripMargin,
     (
       List(
         ReplyBundleMessage.textToMedia[IO](
@@ -133,10 +133,10 @@ abar_Taliani.mp3          | italiani
       ),
       "ti tiro una sprangata"
     ) -> """--------------------------------------------------
-abar_Spranga.gif          | spranga
-abar_ParoleLongobarde.mp4 | 
---------------------------------------------------
-"""
+           |abar_Spranga.gif          | spranga
+           |abar_ParoleLongobarde.mp4 | 
+           |--------------------------------------------------
+           |""".stripMargin
   )
 
   test("searchTrigger should return the expected result when a trigger is found") {
