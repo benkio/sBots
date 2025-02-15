@@ -199,7 +199,7 @@ object Gif:
       "👐",
       "🙌"
     )(
-      gif"abar_AlzaLeMani.mp4"
+      gif"abar_AlzaLeManiGif.mp4"
     )
   )
 end Gif

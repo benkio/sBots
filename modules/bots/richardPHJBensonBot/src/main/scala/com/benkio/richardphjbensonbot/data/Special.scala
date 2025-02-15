@@ -14,7 +14,7 @@ object Special {
       trigger = NewMemberTrigger,
       reply = MediaReply.fromList(
         List(
-          GifFile("rphjb_QuestaPersonaScusate.mp4", true)
+          GifFile("rphjb_QuestaPersonaScusateGif.mp4", true)
         )
       )
     ),
@@ -22,7 +22,7 @@ object Special {
       trigger = LeftMemberTrigger,
       reply = MediaReply.fromList(
         List(
-          GifFile("rphjb_LevatiDaiCoglioni.mp4", true)
+          GifFile("rphjb_LevatiDaiCoglioniGif.mp4", true)
         )
       )
     )
