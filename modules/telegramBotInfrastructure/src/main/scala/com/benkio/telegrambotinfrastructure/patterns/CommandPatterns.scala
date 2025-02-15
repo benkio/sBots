@@ -51,7 +51,7 @@ object CommandPatterns {
           mediaFiles = for
             dbMediaDatas <- dbMedia.getMediaByKind(kind = kind.getOrElse(commandName))
             medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
-          yield medias.map(media => MediaFile.fromFilePath(media.mediaName))
+          yield medias.map(media => MediaFile.fromMimeType(media))
         )
       )
   }
@@ -73,7 +73,7 @@ object CommandPatterns {
           mediaFiles = for
             dbMediaData <- dbMedia.getRandomMedia(botPrefix)
             media       <- Async[F].fromEither(Media(dbMediaData))
-          yield List(MediaFile.fromFilePath(media.mediaName))
+          yield List(MediaFile.fromMimeType(media))
         )
       )
   }

@@ -1,8 +1,12 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
+import com.benkio.telegrambotinfrastructure.model.media.Media
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.FunSuite
+import org.http4s.syntax.all.uri
+
+import java.time.Instant
 
 class ReplyValueSpec extends FunSuite {
 
@@ -47,5 +51,18 @@ class ReplyValueSpec extends FunSuite {
         ms => assertEquals(ms.asJson.toString, inputString)
       )
     }
+  }
+
+  test("MediaFile.fromMimeType should return the expected MediaFile from Media") {
+    val actual = Media(
+      mediaName = "mediaName.mp4",
+      kinds = List("kind"),
+      mimeType = "video/mp4",
+      mediaSources = List(Right(uri"http://something.com")),
+      mediaCount = 0,
+      createdAt = Instant.now()
+    )
+    val expected = VideoFile("mediaName.mp4", false)
+    assertEquals(MediaFile.fromMimeType(actual), expected)
   }
 }
