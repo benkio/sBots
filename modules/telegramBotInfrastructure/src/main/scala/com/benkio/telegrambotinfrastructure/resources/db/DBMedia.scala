@@ -34,12 +34,13 @@ object DBMediaData {
 
   def mimeTypeOrDefault(media_name: String, mime_type: Option[String]): String =
     mime_type.getOrElse(media_name.takeRight(3) match {
-      case "gif" => "image/gif"
-      case "jpg" => "image/jpeg"
-      case "png" => "image/png"
-      case "mp3" => "audio/mpeg"
-      case "mp4" => "video/mp4"
-      case _     => "application/octet-stream"
+      case "gif"     => "image/gif"
+      case "jpg"     => "image/jpeg"
+      case "png"     => "image/png"
+      case "sticker" => "image/sticker"
+      case "mp3"     => "audio/mpeg"
+      case "mp4"     => "video/mp4"
+      case _         => "application/octet-stream"
     })
 }
 

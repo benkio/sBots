@@ -13,6 +13,7 @@ class DBMediaSpec extends FunSuite {
     val actual = Media(
       mediaName = "mediaName",
       kinds = List("kind"),
+      mimeType = "video/mp4",
       mediaSources = List(Right(uri"http://something.com")),
       mediaCount = 0,
       createdAt = now

@@ -14,6 +14,7 @@ import scala.util.Try
 final case class Media(
     mediaName: String,
     kinds: List[String],
+    mimeType: String,
     mediaSources: List[Either[String, Uri]],
     mediaCount: Int,
     createdAt: Instant
@@ -28,6 +29,7 @@ object Media {
     kinds = decode[List[String]](dbMediaData.kinds)
       .handleErrorWith(_ => decode[String](dbMediaData.kinds).flatMap(decode[List[String]]))
       .getOrElse(List.empty),
+    mimeType = dbMediaData.mime_type,
     mediaSources = decode[List[Either[String, Uri]]](dbMediaData.media_sources)
       .handleErrorWith(_ => decode[String](dbMediaData.media_sources).flatMap(decode[List[Either[String, Uri]]]))
       .getOrElse(List.empty),

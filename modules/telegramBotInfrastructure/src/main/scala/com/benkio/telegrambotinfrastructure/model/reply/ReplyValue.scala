@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
 import cats.Show
+import com.benkio.telegrambotinfrastructure.model.media.Media
 import io.circe.*
 import io.circe.generic.semiauto.*
 
@@ -49,13 +50,14 @@ object MediaFile {
 
   given showInstance: Show[MediaFile] = Show.show(_.filename)
 
-  def fromFilePath(filepath: String, replyToMessage: Boolean = false): MediaFile = filepath match {
-    case s if s.endsWith(".mp3")                         => Mp3File(s, replyToMessage)
-    case s if s.endsWith(".gif")                         => GifFile(s, replyToMessage)
-    case s if s.endsWith(".mp4")                         => VideoFile(s, replyToMessage)
-    case s if List(".jpg", ".png").exists(s.endsWith(_)) => PhotoFile(s, replyToMessage)
-    case s =>
-      Document(s, replyToMessage)
+  def fromMimeType(media: Media, replyToMessage: Boolean = false): MediaFile = media.mimeType match {
+    case "image/gif"                => GifFile(media.mediaName, replyToMessage)
+    case "image/jpeg"               => PhotoFile(media.mediaName, replyToMessage)
+    case "image/png"                => PhotoFile(media.mediaName, replyToMessage)
+    case "audio/mpeg"               => Mp3File(media.mediaName, replyToMessage)
+    case "image/sticker"            => Sticker(media.mediaName, replyToMessage)
+    case "video/mp4"                => VideoFile(media.mediaName, replyToMessage)
+    case "application/octet-stream" => Document(media.mediaName, replyToMessage)
   }
 }
 
