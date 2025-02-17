@@ -148,7 +148,7 @@ object ITSearchShowCommandSpec {
         """2023-05-23 - https://www.youtube.com/watch?v=m3eF0adEZe0
           | Chiedilo a Barbero - La storia al contrario - Intesa Sanpaolo On Air
           |----------
-          | Si può insegnare la storia dal presente al passato? Cosa succederebbe se andassimo a ritroso nell’insegnamento dei programmi scolastici? 
+          | Si può insegnare la storia dal presente al passato? Cosa succederebbe se andassimo a ritroso nell’insegnamento dei programmi scolastici?
           |
           |Iscriviti al canale per non perderti nessun aggiornamento su “Chiedilo a Barbero” e seguici su:
           |Spotify: https://open.spotify.com/show/7JLDPffy6du4rAy8xW3hTT
@@ -179,7 +179,7 @@ object ITSearchShowCommandSpec {
         """2025-01-22 - https://www.youtube.com/watch?v=yJHfzSNjsC0
           | Richard Benson | Ottava Nota | L'Inghilterra elisabettiana degli ex-Marillion (22/01/1997) [INEDITA]
           |----------
-          | Si ringrazia Renzo Di Pietro, che ha messo a disposizione per le Brigate Benson il suo prezioso archivio di nastri di Ottava Nota. 
+          | Si ringrazia Renzo Di Pietro, che ha messo a disposizione per le Brigate Benson il suo prezioso archivio di nastri di Ottava Nota.
           |
           |GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
           |CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
@@ -194,7 +194,7 @@ object ITSearchShowCommandSpec {
         """2024-10-02 - https://www.youtube.com/watch?v=S3dDXbpjQVs
           | Richard Benson | Ottava Nota | Lo squallore che regna in Steve Vai (25 Settembre 1996) [INEDITA]
           |----------
-          | Si ringrazia Renzo Di Pietro, che ha messo a disposizione per le Brigate Benson il suo prezioso archivio di nastri di Ottava Nota. 
+          | Si ringrazia Renzo Di Pietro, che ha messo a disposizione per le Brigate Benson il suo prezioso archivio di nastri di Ottava Nota.
           |
           |GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
           |CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram
@@ -239,9 +239,9 @@ object ITSearchShowCommandSpec {
           | Il fascismo ebbe a Torino un radicamento più superficiale che altrove. Mussolini lo sapeva e nel corso del ventennio assunse verso la Capitale del Piemonte un atteggiamento ambivalente. A parole rendeva omaggio a quella “splendida città del lavoro”, in realtà, diffidava tanto dei veri padroni di Torino, gli Agnelli, quanto dei loro operai, che lo soprannominavano beffardamente Monsù Cerruti. Finché, durante la repubblica di Salò, Mussolini non nascose più la sua avversione per il Piemonte “centro della Vandea monarchica, reazionaria, bolscevica”.
           |
           |Iscriviti al canale per non perderti nessun aggiornamento su “Alessandro Barbero. La storia, le storie” e seguici su:
-          |Spotify https://open.spotify.com/show/3iAPIfy2DGtsy5nfj3eycS?si=X3AU0l8KTF2gefpNigZmjg 
-          |Apple Podcast https://podcasts.apple.com/it/podcast/alessandro-barbero-la-storia-le-storie-intesa-sanpaolo/id1521869598 
-          |Google Podcast https://podcasts.google.com/feed/aHR0cHM6Ly9kMTcycTN0b2o3dzFtZC5jbG91ZGZyb250Lm5ldC9yc3MteG1sLWZpbGVzLzBjZWM4MTU4LWNmYWQtNDc0YS1iZDM0LTFmMjY1YjdjNTYxMy54bWw?sa=X&ved=0CAYQrrcFahcKEwjY_4ui-b7wAhUAAAAAHQAAAAAQGA 
+          |Spotify https://open.spotify.com/show/3iAPIfy2DGtsy5nfj3eycS?si=X3AU0l8KTF2gefpNigZmjg
+          |Apple Podcast https://podcasts.apple.com/it/podcast/alessandro-barbero-la-storia-le-storie-intesa-sanpaolo/id1521869598
+          |Google Podcast https://podcasts.google.com/feed/aHR0cHM6Ly9kMTcycTN0b2o3dzFtZC5jbG91ZGZyb250Lm5ldC9yc3MteG1sLWZpbGVzLzBjZWM4MTU4LWNmYWQtNDc0YS1iZDM0LTFmMjY1YjdjNTYxMy54bWw?sa=X&ved=0CAYQrrcFahcKEwjY_4ui-b7wAhUAAAAAHQAAAAAQGA
           |Intesa Sanpaolo Group https://group.intesasanpaolo.com/it/sezione-editoriale/intesa-sanpaolo-on-air""".stripMargin
     ),
     TestInput(
@@ -281,7 +281,7 @@ object ITSearchShowCommandSpec {
           |----------
           | #RichardBenson #Live #Alpheus #LaBefanaDelMale #UnPollo
           |
-          |Un ringraziamento speciale va a Chiara Zoli che ci ha fornito questo reperto in ALTA QUALITÀ! Ella gestisce anche un blog: www.daftbunziblogger.blogspot.it che tratta principalmente tutto ciò che riguarda la pop culture anni 80-90! 
+          |Un ringraziamento speciale va a Chiara Zoli che ci ha fornito questo reperto in ALTA QUALITÀ! Ella gestisce anche un blog: www.daftbunziblogger.blogspot.it che tratta principalmente tutto ciò che riguarda la pop culture anni 80-90!
           |
           |NUOVO GRUPPO E CANALE TELEGRAM:
           |
@@ -295,7 +295,7 @@ object ITSearchShowCommandSpec {
       expectedOutput = """2024-09-06 - https://www.youtube.com/watch?v=bIZXDutgAHI
                          | Richard Benson | Cocktail Micidiale | La cinta di Bruce Kulick (200X)
                          |----------
-                         | #RichardBenson #brucekulick #giannineri 
+                         | #RichardBenson #brucekulick #giannineri
                          |
                          |GRUPPO TELEGRAM: https://bit.ly/brigate-benson-gruppo-telegram
                          |CANALE TELEGRAM: https://bit.ly/brigate-benson-canale-telegram

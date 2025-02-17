@@ -130,12 +130,12 @@ class TriggersSpec extends FunSuite {
         |}""".stripMargin,
       """{
         |  "NewMemberTrigger" : {
-        |    
+        |
         |  }
         |}""".stripMargin,
       """{
         |  "LeftMemberTrigger" : {
-        |    
+        |
         |  }
         |}""".stripMargin
     )
