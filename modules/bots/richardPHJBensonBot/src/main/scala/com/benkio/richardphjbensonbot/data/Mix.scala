@@ -761,7 +761,9 @@ object Mix {
       gif"rphjb_ComeAlSolitoNonAveteCapitoGif.mp4",
       mp3"rphjb_CapitoDoveStiamo.mp3",
       mp3"rphjb_CapisciRidotti.mp3",
-      mp3"rphjb_CapitoCheMagagna.mp3",
+      mp3"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp3",
+      vid"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp4",
+      gif"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazioneGif.mp4",
       mp3"rphjb_DavantiGenteNonHaCapisceUnCazzo.mp3",
       vid"rphjb_AbbiamoCapito.mp4",
       vid"rphjb_AveteCapitoNo.mp4",
@@ -893,7 +895,7 @@ object Mix {
       vid"rphjb_ButtareSoldiFinestra.mp4",
       vid"rphjb_CoiSoldiMiei.mp4",
       gif"rphjb_CoiSoldiMieiGif.mp4",
-      mp3"rphjb_CoiSoldiMiei.mp4",
+      mp3"rphjb_CoiSoldiMiei.mp3",
       vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -2203,18 +2205,14 @@ object Mix {
       mp3"rphjb_FrocioCoglione.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
+      "che magagna",
+      "che fregatura",
       "kiko loureiro",
       "che salva la situazione"
     )(
-      mp3"rphjb_KikoLoureiroSalvaSituazione.mp3",
-      vid"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
-      "che magagna",
-      "che fregatura"
-    )(
-      mp3"rphjb_CapitoCheMagagna.mp3",
-      vid"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp4"
+      mp3"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp3",
+      vid"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp4",
+      gif"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazioneGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "passaporto"
