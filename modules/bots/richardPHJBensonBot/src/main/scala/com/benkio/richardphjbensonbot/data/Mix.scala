@@ -1142,12 +1142,12 @@ object Mix {
       vid"rphjb_NonLiSopporto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "che si deve f(à|are)".r.tr(14)
+      "che si deve f(à|are)".r.tr(14),
+      "campà"
     )(
       gif"rphjb_NonLiSopportoGif.mp4",
       mp3"rphjb_NonLiSopporto.mp3",
-      vid"rphjb_NonLiSopporto.mp4",
-      gif"rphjb_CampaGif.mp4"
+      vid"rphjb_NonLiSopporto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "simposio"
