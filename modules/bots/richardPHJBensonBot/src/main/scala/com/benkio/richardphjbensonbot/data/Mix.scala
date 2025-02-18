@@ -290,9 +290,17 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "vi calpesto",
-      "vermi",
       "strisciate per terra"
     )(
+      gif"rphjb_ViCalpestoGif.mp4",
+      mp3"rphjb_ViCalpesto.mp3",
+      vid"rphjb_ViCalpesto.mp4",
+      sticker"rphjb_ViCalpestoBensoniani.sticker"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vermi"
+    )(
+      vid"rphjb_Schifosi4.mp4",
       gif"rphjb_ViCalpestoGif.mp4",
       mp3"rphjb_ViCalpesto.mp3",
       vid"rphjb_ViCalpesto.mp4",
@@ -792,7 +800,9 @@ object Mix {
       vid"rphjb_Schifosi.mp4",
       mp3"rphjb_Schifosi2.mp3",
       mp3"rphjb_Schifosi3.mp3",
-      mp3"rphjb_Schifosi4.mp3",
+      mp3"rphjb_SchifosiCheSchifo.mp3",
+      vid"rphjb_SchifosiCheSchifo.mp4",
+      gif"rphjb_SchifosiCheSchifoGif.mp4",
       vid"rphjb_Schifosi4.mp4",
       gif"rphjb_Schifosi3Gif.mp4",
       vid"rphjb_SchifosoUltimi.mp4",
@@ -1125,6 +1135,7 @@ object Mix {
       "ti dovresti vergognare"
     )(
       gif"rphjb_TiDovrestiVergognareGif.mp4",
+      vid"rphjb_TiDovrestiVergognare.mp4",
       mp3"rphjb_TiDovrestiVergognare.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -3907,6 +3918,21 @@ object Mix {
       mp3"rphjb_AlManicomioRichieKotzen.mp3",
       vid"rphjb_AlManicomioRichieKotzen.mp4",
       gif"rphjb_AlManicomioRichieKotzenGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "completamente libero"
+    )(
+      mp3"rphjb_CompletamenteLibero.mp3",
+      vid"rphjb_CompletamenteLibero.mp4",
+      gif"rphjb_CompletamenteLiberoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "che schifo!",
+      "che( )?(s)+chifo".r.tr(10)
+    )(
+      mp3"rphjb_SchifosiCheSchifo.mp3",
+      vid"rphjb_SchifosiCheSchifo.mp4",
+      gif"rphjb_SchifosiCheSchifoGif.mp4"
     )
   )
 

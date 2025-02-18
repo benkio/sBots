@@ -2161,6 +2161,14 @@ object Video {
     )(
       vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4",
       vid"rphjb_BiscionePiatti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "latranti",
+      "carne incancrenata",
+      "avvoltoi",
+      "voluttà"
+    )(
+      vid"rphjb_Schifosi4.mp4"
     )
   )
 }

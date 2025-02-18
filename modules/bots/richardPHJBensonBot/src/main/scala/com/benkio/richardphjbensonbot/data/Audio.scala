@@ -285,12 +285,6 @@ object Audio {
       mp3"rphjb_IoMiRicordoTutto.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "che schifo!",
-      "che( )?(s)+chifo".r.tr(10)
-    )(
-      mp3"rphjb_Schifosi4.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "gelatina",
       "secchi d'acqua",
       "sapone"
