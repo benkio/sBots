@@ -882,6 +882,8 @@ object Mix {
       vid"rphjb_InvestitoreGoverno.mp4",
       vid"rphjb_ButtareSoldiFinestra.mp4",
       vid"rphjb_CoiSoldiMiei.mp4",
+      gif"rphjb_CoiSoldiMieiGif.mp4",
+      mp3"rphjb_CoiSoldiMiei.mp4",
       vid"rphjb_StorieTanteTempoPassaOlioLeccarePiuSpazio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
