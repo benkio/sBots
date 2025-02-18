@@ -3897,7 +3897,15 @@ object Mix {
         vid"rphjb_AltraCazzataVeritaSembranoCazzate.mp4",
         vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4",
         gif"rphjb_VeritaGif.mp4"
-      )
+      ),
+    ReplyBundleMessage.textToMedia[F](
+      "richie kotzen",
+      "al manicomio"
+    )(
+      mp3"rphjb_AlManicomioRichieKotzen.mp3",
+      vid"rphjb_AlManicomioRichieKotzen.mp4",
+      gif"rphjb_AlManicomioRichieKotzenGif.mp4"
+    )
   )
 
 }
