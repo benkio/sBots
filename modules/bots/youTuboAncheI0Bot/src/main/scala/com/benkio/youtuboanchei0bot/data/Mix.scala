@@ -620,6 +620,16 @@ object Mix:
       gif"ytai_LoopCiotolaGif.mp4",
       gif"ytai_LoopCiotola2Gif.mp4",
       sticker"ytai_CiotolaYtancheio.sticker"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "buonissimo"
+    )(
+      mp3"ytai_Buonissimo.mp3",
+      vid"ytai_Buonissimo.mp4",
+      gif"ytai_BuonissimoGif.mp4",
+      mp3"ytai_30CentimentriStrudelBuonissimo.mp3",
+      vid"ytai_30CentimentriStrudelBuonissimo.mp4",
+      gif"ytai_30CentimentriStrudelBuonissimoGif.mp4"
     )
   )
 end Mix
