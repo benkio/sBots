@@ -147,6 +147,11 @@ object YouTuboAncheI0Bot {
       "pelata"
     )(
       pho"ytai_Barbiere.jpg"
+    ),
+    ReplyBundleMessage.textToPhoto[F](
+      "calzone"
+    )(
+      pho"ytai_Calzone.jpg"
     )
   )
 
