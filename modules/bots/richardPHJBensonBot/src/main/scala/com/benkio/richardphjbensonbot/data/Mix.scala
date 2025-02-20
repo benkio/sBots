@@ -1098,7 +1098,6 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "venerd[iì]".r.tr(7)
     )(
-      mp3"rphjb_Venerdi.mp3",
       vid"rphjb_Venerdi.mp4",
       vid"rphjb_IlVenerdi.mp4",
       vid"rphjb_TempoAlTempo.mp4",
@@ -1107,7 +1106,9 @@ object Mix {
       vid"rphjb_SteveVai.mp4",
       mp3"rphjb_SteveVai.mp3",
       gif"rphjb_SteveVaiGif.mp4",
-      vid"rphjb_BiscionePiatti.mp4"
+      vid"rphjb_BiscionePiatti.mp4",
+      vid"rphjb_Alle22MercolediTelevita.mp4",
+      mp3"rphjb_Alle22MercolediTelevita.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "discoteca laziale"
@@ -2045,7 +2046,9 @@ object Mix {
       mp3"rphjb_GrandeRegistaLucaDiNoia2.mp3",
       gif"rphjb_GrandeRegistaLucaDiNoia2Gif.mp4",
       vid"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp4",
-      mp3"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp3"
+      mp3"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp3",
+      vid"rphjb_Alle22MercolediTelevita.mp4",
+      mp3"rphjb_Alle22MercolediTelevita.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "angelo",
@@ -2273,7 +2276,9 @@ object Mix {
       vid"rphjb_Alle22MercolediTelevita.mp4",
       mp3"rphjb_FineSettimanaMercolediInizio.mp3",
       vid"rphjb_FineSettimanaMercolediInizio.mp4",
-      gif"rphjb_FineSettimanaMercolediInizioGif.mp4"
+      gif"rphjb_FineSettimanaMercolediInizioGif.mp4",
+      vid"rphjb_Alle22MercolediTelevita.mp4",
+      mp3"rphjb_Alle22MercolediTelevita.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "brutto frocio"
