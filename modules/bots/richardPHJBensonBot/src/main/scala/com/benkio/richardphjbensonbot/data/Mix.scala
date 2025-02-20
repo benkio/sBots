@@ -933,14 +933,17 @@ object Mix {
       mp3"rphjb_ComeViPare.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "divento una bestia",
+      "(divento|come) una bestia".r.tr(15),
       "incazzo"
     )(
       mp3"rphjb_DiventoBestia.mp3",
       mp3"rphjb_Incazzo.mp3",
       mp3"rphjb_Incazzo2.mp3",
       mp3"rphjb_PrimoSbaglio.mp3",
-      vid"rphjb_PrimoSbaglio.mp4"
+      vid"rphjb_PrimoSbaglio.mp4",
+      gif"rphjb_MiIncazzoComeUnaBestiaGif.mp3",
+      vid"rphjb_MiIncazzoComeUnaBestia.mp4",
+      mp3"rphjb_MiIncazzoComeUnaBestia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "dove stiamo",
