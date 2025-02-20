@@ -943,7 +943,10 @@ object Mix {
       vid"rphjb_PrimoSbaglio.mp4",
       gif"rphjb_MiIncazzoComeUnaBestiaGif.mp3",
       vid"rphjb_MiIncazzoComeUnaBestia.mp4",
-      mp3"rphjb_MiIncazzoComeUnaBestia.mp3"
+      mp3"rphjb_MiIncazzoComeUnaBestia.mp3",
+      vid"rphjb_PiuPacatoMiIncazzo.mp4",
+      gif"rphjb_PiuPacatoMiIncazzoGif.mp4",
+      mp3"rphjb_PiuPacatoMiIncazzo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "dove stiamo",
@@ -1798,12 +1801,21 @@ object Mix {
       mp3"rphjb_Sconvolto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "incazzat",
       "pi[uù] siete felici".r.tr(16)
     )(
       gif"rphjb_PiuIncazzatoPiuFeliciMortacciVostriGif.mp4",
       vid"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp4",
       mp3"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "incazzat"
+    )(
+      gif"rphjb_PiuIncazzatoPiuFeliciMortacciVostriGif.mp4",
+      vid"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp4",
+      mp3"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp3",
+      vid"rphjb_PiuPacatoMiIncazzo.mp4",
+      gif"rphjb_PiuPacatoMiIncazzoGif.mp4",
+      mp3"rphjb_PiuPacatoMiIncazzo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "w[e]+[l]+[a]+".r.tr(4)
@@ -3934,6 +3946,13 @@ object Mix {
       mp3"rphjb_SchifosiCheSchifo.mp3",
       vid"rphjb_SchifosiCheSchifo.mp4",
       gif"rphjb_SchifosiCheSchifoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "pacato"
+    )(
+      vid"rphjb_PiuPacatoMiIncazzo.mp4",
+      gif"rphjb_PiuPacatoMiIncazzoGif.mp4",
+      mp3"rphjb_PiuPacatoMiIncazzo.mp3"
     )
   )
 
