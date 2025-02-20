@@ -2420,7 +2420,10 @@ object Mix {
       mp3"rphjb_GigiDAlessioAnnaTatangelo.mp3",
       vid"rphjb_GianniCelesteMeglioGigiDAlessio.mp4",
       vid"rphjb_MusicaNapoletanaRockLista.mp4",
-      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
+      gif"rphjb_ViControlloDAlessioTatangeloFalsiMetallariGif.mp4",
+      vid"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp4",
+      mp3"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "gianni celeste"
@@ -3521,7 +3524,10 @@ object Mix {
       vid"rphjb_SeguireTuttiListaPersone.mp4",
       gif"rphjb_NonViScordateViControlloGif.mp4",
       mp3"rphjb_NonViScordateViControllo.mp3",
-      vid"rphjb_NonViScordateViControllo.mp4"
+      vid"rphjb_NonViScordateViControllo.mp4",
+      gif"rphjb_ViControlloDAlessioTatangeloFalsiMetallariGif.mp4",
+      vid"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp4",
+      mp3"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "scordate"
@@ -3958,6 +3964,24 @@ object Mix {
       vid"rphjb_PiuPacatoMiIncazzo.mp4",
       gif"rphjb_PiuPacatoMiIncazzoGif.mp4",
       mp3"rphjb_PiuPacatoMiIncazzo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "tatangelo"
+    )(
+      mp3"rphjb_GigiDAlessioAnnaTatangelo.mp3",
+      gif"rphjb_ViControlloDAlessioTatangeloFalsiMetallariGif.mp4",
+      vid"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp4",
+      mp3"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "uno per uno",
+      "falsi metallari",
+      "non sono mai cambiato",
+      "sono (solo )?evoluto".r.tr(12)
+    )(
+      gif"rphjb_ViControlloDAlessioTatangeloFalsiMetallariGif.mp4",
+      vid"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp4",
+      mp3"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp3"
     )
   )
 
