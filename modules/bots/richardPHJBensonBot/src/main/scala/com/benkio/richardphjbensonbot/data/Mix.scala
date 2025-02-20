@@ -2128,7 +2128,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "andre matos"
     )(
-      mp3"rphjb_MatosShaman.mp3",
+      mp3"rphjb_AndreMatosShaman.mp3",
       vid"rphjb_AndreMatosShaman.mp4",
       mp3"rphjb_VergognatiMatosFalasci.mp3",
       vid"rphjb_VergognatiMatosFalasci.mp4"
@@ -2145,7 +2145,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "shaman"
     )(
-      mp3"rphjb_MatosShaman.mp3",
+      mp3"rphjb_AndreMatosShaman.mp3",
       vid"rphjb_AndreMatosShaman.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -2751,7 +2751,7 @@ object Mix {
       "marciapiede",
       "truccatrice"
     )(
-      mp3"rphjb_TruccareViaZara.mp3",
+      mp3"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZara.mp3",
       vid"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZara.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -2764,7 +2764,9 @@ object Mix {
       vid"rphjb_ParteDiRomeo.mp4",
       vid"rphjb_DaHollywood.mp4",
       gif"rphjb_FaccioLaParteGif.mp4",
-      vid"rphjb_GaioInGiallo.mp4"
+      vid"rphjb_GaioInGiallo.mp4",
+      vid"rphjb_GrandeMelGibsonRinunciaATutto.mp4",
+      mp3"rphjb_GrandeMelGibsonRinunciaATutto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "vi salut[ao]".r.tr(9)
@@ -3910,10 +3912,17 @@ object Mix {
       gif"rphjb_PienoDiDischiNovitaTempoInferioreSuperioreGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "solange",
       "sfuggire a",
       "persona (simpatica|gradevole)".r.tr(17)
     )(
+      vid"rphjb_SolangeSfuggire.mp4",
+      mp3"rphjb_SolangeSfuggire.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "solange"
+    )(
+      vid"rphjb_AlzareLAudienceOspitiGeroglifico.mp4",
+      mp3"rphjb_AlzareLAudienceOspitiGeroglifico.mp3",
       vid"rphjb_SolangeSfuggire.mp4",
       mp3"rphjb_SolangeSfuggire.mp3"
     ),
@@ -3982,6 +3991,35 @@ object Mix {
       gif"rphjb_ViControlloDAlessioTatangeloFalsiMetallariGif.mp4",
       vid"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp4",
       mp3"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "audience",
+      "ora tarda",
+      "geroglifico",
+      "alba parietti",
+      "clemente mastella",
+      "lotito",
+      "claudia gerini",
+      "corvaglia",
+      "la russa"
+    )(
+      vid"rphjb_AlzareLAudienceOspitiGeroglifico.mp4",
+      mp3"rphjb_AlzareLAudienceOspitiGeroglifico.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\blook\\b".r.tr(4)
+    )(
+      vid"rphjb_FotoLookDreamTheater.mp4",
+      gif"rphjb_ViControlloDAlessioTatangeloFalsiMetallariGif.mp4",
+      vid"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp4",
+      mp3"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mel gibson",
+      "rinunciato"
+    )(
+      vid"rphjb_GrandeMelGibsonRinunciaATutto.mp4",
+      mp3"rphjb_GrandeMelGibsonRinunciaATutto.mp3"
     )
   )
 
