@@ -148,7 +148,10 @@ object Mix {
       sticker"rphjb_SputoBensoniani.sticker",
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4",
       vid"rphjb_GenteStranaBicchiereSputo.mp4",
-      mp3"rphjb_GenteStranaBicchiereSputo.mp3"
+      mp3"rphjb_GenteStranaBicchiereSputo.mp3",
+      gif"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMeGif.mp4",
+      vid"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp4",
+      mp3"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[gc]o[b]+e[l]+ini".r.tr(8),
@@ -941,7 +944,7 @@ object Mix {
       mp3"rphjb_Incazzo2.mp3",
       mp3"rphjb_PrimoSbaglio.mp3",
       vid"rphjb_PrimoSbaglio.mp4",
-      gif"rphjb_MiIncazzoComeUnaBestiaGif.mp3",
+      gif"rphjb_MiIncazzoComeUnaBestiaGif.mp4",
       vid"rphjb_MiIncazzoComeUnaBestia.mp4",
       mp3"rphjb_MiIncazzoComeUnaBestia.mp3",
       vid"rphjb_PiuPacatoMiIncazzo.mp4",
@@ -1108,7 +1111,10 @@ object Mix {
       gif"rphjb_SteveVaiGif.mp4",
       vid"rphjb_BiscionePiatti.mp4",
       vid"rphjb_Alle22MercolediTelevita.mp4",
-      mp3"rphjb_Alle22MercolediTelevita.mp3"
+      mp3"rphjb_Alle22MercolediTelevita.mp3",
+      gif"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMeGif.mp4",
+      vid"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp4",
+      mp3"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "discoteca laziale"
@@ -1890,7 +1896,7 @@ object Mix {
       gif"rphjb_Ciao2001Gif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "alle (22|ventidue)".r.tr(7)
+      "alle (ore )?(22|ventidue)".r.tr(7)
     )(
       mp3"rphjb_Alle22.mp3",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
@@ -1898,7 +1904,12 @@ object Mix {
       vid"rphjb_UltimoListaUmaniVenerdi22.mp4",
       vid"rphjb_SteveVai.mp4",
       mp3"rphjb_SteveVai.mp3",
-      gif"rphjb_SteveVaiGif.mp4"
+      gif"rphjb_SteveVaiGif.mp4",
+      vid"rphjb_Alle22MercolediTelevita.mp4",
+      mp3"rphjb_Alle22MercolediTelevita.mp3",
+      gif"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMeGif.mp4",
+      vid"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp4",
+      mp3"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "appuntamento"
@@ -4020,6 +4031,29 @@ object Mix {
     )(
       vid"rphjb_GrandeMelGibsonRinunciaATutto.mp4",
       mp3"rphjb_GrandeMelGibsonRinunciaATutto.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "appassionato di musica",
+      "costruisco giubbotti",
+      "\\bmoda\\b".r.tr(4),
+      "\\baffari\\b".r.tr(6),
+      "faccio tant(e|issime) cose".r.tr(17),
+      "trasform(ismo|armi)".r.tr(12),
+    )(
+      gif"rphjb_GiubbottiModaAffariTrasformistaGif.mp4",
+      vid"rphjb_GiubbottiModaAffariTrasformista.mp4",
+      mp3"rphjb_GiubbottiModaAffariTrasformista.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "vostri cuori",
+      "vostre emozioni",
+      "ci sarò sempre io",
+      "dentro di (voi|me)".r.tr(12),
+      "vostro (sesso|cervello)".r.tr(12)
+    )(
+      gif"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMeGif.mp4",
+      vid"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp4",
+      mp3"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp3"
     )
   )
 
