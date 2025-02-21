@@ -81,25 +81,25 @@ object DBMedia {
         cacheLookupValue: String,
         cacheResultHandler: Option[List[DBMediaData]] => F[A]
     ): F[A] = for {
-      _              <- log.info(s"[DBMedia:83:62] DB fetching media with $cacheLookupValue")
+      _              <- log.debug(s"[DBMedia:83:62] DB fetching media with $cacheLookupValue")
       cachedValueOpt <- dbCache.lookup(cacheLookupValue)
       media          <- cacheResultHandler(cachedValueOpt)
-      _              <- log.info("[DBMedia:86:49] DB Fetching completed")
+      _              <- log.debug("[DBMedia:86:49] DB Fetching completed")
     } yield media
 
     override def incrementMediaCount(filename: String): F[Unit] = for {
-      _     <- log.info(s"DB increment media count for $filename")
+      _     <- log.debug(s"DB increment media count for $filename")
       _     <- dbCache.delete(filename)
       media <- getMedia(filename)
-      _     <- log.info(s"[DBMedia:92:49] SQL: ${incrementMediaCountQuery(media).sql}")
+      _     <- log.debug(s"[DBMedia:92:49] SQL: ${incrementMediaCountQuery(media).sql}")
       _     <- incrementMediaCountQuery(media).run.transact(transactor)
     } yield ()
 
     override def decrementMediaCount(filename: String): F[Unit] = for {
-      _     <- log.info(s"DB decrement media count for $filename")
+      _     <- log.debug(s"DB decrement media count for $filename")
       _     <- dbCache.delete(filename)
       media <- getMedia(filename)
-      _     <- log.info(s"[DBMedia:100:49] SQL: ${decrementMediaCountQuery(media).sql}")
+      _     <- log.debug(s"[DBMedia:100:49] SQL: ${decrementMediaCountQuery(media).sql}")
       _     <- decrementMediaCountQuery(media).run.transact(transactor)
     } yield ()
 
@@ -112,7 +112,7 @@ object DBMedia {
               .filter(_ => cache)
               .flatMap(_.headOption)
               .fold[F[DBMediaData]](
-                log.info(s"[DBMedia:113:54] fetch media for $filename. SQL: ${getMediaQueryByName(filename).sql}") >>
+                log.debug(s"[DBMedia:113:54] fetch media for $filename. SQL: ${getMediaQueryByName(filename).sql}") >>
                   getMediaQueryByName(filename).unique.transact(transactor)
               )(Async[F].pure)
             _ <-
@@ -122,7 +122,7 @@ object DBMedia {
       )
 
     override def getRandomMedia(botPrefix: String): F[DBMediaData] =
-      log.info(s"[DBMedia:123:44] getRandomMedia for $botPrefix. SQL: ${getMediaQueryByRandom(botPrefix).sql}") >>
+      log.debug(s"[DBMedia:123:44] getRandomMedia for $botPrefix. SQL: ${getMediaQueryByRandom(botPrefix).sql}") >>
         getMediaQueryByRandom(botPrefix).unique
           .transact(transactor)
 
@@ -134,9 +134,9 @@ object DBMedia {
             medias <- cachedValueOpt
               .filter(_ => cache)
               .fold(
-                log.info(s"[DBMedia:135:54] getMediaByKind for $kind. SQL: ${getMediaQueryByKind(kind).sql}") >>
+                log.debug(s"[DBMedia:135:54] getMediaByKind for $kind. SQL: ${getMediaQueryByKind(kind).sql}") >>
                   getMediaQueryByKind(kind).stream.compile.toList.transact(transactor)
-                  <* log.info(s"[DBMedia:138:54] getMediaByKind for $kind completed")
+                  <* log.debug(s"[DBMedia:138:54] getMediaByKind for $kind completed")
               )(Async[F].pure)
             _ <-
               if cachedValueOpt.isEmpty then dbCache.insert(kind, medias)
@@ -148,7 +148,7 @@ object DBMedia {
         limit: Int = 20,
         mediaNamePrefix: Option[String] = None
     ): F[List[DBMediaData]] =
-      log.info(
+      log.debug(
         s"[DBMedia:148:44] getMediaByMediaCount for prefix $mediaNamePrefix. SQL: ${getMediaQueryByMediaCount(mediaNamePrefix = mediaNamePrefix).sql}"
       ) >>
         getMediaQueryByMediaCount(mediaNamePrefix = mediaNamePrefix).stream
@@ -158,10 +158,10 @@ object DBMedia {
           .transact(transactor)
 
     override def insertMedia(dbMediaData: DBMediaData): F[Unit] =
-      log.info(s"[DBMedia:156:44] insertMedia for $dbMediaData. SQL: ${insertSql(dbMediaData).sql}") >>
+      log.debug(s"[DBMedia:156:44] insertMedia for $dbMediaData. SQL: ${insertSql(dbMediaData).sql}") >>
         insertSql(dbMediaData).run.transact(transactor).void.exceptSql {
           case e if e.getMessage().contains("UNIQUE constraint failed") =>
-            log.info(
+            log.debug(
               s"[DBMedia:159:48] insertMedia unique constraint failed. Update $dbMediaData. SQL: ${updateOnConflictSql(dbMediaData).sql}"
             ) >>
               updateOnConflictSql(dbMediaData).run.transact(transactor).void

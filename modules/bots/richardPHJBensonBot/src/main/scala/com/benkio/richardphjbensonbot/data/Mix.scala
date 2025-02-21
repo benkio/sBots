@@ -619,12 +619,6 @@ object Mix {
       vid"rphjb_EduFalasciQuasiFrocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(fammi|chiedere)? (una|questa)? cortesia".r.tr(18)
-    )(
-      mp3"rphjb_FammiQuestaCortesia.mp3",
-      gif"rphjb_FammiQuestaCortesiaGif.mp4"
-    ),
-    ReplyBundleMessage.textToMedia[F](
       "non mi sta bene"
     )(
       mp3"rphjb_NonMiStaBene.mp3",
@@ -949,7 +943,9 @@ object Mix {
       mp3"rphjb_MiIncazzoComeUnaBestia.mp3",
       vid"rphjb_PiuPacatoMiIncazzo.mp4",
       gif"rphjb_PiuPacatoMiIncazzoGif.mp4",
-      mp3"rphjb_PiuPacatoMiIncazzo.mp3"
+      mp3"rphjb_PiuPacatoMiIncazzo.mp3",
+      mp3"rphjb_MenteSuperioreInferioreLucaDiNoia.mp3",
+      vid"rphjb_MenteSuperioreInferioreLucaDiNoia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "dove stiamo",
@@ -1132,19 +1128,18 @@ object Mix {
       "matematici",
       "analitici"
     )(
-      gif"rphjb_MiPareLogicoGif.mp4",
-      mp3"rphjb_MiPareLogico.mp3",
-      mp3"rphjb_MatematiciAnaliticiDiNoia.mp3",
+      vid"rphjb_CoseCheNonSopportoCalcoliSbagliati.mp4",
+      mp3"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp3",
       vid"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4",
-      vid"rphjb_CoseCheNonSopportoCalcoliSbagliati.mp4"
+      gif"rphjb_MiPareLogicoMatematiciAnaliticiDiNoiaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\blo[g]+i(c|g)o\\b".r.tr(6)
     )(
-      gif"rphjb_MiPareLogicoGif.mp4",
-      mp3"rphjb_MiPareLogico.mp3",
       gif"rphjb_SembraLogicoGif.mp4",
-      vid"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4"
+      mp3"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp3",
+      vid"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4",
+      gif"rphjb_MiPareLogicoMatematiciAnaliticiDiNoiaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ti dovresti vergognare"
@@ -2047,8 +2042,9 @@ object Mix {
       mp3"rphjb_LucaDiNoia2.mp3",
       vid"rphjb_LucaDiNoia3.mp4",
       vid"rphjb_LucaDiNoia4.mp4",
-      mp3"rphjb_MatematiciAnaliticiDiNoia.mp3",
+      mp3"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp3",
       vid"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4",
+      gif"rphjb_MiPareLogicoMatematiciAnaliticiDiNoiaGif.mp4",
       mp3"rphjb_GrandeRegistaLucaDiNoia.mp3",
       vid"rphjb_GrandeRegistaLucaDiNoia.mp4",
       vid"rphjb_LucaDiNoiaGrandeRegista.mp4",
@@ -2059,7 +2055,9 @@ object Mix {
       vid"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp4",
       mp3"rphjb_DotiTecnicheIngegneristicheDiNoiaCaramelline.mp3",
       vid"rphjb_Alle22MercolediTelevita.mp4",
-      mp3"rphjb_Alle22MercolediTelevita.mp3"
+      mp3"rphjb_Alle22MercolediTelevita.mp3",
+      mp3"rphjb_MenteSuperioreInferioreLucaDiNoia.mp3",
+      vid"rphjb_MenteSuperioreInferioreLucaDiNoia.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "angelo",
@@ -2077,7 +2075,11 @@ object Mix {
       vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4",
       mp3"rphjb_Avremo18AnniLong.mp3",
       vid"rphjb_Avremo18AnniLong.mp4",
-      vid"rphjb_PellegrinaggioSimposioMetallo.mp4"
+      vid"rphjb_PellegrinaggioSimposioMetallo.mp4",
+      vid"rphjb_AngeloRimediamelo.mp4",
+      mp3"rphjb_AngeloRimediamelo.mp3",
+      mp3"rphjb_SeNonAndateDalCarpenelliViTrucido.mp3",
+      vid"rphjb_SeNonAndateDalCarpenelliViTrucido.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "questa è una domanda",
@@ -2134,6 +2136,7 @@ object Mix {
     )(
       mp3"rphjb_VergognatiMatosFalasci.mp3",
       vid"rphjb_VergognatiMatosFalasci.mp4",
+      gif"rphjb_VergognatiMatosFalasciGif.mp4",
       vid"rphjb_VergognatiMancusiPaoloBiancoTastieristaAttentiPerStradaAndreaCarpi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -2141,8 +2144,10 @@ object Mix {
     )(
       mp3"rphjb_AndreMatosShaman.mp3",
       vid"rphjb_AndreMatosShaman.mp4",
+      gif"rphjb_AndreMatosShamanGif.mp4",
       mp3"rphjb_VergognatiMatosFalasci.mp3",
-      vid"rphjb_VergognatiMatosFalasci.mp4"
+      vid"rphjb_VergognatiMatosFalasci.mp4",
+      gif"rphjb_VergognatiMatosFalasciGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "edu falasci",
@@ -2151,13 +2156,15 @@ object Mix {
       mp3"rphjb_EduFalasci.mp3",
       mp3"rphjb_VergognatiMatosFalasci.mp3",
       vid"rphjb_VergognatiMatosFalasci.mp4",
+      gif"rphjb_VergognatiMatosFalasciGif.mp4",
       vid"rphjb_EduFalasciQuasiFrocio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "shaman"
     )(
       mp3"rphjb_AndreMatosShaman.mp3",
-      vid"rphjb_AndreMatosShaman.mp4"
+      vid"rphjb_AndreMatosShaman.mp4",
+      gif"rphjb_AndreMatosShamanGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "assolutamente no",
@@ -2763,7 +2770,8 @@ object Mix {
       "truccatrice"
     )(
       mp3"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZara.mp3",
-      vid"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZara.mp4"
+      vid"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZara.mp4",
+      gif"rphjb_LabbraTruccatriceNuovaUltimaDelleDonneViaZaraGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "faccio la parte",
@@ -3258,7 +3266,8 @@ object Mix {
       gif"rphjb_UominiPecoraGif.mp4",
       vid"rphjb_UominiPecora.mp4",
       mp3"rphjb_UominiPecora.mp3",
-      vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4"
+      vid"rphjb_SquallidaScorfanoRaganaCatafalcoAmbulante.mp4",
+      vid"rphjb_CoseCheNonSopportoCalcoliSbagliati.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "emule"
@@ -3911,7 +3920,9 @@ object Mix {
       vid"rphjb_PienoDiDischi.mp4",
       vid"rphjb_PienoDiDischiNovitaTempoInferioreSuperiore.mp4",
       mp3"rphjb_PienoDiDischiNovitaTempoInferioreSuperiore.mp3",
-      gif"rphjb_PienoDiDischiNovitaTempoInferioreSuperioreGif.mp4"
+      gif"rphjb_PienoDiDischiNovitaTempoInferioreSuperioreGif.mp4",
+      mp3"rphjb_UnoDeiPiuGrandiDischi.mp3",
+      vid"rphjb_UnoDeiPiuGrandiDischi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "sono pieno",
@@ -4038,7 +4049,7 @@ object Mix {
       "\\bmoda\\b".r.tr(4),
       "\\baffari\\b".r.tr(6),
       "faccio tant(e|issime) cose".r.tr(17),
-      "trasform(ismo|armi)".r.tr(12),
+      "trasform(ismo|armi)".r.tr(12)
     )(
       gif"rphjb_GiubbottiModaAffariTrasformistaGif.mp4",
       vid"rphjb_GiubbottiModaAffariTrasformista.mp4",
@@ -4054,6 +4065,58 @@ object Mix {
       gif"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMeGif.mp4",
       vid"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp4",
       mp3"rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "rimediamelo"
+    )(
+      vid"rphjb_AngeloRimediamelo.mp4",
+      mp3"rphjb_AngeloRimediamelo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mente (superiore|inferiore)".r.tr(15)
+    )(
+      mp3"rphjb_MenteSuperioreInferioreLucaDiNoia.mp3",
+      vid"rphjb_MenteSuperioreInferioreLucaDiNoia.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "che ho mai sentito",
+      "in vita mia"
+    )(
+      mp3"rphjb_UnoDeiPiuGrandiDischi.mp3",
+      vid"rphjb_UnoDeiPiuGrandiDischi.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "centocelle",
+      "trucido",
+      "martone",
+      "il messia"
+    )(
+      mp3"rphjb_SeNonAndateDalCarpenelliViTrucido.mp3",
+      vid"rphjb_SeNonAndateDalCarpenelliViTrucido.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "mi serve quella cosa",
+      "che mi serve?",
+      "ritocchino",
+      "parte del corpo"
+    )(
+      mp3"rphjb_RitocchinoParteDelCorpo.mp3",
+      vid"rphjb_RitocchinoParteDelCorpo.mp4",
+      gif"rphjb_RitocchinoParteDelCorpoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "alcatraz",
+      "fiumicino",
+      "missiva",
+      "degno erede",
+      "ti chiedo solo una cosa",
+      "(fammi|chiedere)? (una|questa)? cortesia".r.tr(18),
+      "incassi",
+      "sarà (più bravo di me|bravissimo)".r.tr(15)
+    )(
+      mp3"rphjb_PepeAlcatrazMissivaDegnoErede.mp3",
+      vid"rphjb_PepeAlcatrazMissivaDegnoErede.mp4",
+      gif"rphjb_PepeAlcatrazMissivaDegnoEredeGif.mp4"
     )
   )
 
