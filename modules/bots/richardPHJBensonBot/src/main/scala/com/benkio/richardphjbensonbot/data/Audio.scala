@@ -262,11 +262,6 @@ object Audio {
       mp3"rphjb_ViSaluto.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "anna tatangelo"
-    )(
-      mp3"rphjb_GigiDAlessioAnnaTatangelo.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "funzioni gene[g]{2,}iative".r.tr(21),
       "non è un uomo",
       "è (veramente )?una donna".r.tr(11)
@@ -283,12 +278,6 @@ object Audio {
       "io mi ricordo tutto"
     )(
       mp3"rphjb_IoMiRicordoTutto.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
-      "che schifo!",
-      "che( )?(s)+chifo".r.tr(10)
-    )(
-      mp3"rphjb_Schifosi4.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "gelatina",

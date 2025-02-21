@@ -66,29 +66,29 @@ object DBShow {
   ) extends DBShow[F] {
 
     override def getShows(botName: String): F[List[DBShowData]] =
-      DBShow.getShowsQuery(botName).stream.compile.toList.transact(transactor) <* log.info(
+      DBShow.getShowsQuery(botName).stream.compile.toList.transact(transactor) <* log.debug(
         s"[DBShow] Get shows by bot name: $botName, sql: ${DBShow.getShowsQuery(botName).sql}"
       )
     override def getShowByShowQuery(query: ShowQuery, botName: String): F[List[DBShowData]] =
-      DBShow.getShowByShowQueryQuery(query, botName).stream.compile.toList.transact(transactor) <* log.info(
+      DBShow.getShowByShowQueryQuery(query, botName).stream.compile.toList.transact(transactor) <* log.debug(
         s"[DBShow] Get shows by bot name: $botName and keyword: $query, sql: ${DBShow.getShowByShowQueryQuery(query, botName).sql}"
       )
 
     override def insertShow(dbShowData: DBShowData): F[Unit] =
       insertShowQuery(dbShowData).run.transact(transactor).void.exceptSql {
         case e if e.getMessage().contains("UNIQUE constraint failed") =>
-          updateOnConflictSql(dbShowData).run.transact(transactor).void <* log.info(
+          updateOnConflictSql(dbShowData).run.transact(transactor).void <* log.debug(
             s"[DBShow] conflict detected for shows $dbShowData, recovering with sql: ${updateOnConflictSql(dbShowData).sql}"
           )
         case e =>
           Async[F].raiseError(
             new RuntimeException(s"An error occurred in inserting $dbShowData with exception: $e")
-          ) <* log.info(
+          ) <* log.debug(
             s"[DBShow] insert shows $dbShowData, sql: ${insertShowQuery(dbShowData).sql}"
           )
       }
     def deleteShow(dbShowData: DBShowData): F[Unit] =
-      deleteShowQuery(dbShowData).run.transact(transactor).void <* log.info(
+      deleteShowQuery(dbShowData).run.transact(transactor).void <* log.debug(
         s"[DBShow] delete show $dbShowData, sql: ${deleteShowQuery(dbShowData).sql}"
       )
   }

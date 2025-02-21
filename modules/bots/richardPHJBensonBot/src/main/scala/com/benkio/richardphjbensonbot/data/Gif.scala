@@ -129,11 +129,6 @@ object Gif {
       gif"rphjb_ScherzoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "campà"
-    )(
-      gif"rphjb_CampaGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "e levati((...|..|.| )dai coglioni)?".r.tr(8),
       "fuori(...|..|.| )dai coglioni".r.tr(18)
     )(

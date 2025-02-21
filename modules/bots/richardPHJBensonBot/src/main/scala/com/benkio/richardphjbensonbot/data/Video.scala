@@ -149,8 +149,9 @@ object Video {
       "già il titolo",
       "(coi|quei) due punti".r.tr(13),
       "illusioni",
+      "m[ei] danno fastidio",
       "musica (non )?è grande".r.tr(15),
-      "re[a]?l illusions".r.tr(13)
+      "re[a]?l i[l]+lusion[s]?".r.tr(13)
     )(
       vid"rphjb_RelIllusions.mp4"
     ),
@@ -2160,6 +2161,14 @@ object Video {
     )(
       vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4",
       vid"rphjb_BiscionePiatti.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "latranti",
+      "carne incancrenata",
+      "avvoltoi",
+      "voluttà"
+    )(
+      vid"rphjb_Schifosi4.mp4"
     )
   )
 }

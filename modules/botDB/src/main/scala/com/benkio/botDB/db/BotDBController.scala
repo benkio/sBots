@@ -79,7 +79,7 @@ object BotDBController {
           .flatMap(
             _.flatten.traverse_(dbShowData =>
               LogWriter.info(
-                s"Inserted show ${dbShowData.show_title} of url ${dbShowData.show_url}, successfully"
+                s"[BotDBController] Inserted show ${dbShowData.show_title} of url ${dbShowData.show_url}, successfully"
               ) >> dbLayer.dbShow.insertShow(dbShowData)
             )
           )
@@ -116,7 +116,9 @@ object BotDBController {
                   created_at = Instant.now().getEpochSecond.toString
                 )
               )
-            _ <- LogWriter.info(s"Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully")
+            _ <- LogWriter.info(
+              s"[BotDBController] Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully"
+            )
           } yield ()
         )
       )

@@ -140,6 +140,18 @@ object YouTuboAncheI0Bot {
       "attonito"
     )(
       pho"ytai_Attonito.jpg"
+    ),
+    ReplyBundleMessage.textToPhoto[F](
+      "barbiere",
+      "schiuma da barba",
+      "pelata"
+    )(
+      pho"ytai_Barbiere.jpg"
+    ),
+    ReplyBundleMessage.textToPhoto[F](
+      "calzone"
+    )(
+      pho"ytai_Calzone.jpg"
     )
   )
 
