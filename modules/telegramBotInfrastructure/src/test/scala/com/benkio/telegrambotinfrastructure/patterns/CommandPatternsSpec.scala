@@ -27,7 +27,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
       "frocio frocio"
     ) -> """--------------------------------------------------
            |rphjb_NudoFrocio.mp3      | fro(ci|sh)o([ -]fro(ci|sh)o)+
-           |rphjb_FrocioFrocio.mp4    |
+           |rphjb_FrocioFrocio.mp4    | 
            |--------------------------------------------------
            |""".stripMargin,
     (
@@ -44,9 +44,9 @@ class CommandPatternsSpec extends CatsEffectSuite {
       "una vergogna!"
     ) -> """--------------------------------------------------
            |rphjb_Vergogna.mp3        | una vergogna
-           |rphjb_Vergogna.mp4        |
-           |rphjb_VergognaGif.mp4     |
-           |rphjb_Vergogna2Gif.mp4    |
+           |rphjb_Vergogna.mp4        | 
+           |rphjb_VergognaGif.mp4     | 
+           |rphjb_Vergogna2Gif.mp4    | 
            |--------------------------------------------------
            |""".stripMargin,
     (
@@ -61,7 +61,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
       "ostia!!!"
     ) -> """--------------------------------------------------
            |mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3 | ostia
-           |mos_AntonioFossoCarteColla.mp3 |
+           |mos_AntonioFossoCarteColla.mp3 | 
            |--------------------------------------------------
            |""".stripMargin,
     (
@@ -76,7 +76,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
       "ciclismo"
     ) -> """--------------------------------------------------
            |mos_CiclismoAllieviDio.mp3 | ciclismo
-           |mos_CiclismoGianniBugnoRitardo.mp3 |
+           |mos_CiclismoGianniBugnoRitardo.mp3 | 
            |--------------------------------------------------
            |""".stripMargin,
     (
@@ -104,7 +104,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
       "splendido miele"
     ) -> """--------------------------------------------------
            |ytai_ForteProfumoMieleGif.mp4 | miele
-           |ytai_AppiccicaticcioMieleGif.mp4 |
+           |ytai_AppiccicaticcioMieleGif.mp4 | 
            |--------------------------------------------------
            |""".stripMargin,
     (
@@ -134,7 +134,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
       "ti tiro una sprangata"
     ) -> """--------------------------------------------------
            |abar_Spranga.gif          | spranga
-           |abar_ParoleLongobarde.mp4 |
+           |abar_ParoleLongobarde.mp4 | 
            |--------------------------------------------------
            |""".stripMargin
   )

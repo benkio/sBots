@@ -116,10 +116,10 @@ class ReplyBundleSpec extends CatsEffectSuite {
       """--------------------------------------------------
         |audio.mp3                 | stringTextTriggerValue
         |picture.jpg               | regexTextTriggerValue
-        |picture.png               |
-        |a.gif                     |
-        |video.mp4                 |
-        |document.pdf              |
+        |picture.png               | 
+        |a.gif                     | 
+        |video.mp4                 | 
+        |document.pdf              | 
         |--------------------------------------------------
         |""".stripMargin
     )
