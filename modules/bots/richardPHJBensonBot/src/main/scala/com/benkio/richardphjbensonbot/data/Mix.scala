@@ -1085,7 +1085,8 @@ object Mix {
       vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "solo uno parló",
+      "solo uno parl[oóò]".r.tr(14),
+      "uno solo parl[oóò]".r.tr(14),
       "(c|g)ri(d|t)i(g|c)a(d|t)o".r.tr(9),
       "sapevano tutto",
       "nessuno parlava"

@@ -2169,6 +2169,9 @@ object Video {
       "voluttà"
     )(
       vid"rphjb_Schifosi4.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "era vero"
+    )(vid"rphjb_EraVero.mp4")
   )
 }
