@@ -4118,6 +4118,13 @@ object Mix {
       mp3"rphjb_PepeAlcatrazMissivaDegnoErede.mp3",
       vid"rphjb_PepeAlcatrazMissivaDegnoErede.mp4",
       gif"rphjb_PepeAlcatrazMissivaDegnoEredeGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "passi da gigante"
+    )(
+      mp3"ytai_PassiDaGigante.mp3",
+      vid"ytai_PassiDaGigante.mp4",
+      gif"ytai_PassiDaGiganteGif.mp4"
     )
   )
 
