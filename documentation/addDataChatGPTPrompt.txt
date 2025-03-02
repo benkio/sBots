@@ -1,0 +1,38 @@
+Given the following file list
+
+
+Where the suffix `Gif` in mp4 means they are gifs and the extension `sticker` for stickers
+and the following list of dropbox links
+
+
+Generate a json array where each element have with this shape:
+
+```
+{
+    "filename": "<<filename>>",
+    "mime": "<<mime>>": [
+      "<<link>>"
+    ]
+  }
+```
+
+Where the:
+- <<filename>> is the name of the file
+- the <<mime>> is:
+  - `image/gif` for Gifs
+  - `audio/mpeg` for mp3s
+  - `video/mp4` for video
+  - `image/sticker` for sticker
+- <<link>> the dropbox link to the file with the `dl` query parameter set to `1`
+
+Plus, generate a scala list with this shape, example:
+
+```
+ReplyBundleMessage.textToMedia[F](
+  ""
+)(
+  mp3"<<filename>>.mp3",
+  vid"<<filename>>.mp4",
+  gif"<<filename>>Gif.mp4"
+)
+```

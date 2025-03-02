@@ -384,7 +384,7 @@ object Audio:
       mp3"mos_JuventusAustriaViennaPorcoDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "porco dio"
+      "porco[ ]?[d]+[i]+o".r.tr(8)
     )(
       mp3"mos_MaPorcoDio.mp3",
       mp3"mos_JuventusAustriaViennaPorcoDio.mp3",
