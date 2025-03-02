@@ -630,6 +630,13 @@ object Mix:
       mp3"ytai_30CentimentriStrudelBuonissimo.mp3",
       vid"ytai_30CentimentriStrudelBuonissimo.mp4",
       gif"ytai_30CentimentriStrudelBuonissimoGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "passi da gigante"
+    )(
+      mp3"ytai_PassiDaGigante.mp3",
+      vid"ytai_PassiDaGigante.mp4",
+      gif"ytai_PassiDaGiganteGif.mp4"
     )
   )
 end Mix

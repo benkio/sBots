@@ -42,12 +42,6 @@ object Gif {
       gif"rphjb_SiamoQuaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "cucciolo"
-    )(
-      gif"rphjb_CuccioloGif.mp4",
-      gif"rphjb_Cucciolo2Gif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "che c'hai"
     )(
       gif"rphjb_CheCHaiGif.mp4"
@@ -66,11 +60,6 @@ object Gif {
       "come ha fatto a entr(à|are)".r.tr(23)
     )(
       gif"rphjb_ComeHaFattoAEntrareGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "menzion"
-    )(
-      gif"rphjb_NonMiMenzionareQuestaParolaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "piano superiore",
@@ -309,11 +298,6 @@ object Gif {
       "non è male"
     )(
       gif"rphjb_NonEMaleGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "\\btuffo\\b".r.tr(5)
-    )(
-      gif"rphjb_TuffoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "così e basta",

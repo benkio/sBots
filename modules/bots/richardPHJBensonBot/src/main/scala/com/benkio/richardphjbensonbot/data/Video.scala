@@ -34,9 +34,6 @@ object Video {
       vid"rphjb_RapMusicaMelodicaListaCantanti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "tullio pane",
-      "otello profazio",
-      "mario lanza",
       "luciano tajoli"
     )(
       vid"rphjb_RapMusicaMelodicaListaCantanti.mp4",
@@ -102,13 +99,6 @@ object Video {
       "idea (nuova|fresca)".r.tr(10)
     )(
       vid"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "plettro"
-    )(
-      vid"rphjb_ChitarraPlettroVicoletto.mp4",
-      vid"rphjb_ChitarraVicolettoPlettro2.mp4",
-      vid"rphjb_CollaSerpe.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "vicoletto"
@@ -393,12 +383,6 @@ object Video {
       vid"rphjb_RadioRockErrori.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "jordan rudess"
-    )(
-      vid"rphjb_RadioRockErrori.mp4",
-      vid"rphjb_FotoLookDreamTheater.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "uccidere"
     )(
       vid"rphjb_UccidereUnaPersona.mp4"
@@ -443,12 +427,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "londra"
     )(vid"rphjb_Londra.mp4"),
-    ReplyBundleMessage.textToVideo[F](
-      "peggio cose"
-    )(
-      vid"rphjb_Venerdi.mp4",
-      vid"rphjb_DanzaMacabra.mp4"
-    ),
     ReplyBundleMessage.textToVideo[F](
       "albero grande",
       "anche un('| )amplificatore".r.tr(22),
@@ -1242,12 +1220,6 @@ object Video {
       vid"rphjb_VuoiMerdaIoSuono.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "schifosa"
-    )(
-      vid"rphjb_GenteSchifosa.mp4",
-      vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "prendere in giro"
     )(
       vid"rphjb_GenteSchifosa.mp4"
@@ -1888,7 +1860,6 @@ object Video {
       vid"rphjb_SfumatoGrandeRichiesta.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "ringrazio molto",
       "persone attente",
       "tipo cazzuto",
       "calmatev[ei]".r.tr(8),
@@ -1940,7 +1911,6 @@ object Video {
       "scorfano",
       "ragana",
       "catafalco ambulante",
-      "pamela anderson",
       "luce più eterna",
       "spaccherei tutto"
     )(
@@ -1961,7 +1931,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "tic nervosi",
-      "truccato",
       "fottuta in un cesso",
       "ai concerti col papà"
     )(

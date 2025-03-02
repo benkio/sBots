@@ -5,35 +5,34 @@ Where the suffix `Gif` in mp4 means they are gifs and the extension `sticker` fo
 and the following list of dropbox links
 
 
-Generate a json array with this shape:
+Generate a json array where each element have with this shape:
 
 ```
 {
-    "filename": "rphjb_06Gif.mp4",
-    "mime": "image/gif",
-    "sources": [
-      "https://www.dropbox.com/scl/fi/zy8omnl7nj63l7ff350qf/rphjb_06Gif.mp4?rlkey=w88ow3t4ktru6txkgw2vuc7xk&dl=1"
+    "filename": "<<filename>>",
+    "mime": "<<mime>>": [
+      "<<link>>"
     ]
   }
 ```
 
 Where the:
-- filename is the name of the file
-- the mime is:
+- <<filename>> is the name of the file
+- the <<mime>> is:
   - `image/gif` for Gifs
   - `audio/mpeg` for mp3s
   - `video/mp4` for video
   - `image/sticker` for sticker
-- sources is a json array with the dropbox link to the file with the `dl` query parameter to `1`
+- <<link>> the dropbox link to the file with the `dl` query parameter set to `1`
 
-and generate a list of scala types with this shape, example:
+Plus, generate a scala list with this shape, example:
 
 ```
 ReplyBundleMessage.textToMedia[F](
   ""
 )(
-  mp3"rphjb_PepeAlcatrazMissivaDegnoErede.mp3",
-  vid"rphjb_PepeAlcatrazMissivaDegnoErede.mp4",
-  gif"rphjb_PepeAlcatrazMissivaDegnoEredeGif.mp4"
+  mp3"<<filename>>.mp3",
+  vid"<<filename>>.mp4",
+  gif"<<filename>>Gif.mp4"
 )
 ```
