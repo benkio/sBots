@@ -2370,7 +2370,9 @@ object Mix {
       "korn"
     )(
       mp3"rphjb_Battesimo.mp3",
-      vid"rphjb_ParlandoDeiKorn.mp4"
+      vid"rphjb_ParlandoDeiKorn.mp4",
+      vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
+      mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "preghier(a|ina)".r.tr(9),
@@ -2795,6 +2797,7 @@ object Mix {
       "ray gelato",
       "toni santagata",
       "frate cionfoli",
+      "papa roach",
       "rovinato (la vita|(pure )?il culo)".r.tr(16)
     )(
       vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",
