@@ -9,7 +9,7 @@ object Dependencies {
     val cats               = "2.13.0"
     val catsEffectTime     = "0.2.1"
     val catsEffectVersion  = "3.5.7"
-    val circe              = "0.14.10"
+    val circe              = "0.14.12"
     val doobie             = "1.0.0-RC8"
     val fs2Core            = "3.11.0"
     val fs2IO              = "3.11.0"
