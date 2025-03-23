@@ -2798,6 +2798,8 @@ object Mix {
       "toni santagata",
       "frate cionfoli",
       "papa roach",
+      "\\bsauro\\b".r.tr(5),
+      "\\bnazario\\b".r.tr(7),
       "rovinato (la vita|(pure )?il culo)".r.tr(16)
     )(
       vid"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp4",

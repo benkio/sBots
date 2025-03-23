@@ -886,6 +886,7 @@ object Video {
       "cipresso",
       "guardando il padrone",
       "all'ombra",
+      "cani piangono",
       "aspett(a|ando|are)".r.tr(7)
     )(vid"rphjb_CaneOmbraCipressoPadroneMortoIcaniPiangono.mp4"),
     ReplyBundleMessage.textToVideo[F]("pride")(vid"rphjb_BarzellettaPapaSonoGayPride.mp4"),
