@@ -29,7 +29,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(mp3.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println("[ERROR] mp3 missing from the DB: " + mp3))
+              .onError { case _ => IO.println("[ERROR] mp3 missing from the DB: " + mp3) }
               .attempt
               .map(_.isRight)
           )
