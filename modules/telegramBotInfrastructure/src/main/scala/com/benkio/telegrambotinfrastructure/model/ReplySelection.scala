@@ -8,7 +8,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import io.circe.*
-import io.circe.generic.semiauto.*
 import telegramium.bots.Message
 
 import scala.util.Random

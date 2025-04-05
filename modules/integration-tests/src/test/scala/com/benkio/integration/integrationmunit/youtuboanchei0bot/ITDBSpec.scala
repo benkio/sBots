@@ -29,7 +29,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(mp3.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println("[ERROR] mp3 missing from the DB: " + mp3))
+              .onError { case _ => IO.println("[ERROR] mp3 missing from the DB: " + mp3) }
               .attempt
               .map(_.isRight)
           )
@@ -51,7 +51,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 .getMediaQueryByName(gif.filename)
                 .unique
                 .transact(transactor)
-                .onError(_ => IO.println("[ERROR] gif missing from the DB: " + gif))
+                .onError { case _ => IO.println("[ERROR] gif missing from the DB: " + gif) }
                 .attempt
                 .map(_.isRight)
             )
@@ -73,7 +73,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(special.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println("[ERROR] special missing from the DB: " + special))
+              .onError { case _ => IO.println("[ERROR] special missing from the DB: " + special) }
               .attempt
               .map(_.isRight)
           )
@@ -96,7 +96,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(special.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println("[ERROR] special missing from the DB: " + special))
+              .onError { case _ => IO.println("[ERROR] special missing from the DB: " + special) }
               .attempt
               .map(_.isRight)
           )

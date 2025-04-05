@@ -30,7 +30,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
-              .onError(_ => IO.println("[ERROR] file missing from the DB: " + file))
+              .onError { case _ => IO.println("[ERROR] file missing from the DB: " + file) }
               .attempt
               .map(_.isRight)
           )
@@ -56,7 +56,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
                 .getMediaQueryByName(file.filename)
                 .unique
                 .transact(transactor)
-                .onError(_ => IO.println("[ERROR] file missing from the DB: " + file))
+                .onError { case _ => IO.println("[ERROR] file missing from the DB: " + file) }
                 .attempt
                 .map(_.isRight)
             )
