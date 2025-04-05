@@ -20,7 +20,7 @@ jobs:
            scp "ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3" ./botDB.sqlite3
 
       - name: Upload DB as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: prod sqlite-db
           path: botDB.sqlite3
