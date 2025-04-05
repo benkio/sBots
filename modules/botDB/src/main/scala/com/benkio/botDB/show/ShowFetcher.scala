@@ -15,7 +15,6 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.util.UUID
 import scala.sys.process.*
-import scala.sys.process.Process
 
 trait ShowFetcher[F[_]]:
   def generateShowJson(source: ShowSource): F[List[DBShowData]]
