@@ -5,7 +5,7 @@ import Keys.*
 object Dependencies {
 
   lazy val versions = new {
-    val caseInsensitive    = "1.4.2"
+    val caseInsensitive    = "1.5.0"
     val cats               = "2.13.0"
     val catsEffectTime     = "0.2.1"
     val catsEffectVersion  = "3.6.0"
