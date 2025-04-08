@@ -8,7 +8,7 @@ object Dependencies {
     val caseInsensitive    = "1.4.2"
     val cats               = "2.13.0"
     val catsEffectTime     = "0.2.1"
-    val catsEffectVersion  = "3.6.0"
+    val catsEffectVersion  = "3.6.1"
     val circe              = "0.14.12"
     val doobie             = "1.0.0-RC8"
     val fs2Core            = "3.12.0"
