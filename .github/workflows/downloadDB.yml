@@ -20,7 +20,7 @@ jobs:
         with:
           host: ${{ secrets.DEPLOY_SERVER_IP }}
           username: ubuntu
-          key: ${{SSH_PRIVATE_KEY}}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "/home/ubuntu/bots/botDB.sqlite3"
           target: ./
 
