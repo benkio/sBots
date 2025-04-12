@@ -24,6 +24,9 @@ jobs:
       uses: sbt/setup-sbt@v1
     - name: Install sqlite
       uses: actions/setup-sqlite@v1
+      with:
+        sqlite-version: 3.49.1
+        sqlite-year: 2025
     - name: Set Secrets & Run Assembly
       run: |
         sed -i 's!\"\.\./botDB\.sqlite3"!\"botDB\.sqlite3\"!g' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
