@@ -19,6 +19,7 @@ import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.Show
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.Timeout
@@ -419,7 +420,7 @@ ${ignoreMessagePrefix
               "timeout",
               botName,
               t => {
-                Timeout(msg.chat.id, botName, t)
+                Timeout(ChatId(msg.chat.id), botName, t)
                   .fold(
                     error =>
                       log.info(s"[ERROR] While parsing the timeout input: $error") *> List(

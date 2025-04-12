@@ -8,7 +8,7 @@ import scala.concurrent.duration.*
 import scala.util.Try
 
 final case class Timeout(
-    chatId: Long,
+    chatId: ChatId,
     botName: String,
     timeoutValue: FiniteDuration,
     lastInteraction: Instant
@@ -16,7 +16,7 @@ final case class Timeout(
 
 object Timeout {
 
-  def apply(chatId: Long, botName: String, timeoutValue: String): Either[Throwable, Timeout] =
+  def apply(chatId: ChatId, botName: String, timeoutValue: String): Either[Throwable, Timeout] =
     Try(timeStringToDuration(timeoutValue))
       .map(timeoutValue =>
         Timeout(
@@ -28,7 +28,7 @@ object Timeout {
       )
       .toEither
 
-  def apply(chatId: Long, botName: String): Timeout = Timeout(
+  def apply(chatId: ChatId, botName: String): Timeout = Timeout(
     chatId = chatId,
     botName = botName,
     timeoutValue = 0.millis,
@@ -39,7 +39,7 @@ object Timeout {
     timeoutValue    <- Try(dbTimeoutData.timeout_value.toLong.millis).toEither
     lastInteraction <- Try(dbTimeoutData.last_interaction.toLong).toEither
   } yield Timeout(
-    chatId = dbTimeoutData.chat_id,
+    chatId = ChatId(dbTimeoutData.chat_id),
     botName = dbTimeoutData.bot_name,
     timeoutValue = timeoutValue,
     lastInteraction = Instant.ofEpochSecond(lastInteraction)

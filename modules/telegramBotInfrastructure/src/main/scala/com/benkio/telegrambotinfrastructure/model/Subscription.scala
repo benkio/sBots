@@ -8,9 +8,14 @@ import java.time.Instant
 import java.util.UUID
 import scala.util.Try
 
+opaque type SubscriptionId = UUID
+object SubscriptionId:
+  def apply(id: UUID): SubscriptionId                        = id
+  extension (subscriptionId: SubscriptionId) def value: UUID = subscriptionId
+
 final case class Subscription(
-    id: UUID,
-    chatId: Long,
+    id: SubscriptionId,
+    chatId: ChatId,
     botName: String,
     cron: String,
     cronScheduler: CronSchedule,
@@ -21,8 +26,8 @@ object Subscription {
   def apply(chatId: Long, botName: String, inputCron: String): Either[Throwable, Subscription] = for {
     cronScheduler <- Try(CronSchedule(inputCron)).toEither
   } yield Subscription(
-    id = UUID.randomUUID,
-    chatId = chatId,
+    id = SubscriptionId(UUID.randomUUID),
+    chatId = ChatId(chatId),
     botName = botName,
     cron = inputCron,
     cronScheduler = cronScheduler,
@@ -34,8 +39,8 @@ object Subscription {
     id            <- Try(UUID.fromString(dbSubscriptionData.id))
     subscribedAt  <- Try(Instant.ofEpochSecond(dbSubscriptionData.subscribed_at.toLong))
   } yield Subscription(
-    id = id,
-    chatId = dbSubscriptionData.chat_id.toLong,
+    id = SubscriptionId(id),
+    chatId = ChatId(dbSubscriptionData.chat_id.toLong),
     botName = dbSubscriptionData.bot_name,
     cron = dbSubscriptionData.cron,
     cronScheduler = cronScheduler,

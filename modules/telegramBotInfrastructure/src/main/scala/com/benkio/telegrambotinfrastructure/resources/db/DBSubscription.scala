@@ -21,8 +21,8 @@ final case class DBSubscriptionData(
 object DBSubscriptionData {
   def apply(subscription: Subscription): DBSubscriptionData =
     DBSubscriptionData(
-      id = subscription.id.toString,
-      chat_id = subscription.chatId,
+      id = subscription.id.value.toString,
+      chat_id = subscription.chatId.value,
       bot_name = subscription.botName,
       cron = subscription.cron,
       subscribed_at = subscription.subscribedAt.getEpochSecond.toString

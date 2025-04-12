@@ -5,7 +5,9 @@ import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
+import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
@@ -17,12 +19,12 @@ import java.util.UUID
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
-  val testSubscriptionId: UUID = UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4")
-  val botName                  = "botname"
+  val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4"))
+  val botName                            = "botname"
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
-    chatId = 0L,
+    chatId = ChatId(0L),
     botName = botName,
     cron = "0 4 8-14 * *",
     cronScheduler = CronSchedule("0 4 8-14 * *"),
@@ -62,7 +64,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           botName = botName
         )
       )
-      _ <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(testSubscription.id))
+      _ <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(testSubscription.id.value))
     } yield {
       assert(backgroundJobManager.memSubscriptions.size == 1)
       assert(backgroundJobManager.memSubscriptions.find { case (SubscriptionKey(sId, _), _) =>
@@ -131,7 +133,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       )
       _                      <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
-      _                      <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))
+      _                      <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId.value))
       cancel_subscriptions   <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
     } yield {
       assert(backgroundJobManager.memSubscriptions.size == 0)

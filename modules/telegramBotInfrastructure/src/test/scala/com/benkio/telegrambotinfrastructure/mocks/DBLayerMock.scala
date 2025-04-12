@@ -4,6 +4,7 @@ import cats.effect.kernel.Ref
 import cats.effect.std.Random
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBLog
@@ -39,7 +40,7 @@ object DBLayerMock {
   class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]], botNameI: String) extends DBTimeout[IO] {
     override def getOrDefault(chatId: Long, botName: String): IO[DBTimeoutData] =
       if botName == botNameI then
-        db.get.map(_.find(t => t.chat_id == chatId).getOrElse(DBTimeoutData(Timeout(chatId, botName))))
+        db.get.map(_.find(t => t.chat_id == chatId).getOrElse(DBTimeoutData(Timeout(ChatId(chatId), botName))))
       else IO.raiseError(new Throwable(s"Unexpected botName, actual: $botName - expected: $botNameI"))
     override def setTimeout(timeout: DBTimeoutData): IO[Unit] =
       db.update(ts => ts.filterNot(t => t.chat_id == timeout.chat_id) :+ timeout)

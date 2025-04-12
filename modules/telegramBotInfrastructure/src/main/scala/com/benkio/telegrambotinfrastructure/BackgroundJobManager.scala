@@ -47,11 +47,11 @@ object BackgroundJobManager {
       extends Throwable(s"Subscription chat Id is not found: $chatId")
   final case class StaleSubscription(subscription: Subscription)
       extends Throwable(
-        s"Subscription is stale: no longer present in DB after awake. Operation Aborted. id: ${subscription.id}"
+        s"Subscription is stale: no longer present in DB after awake. Operation Aborted. id: ${subscription.id.value}"
       )
   final case class SubscriptionAlreadyExists(subscription: Subscription)
       extends Throwable(
-        s"Subscription already exists: already present in memory while subscribing to it. id: ${subscription.id} - ${subscription.chatId}"
+        s"Subscription already exists: already present in memory while subscribing to it. id: ${subscription.id.value} - ${subscription.chatId.value}"
       )
 
   def apply[F[_]: Async: Api](
@@ -85,7 +85,7 @@ object BackgroundJobManager {
       _ <- log.info(s"Schedule subscription: $subscription")
       _ <- Async[F]
         .raiseError(SubscriptionAlreadyExists(subscription))
-        .whenA(memSubscriptions.contains(SubscriptionKey(subscription.id, subscription.chatId)))
+        .whenA(memSubscriptions.contains(SubscriptionKey(subscription.id.value, subscription.chatId.value)))
       subscriptionReference <- BackgroundJobManager.runSubscription(
         subscription,
         dbShow,
@@ -143,12 +143,12 @@ object BackgroundJobManager {
       duration <- Stream.eval(Async[F].fromTry(Try(Duration.between(now, nextTime))))
       _        <- Stream.sleep(FiniteDuration(duration.getSeconds(), "seconds"))
       _        <- Stream.eval(log.info(s"Executing the Scheduled subscription: $subscription"))
-      subOpt   <- Stream.eval(dbSubscription.getSubscription(subscription.id.toString))
+      subOpt   <- Stream.eval(dbSubscription.getSubscription(subscription.id.value.toString))
       _        <- Stream.eval(Async[F].fromOption(subOpt, StaleSubscription(subscription)))
       message = Message(
         messageId = 0,
         date = 0,
-        chat = Chat(id = subscription.chatId, `type` = "private")
+        chat = Chat(id = subscription.chatId.value, `type` = "private")
       ) // Only the chat id matters here
       reply <- Stream.evalSeq(
         CommandPatterns.SearchShowCommand
@@ -168,6 +168,6 @@ object BackgroundJobManager {
 
     Async[F]
       .start(scheduled.repeat.compile.drain)
-      .map(fiber => (SubscriptionKey(subscription.id, subscription.chatId), fiber))
+      .map(fiber => (SubscriptionKey(subscription.id.value, subscription.chatId.value), fiber))
   }
 }

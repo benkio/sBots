@@ -2,6 +2,7 @@ package com.benkio.telegrambotinfrastructure.resources.db
 
 import cats.effect.Async
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import doobie.*
 import doobie.implicits.*
@@ -18,7 +19,7 @@ final case class DBTimeoutData(
 
 object DBTimeoutData {
   def apply(timeout: Timeout): DBTimeoutData = DBTimeoutData(
-    chat_id = timeout.chatId,
+    chat_id = timeout.chatId.value,
     bot_name = timeout.botName,
     timeout_value = timeout.timeoutValue.toMillis.toString,
     last_interaction = timeout.lastInteraction.getEpochSecond.toString
@@ -39,7 +40,7 @@ object DBTimeout {
       log.info(s"DB fetching timeout for $chatId - $botName") *>
         getOrDefaultQuery(chatId, botName).option
           .transact(transactor)
-          .map(_.getOrElse(DBTimeoutData(Timeout(chatId, botName))))
+          .map(_.getOrElse(DBTimeoutData(Timeout(ChatId(chatId), botName))))
 
     override def setTimeout(timeout: DBTimeoutData): F[Unit] =
       log.info(s"DB setting timeout for ${timeout.chat_id} - ${timeout.bot_name} to value ${timeout.timeout_value}") *>
@@ -53,7 +54,7 @@ object DBTimeout {
           .flatMap {
             case Left(e) =>
               log.info(s"Sql Exception on logging last interaction: $e") *>
-                setTimeout(DBTimeoutData(Timeout(chatId, botName)))
+                setTimeout(DBTimeoutData(Timeout(ChatId(chatId), botName)))
             case Right(_) => ().pure[F]
           }
   }
