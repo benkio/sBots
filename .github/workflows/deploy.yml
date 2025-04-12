@@ -22,11 +22,6 @@ jobs:
         cache: 'sbt'
     - name: Install Sbt
       uses: sbt/setup-sbt@v1
-    - name: Install sqlite
-      uses: actions/setup-sqlite@v1
-      with:
-        sqlite-version: 3.49.1
-        sqlite-year: 2025
     - name: Set Secrets & Run Assembly
       run: |
         sed -i 's!\"\.\./botDB\.sqlite3"!\"botDB\.sqlite3\"!g' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
@@ -45,6 +40,9 @@ jobs:
     - name: Check Java & Install it on Server
       run: |
         ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'if java --version; then 1; else sudo apt-get -y install openjdk-21-jdk; fi'"
+    - name: Install Sqlite on Server
+      run: |
+        ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'sudo apt-get install -y sqlite3 libsqlite3-dev'"
     - name: Replace and Restart Bots
       run: |
         ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'java --version; killall java || true'"
