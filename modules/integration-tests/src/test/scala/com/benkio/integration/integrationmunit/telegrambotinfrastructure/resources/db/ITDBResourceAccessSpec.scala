@@ -91,7 +91,6 @@ class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       dbResourceAccess <- fixture.resourceAccessResource
       mediaSources     <- dbResourceAccess.getResourcesByKind("cards")
-      _ = println("DEBUG: I arrived here")
       files <- mediaSources.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
     } yield files
       .map(file => expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
