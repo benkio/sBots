@@ -24,7 +24,7 @@ object DBSubscriptionData {
       id = subscription.id.value.toString,
       chat_id = subscription.chatId.value,
       bot_name = subscription.botName,
-      cron = subscription.cron,
+      cron = subscription.cron.toString,
       subscribed_at = subscription.subscribedAt.getEpochSecond.toString
     )
 }
