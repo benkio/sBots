@@ -2,41 +2,46 @@ package com.benkio.telegrambotinfrastructure
 
 import cats.*
 import cats.effect.*
-import cats.effect.implicits.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
-import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.Stream
 import log.effect.LogWriter
 import telegramium.bots.high.Api
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
+import java.time.Duration
+import java.time.LocalDateTime
+import java.util.UUID
 import scala.collection.mutable.Map as MMap
+import scala.concurrent.duration.FiniteDuration
+import scala.util.Try
 
 trait BackgroundJobManager[F[_]] {
-  def scheduleSubscription(subscription: Subscription): F[Unit]
-  def getScheduledSubscriptions(): List[SubscriptionKey]
-  def cancelSubscription(subscriptionId: SubscriptionId): F[Unit]
-  def cancelSubscriptions(chatId: ChatId): F[Unit]
-}
 
-final case class SubscriptionKey(subscriptionId: SubscriptionId, chatId: ChatId)
-given showInstance: Show[SubscriptionKey] =
-  Show.show(s => s"Subscription Id: ${s.subscriptionId} - chat id: ${s.chatId}")
+  var memSubscriptions: MMap[BackgroundJobManager.SubscriptionKey, Fiber[F, Throwable, Unit]]
+  val botName: String
+  def scheduleSubscription(subscription: Subscription): F[Unit]
+  def loadSubscriptions(): F[Unit]
+  def cancelSubscription(subscriptionId: UUID): F[Unit]
+  def cancelSubscriptions(chatId: Long): F[Unit]
+}
 
 object BackgroundJobManager {
 
-  final case class SubscriptionIdNotFound(subscriptionId: SubscriptionId)
+  final case class SubscriptionKey(subscriptionId: UUID, chatId: Long)
+
+  given showInstance: Show[SubscriptionKey] =
+    Show.show(s => s"Subscription Id: ${s.subscriptionId} - chat id: ${s.chatId}")
+
+  final case class SubscriptionIdNotFound(subscriptionId: UUID)
       extends Throwable(s"Subscription Id is not found: $subscriptionId")
   final case class SubscriptionChatIdNotFound(chatId: Long)
       extends Throwable(s"Subscription chat Id is not found: $chatId")
@@ -54,18 +59,17 @@ object BackgroundJobManager {
       dbShow: DBShow[F],
       resourceAccess: ResourceAccess[F],
       botName: String
-  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] =
-    for {
-      backgroundJobManager <- Async[F].pure(
-        new BackgroundJobManagerImpl(
-          dbSubscription = dbSubscription,
-          dbShow = dbShow,
-          resourceAccess: ResourceAccess[F],
-          botName = botName
-        )
+  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] = for {
+    backgroundJobManager <- Async[F].pure(
+      new BackgroundJobManagerImpl(
+        dbSubscription = dbSubscription,
+        dbShow = dbShow,
+        resourceAccess: ResourceAccess[F],
+        botName = botName
       )
-      _ <- backgroundJobManager.loadSubscriptions()
-    } yield backgroundJobManager
+    )
+    _ <- backgroundJobManager.loadSubscriptions()
+  } yield backgroundJobManager
 
   class BackgroundJobManagerImpl[F[_]: Async: Api](
       dbSubscription: DBSubscription[F],
@@ -75,96 +79,95 @@ object BackgroundJobManager {
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
-    val cronScheduler                                                 = Cron4sScheduler.systemDefault[F]
-    var scheduleReferences: MMap[SubscriptionKey, Stream[F, Boolean]] = MMap.empty
+    var memSubscriptions: MMap[SubscriptionKey, Fiber[F, Throwable, Unit]] = MMap()
 
-    def loadSubscriptions(): F[Unit] =
-      for {
-        subscriptionsData <- dbSubscription.getSubscriptions(botName)
-        subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
-        cancelStream = subscriptions.map(subscription =>
-          val (stream, cancel) = runSubscription(subscription)
-          ((SubscriptionKey(subscription.id, subscription.chatId), cancel), (subscription.cron, stream))
-        )
-        _ <- cronScheduler
-          .schedule(
-            cancelStream.map(_._2)
-          )
-          .compile
-          .drain
-          .start
-      } yield scheduleReferences = MMap.from(cancelStream.map(_._1))
+    override def scheduleSubscription(subscription: Subscription): F[Unit] = for {
+      _ <- log.info(s"Schedule subscription: $subscription")
+      _ <- Async[F]
+        .raiseError(SubscriptionAlreadyExists(subscription))
+        .whenA(memSubscriptions.contains(SubscriptionKey(subscription.id.value, subscription.chatId.value)))
+      subscriptionReference <- BackgroundJobManager.runSubscription(
+        subscription,
+        dbShow,
+        dbSubscription,
+        botName,
+        resourceAccess
+      )
+      _ <- dbSubscription.insertSubscription(DBSubscriptionData(subscription))
+    } yield memSubscriptions += subscriptionReference
 
-    override def scheduleSubscription(subscription: Subscription): F[Unit] =
-      for {
-        _ <- log.info(s"Schedule subscription: $subscription")
-        _ <- Async[F]
-          .raiseError(SubscriptionAlreadyExists(subscription))
-          .whenA(scheduleReferences.contains(SubscriptionKey(subscription.id, subscription.chatId)))
-        _ <- dbSubscription.insertSubscription(DBSubscriptionData(subscription))
-        (stream, cancel) = runSubscription(subscription)
-        _ <- (cronScheduler.awakeEvery(subscription.cron) >> stream).compile.drain.start
-      } yield scheduleReferences += SubscriptionKey(subscription.id, subscription.chatId) -> cancel
+    override def loadSubscriptions(): F[Unit] = for {
+      subscriptionsData <- dbSubscription.getSubscriptions(botName)
+      subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
+      subscriptionReferences <- subscriptions.traverse(s =>
+        BackgroundJobManager.runSubscription(s, dbShow, dbSubscription, botName, resourceAccess)
+      )
+      _ <- memSubscriptions.values.toList.traverse_(_.cancel)
+    } yield memSubscriptions = MMap.from(subscriptionReferences)
 
-    override def cancelSubscription(subscriptionId: SubscriptionId): F[Unit] =
-      val (optCancellingBoolean, onGoingScheduleReferences) = scheduleReferences.partition {
-        case (SubscriptionKey(sId, _), _) => sId == subscriptionId
-      }
-      for {
-        _ <-
-          if optCancellingBoolean.isEmpty
-          then Async[F].raiseError(SubscriptionIdNotFound(subscriptionId))
-          else
-            optCancellingBoolean.values.toList.traverse_(cancelStream =>
-              (cancelStream ++ Stream.emit(true)).compile.drain
-            )
-        _ <- dbSubscription.deleteSubscription(subscriptionId.value)
-      } yield scheduleReferences = onGoingScheduleReferences
+    override def cancelSubscription(subscriptionId: UUID): F[Unit] = for {
+      optCancellingBoolean <- Async[F].pure(
+        memSubscriptions.find { case (SubscriptionKey(sId, _), _) => sId == subscriptionId }.map {
+          case (_, cancelJob) => cancelJob
+        }
+      )
+      _ <- optCancellingBoolean.fold[F[Unit]](Async[F].raiseError(SubscriptionIdNotFound(subscriptionId)))(_.cancel)
+      _ <- dbSubscription.deleteSubscription(subscriptionId)
+    } yield memSubscriptions = memSubscriptions.filterNot { case (SubscriptionKey(sId, _), _) => sId == subscriptionId }
 
-    override def cancelSubscriptions(chatId: ChatId): F[Unit] =
-      val (optCancellingBooleans, onGoingScheduleReferences) = scheduleReferences.partition {
-        case (SubscriptionKey(_, cId), _) => cId == chatId
-      }
-      for {
-        _ <- dbSubscription.deleteSubscriptions(chatId.value)
-        _ <- optCancellingBooleans.values.toList.traverse_(cancelStream =>
-          (cancelStream ++ Stream.emit(true)).compile.drain
-        )
-      } yield scheduleReferences = onGoingScheduleReferences
+    override def cancelSubscriptions(chatId: Long): F[Unit] = for {
+      optCancellingBooleans <- Async[F].pure(
+        memSubscriptions
+          .filter { case (SubscriptionKey(_, cId), _) => cId == chatId }
+          .map { case (_, cancelJob) => cancelJob }
+          .toList
+      )
+      _ <- optCancellingBooleans.traverse(_.cancel)
+      _ <- dbSubscription.deleteSubscriptions(chatId)
+    } yield memSubscriptions = memSubscriptions.filterNot { case (SubscriptionKey(_, cId), _) => cId == chatId }
+  }
 
-    private def runSubscription(
-        subscription: Subscription
-    )(using
-        textTelegramReply: TelegramReply[Text],
-        log: LogWriter[F]
-    ): (Stream[F, Unit], Stream[F, Boolean]) =
-      val message = Message(
+  def runSubscription[F[_]: Async: Api](
+      subscription: Subscription,
+      dbShow: DBShow[F],
+      dbSubscription: DBSubscription[F],
+      botName: String,
+      resourceAccess: ResourceAccess[F]
+  )(using
+      textTelegramReply: TelegramReply[Text],
+      log: LogWriter[F]
+  ): F[(SubscriptionKey, Fiber[F, Throwable, Unit])] = {
+    val scheduled: Stream[F, Unit] = for {
+      nextTime <- Stream.fromOption(subscription.cronScheduler.next())
+      now = LocalDateTime.now()
+      duration <- Stream.eval(Async[F].fromTry(Try(Duration.between(now, nextTime))))
+      _        <- Stream.sleep(FiniteDuration(duration.getSeconds(), "seconds"))
+      _        <- Stream.eval(log.info(s"Executing the Scheduled subscription: $subscription"))
+      subOpt   <- Stream.eval(dbSubscription.getSubscription(subscription.id.value.toString))
+      _        <- Stream.eval(Async[F].fromOption(subOpt, StaleSubscription(subscription)))
+      message = Message(
         messageId = 0,
         date = 0,
         chat = Chat(id = subscription.chatId.value, `type` = "private")
       ) // Only the chat id matters here
-      val cancel = Stream[F, Boolean](false)
-
-      val stream = for {
-        reply <- Stream.eval(
-          CommandPatterns.SearchShowCommand
-            .selectLinkByKeyword[F]("", dbShow, botName)
-        )
-        _ <- Stream
-          .eval(
-            textTelegramReply.reply(
-              reply = Text(reply),
-              msg = message,
-              resourceAccess = resourceAccess,
-              replyToMessage = true
-            )
+      reply <- Stream.evalSeq(
+        CommandPatterns.SearchShowCommand
+          .selectLinkByKeyword[F]("", dbShow, botName)
+      )
+      _ <- Stream
+        .eval(
+          textTelegramReply.reply(
+            reply = Text(reply),
+            msg = message,
+            resourceAccess = resourceAccess,
+            replyToMessage = true
           )
-      } yield ()
+        )
+        .drain
+    } yield ()
 
-      (stream.interruptWhen(cancel), cancel)
-    end runSubscription
-
-    override def getScheduledSubscriptions(): List[SubscriptionKey] =
-      scheduleReferences.keys.toList
+    Async[F]
+      .start(scheduled.repeat.compile.drain)
+      .map(fiber => (SubscriptionKey(subscription.id.value, subscription.chatId.value), fiber))
   }
 }
