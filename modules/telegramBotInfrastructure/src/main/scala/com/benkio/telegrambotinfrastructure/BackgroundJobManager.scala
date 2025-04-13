@@ -28,6 +28,9 @@ trait BackgroundJobManager[F[_]] {
   def getScheduledSubscriptions(): List[SubscriptionKey]
   def cancelSubscription(subscriptionId: SubscriptionId): F[Unit]
   def cancelSubscriptions(chatId: ChatId): F[Unit]
+
+  // For Testing Purposes
+  def runSubscription(subscription: Subscription)(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): (Stream[F, Unit], Stream[F, Boolean])
 }
 
 final case class SubscriptionKey(subscriptionId: SubscriptionId, chatId: ChatId)
@@ -132,7 +135,7 @@ object BackgroundJobManager {
         )
       } yield scheduleReferences = onGoingScheduleReferences
 
-    private def runSubscription(
+    override def runSubscription(
         subscription: Subscription
     )(using
         textTelegramReply: TelegramReply[Text],

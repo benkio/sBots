@@ -145,4 +145,11 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     }
   }
 
+  databaseFixture.test(
+    "BackgroundJobManager.runSubscription should return an infinite stream emitting every expected time"
+  ) { fixture => ??? }
+
+  databaseFixture.test(
+    "BackgroundJobManager.runSubscription should return an infinite stream that can be cancelled by the second returned stream is resolved with `true`"
+  ) { fixture => ??? }
 }
