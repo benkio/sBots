@@ -167,7 +167,9 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "cervello pensante",
-      "stupidità incresciosa"
+      "stupidità",
+      "incresciosa",
+      "far[e]? ridere".r.tr(10)
     )(
       vid"rphjb_CervelloPensante.mp4"
     ),

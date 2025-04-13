@@ -11,6 +11,7 @@ import scala.concurrent.duration.*
 
 class GeneralErrorHandlingSpec extends CatsEffectSuite {
 
+  val sleepTime                    = 100.millis
   given log: LogWriter[IO]         = consoleLogUpToLevel(LogLevels.Error)
   val expectedErrorMessage: String = "Test Throwable"
   val failedResource: Resource[IO, Unit] =
@@ -23,7 +24,7 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
     val computation: IO[Unit] =
       GeneralErrorHandling
         .dbLogAndRestart(emptyDBLayer.dbLog, failedResource)
-        .race(Resource.eval(IO.sleep(20.millis)))
+        .race(Resource.eval(IO.sleep(sleepTime)))
         .use_
 
     val lastLogMessage: IO[Option[String]] = for {
@@ -38,7 +39,7 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
     val computation: IO[Unit] =
       GeneralErrorHandling
         .dbLogAndRestart(emptyDBLayer.dbLog, failedIO)
-        .race(IO.sleep(20.millis))
+        .race(IO.sleep(sleepTime))
         .void
 
     val lastLogMessage: IO[Option[String]] = for {
