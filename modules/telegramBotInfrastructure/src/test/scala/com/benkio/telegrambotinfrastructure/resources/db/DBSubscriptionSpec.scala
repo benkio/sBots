@@ -16,7 +16,7 @@ class DBSubscriptionSpec extends FunSuite {
       id = SubscriptionId(UUID.randomUUID),
       chatId = ChatId(0),
       botName = "botName",
-      cron = Cron.unsafeParse("5 4 * * *"),
+      cron = Cron.unsafeParse("30 * * * * ?"),
       subscribedAt = now
     )
     val expected = DBSubscriptionData(
