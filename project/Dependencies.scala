@@ -10,12 +10,13 @@ object Dependencies {
     val catsEffectTime     = "0.2.1"
     val catsEffectVersion  = "3.6.1"
     val circe              = "0.14.12"
+    val cron4s             = "0.8.2"
     val doobie             = "1.0.0-RC8"
     val fs2Core            = "3.12.0"
+    val fs2Cron            = "0.10.2"
     val fs2IO              = "3.12.0"
     val flyway             = "11.7.0"
     val http4s             = "0.23.30"
-    val littleTime         = "4.1.0"
     val logEffects         = "0.19.6"
     val logbackClassic     = "1.5.18"
     val logbackLogstash    = "8.1"
@@ -42,11 +43,14 @@ object Dependencies {
     val circeCore         = "io.circe"            %% "circe-core"               % versions.circe
     val circeGeneric      = "io.circe"            %% "circe-generic"            % versions.circe
     val circeParser       = "io.circe"            %% "circe-parser"             % versions.circe
+    val cron4s            = "com.github.alonsodomin.cron4s" %% "cron4s-core" % versions.cron4s
     val doobieCore        = "org.tpolecat"        %% "doobie-core"              % versions.doobie
     val doobieFree        = "org.tpolecat"        %% "doobie-free"              % versions.doobie
     val doobieMunit       = "org.tpolecat"        %% "doobie-munit"             % versions.doobie          % "test"
     val flyway            = "org.flywaydb"         % "flyway-core"              % versions.flyway
     val fs2Core           = "co.fs2"              %% "fs2-core"                 % versions.fs2Core
+    val fs2Cron =   "eu.timepit" %% "fs2-cron-cron4s" % versions.fs2Cron
+    val fs2CronCalev = "eu.timepit" %% "fs2-cron-calev" % versions.fs2Cron
     val fs2IO             = "co.fs2"              %% "fs2-io"                   % versions.fs2IO
     val http4sCirce       = "org.http4s"          %% "http4s-circe"             % versions.http4s
     val http4sClient      = "org.http4s"          %% "http4s-client"            % versions.http4s
@@ -54,7 +58,6 @@ object Dependencies {
     val http4sDsl         = "org.http4s"          %% "http4s-dsl"               % versions.http4s
     val http4sEmberClient = "org.http4s"          %% "http4s-ember-client"      % versions.http4s
     val http4sServer      = "org.http4s"          %% "http4s-server"            % versions.http4s
-    val littleTime        = "com.github.losizm"   %% "little-time"              % versions.littleTime
     val logEffectsCore    = "io.laserdisc"        %% "log-effect-core"          % versions.logEffects
     val logEffectsFs2     = "io.laserdisc"        %% "log-effect-fs2"           % versions.logEffects
     val logbackClassic    = "ch.qos.logback"       % "logback-classic"          % versions.logbackClassic  % Runtime
@@ -102,13 +105,15 @@ object Dependencies {
       libs.catsKernel,
       libs.circeCore,
       libs.circeGeneric,
+      libs.cron4s,
       libs.doobieCore,
       libs.doobieFree,
       libs.doobieMunit,
       libs.flyway % "test",
       libs.fs2Core,
+      libs.fs2Cron,
+      libs.fs2CronCalev,
       libs.http4sDsl,
-      libs.littleTime,
       libs.mules,
       libs.mulesHttp4s,
       libs.pureConfigCore,
@@ -163,6 +168,7 @@ object Dependencies {
       libs.scalatest,
       libs.catsEffect        % "test",
       libs.catsCore          % "test",
+      libs.cron4s            % "test",
       libs.doobieCore        % "test",
       libs.telegramiumCore   % "test",
       libs.http4sEmberClient % "test",
