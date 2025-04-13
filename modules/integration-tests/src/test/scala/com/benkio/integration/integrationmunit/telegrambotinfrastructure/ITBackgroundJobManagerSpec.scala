@@ -1,6 +1,5 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
-import cats.effect.kernel.Outcome
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
@@ -11,8 +10,8 @@ import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SubscriptionKey
-import munit.CatsEffectSuite
 import cron4s.*
+import munit.CatsEffectSuite
 
 import java.time.Instant
 import java.util.UUID
@@ -26,7 +25,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     id = testSubscriptionId,
     chatId = ChatId(0L),
     botName = botName,
-    cron = Cron.unsafeParse( "0 4 8-14 * *"),
+    cron = Cron.unsafeParse("0 4 8-14 * *"),
     subscribedAt = Instant.now()
   )
 
@@ -66,16 +65,19 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       _ <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(testSubscription.id.value))
     } yield {
       assert(backgroundJobManager.getScheduledSubscriptions().size == 1)
-      assert(backgroundJobManager.getScheduledSubscriptions().find { case (SubscriptionKey(sId, _), _) =>
-        sId == testSubscriptionId
-      }.isDefined)
-      assertIO(
-        backgroundJobManager.getScheduledSubscriptions()
-          .find { case (SubscriptionKey(sId, _), _) => sId == testSubscriptionId }
-          .get
-          ._2
-          .join,
-        Outcome.succeeded[IO, Throwable, Unit](IO(()))
+      assert(
+        backgroundJobManager
+          .getScheduledSubscriptions()
+          .find { case SubscriptionKey(sId, _) =>
+            sId == testSubscriptionId
+          }
+          .isDefined
+      )
+      assertEquals(
+        backgroundJobManager
+          .getScheduledSubscriptions()
+          .find { case SubscriptionKey(sId, _) => sId == testSubscriptionId },
+        Some(SubscriptionKey(testSubscriptionId, ChatId(0L)))
       )
     }
   }
@@ -96,21 +98,22 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       )
       _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
-      _ <- Resource.eval(
-        assertIO(
-          backgroundJobManager.getScheduledSubscriptions()
-            .find { case (SubscriptionKey(sId, _), _) => sId == testSubscriptionId }
-            .get
-            ._2
-            .join,
-          Outcome.succeeded[IO, Throwable, Unit](IO(()))
-        )
-      )
     } yield {
       assert(backgroundJobManager.getScheduledSubscriptions().size == 1)
-      assert(backgroundJobManager.getScheduledSubscriptions().find { case (SubscriptionKey(sId, _), _) =>
-        sId == testSubscriptionId
-      }.isDefined)
+      assert(
+        backgroundJobManager
+          .getScheduledSubscriptions()
+          .find { case SubscriptionKey(sId, _) =>
+            sId == testSubscriptionId
+          }
+          .isDefined
+      )
+      assertEquals(
+        backgroundJobManager
+          .getScheduledSubscriptions()
+          .find { case SubscriptionKey(sId, _) => sId == testSubscriptionId },
+        Some(SubscriptionKey(testSubscriptionId, ChatId(0L)))
+      )
       assert(subscriptions.length == 1)
       assert(Subscription(subscriptions.head) == testSubscription)
     }
