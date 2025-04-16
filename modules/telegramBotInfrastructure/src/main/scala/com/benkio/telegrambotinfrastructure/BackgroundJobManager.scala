@@ -151,23 +151,20 @@ object BackgroundJobManager {
       ) // Only the chat id matters here
       val cancel = Stream[F, Boolean](false)
 
-      val stream = for {
-        reply <- Stream.eval(
-          CommandPatterns.SearchShowCommand
-            .selectLinkByKeyword[F]("", dbShow, botName)
-        )
-        _ <- Stream
-          .eval(
-            textTelegramReply.reply(
+      val action: F[Instant] = for {
+        now <- Async[F].realTimeInstant
+        _ <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
+        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbShow, botName)
+        _ <- log.info(s"[BackgroundJobManager] reply: $reply")
+        _ <- textTelegramReply.reply(
               reply = Text(reply),
               msg = message,
               resourceAccess = resourceAccess,
               replyToMessage = true
             )
-          )
-      } yield Instant.now // For testing purposes
+      } yield now // For testing purposes
 
-      (stream.interruptWhen(cancel), cancel)
+      (Stream.eval(action).interruptWhen(cancel), cancel)
     end runSubscription
 
     override def getScheduledSubscriptions(): List[SubscriptionKey] =

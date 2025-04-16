@@ -1,5 +1,6 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
@@ -16,12 +17,12 @@ import java.sql.DriverManager
 
 class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  val botName = "RichardPHJBensonBot"
+  val botName = RichardPHJBensonBot.botName
 
   val testShowRaw: String =
-    """{
+    s"""{
       |    "show_url": "https://www.youtube.com/watch?v=J60iupukb6c",
-      |    "bot_name": "RichardPHJBensonBot",
+      |    "bot_name": "$botName",
       |    "show_title": "Cocktail Micidiale 25 febbraio 2005 (puntata completa) l'ultima regia di Ghent",
       |    "show_upload_date": "20180611",
       |    "show_duration": 831,
