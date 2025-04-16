@@ -21,6 +21,7 @@ import telegramium.bots.high.Api
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
+import java.time.Instant
 import scala.collection.mutable.Map as MMap
 
 trait BackgroundJobManager[F[_]] {
@@ -30,7 +31,9 @@ trait BackgroundJobManager[F[_]] {
   def cancelSubscriptions(chatId: ChatId): F[Unit]
 
   // For Testing Purposes
-  def runSubscription(subscription: Subscription)(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): (Stream[F, Unit], Stream[F, Boolean])
+  def runSubscription(
+      subscription: Subscription
+  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): (Stream[F, Instant], Stream[F, Boolean])
 }
 
 final case class SubscriptionKey(subscriptionId: SubscriptionId, chatId: ChatId)
@@ -140,7 +143,7 @@ object BackgroundJobManager {
     )(using
         textTelegramReply: TelegramReply[Text],
         log: LogWriter[F]
-    ): (Stream[F, Unit], Stream[F, Boolean]) =
+    ): (Stream[F, Instant], Stream[F, Boolean]) =
       val message = Message(
         messageId = 0,
         date = 0,
@@ -162,7 +165,7 @@ object BackgroundJobManager {
               replyToMessage = true
             )
           )
-      } yield ()
+      } yield Instant.now // For testing purposes
 
       (stream.interruptWhen(cancel), cancel)
     end runSubscription

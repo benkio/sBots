@@ -1,5 +1,6 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
+import java.time.Instant
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
@@ -11,9 +12,11 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SubscriptionKey
 import cron4s.*
+import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import munit.CatsEffectSuite
+import cats.syntax.all.*
 
-import java.time.Instant
+
 import java.util.UUID
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
@@ -21,11 +24,13 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4"))
   val botName                            = "botname"
 
+  val cronScheduler = Cron4sScheduler.systemDefault[IO]
+
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
     chatId = ChatId(0L),
     botName = botName,
-    cron = Cron.unsafeParse("0 * * ? * *"),
+    cron = Cron.unsafeParse("*/1 * * ? * *"),
     subscribedAt = Instant.now()
   )
 
@@ -45,6 +50,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         )
       )
     } yield assert(backgroundJobManager.getScheduledSubscriptions().isEmpty)
+    // TODO: check the resource
   }
 
   databaseFixture.test(
@@ -80,6 +86,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         Some(SubscriptionKey(testSubscriptionId, ChatId(0L)))
       )
     }
+
+    // TODO: check the resource
   }
 
   databaseFixture.test(
@@ -117,6 +125,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       assert(subscriptions.length == 1)
       assert(Subscription(subscriptions.head) == testSubscription)
     }
+    // TODO: check the resource
   }
 
   databaseFixture.test(
@@ -143,13 +152,35 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       assert(Subscription(inserted_subscriptions.head) == testSubscription)
       assert(cancel_subscriptions.isEmpty)
     }
+    // TODO: check the resource
   }
 
   databaseFixture.test(
-    "BackgroundJobManager.runSubscription should return an infinite stream emitting every expected time"
-  ) { fixture => ??? }
+    "BackgroundJobManager.runSubscription should return an infinite stream emitting every expected time when scheduled"
+  ) { fixture =>
+    val testResult: Resource[cats.effect.IO, List[Instant]] = for {
+      dbLayer        <- fixture.resourceDBLayer
+      resourceAccess <- fixture.resourceAccessResource
+      backgroundJobManager <- Resource.eval(
+        BackgroundJobManager(
+          dbSubscription = dbLayer.dbSubscription,
+          dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
+          botName = botName
+        )
+      )
+      (mainStream, _) = backgroundJobManager.runSubscription(testSubscription)
+      resultStream <- Resource.eval(
+        (cronScheduler.awakeEvery(testSubscription.cron) >> mainStream).take(10).compile.toList
+      )
+    } yield {
+      println(s"dio de dio test: $resultStream")
+      resultStream
+    }
+    testResult.use(result => assert(result == List(200)).pure[IO])
+  }
 
-  databaseFixture.test(
-    "BackgroundJobManager.runSubscription should return an infinite stream that can be cancelled by the second returned stream is resolved with `true`"
-  ) { fixture => ??? }
+  // databaseFixture.test(
+  //   "BackgroundJobManager.runSubscription should return an infinite stream that can be cancelled by the second returned stream is resolved with `true`"
+  // ) { fixture => ??? }
 }
