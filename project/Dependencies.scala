@@ -50,6 +50,7 @@ object Dependencies {
     val flyway            = "org.flywaydb"                   % "flyway-core"         % versions.flyway
     val fs2Core           = "co.fs2"                        %% "fs2-core"            % versions.fs2Core
     val fs2Cron           = "eu.timepit"                    %% "fs2-cron-cron4s"     % versions.fs2Cron
+    val fs2CronCore       = "eu.timepit"                    %% "fs2-cron-core"       % versions.fs2Cron
     val fs2CronCalev      = "eu.timepit"                    %% "fs2-cron-calev"      % versions.fs2Cron
     val fs2IO             = "co.fs2"                        %% "fs2-io"              % versions.fs2IO
     val http4sCirce       = "org.http4s"                    %% "http4s-circe"        % versions.http4s
@@ -112,6 +113,7 @@ object Dependencies {
       libs.flyway % "test",
       libs.fs2Core,
       libs.fs2Cron,
+      libs.fs2CronCore,
       libs.fs2CronCalev,
       libs.http4sDsl,
       libs.mules,
