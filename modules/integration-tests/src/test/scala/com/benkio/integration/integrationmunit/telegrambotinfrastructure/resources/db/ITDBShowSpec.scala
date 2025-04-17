@@ -1,9 +1,9 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
 
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.resources.db.DBShow
@@ -21,15 +21,15 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
   val testShowRaw: String =
     s"""{
-      |    "show_url": "https://www.youtube.com/watch?v=J60iupukb6c",
-      |    "bot_name": "$botName",
-      |    "show_title": "Cocktail Micidiale 25 febbraio 2005 (puntata completa) l'ultima regia di Ghent",
-      |    "show_upload_date": "20180611",
-      |    "show_duration": 831,
-      |    "show_description": "#RichardBenson #CocktailMicidiale",
-      |    "show_is_live": false,
-      |    "show_origin_automatic_caption": "https://www.youtube.com/api/timedtext?v=J60iupukb6c&ei=rz6lZ_-LHPm3kucP1dfk6Ao&caps=asr&opi=112496729&xoaf=4&hl=en&ip=0.0.0.0&ipbits=0&expire=1738907935&sparams=ip%2Cipbits%2Cexpire%2Cv%2Cei%2Ccaps%2Copi%2Cxoaf&signature=C2C1973F010B5F08BC840B19B71964CCA36BA458.C0E4842069419D32BED2B351101080B1FB5A94A3&key=yt8&kind=asr&lang=it&fmt=json3"
-      |  }""".stripMargin
+       |    "show_url": "https://www.youtube.com/watch?v=J60iupukb6c",
+       |    "bot_name": "$botName",
+       |    "show_title": "Cocktail Micidiale 25 febbraio 2005 (puntata completa) l'ultima regia di Ghent",
+       |    "show_upload_date": "20180611",
+       |    "show_duration": 831,
+       |    "show_description": "#RichardBenson #CocktailMicidiale",
+       |    "show_is_live": false,
+       |    "show_origin_automatic_caption": "https://www.youtube.com/api/timedtext?v=J60iupukb6c&ei=rz6lZ_-LHPm3kucP1dfk6Ao&caps=asr&opi=112496729&xoaf=4&hl=en&ip=0.0.0.0&ipbits=0&expire=1738907935&sparams=ip%2Cipbits%2Cexpire%2Cv%2Cei%2Ccaps%2Copi%2Cxoaf&signature=C2C1973F010B5F08BC840B19B71964CCA36BA458.C0E4842069419D32BED2B351101080B1FB5A94A3&key=yt8&kind=asr&lang=it&fmt=json3"
+       |  }""".stripMargin
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
     Class.forName("org.sqlite.JDBC")

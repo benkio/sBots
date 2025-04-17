@@ -1,24 +1,26 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import java.time.Instant
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
-//import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-//import com.benkio.telegrambotinfrastructure.SubscriptionKey
+import com.benkio.telegrambotinfrastructure.SubscriptionKey
 import cron4s.*
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
+import fs2.concurrent.SignallingRef
+import fs2.Stream
 import munit.CatsEffectSuite
-import cats.syntax.all.*
 
-
+import java.time.temporal.ChronoUnit
+import java.time.Instant
 import java.util.UUID
+import scala.concurrent.duration.*
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
@@ -31,135 +33,70 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     id = testSubscriptionId,
     chatId = ChatId(0L),
     botName = botName,
-    cron = Cron.unsafeParse("*/1 * * ? * *"),
-    subscribedAt = Instant.now()
+    cron = Cron.unsafeParse("* * * ? * *"),
+    subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
   )
 
-  // databaseFixture.test(
-  //   "The creation of the BackgroundJobManager with empty subscriptions should load no subscriptions in memory"
-  // ) { fixture =>
-  //   for {
-  //     dbLayer <- fixture.resourceDBLayer
+  databaseFixture.test(
+    "The creation of the BackgroundJobManager with empty subscriptions should load no subscriptions in memory"
+  ) { fixture =>
+    val test = for {
+      dbLayer <- fixture.resourceDBLayer
 
-  //     resourceAccess <- fixture.resourceAccessResource
-  //     backgroundJobManager <- Resource.eval(
-  //       BackgroundJobManager(
-  //         dbSubscription = dbLayer.dbSubscription,
-  //         dbShow = dbLayer.dbShow,
-  //         resourceAccess = resourceAccess,
-  //         botName = botName
-  //       )
-  //     )
-  //   } yield assert(backgroundJobManager.getScheduledSubscriptions().isEmpty)
-  //   // TODO: check the resource
-  // }
-
-  // databaseFixture.test(
-  //   "The creation of the BackgroundJobManager with non empty subscriptions should load subscriptions in memory and run the background tasks without errors"
-  // ) { fixture =>
-  //   for {
-  //     dbLayer        <- fixture.resourceDBLayer
-  //     resourceAccess <- fixture.resourceAccessResource
-  //     _              <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
-  //     backgroundJobManager <- Resource.eval(
-  //       BackgroundJobManager(
-  //         dbSubscription = dbLayer.dbSubscription,
-  //         dbShow = dbLayer.dbShow,
-  //         resourceAccess = resourceAccess,
-  //         botName = botName
-  //       )
-  //     )
-  //     _ <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(testSubscription.id.value))
-  //   } yield {
-  //     assert(backgroundJobManager.getScheduledSubscriptions().size == 1)
-  //     assert(
-  //       backgroundJobManager
-  //         .getScheduledSubscriptions()
-  //         .find { case SubscriptionKey(sId, _) =>
-  //           sId == testSubscriptionId
-  //         }
-  //         .isDefined
-  //     )
-  //     assertEquals(
-  //       backgroundJobManager
-  //         .getScheduledSubscriptions()
-  //         .find { case SubscriptionKey(sId, _) => sId == testSubscriptionId },
-  //       Some(SubscriptionKey(testSubscriptionId, ChatId(0L)))
-  //     )
-  //   }
-
-  //   // TODO: check the resource
-  // }
-
-  // databaseFixture.test(
-  //   "BackgroundJobManager.scheduleSubscription should run a subscription, add it to the in memory map and store it in the DB"
-  // ) { fixture =>
-  //   for {
-  //     dbLayer        <- fixture.resourceDBLayer
-  //     resourceAccess <- fixture.resourceAccessResource
-  //     backgroundJobManager <- Resource.eval(
-  //       BackgroundJobManager(
-  //         dbSubscription = dbLayer.dbSubscription,
-  //         dbShow = dbLayer.dbShow,
-  //         resourceAccess = resourceAccess,
-  //         botName = botName
-  //       )
-  //     )
-  //     _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
-  //     subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
-  //   } yield {
-  //     assert(backgroundJobManager.getScheduledSubscriptions().size == 1)
-  //     assert(
-  //       backgroundJobManager
-  //         .getScheduledSubscriptions()
-  //         .find { case SubscriptionKey(sId, _) =>
-  //           sId == testSubscriptionId
-  //         }
-  //         .isDefined
-  //     )
-  //     assertEquals(
-  //       backgroundJobManager
-  //         .getScheduledSubscriptions()
-  //         .find { case SubscriptionKey(sId, _) => sId == testSubscriptionId },
-  //       Some(SubscriptionKey(testSubscriptionId, ChatId(0L)))
-  //     )
-  //     assert(subscriptions.length == 1)
-  //     assert(Subscription(subscriptions.head) == testSubscription)
-  //   }
-  //   // TODO: check the resource
-  // }
-
-  // databaseFixture.test(
-  //   "BackgroundJobManager.cancelSubscription should cancel in memory job, remove the in memory entry and it the db"
-  // ) { fixture =>
-  //   for {
-  //     dbLayer        <- fixture.resourceDBLayer
-  //     resourceAccess <- fixture.resourceAccessResource
-  //     backgroundJobManager <- Resource.eval(
-  //       BackgroundJobManager(
-  //         dbSubscription = dbLayer.dbSubscription,
-  //         dbShow = dbLayer.dbShow,
-  //         resourceAccess = resourceAccess,
-  //         botName = botName
-  //       )
-  //     )
-  //     _                      <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
-  //     inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
-  //     _                      <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))
-  //     cancel_subscriptions   <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
-  //   } yield {
-  //     assert(backgroundJobManager.getScheduledSubscriptions().size == 0)
-  //     assert(inserted_subscriptions.length == 1)
-  //     assert(Subscription(inserted_subscriptions.head) == testSubscription)
-  //     assert(cancel_subscriptions.isEmpty)
-  //   }
-  //   // TODO: check the resource
-  // }
+      resourceAccess <- fixture.resourceAccessResource
+      backgroundJobManager <- Resource.eval(
+        BackgroundJobManager(
+          dbSubscription = dbLayer.dbSubscription,
+          dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
+          botName = botName
+        )
+      )
+    } yield assert(backgroundJobManager.getScheduledSubscriptions().isEmpty)
+    test.use_
+  }
 
   databaseFixture.test(
-    "BackgroundJobManager.runSubscription should return an infinite stream emitting every expected time when scheduled"
+    "The creation of the BackgroundJobManager with non empty subscriptions should load subscriptions in memory and run the background tasks without errors"
   ) { fixture =>
-    val testResult: Resource[cats.effect.IO, List[Instant]] = for {
+    val test = for {
+      dbLayer        <- fixture.resourceDBLayer
+      resourceAccess <- fixture.resourceAccessResource
+      _              <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
+      backgroundJobManager <- Resource.eval(
+        BackgroundJobManager(
+          dbSubscription = dbLayer.dbSubscription,
+          dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
+          botName = botName
+        )
+      )
+      _ <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(testSubscription.id.value))
+    } yield {
+      assertEquals(backgroundJobManager.getScheduledSubscriptions().size, 1)
+      assert(
+        backgroundJobManager
+          .getScheduledSubscriptions()
+          .find { case SubscriptionKey(sId, _) =>
+            sId == testSubscriptionId
+          }
+          .isDefined
+      )
+      assertEquals(
+        backgroundJobManager
+          .getScheduledSubscriptions()
+          .find { case SubscriptionKey(sId, _) => sId == testSubscriptionId },
+        Some(SubscriptionKey(testSubscriptionId, ChatId(0L)))
+      )
+    }
+
+    test.use_
+  }
+
+  databaseFixture.test(
+    "BackgroundJobManager.scheduleSubscription should run a subscription, add it to the in memory map and store it in the DB"
+  ) { fixture =>
+    val test = for {
       dbLayer        <- fixture.resourceDBLayer
       resourceAccess <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
@@ -170,18 +107,120 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           botName = botName
         )
       )
-      (mainStream, _) = backgroundJobManager.runSubscription(testSubscription)
-      _ = println(s"dio de dio test")
-      resultStream <- Resource.eval(
-        (cronScheduler.awakeEvery(testSubscription.cron) >> mainStream).take(10).compile.toList
-      )
+      _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
+      subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
     } yield {
-      resultStream
+      assertEquals(backgroundJobManager.getScheduledSubscriptions().size, 1)
+      assert(
+        backgroundJobManager
+          .getScheduledSubscriptions()
+          .find { case SubscriptionKey(sId, _) =>
+            sId == testSubscriptionId
+          }
+          .isDefined
+      )
+      assertEquals(
+        backgroundJobManager
+          .getScheduledSubscriptions()
+          .find { case SubscriptionKey(sId, _) => sId == testSubscriptionId },
+        Some(SubscriptionKey(testSubscriptionId, ChatId(0L)))
+      )
+      assertEquals(subscriptions.length, 1)
+      assertEquals(Subscription(subscriptions.head), Right(testSubscription))
     }
-    testResult.use(result => assert(result == List(200)).pure[IO])
+    test.use_
   }
 
-  // databaseFixture.test(
-  //   "BackgroundJobManager.runSubscription should return an infinite stream that can be cancelled by the second returned stream is resolved with `true`"
-  // ) { fixture => ??? }
+  databaseFixture.test(
+    "BackgroundJobManager.runSubscription should return an infinite stream that can be cancelled by the returned signal whne is resolved to `true`"
+  ) { fixture =>
+    val resultStreamResources: Resource[cats.effect.IO, (Stream[IO, Instant], SignallingRef[IO, Boolean])] = for {
+      dbLayer        <- fixture.resourceDBLayer
+      resourceAccess <- fixture.resourceAccessResource
+      backgroundJobManager <- Resource.eval(
+        BackgroundJobManager(
+          dbSubscription = dbLayer.dbSubscription,
+          dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
+          botName = botName
+        )
+      )
+      (mainStream, cancelSignal) <- Resource.eval(backgroundJobManager.runSubscription(testSubscription))
+      mainStreamWithCron = cronScheduler.awakeEvery(testSubscription.cron) >> mainStream
+      // if I don't do that the scheduler will keep emitting values and the test will go timeout
+      mainStreamWithCronWithCancel = mainStreamWithCron.interruptWhen(cancelSignal)
+    } yield (mainStreamWithCronWithCancel, cancelSignal)
+    resultStreamResources.use { case (resultStream, cancel) =>
+      for
+        resultFiber <- resultStream.take(15).onFinalize(IO(println("Stream interrupted"))).compile.toList.start
+        _ = println("[ITBackgroundJobManagerSpec] stream started")
+        _ <- IO.sleep(3.seconds)
+        _ <- cancel.set(true)
+        _ = println("[ITBackgroundJobManagerSpec] stream cancelled")
+        output <- resultFiber.joinWithNever
+      yield assertEquals(output.length, 3)
+    }
+  }
+
+  databaseFixture.test(
+    "BackgroundJobManager.cancelSubscription should cancel in memory job, remove the in memory entry and it the db"
+  ) { fixture =>
+    val result = for {
+      dbLayer        <- fixture.resourceDBLayer
+      resourceAccess <- fixture.resourceAccessResource
+      backgroundJobManager <- Resource.eval(
+        BackgroundJobManager(
+          dbSubscription = dbLayer.dbSubscription,
+          dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
+          botName = botName
+        )
+      )
+      _ <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
+      _ = println("[ITBackgroundJobManagerSpec] test subscription scheduled")
+      inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
+      _ = println("[ITBackgroundJobManagerSpec] test subscription fetched")
+      _ <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))
+      _ = println("[ITBackgroundJobManagerSpec] test subscription cancelled")
+      cancel_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
+      _ = println("[ITBackgroundJobManagerSpec] test subscription re-fetched")
+    } yield {
+      assertEquals(backgroundJobManager.getScheduledSubscriptions().size, 0)
+      assertEquals(inserted_subscriptions.length, 1)
+      assertEquals(Subscription(inserted_subscriptions.head), Right(testSubscription))
+      assert(cancel_subscriptions.isEmpty)
+    }
+    result.use_
+  }
+
+  databaseFixture.test(
+    "BackgroundJobManager.runSubscription should return an infinite stream emitting every expected time when scheduled"
+  ) { fixture =>
+    val resultStreamResources: Resource[cats.effect.IO, Stream[IO, (Instant, Instant)]] = for {
+      dbLayer        <- fixture.resourceDBLayer
+      resourceAccess <- fixture.resourceAccessResource
+      backgroundJobManager <- Resource.eval(
+        BackgroundJobManager(
+          dbSubscription = dbLayer.dbSubscription,
+          dbShow = dbLayer.dbShow,
+          resourceAccess = resourceAccess,
+          botName = botName
+        )
+      )
+      (mainStream, _) <- Resource.eval(backgroundJobManager.runSubscription(testSubscription))
+    } yield cronScheduler.awakeEvery(testSubscription.cron) >>
+      Stream
+        .eval(IO.realTimeInstant)
+        .flatMap(testInstant =>
+          mainStream
+            .map(resultInstant =>
+              (resultInstant.truncatedTo(ChronoUnit.SECONDS), testInstant.truncatedTo(ChronoUnit.SECONDS))
+            )
+        )
+    resultStreamResources.use(resultStream =>
+      for result <- resultStream.take(3).compile.toList
+      yield result.foreach { case (resultI, testI) => assertEquals(resultI, testI) }
+    )
+  }
+
 }

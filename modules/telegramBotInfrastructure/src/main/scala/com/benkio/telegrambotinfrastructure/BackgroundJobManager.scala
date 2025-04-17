@@ -15,6 +15,7 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
+import fs2.concurrent.SignallingRef
 import fs2.Stream
 import log.effect.LogWriter
 import telegramium.bots.high.Api
@@ -33,7 +34,7 @@ trait BackgroundJobManager[F[_]] {
   // For Testing Purposes
   def runSubscription(
       subscription: Subscription
-  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): (Stream[F, Instant], Stream[F, Boolean])
+  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[(Stream[F, Instant], SignallingRef[F, Boolean])]
 }
 
 final case class SubscriptionKey(subscriptionId: SubscriptionId, chatId: ChatId)
@@ -81,25 +82,26 @@ object BackgroundJobManager {
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
-    val cronScheduler                                                 = Cron4sScheduler.systemDefault[F]
-    var scheduleReferences: MMap[SubscriptionKey, Stream[F, Boolean]] = MMap.empty
+    val cronScheduler                                                        = Cron4sScheduler.systemDefault[F]
+    var scheduleReferences: MMap[SubscriptionKey, SignallingRef[F, Boolean]] = MMap.empty
 
     def loadSubscriptions(): F[Unit] =
       for {
         subscriptionsData <- dbSubscription.getSubscriptions(botName)
         subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
-        cancelStream = subscriptions.map(subscription =>
-          val (stream, cancel) = runSubscription(subscription)
-          ((SubscriptionKey(subscription.id, subscription.chatId), cancel), (subscription.cron, stream))
+        cancelSignal <- subscriptions.traverse(subscription =>
+          runSubscription(subscription).map { case (stream, cancel) =>
+            ((SubscriptionKey(subscription.id, subscription.chatId), cancel), (subscription.cron, stream))
+          }
         )
         _ <- cronScheduler
           .schedule(
-            cancelStream.map(_._2)
+            cancelSignal.map(_._2)
           )
           .compile
           .drain
           .start
-      } yield scheduleReferences = MMap.from(cancelStream.map(_._1))
+      } yield scheduleReferences = MMap.from(cancelSignal.map(_._1))
 
     override def scheduleSubscription(subscription: Subscription): F[Unit] =
       for {
@@ -107,9 +109,10 @@ object BackgroundJobManager {
         _ <- Async[F]
           .raiseError(SubscriptionAlreadyExists(subscription))
           .whenA(scheduleReferences.contains(SubscriptionKey(subscription.id, subscription.chatId)))
-        _ <- dbSubscription.insertSubscription(DBSubscriptionData(subscription))
-        (stream, cancel) = runSubscription(subscription)
-        _ <- (cronScheduler.awakeEvery(subscription.cron) >> stream).compile.drain.start
+        _                <- dbSubscription.insertSubscription(DBSubscriptionData(subscription))
+        (stream, cancel) <- runSubscription(subscription)
+        cronStream = cronScheduler.awakeEvery(subscription.cron) >> stream
+        _ <- cronStream.interruptWhen(cancel).compile.drain.start
       } yield scheduleReferences += SubscriptionKey(subscription.id, subscription.chatId) -> cancel
 
     override def cancelSubscription(subscriptionId: SubscriptionId): F[Unit] =
@@ -120,10 +123,7 @@ object BackgroundJobManager {
         _ <-
           if optCancellingBoolean.isEmpty
           then Async[F].raiseError(SubscriptionIdNotFound(subscriptionId))
-          else
-            optCancellingBoolean.values.toList.traverse_(cancelStream =>
-              (cancelStream ++ Stream.emit(true)).compile.drain
-            )
+          else optCancellingBoolean.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
         _ <- dbSubscription.deleteSubscription(subscriptionId.value)
       } yield scheduleReferences = onGoingScheduleReferences
 
@@ -133,9 +133,7 @@ object BackgroundJobManager {
       }
       for {
         _ <- dbSubscription.deleteSubscriptions(chatId.value)
-        _ <- optCancellingBooleans.values.toList.traverse_(cancelStream =>
-          (cancelStream ++ Stream.emit(true)).compile.drain
-        )
+        _ <- optCancellingBooleans.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
       } yield scheduleReferences = onGoingScheduleReferences
 
     override def runSubscription(
@@ -143,29 +141,29 @@ object BackgroundJobManager {
     )(using
         textTelegramReply: TelegramReply[Text],
         log: LogWriter[F]
-    ): (Stream[F, Instant], Stream[F, Boolean]) =
+    ): F[(Stream[F, Instant], SignallingRef[F, Boolean])] =
       val message = Message(
         messageId = 0,
         date = 0,
         chat = Chat(id = subscription.chatId.value, `type` = "private")
       ) // Only the chat id matters here
-      val cancel = Stream[F, Boolean](false)
+      val cancelF = SignallingRef[F, Boolean](false)
 
       val action: F[Instant] = for {
-        now <- Async[F].realTimeInstant
-        _ <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
+        now   <- Async[F].realTimeInstant
+        _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
         reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbShow, botName)
-        _ <- log.info(s"[BackgroundJobManager] reply: $reply")
+        _     <- log.info(s"[BackgroundJobManager] reply: $reply")
         _ <- textTelegramReply.reply(
-              reply = Text(reply),
-              msg = message,
-              resourceAccess = resourceAccess,
-              replyToMessage = true
-            )
+          reply = Text(reply),
+          msg = message,
+          resourceAccess = resourceAccess,
+          replyToMessage = true
+        )
       } yield now // For testing purposes
 
-      (Stream.eval(action).interruptWhen(cancel), cancel)
-    end runSubscription
+      for cancel <- cancelF
+      yield (Stream.eval(action).interruptWhen(cancel), cancel)
 
     override def getScheduledSubscriptions(): List[SubscriptionKey] =
       scheduleReferences.keys.toList

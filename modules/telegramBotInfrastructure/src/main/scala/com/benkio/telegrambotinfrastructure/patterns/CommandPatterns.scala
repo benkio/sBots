@@ -153,11 +153,9 @@ Input as query string:
       for {
         _       <- log.info(s"Select random Show: $botName - $keywords - $query")
         results <- dbCall
-        _       <- log.info(s"results: $results")
         result <-
           if results.isEmpty then s"Nessuna puntata/show contenente '$keywords' è stata trovata".pure[F]
           else Show.apply[F](results(random.nextInt(results.length))).map(_.show)
-        _       <- log.info(s"Test random Show: $result")
       } yield result
     }
   }
