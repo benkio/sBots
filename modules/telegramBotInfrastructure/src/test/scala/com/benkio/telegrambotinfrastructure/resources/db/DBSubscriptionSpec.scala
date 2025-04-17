@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.resources.db
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
-import little.time.CronSchedule
+import cron4s.*
 import munit.*
 
 import java.time.Instant
@@ -16,15 +16,14 @@ class DBSubscriptionSpec extends FunSuite {
       id = SubscriptionId(UUID.randomUUID),
       chatId = ChatId(0),
       botName = "botName",
-      cron = "5 4 * * *",
-      cronScheduler = CronSchedule("0 4 8-14 * *"),
+      cron = Cron.unsafeParse("30 * * * * ?"),
       subscribedAt = now
     )
     val expected = DBSubscriptionData(
       id = actual.id.value.toString,
       chat_id = 0,
       bot_name = "botName",
-      cron = actual.cron,
+      cron = actual.cron.toString,
       subscribed_at = now.getEpochSecond.toString
     )
     assertEquals(DBSubscriptionData(actual), expected)

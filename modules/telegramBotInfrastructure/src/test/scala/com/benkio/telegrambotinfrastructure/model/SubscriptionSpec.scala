@@ -16,9 +16,29 @@ class SubscriptionSpec extends FunSuite {
 
   test("Subscription.apply should succeed if the input DBSubscriptionData is valid") {
     val inputs: List[DBSubscriptionData] =
-      List("5 0 * 8 *", "0 22 * * 1-5", "23 0-20/2 * * *", "5 4 * * sun", "0 0,12 1 */2 *")
+      List(
+        "* * * ? * *",
+        "0 * * ? * *",
+        "0 */2 * ? * *",
+        "0 */2 * ? * *",
+        "0 */3 * ? * *",
+        "0 */4 * ? * *",
+        "0 */5 * ? * *",
+        "0 */10 * ? * *",
+        "0 */15 * ? * *",
+        "0 */30 * ? * *",
+        "0 15,30,45 * ? * *",
+        "0 0 * ? * *",
+        "0 0 */2 ? * *",
+        "0 0 */3 ? * *",
+        "0 0 */4 ? * *",
+        "0 0 */6 ? * *",
+        "0 0 */8 ? * *",
+        "0 0 */12 ? * *",
+        "0 0 0 * * ?"
+      )
         .map(buildDBSubscriptionData)
     val result = inputs.map(Subscription(_))
-    result.foreach(r => assert(r.isRight))
+    assertEquals(result.map(_.isRight), List.fill(result.length)(true))
   }
 }

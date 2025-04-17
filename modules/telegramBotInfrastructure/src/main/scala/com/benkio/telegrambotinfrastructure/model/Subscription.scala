@@ -1,8 +1,11 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import cats.syntax.all.*
+import cats.ApplicativeThrow
 import cats.Show
 import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
-import little.time.CronSchedule
+import cron4s.*
+import cron4s.expr.CronExpr
 
 import java.time.Instant
 import java.util.UUID
@@ -17,33 +20,33 @@ final case class Subscription(
     id: SubscriptionId,
     chatId: ChatId,
     botName: String,
-    cron: String,
-    cronScheduler: CronSchedule,
+    cron: CronExpr,
     subscribedAt: Instant
 )
 
 object Subscription {
-  def apply(chatId: Long, botName: String, inputCron: String): Either[Throwable, Subscription] = for {
-    cronScheduler <- Try(CronSchedule(inputCron)).toEither
-  } yield Subscription(
-    id = SubscriptionId(UUID.randomUUID),
-    chatId = ChatId(chatId),
-    botName = botName,
-    cron = inputCron,
-    cronScheduler = cronScheduler,
-    subscribedAt = Instant.now()
-  )
+  def apply[F[_]: ApplicativeThrow](chatId: Long, botName: String, inputCron: String): F[Subscription] =
+    ApplicativeThrow[F]
+      .fromEither(Cron(inputCron))
+      .map(cronExpr =>
+        Subscription(
+          id = SubscriptionId(UUID.randomUUID),
+          chatId = ChatId(chatId),
+          botName = botName,
+          cron = cronExpr,
+          subscribedAt = Instant.now()
+        )
+      )
 
   def apply(dbSubscriptionData: DBSubscriptionData): Either[Throwable, Subscription] = (for {
-    cronScheduler <- Try(CronSchedule(dbSubscriptionData.cron))
-    id            <- Try(UUID.fromString(dbSubscriptionData.id))
-    subscribedAt  <- Try(Instant.ofEpochSecond(dbSubscriptionData.subscribed_at.toLong))
+    id           <- Try(UUID.fromString(dbSubscriptionData.id))
+    subscribedAt <- Try(Instant.ofEpochSecond(dbSubscriptionData.subscribed_at.toLong))
+    cronExpr     <- Cron(dbSubscriptionData.cron).toTry
   } yield Subscription(
     id = SubscriptionId(id),
     chatId = ChatId(dbSubscriptionData.chat_id.toLong),
     botName = dbSubscriptionData.bot_name,
-    cron = dbSubscriptionData.cron,
-    cronScheduler = cronScheduler,
+    cron = cronExpr,
     subscribedAt = subscribedAt
   )).toEither
 

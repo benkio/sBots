@@ -5,6 +5,7 @@ import cats.implicits.*
 import cats.Applicative
 import cats.ApplicativeThrow
 import cats.MonadThrow
+import com.benkio.telegrambotinfrastructure.given
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.reply.toText
@@ -22,15 +23,19 @@ import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.Subscription
+import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.resources.db.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionKey
+import com.benkio.telegrambotinfrastructure.SubscriptionKey
+import cron4s.lib.javatime.*
+import cron4s.syntax.all.*
 import log.effect.LogWriter
 import org.http4s.Uri
 import telegramium.bots.Message
 
+import java.time.LocalDateTime
 import java.util.UUID
 import scala.util.Random
 import scala.util.Try
@@ -125,7 +130,8 @@ Input as query string:
                     keywords,
                     dbShow,
                     botName
-                  ),
+                  )
+                  .map(List(_)),
               "Input non riconosciuto. Controlla le instruzioni per i dettagli",
               allowEmptyString = true
             ),
@@ -137,9 +143,9 @@ Input as query string:
         keywords: String,
         dbShow: DBShow[F],
         botName: String
-    )(using log: LogWriter[F]): F[List[String]] = {
+    )(using log: LogWriter[F]): F[String] = {
       val query: ShowQuery = ShowQuery(keywords)
-      val dbCall = query match {
+      val dbCall: F[List[DBShowData]] = query match {
         case RandomQuery         => dbShow.getShows(botName)
         case q: ShowQueryKeyword => dbShow.getShowByShowQuery(q, botName)
       }
@@ -148,8 +154,8 @@ Input as query string:
         _       <- log.info(s"Select random Show: $botName - $keywords - $query")
         results <- dbCall
         result <-
-          if results.isEmpty then List(s"Nessuna puntata/show contenente '$keywords' è stata trovata").pure[F]
-          else Show.apply[F](results(random.nextInt(results.length))).map(show => List(show.show))
+          if results.isEmpty then s"Nessuna puntata/show contenente '$keywords' è stata trovata".pure[F]
+          else Show.apply[F](results(random.nextInt(results.length))).map(_.show)
       } yield result
     }
   }
@@ -277,9 +283,9 @@ ${ignoreMessagePrefix
   object SubscribeUnsubscribeCommand {
 
     val subscribeCommandDescriptionIta: String =
-      "'/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/hwpZ3fvcQ7q4xlfjoTjTvw. Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html"
+      "'/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html"
     val subscribeCommandDescriptionEng: String =
-      "'/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/hwpZ3fvcQ7q4xlfjoTjTvw. You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html"
+      "'/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html"
     val unsubscribeCommandDescriptionIta: String =
       "'/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input"
     val unsubscribeCommandDescriptionEng: String =
@@ -302,13 +308,13 @@ ${ignoreMessagePrefix
               "subscribe",
               botName,
               cronInput =>
-                for {
-                  subscription <- Async[F].fromEither(Subscription(m.chat.id, botName, cronInput))
-                  nextOccurrence = subscription.cronScheduler
-                    .next()
+                for
+                  subscription <- Subscription(m.chat.id, botName, cronInput)
+                  nextOccurrence = subscription.cron
+                    .next(LocalDateTime.now)
                     .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
                   _ <- backgroundJobManager.scheduleSubscription(subscription)
-                } yield List(
+                yield List(
                   s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
                 ),
               "Input Required: insert a valid 〈cron time〉. Check the instructions"
@@ -332,11 +338,11 @@ ${ignoreMessagePrefix
               subscriptionIdInput =>
                 if subscriptionIdInput.isEmpty then
                   for {
-                    _ <- backgroundJobManager.cancelSubscriptions(m.chat.id)
+                    _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
                   } yield List("All Subscriptions for current chat successfully cancelled")
                 else
                   for {
-                    subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput)))
+                    subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
                     _              <- backgroundJobManager.cancelSubscription(subscriptionId)
                   } yield List(
                     "Subscription successfully cancelled"
@@ -360,8 +366,8 @@ ${ignoreMessagePrefix
             for {
               subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
               subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
-              memSubscriptions     = backgroundJobManager.memSubscriptions.keys
-              memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid == m.chat.id }
+              memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
+              memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chat.id }
             } yield List(
               s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
                 .map(_.show)
