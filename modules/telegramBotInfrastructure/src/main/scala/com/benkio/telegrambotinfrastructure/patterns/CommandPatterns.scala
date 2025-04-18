@@ -323,6 +323,22 @@ ${ignoreMessagePrefix
         )
       )
 
+    def unsubcribeCommandLogic[F[_]: Async](
+        subscriptionIdInput: String,
+        backgroundJobManager: BackgroundJobManager[F],
+        m: Message
+    ): F[String] = {
+      if subscriptionIdInput.isEmpty then
+        for {
+          _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
+        } yield "All Subscriptions for current chat successfully cancelled"
+      else
+        for {
+          subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
+          _              <- backgroundJobManager.cancelSubscription(subscriptionId)
+        } yield "Subscription successfully cancelled"
+    }
+
     def unsubscribeReplyBundleCommand[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
         botName: String
@@ -332,23 +348,13 @@ ${ignoreMessagePrefix
         reply = TextReplyM[F](
           m =>
             handleCommandWithInput[F](
-              m,
-              "unsubscribe",
-              botName,
-              subscriptionIdInput =>
-                if subscriptionIdInput.isEmpty then
-                  for {
-                    _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
-                  } yield List("All Subscriptions for current chat successfully cancelled")
-                else
-                  for {
-                    subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
-                    _              <- backgroundJobManager.cancelSubscription(subscriptionId)
-                  } yield List(
-                    "Subscription successfully cancelled"
-                  )
-              ,
-              "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions"
+              msg = m,
+              command = "unsubscribe",
+              botName = botName,
+              computation = unsubcribeCommandLogic(_, backgroundJobManager, m).map(List(_)),
+              defaultReply =
+                "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions",
+              allowEmptyString = true
             ),
           true
         )
@@ -454,12 +460,20 @@ ${ignoreMessagePrefix
       allowEmptyString: Boolean = false
   ): F[List[Text]] =
     msg.text
-      .filterNot(t => !allowEmptyString && (t.trim == s"/$command" || t.trim == s"/$command@$botName"))
-      .map(t => computation(t.dropWhile(_ != ' ').tail))
+      .filter(t =>
+        val (inputCommand, rest) = t.trim.span(_ != ' ')
+        val restCheck            = allowEmptyString || (rest.trim.nonEmpty && !allowEmptyString)
+        val commandCheck         = inputCommand == s"/$command" || inputCommand == s"/$command@$botName"
+        commandCheck && restCheck
+      )
+      .map(t => computation(t.dropWhile(_ != ' ').tail.trim))
       .getOrElse(List(defaultReply).pure[F])
       .handleErrorWith(e =>
         List(
-          s"An error occurred processing the command: $command from message: $msg by bot: $botName with error: ${e.getMessage}"
+          s"""An error occurred processing the command: $command
+             | message text: ${msg.text.orElse(msg.caption).getOrElse("")}
+             | bot: $botName
+             | error: ${e.getMessage}""".stripMargin
         ).pure[F]
       )
       .map(_.toText)
