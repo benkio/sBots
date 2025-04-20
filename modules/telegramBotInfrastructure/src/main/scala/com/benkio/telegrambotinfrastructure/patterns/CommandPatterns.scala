@@ -414,9 +414,9 @@ ${ignoreMessagePrefix
   object TimeoutCommand {
 
     val timeoutCommandDescriptionIta: String =
-      "'/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00"
+      "'/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso"
     val timeoutCommandDescriptionEng: String =
-      "'/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00"
+      "'/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed"
 
     def timeoutLogic[F[_]: MonadThrow](
         input: String,
@@ -425,18 +425,20 @@ ${ignoreMessagePrefix
         botName: String,
         log: LogWriter[F]
     ): F[String] =
-      Timeout(ChatId(msg.chat.id), botName, input)
-        .fold(
-          error =>
-            log.info(
-              s"[ERROR] While parsing the timeout input: $error"
-            ) *> s"Timeout set failed: wrong input format for $input, the input must be in the form '\timeout 00:00:00'"
-              .pure[F],
-          timeout =>
-            dbTimeout.setTimeout(
-              DBTimeoutData(timeout)
-            ) *> s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}".pure[F]
-        )
+      if input.isEmpty then dbTimeout.removeTimeout(msg.chat.id, botName) *> "Timeout removed".pure[F]
+      else
+        Timeout(ChatId(msg.chat.id), botName, input)
+          .fold(
+            error =>
+              log.info(
+                s"[ERROR] While parsing the timeout input: $error"
+              ) *> s"Timeout set failed: wrong input format for $input, the input must be in the form '\timeout 00:00:00'"
+                .pure[F],
+            timeout =>
+              dbTimeout.setTimeout(
+                DBTimeoutData(timeout)
+              ) *> s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}".pure[F]
+          )
 
     def timeoutReplyBundleCommand[F[_]: MonadThrow](
         botName: String,
@@ -452,7 +454,7 @@ ${ignoreMessagePrefix
               "timeout",
               botName,
               timeoutLogic(_, msg, dbTimeout, botName, log).map(List(_)),
-              """Input Required: the input must be in the form '\timeout 00:00:00'"""
+              """Input Required: the input must be in the form '\timeout 00:00:00' or empty"""
             ),
           true
         )

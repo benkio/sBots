@@ -29,6 +29,7 @@ object DBTimeoutData {
 trait DBTimeout[F[_]] {
   def getOrDefault(chatId: Long, botName: String): F[DBTimeoutData]
   def setTimeout(timeout: DBTimeoutData): F[Unit]
+  def removeTimeout(chatId: Long, botName: String): F[Unit]
   def logLastInteraction(chatId: Long, botName: String): F[Unit]
 }
 
@@ -45,6 +46,12 @@ object DBTimeout {
     override def setTimeout(timeout: DBTimeoutData): F[Unit] =
       log.info(s"DB setting timeout for ${timeout.chat_id} - ${timeout.bot_name} to value ${timeout.timeout_value}") *>
         setTimeoutQuery(timeout).run.transact(transactor).void
+
+    override def removeTimeout(chatId: Long, botName: String): F[Unit] =
+      log.info(s"DB removing timeout for $chatId - $botName") *>
+        removeTimeoutQuery(chatId, botName).run
+          .transact(transactor)
+          .void
 
     override def logLastInteraction(chatId: Long, botName: String): F[Unit] =
       log.info(s"DB logging the last interaction for chat $chatId - $botName") *>
@@ -65,6 +72,9 @@ object DBTimeout {
 
   def setTimeoutQuery(timeout: DBTimeoutData): Update0 =
     sql"INSERT INTO timeout (chat_id, bot_name, timeout_value, last_interaction) VALUES (${timeout.chat_id}, ${timeout.bot_name}, ${timeout.timeout_value}, ${timeout.last_interaction}) ON CONFLICT (chat_id, bot_name) DO UPDATE SET timeout_value = EXCLUDED.timeout_value, last_interaction = EXCLUDED.last_interaction".update
+
+  def removeTimeoutQuery(chatId: Long, botName: String): Update0 =
+    sql"DELETE FROM timeout WHERE chat_id = $chatId AND bot_name = $botName".update
 
   def logLastInteractionQuery(chatId: Long, botName: String): Update0 =
     sql"UPDATE timeout SET last_interaction = ${Instant.now().getEpochSecond()} WHERE chat_id = $chatId AND bot_name = $botName".update

@@ -44,6 +44,8 @@ object DBLayerMock {
       else IO.raiseError(new Throwable(s"Unexpected botName, actual: $botName - expected: $botNameI"))
     override def setTimeout(timeout: DBTimeoutData): IO[Unit] =
       db.update(ts => ts.filterNot(t => t.chat_id == timeout.chat_id) :+ timeout)
+    override def removeTimeout(chatId: Long, botName: String): IO[Unit] =
+      db.update(ts => ts.filterNot(t => t.chat_id == chatId && t.bot_name == botName))
     override def logLastInteraction(chatId: Long, botName: String): IO[Unit] =
       if botName == botNameI then
         db.update(ts =>
