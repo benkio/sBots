@@ -37,6 +37,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) {
     check(DBTimeout.getOrDefaultQuery(testTimeoutChatId, testBotName))
     check(DBTimeout.setTimeoutQuery(testTimeout))
+    check(DBTimeout.removeTimeoutQuery(testTimeout.chat_id, testTimeout.bot_name))
     check(DBTimeout.logLastInteractionQuery(testTimeoutChatId, testBotName))
   }
 
@@ -91,8 +92,8 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
         _         <- Resource.eval(dbTimeout.setTimeout(timeout))
         result    <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
       } yield
-        assertEquals(timeout.chat_id, 1L)
-        assertEquals(timeout.timeout_value, "2000")
+        assertEquals(result.chat_id, 1L)
+        assertEquals(result.timeout_value, "2000")
       ).use_
   }
 
@@ -129,5 +130,37 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
       assertEquals(afterTimeout.timeout_value, "15000")
       assert(prevTimeout.last_interaction.toLong < afterTimeout.last_interaction.toLong)
     ).use_
+  }
+
+  databaseFixture.test(
+    "DBTimeout.removeTimeout should remove the timeout if the chat id and botName are present in the database"
+  ) { fixture =>
+    val chatId = 1L
+    val timeout =
+      DBTimeoutData(chatId, testBotName, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
+    (for {
+      dbTimeout     <- fixture.resourceDBLayer.map(_.dbTimeout)
+      _             <- Resource.eval(dbTimeout.setTimeout(timeout))
+      beforeTimeout <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+      _             <- Resource.eval(dbTimeout.removeTimeout(chatId, testBotName))
+      afterTimeout  <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+    } yield
+      assertEquals(beforeTimeout.chat_id, 1L)
+      assertEquals(beforeTimeout.bot_name, testBotName)
+      assertEquals(beforeTimeout.timeout_value, "2000")
+      assertEquals(afterTimeout.chat_id, 1L)
+      assertEquals(afterTimeout.bot_name, testBotName)
+      assertEquals(afterTimeout.timeout_value, "0")
+    ).use_
+  }
+
+  databaseFixture.test(
+    "DBTimeout.removeTimeout should do nothing if the chat id and botName are not present in the database"
+  ) { fixture =>
+    val chatId = 1L
+    (for {
+      dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
+      result    <- Resource.eval(dbTimeout.removeTimeout(chatId, testBotName)).attempt
+    } yield assert(result.isRight)).use_
   }
 }

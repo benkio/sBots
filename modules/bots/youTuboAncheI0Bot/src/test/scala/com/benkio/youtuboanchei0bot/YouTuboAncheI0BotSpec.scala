@@ -106,7 +106,7 @@ Input come query string:
 - '/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html
 - '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input
 - '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
-- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00
+- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
 - '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
 
 Se si vuole disabilitare il bot per un particolare messaggio impedendo
@@ -139,7 +139,7 @@ Input as query string:
 - '/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html
 - '/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted
 - '/subscriptions': Return the amout of subscriptions for the current chat
-- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00
+- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
 - '/random': Returns a data (photo/video/audio/text) random about the bot character
 
 if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
