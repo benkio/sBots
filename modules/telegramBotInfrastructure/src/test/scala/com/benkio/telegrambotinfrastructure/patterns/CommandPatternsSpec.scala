@@ -140,7 +140,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
            |""".stripMargin
   )
 
-  test("searchTrigger should return the expected result when a trigger is found") {
+  test("searchTriggerLogic should return the expected result when a trigger is found") {
     expectedSearchTriggerResponse.traverse_ { case ((mdr, query), expectedResponse) =>
       val msg = Message(
         messageId = 0,
@@ -149,7 +149,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
         text = Some(s"/testCommand $query")
       )
       TriggerSearchCommand
-        .searchTrigger[IO](mdr, msg, Some("!"))
+        .searchTriggerLogic[IO](mdr, msg, Some("!"))
         .apply(query)
         .map(result => {
           assertEquals(result.length, 1)

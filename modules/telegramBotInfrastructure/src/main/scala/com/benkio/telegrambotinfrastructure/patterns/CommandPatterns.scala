@@ -181,7 +181,7 @@ Input as query string:
     val triggerSearchCommandDescriptionEng: String =
       "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
 
-    private[patterns] def searchTrigger[F[_]: ApplicativeThrow](
+    private[patterns] def searchTriggerLogic[F[_]: ApplicativeThrow](
         mdr: List[ReplyBundleMessage[F]],
         m: Message,
         ignoreMessagePrefix: Option[String]
@@ -207,7 +207,7 @@ Input as query string:
             m,
             "triggersearch",
             botName,
-            searchTrigger(mdr, m, ignoreMessagePrefix),
+            searchTriggerLogic(mdr, m, ignoreMessagePrefix),
             """Input Required: Insert the test keyword to check if it's in some bot trigger"""
           )
         )
@@ -418,6 +418,26 @@ ${ignoreMessagePrefix
     val timeoutCommandDescriptionEng: String =
       "'/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00"
 
+    def timeoutLogic[F[_]: MonadThrow](
+        input: String,
+        msg: Message,
+        dbTimeout: DBTimeout[F],
+        botName: String,
+        log: LogWriter[F]
+    ): F[String] =
+      Timeout(ChatId(msg.chat.id), botName, input)
+        .fold(
+          error =>
+            log.info(
+              s"[ERROR] While parsing the timeout input: $error"
+            ) *> s"Timeout set failed: wrong input format for $input, the input must be in the form '\timeout 00:00:00'"
+              .pure[F],
+          timeout =>
+            dbTimeout.setTimeout(
+              DBTimeoutData(timeout)
+            ) *> s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}".pure[F]
+        )
+
     def timeoutReplyBundleCommand[F[_]: MonadThrow](
         botName: String,
         dbTimeout: DBTimeout[F],
@@ -431,19 +451,7 @@ ${ignoreMessagePrefix
               msg,
               "timeout",
               botName,
-              t => {
-                Timeout(ChatId(msg.chat.id), botName, t)
-                  .fold(
-                    error =>
-                      log.info(s"[ERROR] While parsing the timeout input: $error") *> List(
-                        s"Timeout set failed: wrong input format for $t, the input must be in the form '\timeout 00:00:00'"
-                      ).pure[F],
-                    timeout =>
-                      dbTimeout.setTimeout(DBTimeoutData(timeout)) *> List(
-                        s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}"
-                      ).pure[F]
-                  )
-              },
+              timeoutLogic(_, msg, dbTimeout, botName, log).map(List(_)),
               """Input Required: the input must be in the form '\timeout 00:00:00'"""
             ),
           true
