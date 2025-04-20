@@ -1,11 +1,22 @@
+import Dependencies.*
+import JsonCheck.*
 import Settings.*
+
+// TASKS
+
+lazy val runMigrate     = taskKey[Unit]("Migrates the database schema.")
+lazy val checkJsonFiles = taskKey[Unit]("Checks if bot's JSON files are valid")
+checkJsonFiles := JsonCheck.checkJsonFilesImpl.value
 
 // GLOBAL SETTINGS
 
-name         := "sBots"
-organization := "com.benkio"
+name                     := "sBots"
+organization             := "com.benkio"
+ThisBuild / scalaVersion := "3.6.4"
+ThisBuild / scalacOptions ++= Seq("-java-output-version", "17")
 
 enablePlugins(FlywayPlugin)
+enablePlugins(GitVersioning)
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 // SCoverage
@@ -13,19 +24,18 @@ coverageEnabled          := true
 coverageFailOnMinimum    := true
 coverageMinimumStmtTotal := 87 // TODO: INCREASE THIS
 
-// TASKS
-
-lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
-
 // COMMAND ALIASES
 
 addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt")
-addCommandAlias("check", "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck")
+addCommandAlias(
+  "check",
+  "checkJsonFiles; undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
+)
 addCommandAlias("generateTriggerTxt", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
   "validate",
-  ";clean; compile; fix; generateTriggerTxt; coverage; test; integration/mUnitTests; coverageAggregate"
+  ";clean; compile; checkJsonFiles; fix; generateTriggerTxt; coverage; test; integration/mUnitTests; coverageAggregate"
 )
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")
 addCommandAlias("integrationTests", "integration/mUnitTests")
