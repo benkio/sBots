@@ -14,7 +14,6 @@ object Settings {
     organization := "com.benkio",
     version      := "2.3.0",
     scalaVersion := "3.6.4",
-    scalacOptions ++= Seq("-java-output-version", "17"),
     publishMavenStyle := true,
     semanticdbEnabled := true,
     semanticdbCompilerPlugin := {
