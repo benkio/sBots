@@ -77,7 +77,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "completamente nudo",
-      "prossimo concerto"
+      "prossimo (concerto|live)".r.tr(13)
     )(
       mp3"rphjb_CompletamenteNudo.mp3"
     ),

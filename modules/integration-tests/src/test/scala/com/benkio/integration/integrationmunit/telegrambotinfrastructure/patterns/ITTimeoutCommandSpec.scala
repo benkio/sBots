@@ -12,9 +12,6 @@ import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
-// import java.time.Instant
-// import java.util.UUID
-
 class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
 
   val botName     = RichardPHJBensonBot.botName
