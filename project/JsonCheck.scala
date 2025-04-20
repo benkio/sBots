@@ -25,7 +25,7 @@ object JsonCheck {
       val logger = streams.value.log
 
       logger.info(s"""Checking JSON files for validity:
-                     | ${jsonFiles.map(s => "- " + s).mkString("\n")}""".stripMargin)
+                     |${jsonFiles.map(s => "- " + s).mkString("\n")}""".stripMargin)
 
       jsonFiles.foreach { filePath =>
         val file = new File(filePath)
