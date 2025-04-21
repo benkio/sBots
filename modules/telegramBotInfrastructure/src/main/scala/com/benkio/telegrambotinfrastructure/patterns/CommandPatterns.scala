@@ -37,7 +37,6 @@ import telegramium.bots.Message
 
 import java.time.LocalDateTime
 import java.util.UUID
-import scala.util.Random
 import scala.util.Try
 
 object CommandPatterns {
@@ -110,8 +109,6 @@ Input as query string:
   If the input is not recognized it will be considered as a title.
   Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
 
-    lazy val random = new Random()
-
     def searchShowReplyBundleCommand[F[_]: Async](
         dbShow: DBShow[F],
         botName: String
@@ -146,7 +143,7 @@ Input as query string:
     )(using log: LogWriter[F]): F[String] = {
       val query: ShowQuery = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
-        case RandomQuery         => dbShow.getShows(botName)
+        case RandomQuery         => dbShow.getRandomShow(botName).map(_.toList)
         case q: ShowQueryKeyword => dbShow.getShowByShowQuery(q, botName)
       }
 
@@ -154,8 +151,9 @@ Input as query string:
         _       <- log.info(s"Select random Show: $botName - $keywords - $query")
         results <- dbCall
         result <-
-          if results.isEmpty then s"Nessuna puntata/show contenente '$keywords' è stata trovata".pure[F]
-          else Show.apply[F](results(random.nextInt(results.length))).map(_.show)
+          results.headOption
+            .traverse(Show.apply[F](_).map(_.show))
+            .map(_.getOrElse(s"Nessuna puntata/show contenente '$keywords' è stata trovata"))
       } yield result
     }
   }
