@@ -136,7 +136,12 @@ object DBLayerMock {
       db.update((subs: List[DBSubscriptionData]) => subs.filterNot((s: DBSubscriptionData) => s.chat_id == chatId))
     override def getSubscription(id: String): IO[Option[DBSubscriptionData]] =
       db.get.map(_.find(sub => sub.id.toString == id))
-
+    override def getRandomSubscription(): IO[Option[DBSubscriptionData]] =
+      for
+        rnd  <- Random.scalaUtilRandom[IO]
+        subs <- db.get
+        elem <- rnd.elementOf(subs).map(Some(_)).handleError(_ => None)
+      yield elem
   }
 
   class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
