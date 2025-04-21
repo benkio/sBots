@@ -45,6 +45,7 @@ object DBShowData {
 
 trait DBShow[F[_]] {
   def getShows(botName: String): F[List[DBShowData]]
+  def getRandomShow(botName: String): F[Option[DBShowData]]
   def getShowByShowQuery(query: ShowQuery, botName: String): F[List[DBShowData]]
   def insertShow(dbShowData: DBShowData): F[Unit]
   def deleteShow(dbShowData: DBShowData): F[Unit]
@@ -69,6 +70,12 @@ object DBShow {
       DBShow.getShowsQuery(botName).stream.compile.toList.transact(transactor) <* log.debug(
         s"[DBShow] Get shows by bot name: $botName, sql: ${DBShow.getShowsQuery(botName).sql}"
       )
+
+    override def getRandomShow(botName: String): F[Option[DBShowData]] =
+      DBShow.getRandomShowQuery(botName).option.transact(transactor) <* log.debug(
+        s"[DBShow] Get random show by bot name: $botName, sql: ${DBShow.getRandomShowQuery(botName).sql}"
+      )
+
     override def getShowByShowQuery(query: ShowQuery, botName: String): F[List[DBShowData]] =
       DBShow.getShowByShowQueryQuery(query, botName).stream.compile.toList.transact(transactor) <* log.debug(
         s"[DBShow] Get shows by bot name: $botName and keyword: $query, sql: ${DBShow.getShowByShowQueryQuery(query, botName).sql}"
@@ -109,6 +116,11 @@ object DBShow {
   def getShowsQuery(botName: String): Query0[DBShowData] =
     sql"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_name = $botName"
       .query[DBShowData]
+
+  def getRandomShowQuery(botName: String): Query0[DBShowData] =
+    sql"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_name = $botName ORDER BY RANDOM() LIMIT 1"
+      .query[DBShowData]
+
   def getShowByShowQueryQuery(query: ShowQuery, botName: String): Query0[DBShowData] = {
     val q =
       fr"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++

@@ -43,6 +43,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     "DBShow queries should check"
   ) {
     check(DBShow.getShowsQuery("botName"))
+    check(DBShow.getRandomShowQuery("botName"))
     check(DBShow.getShowByShowQueryQuery(RandomQuery, "botName"))
     check(
       DBShow.getShowByShowQueryQuery(ShowQuery("title=paul+gilbert&description=samurai&minDuration=300"), "botName")
@@ -95,5 +96,20 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     resourceAssert.use { case (bensonShowsByKeyword, testShow) =>
       IO.pure(assert(bensonShowsByKeyword.exists(_ == testShow)))
     }
+  }
+
+  databaseFixture.test(
+    "DBShow: get random show should return a show"
+  ) { fixture =>
+    val resourceAssert = for {
+      dbShow <- fixture.resourceDBLayer.map(_.dbShow)
+      randomShow <- Resource.eval(
+        dbShow.getRandomShow(botName)
+      )
+    } yield {
+      assertEquals(randomShow.map(_.bot_name), Some(botName))
+    }
+
+    resourceAssert.use_
   }
 }

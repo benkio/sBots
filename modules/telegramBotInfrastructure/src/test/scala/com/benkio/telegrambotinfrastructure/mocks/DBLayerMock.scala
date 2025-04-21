@@ -147,6 +147,12 @@ object DBLayerMock {
   class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
     override def getShows(botName: String): IO[List[DBShowData]] =
       db.get.map(_.filter(s => s.bot_name == botName))
+    override def getRandomShow(botName: String): IO[Option[DBShowData]] =
+      for
+        rnd  <- Random.scalaUtilRandom[IO]
+        subs <- db.get
+        elem <- rnd.elementOf(subs.filter(_.bot_name == botName)).map(Some(_)).handleError(_ => None)
+      yield elem
     override def getShowByShowQuery(query: ShowQuery, botName: String): IO[List[DBShowData]] =
       ???
     override def insertShow(dbShowData: DBShowData): IO[Unit] = ???

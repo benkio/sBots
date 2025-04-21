@@ -94,7 +94,7 @@ object DBSubscription {
       .query[DBSubscriptionData]
 
   def getRandomSubscriptionQuery(): Query0[DBSubscriptionData] =
-    sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1;"
+    sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
       .query[DBSubscriptionData]
 
   def getSubscriptionsQuery(botName: String, chatId: Option[Long] = None): Query0[DBSubscriptionData] =
