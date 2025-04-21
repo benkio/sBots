@@ -40,6 +40,7 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     check(DBSubscription.insertSubscriptionQuery(testSubscription))
     check(DBSubscription.deleteSubscriptionQuery(testSubscriptionId))
     check(DBSubscription.getSubscriptionQuery(testSubscriptionId))
+    check(DBSubscription.getRandomSubscriptionQuery())
     check(DBSubscription.deleteSubscriptionsQuery(2L))
   }
 
@@ -62,4 +63,16 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
       }
     }
   }
+
+  databaseFixture.test(
+    "DBSubscription.getRandomSubscription should return a subscription when called"
+  ) { fixture =>
+    val resourceAssert = for {
+      dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
+      _              <- Resource.eval(dbSubscription.insertSubscription(testSubscription))
+      result         <- Resource.eval(dbSubscription.getRandomSubscription())
+    } yield assertEquals(result, Some(testSubscription))
+    resourceAssert.use_
+  }
+
 }

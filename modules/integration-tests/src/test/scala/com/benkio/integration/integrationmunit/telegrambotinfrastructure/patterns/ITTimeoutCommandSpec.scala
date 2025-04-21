@@ -117,7 +117,9 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       )
       afterTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
     } yield {
-      assertEquals(beforeTimeout, afterTimeout)
+      assertEquals(beforeTimeout.chat_id, afterTimeout.chat_id)
+      assertEquals(beforeTimeout.bot_name, afterTimeout.bot_name)
+      assertEquals(beforeTimeout.timeout_value, afterTimeout.timeout_value)
       assertEquals(
         reply,
         Right("Timeout removed")

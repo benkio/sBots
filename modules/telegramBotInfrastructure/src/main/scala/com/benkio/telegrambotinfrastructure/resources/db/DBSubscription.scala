@@ -32,6 +32,7 @@ object DBSubscriptionData {
 trait DBSubscription[F[_]] {
   def getSubscriptions(botName: String, chatId: Option[Long] = None): F[List[DBSubscriptionData]]
   def getSubscription(id: String): F[Option[DBSubscriptionData]]
+  def getRandomSubscription(): F[Option[DBSubscriptionData]]
   def insertSubscription(subscription: DBSubscriptionData): F[Unit]
   def deleteSubscription(
       subscriptionId: UUID
@@ -80,6 +81,9 @@ object DBSubscription {
         "Get subscriptions"
       )
 
+    override def getRandomSubscription(): F[Option[DBSubscriptionData]] =
+      getRandomSubscriptionQuery().option.transact(transactor) <* log.info("Get random subscription")
+
     override def getSubscription(id: String): F[Option[DBSubscriptionData]] =
       getSubscriptionQuery(id).option.transact(transactor) <* log.info(s"Get subscription: $id")
 
@@ -87,6 +91,10 @@ object DBSubscription {
 
   def getSubscriptionQuery(id: String): Query0[DBSubscriptionData] =
     sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
+      .query[DBSubscriptionData]
+
+  def getRandomSubscriptionQuery(): Query0[DBSubscriptionData] =
+    sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
       .query[DBSubscriptionData]
 
   def getSubscriptionsQuery(botName: String, chatId: Option[Long] = None): Query0[DBSubscriptionData] =
