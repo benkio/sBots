@@ -295,6 +295,22 @@ ${ignoreMessagePrefix
     val subscriptionsCommandDescriptionEng: String =
       "'/subscriptions': Return the amout of subscriptions for the current chat"
 
+    def subscribeCommandLogic[F[_]: Async](
+        cronInput: String,
+        backgroundJobManager: BackgroundJobManager[F],
+        m: Message,
+        botName: String
+    ) =
+      for
+        subscription <- Subscription(m.chat.id, botName, cronInput)
+        nextOccurrence = subscription.cron
+          .next(LocalDateTime.now)
+          .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
+        _ <- backgroundJobManager.scheduleSubscription(subscription)
+      yield List(
+        s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
+      )
+
     def subscribeReplyBundleCommand[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
         botName: String
@@ -307,16 +323,7 @@ ${ignoreMessagePrefix
               m,
               "subscribe",
               botName,
-              cronInput =>
-                for
-                  subscription <- Subscription(m.chat.id, botName, cronInput)
-                  nextOccurrence = subscription.cron
-                    .next(LocalDateTime.now)
-                    .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
-                  _ <- backgroundJobManager.scheduleSubscription(subscription)
-                yield List(
-                  s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
-                ),
+              subscribeCommandLogic(_, backgroundJobManager, m, botName),
               "Input Required: insert a valid 〈cron time〉. Check the instructions"
             ),
           true
