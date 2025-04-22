@@ -1,1 +1,1 @@
-libraryDependencies += "io.circe" %% "circe-parser" % "0.14.12"
+libraryDependencies += "io.circe" %% "circe-parser" % "0.14.13"
