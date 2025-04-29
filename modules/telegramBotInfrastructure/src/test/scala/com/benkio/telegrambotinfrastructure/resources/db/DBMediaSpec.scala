@@ -23,7 +23,7 @@ class DBMediaSpec extends FunSuite {
       media_name = actual.mediaName,
       kinds = """["kind"]""",
       media_sources = """["http://something.com"]""",
-      mime_type = "application/octet-stream",
+      mime_type = "video/mp4",
       media_count = actual.mediaCount,
       created_at = now.toString
     )
