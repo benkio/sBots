@@ -4,10 +4,11 @@ import cats.implicits.*
 import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
-import io.circe.Decoder
-import io.circe.Encoder
+import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
+import io.circe.*
+import io.circe.generic.semiauto.*
+
 import io.circe.Encoder.encodeString
-import io.circe.HCursor
 import org.http4s.Uri
 
 final case class MediaFileSource(
@@ -33,14 +34,12 @@ object MediaFileSource {
       sources = List(Right(uri))
     )
 
+  // Decoder //////////////////////////////////////////////////////////////////
   given Decoder[Either[String, Uri]] with
     def apply(c: HCursor): Decoder.Result[Either[String, Uri]] =
       c.as[String].map { str =>
         Uri.requestTarget(str).leftMap(_ => str)
       }
-
-  given Encoder[Either[String, Uri]] =
-    encodeString.contramap(_.fold(identity, _.toString))
 
   given Decoder[MediaFileSource] =
     new Decoder[MediaFileSource] {
@@ -59,5 +58,12 @@ object MediaFileSource {
           )
         }
     }
+
+  // Encoder //////////////////////////////////////////////////////////////////
+  given Encoder[Either[String, Uri]] =
+    encodeString.contramap(_.fold(identity, _.toString))
+
+  given Encoder[MimeType]        = encodeString.contramap(_.show)
+  given Encoder[MediaFileSource] = deriveEncoder
 
 }
