@@ -1,7 +1,10 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
+import cats.syntax.all.*
+import cats.MonadThrow
 import cats.Show
 import com.benkio.telegrambotinfrastructure.model.media.Media
+import com.benkio.telegrambotinfrastructure.model.MimeType
 import io.circe.*
 import io.circe.generic.semiauto.*
 
@@ -50,14 +53,28 @@ object MediaFile {
 
   given showInstance: Show[MediaFile] = Show.show(_.filename)
 
+  def fromString[F[_]: MonadThrow](filename: String): F[MediaFile] = filename.takeRight(4) match {
+    case ".mp3"                                       => Mp3File(filename).pure[F]
+    case ".gif"                                       => GifFile(filename).pure[F]
+    case ".jpg" | ".png"                              => PhotoFile(filename).pure[F]
+    case ".mp4" if filename.takeRight(7) == "Gif.mp4" => GifFile(filename).pure[F]
+    case ".mp4"                                       => VideoFile(filename).pure[F]
+    case _ =>
+      MonadThrow[F].raiseError(
+        Throwable(
+          s"[ReplyValue] MediaFile.fromString unrecognized filename: $filename. Sticker and Document not supported"
+        )
+      )
+  }
+
   def fromMimeType(media: Media, replyToMessage: Boolean = false): MediaFile = media.mimeType match {
-    case "image/gif"                => GifFile(media.mediaName, replyToMessage)
-    case "image/jpeg"               => PhotoFile(media.mediaName, replyToMessage)
-    case "image/png"                => PhotoFile(media.mediaName, replyToMessage)
-    case "audio/mpeg"               => Mp3File(media.mediaName, replyToMessage)
-    case "image/sticker"            => Sticker(media.mediaName, replyToMessage)
-    case "video/mp4"                => VideoFile(media.mediaName, replyToMessage)
-    case "application/octet-stream" => Document(media.mediaName, replyToMessage)
+    case MimeType.GIF     => GifFile(media.mediaName, replyToMessage)
+    case MimeType.JPEG    => PhotoFile(media.mediaName, replyToMessage)
+    case MimeType.PNG     => PhotoFile(media.mediaName, replyToMessage)
+    case MimeType.MPEG    => Mp3File(media.mediaName, replyToMessage)
+    case MimeType.STICKER => Sticker(media.mediaName, replyToMessage)
+    case MimeType.MP4     => VideoFile(media.mediaName, replyToMessage)
+    case MimeType.DOC     => Document(media.mediaName, replyToMessage)
   }
 }
 

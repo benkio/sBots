@@ -4,6 +4,7 @@ import cats.effect.implicits.*
 import cats.effect.kernel.Async
 import cats.effect.Resource
 import cats.implicits.*
+import cats.Show
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.ShowConfig
 import com.benkio.botDB.show.ShowFetcher
@@ -11,6 +12,8 @@ import com.benkio.botDB.show.ShowSource
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
+import com.benkio.telegrambotinfrastructure.model.MimeType
+import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -110,7 +113,7 @@ object BotDBController {
                 DBMediaData(
                   media_name = i.filename,
                   kinds = i.kinds.asJson.noSpaces,
-                  mime_type = i.mime,
+                  mime_type = Show[MimeType].show(i.mime),
                   media_sources = i.sources.asJson.noSpaces,
                   media_count = 0,
                   created_at = Instant.now().getEpochSecond.toString

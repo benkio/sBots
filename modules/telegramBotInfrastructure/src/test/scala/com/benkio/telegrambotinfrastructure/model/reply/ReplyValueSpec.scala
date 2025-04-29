@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
 import com.benkio.telegrambotinfrastructure.model.media.Media
+import com.benkio.telegrambotinfrastructure.model.MimeType
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.FunSuite
@@ -57,7 +58,7 @@ class ReplyValueSpec extends FunSuite {
     val actual = Media(
       mediaName = "mediaName.mp4",
       kinds = List("kind"),
-      mimeType = "video/mp4",
+      mimeType = MimeType.MP4,
       mediaSources = List(Right(uri"http://something.com")),
       mediaCount = 0,
       createdAt = Instant.now()
