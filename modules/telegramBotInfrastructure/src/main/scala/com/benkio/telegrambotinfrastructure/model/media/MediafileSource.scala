@@ -7,7 +7,6 @@ import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
 import io.circe.*
 import io.circe.generic.semiauto.*
-
 import io.circe.Encoder.encodeString
 import org.http4s.Uri
 
