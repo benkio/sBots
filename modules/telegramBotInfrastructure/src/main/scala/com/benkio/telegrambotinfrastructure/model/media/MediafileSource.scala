@@ -18,6 +18,17 @@ final case class MediaFileSource(
 
 object MediaFileSource {
 
+  def fromString[F[_]: MonadThrow](input: String): F[MediaFileSource] =
+    ???
+    // for
+    //   uri <-  MonadThrow[F].fromEither(Uri.fromString(input))
+    // yield MediaFileSource(
+    //   filename = filename
+    //   ,kinds = List.empty
+    //   ,mime = mime
+    //   ,sources = uri
+    // )
+
   given Decoder[Either[String, Uri]] with
     def apply(c: HCursor): Decoder.Result[Either[String, Uri]] =
       c.as[String].map { str =>
