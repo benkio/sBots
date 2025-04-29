@@ -4,6 +4,7 @@ import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
+import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
 import doobie.*
 import doobie.implicits.*
 import io.chrisdavenport.mules.*
@@ -26,22 +27,11 @@ object DBMediaData {
   def apply(media: Media): DBMediaData = DBMediaData(
     media_name = media.mediaName,
     kinds = media.kinds.asJson.noSpaces,
-    mime_type = mimeTypeOrDefault(media.mediaName, None),
+    mime_type = media.mimeType.show,
     media_sources = media.mediaSources.asJson.noSpaces,
     media_count = media.mediaCount,
     created_at = media.createdAt.toString
   )
-
-  def mimeTypeOrDefault(media_name: String, mime_type: Option[String]): String =
-    mime_type.getOrElse(media_name.takeRight(3) match {
-      case "gif"     => "image/gif"
-      case "jpg"     => "image/jpeg"
-      case "png"     => "image/png"
-      case "sticker" => "image/sticker"
-      case "mp3"     => "audio/mpeg"
-      case "mp4"     => "video/mp4"
-      case _         => "application/octet-stream"
-    })
 }
 
 trait DBMedia[F[_]] {

@@ -3,6 +3,8 @@ package com.benkio.telegrambotinfrastructure.model.media
 import cats.syntax.all.*
 import cats.Show
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
+import com.benkio.telegrambotinfrastructure.model.MimeType
+import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import io.circe.parser.decode
 import io.circe.syntax.EncoderOps
@@ -14,7 +16,7 @@ import scala.util.Try
 final case class Media(
     mediaName: String,
     kinds: List[String],
-    mimeType: String,
+    mimeType: MimeType,
     mediaSources: List[Either[String, Uri]],
     mediaCount: Int,
     createdAt: Instant
@@ -29,7 +31,7 @@ object Media {
     kinds = decode[List[String]](dbMediaData.kinds)
       .handleErrorWith(_ => decode[String](dbMediaData.kinds).flatMap(decode[List[String]]))
       .getOrElse(List.empty),
-    mimeType = dbMediaData.mime_type,
+    mimeType = MimeTypeOps.mimeTypeOrDefault(dbMediaData.media_name, dbMediaData.mime_type.some),
     mediaSources = decode[List[Either[String, Uri]]](dbMediaData.media_sources)
       .handleErrorWith(_ => decode[String](dbMediaData.media_sources).flatMap(decode[List[Either[String, Uri]]]))
       .getOrElse(List.empty),

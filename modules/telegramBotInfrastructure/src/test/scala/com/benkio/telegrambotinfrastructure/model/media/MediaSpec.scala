@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import munit.*
 import org.http4s.Uri
@@ -12,7 +13,7 @@ class MediaSpec extends FunSuite {
     val input: Media = Media(
       mediaName = "test_name",
       kinds = List.empty,
-      mimeType = "video/mp4",
+      mimeType = MimeType.MP4,
       mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
@@ -23,7 +24,7 @@ class MediaSpec extends FunSuite {
     val input: Media = Media(
       mediaName = "test_name",
       kinds = List.empty,
-      mimeType = "video/mp4",
+      mimeType = MimeType.MP4,
       mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
