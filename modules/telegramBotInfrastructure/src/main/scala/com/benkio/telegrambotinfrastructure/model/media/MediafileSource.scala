@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
 import cats.implicits.*
+import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
 import io.circe.Decoder
@@ -18,16 +19,19 @@ final case class MediaFileSource(
 
 object MediaFileSource {
 
-  def fromString[F[_]: MonadThrow](input: String): F[MediaFileSource] =
-    ???
-    // for
-    //   uri <-  MonadThrow[F].fromEither(Uri.fromString(input))
-    // yield MediaFileSource(
-    //   filename = filename
-    //   ,kinds = List.empty
-    //   ,mime = mime
-    //   ,sources = uri
-    // )
+  def fromUriString[F[_]: MonadThrow](input: String): F[MediaFileSource] =
+    for
+      uri <- MonadThrow[F].fromEither(Uri.fromString(input))
+      filename <- MonadThrow[F].fromOption(
+        uri.path.segments.lastOption.map(_.decoded()),
+        Throwable(s"[MediafileSource] fromUriString cannot find a filename from this uri $uri")
+      )
+    yield MediaFileSource(
+      filename = filename,
+      kinds = List.empty,
+      mime = MimeTypeOps.mimeTypeOrDefault(filename, None),
+      sources = List(Right(uri))
+    )
 
   given Decoder[Either[String, Uri]] with
     def apply(c: HCursor): Decoder.Result[Either[String, Uri]] =
