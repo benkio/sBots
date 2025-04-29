@@ -14,14 +14,27 @@ object MimeTypeOps:
 
   given Show[MimeType] = Show.show[MimeType](_.value)
 
-  def mimeTypeOrDefault(media_name: String, mime_type: Option[String]): MimeType =
-    val mimeType = mime_type.getOrElse(media_name.toLowerCase.takeRight(3)) match {
-      case "gif"     => MimeType.GIF
-      case "jpg"     => MimeType.JPEG
-      case "png"     => MimeType.PNG
-      case "sticker" => MimeType.STICKER
-      case "mp3"     => MimeType.MPEG
-      case "mp4"     => MimeType.MP4
-      case _         => MimeType.DOC
+  private def fromString(mimeType: String): Option[MimeType] = mimeType match {
+    case "image/gif"                => Some(MimeType.GIF)
+    case "image/jpeg"               => Some(MimeType.JPEG)
+    case "image/png"                => Some(MimeType.PNG)
+    case "image/sticker"            => Some(MimeType.STICKER)
+    case "audio/mpeg"               => Some(MimeType.MPEG)
+    case "video/mp4"                => Some(MimeType.MP4)
+    case "application/octet-stream" => Some(MimeType.DOC)
+    case _                          => None
+  }
+
+  private def fromMediaName(media_name: String): Option[MimeType] =
+    media_name.toLowerCase.takeRight(3) match {
+      case "gif"     => Some(MimeType.GIF)
+      case "jpg"     => Some(MimeType.JPEG)
+      case "png"     => Some(MimeType.PNG)
+      case "sticker" => Some(MimeType.STICKER)
+      case "mp3"     => Some(MimeType.MPEG)
+      case "mp4"     => Some(MimeType.MP4)
+      case _         => None
     }
-    mimeType
+
+  def mimeTypeOrDefault(media_name: String, mime_type: Option[String]): MimeType =
+    mime_type.flatMap(fromString).orElse(fromMediaName(media_name)).getOrElse(MimeType.DOC)
