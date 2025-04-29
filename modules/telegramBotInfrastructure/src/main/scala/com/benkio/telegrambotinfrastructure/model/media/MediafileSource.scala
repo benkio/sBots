@@ -1,7 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
 import cats.implicits.*
-import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
 import io.circe.Decoder
