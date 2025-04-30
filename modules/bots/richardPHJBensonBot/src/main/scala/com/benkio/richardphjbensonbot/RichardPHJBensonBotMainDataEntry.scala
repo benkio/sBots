@@ -1,10 +1,10 @@
 package com.benkio.richardphjbensonbot
 
-import com.benkio.telegrambotinfrastructure.model.MimeType
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
+import com.benkio.telegrambotinfrastructure.model.MimeType
 import io.circe.parser.*
 import io.circe.syntax.*
 import io.circe.Json
@@ -20,9 +20,7 @@ object RichardPHJBensonBotMainDataEntry extends IOApp {
     Resource.make(IO.delay(scala.io.Source.fromFile(rphjbListFilename)))(bufferedSorce => IO.delay(bufferedSorce.close))
 
   case class MediaFileSourceGroup(
-    gif: Option[MediaFileSource] = None,
-    mp3: Option[MediaFileSource] = None,
-    vid: Option[MediaFileSource] = None
+      mediaFileSources: List[MediaFileSource]
   )
 
   private def isGifMp4(mediaFileName: String): Boolean =
@@ -33,16 +31,40 @@ object RichardPHJBensonBotMainDataEntry extends IOApp {
     else mediaFileName.dropRight(4)
 
   private def toMediaFileSourceGroup(mediaFileSources: List[MediaFileSource]): List[MediaFileSourceGroup] =
-    mediaFileSources.groupBy(x => getPrefix(x.filename)).map { case (_, mediaFileSources: List[MediaFileSource]) =>
-      mediaFileSources.foldLeft(MediaFileSourceGroup()) {
-        case (mediaFileSourceGroup:MediaFileSourceGroup, mediaFileSource: MediaFileSource) =>
-          mediaFileSourceGroup.copy(
-            gif = if mediaFileSource.mime == MimeType.GIF then Some(mediaFileSource) else mediaFileSourceGroup.gif,
-            mp3 = if mediaFileSource.mime == MimeType.MPEG then Some(mediaFileSource) else mediaFileSourceGroup.mp3,
-            vid = if mediaFileSource.mime == MimeType.MP4 then Some(mediaFileSource) else  mediaFileSourceGroup.vid,
-          )
+    mediaFileSources
+      .groupBy(x => getPrefix(x.filename))
+      .map { case (_, mediaFileSources: List[MediaFileSource]) =>
+        MediaFileSourceGroup(mediaFileSources)
       }
-    }.toList
+      .toList
+
+  private def toReplyBundleMessage(mediaFileSourceGroup: MediaFileSourceGroup): String =
+    def toMediaFiles(mfs: List[MediaFileSource]): String = mfs
+      .map(mfs =>
+        val stringContext = mfs.mime match
+          case MimeType.GIF                 => "gif"
+          case MimeType.JPEG | MimeType.PNG => "pho"
+          case MimeType.STICKER             => "sticker"
+          case MimeType.MPEG                => "mp3"
+          case MimeType.MP4                 => "vid"
+          case MimeType.DOC                 => "doc"
+        s"""$stringContext"${mfs.filename}""""
+      )
+      .mkString(",\n    ")
+    val replyBundleMessageMethod: String = mediaFileSourceGroup match
+      case MediaFileSourceGroup(mediaFileSources) if mediaFileSources.forall(_.mime == MimeType.GIF) =>
+        "textToGif"
+      case MediaFileSourceGroup(mediaFileSources) if mediaFileSources.forall(_.mime == MimeType.MPEG) =>
+        "textToMp3"
+      case MediaFileSourceGroup(mediaFileSources) if mediaFileSources.forall(_.mime == MimeType.MP4) =>
+        "textToVideo"
+      case MediaFileSourceGroup(mediaFileSources) => "textToMedia"
+    s"""ReplyBundleMessage
+       |  .$replyBundleMessageMethod[F](
+       |    ""
+       |  )(
+       |    ${toMediaFiles(mediaFileSourceGroup.mediaFileSources)}
+       |  )""".stripMargin
 
   private def parseInput(links: List[String]): IO[List[MediaFileSource]] =
     links.traverse(link => MediaFileSource.fromUriString(link.replace("dl=0", "dl=1")))
@@ -52,7 +74,7 @@ object RichardPHJBensonBotMainDataEntry extends IOApp {
       _ <- IO.println(
         s"[RichardPHJBensonBotMainDataEntry:22:42]] Read the input ${args.length} links & parse them to Json"
       )
-      mediafileSources     <- parseInput(args)
+      mediafileSources <- parseInput(args)
       mediafileSourcesJson = mediafileSources.asJson
       _             <- IO.println("[RichardPHJBensonBotMainDataEntry:24:45]] Read the rphjb_list and parse it to json")
       rphjbListFile <- rphjbListFileResource.use(_.mkString.pure[IO])
@@ -65,13 +87,15 @@ object RichardPHJBensonBotMainDataEntry extends IOApp {
         // Combine and convert back to Json
         Json.fromValues(elements1 ++ elements2)
       }
-      _ <- IO.println("[RichardPHJBensonBotMainDataEntry:34:45]] Write the json back")
+      _ <- IO.println("[RichardPHJBensonBotMainDataEntry] Write the json back")
       _ <- IO(Files.write(Paths.get(rphjbListFilename), mergedArray.toString.getBytes(StandardCharsets.UTF_8)))
 
+      _ <- IO.println("[RichardPHJBensonBotMainDataEntry] create media file source groups")
       mediaFileSourceGroups = toMediaFileSourceGroup(mediafileSources)
-      _ <- IO.println(s"[RichardPHJBensonBotMainDataEntry:71:45]] groups: $mediaFileSourceGroups")
-    // For Scala Code Gen
-    // - Convert groups to reply bundle message by content (mix, only audio, only gif)
-    // - return the scala code
+      _ <- IO.println("[RichardPHJBensonBotMainDataEntry] convert media file source groups to ReplyBundleMessages")
+      replyBundleMessages = s"""List(
+                               |  ${mediaFileSourceGroups.map(toReplyBundleMessage).mkString(",\n")}
+                               |)""".stripMargin
+      _ <- IO(println(replyBundleMessages))
     yield ExitCode.Success
 }
