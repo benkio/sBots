@@ -25,13 +25,13 @@ object DataEntry:
       )
       mediafileSources <- parseInput(input)
       mediafileSourcesJson = mediafileSources.asJson
-      _                 <- IO.println("[DataEntry:24:45]] Read the rphjb_list and parse it to json")
-      rphjbListFile     <- jsonFileResource.use(_.mkString.pure[IO])
-      rphjbListFileJson <- IO.fromEither(parse(rphjbListFile))
-      _                 <- IO.println("[DataEntry:26:45]] Merge the 2 arrays together")
+      _               <- IO.println("[DataEntry:24:45]] Read the json_list and parse it to json")
+      botListFile     <- jsonFileResource.use(_.mkString.pure[IO])
+      botListFileJson <- IO.fromEither(parse(botListFile))
+      _               <- IO.println("[DataEntry:26:45]] Merge the 2 arrays together")
       mergedArray = {
         // Extract the arrays as lists of Json elements
-        val elements1 = rphjbListFileJson.asArray.getOrElse(Vector.empty)
+        val elements1 = botListFileJson.asArray.getOrElse(Vector.empty)
         val elements2 = mediafileSourcesJson.asArray.getOrElse(Vector.empty)
         // Combine and convert back to Json
         Json.fromValues(elements1 ++ elements2)

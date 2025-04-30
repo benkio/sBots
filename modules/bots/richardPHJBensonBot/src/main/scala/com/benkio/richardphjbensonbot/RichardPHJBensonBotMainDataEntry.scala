@@ -11,9 +11,12 @@ object RichardPHJBensonBotMainDataEntry extends IOApp {
   val rphjbListFileResource =
     Resource.make(IO.delay(scala.io.Source.fromFile(rphjbListFilename)))(bufferedSorce => IO.delay(bufferedSorce.close))
 
-  def run(args: List[String]): IO[ExitCode] =
+  def mainLogic(args: List[String]): IO[String] =
     DataEntry
       .dataEntryLogic(args, rphjbListFileResource, Paths.get(rphjbListFilename))
+
+  def run(args: List[String]): IO[ExitCode] =
+    mainLogic(args)
       .flatMap(IO.println(_))
       .as(ExitCode.Success)
 }
