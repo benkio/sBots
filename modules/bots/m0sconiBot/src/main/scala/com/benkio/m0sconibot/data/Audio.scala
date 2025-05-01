@@ -91,7 +91,8 @@ object Audio:
       "dio boia"
     )(
       mp3"mos_DioPorcoCheNotiziaDioCaneBoia.mp3",
-      mp3"mos_NoVaInMonaNonTornoIndrio.mp3"
+      mp3"mos_NoVaInMonaNonTornoIndrio.mp3",
+      mp3"mos_DioBoiaSenzaMaiuscolePunti.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "de dio"
@@ -594,6 +595,13 @@ object Audio:
       "gaetano"
     )(
       mp3"mos_Gaetano.mp3"
-    )
+    ),
+    ReplyBundleMessage
+      .textToMp3[F](
+        "maiuscole",
+        "\\bpunti\\b".r.tr(5)
+      )(
+        mp3"mos_DioBoiaSenzaMaiuscolePunti.mp3"
+      )
   )
 end Audio

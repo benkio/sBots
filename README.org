@@ -70,6 +70,12 @@
   scala-cli script]]. It allows to extract data from youtube and
   generate: audio (mp3), video (mp4) and a gif (mp4 with Gif suffix)
 
+  Example commands:
+  ```console
+  $ sbt "xahLeeBot/runMain com.benkio.xahleebot.XahLeeBotMainDataEntry url1 url2"
+  $ sbt "m0sconiBot/runMain com.benkio.m0sconibot.M0sconiBotMainDataEntry url1 url2"
+  $ 
+  ```
 ** Database Setup
 
      There's a module called ~botDB~, if opportunely configured,
