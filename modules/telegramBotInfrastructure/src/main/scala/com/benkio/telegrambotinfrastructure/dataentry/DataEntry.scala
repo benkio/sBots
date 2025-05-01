@@ -15,7 +15,7 @@ import scala.io.BufferedSource
 
 object DataEntry:
 
-  private def parseInput(links: List[String]): IO[List[MediaFileSource]] =
+  private[dataentry] def parseInput(links: List[String]): IO[List[MediaFileSource]] =
     links.traverse(link => MediaFileSource.fromUriString(link.replace("dl=0", "dl=1")))
 
   def dataEntryLogic(input: List[String], jsonFileResource: Resource[IO, BufferedSource], jsonFilePath: Path) =
