@@ -27,13 +27,14 @@ object MimeTypeOps:
 
   private def fromMediaName(media_name: String): Option[MimeType] =
     media_name.toLowerCase.takeRight(3) match {
-      case "gif"     => Some(MimeType.GIF)
-      case "jpg"     => Some(MimeType.JPEG)
-      case "png"     => Some(MimeType.PNG)
-      case "sticker" => Some(MimeType.STICKER)
-      case "mp3"     => Some(MimeType.MPEG)
-      case "mp4"     => Some(MimeType.MP4)
-      case _         => None
+      case "gif"                                                     => Some(MimeType.GIF)
+      case "jpg"                                                     => Some(MimeType.JPEG)
+      case "png"                                                     => Some(MimeType.PNG)
+      case "sticker"                                                 => Some(MimeType.STICKER)
+      case "mp3"                                                     => Some(MimeType.MPEG)
+      case "mp4" if media_name.toLowerCase.takeRight(7) == "gif.mp4" => Some(MimeType.GIF)
+      case "mp4"                                                     => Some(MimeType.MP4)
+      case _                                                         => None
     }
 
   def mimeTypeOrDefault(media_name: String, mime_type: Option[String]): MimeType =

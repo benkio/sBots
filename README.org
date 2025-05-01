@@ -25,8 +25,9 @@
     - [[https://www.sqlite.org/][sqlite]]
     - [[https://www.openssl.org/][openSSL]]
 
-** Add Data to the Bots
+** Data Entry and Bot Setup
 
+*** Configuration Setup: Bot Token and Data Reference
      Each bot contains a ~resources~ folder. You need to put in there
      the ~.token~ file containing the telegram key specific to each
      bot.
@@ -38,16 +39,36 @@
      possible a little code change) since those will be fetched from
      the web via URLs or by Telegram Ids.
 
+*** Data Entry
+
      To add data to the bots you need to:
-     - Add the file name, Telegram ~file_id~ and downloadable link (usually Dropbox), to the json at the root of each bot folder. To get the ~file_id_~ you can take advantage of [[https://t.me/jsoonbot][@jsonbot]] by just sending the file and copy the id from the reply.
+     - Add the file name, Telegram ~file_id~ and/or downloadable link (usually Dropbox), to the json at the root of each bot folder. To get the ~file_id_~ you can take advantage of [[https://t.me/jsoonbot][@jsonbot]] by just sending the file and copy the id from the reply.
      - Modify the scala code to add the type that creates the mappings between the triggers and the files. See planty of examples of any kind throughout the code, especially under RichardPHJBensonBot's data package.
 
      The old video guide below refers to a time where also the
      ~trigger.txt~ as to be updated manually. Now it's automatic.
 
-*** Old Video Guide
+**** Old Video Guide
 
      Check [[https://youtu.be/T-AfAvJLSJE][this video]] for a complete rundown on how to add files to a bot.
+
+*** Semi Automatic Data Entry
+
+  Each bot now has an additional main class that takes as input a
+  space separated list of dropbox links and allows to:
+  - Automatically add data to the bot's mentioned Json based on the
+    filename extension or name.
+  - Prints a scala code skeleton that can be arranged mantually to add
+    the data.
+
+  In particular it relies on the naming convention:
+  ~<botPrefix_><filename>(Gif)?.<extension>~
+  eg. ~rphjb_ViviMorti.mp4~
+
+  Based on that it groups data together in the outcome scala code
+  To facilitate the creation of data you can use the [[https://gist.github.com/benkio/103960b7b5a5781c222df1c4e31544a2][following
+  scala-cli script]]. It allows to extract data from youtube and
+  generate: audio (mp3), video (mp4) and a gif (mp4 with Gif suffix)
 
 ** Database Setup
 
