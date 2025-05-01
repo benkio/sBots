@@ -76,12 +76,6 @@ object Audio {
       mp3"rphjb_NonEVero.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "completamente nudo",
-      "prossimo (concerto|live)".r.tr(13)
-    )(
-      mp3"rphjb_CompletamenteNudo.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "dovrei lavarmelo di più",
       "il cazzo me lo pulisci un'altra volta"
     )(
@@ -228,11 +222,6 @@ object Audio {
       "m[ie] fai( proprio)? schifo".r.tr(13)
     )(
       mp3"rphjb_Schifo.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
-      "una sera"
-    )(
-      mp3"rphjb_Sera.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "oppur[ae]".r.tr(6)

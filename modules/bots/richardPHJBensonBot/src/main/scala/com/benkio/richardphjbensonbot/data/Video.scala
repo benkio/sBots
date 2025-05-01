@@ -871,14 +871,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F]("sta male", "canzoni di natale")(
       vid"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4"
     ),
-    ReplyBundleMessage
-      .textToVideo[F]("yngwie", "malmsteen")(
-        vid"rphjb_Ramarro.mp4",
-        vid"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4",
-        vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
-        vid"rphjb_FotoMalmsteen.mp4",
-        vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
-      ),
     ReplyBundleMessage.textToVideo[F]("invece no", "si ricomincia", "da capo")(
       vid"rphjb_InveceNoRicominciaDaCapo.mp4"
     ),
@@ -921,7 +913,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F]("come si fa")(vid"rphjb_ComeSiFaItaliaIgnorante.mp4"),
     ReplyBundleMessage.textToVideo[F]("commissionato")(vid"rphjb_CommissionatoMeLoDeviTrovare.mp4"),
-    ReplyBundleMessage.textToVideo[F]("col sangue")(vid"rphjb_ColSangue.mp4"),
     ReplyBundleMessage.textToVideo[F]("vergognassero", "giornali")(
       vid"rphjb_ChitarreVergognateviSchifosiGiornaliMerda.mp4"
     ),
@@ -963,14 +954,6 @@ object Video {
       "colori"
     )(
       vid"rphjb_AbbellimentiRivoltiRivoliMordentiImpennateColori.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "abbellimenti",
-      "mordenti",
-      "rivolti"
-    )(
-      vid"rphjb_AbbellimentiRivoltiRivoliMordentiImpennateColori.mp4",
-      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "cattegrale",
@@ -1572,11 +1555,8 @@ object Video {
       "gruppi (nuovi|che spaccano il culo)".r.tr(13),
       "intramezzate",
       "ibride",
-      "contrappunt[oi]".r.tr(12),
-      "alterazioni",
       "stacchi all'unisono",
-      "tempi (composti|dispari|pari)".r.tr(10),
-      "armonie"
+      "tempi (composti|dispari|pari)".r.tr(10)
     )(
       vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
@@ -1719,10 +1699,7 @@ object Video {
       vid"rphjb_PistoleroVeloceAmmazzarePersoneServitorePubblico.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "ripetitiva",
-      "si ripetono",
       "storie d'amore",
-      "sempre le stesse",
       "nei particolari",
       "(freg[aà]|fregare) d[ie] meno".r.tr(12)
     )(
@@ -1845,7 +1822,6 @@ object Video {
       "rolling stones",
       "ribellioni",
       "rivoluzioni",
-      "il sangue",
       "giustiziere"
     )(
       vid"rphjb_RollingStonesJimiHendrixPoetiMaledettiFemministeControculturaRivoluzioniRibelioni5DitaCazzottoInFacciaGiustiziere.mp4"
@@ -2041,13 +2017,6 @@ object Video {
       vid"rphjb_FiglioDiPuttana.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "ciao bella",
-      "\\bcome va\\b".r.tr(7),
-      "bella gioia"
-    )(
-      vid"rphjb_CiaoBellaCameVaBellaGioia.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "che sicuramente"
     )(
       vid"rphjb_CheSicuramente.mp4"
@@ -2100,11 +2069,6 @@ object Video {
       "insistere"
     )(
       vid"rphjb_ParteDiRomeo.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "come mai"
-    )(
-      vid"rphjb_ComeMai.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "in linea"
