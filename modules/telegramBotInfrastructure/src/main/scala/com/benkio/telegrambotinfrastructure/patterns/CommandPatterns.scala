@@ -67,6 +67,12 @@ object CommandPatterns {
     val randomDataCommandEng: String =
       """'/random': Returns a data (photo/video/audio/text) random about the bot character"""
 
+    def randomCommandLogic[F[_]: Async](dbMedia: DBMedia[F], botPrefix: String): F[MediaFile] =
+      for
+        dbMediaData <- dbMedia.getRandomMedia(botPrefix)
+        media       <- Async[F].fromEither(Media(dbMediaData))
+      yield MediaFile.fromMimeType(media)
+
     def randomDataReplyBundleCommand[F[_]: Async](
         dbMedia: DBMedia[F],
         botPrefix: String
@@ -74,10 +80,7 @@ object CommandPatterns {
       ReplyBundleCommand[F](
         trigger = CommandTrigger("random"),
         reply = MediaReply[F](
-          mediaFiles = for
-            dbMediaData <- dbMedia.getRandomMedia(botPrefix)
-            media       <- Async[F].fromEither(Media(dbMediaData))
-          yield List(MediaFile.fromMimeType(media))
+          mediaFiles = randomCommandLogic(dbMedia, botPrefix).map(List(_))
         )
       )
   }
@@ -165,10 +168,13 @@ Input as query string:
     val triggerListCommandDescriptionEng: String =
       "'/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex"
 
+    def triggerListLogic(triggerFileUri: Uri): String =
+      s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri"
+
     def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
-        reply = TextReply.fromList(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")(true)
+        reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true)
       )
   }
 
@@ -254,6 +260,25 @@ ${ignoreMessagePrefix
         )
         .getOrElse("")}
 """
+    def instructionCommandLogic[F[_]: Applicative](
+        botName: String,
+        ignoreMessagePrefix: Option[String],
+        commandDescriptionsIta: List[String],
+        commandDescriptionsEng: List[String]
+    ): TextReply[F] = {
+      TextReply.fromList[F](
+        instructionMessageIta(
+          botName = botName,
+          ignoreMessagePrefix = ignoreMessagePrefix,
+          commandDescriptions = commandDescriptionsIta
+        ),
+        instructionMessageEng(
+          botName = botName,
+          ignoreMessagePrefix = ignoreMessagePrefix,
+          commandDescriptions = commandDescriptionsEng
+        )
+      )(false)
+    }
 
     def instructionsReplyBundleCommand[F[_]: Applicative](
         botName: String,
@@ -263,18 +288,7 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("instructions"),
-        reply = TextReply.fromList[F](
-          instructionMessageIta(
-            botName = botName,
-            ignoreMessagePrefix = ignoreMessagePrefix,
-            commandDescriptions = commandDescriptionsIta
-          ),
-          instructionMessageEng(
-            botName = botName,
-            ignoreMessagePrefix = ignoreMessagePrefix,
-            commandDescriptions = commandDescriptionsEng
-          )
-        )(false)
+        reply = instructionCommandLogic(botName, ignoreMessagePrefix, commandDescriptionsIta, commandDescriptionsEng)
       )
   }
 
@@ -365,6 +379,22 @@ ${ignoreMessagePrefix
         )
       )
 
+    def subscriptionsCommandLogic[F[_]: Async](
+        dbSubscription: DBSubscription[F],
+        backgroundJobManager: BackgroundJobManager[F],
+        botName: String,
+        m: Message
+    ): F[String] = for {
+      subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
+      subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
+      memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
+      memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chat.id }
+    } yield s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
+      .map(_.show)
+      .mkString("\n") ++
+      s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
+      memChatSubscriptions.map(_.show).mkString("\n")
+
     def subscriptionsReplyBundleCommand[F[_]: Async](
         dbSubscription: DBSubscription[F],
         backgroundJobManager: BackgroundJobManager[F],
@@ -373,19 +403,7 @@ ${ignoreMessagePrefix
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscriptions"),
         reply = TextReplyM[F](
-          m =>
-            for {
-              subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
-              subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
-              memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
-              memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chat.id }
-            } yield List(
-              s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
-                .map(_.show)
-                .mkString("\n") ++
-                s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
-                memChatSubscriptions.map(_.show).mkString("\n")
-            ).toText,
+          m => subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botName, m).map(List(_).toText),
           true
         )
       )
@@ -394,9 +412,15 @@ ${ignoreMessagePrefix
   object StatisticsCommands {
 
     val topTwentyTriggersCommandDescriptionIta: String =
-      "'/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii"
+      "'/toptwenty': Restituisce una lista di file e il loro numero totale in invii"
     val topTwentyTriggersCommandDescriptionEng: String =
-      "'/topTwentyTriggers': Return a list of files and theirs send frequency"
+      "'/toptwenty': Return a list of files and theirs send frequency"
+
+    def topTwentyCommandLogic[F[_]: MonadThrow](botPrefix: String, dbMedia: DBMedia[F]): F[String] =
+      for {
+        dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
+        medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
+      } yield Media.mediaListToString(medias)
 
     def topTwentyReplyBundleCommand[F[_]: MonadThrow](
         botPrefix: String,
@@ -405,11 +429,7 @@ ${ignoreMessagePrefix
       ReplyBundleCommand(
         trigger = CommandTrigger("toptwenty"),
         reply = TextReplyM[F](
-          _ =>
-            for {
-              dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
-              medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-            } yield List(Media.mediaListToString(medias)).toText,
+          _ => topTwentyCommandLogic(botPrefix, dbMedia).map(List(_).toText),
           true
         )
       )

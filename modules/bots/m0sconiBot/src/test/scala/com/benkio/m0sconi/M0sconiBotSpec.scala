@@ -73,7 +73,7 @@ I comandi del bot sono:
 
 - '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
 - '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
-- '/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii
+- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
 - '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
 - '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
 
@@ -92,7 +92,7 @@ Bot commands are:
 
 - '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
 - '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
-- '/topTwentyTriggers': Return a list of files and theirs send frequency
+- '/toptwenty': Return a list of files and theirs send frequency
 - '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
 - '/random': Returns a data (photo/video/audio/text) random about the bot character
 

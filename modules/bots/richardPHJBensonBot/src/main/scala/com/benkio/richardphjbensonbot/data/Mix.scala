@@ -3489,7 +3489,7 @@ object Mix {
         "cuore (affogato|intriso)".r.tr(13),
         "affogato nel metallo",
         "in cerca",
-        "ferisca nel cervello"
+        "feri(sca|to) nel cervello".r.tr(19)
       )(
         vid"rphjb_CuoreAffogatoNelMetalloCercaCanzoneFeriscaCervello.mp4",
         vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4",
@@ -4320,7 +4320,9 @@ object Mix {
       ReplyBundleMessage.textToMedia[F](
         "chi è cristo",
         "si è fatto fregare",
-        "bacio di un frocio"
+        "bacio di un frocio",
+        "ancora ne parliamo",
+        "dopo tutti questi anni"
       )(
         mp3"rphjb_ChiECristo.mp3",
         vid"rphjb_GiudaFrocio.mp4"
