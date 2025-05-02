@@ -365,6 +365,22 @@ ${ignoreMessagePrefix
         )
       )
 
+    def subscriptionsCommandLogic[F[_]: Async](
+        dbSubscription: DBSubscription[F],
+        backgroundJobManager: BackgroundJobManager[F],
+        botName: String,
+        m: Message
+    ): F[String] = for {
+      subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
+      subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
+      memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
+      memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chat.id }
+    } yield s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
+      .map(_.show)
+      .mkString("\n") ++
+      s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
+      memChatSubscriptions.map(_.show).mkString("\n")
+
     def subscriptionsReplyBundleCommand[F[_]: Async](
         dbSubscription: DBSubscription[F],
         backgroundJobManager: BackgroundJobManager[F],
@@ -373,19 +389,7 @@ ${ignoreMessagePrefix
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscriptions"),
         reply = TextReplyM[F](
-          m =>
-            for {
-              subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
-              subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
-              memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
-              memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chat.id }
-            } yield List(
-              s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
-                .map(_.show)
-                .mkString("\n") ++
-                s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
-                memChatSubscriptions.map(_.show).mkString("\n")
-            ).toText,
+          m => subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botName, m).map(List(_).toText),
           true
         )
       )
