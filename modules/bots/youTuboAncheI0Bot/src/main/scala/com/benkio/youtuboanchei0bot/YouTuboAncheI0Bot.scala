@@ -27,6 +27,7 @@ import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
 import com.benkio.youtuboanchei0bot.data.Audio
 import com.benkio.youtuboanchei0bot.data.Gif
 import com.benkio.youtuboanchei0bot.data.Mix
+import com.benkio.youtuboanchei0bot.data.Photo
 import com.benkio.youtuboanchei0bot.data.Sticker
 import com.benkio.youtuboanchei0bot.data.Video
 import fs2.io.net.Network
@@ -122,6 +123,11 @@ object YouTuboAncheI0Bot {
   ]: List[ReplyBundleMessage[F]] =
     Mix.messageRepliesMixData[F]
 
+  def messageRepliesPhotoData[
+      F[_]: Applicative
+  ]: List[ReplyBundleMessage[F]] =
+    Photo.messageRepliesPhotoData[F]
+
   def messageRepliesStickerData[
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] =
@@ -158,7 +164,9 @@ object YouTuboAncheI0Bot {
   def messageRepliesData[
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] =
-    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesStickerData[
+    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesPhotoData[
+      F
+    ] ++ messageRepliesStickerData[
       F
     ] ++ messageRepliesVideoData[
       F

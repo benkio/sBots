@@ -317,13 +317,6 @@ object Gif:
       gif"ytai_SecondoBocconeSorprendenteGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "(😄|😀|😃){3,}".r.tr(3),
-      "sorriso"
-    )(
-      gif"ytai_SorrisoGif.mp4",
-      gif"ytai_Sorriso2Gif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "spuntino"
     )(
       gif"ytai_SpuntinoConMeGif.mp4",
@@ -356,11 +349,6 @@ object Gif:
     )(
       gif"ytai_ZoomGif.mp4",
       gif"ytai_ZoomMahGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "tanti auguri"
-    )(
-      gif"ytai_TantiAuguriGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "auguri di gusto"
@@ -888,7 +876,8 @@ object Gif:
       "💃",
       "🕺"
     )(
-      gif"ytai_BalloGif.mp4"
+      gif"ytai_BalloGif.mp4",
+      gif"ytai_LoopBalloGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "zebra",
@@ -1118,6 +1107,13 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F]("galbanone")(
       gif"ytai_LoopPaninoCottoGalbanoneGif.mp4"
-    )
+    ),
+    ReplyBundleMessage
+      .textToGif[F](
+        "scuotere",
+        "squotimento"
+      )(
+        gif"ytai_LoopBalloGif.mp4"
+      )
   )
 end Gif

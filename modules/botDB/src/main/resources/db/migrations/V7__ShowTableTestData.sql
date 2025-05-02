@@ -1,0 +1,1 @@
+INSERT INTO show (show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption) VALUES ('https://www.youtube.com/watch?v=test', 'TestBot', 'Test Show Title', '20250101', 10, 'Test Show Description', 0, 'https://www.youtube.com/api/timedtext?v=test');

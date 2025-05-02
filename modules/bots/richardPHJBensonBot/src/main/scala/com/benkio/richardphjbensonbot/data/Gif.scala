@@ -14,13 +14,6 @@ object Gif {
       gif"rphjb_AutoriGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "pelle d'oca",
-      "sussult",
-      "brivid"
-    )(
-      gif"rphjb_BrividoGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "che siamo noi",
       "pezzi di merda"
     )(

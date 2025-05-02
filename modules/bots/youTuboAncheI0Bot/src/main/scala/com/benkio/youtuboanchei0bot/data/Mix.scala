@@ -34,7 +34,7 @@ object Mix:
     ),
     ReplyBundleMessage.textToMedia[F](
       "prezzemolo",
-      "profumo incantevole"
+      "profumo"
     )(
       mp3"ytai_PrezzemoloProfumoIncantevole.mp3",
       gif"ytai_PrezzemoloProfumoIncantevoleGif.mp4",
@@ -121,7 +121,10 @@ object Mix:
       mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3",
       gif"ytai_SpezzanoAlbaneseGif.mp4",
       vid"ytai_SpezzanoAlbanese.mp4",
-      mp3"ytai_SpezzanoAlbanese.mp3"
+      mp3"ytai_SpezzanoAlbanese.mp3",
+      gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
+      vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
+      mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "buono!"
@@ -315,7 +318,10 @@ object Mix:
       mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3",
       gif"ytai_SpezzanoAlbaneseGif.mp4",
       vid"ytai_SpezzanoAlbanese.mp4",
-      mp3"ytai_SpezzanoAlbanese.mp3"
+      mp3"ytai_SpezzanoAlbanese.mp3",
+      gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
+      vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
+      mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "allora l[iì]".r.tr(9)
@@ -540,12 +546,20 @@ object Mix:
       gif"ytai_LoopArrabbiatoIndignatoGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "un (caro )?saluto".r.tr(9),
       "obesit[àa]".r.tr(7),
       "scusate"
     )(
       vid"ytai_SalutoDaObesita.mp4",
       gif"ytai_SalutoDaObesitaGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "un (caro )?saluto".r.tr(9)
+    )(
+      vid"ytai_SalutoDaObesita.mp4",
+      gif"ytai_SalutoDaObesitaGif.mp4",
+      gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
+      vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
+      mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\btazza\\b".r.tr(5),
@@ -637,6 +651,85 @@ object Mix:
       mp3"ytai_PassiDaGigante.mp3",
       vid"ytai_PassiDaGigante.mp4",
       gif"ytai_PassiDaGiganteGif.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(😄|😀|😃){3,}".r.tr(3),
+      "sorriso"
+    )(
+      gif"ytai_SorrisoGif.mp4",
+      gif"ytai_Sorriso2Gif.mp4",
+      pho"ytai_SorrisoTortaFelice.jpg"
+    ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "nel mio cuore",
+        "a dopo"
+      )(
+        gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
+        vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
+        mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
+      ),
+    ReplyBundleMessage.textToMedia[F](
+      "natale",
+      "augurato",
+      "a voi(, |\\.\\.\\.| )tutti".r.tr(11)
+    )(
+      gif"ytai_SerenoNataleAVoiTuttiGif.mp4",
+      vid"ytai_SerenoNataleAVoiTutti.mp4",
+      mp3"ytai_SerenoNataleAVoiTutti.mp3"
+    ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "prelibatezza"
+      )(
+        gif"ytai_PrelibatezzaIncantevoleGif.mp4",
+        vid"ytai_PrelibatezzaIncantevole.mp4",
+        mp3"ytai_PrelibatezzaIncantevole.mp3"
+      ),
+    ReplyBundleMessage.textToMedia[F](
+      "incantevole"
+    )(
+      mp3"ytai_PrezzemoloProfumoIncantevole.mp3",
+      gif"ytai_PrezzemoloProfumoIncantevoleGif.mp4",
+      vid"ytai_PrezzemoloProfumoIncantevole.mp4",
+      gif"ytai_PrelibatezzaIncantevoleGif.mp4",
+      vid"ytai_PrelibatezzaIncantevole.mp4",
+      mp3"ytai_PrelibatezzaIncantevole.mp3"
+    ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "come ci voleva",
+        "quest'acqua"
+      )(
+        gif"ytai_CiVolevaQuestAcquaGif.mp4",
+        vid"ytai_CiVolevaQuestAcqua.mp4",
+        mp3"ytai_CiVolevaQuestAcqua.mp3"
+      ),
+    ReplyBundleMessage.textToMedia[F](
+      "tanti(ssimi)? auguri".r.tr(12)
+    )(
+      gif"ytai_TantiAuguriGif.mp4",
+      gif"ytai_TantissimiAuguriGif.mp4",
+      vid"ytai_TantissimiAuguri.mp4",
+      mp3"ytai_TantissimiAuguri.mp3"
+    ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "youtubo anche io"
+      )(
+        gif"ytai_TantissimiAuguriGif.mp4",
+        vid"ytai_TantissimiAuguri.mp4",
+        mp3"ytai_TantissimiAuguri.mp3"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "ginevra",
+        "rigorosamente",
+        "non dimentichiamoci mai"
+      )(
+        gif"ytai_AcquaGinevraGif.mp4",
+        vid"ytai_AcquaGinevra.mp4",
+        mp3"ytai_AcquaGinevra.mp3"
+      )
   )
 end Mix

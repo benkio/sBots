@@ -13,7 +13,7 @@ import log.effect.LogWriter
 
 object Main extends IOApp {
 
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Warn)
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   // in IT test the args will contain the app config and the stage.
   // Eg ("src/it/resources/app.config", "it")
