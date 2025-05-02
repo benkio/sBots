@@ -257,6 +257,25 @@ ${ignoreMessagePrefix
         )
         .getOrElse("")}
 """
+    def instructionCommandLogic[F[_]: Applicative](
+        botName: String,
+        ignoreMessagePrefix: Option[String],
+        commandDescriptionsIta: List[String],
+        commandDescriptionsEng: List[String]
+    ): TextReply[F] = {
+      TextReply.fromList[F](
+        instructionMessageIta(
+          botName = botName,
+          ignoreMessagePrefix = ignoreMessagePrefix,
+          commandDescriptions = commandDescriptionsIta
+        ),
+        instructionMessageEng(
+          botName = botName,
+          ignoreMessagePrefix = ignoreMessagePrefix,
+          commandDescriptions = commandDescriptionsEng
+        )
+      )(false)
+    }
 
     def instructionsReplyBundleCommand[F[_]: Applicative](
         botName: String,
@@ -266,18 +285,7 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("instructions"),
-        reply = TextReply.fromList[F](
-          instructionMessageIta(
-            botName = botName,
-            ignoreMessagePrefix = ignoreMessagePrefix,
-            commandDescriptions = commandDescriptionsIta
-          ),
-          instructionMessageEng(
-            botName = botName,
-            ignoreMessagePrefix = ignoreMessagePrefix,
-            commandDescriptions = commandDescriptionsEng
-          )
-        )(false)
+        reply = instructionCommandLogic(botName, ignoreMessagePrefix, commandDescriptionsIta, commandDescriptionsEng)
       )
   }
 
@@ -401,9 +409,9 @@ ${ignoreMessagePrefix
   object StatisticsCommands {
 
     val topTwentyTriggersCommandDescriptionIta: String =
-      "'/topTwentyTriggers': Restituisce una lista di file e il loro numero totale in invii"
+      "'/toptwenty': Restituisce una lista di file e il loro numero totale in invii"
     val topTwentyTriggersCommandDescriptionEng: String =
-      "'/topTwentyTriggers': Return a list of files and theirs send frequency"
+      "'/toptwenty': Return a list of files and theirs send frequency"
 
     def topTwentyCommandLogic[F[_]: MonadThrow](botPrefix: String, dbMedia: DBMedia[F]): F[String] =
       for {
