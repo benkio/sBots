@@ -6,33 +6,50 @@ import cats.syntax.all.*
 import com.benkio.integration.DBFixture
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.model.ChatId
-import com.benkio.telegrambotinfrastructure.model.Subscription
-import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import cron4s.Cron
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
-import java.time.temporal.ChronoUnit
-import java.time.Instant
 import java.util.UUID
 
 class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
 
-  val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
-  val botName                            = RichardPHJBensonBot.botName
-  val chatIdValue                        = 0L
-  val chatId                             = ChatId(chatIdValue)
+  val testSubscriptionId = "B674CCE0-9684-4D31-8CC7-9E2A41EA0878"
+  val botName            = RichardPHJBensonBot.botName
+  val chatIdValue        = 0L
 
-  val testSubscription: DBSubscriptionData = DBSubscriptionData(
-    id = testSubscriptionId,
-    chat_id = chatId,
-    bot_name = botName,
-    cron = "0 0 0 12 4 *",
-    subscribed_at = "2022-11-06T19:54:46Z"
+  val testSubscriptions: List[DBSubscriptionData] = List(
+    DBSubscriptionData(
+      id = testSubscriptionId,
+      chat_id = chatIdValue,
+      bot_name = botName,
+      cron = "* * * ? * *",
+      subscribed_at = "1746195008"
+    ),
+    DBSubscriptionData(
+      id = "3c301111-ca9c-4909-8281-c9d171e9bf7d",
+      chat_id = chatIdValue,
+      bot_name = "anotherBot",
+      cron = "* * * ? * *",
+      subscribed_at = "1746195008"
+    ),
+    DBSubscriptionData(
+      id = "0be5a0f9-ce63-4a78-a972-5f40758f2275",
+      chat_id = 1L,
+      bot_name = botName,
+      cron = "* * * ? * *",
+      subscribed_at = "1746195008"
+    ),
+    DBSubscriptionData(
+      id = "94dc19a7-fde7-49eb-af02-1de51c44b8b1",
+      chat_id = 1L,
+      bot_name = "anotherBot",
+      cron = "* * * ? * *",
+      subscribed_at = "1746195008"
+    )
   )
 
   val msg: Message = Message(
@@ -42,11 +59,15 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
   )
 
   databaseFixture.test(
-    "Subscriptions Command should return all the subscription by bot"
+    "Subscriptions Command should return all the subscription by bot and chat"
   ) { fixture =>
     val resourceAssert = for {
-      dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
-      _              <- Resource.eval(dbSubscription.insertSubscription(testSubscription))
+      dbLayer        <- fixture.resourceDBLayer
+      resourceAccess <- fixture.resourceAccessResource
+      dbSubscription = dbLayer.dbSubscription
+      _ <- Resource.eval(
+        testSubscriptions.traverse(testSubscription => dbSubscription.insertSubscription(testSubscription))
+      )
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -55,9 +76,22 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
           botName = botName
         )
       )
-      subscriptions <- Resource.eval(dbSubscription.getSubscriptions(botName))
-      subscriptionsFromCommand <- subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botName, msg)
-      } yield assertEquals(true, false)
+      subscriptionsFromCommandResult <- Resource.eval(
+        SubscribeUnsubscribeCommand.subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botName, msg)
+      )
+      _ <- Resource.eval(
+        testSubscriptions.traverse(testSubscription =>
+          dbSubscription.deleteSubscription(UUID.fromString(testSubscription.id))
+        )
+      )
+    } yield assertEquals(
+      subscriptionsFromCommandResult,
+      """There are 1 stored subscriptions for this chat:
+        |Subscription Id: b674cce0-9684-4d31-8cc7-9e2a41ea0878 - cron value: * * * ? * *
+        |There are 1/2 scheduled subscriptions for this chat:
+        |Subscription Id: b674cce0-9684-4d31-8cc7-9e2a41ea0878 - chat id: 0""".stripMargin
+    )
+    resourceAssert.use_
   }
 
 }
