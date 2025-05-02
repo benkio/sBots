@@ -1,10 +1,9 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.patterns
 
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
-
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import munit.CatsEffectSuite
 
 class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
@@ -14,23 +13,22 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
-      dbMedia   = dbLayer.dbMedia
+      dbMedia = dbLayer.dbMedia
       botName = "testBot"
       resultTextReply <- Resource.pure(
         InstructionsCommand.instructionCommandLogic[IO](
           botName,
           Some("!"),
           List("ita instructions"),
-          List("eng instructions"),
+          List("eng instructions")
         )
       )
     } yield
       assert(!resultTextReply.replyToMessage)
       assertEquals(resultTextReply.text.length, 2)
-      resultTextReply.text.foreach {
-        text =>
-          assert(text.value.contains(botName))
-          assert(text.value.contains("ita instructions") || text.value.contains("eng instructions"))
+      resultTextReply.text.foreach { text =>
+        assert(text.value.contains(botName))
+        assert(text.value.contains("ita instructions") || text.value.contains("eng instructions"))
       }
     resourceAssert.use_
   }

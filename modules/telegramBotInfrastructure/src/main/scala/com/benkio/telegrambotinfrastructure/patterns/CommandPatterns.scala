@@ -168,10 +168,13 @@ Input as query string:
     val triggerListCommandDescriptionEng: String =
       "'/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex"
 
+    def triggerListLogic(triggerFileUri: Uri): String =
+      s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri"
+
     def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
-        reply = TextReply.fromList(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")(true)
+        reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true)
       )
   }
 
