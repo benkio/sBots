@@ -405,6 +405,12 @@ ${ignoreMessagePrefix
     val topTwentyTriggersCommandDescriptionEng: String =
       "'/topTwentyTriggers': Return a list of files and theirs send frequency"
 
+    def topTwentyCommandLogic[F[_]: MonadThrow](botPrefix: String, dbMedia: DBMedia[F]): F[String] =
+      for {
+        dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
+        medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
+      } yield Media.mediaListToString(medias)
+
     def topTwentyReplyBundleCommand[F[_]: MonadThrow](
         botPrefix: String,
         dbMedia: DBMedia[F]
@@ -412,11 +418,7 @@ ${ignoreMessagePrefix
       ReplyBundleCommand(
         trigger = CommandTrigger("toptwenty"),
         reply = TextReplyM[F](
-          _ =>
-            for {
-              dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
-              medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-            } yield List(Media.mediaListToString(medias)).toText,
+          _ => topTwentyCommandLogic(botPrefix, dbMedia).map(List(_).toText),
           true
         )
       )

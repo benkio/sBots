@@ -6,10 +6,10 @@ import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import munit.CatsEffectSuite
 
-class ITRandomCommandSpec extends CatsEffectSuite with DBFixture {
+class ITTopTwentyCommandSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test(
-    "Random Command should return a MediaFile of the given bot"
+    "Top twenty command should return 20 results"
   ) { fixture =>
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
