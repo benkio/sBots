@@ -67,6 +67,12 @@ object CommandPatterns {
     val randomDataCommandEng: String =
       """'/random': Returns a data (photo/video/audio/text) random about the bot character"""
 
+    def randomCommandLogic[F[_]: Async](dbMedia: DBMedia[F], botPrefix: String): F[MediaFile] =
+      for
+        dbMediaData <- dbMedia.getRandomMedia(botPrefix)
+        media       <- Async[F].fromEither(Media(dbMediaData))
+      yield MediaFile.fromMimeType(media)
+
     def randomDataReplyBundleCommand[F[_]: Async](
         dbMedia: DBMedia[F],
         botPrefix: String
@@ -74,10 +80,7 @@ object CommandPatterns {
       ReplyBundleCommand[F](
         trigger = CommandTrigger("random"),
         reply = MediaReply[F](
-          mediaFiles = for
-            dbMediaData <- dbMedia.getRandomMedia(botPrefix)
-            media       <- Async[F].fromEither(Media(dbMediaData))
-          yield List(MediaFile.fromMimeType(media))
+          mediaFiles = randomCommandLogic(dbMedia, botPrefix).map(List(_))
         )
       )
   }
