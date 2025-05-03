@@ -121,7 +121,7 @@ Input as query string:
   If the input is not recognized it will be considered as a title.
   Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
 
-    def searchShowReplyBundleCommand[F[_]: Async](
+    private[patterns] def searchShowReplyBundleCommand[F[_]: Async](
         dbShow: DBShow[F],
         botName: String
     )(using log: LogWriter[F]): ReplyBundleCommand[F] =
@@ -180,7 +180,7 @@ Input as query string:
     def triggerListLogic(triggerFileUri: Uri): String =
       s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri"
 
-    def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
+    private[patterns] def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
         reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true)
@@ -208,7 +208,7 @@ Input as query string:
         else matches.traverse { case (_, rbm) => rbm.prettyPrint() }
 
     // TODO: Return the closest match on failure
-    def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](
+    private[patterns] def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](
         botName: String,
         ignoreMessagePrefix: Option[String],
         mdr: List[ReplyBundleMessage[F]]
@@ -332,7 +332,7 @@ ${ignoreMessagePrefix
         s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
       )
 
-    def subscribeReplyBundleCommand[F[_]: Async](
+    private[patterns] def subscribeReplyBundleCommand[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
         botName: String
     ): ReplyBundleCommand[F] =
@@ -367,7 +367,7 @@ ${ignoreMessagePrefix
         } yield "Subscription successfully cancelled"
     }
 
-    def unsubscribeReplyBundleCommand[F[_]: Async](
+    private[patterns] def unsubscribeReplyBundleCommand[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
         botName: String
     ): ReplyBundleCommand[F] =
@@ -404,7 +404,7 @@ ${ignoreMessagePrefix
       s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
       memChatSubscriptions.map(_.show).mkString("\n")
 
-    def subscriptionsReplyBundleCommand[F[_]: Async](
+    private[patterns] def subscriptionsReplyBundleCommand[F[_]: Async](
         dbSubscription: DBSubscription[F],
         backgroundJobManager: BackgroundJobManager[F],
         botName: String
@@ -431,7 +431,7 @@ ${ignoreMessagePrefix
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
       } yield Media.mediaListToString(medias)
 
-    def topTwentyReplyBundleCommand[F[_]: MonadThrow](
+    private[patterns] def topTwentyReplyBundleCommand[F[_]: MonadThrow](
         botPrefix: String,
         dbMedia: DBMedia[F]
     ): ReplyBundleCommand[F] =
@@ -474,11 +474,10 @@ ${ignoreMessagePrefix
               ) *> s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}".pure[F]
           )
 
-    def timeoutReplyBundleCommand[F[_]: MonadThrow](
+    private[patterns] def timeoutReplyBundleCommand[F[_]: MonadThrow](
         botName: String,
-        dbTimeout: DBTimeout[F],
-        log: LogWriter[F]
-    ): ReplyBundleCommand[F] =
+        dbTimeout: DBTimeout[F]
+    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("timeout"),
         reply = TextReplyM[F](
