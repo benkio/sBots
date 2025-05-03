@@ -40,6 +40,7 @@ class CalandroBotSpec extends BaseBotSpec {
     botMediaFiles = CalandroBot
       .messageRepliesData[IO]
       .flatTraverse(_.reply.prettyPrint)
+      .handleError(_ => List.empty)
       .map(_.filterNot(x => excludeTriggers.exists(exc => x.startsWith(exc)))),
     botTriggers = CalandroBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )

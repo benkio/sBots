@@ -2,6 +2,7 @@ package com.benkio.integration.integrationmunit.telegrambotinfrastructure.patter
 
 import cats.effect.IO
 import cats.effect.Resource
+import cats.syntax.all.*
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import munit.CatsEffectSuite
@@ -23,13 +24,36 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
           List("eng instructions")
         )
       )
-    } yield
-      assert(!resultTextReply.replyToMessage)
-      assertEquals(resultTextReply.text.length, 2)
-      resultTextReply.text.foreach { text =>
-        assert(text.value.contains(botName))
-        assert(text.value.contains("ita instructions") || text.value.contains("eng instructions"))
-      }
+      _ <- Resource.eval(
+        List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng")
+          .flatTraverse(resultTextReply(_))
+          .map(_.foreach { text =>
+            assert(
+              text.contains(botName),
+              s"[ITInstructionsCommandSpec] description should contains the botname: $text"
+            )
+            assert(
+              text.contains("eng instructions"),
+              s"[ITInstructionsCommandSpec] instructionCommandLogic should return the eng description: $text"
+            )
+          })
+      )
+      _ <- Resource.eval(
+        List("it", "ita", "🇮🇹")
+          .flatTraverse(resultTextReply(_))
+          .map(_.foreach { text =>
+            assert(
+              text.contains(botName),
+              s"[ITInstructionsCommandSpec] description should contains the botname: $text"
+            )
+            assert(
+              text.contains("ita instructions"),
+              s"[ITInstructionsCommandSpec] instructionCommandLogic should return the ita description: $text"
+            )
+          })
+      )
+    } yield ()
+
     resourceAssert.use_
   }
 
