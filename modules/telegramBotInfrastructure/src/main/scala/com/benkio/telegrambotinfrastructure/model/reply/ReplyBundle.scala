@@ -124,7 +124,7 @@ object ReplyBundle {
   given orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
     Trigger.orderingInstance.contramap(_.trigger)
 
-  extension [F[_]: Applicative](rb: ReplyBundle[F])
+  extension [F[_]: ApplicativeThrow](rb: ReplyBundle[F])
     def prettyPrint()(using triggerShow: Show[Trigger]): F[String] = {
       val triggerStrings: List[String] = triggerShow.show(rb.trigger).split('\n').toList
       val replyString: F[List[String]] = rb.reply.prettyPrint

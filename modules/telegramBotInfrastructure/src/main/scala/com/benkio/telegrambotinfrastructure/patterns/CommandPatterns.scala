@@ -274,22 +274,37 @@ ${ignoreMessagePrefix
         ignoreMessagePrefix: Option[String],
         commandDescriptionsIta: List[String],
         commandDescriptionsEng: List[String]
-    ): TextReply[F] = {
-      TextReply.fromList[F](
-        instructionMessageIta(
-          botName = botName,
-          ignoreMessagePrefix = ignoreMessagePrefix,
-          commandDescriptions = commandDescriptionsIta
-        ),
-        instructionMessageEng(
-          botName = botName,
-          ignoreMessagePrefix = ignoreMessagePrefix,
-          commandDescriptions = commandDescriptionsEng
-        )
-      )(false)
-    }
+    ): String => F[List[String]] = input =>
+      val itaMatches = List("it", "ita", "🇮🇹")
+      val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng")
+      input match {
+        case v if itaMatches.contains(v) =>
+          List(
+            instructionMessageIta(
+              botName = botName,
+              ignoreMessagePrefix = ignoreMessagePrefix,
+              commandDescriptions = commandDescriptionsIta
+            )
+          ).pure[F]
+        case v if engMatches.contains(v) =>
+          List(
+            instructionMessageEng(
+              botName = botName,
+              ignoreMessagePrefix = ignoreMessagePrefix,
+              commandDescriptions = commandDescriptionsEng
+            )
+          ).pure[F]
+        case _ =>
+          List(
+            instructionMessageEng(
+              botName = botName,
+              ignoreMessagePrefix = ignoreMessagePrefix,
+              commandDescriptions = commandDescriptionsEng
+            )
+          ).pure[F]
+      }
 
-    def instructionsReplyBundleCommand[F[_]: Applicative](
+    def instructionsReplyBundleCommand[F[_]: ApplicativeThrow](
         botName: String,
         ignoreMessagePrefix: Option[String],
         commandDescriptionsIta: List[String],
@@ -297,7 +312,16 @@ ${ignoreMessagePrefix
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("instructions"),
-        reply = instructionCommandLogic(botName, ignoreMessagePrefix, commandDescriptionsIta, commandDescriptionsEng)
+        reply = TextReplyM[F](m =>
+          handleCommandWithInput[F](
+            m,
+            "instructions",
+            botName,
+            instructionCommandLogic(botName, ignoreMessagePrefix, commandDescriptionsIta, commandDescriptionsEng),
+            "",
+            true
+          )
+        )
       )
   }
 

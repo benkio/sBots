@@ -5,8 +5,7 @@ import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.*
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.parser.decode
@@ -91,19 +90,39 @@ trait BaseBotSpec extends CatsEffectSuite:
       italianInstructions: String,
       englishInstructions: String
   ): Unit =
+    def instructionMessage(value: String): Message = Message(
+      messageId = 0,
+      date = 0,
+      chat = Chat(id = 0, `type` = "test"),
+      text = Some(s"/instructions $value")
+    )
     test("instructions command should return the expected message") {
       for
         data <- commandRepliesData
-        instructionCommand = data.filter(_.trigger.command == "instructions")
-        instructionCommandPrettyPrint <- instructionCommand.flatTraverse(_.reply.prettyPrint)
-      yield assertEquals(
-        instructionCommandPrettyPrint,
-        List(
-          italianInstructions,
-          englishInstructions
+        instructionCommand <- IO.fromOption(data.find(_.trigger.command == "instructions"))(
+          Throwable("[BaseBotSpec] can't find the `instruction` command")
         )
-      )
+        engInstructionInputs = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng").map(instructionMessage(_))
+        itaInstructionInputs = List("it", "ita", "🇮🇹").map(instructionMessage(_))
+        engInstructionCommandResult <- instructionCommand.reply match {
+          case TextReplyM(textM, _) => engInstructionInputs.flatTraverse(textM(_))
+          case _ => IO.raiseError(Throwable("[BaseBotSpec] `instruction` command sholud be a `TextReplyM`"))
+        }
+        itaInstructionCommandResult <- instructionCommand.reply match {
+          case TextReplyM(textM, _) => itaInstructionInputs.flatTraverse(textM(_))
+          case _ => IO.raiseError(Throwable("[BaseBotSpec] `instruction` command sholud be a `TextReplyM`"))
+        }
+      yield
+        assertEquals(
+          engInstructionCommandResult.map(_.value),
+          List.fill(engInstructionCommandResult.length)(englishInstructions)
+        )
+        assertEquals(
+          itaInstructionCommandResult.map(_.value),
+          List.fill(itaInstructionCommandResult.length)(italianInstructions)
+        )
     }
+  end instructionsCommandTest
 
   def triggerlistCommandTest(
       commandRepliesData: IO[List[ReplyBundleCommand[IO]]],
