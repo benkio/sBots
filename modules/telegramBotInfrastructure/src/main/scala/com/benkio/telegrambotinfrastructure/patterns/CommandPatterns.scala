@@ -43,6 +43,17 @@ object CommandPatterns {
 
   object MediaByKindCommand {
 
+    def mediaCommandByKindLogic[F[_]: Async](
+        dbMedia: DBMedia[F],
+        botName: String,
+        commandName: String,
+        kind: Option[String]
+    )(using log: LogWriter[F]): F[List[MediaFile]] =
+      for
+        dbMediaDatas <- dbMedia.getMediaByKind(kind = kind.getOrElse(commandName))
+        medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
+      yield medias.map(media => MediaFile.fromMimeType(media))
+
     def mediaCommandByKind[F[_]: Async](
         dbMedia: DBMedia[F],
         botName: String,
@@ -52,10 +63,8 @@ object CommandPatterns {
       ReplyBundleCommand[F](
         trigger = CommandTrigger(commandName),
         reply = MediaReply[F](
-          mediaFiles = for
-            dbMediaDatas <- dbMedia.getMediaByKind(kind = kind.getOrElse(commandName))
-            medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
-          yield medias.map(media => MediaFile.fromMimeType(media))
+          mediaFiles =
+            mediaCommandByKindLogic(dbMedia = dbMedia, botName = botName, commandName = commandName, kind = kind)
         )
       )
   }
