@@ -9,7 +9,7 @@ on:
     inputs:
       replaceDB:
         description: "Replace database (true) or update media & show (false)"
-        default: false
+        default: 'false'
         type: boolean
         required: true
 
@@ -56,12 +56,12 @@ jobs:
       - name: Replace Migration DB Script
         run: rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/DBMigration.sql ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/DBMigration.sql
       - name: Update DB
-        if: ${{ github.event.inputs.replaceDB == 'false' }}
+        if: ${{ inputs.replaceDB == 'false' }}
         run: |
           rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDBBase.sqlite3
           ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; sqlite3 botDB.sqlite3 < DBMigration.sql; rm botDBBase.sqlite3'"
       - name: Replace DB
-        if: ${{ github.event.inputs.replaceDB == 'true' }}
+        if: ${{ inputs.replaceDB == 'true' }}
         run: rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3
       - name: Restart Bots
         run: ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"

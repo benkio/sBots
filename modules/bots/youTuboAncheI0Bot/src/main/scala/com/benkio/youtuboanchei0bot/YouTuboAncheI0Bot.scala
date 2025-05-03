@@ -17,6 +17,7 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUn
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -181,70 +182,54 @@ object YouTuboAncheI0Bot {
       dbLayer: DBLayer[F]
   )(using
       log: LogWriter[F]
-  ): List[ReplyBundleCommand[F]] = List(
-    TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
-    TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
+  ): List[ReplyBundleCommand[F]] =
+    CommandPatternsGroup.TriggerGroup.group[F](
+      triggerFileUri = triggerListUri,
       botName = botName,
       ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
-      mdr = messageRepliesData[F]
-    ),
-    SearchShowCommand.searchShowReplyBundleCommand(
-      botName = botName,
-      dbShow = dbLayer.dbShow
-    ),
-    StatisticsCommands.topTwentyReplyBundleCommand[F](
+      messageRepliesData = messageRepliesData[F],
       botPrefix = botPrefix,
-      dbMedia = dbLayer.dbMedia
-    ),
-    SubscribeUnsubscribeCommand.subscribeReplyBundleCommand[F](
-      backgroundJobManager = backgroundJobManager,
-      botName = botName
-    ),
-    SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand[F](
-      backgroundJobManager = backgroundJobManager,
-      botName = botName
-    ),
-    SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand[F](
-      dbSubscription = dbLayer.dbSubscription,
-      backgroundJobManager = backgroundJobManager,
-      botName = botName
-    ),
-    TimeoutCommand.timeoutReplyBundleCommand[F](
-      botName = botName,
-      dbTimeout = dbLayer.dbTimeout,
-      log = log
-    ),
-    RandomDataCommand.randomDataReplyBundleCommand[F](
-      botPrefix = botPrefix,
-      dbMedia = dbLayer.dbMedia
-    ),
-    InstructionsCommand.instructionsReplyBundleCommand[F](
-      botName = botName,
-      ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
-      commandDescriptionsIta = List(
-        TriggerListCommand.triggerListCommandDescriptionIta,
-        TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-        SearchShowCommand.searchShowCommandIta,
-        StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
-        TimeoutCommand.timeoutCommandDescriptionIta,
-        RandomDataCommand.randomDataCommandIta
-      ),
-      commandDescriptionsEng = List(
-        TriggerListCommand.triggerListCommandDescriptionEng,
-        TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-        SearchShowCommand.searchShowCommandEng,
-        StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
-        TimeoutCommand.timeoutCommandDescriptionEng,
-        RandomDataCommand.randomDataCommandEng
+      dbMedia = dbLayer.dbMedia,
+      dbTimeout = dbLayer.dbTimeout
+    ) ++
+      CommandPatternsGroup.ShowGroup.group[F](
+        dbShow = dbLayer.dbShow,
+        dbSubscription = dbLayer.dbSubscription,
+        backgroundJobManager = backgroundJobManager,
+        botName = botName
+      ) ++
+      List(
+        RandomDataCommand.randomDataReplyBundleCommand[F](
+          botPrefix = botPrefix,
+          dbMedia = dbLayer.dbMedia
+        ),
+        InstructionsCommand.instructionsReplyBundleCommand[F](
+          botName = botName,
+          ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
+          commandDescriptionsIta = List(
+            TriggerListCommand.triggerListCommandDescriptionIta,
+            TriggerSearchCommand.triggerSearchCommandDescriptionIta,
+            SearchShowCommand.searchShowCommandIta,
+            StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
+            SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
+            SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
+            SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
+            TimeoutCommand.timeoutCommandDescriptionIta,
+            RandomDataCommand.randomDataCommandIta
+          ),
+          commandDescriptionsEng = List(
+            TriggerListCommand.triggerListCommandDescriptionEng,
+            TriggerSearchCommand.triggerSearchCommandDescriptionEng,
+            SearchShowCommand.searchShowCommandEng,
+            StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
+            SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
+            SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
+            SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
+            TimeoutCommand.timeoutCommandDescriptionEng,
+            RandomDataCommand.randomDataCommandEng
+          )
+        )
       )
-    )
-  )
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: YouTuboAncheI0BotPolling[F] => F[A]
