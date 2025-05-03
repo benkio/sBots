@@ -64,4 +64,4 @@ jobs:
         if: ${{ github.event.inputs.replaceDB == 'true' }}
         run: rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3
       - name: Restart Bots
-      - run: ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"
+        run: ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"
