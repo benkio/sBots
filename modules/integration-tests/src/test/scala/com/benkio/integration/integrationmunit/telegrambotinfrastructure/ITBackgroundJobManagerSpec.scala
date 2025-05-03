@@ -132,7 +132,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "BackgroundJobManager.runSubscription should return an infinite stream that can be cancelled by the returned signal whne is resolved to `true`"
+    "BackgroundJobManager.runSubscription should return an infinite stream that can be cancelled by the returned signal when is resolved to `true`"
   ) { fixture =>
     val resultStreamResources: Resource[cats.effect.IO, (Stream[IO, Instant], SignallingRef[IO, Boolean])] = for {
       dbLayer        <- fixture.resourceDBLayer

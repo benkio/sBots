@@ -15,6 +15,7 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsC
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -116,45 +117,40 @@ object M0sconiBot {
       dbLayer: DBLayer[F]
   )(using
       log: LogWriter[F]
-  ): List[ReplyBundleCommand[F]] = List(
-    TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
-    TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
+  ): List[ReplyBundleCommand[F]] =
+    CommandPatternsGroup.TriggerGroup.group[F](
+      triggerFileUri = triggerListUri,
       botName = botName,
       ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix,
-      mdr = messageRepliesData[F]
-    ),
-    StatisticsCommands.topTwentyReplyBundleCommand[F](
+      messageRepliesData = messageRepliesData[F],
       botPrefix = botPrefix,
-      dbMedia = dbLayer.dbMedia
-    ),
-    TimeoutCommand.timeoutReplyBundleCommand[F](
-      botName = botName,
-      dbTimeout = dbLayer.dbTimeout,
-      log = log
-    ),
-    RandomDataCommand.randomDataReplyBundleCommand[F](
-      botPrefix = botPrefix,
-      dbMedia = dbLayer.dbMedia
-    ),
-    InstructionsCommand.instructionsReplyBundleCommand[F](
-      botName = botName,
-      ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix,
-      commandDescriptionsIta = List(
-        TriggerListCommand.triggerListCommandDescriptionIta,
-        TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-        StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
-        TimeoutCommand.timeoutCommandDescriptionIta,
-        RandomDataCommand.randomDataCommandIta
-      ),
-      commandDescriptionsEng = List(
-        TriggerListCommand.triggerListCommandDescriptionEng,
-        TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-        StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
-        TimeoutCommand.timeoutCommandDescriptionEng,
-        RandomDataCommand.randomDataCommandEng
+      dbMedia = dbLayer.dbMedia,
+      dbTimeout = dbLayer.dbTimeout
+    ) ++
+      List(
+        RandomDataCommand.randomDataReplyBundleCommand[F](
+          botPrefix = botPrefix,
+          dbMedia = dbLayer.dbMedia
+        ),
+        InstructionsCommand.instructionsReplyBundleCommand[F](
+          botName = botName,
+          ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix,
+          commandDescriptionsIta = List(
+            TriggerListCommand.triggerListCommandDescriptionIta,
+            TriggerSearchCommand.triggerSearchCommandDescriptionIta,
+            StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
+            TimeoutCommand.timeoutCommandDescriptionIta,
+            RandomDataCommand.randomDataCommandIta
+          ),
+          commandDescriptionsEng = List(
+            TriggerListCommand.triggerListCommandDescriptionEng,
+            TriggerSearchCommand.triggerSearchCommandDescriptionEng,
+            StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
+            TimeoutCommand.timeoutCommandDescriptionEng,
+            RandomDataCommand.randomDataCommandEng
+          )
+        )
       )
-    )
-  )
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: M0sconiBotPolling[F] => F[A]

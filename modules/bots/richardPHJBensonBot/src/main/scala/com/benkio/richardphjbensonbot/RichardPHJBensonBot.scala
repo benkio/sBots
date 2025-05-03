@@ -11,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -121,86 +122,70 @@ object RichardPHJBensonBot {
       dbLayer: DBLayer[F]
   )(using
       log: LogWriter[F]
-  ): List[ReplyBundleCommand[F]] = List(
-    TriggerListCommand.triggerListReplyBundleCommand[F](triggerListUri),
-    TriggerSearchCommand.triggerSearchReplyBundleCommand[F](
+  ): List[ReplyBundleCommand[F]] =
+    CommandPatternsGroup.TriggerGroup.group[F](
+      triggerFileUri = triggerListUri,
       botName = botName,
       ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
-      mdr = messageRepliesData
-    ),
-    StatisticsCommands.topTwentyReplyBundleCommand[F](
+      messageRepliesData = messageRepliesData[F],
       botPrefix = botPrefix,
-      dbMedia = dbLayer.dbMedia
-    ),
-    SearchShowCommand.searchShowReplyBundleCommand(
-      dbShow = dbLayer.dbShow,
-      botName = botName
-    ),
-    SubscribeUnsubscribeCommand.subscribeReplyBundleCommand[F](
-      backgroundJobManager = backgroundJobManager,
-      botName = botName
-    ),
-    SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand[F](
-      backgroundJobManager = backgroundJobManager,
-      botName = botName
-    ),
-    SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand[F](
-      dbSubscription = dbLayer.dbSubscription,
-      backgroundJobManager = backgroundJobManager,
-      botName = botName
-    ),
-    TimeoutCommand.timeoutReplyBundleCommand[F](
-      botName = botName,
-      dbTimeout = dbLayer.dbTimeout,
-      log = log
-    ),
-    RandomDataCommand.randomDataReplyBundleCommand[F](
-      botPrefix = botPrefix,
-      dbMedia = dbLayer.dbMedia
-    ),
-    InstructionsCommand.instructionsReplyBundleCommand[F](
-      botName = botName,
-      ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
-      commandDescriptionsIta = List(
-        TriggerListCommand.triggerListCommandDescriptionIta,
-        TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-        SearchShowCommand.searchShowCommandIta,
-        StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
-        TimeoutCommand.timeoutCommandDescriptionIta,
-        bensonifyCommandDescriptionIta,
-        RandomDataCommand.randomDataCommandIta
-      ),
-      commandDescriptionsEng = List(
-        TriggerListCommand.triggerListCommandDescriptionEng,
-        TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-        SearchShowCommand.searchShowCommandEng,
-        StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
-        SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
-        TimeoutCommand.timeoutCommandDescriptionEng,
-        bensonifyCommandDescriptionEng,
-        RandomDataCommand.randomDataCommandEng
-      )
-    ),
-    ReplyBundleCommand(
-      trigger = CommandTrigger("bensonify"),
-      reply = TextReplyM[F](
-        msg =>
-          handleCommandWithInput[F](
-            msg,
-            "bensonify",
-            botName,
-            t => List(Bensonify.compute(t)).pure[F],
-            "E PARLAAAAAAA!!!!"
+      dbMedia = dbLayer.dbMedia,
+      dbTimeout = dbLayer.dbTimeout
+    ) ++
+      CommandPatternsGroup.ShowGroup.group[F](
+        dbShow = dbLayer.dbShow,
+        dbSubscription = dbLayer.dbSubscription,
+        backgroundJobManager = backgroundJobManager,
+        botName = botName
+      ) ++
+      List(
+        RandomDataCommand.randomDataReplyBundleCommand[F](
+          botPrefix = botPrefix,
+          dbMedia = dbLayer.dbMedia
+        ),
+        InstructionsCommand.instructionsReplyBundleCommand[F](
+          botName = botName,
+          ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
+          commandDescriptionsIta = List(
+            TriggerListCommand.triggerListCommandDescriptionIta,
+            TriggerSearchCommand.triggerSearchCommandDescriptionIta,
+            SearchShowCommand.searchShowCommandIta,
+            StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
+            SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
+            SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
+            SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
+            TimeoutCommand.timeoutCommandDescriptionIta,
+            bensonifyCommandDescriptionIta,
+            RandomDataCommand.randomDataCommandIta
           ),
-        true
+          commandDescriptionsEng = List(
+            TriggerListCommand.triggerListCommandDescriptionEng,
+            TriggerSearchCommand.triggerSearchCommandDescriptionEng,
+            SearchShowCommand.searchShowCommandEng,
+            StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
+            SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
+            SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
+            SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
+            TimeoutCommand.timeoutCommandDescriptionEng,
+            bensonifyCommandDescriptionEng,
+            RandomDataCommand.randomDataCommandEng
+          )
+        ),
+        ReplyBundleCommand(
+          trigger = CommandTrigger("bensonify"),
+          reply = TextReplyM[F](
+            msg =>
+              handleCommandWithInput[F](
+                msg,
+                "bensonify",
+                botName,
+                t => List(Bensonify.compute(t)).pure[F],
+                "E PARLAAAAAAA!!!!"
+              ),
+            true
+          )
+        )
       )
-    )
-  )
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: RichardPHJBensonBotPolling[F] => F[A]
