@@ -9,8 +9,6 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
-import com.benkio.telegrambotinfrastructure.model.reply.Reply
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -43,26 +41,34 @@ class ABarberoBotSpec extends BaseBotSpec {
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
 
-  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
-    emptyDBLayer.dbSubscription,
-    emptyDBLayer.dbShow,
-    resourceAccessMock,
-    "ABarberoBot"
-  ).map(bjm =>
-    ABarberoBot
-      .commandRepliesData[IO](
-        backgroundJobManager = bjm,
-        dbLayer = emptyDBLayer
+  val aBarberoBot =
+    BackgroundJobManager[IO](
+      emptyDBLayer.dbSubscription,
+      emptyDBLayer.dbShow,
+      resourceAccessMock,
+      "ABarberoBot"
+    ).map(bjm =>
+      new ABarberoBotPolling[IO](
+        resourceAccess = resourceAccessMock,
+        dbLayer = emptyDBLayer,
+        backgroundJobManager = bjm
       )
-  )
-
+    )
   val messageRepliesDataPrettyPrint: IO[List[String]] =
-    ABarberoBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
+    aBarberoBot
+      .flatMap(ab =>
+        for
+          messageReplies <- ab.messageRepliesDataF
+          prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
+        yield prettyPrints
+      )
+
+  val commandRepliesData = aBarberoBot.flatMap(_.allCommandRepliesDataF)
 
   exactTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData[IO])
 
   triggerlistCommandTest(
-    commandRepliesData = commandRepliesData,
+    commandRepliesData = ABarberoBot.buildPollingBot[IO].use(_.allCommandRepliesDataF),
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/modules/bots/aBarberoBot/abar_triggers.txt"
   )
@@ -96,6 +102,8 @@ I comandi del bot sono:
 
 - '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
 - '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
+- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
+- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
 - '/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
 Input come query string:
   - No input: restituisce uno show random
@@ -107,11 +115,9 @@ Input come query string:
   - 'maxdate=YYYYMMDD': restituisce uno show più vecchio della data specificata. Esempio: 'mandate=20220101'
   In caso di input non riconosciuto, verrà considerato come titolo.
   I campi possono essere concatenati. Esempio: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'
-- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
 - '/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html
 - '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input
 - '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
-- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
 - '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
 
 Se si vuole disabilitare il bot per un particolare messaggio impedendo
@@ -129,6 +135,8 @@ Bot commands are:
 
 - '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
 - '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
+- '/toptwenty': Return a list of files and theirs send frequency
+- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
 - '/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
 Input as query string:
   - No input: returns a random show
@@ -140,11 +148,9 @@ Input as query string:
   - 'maxdate=YYYYMMDD': returns a show older than the specified date.  Example: 'mandate=20220101'
   If the input is not recognized it will be considered as a title.
   Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'
-- '/toptwenty': Return a list of files and theirs send frequency
 - '/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html
 - '/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted
 - '/subscriptions': Return the amout of subscriptions for the current chat
-- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
 - '/random': Returns a data (photo/video/audio/text) random about the bot character
 
 if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix

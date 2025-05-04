@@ -78,6 +78,15 @@ trait BotSkeleton[F[_]] {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
+  def allCommandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+    commandRepliesDataF.map(definedCommands =>
+      definedCommands :+ InstructionsCommand.instructionsReplyBundleCommand(
+        botName,
+        ignoreMessagePrefix,
+        definedCommands
+      )
+    )
+
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleMessage[F]]] =
@@ -95,12 +104,7 @@ trait BotSkeleton[F[_]] {
       msg: Message
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleCommand[F]]] =
     for
-      definedCommands <- commandRepliesDataF(using asyncF, log)
-      allCommands = definedCommands :+ InstructionsCommand.instructionsReplyBundleCommand(
-        botName,
-        ignoreMessagePrefix,
-        definedCommands
-      )
+      allCommands <- allCommandRepliesDataF(using asyncF, log)
       result = msg.text.flatMap(text =>
         allCommands.find(rbc =>
           text.startsWith(s"/${rbc.trigger.command} ")

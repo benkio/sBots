@@ -12,14 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -158,54 +151,23 @@ object ABarberoBot {
         RandomDataCommand.randomDataReplyBundleCommand[F](
           botPrefix = botPrefix,
           dbMedia = dbLayer.dbMedia
-        ),
-        InstructionsCommand.instructionsReplyBundleCommand[F](
-          botName = botName,
-          ignoreMessagePrefix = ABarberoBot.ignoreMessagePrefix,
-          commandDescriptionsIta = List(
-            TriggerListCommand.triggerListCommandDescriptionIta,
-            TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-            SearchShowCommand.searchShowCommandIta,
-            StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
-            SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
-            SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
-            SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
-            TimeoutCommand.timeoutCommandDescriptionIta,
-            RandomDataCommand.randomDataCommandIta
-          ),
-          commandDescriptionsEng = List(
-            TriggerListCommand.triggerListCommandDescriptionEng,
-            TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-            SearchShowCommand.searchShowCommandEng,
-            StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
-            SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
-            SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
-            SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
-            TimeoutCommand.timeoutCommandDescriptionEng,
-            RandomDataCommand.randomDataCommandEng
-          )
         )
       )
 
-  def buildPollingBot[F[_]: Parallel: Async: Network, A](
-      action: ABarberoBotPolling[F] => F[A]
-  )(using log: LogWriter[F]): F[A] = (for {
-    httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-    botSetup <- BotSetup(
-      httpClient = httpClient,
-      tokenFilename = tokenFilename,
-      namespace = configNamespace,
-      botName = botName
-    )
-  } yield botSetup).use { botSetup =>
-    action(
-      new ABarberoBotPolling[F](
-        resourceAccess = botSetup.resourceAccess,
-        dbLayer = botSetup.dbLayer,
-        backgroundJobManager = botSetup.backgroundJobManager
-      )(using Parallel[F], Async[F], botSetup.api, log)
-    )
-  }
+  def buildPollingBot[F[_]: Parallel: Async: Network](using log: LogWriter[F]): Resource[F, ABarberoBotPolling[F]] =
+    for {
+      httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+      botSetup <- BotSetup(
+        httpClient = httpClient,
+        tokenFilename = tokenFilename,
+        namespace = configNamespace,
+        botName = botName
+      )
+    } yield new ABarberoBotPolling[F](
+      resourceAccess = botSetup.resourceAccess,
+      dbLayer = botSetup.dbLayer,
+      backgroundJobManager = botSetup.backgroundJobManager
+    )(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
