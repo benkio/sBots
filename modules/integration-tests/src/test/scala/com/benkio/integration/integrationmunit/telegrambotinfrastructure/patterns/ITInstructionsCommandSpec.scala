@@ -25,7 +25,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
         )
       )
       _ <- Resource.eval(
-        List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng")
+        List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
           .flatTraverse(resultTextReply(_))
           .map(_.foreach { text =>
             assert(
@@ -39,7 +39,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
           })
       )
       _ <- Resource.eval(
-        List("it", "ita", "🇮🇹")
+        List("it", "ita", "🇮🇹", "italian")
           .flatTraverse(resultTextReply(_))
           .map(_.foreach { text =>
             assert(

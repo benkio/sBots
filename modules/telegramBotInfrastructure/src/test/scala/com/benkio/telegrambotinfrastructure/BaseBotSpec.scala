@@ -102,8 +102,10 @@ trait BaseBotSpec extends CatsEffectSuite:
         instructionCommand <- IO.fromOption(data.find(_.trigger.command == "instructions"))(
           Throwable("[BaseBotSpec] can't find the `instruction` command")
         )
-        engInstructionInputs = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng").map(instructionMessage(_))
-        itaInstructionInputs = List("it", "ita", "🇮🇹").map(instructionMessage(_))
+        engInstructionInputs = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english").map(
+          instructionMessage(_)
+        )
+        itaInstructionInputs = List("it", "ita", "italian", "🇮🇹").map(instructionMessage(_))
         engInstructionCommandResult <- instructionCommand.reply match {
           case TextReplyM(textM, _) => engInstructionInputs.flatTraverse(textM(_))
           case _ => IO.raiseError(Throwable("[BaseBotSpec] `instruction` command sholud be a `TextReplyM`"))

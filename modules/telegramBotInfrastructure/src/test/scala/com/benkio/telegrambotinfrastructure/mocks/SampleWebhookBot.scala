@@ -13,6 +13,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.tr
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -107,7 +108,8 @@ class SampleWebhookBot(
         trigger = CommandTrigger("testcommand"),
         reply = TextReply.fromList[IO](
           "test command reply"
-        )(false)
+        )(false),
+        instruction = CommandInstructionSupportedLanguages.NoInstructions
       )
     ).pure[IO]
 }
