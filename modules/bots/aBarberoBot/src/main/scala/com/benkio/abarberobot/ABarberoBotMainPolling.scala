@@ -11,7 +11,8 @@ object ABarberoBotMainPolling extends IOApp {
   private def internalRun(logLevel: LogLevel): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
     ABarberoBot
-      .buildPollingBot[IO, Unit]((ab: ABarberoBotPolling[IO]) => ab.start())
+      .buildPollingBot[IO]
+      .use(_.start())
       .as(ExitCode.Success)
   }
 

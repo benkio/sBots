@@ -12,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.tr
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -64,7 +65,8 @@ class BotSkeletonSpec extends CatsEffectSuite {
         trigger = CommandTrigger("testcommand"),
         reply = TextReply.fromList[IO](
           "test command reply"
-        )(false)
+        )(false),
+        instruction = CommandInstructionSupportedLanguages.NoInstructions
       )
 
     for

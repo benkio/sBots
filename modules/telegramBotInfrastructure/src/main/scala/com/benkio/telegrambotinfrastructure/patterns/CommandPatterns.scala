@@ -20,7 +20,10 @@ import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.Show
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.toEng
+import com.benkio.telegrambotinfrastructure.model.toIta
 import com.benkio.telegrambotinfrastructure.model.ChatId
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
@@ -58,23 +61,25 @@ object CommandPatterns {
         dbMedia: DBMedia[F],
         botName: String,
         commandName: String,
-        kind: Option[String]
+        kind: Option[String],
+        instruction: CommandInstructionSupportedLanguages
     )(using log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger(commandName),
         reply = MediaReply[F](
           mediaFiles =
             mediaCommandByKindLogic(dbMedia = dbMedia, botName = botName, commandName = commandName, kind = kind)
-        )
+        ),
+        instruction = instruction
       )
   }
 
   object RandomDataCommand {
 
-    val randomDataCommandIta: String =
+    private val randomDataCommandIta: String =
       """'/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot"""
-    val randomDataCommandEng: String =
-      """'/random': Returns a data (photo/video/audio/text) random about the bot character"""
+    private val randomDataCommandEng: String =
+      """'/random': Returns a random data (photo/video/audio/text) about the bot character"""
 
     def randomCommandLogic[F[_]: Async](dbMedia: DBMedia[F], botPrefix: String): F[MediaFile] =
       for
@@ -90,13 +95,17 @@ object CommandPatterns {
         trigger = CommandTrigger("random"),
         reply = MediaReply[F](
           mediaFiles = randomCommandLogic(dbMedia, botPrefix).map(List(_))
+        ),
+        instruction = CommandInstructionSupportedLanguages.Instructions(
+          ita = randomDataCommandIta,
+          eng = randomDataCommandEng
         )
       )
   }
 
   object SearchShowCommand {
 
-    val searchShowCommandIta: String =
+    private val searchShowCommandIta: String =
       """'/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
 Input come query string:
   - No input: restituisce uno show random
@@ -108,7 +117,7 @@ Input come query string:
   - 'maxdate=YYYYMMDD': restituisce uno show più vecchio della data specificata. Esempio: 'mandate=20220101'
   In caso di input non riconosciuto, verrà considerato come titolo.
   I campi possono essere concatenati. Esempio: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
-    val searchShowCommandEng: String =
+    private val searchShowCommandEng: String =
       """'/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
 Input as query string:
   - No input: returns a random show
@@ -145,6 +154,10 @@ Input as query string:
               allowEmptyString = true
             ),
           true
+        ),
+        instruction = CommandInstructionSupportedLanguages.Instructions(
+          ita = searchShowCommandIta,
+          eng = searchShowCommandEng
         )
       )
 
@@ -172,9 +185,9 @@ Input as query string:
 
   object TriggerListCommand {
 
-    val triggerListCommandDescriptionIta: String =
+    private val triggerListCommandDescriptionIta: String =
       "'/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex"
-    val triggerListCommandDescriptionEng: String =
+    private val triggerListCommandDescriptionEng: String =
       "'/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex"
 
     def triggerListLogic(triggerFileUri: Uri): String =
@@ -183,15 +196,19 @@ Input as query string:
     private[patterns] def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
-        reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true)
+        reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true),
+        instruction = CommandInstructionSupportedLanguages.Instructions(
+          ita = triggerListCommandDescriptionIta,
+          eng = triggerListCommandDescriptionEng
+        )
       )
   }
 
   object TriggerSearchCommand {
 
-    val triggerSearchCommandDescriptionIta: String =
+    private val triggerSearchCommandDescriptionIta: String =
       "'/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger"
-    val triggerSearchCommandDescriptionEng: String =
+    private val triggerSearchCommandDescriptionEng: String =
       "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
 
     private[patterns] def searchTriggerLogic[F[_]: ApplicativeThrow](
@@ -223,6 +240,10 @@ Input as query string:
             searchTriggerLogic(mdr, m, ignoreMessagePrefix),
             """Input Required: Insert the test keyword to check if it's in some bot trigger"""
           )
+        ),
+        instruction = CommandInstructionSupportedLanguages.Instructions(
+          ita = triggerSearchCommandDescriptionIta,
+          eng = triggerSearchCommandDescriptionEng
         )
       )
 
@@ -272,43 +293,40 @@ ${ignoreMessagePrefix
     def instructionCommandLogic[F[_]: Applicative](
         botName: String,
         ignoreMessagePrefix: Option[String],
-        commandDescriptionsIta: List[String],
-        commandDescriptionsEng: List[String]
+        commands: List[ReplyBundleCommand[F]]
     ): String => F[List[String]] = input =>
-      val itaMatches = List("it", "ita", "🇮🇹")
-      val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng")
+      val itaMatches = List("it", "ita", "italian", "🇮🇹")
+      val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
+      val (commandDescriptionsIta, commandDescriptionsEng) =
+        commands
+          .unzip(cmd => (cmd.instruction.toIta.toList, cmd.instruction.toEng.toList))
+      val instructionsIta = List(
+        instructionMessageIta(
+          botName = botName,
+          ignoreMessagePrefix = ignoreMessagePrefix,
+          commandDescriptions = commandDescriptionsIta.flatten
+        )
+      )
+      val instructionsEng = List(
+        instructionMessageEng(
+          botName = botName,
+          ignoreMessagePrefix = ignoreMessagePrefix,
+          commandDescriptions = commandDescriptionsEng.flatten
+        )
+      )
       input match {
         case v if itaMatches.contains(v) =>
-          List(
-            instructionMessageIta(
-              botName = botName,
-              ignoreMessagePrefix = ignoreMessagePrefix,
-              commandDescriptions = commandDescriptionsIta
-            )
-          ).pure[F]
+          instructionsIta.pure[F]
         case v if engMatches.contains(v) =>
-          List(
-            instructionMessageEng(
-              botName = botName,
-              ignoreMessagePrefix = ignoreMessagePrefix,
-              commandDescriptions = commandDescriptionsEng
-            )
-          ).pure[F]
+          instructionsEng.pure[F]
         case _ =>
-          List(
-            instructionMessageEng(
-              botName = botName,
-              ignoreMessagePrefix = ignoreMessagePrefix,
-              commandDescriptions = commandDescriptionsEng
-            )
-          ).pure[F]
+          instructionsEng.pure[F]
       }
 
-    def instructionsReplyBundleCommand[F[_]: ApplicativeThrow](
+    private[telegrambotinfrastructure] def instructionsReplyBundleCommand[F[_]: ApplicativeThrow](
         botName: String,
         ignoreMessagePrefix: Option[String],
-        commandDescriptionsIta: List[String],
-        commandDescriptionsEng: List[String]
+        commands: List[ReplyBundleCommand[F]]
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("instructions"),
@@ -317,27 +335,28 @@ ${ignoreMessagePrefix
             m,
             "instructions",
             botName,
-            instructionCommandLogic(botName, ignoreMessagePrefix, commandDescriptionsIta, commandDescriptionsEng),
+            instructionCommandLogic(botName, ignoreMessagePrefix, commands),
             "",
             true
           )
-        )
+        ),
+        instruction = CommandInstructionSupportedLanguages.NoInstructions
       )
   }
 
   object SubscribeUnsubscribeCommand {
 
-    val subscribeCommandDescriptionIta: String =
+    private val subscribeCommandDescriptionIta: String =
       "'/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html"
-    val subscribeCommandDescriptionEng: String =
+    private val subscribeCommandDescriptionEng: String =
       "'/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html"
-    val unsubscribeCommandDescriptionIta: String =
+    private val unsubscribeCommandDescriptionIta: String =
       "'/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input"
-    val unsubscribeCommandDescriptionEng: String =
+    private val unsubscribeCommandDescriptionEng: String =
       "'/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted"
-    val subscriptionsCommandDescriptionIta: String =
+    private val subscriptionsCommandDescriptionIta: String =
       "'/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente"
-    val subscriptionsCommandDescriptionEng: String =
+    private val subscriptionsCommandDescriptionEng: String =
       "'/subscriptions': Return the amout of subscriptions for the current chat"
 
     def subscribeCommandLogic[F[_]: Async](
@@ -372,6 +391,10 @@ ${ignoreMessagePrefix
               "Input Required: insert a valid 〈cron time〉. Check the instructions"
             ),
           true
+        ),
+        instruction = CommandInstructionSupportedLanguages.Instructions(
+          ita = subscribeCommandDescriptionIta,
+          eng = subscribeCommandDescriptionEng
         )
       )
 
@@ -409,6 +432,10 @@ ${ignoreMessagePrefix
               allowEmptyString = true
             ),
           true
+        ),
+        instruction = CommandInstructionSupportedLanguages.Instructions(
+          ita = unsubscribeCommandDescriptionIta,
+          eng = unsubscribeCommandDescriptionEng
         )
       )
 
@@ -438,15 +465,19 @@ ${ignoreMessagePrefix
         reply = TextReplyM[F](
           m => subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botName, m).map(List(_).toText),
           true
+        ),
+        instruction = CommandInstructionSupportedLanguages.Instructions(
+          ita = subscriptionsCommandDescriptionIta,
+          eng = subscriptionsCommandDescriptionEng
         )
       )
   }
 
   object StatisticsCommands {
 
-    val topTwentyTriggersCommandDescriptionIta: String =
+    private val topTwentyTriggersCommandDescriptionIta: String =
       "'/toptwenty': Restituisce una lista di file e il loro numero totale in invii"
-    val topTwentyTriggersCommandDescriptionEng: String =
+    private val topTwentyTriggersCommandDescriptionEng: String =
       "'/toptwenty': Return a list of files and theirs send frequency"
 
     def topTwentyCommandLogic[F[_]: MonadThrow](botPrefix: String, dbMedia: DBMedia[F]): F[String] =
@@ -464,6 +495,10 @@ ${ignoreMessagePrefix
         reply = TextReplyM[F](
           _ => topTwentyCommandLogic(botPrefix, dbMedia).map(List(_).toText),
           true
+        ),
+        instruction = CommandInstructionSupportedLanguages.Instructions(
+          ita = topTwentyTriggersCommandDescriptionIta,
+          eng = topTwentyTriggersCommandDescriptionEng
         )
       )
 
@@ -471,9 +506,9 @@ ${ignoreMessagePrefix
 
   object TimeoutCommand {
 
-    val timeoutCommandDescriptionIta: String =
+    private val timeoutCommandDescriptionIta: String =
       "'/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso"
-    val timeoutCommandDescriptionEng: String =
+    private val timeoutCommandDescriptionEng: String =
       "'/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed"
 
     def timeoutLogic[F[_]: MonadThrow](
@@ -514,6 +549,10 @@ ${ignoreMessagePrefix
               """Input Required: the input must be in the form '\timeout 00:00:00' or empty"""
             ),
           true
+        ),
+        instruction = CommandInstructionSupportedLanguages.Instructions(
+          ita = timeoutCommandDescriptionIta,
+          eng = timeoutCommandDescriptionEng
         )
       )
   }

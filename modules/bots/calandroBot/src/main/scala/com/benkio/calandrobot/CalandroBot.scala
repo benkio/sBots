@@ -12,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import com.benkio.telegrambotinfrastructure.model.tr
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
@@ -167,36 +168,93 @@ object CalandroBot {
         dbMedia = dbLayer.dbMedia,
         botName = CalandroBot.botName,
         commandName = "randomcard",
-        kind = "cards".some
+        kind = "cards".some,
+        instruction = CommandInstructionSupportedLanguages.NoInstructions
       ),
-      ReplyBundleCommand.textToMedia[F]("porcoladro")(mp3"cala_PorcoLadro.mp3"),
-      ReplyBundleCommand.textToMedia[F]("unoduetre")(mp3"cala_Unoduetre.mp3"),
-      ReplyBundleCommand.textToMedia[F]("ancorauna")(mp3"cala_AncoraUnaDoveLaMetto.mp3"),
-      ReplyBundleCommand.textToMedia[F]("lacipolla")(mp3"cala_CipollaCalandrica.mp3"),
-      ReplyBundleCommand.textToMedia[F]("lavorogiusto")(mp3"cala_IlLavoroVaPagato.mp3"),
-      ReplyBundleCommand.textToMedia[F]("motivazioniinternet")(mp3"cala_InternetMotivazioniCalandriche.mp3"),
-      ReplyBundleCommand.textToMedia[F]("cazzomene")(mp3"cala_IoSonVaccinato.mp3"),
-      ReplyBundleCommand.textToMedia[F]("arrivoarrivo")(mp3"cala_SubmissionCalandra.mp3"),
-      ReplyBundleCommand.textToMedia[F]("vaginadepilata")(mp3"cala_VaginaDepilataCalandra.mp3"),
-      ReplyBundleCommand.textToMedia[F]("whawha_fallout4")(mp3"cala_Waawahaawha.mp3"),
-      ReplyBundleCommand.textToMedia[F]("whawha_short")(mp3"cala_WwhaaawhaaaSingolo.mp3"),
-      ReplyBundleCommand.textToMedia[F]("daccordissimo")(mp3"cala_D_accordissimo.mp3"),
-      ReplyBundleCommand.textToMedia[F]("stocazzo")(mp3"cala_Stocazzo.mp3"),
-      ReplyBundleCommand.textToMedia[F]("cazzodibudda")(mp3"cala_CazzoDiBudda.mp3"),
-      ReplyBundleCommand.textToMedia[F]("personapulita")(mp3"cala_PersonaPulita.mp3"),
-      ReplyBundleCommand.textToMedia[F]("losquirt")(mp3"cala_LoSquirt.mp3"),
-      ReplyBundleCommand.textToMedia[F]("fuoridalmondo")(mp3"cala_FuoriDalMondo.mp3"),
-      ReplyBundleCommand.textToMedia[F]("qualitaolive")(mp3"cala_QualitaOlive.mp3"),
-      ReplyBundleCommand.textToMedia[F]("gioielli")(mp3"cala_Gioielli.mp3"),
-      ReplyBundleCommand.textToMedia[F]("risata")(mp3"cala_RisataCalandrica.mp3"),
-      ReplyBundleCommand.textToMedia[F]("sonocosternato")(mp3"cala_SonoCosternato.mp3"),
-      ReplyBundleCommand.textToMedia[F]("demenza")(mp3"cala_LaDemenzaDiUnUomo.mp3"),
-      ReplyBundleCommand.textToMedia[F]("wha")(mp3"cala_WhaSecco.mp3"),
-      ReplyBundleCommand.textToMedia[F]("imparatounafava")(mp3"cala_ImparatoUnaFava.mp3"),
-      ReplyBundleCommand.textToMedia[F]("lesbiche")(mp3"cala_SieteLesbiche.mp3"),
-      ReplyBundleCommand.textToMedia[F]("firstlesson")(mp3"cala_FirstLessonPlease.mp3"),
-      ReplyBundleCommand.textToMedia[F]("noprogrammato")(mp3"cala_NoGrazieProgrammato.mp3"),
-      ReplyBundleCommand.textToMedia[F]("fiammeinferno")(mp3"cala_Fiamme.mp3")
+      ReplyBundleCommand.textToMedia[F]("porcoladro", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_PorcoLadro.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("unoduetre", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_Unoduetre.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("ancorauna", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_AncoraUnaDoveLaMetto.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("lacipolla", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_CipollaCalandrica.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("lavorogiusto", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_IlLavoroVaPagato.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("motivazioniinternet", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_InternetMotivazioniCalandriche.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("cazzomene", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_IoSonVaccinato.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("arrivoarrivo", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_SubmissionCalandra.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("vaginadepilata", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_VaginaDepilataCalandra.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("whawha_fallout4", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_Waawahaawha.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("whawha_short", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_WwhaaawhaaaSingolo.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("daccordissimo", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_D_accordissimo.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("stocazzo", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_Stocazzo.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("cazzodibudda", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_CazzoDiBudda.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("personapulita", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_PersonaPulita.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("losquirt", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_LoSquirt.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("fuoridalmondo", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_FuoriDalMondo.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("qualitaolive", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_QualitaOlive.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("gioielli", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_Gioielli.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("risata", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_RisataCalandrica.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("sonocosternato", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_SonoCosternato.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("demenza", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_LaDemenzaDiUnUomo.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("wha", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_WhaSecco.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("imparatounafava", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_ImparatoUnaFava.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("lesbiche", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_SieteLesbiche.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("firstlesson", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_FirstLessonPlease.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("noprogrammato", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_NoGrazieProgrammato.mp3"
+      ),
+      ReplyBundleCommand.textToMedia[F]("fiammeinferno", CommandInstructionSupportedLanguages.NoInstructions)(
+        mp3"cala_Fiamme.mp3"
+      )
     )
 
   def buildPollingBot[F[_]: Parallel: Async: Network, A](

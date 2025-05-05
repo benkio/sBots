@@ -4,6 +4,8 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.integration.DBFixture
+import com.benkio.m0sconibot.M0sconiBot
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import munit.CatsEffectSuite
 
@@ -20,12 +22,11 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
         InstructionsCommand.instructionCommandLogic[IO](
           botName,
           Some("!"),
-          List("ita instructions"),
-          List("eng instructions")
+          M0sconiBot.commandRepliesData[IO](DBLayerMock.mock(M0sconiBot.botName))
         )
       )
       _ <- Resource.eval(
-        List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng")
+        List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
           .flatTraverse(resultTextReply(_))
           .map(_.foreach { text =>
             assert(
@@ -33,13 +34,13 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
               s"[ITInstructionsCommandSpec] description should contains the botname: $text"
             )
             assert(
-              text.contains("eng instructions"),
+              text.contains("'/random': Returns a random data"),
               s"[ITInstructionsCommandSpec] instructionCommandLogic should return the eng description: $text"
             )
           })
       )
       _ <- Resource.eval(
-        List("it", "ita", "🇮🇹")
+        List("it", "ita", "🇮🇹", "italian")
           .flatTraverse(resultTextReply(_))
           .map(_.foreach { text =>
             assert(
@@ -47,7 +48,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
               s"[ITInstructionsCommandSpec] description should contains the botname: $text"
             )
             assert(
-              text.contains("ita instructions"),
+              text.contains("'/random': Restituisce un dato"),
               s"[ITInstructionsCommandSpec] instructionCommandLogic should return the ita description: $text"
             )
           })

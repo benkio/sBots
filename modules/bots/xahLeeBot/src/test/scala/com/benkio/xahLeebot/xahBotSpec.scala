@@ -26,13 +26,6 @@ import telegramium.bots.Message
 class XahLeeBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(XahLeeBot.botName)
-  val mediaResource: MediaResourceIFile[IO] =
-    MediaResourceIFile(
-      "test mediafile"
-    )
-  val resourceAccessMock = new ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
@@ -42,20 +35,36 @@ class XahLeeBotSpec extends BaseBotSpec {
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
 
-  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = BackgroundJobManager[IO](
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(XahLeeBot.botName)
+  val mediaResource: MediaResourceIFile[IO] =
+    MediaResourceIFile(
+      "test mediafile"
+    )
+  val resourceAccessMock = new ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+
+  val xahLeeBot = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     resourceAccess = resourceAccessMock,
     botName = "XahLeeBot"
   ).map(bjm =>
-    XahLeeBot
-      .commandRepliesData[IO](
-        backgroundJobManager = bjm,
-        dbLayer = emptyDBLayer
-      )
+    new XahLeeBotPolling[IO](
+      resourceAccess = resourceAccessMock,
+      dbLayer = emptyDBLayer,
+      backgroundJobManager = bjm
+    )
   )
+
+  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] =
+    xahLeeBot.flatMap(_.allCommandRepliesDataF)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
-    XahLeeBot.messageRepliesData[IO].flatTraverse(_.reply.prettyPrint)
+    xahLeeBot
+      .flatMap(xlb =>
+        for
+          messageReplies <- xlb.messageRepliesDataF
+          prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
+        yield prettyPrints
+      )
 
   exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData[IO])
 
@@ -63,4 +72,114 @@ class XahLeeBotSpec extends BaseBotSpec {
     jsonFilename = "xah_list.json",
     botData = messageRepliesDataPrettyPrint
   )
+
+  instructionsCommandTest(
+    commandRepliesData = commandRepliesData,
+    italianInstructions =
+      """
+        |---- Instruzioni Per XahLeeBot ----
+        |
+        |Per segnalare problemi, scrivere a: https://t.me/Benkio
+        |
+        |I comandi del bot sono:
+        |
+        |- '/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
+        |Input come query string:
+        |  - No input: restituisce uno show random
+        |  - 'title=keyword: restituisce uno show contenente la keyword nel titolo. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords. Esempio: 'title=Paul+Gilbert&title=dissacrazione'
+        |  - 'description=keyword: restituisce uno show contenente la keyword nella descrizione. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords.  Esempio: 'description=Cris+Impellitteri&description=ramarro'
+        |  - 'minduration=X': restituisce uno show di durata minima pari a X secondi. Esempio: 'minduration=300'
+        |  - 'maxduration=X': restituisce uno show di durata massima pari a X secondi. Esempio: 'maxduration=1000'
+        |  - 'mindate=YYYYMMDD': restituisce uno show più recente della data specificata. Esempio: 'mindate=20200101'
+        |  - 'maxdate=YYYYMMDD': restituisce uno show più vecchio della data specificata. Esempio: 'mandate=20220101'
+        |  In caso di input non riconosciuto, verrà considerato come titolo.
+        |  I campi possono essere concatenati. Esempio: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'
+        |- '/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html
+        |- '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input
+        |- '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
+        |- '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
+        |- Restituisce un media file correlato a Alan Mackenzie"
+        |- Restituisce un media file correlato alla parola "ass"
+        |- Restituisce un media file correlato al C e C++
+        |- Restituisce un media file correlato alla parola "crap"
+        |- Restituisce un media file correlato a Emacs
+        |- Restituisce un media file extra
+        |- Restituisce un media file correlato alla parola "fak"
+        |- Restituisce un media file correlato alla parola "fakhead"
+        |- Restituisce un media file correlato a Google
+        |- Restituisce un media file correlato alla parola "idiocy"
+        |- Restituisce un media file correlato alla parola "idiots"
+        |- Restituisce un media file correlato alla risata di Xah Lee
+        |- Restituisce un media file correlato a Linux
+        |- Restituisce un media file correlato ai millennials
+        |- Restituisce un media file correlato all'open source
+        |- Restituisce un media file correlato a Opera
+        |- Restituisce un media file correlato a Python
+        |- Restituisce una delle compilation di rant
+        |- Restituisce un media file correlato a Richard Stallman
+        |- Restituisce un media file correlato alla parola "sucks"
+        |- Restituisce un media file correlato a Unix
+        |- Restituisce un media file correlato all'espressione "what the fak"
+        |- Restituisce un media file correlato ai zoomers
+        |
+        |Se si vuole disabilitare il bot per un particolare messaggio impedendo
+        |che interagisca, è possibile farlo iniziando il messaggio con il
+        |carattere: `!`
+        |
+        |! Messaggio
+        |""".stripMargin,
+    englishInstructions =
+      """
+        |---- Instructions for XahLeeBot ----
+        |
+        |to report issues, write to: https://t.me/Benkio
+        |
+        |Bot commands are:
+        |
+        |- '/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
+        |Input as query string:
+        |  - No input: returns a random show
+        |  - 'title=keyword: returns a show with the keyword in the title. The field can be specified multiple times, the show will contain all the keywords. Example: 'title=Paul+Gilbert&title=dissacrazione'
+        |  - 'description=keyword: returns a show with the keyword in the description. The field can be specified multiple times, the show will contain all the keywords.  Example: 'description=Cris+Impellitteri&description=ramarro'
+        |  - 'minduration=X': returns a show with minimal duration of X seconds.  Example: 'minduration=300'
+        |  - 'maxduration=X': returns a show with maximal duration of X seconds.  Example: 'maxduration=1000'
+        |  - 'mindate=YYYYMMDD': returns a show newer than the specified date.  Example: 'mindate=20200101'
+        |  - 'maxdate=YYYYMMDD': returns a show older than the specified date.  Example: 'mandate=20220101'
+        |  If the input is not recognized it will be considered as a title.
+        |  Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'
+        |- '/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html
+        |- '/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted
+        |- '/subscriptions': Return the amout of subscriptions for the current chat
+        |- '/random': Returns a random data (photo/video/audio/text) about the bot character
+        |- Returns a media file related to Alan Mackenzie
+        |- Returns a media file related to the word "ass"
+        |- Returns a media file related to the C and C++
+        |- Returns a media file related to the word "crap"
+        |- Returns a media file related to Emacs
+        |- Returns an extra media file
+        |- Returns a media file related to the word "fak"
+        |- Returns a media file related to the word "fakhead"
+        |- Returns a media file related to Google
+        |- Returns a media file related to the word "idiocy"
+        |- Returns a media file related to the word "idiots"
+        |- Returns a Xah Lee's laugh
+        |- Returns a media file related to Linux
+        |- Returns a media file related to the millennials
+        |- Returns a media file related to open source
+        |- Returns a media file related to Opera
+        |- Returns a media file related to Python
+        |- Returns a Xah Lee's rant compilation
+        |- Returns a media file related to Richard Stallman
+        |- Returns a media file related to the word "sucks"
+        |- Returns a media file related to Unix
+        |- Returns a media file related to the expression "what the fak"
+        |- Returns a media file related to zoomers
+        |
+        |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
+        |character: `!`
+        |
+        |! Message
+        |""".stripMargin
+  )
+
 }

@@ -9,6 +9,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
@@ -143,34 +144,6 @@ object RichardPHJBensonBot {
           botPrefix = botPrefix,
           dbMedia = dbLayer.dbMedia
         ),
-        InstructionsCommand.instructionsReplyBundleCommand[F](
-          botName = botName,
-          ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
-          commandDescriptionsIta = List(
-            TriggerListCommand.triggerListCommandDescriptionIta,
-            TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-            SearchShowCommand.searchShowCommandIta,
-            StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
-            SubscribeUnsubscribeCommand.subscribeCommandDescriptionIta,
-            SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionIta,
-            SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionIta,
-            TimeoutCommand.timeoutCommandDescriptionIta,
-            bensonifyCommandDescriptionIta,
-            RandomDataCommand.randomDataCommandIta
-          ),
-          commandDescriptionsEng = List(
-            TriggerListCommand.triggerListCommandDescriptionEng,
-            TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-            SearchShowCommand.searchShowCommandEng,
-            StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
-            SubscribeUnsubscribeCommand.subscribeCommandDescriptionEng,
-            SubscribeUnsubscribeCommand.unsubscribeCommandDescriptionEng,
-            SubscribeUnsubscribeCommand.subscriptionsCommandDescriptionEng,
-            TimeoutCommand.timeoutCommandDescriptionEng,
-            bensonifyCommandDescriptionEng,
-            RandomDataCommand.randomDataCommandEng
-          )
-        ),
         ReplyBundleCommand(
           trigger = CommandTrigger("bensonify"),
           reply = TextReplyM[F](
@@ -183,29 +156,30 @@ object RichardPHJBensonBot {
                 "E PARLAAAAAAA!!!!"
               ),
             true
+          ),
+          instruction = CommandInstructionSupportedLanguages.Instructions(
+            ita = bensonifyCommandDescriptionIta,
+            eng = bensonifyCommandDescriptionEng
           )
         )
       )
 
-  def buildPollingBot[F[_]: Parallel: Async: Network, A](
-      action: RichardPHJBensonBotPolling[F] => F[A]
-  )(using log: LogWriter[F]): F[A] = (for {
-    httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-    botSetup <- BotSetup(
-      httpClient = httpClient,
-      tokenFilename = tokenFilename,
-      namespace = configNamespace,
-      botName = botName
-    )
-  } yield botSetup).use { botSetup =>
-    action(
-      new RichardPHJBensonBotPolling[F](
-        resourceAccess = botSetup.resourceAccess,
-        dbLayer = botSetup.dbLayer,
-        backgroundJobManager = botSetup.backgroundJobManager
-      )(using Parallel[F], Async[F], botSetup.api, log)
-    )
-  }
+  def buildPollingBot[F[_]: Parallel: Async: Network](using
+      log: LogWriter[F]
+  ): Resource[F, RichardPHJBensonBotPolling[F]] =
+    for {
+      httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+      botSetup <- BotSetup(
+        httpClient = httpClient,
+        tokenFilename = tokenFilename,
+        namespace = configNamespace,
+        botName = botName
+      )
+    } yield new RichardPHJBensonBotPolling[F](
+      resourceAccess = botSetup.resourceAccess,
+      dbLayer = botSetup.dbLayer,
+      backgroundJobManager = botSetup.backgroundJobManager
+    )(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],

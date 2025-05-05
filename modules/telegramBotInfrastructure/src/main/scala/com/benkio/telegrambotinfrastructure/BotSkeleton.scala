@@ -12,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import log.effect.LogWriter
@@ -77,6 +78,15 @@ trait BotSkeleton[F[_]] {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
+  def allCommandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+    commandRepliesDataF.map(definedCommands =>
+      definedCommands :+ InstructionsCommand.instructionsReplyBundleCommand(
+        botName,
+        ignoreMessagePrefix,
+        definedCommands
+      )
+    )
+
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleMessage[F]]] =
@@ -93,16 +103,16 @@ trait BotSkeleton[F[_]] {
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleCommand[F]]] =
-    commandRepliesDataF(using asyncF, log).map(commandRepliesData =>
-      for {
-        text <- msg.text
-        result <- commandRepliesData.find(rbc =>
+    for
+      allCommands <- allCommandRepliesDataF(using asyncF, log)
+      result = msg.text.flatMap(text =>
+        allCommands.find(rbc =>
           text.startsWith(s"/${rbc.trigger.command} ")
             || text == s"/${rbc.trigger.command}"
             || text.startsWith(s"/${rbc.trigger.command}@${botName}")
         )
-      } yield result
-    )
+      )
+    yield result
 
   def messageLogic(
       resourceAccess: ResourceAccess[F],

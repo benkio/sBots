@@ -4,6 +4,7 @@ import cats.*
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.MessageTrigger
 import com.benkio.telegrambotinfrastructure.model.RandomSelection
@@ -98,24 +99,30 @@ object ReplyBundleMessage {
 final case class ReplyBundleCommand[F[_]](
     trigger: CommandTrigger,
     reply: Reply[F],
-    replySelection: ReplySelection
+    replySelection: ReplySelection,
+    instruction: CommandInstructionSupportedLanguages
 ) extends ReplyBundle[F]
 
 object ReplyBundleCommand {
   def apply[F[_]](
       trigger: CommandTrigger,
       reply: Reply[F],
+      instruction: CommandInstructionSupportedLanguages,
       replySelection: ReplySelection = RandomSelection
   ): ReplyBundleCommand[F] = new ReplyBundleCommand[F](
     trigger = trigger,
     reply = reply,
-    replySelection = replySelection
+    replySelection = replySelection,
+    instruction = instruction
   )
 
-  def textToMedia[F[_]: Applicative](trigger: String)(mediaFiles: MediaFile*): ReplyBundleCommand[F] =
+  def textToMedia[F[_]: Applicative](trigger: String, instruction: CommandInstructionSupportedLanguages)(
+      mediaFiles: MediaFile*
+  ): ReplyBundleCommand[F] =
     ReplyBundleCommand[F](
       trigger = CommandTrigger(trigger),
-      reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList)
+      reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList),
+      instruction = instruction
     )
 }
 

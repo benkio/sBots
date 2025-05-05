@@ -11,7 +11,8 @@ object XahLeeBotMainPolling extends IOApp {
   private def internalRun(logLevel: LogLevel): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
     XahLeeBot
-      .buildPollingBot[IO, Unit]((xl: XahLeeBotPolling[IO]) => xl.start())
+      .buildPollingBot[IO]
+      .use(_.start())
       .as(ExitCode.Success)
   }
 

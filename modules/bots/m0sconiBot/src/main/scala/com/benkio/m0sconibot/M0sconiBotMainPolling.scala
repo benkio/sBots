@@ -11,7 +11,8 @@ object M0sconiBotMainPolling extends IOApp {
   private def internalRun(logLevel: LogLevel): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
     M0sconiBot
-      .buildPollingBot[IO, Unit]((ab: M0sconiBotPolling[IO]) => ab.start())
+      .buildPollingBot[IO, Unit]
+      .use(_.start())
       .as(ExitCode.Success)
   }
 
