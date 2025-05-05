@@ -9,12 +9,7 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerListCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -50,14 +45,14 @@ class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 
 class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resAccess: ResourceAccess[F],
+    resourceAccess: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resAccess)
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with M0sconiBot[F] {
-  override def resourceAccess(using syncF: Async[F], log: LogWriter[F]): ResourceAccess[F] = resAccess
+  override def resourceAccess(using syncF: Async[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
   override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using
@@ -131,46 +126,23 @@ object M0sconiBot {
         RandomDataCommand.randomDataReplyBundleCommand[F](
           botPrefix = botPrefix,
           dbMedia = dbLayer.dbMedia
-        ),
-        InstructionsCommand.instructionsReplyBundleCommand[F](
-          botName = botName,
-          ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix,
-          commandDescriptionsIta = List(
-            TriggerListCommand.triggerListCommandDescriptionIta,
-            TriggerSearchCommand.triggerSearchCommandDescriptionIta,
-            StatisticsCommands.topTwentyTriggersCommandDescriptionIta,
-            TimeoutCommand.timeoutCommandDescriptionIta,
-            RandomDataCommand.randomDataCommandIta
-          ),
-          commandDescriptionsEng = List(
-            TriggerListCommand.triggerListCommandDescriptionEng,
-            TriggerSearchCommand.triggerSearchCommandDescriptionEng,
-            StatisticsCommands.topTwentyTriggersCommandDescriptionEng,
-            TimeoutCommand.timeoutCommandDescriptionEng,
-            RandomDataCommand.randomDataCommandEng
-          )
         )
       )
 
-  def buildPollingBot[F[_]: Parallel: Async: Network, A](
-      action: M0sconiBotPolling[F] => F[A]
-  )(using log: LogWriter[F]): F[A] = (for {
-    httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-    botSetup <- BotSetup(
-      httpClient = httpClient,
-      tokenFilename = tokenFilename,
-      namespace = configNamespace,
-      botName = botName
-    )
-  } yield botSetup).use { botSetup =>
-    action(
-      new M0sconiBotPolling[F](
-        resourceAccess = botSetup.resourceAccess,
-        dbLayer = botSetup.dbLayer,
-        backgroundJobManager = botSetup.backgroundJobManager
-      )(using Parallel[F], Async[F], botSetup.api, log)
-    )
-  }
+  def buildPollingBot[F[_]: Parallel: Async: Network, A](using log: LogWriter[F]): Resource[F, M0sconiBotPolling[F]] =
+    for {
+      httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+      botSetup <- BotSetup(
+        httpClient = httpClient,
+        tokenFilename = tokenFilename,
+        namespace = configNamespace,
+        botName = botName
+      )
+    } yield new M0sconiBotPolling[F](
+      resourceAccess = botSetup.resourceAccess,
+      dbLayer = botSetup.dbLayer,
+      backgroundJobManager = botSetup.backgroundJobManager
+    )(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
@@ -187,7 +159,7 @@ object M0sconiBot {
       new M0sconiBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resAccess = botSetup.resourceAccess,
+        resourceAccess = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate

@@ -26,12 +26,6 @@ import telegramium.bots.Message
 class ABarberoBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(ABarberoBot.botName)
-  val mediaResource: MediaResourceIFile[IO] =
-    MediaResourceIFile(
-      "test mediafile"
-    )
-  val resourceAccessMock = new ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
@@ -41,12 +35,19 @@ class ABarberoBotSpec extends BaseBotSpec {
     ): F[List[Message]] = Async[F].pure(List.empty[Message])
   }
 
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(ABarberoBot.botName)
+  val mediaResource: MediaResourceIFile[IO] =
+    MediaResourceIFile(
+      "test mediafile"
+    )
+  val resourceAccessMock = new ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+
   val aBarberoBot =
     BackgroundJobManager[IO](
       emptyDBLayer.dbSubscription,
       emptyDBLayer.dbShow,
       resourceAccessMock,
-      "ABarberoBot"
+      ABarberoBot.botName
     ).map(bjm =>
       new ABarberoBotPolling[IO](
         resourceAccess = resourceAccessMock,
