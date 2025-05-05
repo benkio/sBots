@@ -11,7 +11,8 @@ object YouTuboAncheI0BotMainPolling extends IOApp {
   private def internalRun(logLevel: LogLevel): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
     YouTuboAncheI0Bot
-      .buildPollingBot[IO, Unit]((ab: YouTuboAncheI0BotPolling[IO]) => ab.start())
+      .buildPollingBot[IO]
+      .use(_.start())
       .as(ExitCode.Success)
   }
 

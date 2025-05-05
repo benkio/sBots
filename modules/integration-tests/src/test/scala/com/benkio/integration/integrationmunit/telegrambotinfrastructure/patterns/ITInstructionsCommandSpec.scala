@@ -4,6 +4,8 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.integration.DBFixture
+import com.benkio.m0sconibot.M0sconiBot
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import munit.CatsEffectSuite
 
@@ -20,8 +22,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
         InstructionsCommand.instructionCommandLogic[IO](
           botName,
           Some("!"),
-          List("ita instructions"),
-          List("eng instructions")
+          M0sconiBot.commandRepliesData[IO](DBLayerMock.mock(M0sconiBot.botName))
         )
       )
       _ <- Resource.eval(
