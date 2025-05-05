@@ -11,7 +11,8 @@ object RichardPHJBensonBotMainPolling extends IOApp {
   private def internalRun(logLevel: LogLevel): cats.effect.IO[cats.effect.ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
     RichardPHJBensonBot
-      .buildPollingBot((rb: RichardPHJBensonBotPolling[IO]) => rb.start())
+      .buildPollingBot[IO]
+      .use(_.start())
       .as(ExitCode.Success)
   }
 
