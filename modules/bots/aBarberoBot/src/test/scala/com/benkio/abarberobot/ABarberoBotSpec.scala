@@ -68,7 +68,7 @@ class ABarberoBotSpec extends BaseBotSpec {
   exactTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData[IO])
 
   triggerlistCommandTest(
-    commandRepliesData = ABarberoBot.buildPollingBot[IO].use(_.allCommandRepliesDataF),
+    commandRepliesData = aBarberoBot.flatMap(_.allCommandRepliesDataF),
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/modules/bots/aBarberoBot/abar_triggers.txt"
   )
