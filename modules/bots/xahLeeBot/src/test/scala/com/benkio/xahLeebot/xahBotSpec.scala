@@ -98,29 +98,29 @@ class XahLeeBotSpec extends BaseBotSpec {
         |- '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input
         |- '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
         |- '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
-        |- Restituisce un media file correlato a Alan Mackenzie"
-        |- Restituisce un media file correlato alla parola "ass"
-        |- Restituisce un media file correlato al C e C++
-        |- Restituisce un media file correlato alla parola "crap"
-        |- Restituisce un media file correlato a Emacs
-        |- Restituisce un media file extra
-        |- Restituisce un media file correlato alla parola "fak"
-        |- Restituisce un media file correlato alla parola "fakhead"
-        |- Restituisce un media file correlato a Google
-        |- Restituisce un media file correlato alla parola "idiocy"
-        |- Restituisce un media file correlato alla parola "idiots"
-        |- Restituisce un media file correlato alla risata di Xah Lee
-        |- Restituisce un media file correlato a Linux
-        |- Restituisce un media file correlato ai millennials
-        |- Restituisce un media file correlato all'open source
-        |- Restituisce un media file correlato a Opera
-        |- Restituisce un media file correlato a Python
-        |- Restituisce una delle compilation di rant
-        |- Restituisce un media file correlato a Richard Stallman
-        |- Restituisce un media file correlato alla parola "sucks"
-        |- Restituisce un media file correlato a Unix
-        |- Restituisce un media file correlato all'espressione "what the fak"
-        |- Restituisce un media file correlato ai zoomers
+        |- '/alanmackenzie': Restituisce un media file correlato a Alan Mackenzie"
+        |- '/ass': Restituisce un media file correlato alla parola "ass"
+        |- '/ccpp': Restituisce un media file correlato al C e C++
+        |- '/crap': Restituisce un media file correlato alla parola "crap"
+        |- '/emacs': Restituisce un media file correlato a Emacs
+        |- '/extra': Restituisce un media file extra
+        |- '/fak': Restituisce un media file correlato alla parola "fak"
+        |- '/fakhead': Restituisce un media file correlato alla parola "fakhead"
+        |- '/google': Restituisce un media file correlato a Google
+        |- '/idiocy': Restituisce un media file correlato alla parola "idiocy"
+        |- '/idiots': Restituisce un media file correlato alla parola "idiots"
+        |- '/laugh': Restituisce un media file correlato alla risata di Xah Lee
+        |- '/linux': Restituisce un media file correlato a Linux
+        |- '/millennial': Restituisce un media file correlato ai millennials
+        |- '/opensource': Restituisce un media file correlato all'open source
+        |- '/opera': Restituisce un media file correlato a Opera
+        |- '/python': Restituisce un media file correlato a Python
+        |- '/rantcompilation': Restituisce una delle compilation di rant
+        |- '/richardstallman': Restituisce un media file correlato a Richard Stallman
+        |- '/sucks': Restituisce un media file correlato alla parola "sucks"
+        |- '/unix': Restituisce un media file correlato a Unix
+        |- '/wtf': Restituisce un media file correlato all'espressione "what the fak"
+        |- '/zoomer': Restituisce un media file correlato ai zoomers
         |
         |Se si vuole disabilitare il bot per un particolare messaggio impedendo
         |che interagisca, è possibile farlo iniziando il messaggio con il
@@ -151,29 +151,29 @@ class XahLeeBotSpec extends BaseBotSpec {
         |- '/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted
         |- '/subscriptions': Return the amout of subscriptions for the current chat
         |- '/random': Returns a random data (photo/video/audio/text) about the bot character
-        |- Returns a media file related to Alan Mackenzie
-        |- Returns a media file related to the word "ass"
-        |- Returns a media file related to the C and C++
-        |- Returns a media file related to the word "crap"
-        |- Returns a media file related to Emacs
-        |- Returns an extra media file
-        |- Returns a media file related to the word "fak"
-        |- Returns a media file related to the word "fakhead"
-        |- Returns a media file related to Google
-        |- Returns a media file related to the word "idiocy"
-        |- Returns a media file related to the word "idiots"
-        |- Returns a Xah Lee's laugh
-        |- Returns a media file related to Linux
-        |- Returns a media file related to the millennials
-        |- Returns a media file related to open source
-        |- Returns a media file related to Opera
-        |- Returns a media file related to Python
-        |- Returns a Xah Lee's rant compilation
-        |- Returns a media file related to Richard Stallman
-        |- Returns a media file related to the word "sucks"
-        |- Returns a media file related to Unix
-        |- Returns a media file related to the expression "what the fak"
-        |- Returns a media file related to zoomers
+        |- '/alanmackenzie': Returns a media file related to Alan Mackenzie
+        |- '/ass': Returns a media file related to the word "ass"
+        |- '/ccpp': Returns a media file related to the C and C++
+        |- '/crap': Returns a media file related to the word "crap"
+        |- '/emacs': Returns a media file related to Emacs
+        |- '/extra': Returns an extra media file
+        |- '/fak': Returns a media file related to the word "fak"
+        |- '/fakhead': Returns a media file related to the word "fakhead"
+        |- '/google': Returns a media file related to Google
+        |- '/idiocy': Returns a media file related to the word "idiocy"
+        |- '/idiots': Returns a media file related to the word "idiots"
+        |- '/laugh': Returns a Xah Lee's laugh
+        |- '/linux': Returns a media file related to Linux
+        |- '/millennial': Returns a media file related to the millennials
+        |- '/opensource': Returns a media file related to open source
+        |- '/opera': Returns a media file related to Opera
+        |- '/python': Returns a media file related to Python
+        |- '/rantcompilation': Returns a Xah Lee's rant compilation
+        |- '/richardstallman': Returns a media file related to Richard Stallman
+        |- '/sucks': Returns a media file related to the word "sucks"
+        |- '/unix': Returns a media file related to Unix
+        |- '/wtf': Returns a media file related to the expression "what the fak"
+        |- '/zoomer': Returns a media file related to zoomers
         |
         |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
         |character: `!`
