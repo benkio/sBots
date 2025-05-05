@@ -154,7 +154,7 @@ class ABarberoBotSpec extends BaseBotSpec {
         |- '/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html
         |- '/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted
         |- '/subscriptions': Return the amout of subscriptions for the current chat
-        |- '/random': Returns a data (photo/video/audio/text) random about the bot character
+        |- '/random': Returns a random data (photo/video/audio/text) about the bot character
         |
         |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
         |character: `!`

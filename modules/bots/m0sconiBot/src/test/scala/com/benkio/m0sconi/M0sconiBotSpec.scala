@@ -124,7 +124,7 @@ class M0sconiBotSpec extends BaseBotSpec {
       |- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
       |- '/toptwenty': Return a list of files and theirs send frequency
       |- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
-      |- '/random': Returns a data (photo/video/audio/text) random about the bot character
+      |- '/random': Returns a random data (photo/video/audio/text) about the bot character
       |
       |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
       |character: `!`

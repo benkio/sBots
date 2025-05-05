@@ -79,7 +79,7 @@ object CommandPatterns {
     private val randomDataCommandIta: String =
       """'/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot"""
     private val randomDataCommandEng: String =
-      """'/random': Returns a data (photo/video/audio/text) random about the bot character"""
+      """'/random': Returns a random data (photo/video/audio/text) about the bot character"""
 
     def randomCommandLogic[F[_]: Async](dbMedia: DBMedia[F], botPrefix: String): F[MediaFile] =
       for

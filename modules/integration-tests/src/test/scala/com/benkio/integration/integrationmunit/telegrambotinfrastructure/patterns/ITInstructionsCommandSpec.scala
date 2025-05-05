@@ -34,7 +34,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
               s"[ITInstructionsCommandSpec] description should contains the botname: $text"
             )
             assert(
-              text.contains("eng instructions"),
+              text.contains("'/random': Returns a random data"),
               s"[ITInstructionsCommandSpec] instructionCommandLogic should return the eng description: $text"
             )
           })
@@ -48,7 +48,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
               s"[ITInstructionsCommandSpec] description should contains the botname: $text"
             )
             assert(
-              text.contains("ita instructions"),
+              text.contains("'/random': Restituisce un dato"),
               s"[ITInstructionsCommandSpec] instructionCommandLogic should return the ita description: $text"
             )
           })
