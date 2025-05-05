@@ -54,96 +54,96 @@ object CommandRepliesData {
   val xahCustomCommands: List[(String, CommandInstructionSupportedLanguages)] =
     List(
       "alanmackenzie" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato a Alan Mackenzie"""",
-        eng = """Returns a media file related to Alan Mackenzie"""
+        ita = """'/alanmackenzie': Restituisce un media file correlato a Alan Mackenzie"""",
+        eng = """'/alanmackenzie': Returns a media file related to Alan Mackenzie"""
       ),
       "ass" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato alla parola "ass"""",
-        eng = """Returns a media file related to the word "ass""""
+        ita = """'/ass': Restituisce un media file correlato alla parola "ass"""",
+        eng = """'/ass': Returns a media file related to the word "ass""""
       ),
       "ccpp" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato al C e C++""",
-        eng = """Returns a media file related to the C and C++"""
+        ita = """'/ccpp': Restituisce un media file correlato al C e C++""",
+        eng = """'/ccpp': Returns a media file related to the C and C++"""
       ),
       "crap" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato alla parola "crap"""",
-        eng = """Returns a media file related to the word "crap""""
+        ita = """'/crap': Restituisce un media file correlato alla parola "crap"""",
+        eng = """'/crap': Returns a media file related to the word "crap""""
       ),
       "emacs" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato a Emacs""",
-        eng = """Returns a media file related to Emacs"""
+        ita = """'/emacs': Restituisce un media file correlato a Emacs""",
+        eng = """'/emacs': Returns a media file related to Emacs"""
       ),
       "extra" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file extra""",
-        eng = """Returns an extra media file"""
+        ita = """'/extra': Restituisce un media file extra""",
+        eng = """'/extra': Returns an extra media file"""
       ),
       "fak" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato alla parola "fak"""",
-        eng = """Returns a media file related to the word "fak""""
+        ita = """'/fak': Restituisce un media file correlato alla parola "fak"""",
+        eng = """'/fak': Returns a media file related to the word "fak""""
       ),
       "fakhead" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato alla parola "fakhead"""",
-        eng = """Returns a media file related to the word "fakhead""""
+        ita = """'/fakhead': Restituisce un media file correlato alla parola "fakhead"""",
+        eng = """'/fakhead': Returns a media file related to the word "fakhead""""
       ),
       "google" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato a Google""",
-        eng = """Returns a media file related to Google"""
+        ita = """'/google': Restituisce un media file correlato a Google""",
+        eng = """'/google': Returns a media file related to Google"""
       ),
       "idiocy" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato alla parola "idiocy"""",
-        eng = """Returns a media file related to the word "idiocy""""
+        ita = """'/idiocy': Restituisce un media file correlato alla parola "idiocy"""",
+        eng = """'/idiocy': Returns a media file related to the word "idiocy""""
       ),
       "idiots" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato alla parola "idiots"""",
-        eng = """Returns a media file related to the word "idiots""""
+        ita = """'/idiots': Restituisce un media file correlato alla parola "idiots"""",
+        eng = """'/idiots': Returns a media file related to the word "idiots""""
       ),
       "laugh" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato alla risata di Xah Lee""",
-        eng = """Returns a Xah Lee's laugh"""
+        ita = """'/laugh': Restituisce un media file correlato alla risata di Xah Lee""",
+        eng = """'/laugh': Returns a Xah Lee's laugh"""
       ),
       "linux" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato a Linux""",
-        eng = """Returns a media file related to Linux"""
+        ita = """'/linux': Restituisce un media file correlato a Linux""",
+        eng = """'/linux': Returns a media file related to Linux"""
       ),
       "millennial" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato ai millennials""",
-        eng = """Returns a media file related to the millennials"""
+        ita = """'/millennial': Restituisce un media file correlato ai millennials""",
+        eng = """'/millennial': Returns a media file related to the millennials"""
       ),
       "opensource" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato all'open source""",
-        eng = """Returns a media file related to open source"""
+        ita = """'/opensource': Restituisce un media file correlato all'open source""",
+        eng = """'/opensource': Returns a media file related to open source"""
       ),
       "opera" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato a Opera""",
-        eng = """Returns a media file related to Opera"""
+        ita = """'/opera': Restituisce un media file correlato a Opera""",
+        eng = """'/opera': Returns a media file related to Opera"""
       ),
       "python" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato a Python""",
-        eng = """Returns a media file related to Python"""
+        ita = """'/python': Restituisce un media file correlato a Python""",
+        eng = """'/python': Returns a media file related to Python"""
       ),
       "rantcompilation" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce una delle compilation di rant""",
-        eng = """Returns a Xah Lee's rant compilation"""
+        ita = """'/rantcompilation': Restituisce una delle compilation di rant""",
+        eng = """'/rantcompilation': Returns a Xah Lee's rant compilation"""
       ),
       "richardstallman" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato a Richard Stallman""",
-        eng = """Returns a media file related to Richard Stallman"""
+        ita = """'/richardstallman': Restituisce un media file correlato a Richard Stallman""",
+        eng = """'/richardstallman': Returns a media file related to Richard Stallman"""
       ),
       "sucks" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato alla parola "sucks"""",
-        eng = """Returns a media file related to the word "sucks""""
+        ita = """'/sucks': Restituisce un media file correlato alla parola "sucks"""",
+        eng = """'/sucks': Returns a media file related to the word "sucks""""
       ),
       "unix" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato a Unix""",
-        eng = """Returns a media file related to Unix"""
+        ita = """'/unix': Restituisce un media file correlato a Unix""",
+        eng = """'/unix': Returns a media file related to Unix"""
       ),
       "wtf" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato all'espressione "what the fak"""",
-        eng = """Returns a media file related to the expression "what the fak""""
+        ita = """'/wtf': Restituisce un media file correlato all'espressione "what the fak"""",
+        eng = """'/wtf': Returns a media file related to the expression "what the fak""""
       ),
       "zoomer" -> CommandInstructionSupportedLanguages.Instructions(
-        ita = """Restituisce un media file correlato ai zoomers""",
-        eng = """Returns a media file related to zoomers"""
+        ita = """'/zoomer': Restituisce un media file correlato ai zoomers""",
+        eng = """'/zoomer': Returns a media file related to zoomers"""
       )
     )
 }
