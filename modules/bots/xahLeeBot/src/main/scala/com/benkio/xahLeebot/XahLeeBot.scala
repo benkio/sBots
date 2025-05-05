@@ -85,25 +85,20 @@ object XahLeeBot {
         botPrefix = botPrefix
       )
 
-  def buildPollingBot[F[_]: Parallel: Async: Network, A](
-      action: XahLeeBotPolling[F] => F[A]
-  )(using log: LogWriter[F]): F[A] = (for {
-    httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-    botSetup <- BotSetup(
-      httpClient = httpClient,
-      tokenFilename = tokenFilename,
-      namespace = configNamespace,
-      botName = botName
-    )
-  } yield botSetup).use { botSetup =>
-    action(
-      new XahLeeBotPolling[F](
-        resourceAccess = botSetup.resourceAccess,
-        dbLayer = botSetup.dbLayer,
-        backgroundJobManager = botSetup.backgroundJobManager
-      )(using Parallel[F], Async[F], botSetup.api, log)
-    )
-  }
+  def buildPollingBot[F[_]: Parallel: Async: Network](using log: LogWriter[F]): Resource[F, XahLeeBotPolling[F]] =
+    for {
+      httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+      botSetup <- BotSetup(
+        httpClient = httpClient,
+        tokenFilename = tokenFilename,
+        namespace = configNamespace,
+        botName = botName
+      )
+    } yield new XahLeeBotPolling[F](
+      resourceAccess = botSetup.resourceAccess,
+      dbLayer = botSetup.dbLayer,
+      backgroundJobManager = botSetup.backgroundJobManager
+    )(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
