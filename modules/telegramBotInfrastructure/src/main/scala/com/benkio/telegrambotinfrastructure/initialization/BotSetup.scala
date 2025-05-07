@@ -12,7 +12,6 @@ import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.web.UrlFetcher
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.Config
 import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.*
@@ -72,7 +71,7 @@ object BotSetup {
       )
     yield tokenFileContent
 
-  def loadDB[F[_]: Async](config: Config)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
+  def loadDB[F[_]: Async](config: DBConfig)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(
       DBLayer[F](
         Transactor.fromDriverManager[F](
@@ -96,7 +95,7 @@ object BotSetup {
     config     <- Resource.eval(Config.loadConfig[F](namespace))
     _          <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
     urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
-    dbLayer    <- loadDB[F](config)
+    dbLayer    <- loadDB[F](config.db)
     resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)

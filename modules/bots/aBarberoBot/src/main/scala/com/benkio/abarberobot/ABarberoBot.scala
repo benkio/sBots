@@ -96,7 +96,7 @@ object ABarberoBot {
   val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/master/modules/bots/aBarberoBot/abar_triggers.txt"
   val triggerFilename: String = "abar_triggers.txt"
   val tokenFilename: String   = "abar_ABarberoBot.token"
-  val configNamespace: String = "abarDB"
+  val configNamespace: String = "abar"
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     Audio.messageRepliesAudioData[F]

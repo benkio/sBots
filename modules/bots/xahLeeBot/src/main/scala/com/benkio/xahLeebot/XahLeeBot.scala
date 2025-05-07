@@ -67,7 +67,7 @@ object XahLeeBot {
   val botName: String         = "XahLeeBot"
   val botPrefix: String       = "xah"
   val tokenFilename: String   = "xah_XahLeeBot.token"
-  val configNamespace: String = "xahDB"
+  val configNamespace: String = "xah"
   val triggerFilename: String = "xah_triggers.txt"
   val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/master/modules/bots/XahLeeBot/xah_triggers.txt"
 

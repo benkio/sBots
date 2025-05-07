@@ -75,7 +75,7 @@ object CalandroBot {
   val botName: String         = "CalandroBot"
   val botPrefix: String       = "cala"
   val tokenFilename: String   = "cala_CalandroBot.token"
-  val configNamespace: String = "calaDB"
+  val configNamespace: String = "cala"
   val triggerFilename: String = "cala_triggers.txt"
   val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/master/modules/bots/CalandroBot/abar_triggers.txt"
 
