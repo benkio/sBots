@@ -100,7 +100,7 @@ object YouTuboAncheI0Bot {
     uri"https://github.com/benkio/sBots/blob/master/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   val triggerFilename: String = "ytai_triggers.txt"
   val tokenFilename: String   = "ytai_YouTuboAncheI0Bot.token"
-  val configNamespace: String = "ytaiDB"
+  val configNamespace: String = "ytai"
 
   def messageRepliesAudioData[
       F[_]: Applicative

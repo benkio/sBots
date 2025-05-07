@@ -92,7 +92,7 @@ object M0sconiBot {
   val botPrefix: String                   = "mos"
   val triggerListUri: Uri   = uri"https://github.com/benkio/sBots/blob/master/modules/bots/m0sconiBot/mos_triggers.txt"
   val tokenFilename: String = "mos_M0sconiBot.token"
-  val configNamespace: String = "mosDB"
+  val configNamespace: String = "mos"
 
   def messageRepliesAudioData[
       F[_]: Applicative

@@ -1,11 +1,12 @@
-package com.benkio.telegrambotinfrastructure
+package com.benkio.telegrambotinfrastructure.initialization
 
 import cats.*
 import cats.implicits.*
 import log.effect.LogWriter
 import pureconfig.*
 
-final case class Config(
+final case class Config(db: DBConfig) derives ConfigReader
+final case class DBConfig(
     driver: String,
     dbName: String,
     url: String
