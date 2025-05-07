@@ -44,11 +44,11 @@ then
     then
         echo "-------------------------Run Polling Bots-------------------------"
         cp ./botDB.sqlite3 ./modules/main/target/
-        (cd ./modules/main/target/scala-3.6.3/; java -cp main.jar com.benkio.main.MainPolling)
+        (cd ./modules/main/target/scala-3.6.4/; java -cp main.jar com.benkio.main.MainPolling)
     else
         echo "-------------------------Run Webhook Bots-------------------------"
         cp ./botDB.sqlite3 ./modules/main/target/
-        (cd ./modules/main/target/scala-3.6.3/; java -cp main.jar com.benkio.main.MainWebhook)
+        (cd ./modules/main/target/scala-3.6.4/; java -cp main.jar com.benkio.main.MainWebhook)
     fi
 
 

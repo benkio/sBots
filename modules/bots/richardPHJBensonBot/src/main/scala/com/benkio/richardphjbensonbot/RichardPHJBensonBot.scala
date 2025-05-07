@@ -104,7 +104,7 @@ object RichardPHJBensonBot {
   val triggerListUri: Uri =
     uri"https://github.com/benkio/sBots/blob/master/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
-  val configNamespace: String = "rphjbDB"
+  val configNamespace: String = "rphjb"
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
