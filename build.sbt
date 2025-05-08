@@ -12,7 +12,7 @@ checkJsonFiles := JsonCheck.checkJsonFilesImpl.value
 
 name                     := "sBots"
 organization             := "com.benkio"
-ThisBuild / scalaVersion := "3.6.4"
+ThisBuild / scalaVersion := "3.7.0"
 ThisBuild / scalacOptions ++= Seq("-java-output-version", "17")
 
 enablePlugins(FlywayPlugin)
