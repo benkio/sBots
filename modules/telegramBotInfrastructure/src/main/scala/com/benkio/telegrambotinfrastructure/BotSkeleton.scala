@@ -56,9 +56,6 @@ abstract class BotSkeletonWebhook[F[_]: Async: Api: LogWriter](
 
 trait BotSkeleton[F[_]: Async: LogWriter] {
 
-  // val Async[F]: Async[F]
-  // val log: LogWriter[F]
-
   // Configuration values & functions /////////////////////////////////////////////////////
   def resourceAccess: ResourceAccess[F]   = ResourceAccess.fromResources[F]()
   val ignoreMessagePrefix: Option[String] = Some("!")
