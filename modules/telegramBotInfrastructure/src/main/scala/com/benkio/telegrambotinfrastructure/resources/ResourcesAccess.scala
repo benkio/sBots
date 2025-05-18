@@ -55,7 +55,8 @@ object ResourceAccess {
       .map(_.getLines.mkString("\n"))
       .handleErrorWith((e: Throwable) =>
         Resource.eval(LogWriter.error(s"[ResourcesAccess] `fileToString` failed with $e")) >>
-        Resource.pure[F, String](""))
+          Resource.pure[F, String]("")
+      )
 
   def buildPath(subResourceFilePath: String, stage: Option[String] = None): Path =
     Paths.get(
@@ -206,7 +207,8 @@ object ResourceAccess {
                   .fetchFromDropbox(mediaName, uri)
                   .onError(e =>
                     Resource.eval(
-                      LogWriter.error(s"[ResourcesAccess] Uri $uri for $dbMediaData failed to fetch the data with error: $e")
+                      LogWriter
+                        .error(s"[ResourcesAccess] Uri $uri for $dbMediaData failed to fetch the data with error: $e")
                     )
                   )
               )

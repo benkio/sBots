@@ -4,10 +4,10 @@ import cats.*
 import cats.data.OptionT
 import cats.effect.*
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.messagefiltering.isCommand
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.messagefiltering.isCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage

@@ -1,5 +1,6 @@
 package com.benkio.richardphjbensonbot
 
+import annotation.unused
 import cats.*
 import cats.effect.*
 import cats.implicits.*
@@ -36,11 +37,12 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F](resourceAccess)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(using syncF: Async[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
-  override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
+    resourceAccess
+  override def postComputation(using @unused appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using
-      applicativeF: Applicative[F]
+      @unused applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 }
@@ -54,11 +56,12 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess(using syncF: Async[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
-  override def postComputation(using appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
+    resourceAccess
+  override def postComputation(using @unused appF: Applicative[F]): Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using
-      applicativeF: Applicative[F]
+      @unused applicativeF: Applicative[F]
   ): (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 }
@@ -75,7 +78,7 @@ trait RichardPHJBensonBot[F[_]] extends BotSkeleton[F] {
 
   override def messageRepliesDataF(using
       applicativeF: Applicative[F],
-      log: LogWriter[F]
+      @unused log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 

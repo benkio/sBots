@@ -38,7 +38,8 @@ class SampleWebhookBot(
     webhookCertificate: Option[InputPartFile] = None
 )(using logWriterIO: LogWriter[IO])
     extends BotSkeletonWebhook[IO](uri, path, webhookCertificate, resourceAccess) {
-  override def resourceAccess(using @unused AsyncF: Async[IO], @unused log: LogWriter[IO]): ResourceAccess[IO] = resourceAccess
+  override def resourceAccess(using @unused AsyncF: Async[IO], @unused log: LogWriter[IO]): ResourceAccess[IO] =
+    resourceAccess
   override def postComputation(using @unused appIO: Applicative[IO]): Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using
@@ -103,7 +104,10 @@ class SampleWebhookBot(
     )
   ).pure[IO]
 
-  override def commandRepliesDataF(using asyncIO: Async[IO], @unused log: LogWriter[IO]): IO[List[ReplyBundleCommand[IO]]] =
+  override def commandRepliesDataF(using
+      asyncIO: Async[IO],
+      @unused log: LogWriter[IO]
+  ): IO[List[ReplyBundleCommand[IO]]] =
     List(
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),

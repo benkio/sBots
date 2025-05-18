@@ -36,14 +36,14 @@ class ReplyBundleSpec extends CatsEffectSuite {
       val _ = summon[LogWriter[F]]
       val _ = summon[Api[F]]
       (reply match {
-      case _: Mp3File   => List(msg.copy(text = Some("Mp3")))
-      case _: GifFile   => List(msg.copy(text = Some("Gif")))
-      case _: PhotoFile => List(msg.copy(text = Some("Photo")))
-      case _: VideoFile => List(msg.copy(text = Some("Video")))
-      case _: Text      => List(msg.copy(text = Some("Text")))
-      case _: Document  => List(msg.copy(text = Some("Document")))
-      case _: Sticker   => List(msg.copy(text = Some("Sticker")))
-    }).pure[F]
+        case _: Mp3File   => List(msg.copy(text = Some("Mp3")))
+        case _: GifFile   => List(msg.copy(text = Some("Gif")))
+        case _: PhotoFile => List(msg.copy(text = Some("Photo")))
+        case _: VideoFile => List(msg.copy(text = Some("Video")))
+        case _: Text      => List(msg.copy(text = Some("Text")))
+        case _: Document  => List(msg.copy(text = Some("Document")))
+        case _: Sticker   => List(msg.copy(text = Some("Sticker")))
+      }).pure[F]
   }
 
   val inputMediafile: List[MediaFile] = List(

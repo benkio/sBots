@@ -40,7 +40,8 @@ class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F](resourceAccess)
     with CalandroBot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
+    resourceAccess
 }
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
@@ -51,7 +52,8 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with CalandroBot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
+    resourceAccess
 }
 
 trait CalandroBot[F[_]] extends BotSkeleton[F] {
