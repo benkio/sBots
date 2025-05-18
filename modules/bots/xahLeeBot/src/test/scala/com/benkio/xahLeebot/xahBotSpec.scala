@@ -52,7 +52,7 @@ class XahLeeBotSpec extends BaseBotSpec {
     botName = "XahLeeBot"
   ).map(bjm =>
     new XahLeeBotPolling[IO](
-      resourceAccess = resourceAccessMock,
+      resourceAccessInput = resourceAccessMock,
       dbLayer = emptyDBLayer,
       backgroundJobManager = bjm
     )

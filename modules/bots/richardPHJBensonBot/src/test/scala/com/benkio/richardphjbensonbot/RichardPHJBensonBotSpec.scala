@@ -58,7 +58,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     botName = "RichardPHJBensonBot"
   ).map(bjm =>
     new RichardPHJBensonBotPolling[IO](
-      resourceAccess = resourceAccessMock,
+      resourceAccessInput = resourceAccessMock,
       dbLayer = emptyDBLayer,
       backgroundJobManager = bjm
     )

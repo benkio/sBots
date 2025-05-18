@@ -54,7 +54,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
     "youTuboAncheI0Bot"
   ).map(bjm =>
     new YouTuboAncheI0BotPolling[IO](
-      resourceAccess = resourceAccessMock,
+      resourceAccessInput = resourceAccessMock,
       dbLayer = emptyDBLayer,
       backgroundJobManager = bjm
     )

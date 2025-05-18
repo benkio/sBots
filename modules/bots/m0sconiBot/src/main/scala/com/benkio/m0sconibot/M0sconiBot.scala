@@ -1,6 +1,5 @@
 package com.benkio.m0sconibot
 
-import annotation.unused
 import cats.*
 import cats.effect.*
 import cats.implicits.*
@@ -30,41 +29,37 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    val resourceAccess: ResourceAccess[F],
+    val resourceAccessInput: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
-) extends BotSkeletonPolling[F](resourceAccess)
+) extends BotSkeletonPolling[F](resourceAccessInput)
     with M0sconiBot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
-    resourceAccess
-  override def postComputation(using @unused appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess: ResourceAccess[F] =
+    resourceAccessInput
+  override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(using
-      @unused applicativeF: Applicative[F]
-  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 }
 
 class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resourceAccess: ResourceAccess[F],
+    resourceAccessInput: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccessInput)
     with M0sconiBot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
+  override def resourceAccess: ResourceAccess[F] =
     resourceAccess
-  override def postComputation(using @unused appF: Applicative[F]): Message => F[Unit] =
+  override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(using
-      @unused applicativeF: Applicative[F]
-  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 }
 
-trait M0sconiBot[F[_]] extends BotSkeleton[F] {
+trait M0sconiBot[F[_]: Async: LogWriter] extends BotSkeleton[F] {
 
   override val botName: String                     = M0sconiBot.botName
   override val botPrefix: String                   = M0sconiBot.botPrefix
@@ -73,13 +68,10 @@ trait M0sconiBot[F[_]] extends BotSkeleton[F] {
   override val triggerListUri: Uri                 = M0sconiBot.triggerListUri
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override def messageRepliesDataF(using
-      applicativeF: Applicative[F],
-      @unused log: LogWriter[F]
-  ): F[List[ReplyBundleMessage[F]]] =
+  override def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
     M0sconiBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     M0sconiBot
       .commandRepliesData[F](
         dbLayer = dbLayer
@@ -142,7 +134,7 @@ object M0sconiBot {
         botName = botName
       )
     } yield new M0sconiBotPolling[F](
-      resourceAccess = botSetup.resourceAccess,
+      resourceAccessInput = botSetup.resourceAccess,
       dbLayer = botSetup.dbLayer,
       backgroundJobManager = botSetup.backgroundJobManager
     )(using Parallel[F], Async[F], botSetup.api, log)
@@ -162,7 +154,7 @@ object M0sconiBot {
       new M0sconiBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resourceAccess = botSetup.resourceAccess,
+        resourceAccessInput = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate

@@ -56,7 +56,7 @@ class M0sconiBotSpec extends BaseBotSpec {
       M0sconiBot.botName
     ).map(bjm =>
       new M0sconiBotPolling[IO](
-        resourceAccess = resourceAccessMock,
+        resourceAccessInput = resourceAccessMock,
         dbLayer = emptyDBLayer,
         backgroundJobManager = bjm
       )
