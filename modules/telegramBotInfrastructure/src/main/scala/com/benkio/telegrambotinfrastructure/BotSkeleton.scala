@@ -4,10 +4,10 @@ import cats.*
 import cats.data.OptionT
 import cats.effect.*
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.messagefiltering.isCommand
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageOps
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
@@ -89,20 +89,20 @@ trait BotSkeleton[F[_]] {
 
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
-  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleMessage[F]]] =
+  )(using asyncF: Async[F], log: LogWriter[F]): F[Option[ReplyBundleMessage[F]]] =
     messageRepliesDataF.map(
       _.mapFilter(messageReplyBundle =>
         MessageMatches
           .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
           .filter(_ => FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg))
-      ).sortBy(_._1)(Trigger.orderingInstance.reverse)
+      ).sortBy(_._1)(using Trigger.orderingInstance.reverse)
         .headOption
         .map(_._2)
     )
 
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
-  )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[ReplyBundleCommand[F]]] =
+  )(using asyncF: Async[F], log: LogWriter[F]): F[Option[ReplyBundleCommand[F]]] =
     for
       allCommands <- allCommandRepliesDataF(using asyncF, log)
       result = msg.text.flatMap(text =>
@@ -154,7 +154,7 @@ trait BotSkeleton[F[_]] {
   )(using asyncF: Async[F], api: Api[F], log: LogWriter[F]): F[Option[List[Message]]] =
     for {
       messagesOpt <-
-        if !MessageOps.isCommand(msg) then messageLogic(resourceAccess, msg)(using asyncF, api, log)
+        if !msg.isCommand then messageLogic(resourceAccess, msg)(using asyncF, api, log)
         else Async[F].pure[Option[List[Message]]](None)
       commandsOpt <- commandLogic(resourceAccess, msg)
     } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)

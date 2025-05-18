@@ -3,7 +3,6 @@ package com.benkio.integration.integrationmunit.calandrobot
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.calandrobot.CalandroBot
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle

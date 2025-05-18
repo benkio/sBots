@@ -1,7 +1,9 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import telegramium.bots.Message
-object MessageOps {
-  def isCommand(msg: Message): Boolean =
+
+extension (msg: Message)
+  def isCommand: Boolean =
     msg.text.fold(false)(t => t.startsWith("/"))
-}
+  def getContent: Option[String] =
+    msg.text.orElse(msg.caption)

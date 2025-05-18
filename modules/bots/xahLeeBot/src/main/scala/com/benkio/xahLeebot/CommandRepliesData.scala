@@ -27,11 +27,10 @@ object CommandRepliesData {
       dbSubscription = dbLayer.dbSubscription,
       backgroundJobManager = backgroundJobManager,
       botName = botName
-    ) ++ customCommands(dbMedia = dbLayer.dbMedia, botName = botName, botPrefix = botPrefix)
+    ) ++ customCommands(dbMedia = dbLayer.dbMedia, botPrefix = botPrefix)
 
   def customCommands[F[_]: Async](
       dbMedia: DBMedia[F],
-      botName: String,
       botPrefix: String
   )(using
       log: LogWriter[F]
@@ -44,7 +43,6 @@ object CommandRepliesData {
     ) ++ xahCustomCommands.map { case (command, instruction) =>
       MediaByKindCommand.mediaCommandByKind(
         dbMedia = dbMedia,
-        botName = botName,
         commandName = command,
         kind = command.some,
         instruction = instruction

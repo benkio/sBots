@@ -33,12 +33,15 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    def reply[F[_]: Async: LogWriter: Api](
+    override def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
         msg: Message,
         resourceAccess: ResourceAccess[F],
         replyToMessage: Boolean
-    ): F[List[Message]] = Async[F].pure(List.empty[Message])
+    ): F[List[Message]] =
+      val _ = summon[LogWriter[F]]
+      val _ = summon[Api[F]]
+      Async[F].pure(List.empty[Message])
   }
 
   val mediaResource: MediaResourceIFile[IO] =

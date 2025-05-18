@@ -27,20 +27,23 @@ class ReplyBundleSpec extends CatsEffectSuite {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    def reply[F[_]: Async: LogWriter: Api](
+    override def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
         msg: Message,
         resourceAccess: ResourceAccess[F],
         replyToMessage: Boolean
-    ): F[List[Message]] = (reply match {
-      case _: Mp3File   => List(msg.copy(text = Some("Mp3")))
-      case _: GifFile   => List(msg.copy(text = Some("Gif")))
-      case _: PhotoFile => List(msg.copy(text = Some("Photo")))
-      case _: VideoFile => List(msg.copy(text = Some("Video")))
-      case _: Text      => List(msg.copy(text = Some("Text")))
-      case _: Document  => List(msg.copy(text = Some("Document")))
-      case _: Sticker   => List(msg.copy(text = Some("Sticker")))
-    }).pure[F]
+    ): F[List[Message]] =
+      val _ = summon[LogWriter[F]]
+      val _ = summon[Api[F]]
+      (reply match {
+        case _: Mp3File   => List(msg.copy(text = Some("Mp3")))
+        case _: GifFile   => List(msg.copy(text = Some("Gif")))
+        case _: PhotoFile => List(msg.copy(text = Some("Photo")))
+        case _: VideoFile => List(msg.copy(text = Some("Video")))
+        case _: Text      => List(msg.copy(text = Some("Text")))
+        case _: Document  => List(msg.copy(text = Some("Document")))
+        case _: Sticker   => List(msg.copy(text = Some("Sticker")))
+      }).pure[F]
   }
 
   val inputMediafile: List[MediaFile] = List(

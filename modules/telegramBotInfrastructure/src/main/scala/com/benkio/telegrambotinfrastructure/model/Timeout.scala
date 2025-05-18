@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
 
 import java.time.Instant

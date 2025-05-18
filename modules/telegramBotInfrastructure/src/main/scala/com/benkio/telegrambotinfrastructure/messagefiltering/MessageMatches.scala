@@ -8,7 +8,6 @@ import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.*
-import io.circe.generic.semiauto.*
 import telegramium.bots.Message
 
 enum MessageMatches:
@@ -25,7 +24,7 @@ object MessageMatches {
         case _              => Left(s"$s not recognized when decoding `MessageMatches`")
       }
     )
-  given Encoder[MessageMatches] = Encoder[MessageMatches](mm => Json.fromString(mm.toString))
+  given Encoder[MessageMatches] = Encoder[MessageMatches](using mm => Json.fromString(mm.toString))
 
   def doesMatch[F[_]](
       replyBundleMessage: ReplyBundleMessage[F],
@@ -47,12 +46,12 @@ object MessageMatches {
         Some((LeftMemberTrigger, replyBundleMessage))
       case (_, ContainsOnce, TextTrigger(triggers*), Some(messageText)) =>
         triggers
-          .sorted(TextTriggerValue.orderingInstance.reverse)
+          .sorted(using TextTriggerValue.orderingInstance.reverse)
           .find(TextTriggerValue.matchValue(_, messageText.toLowerCase()))
           .map(t => (TextTrigger(t), replyBundleMessage))
       case (_, ContainsAll, TextTrigger(triggers*), Some(messageText))
           if triggers.forall(TextTriggerValue.matchValue(_, messageText.toLowerCase())) =>
-        Some((TextTrigger(triggers.sorted(TextTriggerValue.orderingInstance.reverse)*), replyBundleMessage))
+        Some((TextTrigger(triggers.sorted(using TextTriggerValue.orderingInstance.reverse)*), replyBundleMessage))
       case _ => None
     }
 }

@@ -86,7 +86,7 @@ object DBLayerMock {
     ): IO[List[DBMediaData]] =
       db.get.map(
         _.filter(m => mediaNamePrefix.fold(true)(pr => m.media_name.startsWith(pr)))
-          .sortBy(_.media_count)(Ordering.Int.reverse)
+          .sortBy(_.media_count)(using Ordering.Int.reverse)
           .take(limit)
       )
     override def incrementMediaCount(filename: String): IO[Unit] =

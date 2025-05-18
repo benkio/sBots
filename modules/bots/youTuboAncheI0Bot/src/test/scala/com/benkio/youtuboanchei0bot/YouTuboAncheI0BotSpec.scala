@@ -34,7 +34,10 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
         msg: Message,
         resourceAccess: ResourceAccess[F],
         replyToMessage: Boolean
-    ): F[List[Message]] = Async[F].pure(List.empty[Message])
+    ): F[List[Message]] =
+      val _ = summon[LogWriter[F]]
+      val _ = summon[Api[F]]
+      Async[F].pure(List.empty[Message])
   }
 
   val mediaResource: MediaResourceIFile[IO] =

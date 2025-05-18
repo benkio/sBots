@@ -24,7 +24,7 @@ final case class TextReply[F[_]](
 ) extends Reply[F]
 
 object TextReply:
-  def fromList[F[_]: Applicative](values: String*)(
+  def fromList[F[_]](values: String*)(
       replyToMessage: Boolean
   ): TextReply[F] =
     TextReply(

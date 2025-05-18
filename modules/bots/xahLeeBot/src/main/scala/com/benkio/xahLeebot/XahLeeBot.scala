@@ -1,5 +1,6 @@
 package com.benkio.xahleebot
 
+import annotation.unused
 import cats.*
 import cats.effect.*
 import cats.implicits.*
@@ -27,7 +28,8 @@ class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     val backgroundJobManager: BackgroundJobManager[F]
 ) extends BotSkeletonPolling[F](resourceAccess)
     with XahLeeBot[F] {
-  override def resourceAccess(using syncF: Async[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
+    resourceAccess
 }
 
 class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
@@ -39,7 +41,8 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with XahLeeBot[F] {
-  override def resourceAccess(using syncF: Async[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
+    resourceAccess
 }
 
 trait XahLeeBot[F[_]] extends BotSkeleton[F] {
@@ -71,7 +74,7 @@ object XahLeeBot {
   val triggerFilename: String = "xah_triggers.txt"
   val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/master/modules/bots/XahLeeBot/xah_triggers.txt"
 
-  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List.empty
+  def messageRepliesData[F[_]]: List[ReplyBundleMessage[F]] = List.empty
 
   def commandRepliesData[F[_]: Async: LogWriter](
       backgroundJobManager: BackgroundJobManager[F],
