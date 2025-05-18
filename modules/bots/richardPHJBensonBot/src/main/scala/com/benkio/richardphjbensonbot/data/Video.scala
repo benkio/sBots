@@ -169,6 +169,8 @@ object Video {
       "cervello pensante",
       "stupidità",
       "incresciosa",
+      "sfodo di liberazione",
+      "quinto pezzo",
       "far[e]? ridere".r.tr(10)
     )(
       vid"rphjb_CervelloPensante.mp4"
@@ -2057,7 +2059,7 @@ object Video {
       vid"rphjb_SeguireTuttiListaPersone.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "romeo",
+      "(storia di )romeo".r.tr(5),
       "(settanta |settant'|70 )anni",
       "actor studio",
       "new york",
