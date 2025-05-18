@@ -1,7 +1,6 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import cats.effect.IO
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData

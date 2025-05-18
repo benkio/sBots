@@ -103,7 +103,7 @@ object M0sconiBot {
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] =
     messageRepliesAudioData[F]
-      .sorted(ReplyBundle.orderingInstance[F])
+      .sorted(using ReplyBundle.orderingInstance[F])
       .reverse
 
   def commandRepliesData[

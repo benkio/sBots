@@ -165,7 +165,7 @@ object YouTuboAncheI0Bot {
     ] ++ messageRepliesVideoData[
       F
     ] ++ messageRepliesImageData[F])
-      .sorted(ReplyBundle.orderingInstance[F])
+      .sorted(using ReplyBundle.orderingInstance[F])
       .reverse
 
   def commandRepliesData[

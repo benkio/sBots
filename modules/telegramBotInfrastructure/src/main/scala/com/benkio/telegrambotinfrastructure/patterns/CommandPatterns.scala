@@ -48,18 +48,18 @@ object CommandPatterns {
 
     def mediaCommandByKindLogic[F[_]: Async](
         dbMedia: DBMedia[F],
-        botName: String,
         commandName: String,
         kind: Option[String]
     )(using log: LogWriter[F]): F[List[MediaFile]] =
       for
+        _ <- log.info(s"[MediaCommandByKind] Fetching DBMediaData for $kind")
         dbMediaDatas <- dbMedia.getMediaByKind(kind = kind.getOrElse(commandName))
+        _ <- log.info(s"[MediaCommandByKind] Convert to Media")
         medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
       yield medias.map(media => MediaFile.fromMimeType(media))
 
     def mediaCommandByKind[F[_]: Async](
         dbMedia: DBMedia[F],
-        botName: String,
         commandName: String,
         kind: Option[String],
         instruction: CommandInstructionSupportedLanguages
@@ -68,7 +68,7 @@ object CommandPatterns {
         trigger = CommandTrigger(commandName),
         reply = MediaReply[F](
           mediaFiles =
-            mediaCommandByKindLogic(dbMedia = dbMedia, botName = botName, commandName = commandName, kind = kind)
+            mediaCommandByKindLogic(dbMedia = dbMedia, commandName = commandName, kind = kind)
         ),
         instruction = instruction
       )
@@ -81,16 +81,18 @@ object CommandPatterns {
     private val randomDataCommandEng: String =
       """'/random': Returns a random data (photo/video/audio/text) about the bot character"""
 
-    def randomCommandLogic[F[_]: Async](dbMedia: DBMedia[F], botPrefix: String): F[MediaFile] =
+    def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], botPrefix: String): F[MediaFile] =
       for
+        _ <- LogWriter.info(s"[RandomCommand] Fetching random media for $botPrefix")
         dbMediaData <- dbMedia.getRandomMedia(botPrefix)
+        _ <- LogWriter.info(s"[RandomCommand] Convert DBMediaData to Media")
         media       <- Async[F].fromEither(Media(dbMediaData))
       yield MediaFile.fromMimeType(media)
 
-    def randomDataReplyBundleCommand[F[_]: Async](
+    def randomDataReplyBundleCommand[F[_]: Async: LogWriter](
         dbMedia: DBMedia[F],
         botPrefix: String
-    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
+    ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("random"),
         reply = MediaReply[F](
@@ -193,7 +195,7 @@ Input as query string:
     def triggerListLogic(triggerFileUri: Uri): String =
       s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri"
 
-    private[patterns] def triggerListReplyBundleCommand[F[_]: Applicative](triggerFileUri: Uri): ReplyBundleCommand[F] =
+    private[patterns] def triggerListReplyBundleCommand[F[_]](triggerFileUri: Uri): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
         reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true),
@@ -219,7 +221,7 @@ Input as query string:
       t =>
         val matches = mdr
           .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
-          .sortBy(_._1)(Trigger.orderingInstance.reverse)
+          .sortBy(_._1)(using Trigger.orderingInstance.reverse)
         if matches.isEmpty
         then List(s"No matching trigger for $t").pure[F]
         else matches.traverse { case (_, rbm) => rbm.prettyPrint() }
@@ -299,7 +301,7 @@ ${ignoreMessagePrefix
       val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
       val (commandDescriptionsIta, commandDescriptionsEng) =
         commands
-          .unzip(cmd => (cmd.instruction.toIta.toList, cmd.instruction.toEng.toList))
+          .unzip(using cmd => (cmd.instruction.toIta.toList, cmd.instruction.toEng.toList))
       val instructionsIta = List(
         instructionMessageIta(
           botName = botName,

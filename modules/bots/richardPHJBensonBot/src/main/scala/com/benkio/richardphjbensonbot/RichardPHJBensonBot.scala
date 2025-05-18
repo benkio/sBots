@@ -110,7 +110,7 @@ object RichardPHJBensonBot {
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
       F
     ] ++ messageRepliesSpecialData[F])
-      .sorted(ReplyBundle.orderingInstance[F])
+      .sorted(using ReplyBundle.orderingInstance[F])
       .reverse
 
   val bensonifyCommandDescriptionIta: String =

@@ -123,7 +123,7 @@ object ABarberoBot {
     (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
       F
     ])
-      .sorted(ReplyBundle.orderingInstance[F])
+      .sorted(using ReplyBundle.orderingInstance[F])
       .reverse
 
   def commandRepliesData[F[_]: Async](

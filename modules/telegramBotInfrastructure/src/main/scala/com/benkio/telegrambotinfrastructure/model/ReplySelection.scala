@@ -52,5 +52,5 @@ object ReplySelection {
         case _                 => Left(s"$s not recognized when decoding `ReplySelection`")
       }
     )
-  given Encoder[ReplySelection] = Encoder[ReplySelection](rs => Json.fromString(rs.toString))
+  given Encoder[ReplySelection] = Encoder[ReplySelection](using rs => Json.fromString(rs.toString))
 }

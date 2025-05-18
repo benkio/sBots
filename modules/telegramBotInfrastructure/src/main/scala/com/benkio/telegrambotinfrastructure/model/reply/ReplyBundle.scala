@@ -87,7 +87,7 @@ object ReplyBundleMessage {
   )(photoFiles: Sticker*): ReplyBundleMessage[F] =
     textToMedia(triggers*)(photoFiles*)
 
-  def textToText[F[_]: Applicative](
+  def textToText[F[_]](
       triggers: (String | RegexTextTriggerValue)*
   )(texts: String*): ReplyBundleMessage[F] =
     ReplyBundleMessage[F](

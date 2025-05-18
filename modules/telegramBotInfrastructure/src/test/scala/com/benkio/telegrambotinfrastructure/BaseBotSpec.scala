@@ -163,7 +163,7 @@ trait BaseBotSpec extends CatsEffectSuite:
           )
           replyBundleMessages
             .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
-            .sortBy(_._1)(Trigger.orderingInstance.reverse)
+            .sortBy(_._1)(using Trigger.orderingInstance.reverse)
             .headOption
             .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
               assert(tr == TextTrigger(stringTrigger), s"$tr ≠ ${TextTrigger(stringTrigger)}")

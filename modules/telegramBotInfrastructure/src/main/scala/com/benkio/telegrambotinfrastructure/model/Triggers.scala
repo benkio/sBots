@@ -48,7 +48,7 @@ object TextTriggerValue {
     }
   )
 
-  given Encoder[StringTextTriggerValue] = Encoder[StringTextTriggerValue](sttv => Json.fromString(sttv.trigger))
+  given Encoder[StringTextTriggerValue] = Encoder[StringTextTriggerValue](using sttv => Json.fromString(sttv.trigger))
   given Decoder[StringTextTriggerValue] = Decoder.decodeString.map(StringTextTriggerValue(_))
   given Decoder[TextTriggerValue]       = deriveDecoder[TextTriggerValue]
   given Encoder[TextTriggerValue]       = deriveEncoder[TextTriggerValue]
@@ -101,7 +101,7 @@ object Trigger {
   given Encoder[MessageTrigger] = deriveEncoder[MessageTrigger]
 
   def triggerLongestString(trigger: Trigger): Int = trigger match {
-    case TextTrigger(lt*)          => lt.max(TextTriggerValue.orderingInstance).length
+    case TextTrigger(lt*)          => lt.max(using TextTriggerValue.orderingInstance).length
     case MessageLengthTrigger(_)   => 0
     case _: NewMemberTrigger.type  => 0
     case _: LeftMemberTrigger.type => 0

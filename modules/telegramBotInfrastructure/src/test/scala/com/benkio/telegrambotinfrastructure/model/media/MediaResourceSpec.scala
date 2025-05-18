@@ -3,7 +3,6 @@ package com.benkio.telegrambotinfrastructure.model.media
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.media
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import munit.*

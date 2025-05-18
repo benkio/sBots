@@ -4,6 +4,7 @@ import cats.*
 import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.messagefiltering.getContent
 import com.benkio.telegrambotinfrastructure.model.media.toTelegramApi
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.Document
@@ -230,7 +231,7 @@ object TelegramReply:
   }
 
   given telegramTextReply: TelegramReply[Text] = new TelegramReply[Text] {
-    def reply[F[_]: Async: LogWriter: Api](
+    override def reply[F[_]: Async: LogWriter: Api](
         reply: Text,
         msg: Message,
         resourceAccess: ResourceAccess[F],
@@ -239,6 +240,7 @@ object TelegramReply:
       val chatId: ChatId = ChatIntId(msg.chat.id)
       val result: EitherT[F, Throwable, List[Message]] =
         for {
+          _ <- EitherT.liftF(LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}"))
           _ <- Methods.sendChatAction(chatId, "typing").exec.attemptT
           message <-
             Methods
