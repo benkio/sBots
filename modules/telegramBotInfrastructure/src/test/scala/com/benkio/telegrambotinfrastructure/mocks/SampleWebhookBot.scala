@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
+import annotation.unused
 import cats.effect.Async
 import cats.effect.IO
 import cats.syntax.all.*
@@ -37,11 +38,11 @@ class SampleWebhookBot(
     webhookCertificate: Option[InputPartFile] = None
 )(using logWriterIO: LogWriter[IO])
     extends BotSkeletonWebhook[IO](uri, path, webhookCertificate, resourceAccess) {
-  override def resourceAccess(using AsyncF: Async[IO], log: LogWriter[IO]): ResourceAccess[IO] = resourceAccess
-  override def postComputation(using appIO: Applicative[IO]): Message => IO[Unit] =
+  override def resourceAccess(using @unused AsyncF: Async[IO], @unused log: LogWriter[IO]): ResourceAccess[IO] = resourceAccess
+  override def postComputation(using @unused appIO: Applicative[IO]): Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages(using
-      applicativeIO: Applicative[IO]
+      @unused applicativeIO: Applicative[IO]
   ): (ReplyBundleMessage[IO], Message) => IO[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 
@@ -54,7 +55,7 @@ class SampleWebhookBot(
 
   override def messageRepliesDataF(using
       applicativeIO: Applicative[IO],
-      log: LogWriter[IO]
+      @unused log: LogWriter[IO]
   ): IO[List[ReplyBundleMessage[IO]]] = List(
     ReplyBundleMessage.textToMp3[IO](
       "cosa preferisci",
@@ -102,7 +103,7 @@ class SampleWebhookBot(
     )
   ).pure[IO]
 
-  override def commandRepliesDataF(using asyncIO: Async[IO], log: LogWriter[IO]): IO[List[ReplyBundleCommand[IO]]] =
+  override def commandRepliesDataF(using asyncIO: Async[IO], @unused log: LogWriter[IO]): IO[List[ReplyBundleCommand[IO]]] =
     List(
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),

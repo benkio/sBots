@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure
 
 import cats.effect.IO
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+//import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
 import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3

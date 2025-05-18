@@ -1,5 +1,6 @@
 package com.benkio.calandrobot
 
+import annotation.unused
 import cats.*
 import cats.effect.*
 import cats.implicits.*
@@ -39,7 +40,7 @@ class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     val dbLayer: DBLayer[F]
 ) extends BotSkeletonPolling[F](resourceAccess)
     with CalandroBot[F] {
-  override def resourceAccess(using syncF: Async[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] = resourceAccess
 }
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
@@ -50,7 +51,7 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     webhookCertificate: Option[InputPartFile] = None
 ) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
     with CalandroBot[F] {
-  override def resourceAccess(using syncF: Async[F], log: LogWriter[F]): ResourceAccess[F] = resourceAccess
+  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] = resourceAccess
 }
 
 trait CalandroBot[F[_]] extends BotSkeleton[F] {
@@ -62,7 +63,7 @@ trait CalandroBot[F[_]] extends BotSkeleton[F] {
 
   override def messageRepliesDataF(using
       applicativeF: Applicative[F],
-      log: LogWriter[F]
+      @unused log: LogWriter[F]
   ): F[List[ReplyBundleMessage[F]]] =
     CalandroBot.messageRepliesData[F].pure[F]
 
@@ -166,7 +167,6 @@ object CalandroBot {
     List(
       MediaByKindCommand.mediaCommandByKind(
         dbMedia = dbLayer.dbMedia,
-        botName = CalandroBot.botName,
         commandName = "randomcard",
         kind = "cards".some,
         instruction = CommandInstructionSupportedLanguages.NoInstructions

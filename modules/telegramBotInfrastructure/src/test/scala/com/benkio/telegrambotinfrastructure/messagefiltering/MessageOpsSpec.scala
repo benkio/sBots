@@ -13,7 +13,7 @@ class MessageOpsSpec extends FunSuite {
       chat = Chat(id = 0, `type` = "test"),
       text = Some("/testCommand")
     )
-    assert(MessageOps.isCommand(inputMessage))
+    assert(inputMessage.isCommand)
   }
 
   test("MessageOps.isCommand should return false if the message is not a command") {
@@ -23,7 +23,7 @@ class MessageOpsSpec extends FunSuite {
       chat = Chat(id = 0, `type` = "test"),
       text = Some("simple message")
     )
-    assert(!MessageOps.isCommand(inputMessage))
-    assert(!MessageOps.isCommand(inputMessage.copy(text = None)))
+    assert(!inputMessage.isCommand)
+    assert(!inputMessage.copy(text = None).isCommand)
   }
 }
