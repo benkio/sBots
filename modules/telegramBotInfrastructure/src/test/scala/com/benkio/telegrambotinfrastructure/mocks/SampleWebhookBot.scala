@@ -1,10 +1,7 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
-import annotation.unused
-import cats.effect.Async
 import cats.effect.IO
 import cats.syntax.all.*
-import cats.Applicative
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.reply.gif
@@ -31,20 +28,18 @@ import telegramium.bots.Message
 
 class SampleWebhookBot(
     uri: Uri,
-    resourceAccess: ResourceAccess[IO],
+    resourceAccessInput: ResourceAccess[IO],
     val dbLayer: DBLayer[IO],
     val backgroundJobManager: BackgroundJobManager[IO],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
 )(using logWriterIO: LogWriter[IO])
-    extends BotSkeletonWebhook[IO](uri, path, webhookCertificate, resourceAccess) {
-  override def resourceAccess(using @unused AsyncF: Async[IO], @unused log: LogWriter[IO]): ResourceAccess[IO] =
-    resourceAccess
-  override def postComputation(using @unused appIO: Applicative[IO]): Message => IO[Unit] =
+    extends BotSkeletonWebhook[IO](uri, path, webhookCertificate, resourceAccessInput) {
+  override def resourceAccess: ResourceAccess[IO] =
+    resourceAccessInput
+  override def postComputation: Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(using
-      @unused applicativeIO: Applicative[IO]
-  ): (ReplyBundleMessage[IO], Message) => IO[Boolean] =
+  override def filteringMatchesMessages: (ReplyBundleMessage[IO], Message) => IO[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 
   override val botName: String                     = "SampleWebhookBot"
@@ -54,10 +49,7 @@ class SampleWebhookBot(
   override val triggerListUri: Uri =
     uri"https://github.com/benkio/sBots/blob/master/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
 
-  override def messageRepliesDataF(using
-      applicativeIO: Applicative[IO],
-      @unused log: LogWriter[IO]
-  ): IO[List[ReplyBundleMessage[IO]]] = List(
+  override def messageRepliesDataF: IO[List[ReplyBundleMessage[IO]]] = List(
     ReplyBundleMessage.textToMp3[IO](
       "cosa preferisci",
       "ragazzetta",
@@ -104,10 +96,7 @@ class SampleWebhookBot(
     )
   ).pure[IO]
 
-  override def commandRepliesDataF(using
-      asyncIO: Async[IO],
-      @unused log: LogWriter[IO]
-  ): IO[List[ReplyBundleCommand[IO]]] =
+  override def commandRepliesDataF: IO[List[ReplyBundleCommand[IO]]] =
     List(
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),
@@ -135,7 +124,7 @@ object SampleWebhookBot {
     ioBackgroundJobManagerMock.map(backgroundJobManagerMock =>
       new SampleWebhookBot(
         uri = uri"https://localhost",
-        resourceAccess = resourceAccessMock,
+        resourceAccessInput = resourceAccessMock,
         dbLayer = dbLayerMock,
         backgroundJobManager = backgroundJobManagerMock
       )
