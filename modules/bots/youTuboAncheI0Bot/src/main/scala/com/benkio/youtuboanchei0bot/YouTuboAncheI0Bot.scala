@@ -1,6 +1,5 @@
 package com.benkio.youtuboanchei0bot
 
-import annotation.unused
 import cats.*
 import cats.effect.*
 import cats.implicits.*
@@ -36,41 +35,37 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class YouTuboAncheI0BotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    val resourceAccess: ResourceAccess[F],
+    val resourceAccessInput: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
-) extends BotSkeletonPolling[F](resourceAccess)
+) extends BotSkeletonPolling[F](resourceAccessInput)
     with YouTuboAncheI0Bot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
-    resourceAccess
-  override def postComputation(using @unused appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess: ResourceAccess[F] =
+    resourceAccessInput
+  override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(using
-      @unused applicativeF: Applicative[F]
-  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 }
 
 class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resourceAccess: ResourceAccess[F],
+    resourceAccessInput: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccessInput)
     with YouTuboAncheI0Bot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
-    resourceAccess
-  override def postComputation(using @unused appF: Applicative[F]): Message => F[Unit] =
+  override def resourceAccess: ResourceAccess[F] =
+    resourceAccessInput
+  override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
-  override def filteringMatchesMessages(using
-      @unused applicativeF: Applicative[F]
-  ): (ReplyBundleMessage[F], Message) => F[Boolean] =
+  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 }
 
-trait YouTuboAncheI0Bot[F[_]] extends BotSkeleton[F] {
+trait YouTuboAncheI0Bot[F[_]: Async: LogWriter] extends BotSkeleton[F] {
 
   override val botName: String                     = YouTuboAncheI0Bot.botName
   override val botPrefix: String                   = YouTuboAncheI0Bot.botPrefix
@@ -79,13 +74,10 @@ trait YouTuboAncheI0Bot[F[_]] extends BotSkeleton[F] {
   override val triggerFilename: String             = YouTuboAncheI0Bot.triggerFilename
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override def messageRepliesDataF(using
-      applicativeF: Applicative[F],
-      @unused log: LogWriter[F]
-  ): F[List[ReplyBundleMessage[F]]] =
+  override def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
     YouTuboAncheI0Bot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     YouTuboAncheI0Bot
       .commandRepliesData[F](
         dbLayer = dbLayer,
@@ -213,7 +205,7 @@ object YouTuboAncheI0Bot {
         botName = botName
       )
     } yield new YouTuboAncheI0BotPolling[F](
-      resourceAccess = botSetup.resourceAccess,
+      resourceAccessInput = botSetup.resourceAccess,
       dbLayer = botSetup.dbLayer,
       backgroundJobManager = botSetup.backgroundJobManager
     )(using Parallel[F], Async[F], botSetup.api, log)
@@ -233,7 +225,7 @@ object YouTuboAncheI0Bot {
       new YouTuboAncheI0BotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resourceAccess = botSetup.resourceAccess,
+        resourceAccessInput = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate

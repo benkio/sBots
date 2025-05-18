@@ -1,6 +1,5 @@
 package com.benkio.calandrobot
 
-import annotation.unused
 import cats.*
 import cats.effect.*
 import cats.implicits.*
@@ -36,40 +35,37 @@ import telegramium.bots.Message
 import scala.util.Random
 
 class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    resourceAccess: ResourceAccess[F],
+    resourceAccessInput: ResourceAccess[F],
     val dbLayer: DBLayer[F]
-) extends BotSkeletonPolling[F](resourceAccess)
+) extends BotSkeletonPolling[F](resourceAccessInput)
     with CalandroBot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
-    resourceAccess
+  override def resourceAccess: ResourceAccess[F] =
+    resourceAccessInput
 }
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resourceAccess: ResourceAccess[F],
+    resourceAccessInput: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccessInput)
     with CalandroBot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
-    resourceAccess
+  override def resourceAccess: ResourceAccess[F] =
+    resourceAccessInput
 }
 
-trait CalandroBot[F[_]] extends BotSkeleton[F] {
+trait CalandroBot[F[_]: Async: LogWriter] extends BotSkeleton[F] {
 
   override val botName: String         = CalandroBot.botName
   override val botPrefix: String       = CalandroBot.botPrefix
   override val triggerFilename: String = CalandroBot.triggerFilename
   override val triggerListUri: Uri     = CalandroBot.triggerListUri
 
-  override def messageRepliesDataF(using
-      applicativeF: Applicative[F],
-      @unused log: LogWriter[F]
-  ): F[List[ReplyBundleMessage[F]]] =
+  override def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
     CalandroBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     CalandroBot.commandRepliesData[F](dbLayer = dbLayer).pure[F]
 }
 
@@ -272,7 +268,7 @@ object CalandroBot {
   } yield botSetup).use { botSetup =>
     action(
       new CalandroBotPolling[F](
-        resourceAccess = botSetup.resourceAccess,
+        resourceAccessInput = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer
       )(using Parallel[F], Async[F], botSetup.api, log)
     )
@@ -293,7 +289,7 @@ object CalandroBot {
       new CalandroBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resourceAccess = botSetup.resourceAccess,
+        resourceAccessInput = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         webhookCertificate = webhookCertificate
       )(using Async[F], botSetup.api, log)

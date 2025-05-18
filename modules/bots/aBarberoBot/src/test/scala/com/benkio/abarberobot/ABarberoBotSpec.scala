@@ -53,7 +53,7 @@ class ABarberoBotSpec extends BaseBotSpec {
       ABarberoBot.botName
     ).map(bjm =>
       new ABarberoBotPolling[IO](
-        resourceAccess = resourceAccessMock,
+        resourceAccessInput = resourceAccessMock,
         dbLayer = emptyDBLayer,
         backgroundJobManager = bjm
       )

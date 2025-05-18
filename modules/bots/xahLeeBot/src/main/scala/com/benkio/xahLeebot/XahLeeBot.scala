@@ -1,6 +1,5 @@
 package com.benkio.xahleebot
 
-import annotation.unused
 import cats.*
 import cats.effect.*
 import cats.implicits.*
@@ -23,29 +22,29 @@ import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 
 class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    resourceAccess: ResourceAccess[F],
+    resourceAccessInput: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
-) extends BotSkeletonPolling[F](resourceAccess)
+) extends BotSkeletonPolling[F](resourceAccessInput)
     with XahLeeBot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
-    resourceAccess
+  override def resourceAccess: ResourceAccess[F] =
+    resourceAccessInput
 }
 
 class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resourceAccess: ResourceAccess[F],
+    resourceAccessInput: ResourceAccess[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccess)
+) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccessInput)
     with XahLeeBot[F] {
-  override def resourceAccess(using @unused syncF: Async[F], @unused log: LogWriter[F]): ResourceAccess[F] =
-    resourceAccess
+  override def resourceAccess: ResourceAccess[F] =
+    resourceAccessInput
 }
 
-trait XahLeeBot[F[_]] extends BotSkeleton[F] {
+trait XahLeeBot[F[_]: Async: LogWriter] extends BotSkeleton[F] {
 
   override val botName: String         = XahLeeBot.botName
   override val botPrefix: String       = XahLeeBot.botPrefix
@@ -54,13 +53,10 @@ trait XahLeeBot[F[_]] extends BotSkeleton[F] {
   val backgroundJobManager: BackgroundJobManager[F]
   val dbLayer: DBLayer[F]
 
-  override def messageRepliesDataF(using
-      applicativeF: Applicative[F],
-      log: LogWriter[F]
-  ): F[List[ReplyBundleMessage[F]]] =
-    log.debug("[XahLeeBot] Empty message reply data") *> XahLeeBot.messageRepliesData[F].pure[F]
+  override def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
+    LogWriter.debug("[XahLeeBot] Empty message reply data") *> XahLeeBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF(using asyncF: Async[F], log: LogWriter[F]): F[List[ReplyBundleCommand[F]]] =
+  override def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     XahLeeBot.commandRepliesData[F](backgroundJobManager, dbLayer).pure[F]
 
 }
@@ -98,7 +94,7 @@ object XahLeeBot {
         botName = botName
       )
     } yield new XahLeeBotPolling[F](
-      resourceAccess = botSetup.resourceAccess,
+      resourceAccessInput = botSetup.resourceAccess,
       dbLayer = botSetup.dbLayer,
       backgroundJobManager = botSetup.backgroundJobManager
     )(using Parallel[F], Async[F], botSetup.api, log)
@@ -118,7 +114,7 @@ object XahLeeBot {
       new XahLeeBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resourceAccess = botSetup.resourceAccess,
+        resourceAccessInput = botSetup.resourceAccess,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate
