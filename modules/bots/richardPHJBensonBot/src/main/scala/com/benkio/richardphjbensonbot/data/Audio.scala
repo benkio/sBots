@@ -259,7 +259,6 @@ object Audio {
       mp3"rphjb_VoceDaUomo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "culo chiacchierato",
       "rob halford"
     )(
       mp3"rphjb_CuloChiacchierato.mp3"
@@ -376,8 +375,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "baraccone",
-      "furgone",
-      "televisione"
+      "furgone"
     )(
       mp3"rphjb_BaracconeFurgoneTelevisione.mp3"
     ),

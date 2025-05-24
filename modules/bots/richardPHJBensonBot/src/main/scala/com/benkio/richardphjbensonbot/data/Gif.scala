@@ -138,12 +138,6 @@ object Gif {
       gif"rphjb_PorcaMiseriaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "dovete soffrire",
-      "vi voglio far(e)? soffrire".r.tr(23)
-    )(
-      gif"rphjb_DoveteSoffrireGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "serie z"
     )(
       gif"rphjb_CantantiSerieZGif.mp4"

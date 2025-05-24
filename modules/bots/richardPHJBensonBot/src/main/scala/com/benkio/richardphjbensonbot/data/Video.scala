@@ -166,16 +166,6 @@ object Video {
       vid"rphjb_PoesiaDirittoPaura.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "cervello pensante",
-      "stupidità",
-      "incresciosa",
-      "sfodo di liberazione",
-      "quinto pezzo",
-      "far[e]? ridere".r.tr(10)
-    )(
-      vid"rphjb_CervelloPensante.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "percussionista"
     )(
       vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
@@ -215,11 +205,6 @@ object Video {
       "big money"
     )(
       vid"rphjb_BigMoney.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "in cantina"
-    )(
-      vid"rphjb_InCantina.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "(mi|me) so(n|no)? rotto il ca\\b".r.tr(17),
@@ -325,10 +310,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "i genesis",
       "tecno(-| )thrash".r.tr(12),
-      "van der graaf generator",
       "emerson(,)? lake (e|&) palmer".r.tr(22),
       "gentle giant",
-      "jetro tull",
       "marillion"
     )(
       vid"rphjb_Regressive.mp4"
@@ -367,15 +350,6 @@ object Video {
       vid"rphjb_Sigarette.mp4",
       vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
       vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "orecchie sensibili",
-      "rumore delle lacrime"
-    )(
-      vid"rphjb_OrecchieSensibiliRumoreLacrime.mp4",
-      vid"rphjb_RumoreDelleLacrimeDegliAltri.mp4",
-      vid"rphjb_RumoreDelleLacrimeDegliAltri2.mp4",
-      vid"rphjb_RumoreDelleLacrimeDegliAltri3.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "sapere tutto",
@@ -1427,18 +1401,6 @@ object Video {
       vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "cazzi tuoi",
-      "cazz[oi] piccol[io]".r.tr(13)
-    )(
-      vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "essere umano"
-    )(
-      vid"rphjb_CazziTuoiPiccoliEssereUmanoMinimo.mp4",
-      vid"rphjb_ScusateEssereUmanoTosse.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "giocattol(o|ino)".r.tr(9)
     )(
       vid"rphjb_CristoPinocchio.mp4"
@@ -1500,11 +1462,6 @@ object Video {
       "mia stima"
     )(
       vid"rphjb_QuandoMiglioraStima.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "suonare libero"
-    )(
-      vid"rphjb_SuonareLibero.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "sto male",
@@ -1788,18 +1745,6 @@ object Video {
       "siete solo voi"
     )(
       vid"rphjb_QuandoGuardateDentroVoiStessiNonTrovateNessunAltroSoloVoi.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "distrutto totalmente"
-    )(
-      vid"rphjb_QuelloCheTiMeritiFinoAllaFineDistruttoTotalmente.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "chi risponde",
-      "quesito",
-      "in regalo"
-    )(
-      vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "questa no",
