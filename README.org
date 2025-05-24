@@ -71,12 +71,13 @@
   generate: audio (mp3), video (mp4) and a gif (mp4 with Gif suffix)
 
   Example commands:
-  ```console
+#+begin_src sh
   $ sbt "xahLeeBot/runMain com.benkio.xahleebot.XahLeeBotMainDataEntry url1 url2"
   $ sbt "m0sconiBot/runMain com.benkio.m0sconibot.M0sconiBotMainDataEntry url1 url2"
   $ sbt "youTuboAncheI0Bot/runMain com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainDataEntry url1 url2"
   $ sbt "richardPHJBensonBot/runMain com.benkio.richardphjbensonbot.RichardPHJBensonBotMainDataEntry url1 url2"
-  ```
+#+end_src
+
 ** Database Setup
 
      There's a module called ~botDB~, if opportunely configured,
