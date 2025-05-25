@@ -11,7 +11,6 @@ import org.http4s.client.Client
 
 trait InvidiousClient[F[_]] {
   def fetchChannelVideos(url: Uri): F[List[Json]]
-  def fetchChannelStreams(url: Uri): F[List[Json]]
   def fetchPlailistVideos(url: Uri): F[List[Json]]
 }
 
@@ -45,7 +44,6 @@ object InvidiousClient {
         videoJsons <- videoIds.traverse(id => httpClient.expect[Json](buildSingleVideoUrl(id)))
       } yield videoJsons
 
-    override def fetchChannelStreams(url: Uri): F[List[Json]] = ???
     override def fetchPlailistVideos(url: Uri): F[List[Json]] = ???
   }
 }
