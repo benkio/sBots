@@ -204,7 +204,7 @@ object ResourceAccess {
             case Right(uri) =>
               MediaResourceFile(
                 urlFetcher
-                  .fetchFromDropbox(mediaName, uri)
+                  .fetchFileFromDropbox(mediaName, uri)
                   .onError(e =>
                     Resource.eval(
                       LogWriter

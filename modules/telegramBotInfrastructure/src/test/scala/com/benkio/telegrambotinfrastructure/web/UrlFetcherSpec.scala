@@ -40,7 +40,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
 
     def check(f: String, u: Uri, size: Int) = for {
       urlFetcher <- buildUrlFetcher()
-      file       <- urlFetcher.fetchFromDropbox(f, u)
+      file       <- urlFetcher.fetchFileFromDropbox(f, u)
       bytes = Files.readAllBytes(file.toPath).length
     } yield bytes > size
 
@@ -70,7 +70,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
 
     val result = for {
       urlFetcher <- buildUrlFetcher()
-      files      <- input.parTraverse { case (url, filename) => urlFetcher.fetchFromDropbox(filename, url) }
+      files      <- input.parTraverse { case (url, filename) => urlFetcher.fetchFileFromDropbox(filename, url) }
       bytess = files.map((file: File) => Files.readAllBytes(file.toPath).length)
     } yield bytess.forall(bytes => bytes > (1024 * 5))
 
@@ -82,7 +82,7 @@ class UrlFetcherSpec extends CatsEffectSuite {
     val filename = "whaeverfilename"
     val result = for {
       urlFetcher <- buildUrlFetcher()
-      file       <- urlFetcher.fetchFromDropbox(filename, emptyUrl)
+      file       <- urlFetcher.fetchFileFromDropbox(filename, emptyUrl)
     } yield file
 
     interceptIO[UnexpectedDropboxResponse[IO]](result.use_)

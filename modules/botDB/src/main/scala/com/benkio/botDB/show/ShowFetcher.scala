@@ -6,6 +6,7 @@ import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.web.JsonParser
 import io.circe.parser.*
 import io.circe.syntax.*
 import log.effect.LogWriter
@@ -94,8 +95,8 @@ object ShowFetcher {
       .use(inputFileContent =>
         for
           json <- Async[F].fromEither(parse(inputFileContent))
-          dbShowDatas <- YoutubeJSONParser
-            .parseYoutube[F](json, botName)
+          dbShowDatas <- JsonParser.Ytdlp
+            .parseYtdlp[F](json, botName)
             .handleErrorWith(err =>
               LogWriter.error(s"[ShowFetcher] ERROR during parsing of $botName with $err") >>
                 Async[F].delay(
