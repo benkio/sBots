@@ -91,11 +91,11 @@ object BotSetup {
       botName: String,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(using log: LogWriter[F], telegramReply: TelegramReply[Text]): Resource[F, BotSetup[F]] = for {
-    tk         <- token[F](tokenFilename, ResourceAccess.fromResources[F]())
-    config     <- Resource.eval(Config.loadConfig[F](namespace))
-    _          <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
+    tk            <- token[F](tokenFilename, ResourceAccess.fromResources[F]())
+    config        <- Resource.eval(Config.loadConfig[F](namespace))
+    _             <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
     dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
-    dbLayer    <- loadDB[F](config.db)
+    dbLayer       <- loadDB[F](config.db)
     resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, dropboxClient)
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)

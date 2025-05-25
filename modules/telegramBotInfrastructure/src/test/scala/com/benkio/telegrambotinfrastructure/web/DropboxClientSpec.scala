@@ -40,7 +40,7 @@ class DropboxClientSpec extends CatsEffectSuite {
 
     def check(f: String, u: Uri, size: Int) = for {
       dropboxClient <- buildDropboxClient()
-      file       <- dropboxClient.fetchFile(f, u)
+      file          <- dropboxClient.fetchFile(f, u)
       bytes = Files.readAllBytes(file.toPath).length
     } yield bytes > size
 
@@ -70,7 +70,7 @@ class DropboxClientSpec extends CatsEffectSuite {
 
     val result = for {
       dropboxClient <- buildDropboxClient()
-      files      <- input.parTraverse { case (url, filename) => dropboxClient.fetchFile(filename, url) }
+      files         <- input.parTraverse { case (url, filename) => dropboxClient.fetchFile(filename, url) }
       bytess = files.map((file: File) => Files.readAllBytes(file.toPath).length)
     } yield bytess.forall(bytes => bytes > (1024 * 5))
 
@@ -82,7 +82,7 @@ class DropboxClientSpec extends CatsEffectSuite {
     val filename = "whaeverfilename"
     val result = for {
       dropboxClient <- buildDropboxClient()
-      file       <- dropboxClient.fetchFile(filename, emptyUrl)
+      file          <- dropboxClient.fetchFile(filename, emptyUrl)
     } yield file
 
     interceptIO[UnexpectedDropboxResponse[IO]](result.use_)
