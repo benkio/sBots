@@ -151,9 +151,15 @@ class JsonParserSpec extends CatsEffectSuite {
     assertIO(actual, expected)
   }
 
-  // test("JsonParsen.Invidious.parseInvidiousVideoIds should return all the videoIds in a valid json response") {
-  //   ???
-  // }
+  test("JsonParser.Invidious.parseInvidiousVideoIds should return all the videoIds in a valid json response") {
+    val expectedVideoId: List[String] = List(
+      "abc123xyz",
+      "live456abc",
+      "ultra8k999"
+    )
+    val actual = JsonParser.Invidious.parseInvidiousVideoIds(JsonParserSpec.Invidious.videos)
+    assertEquals(actual, (expectedVideoId, Some("testCapiton")))
+  }
 }
 
 object JsonParserSpec:
@@ -177,4 +183,117 @@ object JsonParserSpec:
       ).getOrElse(Json.Null)
   }
 
-  object Invidious {}
+  object Invidious {
+
+    val videos: Json =
+      parse(
+        """{
+          |  "videos": [
+          |    {
+          |      "type": "video",
+          |      "title": "Exploring the Universe: A Journey Through Space",
+          |      "videoId": "abc123xyz",
+          |      "author": "Space Discoveries",
+          |      "authorId": "channel123",
+          |      "authorUrl": "https://youtube.com/channel/channel123",
+          |      "authorVerified": true,
+          |      "videoThumbnails": [
+          |        {
+          |          "url": "https://i.ytimg.com/vi/abc123xyz/hqdefault.jpg",
+          |          "width": 480,
+          |          "height": 360
+          |        }
+          |      ],
+          |      "description": "Join us as we travel through the cosmos in this documentary on the universe.",
+          |      "descriptionHtml": "<p>Join us as we travel through the cosmos in this documentary on the universe.</p>",
+          |      "viewCount": 1245678,
+          |      "viewCountText": "1.2M views",
+          |      "lengthSeconds": 3600,
+          |      "published": 1656789000,
+          |      "publishedText": "2 years ago",
+          |      "premiereTimestamp": null,
+          |      "liveNow": false,
+          |      "premium": false,
+          |      "isUpcoming": false,
+          |      "isNew": false,
+          |      "is4k": true,
+          |      "is8k": false,
+          |      "isVr180": false,
+          |      "isVr360": false,
+          |      "is3d": false,
+          |      "hasCaptions": true
+          |    },
+          |    {
+          |      "type": "video",
+          |      "title": "Live Coding: Building a To-Do App with React",
+          |      "videoId": "live456abc",
+          |      "author": "DevStream",
+          |      "authorId": "channel456",
+          |      "authorUrl": "https://youtube.com/channel/channel456",
+          |      "authorVerified": false,
+          |      "videoThumbnails": [
+          |        {
+          |          "url": "https://i.ytimg.com/vi/live456abc/hqdefault.jpg",
+          |          "width": 480,
+          |          "height": 360
+          |        }
+          |      ],
+          |      "description": "Watch as we build a to-do app live using React and Tailwind CSS.",
+          |      "descriptionHtml": "<p>Watch as we build a to-do app live using React and Tailwind CSS.</p>",
+          |      "viewCount": 7890,
+          |      "viewCountText": "7.8K views",
+          |      "lengthSeconds": 5400,
+          |      "published": 1689123456,
+          |      "publishedText": "3 months ago",
+          |      "premiereTimestamp": null,
+          |      "liveNow": true,
+          |      "premium": false,
+          |      "isUpcoming": false,
+          |      "isNew": true,
+          |      "is4k": false,
+          |      "is8k": false,
+          |      "isVr180": false,
+          |      "isVr360": false,
+          |      "is3d": false,
+          |      "hasCaptions": false
+          |    },
+          |    {
+          |      "type": "video",
+          |      "title": "Nature in 8K Ultra HD",
+          |      "videoId": "ultra8k999",
+          |      "author": "EpicScapes",
+          |      "authorId": "channel999",
+          |      "authorUrl": "https://youtube.com/channel/channel999",
+          |      "authorVerified": true,
+          |      "videoThumbnails": [
+          |        {
+          |          "url": "https://i.ytimg.com/vi/ultra8k999/maxresdefault.jpg",
+          |          "width": 1280,
+          |          "height": 720
+          |        }
+          |      ],
+          |      "description": "Relax with breathtaking 8K footage of nature and wildlife.",
+          |      "descriptionHtml": "<p>Relax with breathtaking 8K footage of nature and wildlife.</p>",
+          |      "viewCount": 987654,
+          |      "viewCountText": "987K views",
+          |      "lengthSeconds": 1800,
+          |      "published": 1701010101,
+          |      "publishedText": "5 weeks ago",
+          |      "premiereTimestamp": 1701000000,
+          |      "liveNow": false,
+          |      "premium": true,
+          |      "isUpcoming": false,
+          |      "isNew": true,
+          |      "is4k": true,
+          |      "is8k": true,
+          |      "isVr180": false,
+          |      "isVr360": false,
+          |      "is3d": false,
+          |      "hasCaptions": true
+          |    }
+          |  ],
+          |  "continuation": "testCapiton"
+          |}""".stripMargin
+      ).getOrElse(Json.Null)
+  }
+end JsonParserSpec
