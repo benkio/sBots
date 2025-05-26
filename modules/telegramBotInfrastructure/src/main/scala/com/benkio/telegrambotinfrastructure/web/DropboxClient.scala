@@ -16,29 +16,26 @@ import org.typelevel.ci.*
 import java.io.File
 import scala.concurrent.duration.*
 
-trait UrlFetcher[F[_]] {
-
-  def fetchFromDropbox(filename: String, url: Uri): Resource[F, File]
-
+trait DropboxClient[F[_]] {
+  def fetchFile(filename: String, url: Uri): Resource[F, File]
 }
 
-object UrlFetcher {
-  def apply[F[_]: Async](httpClient: Client[F])(using log: LogWriter[F]): F[UrlFetcher[F]] = for {
+object DropboxClient {
+  def apply[F[_]: Async: LogWriter](httpClient: Client[F]): F[DropboxClient[F]] = for {
     httpCache <- MemoryCache.ofSingleImmutableMap[F, (Method, Uri), CacheItem](defaultExpiration =
       TimeSpec.fromDuration(6.hours)
     )
     cachedMiddleware = CacheMiddleware.client(httpCache, CacheType.Public)
-  } yield new UrlFetcherImpl[F](
-    httpClient = cachedMiddleware(FollowRedirect(3)(httpClient)),
-    log = log
+  } yield new DropboxClientImpl[F](
+    httpClient = cachedMiddleware(FollowRedirect(3)(httpClient))
   )
 
   final case class UnexpectedDropboxResponse[F[_]](response: Response[F])     extends Throwable
   final case class DropboxLocationHeaderNotFound[F[_]](response: Response[F]) extends Throwable
 
-  private class UrlFetcherImpl[F[_]: Async](httpClient: Client[F], log: LogWriter[F]) extends UrlFetcher[F] {
+  private class DropboxClientImpl[F[_]: Async: LogWriter](httpClient: Client[F]) extends DropboxClient[F] {
 
-    def fetchFromDropbox(filename: String, url: Uri): Resource[F, File] = {
+    def fetchFile(filename: String, url: Uri): Resource[F, File] = {
       val req = Request[F](GET, url)
       httpClient
         .run(req)
@@ -47,19 +44,20 @@ object UrlFetcher {
             response.status,
             response.headers.get(ci"Location").flatMap(hl => Uri.fromString(hl.head.value).toOption)
           ) match { // non standard redirect because dropbox
-            case (Status.Found, Some(locationUri)) => fetchFromDropbox(filename, locationUri)
+            case (Status.Found, Some(locationUri)) => fetchFile(filename, locationUri)
             case (Status.Found, None) =>
               Resource.raiseError[F, File, Throwable](DropboxLocationHeaderNotFound[F](response))
             case _ =>
               for {
                 content <- Resource.eval(response.body.compile.toList)
-                _       <- Resource.eval(log.info(s"[UrlFetcher:56:79] received ${content.length} bytes for $filename"))
-                _       <- Resource.eval(Async[F].raiseWhen(content.isEmpty)(UnexpectedDropboxResponse[F](response)))
-                result  <- ResourceAccess.toTempFile(filename, content.toArray)
+                _ <- Resource
+                  .eval(LogWriter.info(s"[DropboxClient:56:79] received ${content.length} bytes for $filename"))
+                _      <- Resource.eval(Async[F].raiseWhen(content.isEmpty)(UnexpectedDropboxResponse[F](response)))
+                result <- ResourceAccess.toTempFile(filename, content.toArray)
               } yield result
           }
 
-          Resource.eval(log.info(s"Received response $response")) *> followup
+          Resource.eval(LogWriter.info(s"Received response $response")) *> followup
         })
     }
   }

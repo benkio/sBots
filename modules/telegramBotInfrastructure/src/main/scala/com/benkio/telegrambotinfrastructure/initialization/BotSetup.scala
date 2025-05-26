@@ -10,7 +10,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import com.benkio.telegrambotinfrastructure.web.UrlFetcher
+import com.benkio.telegrambotinfrastructure.web.DropboxClient
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import doobie.Transactor
 import log.effect.LogWriter
@@ -91,12 +91,12 @@ object BotSetup {
       botName: String,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(using log: LogWriter[F], telegramReply: TelegramReply[Text]): Resource[F, BotSetup[F]] = for {
-    tk         <- token[F](tokenFilename, ResourceAccess.fromResources[F]())
-    config     <- Resource.eval(Config.loadConfig[F](namespace))
-    _          <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
-    urlFetcher <- Resource.eval(UrlFetcher[F](httpClient))
-    dbLayer    <- loadDB[F](config.db)
-    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, urlFetcher)
+    tk            <- token[F](tokenFilename, ResourceAccess.fromResources[F]())
+    config        <- Resource.eval(Config.loadConfig[F](namespace))
+    _             <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
+    dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
+    dbLayer       <- loadDB[F](config.db)
+    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, dropboxClient)
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _ <- Resource.eval(

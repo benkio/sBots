@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.web
 
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.web.UrlFetcher.UnexpectedDropboxResponse
+import com.benkio.telegrambotinfrastructure.web.DropboxClient.UnexpectedDropboxResponse
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -13,16 +13,16 @@ import org.http4s.Uri
 import java.io.File
 import java.nio.file.Files
 
-class UrlFetcherSpec extends CatsEffectSuite {
+class DropboxClientSpec extends CatsEffectSuite {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  def buildUrlFetcher(): Resource[IO, UrlFetcher[IO]] =
+  def buildDropboxClient(): Resource[IO, DropboxClient[IO]] =
     EmberClientBuilder
       .default[IO]
       .withMaxResponseHeaderSize(8192)
       .build
-      .flatMap(httpClient => Resource.eval(UrlFetcher[IO](httpClient)))
+      .flatMap(httpClient => Resource.eval(DropboxClient[IO](httpClient)))
 
   test("fetch should return the expected url content in a file if the url is valid") {
     val input = List(
@@ -39,8 +39,8 @@ class UrlFetcherSpec extends CatsEffectSuite {
     )
 
     def check(f: String, u: Uri, size: Int) = for {
-      urlFetcher <- buildUrlFetcher()
-      file       <- urlFetcher.fetchFromDropbox(f, u)
+      dropboxClient <- buildDropboxClient()
+      file          <- dropboxClient.fetchFile(f, u)
       bytes = Files.readAllBytes(file.toPath).length
     } yield bytes > size
 
@@ -69,8 +69,8 @@ class UrlFetcherSpec extends CatsEffectSuite {
     )
 
     val result = for {
-      urlFetcher <- buildUrlFetcher()
-      files      <- input.parTraverse { case (url, filename) => urlFetcher.fetchFromDropbox(filename, url) }
+      dropboxClient <- buildDropboxClient()
+      files         <- input.parTraverse { case (url, filename) => dropboxClient.fetchFile(filename, url) }
       bytess = files.map((file: File) => Files.readAllBytes(file.toPath).length)
     } yield bytess.forall(bytes => bytes > (1024 * 5))
 
@@ -81,8 +81,8 @@ class UrlFetcherSpec extends CatsEffectSuite {
     val emptyUrl = Uri.unsafeFromString("https://httpbin.org/status/200")
     val filename = "whaeverfilename"
     val result = for {
-      urlFetcher <- buildUrlFetcher()
-      file       <- urlFetcher.fetchFromDropbox(filename, emptyUrl)
+      dropboxClient <- buildDropboxClient()
+      file          <- dropboxClient.fetchFile(filename, emptyUrl)
     } yield file
 
     interceptIO[UnexpectedDropboxResponse[IO]](result.use_)

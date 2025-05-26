@@ -5,7 +5,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.web.UrlFetcher
+import com.benkio.telegrambotinfrastructure.web.DropboxClient
 import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -62,10 +62,10 @@ object DBFixture {
           .default[IO]
           .withMaxResponseHeaderSize(8192)
           .build
-        urlFetcher <- Resource.eval(UrlFetcher[IO](httpClient))
+        dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
       } yield ResourceAccess.dbResources[IO](
         dbMedia = dbLayer.dbMedia,
-        urlFetcher = urlFetcher
+        dropboxClient = dropboxClient
       )
     )
 

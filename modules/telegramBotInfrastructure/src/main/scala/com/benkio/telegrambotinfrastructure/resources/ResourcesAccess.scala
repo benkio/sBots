@@ -11,7 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
-import com.benkio.telegrambotinfrastructure.web.UrlFetcher
+import com.benkio.telegrambotinfrastructure.web.DropboxClient
 import log.effect.LogWriter
 import org.http4s.Uri
 
@@ -165,7 +165,7 @@ object ResourceAccess {
     }
   }
 
-  def dbResources[F[_]: Async: LogWriter](dbMedia: DBMedia[F], urlFetcher: UrlFetcher[F]): ResourceAccess[F] =
+  def dbResources[F[_]: Async: LogWriter](dbMedia: DBMedia[F], dropboxClient: DropboxClient[F]): ResourceAccess[F] =
     new ResourceAccess[F] {
 
       override def getResourcesByKind(criteria: String): Resource[F, NonEmptyList[NonEmptyList[MediaResource[F]]]] =
@@ -203,8 +203,8 @@ object ResourceAccess {
             case Left(iFile) => MediaResourceIFile(iFile)
             case Right(uri) =>
               MediaResourceFile(
-                urlFetcher
-                  .fetchFromDropbox(mediaName, uri)
+                dropboxClient
+                  .fetchFile(mediaName, uri)
                   .onError(e =>
                     Resource.eval(
                       LogWriter
