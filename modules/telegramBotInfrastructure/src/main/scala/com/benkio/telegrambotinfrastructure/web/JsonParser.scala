@@ -6,10 +6,6 @@ import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import io.circe.Json
 import log.effect.LogWriter
 
-import java.time.format.DateTimeFormatter
-import java.time.Instant
-import java.time.ZoneId
-
 object JsonParser:
 
   object Ytdlp:
@@ -70,43 +66,4 @@ object JsonParser:
 
       optionOriginCaption.fold("")(_.hcursor.get[String]("url").getOrElse(""))
   end Ytdlp
-
-  object Invidious:
-
-    def parseInvidiousVideoIds(json: Json): (List[String], Option[String]) =
-      (json.findAllByKey("videoId").mapFilter(_.as[String].toOption), json.hcursor.get[String]("continuation").toOption)
-
-    def invidiousVideoJsonToDBSHowData[F[_]: Async: LogWriter](
-        json: Json,
-        botName: String,
-        isStream: Boolean
-    ): F[Json] =
-      LogWriter.info(s"[YoutubeJSONParse] parsing invidious entry ${json.noSpaces.take(100)}") >>
-        Async[F].fromEither(
-          for
-            id         <- json.hcursor.get[String]("videoId")
-            show_title <- json.hcursor.get[String]("title")
-            show_upload_date <- json.hcursor
-              .get[Long]("published")
-              .map(unixTimestamp =>
-                DateTimeFormatter
-                  .ofPattern("yyyyMMdd")
-                  .withZone(ZoneId.of("UTC"))
-                  .format(Instant.ofEpochSecond(unixTimestamp))
-              )
-            show_duration    <- json.hcursor.get[Int]("lengthSeconds")
-            show_description <- json.hcursor.get[String]("description")
-            show_origin_automatic_caption = "" // TODO: Add this
-          yield Json.obj(
-            "show_url"                      -> Json.fromString(s"https://www.youtube.com/watch?v=$id"),
-            "bot_name"                      -> Json.fromString(botName),
-            "show_title"                    -> Json.fromString(show_title),
-            "show_upload_date"              -> Json.fromString(show_upload_date),
-            "show_duration"                 -> Json.fromInt(show_duration),
-            "show_description"              -> Json.fromString(show_description),
-            "show_is_live"                  -> Json.fromBoolean(isStream),
-            "show_origin_automatic_caption" -> Json.fromString(show_origin_automatic_caption)
-          )
-        )
-  end Invidious
 end JsonParser
