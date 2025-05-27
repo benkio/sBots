@@ -3,7 +3,7 @@ package com.benkio.botDB
 import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
-import cats.syntax.all.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.http.HttpRequest
@@ -15,6 +15,7 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 
+import java.time.Duration
 import scala.jdk.CollectionConverters.*
 
 object PlaygroundMain extends IOApp {
@@ -178,19 +179,30 @@ object PlaygroundMain extends IOApp {
 
     // Conversion /////////////////////////////////////////////////////////////
 
-  private def durationToSeconds(duration: String): Int = ??? // TODO: convert to seconds
+  private def durationISO8601ToSeconds(isoDuration: String): Int =
+    val duration = Duration.parse(isoDuration)
+    duration.getSeconds.toInt
 
-  private def videoToDBMediaData(video: Video, botName: String): DBShowData =
-    DBShowData(
-      show_url = s"https://www.youtube.com/watch?v=${video.getId()}",
+  private def videoToDBMediaData(video: Video, botName: String): IO[Option[DBShowData]] = {
+    val maybeDBShowData = for {
+      id         <- Option(video.getId())
+      title      <- Option(video.getSnippet().getTitle())
+      uploadDate <- Option(video.getSnippet().getPublishedAt().getValue().toString())
+      duration   <- Option(video.getContentDetails().getDuration())
+    } yield DBShowData(
+      show_url = s"https://www.youtube.com/watch?v=$id",
       bot_name = botName,
-      show_title = video.getSnippet().getTitle(),
-      show_upload_date = video.getSnippet().getPublishedAt().getValue().toString(),
-      show_duration = durationToSeconds(video.getContentDetails().getDuration()),
-      show_description = video.getSnippet().getDescription().some,
+      show_title = title,
+      show_upload_date = uploadDate,
+      show_duration = durationISO8601ToSeconds(duration),
+      show_description = Option(video.getContentDetails().getDuration()),
       show_is_live = Option(video.getLiveStreamingDetails()).isDefined,
       show_origin_automatic_caption = None // TODO: add caption foreign key
     )
+    maybeDBShowData.fold(log.error(s"[PlaygroundMain] $botName Video conversion problem for $video") *> None.pure[IO])(
+      _.some.pure[IO]
+    )
+  }
 
   def run(args: List[String]): IO[ExitCode] =
     for
@@ -233,7 +245,7 @@ object PlaygroundMain extends IOApp {
               videos   <- getYoutubeVideos(youtubeService, videosId)
               _        <- log.info(s"[PlaygroundMain] $botName - $channelHandle videos amount: ${videos.length}")
               dbShowDatas = videos.map(v => videoToDBMediaData(v, botName))
-            } yield videos
+            } yield dbShowDatas
           )
         }
         .toList
@@ -250,7 +262,7 @@ object PlaygroundMain extends IOApp {
               videos   <- getYoutubeVideos(youtubeService, videoIds)
               _        <- log.info(s"[PlaygroundMain] $botName - videos amount: ${videos.length}")
               dbShowDatas = videos.map(v => videoToDBMediaData(v, botName))
-            } yield videos
+            } yield dbShowDatas
           )
         }
         .toList
