@@ -4,11 +4,12 @@ import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.http.HttpRequest
 import com.google.api.client.http.HttpRequestInitializer
 import com.google.api.client.json.gson.GsonFactory
-import com.google.api.services.youtube.model.PlaylistItemListResponse
+import com.google.api.services.youtube.model.*
 import com.google.api.services.youtube.YouTube
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -24,9 +25,16 @@ object PlaygroundMain extends IOApp {
   // TODO: fill
   val apiKeys         = "IGIOT"
   val applicationName = "8CAHB"
+  val maxResults      = 50L
 
-  val playlistIds    = List("PL7lQFvEjqu8OBiulbaSNnlCtlfI8Zd7zS", "PL_ylk9jdHmDmXYfedifLgtea5J5Ru-N-m")
-  val channelHandles = List("Xahlee", "BrigateBenson", "youtuboancheio1365")
+  val botNamePlaylistIds = Map(
+    "ABarberoBot" -> List("PL7lQFvEjqu8OBiulbaSNnlCtlfI8Zd7zS", "PL_ylk9jdHmDmXYfedifLgtea5J5Ru-N-m")
+  )
+  val botNameChannelHandles = Map(
+    "XahLeeBot"           -> "Xahlee",
+    "RichardPHJBensonBot" -> "BrigateBenson",
+    "YouTuboAncheI0Bot"   -> "youtuboancheio1365"
+  )
 
   val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
@@ -52,18 +60,21 @@ object PlaygroundMain extends IOApp {
 
     // YouTube Requests ///////////////////////////////////////////////////////
 
-  // private def createYouTubeVideoRequest(youtubeService: YouTube, videoIds: List[String]): IO[YouTube#Videos#List] =
-  //   for {
-  //     _ <- log.info(s"[PlaygroundMain] $videoIds Create a YouTube Video request")
-  //     request <- IO(
-  //       youtubeService
-  //         .videos()
-  //         .list(List("id", "snippet", "contentDetails", "liveStreamingDetails").asJava)
-  //         .setKey(apiKeys)
-  //         .setFields("items(id,snippet/title,snippet/publishedAt,snippet/description,contentDetails/duration,liveStreamingDetails)")
-  //         .setId(videoIds.asJava)
-  //     )
-  //   } yield request
+  private def createYouTubeVideoRequest(youtubeService: YouTube, videoIds: List[String]): IO[YouTube#Videos#List] =
+    for {
+      _ <- log.info(s"[PlaygroundMain] ${videoIds.length} Create a YouTube Video request")
+      request <- IO(
+        youtubeService
+          .videos()
+          .list(List("id", "snippet", "contentDetails", "liveStreamingDetails").asJava)
+          .setKey(apiKeys)
+          .setFields(
+            "items(id,snippet/title,snippet/publishedAt,snippet/description,contentDetails/duration,liveStreamingDetails)"
+          )
+          .setMaxResults(maxResults)
+          .setId(videoIds.asJava)
+      )
+    } yield request
 
   // private def createYouTubeVideoCaptionRequest(youtubeService: YouTube, videoId: String): IO[YouTube#Captions#List] =
   //   for {
@@ -91,7 +102,7 @@ object PlaygroundMain extends IOApp {
           .setKey(apiKeys)
           .setFields("items(contentDetails/videoId),nextPageToken,pageInfo")
           .setPlaylistId(playlistId)
-          .setMaxResults(50)
+          .setMaxResults(maxResults)
       )
     } yield pageToken.fold(request)(pt => request.setPageToken(pt))
 
@@ -151,6 +162,36 @@ object PlaygroundMain extends IOApp {
       uploadPlaylistId = firstItem.getContentDetails().getRelatedPlaylists().getUploads()
     } yield uploadPlaylistId
 
+  private def getYoutubeVideos(youtubeService: YouTube, videoIds: List[String]): IO[List[Video]] =
+    val videoIdsChucks = videoIds.grouped(maxResults.toInt).toList
+    for {
+      _ <- log.info(s"[PlaygroundMain] getYouTubeVideos ${videoIdsChucks.length} requests for ${videoIds.length}")
+      requests <- videoIdsChucks.traverse(createYouTubeVideoRequest(youtubeService, _))
+      videos <- requests.foldLeft(List.empty[Video].pure[IO]) { case (ioAcc, request) =>
+        for
+          response <- IO(request.execute())
+          videos = response.getItems().asScala.toList
+          acc <- ioAcc
+        yield acc ++ videos
+      }
+    } yield videos
+
+    // Conversion /////////////////////////////////////////////////////////////
+
+  private def durationToSeconds(duration: String): Int = ??? // TODO: convert to seconds
+
+  private def videoToDBMediaData(video: Video, botName: String): DBShowData =
+    DBShowData(
+      show_url = s"https://www.youtube.com/watch?v=${video.getId()}",
+      bot_name = botName,
+      show_title = video.getSnippet().getTitle(),
+      show_upload_date = video.getSnippet().getPublishedAt().getValue().toString(),
+      show_duration = durationToSeconds(video.getContentDetails().getDuration()),
+      show_description = video.getSnippet().getDescription().some,
+      show_is_live = Option(video.getLiveStreamingDetails()).isDefined,
+      show_origin_automatic_caption = None // TODO: add caption foreign key
+    )
+
   def run(args: List[String]): IO[ExitCode] =
     for
       _              <- log.info("[PlaygroundMain] Start the PlaygroundMain")
@@ -179,10 +220,44 @@ object PlaygroundMain extends IOApp {
       // youtubeChannelResponse <- IO(youtubeChannelRequest.execute())
       // _                      <- log.info(s"[PlaygroundMain] YouTube video channel response: $youtubeChannelResponse")
 
-      // Get all ids from a playlistId
-      allChannelsUploadPlaylistIds <- channelHandles.traverse(getYouTubeChannelUploadsPlaylistId(youtubeService, _))
-      allPlaylistIds <- getYouTubePlaylistsIds(youtubeService, playlistIds ++ allChannelsUploadPlaylistIds)
-      _              <- log.info(s"[PlaygroundMain] $playlistIds all video Ids length: ${allPlaylistIds.length}")
+      botNameChanneDBShowData <- botNameChannelHandles
+        .map { case (botName, channelHandle) =>
+          (
+            botName,
+            for {
+              _                <- log.info(s"[PlaygroundMain] $botName - $channelHandle get upload playlist")
+              uploadPlaylistId <- getYouTubeChannelUploadsPlaylistId(youtubeService, channelHandle)
+              _        <- log.info(s"[PlaygroundMain] $botName - $channelHandle upload playlist id $uploadPlaylistId")
+              videosId <- getYouTubePlaylistIds(youtubeService, uploadPlaylistId)
+              _        <- log.info(s"[PlaygroundMain] $botName - $channelHandle videos id ${videosId.length}")
+              videos   <- getYoutubeVideos(youtubeService, videosId)
+              _        <- log.info(s"[PlaygroundMain] $botName - $channelHandle videos amount: ${videos.length}")
+              dbShowDatas = videos.map(v => videoToDBMediaData(v, botName))
+            } yield videos
+          )
+        }
+        .toList
+        .traverse { case (key, ioList) => ioList.map(list => key -> list) }
+        .map(_.toMap)
+      botNamePlaylistsDBShowData <- botNamePlaylistIds
+        .map { case (botName, playlistIds) =>
+          (
+            botName,
+            for {
+              _        <- log.info(s"[PlaygroundMain] $botName - playlist: ${playlistIds.length}")
+              videoIds <- getYouTubePlaylistsIds(youtubeService, playlistIds)
+              _        <- log.info(s"[PlaygroundMain] $botName - video ids: ${videoIds.length}")
+              videos   <- getYoutubeVideos(youtubeService, videoIds)
+              _        <- log.info(s"[PlaygroundMain] $botName - videos amount: ${videos.length}")
+              dbShowDatas = videos.map(v => videoToDBMediaData(v, botName))
+            } yield videos
+          )
+        }
+        .toList
+        .traverse { case (key, ioList) => ioList.map(list => key -> list) }
+        .map(_.toMap)
+      botNameDBShowDataMap = botNamePlaylistsDBShowData ++ botNameChanneDBShowData
+      _ <- log.info(s"[PlaygroundMain] Final Result: $botNameDBShowDataMap")
     yield ExitCode.Success
 }
 
