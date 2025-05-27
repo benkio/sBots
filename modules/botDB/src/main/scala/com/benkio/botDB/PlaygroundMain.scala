@@ -3,10 +3,12 @@ package com.benkio.botDB
 import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
+import cats.syntax.all.*
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.http.HttpRequest
 import com.google.api.client.http.HttpRequestInitializer
 import com.google.api.client.json.gson.GsonFactory
+import com.google.api.services.youtube.model.PlaylistItemListResponse
 import com.google.api.services.youtube.YouTube
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -22,6 +24,9 @@ object PlaygroundMain extends IOApp {
   // TODO: fill
   val apiKeys         = "IGIOT"
   val applicationName = "8CAHB"
+
+  val playlistIds    = List("PL7lQFvEjqu8OBiulbaSNnlCtlfI8Zd7zS", "PL_ylk9jdHmDmXYfedifLgtea5J5Ru-N-m")
+  val channelHandles = List("Xahlee", "BrigateBenson", "youtuboancheio1365")
 
   val log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
@@ -45,9 +50,11 @@ object PlaygroundMain extends IOApp {
       )
     } yield youtubeService
 
+    // YouTube Requests ///////////////////////////////////////////////////////
+
   // private def createYouTubeVideoRequest(youtubeService: YouTube, videoIds: List[String]): IO[YouTube#Videos#List] =
   //   for {
-  //     _ <- log.info(s"[PlaygroundMain] Create a YouTube Video request for $videoIds")
+  //     _ <- log.info(s"[PlaygroundMain] $videoIds Create a YouTube Video request")
   //     request <- IO(
   //       youtubeService
   //         .videos()
@@ -60,7 +67,7 @@ object PlaygroundMain extends IOApp {
 
   // private def createYouTubeVideoCaptionRequest(youtubeService: YouTube, videoId: String): IO[YouTube#Captions#List] =
   //   for {
-  //     _ <- log.info(s"[PlaygroundMain] Create a YouTube Video Caption request for $videoId")
+  //     _ <- log.info(s"[PlaygroundMain] $videoId Create a YouTube Video Caption request")
   //     request <- IO(
   //       youtubeService
   //         .captions()
@@ -71,12 +78,12 @@ object PlaygroundMain extends IOApp {
   //   } yield request
 
   private def createYouTubePlaylistRequest(
-    youtubeService: YouTube,
-    playlistId: String,
-    pageToken: Option[String]
+      youtubeService: YouTube,
+      playlistId: String,
+      pageToken: Option[String]
   ): IO[YouTube#PlaylistItems#List] =
     for {
-      _ <- log.info(s"[PlaygroundMain] Create a YouTube Video Playlist request for $playlistId")
+      _ <- log.info(s"[PlaygroundMain] $playlistId Create a YouTube Video Playlist request")
       request <- IO(
         youtubeService
           .playlistItems()
@@ -88,19 +95,62 @@ object PlaygroundMain extends IOApp {
       )
     } yield pageToken.fold(request)(pt => request.setPageToken(pt))
 
-  // private def createYouTubeChannelUploadPlaylistRequest(youtubeService: YouTube, channelHandle: String): IO[YouTube#Channels#List] =
-  //   for {
-  //     _ <- log.info(s"[PlaygroundMain] Create a YouTube Channel request for $channelHandle")
-  //     request <- IO(
-  //       youtubeService
-  //         .channels()
-  //         .list(List("contentDetails").asJava)
-  //         .setForHandle(channelHandle)
-  //         .setKey(apiKeys)
-  //         .setFields("items(contentDetails/relatedPlaylists/uploads)")
-  //     )
-  //   } yield request
-  
+  private def createYouTubeChannelUploadPlaylistRequest(
+      youtubeService: YouTube,
+      channelHandle: String
+  ): IO[YouTube#Channels#List] =
+    for {
+      _ <- log.info(s"[PlaygroundMain] $channelHandle Create a YouTube Channel request")
+      request <- IO(
+        youtubeService
+          .channels()
+          .list(List("contentDetails").asJava)
+          .setForHandle(channelHandle)
+          .setKey(apiKeys)
+          .setFields("items(contentDetails/relatedPlaylists/uploads)")
+      )
+    } yield request
+
+  // High Level Functions /////////////////////////////////////////////////////
+
+  private def getYouTubePlaylistIds(
+      youtubeService: YouTube,
+      playlistId: String
+  ): IO[List[String]] =
+    def extractPlaylistIds(response: PlaylistItemListResponse): List[String] =
+      response.getItems().asScala.toList.map(_.getContentDetails().getVideoId())
+    def collectAllIds(response: PlaylistItemListResponse): IO[List[String]] =
+      Option(response.getNextPageToken())
+        .fold(List.empty.pure[IO])(nextPageToken =>
+          for
+            nextRequest  <- createYouTubePlaylistRequest(youtubeService, playlistId, nextPageToken.some)
+            nextResponse <- IO(nextRequest.execute())
+            nextIds      <- collectAllIds(nextResponse)
+          yield nextIds
+        )
+        .map(nextIds => extractPlaylistIds(response) ++ nextIds)
+    for {
+      _               <- log.info(s"[PlaygroundMain] $playlistId Ids fetching")
+      initialRequest  <- createYouTubePlaylistRequest(youtubeService, playlistId, None)
+      _               <- log.info(s"[PlaygroundMain] $playlistId Initial Request execution")
+      initialResponse <- IO(initialRequest.execute())
+      _               <- log.info(s"[PlaygroundMain] $playlistId Computing video ids")
+      ids             <- collectAllIds(initialResponse)
+    } yield ids
+
+  private def getYouTubePlaylistsIds(youtubeService: YouTube, playlistIds: List[String]): IO[List[String]] =
+    playlistIds.foldMapM(pId => getYouTubePlaylistIds(youtubeService, pId))
+
+  private def getYouTubeChannelUploadsPlaylistId(youtubeService: YouTube, channelHandle: String): IO[String] =
+    for {
+      request  <- createYouTubeChannelUploadPlaylistRequest(youtubeService, channelHandle)
+      response <- IO(request.execute())
+      firstItem <- IO.fromOption(response.getItems().asScala.toList.headOption)(
+        Throwable(s"[PlaygroundMain] $channelHandle can't find the upload youtube playlist")
+      )
+      uploadPlaylistId = firstItem.getContentDetails().getRelatedPlaylists().getUploads()
+    } yield uploadPlaylistId
+
   def run(args: List[String]): IO[ExitCode] =
     for
       _              <- log.info("[PlaygroundMain] Start the PlaygroundMain")
@@ -108,26 +158,31 @@ object PlaygroundMain extends IOApp {
 
       // Multi Video Response
       // youtubeVideoRequest  <- createYouTubeVideoRequest(youtubeService, List("JInL-_qi8eA", "_N8OJARj2Xo"))
-      // _                    <- log.info(s"[PlaygroundMain] Execute Youtube video request: $youtubeVideoRequest")
+      // _                    <- log.info(s"[PlaygroundMain] Execute YouTube video request: $youtubeVideoRequest")
       // youtubeVideoResponse <- IO(youtubeVideoRequest.execute())
 
       // Single Video Caption Response
       // youtubeVideoCaptionRequest  <- createYouTubeVideoCaptionRequest(youtubeService, "r0bbq-soSfI")
-      // _                    <- log.info(s"[PlaygroundMain] Execute Youtube video caption request: $youtubeVideoCaptionRequest")
+      // _                    <- log.info(s"[PlaygroundMain] Execute YouTube video caption request: $youtubeVideoCaptionRequest")
       // youtubeVideoCaptionResponse <- IO(youtubeVideoCaptionRequest.execute())
-      // _                    <- log.info(s"[PlaygroundMain] Youtube video caption response: $youtubeVideoCaptionResponse")
+      // _                    <- log.info(s"[PlaygroundMain] YouTube video caption response: $youtubeVideoCaptionResponse")
 
-      //Single Video Playlist Response
-      youtubeVideoPlaylistRequest  <- createYouTubePlaylistRequest(youtubeService, "UUXEJNKH9I4xsoyUNN3IL96A", None)
-      _                    <- log.info(s"[PlaygroundMain] Execute Youtube video playlist request: $youtubeVideoPlaylistRequest")
-      youtubeVideoPlaylistResponse <- IO(youtubeVideoPlaylistRequest.execute())
-      _                    <- log.info(s"[PlaygroundMain] Youtube video playlist response: $youtubeVideoPlaylistResponse")
+      // Single Video Playlist Response
+      // youtubeVideoPlaylistRequest  <- createYouTubePlaylistRequest(youtubeService, "UUXEJNKH9I4xsoyUNN3IL96A", None)
+      // _                    <- log.info(s"[PlaygroundMain] Execute YouTube video playlist request: $youtubeVideoPlaylistRequest")
+      // youtubeVideoPlaylistResponse <- IO(youtubeVideoPlaylistRequest.execute())
+      // _                    <- log.info(s"[PlaygroundMain] YouTube video playlist response: $youtubeVideoPlaylistResponse")
 
       // Multi Channel Response
       // youtubeChannelRequest  <- createYouTubeChannelUploadPlaylistRequest(youtubeService, "xahlee")
-      // _                      <- log.info(s"[PlaygroundMain] Execute Youtube channel request: $youtubeChannelRequest")
+      // _                      <- log.info(s"[PlaygroundMain] Execute YouTube channel request: $youtubeChannelRequest")
       // youtubeChannelResponse <- IO(youtubeChannelRequest.execute())
-      // _                      <- log.info(s"[PlaygroundMain] Youtube video channel response: $youtubeChannelResponse")
+      // _                      <- log.info(s"[PlaygroundMain] YouTube video channel response: $youtubeChannelResponse")
+
+      // Get all ids from a playlistId
+      allChannelsUploadPlaylistIds <- channelHandles.traverse(getYouTubeChannelUploadsPlaylistId(youtubeService, _))
+      allPlaylistIds <- getYouTubePlaylistsIds(youtubeService, playlistIds ++ allChannelsUploadPlaylistIds)
+      _              <- log.info(s"[PlaygroundMain] $playlistIds all video Ids length: ${allPlaylistIds.length}")
     yield ExitCode.Success
 }
 
