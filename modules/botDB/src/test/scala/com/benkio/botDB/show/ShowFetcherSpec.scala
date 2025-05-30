@@ -28,8 +28,8 @@ class ShowFetcherSpec extends CatsEffectSuite {
     val showFetcher = ShowFetcher[IO]()
     for
       _ <- IO(File(outputFileName).delete())
-      showSource <- ShowSource[IO](
-        List("https://www.youtube.com/playlist?list=PL1hlX04-g75DGniSXtYRSlMBaroamq96d"),
+      showSource = ShowSource(
+        List("PL1hlX04-g75DGniSXtYRSlMBaroamq96d").map(YoutubeSource(_)),
         "testBot",
         outputFileName
       )

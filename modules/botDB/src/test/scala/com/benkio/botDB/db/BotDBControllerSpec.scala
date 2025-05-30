@@ -38,8 +38,8 @@ class BotDBControllerSpec extends CatsEffectSuite {
     cfg = config,
     dbLayer = dbLayerMock,
     resourceAccess = resourceAccessMock,
-    migrator = migratorMock,
-    showFetcher = showFetcherMock
+    migrator = migratorMock
+    // showFetcher = showFetcherMock
   )
 
   test("BotDBController populateMediaTable should call the databaseRepository for data insertion") {

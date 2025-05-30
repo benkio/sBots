@@ -1,14 +1,12 @@
 package com.benkio.botDB.db
 
-import cats.effect.implicits.*
 import cats.effect.kernel.Async
 import cats.effect.Resource
 import cats.implicits.*
 import cats.Show
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.ShowConfig
-import com.benkio.botDB.show.ShowFetcher
-import com.benkio.botDB.show.ShowSource
+//import com.benkio.botDB.show.ShowFetcher
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
@@ -21,7 +19,6 @@ import io.circe.parser.decode
 import io.circe.syntax.*
 import log.effect.LogWriter
 
-import java.io.File
 import java.time.Instant
 import scala.io.Source
 
@@ -36,57 +33,31 @@ object BotDBController {
       cfg: Config,
       dbLayer: DBLayer[F],
       resourceAccess: ResourceAccess[F],
-      migrator: DBMigrator[F],
-      showFetcher: ShowFetcher[F]
+      migrator: DBMigrator[F]
+      // showFetcher: ShowFetcher[F]
   ): BotDBController[F] =
     new BotDBControllerImpl(
       cfg = cfg,
       dbLayer = dbLayer,
       resourceAccess = resourceAccess,
-      migrator = migrator,
-      showFetcher = showFetcher
+      migrator = migrator
+      // showFetcher = showFetcher
     )
 
   private class BotDBControllerImpl[F[_]: Async: LogWriter](
       cfg: Config,
       dbLayer: DBLayer[F],
       resourceAccess: ResourceAccess[F],
-      migrator: DBMigrator[F],
-      showFetcher: ShowFetcher[F]
+      migrator: DBMigrator[F]
+      // showFetcher: ShowFetcher[F]
   ) extends BotDBController[F] {
     override def build: Resource[F, Unit] = for {
       _ <- Resource.eval(migrator.migrate(cfg))
       _ <- populateMediaTable
+      _ <- Resource.eval(showFetching(cfg.showConfig))
     } yield ()
 
-    private def showFetching(showConfig: ShowConfig): F[Unit] =
-      if showConfig.runShowFetching
-      then
-        showConfig.showSources
-          .parTraverse(ms =>
-            for
-              showSource <- ShowSource(ms.urls, ms.botName, ms.outputFilePath)
-              _ <-
-                if showConfig.dryRun
-                then Async[F].delay(File(ms.outputFilePath).delete).void
-                else Async[F].unit
-              EitherDbShowDatas <- showFetcher.generateShowJson(showSource).attempt
-              dbShowDatas <- EitherDbShowDatas.fold(
-                err =>
-                  LogWriter.error(s"[BotDBController] ERROR when computing $showSource with $err") >>
-                    List.empty.pure,
-                _.pure
-              )
-            yield dbShowDatas
-          )
-          .flatMap(
-            _.flatten.traverse_(dbShowData =>
-              LogWriter.info(
-                s"[BotDBController] Inserted show ${dbShowData.show_title} of url ${dbShowData.show_url}, successfully"
-              ) >> dbLayer.dbShow.insertShow(dbShowData)
-            )
-          )
-      else Async[F].unit
+    private def showFetching(showConfig: ShowConfig): F[Unit] = ???
 
     override def populateMediaTable: Resource[F, Unit] = for {
       allFiles <- cfg.jsonLocation.flatTraverse(location =>
@@ -125,7 +96,6 @@ object BotDBController {
           } yield ()
         )
       )
-      _ <- Resource.eval(showFetching(cfg.showConfig))
     } yield ()
   }
 }
