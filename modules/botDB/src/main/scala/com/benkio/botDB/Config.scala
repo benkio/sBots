@@ -40,8 +40,7 @@ object Config {
 case class ShowConfig(
     showSources: List[ShowSourceConfig],
     runShowFetching: Boolean,
-    dryRun: Boolean,
-    youtubeApiKey: String
+    dryRun: Boolean
 ) derives ConfigReader
 
 case class ShowSourceConfig(

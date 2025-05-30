@@ -16,7 +16,7 @@ import scala.concurrent.duration.*
 
 class ShowFetcherSpec extends CatsEffectSuite {
   val outputFileName = "./test.json"
-
+  val youtubeApiKey  = "youtubeApiKey"
   // TODO: make the tests faster and remove this eventually
   override val munitIOTimeout = 1.minutes
   given log: LogWriter[IO]    = consoleLogUpToLevel(LogLevels.Info)
@@ -25,7 +25,7 @@ class ShowFetcherSpec extends CatsEffectSuite {
   test("generateShowJson should return a json if the input is valid") {
     assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
 
-    val showFetcher = ShowFetcher[IO]()
+    val showFetcher = ShowFetcher[IO](youtubeApiKey)
     for
       _ <- IO(File(outputFileName).delete())
       showSource = ShowSource(

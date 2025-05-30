@@ -10,12 +10,14 @@ trait ShowFetcher[F[_]]:
 object ShowFetcher {
   def apply[
       F[_] // : Async: LogWriter
-  ](): ShowFetcher[F] = ShowFetcherImpl[F]()
+  ](youtubeApiKey: String): ShowFetcher[F] = ShowFetcherImpl[F](youtubeApiKey)
 
   private class ShowFetcherImpl[
       F[_] // : Async: LogWriter
-  ]() extends ShowFetcher[F] {
+  ](youtubeApiKey: String)
+      extends ShowFetcher[F] {
     override def generateShowJson(source: ShowSource): F[List[DBShowData]] =
+      val _ = youtubeApiKey
       ???
 
   }
