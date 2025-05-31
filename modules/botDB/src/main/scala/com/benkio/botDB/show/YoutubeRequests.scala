@@ -1,6 +1,7 @@
 package com.benkio.botDB.show
 
-import cats.effect.IO
+import cats.effect.kernel.Async
+import cats.syntax.all.*
 import com.google.api.services.youtube.YouTube
 import log.effect.LogWriter
 
@@ -12,12 +13,12 @@ object YoutubeRequests {
 
   // YouTube Requests ///////////////////////////////////////////////////////
 
-  def createYouTubeVideoRequest(youtubeService: YouTube, videoIds: List[String], apiKeys: String)(using
-      log: LogWriter[IO]
-  ): IO[YouTube#Videos#List] =
+  def createYouTubeVideoRequest[F[_]: Async](youtubeService: YouTube, videoIds: List[String], apiKeys: String)(using
+      log: LogWriter[F]
+  ): F[YouTube#Videos#List] =
     for {
       _ <- log.info(s"[YoutubeRequests] ${videoIds.length} Create a YouTube Video request")
-      request <- IO(
+      request <- Async[F].delay(
         youtubeService
           .videos()
           .list(List("id", "snippet", "contentDetails", "liveStreamingDetails").asJava)
@@ -30,12 +31,12 @@ object YoutubeRequests {
       )
     } yield request
 
-  def createYouTubeVideoCaptionRequest(youtubeService: YouTube, videoId: String, apiKeys: String)(using
-      log: LogWriter[IO]
-  ): IO[YouTube#Captions#List] =
+  def createYouTubeVideoCaptionRequest[F[_]: Async](youtubeService: YouTube, videoId: String, apiKeys: String)(using
+      log: LogWriter[F]
+  ): F[YouTube#Captions#List] =
     for {
       _ <- log.info(s"[YoutubeRequests] $videoId Create a YouTube Video Caption request")
-      request <- IO(
+      request <- Async[F].delay(
         youtubeService
           .captions()
           .list(List("id", "snippet").asJava, videoId)
@@ -44,15 +45,15 @@ object YoutubeRequests {
       )
     } yield request
 
-  def createYouTubePlaylistRequest(
+  def createYouTubePlaylistRequest[F[_]: Async](
       youtubeService: YouTube,
       playlistId: String,
       pageToken: Option[String],
       apiKeys: String
-  )(using log: LogWriter[IO]): IO[YouTube#PlaylistItems#List] =
+  )(using log: LogWriter[F]): F[YouTube#PlaylistItems#List] =
     for {
       _ <- log.info(s"[YoutubeRequests] $playlistId Create a YouTube Video Playlist request")
-      request <- IO(
+      request <- Async[F].delay(
         youtubeService
           .playlistItems()
           .list(List("contentDetails").asJava)
@@ -63,14 +64,14 @@ object YoutubeRequests {
       )
     } yield pageToken.fold(request)(pt => request.setPageToken(pt))
 
-  def createYouTubeChannelUploadPlaylistRequest(
+  def createYouTubeChannelUploadPlaylistRequest[F[_]: Async](
       youtubeService: YouTube,
       channelHandle: String,
       apiKeys: String
-  )(using log: LogWriter[IO]): IO[YouTube#Channels#List] =
+  )(using log: LogWriter[F]): F[YouTube#Channels#List] =
     for {
       _ <- log.info(s"[YoutubeRequests] $channelHandle Create a YouTube Channel request")
-      request <- IO(
+      request <- Async[F].delay(
         youtubeService
           .channels()
           .list(List("contentDetails").asJava)

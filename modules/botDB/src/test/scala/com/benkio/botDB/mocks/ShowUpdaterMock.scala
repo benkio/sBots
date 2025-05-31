@@ -6,6 +6,6 @@ import com.benkio.botDB.show.ShowUpdater
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 
 class ShowUpdaterMock() extends ShowUpdater[IO] {
-  override def updateShow: Resource[IO, List[DBShowData]] =
+  override def updateShow: Resource[IO, Unit] =
     Resource.pure(List.empty)
 }
