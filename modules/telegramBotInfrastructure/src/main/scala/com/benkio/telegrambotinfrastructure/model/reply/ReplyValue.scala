@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import cats.syntax.all.*
-import cats.MonadThrow
+
+
 import cats.Show
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.MimeType
@@ -53,18 +53,14 @@ object MediaFile {
 
   given showInstance: Show[MediaFile] = Show.show(_.filename)
 
-  def fromString[F[_]: MonadThrow](filename: String): F[MediaFile] = filename.takeRight(4) match {
-    case ".mp3"                                       => Mp3File(filename).pure[F]
-    case ".gif"                                       => GifFile(filename).pure[F]
-    case ".jpg" | ".png"                              => PhotoFile(filename).pure[F]
-    case ".mp4" if filename.takeRight(7) == "Gif.mp4" => GifFile(filename).pure[F]
-    case ".mp4"                                       => VideoFile(filename).pure[F]
-    case _ =>
-      MonadThrow[F].raiseError(
-        Throwable(
-          s"[ReplyValue] MediaFile.fromString unrecognized filename: $filename. Sticker and Document not supported"
-        )
-      )
+  def fromString(filename: String): MediaFile = filename.takeRight(4) match {
+    case ".mp3"                                       => Mp3File(filename)
+    case ".gif"                                       => GifFile(filename)
+    case ".jpg" | ".png"                              => PhotoFile(filename)
+    case ".mp4" if filename.takeRight(7) == "Gif.mp4" => GifFile(filename)
+    case ".mp4"                                       => VideoFile(filename)
+    case _ if filename.takeRight(8) == ".sticker" => Sticker(filename)
+    case _ => Document(filename)
   }
 
   def fromMimeType(media: Media, replyToMessage: Boolean = false): MediaFile = media.mimeType match {

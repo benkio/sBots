@@ -14,7 +14,7 @@ import log.effect.LogWriter
 import scala.jdk.CollectionConverters.*
 
 trait YouTubeService[F[_]] {
-  def getAllIds: F[List[String]]
+  def getAllBotNameIds: F[Map[String, List[String]]]
   def getYouTubeVideos[F[_]: Async: LogWriter](
       videoIds: List[String]
   ): F[List[Video]]
@@ -53,7 +53,7 @@ object YouTubeService {
 
   private class YouTubeServiceImpl[F[_]: Async: LogWriter](youTubeService: YouTube, config: Config, youTubeApiKey: String)
       extends YouTubeService[F] {
-    override def getAllIds: F[List[String]] = ???
+    override def getAllBotNameIds: F[Map[String, List[String]]] = ???
 
     override def getYouTubeVideos[F[_]: Async: LogWriter](
       videoIds: List[String]
