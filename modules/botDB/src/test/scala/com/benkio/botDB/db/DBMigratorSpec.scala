@@ -11,7 +11,7 @@ class DBMigratorSpec extends CatsEffectSuite {
   test("Migrate build should run without raising exceptions") {
     dbMigrator.migrate(config).attempt.map {
       case Right(_) => assert(true, "DBMigrator.migrate didn't throw an error")
-      case Left(e) => fail(s"Unexpected error: ${e.getMessage}")
+      case Left(e)  => fail(s"Unexpected error: ${e.getMessage}")
     }
   }
 }
