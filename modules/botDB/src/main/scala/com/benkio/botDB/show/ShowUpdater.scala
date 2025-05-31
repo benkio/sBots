@@ -4,17 +4,22 @@ import cats.effect.kernel.Async
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.botDB.config.Config
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
+import com.google.api.services.youtube.model.Video
 import io.circe.*
 import io.circe.parser.*
 import io.circe.syntax.*
 import log.effect.LogWriter
 
 import java.io.File
+import java.nio.charset.StandardCharsets
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.time.Duration
 import scala.io.Source
+import scala.util.Try
 
 trait ShowUpdater[F[_]]:
   def updateShow: Resource[F, Unit]
@@ -29,12 +34,10 @@ object ShowUpdater {
   ](
       config: Config,
       dbLayer: DBLayer[F],
-      resourceAccess: ResourceAccess[F],
       youTubeApiKey: String
   ): ShowUpdater[F] = ShowUpdaterImpl[F](
     config = config,
     dbLayer = dbLayer,
-    resourceAccess = resourceAccess,
     youTubeApiKey = youTubeApiKey
   )
 
@@ -43,25 +46,50 @@ object ShowUpdater {
   ](
       config: Config,
       dbLayer: DBLayer[F],
-      resourceAccess: ResourceAccess[F],
       youTubeApiKey: String
   ) extends ShowUpdater[F] {
     override def updateShow: Resource[F, Unit] = {
-      val _ = (dbLayer, resourceAccess, youTubeApiKey)
       val program = for {
         _              <- LogWriter.info("[ShowUpdater] Creating YouTube Service")
         youTubeService <- YouTubeService(config = config, youTubeApiKey)
         _              <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
         candidateIds   <- youTubeService.getAllBotNameIds
-        _              <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.values.flatten.size} Ids")
+        _              <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids")
         _              <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
         storedIds      <- getStoredIds
-        newIds = candidateIds.map { case (botName, ids) => (botName, ids.filterNot(id => storedIds.contains(id))) }
-        _      <- LogWriter.info(s"[ShowUpdater] ${newIds.values.flatten.size} Ids to be added")
-        _      <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
-        videos <- candidateIds.unorderedTraverse(ids => youTubeService.getYouTubeVideos(ids))
-        _      <- LogWriter.info("[ShowUpdater] Converting YouTube data to DBMediaData")
-        _      <- LogWriter.info("[ShowUpdater] Insert DBMediaData to DB")
+        youTubeBotIds = candidateIds.map(youTubeBotIds =>
+          youTubeBotIds.copy(videoIds = youTubeBotIds.videoIds.filterNot(id => storedIds.contains(id)))
+        )
+        _ <- LogWriter.info(s"[ShowUpdater] ${youTubeBotIds.flatMap(_.videoIds).length} Ids to be added")
+        _ <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
+        youTubeBotVideos <- youTubeBotIds
+          .traverse(youTubeBotIds =>
+            youTubeService
+              .getYouTubeVideos(youTubeBotIds.videoIds)
+              .map(youTubeBotVideos =>
+                YouTubeBotVideos(youTubeBotIds.botName, youTubeBotIds.outputFilePath, youTubeBotVideos)
+              )
+          )
+        _ <- LogWriter.info("[ShowUpdater] Converting YouTube data to DBShowData")
+        youTubeBotdbShowDatas <- youTubeBotVideos.traverse(youTubeBotVideos =>
+          youTubeBotVideos.videos
+            .traverse(videoToDBShowData(_, youTubeBotVideos.botName))
+            .map((dBShowDatas: List[Option[DBShowData]]) =>
+              YouTubeBotDBShowDatas(
+                youTubeBotVideos.botName,
+                youTubeBotVideos.outputFilePath,
+                dBShowDatas.flatMap(_.toList)
+              )
+            )
+        )
+        _ <- LogWriter.info("[ShowUpdater] Insert DBShowDatas to DB")
+        _ <- youTubeBotdbShowDatas
+          .flatMap { case YouTubeBotDBShowDatas(_, _, dbShowDatas) => dbShowDatas }
+          .traverse_(show => LogWriter.info(s"[ShowUpdater] ✓💾 ${show.show_title}") >> dbLayer.dbShow.insertShow(show))
+        _ <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
+        _ <- youTubeBotdbShowDatas.traverse_(youTubeBotdbShowData =>
+          updateStoredJsons(config, youTubeBotdbShowData.outputFilePath, youTubeBotdbShowData.dbShowDatas)
+        )
       } yield ()
       if config.showConfig.runShowFetching
       then Resource.eval(program)
@@ -71,16 +99,10 @@ object ShowUpdater {
     private def getStoredIds: F[List[String]] = {
       val showFilesResource: Resource[F, List[File]] =
         config.showConfig.showSources
-          .map(showSource => MediaFile.fromString(showSource.outputFilePath))
-          .traverse(mediaFile =>
-            resourceAccess
-              .getResourceFile(mediaFile)
-              .flatMap(resourceFiles =>
-                resourceFiles.head match {
-                  case MediaResource.MediaResourceFile(resourceFile) => resourceFile
-                  case _ => Resource.eval(Async[F].raiseError[File](FailedToOpenFile(mediaFile)))
-                }
-              )
+          .traverse(showSource =>
+            Resource.make(Async[F].delay(File(showSource.outputFilePath)))(f =>
+              LogWriter.info(s"[ShowUpdater] Closing file $f")
+            )
           )
       val deleteFiles: F[List[String]] =
         showFilesResource.use(showFiles =>
@@ -96,7 +118,7 @@ object ShowUpdater {
               for {
                 _                   <- LogWriter.info(s"[ShowUpdater] Parse show file content: $showFile")
                 showFileContentJson <- Async[F].fromEither(parse(Source.fromFile(showFile).mkString))
-                showFileIdsJson = showFileContentJson.findAllByKey("show_url")
+                showFileIdsJson = showFileContentJson.findAllByKey("show_id")
                 showFileIds <- Async[F].fromEither(showFileIdsJson.traverse(_.as[String]))
               } yield showFileIds
             )
@@ -104,6 +126,55 @@ object ShowUpdater {
       if config.showConfig.dryRun
       then deleteFiles
       else getStoredFilesShowIds
+    }
+
+    private def videoToDBShowData(video: Video, botName: String): F[Option[DBShowData]] = {
+      def durationISO8601ToSeconds(isoDuration: String): Int = {
+        val duration = Duration.parse(isoDuration)
+        duration.getSeconds.toInt
+      }
+      val maybeDBShowData = for {
+        id         <- Option(video.getId())
+        title      <- Option(video.getSnippet().getTitle())
+        uploadDate <- Option(video.getSnippet().getPublishedAt().toStringRfc3339())
+        duration   <- Option(video.getContentDetails().getDuration())
+      } yield DBShowData(
+        show_id = id,
+        bot_name = botName,
+        show_title = title,
+        show_upload_date = uploadDate,
+        show_duration = durationISO8601ToSeconds(duration),
+        show_description = Option(video.getSnippet().getDescription()),
+        show_is_live = Option(video.getLiveStreamingDetails()).isDefined,
+        show_origin_automatic_caption = None // TODO: add caption foreign key
+      )
+      maybeDBShowData.fold(
+        LogWriter.error(s"[PlaygroundMain] ERROR: $botName Video conversion problem for $video") *> None.pure[F]
+      )(
+        _.some.pure[F]
+      )
+    }
+
+    private def updateStoredJsons(config: Config, outputFilePath: String, dbShowDatas: List[DBShowData]): F[Unit] = {
+      def overwriteOutputFileContent(content: String) =
+        Async[F]
+          .fromTry(
+            Try(
+              Files.write(Paths.get(outputFilePath), content.getBytes(StandardCharsets.UTF_8))
+            )
+          )
+          .as(())
+      val appendOutputFileContent = for {
+        fileContent <- Async[F].fromTry(Try(String(Files.readAllBytes(Paths.get(outputFilePath)))))
+        storedShows <- Async[F].fromEither(decode[List[DBShowData]](fileContent))
+        resultContent = dbShowDatas ++ storedShows
+        _ <- overwriteOutputFileContent(resultContent.asJson.spaces2)
+      } yield ()
+      val updateComputation =
+        if config.showConfig.dryRun
+        then overwriteOutputFileContent(dbShowDatas.asJson.spaces2)
+        else appendOutputFileContent
+      updateComputation
     }
   }
 }

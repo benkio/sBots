@@ -40,7 +40,7 @@ object Audio:
       mp3"ytai_Francesismo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "grazie"
+      "grazie!"
     )(
       mp3"ytai_Grazie.mp3"
     ),

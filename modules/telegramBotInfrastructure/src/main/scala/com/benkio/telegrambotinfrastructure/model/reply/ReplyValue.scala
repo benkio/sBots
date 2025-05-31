@@ -1,7 +1,5 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-
-
 import cats.Show
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.MimeType
@@ -59,8 +57,8 @@ object MediaFile {
     case ".jpg" | ".png"                              => PhotoFile(filename)
     case ".mp4" if filename.takeRight(7) == "Gif.mp4" => GifFile(filename)
     case ".mp4"                                       => VideoFile(filename)
-    case _ if filename.takeRight(8) == ".sticker" => Sticker(filename)
-    case _ => Document(filename)
+    case _ if filename.takeRight(8) == ".sticker"     => Sticker(filename)
+    case _                                            => Document(filename)
   }
 
   def fromMimeType(media: Media, replyToMessage: Boolean = false): MediaFile = media.mimeType match {

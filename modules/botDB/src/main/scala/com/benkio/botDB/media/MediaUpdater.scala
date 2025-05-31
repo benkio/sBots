@@ -74,7 +74,7 @@ object MediaUpdater {
                 )
               )
             _ <- LogWriter.info(
-              s"[MediaUpdater] Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully"
+              s"[MediaUpdater] ✓💾 ${i.filename}"
             )
           } yield ()
         )

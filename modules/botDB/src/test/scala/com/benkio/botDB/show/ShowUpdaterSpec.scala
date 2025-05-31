@@ -81,7 +81,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       )
     yield assert(
       dbShowDatas
-        .groupBy(_.show_url)
+        .groupBy(_.show_id)
         .forall { case (u, dsds) => dsds.length == 1 }
     )
   }

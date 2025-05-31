@@ -1,5 +1,7 @@
 package com.benkio.botDB.show
 
+import com.benkio.botDB.config.ShowSourceConfig
+import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import com.benkio.botDB.config.Config
 import cats.effect.kernel.Async
 import cats.syntax.all.*
@@ -13,8 +15,12 @@ import log.effect.LogWriter
 
 import scala.jdk.CollectionConverters.*
 
+final case class YouTubeBotIds(botName: String, outputFilePath: String, videoIds: List[String])
+final case class YouTubeBotVideos(botName: String, outputFilePath: String, videos: List[Video])
+final case class YouTubeBotDBShowDatas(botName: String, outputFilePath: String, dbShowDatas: List[DBShowData])
+
 trait YouTubeService[F[_]] {
-  def getAllBotNameIds: F[Map[String, List[String]]]
+  def getAllBotNameIds: F[List[YouTubeBotIds]]
   def getYouTubeVideos[F[_]: Async: LogWriter](
       videoIds: List[String]
   ): F[List[Video]]
@@ -53,7 +59,24 @@ object YouTubeService {
 
   private class YouTubeServiceImpl[F[_]: Async: LogWriter](youTubeService: YouTube, config: Config, youTubeApiKey: String)
       extends YouTubeService[F] {
-    override def getAllBotNameIds: F[Map[String, List[String]]] = ???
+    override def getAllBotNameIds: F[List[YouTubeBotIds]] = {
+      val source = config.showConfig.showSources
+      for {
+        _ <- LogWriter.info("[YouTubeService] Get Youtube playlist Ids from sources")
+        botPlaylistIds <- source.traverse { case ShowSourceConfig(youTubeSources, botName, outputFilePath) =>
+          youTubeSources.map(YouTubeSource(_)).traverse {
+          case YouTubeSource.Playlist(id) => id.pure[F]
+          case YouTubeSource.Channel(channelHandle) => getYouTubeChannelUploadsPlaylistId(youTubeService, channelHandle, youTubeApiKey)
+          }.map(YouTubeBotIds(botName, outputFilePath, _))
+        }
+        _ <- LogWriter.info("[YouTubeService] Get Youtube videos Ids from sources")
+        botVideoIds <- botPlaylistIds.traverse {
+          case YouTubeBotIds(botName, outputFilePath, playlistIds) =>
+            getYouTubePlaylistsIds(youTubeService, playlistIds, youTubeApiKey)
+              .map(videoIds => YouTubeBotIds(botName, outputFilePath, videoIds))
+        }
+      } yield botVideoIds
+    }
 
     override def getYouTubeVideos[F[_]: Async: LogWriter](
       videoIds: List[String]

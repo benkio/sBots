@@ -15,7 +15,7 @@ import log.effect.LogWriter
 import java.time.format.DateTimeFormatter
 
 final case class DBShowData(
-    show_url: String,
+    show_id: String,
     bot_name: String,
     show_title: String,
     show_upload_date: String,
@@ -29,10 +29,10 @@ object DBShowData {
 
   given Decoder[DBShowData]                = deriveDecoder[DBShowData]
   given Encoder[DBShowData]                = deriveEncoder[DBShowData]
-  val dateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+  val dateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
 
   def apply(show: Show): DBShowData = DBShowData(
-    show_url = show.url.renderString,
+    show_id = show.id,
     bot_name = show.botName,
     show_title = show.title,
     show_upload_date = show.uploadDate.format(dateTimeFormatter),
@@ -109,21 +109,23 @@ object DBShow {
         ) ++
         minDuration.toList.map(mind => fr"show_duration > $mind") ++
         maxDuration.toList.map(maxd => fr"show_duration < $maxd") ++
-        minDate.toList.map(mind => fr"show_upload_date > ${mind.format(DBShowData.dateTimeFormatter)}") ++
-        maxDate.toList.map(maxd => fr"show_upload_date < ${maxd.format(DBShowData.dateTimeFormatter)}")
+        minDate.toList.map(mind =>
+          fr"show_upload_date > ${mind.atStartOfDay().format(DBShowData.dateTimeFormatter)}"
+        ) ++
+        maxDate.toList.map(maxd => fr"show_upload_date < ${maxd.atStartOfDay().format(DBShowData.dateTimeFormatter)}")
   }
 
   def getShowsQuery(botName: String): Query0[DBShowData] =
-    sql"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_name = $botName"
+    sql"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_name = $botName"
       .query[DBShowData]
 
   def getRandomShowQuery(botName: String): Query0[DBShowData] =
-    sql"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_name = $botName ORDER BY RANDOM() LIMIT 1"
+    sql"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_name = $botName ORDER BY RANDOM() LIMIT 1"
       .query[DBShowData]
 
   def getShowByShowQueryQuery(query: ShowQuery, botName: String): Query0[DBShowData] = {
     val q =
-      fr"SELECT show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++
+      fr"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++
         Fragments.whereAnd(
           fr"bot_name = $botName",
           showQueryToFragments(query)*
@@ -132,11 +134,11 @@ object DBShow {
     q.query[DBShowData]
   }
   def insertShowQuery(dbShowData: DBShowData): Update0 =
-    sql"INSERT INTO show (show_url, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption) VALUES (${dbShowData.show_url}, ${dbShowData.bot_name}, ${dbShowData.show_title}, ${dbShowData.show_upload_date}, ${dbShowData.show_duration}, ${dbShowData.show_description}, ${dbShowData.show_is_live}, ${dbShowData.show_origin_automatic_caption})".update
+    sql"INSERT INTO show (show_id, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption) VALUES (${dbShowData.show_id}, ${dbShowData.bot_name}, ${dbShowData.show_title}, ${dbShowData.show_upload_date}, ${dbShowData.show_duration}, ${dbShowData.show_description}, ${dbShowData.show_is_live}, ${dbShowData.show_origin_automatic_caption})".update
 
   def deleteShowQuery(dbShowData: DBShowData): Update0 =
-    sql"DELETE FROM show WHERE show_url = ${dbShowData.show_url}".update
+    sql"DELETE FROM show WHERE show_id = ${dbShowData.show_id}".update
 
   def updateOnConflictSql(dbShowData: DBShowData): Update0 =
-    sql"UPDATE show SET bot_name = ${dbShowData.bot_name}, show_title = ${dbShowData.show_title}, show_upload_date = ${dbShowData.show_upload_date}, show_duration = ${dbShowData.show_duration}, show_description = ${dbShowData.show_description}, show_is_live = ${dbShowData.show_is_live}, show_origin_automatic_caption = ${dbShowData.show_origin_automatic_caption} WHERE show_url = ${dbShowData.show_url};".update
+    sql"UPDATE show SET bot_name = ${dbShowData.bot_name}, show_title = ${dbShowData.show_title}, show_upload_date = ${dbShowData.show_upload_date}, show_duration = ${dbShowData.show_duration}, show_description = ${dbShowData.show_description}, show_is_live = ${dbShowData.show_is_live}, show_origin_automatic_caption = ${dbShowData.show_origin_automatic_caption} WHERE show_id = ${dbShowData.show_id};".update
 }

@@ -21,10 +21,10 @@ object Main extends IOApp {
   // Eg ("src/it/resources/app.config", "it")
   def run(args: List[String]): IO[ExitCode] = {
     val program = for {
-      _   <- Resource.eval(IO(log.info("[Main] Migrating database configuration")))
+      _      <- Resource.eval(IO(log.info("[Main] Migrating database configuration")))
       config <- Resource.eval(Config.loadConfig(args.headOption))
-      _   <- Resource.eval(IO(log.info(s"[Main] Input Configuration: $config")))
-      _   <- Resource.eval(IO(log.info("[Main] Connect to DB")))
+      _      <- Resource.eval(IO(log.info(s"[Main] Input Configuration: $config")))
+      _      <- Resource.eval(IO(log.info("[Main] Connect to DB")))
       transactor = Config.buildTransactor(config = config)
       dbLayer <- Resource.eval(DBLayer[IO](transactor))
       _       <- Resource.eval(IO(log.info("[Main] Initialize: ResourceAccess")))
@@ -38,7 +38,6 @@ object Main extends IOApp {
       showUpdater = ShowUpdater[IO](
         config = config,
         dbLayer = dbLayer,
-        resourceAccess = resourceAccess,
         youTubeApiKey = youTubeApiKey
       )
       _ <- Resource.eval(IO(log.info("[Main] End Initialization. Migrate DB")))
