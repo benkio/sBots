@@ -14,7 +14,7 @@ import log.effect.LogWriter
 
 object Main extends IOApp {
 
-  val youtubeTokenFilename = "youtubeApiKey.token"
+  val youtubeTokenFilename = "youTubeApiKey.token"
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   // in IT test the args will contain the app config and the stage.
@@ -22,27 +22,27 @@ object Main extends IOApp {
   def run(args: List[String]): IO[ExitCode] = {
     val program = for {
       _   <- Resource.eval(IO(log.info("[Main] Migrating database configuration")))
-      cfg <- Resource.eval(Config.loadConfig(args.headOption))
-      _   <- Resource.eval(IO(log.info(s"[Main] Input Configuration: $cfg")))
+      config <- Resource.eval(Config.loadConfig(args.headOption))
+      _   <- Resource.eval(IO(log.info(s"[Main] Input Configuration: $config")))
       _   <- Resource.eval(IO(log.info("[Main] Connect to DB")))
-      transactor = Config.buildTransactor(cfg = cfg)
+      transactor = Config.buildTransactor(config = config)
       dbLayer <- Resource.eval(DBLayer[IO](transactor))
       _       <- Resource.eval(IO(log.info("[Main] Initialize: ResourceAccess")))
       resourceAccess = ResourceAccess.fromResources[IO](args.lastOption)
       _ <- Resource.eval(IO(log.info("[Main] Initialize: DBMigrator")))
       migrator = DBMigrator[IO]
       _ <- Resource.eval(IO(log.info("[Main] Initialize: MediaUpdater")))
-      mediaUpdater = MediaUpdater(cfg = cfg, dbLayer = dbLayer, resourceAccess = resourceAccess)
+      mediaUpdater = MediaUpdater(config = config, dbLayer = dbLayer, resourceAccess = resourceAccess)
       _             <- Resource.eval(IO(log.info("[Main] Fetch Youtube api key from resources")))
-      youtubeApiKey <- BotSetup.token(youtubeTokenFilename, resourceAccess)
+      youTubeApiKey <- BotSetup.token(youtubeTokenFilename, resourceAccess)
       showUpdater = ShowUpdater[IO](
-        cfg = cfg,
+        config = config,
         dbLayer = dbLayer,
         resourceAccess = resourceAccess,
-        youtubeApiKey = youtubeApiKey
+        youTubeApiKey = youTubeApiKey
       )
       _ <- Resource.eval(IO(log.info("[Main] End Initialization. Migrate DB")))
-      _ <- Resource.eval(migrator.migrate(cfg))
+      _ <- Resource.eval(migrator.migrate(config))
       _ <- Resource.eval(IO(log.info("[Main] Populate Media Table")))
       _ <- mediaUpdater.updateMedia
       _ <- Resource.eval(IO(log.info("[Main] Populate Show Table")))

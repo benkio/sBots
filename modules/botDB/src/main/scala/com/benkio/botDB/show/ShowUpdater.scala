@@ -15,30 +15,30 @@ object ShowUpdater {
   def apply[
       F[_]: Async: LogWriter
   ](
-      cfg: Config,
+      config: Config,
       dbLayer: DBLayer[F],
       resourceAccess: ResourceAccess[F],
-      youtubeApiKey: String
+      youTubeApiKey: String
   ): ShowUpdater[F] = ShowUpdaterImpl[F](
-    cfg = cfg,
+    config = config,
     dbLayer = dbLayer,
     resourceAccess = resourceAccess,
-    youtubeApiKey = youtubeApiKey
+    youTubeApiKey = youTubeApiKey
   )
 
   private class ShowUpdaterImpl[
       F[_]: Async: LogWriter
   ](
-      cfg: Config,
+      config: Config,
       dbLayer: DBLayer[F],
       resourceAccess: ResourceAccess[F],
-      youtubeApiKey: String
+      youTubeApiKey: String
   ) extends ShowUpdater[F] {
     override def updateShow: Resource[F, Unit] = {
-      val _ = (dbLayer, resourceAccess, youtubeApiKey)
+      val _ = (dbLayer, resourceAccess, youTubeApiKey)
       val program = for {
         _              <- LogWriter.info("[ShowUpdater] Creating Youtube Service")
-        youTubeService <- YoutubeService(cfg.showConfig.applicationName)
+        youTubeService <- YouTubeService(config = config, youTubeApiKey)
         _              <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
         _              <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
         // TODO: Check if the output needs to be cancelled from the config
@@ -47,7 +47,7 @@ object ShowUpdater {
         _ <- LogWriter.info("[ShowUpdater] Converting Youtube data to DBMediaData")
         _ <- LogWriter.info("[ShowUpdater] Insert DBMediaData to DB")
       } yield ()
-      if cfg.showConfig.runShowFetching
+      if config.showConfig.runShowFetching
       then Resource.eval(program)
       else Resource.eval(LogWriter.info("[ShowUpdater] Option runShowFetching = true. No run"))
     }

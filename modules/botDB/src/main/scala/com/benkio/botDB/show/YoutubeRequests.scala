@@ -7,7 +7,7 @@ import log.effect.LogWriter
 
 import scala.jdk.CollectionConverters.*
 
-object YoutubeRequests {
+object YouTubeRequests {
 
   val maxResults = 50L
 
@@ -17,7 +17,7 @@ object YoutubeRequests {
       log: LogWriter[F]
   ): F[YouTube#Videos#List] =
     for {
-      _ <- log.info(s"[YoutubeRequests] ${videoIds.length} Create a YouTube Video request")
+      _ <- log.info(s"[YouTubeRequests] ${videoIds.length} Create a YouTube Video request")
       request <- Async[F].delay(
         youTubeService
           .videos()
@@ -35,7 +35,7 @@ object YoutubeRequests {
       log: LogWriter[F]
   ): F[YouTube#Captions#List] =
     for {
-      _ <- log.info(s"[YoutubeRequests] $videoId Create a YouTube Video Caption request")
+      _ <- log.info(s"[YouTubeRequests] $videoId Create a YouTube Video Caption request")
       request <- Async[F].delay(
         youTubeService
           .captions()
@@ -52,7 +52,7 @@ object YoutubeRequests {
       apiKeys: String
   )(using log: LogWriter[F]): F[YouTube#PlaylistItems#List] =
     for {
-      _ <- log.info(s"[YoutubeRequests] $playlistId Create a YouTube Video Playlist request")
+      _ <- log.info(s"[YouTubeRequests] $playlistId Create a YouTube Video Playlist request")
       request <- Async[F].delay(
         youTubeService
           .playlistItems()
@@ -70,7 +70,7 @@ object YoutubeRequests {
       apiKeys: String
   )(using log: LogWriter[F]): F[YouTube#Channels#List] =
     for {
-      _ <- log.info(s"[YoutubeRequests] $channelHandle Create a YouTube Channel request")
+      _ <- log.info(s"[YouTubeRequests] $channelHandle Create a YouTube Channel request")
       request <- Async[F].delay(
         youTubeService
           .channels()

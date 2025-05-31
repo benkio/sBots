@@ -26,28 +26,28 @@ sealed trait MediaUpdater[F[_]] {
 
 object MediaUpdater {
   def apply[F[_]: Async: LogWriter](
-      cfg: Config,
+      config: Config,
       dbLayer: DBLayer[F],
       resourceAccess: ResourceAccess[F]
   ): MediaUpdater[F] =
     new MediaUpdaterImpl(
-      cfg = cfg,
+      config = config,
       dbLayer = dbLayer,
       resourceAccess = resourceAccess
     )
 
   private class MediaUpdaterImpl[F[_]: Async: LogWriter](
-      cfg: Config,
+      config: Config,
       dbLayer: DBLayer[F],
       resourceAccess: ResourceAccess[F]
   ) extends MediaUpdater[F] {
 
     override def updateMedia: Resource[F, Unit] = for {
-      allFiles <- cfg.jsonLocation.flatTraverse(location =>
+      allFiles <- config.jsonLocation.flatTraverse(location =>
         resourceAccess.getResourcesByKind(location).map(_.reduce.toList)
       )
       _ <- Resource.eval(
-        LogWriter.info(s"[MediaUpdater]: all files from ${cfg.jsonLocation}: ${allFiles.length}")
+        LogWriter.info(s"[MediaUpdater]: all files from ${config.jsonLocation}: ${allFiles.length}")
       )
       jsons <- allFiles
         .mapFilter(_.getMediaResourceFile)

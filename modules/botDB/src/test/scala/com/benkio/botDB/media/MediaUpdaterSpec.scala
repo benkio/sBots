@@ -31,7 +31,7 @@ class MediaUpdaterSpec extends CatsEffectSuite {
     medias = mediaEntities
   )
   val mediaUpdater: MediaUpdater[IO] = MediaUpdater(
-    cfg = config,
+    config = config,
     dbLayer = dbLayerMock,
     resourceAccess = resourceAccessMock
   )

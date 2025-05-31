@@ -27,10 +27,10 @@ object Config {
       )
   }
 
-  def buildTransactor(cfg: Config): Transactor[IO] =
+  def buildTransactor(config: Config): Transactor[IO] =
     Transactor.fromDriverManager[IO](
-      cfg.driver,
-      cfg.url,
+      config.driver,
+      config.url,
       "",
       "",
       None

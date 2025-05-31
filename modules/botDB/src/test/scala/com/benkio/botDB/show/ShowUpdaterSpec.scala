@@ -24,7 +24,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   import com.benkio.botDB.TestData.*
 
   val outputFileName = "./test.json"
-  val youtubeApiKey  = "youtubeApiKey"
+  val youTubeApiKey  = "youTubeApiKey"
   // TODO: make the tests faster and remove this eventually
   override val munitIOTimeout          = 1.minutes
   given log: LogWriter[IO]             = consoleLogUpToLevel(LogLevels.Info)
@@ -44,10 +44,10 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   //   assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
 
   //   val showUpdater = ShowUpdater[IO](
-  //     cfg = config,
+  //     config = config,
   //     dbLayer = dbLayerMock,
   //     resourceAccess = resourceAccessMock,
-  //     youtubeApiKey = youtubeApiKey
+  //     youTubeApiKey = youTubeApiKey
   //   )
   //   val test = for
   //     _ <- Resource.eval(IO(File(outputFileName).delete()))
@@ -70,8 +70,8 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
 
     for
-      cfg <- Config.loadConfig(None)
-      inputs = cfg.showConfig.showSources.map(_.outputFilePath)
+      config <- Config.loadConfig(None)
+      inputs = config.showConfig.showSources.map(_.outputFilePath)
       dbShowDatas <- inputs.flatTraverse(p =>
         IO.fromEither(
           decode[List[DBShowData]](
