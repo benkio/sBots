@@ -1,12 +1,10 @@
-package com.benkio.botDB.db
+package com.benkio.botDB.media
 
 import cats.effect.kernel.Async
 import cats.effect.Resource
 import cats.implicits.*
 import cats.Show
 import com.benkio.botDB.config.Config
-import com.benkio.botDB.config.ShowConfig
-//import com.benkio.botDB.show.ShowFetcher
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
@@ -22,56 +20,41 @@ import log.effect.LogWriter
 import java.time.Instant
 import scala.io.Source
 
-sealed trait BotDBController[F[_]] {
-  def build: Resource[F, Unit]
-
-  def populateMediaTable: Resource[F, Unit]
+sealed trait MediaUpdater[F[_]] {
+  def updateMedia: Resource[F, Unit]
 }
 
-object BotDBController {
+object MediaUpdater {
   def apply[F[_]: Async: LogWriter](
       cfg: Config,
       dbLayer: DBLayer[F],
-      resourceAccess: ResourceAccess[F],
-      migrator: DBMigrator[F]
-      // showFetcher: ShowFetcher[F]
-  ): BotDBController[F] =
-    new BotDBControllerImpl(
+      resourceAccess: ResourceAccess[F]
+  ): MediaUpdater[F] =
+    new MediaUpdaterImpl(
       cfg = cfg,
       dbLayer = dbLayer,
-      resourceAccess = resourceAccess,
-      migrator = migrator
-      // showFetcher = showFetcher
+      resourceAccess = resourceAccess
     )
 
-  private class BotDBControllerImpl[F[_]: Async: LogWriter](
+  private class MediaUpdaterImpl[F[_]: Async: LogWriter](
       cfg: Config,
       dbLayer: DBLayer[F],
-      resourceAccess: ResourceAccess[F],
-      migrator: DBMigrator[F]
-      // showFetcher: ShowFetcher[F]
-  ) extends BotDBController[F] {
-    override def build: Resource[F, Unit] = for {
-      _ <- Resource.eval(migrator.migrate(cfg))
-      _ <- populateMediaTable
-      _ <- Resource.eval(showFetching(cfg.showConfig))
-    } yield ()
+      resourceAccess: ResourceAccess[F]
+  ) extends MediaUpdater[F] {
 
-    private def showFetching(showConfig: ShowConfig): F[Unit] = ???
-
-    override def populateMediaTable: Resource[F, Unit] = for {
+    override def updateMedia: Resource[F, Unit] = for {
       allFiles <- cfg.jsonLocation.flatTraverse(location =>
         resourceAccess.getResourcesByKind(location).map(_.reduce.toList)
       )
       _ <- Resource.eval(
-        LogWriter.info(s"[BotDBController]: all files from ${cfg.jsonLocation}: ${allFiles.length}")
+        LogWriter.info(s"[MediaUpdater]: all files from ${cfg.jsonLocation}: ${allFiles.length}")
       )
       jsons <- allFiles
         .mapFilter(_.getMediaResourceFile)
         .traverseFilter(resourceFile =>
           resourceFile.map(f => if f.getName.endsWith("_list.json") then Some(f) else None)
         )
-      _ <- Resource.eval(LogWriter.info(s"[BotDBController]: Json file to be computed: $jsons"))
+      _ <- Resource.eval(LogWriter.info(s"[MediaUpdater]: Json file to be computed: $jsons"))
       input <- Resource.eval(Async[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")
         decode[List[MediaFileSource]](fileContent).leftMap(e => Throwable(e.show))
@@ -91,7 +74,7 @@ object BotDBController {
                 )
               )
             _ <- LogWriter.info(
-              s"[BotDBController] Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully"
+              s"[MediaUpdater] Inserted file ${i.filename} of kinds ${i.kinds} from ${i.sources}, successfully"
             )
           } yield ()
         )

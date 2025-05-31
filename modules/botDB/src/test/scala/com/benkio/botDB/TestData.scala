@@ -33,8 +33,8 @@ object TestData {
 
   val config: Config = Config(
     driver = "org.sqlite.JDBC",
-    dbName = "botDB",
-    url = "jdbc:sqlite:C:/sqlite/db/chinook.db",
+    dbName = "../../botDB.sqlite3",
+    url = "jdbc:sqlite:../../botDB.sqlite3",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
     jsonLocation = List.empty,

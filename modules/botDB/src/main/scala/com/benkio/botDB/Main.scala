@@ -2,9 +2,9 @@ package com.benkio.botDB
 
 import cats.effect.*
 import com.benkio.botDB.config.Config
-import com.benkio.botDB.db.BotDBController
 import com.benkio.botDB.db.DBMigrator
-import com.benkio.botDB.show.ShowFetcher
+import com.benkio.botDB.media.MediaUpdater
+import com.benkio.botDB.show.ShowUpdater
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -27,23 +27,27 @@ object Main extends IOApp {
       _   <- Resource.eval(IO(log.info("[Main] Connect to DB")))
       transactor = Config.buildTransactor(cfg = cfg)
       dbLayer <- Resource.eval(DBLayer[IO](transactor))
-      _       <- Resource.eval(IO(log.info("[Main] Initialize DBMigrator & ResourceAccess")))
+      _       <- Resource.eval(IO(log.info("[Main] Initialize: ResourceAccess")))
       resourceAccess = ResourceAccess.fromResources[IO](args.lastOption)
-      migrator       = DBMigrator[IO]
+      _ <- Resource.eval(IO(log.info("[Main] Initialize: DBMigrator")))
+      migrator = DBMigrator[IO]
+      _ <- Resource.eval(IO(log.info("[Main] Initialize: MediaUpdater")))
+      mediaUpdater = MediaUpdater(cfg = cfg, dbLayer = dbLayer, resourceAccess = resourceAccess)
       _             <- Resource.eval(IO(log.info("[Main] Fetch Youtube api key from resources")))
       youtubeApiKey <- BotSetup.token(youtubeTokenFilename, resourceAccess)
-      showFetcher = ShowFetcher[IO](youtubeApiKey)
-      _ <- Resource.eval(IO(log.info("[Main] Initialize BotDBController")))
-      botDBController = BotDBController[IO](
+      showUpdater = ShowUpdater[IO](
         cfg = cfg,
         dbLayer = dbLayer,
         resourceAccess = resourceAccess,
-        migrator = migrator
-        // showFetcher = showFetcher
+        youtubeApiKey = youtubeApiKey
       )
-      _ <- Resource.eval(IO(log.info("[Main] End Initialization. Execution Starts")))
-      _ <- botDBController.build
-      _ <- Resource.eval(IO(log.info("Bot DB Setup Excuted")))
+      _ <- Resource.eval(IO(log.info("[Main] End Initialization. Migrate DB")))
+      _ <- Resource.eval(migrator.migrate(cfg))
+      _ <- Resource.eval(IO(log.info("[Main] Populate Media Table")))
+      _ <- mediaUpdater.updateMedia
+      _ <- Resource.eval(IO(log.info("[Main] Populate Show Table")))
+      _ <- showUpdater.updateShow
+      _ <- Resource.eval(IO(log.info("[Main] Update DB Successful")))
     } yield ()
 
     program.use_.as(ExitCode.Success)
