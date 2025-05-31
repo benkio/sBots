@@ -1,14 +1,14 @@
 package com.benkio.botDB.show
 
-final case class ShowSource(youtubeSources: List[YoutubeSource], botName: String, outputFilePath: String)
+final case class ShowSource(youTubeSources: List[YouTubeSource], botName: String, outputFilePath: String)
 
-enum YoutubeSource:
-  case Playlist(id: String)    extends YoutubeSource
-  case Channel(handle: String) extends YoutubeSource
+enum YouTubeSource:
+  case Playlist(id: String)    extends YouTubeSource
+  case Channel(handle: String) extends YouTubeSource
 
-object YoutubeSource {
-  def apply(source: String): YoutubeSource =
+object YouTubeSource {
+  def apply(source: String): YouTubeSource =
     if source.startsWith("@")
-    then YoutubeSource.Channel(source)
-    else YoutubeSource.Playlist(source)
+    then YouTubeSource.Channel(source)
+    else YouTubeSource.Playlist(source)
 }

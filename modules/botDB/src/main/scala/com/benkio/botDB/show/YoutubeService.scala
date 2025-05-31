@@ -1,6 +1,5 @@
 package com.benkio.botDB.show
 
-import cats.effect.Resource
 import com.benkio.botDB.config.Config
 import cats.effect.kernel.Async
 import cats.syntax.all.*
@@ -15,7 +14,10 @@ import log.effect.LogWriter
 import scala.jdk.CollectionConverters.*
 
 trait YouTubeService[F[_]] {
-  def getAllIds: Resource[F, List[String]]
+  def getAllIds: F[List[String]]
+  def getYouTubeVideos[F[_]: Async: LogWriter](
+      videoIds: List[String]
+  ): F[List[Video]]
 }
 
 object YouTubeService {
@@ -51,7 +53,24 @@ object YouTubeService {
 
   private class YouTubeServiceImpl[F[_]: Async: LogWriter](youTubeService: YouTube, config: Config, youTubeApiKey: String)
       extends YouTubeService[F] {
-    override def getAllIds: Resource[F, List[String]] = ???
+    override def getAllIds: F[List[String]] = ???
+
+    override def getYouTubeVideos[F[_]: Async: LogWriter](
+      videoIds: List[String]
+  ): F[List[Video]] = {
+    val videoIdsChucks = videoIds.grouped(maxResults).toList
+    for {
+      _ <- LogWriter.info(s"[YouTubeService] getYouTubeVideos ${videoIdsChucks.length} requests for ${videoIds.length}")
+      requests <- videoIdsChucks.traverse(YouTubeRequests.createYouTubeVideoRequest(youTubeService, _, youTubeApiKey))
+      videos <- requests.foldLeft(List.empty[Video].pure[F]) { case (ioAcc, request) =>
+        for
+          response <- Async[F].delay(request.execute())
+          videos = response.getItems().asScala.toList
+          acc <- ioAcc
+        yield acc ++ videos
+      }
+    } yield videos
+  }
   }
 
   private def getYouTubePlaylistIds[F[_]: LogWriter: Async](
@@ -103,23 +122,4 @@ object YouTubeService {
       )
       uploadPlaylistId = firstItem.getContentDetails().getRelatedPlaylists().getUploads()
     } yield uploadPlaylistId
-
-  private def getYoutubeVideos[F[_]: Async: LogWriter](
-      youTubeService: YouTube,
-      videoIds: List[String],
-      youTubeApiKey: String
-  ): F[List[Video]] = {
-    val videoIdsChucks = videoIds.grouped(maxResults).toList
-    for {
-      _ <- LogWriter.info(s"[YouTubeService] getYouTubeVideos ${videoIdsChucks.length} requests for ${videoIds.length}")
-      requests <- videoIdsChucks.traverse(YouTubeRequests.createYouTubeVideoRequest(youTubeService, _, youTubeApiKey))
-      videos <- requests.foldLeft(List.empty[Video].pure[F]) { case (ioAcc, request) =>
-        for
-          response <- Async[F].delay(request.execute())
-          videos = response.getItems().asScala.toList
-          acc <- ioAcc
-        yield acc ++ videos
-      }
-    } yield videos
-  }
 }

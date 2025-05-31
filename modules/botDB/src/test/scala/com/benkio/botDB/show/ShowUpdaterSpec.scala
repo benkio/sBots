@@ -52,7 +52,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   //   val test = for
   //     _ <- Resource.eval(IO(File(outputFileName).delete()))
   //     showSource = ShowSource(
-  //       List("PL1hlX04-g75DGniSXtYRSlMBaroamq96d").map(YoutubeSource(_)),
+  //       List("PL1hlX04-g75DGniSXtYRSlMBaroamq96d").map(YouTubeSource(_)),
   //       "testBot",
   //       outputFileName
   //     )

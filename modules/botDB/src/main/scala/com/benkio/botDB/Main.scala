@@ -33,7 +33,7 @@ object Main extends IOApp {
       migrator = DBMigrator[IO]
       _ <- Resource.eval(IO(log.info("[Main] Initialize: MediaUpdater")))
       mediaUpdater = MediaUpdater(config = config, dbLayer = dbLayer, resourceAccess = resourceAccess)
-      _             <- Resource.eval(IO(log.info("[Main] Fetch Youtube api key from resources")))
+      _             <- Resource.eval(IO(log.info("[Main] Fetch YouTube api key from resources")))
       youTubeApiKey <- BotSetup.token(youtubeTokenFilename, resourceAccess)
       showUpdater = ShowUpdater[IO](
         config = config,

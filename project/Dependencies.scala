@@ -18,7 +18,7 @@ object Dependencies {
     val flyway             = "11.8.2"
     val googleApiClient    = "2.8.0"
     val googleOauthClient  = "1.39.0"
-    val googleYoutubeApi   = "v3-rev20250422-2.0.0"
+    val googleYouTubeApi   = "v3-rev20250422-2.0.0"
     val http4s             = "0.23.30"
     val logEffects         = "0.19.6"
     val logbackClassic     = "1.5.18"
@@ -58,7 +58,7 @@ object Dependencies {
     val fs2IO             = "co.fs2"                        %% "fs2-io"                    % versions.fs2IO
     val googleApiClient   = "com.google.api-client"          % "google-api-client"         % versions.googleApiClient
     val googleOauthClient = "com.google.oauth-client"        % "google-oauth-client-jetty" % versions.googleOauthClient
-    val googleYoutubeApi  = "com.google.apis"      % "google-api-services-youtube" % versions.googleYoutubeApi
+    val googleYouTubeApi  = "com.google.apis"      % "google-api-services-youtube" % versions.googleYouTubeApi
     val http4sCirce       = "org.http4s"          %% "http4s-circe"                % versions.http4s
     val http4sClient      = "org.http4s"          %% "http4s-client"               % versions.http4s
     val http4sCore        = "org.http4s"          %% "http4s-core"                 % versions.http4s
@@ -161,7 +161,7 @@ object Dependencies {
     libs.flyway,
     libs.googleApiClient,
     libs.googleOauthClient,
-    libs.googleYoutubeApi,
+    libs.googleYouTubeApi,
     libs.http4sCore,
     libs.logEffectsCore,
     libs.logEffectsFs2,
