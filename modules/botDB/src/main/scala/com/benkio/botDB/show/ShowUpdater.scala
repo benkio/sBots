@@ -35,19 +35,21 @@ object ShowUpdater {
       youtubeApiKey: String
   ) extends ShowUpdater[F] {
     override def updateShow: Resource[F, Unit] = {
-      // check in the config if we need to fetch data.
-      val _ = (cfg, dbLayer, resourceAccess, youtubeApiKey)
+      val _ = (dbLayer, resourceAccess, youtubeApiKey)
       val program = for {
-        _ <- LogWriter.info("[ShowUpdater] Creating Youtube Service")
-        _ <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
-        _ <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
+        _              <- LogWriter.info("[ShowUpdater] Creating Youtube Service")
+        youTubeService <- YoutubeService(cfg.showConfig.applicationName)
+        _              <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
+        _              <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
         // TODO: Check if the output needs to be cancelled from the config
         _ <- LogWriter.info("[ShowUpdater] $numberOfIds Ids to be added")
         _ <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
         _ <- LogWriter.info("[ShowUpdater] Converting Youtube data to DBMediaData")
         _ <- LogWriter.info("[ShowUpdater] Insert DBMediaData to DB")
       } yield ()
-      Resource.eval(program)
+      if cfg.showConfig.runShowFetching
+      then Resource.eval(program)
+      else Resource.eval(LogWriter.info("[ShowUpdater] Option runShowFetching = true. No run"))
     }
 
   }

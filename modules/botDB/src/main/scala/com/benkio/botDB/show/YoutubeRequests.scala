@@ -13,13 +13,13 @@ object YoutubeRequests {
 
   // YouTube Requests ///////////////////////////////////////////////////////
 
-  def createYouTubeVideoRequest[F[_]: Async](youtubeService: YouTube, videoIds: List[String], apiKeys: String)(using
+  def createYouTubeVideoRequest[F[_]: Async](youTubeService: YouTube, videoIds: List[String], apiKeys: String)(using
       log: LogWriter[F]
   ): F[YouTube#Videos#List] =
     for {
       _ <- log.info(s"[YoutubeRequests] ${videoIds.length} Create a YouTube Video request")
       request <- Async[F].delay(
-        youtubeService
+        youTubeService
           .videos()
           .list(List("id", "snippet", "contentDetails", "liveStreamingDetails").asJava)
           .setKey(apiKeys)
@@ -31,13 +31,13 @@ object YoutubeRequests {
       )
     } yield request
 
-  def createYouTubeVideoCaptionRequest[F[_]: Async](youtubeService: YouTube, videoId: String, apiKeys: String)(using
+  def createYouTubeVideoCaptionRequest[F[_]: Async](youTubeService: YouTube, videoId: String, apiKeys: String)(using
       log: LogWriter[F]
   ): F[YouTube#Captions#List] =
     for {
       _ <- log.info(s"[YoutubeRequests] $videoId Create a YouTube Video Caption request")
       request <- Async[F].delay(
-        youtubeService
+        youTubeService
           .captions()
           .list(List("id", "snippet").asJava, videoId)
           .setKey(apiKeys)
@@ -46,7 +46,7 @@ object YoutubeRequests {
     } yield request
 
   def createYouTubePlaylistRequest[F[_]: Async](
-      youtubeService: YouTube,
+      youTubeService: YouTube,
       playlistId: String,
       pageToken: Option[String],
       apiKeys: String
@@ -54,7 +54,7 @@ object YoutubeRequests {
     for {
       _ <- log.info(s"[YoutubeRequests] $playlistId Create a YouTube Video Playlist request")
       request <- Async[F].delay(
-        youtubeService
+        youTubeService
           .playlistItems()
           .list(List("contentDetails").asJava)
           .setKey(apiKeys)
@@ -65,14 +65,14 @@ object YoutubeRequests {
     } yield pageToken.fold(request)(pt => request.setPageToken(pt))
 
   def createYouTubeChannelUploadPlaylistRequest[F[_]: Async](
-      youtubeService: YouTube,
+      youTubeService: YouTube,
       channelHandle: String,
       apiKeys: String
   )(using log: LogWriter[F]): F[YouTube#Channels#List] =
     for {
       _ <- log.info(s"[YoutubeRequests] $channelHandle Create a YouTube Channel request")
       request <- Async[F].delay(
-        youtubeService
+        youTubeService
           .channels()
           .list(List("contentDetails").asJava)
           .setForHandle(channelHandle)
