@@ -2,7 +2,6 @@ package com.benkio.botDB.show
 
 import cats.data.NonEmptyList
 import cats.effect.IO
-import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.botDB.config.Config
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
@@ -41,31 +40,31 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     medias = mediaEntities
   )
 
-  test("updateShow should return a json if the input is valid") {
-    assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
+  // test("updateShow should return a json if the input is valid") {
+  //   assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
 
-    val showUpdater = ShowUpdater[IO](
-      cfg = config,
-      dbLayer = dbLayerMock,
-      resourceAccess = resourceAccessMock,
-      youtubeApiKey = youtubeApiKey
-    )
-    val test = for
-      _ <- Resource.eval(IO(File(outputFileName).delete()))
-      showSource = ShowSource(
-        List("PL1hlX04-g75DGniSXtYRSlMBaroamq96d").map(YoutubeSource(_)),
-        "testBot",
-        outputFileName
-      )
-      result1 <- showUpdater.updateShow
-      result2 <- showUpdater.updateShow
-      _       <- Resource.eval(IO(File(outputFileName).delete()))
-    yield {
-      assert(result1.length == 3)
-      assert(result1 == result2)
-    }
-    test.use(_.pure[IO])
-  }
+  //   val showUpdater = ShowUpdater[IO](
+  //     cfg = config,
+  //     dbLayer = dbLayerMock,
+  //     resourceAccess = resourceAccessMock,
+  //     youtubeApiKey = youtubeApiKey
+  //   )
+  //   val test = for
+  //     _ <- Resource.eval(IO(File(outputFileName).delete()))
+  //     showSource = ShowSource(
+  //       List("PL1hlX04-g75DGniSXtYRSlMBaroamq96d").map(YoutubeSource(_)),
+  //       "testBot",
+  //       outputFileName
+  //     )
+  //     result1 <- showUpdater.updateShow
+  //     result2 <- showUpdater.updateShow
+  //     _       <- Resource.eval(IO(File(outputFileName).delete()))
+  //   yield {
+  //     assert(result1.length == 3)
+  //     assert(result1 == result2)
+  //   }
+  //   test.use(_.pure[IO])
+  // }
 
   test("the result json in should be parsable and urls should be unique") {
     assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)

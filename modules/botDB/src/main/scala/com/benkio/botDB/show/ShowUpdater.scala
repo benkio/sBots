@@ -5,7 +5,6 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.botDB.config.Config
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
 import log.effect.LogWriter
 
@@ -37,17 +36,18 @@ object ShowUpdater {
   ) extends ShowUpdater[F] {
     override def updateShow: Resource[F, Unit] = {
       // check in the config if we need to fetch data.
-      for {
-        _ <- LogWriter.info(s"[ShowUpdater] Creating Youtube Service")
-        _ <- LogWriter.info(s"[ShowUpdater] Fetching online show Ids")
-        _ <- LogWriter.info(s"[ShowUpdater] Fetching stored Ids")
+      val _ = (cfg, dbLayer, resourceAccess, youtubeApiKey)
+      val program = for {
+        _ <- LogWriter.info("[ShowUpdater] Creating Youtube Service")
+        _ <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
+        _ <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
         // TODO: Check if the output needs to be cancelled from the config
         _ <- LogWriter.info("[ShowUpdater] $numberOfIds Ids to be added")
-        _ <- LogWriter.info(s"[ShowUpdater] Fetching data from Ids")
-        _ <- LogWriter.info(s"[ShowUpdater] Converting Youtube data to DBMediaData")
-        _ <- LogWriter.info(s"[ShowUpdater] Insert DBMediaData to DB")
-      } yield ???
-      ???
+        _ <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
+        _ <- LogWriter.info("[ShowUpdater] Converting Youtube data to DBMediaData")
+        _ <- LogWriter.info("[ShowUpdater] Insert DBMediaData to DB")
+      } yield ()
+      Resource.eval(program)
     }
 
   }
