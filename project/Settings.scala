@@ -11,11 +11,11 @@ object Settings {
   lazy val scalaTests = taskKey[Unit]("Run ScalaTest tests")
 
   lazy val settings = Seq(
-    organization      := "com.benkio",
-    version           := "2.3.0",
-    scalaVersion      := "3.7.0",
-    publishMavenStyle := true,
-    semanticdbEnabled := true,
+    organization             := "com.benkio",
+    version                  := "2.3.0",
+    scalaVersion             := "3.7.0",
+    publishMavenStyle        := true,
+    semanticdbEnabled        := true,
     semanticdbCompilerPlugin := {
       ("org.scalameta" % "semanticdb-scalac" % "4.7.8")
         .cross(CrossVersion.full)
@@ -25,7 +25,7 @@ object Settings {
   )
 
   lazy val assemblySettings = Seq(
-    assembly / assemblyJarName := name.value + ".jar",
+    assembly / assemblyJarName       := name.value + ".jar",
     assembly / assemblyMergeStrategy := {
       case PathList("META-INF", xs @ _*) => MergeStrategy.discard
       case "application.conf"            => MergeStrategy.concat
@@ -43,7 +43,7 @@ object Settings {
     name                := "Integration",
     libraryDependencies := IntegrationDependencies,
     publish / skip      := true,
-    mUnitTests := {
+    mUnitTests          := {
       (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.*").value
     },
     scalaTests := {

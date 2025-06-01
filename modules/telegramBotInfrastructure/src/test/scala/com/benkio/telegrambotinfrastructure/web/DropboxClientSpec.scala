@@ -80,7 +80,7 @@ class DropboxClientSpec extends CatsEffectSuite {
   test("fetch should fail if the response is empty") {
     val emptyUrl = Uri.unsafeFromString("https://httpbin.org/status/200")
     val filename = "whaeverfilename"
-    val result = for {
+    val result   = for {
       dropboxClient <- buildDropboxClient()
       file          <- dropboxClient.fetchFile(filename, emptyUrl)
     } yield file

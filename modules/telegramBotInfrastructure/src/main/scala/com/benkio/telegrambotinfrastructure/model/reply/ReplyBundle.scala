@@ -169,7 +169,7 @@ object ReplyBundle {
       ifFalse = Async[F].raiseError(new Exception(s"No replies for the given message: $message"))
     )
     replies <- replyBundle.replySelection.logic(dataToReply, message)
-    result <- replies.traverse[F, List[Message]](reply =>
+    result  <- replies.traverse[F, List[Message]](reply =>
       telegramReply.reply[F](
         reply = reply,
         msg = message,

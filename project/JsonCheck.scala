@@ -36,7 +36,7 @@ object JsonCheck {
           logger.info(s"Validating $filePath...")
           val content = IO.read(file)
           parse(content) match {
-            case Right(_) => logger.info("✓ valid")
+            case Right(_)    => logger.info("✓ valid")
             case Left(error) =>
               logger.error(s"❌ Invalid JSON: ${error.getMessage}")
               sys.error(s"Invalid JSON in $filePath: ${error.getMessage}")

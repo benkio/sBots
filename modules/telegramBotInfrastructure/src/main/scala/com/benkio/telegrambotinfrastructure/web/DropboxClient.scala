@@ -45,12 +45,12 @@ object DropboxClient {
             response.headers.get(ci"Location").flatMap(hl => Uri.fromString(hl.head.value).toOption)
           ) match { // non standard redirect because dropbox
             case (Status.Found, Some(locationUri)) => fetchFile(filename, locationUri)
-            case (Status.Found, None) =>
+            case (Status.Found, None)              =>
               Resource.raiseError[F, File, Throwable](DropboxLocationHeaderNotFound[F](response))
             case _ =>
               for {
                 content <- Resource.eval(response.body.compile.toList)
-                _ <- Resource
+                _       <- Resource
                   .eval(LogWriter.info(s"[DropboxClient:56:79] received ${content.length} bytes for $filename"))
                 _      <- Resource.eval(Async[F].raiseWhen(content.isEmpty)(UnexpectedDropboxResponse[F](response)))
                 result <- ResourceAccess.toTempFile(filename, content.toArray)

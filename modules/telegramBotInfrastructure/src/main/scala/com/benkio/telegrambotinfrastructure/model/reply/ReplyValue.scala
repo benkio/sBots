@@ -59,7 +59,7 @@ object MediaFile {
     case ".jpg" | ".png"                              => PhotoFile(filename).pure[F]
     case ".mp4" if filename.takeRight(7) == "Gif.mp4" => GifFile(filename).pure[F]
     case ".mp4"                                       => VideoFile(filename).pure[F]
-    case _ =>
+    case _                                            =>
       MonadThrow[F].raiseError(
         Throwable(
           s"[ReplyValue] MediaFile.fromString unrecognized filename: $filename. Sticker and Document not supported"

@@ -47,7 +47,7 @@ class MediaFileSourceGroupSpec extends FunSuite {
         )
       )
     )
-    val actual = MediaFileSourceGroup.toReplyBundleMessageCode(input)
+    val actual   = MediaFileSourceGroup.toReplyBundleMessageCode(input)
     val expected = """ReplyBundleMessage
                      |  .textToMedia[F](
                      |    ""
@@ -111,7 +111,7 @@ class MediaFileSourceGroupSpec extends FunSuite {
           )
         )
       )
-    val actual = MediaFileSourceGroup.fromMediaFileSourceList(input)
+    val actual   = MediaFileSourceGroup.fromMediaFileSourceList(input)
     val expected =
       List(
         MediaFileSourceGroup(

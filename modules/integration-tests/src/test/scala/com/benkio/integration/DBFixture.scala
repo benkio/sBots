@@ -54,8 +54,8 @@ object DBFixture {
     println(s"DbUrl: $dbUrl")
     println(s"migrations path: $migrationPath")
     runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
-    val transactor                                 = Transactor.fromConnection[IO](conn, None)
-    val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
+    val transactor                                               = Transactor.fromConnection[IO](conn, None)
+    val dbLayerResource: Resource[IO, DBLayer[IO]]               = Resource.eval(DBLayer[IO](transactor))
     val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbLayerResource.flatMap(dbLayer =>
       for {
         httpClient <- EmberClientBuilder

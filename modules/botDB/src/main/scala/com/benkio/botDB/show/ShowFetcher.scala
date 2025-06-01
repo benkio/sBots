@@ -26,10 +26,10 @@ object ShowFetcher {
   private class ShowFetcherImpl[F[_]: Async: LogWriter]() extends ShowFetcher[F] {
     override def generateShowJson(source: ShowSource): F[List[DBShowData]] =
       for
-        _           <- LogWriter.info(s"[ShowFetcher] check dependencies: $shellDependencies")
-        _           <- checkDependencies
-        _           <- LogWriter.info(s"[ShowFetcher] get shows for: $source")
-        fileContent <- ResourceAccess.fileToString(File(source.outputFilePath)).use(_.pure[F])
+        _            <- LogWriter.info(s"[ShowFetcher] check dependencies: $shellDependencies")
+        _            <- checkDependencies
+        _            <- LogWriter.info(s"[ShowFetcher] get shows for: $source")
+        fileContent  <- ResourceAccess.fileToString(File(source.outputFilePath)).use(_.pure[F])
         dbShowDatass <-
           if fileContent.length > 1000
           then dbShowDataFromFile(fileContent)
@@ -37,7 +37,7 @@ object ShowFetcher {
       yield dbShowDatass
 
     private val shellDependencies: List[String] = List("yt-dlp")
-    private def checkDependencies: F[Unit] =
+    private def checkDependencies: F[Unit]      =
       shellDependencies
         .traverse_(program =>
           Async[F]
@@ -58,12 +58,12 @@ object ShowFetcher {
     private def dbShowDataFromYoutube(source: ShowSource): F[List[DBShowData]] =
       val path = Path.of(source.outputFilePath)
       for {
-        _ <- LogWriter.info(s"[ShowFetcher] fetch show file for $source into ${path.toAbsolutePath()}")
+        _            <- LogWriter.info(s"[ShowFetcher] fetch show file for $source into ${path.toAbsolutePath()}")
         dbShowDatass <- source.youtubeSources.parTraverse(youtubeSource =>
           (for
             _ <- LogWriter.info(s"[ShowFetcher] start fetching $youtubeSource for $source")
             youtubeResourceFile = fetchJson(youtubeSource)
-            _ <- LogWriter.info(s"[ShowFetcher] fetch completed for $youtubeSource for $source")
+            _      <- LogWriter.info(s"[ShowFetcher] fetch completed for $youtubeSource for $source")
             result <- youtubeResourceFile.use(inputFile =>
               LogWriter.info(
                 s"[ShowFetcher] filter & parse started for $youtubeSource for $source, data to filter ${Files.size(inputFile.toPath())}"
@@ -94,7 +94,7 @@ object ShowFetcher {
       .fileToString(sourceJson)
       .use(inputFileContent =>
         for
-          json <- Async[F].fromEither(parse(inputFileContent))
+          json        <- Async[F].fromEither(parse(inputFileContent))
           dbShowDatas <- JsonParser.Ytdlp
             .parseYtdlp[F](json, botName)
             .handleErrorWith(err =>

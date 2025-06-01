@@ -167,7 +167,7 @@ Input as query string:
         dbShow: DBShow[F],
         botName: String
     )(using log: LogWriter[F]): F[String] = {
-      val query: ShowQuery = ShowQuery(keywords)
+      val query: ShowQuery            = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
         case RandomQuery         => dbShow.getRandomShow(botName).map(_.toList)
         case q: ShowQueryKeyword => dbShow.getShowByShowQuery(q, botName)
@@ -176,7 +176,7 @@ Input as query string:
       for {
         _       <- log.info(s"Select random Show: $botName - $keywords - $query")
         results <- dbCall
-        result <-
+        result  <-
           results.headOption
             .traverse(Show.apply[F](_).map(_.show))
             .map(_.getOrElse(s"Nessuna puntata/show contenente '$keywords' è stata trovata"))

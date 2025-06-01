@@ -16,7 +16,7 @@ import java.nio.file.Files
 
 class ITDBResourceAccessSpec extends CatsEffectSuite with DBFixture {
 
-  val testMediaName = "rphjb_MaSgus.mp3"
+  val testMediaName          = "rphjb_MaSgus.mp3"
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
     kinds = """"[]"""",

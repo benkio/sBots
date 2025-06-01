@@ -18,7 +18,7 @@ object JsonParser:
 
     private def filterYtdlpPlaylistJson[F[_]: Async: LogWriter](json: Json, botName: String): F[Json] =
       for
-        _ <- LogWriter.info(s"[YoutubeJSONParse] parsing... ${json.noSpaces.take(100)}")
+        _       <- LogWriter.info(s"[YoutubeJSONParse] parsing... ${json.noSpaces.take(100)}")
         entries <- Async[F].fromOption(
           json.hcursor.downField("entries").values.map(_.toList),
           Throwable(

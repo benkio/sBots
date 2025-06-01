@@ -11,7 +11,7 @@ import java.util.UUID
 
 class DBSubscriptionSpec extends FunSuite {
   test("DBSubscriptionData should be correctly converted from Subscription") {
-    val now = Instant.now
+    val now    = Instant.now
     val actual = Subscription(
       id = SubscriptionId(UUID.randomUUID),
       chatId = ChatId(0),

@@ -21,7 +21,7 @@ object MediaFileSource {
 
   def fromUriString[F[_]: MonadThrow](input: String): F[MediaFileSource] =
     for
-      uri <- MonadThrow[F].fromEither(Uri.fromString(input))
+      uri      <- MonadThrow[F].fromEither(Uri.fromString(input))
       filename <- MonadThrow[F].fromOption(
         uri.path.segments.lastOption.map(_.decoded()),
         Throwable(s"[MediafileSource] fromUriString cannot find a filename from this uri $uri")

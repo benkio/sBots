@@ -31,7 +31,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     override def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,

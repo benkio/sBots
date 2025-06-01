@@ -46,7 +46,7 @@ class BotSkeletonSpec extends CatsEffectSuite {
     for
       sampleWebhookBot <- SampleWebhookBot()
       resultOpt        <- sampleWebhookBot.selectReplyBundle(inputMessage)
-      result <- resultOpt.fold(Throwable("BotSkeletonSpec expected Some, got None").raiseError[IO, String]) {
+      result           <- resultOpt.fold(Throwable("BotSkeletonSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       expectedPP <- expected.prettyPrint()
@@ -72,7 +72,7 @@ class BotSkeletonSpec extends CatsEffectSuite {
     for
       sampleWebhookBot <- SampleWebhookBot()
       resultOpt        <- sampleWebhookBot.selectCommandReplyBundle(inputMessage)
-      result <- resultOpt.fold(Throwable("BotSkeletonSpec expected Some, got None").raiseError[IO, String]) {
+      result           <- resultOpt.fold(Throwable("BotSkeletonSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       expectedPP <- expected.prettyPrint()

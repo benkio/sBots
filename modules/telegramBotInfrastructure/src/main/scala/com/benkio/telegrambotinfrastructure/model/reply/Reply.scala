@@ -66,7 +66,7 @@ object Reply:
   extension [F[_]: ApplicativeThrow](r: Reply[F])
     def prettyPrint: F[List[String]] = r match {
       case TextReply(txt, _) => ApplicativeThrow[F].pure(txt.map(_.show))
-      case TextReplyM(_, _) =>
+      case TextReplyM(_, _)  =>
         ApplicativeThrow[F].raiseError(Throwable("[Reply] Can't carr `prettyPrint` on a `TextReplyM`"))
       case MediaReply(mediaFilesF, _) => mediaFilesF.map(mfs => mfs.map(_.show))
     }

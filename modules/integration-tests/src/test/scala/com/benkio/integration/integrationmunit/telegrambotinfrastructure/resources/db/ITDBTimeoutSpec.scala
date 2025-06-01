@@ -69,7 +69,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   databaseFixture.test(
     "DBTimeout.setTimeout should insert the timeout if the chat id is not present in the database"
   ) { fixture =>
-    val chatId = 2L
+    val chatId  = 2L
     val timeout =
       DBTimeoutData(chatId, testBotName, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
     (for {
@@ -84,7 +84,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
   databaseFixture.test("DBTimeout.setTimeout should update the timeout if the chat id is present in the database") {
     fixture =>
-      val chatId = 1L
+      val chatId  = 1L
       val timeout =
         DBTimeoutData(chatId, testBotName, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
       (for {
@@ -135,7 +135,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   databaseFixture.test(
     "DBTimeout.removeTimeout should remove the timeout if the chat id and botName are present in the database"
   ) { fixture =>
-    val chatId = 1L
+    val chatId  = 1L
     val timeout =
       DBTimeoutData(chatId, testBotName, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
     (for {

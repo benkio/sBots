@@ -45,7 +45,7 @@ object TelegramReply:
       replyToMessage: Boolean,
       sendFileAPIMethod: (ChatId, IFile, Option[Int]) => Method[Message]
   ): F[List[Message]] = {
-    val chatId: ChatId = ChatIntId(msg.chat.id)
+    val chatId: ChatId                                                    = ChatIntId(msg.chat.id)
     def computeMediaResource(mediaResource: MediaResource[F]): F[Message] =
       mediaResource.toTelegramApi.use(iFile =>
         sendFileAPIMethod(
@@ -55,7 +55,7 @@ object TelegramReply:
         ).exec
       )
     val result: EitherT[F, Throwable, List[Message]] = for {
-      _ <- Methods.sendChatAction(chatId, chatAction).exec.attemptT
+      _       <- Methods.sendChatAction(chatId, chatAction).exec.attemptT
       message <-
         resourceAccess
           .getResourceFile(mediaFile)
@@ -237,11 +237,11 @@ object TelegramReply:
         resourceAccess: ResourceAccess[F],
         replyToMessage: Boolean
     ): F[List[Message]] = {
-      val chatId: ChatId = ChatIntId(msg.chat.id)
+      val chatId: ChatId                               = ChatIntId(msg.chat.id)
       val result: EitherT[F, Throwable, List[Message]] =
         for {
-          _ <- EitherT.liftF(LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}"))
-          _ <- Methods.sendChatAction(chatId, "typing").exec.attemptT
+          _       <- EitherT.liftF(LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}"))
+          _       <- Methods.sendChatAction(chatId, "typing").exec.attemptT
           message <-
             Methods
               .sendMessage(

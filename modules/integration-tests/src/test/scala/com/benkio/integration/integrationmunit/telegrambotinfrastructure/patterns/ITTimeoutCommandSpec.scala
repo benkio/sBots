@@ -27,10 +27,10 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
     "TimeoutLogic Command should return an error string if the input is not properly formatted"
   ) { fixture =>
     val wrongInput = "00:00:0F"
-    val result = for {
+    val result     = for {
       dbLayer       <- fixture.resourceDBLayer
       beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
-      reply <- Resource.eval(
+      reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
             wrongInput,
@@ -56,10 +56,10 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
     "TimeoutLogic Command should return a successful string and create a timeout in the db if the input is not properly formatted"
   ) { fixture =>
     val wrongInput = "00:00:10"
-    val result = for {
+    val result     = for {
       dbLayer       <- fixture.resourceDBLayer
       beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
-      reply <- Resource.eval(
+      reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
             wrongInput,
@@ -104,7 +104,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
     val result = for {
       dbLayer       <- fixture.resourceDBLayer
       beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
-      reply <- Resource.eval(
+      reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
             "",
