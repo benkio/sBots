@@ -41,6 +41,15 @@ object ShowUpdater {
     youTubeApiKey = youTubeApiKey
   )
 
+  private[show] def filterCandidateIds(
+      candidateIds: List[YouTubeBotIds],
+      storedIds: List[String]
+  ): List[YouTubeBotIds] = {
+    candidateIds.map(youTubeBotIds =>
+      youTubeBotIds.copy(videoIds = youTubeBotIds.videoIds.filterNot(id => storedIds.contains(id)))
+    )
+  }
+
   private class ShowUpdaterImpl[
       F[_]: Async: LogWriter
   ](
@@ -48,6 +57,41 @@ object ShowUpdater {
       dbLayer: DBLayer[F],
       youTubeApiKey: String
   ) extends ShowUpdater[F] {
+
+    private[show] def youTubeBotIdsToVideos(
+        youTubeService: YouTubeService[F],
+        youTubeBotIds: List[YouTubeBotIds]
+    ): F[List[YouTubeBotVideos]] = {
+      youTubeBotIds
+        .traverse(youTubeBotIds =>
+          youTubeService
+            .getYouTubeVideos(youTubeBotIds.videoIds)
+            .map(youTubeBotVideos =>
+              YouTubeBotVideos(youTubeBotIds.botName, youTubeBotIds.outputFilePath, youTubeBotVideos)
+            )
+        )
+    }
+
+    def youTubeBotVideosToDbShowData(youTubeBotVideos: List[YouTubeBotVideos]): F[List[YouTubeBotDBShowDatas]] = {
+      youTubeBotVideos.traverse(youTubeBotVideos =>
+        youTubeBotVideos.videos
+          .traverse(videoToDBShowData(_, youTubeBotVideos.botName))
+          .map((dBShowDatas: List[Option[DBShowData]]) =>
+            YouTubeBotDBShowDatas(
+              youTubeBotVideos.botName,
+              youTubeBotVideos.outputFilePath,
+              dBShowDatas.flatMap(_.toList)
+            )
+          )
+      )
+    }
+
+    private[show] def insertDBShowDatas(youTubeBotdbShowDatas: List[YouTubeBotDBShowDatas]): F[Unit] = {
+      youTubeBotdbShowDatas
+        .flatMap { case YouTubeBotDBShowDatas(_, _, dbShowDatas) => dbShowDatas }
+        .traverse_(show => LogWriter.info(s"[ShowUpdater] ✓💾 ${show.show_title}") >> dbLayer.dbShow.insertShow(show))
+    }
+
     override def updateShow: Resource[F, Unit] = {
       val program = for {
         _              <- LogWriter.info("[ShowUpdater] Creating YouTube Service")
@@ -57,36 +101,15 @@ object ShowUpdater {
         _              <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids")
         _              <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
         storedIds      <- getStoredIds
-        youTubeBotIds = candidateIds.map(youTubeBotIds =>
-          youTubeBotIds.copy(videoIds = youTubeBotIds.videoIds.filterNot(id => storedIds.contains(id)))
-        )
-        _ <- LogWriter.info(s"[ShowUpdater] ${youTubeBotIds.flatMap(_.videoIds).length} Ids to be added")
-        _ <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
-        youTubeBotVideos <- youTubeBotIds
-          .traverse(youTubeBotIds =>
-            youTubeService
-              .getYouTubeVideos(youTubeBotIds.videoIds)
-              .map(youTubeBotVideos =>
-                YouTubeBotVideos(youTubeBotIds.botName, youTubeBotIds.outputFilePath, youTubeBotVideos)
-              )
-          )
-        _ <- LogWriter.info("[ShowUpdater] Converting YouTube data to DBShowData")
-        youTubeBotdbShowDatas <- youTubeBotVideos.traverse(youTubeBotVideos =>
-          youTubeBotVideos.videos
-            .traverse(videoToDBShowData(_, youTubeBotVideos.botName))
-            .map((dBShowDatas: List[Option[DBShowData]]) =>
-              YouTubeBotDBShowDatas(
-                youTubeBotVideos.botName,
-                youTubeBotVideos.outputFilePath,
-                dBShowDatas.flatMap(_.toList)
-              )
-            )
-        )
-        _ <- LogWriter.info("[ShowUpdater] Insert DBShowDatas to DB")
-        _ <- youTubeBotdbShowDatas
-          .flatMap { case YouTubeBotDBShowDatas(_, _, dbShowDatas) => dbShowDatas }
-          .traverse_(show => LogWriter.info(s"[ShowUpdater] ✓💾 ${show.show_title}") >> dbLayer.dbShow.insertShow(show))
-        _ <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
+        youTubeBotIds = filterCandidateIds(candidateIds, storedIds)
+        _                <- LogWriter.info(s"[ShowUpdater] ${youTubeBotIds.flatMap(_.videoIds).length} Ids to be added")
+        _                <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
+        youTubeBotVideos <- youTubeBotIdsToVideos(youTubeService, youTubeBotIds)
+        _                <- LogWriter.info("[ShowUpdater] Converting YouTube data to DBShowData")
+        youTubeBotdbShowDatas <- youTubeBotVideosToDbShowData(youTubeBotVideos)
+        _                     <- LogWriter.info("[ShowUpdater] Insert DBShowDatas to DB")
+        _                     <- insertDBShowDatas(youTubeBotdbShowDatas)
+        _                     <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
         _ <- youTubeBotdbShowDatas.traverse_(youTubeBotdbShowData =>
           updateStoredJsons(config, youTubeBotdbShowData.outputFilePath, youTubeBotdbShowData.dbShowDatas)
         )
