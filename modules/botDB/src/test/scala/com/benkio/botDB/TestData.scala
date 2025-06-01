@@ -37,7 +37,7 @@ object TestData {
     url = "jdbc:sqlite:../../botDB.sqlite3",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
-    jsonLocation = List.empty,
+    jsonLocation = List("/testdata"),
     showConfig = ShowConfig(List.empty, false, false, "sBots")
   )
 }

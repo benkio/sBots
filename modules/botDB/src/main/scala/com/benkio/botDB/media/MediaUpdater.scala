@@ -38,19 +38,20 @@ object MediaUpdater {
       resourceAccess = resourceAccess
     )
 
-  private class MediaUpdaterImpl[F[_]: Async: LogWriter](
+  private[media] class MediaUpdaterImpl[F[_]: Async: LogWriter](
       config: Config,
       dbLayer: DBLayer[F],
       resourceAccess: ResourceAccess[F]
   ) extends MediaUpdater[F] {
 
-    private[media] def fetchMediaJsonFiles(config: Config): Resource[F, List[MediaResource[F]]] =
+    private[media] def fetchRootBotFiles: Resource[F, List[MediaResource[F]]] =
       config.jsonLocation.flatTraverse(location => resourceAccess.getResourcesByKind(location).map(_.reduce.toList))
 
     private[media] def filterMediaJsonFiles(allFiles: List[MediaResource[F]]): Resource[F, List[File]] = {
       allFiles
         .mapFilter(_.getMediaResourceFile)
         .traverseFilter(resourceFile =>
+          println(s"[MediaUpdater] resourceFile: ${resourceFile}") 
           resourceFile.map(f => if f.getName.endsWith("_list.json") then Some(f) else None)
         )
     }
@@ -82,7 +83,7 @@ object MediaUpdater {
     }
 
     override def updateMedia: Resource[F, Unit] = for {
-      allFiles <- fetchMediaJsonFiles(config)
+      allFiles <- fetchRootBotFiles
       _ <- Resource.eval(
         LogWriter.info(s"[MediaUpdater]: all files from ${config.jsonLocation}: ${allFiles.length}")
       )
