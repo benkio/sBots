@@ -27,7 +27,7 @@ import telegramium.bots.Message
 
 class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
@@ -61,7 +61,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   )
 
   val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = youtuboanchei0bot.flatMap(_.allCommandRepliesDataF)
-  val messageRepliesDataPrettyPrint: IO[List[String]] =
+  val messageRepliesDataPrettyPrint: IO[List[String]]      =
     youtuboanchei0bot
       .flatMap(ab =>
         for

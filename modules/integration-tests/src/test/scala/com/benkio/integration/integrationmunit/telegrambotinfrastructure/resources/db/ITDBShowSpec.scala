@@ -53,9 +53,9 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     "DBShow: should return the test show sample"
   ) { fixture =>
     val resourceAssert = for {
-      testShow  <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw)))
-      dbShow    <- fixture.resourceDBLayer.map(_.dbShow)
-      testShows <- Resource.eval(dbShow.getShows(botName))
+      testShow           <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw)))
+      dbShow             <- fixture.resourceDBLayer.map(_.dbShow)
+      testShows          <- Resource.eval(dbShow.getShows(botName))
       testShowsByKeyword <- Resource.eval(
         dbShow.getShowByShowQuery(ShowQuery("title=test+show&title=title"), botName)
       )
@@ -84,9 +84,9 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
         |    "show_origin_automatic_caption": "https://www.youtube.com/api/timedtext?v=test2"
         |  }""".stripMargin
     val resourceAssert = for {
-      testShow <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw2)))
-      dbShow   <- fixture.resourceDBLayer.map(_.dbShow)
-      _        <- Resource.eval(dbShow.insertShow(testShow))
+      testShow           <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw2)))
+      dbShow             <- fixture.resourceDBLayer.map(_.dbShow)
+      _                  <- Resource.eval(dbShow.insertShow(testShow))
       testShowsByKeyword <- Resource.eval(
         dbShow.getShowByShowQuery(ShowQuery("test 2"), botName)
       )
@@ -102,7 +102,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     "DBShow: get random show should return a show"
   ) { fixture =>
     val resourceAssert = for {
-      dbShow <- fixture.resourceDBLayer.map(_.dbShow)
+      dbShow     <- fixture.resourceDBLayer.map(_.dbShow)
       randomShow <- Resource.eval(
         dbShow.getRandomShow(botName)
       )

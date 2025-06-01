@@ -7,7 +7,7 @@ import java.nio.file.Paths
 
 object XahLeeBotMainDataEntry extends IOApp {
 
-  val xahListFilename = "xah_list.json"
+  val xahListFilename     = "xah_list.json"
   val xahListFileResource =
     Resource.make(IO.delay(scala.io.Source.fromFile(xahListFilename)))(bufferedSorce => IO.delay(bufferedSorce.close))
 

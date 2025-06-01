@@ -54,7 +54,7 @@ object BotSetup {
     for
       _                   <- Resource.eval(LogWriter.info(s"[BotSetup:58:47] Retrieving Token $tokenFilename"))
       tokenMediaResources <- resourceAccess.getResourceFile(Document(tokenFilename))
-      tokenFiles <- tokenMediaResources.collect { case MediaResourceFile(rf) =>
+      tokenFiles          <- tokenMediaResources.collect { case MediaResourceFile(rf) =>
         rf
       }.sequence
       tokenFileContent <-
@@ -99,7 +99,7 @@ object BotSetup {
     resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, dropboxClient)
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
-    _ <- Resource.eval(
+    _                     <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
         new RuntimeException(
           s"[$botName] The delete webhook request failed: " + deleteWebhookResponse.as[String]

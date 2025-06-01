@@ -20,7 +20,7 @@ import java.io.File
 
 class BotDBControllerSpec extends CatsEffectSuite {
 
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO]             = consoleLogUpToLevel(LogLevels.Info)
   val inputJson: MediaResourceFile[IO] =
     MediaResourceFile(
       Resource.pure(File(getClass.getResource("/").toURI).listFiles().toList.filterNot(_.getName == "com").head)
@@ -30,7 +30,7 @@ class BotDBControllerSpec extends CatsEffectSuite {
   val resourceAccessMock = new ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(inputJson)).pure[IO])
   val migratorMock       = new MigratorMock()
   val showFetcherMock    = new ShowFetcherMock()
-  val dbLayerMock = DBLayerMock.mock(
+  val dbLayerMock        = DBLayerMock.mock(
     botName = "testBot",
     medias = mediaEntities
   )

@@ -11,16 +11,16 @@ import scala.concurrent.duration.*
 
 class GeneralErrorHandlingSpec extends CatsEffectSuite {
 
-  val sleepTime                    = 100.millis
-  given log: LogWriter[IO]         = consoleLogUpToLevel(LogLevels.Error)
-  val expectedErrorMessage: String = "Test Throwable"
+  val sleepTime                          = 100.millis
+  given log: LogWriter[IO]               = consoleLogUpToLevel(LogLevels.Error)
+  val expectedErrorMessage: String       = "Test Throwable"
   val failedResource: Resource[IO, Unit] =
     Resource.raiseError(new Throwable(expectedErrorMessage))
   val failedIO: IO[ExitCode] =
     IO.raiseError(new Throwable(expectedErrorMessage)).as(ExitCode.Error)
 
   test("GeneralErrorHandling should write logs when an error occurred in the failed resource") {
-    val emptyDBLayer = DBLayerMock.mock("whateverBot")
+    val emptyDBLayer          = DBLayerMock.mock("whateverBot")
     val computation: IO[Unit] =
       GeneralErrorHandling
         .dbLogAndRestart(emptyDBLayer.dbLog, failedResource)
@@ -35,7 +35,7 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
   }
 
   test("GeneralErrorHandling should write logs when an error occurred in the failed IO") {
-    val emptyDBLayer = DBLayerMock.mock("whateverBot")
+    val emptyDBLayer          = DBLayerMock.mock("whateverBot")
     val computation: IO[Unit] =
       GeneralErrorHandling
         .dbLogAndRestart(emptyDBLayer.dbLog, failedIO)

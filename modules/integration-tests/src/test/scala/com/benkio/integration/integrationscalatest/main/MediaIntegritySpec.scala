@@ -33,8 +33,8 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
 
   val allMessageMediaFiles: Resource[IO, List[MediaFile]] =
     for
-      dbLayer        <- initialFixture.resourceDBLayer
-      resourceAccess <- initialFixture.resourceAccessResource
+      dbLayer                   <- initialFixture.resourceDBLayer
+      resourceAccess            <- initialFixture.resourceAccessResource
       emptyBackgroundJobManager <- Resource.eval(
         BackgroundJobManager[IO](
           dbLayer.dbSubscription,

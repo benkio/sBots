@@ -25,7 +25,7 @@ import telegramium.bots.Message
 
 class ReplyBundleSpec extends CatsEffectSuite {
 
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     override def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,

@@ -28,7 +28,7 @@ import telegramium.bots.Message
 
 class M0sconiBotSpec extends BaseBotSpec {
 
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
     override def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
@@ -41,7 +41,7 @@ class M0sconiBotSpec extends BaseBotSpec {
       Async[F].pure(List.empty[Message])
   }
 
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(M0sconiBot.botName)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(M0sconiBot.botName)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"

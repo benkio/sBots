@@ -68,7 +68,7 @@ object DBLayerMock {
         ls         <- db.get
         rnd        <- Random.scalaUtilRandom[IO]
         lsShuffled <- rnd.shuffleList(ls.filter(_.media_name.startsWith(botPrefix)))
-        result <- lsShuffled.headOption.fold(
+        result     <- lsShuffled.headOption.fold(
           IO.raiseError(
             Throwable(
               "[TEST ERROR]: got no results from the `getRandomMedia` mock, expected 1 result or the mock is empty"

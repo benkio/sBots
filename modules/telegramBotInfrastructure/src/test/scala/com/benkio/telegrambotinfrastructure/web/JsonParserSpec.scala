@@ -14,7 +14,7 @@ class JsonParserSpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   test("JsonParser.Ytdlp.parseYtdlp should parse correctly the input playlist") {
-    val actual = JsonParser.Ytdlp.parseYtdlp[IO](JsonParserSpec.YtdlpData.youtubePlaylist, "testBot")
+    val actual   = JsonParser.Ytdlp.parseYtdlp[IO](JsonParserSpec.YtdlpData.youtubePlaylist, "testBot")
     val expected = List(
       DBShowData(
         show_url = "https://www.youtube.com/watch?v=2AOz2Zfr6LU",
@@ -62,7 +62,7 @@ class JsonParserSpec extends CatsEffectSuite {
   }
 
   test("JsonParser.Ytdlp.parseYtdlp should parse correctly the input channel") {
-    val actual = JsonParser.Ytdlp.parseYtdlp[IO](JsonParserSpec.YtdlpData.youtubeChannel, "testBot")
+    val actual   = JsonParser.Ytdlp.parseYtdlp[IO](JsonParserSpec.YtdlpData.youtubeChannel, "testBot")
     val expected = List(
       DBShowData(
         show_url = "https://www.youtube.com/watch?v=CSxJQeWFDek",
@@ -97,7 +97,7 @@ class JsonParserSpec extends CatsEffectSuite {
   }
 
   test("JsonParser.Ytdlp.parseYtdlp should parse correctly the input channel streams") {
-    val actual = JsonParser.Ytdlp.parseYtdlp[IO](JsonParserSpec.YtdlpData.youtubeStreams, "testBot")
+    val actual   = JsonParser.Ytdlp.parseYtdlp[IO](JsonParserSpec.YtdlpData.youtubeStreams, "testBot")
     val expected = List(
       DBShowData(
         show_url = "https://www.youtube.com/watch?v=NvdYeg6lMcU",

@@ -21,7 +21,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val testAssert = for {
-      files <- messageRepliesData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+      files  <- messageRepliesData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       checks <-
         files
           .traverse((file: MediaFile) =>
@@ -44,7 +44,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val transactor = fixture.transactor
     val testAssert = for {
       dbLayer <- fixture.resourceDBLayer
-      files <- Resource.eval(
+      files   <- Resource.eval(
         commandRepliesData[IO](dbLayer).flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       )
       checks <-

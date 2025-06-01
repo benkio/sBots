@@ -10,7 +10,7 @@ import java.time.Instant
 
 class DBMediaSpec extends FunSuite {
   test("DBMediaData should be correctly converted from Media") {
-    val now = Instant.now
+    val now    = Instant.now
     val actual = Media(
       mediaName = "mediaName",
       kinds = List("kind"),

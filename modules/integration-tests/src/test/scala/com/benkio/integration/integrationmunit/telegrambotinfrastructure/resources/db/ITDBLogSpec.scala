@@ -32,7 +32,7 @@ class ITDBLogSpec extends CatsEffectSuite with DBFixture with IOChecker {
   databaseFixture.test(
     "DBLog.writeLog should write the log"
   ) { fixture =>
-    val logMessage = "Test Message"
+    val logMessage     = "Test Message"
     val resourceAssert = for {
       dbLog   <- fixture.resourceDBLayer.map(_.dbLog)
       _       <- Resource.eval(dbLog.writeLog(logMessage = logMessage))
@@ -44,8 +44,8 @@ class ITDBLogSpec extends CatsEffectSuite with DBFixture with IOChecker {
   databaseFixture.test(
     "DBLog.getLastLog should return the last log"
   ) { fixture =>
-    val logMessage  = "Test Message"
-    val logMessage2 = "Test Message 2"
+    val logMessage     = "Test Message"
+    val logMessage2    = "Test Message 2"
     val resourceAssert = for {
       dbLog   <- fixture.resourceDBLayer.map(_.dbLog)
       _       <- Resource.eval(dbLog.writeLog(logMessage = logMessage))

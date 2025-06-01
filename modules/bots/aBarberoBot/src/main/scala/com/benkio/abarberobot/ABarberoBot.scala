@@ -152,7 +152,7 @@ object ABarberoBot {
   def buildPollingBot[F[_]: Parallel: Async: Network](using log: LogWriter[F]): Resource[F, ABarberoBotPolling[F]] =
     for {
       httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-      botSetup <- BotSetup(
+      botSetup   <- BotSetup(
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,

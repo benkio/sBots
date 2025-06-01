@@ -23,7 +23,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val testAssert = for {
-      mp3s <- messageRepliesAudioData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+      mp3s   <- messageRepliesAudioData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       checks <-
         mp3s
           .traverse((mp3: MediaFile) =>
@@ -44,7 +44,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     fixture =>
       val transactor = fixture.transactor
       val testAssert = for {
-        gifs <- messageRepliesGifData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+        gifs   <- messageRepliesGifData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
         checks <-
           gifs
             .traverse((gif: MediaFile) =>
@@ -66,7 +66,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val transactor = fixture.transactor
     val testAssert = for {
-      mp4s <- messageRepliesVideoData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+      mp4s   <- messageRepliesVideoData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       checks <-
         mp4s
           .traverse((mp4: MediaFile) =>
@@ -87,7 +87,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     fixture =>
       val transactor = fixture.transactor
       val testAssert = for {
-        mixs <- messageRepliesMixData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+        mixs   <- messageRepliesMixData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
         checks <-
           mixs
             .traverse((mix: MediaFile) =>
@@ -110,7 +110,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val transactor = fixture.transactor
     val testAssert = for {
       specials <- messageRepliesSpecialData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
-      checks <-
+      checks   <-
         specials
           .traverse((special: MediaFile) =>
             DBMedia

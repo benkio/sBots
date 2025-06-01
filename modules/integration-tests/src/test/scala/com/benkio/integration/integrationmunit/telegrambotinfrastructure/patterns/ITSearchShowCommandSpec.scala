@@ -29,7 +29,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- List("ABarberoBot", "YouTuboAncheI0Bot", "RichardPHJBensonBot", "XahLeeBot")
+      check  <- List("ABarberoBot", "YouTuboAncheI0Bot", "RichardPHJBensonBot", "XahLeeBot")
         .traverse(bot => testBot(bot, dbShow, ""))
     } yield check.foldLeft(true)(_ && _)
 
@@ -41,7 +41,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITSearchShowCommandSpec.showByTitle
+      check  <- ITSearchShowCommandSpec.showByTitle
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -55,7 +55,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITSearchShowCommandSpec.showByDescription
+      check  <- ITSearchShowCommandSpec.showByDescription
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -69,7 +69,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITSearchShowCommandSpec.showByMinDuration
+      check  <- ITSearchShowCommandSpec.showByMinDuration
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -83,7 +83,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITSearchShowCommandSpec.showByMaxDuration
+      check  <- ITSearchShowCommandSpec.showByMaxDuration
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -97,7 +97,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITSearchShowCommandSpec.showByMinDate
+      check  <- ITSearchShowCommandSpec.showByMinDate
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
@@ -111,7 +111,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check <- ITSearchShowCommandSpec.showByMaxDate
+      check  <- ITSearchShowCommandSpec.showByMaxDate
         .traverse(testInput =>
           testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )

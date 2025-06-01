@@ -22,7 +22,7 @@ final case class Show(
 
 object Show {
   def apply[F[_]: MonadThrow](dbShow: DBShowData): F[Show] = for {
-    url <- MonadThrow[F].fromEither(Uri.fromString(dbShow.show_url))
+    url        <- MonadThrow[F].fromEither(Uri.fromString(dbShow.show_url))
     uploadDate <- MonadThrow[F].fromEither(
       Try(
         LocalDate.parse(dbShow.show_upload_date, DBShowData.dateTimeFormatter)

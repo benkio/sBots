@@ -66,12 +66,12 @@ object BotDBController {
           .parTraverse(ms =>
             for
               showSource <- ShowSource(ms.urls, ms.botName, ms.outputFilePath)
-              _ <-
+              _          <-
                 if showConfig.dryRun
                 then Async[F].delay(File(ms.outputFilePath).delete).void
                 else Async[F].unit
               EitherDbShowDatas <- showFetcher.generateShowJson(showSource).attempt
-              dbShowDatas <- EitherDbShowDatas.fold(
+              dbShowDatas       <- EitherDbShowDatas.fold(
                 err =>
                   LogWriter.error(s"[BotDBController] ERROR when computing $showSource with $err") >>
                     List.empty.pure,
@@ -100,7 +100,7 @@ object BotDBController {
         .traverseFilter(resourceFile =>
           resourceFile.map(f => if f.getName.endsWith("_list.json") then Some(f) else None)
         )
-      _ <- Resource.eval(LogWriter.info(s"[BotDBController]: Json file to be computed: $jsons"))
+      _     <- Resource.eval(LogWriter.info(s"[BotDBController]: Json file to be computed: $jsons"))
       input <- Resource.eval(Async[F].fromEither(jsons.flatTraverse(json => {
         val fileContent = Source.fromFile(json).getLines().mkString("\n")
         decode[List[MediaFileSource]](fileContent).leftMap(e => Throwable(e.show))

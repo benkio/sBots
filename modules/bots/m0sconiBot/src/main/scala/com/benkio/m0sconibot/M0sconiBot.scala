@@ -127,7 +127,7 @@ object M0sconiBot {
   def buildPollingBot[F[_]: Parallel: Async: Network, A](using log: LogWriter[F]): Resource[F, M0sconiBotPolling[F]] =
     for {
       httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-      botSetup <- BotSetup(
+      botSetup   <- BotSetup(
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
