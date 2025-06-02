@@ -51,7 +51,6 @@ object MediaUpdater {
       allFiles
         .mapFilter(_.getMediaResourceFile)
         .traverseFilter(resourceFile =>
-          println(s"[MediaUpdater] resourceFile: ${resourceFile}") 
           resourceFile.map(f => if f.getName.endsWith("_list.json") then Some(f) else None)
         )
     }

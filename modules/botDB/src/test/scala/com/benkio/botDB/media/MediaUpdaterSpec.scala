@@ -9,13 +9,16 @@ import com.benkio.botDB.TestData.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
+import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
+import org.http4s.Uri
 
 import java.io.File
 
@@ -58,6 +61,29 @@ class MediaUpdaterSpec extends CatsEffectSuite {
     assertIO(
       mediaUpdater.fetchRootBotFiles.flatMap(roots => mediaUpdater.filterMediaJsonFiles(roots)).use(_.pure[IO]),
       List(File(getClass.getResource("/testdata/test_list.json").toURI))
+    )
+  }
+
+  test("MediaUpdater.parseMediaJsonFiles should parse valid json file") {
+    val input: List[File] = List(File(getClass.getResource("/testdata/test_list.json").toURI))
+    val expected: List[MediaFileSource] = List(
+      MediaFileSource(
+        filename = "test_testData.mp3",
+        kinds = List(
+          "kind1",
+          "kind2"
+        ),
+        mime = MimeType.MPEG,
+        sources = List(
+          Right(
+            value = Uri.unsafeFromString("https://www.dropbox.com/scl/fi/hYPb0/test_testData.mp3?rlkey=BbLKm&dl=1")
+          )
+        )
+      )
+    )
+    assertIO(
+      mediaUpdater.parseMediaJsonFiles(input).use(_.pure[IO]),
+      expected
     )
   }
 }
