@@ -34,11 +34,11 @@ object ShowUpdater {
   ](
       config: Config,
       dbLayer: DBLayer[F],
-      youTubeApiKey: String
+      youTubeService: YouTubeService[F]
   ): ShowUpdater[F] = ShowUpdaterImpl[F](
     config = config,
     dbLayer = dbLayer,
-    youTubeApiKey = youTubeApiKey
+    youTubeService = youTubeService
   )
 
   private[show] def filterCandidateIds(
@@ -55,7 +55,7 @@ object ShowUpdater {
   ](
       config: Config,
       dbLayer: DBLayer[F],
-      youTubeApiKey: String
+      youTubeService: YouTubeService[F]
   ) extends ShowUpdater[F] {
 
     private[show] def youTubeBotIdsToVideos(
@@ -94,13 +94,11 @@ object ShowUpdater {
 
     override def updateShow: Resource[F, Unit] = {
       val program = for {
-        _              <- LogWriter.info("[ShowUpdater] Creating YouTube Service")
-        youTubeService <- YouTubeService(config = config, youTubeApiKey)
-        _              <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
-        candidateIds   <- youTubeService.getAllBotNameIds
-        _              <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids")
-        _              <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
-        storedIds      <- getStoredIds
+        _            <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
+        candidateIds <- youTubeService.getAllBotNameIds
+        _            <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids")
+        _            <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
+        storedIds    <- getStoredIds
         youTubeBotIds = filterCandidateIds(candidateIds, storedIds)
         _                <- LogWriter.info(s"[ShowUpdater] ${youTubeBotIds.flatMap(_.videoIds).length} Ids to be added")
         _                <- LogWriter.info("[ShowUpdater] Fetching data from Ids")

@@ -5,6 +5,7 @@ import com.benkio.botDB.config.Config
 import com.benkio.botDB.db.DBMigrator
 import com.benkio.botDB.media.MediaUpdater
 import com.benkio.botDB.show.ShowUpdater
+import com.benkio.botDB.show.YouTubeService
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
@@ -33,12 +34,15 @@ object Main extends IOApp {
       migrator = DBMigrator[IO]
       _ <- Resource.eval(IO(log.info("[Main] Initialize: MediaUpdater")))
       mediaUpdater = MediaUpdater(config = config, dbLayer = dbLayer, resourceAccess = resourceAccess)
-      _             <- Resource.eval(IO(log.info("[Main] Fetch YouTube api key from resources")))
-      youTubeApiKey <- BotSetup.token(youtubeTokenFilename, resourceAccess)
+      _              <- Resource.eval(IO(log.info("[Main] Fetch YouTube api key from resources")))
+      youTubeApiKey  <- BotSetup.token(youtubeTokenFilename, resourceAccess)
+      _              <- Resource.eval(log.info("[ShowUpdater] Creating YouTube Service"))
+      youTubeService <- Resource.eval(YouTubeService(config = config, youTubeApiKey))
+      _              <- Resource.eval(IO(log.info("[Main] Initialize: ShowUpdater")))
       showUpdater = ShowUpdater[IO](
         config = config,
         dbLayer = dbLayer,
-        youTubeApiKey = youTubeApiKey
+        youTubeService = youTubeService
       )
       _ <- Resource.eval(IO(log.info("[Main] End Initialization. Migrate DB")))
       _ <- Resource.eval(migrator.migrate(config))
