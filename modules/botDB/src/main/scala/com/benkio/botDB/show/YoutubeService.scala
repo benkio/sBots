@@ -21,7 +21,7 @@ final case class YouTubeBotDBShowDatas(botName: String, outputFilePath: String, 
 
 trait YouTubeService[F[_]] {
   def getAllBotNameIds: F[List[YouTubeBotIds]]
-  def getYouTubeVideos[F[_]: Async: LogWriter](
+  def getYouTubeVideos(
       videoIds: List[String]
   ): F[List[Video]]
 }
@@ -78,7 +78,7 @@ object YouTubeService {
       } yield botVideoIds
     }
 
-    override def getYouTubeVideos[F[_]: Async: LogWriter](
+    override def getYouTubeVideos(
       videoIds: List[String]
   ): F[List[Video]] = {
     val videoIdsChucks = videoIds.grouped(maxResults).toList
