@@ -48,7 +48,7 @@ object ShowUpdater {
     candidateIds.mapFilter(youTubeBotIds =>
       val result = youTubeBotIds.copy(videoIds = youTubeBotIds.videoIds.filterNot(id => storedIds.contains(id)))
       if result.videoIds.isEmpty then None else Some(result)
-      )
+    )
   }
 
   private[show] class ShowUpdaterImpl[
@@ -60,7 +60,6 @@ object ShowUpdater {
   ) extends ShowUpdater[F] {
 
     private[show] def youTubeBotIdsToVideos(
-        youTubeService: YouTubeService[F],
         youTubeBotIds: List[YouTubeBotIds]
     ): F[List[YouTubeBotVideos]] = {
       youTubeBotIds
@@ -73,7 +72,7 @@ object ShowUpdater {
         )
     }
 
-    def youTubeBotVideosToDbShowData(youTubeBotVideos: List[YouTubeBotVideos]): F[List[YouTubeBotDBShowDatas]] = {
+    def youTubeBotVideosToDbShowDatas(youTubeBotVideos: List[YouTubeBotVideos]): F[List[YouTubeBotDBShowDatas]] = {
       youTubeBotVideos.traverse(youTubeBotVideos =>
         youTubeBotVideos.videos
           .traverse(videoToDBShowData(_, youTubeBotVideos.botName))
@@ -103,9 +102,9 @@ object ShowUpdater {
         youTubeBotIds = filterCandidateIds(candidateIds, storedIds)
         _                <- LogWriter.info(s"[ShowUpdater] ${youTubeBotIds.flatMap(_.videoIds).length} Ids to be added")
         _                <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
-        youTubeBotVideos <- youTubeBotIdsToVideos(youTubeService, youTubeBotIds)
+        youTubeBotVideos <- youTubeBotIdsToVideos(youTubeBotIds)
         _                <- LogWriter.info("[ShowUpdater] Converting YouTube data to DBShowData")
-        youTubeBotdbShowDatas <- youTubeBotVideosToDbShowData(youTubeBotVideos)
+        youTubeBotdbShowDatas <- youTubeBotVideosToDbShowDatas(youTubeBotVideos)
         _                     <- LogWriter.info("[ShowUpdater] Insert DBShowDatas to DB")
         _                     <- insertDBShowDatas(youTubeBotdbShowDatas)
         _                     <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
@@ -118,7 +117,7 @@ object ShowUpdater {
       else Resource.eval(LogWriter.info("[ShowUpdater] Option runShowFetching = true. No run"))
     }
 
-    private def getStoredIds: F[List[String]] = {
+    private[show] def getStoredIds: F[List[String]] = {
       val showFilesResource: Resource[F, List[File]] =
         config.showConfig.showSources
           .traverse(showSource =>
@@ -150,7 +149,7 @@ object ShowUpdater {
       else getStoredFilesShowIds
     }
 
-    private def videoToDBShowData(video: Video, botName: String): F[Option[DBShowData]] = {
+    private[show] def videoToDBShowData(video: Video, botName: String): F[Option[DBShowData]] = {
       def durationISO8601ToSeconds(isoDuration: String): Int = {
         val duration = Duration.parse(isoDuration)
         duration.getSeconds.toInt
@@ -168,7 +167,7 @@ object ShowUpdater {
         show_duration = durationISO8601ToSeconds(duration),
         show_description = Option(video.getSnippet().getDescription()),
         show_is_live = Option(video.getLiveStreamingDetails()).isDefined,
-        show_origin_automatic_caption = None // TODO: add caption foreign key
+        show_origin_automatic_caption = None // TODO: #730 add caption foreign key
       )
       maybeDBShowData.fold(
         LogWriter.error(s"[PlaygroundMain] ERROR: $botName Video conversion problem for $video") *> None.pure[F]
