@@ -50,7 +50,7 @@ object ShowUpdater {
     )
   }
 
-  private class ShowUpdaterImpl[
+  private[show] class ShowUpdaterImpl[
       F[_]: Async: LogWriter
   ](
       config: Config,
