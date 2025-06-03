@@ -45,9 +45,10 @@ object ShowUpdater {
       candidateIds: List[YouTubeBotIds],
       storedIds: List[String]
   ): List[YouTubeBotIds] = {
-    candidateIds.map(youTubeBotIds =>
-      youTubeBotIds.copy(videoIds = youTubeBotIds.videoIds.filterNot(id => storedIds.contains(id)))
-    )
+    candidateIds.mapFilter(youTubeBotIds =>
+      val result = youTubeBotIds.copy(videoIds = youTubeBotIds.videoIds.filterNot(id => storedIds.contains(id)))
+      if result.videoIds.isEmpty then None else Some(result)
+      )
   }
 
   private[show] class ShowUpdaterImpl[

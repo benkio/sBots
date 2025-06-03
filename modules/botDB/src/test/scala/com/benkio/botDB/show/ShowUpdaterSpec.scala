@@ -23,13 +23,19 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   val botName                          = "testBot"
   val outputFilePath                   = "outputFilePath"
   val videoIds: List[String]           = List("6Tw1z", "vo0fM")
+  val otherVideoId1: String = "rTU6G"
+  val otherVideoId2: String = "yHLzy"
   val videos: List[Video]              = List(Video())
   val mediaEntities: List[DBMediaData] = List(google, amazon, facebook)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
-  val youTubeBotIds = List(YouTubeBotIds(botName = botName, outputFilePath = outputFilePath, videoIds = videoIds))
+  val youTubeBotIds = List(
+    YouTubeBotIds(botName = botName, outputFilePath = outputFilePath, videoIds = videoIds),
+    YouTubeBotIds(botName = "testBot2", outputFilePath = "i8EWm", videoIds = List(otherVideoId1) ),
+    YouTubeBotIds(botName = "testBot", outputFilePath = "i8EWm", videoIds = List(otherVideoId2) ),
+  )
 
   // Mocks
   val dbLayerMock = DBLayerMock.mock(
@@ -54,7 +60,6 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     assertEquals(ShowUpdater.filterCandidateIds(youTubeBotIds, List.empty), youTubeBotIds)
   }
   test("ShowUpdater.filterCandidateIds should filter out from the input the stored Ids") {
-    // TODO
-    assert(false)
+    assertEquals(ShowUpdater.filterCandidateIds(youTubeBotIds, List(otherVideoId1, otherVideoId2) ), youTubeBotIds.headOption.toList)
   }
 }
