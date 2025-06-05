@@ -2,6 +2,7 @@ package com.benkio.botDB
 
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.ShowConfig
+import com.benkio.botDB.config.ShowSourceConfig
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 
 object TestData {
@@ -31,6 +32,12 @@ object TestData {
     media_count = 0
   )
 
+  val showSourceConfig: ShowSourceConfig = ShowSourceConfig(
+    youtubeSources = List("PLO1i4nEhzCLYvR6gBHuZJS4z28he2S8yh"),
+    botName = "testBot",
+    outputFilePath = "./src/test/resources/testdata/testBotShow.json"
+  )
+
   val config: Config = Config(
     driver = "org.sqlite.JDBC",
     dbName = "../../botDB.sqlite3",
@@ -38,6 +45,6 @@ object TestData {
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
     jsonLocation = List("/testdata"),
-    showConfig = ShowConfig(List.empty, false, false, "sBots")
+    showConfig = ShowConfig(List(showSourceConfig), false, false, "sBots")
   )
 }

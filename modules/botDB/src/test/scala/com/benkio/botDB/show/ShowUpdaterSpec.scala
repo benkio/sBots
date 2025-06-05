@@ -148,7 +148,12 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     assertIO_(showUpdater.insertDBShowDatas(input)) >>
       assertIO(dbLayerMock.dbShow.getShows(botName), expected)
   }
-  test("ShowUpdater.updateShow implement") { assert(false) }
-  test("ShowUpdater.getStoredIds implement") { assert(false) }
+  test("ShowUpdater.getStoredIds should retrieve the ids from the show file") {
+    assertIO(
+      showUpdater.getStoredIds,
+      List("ADACFpS1qJo")
+    )
+  }
   test("ShowUpdater.updateStoredJsons implement") { assert(false) }
+  test("ShowUpdater.updateShow implement") { assert(false) }
 }
