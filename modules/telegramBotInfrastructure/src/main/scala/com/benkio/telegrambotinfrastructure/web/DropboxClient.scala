@@ -51,7 +51,7 @@ object DropboxClient {
               for {
                 content <- Resource.eval(response.body.compile.toList)
                 _ <- Resource
-                  .eval(LogWriter.info(s"[DropboxClient:56:79] received ${content.length} bytes for $filename"))
+                  .eval(LogWriter.info(s"[DropboxClient] received ${content.length} bytes for $filename"))
                 _      <- Resource.eval(Async[F].raiseWhen(content.isEmpty)(UnexpectedDropboxResponse[F](response)))
                 result <- ResourceAccess.toTempFile(filename, content.toArray)
               } yield result
