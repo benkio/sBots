@@ -13,6 +13,10 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.*
 
+import java.nio.file.Files
+import java.nio.file.Paths
+import scala.jdk.CollectionConverters.*
+
 class ShowUpdaterSpec extends CatsEffectSuite {
 
   import com.benkio.botDB.TestData.*
@@ -28,7 +32,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       .setId("bQRuc")
       .setSnippet(
         VideoSnippet()
-          .setTitle("VideoTitle")
+          .setTitle("videoTitle")
           .setPublishedAt(
             com.google.api.client.util.DateTime.parseRfc3339("2023-05-17T10:24:55.000Z")
           )
@@ -66,7 +70,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   val expectedDBShowData = DBShowData(
     show_id = "bQRuc",
     bot_name = "testBot",
-    show_title = "VideoTitle",
+    show_title = "videoTitle",
     show_upload_date = "2023-05-17T10:24:55.000Z",
     show_duration = 650,
     show_description = Some(
@@ -135,7 +139,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       DBShowData(
         show_id = "bQRuc",
         bot_name = "testBot",
-        show_title = "VideoTitle",
+        show_title = "videoTitle",
         show_upload_date = "2023-05-17T10:24:55.000Z",
         show_duration = 650,
         show_description = Some(
@@ -154,6 +158,23 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       List("ADACFpS1qJo")
     )
   }
-  test("ShowUpdater.updateStoredJsons implement") { assert(false) }
+  test("ShowUpdater.updateStoredJsons should correctly update the output json with the input") {
+    val outputFilePath = "./src/test/resources/testdata/testBotShow.json"
+
+    val showFileContent =
+      Files.readAllBytes(Paths.get(outputFilePath))
+
+    val assertTest = for
+      _ <- showUpdater.updateStoredJsons(outputFilePath, List(expectedDBShowData))
+      afterContent: String = Files.readAllLines(Paths.get(outputFilePath)).asScala.reduce(_ + "\n" + _)
+    yield
+      assert(afterContent.contains("bQRuc"))
+      assert(afterContent.contains("videoTitle"))
+      assert(afterContent.contains("videoDescription"))
+
+    assertTest >> IO(
+      Files.write(Paths.get(outputFilePath), showFileContent)
+    )
+  }
   test("ShowUpdater.updateShow implement") { assert(false) }
 }

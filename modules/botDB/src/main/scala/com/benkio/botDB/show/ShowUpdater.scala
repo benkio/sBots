@@ -109,7 +109,7 @@ object ShowUpdater {
         _                     <- insertDBShowDatas(youTubeBotdbShowDatas)
         _                     <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
         _ <- youTubeBotdbShowDatas.traverse_(youTubeBotdbShowData =>
-          updateStoredJsons(config, youTubeBotdbShowData.outputFilePath, youTubeBotdbShowData.dbShowDatas)
+          updateStoredJsons(youTubeBotdbShowData.outputFilePath, youTubeBotdbShowData.dbShowDatas)
         )
       } yield ()
       if config.showConfig.runShowFetching
@@ -176,7 +176,7 @@ object ShowUpdater {
       )
     }
 
-    private def updateStoredJsons(config: Config, outputFilePath: String, dbShowDatas: List[DBShowData]): F[Unit] = {
+    private[show] def updateStoredJsons(outputFilePath: String, dbShowDatas: List[DBShowData]): F[Unit] = {
       def overwriteOutputFileContent(content: String) =
         Async[F]
           .fromTry(
