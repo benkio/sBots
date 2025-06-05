@@ -176,5 +176,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       Files.write(Paths.get(outputFilePath), showFileContent)
     )
   }
-  test("ShowUpdater.updateShow implement") { assert(false) }
+  test("ShowUpdater.updateShow should run without throwing exceptions") {
+    assertIO_(showUpdater.updateShow.use_)
+  }
 }
