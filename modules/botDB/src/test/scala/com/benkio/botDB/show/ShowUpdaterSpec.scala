@@ -6,7 +6,6 @@ import com.benkio.botDB.mocks.YouTubeServiceMock
 import com.benkio.botDB.show.ShowUpdater.ShowUpdaterImpl
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import com.google.api.services.youtube.model.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -38,8 +37,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       .setContentDetails(
         VideoContentDetails().setDuration("PT10M50S")
       )
-  val videos: List[Video]              = List(video)
-  val mediaEntities: List[DBMediaData] = List(google, amazon, facebook)
+  val videos: List[Video] = List(video)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
@@ -50,8 +48,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
 
   // Mocks
   val dbLayerMock = DBLayerMock.mock(
-    botName = botName,
-    medias = mediaEntities
+    botName = botName
   )
   val youTubeServiceMock = YouTubeServiceMock(
     onGetAllBotNameIds = youTubeBotIds.pure[IO],
@@ -126,8 +123,32 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       )
     )
   }
-  test("ShowUpdater.insertDBShowDatas implement") { assert(false) }
-  test("ShowUpdater.updateShow implement")        { assert(false) }
-  test("ShowUpdater.getStoredIds implement")      { assert(false) }
+  test("ShowUpdater.insertDBShowDatas should insert the expected DBMediaData into the DB") {
+    val input: List[YouTubeBotDBShowDatas] = List(
+      YouTubeBotDBShowDatas(
+        botName = botName,
+        outputFilePath = outputFilePath,
+        dbShowDatas = List(expectedDBShowData)
+      )
+    )
+    val expected: List[DBShowData] = List(
+      DBShowData(
+        show_id = "bQRuc",
+        bot_name = "testBot",
+        show_title = "VideoTitle",
+        show_upload_date = "2023-05-17T10:24:55.000Z",
+        show_duration = 650,
+        show_description = Some(
+          value = "videoDescription"
+        ),
+        show_is_live = false,
+        show_origin_automatic_caption = None
+      )
+    )
+    assertIO_(showUpdater.insertDBShowDatas(input)) >>
+      assertIO(dbLayerMock.dbShow.getShows(botName), expected)
+  }
+  test("ShowUpdater.updateShow implement") { assert(false) }
+  test("ShowUpdater.getStoredIds implement") { assert(false) }
   test("ShowUpdater.updateStoredJsons implement") { assert(false) }
 }
