@@ -27,7 +27,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   val botName                = "testBot"
   val outputFilePath         = "outputFilePath"
   val videoIds: List[String] = List("6Tw1z", "vo0fM")
-  val video: Video =
+  val video: Video           =
     Video()
       .setId("bQRuc")
       .setSnippet(
@@ -41,7 +41,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       .setContentDetails(
         VideoContentDetails().setDuration("PT10M50S")
       )
-  val videos: List[Video] = List(video)
+  val videos: List[Video]                   = List(video)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
@@ -86,7 +86,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   test("ShowUpdater.filterCandidateIds should filter out from the input the stored Ids") {
     val otherVideoId1: String = "rTU6G"
     val otherVideoId2: String = "yHLzy"
-    val otherIds = List(
+    val otherIds              = List(
       YouTubeBotIds(botName = "testBot2", outputFilePath = "i8EWm", videoIds = List(otherVideoId1)),
       YouTubeBotIds(botName = "testBot3", outputFilePath = "cYVdV", videoIds = List(otherVideoId2))
     )

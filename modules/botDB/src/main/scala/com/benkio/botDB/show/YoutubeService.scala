@@ -1,10 +1,10 @@
 package com.benkio.botDB.show
 
-import com.benkio.botDB.config.ShowSourceConfig
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
-import com.benkio.botDB.config.Config
 import cats.effect.kernel.Async
 import cats.syntax.all.*
+import com.benkio.botDB.config.Config
+import com.benkio.botDB.config.ShowSourceConfig
+import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.http.HttpRequest
 import com.google.api.client.http.HttpRequestInitializer
@@ -38,7 +38,7 @@ object YouTubeService {
       _                      <- LogWriter.info("[YouTubeService] Create NetHttpTransport and jsonFactory for YouTube")
       googleNetHttpTransport <- Async[F].delay(GoogleNetHttpTransport.newTrustedTransport())
       jsonFactory = GsonFactory.getDefaultInstance()
-      _ <- LogWriter.info("[YouTubeService] Create youtube")
+      _              <- LogWriter.info("[YouTubeService] Create youtube")
       youTubeService <- Async[F].delay(
         YouTube
           .Builder(
@@ -57,43 +57,51 @@ object YouTubeService {
       youTubeApiKey = youTubeApiKey
     )
 
-  private class YouTubeServiceImpl[F[_]: Async: LogWriter](youTubeService: YouTube, config: Config, youTubeApiKey: String)
-      extends YouTubeService[F] {
+  private class YouTubeServiceImpl[F[_]: Async: LogWriter](
+      youTubeService: YouTube,
+      config: Config,
+      youTubeApiKey: String
+  ) extends YouTubeService[F] {
     override def getAllBotNameIds: F[List[YouTubeBotIds]] = {
       val source = config.showConfig.showSources
       for {
-        _ <- LogWriter.info("[YouTubeService] Get Youtube playlist Ids from sources")
+        _              <- LogWriter.info("[YouTubeService] Get Youtube playlist Ids from sources")
         botPlaylistIds <- source.traverse { case ShowSourceConfig(youTubeSources, botName, outputFilePath) =>
-          youTubeSources.map(YouTubeSource(_)).traverse {
-          case YouTubeSource.Playlist(id) => id.pure[F]
-          case YouTubeSource.Channel(channelHandle) => getYouTubeChannelUploadsPlaylistId(youTubeService, channelHandle, youTubeApiKey)
-          }.map(YouTubeBotIds(botName, outputFilePath, _))
+          youTubeSources
+            .map(YouTubeSource(_))
+            .traverse {
+              case YouTubeSource.Playlist(id)           => id.pure[F]
+              case YouTubeSource.Channel(channelHandle) =>
+                getYouTubeChannelUploadsPlaylistId(youTubeService, channelHandle, youTubeApiKey)
+            }
+            .map(YouTubeBotIds(botName, outputFilePath, _))
         }
-        _ <- LogWriter.info("[YouTubeService] Get Youtube videos Ids from sources")
-        botVideoIds <- botPlaylistIds.traverse {
-          case YouTubeBotIds(botName, outputFilePath, playlistIds) =>
-            getYouTubePlaylistsIds(youTubeService, playlistIds, youTubeApiKey)
-              .map(videoIds => YouTubeBotIds(botName, outputFilePath, videoIds))
+        _           <- LogWriter.info("[YouTubeService] Get Youtube videos Ids from sources")
+        botVideoIds <- botPlaylistIds.traverse { case YouTubeBotIds(botName, outputFilePath, playlistIds) =>
+          getYouTubePlaylistsIds(youTubeService, playlistIds, youTubeApiKey)
+            .map(videoIds => YouTubeBotIds(botName, outputFilePath, videoIds))
         }
       } yield botVideoIds
     }
 
     override def getYouTubeVideos(
-      videoIds: List[String]
-  ): F[List[Video]] = {
-    val videoIdsChucks = videoIds.grouped(maxResults).toList
-    for {
-      _ <- LogWriter.info(s"[YouTubeService] getYouTubeVideos ${videoIdsChucks.length} requests for ${videoIds.length}")
-      requests <- videoIdsChucks.traverse(YouTubeRequests.createYouTubeVideoRequest(youTubeService, _, youTubeApiKey))
-      videos <- requests.foldLeft(List.empty[Video].pure[F]) { case (ioAcc, request) =>
-        for
-          response <- Async[F].delay(request.execute())
-          videos = response.getItems().asScala.toList
-          acc <- ioAcc
-        yield acc ++ videos
-      }
-    } yield videos
-  }
+        videoIds: List[String]
+    ): F[List[Video]] = {
+      val videoIdsChucks = videoIds.grouped(maxResults).toList
+      for {
+        _ <- LogWriter.info(
+          s"[YouTubeService] getYouTubeVideos ${videoIdsChucks.length} requests for ${videoIds.length}"
+        )
+        requests <- videoIdsChucks.traverse(YouTubeRequests.createYouTubeVideoRequest(youTubeService, _, youTubeApiKey))
+        videos   <- requests.foldLeft(List.empty[Video].pure[F]) { case (ioAcc, request) =>
+          for
+            response <- Async[F].delay(request.execute())
+            videos = response.getItems().asScala.toList
+            acc <- ioAcc
+          yield acc ++ videos
+        }
+      } yield videos
+    }
   }
 
   private def getYouTubePlaylistIds[F[_]: LogWriter: Async](
@@ -137,8 +145,8 @@ object YouTubeService {
       youTubeApiKey: String
   ): F[String] =
     for {
-      request  <- YouTubeRequests.createYouTubeChannelUploadPlaylistRequest(youTubeService, channelHandle, youTubeApiKey)
-      response <- Async[F].delay(request.execute())
+      request <- YouTubeRequests.createYouTubeChannelUploadPlaylistRequest(youTubeService, channelHandle, youTubeApiKey)
+      response  <- Async[F].delay(request.execute())
       firstItem <- Async[F].fromOption(
         response.getItems().asScala.toList.headOption,
         Throwable(s"[YouTubeService] $channelHandle can't find the upload youtube playlist")

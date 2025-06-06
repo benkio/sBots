@@ -158,7 +158,7 @@ object DBLayerMock {
     override def insertShow(dbShowData: DBShowData): IO[Unit] =
       for
         shows <- db.get
-        _ <- IO.raiseWhen(shows.exists(s => s.show_id == dbShowData.show_id))(
+        _     <- IO.raiseWhen(shows.exists(s => s.show_id == dbShowData.show_id))(
           Throwable(s"[DBShowMock] a show with id: ${dbShowData.show_id} already exists!")
         )
         _ <- db.update(shows => shows :+ dbShowData)

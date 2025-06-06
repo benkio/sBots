@@ -108,7 +108,7 @@ object ShowUpdater {
         _                     <- LogWriter.info("[ShowUpdater] Insert DBShowDatas to DB")
         _                     <- insertDBShowDatas(youTubeBotdbShowDatas)
         _                     <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
-        _ <- youTubeBotdbShowDatas.traverse_(youTubeBotdbShowData =>
+        _                     <- youTubeBotdbShowDatas.traverse_(youTubeBotdbShowData =>
           updateStoredJsons(youTubeBotdbShowData.outputFilePath, youTubeBotdbShowData.dbShowDatas)
         )
       } yield ()

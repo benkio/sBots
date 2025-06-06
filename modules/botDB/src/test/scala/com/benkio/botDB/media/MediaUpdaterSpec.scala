@@ -65,7 +65,7 @@ class MediaUpdaterSpec extends CatsEffectSuite {
   }
 
   test("MediaUpdater.parseMediaJsonFiles should parse valid json file") {
-    val input: List[File] = List(File(getClass.getResource("/testdata/test_list.json").toURI))
+    val input: List[File]               = List(File(getClass.getResource("/testdata/test_list.json").toURI))
     val expected: List[MediaFileSource] = List(
       MediaFileSource(
         filename = "test_testData.mp3",

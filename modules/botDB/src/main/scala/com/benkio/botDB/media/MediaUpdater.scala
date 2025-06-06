@@ -83,7 +83,7 @@ object MediaUpdater {
 
     override def updateMedia: Resource[F, Unit] = for {
       allFiles <- fetchRootBotFiles
-      _ <- Resource.eval(
+      _        <- Resource.eval(
         LogWriter.info(s"[MediaUpdater]: all files from ${config.jsonLocation}: ${allFiles.length}")
       )
       jsons <- filterMediaJsonFiles(allFiles)

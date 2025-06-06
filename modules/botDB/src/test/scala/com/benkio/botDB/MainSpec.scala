@@ -1,21 +1,7 @@
 package com.benkio.botDB
 
 import cats.effect.IO
-
-
-
-
-
-
-
-
-
-
 import munit.*
-
-
-
-
 
 class MainSpec extends CatsEffectSuite {
 
