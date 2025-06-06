@@ -97,7 +97,7 @@ object RichardPHJBensonBot {
   val botPrefix: String                   = "rphjb"
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "rphjb_triggers.txt"
-  val triggerListUri: Uri =
+  val triggerListUri: Uri                 =
     uri"https://github.com/benkio/sBots/blob/master/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
   val configNamespace: String = "rphjb"
@@ -165,7 +165,7 @@ object RichardPHJBensonBot {
   ): Resource[F, RichardPHJBensonBotPolling[F]] =
     for {
       httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-      botSetup <- BotSetup(
+      botSetup   <- BotSetup(
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,

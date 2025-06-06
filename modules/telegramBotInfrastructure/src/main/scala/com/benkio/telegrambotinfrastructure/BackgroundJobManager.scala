@@ -89,7 +89,7 @@ object BackgroundJobManager {
       for {
         subscriptionsData <- dbSubscription.getSubscriptions(botName)
         subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
-        cancelSignal <- subscriptions.traverse(subscription =>
+        cancelSignal      <- subscriptions.traverse(subscription =>
           runSubscription(subscription).map { case (stream, cancel) =>
             ((SubscriptionKey(subscription.id, subscription.chatId), cancel), (subscription.cron, stream))
           }
@@ -154,7 +154,7 @@ object BackgroundJobManager {
         _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
         reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbShow, botName)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
-        _ <- textTelegramReply.reply(
+        _     <- textTelegramReply.reply(
           reply = Text(reply),
           msg = message,
           resourceAccess = resourceAccess,

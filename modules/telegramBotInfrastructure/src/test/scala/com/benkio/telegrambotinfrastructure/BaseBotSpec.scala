@@ -40,7 +40,7 @@ trait BaseBotSpec extends CatsEffectSuite:
         files = mediaFileSources.map(_.filename)
         urls  = mediaFileSources.flatMap(_.sources.collect { case Right(uri) => uri })
         filenames <- botData
-        _ <- filenames
+        _         <- filenames
           .foreach(filename => assert(files.contains(filename), s"$filename is not contained in bot data file"))
           .pure[IO]
         _ <- assert(
@@ -98,7 +98,7 @@ trait BaseBotSpec extends CatsEffectSuite:
     )
     test("instructions command should return the expected message") {
       for
-        data <- commandRepliesData
+        data               <- commandRepliesData
         instructionCommand <- IO.fromOption(data.find(_.trigger.command == "instructions"))(
           Throwable("[BaseBotSpec] can't find the `instruction` command")
         )

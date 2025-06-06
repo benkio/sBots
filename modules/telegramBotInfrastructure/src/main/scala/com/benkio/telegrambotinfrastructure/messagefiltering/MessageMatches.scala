@@ -37,7 +37,7 @@ object MessageMatches {
       replyBundleMessage.trigger,
       message.text.orElse(message.caption)
     ) match {
-      case (Some(prefix), _, _, Some(messageText)) if messageText.startsWith(prefix) => None
+      case (Some(prefix), _, _, Some(messageText)) if messageText.startsWith(prefix)                           => None
       case (_, _, MessageLengthTrigger(messageLength), Some(messageText)) if messageText.size >= messageLength =>
         Some((MessageLengthTrigger(messageLength), replyBundleMessage))
       case (_, _, _: NewMemberTrigger.type, _) if message.newChatMembers.nonEmpty =>

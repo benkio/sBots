@@ -46,9 +46,9 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     "Unsubscribe Command should fail if the subscription is not found"
   ) { fixture =>
     val subscriptionIdNotFound = "04F08147-DCD7-4F15-9CF8-D7950CB2AD90"
-    val result = for {
-      dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+    val result                 = for {
+      dbLayer              <- fixture.resourceDBLayer
+      resourceAccess       <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -57,7 +57,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           botName = botName
         )
       )
-      _ <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
+      _     <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
       reply <- Resource.eval(
         SubscribeUnsubscribeCommand
           .unsubcribeCommandLogic[IO](
@@ -82,8 +82,8 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     "Unsubscribe Command should remove the input existing subscription"
   ) { fixture =>
     val result = for {
-      dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+      dbLayer              <- fixture.resourceDBLayer
+      resourceAccess       <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -92,7 +92,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           botName = botName
         )
       )
-      _ <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
+      _     <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       reply <- Resource.eval(
         SubscribeUnsubscribeCommand
           .unsubcribeCommandLogic[IO](
@@ -114,8 +114,8 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     "Unsubscribe Command should remove all chat subscription if input is empty"
   ) { fixture =>
     val result = for {
-      dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+      dbLayer              <- fixture.resourceDBLayer
+      resourceAccess       <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -124,7 +124,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           botName = botName
         )
       )
-      _ <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
+      _     <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       reply <- Resource.eval(
         SubscribeUnsubscribeCommand
           .unsubcribeCommandLogic[IO](

@@ -12,7 +12,7 @@ class DataEntrySpec extends CatsEffectSuite {
       "https://www.dropbox.com/scl/fi/1uo9npnlupdk5jhykd8zt/rphjb_5DitaRivoltaGif.mp4?rlkey=2nzrxid175oik5m5fva1z54kr&dl=1",
       "https://www.dropbox.com/scl/fi/o6unllv17028yx059mdpl/rphjb_AdolfHitlerGif.mp4?rlkey=750bdh4zud1j1eier6q7pr7rh&dl=1"
     )
-    val actual = DataEntry.parseInput(input)
+    val actual   = DataEntry.parseInput(input)
     val expected = List(
       MediaFileSource(
         filename = "rphjb_5DitaRivolta.mp3",

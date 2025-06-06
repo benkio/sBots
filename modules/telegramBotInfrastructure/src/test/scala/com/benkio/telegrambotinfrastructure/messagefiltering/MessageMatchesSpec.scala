@@ -289,7 +289,7 @@ class MessageMatchesSpec extends FunSuite {
   ) {
     val matchingMessageText    = "test text"
     val nonMatchingMessageText = "text"
-    val testMessage = Message(
+    val testMessage            = Message(
       0,
       date = 0,
       chat = Chat(0, `type` = "private"),
@@ -307,7 +307,7 @@ class MessageMatchesSpec extends FunSuite {
     "doesMatch should return Some(trigger, replyMessageBundle) when the input text does contain(ContainsOnce) the trigger and caption as well"
   ) {
     val matchingMessageText = "test text"
-    val testMessage = Message(
+    val testMessage         = Message(
       0,
       date = 0,
       chat = Chat(0, `type` = "private"),

@@ -45,8 +45,8 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     "Subscribe Command should add a new subscription"
   ) { fixture =>
     val result = for {
-      dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+      dbLayer              <- fixture.resourceDBLayer
+      resourceAccess       <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -65,7 +65,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           )
       )
       subscriptionDatas <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
-      subscriptions <- Resource.eval(
+      subscriptions     <- Resource.eval(
         subscriptionDatas.traverse(subscriptionData => IO.fromEither(Subscription(subscriptionData)))
       )
     } yield {

@@ -89,7 +89,7 @@ object ResourceAccess {
         val tempArray = new Array[Byte](16384)
         for {
           firstChunk <- Async[F].delay(fis.read(tempArray, 0, tempArray.length))
-          _ <- Monad[F].iterateWhileM(firstChunk)(chunk =>
+          _          <- Monad[F].iterateWhileM(firstChunk)(chunk =>
             Async[F].delay(bais.write(tempArray, 0, chunk)) *> Async[F].delay(fis.read(tempArray, 0, tempArray.length))
           )(_ != -1)
           result = bais.toByteArray()
@@ -174,7 +174,7 @@ object ResourceAccess {
             LogWriter.info(s"[dbResourceAccess] getResourcesByKind fetching resources by $criteria")
           )
           medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
-          files <-
+          files  <-
             medias.traverse(
               dbMediaDataToMediaResource
             )
@@ -201,7 +201,7 @@ object ResourceAccess {
         ): Resource[F, NonEmptyList[MediaResource[F]]] =
           Resource.pure(sources.map {
             case Left(iFile) => MediaResourceIFile(iFile)
-            case Right(uri) =>
+            case Right(uri)  =>
               MediaResourceFile(
                 dropboxClient
                   .fetchFile(mediaName, uri)

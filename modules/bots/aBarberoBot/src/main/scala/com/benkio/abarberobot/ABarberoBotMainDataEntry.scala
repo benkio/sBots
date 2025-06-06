@@ -7,7 +7,7 @@ import java.nio.file.Paths
 
 object ABarberoBotMainDataEntry extends IOApp {
 
-  val abarListFilename = "abar_list.json"
+  val abarListFilename     = "abar_list.json"
   val abarListFileResource =
     Resource.make(IO.delay(scala.io.Source.fromFile(abarListFilename)))(bufferedSorce => IO.delay(bufferedSorce.close))
 

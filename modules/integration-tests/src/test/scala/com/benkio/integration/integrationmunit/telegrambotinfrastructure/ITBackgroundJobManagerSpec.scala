@@ -43,7 +43,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     val test = for {
       dbLayer <- fixture.resourceDBLayer
 
-      resourceAccess <- fixture.resourceAccessResource
+      resourceAccess       <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -97,8 +97,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "BackgroundJobManager.scheduleSubscription should run a subscription, add it to the in memory map and store it in the DB"
   ) { fixture =>
     val test = for {
-      dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+      dbLayer              <- fixture.resourceDBLayer
+      resourceAccess       <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -135,8 +135,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "BackgroundJobManager.runSubscription should return an infinite stream that can be cancelled by the returned signal when is resolved to `true`"
   ) { fixture =>
     val resultStreamResources: Resource[cats.effect.IO, (Stream[IO, Instant], SignallingRef[IO, Boolean])] = for {
-      dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+      dbLayer              <- fixture.resourceDBLayer
+      resourceAccess       <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -166,8 +166,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "BackgroundJobManager.cancelSubscription should cancel in memory job, remove the in memory entry and it the db"
   ) { fixture =>
     val result = for {
-      dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+      dbLayer              <- fixture.resourceDBLayer
+      resourceAccess       <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -197,8 +197,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "BackgroundJobManager.runSubscription should return an infinite stream emitting every expected time when scheduled"
   ) { fixture =>
     val resultStreamResources: Resource[cats.effect.IO, Stream[IO, (Instant, Instant)]] = for {
-      dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+      dbLayer              <- fixture.resourceDBLayer
+      resourceAccess       <- fixture.resourceAccessResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,

@@ -7,7 +7,7 @@ import java.nio.file.Paths
 
 object M0sconiBotMainDataEntry extends IOApp {
 
-  val mosListFilename = "mos_list.json"
+  val mosListFilename     = "mos_list.json"
   val mosListFileResource =
     Resource.make(IO.delay(scala.io.Source.fromFile(mosListFilename)))(bufferedSorce => IO.delay(bufferedSorce.close))
 

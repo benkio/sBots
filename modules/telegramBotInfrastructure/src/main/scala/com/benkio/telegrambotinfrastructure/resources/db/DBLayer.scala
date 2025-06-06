@@ -20,7 +20,7 @@ object DBLayer {
   )(using log: LogWriter[F]): F[DBLayer[F]] = for {
     dbMedia <- DBMedia[F](transactor)
     dbSubscription = DBSubscription[F](transactor)
-    dbTimeout = new DBTimeout.DBTimeoutImpl[F](
+    dbTimeout      = new DBTimeout.DBTimeoutImpl[F](
       transactor,
       log
     )

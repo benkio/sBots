@@ -13,9 +13,9 @@ import java.sql.DriverManager
 
 class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  val testMediaName   = "rphjb_MaSgus.mp3"
-  val testMediaKind   = "some kind"
-  val testMediaPrefix = "rphjb"
+  val testMediaName          = "rphjb_MaSgus.mp3"
+  val testMediaKind          = "some kind"
+  val testMediaPrefix        = "rphjb"
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
     kinds = """"[]"""",

@@ -24,9 +24,9 @@ import scala.io.Source
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  val botName: String           = "botname"
-  val botPrefix: String         = "xah"
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botName)
+  val botName: String                       = "botname"
+  val botPrefix: String                     = "xah"
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botName)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
@@ -46,11 +46,11 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test(
     "commandRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
-    val transactor = fixture.transactor
+    val transactor     = fixture.transactor
     val resourceAssert = for {
       resourceDBLayer <- fixture.resourceDBLayer
       bjm             <- emptyBackgroundJobManager
-      files <- Resource.eval(
+      files           <- Resource.eval(
         CommandRepliesData
           .values[IO](
             botName = botName,
@@ -89,7 +89,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       resourceDBLayer <- fixture.resourceDBLayer
       bjm             <- emptyBackgroundJobManager
-      mediaFiles <- Resource.eval(
+      mediaFiles      <- Resource.eval(
         CommandRepliesData
           .values[IO](
             botName = botName,

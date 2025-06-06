@@ -7,7 +7,7 @@ import java.nio.file.Paths
 
 object YouTuboAncheI0BotMainDataEntry extends IOApp {
 
-  val ytaiListFilename = "ytai_list.json"
+  val ytaiListFilename     = "ytai_list.json"
   val ytaiListFileResource =
     Resource.make(IO.delay(scala.io.Source.fromFile(ytaiListFilename)))(bufferedSorce => IO.delay(bufferedSorce.close))
   def mainLogic(args: List[String]): IO[String] =

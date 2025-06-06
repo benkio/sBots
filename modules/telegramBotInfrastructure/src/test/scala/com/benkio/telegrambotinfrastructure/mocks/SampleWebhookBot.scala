@@ -46,7 +46,7 @@ class SampleWebhookBot(
   override val botPrefix: String                   = "sbot"
   override val ignoreMessagePrefix: Option[String] = Some("!")
   override val triggerFilename: String             = "sbot_triggers.txt"
-  override val triggerListUri: Uri =
+  override val triggerListUri: Uri                 =
     uri"https://github.com/benkio/sBots/blob/master/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
 
   override def messageRepliesDataF: IO[List[ReplyBundleMessage[IO]]] = List(
@@ -113,8 +113,8 @@ object SampleWebhookBot {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def apply(): IO[SampleWebhookBot] = {
-    val resourceAccessMock = new ResourceAccessMock()
-    val dbLayerMock        = DBLayerMock.mock("SampleWebhookBot")
+    val resourceAccessMock         = new ResourceAccessMock()
+    val dbLayerMock                = DBLayerMock.mock("SampleWebhookBot")
     val ioBackgroundJobManagerMock = BackgroundJobManager(
       dbSubscription = dbLayerMock.dbSubscription,
       dbShow = dbLayerMock.dbShow,

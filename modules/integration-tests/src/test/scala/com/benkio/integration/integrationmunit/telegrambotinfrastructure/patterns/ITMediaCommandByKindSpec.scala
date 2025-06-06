@@ -11,11 +11,11 @@ class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test(
     "Top twenty command should return 20 results"
   ) { fixture =>
-    val commandName = "fak"
+    val commandName    = "fak"
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
       dbMedia = dbLayer.dbMedia
-      dbDatas <- Resource.eval(dbMedia.getMediaByKind(commandName))
+      dbDatas          <- Resource.eval(dbMedia.getMediaByKind(commandName))
       resultMediaFiles <- Resource.eval(
         MediaByKindCommand.mediaCommandByKindLogic(
           dbMedia = dbMedia,
