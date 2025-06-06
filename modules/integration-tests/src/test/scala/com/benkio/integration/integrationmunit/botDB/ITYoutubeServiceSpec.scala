@@ -55,4 +55,20 @@ class ITYoutubeServiceSpec extends CatsEffectSuite with Constants {
       )
     )
   }
+
+  test("YoutubeService.getYouTubeVideos should return the expected video") {
+    // Run only locally because it needs Youtube API. You don't want the CI to run requests
+    assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
+
+    for {
+      youTubeService <- buildYoutubeService
+      videos         <- youTubeService.getYouTubeVideos(List("fcCa8ZUTpJ0", "Ql6QA1EnL4k"))
+    } yield assertEquals(
+      videos.map(_.toString),
+      List(
+        """{"contentDetails":{"duration":"PT51M16S"},"id":"fcCa8ZUTpJ0","snippet":{"description":"#RichardBenson #RockMachine","publishedAt":"2019-01-21T14:38:07.000Z","title":"Richard Benson in Rock Machine (30 ottobre 2012)"}}""",
+        """{"contentDetails":{"duration":"PT53M42S"},"id":"Ql6QA1EnL4k","snippet":{"description":"#RichardBenson #RockMachine","publishedAt":"2019-01-22T17:24:44.000Z","title":"Richard Benson in Rock Machine (9 ottobre 2012)"}}"""
+      )
+    )
+  }
 }
