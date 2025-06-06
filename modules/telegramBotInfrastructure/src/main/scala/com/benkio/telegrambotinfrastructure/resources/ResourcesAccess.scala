@@ -171,7 +171,7 @@ object ResourceAccess {
       override def getResourcesByKind(criteria: String): Resource[F, NonEmptyList[NonEmptyList[MediaResource[F]]]] =
         for {
           _ <- Resource.eval(
-            LogWriter.info(s"[ResourcesAccess:162:53] getMediaByKind fetching mediaResources by $criteria")
+            LogWriter.info(s"[dbResourceAccess] getResourcesByKind fetching resources by $criteria")
           )
           medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
           files  <-

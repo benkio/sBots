@@ -240,7 +240,8 @@ object Gif {
       gif"rphjb_AaaPrendereQuelloLaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "col cazzo che non so suonà"
+      "col cazzo",
+      "non so suon[aà](re)?".r.tr(12)
     )(
       gif"rphjb_ColCazzoSuonaGif.mp4"
     ),

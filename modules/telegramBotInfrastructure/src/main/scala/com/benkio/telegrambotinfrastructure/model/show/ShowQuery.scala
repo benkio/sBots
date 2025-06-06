@@ -1,11 +1,11 @@
 package com.benkio.telegrambotinfrastructure.model.show
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import org.http4s.dsl.impl.QueryParamDecoderMatcher
 import org.http4s.Query
 import org.http4s.QueryParamDecoder
 import org.http4s.QueryParamDecoder.*
 
+import java.time.format.DateTimeFormatter
 import java.time.LocalDate
 
 sealed trait ShowQuery
@@ -29,7 +29,7 @@ object ShowQuery {
   object MinDateKeywordsQueryParamMatcher     extends QueryParamDecoderMatcher[LocalDate]("mindate")
 
   given deflocalDateQueryParamDecoder: QueryParamDecoder[LocalDate] = localDateQueryParamDecoder(
-    DBShowData.dateTimeFormatter
+    DateTimeFormatter.ofPattern("yyyyMMdd")
   )
 
   def apply(queryString: String): ShowQuery = {

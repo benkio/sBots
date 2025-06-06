@@ -50,7 +50,7 @@ object BotSetup {
   def token[F[_]: Async: LogWriter](
       tokenFilename: String,
       resourceAccess: ResourceAccess[F]
-  ): Resource[F, String] =
+  ): Resource[F, String] = {
     for
       _                   <- Resource.eval(LogWriter.info(s"[BotSetup:58:47] Retrieving Token $tokenFilename"))
       tokenMediaResources <- resourceAccess.getResourceFile(Document(tokenFilename))
@@ -70,6 +70,7 @@ object BotSetup {
         LogWriter.info(s"[BotSetup:58:47] Token $tokenFilename successfully retrieved")
       )
     yield tokenFileContent
+  }
 
   def loadDB[F[_]: Async](config: DBConfig)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(

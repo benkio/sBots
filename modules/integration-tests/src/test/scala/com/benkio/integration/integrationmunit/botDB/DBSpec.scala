@@ -15,7 +15,7 @@ import java.nio.file.Paths
 import java.sql.Connection
 import java.sql.DriverManager
 
-class DBSpec extends CatsEffectSuite with DBConstants {
+class DBSpec extends CatsEffectSuite with Constants {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 

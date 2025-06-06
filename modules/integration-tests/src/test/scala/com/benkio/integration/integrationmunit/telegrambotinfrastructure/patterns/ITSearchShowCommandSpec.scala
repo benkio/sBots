@@ -125,7 +125,7 @@ object ITSearchShowCommandSpec {
 
   final case class TestInput(botName: String, randomLinkInput: String, expectedOutput: String)
 
-  val expectedTestShowOutput: String = """2025-01-01 - https://www.youtube.com/watch?v=test
+  val expectedTestShowOutput: String = """2025-04-24 - https://www.youtube.com/watch?v=test
                                          | Test Show Title
                                          |----------
                                          | Test Show Description""".stripMargin
@@ -173,7 +173,7 @@ object ITSearchShowCommandSpec {
   val showByMaxDate: List[TestInput] = List(
     TestInput(
       botName = "TestBot",
-      randomLinkInput = "maxdate=20250202",
+      randomLinkInput = "maxdate=20250430",
       expectedOutput = expectedTestShowOutput
     )
   )

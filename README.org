@@ -82,10 +82,17 @@
 
      There's a module called ~botDB~, if opportunely configured,
      when launched, it applies the migrations and populates a bot
-     database. Just set up the ~application.conf~ correctly with the DB
-     path, see the DB in the root of the project, and the location of
-     the ~json~. There should be a ~json~ file at the root of each bot
-     module
+     database.
+
+     Just set up:
+     - The ~application.conf~ correctly with the:
+       - DB path, see the DB in the root of the project
+       - Location of the ~jsons~. There should be a ~json~ file at the root of each bot module
+       - shows youtube sources by bot containing the:
+         - list of playlist id or channel handle
+         - bot name
+         - relative output path, from BotDB folder, of the shows where to save the results.
+     - The Youtube Api file named ~youTubeApiKey.token~ with the API key from google console placed in ~/modules/botDB/src/main/resources/~
 
 ** Compile and Test
 

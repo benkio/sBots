@@ -27,10 +27,10 @@ object Config {
       )
   }
 
-  def buildTransactor(cfg: Config): Transactor[IO] =
+  def buildTransactor(config: Config): Transactor[IO] =
     Transactor.fromDriverManager[IO](
-      cfg.driver,
-      cfg.url,
+      config.driver,
+      config.url,
       "",
       "",
       None
@@ -40,11 +40,12 @@ object Config {
 case class ShowConfig(
     showSources: List[ShowSourceConfig],
     runShowFetching: Boolean,
-    dryRun: Boolean
+    dryRun: Boolean,
+    applicationName: String
 ) derives ConfigReader
 
 case class ShowSourceConfig(
-    urls: List[String],
+    youtubeSources: List[String],
     botName: String,
     outputFilePath: String
 ) derives ConfigReader

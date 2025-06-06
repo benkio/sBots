@@ -1335,7 +1335,7 @@ object Video {
       vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "grazie"
+      "grazie!"
     )(
       vid"rphjb_GraziePerQuelloCheFaiPerMeMancanoLeParole.mp4",
       vid"rphjb_CuoreInMano.mp4"

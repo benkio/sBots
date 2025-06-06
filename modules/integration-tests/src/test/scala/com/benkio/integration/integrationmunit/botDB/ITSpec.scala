@@ -11,13 +11,13 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import scala.concurrent.duration.*
 
-class ITSpec extends CatsEffectSuite with DBConstants {
+class ITSpec extends CatsEffectSuite with Constants {
   // TODO: make the tests faster and remove this eventually
   override val munitIOTimeout = 2.minutes
 
   test("botDB main should populate the migration with the files in resources") {
 
-    val testApplicationConfPath = s"$resourcePath$testApplicationConf"
+    val testApplicationConfPath = s"$integrationResourcesPath$testApplicationConf"
 
     for
       config <- Config.loadConfig(Some(testApplicationConfPath))

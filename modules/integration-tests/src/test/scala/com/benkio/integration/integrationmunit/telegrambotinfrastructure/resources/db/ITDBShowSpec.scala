@@ -20,10 +20,10 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
   val testShowRaw: String =
     """{
-      |    "show_url": "https://www.youtube.com/watch?v=test",
+      |    "show_id": "test",
       |    "bot_name": "TestBot",
       |    "show_title": "Test Show Title",
-      |    "show_upload_date": "20250101",
+      |    "show_upload_date": "2025-04-24T12:01:24.000Z",
       |    "show_duration": 10,
       |    "show_description": "Test Show Description",
       |    "show_is_live": false,
@@ -74,10 +74,10 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val testShowRaw2: String =
       """{
-        |    "show_url": "https://www.youtube.com/watch?v=test2",
+        |    "show_id": "https://www.youtube.com/watch?v=test2",
         |    "bot_name": "TestBot",
         |    "show_title": "Test 2 Show Title",
-        |    "show_upload_date": "20250101",
+        |    "show_upload_date": "2025-04-24T12:01:24.000Z",
         |    "show_duration": 10,
         |    "show_description": "Test 2 Show Description",
         |    "show_is_live": false,

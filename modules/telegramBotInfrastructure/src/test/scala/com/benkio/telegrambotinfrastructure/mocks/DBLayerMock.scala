@@ -155,7 +155,14 @@ object DBLayerMock {
       yield elem
     override def getShowByShowQuery(query: ShowQuery, botName: String): IO[List[DBShowData]] =
       ???
-    override def insertShow(dbShowData: DBShowData): IO[Unit] = ???
+    override def insertShow(dbShowData: DBShowData): IO[Unit] =
+      for
+        shows <- db.get
+        _     <- IO.raiseWhen(shows.exists(s => s.show_id == dbShowData.show_id))(
+          Throwable(s"[DBShowMock] a show with id: ${dbShowData.show_id} already exists!")
+        )
+        _ <- db.update(shows => shows :+ dbShowData)
+      yield ()
     override def deleteShow(dbShowData: DBShowData): IO[Unit] = ???
   }
 
