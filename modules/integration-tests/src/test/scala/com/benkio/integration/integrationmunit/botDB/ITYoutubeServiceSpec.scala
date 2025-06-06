@@ -29,7 +29,7 @@ class ITYoutubeServiceSpec extends CatsEffectSuite with Constants {
       )
     } yield youTubeService
   }
-  val ciEnvVar                = sys.env.get("CI")
+  val ciEnvVar = sys.env.get("CI")
 
   test("YoutubeService.getAllBotNameIds should return the expected YoutubeBotIds") {
     // Run only locally because it needs Youtube API. You don't want the CI to run requests
