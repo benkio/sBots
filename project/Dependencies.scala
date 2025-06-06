@@ -17,6 +17,7 @@ object Dependencies {
     val fs2IO              = "3.12.0"
     val flyway             = "11.9.1"
     val googleApiClient    = "2.8.0"
+    val googleHttpClient   = "1.47.0"
     val googleOauthClient  = "1.39.0"
     val googleYouTubeApi   = "v3-rev20250422-2.0.0"
     val http4s             = "0.23.30"
@@ -36,39 +37,41 @@ object Dependencies {
   }
 
   lazy val libs = new {
-    val caseInsensitive   = "org.typelevel"                 %% "case-insensitive"          % versions.caseInsensitive
-    val catsCore          = "org.typelevel"                 %% "cats-core"                 % versions.cats
-    val catsEffect        = "org.typelevel"                 %% "cats-effect"               % versions.catsEffectVersion
-    val catsEffectKernel  = "org.typelevel"                 %% "cats-effect-kernel"        % versions.catsEffectVersion
-    val catsEffectTime    = "io.chrisdavenport"             %% "cats-effect-time"          % versions.catsEffectTime
-    val catsFree          = "org.typelevel"                 %% "cats-free"                 % versions.cats
-    val catsKernel        = "org.typelevel"                 %% "cats-kernel"               % versions.cats
-    val circeCore         = "io.circe"                      %% "circe-core"                % versions.circe
-    val circeGeneric      = "io.circe"                      %% "circe-generic"             % versions.circe
-    val circeParser       = "io.circe"                      %% "circe-parser"              % versions.circe
-    val cron4s            = "com.github.alonsodomin.cron4s" %% "cron4s-core"               % versions.cron4s
-    val doobieCore        = "org.tpolecat"                  %% "doobie-core"               % versions.doobie
-    val doobieFree        = "org.tpolecat"                  %% "doobie-free"               % versions.doobie
-    val doobieMunit       = "org.tpolecat"                  %% "doobie-munit"              % versions.doobie % "test"
-    val flyway            = "org.flywaydb"                   % "flyway-core"               % versions.flyway
-    val fs2Core           = "co.fs2"                        %% "fs2-core"                  % versions.fs2Core
-    val fs2Cron           = "eu.timepit"                    %% "fs2-cron-cron4s"           % versions.fs2Cron
-    val fs2CronCore       = "eu.timepit"                    %% "fs2-cron-core"             % versions.fs2Cron
-    val fs2CronCalev      = "eu.timepit"                    %% "fs2-cron-calev"            % versions.fs2Cron
-    val fs2IO             = "co.fs2"                        %% "fs2-io"                    % versions.fs2IO
-    val googleApiClient   = "com.google.api-client"          % "google-api-client"         % versions.googleApiClient
-    val googleOauthClient = "com.google.oauth-client"        % "google-oauth-client-jetty" % versions.googleOauthClient
-    val googleYouTubeApi  = "com.google.apis"      % "google-api-services-youtube" % versions.googleYouTubeApi
-    val http4sCirce       = "org.http4s"          %% "http4s-circe"                % versions.http4s
-    val http4sClient      = "org.http4s"          %% "http4s-client"               % versions.http4s
-    val http4sCore        = "org.http4s"          %% "http4s-core"                 % versions.http4s
-    val http4sDsl         = "org.http4s"          %% "http4s-dsl"                  % versions.http4s
-    val http4sEmberClient = "org.http4s"          %% "http4s-ember-client"         % versions.http4s
-    val http4sServer      = "org.http4s"          %% "http4s-server"               % versions.http4s
-    val logEffectsCore    = "io.laserdisc"        %% "log-effect-core"             % versions.logEffects
-    val logEffectsFs2     = "io.laserdisc"        %% "log-effect-fs2"              % versions.logEffects
-    val logbackClassic    = "ch.qos.logback"       % "logback-classic"             % versions.logbackClassic  % Runtime
-    val logbackLogstash   = "net.logstash.logback" % "logstash-logback-encoder"    % versions.logbackLogstash % Runtime
+    val caseInsensitive      = "org.typelevel"                 %% "case-insensitive"        % versions.caseInsensitive
+    val catsCore             = "org.typelevel"                 %% "cats-core"               % versions.cats
+    val catsEffect           = "org.typelevel"                 %% "cats-effect"             % versions.catsEffectVersion
+    val catsEffectKernel     = "org.typelevel"                 %% "cats-effect-kernel"      % versions.catsEffectVersion
+    val catsEffectTime       = "io.chrisdavenport"             %% "cats-effect-time"        % versions.catsEffectTime
+    val catsFree             = "org.typelevel"                 %% "cats-free"               % versions.cats
+    val catsKernel           = "org.typelevel"                 %% "cats-kernel"             % versions.cats
+    val circeCore            = "io.circe"                      %% "circe-core"              % versions.circe
+    val circeGeneric         = "io.circe"                      %% "circe-generic"           % versions.circe
+    val circeParser          = "io.circe"                      %% "circe-parser"            % versions.circe
+    val cron4s               = "com.github.alonsodomin.cron4s" %% "cron4s-core"             % versions.cron4s
+    val doobieCore           = "org.tpolecat"                  %% "doobie-core"             % versions.doobie
+    val doobieFree           = "org.tpolecat"                  %% "doobie-free"             % versions.doobie
+    val doobieMunit          = "org.tpolecat"                  %% "doobie-munit"            % versions.doobie % "test"
+    val flyway               = "org.flywaydb"                   % "flyway-core"             % versions.flyway
+    val fs2Core              = "co.fs2"                        %% "fs2-core"                % versions.fs2Core
+    val fs2Cron              = "eu.timepit"                    %% "fs2-cron-cron4s"         % versions.fs2Cron
+    val fs2CronCore          = "eu.timepit"                    %% "fs2-cron-core"           % versions.fs2Cron
+    val fs2CronCalev         = "eu.timepit"                    %% "fs2-cron-calev"          % versions.fs2Cron
+    val fs2IO                = "co.fs2"                        %% "fs2-io"                  % versions.fs2IO
+    val googleApiClient      = "com.google.api-client"          % "google-api-client"       % versions.googleApiClient
+    val googleHttpClient     = "com.google.http-client"         % "google-http-client"      % versions.googleHttpClient
+    val googleHttpClientGson = "com.google.http-client"         % "google-http-client-gson" % versions.googleHttpClient
+    val googleOauthClient = "com.google.oauth-client" % "google-oauth-client-jetty"   % versions.googleOauthClient
+    val googleYouTubeApi  = "com.google.apis"         % "google-api-services-youtube" % versions.googleYouTubeApi
+    val http4sCirce       = "org.http4s"             %% "http4s-circe"                % versions.http4s
+    val http4sClient      = "org.http4s"             %% "http4s-client"               % versions.http4s
+    val http4sCore        = "org.http4s"             %% "http4s-core"                 % versions.http4s
+    val http4sDsl         = "org.http4s"             %% "http4s-dsl"                  % versions.http4s
+    val http4sEmberClient = "org.http4s"             %% "http4s-ember-client"         % versions.http4s
+    val http4sServer      = "org.http4s"             %% "http4s-server"               % versions.http4s
+    val logEffectsCore    = "io.laserdisc"           %% "log-effect-core"             % versions.logEffects
+    val logEffectsFs2     = "io.laserdisc"           %% "log-effect-fs2"              % versions.logEffects
+    val logbackClassic  = "ch.qos.logback"       % "logback-classic"          % versions.logbackClassic  % Runtime
+    val logbackLogstash = "net.logstash.logback" % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
 
     val mules           = "io.chrisdavenport"     %% "mules"             % versions.mules
     val mulesHttp4s     = "io.chrisdavenport"     %% "mules-http4s"      % versions.mulesHttp4s
@@ -160,6 +163,8 @@ object Dependencies {
     libs.doobieFree,
     libs.flyway,
     libs.googleApiClient,
+    libs.googleHttpClient,
+    libs.googleHttpClientGson,
     libs.googleOauthClient,
     libs.googleYouTubeApi,
     libs.http4sCore,
