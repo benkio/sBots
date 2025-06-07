@@ -1921,7 +1921,7 @@ object Video {
       vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "mente (abbietta|calpestata)".r.tr(14),
+      "la vostra mente (abbietta|calpestata)?".r.tr(16),
       "mafia",
       "punto di partenza",
       "estremismo"

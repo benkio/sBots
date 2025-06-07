@@ -1057,7 +1057,8 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "vaniglia",
       "pandoro",
-      "crema alla (g|c)io(g|c)+ola(d|t)a".r.tr(20)
+      "crema alla (g|c)io(g|c)+ola(d|t)a".r.tr(20),
+      "intrise"
     )(
       mp3"rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3",
       vid"rphjb_AuguriPerPasqua.mp4"
@@ -1891,10 +1892,11 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "sei cambiata tutta",
-      "piercing",
+      "pier[sc]ing".r.tr(8),
       "mi fai male",
       "in mezzo alle gambe",
-      "proprio[ ]?[l]+a".r.tr(9)
+      "proprio[ ]?[l]+a".r.tr(9),
+      "dove lo devo infil[aà]".r.tr(19)
     )(
       vid"rphjb_CambiataTuttaPiercingPropriolla.mp4",
       mp3"rphjb_CambiataTuttaPiercingPropriolla.mp3",

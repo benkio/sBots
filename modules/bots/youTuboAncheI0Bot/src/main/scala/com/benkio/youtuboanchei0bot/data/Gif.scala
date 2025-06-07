@@ -1058,7 +1058,7 @@ object Gif:
       gif"ytai_AppiccicaticcioMieleGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "appiccicaticcio"
+      "appiccicaticc"
     )(
       gif"ytai_AppiccicaticcioMieleGif.mp4"
     ),
