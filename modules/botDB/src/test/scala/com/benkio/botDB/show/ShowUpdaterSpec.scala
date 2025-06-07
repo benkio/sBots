@@ -135,27 +135,46 @@ class ShowUpdaterSpec extends CatsEffectSuite {
         dbShowDatas = List(expectedDBShowData)
       )
     )
-    val expected: List[DBShowData] = List(
+    val expected: List[DBShowData]          = List(expectedDBShowData)
+    val storedDbShowDatas: List[DBShowData] = List(
       DBShowData(
-        show_id = "bQRuc",
+        show_id = "yyyIx",
         bot_name = "testBot",
-        show_title = "videoTitle",
-        show_upload_date = "2023-05-17T10:24:55.000Z",
-        show_duration = 650,
+        show_title = "videoTitle2",
+        show_upload_date = "2023-06-17T10:24:55.000Z",
+        show_duration = 1650,
         show_description = Some(
-          value = "videoDescription"
+          value = "videoDescription2"
         ),
-        show_is_live = false,
+        show_is_live = true,
         show_origin_automatic_caption = None
       )
     )
-    assertIO_(showUpdater.insertDBShowDatas(input)) >>
-      assertIO(dbLayerMock.dbShow.getShows(botName), expected)
+    assertIO_(showUpdater.insertDBShowDatas(input, storedDbShowDatas)) >>
+      assertIO(dbLayerMock.dbShow.getShows(botName), expected ++ storedDbShowDatas)
   }
-  test("ShowUpdater.getStoredIds should retrieve the ids from the show file") {
+  test("ShowUpdater.getStoredDbShowDatas should retrieve the ids from the show file") {
     assertIO(
-      showUpdater.getStoredIds,
-      List("ADACFpS1qJo")
+      showUpdater.getStoredDbShowDatas,
+      List(
+        DBShowData(
+          show_id = "ADACFpS1qJo",
+          bot_name = "ABarberoBot",
+          show_title = "Chiedilo a Barbero - Trailer - Intesa Sanpaolo On Air",
+          show_upload_date = "2023-05-17T10:24:55.000Z",
+          show_duration = 69,
+          show_description = Some(
+            value =
+              """Iscriviti al canale per non perderti nessun aggiornamento su “Chiedilo a Barbero” e seguici su:
+                |Spotify: https://open.spotify.com/show/7JLDPffy6du4rAy8xW3hTT
+                |Apple Podcast: https://podcasts.apple.com/it/podcast/chiedilo-a-barbero-intesa-sanpaolo-on-air/id1688392438
+                |Google Podcast: https://podcasts.google.com/feed/aHR0cHM6Ly9kMTcycTN0b2o3dzFtZC5jbG91ZGZyb250Lm5ldC9yc3MteG1sLWZpbGVzLzhmYjliOGYyLTU5MGItNDhmOS1hNTY2LWE5NWI3OTUwYWY2OC54bWw
+                |Intesa Sanpaolo Group: https://group.intesasanpaolo.com/it/sezione-editoriale/intesa-sanpaolo-on-air""".stripMargin
+          ),
+          show_is_live = false,
+          show_origin_automatic_caption = None
+        )
+      )
     )
   }
   test("ShowUpdater.updateStoredJsons should correctly update the output json with the input") {
