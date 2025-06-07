@@ -56,8 +56,7 @@ object Gif {
     ),
     ReplyBundleMessage.textToGif[F](
       "piano superiore",
-      "si compete",
-      "gerarca"
+      "si compete"
     )(
       gif"rphjb_PianoSuperioreCompeteGif.mp4"
     ),

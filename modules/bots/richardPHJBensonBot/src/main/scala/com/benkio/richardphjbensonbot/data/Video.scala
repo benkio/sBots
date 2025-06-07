@@ -403,9 +403,6 @@ object Video {
       "gioco (io )?del gatto e (voi )?del (ratto|topo)".r.tr(24)
     )(vid"rphjb_DubbioScantinatiGiocoRattoGatto.mp4"),
     ReplyBundleMessage.textToVideo[F](
-      "londra"
-    )(vid"rphjb_Londra.mp4"),
-    ReplyBundleMessage.textToVideo[F](
       "albero grande",
       "anche un('| )amplificatore".r.tr(22),
       "tutti i (suoi )?frutti ti d[aà]".r.tr(20),
@@ -487,11 +484,6 @@ object Video {
     )(
       vid"rphjb_Labrie.mp4",
       vid"rphjb_FotoLookDreamTheater.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "non ho bisogno di consigli"
-    )(
-      vid"rphjb_NoConsigli.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "lo devi spiegare"
@@ -603,7 +595,6 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "investi(re|tore)".r.tr(9),
-      "zurigo",
       "dubai",
       "bel[s]?ize".r.tr(6),
       "nei punti più rilevanti",
@@ -675,8 +666,8 @@ object Video {
       "sperma in un bicchiere",
       "in onore di satana",
       "mi tocca il pacco",
-      "consigli sul pacco",
-      "umori miscelati (allo |al tuo )?sperma".r.tr(27)
+      "lo bevo",
+      "(il suo|i suoi) umor[ei]".r.tr(12)
     )(
       vid"rphjb_ConsigliSulPacco.mp4"
     ),

@@ -154,7 +154,7 @@ trait BaseBotSpec extends CatsEffectSuite:
         }
       )
       .foreach { case (stringTrigger, replyBundle) =>
-        test(s"Triggering exactly the string ${stringTrigger.show} should return the expected reply bundle") {
+        test(s"""🔎 Only one reply bundle replies to: "${stringTrigger.show}"""") {
           val exactStringMessage = Message(
             messageId = 0,
             date = 0,

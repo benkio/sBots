@@ -231,7 +231,9 @@ object Mix {
       gif"rphjb_ViDevoRaccontareUnAltraStoriaGif.mp4",
       vid"rphjb_ViDevoRaccontareUnAltraStoria.mp4",
       mp3"rphjb_AdolfHitler.mp3",
-      vid"rphjb_AdolfHitler.mp4"
+      vid"rphjb_AdolfHitler.mp4",
+      vid"rphjb_RumoreDeiCapelliCheCascavano.mp4",
+      mp3"rphjb_RumoreDeiCapelliCheCascavano.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "au[ ]?de".r.tr(4),
@@ -380,7 +382,9 @@ object Mix {
       vid"rphjb_Ultimi.mp4",
       gif"rphjb_UltimiGif.mp4",
       gif"rphjb_Ultimi2Gif.mp4",
-      mp3"rphjb_Ultimi.mp3"
+      mp3"rphjb_Ultimi.mp3",
+      vid"rphjb_OttavaNotaRobaVecchiaSchifosi.mp4",
+      mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "che (cazzo )?era quella roba".r.tr(19),
@@ -730,7 +734,9 @@ object Mix {
       vid"rphjb_StoriaNapoliBambinaMutande.mp4",
       mp3"rphjb_StoriaNapoliBambinaMutande.mp3",
       vid"rphjb_MusicaNapoletanaRockLista.mp4",
-      mp3"rphjb_MusicaNapoletanaRockLista.mp3"
+      mp3"rphjb_MusicaNapoletanaRockLista.mp3",
+      vid"rphjb_ImpegniListaCitta.mp4",
+      mp3"rphjb_ImpegniListaCitta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ciao a tutti",
@@ -874,7 +880,9 @@ object Mix {
       vid"rphjb_AllargareLeVedute.mp4",
       mp3"rphjb_SchifosiNonMeCeFaPensa.mp3",
       gif"rphjb_SchifosiNonMeCeFaPensaGif.mp4",
-      vid"rphjb_SchifosiNonMeCeFaPensa.mp4"
+      vid"rphjb_SchifosiNonMeCeFaPensa.mp4",
+      vid"rphjb_OttavaNotaRobaVecchiaSchifosi.mp4",
+      mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "schifos(o)+(!)*".r.tr(8)
@@ -1644,11 +1652,14 @@ object Mix {
       mp3"rphjb_Sconvolto.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "pi[uù] siete felici".r.tr(16)
+      "pi[uù] (siete|sono) felici".r.tr(16)
     )(
       gif"rphjb_PiuIncazzatoPiuFeliciMortacciVostriGif.mp4",
       vid"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp4",
-      mp3"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp3"
+      mp3"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp3",
+      gif"rphjb_IncazzatoFeliciGif.mp4",
+      vid"rphjb_IncazzatoFelici.mp4",
+      mp3"rphjb_IncazzatoFelici.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "incazzat"
@@ -1658,7 +1669,10 @@ object Mix {
       mp3"rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp3",
       vid"rphjb_PiuPacatoMiIncazzo.mp4",
       gif"rphjb_PiuPacatoMiIncazzoGif.mp4",
-      mp3"rphjb_PiuPacatoMiIncazzo.mp3"
+      mp3"rphjb_PiuPacatoMiIncazzo.mp3",
+      gif"rphjb_IncazzatoFeliciGif.mp4",
+      vid"rphjb_IncazzatoFelici.mp4",
+      mp3"rphjb_IncazzatoFelici.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "w[e]+[l]+[a]+".r.tr(4)
@@ -1757,7 +1771,9 @@ object Mix {
     )(
       mp3"rphjb_Appuntamento.mp3",
       vid"rphjb_VenerdiAppuntamentoFissoFica.mp4",
-      vid"rphjb_RicordateviAppuntamento.mp4"
+      vid"rphjb_RicordateviAppuntamento.mp4",
+      vid"rphjb_ImpegniListaCitta.mp4",
+      mp3"rphjb_ImpegniListaCitta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "succh",
@@ -1940,7 +1956,10 @@ object Mix {
       vid"rphjb_RingraziareAngelo.mp4",
       mp3"rphjb_RingraziareAngelo.mp3",
       vid"rphjb_AngeloCarpenelliArrivaALui.mp4",
-      mp3"rphjb_AngeloCarpenelliArrivaALui.mp3"
+      mp3"rphjb_AngeloCarpenelliArrivaALui.mp3",
+      gif"rphjb_AngeloHaVintoSuTuttiGif.mp4",
+      vid"rphjb_AngeloHaVintoSuTutti.mp4",
+      mp3"rphjb_AngeloHaVintoSuTutti.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "questa è una domanda",
@@ -1970,11 +1989,19 @@ object Mix {
       gif"rphjb_SputartiInFacciaCamaleonticoGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "madre tortura",
-      "(madre )?parrucca".r.tr(8)
+      "madre tortura"
     )(
       vid"rphjb_MadreTorturaParrucca.mp4",
       mp3"rphjb_MadreTorturaImprovvisata.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "\\bpa[r]+u[c]+a\\b".r.tr(8)
+    )(
+      vid"rphjb_MadreTorturaParrucca.mp4",
+      mp3"rphjb_MadreTorturaImprovvisata.mp3",
+      gif"rphjb_IncazzatoFeliciGif.mp4",
+      vid"rphjb_IncazzatoFelici.mp4",
+      mp3"rphjb_IncazzatoFelici.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "cazzate"
@@ -2167,7 +2194,11 @@ object Mix {
       mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3",
       gif"rphjb_AccompagnaviRitardoFiguracciaGif.mp4",
       vid"rphjb_AccompagnaviRitardoFiguraccia.mp4",
-      mp3"rphjb_AccompagnaviRitardoFiguraccia.mp3"
+      mp3"rphjb_AccompagnaviRitardoFiguraccia.mp3",
+      vid"rphjb_OttavaNotaRobaVecchiaSchifosi.mp4",
+      mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3",
+      vid"rphjb_ImpegniListaCitta.mp4",
+      mp3"rphjb_ImpegniListaCitta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "mercoled[iì]".r.tr(9)
@@ -2794,7 +2825,9 @@ object Mix {
       vid"rphjb_MiaColpaColpaMia.mp4",
       vid"rphjb_PienoDiDischiNovitaTempoInferioreSuperiore.mp4",
       mp3"rphjb_PienoDiDischiNovitaTempoInferioreSuperiore.mp3",
-      gif"rphjb_PienoDiDischiNovitaTempoInferioreSuperioreGif.mp4"
+      gif"rphjb_PienoDiDischiNovitaTempoInferioreSuperioreGif.mp4",
+      vid"rphjb_ImpegniListaCitta.mp4",
+      mp3"rphjb_ImpegniListaCitta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "suonato (abbastanza )?bene".r.tr(12)
@@ -3267,10 +3300,20 @@ object Mix {
       vid"rphjb_PoesiaDolcezzaViolenta.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "bibbia",
       "giacobbe",
       "gli angeli",
+      "le scale",
       "gradin[oi]".r.tr(7),
+      "le ali"
+    )(
+      mp3"rphjb_AngeliDiGiacobbe.mp3",
+      vid"rphjb_AngeliDiGiacobbe.mp4",
+      gif"rphjb_AngeliDiGiacobbe2Gif.mp4",
+      vid"rphjb_AngeliDiGiacobbe2.mp4",
+      mp3"rphjb_AngeliDiGiacobbe2.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "bibbia",
       "sergio",
       "stefano",
       "babilonia",
@@ -3312,7 +3355,12 @@ object Mix {
       vid"rphjb_EmuleReteInternettariaSitoScoppia.mp4",
       mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3",
       mp3"rphjb_MappaInternettaria.mp3",
-      vid"rphjb_MappaInternettaria.mp4"
+      vid"rphjb_MappaInternettaria.mp4",
+      gif"rphjb_InPiuUnaCosaCheMiHaScocciatoGif.mp4",
+      vid"rphjb_InPiuUnaCosaCheMiHaScocciato.mp4",
+      mp3"rphjb_InPiuUnaCosaCheMiHaScocciato.mp3",
+      vid"rphjb_ImpegniListaCitta.mp4",
+      mp3"rphjb_ImpegniListaCitta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "una rete (fitta|internettaria)?".r.tr(9)
@@ -3617,7 +3665,8 @@ object Mix {
         vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4",
         mp3"rphjb_Fazzoletti.mp3",
         vid"rphjb_IlPubblicoDavanti.mp4",
-        mp3"rphjb_IlPubblicoDavanti.mp3"
+        mp3"rphjb_IlPubblicoDavanti.mp3",
+        vid"rphjb_ConsigliSulPacco.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
         "pelle",
@@ -3647,8 +3696,13 @@ object Mix {
         mp3"rphjb_MappaInternettaria.mp3",
         vid"rphjb_MappaInternettaria.mp4"
       ),
+      ReplyBundleMessage.textToMedia[F]("telecomand[oi]".r.tr(11))(
+        mp3"rphjb_TelecomandoCambiareCanaleDischiNuovi.mp3",
+        vid"rphjb_TelecomandoCambiareCanaleDischiNuovi.mp4",
+        vid"rphjb_OttavaNotaRobaVecchiaSchifosi.mp4",
+        mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3"
+      ),
       ReplyBundleMessage.textToMedia[F](
-        "telecomando",
         "rimanete (l[iì] )fermi".r.tr(14),
         "tiziano ferro",
         "nek",
@@ -3656,8 +3710,6 @@ object Mix {
         "celentano",
         "massimo ranieri"
       )(
-        mp3"rphjb_TelecomandoCambiareCanaleDischiNuovi.mp3",
-        vid"rphjb_TelecomandoCambiareCanaleDischiNuovi.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
         "arsenale",
@@ -3984,9 +4036,17 @@ object Mix {
         mp3"rphjb_GrandeMelGibsonRinunciaATutto.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
+        "\\baffari\\b".r.tr(6)
+      )(
+        gif"rphjb_GiubbottiModaAffariTrasformistaGif.mp4",
+        vid"rphjb_GiubbottiModaAffariTrasformista.mp4",
+        mp3"rphjb_GiubbottiModaAffariTrasformista.mp3",
+        vid"rphjb_ImpegniListaCitta.mp4",
+        mp3"rphjb_ImpegniListaCitta.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
         "costruisco giubbotti",
         "\\bmoda\\b".r.tr(4),
-        "\\baffari\\b".r.tr(6),
         "faccio tant(e|issime) cose".r.tr(17),
         "trasform(ismo|armi)".r.tr(12)
       )(
@@ -4197,15 +4257,22 @@ object Mix {
         gif"rphjb_ProsciuttoNelleOrecchiePallePadreSchifosiGif.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
+        "milano",
+        "amsterdam"
+      )(
+        mp3"rphjb_MappaInternettaria.mp3",
+        vid"rphjb_MappaInternettaria.mp4",
+        vid"rphjb_ImpegniListaCitta.mp4",
+        mp3"rphjb_ImpegniListaCitta.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
         "la mappa\\b".r.tr(8),
         "ramificazio",
         "tokio",
         "helsinki",
-        "amsterdam",
         "spagna",
         "bolzano",
         "cremona",
-        "milano",
         "reggio calabria",
         "siracusa"
       )(
@@ -4389,7 +4456,10 @@ object Mix {
         vid"rphjb_DanzaMacabra.mp4",
         mp3"rphjb_VenerdiUscirePeggioCoseDanno.mp3",
         vid"rphjb_VenerdiUscirePeggioCoseDanno.mp4",
-        gif"rphjb_VenerdiUscirePeggioCoseDannoGif.mp4"
+        gif"rphjb_VenerdiUscirePeggioCoseDannoGif.mp4",
+        gif"rphjb_SuccedonoLePeggioCoseGif.mp4",
+        vid"rphjb_SuccedonoLePeggioCose.mp4",
+        mp3"rphjb_SuccedonoLePeggioCose.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "schifosa"
@@ -4668,7 +4738,10 @@ object Mix {
         vid"rphjb_GesuCoglione.mp4",
         mp3"rphjb_GesuCoglione.mp3",
         vid"rphjb_IlBastoneDiGesu.mp4",
-        mp3"rphjb_IlBastoneDiGesu.mp3"
+        mp3"rphjb_IlBastoneDiGesu.mp3",
+        gif"rphjb_NoCriticaComeGesuCristoGif.mp4",
+        vid"rphjb_NoCriticaComeGesuCristo.mp4",
+        mp3"rphjb_NoCriticaComeGesuCristo.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "non sono uno del branco",
@@ -5196,6 +5269,221 @@ object Mix {
       ReplyBundleMessage.textToMedia[F](
         "van der graaf generator",
         "jethro tull"
-      )(vid"rphjb_ListaGruppi.mp4", vid"rphjb_Regressive.mp4", mp3"rphjb_ListaGruppi.mp3")
+      )(vid"rphjb_ListaGruppi.mp4", vid"rphjb_Regressive.mp4", mp3"rphjb_ListaGruppi.mp3"),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "mi da un consiglio",
+          "figuriamoci",
+          "se mi viene voglia",
+          "seguire qualcuno",
+          "quant'è dura",
+          "è proprio dura",
+          "vitella"
+        )(
+          gif"rphjb_QuanteDuraLaVitellaGif.mp4",
+          vid"rphjb_QuanteDuraLaVitella.mp4",
+          mp3"rphjb_QuanteDuraLaVitella.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "\\bconsigli(o|ato)?\\b".r.tr(8)
+        )(
+          gif"rphjb_QuanteDuraLaVitellaGif.mp4",
+          vid"rphjb_QuanteDuraLaVitella.mp4",
+          mp3"rphjb_QuanteDuraLaVitella.mp3",
+          vid"rphjb_NoConsigli.mp4"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "quadr[oi]".r.tr(6),
+          "i colori",
+          "le tele",
+          "le cornici",
+          "fare un'altro lavoro",
+          "fare l'artista"
+        )(
+          vid"rphjb_QuadriCambiare.mp4",
+          mp3"rphjb_QuadriCambiare.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "pezzo unico",
+          "diviso in .*\\bpezzi\\b".r.tr(16),
+          "\\b(43|quarantatre)\\b".r.tr(2)
+        )(
+          vid"rphjb_PezzoUnicoDiviso43Pezzi.mp4",
+          mp3"rphjb_PezzoUnicoDiviso43Pezzi.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "guai a dire",
+          "sono degli dei",
+          "fare una critica",
+          "ai miei (fans|amici)".r.tr(12),
+          "(parlare|suonare) di (pi[uù]|meno)".r.tr(14)
+        )(
+          gif"rphjb_NoCriticaComeGesuCristoGif.mp4",
+          vid"rphjb_NoCriticaComeGesuCristo.mp4",
+          mp3"rphjb_NoCriticaComeGesuCristo.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "ottava nota",
+          "roba vecchia"
+        )(
+          vid"rphjb_OttavaNotaRobaVecchiaSchifosi.mp4",
+          mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "tutto un dire"
+        )(
+          gif"rphjb_SuccedonoLePeggioCoseGif.mp4",
+          vid"rphjb_SuccedonoLePeggioCose.mp4",
+          mp3"rphjb_SuccedonoLePeggioCose.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "vi saluto",
+          "tant(o |')amore",
+          "niente fiori",
+          "opere di bene",
+          "mi capiscono",
+          "non sono più scemi"
+        )(
+          vid"rphjb_ViSalutoNienteFioriSoloOpereDiBene.mp4",
+          mp3"rphjb_ViSalutoNienteFioriSoloOpereDiBene.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "ha vinto su tutti"
+        )(
+          gif"rphjb_AngeloHaVintoSuTuttiGif.mp4",
+          vid"rphjb_AngeloHaVintoSuTutti.mp4",
+          mp3"rphjb_AngeloHaVintoSuTutti.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "cesare",
+          "i gusti sono gusti",
+          "leccandosi il culo"
+        )(
+          gif"rphjb_CesareDisseIGustiSonoGustiGif.mp4",
+          vid"rphjb_CesareDisseIGustiSonoGusti.mp4",
+          mp3"rphjb_CesareDisseIGustiSonoGusti.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "in pi[uù]!",
+          "scocciato"
+        )(
+          gif"rphjb_InPiuUnaCosaCheMiHaScocciatoGif.mp4",
+          vid"rphjb_InPiuUnaCosaCheMiHaScocciato.mp4",
+          mp3"rphjb_InPiuUnaCosaCheMiHaScocciato.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "viene naturale",
+          "(sar[aà]|cos'[eè]) (sbagliato|giusto)".r.tr(11),
+          "una parolaccia",
+          "arriva uno nuovo",
+          " e cambia tutto"
+        )(
+          vid"rphjb_GiustoSbagliato.mp4",
+          mp3"rphjb_GiustoSbagliato.mp3"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "gerarca"
+      )(
+        gif"rphjb_PianoSuperioreCompeteGif.mp4",
+        gif"rphjb_GerarcaSeLaPrendeGif.mp4",
+        vid"rphjb_GerarcaSeLaPrende.mp4",
+        mp3"rphjb_GerarcaSeLaPrende.mp3"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "se la dovesse prendere"
+        )(
+          gif"rphjb_GerarcaSeLaPrendeGif.mp4",
+          vid"rphjb_GerarcaSeLaPrende.mp4",
+          mp3"rphjb_GerarcaSeLaPrende.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "cavalcata",
+          "siamo pronti",
+          "(o[h]? a[h]?|ah) bella".r.tr(8)
+        )(
+          gif"rphjb_SiamoProntiCavalcataGif.mp4",
+          vid"rphjb_SiamoProntiCavalcata.mp4",
+          mp3"rphjb_SiamoProntiCavalcata.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "dire di tutto",
+          "grande frocio",
+          "s[ei] divertono".r.tr(12)
+        )(
+          gif"rphjb_IncazzatoFeliciGif.mp4",
+          vid"rphjb_IncazzatoFelici.mp4",
+          mp3"rphjb_IncazzatoFelici.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "pescatori",
+          "tant(a |')acqua",
+          "niente pesce"
+        )(
+          gif"rphjb_DuePescatoriGif.mp4",
+          vid"rphjb_DuePescatori.mp4",
+          mp3"rphjb_DuePescatori.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "il rumore dei capelli",
+          "non c'era (niente|nessun rumore)",
+          "desolazione"
+        )(
+          vid"rphjb_RumoreDeiCapelliCheCascavano.mp4",
+          mp3"rphjb_RumoreDeiCapelliCheCascavano.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "(i locali|il locale) (vuoti|pieni)".r.tr(14),
+          "siae"
+        )(
+          vid"rphjb_ILocaliNonPagano.mp4",
+          mp3"rphjb_ILocaliNonPagano.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "parlo (tanto|troppo)".r.tr(12),
+          "mente libera",
+          "sentire la musica"
+        )(
+          vid"rphjb_ParloTantoNoCritiche.mp4",
+          mp3"rphjb_ParloTantoNoCritiche.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "doppiaggio",
+          "belgio",
+          "brussels",
+          "praga",
+          "vienna"
+        )(
+          vid"rphjb_ImpegniListaCitta.mp4",
+          mp3"rphjb_ImpegniListaCitta.mp3"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "londra"
+      )(vid"rphjb_Londra.mp4", vid"rphjb_ImpegniListaCitta.mp4", mp3"rphjb_ImpegniListaCitta.mp3"),
+      ReplyBundleMessage.textToMedia[F](
+        "zurigo"
+      )(
+        vid"rphjb_ImpegniListaCitta.mp4",
+        mp3"rphjb_ImpegniListaCitta.mp3",
+        vid"rphjb_InvestitoreGoverno.mp4"
+      )
     )
 }
