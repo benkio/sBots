@@ -86,27 +86,33 @@ object ShowUpdater {
       )
     }
 
-    private[show] def insertDBShowDatas(youTubeBotdbShowDatas: List[YouTubeBotDBShowDatas]): F[Unit] = {
-      youTubeBotdbShowDatas
-        .flatMap { case YouTubeBotDBShowDatas(_, _, dbShowDatas) => dbShowDatas }
-        .traverse_(show => LogWriter.info(s"[ShowUpdater] ✓💾 ${show.show_title}") >> dbLayer.dbShow.insertShow(show))
+    private[show] def insertDBShowDatas(
+        youTubeBotdbShowDatas: List[YouTubeBotDBShowDatas],
+        storedDBShowDatas: List[DBShowData]
+    ): F[Unit] = {
+      val inputDbShowData = youTubeBotdbShowDatas
+        .flatMap { case YouTubeBotDBShowDatas(_, _, dbShowDatas) => dbShowDatas } ++ storedDBShowDatas
+
+      inputDbShowData.traverse_(show =>
+        LogWriter.info(s"[ShowUpdater] ✓💾 ${show.show_title}") >> dbLayer.dbShow.insertShow(show)
+      )
     }
 
     override def updateShow: Resource[F, Unit] = {
       val program = for {
-        _            <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
-        candidateIds <- youTubeService.getAllBotNameIds
-        _            <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids")
-        _            <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
-        storedIds    <- getStoredIds
-        youTubeBotIds = filterCandidateIds(candidateIds, storedIds)
+        _                 <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
+        candidateIds      <- youTubeService.getAllBotNameIds
+        _                 <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids")
+        _                 <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
+        storedDbShowDatas <- getStoredDbShowDatas
+        youTubeBotIds = filterCandidateIds(candidateIds, storedDbShowDatas.map(_.show_id))
         _                <- LogWriter.info(s"[ShowUpdater] ${youTubeBotIds.flatMap(_.videoIds).length} Ids to be added")
         _                <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
         youTubeBotVideos <- youTubeBotIdsToVideos(youTubeBotIds)
         _                <- LogWriter.info("[ShowUpdater] Converting YouTube data to DBShowData")
         youTubeBotdbShowDatas <- youTubeBotVideosToDbShowDatas(youTubeBotVideos)
         _                     <- LogWriter.info("[ShowUpdater] Insert DBShowDatas to DB")
-        _                     <- insertDBShowDatas(youTubeBotdbShowDatas)
+        _                     <- insertDBShowDatas(youTubeBotdbShowDatas, storedDbShowDatas)
         _                     <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
         _                     <- youTubeBotdbShowDatas.traverse_(youTubeBotdbShowData =>
           updateStoredJsons(youTubeBotdbShowData.outputFilePath, youTubeBotdbShowData.dbShowDatas)
@@ -117,7 +123,7 @@ object ShowUpdater {
       else Resource.eval(LogWriter.info("[ShowUpdater] Option runShowFetching = true. No run"))
     }
 
-    private[show] def getStoredIds: F[List[String]] = {
+    private[show] def getStoredDbShowDatas: F[List[DBShowData]] = {
       val showFilesResource: Resource[F, List[File]] =
         config.showConfig.showSources
           .traverse(showSource =>
@@ -125,28 +131,27 @@ object ShowUpdater {
               LogWriter.info(s"[ShowUpdater] Closing file $f")
             )
           )
-      val deleteFiles: F[List[String]] =
+      val deleteFiles: F[List[DBShowData]] =
         showFilesResource.use(showFiles =>
           for {
             _ <- LogWriter.info(s"[ShowUpdater] ✓ Dry Run. Delete show files: $showFiles")
             _ <- showFiles.traverse(showFile => Async[F].delay(showFile.delete))
           } yield List.empty
         )
-      val getStoredFilesShowIds: F[List[String]] =
+      val getStoredDbShowDatas: F[List[DBShowData]] =
         showFilesResource.use(showFiles =>
           LogWriter.info("[ShowUpdater] ❌ Dry Run. read show files: $showFiles") >>
             showFiles.flatTraverse(showFile =>
               for {
                 _                   <- LogWriter.info(s"[ShowUpdater] Parse show file content: $showFile")
                 showFileContentJson <- Async[F].fromEither(parse(Source.fromFile(showFile).mkString))
-                showFileIdsJson = showFileContentJson.findAllByKey("show_id")
-                showFileIds <- Async[F].fromEither(showFileIdsJson.traverse(_.as[String]))
-              } yield showFileIds
+                dbShowDatas         <- Async[F].fromEither(showFileContentJson.as[List[DBShowData]])
+              } yield dbShowDatas
             )
         )
       if config.showConfig.dryRun
       then deleteFiles
-      else getStoredFilesShowIds
+      else getStoredDbShowDatas
     }
 
     private[show] def videoToDBShowData(video: Video, botName: String): F[Option[DBShowData]] = {
