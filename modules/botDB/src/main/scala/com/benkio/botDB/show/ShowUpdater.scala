@@ -103,18 +103,23 @@ object ShowUpdater {
         _                 <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
         candidateIds      <- youTubeService.getAllBotNameIds
         _                 <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids")
-        _                 <- LogWriter.info("[ShowUpdater] Fetching stored Ids")
+        _                 <- LogWriter.info("[ShowUpdater] Fetching stored DbShowData")
         storedDbShowDatas <- getStoredDbShowDatas
+        _                 <- LogWriter.info(s"[ShowUpdater] ${storedDbShowDatas.length} stored DbShowData")
         youTubeBotIds = filterCandidateIds(candidateIds, storedDbShowDatas.map(_.show_id))
         _                <- LogWriter.info(s"[ShowUpdater] ${youTubeBotIds.flatMap(_.videoIds).length} Ids to be added")
+        _                <- LogWriter.debug(s"[ShowUpdater] Data to be added: ${youTubeBotIds}")
         _                <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
         youTubeBotVideos <- youTubeBotIdsToVideos(youTubeBotIds)
-        _                <- LogWriter.info("[ShowUpdater] Converting YouTube data to DBShowData")
+        _ <- LogWriter.info(s"[ShowUpdater] ${youTubeBotVideos.length} Converting YouTube data to DBShowData")
+        _ <- LogWriter.debug(s"[ShowUpdater] Data to be converted: ${youTubeBotVideos}")
         youTubeBotdbShowDatas <- youTubeBotVideosToDbShowDatas(youTubeBotVideos)
-        _                     <- LogWriter.info("[ShowUpdater] Insert DBShowDatas to DB")
-        _                     <- insertDBShowDatas(youTubeBotdbShowDatas, storedDbShowDatas)
-        _                     <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
-        _                     <- youTubeBotdbShowDatas.traverse_(youTubeBotdbShowData =>
+        totalShows = storedDbShowDatas.length + youTubeBotdbShowDatas.flatMap(_.dbShowDatas).length
+        _ <- LogWriter.info(s"[ShowUpdater] Insert $totalShows DBShowDatas to DB")
+        _ <- LogWriter.debug(s"[ShowUpdater] Data to be intserted: $youTubeBotdbShowDatas")
+        _ <- insertDBShowDatas(youTubeBotdbShowDatas, storedDbShowDatas)
+        _ <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
+        _ <- youTubeBotdbShowDatas.traverse_(youTubeBotdbShowData =>
           updateStoredJsons(youTubeBotdbShowData.outputFilePath, youTubeBotdbShowData.dbShowDatas)
         )
       } yield ()

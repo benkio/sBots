@@ -93,12 +93,18 @@ object YouTubeService {
           s"[YouTubeService] getYouTubeVideos ${videoIdsChucks.length} requests for ${videoIds.length}"
         )
         requests <- videoIdsChucks.traverse(YouTubeRequests.createYouTubeVideoRequest(youTubeService, _, youTubeApiKey))
+        _        <- LogWriter.debug(s"[YoutubeService] ${requests.length} YouTube requests")
         videos   <- requests.foldLeft(List.empty[Video].pure[F]) { case (ioAcc, request) =>
           for
+            _        <- LogWriter.debug(s"[YoutubeService] Execute request $request")
             response <- Async[F].delay(request.execute())
+            _        <- LogWriter.debug(s"[YoutubeService] request response $response")
             videos = response.getItems().asScala.toList
+            _   <- LogWriter.debug(s"[YoutubeService] request response items $videos")
             acc <- ioAcc
-          yield acc ++ videos
+            result = acc ++ videos
+            _ <- LogWriter.debug(s"[YoutubeService] request results ${result.length}")
+          yield result
         }
       } yield videos
     }
