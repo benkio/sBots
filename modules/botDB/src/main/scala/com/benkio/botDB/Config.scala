@@ -47,5 +47,6 @@ case class ShowConfig(
 case class ShowSourceConfig(
     youtubeSources: List[String],
     botName: String,
+    captionLanguage: String,
     outputFilePath: String
 ) derives ConfigReader
