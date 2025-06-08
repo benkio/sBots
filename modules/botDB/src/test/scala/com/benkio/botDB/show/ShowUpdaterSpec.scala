@@ -77,6 +77,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       value = "videoDescription"
     ),
     show_is_live = false,
+    show_origin_automatic_caption_id = None,
     show_origin_automatic_caption = None
   )
 
@@ -147,6 +148,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
           value = "videoDescription2"
         ),
         show_is_live = true,
+        show_origin_automatic_caption_id = None,
         show_origin_automatic_caption = None
       )
     )
@@ -172,6 +174,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
                 |Intesa Sanpaolo Group: https://group.intesasanpaolo.com/it/sezione-editoriale/intesa-sanpaolo-on-air""".stripMargin
           ),
           show_is_live = false,
+          show_origin_automatic_caption_id = None,
           show_origin_automatic_caption = None
         )
       )
