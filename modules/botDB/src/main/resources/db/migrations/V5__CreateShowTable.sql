@@ -6,6 +6,5 @@ CREATE TABLE IF NOT EXISTS show(
   show_duration  INTEGER NOT NULL,
   show_description TEXT NULL,
   show_is_live BOOLEAN NOT NULL,
-  show_origin_automatic_caption_id TEXT NULL,
   show_origin_automatic_caption TEXT NULL
 );
