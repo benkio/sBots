@@ -5,83 +5,48 @@ import cats.effect.kernel.Async
 import cats.implicits.*
 import cats.syntax.all.*
 import com.benkio.botDB.config.Config
-import com.benkio.botDB.show.YouTubeRequests
-import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
-import com.google.api.client.http.HttpRequest
-import com.google.api.client.http.HttpRequestInitializer
-import com.google.api.client.json.gson.GsonFactory
-import com.google.api.services.youtube.YouTube
+import io.circe.*
 import io.circe.parser.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 
 import java.io.File
-import java.io.InputStream
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
 import scala.io.Source
 import scala.jdk.CollectionConverters.*
+import scala.sys.process.*
 
 object CaptionMain extends IOApp {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val youtubeTokenFilename = "youTubeApiKey.token"
-
   def run(args: List[String]): IO[ExitCode] = {
     val program = for {
-      config <- Resource.eval(Config.loadConfig(args.headOption))
-      resourceAccess = ResourceAccess.fromResources[IO](args.lastOption)
-      youTubeApiKey          <- BotSetup.token(youtubeTokenFilename, resourceAccess)
-      googleNetHttpTransport <- Resource.eval(Async[IO].delay(GoogleNetHttpTransport.newTrustedTransport()))
-      jsonFactory = GsonFactory.getDefaultInstance()
-      youTubeService <- Resource.eval(
-        Async[IO].delay(
-          YouTube
-            .Builder(
-              googleNetHttpTransport,
-              jsonFactory,
-              new HttpRequestInitializer() {
-                override def initialize(request: HttpRequest): Unit = ()
-              }
-            )
-            .setApplicationName(config.showConfig.applicationName)
-            .build()
-        )
-      )
+      _                 <- Resource.eval(checkDependencies)
+      config            <- Resource.eval(Config.loadConfig(args.headOption))
       storedDBShowDatas <- Resource.eval(getStoredDbShowDatas(config))
       target = storedDBShowDatas.head
       _      = println(s"[CaptionMain] target: $target")
-      youTubeVideoCaptionRequest <- Resource.eval(
-        YouTubeRequests.createYouTubeVideoCaptionRequest[IO](
-          youTubeService,
-          target.show_id,
-          youTubeApiKey
-        )
-      )
-      youTubeVideoCaptionResponse <- Resource.eval(Async[IO].delay(youTubeVideoCaptionRequest.execute()))
-      _         = println(s"[CaptionMain] youtubeResponse: $youTubeVideoCaptionResponse")
-      captionId = youTubeVideoCaptionResponse.getItems().asScala.head.getId()
-      _         = println(s"[CaptionMain] captionId: $captionId")
-
-      youTubeDownloadVideoCaptionRequest <- Resource.eval(
-        YouTubeRequests.createYouTubeDownloadVideoCaptionRequest[IO](
-          youTubeService,
-          captionId,
-          youTubeApiKey
-        )
-      )
-      youTubeDownloadVideoCaptionResponseInputStream <- Resource.eval(
-        Async[IO].delay(youTubeDownloadVideoCaptionRequest.executeMediaAsInputStream())
-      )
-      youTubeDownloadVideoCaptionResponse = convertInputStreamToString(youTubeDownloadVideoCaptionResponseInputStream)
-      _ = println(s"[CaptionMain] youtubeResponse download: $youTubeDownloadVideoCaptionResponse")
+      captionTempDir <- createTempDir
+      _ = println(s"[CaptionMain] tempDir: ${captionTempDir}")
+      language = "it"
+      command <- Resource.eval(downloadCaption(target.show_id, captionTempDir, language))
+      captionJson <- Resource.eval(IO.fromEither(parse(Files.readAllLines(captionTempDir.resolve(s"${target.show_id}.$language.json3")).asScala.mkString("\n"))))
+      captionValues = captionJson.findAllByKey("utf8").map(_.as[String]).collect { case Right(value) => value }.mkString
+      _ = println(s"$captionValues")
     } yield ()
 
     program.use_.as(ExitCode.Success)
   }
+
+  def downloadCaption(showId: String, outputPath: Path, language: String): IO[Int] =
+    val command =
+      s"""yt-dlp --write-auto-subs --sub-lang $language --skip-download --sub-format json3 -o "%(id)s" -P $outputPath https://www.youtube.com/watch?v=${showId}"""
+    IO(command.!)
 
   // Copy pasted from the show updater
   def getStoredDbShowDatas(config: Config): IO[List[DBShowData]] = {
@@ -115,12 +80,20 @@ object CaptionMain extends IOApp {
     else getStoredDbShowDatas
   }
 
-  def convertInputStreamToString(inputStream: InputStream): String = {
-    val source = Source.fromInputStream(inputStream)
-    try {
-      source.mkString
-    } finally {
-      source.close()
-    }
+  val shellDependencies: List[String] = List("yt-dlp")
+  def checkDependencies: IO[Unit]     = {
+    shellDependencies
+      .traverse_(program =>
+        Async[IO]
+          .delay(s"which $program".!)
+          .flatMap(result =>
+            Async[IO].raiseUnless(result == 0)(
+              Throwable(s"[ShowFetcher] error checking dependencies: $program is missing")
+            )
+          )
+      )
   }
+
+  def createTempDir: Resource[IO, Path] =
+    Resource.pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
 }
