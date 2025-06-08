@@ -16,6 +16,7 @@ final case class Show(
     duration: Int,
     description: Option[String],
     isLive: Boolean,
+    originAutomaticCaptionId: Option[String],
     originAutomaticCaption: Option[String]
 )
 
@@ -34,6 +35,7 @@ object Show {
     duration = dbShow.show_duration,
     description = dbShow.show_description,
     isLive = dbShow.show_is_live,
+    originAutomaticCaptionId = dbShow.show_origin_automatic_caption_id,
     originAutomaticCaption = dbShow.show_origin_automatic_caption
   )
 
