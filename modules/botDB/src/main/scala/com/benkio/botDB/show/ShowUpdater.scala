@@ -177,8 +177,7 @@ object ShowUpdater {
         show_duration = durationISO8601ToSeconds(duration),
         show_description = Option(video.getSnippet().getDescription()),
         show_is_live = Option(video.getLiveStreamingDetails()).isDefined,
-        show_origin_automatic_caption_id = None, // TODO: #730 add caption id
-        show_origin_automatic_caption = None     // TODO: #730 add caption data
+        show_origin_automatic_caption = None // TODO: #730 add caption foreign key
       )
       maybeDBShowData.fold(
         LogWriter.error(s"[PlaygroundMain] ERROR: $botName Video conversion problem for $video") *> None.pure[F]
