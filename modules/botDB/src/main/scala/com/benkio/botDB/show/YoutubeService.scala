@@ -66,15 +66,16 @@ object YouTubeService {
       val source = config.showConfig.showSources
       for {
         _              <- LogWriter.info("[YouTubeService] Get Youtube playlist Ids from sources")
-        botPlaylistIds <- source.traverse { case ShowSourceConfig(youTubeSources, botName, outputFilePath) =>
-          youTubeSources
-            .map(YouTubeSource(_))
-            .traverse {
-              case YouTubeSource.Playlist(id)           => id.pure[F]
-              case YouTubeSource.Channel(channelHandle) =>
-                getYouTubeChannelUploadsPlaylistId(youTubeService, channelHandle, youTubeApiKey)
-            }
-            .map(YouTubeBotIds(botName, outputFilePath, _))
+        botPlaylistIds <- source.traverse {
+          case ShowSourceConfig(youTubeSources, botName, captionLanguage, outputFilePath) =>
+            youTubeSources
+              .map(YouTubeSource(_))
+              .traverse {
+                case YouTubeSource.Playlist(id)           => id.pure[F]
+                case YouTubeSource.Channel(channelHandle) =>
+                  getYouTubeChannelUploadsPlaylistId(youTubeService, channelHandle, youTubeApiKey)
+              }
+              .map(YouTubeBotIds(botName, outputFilePath, _))
         }
         _           <- LogWriter.info("[YouTubeService] Get Youtube videos Ids from sources")
         botVideoIds <- botPlaylistIds.traverse { case YouTubeBotIds(botName, outputFilePath, playlistIds) =>
