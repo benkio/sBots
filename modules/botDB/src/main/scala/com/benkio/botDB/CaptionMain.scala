@@ -5,6 +5,7 @@ import cats.effect.kernel.Async
 import cats.implicits.*
 import cats.syntax.all.*
 import com.benkio.botDB.config.Config
+import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
 import io.circe.*
 import io.circe.parser.*
@@ -19,6 +20,7 @@ import java.nio.file.Paths
 import scala.io.Source
 import scala.jdk.CollectionConverters.*
 import scala.sys.process.*
+import scala.util.Try
 
 object CaptionMain extends IOApp {
 
@@ -26,27 +28,43 @@ object CaptionMain extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] = {
     val program = for {
-      _                 <- Resource.eval(checkDependencies)
-      config            <- Resource.eval(Config.loadConfig(args.headOption))
+      _      <- Resource.eval(checkDependencies)
+      config <- Resource.eval(Config.loadConfig(args.headOption))
+      transactor = Config.buildTransactor(config = config)
+      dbLayer           <- Resource.eval(DBLayer[IO](transactor))
       storedDBShowDatas <- Resource.eval(getStoredDbShowDatas(config))
       target = storedDBShowDatas.head
       _      = println(s"[CaptionMain] target: $target")
       captionTempDir <- createTempDir
-      _ = println(s"[CaptionMain] tempDir: ${captionTempDir}")
+      _        = println(s"[CaptionMain] tempDir: ${captionTempDir}")
       language = "it"
-      command <- Resource.eval(downloadCaption(target.show_id, captionTempDir, language))
-      captionJson <- Resource.eval(IO.fromEither(parse(Files.readAllLines(captionTempDir.resolve(s"${target.show_id}.$language.json3")).asScala.mkString("\n"))))
-      captionValues = captionJson.findAllByKey("utf8").map(_.as[String]).collect { case Right(value) => value }.mkString
-      _ = println(s"$captionValues")
+      caption <- Resource.eval(downloadCaption(target.show_id, captionTempDir, language))
+      _                    = println(s"$caption")
+      newTarget            = target.copy(show_origin_automatic_caption = caption)
+      newStoredDBShowDatas = storedDBShowDatas.filterNot(_.show_id == newTarget.show_id) :+ newTarget
+      _ <- Resource.eval(dbLayer.dbShow.insertShow(newTarget))
     } yield ()
 
     program.use_.as(ExitCode.Success)
   }
 
-  def downloadCaption(showId: String, outputPath: Path, language: String): IO[Int] =
+  def downloadCaption(showId: String, outputPath: Path, language: String): IO[Option[String]] =
     val command =
       s"""yt-dlp --write-auto-subs --sub-lang $language --skip-download --sub-format json3 -o "%(id)s" -P $outputPath https://www.youtube.com/watch?v=${showId}"""
-    IO(command.!)
+    val captionDownloadLogic = for {
+      _                  <- IO(command.!)
+      captionFileContent <- IO.fromTry(
+        Try(Files.readAllLines(outputPath.resolve(s"${showId}.$language.json3")).asScala.mkString("\n"))
+      )
+      captionJson <- IO.fromEither(parse(captionFileContent))
+      caption = captionJson.findAllByKey("utf8").map(_.as[String]).collect { case Right(value) => value }.mkString
+    } yield caption
+    captionDownloadLogic
+      .map(Some(_))
+      .handleError(_ =>
+        println(s"[CaptionMain] ❌ $showId - $language Downloading Caption")
+        None
+      )
 
   // Copy pasted from the show updater
   def getStoredDbShowDatas(config: Config): IO[List[DBShowData]] = {
