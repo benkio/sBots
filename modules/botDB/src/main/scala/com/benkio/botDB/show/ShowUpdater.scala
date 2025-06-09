@@ -141,17 +141,17 @@ object ShowUpdater {
         _ <- LogWriter.info(s"[ShowUpdater] ${youTubeBotVideos.length} Converting YouTube data to DBShowData")
         _ <- LogWriter.debug(s"[ShowUpdater] Data to be converted: ${youTubeBotVideos}")
         youTubeBotdbShowDatas <- youTubeBotVideosToDbShowDatas(youTubeBotVideos)
-        totalShows = mergeShowDatas(storedDbShowDatas, youTubeBotdbShowDatas)
-        _ <-
+        totalShowsNoCaption = mergeShowDatas(storedDbShowDatas, youTubeBotdbShowDatas)
+        totalShows <-
           if config.showConfig.runShowCaptionFetching
           then
             LogWriter.info(
               s"[ShowUpdater] ✓ run show caption fetching is ${config.showConfig.runShowCaptionFetching}"
-            ) >> addCaptions(totalShows)
+            ) >> addCaptions(totalShowsNoCaption)
           else
             LogWriter.info(
               s"[ShowUpdater] ❌ run show caption fetching is ${config.showConfig.runShowCaptionFetching}"
-            ) >> Async[F].pure(totalShows)
+            ) >> Async[F].pure(totalShowsNoCaption)
 
         _ <- LogWriter.info(s"[ShowUpdater] Insert ${totalShows.length} DBShowDatas to DB")
         _ <- LogWriter.debug(s"[ShowUpdater] Data to be intserted: $youTubeBotdbShowDatas")
@@ -290,7 +290,9 @@ object ShowUpdater {
         captionDownloadLogic
           .map(Some(_))
           .handleErrorWith(e =>
-            LogWriter.error(s"[ShowUpdater] ❌ ${dbShowData.show_id} - $captionLanguage Downloading Caption: ${e.getMessage}") >> Async[F]
+            LogWriter.error(
+              s"[ShowUpdater] ❌ ${dbShowData.show_id} - $captionLanguage Downloading Caption: $e"
+            ) >> Async[F]
               .pure(None)
           )
           .map(caption =>
@@ -306,10 +308,16 @@ object ShowUpdater {
         tempDir <- Async[F].pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
         _       <- LogWriter.info("[ShowUpdater] Start fetching captions")
         result  <- youTubeBotDBShowDatass.traverse(youTubeBotDBShowDatas =>
-          youTubeBotDBShowDatas.dbShowDatas
-            .filter(_.show_origin_automatic_caption.isEmpty)
-            .parTraverse(dbShowData => fetchCaption(dbShowData, tempDir, youTubeBotDBShowDatas.captionLanguage))
-            .map(dbShowDatas => youTubeBotDBShowDatas.copy(dbShowDatas = dbShowDatas))
+          val youTubeBotDBShowDatasFiltered: List[YouTubeBotDBShowDatas] =
+            youTubeBotDBShowDatas.dbShowDatas
+              .filter(_.show_origin_automatic_caption.isEmpty)
+
+          LogWriter.info(
+            s"[ShowUpdater] ${youTubeBotDBShowDatas.botName} Total Caption ${youTubeBotdbShowDatasFiltered.length}"
+          ) >>
+            youTubeBotDBShowDatasFiltered
+              .parTraverse(dbShowData => fetchCaption(dbShowData, tempDir, youTubeBotDBShowDatas.captionLanguage))
+              .map(dbShowDatas => youTubeBotDBShowDatas.copy(dbShowDatas = dbShowDatas))
         )
       } yield result
     }
