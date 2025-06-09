@@ -2,6 +2,7 @@ package com.benkio.botDB.show
 
 import cats.effect.kernel.Async
 import cats.syntax.all.*
+import cats.Semigroup
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.ShowSourceConfig
 import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
@@ -13,11 +14,29 @@ import com.google.api.services.youtube.model.*
 import com.google.api.services.youtube.YouTube
 import log.effect.LogWriter
 
+import java.io.File
 import scala.jdk.CollectionConverters.*
 
-final case class YouTubeBotIds(botName: String, outputFilePath: String, videoIds: List[String])
-final case class YouTubeBotVideos(botName: String, outputFilePath: String, videos: List[Video])
-final case class YouTubeBotDBShowDatas(botName: String, outputFilePath: String, dbShowDatas: List[DBShowData])
+final case class YouTubeBotFile(botName: String, captionLanguage: String, file: File)
+final case class YouTubeBotIds(botName: String, outputFilePath: String, captionLanguage: String, videoIds: List[String])
+final case class YouTubeBotVideos(botName: String, outputFilePath: String, captionLanguage: String, videos: List[Video])
+final case class YouTubeBotDBShowDatas(
+    botName: String,
+    outputFilePath: String,
+    captionLanguage: String,
+    dbShowDatas: List[DBShowData]
+)
+
+object YouTubeBotDBShowDatas {
+  given Semigroup[YouTubeBotDBShowDatas]:
+    def combine(d1: YouTubeBotDBShowDatas, d2: YouTubeBotDBShowDatas) =
+      YouTubeBotDBShowDatas(
+        botName = d1.botName,
+        outputFilePath = d1.outputFilePath,
+        captionLanguage = d1.captionLanguage,
+        dbShowDatas = d1.dbShowDatas ++ d2.dbShowDatas
+      )
+}
 
 trait YouTubeService[F[_]] {
   def getAllBotNameIds: F[List[YouTubeBotIds]]
@@ -75,12 +94,13 @@ object YouTubeService {
                 case YouTubeSource.Channel(channelHandle) =>
                   getYouTubeChannelUploadsPlaylistId(youTubeService, channelHandle, youTubeApiKey)
               }
-              .map(YouTubeBotIds(botName, outputFilePath, _))
+              .map(YouTubeBotIds(botName, outputFilePath, captionLanguage, _))
         }
         _           <- LogWriter.info("[YouTubeService] Get Youtube videos Ids from sources")
-        botVideoIds <- botPlaylistIds.traverse { case YouTubeBotIds(botName, outputFilePath, playlistIds) =>
-          getYouTubePlaylistsIds(youTubeService, playlistIds, youTubeApiKey)
-            .map(videoIds => YouTubeBotIds(botName, outputFilePath, videoIds))
+        botVideoIds <- botPlaylistIds.traverse {
+          case YouTubeBotIds(botName, outputFilePath, captionLanguage, playlistIds) =>
+            getYouTubePlaylistsIds(youTubeService, playlistIds, youTubeApiKey)
+              .map(videoIds => YouTubeBotIds(botName, outputFilePath, captionLanguage, videoIds))
         }
       } yield botVideoIds
     }

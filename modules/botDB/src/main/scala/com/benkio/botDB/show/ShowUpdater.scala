@@ -3,6 +3,7 @@ package com.benkio.botDB.show
 import cats.effect.kernel.Async
 import cats.effect.Resource
 import cats.implicits.*
+import cats.Semigroup
 import com.benkio.botDB.config.Config
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -41,6 +42,19 @@ object ShowUpdater {
     youTubeService = youTubeService
   )
 
+  private[show] def mergeShowDatas(
+      storedDbShowDatas: List[YouTubeBotDBShowDatas],
+      youTubeDbShowDatas: List[YouTubeBotDBShowDatas]
+  ): List[YouTubeBotDBShowDatas] = {
+    storedDbShowDatas
+      .groupMapReduce(_.outputFilePath)(identity)(Semigroup[YouTubeBotDBShowDatas].combine)
+      .combine(
+        youTubeDbShowDatas.groupMapReduce(_.outputFilePath)(identity)(Semigroup[YouTubeBotDBShowDatas].combine)
+      )
+      .values
+      .toList
+  }
+
   private[show] def filterCandidateIds(
       candidateIds: List[YouTubeBotIds],
       storedIds: List[String]
@@ -67,7 +81,12 @@ object ShowUpdater {
           youTubeService
             .getYouTubeVideos(youTubeBotIds.videoIds)
             .map(youTubeBotVideos =>
-              YouTubeBotVideos(youTubeBotIds.botName, youTubeBotIds.outputFilePath, youTubeBotVideos)
+              YouTubeBotVideos(
+                botName = youTubeBotIds.botName,
+                outputFilePath = youTubeBotIds.outputFilePath,
+                captionLanguage = youTubeBotIds.captionLanguage,
+                videos = youTubeBotVideos
+              )
             )
         )
     }
@@ -78,20 +97,20 @@ object ShowUpdater {
           .traverse(videoToDBShowData(_, youTubeBotVideos.botName))
           .map((dBShowDatas: List[Option[DBShowData]]) =>
             YouTubeBotDBShowDatas(
-              youTubeBotVideos.botName,
-              youTubeBotVideos.outputFilePath,
-              dBShowDatas.flatMap(_.toList)
+              botName = youTubeBotVideos.botName,
+              outputFilePath = youTubeBotVideos.outputFilePath,
+              captionLanguage = youTubeBotVideos.captionLanguage,
+              dbShowDatas = dBShowDatas.flatMap(_.toList)
             )
           )
       )
     }
 
     private[show] def insertDBShowDatas(
-        youTubeBotdbShowDatas: List[YouTubeBotDBShowDatas],
-        storedDBShowDatas: List[DBShowData]
+        youTubeBotdbShowDatas: List[YouTubeBotDBShowDatas]
     ): F[Unit] = {
       val inputDbShowData = youTubeBotdbShowDatas
-        .flatMap { case YouTubeBotDBShowDatas(_, _, dbShowDatas) => dbShowDatas } ++ storedDBShowDatas
+        .flatMap { case YouTubeBotDBShowDatas(_, _, _, dbShowDatas) => dbShowDatas }
 
       inputDbShowData.traverse_(show =>
         LogWriter.info(s"[ShowUpdater] ✓💾 ${show.show_title}") >> dbLayer.dbShow.insertShow(show)
@@ -105,8 +124,12 @@ object ShowUpdater {
         _                 <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids")
         _                 <- LogWriter.info("[ShowUpdater] Fetching stored DbShowData")
         storedDbShowDatas <- getStoredDbShowDatas
-        _                 <- LogWriter.info(s"[ShowUpdater] ${storedDbShowDatas.length} stored DbShowData")
-        youTubeBotIds = filterCandidateIds(candidateIds, storedDbShowDatas.map(_.show_id))
+        _                 <- storedDbShowDatas.traverse_(storedDbShowData =>
+          LogWriter.info(
+            s"[ShowUpdater] ${storedDbShowData.botName} has ${storedDbShowData.dbShowDatas.length} stored in ${storedDbShowData.outputFilePath}"
+          )
+        )
+        youTubeBotIds = filterCandidateIds(candidateIds, storedDbShowDatas.flatMap(_.dbShowDatas.map(_.show_id)))
         _                <- LogWriter.info(s"[ShowUpdater] ${youTubeBotIds.flatMap(_.videoIds).length} Ids to be added")
         _                <- LogWriter.debug(s"[ShowUpdater] Data to be added: ${youTubeBotIds}")
         _                <- LogWriter.info("[ShowUpdater] Fetching data from Ids")
@@ -114,13 +137,16 @@ object ShowUpdater {
         _ <- LogWriter.info(s"[ShowUpdater] ${youTubeBotVideos.length} Converting YouTube data to DBShowData")
         _ <- LogWriter.debug(s"[ShowUpdater] Data to be converted: ${youTubeBotVideos}")
         youTubeBotdbShowDatas <- youTubeBotVideosToDbShowDatas(youTubeBotVideos)
-        totalShows = storedDbShowDatas.length + youTubeBotdbShowDatas.flatMap(_.dbShowDatas).length
-        _ <- LogWriter.info(s"[ShowUpdater] Insert $totalShows DBShowDatas to DB")
+        totalShows = mergeShowDatas(storedDbShowDatas, youTubeBotdbShowDatas)
+        _ <- LogWriter.info(s"[ShowUpdater] Insert ${totalShows.length} DBShowDatas to DB")
         _ <- LogWriter.debug(s"[ShowUpdater] Data to be intserted: $youTubeBotdbShowDatas")
-        _ <- insertDBShowDatas(youTubeBotdbShowDatas, storedDbShowDatas)
+        _ <- insertDBShowDatas(totalShows)
         _ <- LogWriter.info("[ShowUpdater] Save DBShowDatas to project Jsons")
-        _ <- youTubeBotdbShowDatas.traverse_(youTubeBotdbShowData =>
-          updateStoredJsons(youTubeBotdbShowData.outputFilePath, youTubeBotdbShowData.dbShowDatas)
+        _ <- totalShows.traverse_(youTubeBotdbShowData =>
+          LogWriter.info(
+            s"[ShowUpdater] Save ${youTubeBotdbShowData.dbShowDatas.length} in ${youTubeBotdbShowData.outputFilePath}"
+          ) >>
+            updateStoredJsons(youTubeBotdbShowData.outputFilePath, youTubeBotdbShowData.dbShowDatas)
         )
       } yield ()
       if config.showConfig.runShowFetching
@@ -128,30 +154,39 @@ object ShowUpdater {
       else Resource.eval(LogWriter.info("[ShowUpdater] Option runShowFetching = true. No run"))
     }
 
-    private[show] def getStoredDbShowDatas: F[List[DBShowData]] = {
-      val showFilesResource: Resource[F, List[File]] =
+    private[show] def getStoredDbShowDatas: F[List[YouTubeBotDBShowDatas]] = {
+      val showFilesResource: Resource[F, List[YouTubeBotFile]] =
         config.showConfig.showSources
           .traverse(showSource =>
-            Resource.make(Async[F].delay(File(showSource.outputFilePath)))(f =>
-              LogWriter.info(s"[ShowUpdater] Closing file $f")
-            )
+            Resource
+              .make(Async[F].delay(File(showSource.outputFilePath)))(f =>
+                LogWriter.info(s"[ShowUpdater] Closing file $f")
+              )
+              .map(file =>
+                YouTubeBotFile(botName = showSource.botName, captionLanguage = showSource.captionLanguage, file = file)
+              )
           )
-      val deleteFiles: F[List[DBShowData]] =
+      val deleteFiles: F[List[YouTubeBotDBShowDatas]] =
         showFilesResource.use(showFiles =>
           for {
-            _ <- LogWriter.info(s"[ShowUpdater] ✓ Dry Run. Delete show files: $showFiles")
-            _ <- showFiles.traverse(showFile => Async[F].delay(showFile.delete))
+            _ <- LogWriter.info(s"[ShowUpdater] ✓ Dry Run. Delete show files: ${showFiles.map(_.file)}")
+            _ <- showFiles.traverse(showFile => Async[F].delay(showFile.file.delete))
           } yield List.empty
         )
-      val getStoredDbShowDatas: F[List[DBShowData]] =
+      val getStoredDbShowDatas: F[List[YouTubeBotDBShowDatas]] =
         showFilesResource.use(showFiles =>
-          LogWriter.info("[ShowUpdater] ❌ Dry Run. read show files: $showFiles") >>
-            showFiles.flatTraverse(showFile =>
+          LogWriter.info(s"[ShowUpdater] ❌ Dry Run. read show files: ${showFiles.map(_.file)}") >>
+            showFiles.traverse(showFile =>
               for {
-                _                   <- LogWriter.info(s"[ShowUpdater] Parse show file content: $showFile")
-                showFileContentJson <- Async[F].fromEither(parse(Source.fromFile(showFile).mkString))
+                _                   <- LogWriter.info(s"[ShowUpdater] Parse show file content: ${showFile.file}")
+                showFileContentJson <- Async[F].fromEither(parse(Source.fromFile(showFile.file).mkString))
                 dbShowDatas         <- Async[F].fromEither(showFileContentJson.as[List[DBShowData]])
-              } yield dbShowDatas
+              } yield YouTubeBotDBShowDatas(
+                botName = showFile.botName,
+                outputFilePath = showFile.file.toString,
+                captionLanguage = showFile.captionLanguage,
+                dbShowDatas = dbShowDatas.distinctBy(_.show_id)
+              )
             )
         )
       if config.showConfig.dryRun
@@ -187,25 +222,13 @@ object ShowUpdater {
     }
 
     private[show] def updateStoredJsons(outputFilePath: String, dbShowDatas: List[DBShowData]): F[Unit] = {
-      def overwriteOutputFileContent(content: String) =
-        Async[F]
-          .fromTry(
-            Try(
-              Files.write(Paths.get(outputFilePath), content.getBytes(StandardCharsets.UTF_8))
-            )
+      Async[F]
+        .fromTry(
+          Try(
+            Files.write(Paths.get(outputFilePath), dbShowDatas.asJson.spaces2.getBytes(StandardCharsets.UTF_8))
           )
-          .as(())
-      val appendOutputFileContent = for {
-        fileContent <- Async[F].fromTry(Try(String(Files.readAllBytes(Paths.get(outputFilePath)))))
-        storedShows <- Async[F].fromEither(decode[List[DBShowData]](fileContent))
-        resultContent = dbShowDatas ++ storedShows
-        _ <- overwriteOutputFileContent(resultContent.asJson.spaces2)
-      } yield ()
-      val updateComputation =
-        if config.showConfig.dryRun
-        then overwriteOutputFileContent(dbShowDatas.asJson.spaces2)
-        else appendOutputFileContent
-      updateComputation
+        )
+        .as(())
     }
   }
 }

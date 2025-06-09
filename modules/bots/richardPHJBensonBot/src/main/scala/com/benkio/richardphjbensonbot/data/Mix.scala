@@ -1368,7 +1368,7 @@ object Mix {
       vid"rphjb_911TorriGemelleBinLaden.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "osanna"
+      "\\bosanna\\b".r.tr(6)
     )(
       vid"rphjb_StoriaBambiniBiondi.mp4",
       mp3"rphjb_StoriaBambiniBiondi.mp3",

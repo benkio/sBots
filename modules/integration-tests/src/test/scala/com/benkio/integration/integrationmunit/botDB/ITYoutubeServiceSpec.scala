@@ -44,6 +44,7 @@ class ITYoutubeServiceSpec extends CatsEffectSuite with Constants {
         YouTubeBotIds(
           botName = "testBot",
           outputFilePath = "../integration-tests/src/test/resources/testdata/testBotShow.json",
+          captionLanguage = "it",
           videoIds = List(
             "95m8ztdbW0E",
             "MjxGbpqSXZQ",
