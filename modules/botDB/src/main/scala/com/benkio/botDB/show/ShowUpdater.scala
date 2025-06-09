@@ -308,16 +308,16 @@ object ShowUpdater {
         tempDir <- Async[F].pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
         _       <- LogWriter.info("[ShowUpdater] Start fetching captions")
         result  <- youTubeBotDBShowDatass.traverse(youTubeBotDBShowDatas =>
-          val youTubeBotDBShowDatasFiltered: List[YouTubeBotDBShowDatas] =
+          val (youTubeBotDBShowDatasNoCaption, youTubeBotDBShowDatasCaption) =
             youTubeBotDBShowDatas.dbShowDatas
-              .filter(_.show_origin_automatic_caption.isEmpty)
+              .partition(_.show_origin_automatic_caption.isEmpty)
 
           LogWriter.info(
-            s"[ShowUpdater] ${youTubeBotDBShowDatas.botName} Total Caption ${youTubeBotdbShowDatasFiltered.length}"
+            s"[ShowUpdater] ${youTubeBotDBShowDatas.botName} Total No Caption ${youTubeBotDBShowDatasNoCaption.length}"
           ) >>
-            youTubeBotDBShowDatasFiltered
+            youTubeBotDBShowDatasNoCaption
               .parTraverse(dbShowData => fetchCaption(dbShowData, tempDir, youTubeBotDBShowDatas.captionLanguage))
-              .map(dbShowDatas => youTubeBotDBShowDatas.copy(dbShowDatas = dbShowDatas))
+              .map(dbShowDatas => youTubeBotDBShowDatas.copy(dbShowDatas = dbShowDatas ++ youTubeBotDBShowDatasCaption))
         )
       } yield result
     }
