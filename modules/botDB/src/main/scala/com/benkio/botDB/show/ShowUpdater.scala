@@ -1,5 +1,6 @@
 package com.benkio.botDB.show
 
+import cats.effect.implicits.*
 import cats.effect.kernel.Async
 import cats.effect.Resource
 import cats.implicits.*
@@ -17,9 +18,12 @@ import log.effect.LogWriter
 import java.io.File
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
+import java.nio.file.Path
 import java.nio.file.Paths
 import java.time.Duration
 import scala.io.Source
+import scala.jdk.CollectionConverters.*
+import scala.sys.process.*
 import scala.util.Try
 
 trait ShowUpdater[F[_]]:
@@ -138,6 +142,17 @@ object ShowUpdater {
         _ <- LogWriter.debug(s"[ShowUpdater] Data to be converted: ${youTubeBotVideos}")
         youTubeBotdbShowDatas <- youTubeBotVideosToDbShowDatas(youTubeBotVideos)
         totalShows = mergeShowDatas(storedDbShowDatas, youTubeBotdbShowDatas)
+        _ <-
+          if config.showConfig.runShowCaptionFetching
+          then
+            LogWriter.info(
+              s"[ShowUpdater] ✓ run show caption fetching is ${config.showConfig.runShowCaptionFetching}"
+            ) >> addCaptions(totalShows)
+          else
+            LogWriter.info(
+              s"[ShowUpdater] ❌ run show caption fetching is ${config.showConfig.runShowCaptionFetching}"
+            ) >> Async[F].pure(totalShows)
+
         _ <- LogWriter.info(s"[ShowUpdater] Insert ${totalShows.length} DBShowDatas to DB")
         _ <- LogWriter.debug(s"[ShowUpdater] Data to be intserted: $youTubeBotdbShowDatas")
         _ <- insertDBShowDatas(totalShows)
@@ -212,7 +227,7 @@ object ShowUpdater {
         show_duration = durationISO8601ToSeconds(duration),
         show_description = Option(video.getSnippet().getDescription()),
         show_is_live = Option(video.getLiveStreamingDetails()).isDefined,
-        show_origin_automatic_caption = None // TODO: #730 add caption foreign key
+        show_origin_automatic_caption = None // Added in a followup step. need yt-dlp
       )
       maybeDBShowData.fold(
         LogWriter.error(s"[PlaygroundMain] ERROR: $botName Video conversion problem for $video") *> None.pure[F]
@@ -229,6 +244,74 @@ object ShowUpdater {
           )
         )
         .as(())
+    }
+
+    val shellDependencies: List[String]    = List("yt-dlp")
+    private def checkDependencies: F[Unit] = {
+      shellDependencies
+        .traverse_(program =>
+          Async[F]
+            .delay(s"which $program".!)
+            .flatMap(result =>
+              Async[F].raiseUnless(result == 0)(
+                Throwable(s"[ShowUpdater] error checking dependencies: $program is missing")
+              )
+            )
+        )
+    }
+
+    private[show] def addCaptions(
+        youTubeBotDBShowDatass: List[YouTubeBotDBShowDatas]
+    ): F[List[YouTubeBotDBShowDatas]] = {
+      def fetchCaption(dbShowData: DBShowData, tempDir: Path, captionLanguage: String): F[DBShowData] = {
+        val command =
+          s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format json3 -o "%(id)s" -P $tempDir https://www.youtube.com/watch?v=${dbShowData.show_id}"""
+        val captionDownloadLogic = for {
+          _           <- LogWriter.info(s"[ShowUpdater] ${dbShowData.show_id} - $captionLanguage: fetch caption")
+          _           <- Async[F].delay(command.!)
+          captionFile <- Async[F].delay(tempDir.resolve(s"${dbShowData.show_id}.$captionLanguage.json3"))
+          _           <- LogWriter.info(
+            s"[ShowUpdater] ${dbShowData.show_id} - $captionLanguage: Parse result file: $captionFile"
+          )
+          captionFileContent <- Async[F].fromTry(
+            Try(
+              Files
+                .readAllLines(captionFile)
+                .asScala
+                .mkString("\n")
+            )
+          )
+          captionJson <- Async[F].fromEither(parse(captionFileContent))
+          caption = captionJson.findAllByKey("utf8").map(_.as[String]).collect { case Right(value) => value }.mkString
+          _ <- LogWriter.info(
+            s"[ShowUpdater] ${dbShowData.show_id} - $captionLanguage: caption length ${caption.length}"
+          )
+        } yield caption
+        captionDownloadLogic
+          .map(Some(_))
+          .handleErrorWith(e =>
+            LogWriter.error(s"[ShowUpdater] ❌ ${dbShowData.show_id} - $captionLanguage Downloading Caption: ${e.getMessage}") >> Async[F]
+              .pure(None)
+          )
+          .map(caption =>
+            dbShowData.copy(
+              show_origin_automatic_caption = caption
+            )
+          )
+      }
+      for {
+        _       <- LogWriter.info(s"[ShowUpdater] Check Dependencies: ${shellDependencies.mkString}")
+        _       <- checkDependencies
+        _       <- LogWriter.info("[ShowUpdater] Create caption temp folder")
+        tempDir <- Async[F].pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
+        _       <- LogWriter.info("[ShowUpdater] Start fetching captions")
+        result  <- youTubeBotDBShowDatass.traverse(youTubeBotDBShowDatas =>
+          youTubeBotDBShowDatas.dbShowDatas
+            .filter(_.show_origin_automatic_caption.isEmpty)
+            .parTraverse(dbShowData => fetchCaption(dbShowData, tempDir, youTubeBotDBShowDatas.captionLanguage))
+            .map(dbShowDatas => youTubeBotDBShowDatas.copy(dbShowDatas = dbShowDatas))
+        )
+      } yield result
     }
   }
 }
