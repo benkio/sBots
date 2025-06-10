@@ -240,7 +240,7 @@ object ShowUpdater {
       Async[F]
         .fromTry(
           Try(
-            Files.write(Paths.get(outputFilePath), dbShowDatas.asJson.spaces2.getBytes(StandardCharsets.UTF_8))
+            Files.write(Paths.get(outputFilePath), dbShowDatas.sortBy(_.show_id).asJson.spaces2.getBytes(StandardCharsets.UTF_8))
           )
         )
         .as(())
