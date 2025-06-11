@@ -72,4 +72,7 @@ class ITYoutubeServiceSpec extends CatsEffectSuite with Constants {
       )
     )
   }
+
+  test("YouTubeService.FetchCaption implement") { ??? }
+  test("YouTubeBotDBShowDatas.semigroup implement") { ??? }
 }
