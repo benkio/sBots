@@ -12,10 +12,16 @@ import com.google.api.client.http.HttpRequestInitializer
 import com.google.api.client.json.gson.GsonFactory
 import com.google.api.services.youtube.model.*
 import com.google.api.services.youtube.YouTube
+import io.circe.*
+import io.circe.parser.*
 import log.effect.LogWriter
 
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.Path
 import scala.jdk.CollectionConverters.*
+import scala.sys.process.*
+import scala.util.Try
 
 final case class YouTubeBotFile(botName: String, captionLanguage: String, file: File)
 final case class YouTubeBotIds(botName: String, outputFilePath: String, captionLanguage: String, videoIds: List[String])
@@ -43,6 +49,7 @@ trait YouTubeService[F[_]] {
   def getYouTubeVideos(
       videoIds: List[String]
   ): F[List[Video]]
+  def fetchCaption(videoId: String, tempDir: Path, captionLanguage: String): F[Option[String]]
 }
 
 object YouTubeService {
@@ -128,6 +135,40 @@ object YouTubeService {
           yield result
         }
       } yield videos
+    }
+
+    override def fetchCaption(videoId: String, tempDir: Path, captionLanguage: String): F[Option[String]] = {
+      val command =
+        s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format json3 -o "%(id)s" -P $tempDir https://www.youtube.com/watch?v=${videoId}"""
+      val captionDownloadLogic = for {
+        _           <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption")
+        _           <- Async[F].delay(command.!)
+        captionFile <- Async[F].delay(tempDir.resolve(s"${videoId}.$captionLanguage.json3"))
+        _           <- LogWriter.info(
+          s"[ShowUpdater] ${videoId} - $captionLanguage: Parse result file: $captionFile"
+        )
+        captionFileContent <- Async[F].fromTry(
+          Try(
+            Files
+              .readAllLines(captionFile)
+              .asScala
+              .mkString("\n")
+          )
+        )
+        captionJson <- Async[F].fromEither(parse(captionFileContent))
+        caption = captionJson.findAllByKey("utf8").map(_.as[String]).collect { case Right(value) => value }.mkString
+        _ <- LogWriter.info(
+          s"[ShowUpdater] ${videoId} - $captionLanguage: caption length ${caption.length}"
+        )
+      } yield caption
+      captionDownloadLogic
+        .map(Some(_))
+        .handleErrorWith(e =>
+          LogWriter.error(
+            s"[ShowUpdater] ❌ ${videoId} - $captionLanguage Downloading Caption: $e"
+          ) >> Async[F]
+            .pure(None)
+        )
     }
   }
 
