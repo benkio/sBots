@@ -255,7 +255,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   }
   test("ShowUpdater.addCaptions should successfully enrich the input with caption") {
     showUpdater
-      .addCaptions(expectedYouTubeBotDBShowDatas, List("cd"))
+      .addCaptions(expectedYouTubeBotDBShowDatas, List("java"))
       .map(result =>
         assertEquals(result.length, 1)
         assertEquals(result.head.dbShowDatas.length, 1)
