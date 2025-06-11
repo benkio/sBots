@@ -40,6 +40,7 @@ object Config {
 case class ShowConfig(
     showSources: List[ShowSourceConfig],
     runShowFetching: Boolean,
+    runShowCaptionFetching: Boolean,
     dryRun: Boolean,
     applicationName: String
 ) derives ConfigReader
