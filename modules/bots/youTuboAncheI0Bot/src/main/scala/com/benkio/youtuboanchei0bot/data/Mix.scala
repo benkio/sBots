@@ -281,6 +281,7 @@ object Mix:
     ),
     ReplyBundleMessage.textToMedia[F](
       "(25|venticinque) (milioni|mila euro)".r.tr(10),
+      "\\b25000\\b".r.tr(5),
       "visualizzazioni"
     )(
       gif"ytai_25MilioniVisualizzazioni25MilaEuroGif.mp4",
