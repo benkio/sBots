@@ -2485,7 +2485,8 @@ object Mix {
       vid"rphjb_FossaCollaSerpeSerpeFelicitaMusica.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "battezzato"
+      "battezz(ato|are)".r.tr(10),
+      "battesimo"
     )(
       vid"rphjb_Blues.mp4",
       mp3"rphjb_Battesimo.mp3"
@@ -4334,8 +4335,7 @@ object Mix {
         vid"rphjb_DueTrasmissioniColtelliBastoneInfernale.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "san remo",
-        "san romolo",
+        "san[ ]?(remo|romolo)".r.tr(7),
         "che volete di pi[uù]".r.tr(17),
         "innervosire",
         "arrabbiare"

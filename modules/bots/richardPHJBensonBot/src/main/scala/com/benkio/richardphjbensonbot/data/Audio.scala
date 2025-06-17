@@ -143,8 +143,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "giovanni battista",
-      "acque del giordano",
-      "battesimo"
+      "acque del giordano"
     )(
       mp3"rphjb_Battesimo.mp3"
     ),

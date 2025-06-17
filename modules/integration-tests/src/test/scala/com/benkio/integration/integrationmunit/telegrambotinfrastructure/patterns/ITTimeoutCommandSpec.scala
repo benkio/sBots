@@ -46,7 +46,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       assertEquals(beforeTimeout, afterTimeout)
       assertEquals(
         reply,
-        Right("Timeout set failed: wrong input format for 00:00:0F, the input must be in the form '\timeout 00:00:00'")
+        Right("Timeout set failed: wrong input format for 00:00:0F, the input must be in the form '/timeout 00:00:00'")
       )
     }
     result.use_

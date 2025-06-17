@@ -526,7 +526,7 @@ ${ignoreMessagePrefix
             error =>
               log.info(
                 s"[ERROR] While parsing the timeout input: $error"
-              ) *> s"Timeout set failed: wrong input format for $input, the input must be in the form '\timeout 00:00:00'"
+              ) *> s"Timeout set failed: wrong input format for $input, the input must be in the form '/timeout 00:00:00'"
                 .pure[F],
             timeout =>
               dbTimeout.setTimeout(
@@ -547,7 +547,7 @@ ${ignoreMessagePrefix
               "timeout",
               botName,
               timeoutLogic(_, msg, dbTimeout, botName, log).map(List(_)),
-              """Input Required: the input must be in the form '\timeout 00:00:00' or empty"""
+              """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
             ),
           true
         ),

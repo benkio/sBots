@@ -11,6 +11,7 @@ object Video:
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToVideo[F](
       "in america",
+      "dove ho sempre desiderato",
       "(posto|carico) i video".r.tr(13),
       "(restiamo|teniamo) in contatto".r.tr(19),
       "(attraverso i|nei) commenti".r.tr(12),
