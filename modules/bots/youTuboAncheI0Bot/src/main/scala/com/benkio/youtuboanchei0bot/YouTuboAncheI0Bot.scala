@@ -92,7 +92,7 @@ object YouTuboAncheI0Bot {
   val botName: String                     = "YouTuboAncheI0Bot"
   val botPrefix: String                   = "ytai"
   val triggerListUri: Uri                 =
-    uri"https://github.com/benkio/sBots/blob/master/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
+    uri"https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   val triggerFilename: String = "ytai_triggers.txt"
   val tokenFilename: String   = "ytai_YouTuboAncheI0Bot.token"
   val configNamespace: String = "ytai"

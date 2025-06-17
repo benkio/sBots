@@ -98,7 +98,7 @@ object RichardPHJBensonBot {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "rphjb_triggers.txt"
   val triggerListUri: Uri                 =
-    uri"https://github.com/benkio/sBots/blob/master/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
+    uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
   val configNamespace: String = "rphjb"
 

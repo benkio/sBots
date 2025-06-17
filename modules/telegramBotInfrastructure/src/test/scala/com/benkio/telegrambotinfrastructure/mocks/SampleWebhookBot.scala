@@ -47,7 +47,7 @@ class SampleWebhookBot(
   override val ignoreMessagePrefix: Option[String] = Some("!")
   override val triggerFilename: String             = "sbot_triggers.txt"
   override val triggerListUri: Uri                 =
-    uri"https://github.com/benkio/sBots/blob/master/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
+    uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
 
   override def messageRepliesDataF: IO[List[ReplyBundleMessage[IO]]] = List(
     ReplyBundleMessage.textToMp3[IO](

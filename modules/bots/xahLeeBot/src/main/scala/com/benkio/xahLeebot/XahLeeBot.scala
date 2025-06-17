@@ -68,7 +68,7 @@ object XahLeeBot {
   val tokenFilename: String   = "xah_XahLeeBot.token"
   val configNamespace: String = "xah"
   val triggerFilename: String = "xah_triggers.txt"
-  val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/master/modules/bots/XahLeeBot/xah_triggers.txt"
+  val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/xah_triggers.txt"
 
   def messageRepliesData[F[_]]: List[ReplyBundleMessage[F]] = List.empty
 

@@ -74,7 +74,7 @@ class ABarberoBotSpec extends BaseBotSpec {
   triggerlistCommandTest(
     commandRepliesData = aBarberoBot.flatMap(_.allCommandRepliesDataF),
     expectedReply =
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/modules/bots/aBarberoBot/abar_triggers.txt"
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt"
   )
 
   test("ABarberoBot should contain the expected number of commands") {

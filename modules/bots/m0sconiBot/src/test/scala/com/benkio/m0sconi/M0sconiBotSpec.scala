@@ -77,7 +77,7 @@ class M0sconiBotSpec extends BaseBotSpec {
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,
     expectedReply =
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/modules/bots/m0sconiBot/mos_triggers.txt"
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt"
   )
 
   test("M0sconiBot should contain the expected number of commands") {

@@ -75,7 +75,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,
     expectedReply =
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   )
 
   test("YoutuboAncheI0Bot should return the expected number of commands") {

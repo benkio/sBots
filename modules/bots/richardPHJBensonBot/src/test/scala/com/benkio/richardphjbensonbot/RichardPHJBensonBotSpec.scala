@@ -103,7 +103,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,
     expectedReply =
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/master/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
   )
 
   test("RichardPHJBensonBot should contain the expected number of commands") {
