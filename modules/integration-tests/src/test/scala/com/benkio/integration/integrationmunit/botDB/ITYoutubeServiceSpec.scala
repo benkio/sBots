@@ -1,7 +1,5 @@
 package com.benkio.integration.integrationmunit.botDB
 
-
-
 import cats.effect.IO
 import cats.Semigroup
 import com.benkio.botDB.config.Config
@@ -82,11 +80,16 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
     assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
     for {
       tempDir <- IO.pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
-      videoId = "CQi-0VJJSSs"
+      videoId  = "CQi-0VJJSSs"
       language = "it"
       youTubeService <- buildYoutubeService
-      result <- youTubeService.fetchCaption(videoId, tempDir, language)
-    } yield assertEquals(result, Some("ciao amici del canale sono qui per\naugurarvi buon i festeggiamenti in\nattesa del nuovo anno il 2018 che sia\nper voi per tutti noi carico di george\nma soprattutto di salute e di armonia\ncon il proprio io e con gli altri\nquesto l'augurio che sento di darvi e\nricordatevi il mio pensiero per voi\nanteprima di partire\nsono felice\ntante belle cose e ha presto vi\nraccomando continuate a seguirmi su\ncanale e se vi piace\nlasciate un manca\ne a voi che non siete iscritti\nricordatevi sempre che è una cosa\ngratuita ciao buon\n2018"))
+      result         <- youTubeService.fetchCaption(videoId, tempDir, language)
+    } yield assertEquals(
+      result,
+      Some(
+        "ciao amici del canale sono qui per\naugurarvi buon i festeggiamenti in\nattesa del nuovo anno il 2018 che sia\nper voi per tutti noi carico di george\nma soprattutto di salute e di armonia\ncon il proprio io e con gli altri\nquesto l'augurio che sento di darvi e\nricordatevi il mio pensiero per voi\nanteprima di partire\nsono felice\ntante belle cose e ha presto vi\nraccomando continuate a seguirmi su\ncanale e se vi piace\nlasciate un manca\ne a voi che non siete iscritti\nricordatevi sempre che è una cosa\ngratuita ciao buon\n2018"
+      )
+    )
   }
   test("YouTubeBotDBShowDatas.semigroup implement") {
     val dbShowData1 = DBShowData(
