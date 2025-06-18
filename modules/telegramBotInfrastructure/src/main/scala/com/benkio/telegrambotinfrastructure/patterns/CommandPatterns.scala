@@ -573,7 +573,7 @@ ${ignoreMessagePrefix
         val commandCheck         = inputCommand == s"/$command" || inputCommand == s"/$command@$botName"
         commandCheck && restCheck
       )
-      .map(t => computation(t.dropWhile(_ != ' ').tail.trim))
+      .map(t => computation(t.dropWhile(_ != ' ').drop(1).trim))
       .getOrElse(List(defaultReply).pure[F])
       .handleErrorWith(e =>
         List(
