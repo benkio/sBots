@@ -65,6 +65,20 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
+    "SearchShow Command should return a show if the input caption matches a show per bot"
+  ) { fixture =>
+    val result = for {
+      dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
+      check  <- ITSearchShowCommandSpec.showByCaption
+        .traverse(testInput =>
+          testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+        )
+    } yield check.foldLeft(true)(_ && _)
+
+    result.assert
+  }
+
+  databaseFixture.test(
     "SearchShow Command should return a show if the input minduration matches a show per bot"
   ) { fixture =>
     val result = for {
@@ -142,6 +156,14 @@ object ITSearchShowCommandSpec {
     TestInput(
       botName = "TestBot",
       randomLinkInput = "description=test+show",
+      expectedOutput = expectedTestShowOutput
+    )
+  )
+
+  val showByCaption: List[TestInput] = List(
+    TestInput(
+      botName = "TestBot",
+      randomLinkInput = "caption=posuere+tellus",
       expectedOutput = expectedTestShowOutput
     )
   )

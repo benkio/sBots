@@ -27,7 +27,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
       |    "show_duration": 10,
       |    "show_description": "Test Show Description",
       |    "show_is_live": false,
-      |    "show_origin_automatic_caption": "https://www.youtube.com/api/timedtext?v=test"
+      |    "show_origin_automatic_caption": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl."
       |  }""".stripMargin
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {
@@ -45,7 +45,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     check(DBShow.getRandomShowQuery("TestBot"))
     check(DBShow.getShowByShowQueryQuery(RandomQuery, "TestBot"))
     check(
-      DBShow.getShowByShowQueryQuery(ShowQuery("title=test+show&description=description&minDuration=1"), "TestBot")
+      DBShow.getShowByShowQueryQuery(ShowQuery("title=test+show&description=description&caption=caption&minDuration=1"), "TestBot")
     )
   }
 
@@ -81,7 +81,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
         |    "show_duration": 10,
         |    "show_description": "Test 2 Show Description",
         |    "show_is_live": false,
-        |    "show_origin_automatic_caption": "https://www.youtube.com/api/timedtext?v=test2"
+        |    "show_origin_automatic_caption": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl."
         |  }""".stripMargin
     val resourceAssert = for {
       testShow           <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw2)))
