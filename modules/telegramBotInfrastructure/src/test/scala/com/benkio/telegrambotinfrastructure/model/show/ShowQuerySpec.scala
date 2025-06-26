@@ -50,10 +50,23 @@ class ShowQuerySpec extends FunSuite {
       ShowQueryKeyword(titleKeywords = None, descriptionKeywords = Some(List("luca di noia")))
     )
     assertEquals(
-      ShowQuery("title=richard&description=carpenelli&minduration=20"),
+      ShowQuery("caption=carpenelli"),
+      ShowQueryKeyword(titleKeywords = None, captionKeywords = Some(List("carpenelli")))
+    )
+    assertEquals(
+      ShowQuery("caption=carpenelli&caption=angelo"),
+      ShowQueryKeyword(titleKeywords = None, captionKeywords = Some(List("carpenelli", "angelo")))
+    )
+    assertEquals(
+      ShowQuery("caption=luca+di+noia"),
+      ShowQueryKeyword(titleKeywords = None, captionKeywords = Some(List("luca di noia")))
+    )
+    assertEquals(
+      ShowQuery("title=richard&description=carpenelli&caption=i+nodi&minduration=20"),
       ShowQueryKeyword(
         titleKeywords = Some(List("richard")),
         descriptionKeywords = Some(List("carpenelli")),
+        captionKeywords = Some(List("i nodi")),
         minDuration = Some(20)
       )
     )
@@ -85,10 +98,13 @@ class ShowQuerySpec extends FunSuite {
       )
     )
     assertEquals(
-      ShowQuery("title=richard&description=carpenelli&minduration=20&maxduration=40&mindate=20220120&maxdate=20220122"),
+      ShowQuery(
+        "title=richard&description=carpenelli&caption=nodi&caption=sciolti&minduration=20&maxduration=40&mindate=20220120&maxdate=20220122"
+      ),
       ShowQueryKeyword(
         titleKeywords = Some(List("richard")),
         descriptionKeywords = Some(List("carpenelli")),
+        captionKeywords = Some(List("nodi", "sciolti")),
         minDuration = Some(20),
         maxDuration = Some(40),
         minDate = Some(LocalDate.of(2022, 1, 20)),

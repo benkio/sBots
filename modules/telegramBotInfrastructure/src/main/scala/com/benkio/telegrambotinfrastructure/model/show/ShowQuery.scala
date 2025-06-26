@@ -12,6 +12,7 @@ sealed trait ShowQuery
 final case class ShowQueryKeyword(
     titleKeywords: Option[List[String]],
     descriptionKeywords: Option[List[String]] = None,
+    captionKeywords: Option[List[String]] = None,
     minDuration: Option[Int] = None,
     maxDuration: Option[Int] = None,
     minDate: Option[LocalDate] = None,
@@ -21,12 +22,13 @@ case object RandomQuery extends ShowQuery
 
 object ShowQuery {
 
-  object TitleKeywordsQueryParamMatcher       extends QueryParamDecoderMatcher[String]("title")
+  object CaptionKeywordsQueryParamMatcher     extends QueryParamDecoderMatcher[String]("caption")
   object DescriptionKeywordsQueryParamMatcher extends QueryParamDecoderMatcher[String]("description")
-  object MinDurationKeywordsQueryParamMatcher extends QueryParamDecoderMatcher[Int]("minduration")
-  object MaxDurationKeywordsQueryParamMatcher extends QueryParamDecoderMatcher[Int]("maxduration")
   object MaxDateKeywordsQueryParamMatcher     extends QueryParamDecoderMatcher[LocalDate]("maxdate")
+  object MaxDurationKeywordsQueryParamMatcher extends QueryParamDecoderMatcher[Int]("maxduration")
   object MinDateKeywordsQueryParamMatcher     extends QueryParamDecoderMatcher[LocalDate]("mindate")
+  object MinDurationKeywordsQueryParamMatcher extends QueryParamDecoderMatcher[Int]("minduration")
+  object TitleKeywordsQueryParamMatcher       extends QueryParamDecoderMatcher[String]("title")
 
   given deflocalDateQueryParamDecoder: QueryParamDecoder[LocalDate] = localDateQueryParamDecoder(
     DateTimeFormatter.ofPattern("yyyyMMdd")
@@ -37,6 +39,7 @@ object ShowQuery {
       List(
         TitleKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
         DescriptionKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
+        CaptionKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
         MinDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
         MaxDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
         MinDateKeywordsQueryParamMatcher.unapply(query.multiParams),
@@ -50,6 +53,7 @@ object ShowQuery {
         ShowQueryKeyword(
           titleKeywords = TitleKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
           descriptionKeywords = DescriptionKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
+          captionKeywords = CaptionKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
           minDuration = MinDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
           maxDuration = MaxDurationKeywordsQueryParamMatcher.unapply(query.multiParams),
           minDate = MinDateKeywordsQueryParamMatcher.unapply(query.multiParams),
