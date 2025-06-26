@@ -98,7 +98,9 @@ class ShowQuerySpec extends FunSuite {
       )
     )
     assertEquals(
-      ShowQuery("title=richard&description=carpenelli&caption=nodi&caption=sciolti&minduration=20&maxduration=40&mindate=20220120&maxdate=20220122"),
+      ShowQuery(
+        "title=richard&description=carpenelli&caption=nodi&caption=sciolti&minduration=20&maxduration=40&mindate=20220120&maxdate=20220122"
+      ),
       ShowQueryKeyword(
         titleKeywords = Some(List("richard")),
         descriptionKeywords = Some(List("carpenelli")),

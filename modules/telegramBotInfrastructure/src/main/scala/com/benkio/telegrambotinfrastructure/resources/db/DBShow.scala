@@ -101,8 +101,16 @@ object DBShow {
   }
 
   private def showQueryToFragments(query: ShowQuery): List[Fragment] = query match {
-    case RandomQuery                                                                                      => List.empty
-    case ShowQueryKeyword(titleKeywords, descriptionKeywords, captionKeywords, minDuration, maxDuration, minDate, maxDate) =>
+    case RandomQuery => List.empty
+    case ShowQueryKeyword(
+          titleKeywords,
+          descriptionKeywords,
+          captionKeywords,
+          minDuration,
+          maxDuration,
+          minDate,
+          maxDate
+        ) =>
       titleKeywords.toList.flatten.map(k => fr"""lower(show_title) LIKE ${"%" + k.toLowerCase + "%"}""") ++
         descriptionKeywords.toList.flatten.map(k =>
           fr"""lower(show_description) LIKE ${"%" + k.toLowerCase + "%"}"""

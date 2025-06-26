@@ -45,7 +45,10 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     check(DBShow.getRandomShowQuery("TestBot"))
     check(DBShow.getShowByShowQueryQuery(RandomQuery, "TestBot"))
     check(
-      DBShow.getShowByShowQueryQuery(ShowQuery("title=test+show&description=description&caption=caption&minDuration=1"), "TestBot")
+      DBShow.getShowByShowQueryQuery(
+        ShowQuery("title=test+show&description=description&caption=caption&minDuration=1"),
+        "TestBot"
+      )
     )
   }
 
