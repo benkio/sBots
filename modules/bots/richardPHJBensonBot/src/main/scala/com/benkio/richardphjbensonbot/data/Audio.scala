@@ -93,6 +93,7 @@ object Audio {
       mp3"rphjb_MiToccaIlCulo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
+      "che (cazzo )?(m'|mi )ave[td]e mandato".r.tr(19),
       "negli occhiali",
       "sulla spalla",
       "gianguido"

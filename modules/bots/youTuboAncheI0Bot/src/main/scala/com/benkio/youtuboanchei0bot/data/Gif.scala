@@ -367,7 +367,7 @@ object Gif:
       gif"ytai_BenvenutiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "diploma",
+      "\\bdiploma\\b".r.tr(7),
       "per pisciare",
       "ma (che )?stiamo scherzando".r.tr(20)
     )(
