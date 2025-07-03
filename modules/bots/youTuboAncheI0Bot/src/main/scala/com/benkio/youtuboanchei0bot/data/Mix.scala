@@ -664,7 +664,7 @@ object Mix:
     ReplyBundleMessage
       .textToMedia[F](
         "nel mio cuore",
-        "a dopo"
+        "\\ba dopo\\b".r.tr(6)
       )(
         gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
         vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
