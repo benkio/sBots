@@ -55,12 +55,6 @@ object Gif {
       gif"rphjb_ComeHaFattoAEntrareGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "piano superiore",
-      "si compete"
-    )(
-      gif"rphjb_PianoSuperioreCompeteGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       ";)",
       "occhiolino",
       "wink",
