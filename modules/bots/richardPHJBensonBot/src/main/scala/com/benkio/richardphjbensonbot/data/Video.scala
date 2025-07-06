@@ -172,13 +172,6 @@ object Video {
       vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "batterista"
-    )(
-      vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
-      vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4",
-      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "perla di pioggia",
       "dove non piove mai"
     )(
@@ -262,6 +255,7 @@ object Video {
       vid"rphjb_RockMachineIntro.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
+      "c’è un testo",
       "da piangere",
       "negro",
       "niente da perdere",
@@ -858,11 +852,6 @@ object Video {
         vid"rphjb_NonSonoGay.mp4",
         vid"rphjb_ParloDiDNonSonoGayCosiDifficileSemplice.mp4"
       ),
-    ReplyBundleMessage.textToVideo[F]("barzelletta")(
-      vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
-      vid"rphjb_BarzellettaPapaSonoGayPride.mp4",
-      vid"rphjb_BarzellettaPoliticaGinecologo.mp4"
-    ),
     ReplyBundleMessage.textToVideo[F]("\\brbo\\b".r.tr(3), "cazzò", "(5|cinque) livelli".r.tr(9))(vid"rphjb_RBO.mp4"),
     ReplyBundleMessage.textToVideo[F]("effettivamente")(vid"rphjb_Effettivamente.mp4"),
     ReplyBundleMessage.textToVideo[F]("tigre")(vid"rphjb_LaTigre.mp4"),
@@ -1897,12 +1886,6 @@ object Video {
       vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "tacchi a spillo"
-    )(
-      vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4",
-      vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "donna giusta",
       "donne sbagliate",
       "egregia"
@@ -1923,8 +1906,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "la vostra mente (abbietta|calpestata)?".r.tr(16),
       "mafia",
-      "punto di partenza",
-      "estremismo"
+      "punto di partenza"
     )(
       vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),

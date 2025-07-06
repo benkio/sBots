@@ -762,9 +762,7 @@ object Mix {
       gif"rphjb_BastaSediaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "assol[io]".r.tr(6),
-      "(g|c)hi(t|d)arra".r.tr(8),
-      "(as)?solo di basso".r.tr(13)
+      "(assol[io]|(un|il) solo di)".r.tr(6)
     )(
       mp3"rphjb_Assolo.mp3",
       vid"rphjb_Assolo.mp4",
@@ -775,12 +773,32 @@ object Mix {
       gif"rphjb_Chitarra1Gif.mp4",
       gif"rphjb_Chitarra2Gif.mp4",
       gif"rphjb_Chitarra3Gif.mp4",
+      vid"rphjb_AssoloBasso.mp4",
+      mp3"rphjb_AllucinanteAssolo.mp3",
+      vid"rphjb_AllucinanteAssolo.mp4",
+      gif"rphjb_AllucinanteAssoloGif.mp4",
+      sticker"rphjb_AssoloBensoniani.sticker",
+      vid"rphjb_AssoliFrancese.mp4",
+      mp3"rphjb_AssoliFrancese.mp3",
+      vid"rphjb_AncoraUnAltraCassa.mp4",
+      mp3"rphjb_AncoraUnAltraCassa.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "(g|c)hi(t|d)arra".r.tr(8)
+    )(
+      mp3"rphjb_Assolo.mp3",
+      vid"rphjb_Assolo.mp4",
+      vid"rphjb_Assolo2.mp4",
+      vid"rphjb_AssoloBeat.mp4",
+      vid"rphjb_AssoloSubdolo.mp4",
+      gif"rphjb_Chitarra1Gif.mp4",
+      gif"rphjb_Chitarra2Gif.mp4",
+      gif"rphjb_Chitarra3Gif.mp4",
       vid"rphjb_ChitarraPlettroVicoletto.mp4",
       vid"rphjb_ChitarraVicolettoPlettro2.mp4",
       mp3"rphjb_ChitarraZuggherada.mp3",
       vid"rphjb_ChitarraZuccherada.mp4",
       mp3"rphjb_ChitarraZuccheroAlgheVino.mp3",
-      vid"rphjb_AssoloBasso.mp4",
       mp3"rphjb_AllucinanteAssolo.mp3",
       vid"rphjb_AllucinanteAssolo.mp4",
       gif"rphjb_AllucinanteAssoloGif.mp4",
@@ -788,8 +806,14 @@ object Mix {
       mp3"rphjb_TiraFuoriIlCazzo.mp3",
       gif"rphjb_TiraFuoriIlCazzoGif.mp4",
       sticker"rphjb_AssoloBensoniani.sticker",
-      vid"rphjb_AssoliFrancese.mp4",
-      mp3"rphjb_AssoliFrancese.mp3"
+      vid"rphjb_AncoraUnAltraCassa.mp4",
+      mp3"rphjb_AncoraUnAltraCassa.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "il basso\\b".r.tr(5)
+    )(
+      gif"rphjb_BassoGif.mp4",
+      vid"rphjb_AssoloBasso.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\b(g|c)a(b|p)i(d|t)o\\b".r.tr(6),
@@ -1112,7 +1136,17 @@ object Mix {
       vid"rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp4",
       mp3"rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp3",
       vid"rphjb_ListaGruppi.mp4",
-      mp3"rphjb_ListaGruppi.mp3"
+      mp3"rphjb_ListaGruppi.mp3",
+      vid"rphjb_Vestiti.mp4",
+      mp3"rphjb_Vestiti.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "anni (sessanta|60)".r.tr(7)
+    )(
+      vid"rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp4",
+      mp3"rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp3",
+      vid"rphjb_Vestiti.mp4",
+      mp3"rphjb_Vestiti.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "bebop",
@@ -1274,7 +1308,6 @@ object Mix {
       mp3"rphjb_ManagerAmericanoGrignianiShit.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "di metallo",
       "artigian(i|ale)".r.tr(9),
       "avorio",
       "teschio",
@@ -1283,6 +1316,15 @@ object Mix {
       gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
       vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
       mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "di metallo"
+    )(
+      gif"rphjb_BastoneInfernaleArtigianiBeccoMetalloGif.mp4",
+      vid"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp4",
+      mp3"rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3",
+      vid"rphjb_Vestiti.mp4",
+      mp3"rphjb_Vestiti.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "valletta"
@@ -1318,7 +1360,9 @@ object Mix {
       mp3"rphjb_DentiScazzottata.mp3",
       mp3"rphjb_AllucinanteAssolo.mp3",
       vid"rphjb_AllucinanteAssolo.mp4",
-      gif"rphjb_AllucinanteAssoloGif.mp4"
+      gif"rphjb_AllucinanteAssoloGif.mp4",
+      vid"rphjb_BarzellettaTotti.mp4",
+      mp3"rphjb_BarzellettaTotti.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "scusatemi per i denti",
@@ -1498,7 +1542,10 @@ object Mix {
       vid"rphjb_MusicaNapoletanaRockLista.mp4",
       mp3"rphjb_MusicaNapoletanaRockLista.mp3",
       vid"rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp4",
-      mp3"rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp3"
+      mp3"rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp3",
+      gif"rphjb_MioGenioGif.mp4",
+      vid"rphjb_MioGenio.mp4",
+      mp3"rphjb_MioGenio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "la lingua"
@@ -2200,7 +2247,10 @@ object Mix {
       vid"rphjb_OttavaNotaRobaVecchiaSchifosi.mp4",
       mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3",
       vid"rphjb_ImpegniListaCitta.mp4",
-      mp3"rphjb_ImpegniListaCitta.mp3"
+      mp3"rphjb_ImpegniListaCitta.mp3",
+      gif"rphjb_VolumeAlMassimoGif.mp4",
+      vid"rphjb_VolumeAlMassimo.mp4",
+      mp3"rphjb_VolumeAlMassimo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "mercoled[iì]".r.tr(9)
@@ -3070,7 +3120,10 @@ object Mix {
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
       mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
       vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
-      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4",
+      gif"rphjb_NonHoPauraDiNessunoGif.mp4",
+      vid"rphjb_NonHoPauraDiNessuno.mp4",
+      mp3"rphjb_NonHoPauraDiNessuno.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "antonacci"
@@ -3079,7 +3132,10 @@ object Mix {
       vid"rphjb_StorieSonoTanteConoscerePerParlareJovanottiAntonacciCarboniGrignaniAncheLaMerdaAvrebbeValore.mp4",
       mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
       vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
-      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4",
+      gif"rphjb_NonHoPauraDiNessunoGif.mp4",
+      vid"rphjb_NonHoPauraDiNessuno.mp4",
+      mp3"rphjb_NonHoPauraDiNessuno.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ramazzotti"
@@ -3087,7 +3143,10 @@ object Mix {
       vid"rphjb_SteveVaiRamazzotti.mp4",
       mp3"rphjb_AntonacciJovanottiRamazzotti.mp3",
       vid"rphjb_AntonacciJovanottiRamazzotti.mp4",
-      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4"
+      gif"rphjb_AntonacciJovanottiRamazzottiGif.mp4",
+      gif"rphjb_NonHoPauraDiNessunoGif.mp4",
+      vid"rphjb_NonHoPauraDiNessuno.mp4",
+      mp3"rphjb_NonHoPauraDiNessuno.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "tutti uguali"
@@ -3363,10 +3422,12 @@ object Mix {
       vid"rphjb_InPiuUnaCosaCheMiHaScocciato.mp4",
       mp3"rphjb_InPiuUnaCosaCheMiHaScocciato.mp3",
       vid"rphjb_ImpegniListaCitta.mp4",
-      mp3"rphjb_ImpegniListaCitta.mp3"
+      mp3"rphjb_ImpegniListaCitta.mp3",
+      vid"rphjb_MessaggioInternet.mp4",
+      mp3"rphjb_MessaggioInternet.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "una rete (fitta|internettaria)?".r.tr(9)
+      "una rete fitta"
     )(
       gif"rphjb_InternetGif.mp4",
       vid"rphjb_ReteInternettaria.mp4",
@@ -3697,7 +3758,9 @@ object Mix {
         vid"rphjb_EmuleReteInternettariaSitoScoppia.mp4",
         mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3",
         mp3"rphjb_MappaInternettaria.mp3",
-        vid"rphjb_MappaInternettaria.mp4"
+        vid"rphjb_MappaInternettaria.mp4",
+        vid"rphjb_MessaggioInternet.mp4",
+        mp3"rphjb_MessaggioInternet.mp3"
       ),
       ReplyBundleMessage.textToMedia[F]("telecomand[oi]".r.tr(11))(
         mp3"rphjb_TelecomandoCambiareCanaleDischiNuovi.mp3",
@@ -3706,13 +3769,15 @@ object Mix {
         mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "rimanete (l[iì] )fermi".r.tr(14),
-        "tiziano ferro",
-        "nek",
         "pausini",
-        "celentano",
-        "massimo ranieri"
+        "non ho paura",
+        "se mi amate",
+        "mi seguite",
+        "via discorrendo"
       )(
+        gif"rphjb_NonHoPauraDiNessunoGif.mp4",
+        vid"rphjb_NonHoPauraDiNessuno.mp4",
+        mp3"rphjb_NonHoPauraDiNessuno.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "arsenale",
@@ -4029,7 +4094,9 @@ object Mix {
         vid"rphjb_FotoLookDreamTheater.mp4",
         gif"rphjb_ViControlloDAlessioTatangeloFalsiMetallariGif.mp4",
         vid"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp4",
-        mp3"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp3"
+        mp3"rphjb_ViControlloDAlessioTatangeloFalsiMetallari.mp3",
+        vid"rphjb_MortoPippoBaudo.mp4",
+        mp3"rphjb_MortoPippoBaudo.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "mel gibson",
@@ -4272,7 +4339,6 @@ object Mix {
         "la mappa\\b".r.tr(8),
         "ramificazio",
         "tokio",
-        "helsinki",
         "spagna",
         "bolzano",
         "cremona",
@@ -4281,6 +4347,14 @@ object Mix {
       )(
         mp3"rphjb_MappaInternettaria.mp3",
         vid"rphjb_MappaInternettaria.mp4"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "helsinki"
+      )(
+        mp3"rphjb_MappaInternettaria.mp3",
+        vid"rphjb_MappaInternettaria.mp4",
+        vid"rphjb_MessaggioInternet.mp4",
+        mp3"rphjb_MessaggioInternet.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "\\bboccia\\b".r.tr(6),
@@ -4553,7 +4627,18 @@ object Mix {
         "vo[l]+[o]*[u]+[ou]*me".r.tr(6)
       )(
         mp3"rphjb_MenoVolume.mp3",
-        vid"rphjb_VolumeTelevisori.mp4"
+        vid"rphjb_VolumeTelevisori.mp4",
+        gif"rphjb_VolumeAlMassimoGif.mp4",
+        vid"rphjb_VolumeAlMassimo.mp4",
+        mp3"rphjb_VolumeAlMassimo.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "televisor"
+      )(
+        vid"rphjb_VolumeTelevisori.mp4",
+        gif"rphjb_VolumeAlMassimoGif.mp4",
+        vid"rphjb_VolumeAlMassimo.mp4",
+        mp3"rphjb_VolumeAlMassimo.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "solo il me(t|d)al".r.tr(13)
@@ -4572,7 +4657,6 @@ object Mix {
       ReplyBundleMessage.textToMedia[F](
         "sorca",
         "patonza",
-        "lecciso",
         "\\bfi[cg]a\\b".r.tr(4)
       )(
         gif"rphjb_SorcaLeccisoGif.mp4",
@@ -4583,7 +4667,17 @@ object Mix {
         vid"rphjb_LeccisoOffrire.mp4",
         gif"rphjb_VePiaceLaSorcaGif.mp4",
         vid"rphjb_VePiaceLaSorca.mp4",
-        mp3"rphjb_VePiaceLaSorca.mp3"
+        mp3"rphjb_VePiaceLaSorca.mp3",
+        gif"rphjb_BisognoDiSorcaGif.mp4",
+        vid"rphjb_BisognoDiSorca.mp4",
+        mp3"rphjb_BisognoDiSorca.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "lecciso"
+      )(
+        gif"rphjb_SorcaLeccisoGif.mp4",
+        vid"rphjb_SorcaLecciso2.mp4",
+        vid"rphjb_LeccisoOffrire.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
         "schifose",
@@ -4676,14 +4770,18 @@ object Mix {
         "slap"
       )(
         gif"rphjb_Bassista.gif",
-        gif"rphjb_BassoGif.mp4"
+        gif"rphjb_BassoGif.mp4",
+        vid"rphjb_Bassista.mp4",
+        mp3"rphjb_Bassista.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "bassista"
       )(
         gif"rphjb_Bassista.gif",
         gif"rphjb_BassoGif.mp4",
-        vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
+        vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4",
+        vid"rphjb_Bassista.mp4",
+        mp3"rphjb_Bassista.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "è vero[!?]+".r.tr(6)
@@ -5180,12 +5278,21 @@ object Mix {
           "si tratta di suonare",
           "il primo ad andare",
           "sorci",
-          "l'amplificatore",
           "l'ultimo ad uscire"
         )(
           gif"rphjb_IlPrimoInCantinaGif.mp4",
           vid"rphjb_IlPrimoInCantina.mp4",
           mp3"rphjb_IlPrimoInCantina.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "l'amplificatore"
+        )(
+          gif"rphjb_IlPrimoInCantinaGif.mp4",
+          vid"rphjb_IlPrimoInCantina.mp4",
+          mp3"rphjb_IlPrimoInCantina.mp3",
+          vid"rphjb_AncoraUnAltraCassa.mp4",
+          mp3"rphjb_AncoraUnAltraCassa.mp3"
         ),
       ReplyBundleMessage
         .textToMedia[F](
@@ -5330,8 +5437,7 @@ object Mix {
         ),
       ReplyBundleMessage
         .textToMedia[F](
-          "ottava nota",
-          "roba vecchia"
+          "ottava nota"
         )(
           vid"rphjb_OttavaNotaRobaVecchiaSchifosi.mp4",
           mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3"
@@ -5397,7 +5503,9 @@ object Mix {
       ReplyBundleMessage.textToMedia[F](
         "gerarca"
       )(
-        gif"rphjb_PianoSuperioreCompeteGif.mp4",
+        gif"rphjb_GerarcaPianoSuperioreGif.mp4",
+        vid"rphjb_GerarcaPianoSuperiore.mp4",
+        mp3"rphjb_GerarcaPianoSuperiore.mp3",
         gif"rphjb_GerarcaSeLaPrendeGif.mp4",
         vid"rphjb_GerarcaSeLaPrende.mp4",
         mp3"rphjb_GerarcaSeLaPrende.mp3"
@@ -5486,6 +5594,234 @@ object Mix {
         vid"rphjb_ImpegniListaCitta.mp4",
         mp3"rphjb_ImpegniListaCitta.mp3",
         vid"rphjb_InvestitoreGoverno.mp4"
-      )
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "madrid",
+          "interconnessione"
+        )(
+          vid"rphjb_MessaggioInternet.mp4",
+          mp3"rphjb_MessaggioInternet.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "ho bisogno di",
+          "femmina"
+        )(
+          gif"rphjb_BisognoDiSorcaGif.mp4",
+          vid"rphjb_BisognoDiSorca.mp4",
+          mp3"rphjb_BisognoDiSorca.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "armadi",
+          "vestiti",
+          "stivali",
+          "d'argento",
+          "di abiti"
+        )(
+          vid"rphjb_Vestiti.mp4",
+          mp3"rphjb_Vestiti.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "stronzata",
+          "orto botanico",
+          "totti",
+          "salice"
+        )(
+          vid"rphjb_BarzellettaTotti.mp4",
+          mp3"rphjb_BarzellettaTotti.mp3"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "estremismo"
+      )(
+        vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4",
+        gif"rphjb_ScherziAllucinantiZizzaniaConfusioneGif.mp4",
+        vid"rphjb_ScherziAllucinantiZizzaniaConfusione.mp4",
+        mp3"rphjb_ScherziAllucinantiZizzaniaConfusione.mp3"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "scherzi",
+          "zizzania",
+          "rivoluzione",
+          "confusione",
+          "mettere alla prova",
+          "da[re]? fiducia".r.tr(10)
+        )(
+          gif"rphjb_ScherziAllucinantiZizzaniaConfusioneGif.mp4",
+          vid"rphjb_ScherziAllucinantiZizzaniaConfusione.mp4",
+          mp3"rphjb_ScherziAllucinantiZizzaniaConfusione.mp3"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "barzelletta"
+      )(
+        vid"rphjb_BarzellettaGesuCristoParadisoPurgatorioMalmsteenDio.mp4",
+        vid"rphjb_BarzellettaPapaSonoGayPride.mp4",
+        vid"rphjb_BarzellettaPoliticaGinecologo.mp4",
+        vid"rphjb_BarzellettaTotti.mp4",
+        mp3"rphjb_BarzellettaTotti.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "tacchi a spillo"
+      )(
+        vid"rphjb_SucchiarviCaramelleFumarviCalpestareTacchiASpilloDominatore.mp4",
+        vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4",
+        vid"rphjb_Vestiti.mp4",
+        mp3"rphjb_Vestiti.mp3"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "(una|un' altra) cassa".r.tr(6),
+          "a me (mi )?piace".r.tr(10),
+          "me la compro"
+        )(
+          vid"rphjb_AncoraUnAltraCassa.mp4",
+          mp3"rphjb_AncoraUnAltraCassa.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "falco",
+          "sei morto",
+          "pane e vin[o]?".r.tr(10),
+          "non ti mancava",
+          "insalata",
+          "nell'orto",
+          "una casa c'avevi tu"
+        )(
+          vid"rphjb_FalcoMorto.mp4",
+          mp3"rphjb_FalcoMorto.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "pippo baudo",
+          "in anteprima",
+          "infarto",
+          "ricoverato"
+        )(
+          vid"rphjb_MortoPippoBaudo.mp4",
+          mp3"rphjb_MortoPippoBaudo.mp3"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "piano superiore",
+        "si compete"
+      )(
+        gif"rphjb_GerarcaPianoSuperioreGif.mp4",
+        vid"rphjb_GerarcaPianoSuperiore.mp4",
+        mp3"rphjb_GerarcaPianoSuperiore.mp3"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "stantio"
+        )(
+          gif"rphjb_StantioVecchioGif.mp4",
+          vid"rphjb_StantioVecchio.mp4",
+          mp3"rphjb_StantioVecchio.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "roba vecchia"
+        )(
+          gif"rphjb_StantioVecchioGif.mp4",
+          vid"rphjb_StantioVecchio.mp4",
+          mp3"rphjb_StantioVecchio.mp3",
+          vid"rphjb_OttavaNotaRobaVecchiaSchifosi.mp4",
+          mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "al massimo"
+        )(
+          gif"rphjb_VolumeAlMassimoGif.mp4",
+          vid"rphjb_VolumeAlMassimo.mp4",
+          mp3"rphjb_VolumeAlMassimo.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "scoppia"
+        )(
+          vid"rphjb_EmuleReteInternettariaSitoScoppia.mp4",
+          mp3"rphjb_EmuleReteInternettariaSitoScoppia.mp3",
+          gif"rphjb_VolumeAlMassimoGif.mp4",
+          vid"rphjb_VolumeAlMassimo.mp4",
+          mp3"rphjb_VolumeAlMassimo.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "coscia",
+          "\\banca\\b".r.tr(4),
+          "ballerina",
+          "sbilenca"
+        )(
+          gif"rphjb_CosciaAncaBallerinaRussaGif.mp4",
+          vid"rphjb_CosciaAncaBallerinaRussa.mp4",
+          mp3"rphjb_CosciaAncaBallerinaRussa.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "\\b(dieci|10)\\b".r.tr(2),
+          "\\b(undici|11)\\b".r.tr(2),
+          "\\b(nove|9)\\b".r.tr(2),
+          "conto alla rovescia"
+        )(
+          gif"rphjb_ContoAllaRovesciaGif.mp4",
+          vid"rphjb_ContoAllaRovescia.mp4",
+          mp3"rphjb_ContoAllaRovescia.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "modo di essere",
+          "guardiamo negli occhi",
+          "ci siamo capiti",
+          "chiarire"
+        )(
+          vid"rphjb_ModoDiEssere.mp4",
+          mp3"rphjb_ModoDiEssere.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "mio genio",
+          "network",
+          "mi vedono tutti"
+        )(
+          gif"rphjb_MioGenioGif.mp4",
+          vid"rphjb_MioGenio.mp4",
+          mp3"rphjb_MioGenio.mp3"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "batterista"
+      )(
+        vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
+        vid"rphjb_TommyAldridgeYngwieMalmsteenWhereAreYouGoing.mp4",
+        vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4",
+        vid"rphjb_Batterista.mp4",
+        mp3"rphjb_Batterista.mp3"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "doppio pedale",
+          "indipendenza degli arti",
+          "sette ottavi",
+          "nove undicesimi",
+          "poliritm",
+          "tempi (composti|dispari)".r.tr(13)
+        )(
+          vid"rphjb_Batterista.mp4",
+          mp3"rphjb_Batterista.mp3"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "pianista",
+          "stesure armoniche",
+          "popping",
+          "tapping",
+          "do maggiore",
+          "la minore",
+          "misolidio"
+        )(
+          vid"rphjb_Bassista.mp4",
+          mp3"rphjb_Bassista.mp3"
+        )
     )
 }
