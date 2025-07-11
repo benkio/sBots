@@ -126,7 +126,7 @@ object Gif:
       gif"ytai_FrustrazioneGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "ci sto già pensando"
+      "ci sto (gi[aà] )?pensando".r.tr(15)
     )(
       gif"ytai_GiaPensandoGif.mp4"
     ),

@@ -2184,9 +2184,9 @@ object Mix {
       mp3"rphjb_FrocioCoglione.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "che magagna",
-      "che fregatura",
-      "che salva la situazione"
+      "magagna",
+      "fregatura",
+      "salva la situazione"
     )(
       mp3"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp3",
       vid"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp4",
@@ -3825,7 +3825,8 @@ object Mix {
       ),
       ReplyBundleMessage.textToMedia[F](
         "fine( )?settimana".r.tr(13),
-        "weekend"
+        "weekend",
+        "sta all'inizio"
       )(
         mp3"rphjb_FineSettimanaMercolediInizio.mp3",
         vid"rphjb_FineSettimanaMercolediInizio.mp4",
