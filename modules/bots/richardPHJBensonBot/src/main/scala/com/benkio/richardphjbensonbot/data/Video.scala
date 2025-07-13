@@ -1911,7 +1911,6 @@ object Video {
       vid"rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "auschwitz",
       "melense"
     )(
       vid"rphjb_CanzonettePoesieAuschwitzCervello.mp4"

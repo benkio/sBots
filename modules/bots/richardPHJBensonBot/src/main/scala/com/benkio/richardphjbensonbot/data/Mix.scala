@@ -5824,6 +5824,23 @@ object Mix {
         )(
           vid"rphjb_Bassista.mp4",
           mp3"rphjb_Bassista.mp3"
-        )
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "\\bstanza\\b".r.tr(6),
+          "si accorse\\b".r.tr(10)
+        )(
+          gif"rphjb_AuschwitzGif.mp4",
+          vid"rphjb_Auschwitz.mp4",
+          mp3"rphjb_Auschwitz.mp3"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "auschwitz"
+      )(
+        vid"rphjb_CanzonettePoesieAuschwitzCervello.mp4",
+        gif"rphjb_AuschwitzGif.mp4",
+        vid"rphjb_Auschwitz.mp4",
+        mp3"rphjb_Auschwitz.mp3"
+      )
     )
 }
