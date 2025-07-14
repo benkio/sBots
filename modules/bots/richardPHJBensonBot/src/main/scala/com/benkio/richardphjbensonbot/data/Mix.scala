@@ -684,7 +684,10 @@ object Mix {
       vid"rphjb_VitaNemico3.mp4",
       vid"rphjb_VitaNemicoCervello.mp4",
       mp3"rphjb_PoesiaDolcezzaViolenta.mp3",
-      vid"rphjb_PoesiaDolcezzaViolenta.mp4"
+      vid"rphjb_PoesiaDolcezzaViolenta.mp4",
+      gif"rphjb_IncrementoDelSessoGif.mp4",
+      vid"rphjb_IncrementoDelSesso.mp4",
+      mp3"rphjb_IncrementoDelSesso.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "permettere"
@@ -5841,6 +5844,19 @@ object Mix {
         gif"rphjb_AuschwitzGif.mp4",
         vid"rphjb_Auschwitz.mp4",
         mp3"rphjb_Auschwitz.mp3"
-      )
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "incremento del sesso",
+          "si insinua",
+          "porta del (cesso|bagno)".r.tr(15),
+          "catena",
+          "palazzo",
+          "camera da letto"
+        )(
+          gif"rphjb_IncrementoDelSessoGif.mp4",
+          vid"rphjb_IncrementoDelSesso.mp4",
+          mp3"rphjb_IncrementoDelSesso.mp3"
+        )
     )
 }
