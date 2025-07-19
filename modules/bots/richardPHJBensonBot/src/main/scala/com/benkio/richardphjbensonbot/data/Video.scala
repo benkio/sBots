@@ -394,7 +394,9 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "scantinati",
-      "gioco (io )?del gatto e (voi )?del (ratto|topo)".r.tr(24)
+      "fare il gioco",
+      "gioco (io )?del gatto".r.tr(15),
+      "(voi )?del (ratto|topo)".r.tr(8)
     )(vid"rphjb_DubbioScantinatiGiocoRattoGatto.mp4"),
     ReplyBundleMessage.textToVideo[F](
       "albero grande",
