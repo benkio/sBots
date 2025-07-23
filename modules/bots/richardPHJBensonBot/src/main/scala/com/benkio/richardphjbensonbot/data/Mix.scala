@@ -3280,7 +3280,10 @@ object Mix {
     )(
       mp3"rphjb_Milioni.mp3",
       vid"rphjb_Milioni.mp4",
-      gif"rphjb_MilioniGif.mp4"
+      gif"rphjb_MilioniGif.mp4",
+      mp3"rphjb_UndiciMilioni.mp3",
+      vid"rphjb_UndiciMilioni.mp4",
+      gif"rphjb_UndiciMilioniGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "va curato",
@@ -4497,13 +4500,6 @@ object Mix {
         vid"rphjb_UrlareLaRabbia.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "(11|undici) milioni".r.tr(10)
-      )(
-        mp3"rphjb_UndiciMilioni.mp3",
-        vid"rphjb_UndiciMilioni.mp4",
-        gif"rphjb_UndiciMilioniGif.mp4"
-      ),
-      ReplyBundleMessage.textToMedia[F](
         "\\btuffo\\b".r.tr(5)
       )(
         mp3"rphjb_Tuffo.mp3",
@@ -5516,7 +5512,7 @@ object Mix {
       ),
       ReplyBundleMessage
         .textToMedia[F](
-          "se la dovesse prendere"
+          "se la (prende|dovesse prendere)".r.tr(12)
         )(
           gif"rphjb_GerarcaSeLaPrendeGif.mp4",
           vid"rphjb_GerarcaSeLaPrende.mp4",
@@ -5774,6 +5770,16 @@ object Mix {
           vid"rphjb_ContoAllaRovescia.mp4",
           mp3"rphjb_ContoAllaRovescia.mp3"
         ),
+      ReplyBundleMessage.textToMedia[F](
+        "\\b(undici|11)\\b".r.tr(2)
+      )(
+        mp3"rphjb_UndiciMilioni.mp3",
+        vid"rphjb_UndiciMilioni.mp4",
+        gif"rphjb_UndiciMilioniGif.mp4",
+        gif"rphjb_ContoAllaRovesciaGif.mp4",
+        vid"rphjb_ContoAllaRovescia.mp4",
+        mp3"rphjb_ContoAllaRovescia.mp3"
+      ),
       ReplyBundleMessage
         .textToMedia[F](
           "modo di essere",
@@ -5831,7 +5837,7 @@ object Mix {
       ReplyBundleMessage
         .textToMedia[F](
           "\\bstanza\\b".r.tr(6),
-          "si accorse\\b".r.tr(10)
+          "s'accorse\\b".r.tr(10)
         )(
           gif"rphjb_AuschwitzGif.mp4",
           vid"rphjb_Auschwitz.mp4",
@@ -5857,6 +5863,56 @@ object Mix {
           gif"rphjb_IncrementoDelSessoGif.mp4",
           vid"rphjb_IncrementoDelSesso.mp4",
           mp3"rphjb_IncrementoDelSesso.mp3"
-        )
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "protegge"
+        )(
+          gif"rphjb_MiProteggeGif.mp4",
+          mp3"rphjb_MiProtegge.mp3",
+          vid"rphjb_MiProtegge.mp4"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "rivalut",
+          "mi fa incazzare",
+          "musicisti veri"
+        )(
+          gif"rphjb_RivalutiamoLArteGif.mp4",
+          mp3"rphjb_RivalutiamoLArte.mp3",
+          vid"rphjb_RivalutiamoLArte.mp4"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "vestito (nuovo|vecchio)".r.tr(13),
+        "rammenda",
+        "rappezza",
+        "rattoppa",
+        "ricuci",
+        "rinnova"
+      )(
+        vid"rphjb_CompriVestitoNuovoRammendaVecchio.mp4",
+        gif"rphjb_CompriVestitoNuovoRinnovaVecchioGif.mp4",
+        mp3"rphjb_CompriVestitoNuovoRinnovaVecchio.mp3",
+        vid"rphjb_CompriVestitoNuovoRinnovaVecchio.mp4"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "cascando",
+          "attaccat",
+          "il fonico"
+        )(
+          mp3"rphjb_CascandoTuttoPalle.mp3",
+          vid"rphjb_CascandoTuttoPalle.mp4",
+          gif"rphjb_CascandoTuttoPalleGif.mp4"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "milioni di milioni",
+        "(li|mi) co(j|gli)oni".r.tr(9)
+      )(
+        vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4",
+        mp3"rphjb_DonneTanteMilioniDiMilioni.mp3",
+        vid"rphjb_DonneTanteMilioniDiMilioni.mp4",
+        gif"rphjb_DonneTanteMilioniDiMilioniGif.mp4"
+      )
     )
 }

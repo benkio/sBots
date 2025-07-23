@@ -20,23 +20,26 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
+  val youTubeApiKey     = Files.readAllLines(Paths.get(youTubeTokenFilenamePath)).asScala.headOption.get
+  val ciEnvVar          = sys.env.get("CI")
+  val runTestsCondition =
+    (ciEnvVar.contains("false") || ciEnvVar.isEmpty) && youTubeApiKey != "PutYourYouTubeApiKeyHere"
+
   def buildYoutubeService: IO[YouTubeService[IO]] = {
     val testApplicationConfPath = s"$integrationResourcesPath$testApplicationConf"
 
     for {
-      config <- Config.loadConfig(Some(testApplicationConfPath))
-      youTubeApiKey = Files.readAllLines(Paths.get(youTubeTokenFilenamePath)).asScala.headOption.get
+      config         <- Config.loadConfig(Some(testApplicationConfPath))
       youTubeService <- YouTubeService(
         config = config,
         youTubeApiKey = youTubeApiKey
       )
     } yield youTubeService
   }
-  val ciEnvVar = sys.env.get("CI")
 
   test("YoutubeService.getAllBotNameIds should return the expected YoutubeBotIds") {
     // Run only locally because it needs Youtube API. You don't want the CI to run requests
-    assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
+    assume(runTestsCondition)
 
     for {
       youTubeService <- buildYoutubeService
@@ -62,7 +65,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
 
   test("YoutubeService.getYouTubeVideos should return the expected video") {
     // Run only locally because it needs Youtube API. You don't want the CI to run requests
-    assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
+    assume(runTestsCondition)
 
     for {
       youTubeService <- buildYoutubeService
@@ -77,7 +80,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
   }
 
   test("YouTubeService.FetchCaption implement") {
-    assume(ciEnvVar.contains("false") || ciEnvVar.isEmpty)
+    assume(runTestsCondition)
     for {
       tempDir <- IO.pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
       videoId  = "CQi-0VJJSSs"

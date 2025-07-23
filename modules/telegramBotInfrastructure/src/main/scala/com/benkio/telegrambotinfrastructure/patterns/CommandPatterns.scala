@@ -52,9 +52,9 @@ object CommandPatterns {
         kind: Option[String]
     )(using log: LogWriter[F]): F[List[MediaFile]] =
       for
-        _            <- log.info(s"[MediaCommandByKind] Fetching DBMediaData for $kind")
+        _            <- log.debug(s"[MediaCommandByKind] Fetching DBMediaData for $kind")
         dbMediaDatas <- dbMedia.getMediaByKind(kind = kind.getOrElse(commandName))
-        _            <- log.info("[MediaCommandByKind] Convert to Media")
+        _            <- log.debug("[MediaCommandByKind] Convert to Media")
         medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
       yield medias.map(media => MediaFile.fromMimeType(media))
 
@@ -82,9 +82,9 @@ object CommandPatterns {
 
     def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], botPrefix: String): F[MediaFile] =
       for
-        _           <- LogWriter.info(s"[RandomCommand] Fetching random media for $botPrefix")
+        _           <- LogWriter.debug(s"[RandomCommand] Fetching random media for $botPrefix")
         dbMediaData <- dbMedia.getRandomMedia(botPrefix)
-        _           <- LogWriter.info("[RandomCommand] Convert DBMediaData to Media")
+        _           <- LogWriter.debug("[RandomCommand] Convert DBMediaData to Media")
         media       <- Async[F].fromEither(Media(dbMediaData))
       yield MediaFile.fromMimeType(media)
 

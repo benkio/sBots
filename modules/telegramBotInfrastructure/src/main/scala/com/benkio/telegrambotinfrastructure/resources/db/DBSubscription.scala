@@ -58,34 +58,34 @@ object DBSubscription {
   ) extends DBSubscription[F] {
 
     override def insertSubscription(subscription: DBSubscriptionData): F[Unit] =
-      insertSubscriptionQuery(subscription).run.transact(transactor).void <* log.info(
+      insertSubscriptionQuery(subscription).run.transact(transactor).void <* log.debug(
         s"Inserted subscription $subscription"
       )
 
     override def deleteSubscription(
         subscriptionId: UUID
     ): F[Unit] =
-      deleteSubscriptionQuery(subscriptionId.toString).run.transact(transactor).void <* log.info(
+      deleteSubscriptionQuery(subscriptionId.toString).run.transact(transactor).void <* log.debug(
         s"delete subscription id $subscriptionId"
       )
 
     override def deleteSubscriptions(
         chatId: Long
     ): F[Unit] =
-      deleteSubscriptionsQuery(chatId).run.transact(transactor).void <* log.info(
+      deleteSubscriptionsQuery(chatId).run.transact(transactor).void <* log.debug(
         s"delete subscriptions for chat id $chatId"
       )
 
     override def getSubscriptions(botName: String, chatId: Option[Long]): F[List[DBSubscriptionData]] =
-      getSubscriptionsQuery(botName, chatId).stream.compile.toList.transact(transactor) <* log.info(
+      getSubscriptionsQuery(botName, chatId).stream.compile.toList.transact(transactor) <* log.debug(
         "Get subscriptions"
       )
 
     override def getRandomSubscription(): F[Option[DBSubscriptionData]] =
-      getRandomSubscriptionQuery().option.transact(transactor) <* log.info("Get random subscription")
+      getRandomSubscriptionQuery().option.transact(transactor) <* log.debug("Get random subscription")
 
     override def getSubscription(id: String): F[Option[DBSubscriptionData]] =
-      getSubscriptionQuery(id).option.transact(transactor) <* log.info(s"Get subscription: $id")
+      getSubscriptionQuery(id).option.transact(transactor) <* log.debug(s"Get subscription: $id")
 
   }
 
