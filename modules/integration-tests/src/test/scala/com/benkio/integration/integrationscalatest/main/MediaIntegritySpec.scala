@@ -78,5 +78,5 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       } yield assert(file.length > (5 * 1024))).use_
     }.pure[IO]
 
-  allMessageMediaFiles.use(files => files.sort.traverse(file => checkFile(file))).void.unsafeRunSync()
+  allMessageMediaFiles.use(files => files.sortBy(_.filename).traverse(file => checkFile(file))).void.unsafeRunSync()
 }
