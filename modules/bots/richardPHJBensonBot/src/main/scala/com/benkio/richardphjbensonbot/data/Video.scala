@@ -255,7 +255,7 @@ object Video {
       vid"rphjb_RockMachineIntro.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "c’è un testo",
+      "c'è un testo",
       "da piangere",
       "negro",
       "niente da perdere",
