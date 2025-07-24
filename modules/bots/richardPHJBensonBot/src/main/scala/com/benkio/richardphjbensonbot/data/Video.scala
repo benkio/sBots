@@ -921,12 +921,6 @@ object Video {
       vid"rphjb_CattedraleCanterburyRavennaEcho.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "vestito (nuovo|vecchio)".r.tr(13),
-      "(rammenda|rappezza|rattoppa|ricuci)".r.tr(6)
-    )(
-      vid"rphjb_CompriVestitoNuovoRammendaVecchio.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "cugini di campagna",
       "giardino dei semplici",
       "homo sapiens",

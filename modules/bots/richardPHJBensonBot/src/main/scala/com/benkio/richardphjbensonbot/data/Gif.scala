@@ -104,7 +104,7 @@ object Gif {
       gif"rphjb_ScherzoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "e levati((...|..|.| )dai coglioni)?".r.tr(8),
+      "levati((...|..|.| )dai coglioni)?".r.tr(8),
       "fuori(...|..|.| )dai coglioni".r.tr(18)
     )(
       gif"rphjb_LevatiDaiCoglioniGif.mp4"

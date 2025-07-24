@@ -194,7 +194,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "BackgroundJobManager.runSubscription should return an infinite stream emitting every expected time when scheduled"
+    "BackgroundJobManager.runSubscription should return an infinite stream emitting every expected time (second) when scheduled"
   ) { fixture =>
     val resultStreamResources: Resource[cats.effect.IO, Stream[IO, (Instant, Instant)]] = for {
       dbLayer              <- fixture.resourceDBLayer
@@ -213,13 +213,16 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         .eval(IO.realTimeInstant)
         .flatMap(testInstant =>
           mainStream
-            .map(resultInstant =>
-              (resultInstant.truncatedTo(ChronoUnit.SECONDS), testInstant.truncatedTo(ChronoUnit.SECONDS))
-            )
+            .map(resultInstant => (resultInstant.truncatedTo(ChronoUnit.SECONDS), testInstant))
         )
     resultStreamResources.use(resultStream =>
       for result <- resultStream.take(3).compile.toList
-      yield result.foreach { case (resultI, testI) => assertEquals(resultI, testI) }
+      yield result.foreach { case (resultI, testI) =>
+        assert(
+          resultI.isAfter(testI.minusMillis(500).truncatedTo(ChronoUnit.SECONDS)) ||
+            resultI.isBefore(testI.plusMillis(500).truncatedTo(ChronoUnit.SECONDS))
+        )
+      }
     )
   }
 

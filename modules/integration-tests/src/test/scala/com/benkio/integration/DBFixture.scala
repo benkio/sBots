@@ -51,13 +51,13 @@ object DBFixture {
   def fixtureSetup(@unused testOptions: TestOptions)(using log: LogWriter[IO]): DBFixtureResources = {
     Class.forName("org.sqlite.JDBC")
     val conn = DriverManager.getConnection(DBFixture.dbUrl)
-    println(s"DbUrl: $dbUrl")
-    println(s"migrations path: $migrationPath")
+
     runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
     val transactor                                               = Transactor.fromConnection[IO](conn, None)
     val dbLayerResource: Resource[IO, DBLayer[IO]]               = Resource.eval(DBLayer[IO](transactor))
     val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbLayerResource.flatMap(dbLayer =>
       for {
+        _          <- Resource.eval(log.debug(s"DbUrl: $dbUrl ||| migrations path: $migrationPath"))
         httpClient <- EmberClientBuilder
           .default[IO]
           .withMaxResponseHeaderSize(8192)
