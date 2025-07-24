@@ -191,7 +191,7 @@ object Mix {
       "\\bstori(a|e)\\b".r.tr(6)
     )(
       mp3"rphjb_Storie.mp3",
-      mp3"rphjb_Storie2.mp3",
+      mp3"rphjb_StorieSonoTanteVecchiaccia.mp3",
       vid"rphjb_StoriaNonDetta.mp4",
       vid"rphjb_StorieSonoTanteVecchiaccia.mp4",
       vid"rphjb_StoriaVeraPienaBugie.mp4",
@@ -5912,7 +5912,9 @@ object Mix {
         vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4",
         mp3"rphjb_DonneTanteMilioniDiMilioni.mp3",
         vid"rphjb_DonneTanteMilioniDiMilioni.mp4",
-        gif"rphjb_DonneTanteMilioniDiMilioniGif.mp4"
+        gif"rphjb_DonneTanteMilioniDiMilioniGif.mp4",
+        mp3"rphjb_StorieSonoTanteVecchiaccia.mp3",
+        vid"rphjb_StorieSonoTanteVecchiaccia.mp4"
       )
     )
 }
