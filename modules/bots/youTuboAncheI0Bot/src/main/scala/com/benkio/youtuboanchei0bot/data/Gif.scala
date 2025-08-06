@@ -661,8 +661,8 @@ object Gif:
       gif"ytai_SeiUnoSfigatoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "non prendetevi confidenze",
-      "inteso di darvi"
+      "prendetevi confidenze",
+      "inteso darvi"
     )(
       gif"ytai_ConfidenzeGif.mp4"
     ),
