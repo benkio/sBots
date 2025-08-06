@@ -350,7 +350,8 @@ object Video {
       "se non le sai le cose",
       "radio rock",
       "informazioni sbagliate",
-      "errore tragico"
+      "errore tragico",
+      "(22|ventidue) maggio".r.tr(9)
     )(
       vid"rphjb_RadioRockErrori.mp4"
     ),
@@ -801,7 +802,8 @@ object Video {
       vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "cambia canale"
+      "cambia canale",
+      "\\bcerchion[ie]\\b".r.tr(8)
     )(
       vid"rphjb_CambiaCanaleBruttoFrocio.mp4"
     ),
@@ -1556,7 +1558,8 @@ object Video {
       "vieni (qu[iì]|anche te|ad affrontare me)".r.tr(9),
       "la tua faccia",
       "se (c')?hai il coraggio".r.tr(18),
-      "covo del metallo"
+      "covo del metallo",
+      "che non funzionano"
     )(
       vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
     ),
