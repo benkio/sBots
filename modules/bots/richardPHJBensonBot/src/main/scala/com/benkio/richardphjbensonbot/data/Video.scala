@@ -29,7 +29,8 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "\\brap\\b".r.tr(3),
       "musica italiana",
-      "vi regalo"
+      "vi regalo",
+      "quella merda"
     )(
       vid"rphjb_RapMusicaMelodicaListaCantanti.mp4"
     ),
