@@ -2679,7 +2679,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "\\burlo\\b".r.tr(4),
-      "\\b[a]{5,}".r.tr(5)
+      "\\b[u]*[a]{5,}[h]*\\b".r.tr(5)
     )(
       mp3"rphjb_Tuffo.mp3",
       vid"rphjb_Tuffo.mp4",
