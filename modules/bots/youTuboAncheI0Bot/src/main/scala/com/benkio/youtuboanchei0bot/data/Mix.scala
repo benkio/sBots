@@ -624,7 +624,10 @@ object Mix:
       "☕"
     )(
       gif"ytai_BuonCaffeATuttiGif.mp4",
-      sticker"ytai_CaffeYtancheio.sticker"
+      sticker"ytai_CaffeYtancheio.sticker",
+      vid"ytai_ZuccheroCaffeOttimo.mp4",
+      mp3"ytai_ZuccheroCaffeOttimo.mp3",
+      gif"ytai_ZuccheroCaffeOttimoGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ciotola",
@@ -731,6 +734,140 @@ object Mix:
         gif"ytai_AcquaGinevraGif.mp4",
         vid"ytai_AcquaGinevra.mp4",
         mp3"ytai_AcquaGinevra.mp3"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "guardate"
+      )(
+        vid"ytai_OliveGrandiMeravigliose.mp4",
+        mp3"ytai_OliveGrandiMeravigliose.mp3",
+        gif"ytai_OliveGrandiMeraviglioseGif.mp4",
+        vid"ytai_BelloRavanello.mp4",
+        mp3"ytai_BelloRavanello.mp3",
+        gif"ytai_BelloRavanelloGif.mp4"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "meravigliose",
+        "olive"
+      )(
+        vid"ytai_OliveGrandiMeravigliose.mp4",
+        mp3"ytai_OliveGrandiMeravigliose.mp3",
+        gif"ytai_OliveGrandiMeraviglioseGif.mp4"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "zucchero",
+        "come volevasi (confermare|dimostrare)".r.tr(24)
+      )(
+        vid"ytai_ZuccheroCaffeOttimo.mp4",
+        mp3"ytai_ZuccheroCaffeOttimo.mp3",
+        gif"ytai_ZuccheroCaffeOttimoGif.mp4"
+      ),
+    ReplyBundleMessage.textToMedia[F](
+      "ottimo[!]+".r.tr(5)
+    )(
+      gif"ytai_OttimoGif.mp4",
+      vid"ytai_ZuccheroCaffeOttimo.mp4",
+      mp3"ytai_ZuccheroCaffeOttimo.mp3",
+      gif"ytai_ZuccheroCaffeOttimoGif.mp4"
+    ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "wikipedia",
+        "apprendere",
+        "notizie"
+      )(
+        vid"ytai_Wikipedia.mp4",
+        mp3"ytai_Wikipedia.mp3",
+        gif"ytai_WikipediaGif.mp4"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "\\bmorso\\b".r.tr(5),
+        "di unico\\b".r.tr(8)
+      )(
+        gif"ytai_MorsoUnicoGif.mp4",
+        mp3"ytai_MorsoUnico.mp3",
+        vid"ytai_MorsoUnico.mp4"
+      ),
+    ReplyBundleMessage.textToMedia[F](
+      "il silenzio"
+    )(
+      gif"ytai_SilenzioMomentoMagicoGif.mp4",
+      gif"ytai_SilenzioVirtuGif.mp4",
+      mp3"ytai_SilenzioVirtu.mp3",
+      vid"ytai_SilenzioVirtu.mp4"
+    ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "virtù",
+        "quando si mangia"
+      )(
+        gif"ytai_SilenzioVirtuGif.mp4",
+        mp3"ytai_SilenzioVirtu.mp3",
+        vid"ytai_SilenzioVirtu.mp4"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "ravanello",
+        "vedete",
+        "quant'è bello"
+      )(
+        gif"ytai_BelloRavanelloGif.mp4",
+        mp3"ytai_BelloRavanello.mp3",
+        vid"ytai_BelloRavanello.mp4"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "pecore",
+        "pecora",
+        "🐑",
+        "loro latte".r.tr(5),
+        "loro compagnia".r.tr(5),
+        "casa con giardino",
+        "uccellini"
+      )(
+        gif"ytai_AmoLePecoreGif.mp4",
+        mp3"ytai_AmoLePecore.mp3",
+        vid"ytai_AmoLePecore.mp4"
+      ),
+    ReplyBundleMessage.textToMedia[F](
+      "ciccione"
+    )(
+      gif"ytai_MollaGif.mp4",
+      gif"ytai_CiccioneObesoMangiTantoGif.mp4",
+      gif"ytai_CiccioneGif.mp4",
+      mp3"ytai_Ciccione.mp3",
+      vid"ytai_Ciccione.mp4"
+    ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "scarpette",
+        "perchè no?"
+      )(
+        gif"ytai_CiccioneGif.mp4",
+        mp3"ytai_Ciccione.mp3",
+        vid"ytai_Ciccione.mp4"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "pazienza",
+        "disiscriverete",
+        "ripartirò",
+        "da (cento[ ]?quaranta|140|130|cento[ ]?trenta|20|venti|diecimila|10000)\\b".r.tr(5)
+      )(
+        gif"ytai_ViDisisrivetePazienzaGif.mp4",
+        mp3"ytai_ViDisisrivetePazienza.mp3",
+        vid"ytai_ViDisisrivetePazienza.mp4"
+      ),
+    ReplyBundleMessage
+      .textToGif[F](
+        "\\bmacchia\\b".r.tr(7),
+        "pulire",
+        "camicia"
+      )(
+        gif"ytai_LoopCamiciaGif.mp4"
       )
   )
 end Mix
