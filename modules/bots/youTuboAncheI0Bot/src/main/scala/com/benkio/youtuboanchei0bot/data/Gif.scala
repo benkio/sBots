@@ -17,12 +17,6 @@ object Gif:
       gif"ytai_CheVergognaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "ciccione"
-    )(
-      gif"ytai_MollaGif.mp4",
-      gif"ytai_CiccioneObesoMangiTantoGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "fatica",
       "sudore",
       "sudato"
@@ -300,8 +294,7 @@ object Gif:
     ReplyBundleMessage.textToGif[F](
       "silenzio[,]? silenzio".r.tr(17)
     )(
-      gif"ytai_SilenzioGif.mp4",
-      gif"ytai_SilenzioMomentoMagicoGif.mp4"
+      gif"ytai_SilenzioGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "si v[àa] finch[eé] si v[aà]".r.tr(18),
@@ -402,7 +395,6 @@ object Gif:
       gif"ytai_NoScuseGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "caspita",
       "sono (grosso|sono (quasi )?enorme|una palla di lardo)".r.tr(11)
     )(
       gif"ytai_PallaDiLardoGif.mp4"
@@ -649,11 +641,6 @@ object Gif:
       "solo[?]{2,}".r.tr(5)
     )(
       gif"ytai_SoloGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "ottimo[!]+".r.tr(5)
-    )(
-      gif"ytai_OttimoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "sei uno sfigato"

@@ -828,7 +828,10 @@ object Mix {
       mp3"rphjb_Capito.mp3",
       mp3"rphjb_NonHannoCapitoUnCazzo.mp3",
       vid"rphjb_NonAveteCapitoUnCazzo.mp4",
+      mp3"rphjb_NonAveteCapitoUnCazzo.mp3",
       gif"rphjb_NonAveteCapitoUnCazzoGif.mp4",
+      mp3"rphjb_VoiNonAveteCapitoUnCazzo.mp3",
+      vid"rphjb_VoiNonAveteCapitoUnCazzo.mp4",
       gif"rphjb_VoiNonAveteCapitoUnCazzoGif.mp4",
       gif"rphjb_IlSensoCapitoGif.mp4",
       gif"rphjb_CapitoDoveStiamoGif.mp4",
@@ -979,6 +982,7 @@ object Mix {
     )(
       gif"rphjb_ChiCacciaISoldiGif.mp4",
       mp3"rphjb_ChiCacciaISoldi.mp3",
+      vid"rphjb_ChiCacciaISoldi.mp4",
       mp3"rphjb_SoldiButtatiDiscotecaLaziale.mp3",
       vid"rphjb_SoldiButtatiDiscotecaLaziale.mp4",
       vid"rphjb_BigMoney.mp4",
@@ -993,7 +997,10 @@ object Mix {
       mp3"rphjb_PoiVoglionoISoldi.mp3",
       gif"rphjb_QuelliCheParlanoPocoGif.mp4",
       vid"rphjb_QuelliCheParlanoPoco.mp4",
-      mp3"rphjb_QuelliCheParlanoPoco.mp3"
+      mp3"rphjb_QuelliCheParlanoPoco.mp3",
+      vid"rphjb_RagazzettaDiProvincia.mp4",
+      mp3"rphjb_RagazzettaDiProvincia.mp3",
+      gif"rphjb_RagazzettaDiProvinciaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "[od]?dio mio[,]? no".r.tr(10)
@@ -1511,7 +1518,10 @@ object Mix {
       "🎙"
     )(
       gif"rphjb_MicDropGif.mp4",
-      vid"rphjb_NelRettoBrianMay.mp4"
+      vid"rphjb_NelRettoBrianMay.mp4",
+      gif"rphjb_RispondereGif.mp4",
+      mp3"rphjb_Rispondere.mp3",
+      vid"rphjb_Rispondere.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "james senese",
@@ -3860,8 +3870,6 @@ object Mix {
         mp3"rphjb_DonneDiUnaVoltaSeniCuomoMadonna.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "i seni\\b".r.tr(6),
-        "\\btette\\b".r.tr(5),
         "fatti lecc(are|a|à)\\b".r.tr(11),
         "katy monique cuomo",
         "mi vergogno",
@@ -3908,9 +3916,13 @@ object Mix {
         gif"rphjb_IdeeConfuseGif.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "sei [gc]ambiat[oa]".r.tr(12)
+        "sei [gc]ambiat[oa]".r.tr(12),
+        "che (ti |t')è successo?".r.tr(15),
+        "non sei più (rock|metal)".r.tr(16)
       )(
         gif"rphjb_SeiCambiataGif.mp4",
+        mp3"rphjb_SeiCambiata.mp3",
+        vid"rphjb_SeiCambiata.mp4",
         sticker"rphjb_SeiCambiataBensoniani.sticker"
       ),
       ReplyBundleMessage.textToMedia[F](
@@ -4670,7 +4682,10 @@ object Mix {
         mp3"rphjb_VePiaceLaSorca.mp3",
         gif"rphjb_BisognoDiSorcaGif.mp4",
         vid"rphjb_BisognoDiSorca.mp4",
-        mp3"rphjb_BisognoDiSorca.mp3"
+        mp3"rphjb_BisognoDiSorca.mp3",
+        vid"rphjb_TiSeiFattaVedere.mp4",
+        mp3"rphjb_TiSeiFattaVedere.mp3",
+        gif"rphjb_TiSeiFattaVedereGif.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
         "lecciso"
@@ -5915,6 +5930,107 @@ object Mix {
         gif"rphjb_DonneTanteMilioniDiMilioniGif.mp4",
         mp3"rphjb_StorieSonoTanteVecchiaccia.mp3",
         vid"rphjb_StorieSonoTanteVecchiaccia.mp4"
-      )
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "leccare"
+        )(
+          vid"rphjb_LeccareLeTette.mp4",
+          mp3"rphjb_LeccareLeTette.mp3",
+          gif"rphjb_LeccareLeTetteGif.mp4"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "\\btette\\b".r.tr(6),
+          "i seni\\b".r.tr(6)
+        )(
+          vid"rphjb_LeccareLeTette.mp4",
+          mp3"rphjb_LeccareLeTette.mp3",
+          gif"rphjb_LeccareLeTetteGif.mp4",
+          vid"rphjb_DonneDiUnaVoltaSeniCuomoMadonna.mp4",
+          mp3"rphjb_DonneDiUnaVoltaSeniCuomoMadonna.mp3",
+          vid"rphjb_TiSeiFattaVedere.mp4",
+          mp3"rphjb_TiSeiFattaVedere.mp3",
+          gif"rphjb_TiSeiFattaVedereGif.mp4"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "\\bester( esposito)?\\b".r.tr(5)
+      )(
+        gif"rphjb_EsterGif.mp4",
+        gif"rphjb_Ester2Gif.mp4",
+        vid"rphjb_LeccareLeTette.mp4",
+        mp3"rphjb_LeccareLeTette.mp3",
+        gif"rphjb_LeccareLeTetteGif.mp4"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "ragazzetta"
+      )(
+        mp3"rphjb_RagazzettaCarne.mp3",
+        vid"rphjb_RagazzettaDiProvincia.mp4",
+        mp3"rphjb_RagazzettaDiProvincia.mp3",
+        gif"rphjb_RagazzettaDiProvinciaGif.mp4"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "\\bprovincia\\b".r.tr(9),
+          "non sarebbe meglio",
+          "una delle (mie )?fans".r.tr(14),
+          "non (mi )?chiede una lira".r.tr(19),
+          "una (bella)?scopata".r.tr(11),
+          "marinaio",
+          "in ogni porto"
+        )(
+          vid"rphjb_RagazzettaDiProvincia.mp4",
+          mp3"rphjb_RagazzettaDiProvincia.mp3",
+          gif"rphjb_RagazzettaDiProvinciaGif.mp4"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "a modo loro",
+          "i ragazzi"
+        )(
+          vid"rphjb_RagazziAModoLoro.mp4",
+          mp3"rphjb_RagazziAModoLoro.mp3",
+          gif"rphjb_RagazziAModoLoroGif.mp4"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "rispondere",
+        "non si capisce"
+      )(
+        gif"rphjb_RispondereGif.mp4",
+        mp3"rphjb_Rispondere.mp3",
+        vid"rphjb_Rispondere.mp4"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "quanto m[ie] costi".r.tr(15)
+        )(
+          gif"rphjb_ChiCacciaISoldiGif.mp4",
+          vid"rphjb_ChiCacciaISoldi.mp4",
+          mp3"rphjb_ChiCacciaISoldi.mp3"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "dis[gc]apito".r.tr(9)
+      )(
+        gif"rphjb_DiscapitoGif.mp4",
+        vid"rphjb_Discapito.mp4",
+        mp3"rphjb_Discapito.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "[c']?ha [pure ]?ragione[ questo]?".r.tr(10),
+        "o no?"
+      )(
+        gif"rphjb_RagioneGif.mp4",
+        vid"rphjb_Ragione.mp4",
+        mp3"rphjb_Ragione.mp3"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "sei fatta vedere"
+        )(
+          vid"rphjb_TiSeiFattaVedere.mp4",
+          mp3"rphjb_TiSeiFattaVedere.mp3",
+          gif"rphjb_TiSeiFattaVedereGif.mp4"
+        )
     )
 }

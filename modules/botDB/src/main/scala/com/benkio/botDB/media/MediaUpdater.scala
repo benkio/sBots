@@ -89,6 +89,7 @@ object MediaUpdater {
       jsons <- filterMediaJsonFiles(allFiles)
       _     <- Resource.eval(LogWriter.info(s"[MediaUpdater]: Json file to be computed: $jsons"))
       input <- parseMediaJsonFiles(jsons)
+      _     <- Resource.eval(LogWriter.info(s"[MediaUpdater]: Media to be added: ${input.length}"))
       _     <- Resource.eval(input.traverse_(insertMedia(_)))
     } yield ()
   }

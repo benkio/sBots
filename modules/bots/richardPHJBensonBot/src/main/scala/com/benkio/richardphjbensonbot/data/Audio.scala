@@ -230,7 +230,6 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "cosa preferisci",
-      "ragazzetta",
       "carne bianca"
     )(
       mp3"rphjb_RagazzettaCarne.mp3"
