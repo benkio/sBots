@@ -395,7 +395,6 @@ object Gif:
       gif"ytai_NoScuseGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "caspita",
       "sono (grosso|sono (quasi )?enorme|una palla di lardo)".r.tr(11)
     )(
       gif"ytai_PallaDiLardoGif.mp4"

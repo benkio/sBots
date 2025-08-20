@@ -868,6 +868,37 @@ object Mix:
         "camicia"
       )(
         gif"ytai_LoopCamiciaGif.mp4"
-      )
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "fiatone",
+        "stanco",
+        "non potete (neanche )?immaginare".r.tr(21),
+        "le tensioni",
+        "le questioni",
+        "in sospeso"
+      )(
+        vid"ytai_FiatoneStanco.mp4",
+        mp3"ytai_FiatoneStanco.mp3",
+        gif"ytai_FiatoneStancoGif.mp4"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "farcita",
+        "abbondantemente",
+        "generosamente"
+      )(
+        vid"ytai_FarcitaAbbondantementeGenerosamente.mp4",
+        mp3"ytai_FarcitaAbbondantementeGenerosamente.mp3",
+        gif"ytai_FarcitaAbbondantementeGenerosamenteGif.mp4"
+      ),
+    ReplyBundleMessage.textToMedia[F](
+      "caspita"
+    )(
+      gif"ytai_PallaDiLardoGif.mp4",
+      vid"ytai_FarcitaAbbondantementeGenerosamente.mp4",
+      mp3"ytai_FarcitaAbbondantementeGenerosamente.mp3",
+      gif"ytai_FarcitaAbbondantementeGenerosamenteGif.mp4"
+    )
   )
 end Mix
