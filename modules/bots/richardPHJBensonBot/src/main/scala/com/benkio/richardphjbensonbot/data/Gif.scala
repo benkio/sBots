@@ -20,11 +20,6 @@ object Gif {
       gif"rphjb_PezziDiMerdaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "rispondere"
-    )(
-      gif"rphjb_RispondereGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "stato brado"
     )(
       gif"rphjb_StatoBradoGif.mp4"
@@ -85,12 +80,6 @@ object Gif {
       "mi dai fastidio"
     )(
       gif"rphjb_MiRompiErCazzoGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "[c']?ha [pure ]?ragione[ questo]?".r.tr(10),
-      "o no?"
-    )(
-      gif"rphjb_RagioneGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "mi diverti",
@@ -178,12 +167,6 @@ object Gif {
       gif"rphjb_BonaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "mio discapito",
-      "disgabido"
-    )(
-      gif"rphjb_DiscapitoGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "abbia mai sentito"
     )(
       gif"rphjb_SquallidaGif.mp4"
@@ -197,12 +180,6 @@ object Gif {
       "il senso"
     )(
       gif"rphjb_IlSensoCapitoGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "\\bester\\b".r.tr(5)
-    )(
-      gif"rphjb_EsterGif.mp4",
-      gif"rphjb_Ester2Gif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "abi(t|d)ua(t|d)o".r.tr(8),
