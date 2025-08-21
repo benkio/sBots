@@ -300,7 +300,8 @@ object Audio {
     ReplyBundleMessage.textToMp3[F](
       "(9|nove) mesi".r.tr(6),
       "voler (uscire|rientrare)".r.tr(12),
-      "una vita intera"
+      "una vita intera",
+      "ci avevo messo"
     )(
       mp3"rphjb_9MesiUscireRientrare.mp3"
     ),

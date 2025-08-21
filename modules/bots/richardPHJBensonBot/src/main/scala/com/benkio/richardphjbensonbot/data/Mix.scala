@@ -265,7 +265,18 @@ object Mix {
     )(
       gif"rphjb_FaccioVedereSpalleBracciaGif.mp4",
       vid"rphjb_FaccioVedereSpalleBraccia.mp4",
+      mp3"rphjb_FaccioVedereSpalleBraccia.mp3",
       vid"rphjb_UccidereUnaPersona.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "brutto stronzo",
+      "fatti avanti",
+      "hai tirato sta roba",
+      "vieni qua\\b".r.tr(9)
+    )(
+      gif"rphjb_FaccioVedereSpalleBracciaGif.mp4",
+      vid"rphjb_FaccioVedereSpalleBraccia.mp4",
+      mp3"rphjb_FaccioVedereSpalleBraccia.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "non sapere",

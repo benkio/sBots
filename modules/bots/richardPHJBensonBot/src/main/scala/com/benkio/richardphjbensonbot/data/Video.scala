@@ -357,7 +357,9 @@ object Video {
       vid"rphjb_RadioRockErrori.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "uccidere"
+      "uccidere",
+      "con due (dita|mani)".r.tr(12),
+      "lo soffoco"
     )(
       vid"rphjb_UccidereUnaPersona.mp4"
     ),
@@ -1565,6 +1567,7 @@ object Video {
       vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
+      "affidarmi",
       "lacci malefici",
       "spaghi",
       "corde",
