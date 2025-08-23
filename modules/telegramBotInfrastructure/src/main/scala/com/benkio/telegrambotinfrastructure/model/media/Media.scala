@@ -1,7 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
 import cats.syntax.all.*
-import cats.Show
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
@@ -38,28 +37,22 @@ object Media {
     createdAt = createdAt
   )
 
-  extension (media: Media) def getLink: Option[Uri] = media.mediaSources.collectFirst { case Right(uri) => uri }
-
-  given mediaShowInstance: Show[Media] =
-    Show.show(media =>
+  extension (media: Media)
+    def getLink: Option[Uri] = media.mediaSources.collectFirst { case Right(uri) => uri }
+    def toHtmlRow: String    =
       s"""| ${media.mediaCount.toString
-          .padTo(5, ' ')} | [${media.mediaName}](${media.getLink.map(_.toString).getOrElse("")})"""
-    )
+          .padTo(5, ' ')} | <a href="${media.getLink.map(_.toString).getOrElse("")}">${media.mediaName}</a> |"""
 
-  def mediaListToMarkdown(medias: List[Media]): String =
+  def mediaListToHTML(medias: List[Media]): String =
     if medias.length == 0 then {
       ""
     } else {
-      val contentShow = medias.map(_.show)
-      val contentMax  = contentShow.maxBy(_.length).length
-      val padding     = contentMax - 15
-      val content     = contentShow.map(_.padTo(contentMax, ' ') + " |")
-      println(s"[Media] test: ${content}")
-      s"""```
-| Count | File ${" " * padding} |
-| ----- | -----${"-" * padding} |
+      val content = medias.map(_.toHtmlRow)
+      s"""<pre>
+| Count | File                |
+|-------|---------------------|
 ${content.mkString("\n")}
-```"""
+</pre>"""
     }
 
 }

@@ -23,9 +23,11 @@ import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*
 import telegramium.bots.ChatId
 import telegramium.bots.ChatIntId
+import telegramium.bots.Html
 import telegramium.bots.IFile
 import telegramium.bots.Markdown2
 import telegramium.bots.Message
+import telegramium.bots.ParseMode
 import telegramium.bots.ReplyParameters
 
 trait TelegramReply[A] {
@@ -238,7 +240,12 @@ object TelegramReply:
         resourceAccess: ResourceAccess[F],
         replyToMessage: Boolean
     ): F[List[Message]] = {
-      val chatId: ChatId                               = ChatIntId(msg.chat.id)
+      val chatId: ChatId               = ChatIntId(msg.chat.id)
+      val parseMode: Option[ParseMode] = reply.textType match {
+        case Text.TextType.Plain    => None
+        case Text.TextType.Markdown => Markdown2.some
+        case Text.TextType.Html     => Html.some
+      }
       val result: EitherT[F, Throwable, List[Message]] =
         for {
           _       <- EitherT.liftF(LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}"))
@@ -249,7 +256,7 @@ object TelegramReply:
                 chatId = chatId,
                 text = reply.value,
                 replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId)),
-                parseMode = Markdown2.some
+                parseMode = parseMode
               )
               .exec
               .attemptT
