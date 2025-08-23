@@ -12,12 +12,17 @@ object ReplyValue:
   given Decoder[ReplyValue] = deriveDecoder[ReplyValue]
   given Encoder[ReplyValue] = deriveEncoder[ReplyValue]
 
-final case class Text(value: String) extends ReplyValue
+final case class Text(value: String, textType: Text.TextType = TextType.Plain) extends ReplyValue
 
 object Text:
+  enum TextType:
+    case Plain    extends TextType
+    case Html     extends TextType
+    case Markdown extends TextType
+
   given Show[Text]    = Show.show(_.value)
-  given Decoder[Text] = deriveDecoder[Text]
-  given Encoder[Text] = deriveEncoder[Text]
+  given Decoder[Text] = Decoder[String].map(Text(_))
+  given Encoder[Text] = Encoder[String].contramap(_.value)
 
 sealed trait MediaFile extends ReplyValue {
   def filepath: String

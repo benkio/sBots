@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import cats.effect.SyncIO
+import cats.effect.*
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.FunSuite
@@ -45,13 +45,16 @@ class ReplySpec extends FunSuite {
   }
 
   test("Reply JSON decode/encode should work as expected") {
+    // Test Code
+    // import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+    // val test: Reply[SyncIO] = TextReply[SyncIO](List(Text("testText")))
+    // println(s"[ReplySpec] test: ${test.asJson.toString}")
+
     val jsonInputs = List(
       """{
         |  "TextReply" : {
         |    "text" : [
-        |      {
-        |        "value" : "testText"
-        |      }
+        |      "testText"
         |    ],
         |    "replyToMessage" : false
         |  }

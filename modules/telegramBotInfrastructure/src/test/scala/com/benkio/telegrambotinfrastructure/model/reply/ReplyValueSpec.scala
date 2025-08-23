@@ -14,9 +14,7 @@ class ReplyValueSpec extends FunSuite {
   test("ReplyValue JSON decode/encode should work as expected") {
     val jsonInputs = List(
       """{
-        |  "Text" : {
-        |    "value" : "testText"
-        |  }
+        |  "Text" : "testText"
         |}""".stripMargin,
       """{
         |  "Mp3File" : {

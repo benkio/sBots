@@ -222,7 +222,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
         |  },
         |  "matcher" : "ContainsOnce",
         |  "replySelection" : "RandomSelection"
-        |}""".stripMargin.stripMargin
+        |}""".stripMargin
     )
 
     for inputString <- jsonInputs

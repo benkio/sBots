@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import munit.*
@@ -18,9 +17,9 @@ class MediaSpec extends FunSuite {
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
     )
-    assertEquals(input.show, """| 0     | [test_name](https://benkio.github.io)""")
+    assertEquals(input.toHtmlRow, """| 0     | <a href="https://benkio.github.io">test_name</a> |""")
   }
-  test("Media.mediaListToMarkdown should return the expected string") {
+  test("Media.mediaListToHTML should return the expected string") {
     val input: Media = Media(
       mediaName = "test_name",
       kinds = List.empty,
@@ -33,14 +32,14 @@ class MediaSpec extends FunSuite {
     val input3: Media          = input.copy(mediaName = "test name 3", mediaCount = 2)
     val inputList: List[Media] = List(input, input2, input3)
     assertEquals(
-      Media.mediaListToMarkdown(inputList),
-      """```
-| Count | File                                    |
-| ----- | --------------------------------------- |
-| 0     | [test_name](https://benkio.github.io)   |
-| 1     | [test name 2](https://benkio.github.io) |
-| 2     | [test name 3](https://benkio.github.io) |
-```"""
+      Media.mediaListToHTML(inputList),
+      """<pre>
+| Count | File                |
+|-------|---------------------|
+| 0     | <a href="https://benkio.github.io">test_name</a> |
+| 1     | <a href="https://benkio.github.io">test name 2</a> |
+| 2     | <a href="https://benkio.github.io">test name 3</a> |
+</pre>"""
     )
   }
 
