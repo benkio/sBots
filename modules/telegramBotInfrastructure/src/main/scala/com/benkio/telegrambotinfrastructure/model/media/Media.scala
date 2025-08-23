@@ -7,7 +7,6 @@ import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
 import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
 import io.circe.parser.decode
-import io.circe.syntax.EncoderOps
 import org.http4s.Uri
 
 import java.time.Instant
@@ -39,11 +38,28 @@ object Media {
     createdAt = createdAt
   )
 
+  extension (media: Media) def getLink: Option[Uri] = media.mediaSources.collectFirst { case Right(uri) => uri }
+
   given mediaShowInstance: Show[Media] =
     Show.show(media =>
-      s"${media.mediaCount.toString.padTo(4, ' ')} | ${media.mediaName} | ${media.mediaSources.asJson.noSpaces}"
+      s"""| ${media.mediaCount.toString
+          .padTo(5, ' ')} | [${media.mediaName}](${media.getLink.map(_.toString).getOrElse("")})"""
     )
 
-  def mediaListToString(medias: List[Media]): String =
-    medias.map(_.show).mkString("\n")
+  def mediaListToMarkdown(medias: List[Media]): String =
+    if medias.length == 0 then {
+      ""
+    } else {
+      val contentShow = medias.map(_.show)
+      val contentMax  = contentShow.maxBy(_.length).length
+      val padding     = contentMax - 15
+      val content     = contentShow.map(_.padTo(contentMax, ' ') + " |")
+      println(s"[Media] test: ${content}")
+      s"""```
+| Count | File ${" " * padding} |
+| ----- | -----${"-" * padding} |
+${content.mkString("\n")}
+```"""
+    }
+
 }
