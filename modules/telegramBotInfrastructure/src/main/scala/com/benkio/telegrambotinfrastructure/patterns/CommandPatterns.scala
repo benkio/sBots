@@ -487,7 +487,7 @@ ${ignoreMessagePrefix
       for {
         dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-      } yield Media.mediaListToString(medias)
+      } yield Media.mediaListToMarkdown(medias)
 
     private[patterns] def topTwentyReplyBundleCommand[F[_]: MonadThrow](
         botPrefix: String,

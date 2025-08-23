@@ -24,6 +24,7 @@ import telegramium.bots.high.implicits.*
 import telegramium.bots.ChatId
 import telegramium.bots.ChatIntId
 import telegramium.bots.IFile
+import telegramium.bots.Markdown2
 import telegramium.bots.Message
 import telegramium.bots.ReplyParameters
 
@@ -247,7 +248,8 @@ object TelegramReply:
               .sendMessage(
                 chatId = chatId,
                 text = reply.value,
-                replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId))
+                replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId)),
+                parseMode = Markdown2.some
               )
               .exec
               .attemptT
