@@ -1,29 +1,30 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
+import com.benkio.telegrambotinfrastructure.model.MessageType
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
 class MessageOpsSpec extends FunSuite {
 
-  test("MessageOps.isCommand should return true if the message is a command") {
+  test("MessageOps.messageType should return MessageType.Command if the message is a command") {
     val inputMessage: Message = Message(
       messageId = 0,
       date = 0,
       chat = Chat(id = 0, `type` = "test"),
       text = Some("/testCommand")
     )
-    assert(inputMessage.isCommand)
+    assert(inputMessage.messageType("botPrefix") == MessageType.Command)
   }
 
-  test("MessageOps.isCommand should return false if the message is not a command") {
+  test("MessageOps.messageType should return MessageType.Message if the message is not a command") {
     val inputMessage: Message = Message(
       messageId = 0,
       date = 0,
       chat = Chat(id = 0, `type` = "test"),
       text = Some("simple message")
     )
-    assert(!inputMessage.isCommand)
-    assert(!inputMessage.copy(text = None).isCommand)
+    assert(inputMessage.messageType("botPrefix") == MessageType.Message)
+    assert(inputMessage.copy(text = None).messageType("botPrefix") == MessageType.Message)
   }
 }

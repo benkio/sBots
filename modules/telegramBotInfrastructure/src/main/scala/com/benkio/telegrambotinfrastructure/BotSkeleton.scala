@@ -4,13 +4,14 @@ import cats.*
 import cats.data.OptionT
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.messagefiltering.isCommand
+import com.benkio.telegrambotinfrastructure.messagefiltering.messageType
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
@@ -156,10 +157,10 @@ trait BotSkeleton[F[_]: Async: LogWriter] {
       resourceAccess: ResourceAccess[F],
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    for {
-      messagesOpt <-
-        if !msg.isCommand then messageLogic(resourceAccess, msg)
-        else Async[F].pure[Option[List[Message]]](None)
-      commandsOpt <- commandLogic(resourceAccess, msg)
-    } yield SemigroupK[Option].combineK(messagesOpt, commandsOpt)
+    msg.messageType(botPrefix) match {
+      case MessageType.Message     => messageLogic(resourceAccess, msg)
+      case MessageType.Command     => commandLogic(resourceAccess, msg)
+      case MessageType.FileRequest =>
+        LogWriter.info(s"$botName: To be implemented") >> none.pure
+    }
 }
