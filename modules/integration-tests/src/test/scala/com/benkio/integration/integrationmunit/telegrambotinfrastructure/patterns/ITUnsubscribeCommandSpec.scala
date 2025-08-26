@@ -9,7 +9,7 @@ import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager.SubscriptionIdNotFound
 import cron4s.Cron
@@ -48,12 +48,12 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     val subscriptionIdNotFound = "04F08147-DCD7-4F15-9CF8-D7950CB2AD90"
     val result                 = for {
       dbLayer              <- fixture.resourceDBLayer
-      resourceAccess       <- fixture.resourceAccessResource
+      repository       <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )
@@ -83,12 +83,12 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbLayer              <- fixture.resourceDBLayer
-      resourceAccess       <- fixture.resourceAccessResource
+      repository       <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )
@@ -115,12 +115,12 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbLayer              <- fixture.resourceDBLayer
-      resourceAccess       <- fixture.resourceAccessResource
+      repository       <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )

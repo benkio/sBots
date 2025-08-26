@@ -5,13 +5,12 @@ import cats.effect.*
 import cats.syntax.all.*
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.SelectAll
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import io.circe.parser.decode
 import io.circe.syntax.*
@@ -30,7 +29,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
     override def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] =
       val _ = summon[LogWriter[F]]
@@ -62,8 +61,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
         trigger = TextTrigger(
           StringTextTriggerValue("test")
         ),
-        reply = reply,
-        replySelection = SelectAll
+        reply = reply
       )
 
     val replyBundleInput1: ReplyBundleMessage[IO] = input(MediaReply[IO](mediaFiles = inputMediafile.pure[IO]))
@@ -84,8 +82,8 @@ class ReplyBundleSpec extends CatsEffectSuite {
         replyBundle = input,
         message = message,
         filter = Applicative[IO].pure(true),
-        resourceAccess =
-          ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO])
+        repository =
+          RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO])
       )
 
     val result1: IO[List[Message]] =

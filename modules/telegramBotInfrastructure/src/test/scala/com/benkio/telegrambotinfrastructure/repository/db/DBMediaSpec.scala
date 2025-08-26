@@ -1,4 +1,4 @@
-package com.benkio.telegrambotinfrastructure.resources.db
+package com.benkio.telegrambotinfrastructure.repository.db
 
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.MimeType

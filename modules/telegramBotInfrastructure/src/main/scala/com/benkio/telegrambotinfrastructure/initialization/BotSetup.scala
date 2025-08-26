@@ -1,5 +1,7 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
+import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
@@ -7,8 +9,8 @@ import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.web.DropboxClient
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -22,7 +24,7 @@ import telegramium.bots.high.BotApi
 final case class BotSetup[F[_]](
     token: String,
     httpClient: Client[F],
-    resourceAccess: ResourceAccess[F],
+    repository: Repository[F],
     dbLayer: DBLayer[F],
     backgroundJobManager: BackgroundJobManager[F],
     api: Api[F],
@@ -49,17 +51,17 @@ object BotSetup {
 
   def token[F[_]: Async: LogWriter](
       tokenFilename: String,
-      resourceAccess: ResourceAccess[F]
+      repository: Repository[F]
   ): Resource[F, String] = {
     for
       _                   <- Resource.eval(LogWriter.info(s"[BotSetup:58:47] Retrieving Token $tokenFilename"))
-      tokenMediaResources <- resourceAccess.getResourceFile(Document(tokenFilename))
+      tokenMediaResources <- repository.getResourceFile(Document(tokenFilename))
       tokenFiles          <- tokenMediaResources.collect { case MediaResourceFile(rf) =>
         rf
       }.sequence
       tokenFileContent <-
         tokenFiles.headOption.fold(Resource.raiseError(Throwable(s"[BotSetup] Cannot find the token $tokenFilename")))(
-          f => ResourceAccess.fileToString(f)
+          f => Repository.fileToString(f)
         )
       _ <- Resource.eval(
         Async[F].raiseWhen(tokenFileContent.isEmpty)(
@@ -92,12 +94,12 @@ object BotSetup {
       botName: String,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(using log: LogWriter[F], telegramReply: TelegramReply[Text]): Resource[F, BotSetup[F]] = for {
-    tk            <- token[F](tokenFilename, ResourceAccess.fromResources[F]())
+    tk            <- token[F](tokenFilename, ResourcesRepository.fromResources[F]())
     config        <- Resource.eval(Config.loadConfig[F](namespace))
     _             <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
     dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
     dbLayer       <- loadDB[F](config.db)
-    resourceAccess = ResourceAccess.dbResources[F](dbLayer.dbMedia, dropboxClient)
+    repository = DBRepository.dbResources[F](dbLayer.dbMedia, dropboxClient)
     _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _                     <- Resource.eval(
@@ -118,7 +120,7 @@ object BotSetup {
         dbSubscription = dbLayer.dbSubscription,
         dbShow = dbLayer.dbShow,
         botName = botName,
-        resourceAccess = resourceAccess
+        repository = repository
       )(using Async[F], api, telegramReply, log)
     )
     path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
@@ -126,7 +128,7 @@ object BotSetup {
   } yield BotSetup(
     token = tk,
     httpClient = httpClient,
-    resourceAccess = resourceAccess,
+    repository = repository,
     dbLayer = dbLayer,
     backgroundJobManager = backgroundJobManager,
     api = api,

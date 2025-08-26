@@ -16,7 +16,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.reply.Sticker
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
 import telegramium.bots.client.Method
 import telegramium.bots.high.*
@@ -34,7 +34,7 @@ trait TelegramReply[A] {
   def reply[F[_]: Async: LogWriter: Api](
       reply: A,
       msg: Message,
-      resourceAccess: ResourceAccess[F],
+      repository: Repository[F],
       replyToMessage: Boolean
   ): F[List[Message]]
 }
@@ -42,7 +42,7 @@ trait TelegramReply[A] {
 object TelegramReply:
   def telegramFileReplyPattern[F[_]: Async: LogWriter: Api](
       msg: Message,
-      resourceAccess: ResourceAccess[F],
+      repository: Repository[F],
       chatAction: String,
       mediaFile: MediaFile,
       replyToMessage: Boolean,
@@ -60,7 +60,7 @@ object TelegramReply:
     val result: EitherT[F, Throwable, List[Message]] = for {
       _       <- Methods.sendChatAction(chatId, chatAction).exec.attemptT
       message <-
-        resourceAccess
+        repository
           .getResourceFile(mediaFile)
           .use[Message](mediaResources =>
             mediaResources.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
@@ -82,16 +82,16 @@ object TelegramReply:
     def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = reply match {
-      case mp3: Mp3File       => telegramMp3Reply.reply(mp3, msg, resourceAccess, replyToMessage)
-      case gif: GifFile       => telegramGifReply.reply(gif, msg, resourceAccess, replyToMessage)
-      case photo: PhotoFile   => telegramPhotoReply.reply(photo, msg, resourceAccess, replyToMessage)
-      case video: VideoFile   => telegramVideoReply.reply(video, msg, resourceAccess, replyToMessage)
-      case document: Document => telegramDocumentReply.reply(document, msg, resourceAccess, replyToMessage)
-      case sticker: Sticker   => telegramStickerReply.reply(sticker, msg, resourceAccess, replyToMessage)
-      case text: Text         => telegramTextReply.reply(text, msg, resourceAccess, replyToMessage)
+      case mp3: Mp3File       => telegramMp3Reply.reply(mp3, msg, repository, replyToMessage)
+      case gif: GifFile       => telegramGifReply.reply(gif, msg, repository, replyToMessage)
+      case photo: PhotoFile   => telegramPhotoReply.reply(photo, msg, repository, replyToMessage)
+      case video: VideoFile   => telegramVideoReply.reply(video, msg, repository, replyToMessage)
+      case document: Document => telegramDocumentReply.reply(document, msg, repository, replyToMessage)
+      case sticker: Sticker   => telegramStickerReply.reply(sticker, msg, repository, replyToMessage)
+      case text: Text         => telegramTextReply.reply(text, msg, repository, replyToMessage)
     }
   }
 
@@ -99,12 +99,12 @@ object TelegramReply:
     def reply[F[_]: Async: LogWriter: Api](
         reply: Mp3File,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
-        resourceAccess = resourceAccess,
+        repository = repository,
         "upload_voice",
         mediaFile = reply,
         replyToMessage = replyToMessage,
@@ -122,12 +122,12 @@ object TelegramReply:
     def reply[F[_]: Async: LogWriter: Api](
         reply: GifFile,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
-        resourceAccess = resourceAccess,
+        repository = repository,
         "upload_document",
         mediaFile = reply,
         replyToMessage = replyToMessage,
@@ -145,12 +145,12 @@ object TelegramReply:
     def reply[F[_]: Async: LogWriter: Api](
         reply: PhotoFile,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
-        resourceAccess = resourceAccess,
+        repository = repository,
         "upload_photo",
         mediaFile = reply,
         replyToMessage = replyToMessage,
@@ -168,12 +168,12 @@ object TelegramReply:
     def reply[F[_]: Async: LogWriter: Api](
         reply: VideoFile,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
-        resourceAccess = resourceAccess,
+        repository = repository,
         "upload_video",
         mediaFile = reply,
         replyToMessage = replyToMessage,
@@ -191,12 +191,12 @@ object TelegramReply:
     def reply[F[_]: Async: LogWriter: Api](
         reply: Document,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
-        resourceAccess = resourceAccess,
+        repository = repository,
         "upload_video",
         mediaFile = reply,
         replyToMessage = replyToMessage,
@@ -214,12 +214,12 @@ object TelegramReply:
     def reply[F[_]: Async: LogWriter: Api](
         reply: Sticker,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
-        resourceAccess = resourceAccess,
+        repository = repository,
         "upload_video",
         mediaFile = reply,
         replyToMessage = replyToMessage,
@@ -237,7 +237,7 @@ object TelegramReply:
     override def reply[F[_]: Async: LogWriter: Api](
         reply: Text,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = {
       val chatId: ChatId               = ChatIntId(msg.chat.id)

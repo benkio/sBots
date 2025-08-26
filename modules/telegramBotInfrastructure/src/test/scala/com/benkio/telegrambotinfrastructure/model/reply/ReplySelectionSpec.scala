@@ -1,11 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
 import cats.effect.*
-import com.benkio.telegrambotinfrastructure.model.RandomSelection
-import com.benkio.telegrambotinfrastructure.model.ReplySelection
-import com.benkio.telegrambotinfrastructure.model.SelectAll
-import io.circe.parser.decode
-import io.circe.syntax.*
+import com.benkio.telegrambotinfrastructure.messagefiltering.RandomSelection
+
+
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
@@ -22,9 +20,9 @@ class ReplySelectionSpec extends CatsEffectSuite {
   )
 
   test(
-    "RandomSelection logic should be a function returning a list of one element when a list of multiple element is provided"
+    "RandomSelection select should be a function returning a list of one element when a list of multiple element is provided"
   ) {
-    val result: IO[List[ReplyValue]] = RandomSelection.logic[IO](
+    val result: IO[List[ReplyValue]] = RandomSelection.select[IO](
       reply = MediaReply.fromList[IO](input),
       message = message
     )
@@ -41,30 +39,5 @@ class ReplySelectionSpec extends CatsEffectSuite {
         true
       )
     } yield ()
-  }
-  test("SelectAll logic should always return the same input") {
-    assertIO(
-      SelectAll.logic[IO](
-        reply = MediaReply.fromList[IO](input),
-        message = message
-      ),
-      input
-    )
-  }
-
-  test("ReplySelection JSON Decoder/Encoder should works as expected") {
-    val jsonInputs = List(
-      """"SelectAll"""",
-      """"RandomSelection"""".stripMargin
-    )
-
-    for inputString <- jsonInputs
-    yield {
-      val eitherMessageTrigger = decode[ReplySelection](inputString)
-      eitherMessageTrigger.fold(
-        e => fail("failed in parsing the input string as reply selection", e),
-        ms => assertEquals(ms.asJson.toString, inputString)
-      )
-    }
   }
 }

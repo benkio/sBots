@@ -1,5 +1,6 @@
-package com.benkio.telegrambotinfrastructure.resources
+package com.benkio.telegrambotinfrastructure.repository
 
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
@@ -21,15 +22,15 @@ class ResourcesAccessSpec extends CatsEffectSuite {
   val rootPath: Path = Paths.get("").toAbsolutePath()
   val random         = new Random()
 
-  test("ResourceAccess - buildPath should return the expected path when the filename is provided") {
-    val result = ResourceAccess.buildPath(testfile)
+  test("Repository - buildPath should return the expected path when the filename is provided") {
+    val result = Repository.buildPath(testfile)
     assertEquals(result, Paths.get(rootPath.toString, "src", "main", "resources", testfile))
   }
 
   test("toTempFile should create a temporary file with the expected content and name") {
     val (inputFileName, inputContent) = ("test.txt", random.nextBytes(100))
 
-    val obtainedResource = ResourceAccess.toTempFile[IO](inputFileName, inputContent)
+    val obtainedResource = Repository.toTempFile[IO](inputFileName, inputContent)
     obtainedResource.use(obtained =>
       IO {
         assert(obtained.getName().startsWith("test"))
@@ -39,24 +40,24 @@ class ResourcesAccessSpec extends CatsEffectSuite {
     )
   }
 
-  test("ResourceAccess Local should retrieve a mediafile from the resources correctly") {
-    val resourceAccess = ResourceAccess.fromResources[IO]()
+  test("ResourcesRepository Local should retrieve a mediafile from the resources correctly") {
+    val repository = ResourcesRepository.fromResources[IO]()
     /*
     Use the class of tihs test becouse the local resource access will
     search in the `getClass()` that's convenient when packing
     everything with `assembly`
      */
     val filename = "test.txt"
-    ResourceAccessSpec.testFilename(filename)(using resourceAccess).assert
+    RepositorySpec.testFilename(filename)(using repository).assert
   }
 }
 
-object ResourceAccessSpec {
+object RepositorySpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  def testFilename(filename: String)(using resourceAccess: ResourceAccess[IO]): IO[Boolean] =
-    resourceAccess
+  def testFilename(filename: String)(using repository: Repository[IO]): IO[Boolean] =
+    repository
       .getResourceFile(Document(filename))
       .use(_.exists {
         case MediaResourceFile(_)  => true

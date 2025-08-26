@@ -46,12 +46,12 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbLayer              <- fixture.resourceDBLayer
-      resourceAccess       <- fixture.resourceAccessResource
+      repository       <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )

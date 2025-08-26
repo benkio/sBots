@@ -34,12 +34,12 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
   val allMessageMediaFiles: Resource[IO, List[MediaFile]] =
     for
       dbLayer                   <- initialFixture.resourceDBLayer
-      resourceAccess            <- initialFixture.resourceAccessResource
+      repository            <- initialFixture.repositoryResource
       emptyBackgroundJobManager <- Resource.eval(
         BackgroundJobManager[IO](
           dbLayer.dbSubscription,
           dbLayer.dbShow,
-          resourceAccess,
+          repository,
           ""
         )
       )
@@ -72,8 +72,8 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
     // ignore to not run in CI, remove sometimes to check all the messages files
     test(s"${mf.filename} should return some data", SlowTest) { case FixtureParam(fixture) =>
       (for {
-        resourceAccess <- fixture.resourceAccessResource
-        mediaSources   <- resourceAccess.getResourceFile(mf)
+        repository <- fixture.repositoryResource
+        mediaSources   <- repository.getResourceFile(mf)
         file           <- mediaSources.traverse(_.getMediaResourceFile.getOrElse(fail("expect a file")))
       } yield assert(file.length > (5 * 1024))).use_
     }.pure[IO]

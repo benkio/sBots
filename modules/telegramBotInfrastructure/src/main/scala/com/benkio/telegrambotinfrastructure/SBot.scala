@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
@@ -14,8 +15,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
 import org.http4s.implicits.*
 import org.http4s.Uri
@@ -23,42 +24,26 @@ import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
-abstract class BotSkeletonPolling[F[_]: Parallel: Async: Api: LogWriter](resourceAccess: ResourceAccess[F])
+abstract class SBotPolling[F[_]: Parallel: Async: Api: LogWriter](repository: Repository[F])
     extends LongPollBot[F](summon[Api[F]])
-    with BotSkeleton[F] {
-  override def onMessage(msg: Message): F[Unit] = {
-    val x: OptionT[F, Unit] = for {
-      _ <- OptionT.liftF(LogWriter.trace(s"$botName: A message arrived: $msg"))
-      _ <- OptionT.liftF(LogWriter.info(s"$botName: A message arrived with content: ${msg.text}"))
-      _ <- OptionT(botLogic(resourceAccess, msg))
-      _ <- OptionT.liftF(postComputation(msg))
-    } yield ()
-    x.getOrElseF(LogWriter.debug(s"$botName: Input message produced no result: $msg"))
-  }
+    with SBot[F] {
+  override def onMessage(msg: Message): F[Unit] = onMessageLogic(repository ,msg)
 }
 
-abstract class BotSkeletonWebhook[F[_]: Async: Api: LogWriter](
+abstract class SBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None,
-    resourceAccess: ResourceAccess[F]
+    repository: Repository[F]
 ) extends WebhookBot[F](summon[Api[F]], uri.renderString, path.renderString, certificate = webhookCertificate)
-    with BotSkeleton[F] {
-  override def onMessage(msg: Message): F[Unit] = {
-    val x: OptionT[F, Unit] = for {
-      _ <- OptionT.liftF(summon[LogWriter[F]].trace(s"$botName: A message arrived: $msg"))
-      _ <- OptionT.liftF(summon[LogWriter[F]].info(s"$botName: A message arrived with content: ${msg.text}"))
-      _ <- OptionT(botLogic(resourceAccess, msg))
-      _ <- OptionT.liftF(postComputation(msg))
-    } yield ()
-    x.getOrElseF(summon[LogWriter[F]].debug(s"$botName: Input message produced no result: $msg"))
-  }
+    with SBot[F] {
+  override def onMessage(msg: Message): F[Unit] = onMessageLogic(repository, msg)
 }
 
-trait BotSkeleton[F[_]: Async: LogWriter] {
+trait SBot[F[_]: Async: LogWriter] {
 
   // Configuration values & functions /////////////////////////////////////////////////////
-  def resourceAccess: ResourceAccess[F]   = ResourceAccess.fromResources[F]()
+  def repository: Repository[F]   = ResourcesRepository.fromResources[F]()
   val ignoreMessagePrefix: Option[String] = Some("!")
   val disableForward: Boolean             = true
   val botName: String
@@ -95,15 +80,17 @@ trait BotSkeleton[F[_]: Async: LogWriter] {
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
   ): F[Option[ReplyBundleMessage[F]]] =
-    Async[F].map(messageRepliesDataF)(
-      _.mapFilter(messageReplyBundle =>
-        MessageMatches
-          .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
-          .filter(_ => FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg))
-      ).sortBy(_._1)(using Trigger.orderingInstance.reverse)
-        .headOption
-        .map(_._2)
-    )
+    if FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg)
+    then
+      Async[F].map(messageRepliesDataF)(
+        _.mapFilter(messageReplyBundle =>
+          MessageMatches
+            .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
+        ).sortBy(_._1)(using Trigger.orderingInstance.reverse)
+          .headOption
+          .map(_._2)
+      )
+    else none.pure
 
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
@@ -120,7 +107,7 @@ trait BotSkeleton[F[_]: Async: LogWriter] {
     yield result
 
   def messageLogic(
-      resourceAccess: ResourceAccess[F],
+      repository: Repository[F],
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
     Async[F].flatMap(selectReplyBundle(msg))(
@@ -132,13 +119,13 @@ trait BotSkeleton[F[_]: Async: LogWriter] {
               replyBundle,
               msg,
               filteringMatchesMessages(replyBundle, msg),
-              resourceAccess
+              repository
             )
       )
     )
 
   def commandLogic(
-      resourceAccess: ResourceAccess[F],
+      repository: Repository[F],
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
     selectCommandReplyBundle(msg).flatMap(
@@ -148,24 +135,36 @@ trait BotSkeleton[F[_]: Async: LogWriter] {
             commandReply,
             msg,
             Async[F].pure(true),
-            resourceAccess
+            repository
           )
       )
     )
 
-  def fileRequestLogic(
-    resourceAccess: ResourceAccess[F],
-    msg: Message
-  )(using api: Api[F]): F[Option[List[Message]]] = none.pure
+  private def fileRequestLogic(
+    //repository: Repository[F],
+    // msg: Message
+  )// (using api: Api[F])
+  : F[Option[List[Message]]] = none.pure
 
-  def botLogic(
-      resourceAccess: ResourceAccess[F],
+  private def botLogic(
+      repository: Repository[F],
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
     msg.messageType(botPrefix) match {
-      case MessageType.Message     => messageLogic(resourceAccess, msg)
-      case MessageType.Command     => commandLogic(resourceAccess, msg)
+      case MessageType.Message     => messageLogic(repository, msg)
+      case MessageType.Command     => commandLogic(repository, msg)
       case MessageType.FileRequest =>
-        LogWriter.info(s"$botName: To be implemented") >> fileRequestLogic(resourceAccess, msg)
+        LogWriter.info(s"$botName: To be implemented") >> fileRequestLogic(// repository, msg
+        )
     }
+
+  def onMessageLogic(repository: Repository[F], msg: Message)(using api: Api[F]): F[Unit] = {
+    val x: OptionT[F, Unit] = for {
+      _ <- OptionT.liftF(LogWriter.trace(s"$botName: A message arrived: $msg"))
+      _ <- OptionT.liftF(LogWriter.info(s"$botName: A message arrived with content: ${msg.text}"))
+      _ <- OptionT(botLogic(repository, msg))
+      _ <- OptionT.liftF(postComputation(msg))
+    } yield ()
+    x.getOrElseF(LogWriter.debug(s"$botName: Input message produced no result: $msg"))
+  }
 }

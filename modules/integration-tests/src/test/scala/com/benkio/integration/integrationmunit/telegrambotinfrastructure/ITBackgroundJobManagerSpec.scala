@@ -8,7 +8,7 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SubscriptionKey
 import cron4s.*
@@ -43,12 +43,12 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     val test = for {
       dbLayer <- fixture.resourceDBLayer
 
-      resourceAccess       <- fixture.resourceAccessResource
+      repository       <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )
@@ -61,13 +61,13 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val test = for {
       dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+      repository <- fixture.repositoryResource
       _              <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )
@@ -98,12 +98,12 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val test = for {
       dbLayer              <- fixture.resourceDBLayer
-      resourceAccess       <- fixture.resourceAccessResource
+      repository       <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )
@@ -136,12 +136,12 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val resultStreamResources: Resource[cats.effect.IO, (Stream[IO, Instant], SignallingRef[IO, Boolean])] = for {
       dbLayer              <- fixture.resourceDBLayer
-      resourceAccess       <- fixture.resourceAccessResource
+      repository       <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )
@@ -167,12 +167,12 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbLayer              <- fixture.resourceDBLayer
-      resourceAccess       <- fixture.resourceAccessResource
+      repository       <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )
@@ -198,12 +198,12 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val resultStreamResources: Resource[cats.effect.IO, Stream[IO, (Instant, Instant)]] = for {
       dbLayer              <- fixture.resourceDBLayer
-      resourceAccess       <- fixture.resourceAccessResource
+      repository       <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )

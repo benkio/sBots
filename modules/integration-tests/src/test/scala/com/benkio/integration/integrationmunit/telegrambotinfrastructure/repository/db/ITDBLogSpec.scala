@@ -1,4 +1,4 @@
-package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
+package com.benkio.integration.integrationmunit.telegrambotinfrastructure.repository.db
 
 import cats.effect.IO
 import cats.effect.Resource

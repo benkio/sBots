@@ -4,16 +4,15 @@ import cats.*
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.MessageTrigger
-import com.benkio.telegrambotinfrastructure.model.RandomSelection
+import com.benkio.telegrambotinfrastructure.messagefiltering.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.ReplySelection
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import io.circe.*
 import io.circe.generic.semiauto.*
@@ -25,15 +24,12 @@ sealed trait ReplyBundle[F[_]] {
 
   def trigger: Trigger
   def reply: Reply[F]
-  def replySelection: ReplySelection
 }
 
 final case class ReplyBundleMessage[F[_]](
     trigger: MessageTrigger,
     reply: Reply[F],
-    matcher: MessageMatches,
-    replySelection: ReplySelection
-) extends ReplyBundle[F]
+    matcher: MessageMatches) extends ReplyBundle[F]
 
 object ReplyBundleMessage {
 
@@ -45,13 +41,11 @@ object ReplyBundleMessage {
   def apply[F[_]](
       trigger: MessageTrigger,
       reply: Reply[F],
-      matcher: MessageMatches = MessageMatches.ContainsOnce,
-      replySelection: ReplySelection = RandomSelection
+      matcher: MessageMatches = MessageMatches.ContainsOnce
   ): ReplyBundleMessage[F] = new ReplyBundleMessage[F](
     trigger = trigger,
     reply = reply,
-    matcher = matcher,
-    replySelection = replySelection
+    matcher = matcher
   )
 
   def textToMedia[F[_]: Applicative](
@@ -99,24 +93,21 @@ object ReplyBundleMessage {
 final case class ReplyBundleCommand[F[_]](
     trigger: CommandTrigger,
     reply: Reply[F],
-    replySelection: ReplySelection,
-    instruction: CommandInstructionSupportedLanguages
+    instruction: CommandInstructionData
 ) extends ReplyBundle[F]
 
 object ReplyBundleCommand {
   def apply[F[_]](
       trigger: CommandTrigger,
       reply: Reply[F],
-      instruction: CommandInstructionSupportedLanguages,
-      replySelection: ReplySelection = RandomSelection
+      instruction: CommandInstructionData
   ): ReplyBundleCommand[F] = new ReplyBundleCommand[F](
     trigger = trigger,
     reply = reply,
-    replySelection = replySelection,
     instruction = instruction
   )
 
-  def textToMedia[F[_]: Applicative](trigger: String, instruction: CommandInstructionSupportedLanguages)(
+  def textToMedia[F[_]: Applicative](trigger: String, instruction: CommandInstructionData)(
       mediaFiles: MediaFile*
   ): ReplyBundleCommand[F] =
     ReplyBundleCommand[F](
@@ -162,18 +153,18 @@ object ReplyBundle {
       replyBundle: ReplyBundle[F],
       message: Message,
       filter: F[Boolean],
-      resourceAccess: ResourceAccess[F]
+      repository: Repository[F]
   )(using telegramReply: TelegramReply[ReplyValue]): F[List[Message]] = for {
     dataToReply <- Async[F].ifM(filter)(
       ifTrue = Async[F].pure(replyBundle.reply),
       ifFalse = Async[F].raiseError(new Exception(s"No replies for the given message: $message"))
     )
-    replies <- replyBundle.replySelection.logic(dataToReply, message)
+    replies <- RandomSelection.select(dataToReply, message)
     result  <- replies.traverse[F, List[Message]](reply =>
       telegramReply.reply[F](
         reply = reply,
         msg = message,
-        resourceAccess = resourceAccess,
+        repository = repository,
         replyToMessage = replyBundle.reply.replyToMessage
       )
     )

@@ -50,8 +50,7 @@ trait BaseBotSpec extends CatsEffectSuite:
         _ <- assert(
           urls.forall(_.query.exists { case (key, optValue) => key == "dl" && optValue.fold(false)(_ == "1") })
         ).pure[IO]
-        _ <- // TODO: fix this once online
-          mediaFileSources
+        _ <- mediaFileSources
             .foreach(mfs =>
               mfs.sources.foreach {
                 case Right(uri) =>

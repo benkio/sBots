@@ -5,14 +5,14 @@ import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.Repository
 
-class ResourceAccessMock(
+class RepositoryMock(
     getResourceByKindHandler: String => IO[NonEmptyList[NonEmptyList[MediaResource[IO]]]] = _ =>
-      IO.raiseError(Throwable("[ResourceAccessMock] getResourceByKindHandler call unexpected")),
+      IO.raiseError(Throwable("[RepositoryMock] getResourceByKindHandler call unexpected")),
     getResourceFileHandler: MediaFile => IO[NonEmptyList[MediaResource[IO]]] = _ =>
-      IO.raiseError(Throwable("[ResourceAccessMock] getResourceByteArray call unexpected"))
-) extends ResourceAccess[IO] {
+      IO.raiseError(Throwable("[RepositoryMock] getResourceByteArray call unexpected"))
+) extends Repository[IO] {
 
   override def getResourceFile(mediaFile: MediaFile): Resource[IO, NonEmptyList[MediaResource[IO]]] =
     Resource.eval(getResourceFileHandler(mediaFile))

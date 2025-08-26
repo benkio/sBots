@@ -1,10 +1,10 @@
-package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
+package com.benkio.integration.integrationmunit.telegrambotinfrastructure.repository.db
 
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
+import com.benkio.telegrambotinfrastructure.repository.db.DBTimeout
+import com.benkio.telegrambotinfrastructure.repository.db.DBTimeoutData
 import doobie.munit.analysisspec.IOChecker
 import doobie.Transactor
 import munit.CatsEffectSuite

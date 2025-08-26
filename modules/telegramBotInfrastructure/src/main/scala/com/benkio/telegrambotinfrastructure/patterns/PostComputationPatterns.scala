@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
+import com.benkio.telegrambotinfrastructure.repository.db.DBTimeout
 import telegramium.bots.Message
 
 object PostComputationPatterns {

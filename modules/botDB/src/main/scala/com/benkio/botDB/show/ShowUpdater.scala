@@ -7,8 +7,8 @@ import cats.implicits.*
 import cats.Semigroup
 import com.benkio.botDB.config.Config
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import com.google.api.services.youtube.model.Video
 import io.circe.*
 import io.circe.parser.*

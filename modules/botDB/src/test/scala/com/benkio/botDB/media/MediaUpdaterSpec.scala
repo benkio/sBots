@@ -7,13 +7,13 @@ import cats.syntax.all.*
 import com.benkio.botDB.media.MediaUpdater.MediaUpdaterImpl
 import com.benkio.botDB.TestData.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.MimeType
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
+import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -27,7 +27,7 @@ class MediaUpdaterSpec extends CatsEffectSuite {
   given log: LogWriter[IO]             = consoleLogUpToLevel(LogLevels.Info)
   val mediaEntities: List[DBMediaData] = List(google, amazon, facebook)
 
-  val resourceAccessMock = new ResourceAccessMock(location =>
+  val repositoryMock = new RepositoryMock(location =>
     NonEmptyList
       .one(
         NonEmptyList.fromListUnsafe(
@@ -45,7 +45,7 @@ class MediaUpdaterSpec extends CatsEffectSuite {
   val mediaUpdater: MediaUpdaterImpl[IO] = MediaUpdaterImpl[IO](
     config = config,
     dbLayer = dbLayerMock,
-    resourceAccess = resourceAccessMock
+    repository = repositoryMock
   )
 
   test("MediaUpdater.fetchRootBotFiles should return the expected root files") {

@@ -1,0 +1,65 @@
+* Infrastructure
+
+Containing all the common code regarding the bots.
+The idea is to store here the logic and model of the computation and leave to the single bots only the configurations/values/code that's bot specific.
+
+** Main Logic
+***  Design
+
+#+begin_src mermaid
+  flowchart TD
+      A@{ shape: lean-l, label: "Input Message" } --> B[SBot]
+      B -- onMessage --> C{Message Type}
+
+      C -->|isCommand| D[Search Command]
+      D -.->|Command| G[Execute Command]
+      G -->|Reply| Z@{ shape: framed-circle, label: "Stop" }
+
+      C -->|isFileRequest| F[Search File]
+      F -.->|File| H[Fetch File]
+      H -->|Reply| Z@{ shape: framed-circle, label: "Stop" }
+
+      C -->|Message| P[Filter Timeout-Forward]
+      P -.->|Message| E[Search Trigger]
+      E -.->|Possible Replies| I[Select Random File]
+      I -->|Fetch File| M[Post Computation]
+      M -->|Reply| Z@{ shape: framed-circle, label: "Stop" }
+#+end_src
+
+*** Logic Description
+
+All starts and ends with the *SBot* trait.
+It has specific modes: *SBotPolling* & *SBotWebhook*. (Mainly because of the [[https://github.com/apimorphism/telegramium][Telegramium]] dependency)
+
+There are different logic based on the type of message:
+- Commands :: Messages that starts with `/`
+- FileRequest :: Messages that starts with the bot prefix
+- Message :: normal logic
+
+**** Command Logic
+
+**** Message Logic
+
+**** FileRequest Logic
+
+** Bot Initialization
+
+Contains the code for initializing the bots in a standard way.
+In particular:
+- Common configuration
+- DB Loading
+- Token Fetching
+- Webhook management (deletion)
+- Dropbox Client
+- Bot API Object
+- Background Manager
+
+** Data Entry
+
+Here you have the logic for semi automatically add data to the bot by a list of dropbox links.
+It will:
+- Parse the json containing the data links
+- Amend the Dropbox link query parameter (you need dl=1 to automatically download the data properly)
+- Add the new data to the json file
+- Group similar data by name together
+- Generate pseudo scala code

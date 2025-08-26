@@ -1,10 +1,10 @@
-package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
+package com.benkio.integration.integrationmunit.telegrambotinfrastructure.repository.db
 
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscription
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import doobie.munit.analysisspec.IOChecker
 import doobie.Transactor
 import munit.CatsEffectSuite

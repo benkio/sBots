@@ -6,7 +6,7 @@ import com.benkio.botDB.config.Config
 import com.benkio.botDB.show.YouTubeBotDBShowDatas
 import com.benkio.botDB.show.YouTubeBotIds
 import com.benkio.botDB.show.YouTubeService
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
+import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter

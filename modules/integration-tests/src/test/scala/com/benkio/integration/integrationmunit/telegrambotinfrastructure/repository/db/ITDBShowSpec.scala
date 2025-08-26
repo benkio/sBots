@@ -1,12 +1,12 @@
-package com.benkio.integration.integrationmunit.telegrambotinfrastructure.resources.db
+package com.benkio.integration.integrationmunit.telegrambotinfrastructure.repository.db
 
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
+import com.benkio.telegrambotinfrastructure.repository.db.DBShow
+import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import doobie.munit.analysisspec.IOChecker
 import doobie.Transactor
 import io.circe.parser.decode

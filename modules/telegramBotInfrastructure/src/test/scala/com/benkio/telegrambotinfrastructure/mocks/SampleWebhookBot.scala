@@ -11,13 +11,13 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.tr
-import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import com.benkio.telegrambotinfrastructure.SBotWebhook
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -28,15 +28,15 @@ import telegramium.bots.Message
 
 class SampleWebhookBot(
     uri: Uri,
-    resourceAccessInput: ResourceAccess[IO],
+    repositoryInput: Repository[IO],
     val dbLayer: DBLayer[IO],
     val backgroundJobManager: BackgroundJobManager[IO],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
 )(using logWriterIO: LogWriter[IO])
-    extends BotSkeletonWebhook[IO](uri, path, webhookCertificate, resourceAccessInput) {
-  override def resourceAccess: ResourceAccess[IO] =
-    resourceAccessInput
+    extends SBotWebhook[IO](uri, path, webhookCertificate, repositoryInput) {
+  override def repository: Repository[IO] =
+    repositoryInput
   override def postComputation: Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages: (ReplyBundleMessage[IO], Message) => IO[Boolean] =
@@ -103,7 +103,7 @@ class SampleWebhookBot(
         reply = TextReply.fromList[IO](
           "test command reply"
         )(false),
-        instruction = CommandInstructionSupportedLanguages.NoInstructions
+        instruction = CommandInstructionData.NoInstructions
       )
     ).pure[IO]
 }
@@ -113,18 +113,18 @@ object SampleWebhookBot {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def apply(): IO[SampleWebhookBot] = {
-    val resourceAccessMock         = new ResourceAccessMock()
+    val repositoryMock         = new RepositoryMock()
     val dbLayerMock                = DBLayerMock.mock("SampleWebhookBot")
     val ioBackgroundJobManagerMock = BackgroundJobManager(
       dbSubscription = dbLayerMock.dbSubscription,
       dbShow = dbLayerMock.dbShow,
-      resourceAccess = resourceAccessMock,
+      repository = repositoryMock,
       botName = "SampleWebhookBot"
     )
     ioBackgroundJobManagerMock.map(backgroundJobManagerMock =>
       new SampleWebhookBot(
         uri = uri"https://localhost",
-        resourceAccessInput = resourceAccessMock,
+        repositoryInput = repositoryMock,
         dbLayer = dbLayerMock,
         backgroundJobManager = backgroundJobManagerMock
       )

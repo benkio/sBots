@@ -23,13 +23,13 @@ import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
 import com.benkio.telegrambotinfrastructure.model.toEng
 import com.benkio.telegrambotinfrastructure.model.toIta
 import com.benkio.telegrambotinfrastructure.model.ChatId
-import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.model.Trigger
-import com.benkio.telegrambotinfrastructure.resources.db.*
+import com.benkio.telegrambotinfrastructure.repository.db.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SubscriptionKey
 import cron4s.lib.javatime.*
@@ -62,7 +62,7 @@ object CommandPatterns {
         dbMedia: DBMedia[F],
         commandName: String,
         kind: Option[String],
-        instruction: CommandInstructionSupportedLanguages
+        instruction: CommandInstructionData
     )(using log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger(commandName),
@@ -97,7 +97,7 @@ object CommandPatterns {
         reply = MediaReply[F](
           mediaFiles = randomCommandLogic(dbMedia, botPrefix).map(List(_))
         ),
-        instruction = CommandInstructionSupportedLanguages.Instructions(
+        instruction = CommandInstructionData.Instructions(
           ita = randomDataCommandIta,
           eng = randomDataCommandEng
         )
@@ -158,7 +158,7 @@ Input as query string:
             ),
           true
         ),
-        instruction = CommandInstructionSupportedLanguages.Instructions(
+        instruction = CommandInstructionData.Instructions(
           ita = searchShowCommandIta,
           eng = searchShowCommandEng
         )
@@ -200,7 +200,7 @@ Input as query string:
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
         reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true),
-        instruction = CommandInstructionSupportedLanguages.Instructions(
+        instruction = CommandInstructionData.Instructions(
           ita = triggerListCommandDescriptionIta,
           eng = triggerListCommandDescriptionEng
         )
@@ -227,7 +227,7 @@ Input as query string:
         then List(s"No matching trigger for $t").pure[F]
         else matches.traverse { case (_, rbm) => rbm.prettyPrint() }
 
-    // TODO: Return the closest match on failure
+    // TODO: #782 Return the closest match on failure
     private[patterns] def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](
         botName: String,
         ignoreMessagePrefix: Option[String],
@@ -244,7 +244,7 @@ Input as query string:
             """Input Required: Insert the test keyword to check if it's in some bot trigger"""
           )
         ),
-        instruction = CommandInstructionSupportedLanguages.Instructions(
+        instruction = CommandInstructionData.Instructions(
           ita = triggerSearchCommandDescriptionIta,
           eng = triggerSearchCommandDescriptionEng
         )
@@ -343,7 +343,7 @@ ${ignoreMessagePrefix
             true
           )
         ),
-        instruction = CommandInstructionSupportedLanguages.NoInstructions
+        instruction = CommandInstructionData.NoInstructions
       )
   }
 
@@ -395,7 +395,7 @@ ${ignoreMessagePrefix
             ),
           true
         ),
-        instruction = CommandInstructionSupportedLanguages.Instructions(
+        instruction = CommandInstructionData.Instructions(
           ita = subscribeCommandDescriptionIta,
           eng = subscribeCommandDescriptionEng
         )
@@ -436,7 +436,7 @@ ${ignoreMessagePrefix
             ),
           true
         ),
-        instruction = CommandInstructionSupportedLanguages.Instructions(
+        instruction = CommandInstructionData.Instructions(
           ita = unsubscribeCommandDescriptionIta,
           eng = unsubscribeCommandDescriptionEng
         )
@@ -469,7 +469,7 @@ ${ignoreMessagePrefix
           m => subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botName, m).map(List(_).toText),
           true
         ),
-        instruction = CommandInstructionSupportedLanguages.Instructions(
+        instruction = CommandInstructionData.Instructions(
           ita = subscriptionsCommandDescriptionIta,
           eng = subscriptionsCommandDescriptionEng
         )
@@ -499,7 +499,7 @@ ${ignoreMessagePrefix
           _ => topTwentyCommandLogic(botPrefix, dbMedia).map(List(_).map(Text(_, textType = Text.TextType.Html))),
           true
         ),
-        instruction = CommandInstructionSupportedLanguages.Instructions(
+        instruction = CommandInstructionData.Instructions(
           ita = topTwentyTriggersCommandDescriptionIta,
           eng = topTwentyTriggersCommandDescriptionEng
         )
@@ -553,7 +553,7 @@ ${ignoreMessagePrefix
             ),
           true
         ),
-        instruction = CommandInstructionSupportedLanguages.Instructions(
+        instruction = CommandInstructionData.Instructions(
           ita = timeoutCommandDescriptionIta,
           eng = timeoutCommandDescriptionEng
         )

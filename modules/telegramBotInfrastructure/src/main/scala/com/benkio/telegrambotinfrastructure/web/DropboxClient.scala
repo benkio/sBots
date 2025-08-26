@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.web
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import io.chrisdavenport.mules.*
 import io.chrisdavenport.mules.http4s.*
 import log.effect.LogWriter
@@ -53,7 +53,7 @@ object DropboxClient {
                 _       <- Resource
                   .eval(LogWriter.info(s"[DropboxClient] received ${content.length} bytes for $filename"))
                 _      <- Resource.eval(Async[F].raiseWhen(content.isEmpty)(UnexpectedDropboxResponse[F](response)))
-                result <- ResourceAccess.toTempFile(filename, content.toArray)
+                result <- Repository.toTempFile(filename, content.toArray)
               } yield result
           }
 

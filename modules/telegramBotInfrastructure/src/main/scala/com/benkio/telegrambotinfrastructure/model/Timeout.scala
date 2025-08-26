@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
+import com.benkio.telegrambotinfrastructure.repository.db.DBTimeoutData
 
 import java.time.Instant
 import scala.concurrent.duration.*
