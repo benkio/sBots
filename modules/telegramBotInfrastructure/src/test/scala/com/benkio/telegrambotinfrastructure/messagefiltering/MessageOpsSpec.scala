@@ -27,4 +27,16 @@ class MessageOpsSpec extends FunSuite {
     assert(inputMessage.messageType("botPrefix") == MessageType.Message)
     assert(inputMessage.copy(text = None).messageType("botPrefix") == MessageType.Message)
   }
+
+  test(
+    "MessageOps.messageType should return MessageType.FileRequest if the start of the message matches the input telegram bot prefix"
+  ) {
+    val inputMessage: Message = Message(
+      messageId = 0,
+      date = 0,
+      chat = Chat(id = 0, `type` = "test"),
+      text = Some("rphjb_Schifosi.mp4")
+    )
+    assert(inputMessage.messageType("rphjb_") == MessageType.FileRequest)
+  }
 }

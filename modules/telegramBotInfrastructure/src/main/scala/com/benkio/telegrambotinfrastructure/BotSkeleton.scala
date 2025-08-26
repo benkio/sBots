@@ -153,6 +153,11 @@ trait BotSkeleton[F[_]: Async: LogWriter] {
       )
     )
 
+  def fileRequestLogic(
+    resourceAccess: ResourceAccess[F],
+    msg: Message
+  )(using api: Api[F]): F[Option[List[Message]]] = none.pure
+
   def botLogic(
       resourceAccess: ResourceAccess[F],
       msg: Message
@@ -161,6 +166,6 @@ trait BotSkeleton[F[_]: Async: LogWriter] {
       case MessageType.Message     => messageLogic(resourceAccess, msg)
       case MessageType.Command     => commandLogic(resourceAccess, msg)
       case MessageType.FileRequest =>
-        LogWriter.info(s"$botName: To be implemented") >> none.pure
+        LogWriter.info(s"$botName: To be implemented") >> fileRequestLogic(resourceAccess, msg)
     }
 }
