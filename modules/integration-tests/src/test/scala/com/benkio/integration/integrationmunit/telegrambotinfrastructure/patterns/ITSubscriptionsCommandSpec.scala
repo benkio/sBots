@@ -62,7 +62,7 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
     "Subscriptions Command should return all the subscription by bot and chat"
   ) { fixture =>
     val resourceAssert = for {
-      dbLayer        <- fixture.resourceDBLayer
+      dbLayer    <- fixture.resourceDBLayer
       repository <- fixture.repositoryResource
       dbSubscription = dbLayer.dbSubscription
       _ <- Resource.eval(

@@ -113,7 +113,7 @@ object SampleWebhookBot {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def apply(): IO[SampleWebhookBot] = {
-    val repositoryMock         = new RepositoryMock()
+    val repositoryMock             = new RepositoryMock()
     val dbLayerMock                = DBLayerMock.mock("SampleWebhookBot")
     val ioBackgroundJobManagerMock = BackgroundJobManager(
       dbSubscription = dbLayerMock.dbSubscription,

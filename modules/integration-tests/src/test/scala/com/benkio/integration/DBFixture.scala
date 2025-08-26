@@ -4,6 +4,7 @@ import annotation.unused
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.web.DropboxClient
 import doobie.Transactor
@@ -53,8 +54,8 @@ object DBFixture {
     val conn = DriverManager.getConnection(DBFixture.dbUrl)
 
     runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
-    val transactor                                               = Transactor.fromConnection[IO](conn, None)
-    val dbLayerResource: Resource[IO, DBLayer[IO]]               = Resource.eval(DBLayer[IO](transactor))
+    val transactor                                       = Transactor.fromConnection[IO](conn, None)
+    val dbLayerResource: Resource[IO, DBLayer[IO]]       = Resource.eval(DBLayer[IO](transactor))
     val repositoryResource: Resource[IO, Repository[IO]] = dbLayerResource.flatMap(dbLayer =>
       for {
         _          <- Resource.eval(log.debug(s"DbUrl: $dbUrl ||| migrations path: $migrationPath"))
@@ -63,7 +64,7 @@ object DBFixture {
           .withMaxResponseHeaderSize(8192)
           .build
         dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
-      } yield Repository.dbResources[IO](
+      } yield DBRepository.dbResources[IO](
         dbMedia = dbLayer.dbMedia,
         dropboxClient = dropboxClient
       )

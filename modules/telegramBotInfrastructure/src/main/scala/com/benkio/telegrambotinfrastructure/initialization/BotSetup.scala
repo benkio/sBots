@@ -1,7 +1,5 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
@@ -10,6 +8,8 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.web.DropboxClient

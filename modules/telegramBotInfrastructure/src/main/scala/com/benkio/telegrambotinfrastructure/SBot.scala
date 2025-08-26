@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
@@ -9,7 +8,6 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.messageType
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.MessageType
@@ -17,6 +15,7 @@ import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import log.effect.LogWriter
 import org.http4s.implicits.*
 import org.http4s.Uri
@@ -27,7 +26,7 @@ import telegramium.bots.Message
 abstract class SBotPolling[F[_]: Parallel: Async: Api: LogWriter](repository: Repository[F])
     extends LongPollBot[F](summon[Api[F]])
     with SBot[F] {
-  override def onMessage(msg: Message): F[Unit] = onMessageLogic(repository ,msg)
+  override def onMessage(msg: Message): F[Unit] = onMessageLogic(repository, msg)
 }
 
 abstract class SBotWebhook[F[_]: Async: Api: LogWriter](
@@ -43,7 +42,7 @@ abstract class SBotWebhook[F[_]: Async: Api: LogWriter](
 trait SBot[F[_]: Async: LogWriter] {
 
   // Configuration values & functions /////////////////////////////////////////////////////
-  def repository: Repository[F]   = ResourcesRepository.fromResources[F]()
+  def repository: Repository[F]           = ResourcesRepository.fromResources[F]()
   val ignoreMessagePrefix: Option[String] = Some("!")
   val disableForward: Boolean             = true
   val botName: String
@@ -114,8 +113,8 @@ trait SBot[F[_]: Async: LogWriter] {
       _.traverse(replyBundle =>
         LogWriter
           .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ") *>
-          ReplyBundle
-            .computeReplyBundle[F](
+          ComputeReply
+            .execute[F](
               replyBundle,
               msg,
               filteringMatchesMessages(replyBundle, msg),
@@ -131,7 +130,7 @@ trait SBot[F[_]: Async: LogWriter] {
     selectCommandReplyBundle(msg).flatMap(
       _.traverse(commandReply =>
         LogWriter.info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>
-          ReplyBundle.computeReplyBundle[F](
+          ComputeReply.execute[F](
             commandReply,
             msg,
             Async[F].pure(true),
@@ -140,11 +139,12 @@ trait SBot[F[_]: Async: LogWriter] {
       )
     )
 
+  // TODO: 779 Implement
   private def fileRequestLogic(
-    //repository: Repository[F],
-    // msg: Message
-  )// (using api: Api[F])
-  : F[Option[List[Message]]] = none.pure
+      // repository: Repository[F],
+      // msg: Message
+  ) // (using api: Api[F])
+      : F[Option[List[Message]]] = none.pure
 
   private def botLogic(
       repository: Repository[F],
@@ -154,7 +154,7 @@ trait SBot[F[_]: Async: LogWriter] {
       case MessageType.Message     => messageLogic(repository, msg)
       case MessageType.Command     => commandLogic(repository, msg)
       case MessageType.FileRequest =>
-        LogWriter.info(s"$botName: To be implemented") >> fileRequestLogic(// repository, msg
+        LogWriter.info(s"$botName: To be implemented") >> fileRequestLogic( // repository, msg
         )
     }
 

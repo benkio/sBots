@@ -38,9 +38,20 @@ There are different logic based on the type of message:
 
 **** Command Logic
 
+The message input is tested against the bot's command list in search for a match.
+If the ~ReplyBundleCommand~ is found, then its logic is executed and the result is returned.
+Each command has its logic and they can be found into the ~CommandPatterns~ file.
+
+Some commands are grouped together as they work in tandem:
+The ~subscribe~ command will be shipped together with the ~subscriptions~ command. This way the user is able to add subscriptions and see the active ones.
+
 **** Message Logic
 
+TBD
+
 **** FileRequest Logic
+
+TBD
 
 ** Bot Initialization
 

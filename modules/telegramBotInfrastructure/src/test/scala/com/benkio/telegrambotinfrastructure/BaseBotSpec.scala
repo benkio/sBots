@@ -51,17 +51,17 @@ trait BaseBotSpec extends CatsEffectSuite:
           urls.forall(_.query.exists { case (key, optValue) => key == "dl" && optValue.fold(false)(_ == "1") })
         ).pure[IO]
         _ <- mediaFileSources
-            .foreach(mfs =>
-              mfs.sources.foreach {
-                case Right(uri) =>
-                  assert(
-                    uri.toString.contains(mfs.filename),
-                    s"$uri doesn't contain the filename: ${mfs.filename}"
-                  )
-                case _ => assert(true)
-              }
-            )
-            .pure[IO]
+          .foreach(mfs =>
+            mfs.sources.foreach {
+              case Right(uri) =>
+                assert(
+                  uri.toString.contains(mfs.filename),
+                  s"$uri doesn't contain the filename: ${mfs.filename}"
+                )
+              case _ => assert(true)
+            }
+          )
+          .pure[IO]
       yield ()
       end for
     }

@@ -1,12 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import cats.data.NonEmptyList
 import cats.effect.*
 import cats.syntax.all.*
-import cats.Applicative
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
@@ -19,7 +14,6 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
 import telegramium.bots.high.Api
-import telegramium.bots.Chat
 import telegramium.bots.Message
 
 class ReplyBundleSpec extends CatsEffectSuite {
@@ -53,54 +47,6 @@ class ReplyBundleSpec extends CatsEffectSuite {
     VideoFile("video.mp4"),
     Document("document.pdf")
   )
-
-  test("computeReplyBundle should return the expected message when the ReplyBundle and Message is provided") {
-
-    def input(reply: Reply[IO]): ReplyBundleMessage[IO] =
-      ReplyBundleMessage[IO](
-        trigger = TextTrigger(
-          StringTextTriggerValue("test")
-        ),
-        reply = reply
-      )
-
-    val replyBundleInput1: ReplyBundleMessage[IO] = input(MediaReply[IO](mediaFiles = inputMediafile.pure[IO]))
-    val replyBundleInput2: ReplyBundleMessage[IO] = input(
-      TextReply.fromList[IO](
-        "this string will be overwritten by the given"
-      )(false)
-    )
-
-    val message = Message(
-      messageId = 0,
-      date = 0,
-      chat = Chat(id = 0, `type` = "test")
-    )
-
-    def computeResult(input: ReplyBundleMessage[IO]): IO[List[Message]] =
-      ReplyBundle.computeReplyBundle(
-        replyBundle = input,
-        message = message,
-        filter = Applicative[IO].pure(true),
-        repository =
-          RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO])
-      )
-
-    val result1: IO[List[Message]] =
-      computeResult(replyBundleInput1)
-    val result2: IO[List[Message]] =
-      computeResult(replyBundleInput2)
-
-    for {
-      _ <- assertIO(result1.map(_.length), 6)
-      _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Mp3")))), true)
-      _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Photo")))), true)
-      _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Gif")))), true)
-      _ <- assertIO(result1.map(_.contains(message.copy(text = Some("Video")))), true)
-      _ <- assertIO(result2.map(_.length), 1)
-      _ <- assertIO(result2.map(_.contains(message.copy(text = Some("Text")))), true)
-    } yield ()
-  }
 
   test("prettyPrint of ReplyBundle should return the expected string") {
     val replyBundleInput: ReplyBundle[IO] = ReplyBundleMessage[IO](
@@ -151,8 +97,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
         |      "replyToMessage" : false
         |    }
         |  },
-        |  "matcher" : "ContainsOnce",
-        |  "replySelection" : "RandomSelection"
+        |  "matcher" : "ContainsOnce"
         |}""".stripMargin,
       """{
         |  "trigger" : {
@@ -180,8 +125,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
         |      "replyToMessage" : false
         |    }
         |  },
-        |  "matcher" : "ContainsOnce",
-        |  "replySelection" : "RandomSelection"
+        |  "matcher" : "ContainsOnce"
         |}""".stripMargin,
       """{
         |  "trigger" : {
@@ -218,8 +162,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
         |      "replyToMessage" : false
         |    }
         |  },
-        |  "matcher" : "ContainsOnce",
-        |  "replySelection" : "RandomSelection"
+        |  "matcher" : "ContainsOnce"
         |}""".stripMargin
     )
 

@@ -2,8 +2,6 @@ package com.benkio.telegrambotinfrastructure.model.reply
 
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.RandomSelection
-
-
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message

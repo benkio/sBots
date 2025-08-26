@@ -1,11 +1,11 @@
 package com.benkio.telegrambotinfrastructure.repository
 
-import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter

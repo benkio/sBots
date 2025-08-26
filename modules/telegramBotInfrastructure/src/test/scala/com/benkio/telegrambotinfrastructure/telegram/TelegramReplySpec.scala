@@ -36,8 +36,8 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("TelegramReply[VideoFile] reply should work as expected") {
-    val message            = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val video              = VideoFile("testVideo.mp4")
+    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val video          = VideoFile("testVideo.mp4")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == video.filepath)(
@@ -56,8 +56,8 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("TelegramReply[PhotoFile] reply should work as expected") {
-    val message            = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val photo              = PhotoFile("testPhoto.jpg")
+    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val photo          = PhotoFile("testPhoto.jpg")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == photo.filepath)(
@@ -76,8 +76,8 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("TelegramReply[Document] reply should work as expected") {
-    val message            = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val document           = Document("testDocument.jpg")
+    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val document       = Document("testDocument.jpg")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == document.filepath)(
@@ -96,8 +96,8 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("TelegramReply[GifFile] reply should work as expected") {
-    val message            = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val gif                = GifFile("testGif.mp4")
+    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val gif            = GifFile("testGif.mp4")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == gif.filepath)(
@@ -116,8 +116,8 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("TelegramReply[Mp3File] reply should work as expected") {
-    val message            = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val mp3                = Mp3File("testMp3.mp3")
+    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val mp3            = Mp3File("testMp3.mp3")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == mp3.filepath)(

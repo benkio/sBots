@@ -43,7 +43,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     val test = for {
       dbLayer <- fixture.resourceDBLayer
 
-      repository       <- fixture.repositoryResource
+      repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -60,9 +60,9 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     "The creation of the BackgroundJobManager with non empty subscriptions should load subscriptions in memory and run the background tasks without errors"
   ) { fixture =>
     val test = for {
-      dbLayer        <- fixture.resourceDBLayer
+      dbLayer    <- fixture.resourceDBLayer
       repository <- fixture.repositoryResource
-      _              <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
+      _          <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -98,7 +98,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val test = for {
       dbLayer              <- fixture.resourceDBLayer
-      repository       <- fixture.repositoryResource
+      repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -136,7 +136,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val resultStreamResources: Resource[cats.effect.IO, (Stream[IO, Instant], SignallingRef[IO, Boolean])] = for {
       dbLayer              <- fixture.resourceDBLayer
-      repository       <- fixture.repositoryResource
+      repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -167,7 +167,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbLayer              <- fixture.resourceDBLayer
-      repository       <- fixture.repositoryResource
+      repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -198,7 +198,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val resultStreamResources: Resource[cats.effect.IO, Stream[IO, (Instant, Instant)]] = for {
       dbLayer              <- fixture.resourceDBLayer
-      repository       <- fixture.repositoryResource
+      repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,

@@ -44,7 +44,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+  val repositoryMock            = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
 
   val youtuboanchei0bot = BackgroundJobManager[IO](

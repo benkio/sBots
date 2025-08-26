@@ -32,7 +32,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       dbMedia  <- fixture.resourceDBLayer.map(_.dbMedia)
       preMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _ = println(s"debug preMedia: $preMedia")
-      dbRepository    <- fixture.repositoryResource
+      dbRepository        <- fixture.repositoryResource
       mediaSourcesWrapped <- dbRepository.getResourceFile(Mp3File(testMediaName))
       mediaSources        <- mediaSourcesWrapped.traverse(_.getMediaResourceFile.sequence)
       _ = println(s"debug mediaSource: $mediaSources")
@@ -55,7 +55,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       preMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
       _ = println(s"debug preMedia: $preMedia")
       dbRepository <- fixture.repositoryResource
-      mediaSource      <- dbRepository.getResourceFile(Sticker("ytai_PizzaYtancheio.sticker"))
+      mediaSource  <- dbRepository.getResourceFile(Sticker("ytai_PizzaYtancheio.sticker"))
       _ = println(s"debug mediaSource: $mediaSource")
       postMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
       _ = println(s"debug postMedia: $postMedia")
@@ -90,8 +90,8 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
     )
     val resourceAssert = for {
       dbRepository <- fixture.repositoryResource
-      mediaSources     <- dbRepository.getResourcesByKind("cards")
-      files            <- mediaSources.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
+      mediaSources <- dbRepository.getResourcesByKind("cards")
+      files        <- mediaSources.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
     } yield files
       .map(file => expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
       .foldLeft(true)(_ && _)

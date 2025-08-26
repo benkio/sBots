@@ -7,18 +7,12 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.MessageTrigger
-import com.benkio.telegrambotinfrastructure.messagefiltering.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import io.circe.*
 import io.circe.generic.semiauto.*
-import log.effect.LogWriter
-import telegramium.bots.high.Api
-import telegramium.bots.Message
 
 sealed trait ReplyBundle[F[_]] {
 
@@ -26,10 +20,8 @@ sealed trait ReplyBundle[F[_]] {
   def reply: Reply[F]
 }
 
-final case class ReplyBundleMessage[F[_]](
-    trigger: MessageTrigger,
-    reply: Reply[F],
-    matcher: MessageMatches) extends ReplyBundle[F]
+final case class ReplyBundleMessage[F[_]](trigger: MessageTrigger, reply: Reply[F], matcher: MessageMatches)
+    extends ReplyBundle[F]
 
 object ReplyBundleMessage {
 
@@ -148,25 +140,4 @@ object ReplyBundle {
     case MediaReply(mediaFiles, _) => mediaFiles
     case _                         => List.empty.pure[F]
   }
-
-  def computeReplyBundle[F[_]: Async: LogWriter: Api](
-      replyBundle: ReplyBundle[F],
-      message: Message,
-      filter: F[Boolean],
-      repository: Repository[F]
-  )(using telegramReply: TelegramReply[ReplyValue]): F[List[Message]] = for {
-    dataToReply <- Async[F].ifM(filter)(
-      ifTrue = Async[F].pure(replyBundle.reply),
-      ifFalse = Async[F].raiseError(new Exception(s"No replies for the given message: $message"))
-    )
-    replies <- RandomSelection.select(dataToReply, message)
-    result  <- replies.traverse[F, List[Message]](reply =>
-      telegramReply.reply[F](
-        reply = reply,
-        msg = message,
-        repository = repository,
-        replyToMessage = replyBundle.reply.replyToMessage
-      )
-    )
-  } yield result.flatten
 }

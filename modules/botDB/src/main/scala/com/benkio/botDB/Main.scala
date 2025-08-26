@@ -1,6 +1,5 @@
 package com.benkio.botDB
 
-import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import cats.effect.*
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.db.DBMigrator
@@ -9,6 +8,7 @@ import com.benkio.botDB.show.ShowUpdater
 import com.benkio.botDB.show.YouTubeService
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter

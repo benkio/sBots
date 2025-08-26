@@ -48,7 +48,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     val subscriptionIdNotFound = "04F08147-DCD7-4F15-9CF8-D7950CB2AD90"
     val result                 = for {
       dbLayer              <- fixture.resourceDBLayer
-      repository       <- fixture.repositoryResource
+      repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -83,7 +83,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbLayer              <- fixture.resourceDBLayer
-      repository       <- fixture.repositoryResource
+      repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
@@ -115,7 +115,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbLayer              <- fixture.resourceDBLayer
-      repository       <- fixture.repositoryResource
+      repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
