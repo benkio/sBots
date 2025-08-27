@@ -35,8 +35,8 @@ object DBMediaData {
 }
 
 trait DBMedia[F[_]] {
-  def getMedia(filename: String, cache: Boolean = true): F[DBMediaData]
-  def getRandomMedia(botPrefix: String): F[DBMediaData]
+  def getMedia(filename: String, cache: Boolean = true): F[Option[DBMediaData]]
+  def getRandomMedia(botPrefix: String): F[Option[DBMediaData]]
   def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]]
   def getMediaByMediaCount(
       limit: Int = 20,
@@ -80,41 +80,37 @@ object DBMedia {
     override def incrementMediaCount(filename: String): F[Unit] = for {
       _     <- log.debug(s"DB increment media count for $filename")
       _     <- dbCache.delete(filename)
-      media <- getMedia(filename)
-      _     <- log.debug(s"[DBMedia] SQL: ${incrementMediaCountQuery(media).sql}")
-      _     <- incrementMediaCountQuery(media).run.transact(transactor)
+      mediaOpt <- getMedia(filename)
+      _     <- mediaOpt.fold(log.error(s"[DBMedia] incrementMediaCount no results while fetching $filename"))(media => log.debug(s"[DBMedia] SQL: ${incrementMediaCountQuery(media).sql}") >> incrementMediaCountQuery(media).run.transact(transactor).void)
     } yield ()
 
     override def decrementMediaCount(filename: String): F[Unit] = for {
       _     <- log.debug(s"DB decrement media count for $filename")
       _     <- dbCache.delete(filename)
-      media <- getMedia(filename)
-      _     <- log.debug(s"[DBMedia] SQL: ${decrementMediaCountQuery(media).sql}")
-      _     <- decrementMediaCountQuery(media).run.transact(transactor)
+      mediaOpt <- getMedia(filename)
+      _     <- mediaOpt.fold(log.error(s"[DBMedia] decrementMediaCount no results while fetching $filename"))(media => log.debug(s"[DBMedia] SQL: ${decrementMediaCountQuery(media).sql}") >> decrementMediaCountQuery(media).run.transact(transactor).void)
     } yield ()
 
-    override def getMedia(filename: String, cache: Boolean = true): F[DBMediaData] =
-      getMediaInternal[DBMediaData](
+    override def getMedia(filename: String, cache: Boolean = true): F[Option[DBMediaData]] =
+      getMediaInternal[Option[DBMediaData]](
         cacheLookupValue = filename,
         cacheResultHandler = cachedValueOpt =>
           for {
-            media <- cachedValueOpt
+            mediaOpt <- cachedValueOpt
               .filter(_ => cache)
               .flatMap(_.headOption)
-              .fold[F[DBMediaData]](
+              .fold[F[Option[DBMediaData]]](
                 log.debug(s"[DBMedia] fetch media for $filename. SQL: ${getMediaQueryByName(filename).sql}") >>
-                  getMediaQueryByName(filename).unique.transact(transactor)
-              )(Async[F].pure)
-            _ <-
-              if cachedValueOpt.fold(true)(_.length != 1) then dbCache.insert(filename, List(media))
-              else Async[F].unit
-          } yield media
+                  getMediaQueryByName(filename).unique.transact(transactor).map(_.some).handleErrorWith(e => log.debug(s"[DBMedia] getMediaQueryByName fetch media for $filename, ${e.getMessage()}") >> None.pure)
+              )(_.some.pure)
+            _ <- mediaOpt.filter(_ => cachedValueOpt.fold(true)(_.length != 1)).map(media => dbCache.insert(filename, List(media))).getOrElse(Async[F].unit)
+          } yield mediaOpt
       )
 
-    override def getRandomMedia(botPrefix: String): F[DBMediaData] =
+    override def getRandomMedia(botPrefix: String): F[Option[DBMediaData]] =
       log.debug(s"[DBMedia] getRandomMedia for $botPrefix. SQL: ${getMediaQueryByRandom(botPrefix).sql}") >>
         getMediaQueryByRandom(botPrefix).unique
-          .transact(transactor)
+          .transact(transactor).map(_.some).handleError(_=> none)
 
     override def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]] =
       getMediaInternal[List[DBMediaData]](

@@ -14,7 +14,7 @@ import munit.CatsEffectSuite
 import java.nio.file.*
 import scala.util.Random
 
-class ResourcesAccessSpec extends CatsEffectSuite {
+class ResourceRepositorySpec extends CatsEffectSuite {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
@@ -43,13 +43,21 @@ class ResourcesAccessSpec extends CatsEffectSuite {
   test("ResourcesRepository Local should retrieve a mediafile from the resources correctly") {
     val repository = ResourcesRepository.fromResources[IO]()
     /*
-    Use the class of tihs test becouse the local resource access will
+    Use the class of this test becouse the local resource access will
     search in the `getClass()` that's convenient when packing
     everything with `assembly`
      */
     val filename = "test.txt"
     RepositorySpec.testFilename(filename)(using repository).assert
   }
+}
+
+class DBRepositorySpec extends CatsEffectSuite {
+
+  test("DBRepository.getResourceFile should return empty list if the mediaFile doesn't exists") { ??? }
+  test("DBRepository.getResourceFile should return the expected list of MediaResource") { ??? }
+  test("DBRepository.getResourceKind should return empty list if the criteria doesn't exists") { ??? }
+  test("DBRepository.getResourceKind should return the expected list of MediaResource") { ??? }
 }
 
 object RepositorySpec {
