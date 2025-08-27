@@ -29,19 +29,21 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test("DBRepository.getResourceFile should return the expected content") { fixture =>
     val resourceAssert = for {
-      dbMedia  <- fixture.resourceDBLayer.map(_.dbMedia)
-      preMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
-      _ = println(s"debug preMedia: $preMedia")
+      dbMedia             <- fixture.resourceDBLayer.map(_.dbMedia)
+      preMedia            <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       dbRepository        <- fixture.repositoryResource
       mediaSourcesWrapped <- dbRepository.getResourceFile(Mp3File(testMediaName))
-      mediaSources        <- mediaSourcesWrapped.fold(e => Resource.eval(IO.raiseError(Throwable(s"Error getResourceFile returned an error $e"))),_.traverse(_.getMediaResourceFile.sequence))
+      mediaSources        <- mediaSourcesWrapped.fold(
+        e => Resource.eval(IO.raiseError(Throwable(s"Error getResourceFile returned an error $e"))),
+        _.traverse(_.getMediaResourceFile.sequence)
+      )
       _ = println(s"debug mediaSource: $mediaSources")
       postMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _ = println(s"debug postMedia: $postMedia")
       _            <- Resource.eval(dbMedia.decrementMediaCount(testMediaName))
       initialMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
     } yield {
-      val assert1 = postMedia == preMedia.copy(media_count = preMedia.media_count + 1)
+      val assert1 = postMedia == preMedia.map(x => x.copy(media_count = x.media_count + 1))
       val assert2 = mediaSources.exists(_.fold(false)(f => Files.readAllBytes(f.toPath).length >= (1024 * 5)))
       val assert3 = preMedia == initialMedia
       assert1 && assert2 && assert3
@@ -62,7 +64,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       _            <- Resource.eval(dbMedia.decrementMediaCount("ytai_PizzaYtancheio.sticker"))
       initialMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
     } yield {
-      val assert1 = postMedia == preMedia.copy(media_count = preMedia.media_count + 1)
+      val assert1 = postMedia == preMedia.map(x => x.copy(media_count = x.media_count + 1))
       val assert2 = mediaSource == NonEmptyList.one(
         MediaResource.MediaResourceIFile(
           "CAACAgQAAxkBAAEC14Fnn4qAwqMd2BGYk0rsC5oTZvsMrAACzQEAAsMN4w3VywfrQeOnhTYE"
@@ -91,7 +93,10 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       dbRepository <- fixture.repositoryResource
       mediaSources <- dbRepository.getResourcesByKind("cards")
-      files        <- mediaSources.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
+      files        <- mediaSources.fold(
+        e => Resource.eval(IO.raiseError(Throwable(s"getResourceByKind returned an error $e"))),
+        _.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
+      )
     } yield files
       .map(file => expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getName().toList).isEmpty))
       .foldLeft(true)(_ && _)
