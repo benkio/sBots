@@ -3,10 +3,10 @@ package com.benkio.integration
 import annotation.unused
 import cats.effect.IO
 import cats.effect.Resource
+import com.benkio.telegrambotinfrastructure.http.DropboxClient
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
 import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.web.DropboxClient
 import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels

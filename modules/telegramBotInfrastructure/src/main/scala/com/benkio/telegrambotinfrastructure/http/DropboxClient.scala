@@ -1,4 +1,4 @@
-package com.benkio.telegrambotinfrastructure.web
+package com.benkio.telegrambotinfrastructure.http
 
 import cats.effect.Async
 import cats.effect.Resource

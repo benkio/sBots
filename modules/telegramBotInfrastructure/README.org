@@ -47,11 +47,20 @@ The ~subscribe~ command will be shipped together with the ~subscriptions~ comman
 
 **** Message Logic
 
-TBD
+The logic for the message is more complex as it needs several checks:
+1. Check if the given message should be considered. It is valid if it passes:
+   1. The forward check: there's an option for not considering forward messages
+   2. The older check: if the message is older then the timeout it is discarded. The bots aren't reply to things too old. It might happen after a network down, bug, restart etc.
+   3. The timeout check: if a timeout is set it means the bot shouldn't reply to things if he replied before the timeout expire.
+2. Search in the triggers for the one that matches the message. The triggers are sorted from longer to shorter (more specific to more general). A trigger is associated to a list of possible responses.
+3. If found, a random response is selected within the candidates, fetched and returned.
 
 **** FileRequest Logic
 
-TBD
+The logic for the file request is pretty simple:
+1. Check the start of the message, if it matches the bot prefix then try to use that as a key for finding the data in the database
+2. If something is found, fetch the actual content on the web using the link
+3. Return the data
 
 ** Bot Initialization
 

@@ -1,8 +1,8 @@
-package com.benkio.telegrambotinfrastructure.web
+package com.benkio.telegrambotinfrastructure.http
 
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.web.DropboxClient.UnexpectedDropboxResponse
+import com.benkio.telegrambotinfrastructure.http.DropboxClient.UnexpectedDropboxResponse
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
