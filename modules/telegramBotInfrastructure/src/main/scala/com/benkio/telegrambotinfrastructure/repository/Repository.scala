@@ -16,8 +16,8 @@ import java.nio.file.Paths
 import scala.io.Source
 
 trait Repository[F[_]] {
-  def getResourcesByKind(criteria: String):  Either[Repository.RepositoryError, Resource[F,  NonEmptyList[NonEmptyList[MediaResource[F]]]]]
-  def getResourceFile(mediaFile: MediaFile): Either[Repository.RepositoryError, Resource[F, NonEmptyList[MediaResource[F]]]]
+  def getResourcesByKind(criteria: String):  Resource[F,  Either[Repository.RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]]
+  def getResourceFile(mediaFile: MediaFile): Resource[F,  Either[Repository.RepositoryError, NonEmptyList[MediaResource[F]]]]
 }
 
 object Repository {
@@ -25,6 +25,7 @@ object Repository {
   enum RepositoryError(msg: String) extends Throwable(msg):
     case NoResourcesFoundKind(criteria: String) extends RepositoryError(s"""[ResourcesAccess] getResourcesByKind returned no results for $criteria""")
     case NoResourcesFoundFile(mediaFile: MediaFile) extends RepositoryError(s"[ResourcesAccess] getResourceFile returned no results for $mediaFile")
+    case NoResourcesFoundByteArray(resourceName: String) extends RepositoryError(s"[ResourcesAccess] getResourceByteArray returned no results for $resourceName")
     case NoResourcesFoundDBMediaData(dbMediaData: DBMediaData) extends RepositoryError(s"[ResourcesAccess] No Media Resource found in $dbMediaData")
 
   def toTempFile[F[_]: Async](fileName: String, content: Array[Byte]): Resource[F, File] = Resource.make(
