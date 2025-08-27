@@ -6,6 +6,7 @@ import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 
 class RepositoryMock(
     getResourceByKindHandler: String => IO[NonEmptyList[NonEmptyList[MediaResource[IO]]]] = _ =>
@@ -14,8 +15,12 @@ class RepositoryMock(
       IO.raiseError(Throwable("[RepositoryMock] getResourceByteArray call unexpected"))
 ) extends Repository[IO] {
 
-  override def getResourceFile(mediaFile: MediaFile): Resource[IO, NonEmptyList[MediaResource[IO]]] =
-    Resource.eval(getResourceFileHandler(mediaFile))
-  override def getResourcesByKind(criteria: String): Resource[IO, NonEmptyList[NonEmptyList[MediaResource[IO]]]] =
-    Resource.eval(getResourceByKindHandler(criteria))
+  override def getResourceFile(
+      mediaFile: MediaFile
+  ): Resource[IO, Either[RepositoryError, NonEmptyList[MediaResource[IO]]]] =
+    Resource.eval(getResourceFileHandler(mediaFile).map(Right(_)))
+  override def getResourcesByKind(
+      criteria: String
+  ): Resource[IO, Either[RepositoryError, NonEmptyList[NonEmptyList[MediaResource[IO]]]]] =
+    Resource.eval(getResourceByKindHandler(criteria).map(Right(_)))
 }

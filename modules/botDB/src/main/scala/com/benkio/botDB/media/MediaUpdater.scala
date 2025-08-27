@@ -45,7 +45,12 @@ object MediaUpdater {
   ) extends MediaUpdater[F] {
 
     private[media] def fetchRootBotFiles: Resource[F, List[MediaResource[F]]] =
-      config.jsonLocation.flatTraverse(location => repository.getResourcesByKind(location).map(_.reduce.toList))
+      config.jsonLocation
+        .flatTraverse(location =>
+          repository
+            .getResourcesByKind(location)
+            .map(_.map(_.reduce.toList).getOrElse(List()))
+        )
 
     private[media] def filterMediaJsonFiles(allFiles: List[MediaResource[F]]): Resource[F, List[File]] = {
       allFiles

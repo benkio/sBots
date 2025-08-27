@@ -34,7 +34,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       _ = println(s"debug preMedia: $preMedia")
       dbRepository        <- fixture.repositoryResource
       mediaSourcesWrapped <- dbRepository.getResourceFile(Mp3File(testMediaName))
-      mediaSources        <- mediaSourcesWrapped.traverse(_.getMediaResourceFile.sequence)
+      mediaSources        <- mediaSourcesWrapped.fold(e => Resource.eval(IO.raiseError(Throwable(s"Error getResourceFile returned an error $e"))),_.traverse(_.getMediaResourceFile.sequence))
       _ = println(s"debug mediaSource: $mediaSources")
       postMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _ = println(s"debug postMedia: $postMedia")

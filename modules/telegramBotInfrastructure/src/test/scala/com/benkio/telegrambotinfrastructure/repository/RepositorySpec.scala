@@ -67,8 +67,13 @@ object RepositorySpec {
   def testFilename(filename: String)(using repository: Repository[IO]): IO[Boolean] =
     repository
       .getResourceFile(Document(filename))
-      .use(_.exists {
-        case MediaResourceFile(_)  => true
-        case MediaResourceIFile(_) => false
-      }.pure)
+      .use(
+        _.fold(
+          _ => false,
+          _.exists {
+            case MediaResourceFile(_)  => true
+            case MediaResourceIFile(_) => false
+          }
+        ).pure
+      )
 }

@@ -62,8 +62,8 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      media   <- Resource.eval(dbMedia.getMedia(filename = testMediaName, cache = false))
-    } yield checkMedia(media, testMedia)
+      mediaOpt   <- Resource.eval(dbMedia.getMedia(filename = testMediaName, cache = false))
+    } yield mediaOpt.fold(false)(checkMedia(_, testMedia))
     resourceAssert.use(IO.pure).assert
   }
 

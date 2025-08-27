@@ -39,19 +39,24 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
         Try(if stream == null then new FileInputStream(resourceName) else stream)
       })(fis => Async[F].delay(fis.close()))
       bais <- Resource.make(Async[F].delay(new ByteArrayOutputStream()))(bais => Async[F].delay(bais.close()))
-    } yield (fis, bais)).evalMap { case (fis, bais) =>
-      val tempArray = new Array[Byte](16384)
-      for {
-        firstChunk <- Async[F].delay(fis.read(tempArray, 0, tempArray.length))
-        _          <- Monad[F].iterateWhileM(firstChunk)(chunk =>
-          Async[F].delay(bais.write(tempArray, 0, chunk)) *> Async[F].delay(fis.read(tempArray, 0, tempArray.length))
-        )(_ != -1)
-        result = bais.toByteArray()
-        _ <- LogWriter.info(s"[ResourcesAccess:86:48] getResourceByteArray total bytes read: ${result.size}")
-      } yield result
-    }.map(Right(_)).handleErrorWith(_ => Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundByteArray(resourceName))))
+    } yield (fis, bais))
+      .evalMap { case (fis, bais) =>
+        val tempArray = new Array[Byte](16384)
+        for {
+          firstChunk <- Async[F].delay(fis.read(tempArray, 0, tempArray.length))
+          _          <- Monad[F].iterateWhileM(firstChunk)(chunk =>
+            Async[F].delay(bais.write(tempArray, 0, chunk)) *> Async[F].delay(fis.read(tempArray, 0, tempArray.length))
+          )(_ != -1)
+          result = bais.toByteArray()
+          _ <- LogWriter.info(s"[ResourcesAccess:86:48] getResourceByteArray total bytes read: ${result.size}")
+        } yield result
+      }
+      .map(Right(_))
+      .handleErrorWith(_ => Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundByteArray(resourceName))))
 
-  def getResourcesByKind(criteria: String): Resource[F,  Either[Repository.RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]] = {
+  def getResourcesByKind(
+      criteria: String
+  ): Resource[F, Either[Repository.RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]] = {
     val jarFile                     = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())
     val result: ArrayBuffer[String] = new ArrayBuffer();
 
@@ -74,46 +79,52 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
       .fromList(result.toList)
       .map(
         _.traverse(s =>
-          getResourceByteArray(s).map(contentEither => contentEither.map(content => 
-            NonEmptyList
-              .one(
-                MediaResourceFile(Repository.toTempFile(s.stripPrefix(s"$criteria/"), content))
-              ))
+          getResourceByteArray(s).map(contentEither =>
+            contentEither.map(content =>
+              NonEmptyList
+                .one(
+                  MediaResourceFile(Repository.toTempFile(s.stripPrefix(s"$criteria/"), content))
+                )
+            )
           )
         ).map(_.sequence)
       )
       .orElse(
-        NonEmptyList.fromList(
-                Files
-                  .walk(Repository.buildPath(criteria, stage))
-                  .iterator
-                  .asScala
-                  .toList
-                  .tail
-                  .map((fl: Path) =>
-                    NonEmptyList
-                      .one(
-                        MediaResourceFile(
-                          Resource
-                            .pure[F, File](File(Repository.buildPath(criteria, stage).toString + "/" + fl.getFileName.toString))
+        NonEmptyList
+          .fromList(
+            Files
+              .walk(Repository.buildPath(criteria, stage))
+              .iterator
+              .asScala
+              .toList
+              .tail
+              .map((fl: Path) =>
+                NonEmptyList
+                  .one(
+                    MediaResourceFile(
+                      Resource
+                        .pure[F, File](
+                          File(Repository.buildPath(criteria, stage).toString + "/" + fl.getFileName.toString)
                         )
-                      )
+                    )
                   )
-        ).map(x => Resource.pure(Right(x)))
-       )
+              )
+          )
+          .map(x => Resource.pure(Right(x)))
+      )
       .getOrElse(Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundKind(criteria))))
   }
 
   override def getResourceFile(
       mediaFile: MediaFile
-  ): Resource[F,  Either[Repository.RepositoryError, NonEmptyList[MediaResource[F]]]] = {
+  ): Resource[F, Either[Repository.RepositoryError, NonEmptyList[MediaResource[F]]]] = {
     for {
-      _           <- Resource.eval(LogWriter.info(s"getResourceFile for $mediaFile"))
+      _                 <- Resource.eval(LogWriter.info(s"getResourceFile for $mediaFile"))
       fileContentEither <- getResourceByteArray(mediaFile.filepath)
-      tempFileEither <- fileContentEither.fold(
+      tempFileEither    <- fileContentEither.fold(
         e => Resource.pure(Left(e)),
-        fileContent => Repository.toTempFile(mediaFile.filename, fileContent
-        ).map(Right(_)))
+        fileContent => Repository.toTempFile(mediaFile.filename, fileContent).map(Right(_))
+      )
     } yield tempFileEither.map(tempFile => NonEmptyList.one(MediaResourceFile(Resource.pure(tempFile))))
   }
 }

@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.repository.db
 
-import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import cats.*
 import cats.data.NonEmptyList
 import cats.effect.*
@@ -14,6 +13,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import log.effect.LogWriter
 import org.http4s.Uri
 
@@ -21,7 +21,9 @@ object DBRepository:
   def dbResources[F[_]: Async: LogWriter](dbMedia: DBMedia[F], dropboxClient: DropboxClient[F]): Repository[F] =
     new Repository[F] {
 
-      override def getResourcesByKind(criteria: String): Resource[F, Either[RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]] =
+      override def getResourcesByKind(
+          criteria: String
+      ): Resource[F, Either[RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]] =
         for {
           _ <- Resource.eval(
             LogWriter.info(s"[dbRepository] getResourcesByKind fetching resources by $criteria")
@@ -34,17 +36,17 @@ object DBRepository:
           result <- Resource.eval(
             Async[F].fromOption(NonEmptyList.fromList(files), RepositoryError.NoResourcesFoundKind(criteria))
           )
-        } yield Right(result)
+        } yield result.sequence
 
       override def getResourceFile(
           mediaFile: MediaFile
-      ): Resource[F, Either[RepositoryError,NonEmptyList[MediaResource[F]]]] = {
+      ): Resource[F, Either[RepositoryError, NonEmptyList[MediaResource[F]]]] = {
         for {
-          _             <- Resource.eval(LogWriter.info(s"[ResourcesAccess] getResourceFile of $mediaFile"))
-          mediaOpt         <- Resource.eval(dbMedia.getMedia(mediaFile.filepath))
-          result             <- mediaOpt.fold(Resource.pure(Left(RepositoryError.NoResourcesFoundFile(mediaFile))))(media =>
-            dbMediaDataToMediaResource(media).evalTap(_ => 
-            dbMedia.incrementMediaCount(media.media_name)))
+          _        <- Resource.eval(LogWriter.info(s"[ResourcesAccess] getResourceFile of $mediaFile"))
+          mediaOpt <- Resource.eval(dbMedia.getMedia(mediaFile.filepath))
+          result   <- mediaOpt.fold(Resource.pure(Left(RepositoryError.NoResourcesFoundFile(mediaFile))))(media =>
+            dbMediaDataToMediaResource(media).evalTap(_ => dbMedia.incrementMediaCount(media.media_name))
+          )
         } yield result
       }
 
@@ -54,7 +56,7 @@ object DBRepository:
         def buildMediaResources(
             mediaName: String,
             sources: NonEmptyList[Either[String, Uri]]
-        ): Resource[F, Either[RepositoryError, NonEmptyList[MediaResource[F]]]] =
+        ): Resource[F, NonEmptyList[MediaResource[F]]] =
           Resource.pure(sources.map {
             case Left(iFile) => MediaResourceIFile(iFile)
             case Right(uri)  =>
@@ -70,17 +72,21 @@ object DBRepository:
               )
           })
 
-        for
+        val result = for
           media <- Resource.eval(Async[F].fromEither(Media(dbMediaData)))
           _ <- Resource.eval(LogWriter.info(s"[ResourcesAccess] fetching data for $media from ${media.mediaSources}"))
           nonEmptyMediaSources <- Resource.eval(
             Async[F].fromOption(
               NonEmptyList.fromList(media.mediaSources),
-              Repository.NoResourcesFoundDBMediaData(dbMediaData)
+              RepositoryError.NoResourcesFoundDBMediaData(dbMediaData)
             )
           )
           mediaResource <- buildMediaResources(media.mediaName, nonEmptyMediaSources)
         yield mediaResource
+
+        result
+          .map(Right(_))
+          .handleErrorWith(e => Resource.pure(Left(RepositoryError.DBMediaDataToMediaResourceError(dbMediaData, e))))
       }
     }
 end DBRepository

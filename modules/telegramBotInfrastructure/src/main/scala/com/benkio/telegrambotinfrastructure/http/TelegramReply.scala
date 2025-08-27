@@ -4,6 +4,7 @@ import cats.*
 import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.http.ErrorFallbackWorkaround
 import com.benkio.telegrambotinfrastructure.messagefiltering.getContent
 import com.benkio.telegrambotinfrastructure.model.media.toTelegramApi
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
@@ -40,6 +41,9 @@ trait TelegramReply[A] {
 }
 
 object TelegramReply:
+
+  @inline def apply[F](implicit instance: TelegramReply[F]): TelegramReply[F] = instance
+
   def telegramFileReplyPattern[F[_]: Async: LogWriter: Api](
       msg: Message,
       repository: Repository[F],
@@ -62,19 +66,38 @@ object TelegramReply:
       message <-
         repository
           .getResourceFile(mediaFile)
-          .use[Message](mediaResources =>
-            mediaResources.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
-              prevExec.handleErrorWith(e =>
-                LogWriter.error(
-                  s"[TelegramReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
-                ) >>
-                  computeMediaResource(nextRes)
+          .use[List[Message]](mediaResources =>
+            mediaResources
+              .map(
+                _.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
+                  prevExec.handleErrorWith(e =>
+                    LogWriter.error(
+                      s"[TelegramReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
+                    ) >>
+                      computeMediaResource(nextRes)
+                  )
+                )
               )
-            )
+              .fold(
+                e =>
+                  TelegramReply[Text].reply(
+                    reply = ErrorFallbackWorkaround.errorText(
+                      s"""An Error Occurred for
+                         | - msg: $msg
+                         | - mediaFile: $mediaFile
+                         | - error: ${e.getMessage()}
+                         |""".stripMargin
+                    ),
+                    msg = ErrorFallbackWorkaround.supportmessage,
+                    repository = repository,
+                    replyToMessage = false
+                  ),
+                _.map(List(_))
+              )
           )
           .onError(e => LogWriter.error(s"[TelegramReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"))
           .attemptT
-    } yield List(message)
+    } yield message
     result.getOrElse(List.empty)
   }
 

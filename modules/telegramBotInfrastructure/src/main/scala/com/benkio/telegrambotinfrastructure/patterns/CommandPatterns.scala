@@ -75,6 +75,11 @@ object CommandPatterns {
 
   object RandomDataCommand {
 
+    case object RandomMediaNotFound
+        extends Throwable(
+          "[CommandPatterns] RandomDataCommand En error occurred when fetching random media. None Was returned"
+        )
+
     private val randomDataCommandIta: String =
       """'/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot"""
     private val randomDataCommandEng: String =
@@ -82,10 +87,12 @@ object CommandPatterns {
 
     def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], botPrefix: String): F[MediaFile] =
       for
-        _           <- LogWriter.debug(s"[RandomCommand] Fetching random media for $botPrefix")
-        dbMediaData <- dbMedia.getRandomMedia(botPrefix)
-        _           <- LogWriter.debug("[RandomCommand] Convert DBMediaData to Media")
-        media       <- Async[F].fromEither(Media(dbMediaData))
+        _              <- LogWriter.debug(s"[RandomCommand] Fetching random media for $botPrefix")
+        dbMediaDataOpt <- dbMedia.getRandomMedia(botPrefix)
+        _              <- LogWriter.debug("[RandomCommand] Convert DBMediaData to Media")
+        media          <- dbMediaDataOpt.fold(Async[F].raiseError(RandomMediaNotFound))(dbMediaData =>
+          Async[F].fromEither(Media(dbMediaData))
+        )
       yield MediaFile.fromMimeType(media)
 
     def randomDataReplyBundleCommand[F[_]: Async: LogWriter](

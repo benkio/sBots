@@ -21,6 +21,8 @@ import org.http4s.client.Client
 import telegramium.bots.high.Api
 import telegramium.bots.high.BotApi
 
+import java.io.File
+
 final case class BotSetup[F[_]](
     token: String,
     httpClient: Client[F],
@@ -33,6 +35,11 @@ final case class BotSetup[F[_]](
 )
 
 object BotSetup {
+
+  enum BotSetupError(msg: String) extends Throwable(msg):
+    case TokenNotFound(tokenFilename: String) extends BotSetupError(s"[BotSetup] Cannot find the token $tokenFilename")
+    case TokenIsEmpty(tokenFilename: String)
+        extends BotSetupError(s"[BotSetup] the retrieved token $tokenFilename is empty")
 
   def deleteWebhooks[F[_]: Async](
       httpClient: Client[F],
@@ -56,16 +63,18 @@ object BotSetup {
     for
       _                   <- Resource.eval(LogWriter.info(s"[BotSetup:58:47] Retrieving Token $tokenFilename"))
       tokenMediaResources <- repository.getResourceFile(Document(tokenFilename))
-      tokenFiles          <- tokenMediaResources.collect { case MediaResourceFile(rf) =>
-        rf
-      }.sequence
+      tokenFiles          <- tokenMediaResources
+        .map(_.collect { case MediaResourceFile(rf) =>
+          rf
+        }.sequence)
+        .getOrElse(Resource.eval[F, List[File]](Async[F].raiseError(BotSetupError.TokenNotFound(tokenFilename))))
       tokenFileContent <-
-        tokenFiles.headOption.fold(Resource.raiseError(Throwable(s"[BotSetup] Cannot find the token $tokenFilename")))(
-          f => Repository.fileToString(f)
+        tokenFiles.headOption.fold(Resource.eval(Async[F].raiseError(BotSetupError.TokenNotFound(tokenFilename))))(f =>
+          Repository.fileToString(f)
         )
       _ <- Resource.eval(
         Async[F].raiseWhen(tokenFileContent.isEmpty)(
-          Throwable(s"[BotSetup] the retrieved token $tokenFilename is empty")
+          BotSetupError.TokenIsEmpty(tokenFilename)
         )
       )
       _ <- Resource.eval(
