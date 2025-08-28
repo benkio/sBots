@@ -10,10 +10,12 @@ import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
+import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -101,19 +103,48 @@ class DBRepositorySpec extends CatsEffectSuite {
       emptyDBLayer.dbMedia,
       dropboxClientMock
     )
-    val check: IO[Boolean] = dbRepository
-      .getResourceFile(VideoFile(expectedFileName))
+    val expectedMediaFile: MediaFile = VideoFile(expectedFileName)
+    val check: IO[Boolean]           = dbRepository
+      .getResourceFile(expectedMediaFile)
       .use(result =>
         result match {
-          case Right(_) => false.pure
-          case Left(_)  => true.pure
+          case Left(RepositoryError.NoResourcesFoundFile(resultMediaFile)) =>
+            (resultMediaFile == expectedMediaFile).pure
+          case _ => false.pure
         }
       )
     assertIO(check, true)
   }
   // TODO: 779 Implement
-  test("DBRepository.getResourceFile should return the expected list of MediaResource") { ??? }
-  test("DBRepository.getResourceKind should return an error if the criteria doesn't exists") { ??? }
+  test("DBRepository.getResourceFile should return the expected list of MediaResource") {
+    val expectedFileName                     = "bot_testMediaName.mp4"
+    val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
+    val dbRepository                         = DBRepository.dbResources[IO](
+      fullDBLayer.dbMedia,
+      dropboxClientMock
+    )
+
+    val check: IO[Boolean] = RepositorySpec.testFilename(expectedFileName)(using dbRepository)
+    assertIO(check, true)
+  }
+  test("DBRepository.getResourceKind should return an error if the criteria doesn't exists") {
+    val expectedFileName                     = "bot_testMediaName2.mp4"
+    val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
+    val dbRepository                         = DBRepository.dbResources[IO](
+      emptyDBLayer.dbMedia,
+      dropboxClientMock
+    )
+    val check: IO[Boolean] = dbRepository
+      .getResourcesByKind("testkind")
+      .use(result =>
+        println(s"[RepositorySpec] result: ${result}")
+        result match {
+          case Left(RepositoryError.NoResourcesFoundKind(criteria)) => (criteria == "testkind").pure
+          case _                                                    => false.pure
+        }
+      )
+    assertIO(check, true)
+  }
   test("DBRepository.getResourceKind should return the expected list of MediaResource") {
     val expectedFileName                     = "bot_testMediaName2.mp4"
     val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
@@ -128,7 +159,7 @@ class DBRepositorySpec extends CatsEffectSuite {
                 _.getMediaResourceFile.sequence
               )
             )
-          case _ => Resource.eval(IO.raiseError(Throwable(s"[RepositorySpec] getResourceKind didn't return anything")))
+          case _ => Resource.eval(IO.raiseError(Throwable("[RepositorySpec] getResourceKind didn't return anything")))
         }
       )
       .use(result => IO.pure(result == List(testFile.some)))

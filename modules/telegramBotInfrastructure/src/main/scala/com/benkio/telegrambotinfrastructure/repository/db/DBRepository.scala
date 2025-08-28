@@ -28,17 +28,25 @@ object DBRepository:
           _ <- Resource.eval(
             LogWriter.info(s"[dbRepository] getResourcesByKind fetching resources by $criteria")
           )
-          medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
-          _ = println(s"[DBRepository] medias: ${medias}")
-          files  <-
-            medias.traverse(
-              dbMediaDataToMediaResource
-            )
-          _ = println(s"[DBRepository] files: ${files}")
-          result <- Resource.eval(
-            Async[F].fromOption(NonEmptyList.fromList(files), RepositoryError.NoResourcesFoundKind(criteria))
+          eitherMedias: Either[RepositoryError, NonEmptyList[DBMediaData]] <- Resource.eval(
+            dbMedia
+              .getMediaByKind(criteria)
+              .map(medias =>
+                NonEmptyList.fromList(medias).fold(Left(RepositoryError.NoResourcesFoundKind(criteria)))(Right(_))
+              )
           )
-        } yield result.sequence
+          _ = println(s"[DBRepository] medias: ${eitherMedias}") // Remove
+          eitherMediaResources <-
+            eitherMedias.fold(
+              err => Resource.pure[F, Either[RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]](Left(err)),
+              medias =>
+                medias
+                  .traverse(
+                    dbMediaDataToMediaResource(_)
+                  )
+                  .map(_.sequence)
+            )
+        } yield eitherMediaResources
 
       override def getResourceFile(
           mediaFile: MediaFile
