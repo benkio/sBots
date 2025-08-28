@@ -6,13 +6,13 @@ import cats.implicits.*
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.xahleebot.CommandRepliesData
 import doobie.implicits.*
@@ -31,12 +31,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     MediaResourceIFile(
       "test mediafile"
     )
-  val resourceAccessMock = ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+  val repositoryMock = RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
   val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(
     BackgroundJobManager(
       dbSubscription = emptyDBLayer.dbSubscription,
       dbShow = emptyDBLayer.dbShow,
-      resourceAccess = resourceAccessMock,
+      repository = repositoryMock,
       botName = botName
     )
   )

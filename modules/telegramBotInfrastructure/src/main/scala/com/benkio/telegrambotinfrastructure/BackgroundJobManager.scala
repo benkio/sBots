@@ -9,10 +9,10 @@ import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.db.DBShow
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscription
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
@@ -59,7 +59,7 @@ object BackgroundJobManager {
   def apply[F[_]: Async: Api](
       dbSubscription: DBSubscription[F],
       dbShow: DBShow[F],
-      resourceAccess: ResourceAccess[F],
+      repository: Repository[F],
       botName: String
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
@@ -67,7 +67,7 @@ object BackgroundJobManager {
         new BackgroundJobManagerImpl(
           dbSubscription = dbSubscription,
           dbShow = dbShow,
-          resourceAccess: ResourceAccess[F],
+          repository: Repository[F],
           botName = botName
         )
       )
@@ -77,7 +77,7 @@ object BackgroundJobManager {
   class BackgroundJobManagerImpl[F[_]: Async: Api](
       dbSubscription: DBSubscription[F],
       dbShow: DBShow[F],
-      resourceAccess: ResourceAccess[F],
+      repository: Repository[F],
       val botName: String
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
       extends BackgroundJobManager[F] {
@@ -157,7 +157,7 @@ object BackgroundJobManager {
         _     <- textTelegramReply.reply(
           reply = Text(reply),
           msg = message,
-          resourceAccess = resourceAccess,
+          repository = repository,
           replyToMessage = true
         )
       } yield now // For testing purposes

@@ -7,7 +7,7 @@ import com.benkio.integration.DBFixture
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
@@ -62,8 +62,8 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
     "Subscriptions Command should return all the subscription by bot and chat"
   ) { fixture =>
     val resourceAssert = for {
-      dbLayer        <- fixture.resourceDBLayer
-      resourceAccess <- fixture.resourceAccessResource
+      dbLayer    <- fixture.resourceDBLayer
+      repository <- fixture.repositoryResource
       dbSubscription = dbLayer.dbSubscription
       _ <- Resource.eval(
         testSubscriptions.traverse(testSubscription => dbSubscription.insertSubscription(testSubscription))
@@ -72,7 +72,7 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
         BackgroundJobManager(
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
-          resourceAccess = resourceAccess,
+          repository = repository,
           botName = botName
         )
       )

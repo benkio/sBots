@@ -5,7 +5,7 @@ import cats.implicits.*
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
+import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import doobie.implicits.*
 import munit.CatsEffectSuite
 

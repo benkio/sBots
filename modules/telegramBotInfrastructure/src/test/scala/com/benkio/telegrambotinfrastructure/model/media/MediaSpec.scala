@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
 import com.benkio.telegrambotinfrastructure.model.MimeType
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
+import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import munit.*
 import org.http4s.Uri
 

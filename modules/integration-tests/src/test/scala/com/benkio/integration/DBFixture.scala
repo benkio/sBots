@@ -3,9 +3,10 @@ package com.benkio.integration
 import annotation.unused
 import cats.effect.IO
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.web.DropboxClient
+import com.benkio.telegrambotinfrastructure.http.DropboxClient
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import doobie.Transactor
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -25,7 +26,7 @@ final case class DBFixtureResources(
     connection: Connection,
     transactor: Transactor[IO],
     resourceDBLayer: Resource[IO, DBLayer[IO]],
-    resourceAccessResource: Resource[IO, ResourceAccess[IO]]
+    repositoryResource: Resource[IO, Repository[IO]]
 )
 
 trait DBFixture { self: FunSuite =>
@@ -53,9 +54,9 @@ object DBFixture {
     val conn = DriverManager.getConnection(DBFixture.dbUrl)
 
     runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
-    val transactor                                               = Transactor.fromConnection[IO](conn, None)
-    val dbLayerResource: Resource[IO, DBLayer[IO]]               = Resource.eval(DBLayer[IO](transactor))
-    val resourceAccessResource: Resource[IO, ResourceAccess[IO]] = dbLayerResource.flatMap(dbLayer =>
+    val transactor                                       = Transactor.fromConnection[IO](conn, None)
+    val dbLayerResource: Resource[IO, DBLayer[IO]]       = Resource.eval(DBLayer[IO](transactor))
+    val repositoryResource: Resource[IO, Repository[IO]] = dbLayerResource.flatMap(dbLayer =>
       for {
         _          <- Resource.eval(log.debug(s"DbUrl: $dbUrl ||| migrations path: $migrationPath"))
         httpClient <- EmberClientBuilder
@@ -63,7 +64,7 @@ object DBFixture {
           .withMaxResponseHeaderSize(8192)
           .build
         dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
-      } yield ResourceAccess.dbResources[IO](
+      } yield DBRepository.dbResources[IO](
         dbMedia = dbLayer.dbMedia,
         dropboxClient = dropboxClient
       )
@@ -74,7 +75,7 @@ object DBFixture {
       connection = conn,
       transactor = transactor,
       resourceDBLayer = dbLayerResource,
-      resourceAccessResource = resourceAccessResource
+      repositoryResource = repositoryResource
     )
   }
 

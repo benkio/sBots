@@ -12,7 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.tr
-import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -23,7 +23,7 @@ import telegramium.bots.Message
 
 import java.time.Instant
 
-class BotSkeletonSpec extends CatsEffectSuite {
+class SBotSpec extends CatsEffectSuite {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
@@ -46,7 +46,7 @@ class BotSkeletonSpec extends CatsEffectSuite {
     for
       sampleWebhookBot <- SampleWebhookBot()
       resultOpt        <- sampleWebhookBot.selectReplyBundle(inputMessage)
-      result           <- resultOpt.fold(Throwable("BotSkeletonSpec expected Some, got None").raiseError[IO, String]) {
+      result           <- resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       expectedPP <- expected.prettyPrint()
@@ -66,13 +66,13 @@ class BotSkeletonSpec extends CatsEffectSuite {
         reply = TextReply.fromList[IO](
           "test command reply"
         )(false),
-        instruction = CommandInstructionSupportedLanguages.NoInstructions
+        instruction = CommandInstructionData.NoInstructions
       )
 
     for
       sampleWebhookBot <- SampleWebhookBot()
       resultOpt        <- sampleWebhookBot.selectCommandReplyBundle(inputMessage)
-      result           <- resultOpt.fold(Throwable("BotSkeletonSpec expected Some, got None").raiseError[IO, String]) {
+      result           <- resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       expectedPP <- expected.prettyPrint()

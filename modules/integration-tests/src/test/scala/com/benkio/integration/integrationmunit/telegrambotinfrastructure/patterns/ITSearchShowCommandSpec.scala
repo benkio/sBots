@@ -4,7 +4,7 @@ import cats.effect.IO
 import cats.implicits.*
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
+import com.benkio.telegrambotinfrastructure.repository.db.DBShow
 import munit.CatsEffectSuite
 
 class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {

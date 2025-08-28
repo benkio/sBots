@@ -6,12 +6,12 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.BotSkeleton
-import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
-import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
+import com.benkio.telegrambotinfrastructure.SBotWebhook
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.client.Client
@@ -22,29 +22,29 @@ import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 
 class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    resourceAccessInput: ResourceAccess[F],
+    repositoryInput: Repository[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
-) extends BotSkeletonPolling[F](resourceAccessInput)
+) extends SBotPolling[F](repositoryInput)
     with XahLeeBot[F] {
-  override def resourceAccess: ResourceAccess[F] =
-    resourceAccessInput
+  override def repository: Repository[F] =
+    repositoryInput
 }
 
 class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resourceAccessInput: ResourceAccess[F],
+    repositoryInput: Repository[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccessInput)
+) extends SBotWebhook[F](uri, path, webhookCertificate, repositoryInput)
     with XahLeeBot[F] {
-  override def resourceAccess: ResourceAccess[F] =
-    resourceAccessInput
+  override def repository: Repository[F] =
+    repositoryInput
 }
 
-trait XahLeeBot[F[_]: Async: LogWriter] extends BotSkeleton[F] {
+trait XahLeeBot[F[_]: Async: LogWriter] extends SBot[F] {
 
   override val botName: String         = XahLeeBot.botName
   override val botPrefix: String       = XahLeeBot.botPrefix
@@ -94,7 +94,7 @@ object XahLeeBot {
         botName = botName
       )
     } yield new XahLeeBotPolling[F](
-      resourceAccessInput = botSetup.resourceAccess,
+      repositoryInput = botSetup.repository,
       dbLayer = botSetup.dbLayer,
       backgroundJobManager = botSetup.backgroundJobManager
     )(using Parallel[F], Async[F], botSetup.api, log)
@@ -114,7 +114,7 @@ object XahLeeBot {
       new XahLeeBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resourceAccessInput = botSetup.resourceAccess,
+        repositoryInput = botSetup.repository,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate

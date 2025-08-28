@@ -3,11 +3,11 @@ package com.benkio.telegrambotinfrastructure.initialization
 import cats.data.NonEmptyList
 import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.mocks.TelegramHttpRoutes
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -38,19 +38,19 @@ class BotSetupSpec extends CatsEffectSuite {
   test("token should call resource access with the input token filename") {
     val tokenFilename       = "filename.token"
     val expectedFileContent = "testtokencontent".getBytes()
-    val expectedFile        = ResourceAccess.toTempFile[IO](tokenFilename, expectedFileContent)
+    val expectedFile        = Repository.toTempFile[IO](tokenFilename, expectedFileContent)
 
-    val resourceAccess = ResourceAccessMock(
+    val repository = RepositoryMock(
       getResourceFileHandler = resourceName =>
         IO.raiseUnless(resourceName.filepath == tokenFilename)(
-          Throwable(s"[ResourceAccessMock] getResourceByteArrayHandler input mismatch: $resourceName ≠ $tokenFilename")
+          Throwable(s"[RepositoryMock] getResourceByteArrayHandler input mismatch: $resourceName ≠ $tokenFilename")
         ).as(NonEmptyList.one(MediaResourceFile(expectedFile)))
     )
 
     BotSetup
       .token[IO](
         tokenFilename = tokenFilename,
-        resourceAccess = resourceAccess
+        repository = repository
       )
       .use { tokenContent =>
         assert(

@@ -3,7 +3,7 @@ package com.benkio.main
 import cats.effect.Async
 import cats.effect.Resource
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.client.Client

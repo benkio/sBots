@@ -10,17 +10,17 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
-import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.BotSkeleton
-import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
-import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
+import com.benkio.telegrambotinfrastructure.SBotWebhook
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.client.Client
@@ -32,13 +32,13 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    resourceAccessInput: ResourceAccess[F],
+    repositoryInput: Repository[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
-) extends BotSkeletonPolling[F](resourceAccessInput)
+) extends SBotPolling[F](repositoryInput)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess: ResourceAccess[F] =
-    resourceAccessInput
+  override def repository: Repository[F] =
+    repositoryInput
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
@@ -47,22 +47,22 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resourceAccessInput: ResourceAccess[F],
+    repositoryInput: Repository[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccessInput)
+) extends SBotWebhook[F](uri, path, webhookCertificate, repositoryInput)
     with RichardPHJBensonBot[F] {
-  override def resourceAccess: ResourceAccess[F] =
-    resourceAccess
+  override def repository: Repository[F] =
+    repository
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, botName)
 }
 
-trait RichardPHJBensonBot[F[_]: Async: LogWriter] extends BotSkeleton[F] {
+trait RichardPHJBensonBot[F[_]: Async: LogWriter] extends SBot[F] {
 
   override val botName: String                     = RichardPHJBensonBot.botName
   override val botPrefix: String                   = RichardPHJBensonBot.botPrefix
@@ -153,7 +153,7 @@ object RichardPHJBensonBot {
               ),
             true
           ),
-          instruction = CommandInstructionSupportedLanguages.Instructions(
+          instruction = CommandInstructionData.Instructions(
             ita = bensonifyCommandDescriptionIta,
             eng = bensonifyCommandDescriptionEng
           )
@@ -172,7 +172,7 @@ object RichardPHJBensonBot {
         botName = botName
       )
     } yield new RichardPHJBensonBotPolling[F](
-      resourceAccessInput = botSetup.resourceAccess,
+      repositoryInput = botSetup.repository,
       dbLayer = botSetup.dbLayer,
       backgroundJobManager = botSetup.backgroundJobManager
     )(using Parallel[F], Async[F], botSetup.api, log)
@@ -192,7 +192,7 @@ object RichardPHJBensonBot {
       new RichardPHJBensonBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resourceAccessInput = botSetup.resourceAccess,
+        repositoryInput = botSetup.repository,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate

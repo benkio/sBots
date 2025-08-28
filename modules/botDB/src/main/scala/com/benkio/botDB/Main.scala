@@ -7,8 +7,8 @@ import com.benkio.botDB.media.MediaUpdater
 import com.benkio.botDB.show.ShowUpdater
 import com.benkio.botDB.show.YouTubeService
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -33,14 +33,14 @@ object Main extends IOApp {
       _      <- Resource.eval(log.info("[Main - Initialization] Connect to DB"))
       transactor = Config.buildTransactor(config = config)
       dbLayer <- Resource.eval(DBLayer[IO](transactor))
-      _       <- Resource.eval(log.info("[Main - Initialization] ResourceAccess"))
-      resourceAccess = ResourceAccess.fromResources[IO](args.lastOption)
+      _       <- Resource.eval(log.info("[Main - Initialization] Repository"))
+      repository = ResourcesRepository.fromResources[IO](args.lastOption)
       _ <- Resource.eval(log.info("[Main - Initialization] DBMigrator"))
       migrator = DBMigrator[IO]
       _ <- Resource.eval(log.info("[Main - Initialization] MediaUpdater"))
-      mediaUpdater = MediaUpdater(config = config, dbLayer = dbLayer, resourceAccess = resourceAccess)
+      mediaUpdater = MediaUpdater(config = config, dbLayer = dbLayer, repository = repository)
       _              <- Resource.eval(log.info("[Main - Initialization] Fetch YouTube api key from resources"))
-      youTubeApiKey  <- BotSetup.token(youtubeTokenFilename, resourceAccess)
+      youTubeApiKey  <- BotSetup.token(youtubeTokenFilename, repository)
       _              <- Resource.eval(log.info("[Main - Initialization] Creating YouTube Service"))
       youTubeService <- Resource.eval(YouTubeService(config = config, youTubeApiKey))
       _              <- Resource.eval(log.info("[Main - Initialization] ShowUpdater"))

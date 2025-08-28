@@ -4,7 +4,7 @@ import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
-import com.benkio.telegrambotinfrastructure.resources.db.*
+import com.benkio.telegrambotinfrastructure.repository.db.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import log.effect.LogWriter
 import org.http4s.Uri

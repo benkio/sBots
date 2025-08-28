@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.model
 import cats.syntax.all.*
 import cats.ApplicativeThrow
 import cats.Show
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import cron4s.*
 import cron4s.expr.CronExpr
 

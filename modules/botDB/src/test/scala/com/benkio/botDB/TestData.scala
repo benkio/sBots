@@ -3,7 +3,7 @@ package com.benkio.botDB
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.ShowConfig
 import com.benkio.botDB.config.ShowSourceConfig
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
+import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 
 object TestData {
 

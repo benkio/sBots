@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.model.show
 import cats.implicits.*
 import cats.MonadThrow
 import cats.Show as CatsShow
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
+import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 
 import java.time.LocalDate
 import scala.util.Try

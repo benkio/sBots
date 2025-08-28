@@ -3,20 +3,21 @@ package com.benkio.telegrambotinfrastructure.mocks
 import cats.effect.kernel.Ref
 import cats.effect.std.Random
 import cats.effect.IO
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Timeout
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.db.DBLog
-import com.benkio.telegrambotinfrastructure.resources.db.DBLogData
-import com.benkio.telegrambotinfrastructure.resources.db.DBMedia
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
-import com.benkio.telegrambotinfrastructure.resources.db.DBShow
-import com.benkio.telegrambotinfrastructure.resources.db.DBShowData
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscription
-import com.benkio.telegrambotinfrastructure.resources.db.DBSubscriptionData
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeout
-import com.benkio.telegrambotinfrastructure.resources.db.DBTimeoutData
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.db.DBLog
+import com.benkio.telegrambotinfrastructure.repository.db.DBLogData
+import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
+import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
+import com.benkio.telegrambotinfrastructure.repository.db.DBShow
+import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscription
+import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
+import com.benkio.telegrambotinfrastructure.repository.db.DBTimeout
+import com.benkio.telegrambotinfrastructure.repository.db.DBTimeoutData
 
 import java.time.Instant
 import java.util.UUID
@@ -58,23 +59,17 @@ object DBLayerMock {
   }
 
   class DBMediaMock(db: Ref[IO, List[DBMediaData]]) extends DBMedia[IO] {
-    override def getMedia(filename: String, cache: Boolean = true): IO[DBMediaData] =
+    override def getMedia(filename: String, cache: Boolean = true): IO[Option[DBMediaData]] =
       db.get.flatMap(
         _.find(m => m.media_name == filename)
-          .fold[IO[DBMediaData]](IO.raiseError(new Throwable(s"[TEST ERROR] Media not found: $filename")))(IO.pure)
+          .fold[IO[Option[DBMediaData]]](None.pure)(data => data.some.pure)
       )
-    override def getRandomMedia(botPrefix: String): IO[DBMediaData] =
+    override def getRandomMedia(botPrefix: String): IO[Option[DBMediaData]] =
       for
         ls         <- db.get
         rnd        <- Random.scalaUtilRandom[IO]
         lsShuffled <- rnd.shuffleList(ls.filter(_.media_name.startsWith(botPrefix)))
-        result     <- lsShuffled.headOption.fold(
-          IO.raiseError(
-            Throwable(
-              "[TEST ERROR]: got no results from the `getRandomMedia` mock, expected 1 result or the mock is empty"
-            )
-          )
-        )(IO.pure)
+        result     <- lsShuffled.headOption.fold[IO[Option[DBMediaData]]](None.pure)(_.some.pure)
       yield result
     override def getMediaByKind(kind: String, cache: Boolean = true): IO[List[DBMediaData]] =
       db.get.map(

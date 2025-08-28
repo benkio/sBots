@@ -7,12 +7,12 @@ import cats.implicits.*
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.mocks.ResourceAccessMock
+import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
@@ -30,7 +30,7 @@ class ABarberoBotSpec extends BaseBotSpec {
     override def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
         msg: Message,
-        resourceAccess: ResourceAccess[F],
+        repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] =
       val _ = summon[LogWriter[F]]
@@ -43,17 +43,17 @@ class ABarberoBotSpec extends BaseBotSpec {
     MediaResourceIFile(
       "test mediafile"
     )
-  val resourceAccessMock = new ResourceAccessMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+  val repositoryMock = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
 
   val aBarberoBot =
     BackgroundJobManager[IO](
       emptyDBLayer.dbSubscription,
       emptyDBLayer.dbShow,
-      resourceAccessMock,
+      repositoryMock,
       ABarberoBot.botName
     ).map(bjm =>
       new ABarberoBotPolling[IO](
-        resourceAccessInput = resourceAccessMock,
+        repositoryInput = repositoryMock,
         dbLayer = emptyDBLayer,
         backgroundJobManager = bjm
       )

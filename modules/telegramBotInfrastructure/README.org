@@ -1,0 +1,85 @@
+* Infrastructure
+
+Containing all the common code regarding the bots.
+The idea is to store here the logic and model of the computation and leave to the single bots only the configurations/values/code that's bot specific.
+
+** Main Logic
+***  Design
+
+#+begin_src mermaid
+  flowchart TD
+      A@{ shape: lean-l, label: "Input Message" } --> B[SBot]
+      B -- onMessage --> C{Message Type}
+
+      C -->|isCommand| D[Search Command]
+      D -.->|Command| G[Execute Command]
+      G -->|Reply| Z@{ shape: framed-circle, label: "Stop" }
+
+      C -->|isFileRequest| F[Search File]
+      F -.->|File| H[Fetch File]
+      H -->|Reply| Z@{ shape: framed-circle, label: "Stop" }
+
+      C -->|Message| P[Filter Timeout-Forward]
+      P -.->|Message| E[Search Trigger]
+      E -.->|Possible Replies| I[Select Random File]
+      I -->|Fetch File| M[Post Computation]
+      M -->|Reply| Z@{ shape: framed-circle, label: "Stop" }
+#+end_src
+
+*** Logic Description
+
+All starts and ends with the *SBot* trait.
+It has specific modes: *SBotPolling* & *SBotWebhook*. (Mainly because of the [[https://github.com/apimorphism/telegramium][Telegramium]] dependency)
+
+There are different logic based on the type of message:
+- Commands :: Messages that starts with `/`
+- FileRequest :: Messages that starts with the bot prefix
+- Message :: normal logic
+
+**** Command Logic
+
+The message input is tested against the bot's command list in search for a match.
+If the ~ReplyBundleCommand~ is found, then its logic is executed and the result is returned.
+Each command has its logic and they can be found into the ~CommandPatterns~ file.
+
+Some commands are grouped together as they work in tandem:
+The ~subscribe~ command will be shipped together with the ~subscriptions~ command. This way the user is able to add subscriptions and see the active ones.
+
+**** Message Logic
+
+The logic for the message is more complex as it needs several checks:
+1. Check if the given message should be considered. It is valid if it passes:
+   1. The forward check: there's an option for not considering forward messages
+   2. The older check: if the message is older then the timeout it is discarded. The bots aren't reply to things too old. It might happen after a network down, bug, restart etc.
+   3. The timeout check: if a timeout is set it means the bot shouldn't reply to things if he replied before the timeout expire.
+2. Search in the triggers for the one that matches the message. The triggers are sorted from longer to shorter (more specific to more general). A trigger is associated to a list of possible responses.
+3. If found, a random response is selected within the candidates, fetched and returned.
+
+**** FileRequest Logic
+
+The logic for the file request is pretty simple:
+1. Check the start of the message, if it matches the bot prefix then try to use that as a key for finding the data in the database
+2. If something is found, fetch the actual content on the web using the link
+3. Return the data
+
+** Bot Initialization
+
+Contains the code for initializing the bots in a standard way.
+In particular:
+- Common configuration
+- DB Loading
+- Token Fetching
+- Webhook management (deletion)
+- Dropbox Client
+- Bot API Object
+- Background Manager
+
+** Data Entry
+
+Here you have the logic for semi automatically add data to the bot by a list of dropbox links.
+It will:
+- Parse the json containing the data links
+- Amend the Dropbox link query parameter (you need dl=1 to automatically download the data properly)
+- Add the new data to the json file
+- Group similar data by name together
+- Generate pseudo scala code

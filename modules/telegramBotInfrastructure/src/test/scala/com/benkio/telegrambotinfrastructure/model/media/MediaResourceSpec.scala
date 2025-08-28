@@ -12,7 +12,7 @@ import telegramium.bots.InputPartFile
 import java.io.File
 
 class MediaResourceSpec extends CatsEffectSuite {
-  test("toTelegramApi should return the expected1 Telegram Type") {
+  test("toTelegramApi should return the expected Telegram Type") {
     val file      = File(".")
     val actual1   = MediaResourceFile(Resource.pure[IO, File](file)).toTelegramApi
     val expected1 = InputPartFile(file)

@@ -12,16 +12,16 @@ import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import com.benkio.telegrambotinfrastructure.model.tr
-import com.benkio.telegrambotinfrastructure.model.CommandInstructionSupportedLanguages
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
-import com.benkio.telegrambotinfrastructure.BotSkeleton
-import com.benkio.telegrambotinfrastructure.BotSkeletonPolling
-import com.benkio.telegrambotinfrastructure.BotSkeletonWebhook
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
+import com.benkio.telegrambotinfrastructure.SBotWebhook
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.client.Client
@@ -35,27 +35,27 @@ import telegramium.bots.Message
 import scala.util.Random
 
 class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    resourceAccessInput: ResourceAccess[F],
+    repositoryInput: Repository[F],
     val dbLayer: DBLayer[F]
-) extends BotSkeletonPolling[F](resourceAccessInput)
+) extends SBotPolling[F](repositoryInput)
     with CalandroBot[F] {
-  override def resourceAccess: ResourceAccess[F] =
-    resourceAccessInput
+  override def repository: Repository[F] =
+    repositoryInput
 }
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    resourceAccessInput: ResourceAccess[F],
+    repositoryInput: Repository[F],
     val dbLayer: DBLayer[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends BotSkeletonWebhook[F](uri, path, webhookCertificate, resourceAccessInput)
+) extends SBotWebhook[F](uri, path, webhookCertificate, repositoryInput)
     with CalandroBot[F] {
-  override def resourceAccess: ResourceAccess[F] =
-    resourceAccessInput
+  override def repository: Repository[F] =
+    repositoryInput
 }
 
-trait CalandroBot[F[_]: Async: LogWriter] extends BotSkeleton[F] {
+trait CalandroBot[F[_]: Async: LogWriter] extends SBot[F] {
 
   override val botName: String         = CalandroBot.botName
   override val botPrefix: String       = CalandroBot.botPrefix
@@ -167,90 +167,90 @@ object CalandroBot {
         dbMedia = dbLayer.dbMedia,
         commandName = "randomcard",
         kind = "cards".some,
-        instruction = CommandInstructionSupportedLanguages.NoInstructions
+        instruction = CommandInstructionData.NoInstructions
       ),
-      ReplyBundleCommand.textToMedia[F]("porcoladro", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("porcoladro", CommandInstructionData.NoInstructions)(
         mp3"cala_PorcoLadro.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("unoduetre", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("unoduetre", CommandInstructionData.NoInstructions)(
         mp3"cala_Unoduetre.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("ancorauna", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("ancorauna", CommandInstructionData.NoInstructions)(
         mp3"cala_AncoraUnaDoveLaMetto.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("lacipolla", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("lacipolla", CommandInstructionData.NoInstructions)(
         mp3"cala_CipollaCalandrica.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("lavorogiusto", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("lavorogiusto", CommandInstructionData.NoInstructions)(
         mp3"cala_IlLavoroVaPagato.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("motivazioniinternet", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("motivazioniinternet", CommandInstructionData.NoInstructions)(
         mp3"cala_InternetMotivazioniCalandriche.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("cazzomene", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("cazzomene", CommandInstructionData.NoInstructions)(
         mp3"cala_IoSonVaccinato.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("arrivoarrivo", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("arrivoarrivo", CommandInstructionData.NoInstructions)(
         mp3"cala_SubmissionCalandra.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("vaginadepilata", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("vaginadepilata", CommandInstructionData.NoInstructions)(
         mp3"cala_VaginaDepilataCalandra.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("whawha_fallout4", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("whawha_fallout4", CommandInstructionData.NoInstructions)(
         mp3"cala_Waawahaawha.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("whawha_short", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("whawha_short", CommandInstructionData.NoInstructions)(
         mp3"cala_WwhaaawhaaaSingolo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("daccordissimo", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("daccordissimo", CommandInstructionData.NoInstructions)(
         mp3"cala_D_accordissimo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("stocazzo", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("stocazzo", CommandInstructionData.NoInstructions)(
         mp3"cala_Stocazzo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("cazzodibudda", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("cazzodibudda", CommandInstructionData.NoInstructions)(
         mp3"cala_CazzoDiBudda.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("personapulita", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("personapulita", CommandInstructionData.NoInstructions)(
         mp3"cala_PersonaPulita.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("losquirt", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("losquirt", CommandInstructionData.NoInstructions)(
         mp3"cala_LoSquirt.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("fuoridalmondo", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("fuoridalmondo", CommandInstructionData.NoInstructions)(
         mp3"cala_FuoriDalMondo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("qualitaolive", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("qualitaolive", CommandInstructionData.NoInstructions)(
         mp3"cala_QualitaOlive.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("gioielli", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("gioielli", CommandInstructionData.NoInstructions)(
         mp3"cala_Gioielli.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("risata", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("risata", CommandInstructionData.NoInstructions)(
         mp3"cala_RisataCalandrica.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("sonocosternato", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("sonocosternato", CommandInstructionData.NoInstructions)(
         mp3"cala_SonoCosternato.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("demenza", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("demenza", CommandInstructionData.NoInstructions)(
         mp3"cala_LaDemenzaDiUnUomo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("wha", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("wha", CommandInstructionData.NoInstructions)(
         mp3"cala_WhaSecco.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("imparatounafava", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("imparatounafava", CommandInstructionData.NoInstructions)(
         mp3"cala_ImparatoUnaFava.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("lesbiche", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("lesbiche", CommandInstructionData.NoInstructions)(
         mp3"cala_SieteLesbiche.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("firstlesson", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("firstlesson", CommandInstructionData.NoInstructions)(
         mp3"cala_FirstLessonPlease.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("noprogrammato", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("noprogrammato", CommandInstructionData.NoInstructions)(
         mp3"cala_NoGrazieProgrammato.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("fiammeinferno", CommandInstructionSupportedLanguages.NoInstructions)(
+      ReplyBundleCommand.textToMedia[F]("fiammeinferno", CommandInstructionData.NoInstructions)(
         mp3"cala_Fiamme.mp3"
       )
     )
@@ -268,7 +268,7 @@ object CalandroBot {
   } yield botSetup).use { botSetup =>
     action(
       new CalandroBotPolling[F](
-        resourceAccessInput = botSetup.resourceAccess,
+        repositoryInput = botSetup.repository,
         dbLayer = botSetup.dbLayer
       )(using Parallel[F], Async[F], botSetup.api, log)
     )
@@ -289,7 +289,7 @@ object CalandroBot {
       new CalandroBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        resourceAccessInput = botSetup.resourceAccess,
+        repositoryInput = botSetup.repository,
         dbLayer = botSetup.dbLayer,
         webhookCertificate = webhookCertificate
       )(using Async[F], botSetup.api, log)

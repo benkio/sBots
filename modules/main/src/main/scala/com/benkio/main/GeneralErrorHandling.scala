@@ -4,7 +4,7 @@ import cats.effect.Async
 import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.resources.db.DBLog
+import com.benkio.telegrambotinfrastructure.repository.db.DBLog
 import log.effect.LogWriter
 
 object GeneralErrorHandling {

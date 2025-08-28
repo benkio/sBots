@@ -11,9 +11,9 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
-import com.benkio.telegrambotinfrastructure.resources.db.DBLayer
-import com.benkio.telegrambotinfrastructure.resources.db.DBMediaData
-import com.benkio.telegrambotinfrastructure.resources.ResourceAccess
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import io.circe.parser.decode
 import io.circe.syntax.*
 import log.effect.LogWriter
@@ -30,22 +30,27 @@ object MediaUpdater {
   def apply[F[_]: Async: LogWriter](
       config: Config,
       dbLayer: DBLayer[F],
-      resourceAccess: ResourceAccess[F]
+      repository: Repository[F]
   ): MediaUpdater[F] =
     new MediaUpdaterImpl(
       config = config,
       dbLayer = dbLayer,
-      resourceAccess = resourceAccess
+      repository = repository
     )
 
   private[media] class MediaUpdaterImpl[F[_]: Async: LogWriter](
       config: Config,
       dbLayer: DBLayer[F],
-      resourceAccess: ResourceAccess[F]
+      repository: Repository[F]
   ) extends MediaUpdater[F] {
 
     private[media] def fetchRootBotFiles: Resource[F, List[MediaResource[F]]] =
-      config.jsonLocation.flatTraverse(location => resourceAccess.getResourcesByKind(location).map(_.reduce.toList))
+      config.jsonLocation
+        .flatTraverse(location =>
+          repository
+            .getResourcesByKind(location)
+            .map(_.map(_.reduce.toList).getOrElse(List()))
+        )
 
     private[media] def filterMediaJsonFiles(allFiles: List[MediaResource[F]]): Resource[F, List[File]] = {
       allFiles
