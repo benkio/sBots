@@ -50,7 +50,7 @@ object TelegramReply:
       chatAction: String,
       mediaFile: MediaFile,
       replyToMessage: Boolean,
-      sendFileAPIMethod: (ChatId, IFile, Option[Int]) => Method[Message]
+      sendFileAPIMethod: (ChatId, IFile, Option[ReplyParameters]) => Method[Message]
   ): F[List[Message]] = {
     val chatId: ChatId                                                    = ChatIntId(msg.chat.id)
     def computeMediaResource(mediaResource: MediaResource[F]): F[Message] =
@@ -58,7 +58,7 @@ object TelegramReply:
         sendFileAPIMethod(
           chatId,
           iFile,
-          Option.when(replyToMessage)(msg.messageId)
+          Option.when(replyToMessage)(ReplyParameters(msg.messageId))
         ).exec
       )
     val result: EitherT[F, Throwable, List[Message]] = for {
@@ -125,7 +125,7 @@ object TelegramReply:
           Methods.sendAudio(
             chatId = chatId,
             audio = ifile,
-            messageThreadId = replyToMessageId
+            replyParameters = replyToMessageId
           )
       )
     }
@@ -148,7 +148,7 @@ object TelegramReply:
           Methods.sendAnimation(
             chatId = chatId,
             animation = ifile,
-            messageThreadId = replyToMessageId
+            replyParameters = replyToMessageId
           )
       )
     }
@@ -171,7 +171,7 @@ object TelegramReply:
           Methods.sendPhoto(
             chatId = chatId,
             photo = ifile,
-            messageThreadId = replyToMessageId
+            replyParameters = replyToMessageId
           )
       )
     }
@@ -194,7 +194,7 @@ object TelegramReply:
           Methods.sendVideo(
             chatId = chatId,
             video = ifile,
-            messageThreadId = replyToMessageId
+            replyParameters = replyToMessageId
           )
       )
     }
@@ -217,7 +217,7 @@ object TelegramReply:
           Methods.sendDocument(
             chatId = chatId,
             document = ifile,
-            messageThreadId = replyToMessageId
+            replyParameters = replyToMessageId
           )
       )
     }
@@ -240,7 +240,7 @@ object TelegramReply:
           Methods.sendSticker(
             chatId = chatId,
             sticker = ifile,
-            messageThreadId = replyToMessageId
+            replyParameters = replyToMessageId
           )
       )
     }
