@@ -2,8 +2,7 @@ package com.benkio.main
 
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogLevels
+import log.effect.fs2.SyncLogWriter.noOpLog
 import log.effect.LogWriter
 import munit.CatsEffectSuite
 
@@ -12,7 +11,7 @@ import scala.concurrent.duration.*
 class GeneralErrorHandlingSpec extends CatsEffectSuite {
 
   val sleepTime                          = 100.millis
-  given log: LogWriter[IO]               = consoleLogUpToLevel(LogLevels.Error)
+  given log: LogWriter[IO]               = noOpLog[IO]
   val expectedErrorMessage: String       = "Test Throwable"
   val failedResource: Resource[IO, Unit] =
     Resource.raiseError(new Throwable(expectedErrorMessage))
