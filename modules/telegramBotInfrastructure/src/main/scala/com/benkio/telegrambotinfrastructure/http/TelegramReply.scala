@@ -67,8 +67,9 @@ object TelegramReply:
         repository
           .getResourceFile(mediaFile)
           .use[List[Message]](mediaResources =>
-            mediaResources
-              .map(
+            Async[F]
+              .fromEither(mediaResources)
+              .flatMap(
                 _.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
                   prevExec.handleErrorWith(e =>
                     LogWriter.error(
@@ -78,12 +79,13 @@ object TelegramReply:
                   )
                 )
               )
-              .fold(
-                e => ErrorFallbackWorkaround.errorHandling[F](msg, mediaFile, repository, e),
-                _.map(List(_))
-              )
+              .map(List(_))
           )
-          .onError(e => LogWriter.error(s"[TelegramReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"))
+          .onError(e =>
+            LogWriter.error(
+              s"[TelegramReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"
+            ) >> ErrorFallbackWorkaround.errorHandling[F](msg, mediaFile, repository, e).void
+          )
           .attemptT
     } yield message
     result.getOrElse(List.empty)

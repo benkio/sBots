@@ -147,9 +147,7 @@ trait SBot[F[_]: Async: LogWriter] {
       repository: Repository[F],
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    for
-      contentOpt <- Async[F].pure(msg.getContent)
-      result     <- contentOpt.fold(Async[F].pure(List.empty))(content =>
+    for result <- msg.getContent.fold(Async[F].pure(List.empty))(content =>
         TelegramReply[ReplyValue].reply(
           reply = MediaFile.fromString(content),
           msg = msg,
@@ -166,8 +164,7 @@ trait SBot[F[_]: Async: LogWriter] {
     msg.messageType(botPrefix) match {
       case MessageType.Message     => messageLogic(repository, msg)
       case MessageType.Command     => commandLogic(repository, msg)
-      case MessageType.FileRequest =>
-        LogWriter.info(s"$botName: To be implemented") >> fileRequestLogic(repository, msg)
+      case MessageType.FileRequest => fileRequestLogic(repository, msg)
     }
 
   def onMessageLogic(repository: Repository[F], msg: Message)(using api: Api[F]): F[Unit] = {

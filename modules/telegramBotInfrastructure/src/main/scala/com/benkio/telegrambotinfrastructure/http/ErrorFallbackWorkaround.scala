@@ -24,7 +24,7 @@ object ErrorFallbackWorkaround:
     Message(
       messageId = 0,
       date = 0,
-      chat = Chat(id = -4145546019L, `type` = "private")
+      chat = Chat(id = -4145546019L, `type` = "group")
     ) // Only the chat id matters here
   def errorText(value: String): Text =
     Text(value, TextType.Markdown)
@@ -33,7 +33,7 @@ object ErrorFallbackWorkaround:
       msg: Message,
       mediaFile: MediaFile,
       repository: Repository[F],
-      error: RepositoryError
+      error: Throwable
   ) = error match {
     case RepositoryError.NoResourcesFoundFile(_) =>
       Async[F].pure(List.empty) // Skip this error because user could put strange input here
