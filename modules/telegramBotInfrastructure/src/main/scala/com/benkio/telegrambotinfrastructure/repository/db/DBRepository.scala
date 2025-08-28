@@ -29,10 +29,12 @@ object DBRepository:
             LogWriter.info(s"[dbRepository] getResourcesByKind fetching resources by $criteria")
           )
           medias <- Resource.eval(dbMedia.getMediaByKind(criteria))
+          _ = println(s"[DBRepository] medias: ${medias}")
           files  <-
             medias.traverse(
               dbMediaDataToMediaResource
             )
+          _ = println(s"[DBRepository] files: ${files}")
           result <- Resource.eval(
             Async[F].fromOption(NonEmptyList.fromList(files), RepositoryError.NoResourcesFoundKind(criteria))
           )
