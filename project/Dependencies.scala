@@ -68,6 +68,7 @@ object Dependencies {
     val http4sDsl         = "org.http4s"             %% "http4s-dsl"                  % versions.http4s
     val http4sEmberClient = "org.http4s"             %% "http4s-ember-client"         % versions.http4s
     val http4sServer      = "org.http4s"             %% "http4s-server"               % versions.http4s
+    val http4sEmberServer = "org.http4s"             %% "http4s-ember-server"         % versions.http4s
     val logEffectsCore    = "io.laserdisc"           %% "log-effect-core"             % versions.logEffects
     val logEffectsFs2     = "io.laserdisc"           %% "log-effect-fs2"              % versions.logEffects
     val logbackClassic  = "ch.qos.logback"       % "logback-classic"          % versions.logbackClassic  % Runtime
@@ -97,10 +98,10 @@ object Dependencies {
     libs.http4sCore,
     libs.http4sEmberClient,
     libs.http4sServer,
-    libs.logbackClassic,
-    libs.logbackLogstash,
     libs.logEffectsCore,
     libs.logEffectsFs2,
+    libs.logbackClassic,
+    libs.logbackLogstash,
     libs.munit,
     libs.munitCatsEffect,
     libs.telegramiumCore,
@@ -122,9 +123,10 @@ object Dependencies {
       libs.flyway % "test",
       libs.fs2Core,
       libs.fs2Cron,
-      libs.fs2CronCore,
       libs.fs2CronCalev,
+      libs.fs2CronCore,
       libs.http4sDsl,
+      libs.http4sEmberServer % "test",
       libs.mules,
       libs.mulesHttp4s,
       libs.pureConfigCore,

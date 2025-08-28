@@ -1,13 +1,20 @@
 package com.benkio.telegrambotinfrastructure.http
 
 import cats.effect.*
+import cats.effect.IO
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.http.DropboxClient.UnexpectedDropboxResponse
+import com.comcast.ip4s.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
+import org.http4s.dsl.io.*
 import org.http4s.ember.client.*
+import org.http4s.ember.server.EmberServerBuilder
+import org.http4s.server.middleware.CORS
+import org.http4s.server.middleware.Logger
+import org.http4s.HttpRoutes
 import org.http4s.Uri
 
 import java.io.File
@@ -78,9 +85,24 @@ class DropboxClientSpec extends CatsEffectSuite {
   }
 
   test("fetch should fail if the response is empty") {
-    val emptyUrl = Uri.unsafeFromString("https://httpbin.org/status/200")
+    val routes: HttpRoutes[IO] = HttpRoutes.of[IO] { case GET -> Root =>
+      Ok()
+    }
+
+    val httpApp = Logger.httpApp(true, true)(
+      CORS.policy.withAllowOriginAll(routes.orNotFound)
+    )
+    val serverResource = EmberServerBuilder
+      .default[IO]
+      .withHost(host"0.0.0.0")
+      .withPort(port"8080")
+      .withHttpApp(httpApp)
+      .build
+
+    val emptyUrl = Uri.unsafeFromString("http://0.0.0.0:8080/")
     val filename = "whaeverfilename"
     val result   = for {
+      server        <- serverResource
       dropboxClient <- buildDropboxClient()
       file          <- dropboxClient.fetchFile(filename, emptyUrl)
     } yield file
