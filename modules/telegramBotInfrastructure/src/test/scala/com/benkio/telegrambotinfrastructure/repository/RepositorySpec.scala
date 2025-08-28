@@ -111,6 +111,7 @@ class DBRepositorySpec extends CatsEffectSuite {
       )
     assertIO(check, true)
   }
+  // TODO: 779 Implement
   test("DBRepository.getResourceFile should return the expected list of MediaResource") { ??? }
   test("DBRepository.getResourceKind should return an error if the criteria doesn't exists") { ??? }
   test("DBRepository.getResourceKind should return the expected list of MediaResource") {
