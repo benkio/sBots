@@ -35,7 +35,6 @@ object DBRepository:
                 NonEmptyList.fromList(medias).fold(Left(RepositoryError.NoResourcesFoundKind(criteria)))(Right(_))
               )
           )
-          _ = println(s"[DBRepository] medias: ${eitherMedias}") // Remove
           eitherMediaResources <-
             eitherMedias.fold(
               err => Resource.pure[F, Either[RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]](Left(err)),

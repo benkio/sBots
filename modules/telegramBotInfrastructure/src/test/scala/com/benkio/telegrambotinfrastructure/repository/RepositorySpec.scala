@@ -137,7 +137,6 @@ class DBRepositorySpec extends CatsEffectSuite {
     val check: IO[Boolean] = dbRepository
       .getResourcesByKind("testkind")
       .use(result =>
-        println(s"[RepositorySpec] result: ${result}")
         result match {
           case Left(RepositoryError.NoResourcesFoundKind(criteria)) => (criteria == "testkind").pure
           case _                                                    => false.pure
