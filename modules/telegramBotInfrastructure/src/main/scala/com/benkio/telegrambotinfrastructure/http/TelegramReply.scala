@@ -84,7 +84,7 @@ object TelegramReply:
           .onError(e =>
             LogWriter.error(
               s"[TelegramReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"
-            ) >> ErrorFallbackWorkaround.errorHandling[F](msg, mediaFile, repository, e).void
+            ) >> ErrorFallbackWorkaround.errorHandling[F](msg, mediaFile, e)
           )
           .attemptT
     } yield message

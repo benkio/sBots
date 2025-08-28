@@ -1,15 +1,13 @@
 package com.benkio.telegrambotinfrastructure.http
 
 import cats.effect.*
+import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.reply.Text.TextType
-import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
-import log.effect.LogWriter
 import telegramium.bots.high.*
-import telegramium.bots.Chat
+import telegramium.bots.high.implicits.methodOps
+import telegramium.bots.high.Api
+import telegramium.bots.ChatIntId
 import telegramium.bots.Message
 
 /*
@@ -20,35 +18,25 @@ Ideally we should have a separate support chat for that and/or a dedicated Dashb
  */
 object ErrorFallbackWorkaround:
 
-  val supportmessage: Message =
-    Message(
-      messageId = 0,
-      date = 0,
-      chat = Chat(id = -4145546019L, `type` = "group")
-    ) // Only the chat id matters here
-  def errorText(value: String): Text =
-    Text(value, TextType.Markdown)
+  val chatSupportGroupId: ChatIntId = ChatIntId(id = -4145546019L)
 
-  def errorHandling[F[_]: Async: LogWriter: Api](
+  def errorHandling[F[_]: Async](
       msg: Message,
       mediaFile: MediaFile,
-      repository: Repository[F],
       error: Throwable
-  ) = error match {
+  )(using api: Api[F]): F[Unit] = error match {
     case RepositoryError.NoResourcesFoundFile(_) =>
-      Async[F].pure(List.empty) // Skip this error because user could put strange input here
+      Async[F].unit // Skip this error because user could put strange input here
     case e =>
-      TelegramReply[Text].reply(
-        reply = ErrorFallbackWorkaround.errorText(
-          s"""An Error Occurred for
-             | - msg: $msg
-             | - mediaFile: $mediaFile
-             | - error: ${e.getMessage()}
-             |""".stripMargin
-        ),
-        msg = ErrorFallbackWorkaround.supportmessage,
-        repository = repository,
-        replyToMessage = false
-      )
+      Methods
+        .sendMessage(
+          chatId = chatSupportGroupId,
+          text = s"""An Error Occurred for
+                    | - msg: $msg
+                    | - mediaFile: $mediaFile
+                    | - error: ${e.getMessage()}
+                    |""".stripMargin
+        )
+        .exec
+        .void
   }
-end ErrorFallbackWorkaround
