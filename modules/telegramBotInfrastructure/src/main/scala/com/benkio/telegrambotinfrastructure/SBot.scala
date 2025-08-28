@@ -4,18 +4,22 @@ import cats.*
 import cats.data.OptionT
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.messagefiltering.getContent
 import com.benkio.telegrambotinfrastructure.messagefiltering.messageType
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
+import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import log.effect.LogWriter
 import org.http4s.implicits.*
 import org.http4s.Uri
@@ -139,12 +143,21 @@ trait SBot[F[_]: Async: LogWriter] {
       )
     )
 
-  // TODO: 779 Implement
   private def fileRequestLogic(
-      // repository: Repository[F],
-      // msg: Message
-  ) // (using api: Api[F])
-      : F[Option[List[Message]]] = none.pure
+      repository: Repository[F],
+      msg: Message
+  )(using api: Api[F]): F[Option[List[Message]]] =
+    for
+      contentOpt <- Async[F].pure(msg.getContent)
+      result     <- contentOpt.fold(Async[F].pure(List.empty))(content =>
+        TelegramReply[ReplyValue].reply(
+          reply = MediaFile.fromString(content),
+          msg = msg,
+          repository = repository,
+          replyToMessage = true
+        )
+      )
+    yield result.some
 
   private def botLogic(
       repository: Repository[F],
@@ -154,8 +167,7 @@ trait SBot[F[_]: Async: LogWriter] {
       case MessageType.Message     => messageLogic(repository, msg)
       case MessageType.Command     => commandLogic(repository, msg)
       case MessageType.FileRequest =>
-        LogWriter.info(s"$botName: To be implemented") >> fileRequestLogic( // repository, msg
-        )
+        LogWriter.info(s"$botName: To be implemented") >> fileRequestLogic(repository, msg)
     }
 
   def onMessageLogic(repository: Repository[F], msg: Message)(using api: Api[F]): F[Unit] = {

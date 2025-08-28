@@ -79,19 +79,7 @@ object TelegramReply:
                 )
               )
               .fold(
-                e =>
-                  TelegramReply[Text].reply(
-                    reply = ErrorFallbackWorkaround.errorText(
-                      s"""An Error Occurred for
-                         | - msg: $msg
-                         | - mediaFile: $mediaFile
-                         | - error: ${e.getMessage()}
-                         |""".stripMargin
-                    ),
-                    msg = ErrorFallbackWorkaround.supportmessage,
-                    repository = repository,
-                    replyToMessage = false
-                  ),
+                e => ErrorFallbackWorkaround.errorHandling[F](msg, mediaFile, repository, e),
                 _.map(List(_))
               )
           )

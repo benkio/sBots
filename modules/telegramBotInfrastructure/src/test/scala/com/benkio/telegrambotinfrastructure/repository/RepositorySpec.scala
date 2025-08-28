@@ -115,7 +115,7 @@ class DBRepositorySpec extends CatsEffectSuite {
       )
     assertIO(check, true)
   }
-  // TODO: 779 Implement
+
   test("DBRepository.getResourceFile should return the expected list of MediaResource") {
     val expectedFileName                     = "bot_testMediaName.mp4"
     val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
