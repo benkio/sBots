@@ -836,7 +836,11 @@ object Video {
       vid"rphjb_PerfettoIncompetente.mp4"
     ),
     ReplyBundleMessage.textToVideo[F]("sono (proprio )?un coglione".r.tr(16))(vid"rphjb_SonoCoglione.mp4"),
-    ReplyBundleMessage.textToVideo[F]("sta male", "canzoni di natale")(
+    ReplyBundleMessage.textToVideo[F](
+      "sta[va]? male".r.tr(8),
+      "canzoni di natale",
+      "lo so (da anni|solo io)".r.tr(13)
+    )(
       vid"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4"
     ),
     ReplyBundleMessage.textToVideo[F]("invece no", "si ricomincia", "da capo")(
