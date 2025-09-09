@@ -1,0 +1,41 @@
+{
+  "name": "id3check",
+  "version": "1.0.0",
+  "description": "Script that checks if the artist of the mp3 files are as expected by sBots",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benkio/sBots.git"
+  },
+  "keywords": [
+    "id3v2",
+    "tags",
+    "mp3"
+  ],
+  "author": "Enrico Benini (Benkio)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benkio/sBots/issues"
+  },
+  "homepage": "https://github.com/benkio/sBots#readme",
+  "dependencies": {
+    "gts": "^6.0.2",
+    "node-id3": "^0.2.9",
+    "tsx": "^4.20.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "gts": "^6.0.2",
+    "typescript": "^5.6.3"
+  },
+  "scripts": {
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint",
+    "start": "tsx ./src/index.ts"
+  }
+}
