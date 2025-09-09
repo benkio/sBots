@@ -10,10 +10,21 @@ type Input = {
   path: string;
 };
 
-// Inputs /////////////////////////////////////////////////////////////////////
+// Functions //////////////////////////////////////////////////////////////////
 function buildResourceDirectory(botDir: string): string {
   return path.join(os.homedir(), '/Dropbox/sBots/', botDir);
 }
+function getFiles(path: string): Promise<string[]> {
+  return util
+    .promisify(fs.readdir)(path)
+    .then(files => {
+      return files.map(file => {
+        return path + '/' + file;
+      });
+    });
+}
+// Inputs /////////////////////////////////////////////////////////////////////
+
 const botsInput: Input[] = [
   {
     artist: 'Richard Philip Henry John Benson',
@@ -27,44 +38,36 @@ const botsInput: Input[] = [
   i.path = buildResourceDirectory(i.path);
   return i;
 });
-
-function getMp3Files(path: string): Promise<string[]> {
-  return util
-    .promisify(fs.readdir)(path)
-    .then(files => {
-      return files
-        .filter((file: string) => {
-          return file.endsWith('mp3');
-        })
-        .map(file => {
-          return path + '/' + file;
-        });
+function fixMp3ArtistId3Tag(fs: string[], initialArtist: string): void {
+  return fs
+    .filter((file: string) => {
+      return file.endsWith('mp3');
+    })
+    .map(f => {
+      const tags = NodeID3.read(f);
+      // console.log(`f: ${f} - tags: ${JSON.stringify(tags)}`);
+      return {file: f, artistTag: tags.artist};
+    })
+    .filter(x => {
+      return x.artistTag !== undefined && x.artistTag !== initialArtist;
+    })
+    .forEach(t => {
+      console.log(`Update file ${t.file} with artist ${initialArtist}`);
+      const result = NodeID3.update({artist: initialArtist}, t.file);
+      if (result) {
+        console.log('Tag successfully written');
+      } else {
+        console.log('Tag not updated: operation failed');
+      }
     });
 }
 
 Promise.all(
   botsInput.map(input => {
     const {artist: initialArtist, path: initialPath} = input;
-    return getMp3Files(initialPath).then(fs => {
-      return fs
-        .map(f => {
-          const tags = NodeID3.read(f);
-          // console.log(`f: ${f} - tags: ${JSON.stringify(tags)}`);
-          return {file: f, artistTag: tags.artist};
-        })
-        .filter(x => {
-          return x.artistTag !== undefined && x.artistTag !== initialArtist;
-        })
-        .forEach(t => {
-          console.log(`Update file ${t.file} with artist ${initialArtist}`);
-          const result = NodeID3.update({artist: initialArtist}, t.file);
-          if (result) {
-            console.log('Tag successfully written');
-          } else {
-            console.log('Tag not updated: operation failed');
-          }
-        });
-    });
+    return getFiles(initialPath).then(fs =>
+      fixMp3ArtistId3Tag(fs, initialArtist),
+    );
   }),
 )
   .then(() => {
