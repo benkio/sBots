@@ -116,6 +116,9 @@ object Mix:
       mp3"ytai_BuonSalameCariAmici.mp3",
       vid"ytai_BuonSalameCariAmici.mp4",
       gif"ytai_BuonSalameCariAmiciGif.mp4",
+      mp3"ytai_BuonCompleannoCariAmici.mp3",
+      vid"ytai_BuonCompleannoCariAmici.mp4",
+      gif"ytai_BuonCompleannoCariAmiciGif.mp4",
       gif"ytai_CariAmiciFollowersBuongiornoSabatoGif.mp4",
       vid"ytai_CariAmiciFollowersBuongiornoSabato.mp4",
       mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3",
@@ -944,6 +947,13 @@ object Mix:
       vid"ytai_Cannolo.mp4",
       mp3"ytai_Cannolo.mp3",
       gif"ytai_CannoloGif.mp4",
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "buon compleanno"
+    )(
+      mp3"ytai_BuonCompleannoCariAmici.mp3",
+      vid"ytai_BuonCompleannoCariAmici.mp4",
+      gif"ytai_BuonCompleannoCariAmiciGif.mp4",
     ),
   )
 end Mix
