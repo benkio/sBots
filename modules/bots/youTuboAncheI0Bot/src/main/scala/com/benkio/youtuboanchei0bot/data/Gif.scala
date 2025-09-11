@@ -1093,6 +1093,11 @@ object Gif:
         "squotimento"
       )(
         gif"ytai_LoopBalloGif.mp4"
-      )
+      ),
+    ReplyBundleMessage.textToGif[F](
+      "scatol"
+    )(
+      gif"ytai_LoopScatolaGif.mp4"
+    )
   )
 end Gif
