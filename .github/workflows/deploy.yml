@@ -58,7 +58,7 @@ jobs:
       - name: Kill Current bots
         run: ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'java --version; killall java || true'"
       - name: Replace Bot's Jar
-        run: rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/modules/main/target/scala-3.7.2/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/main.jar
+        run: rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/modules/main/target/scala-3.7.3/main.jar ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/main.jar
       - name: Replace Migration DB Script
         run: rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/DBMigration.sql ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/DBMigration.sql
       - name: Update DB
