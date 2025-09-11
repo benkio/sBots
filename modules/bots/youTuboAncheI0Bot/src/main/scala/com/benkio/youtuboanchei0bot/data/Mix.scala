@@ -718,7 +718,7 @@ object Mix:
       mp3"ytai_TantiAuguri.mp3",
       vid"ytai_TantiAuguri.mp4",
       gif"ytai_TantiAuguriGif.mp4",
-      gif"ytai_TantiAuguriGif2.mp4",
+      gif"ytai_TantiAuguri2Gif.mp4",
       gif"ytai_TantissimiAuguriGif.mp4",
       vid"ytai_TantissimiAuguri.mp4",
       mp3"ytai_TantissimiAuguri.mp3"
