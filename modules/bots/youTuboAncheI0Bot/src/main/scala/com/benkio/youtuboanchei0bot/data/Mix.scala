@@ -937,5 +937,13 @@ object Mix:
       gif"ytai_FameSeteNotturnaGif.mp4",
       pho"ytai_Acqua.jpg"
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "per il momento",
+      "cannolo"
+    )(
+      vid"ytai_Cannolo.mp4",
+      mp3"ytai_Cannolo.mp3",
+      gif"ytai_CannoloGif.mp4",
+    ),
   )
 end Mix
