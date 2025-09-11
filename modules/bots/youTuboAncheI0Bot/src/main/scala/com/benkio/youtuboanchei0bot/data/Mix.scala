@@ -963,5 +963,13 @@ object Mix:
       vid"ytai_AllaTuaSalute.mp4",
       gif"ytai_AllaTuaSaluteGif.mp4",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "stemperata",
+      "ottimamente"
+    )(
+      vid"ytai_AcquaQuasiOttimamenteStemperata.mp4",
+      mp3"ytai_AcquaQuasiOttimamenteStemperata.mp3",
+      gif"ytai_AcquaQuasiOttimamenteStemperataGif.mp4",
+    ),
   )
 end Mix
