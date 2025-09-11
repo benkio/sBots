@@ -955,5 +955,13 @@ object Mix:
       vid"ytai_BuonCompleannoCariAmici.mp4",
       gif"ytai_BuonCompleannoCariAmiciGif.mp4",
     ),
+    ReplyBundleMessage.textToMedia[F](
+      "alla (tua )?salute".r.tr(11)
+    )(
+      gif"ytai_AllaSaluteGif.mp4",
+      mp3"ytai_AllaTuaSalute.mp3",
+      vid"ytai_AllaTuaSalute.mp4",
+      gif"ytai_AllaTuaSaluteGif.mp4",
+    ),
   )
 end Mix

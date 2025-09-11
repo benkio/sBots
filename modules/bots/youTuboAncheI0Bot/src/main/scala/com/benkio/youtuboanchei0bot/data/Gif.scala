@@ -658,11 +658,6 @@ object Gif:
       gif"ytai_NeHoGiaParlatoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "alla salute"
-    )(
-      gif"ytai_AllaSaluteGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "grazie ragazzi",
       "grazie a tutti"
     )(
