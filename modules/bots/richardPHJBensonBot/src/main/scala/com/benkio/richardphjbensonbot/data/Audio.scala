@@ -385,6 +385,16 @@ object Audio {
       "capito che roba"
     )(
       mp3"rphjb_Fazzoletti.mp3"
+    ),
+    ReplyBundleMessage.textToMp3[F](
+      "devi morire",
+      "morirò",
+      "sarai felice",
+      "hanno dovuto spostare",
+      "\\btomba\\b".r.tr(5),
+      "jim morrison"
+    )(
+      mp3"rphjb_JimMorrison.mp3"
     )
   )
 }
