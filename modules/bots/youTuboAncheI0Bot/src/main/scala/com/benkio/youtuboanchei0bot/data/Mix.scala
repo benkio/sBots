@@ -899,6 +899,16 @@ object Mix:
       vid"ytai_FarcitaAbbondantementeGenerosamente.mp4",
       mp3"ytai_FarcitaAbbondantementeGenerosamente.mp3",
       gif"ytai_FarcitaAbbondantementeGenerosamenteGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "lo chiudiamo",
+      "non dovesse scappare",
+      "sottraendosi",
+      "fauci"
+    )(
+      vid"ytai_SottraendosiAlleMieFauci.mp4",
+      mp3"ytai_SottraendosiAlleMieFauci.mp3",
+      gif"ytai_SottraendosiAlleMieFauciGif.mp4"
     )
   )
 end Mix
