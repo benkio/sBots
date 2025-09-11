@@ -274,14 +274,6 @@ object Gif:
       gif"ytai_SentiteCheRobaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "sete",
-      "(sorso|bicchiere) d'acqua".r.tr(13)
-    )(
-      gif"ytai_SeteGif.mp4",
-      gif"ytai_AcquaMeravigliosaGif.mp4",
-      gif"ytai_FameSeteNotturnaGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "🤷"
     )(
       gif"ytai_ShrugGif.mp4"

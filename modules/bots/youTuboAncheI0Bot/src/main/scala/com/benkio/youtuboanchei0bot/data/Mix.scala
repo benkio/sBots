@@ -909,6 +909,30 @@ object Mix:
       vid"ytai_SottraendosiAlleMieFauci.mp4",
       mp3"ytai_SottraendosiAlleMieFauci.mp3",
       gif"ytai_SottraendosiAlleMieFauciGif.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "nel mio cuore"
+    )(
+      vid"ytai_SempreNelMioCuore.mp4",
+      mp3"ytai_SempreNelMioCuore.mp4",
+      gif"ytai_SempreNelMioCuoreGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "crostatina",
+      "ananas"
+    )(
+      vid"ytai_CrostatinaAnanas.mp4",
+      mp3"ytai_CrostatinaAnanas.mp4",
+      gif"ytai_CrostatinaAnanasGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sete",
+      "(sorso|bicchiere) d'acqua".r.tr(13)
+    )(
+      gif"ytai_SeteGif.mp4",
+      gif"ytai_AcquaMeravigliosaGif.mp4",
+      gif"ytai_FameSeteNotturnaGif.mp4",
+      pho"ytai_Acqua.jpg"
+    ),
   )
 end Mix
