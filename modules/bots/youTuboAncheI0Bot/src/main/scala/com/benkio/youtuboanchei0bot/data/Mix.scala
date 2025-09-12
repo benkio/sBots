@@ -116,6 +116,9 @@ object Mix:
       mp3"ytai_BuonSalameCariAmici.mp3",
       vid"ytai_BuonSalameCariAmici.mp4",
       gif"ytai_BuonSalameCariAmiciGif.mp4",
+      mp3"ytai_BuonCompleannoCariAmici.mp3",
+      vid"ytai_BuonCompleannoCariAmici.mp4",
+      gif"ytai_BuonCompleannoCariAmiciGif.mp4",
       gif"ytai_CariAmiciFollowersBuongiornoSabatoGif.mp4",
       vid"ytai_CariAmiciFollowersBuongiornoSabato.mp4",
       mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3",
@@ -666,7 +669,6 @@ object Mix:
     ),
     ReplyBundleMessage
       .textToMedia[F](
-        "nel mio cuore",
         "\\ba dopo\\b".r.tr(6)
       )(
         gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
@@ -712,7 +714,10 @@ object Mix:
     ReplyBundleMessage.textToMedia[F](
       "tanti(ssimi)? auguri".r.tr(12)
     )(
+      mp3"ytai_TantiAuguri.mp3",
+      vid"ytai_TantiAuguri.mp4",
       gif"ytai_TantiAuguriGif.mp4",
+      gif"ytai_TantiAuguri2Gif.mp4",
       gif"ytai_TantissimiAuguriGif.mp4",
       vid"ytai_TantissimiAuguri.mp4",
       mp3"ytai_TantissimiAuguri.mp3"
@@ -899,6 +904,74 @@ object Mix:
       vid"ytai_FarcitaAbbondantementeGenerosamente.mp4",
       mp3"ytai_FarcitaAbbondantementeGenerosamente.mp3",
       gif"ytai_FarcitaAbbondantementeGenerosamenteGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "lo chiudiamo",
+      "non dovesse scappare",
+      "sottraendosi",
+      "fauci"
+    )(
+      vid"ytai_SottraendosiAlleMieFauci.mp4",
+      mp3"ytai_SottraendosiAlleMieFauci.mp3",
+      gif"ytai_SottraendosiAlleMieFauciGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "nel mio cuore"
+    )(
+      vid"ytai_SempreNelMioCuore.mp4",
+      mp3"ytai_SempreNelMioCuore.mp3",
+      gif"ytai_SempreNelMioCuoreGif.mp4",
+      gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
+      vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
+      mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "crostatina",
+      "ananas"
+    )(
+      vid"ytai_CrostatinaAnanas.mp4",
+      mp3"ytai_CrostatinaAnanas.mp3",
+      gif"ytai_CrostatinaAnanasGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sete",
+      "(sorso|bicchiere) d'acqua".r.tr(13)
+    )(
+      gif"ytai_SeteGif.mp4",
+      gif"ytai_AcquaMeravigliosaGif.mp4",
+      gif"ytai_FameSeteNotturnaGif.mp4",
+      pho"ytai_Acqua.jpg"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "per il momento",
+      "cannolo"
+    )(
+      vid"ytai_Cannolo.mp4",
+      mp3"ytai_Cannolo.mp3",
+      gif"ytai_CannoloGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "buon compleanno"
+    )(
+      mp3"ytai_BuonCompleannoCariAmici.mp3",
+      vid"ytai_BuonCompleannoCariAmici.mp4",
+      gif"ytai_BuonCompleannoCariAmiciGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "alla (tua )?salute".r.tr(11)
+    )(
+      gif"ytai_AllaSaluteGif.mp4",
+      mp3"ytai_AllaTuaSalute.mp3",
+      vid"ytai_AllaTuaSalute.mp4",
+      gif"ytai_AllaTuaSaluteGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "stemperata",
+      "ottimamente"
+    )(
+      vid"ytai_AcquaQuasiOttimamenteStemperata.mp4",
+      mp3"ytai_AcquaQuasiOttimamenteStemperata.mp3",
+      gif"ytai_AcquaQuasiOttimamenteStemperataGif.mp4"
     )
   )
 end Mix
