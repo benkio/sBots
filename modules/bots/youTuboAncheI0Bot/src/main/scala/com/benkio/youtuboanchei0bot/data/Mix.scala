@@ -669,7 +669,6 @@ object Mix:
     ),
     ReplyBundleMessage
       .textToMedia[F](
-        "nel mio cuore",
         "\\ba dopo\\b".r.tr(6)
       )(
         gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
@@ -920,15 +919,18 @@ object Mix:
       "nel mio cuore"
     )(
       vid"ytai_SempreNelMioCuore.mp4",
-      mp3"ytai_SempreNelMioCuore.mp4",
-      gif"ytai_SempreNelMioCuoreGif.mp4"
+      mp3"ytai_SempreNelMioCuore.mp3",
+      gif"ytai_SempreNelMioCuoreGif.mp4",
+      gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
+      vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
+      mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "crostatina",
       "ananas"
     )(
       vid"ytai_CrostatinaAnanas.mp4",
-      mp3"ytai_CrostatinaAnanas.mp4",
+      mp3"ytai_CrostatinaAnanas.mp3",
       gif"ytai_CrostatinaAnanasGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -946,14 +948,14 @@ object Mix:
     )(
       vid"ytai_Cannolo.mp4",
       mp3"ytai_Cannolo.mp3",
-      gif"ytai_CannoloGif.mp4",
+      gif"ytai_CannoloGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "buon compleanno"
     )(
       mp3"ytai_BuonCompleannoCariAmici.mp3",
       vid"ytai_BuonCompleannoCariAmici.mp4",
-      gif"ytai_BuonCompleannoCariAmiciGif.mp4",
+      gif"ytai_BuonCompleannoCariAmiciGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "alla (tua )?salute".r.tr(11)
@@ -961,7 +963,7 @@ object Mix:
       gif"ytai_AllaSaluteGif.mp4",
       mp3"ytai_AllaTuaSalute.mp3",
       vid"ytai_AllaTuaSalute.mp4",
-      gif"ytai_AllaTuaSaluteGif.mp4",
+      gif"ytai_AllaTuaSaluteGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "stemperata",
@@ -969,7 +971,7 @@ object Mix:
     )(
       vid"ytai_AcquaQuasiOttimamenteStemperata.mp4",
       mp3"ytai_AcquaQuasiOttimamenteStemperata.mp3",
-      gif"ytai_AcquaQuasiOttimamenteStemperataGif.mp4",
-    ),
+      gif"ytai_AcquaQuasiOttimamenteStemperataGif.mp4"
+    )
   )
 end Mix
