@@ -274,14 +274,6 @@ object Gif:
       gif"ytai_SentiteCheRobaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "sete",
-      "(sorso|bicchiere) d'acqua".r.tr(13)
-    )(
-      gif"ytai_SeteGif.mp4",
-      gif"ytai_AcquaMeravigliosaGif.mp4",
-      gif"ytai_FameSeteNotturnaGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "🤷"
     )(
       gif"ytai_ShrugGif.mp4"
@@ -664,11 +656,6 @@ object Gif:
       "lamentato con me"
     )(
       gif"ytai_NeHoGiaParlatoGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "alla salute"
-    )(
-      gif"ytai_AllaSaluteGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "grazie ragazzi",
@@ -1101,6 +1088,11 @@ object Gif:
         "squotimento"
       )(
         gif"ytai_LoopBalloGif.mp4"
-      )
+      ),
+    ReplyBundleMessage.textToGif[F](
+      "scatol"
+    )(
+      gif"ytai_LoopScatolaGif.mp4"
+    )
   )
 end Gif
