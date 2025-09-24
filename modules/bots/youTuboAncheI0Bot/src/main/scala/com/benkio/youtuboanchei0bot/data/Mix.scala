@@ -650,7 +650,10 @@ object Mix:
       gif"ytai_BuonissimoGif.mp4",
       mp3"ytai_30CentimentriStrudelBuonissimo.mp3",
       vid"ytai_30CentimentriStrudelBuonissimo.mp4",
-      gif"ytai_30CentimentriStrudelBuonissimoGif.mp4"
+      gif"ytai_30CentimentriStrudelBuonissimoGif.mp4",
+      gif"ytai_Buonissimo2Gif.mp4",
+      mp3"ytai_Buonissimo2.mp3",
+      vid"ytai_Buonissimo2.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "passi da gigante"
@@ -728,7 +731,10 @@ object Mix:
       )(
         gif"ytai_TantissimiAuguriGif.mp4",
         vid"ytai_TantissimiAuguri.mp4",
-        mp3"ytai_TantissimiAuguri.mp3"
+        mp3"ytai_TantissimiAuguri.mp3",
+        gif"ytai_SpuntinoColPaninoYoutuboAncheIoGif.mp4",
+        mp3"ytai_SpuntinoColPaninoYoutuboAncheIo.mp3",
+        vid"ytai_SpuntinoColPaninoYoutuboAncheIo.mp4"
       ),
     ReplyBundleMessage
       .textToMedia[F](
@@ -972,6 +978,31 @@ object Mix:
       vid"ytai_AcquaQuasiOttimamenteStemperata.mp4",
       mp3"ytai_AcquaQuasiOttimamenteStemperata.mp3",
       gif"ytai_AcquaQuasiOttimamenteStemperataGif.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "spuntino"
+    )(
+      gif"ytai_SpuntinoConMeGif.mp4",
+      gif"ytai_SpuntinoConMe2Gif.mp4",
+      gif"ytai_SpuntinoConMe3Gif.mp4",
+      gif"ytai_BuonoSpuntinoGif.mp4",
+      gif"ytai_PaninoBuonoSpuntitoGif.mp4",
+      gif"ytai_SpuntinoSmartGif.mp4",
+      gif"ytai_BuonoSpuntinoAncheATeGif.mp4",
+      gif"ytai_SpuntinoColPaninoYoutuboAncheIoGif.mp4",
+      mp3"ytai_SpuntinoColPaninoYoutuboAncheIo.mp3",
+      vid"ytai_SpuntinoColPaninoYoutuboAncheIo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "panino"
+    )(
+      gif"ytai_PaninoBuonoSpuntitoGif.mp4",
+      gif"ytai_PaninoGif.mp4",
+      gif"ytai_PaninoAlpinoGif.mp4",
+      gif"ytai_LoopPaninoCottoGalbanoneGif.mp4",
+      gif"ytai_SpuntinoColPaninoYoutuboAncheIoGif.mp4",
+      mp3"ytai_SpuntinoColPaninoYoutuboAncheIo.mp3",
+      vid"ytai_SpuntinoColPaninoYoutuboAncheIo.mp4"
     )
   )
 end Mix

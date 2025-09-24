@@ -410,7 +410,8 @@ object Video {
       "sempre uno ne troverà",
       "il (fiore|frutto)".r.tr(8),
       "la foglia",
-      "di tutto s[ie] spoglia".r.tr(19)
+      "di tutto s[ie] spoglia".r.tr(19),
+      "cos'(è|e'|e) il rock".r.tr(13)
     )(
       vid"rphjb_PoesiaRock.mp4",
       vid"rphjb_PoesiaRockAlberoGrande.mp4"
