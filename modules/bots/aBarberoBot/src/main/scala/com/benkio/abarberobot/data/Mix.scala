@@ -150,6 +150,22 @@ object Mix:
     )(
       vid"abar_ErrorePestilenzialeVelenosissimo.mp4",
       mp3"abar_ErrorePestilenzialeVelenosissimo.mp3"
-    )
+    ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "uguaglianza",
+        "(nemmeno|neanche) per idea".r.tr(16),
+        "democrazia",
+        "porcata",
+        "le razze",
+        "ariani",
+        "tedeschi",
+        "ubbidire",
+        "schiavi",
+        "sterminat[ei]".r.tr(10)
+      )(
+        vid"abar_Razzista.mp4",
+        mp3"abar_Razzista.mp3"
+      )
   )
 end Mix
