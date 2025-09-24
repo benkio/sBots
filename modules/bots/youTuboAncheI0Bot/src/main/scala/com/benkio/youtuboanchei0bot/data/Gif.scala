@@ -302,17 +302,6 @@ object Gif:
       gif"ytai_SecondoBocconeSorprendenteGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "spuntino"
-    )(
-      gif"ytai_SpuntinoConMeGif.mp4",
-      gif"ytai_SpuntinoConMe2Gif.mp4",
-      gif"ytai_SpuntinoConMe3Gif.mp4",
-      gif"ytai_BuonoSpuntinoGif.mp4",
-      gif"ytai_PaninoBuonoSpuntitoGif.mp4",
-      gif"ytai_SpuntinoSmartGif.mp4",
-      gif"ytai_BuonoSpuntinoAncheATeGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "l'unica cosa che sai fare"
     )(
       gif"ytai_UnicaCosaMangiareGif.mp4"
@@ -517,13 +506,9 @@ object Gif:
       gif"ytai_LimitiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "panino",
       "è uno spettacolo"
     )(
-      gif"ytai_PaninoBuonoSpuntitoGif.mp4",
-      gif"ytai_PaninoGif.mp4",
-      gif"ytai_PaninoAlpinoGif.mp4",
-      gif"ytai_LoopPaninoCottoGalbanoneGif.mp4"
+      gif"ytai_PaninoBuonoSpuntitoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "m[ ]?&[ ]?m['s]?".r.tr(3),
@@ -1094,6 +1079,13 @@ object Gif:
       "scatol"
     )(
       gif"ytai_LoopScatolaGif.mp4"
-    )
+    ),
+    ReplyBundleMessage
+      .textToGif[F](
+        "bottiglia",
+        "san[ ]?benedetto".r.tr(12)
+      )(
+        gif"ytai_LoopBottigliaGif.mp4"
+      )
   )
 end Gif
