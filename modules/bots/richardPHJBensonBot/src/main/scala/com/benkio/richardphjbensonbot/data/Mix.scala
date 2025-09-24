@@ -2033,7 +2033,10 @@ object Mix {
       mp3"rphjb_AngeloCarpenelliArrivaALui.mp3",
       gif"rphjb_AngeloHaVintoSuTuttiGif.mp4",
       vid"rphjb_AngeloHaVintoSuTutti.mp4",
-      mp3"rphjb_AngeloHaVintoSuTutti.mp3"
+      mp3"rphjb_AngeloHaVintoSuTutti.mp3",
+      vid"rphjb_BraccioDestroAngelo.mp4",
+      mp3"rphjb_BraccioDestroAngelo.mp3",
+      gif"rphjb_BraccioDestroAngeloGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "questa è una domanda",
@@ -3717,7 +3720,6 @@ object Mix {
       ReplyBundleMessage.textToMedia[F](
         "cuore (affogato|intriso)".r.tr(13),
         "affogato nel metallo",
-        "in cerca",
         "feri(sca|to) nel cervello".r.tr(19)
       )(
         gif"rphjb_CuoreAffogatoNelMetalloGif.mp4",
@@ -3727,6 +3729,20 @@ object Mix {
         vid"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp4",
         gif"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervelloGif.mp4",
         mp3"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "in cerca"
+      )(
+        gif"rphjb_CuoreAffogatoNelMetalloGif.mp4",
+        vid"rphjb_CuoreAffogatoNelMetallo.mp4",
+        mp3"rphjb_CuoreAffogatoNelMetallo.mp3",
+        vid"rphjb_CuoreAffogatoNelMetalloRicercaCanzoneFeriscaNelCervello.mp4",
+        vid"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp4",
+        gif"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervelloGif.mp4",
+        mp3"rphjb_CuoreIntrisoMetalloCanzoneFeriscaCervello.mp3",
+        vid"rphjb_InCercaDellAccordoPerduto.mp4",
+        mp3"rphjb_InCercaDellAccordoPerduto.mp3",
+        gif"rphjb_InCercaDellAccordoPerdutoGif.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
         "gente strana"
@@ -6043,6 +6059,54 @@ object Mix {
           vid"rphjb_TiSeiFattaVedere.mp4",
           mp3"rphjb_TiSeiFattaVedere.mp3",
           gif"rphjb_TiSeiFattaVedereGif.mp4"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "l'accordo"
+        )(
+          vid"rphjb_InCercaDellAccordoPerduto.mp4",
+          mp3"rphjb_InCercaDellAccordoPerduto.mp3",
+          gif"rphjb_InCercaDellAccordoPerdutoGif.mp4"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "mio (fido )?amico".r.tr(9),
+          "questa battaglia",
+          "per il metallo"
+        )(
+          vid"rphjb_BraccioDestroEFidoAmicoBattagliaMetallo.mp4",
+          mp3"rphjb_BraccioDestroEFidoAmicoBattagliaMetallo.mp3",
+          gif"rphjb_BraccioDestroEFidoAmicoBattagliaMetalloGif.mp4"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "braccio destro"
+        )(
+          vid"rphjb_BraccioDestroAngelo.mp4",
+          mp3"rphjb_BraccioDestroAngelo.mp3",
+          gif"rphjb_BraccioDestroAngeloGif.mp4",
+          vid"rphjb_BraccioDestroEFidoAmicoBattagliaMetallo.mp4",
+          mp3"rphjb_BraccioDestroEFidoAmicoBattagliaMetallo.mp3",
+          gif"rphjb_BraccioDestroEFidoAmicoBattagliaMetalloGif.mp4"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "due bestie",
+          "più bravo di"
+        )(
+          vid"rphjb_DueBestie.mp4",
+          mp3"rphjb_DueBestie.mp3",
+          gif"rphjb_DueBestieGif.mp4"
+        ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "perfetto",
+          "la perfezione",
+          "guardo allo specchio"
+        )(
+          vid"rphjb_Perfetto.mp4",
+          mp3"rphjb_Perfetto.mp3",
+          gif"rphjb_PerfettoGif.mp4"
         )
     )
 }
