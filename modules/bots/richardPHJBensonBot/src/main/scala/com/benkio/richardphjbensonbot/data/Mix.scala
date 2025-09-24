@@ -1085,7 +1085,8 @@ object Mix {
       vid"rphjb_RadioRockErrori.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "errori"
+      "errori",
+      "non posso essere l'unico"
     )(
       gif"rphjb_MaiErroriGif.mp4",
       vid"rphjb_MaiErrori.mp4"

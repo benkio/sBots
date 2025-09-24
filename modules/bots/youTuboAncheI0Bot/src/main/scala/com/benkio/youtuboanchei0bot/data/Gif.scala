@@ -517,7 +517,8 @@ object Gif:
       gif"ytai_LimitiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "panino"
+      "panino",
+      "è uno spettacolo"
     )(
       gif"ytai_PaninoBuonoSpuntitoGif.mp4",
       gif"ytai_PaninoGif.mp4",
