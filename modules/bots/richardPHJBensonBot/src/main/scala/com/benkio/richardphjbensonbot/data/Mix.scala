@@ -5630,7 +5630,24 @@ object Mix {
         ),
       ReplyBundleMessage.textToMedia[F](
         "londra"
-      )(vid"rphjb_Londra.mp4", vid"rphjb_ImpegniListaCitta.mp4", mp3"rphjb_ImpegniListaCitta.mp3"),
+      )(
+        vid"rphjb_Londra.mp4",
+        mp3"rphjb_Londra.mp3",
+        vid"rphjb_ImpegniListaCitta.mp4",
+        mp3"rphjb_ImpegniListaCitta.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "invivi[b]+ile".r.tr(10),
+        "ci sono stato",
+        "(uscir|girar)[e]? la sera".r.tr(13),
+        "non t(i |')ammazzano",
+        "ammazzano sul serio",
+        "figuriamoci in america",
+        "(uscir|girar)[e]? armato".r.tr(12)
+      )(
+        vid"rphjb_Londra.mp4",
+        mp3"rphjb_Londra.mp3"
+      ),
       ReplyBundleMessage.textToMedia[F](
         "zurigo"
       )(
