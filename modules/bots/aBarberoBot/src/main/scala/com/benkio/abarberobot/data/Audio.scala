@@ -434,10 +434,10 @@ object Audio:
         "furente",
         "furioso",
         "incazzosissimo",
-        "nano",
+        "\\bnano\\b".r.tr(4),
         "pigmeo",
         "piccoletto",
-        "tappo",
+        "\\btappo\\b".r.tr(5),
         "lillipuziano",
         "bassotto"
       )(
