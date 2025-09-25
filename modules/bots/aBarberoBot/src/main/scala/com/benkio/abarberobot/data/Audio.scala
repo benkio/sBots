@@ -411,6 +411,37 @@ object Audio:
       "superbia"
     )(
       mp3"abar_GenteIgnobile.mp3"
-    )
+    ),
+    ReplyBundleMessage
+      .textToMp3[F](
+        "libellista",
+        "sedizioso",
+        "diffamatore",
+        "ribelle",
+        "rivoluzionario",
+        "sovversivo",
+        "agitatore",
+        "contestatore",
+        "rivoltoso",
+        "sobillatore"
+      )(
+        mp3"abar_Libellista.mp3"
+      ),
+    ReplyBundleMessage
+      .textToMp3[F](
+        "nanerottolo",
+        "furibondo",
+        "furente",
+        "furioso",
+        "incazzosissimo",
+        "nano",
+        "pigmeo",
+        "piccoletto",
+        "tappo",
+        "lillipuziano",
+        "bassotto"
+      )(
+        mp3"abar_Nanerottolo.mp3"
+      )
   )
 end Audio
