@@ -24,6 +24,7 @@
     - [[https://www.scala-lang.org/][scala]]
     - [[https://www.sqlite.org/][sqlite]]
     - [[https://www.openssl.org/][openSSL]]
+    - [[https://nodejs.org/en][Node]]
 
 ** Data Entry and Bot Setup
 
@@ -78,6 +79,12 @@
   $ sbt "ytaiAddData url1 url2"
   $ sbt "rphjbAddData url1 url2"
 #+end_src
+
+**** Useful SQL Query for Finding Swearing Words for Xah Lee
+
+#+BEGIN_SRC SQL
+SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' AND show_upload_date > strftime("%F", "2025-08-08");
+#+END_SRC_
 
 ** Database Setup
 
