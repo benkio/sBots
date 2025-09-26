@@ -39,6 +39,15 @@ addCommandAlias(
 )
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")
 addCommandAlias("integrationTests", "integration/mUnitTests")
+// Data Entry Aliases
+addCommandAlias("abarAddData", "aBarberoBot/runMain com.benkio.abarberobot.ABarberoBotMainDataEntry")
+addCommandAlias("xahAddData", "xahLeeBot/runMain com.benkio.xahleebot.XahLeeBotMainDataEntry")
+addCommandAlias("mosAddData", "m0sconiBot/runMain com.benkio.m0sconibot.M0sconiBotMainDataEntry")
+addCommandAlias("ytaiAddData", "youTuboAncheI0Bot/runMain com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainDataEntry")
+addCommandAlias(
+  "rphjbAddData",
+  "richardPHJBensonBot/runMain com.benkio.richardphjbensonbot.RichardPHJBensonBotMainDataEntry"
+)
 
 // PROJECTS
 

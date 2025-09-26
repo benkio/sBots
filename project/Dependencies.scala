@@ -15,12 +15,12 @@ object Dependencies {
     val fs2Core            = "3.12.2"
     val fs2Cron            = "0.10.2"
     val fs2IO              = "3.12.2"
-    val flyway             = "11.13.0"
+    val flyway             = "11.13.1"
     val googleApiClient    = "2.8.1"
     val googleHttpClient   = "2.0.0"
     val googleOauthClient  = "1.39.0"
     val googleYouTubeApi   = "v3-rev20250714-2.0.0"
-    val http4s             = "0.23.30"
+    val http4s             = "0.23.32"
     val logEffects         = "0.19.8"
     val logbackClassic     = "1.5.18"
     val logbackLogstash    = "8.1"
@@ -32,7 +32,7 @@ object Dependencies {
     val shapeless          = "2.3.10"
     val scalatest          = "3.2.16"
     val sqlite             = "3.41.2.1"
-    val telegramiumVersion = "9.901.0"
+    val telegramiumVersion = "10.902.0"
     val vault              = "3.6.0"
   }
 

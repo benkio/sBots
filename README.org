@@ -24,6 +24,7 @@
     - [[https://www.scala-lang.org/][scala]]
     - [[https://www.sqlite.org/][sqlite]]
     - [[https://www.openssl.org/][openSSL]]
+    - [[https://nodejs.org/en][Node]]
 
 ** Data Entry and Bot Setup
 
@@ -72,11 +73,18 @@
 
   Example commands:
 #+begin_src sh
-  $ sbt "xahLeeBot/runMain com.benkio.xahleebot.XahLeeBotMainDataEntry url1 url2"
-  $ sbt "m0sconiBot/runMain com.benkio.m0sconibot.M0sconiBotMainDataEntry url1 url2"
-  $ sbt "youTuboAncheI0Bot/runMain com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainDataEntry url1 url2"
-  $ sbt "richardPHJBensonBot/runMain com.benkio.richardphjbensonbot.RichardPHJBensonBotMainDataEntry url1 url2"
+  $ sbt "abarAddData url1 url2"
+  $ sbt "xahAddData url1 url2"
+  $ sbt "mosAddData url1 url2"
+  $ sbt "ytaiAddData url1 url2"
+  $ sbt "rphjbAddData url1 url2"
 #+end_src
+
+**** Useful SQL Query for Finding Swearing Words for Xah Lee
+
+#+BEGIN_SRC SQL
+SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' AND show_upload_date > strftime("%F", "2025-08-08");
+#+END_SRC
 
 ** Database Setup
 
