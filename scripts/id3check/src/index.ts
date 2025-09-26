@@ -1,8 +1,6 @@
+import {fixMp3ArtistId3Tag} from './id3Functions';
 import * as path from 'node:path';
-import * as fs from 'node:fs';
-import * as os from 'node:os';
-import * as util from 'node:util';
-import * as NodeID3 from 'node-id3';
+import {buildResourceDirectory, getFiles} from './fileFunctions';
 
 // Types //////////////////////////////////////////////////////////////////////
 type Input = {
@@ -10,19 +8,6 @@ type Input = {
   path: string;
 };
 
-// Functions //////////////////////////////////////////////////////////////////
-function buildResourceDirectory(botDir: string): string {
-  return path.join(os.homedir(), '/Dropbox/sBots/', botDir);
-}
-function getFiles(path: string): Promise<string[]> {
-  return util
-    .promisify(fs.readdir)(path)
-    .then(files => {
-      return files.map(file => {
-        return path + '/' + file;
-      });
-    });
-}
 // Inputs /////////////////////////////////////////////////////////////////////
 
 const botsInput: Input[] = [
@@ -38,36 +23,40 @@ const botsInput: Input[] = [
   i.path = buildResourceDirectory(i.path);
   return i;
 });
-function fixMp3ArtistId3Tag(fs: string[], initialArtist: string): void {
-  return fs
-    .filter((file: string) => {
-      return file.endsWith('mp3');
-    })
-    .map(f => {
-      const tags = NodeID3.read(f);
-      // console.log(`f: ${f} - tags: ${JSON.stringify(tags)}`);
-      return {file: f, artistTag: tags.artist};
-    })
-    .filter(x => {
-      return x.artistTag !== undefined && x.artistTag !== initialArtist;
-    })
-    .forEach(t => {
-      console.log(`Update file ${t.file} with artist ${initialArtist}`);
-      const result = NodeID3.update({artist: initialArtist}, t.file);
-      if (result) {
-        console.log('Tag successfully written');
-      } else {
-        console.log('Tag not updated: operation failed');
-      }
-    });
+
+// Logic //////////////////////////////////////////////////////////////////////
+
+function match(initialArtist: string) {
+  return [
+    {
+      check: (f: string) => {
+        return path.extname(f) == '.mp3';
+      },
+      logic: (f: string) => fixMp3ArtistId3Tag(f, initialArtist),
+    },
+  ];
 }
+const defaultLogic = {
+  logic: (file: string) => {
+    console.log(`No action on ${path.basename(file)}`);
+    return;
+  },
+};
+
+// Entry Point ////////////////////////////////////////////////////////////////
 
 Promise.all(
   botsInput.map(input => {
     const {artist: initialArtist, path: initialPath} = input;
-    return getFiles(initialPath).then(fs =>
-      fixMp3ArtistId3Tag(fs, initialArtist),
-    );
+    return getFiles(initialPath).then(fs => {
+      fs.forEach(f => {
+        const {logic} =
+          match(initialArtist).find(({check}) => {
+            return check(f);
+          }) ?? defaultLogic;
+        return logic(f);
+      });
+    });
   }),
 )
   .then(() => {
