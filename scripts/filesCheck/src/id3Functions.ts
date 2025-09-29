@@ -15,11 +15,11 @@ export function fixMp3ArtistId3Tag(file: string, initialArtist: string): void {
     }
   } else {
     if (artistTag === initialArtist) {
-      console.log(`[id3Functions] ✓ ${path.basename(file)}`)
+      console.log(`[id3Functions] ✓ ${path.basename(file)}`);
     } else {
-    console.warn(
-      `[⚠️ id3Functions] ${path.basename(file)} not updated: initialArtist == undefined: ${initialArtist}`,
-    );
+      console.warn(
+        `[⚠️ id3Functions] ${path.basename(file)} not updated: initialArtist == undefined: ${initialArtist}`,
+      );
     }
   }
 }
