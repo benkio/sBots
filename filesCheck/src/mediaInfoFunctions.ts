@@ -1,10 +1,10 @@
 // @ts-ignore
-import {exec as mediainfoExec} from 'mediainfo-parser';
-import {promisify} from 'node:util';
-import logger from './logger';
+import { exec as mediainfoExec } from "mediainfo-parser";
+import { promisify } from "node:util";
+import logger from "./logger";
 
 type Success = {};
-type Failure = {tracks: string[]};
+type Failure = { tracks: string[] };
 export type MediaInfoCheckReturn = Success | Failure;
 
 export function checkAudioTrackMissing(
@@ -13,10 +13,10 @@ export function checkAudioTrackMissing(
   return promisify(mediainfoExec)(filePath)
     .then((mediaInfoObj: any) => {
       const tracksTypes = mediaInfoObj.media.track.some((tr: any) => {
-        if ('type' in tr && tr.type) {
-          return tr.type == 'Audio';
-        } else if ('_type' in tr && tr._type) {
-          return tr._type == 'Audio';
+        if ("type" in tr && tr.type) {
+          return tr.type == "Audio";
+        } else if ("_type" in tr && tr._type) {
+          return tr._type == "Audio";
         } else {
           return false;
         }
@@ -44,17 +44,17 @@ export function checkAudioVideoTrackExists(
   return promisify(mediainfoExec)(filePath)
     .then((mediaInfoObj: any) => {
       const tracksTypes = mediaInfoObj.media.track.map(
-        (tr: {type: string} | {_type: string}) => {
-          if ('type' in tr && tr.type) {
+        (tr: { type: string } | { _type: string }) => {
+          if ("type" in tr && tr.type) {
             return tr.type;
-          } else if ('_type' in tr && tr._type) {
+          } else if ("_type" in tr && tr._type) {
             return tr._type;
           } else {
-            return '';
+            return "";
           }
         },
       );
-      if (tracksTypes.includes('Audio') && tracksTypes.includes('Video')) {
+      if (tracksTypes.includes("Audio") && tracksTypes.includes("Video")) {
         return {};
       } else {
         return {

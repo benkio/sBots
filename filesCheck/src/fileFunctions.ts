@@ -1,7 +1,7 @@
-import * as os from 'node:os';
-import * as path from 'node:path';
-import * as fs from 'node:fs';
-import * as util from 'node:util';
+import * as os from "node:os";
+import * as path from "node:path";
+import * as fs from "node:fs";
+import * as util from "node:util";
 
 export function buildResourceDirectory(
   baseDir: string,
@@ -12,9 +12,9 @@ export function buildResourceDirectory(
 export function getFiles(path: string): Promise<string[]> {
   return util
     .promisify(fs.readdir)(path)
-    .then(files => {
-      return files.map(file => {
-        return path + '/' + file;
+    .then((files) => {
+      return files.map((file) => {
+        return path + "/" + file;
       });
     });
 }
