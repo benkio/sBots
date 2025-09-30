@@ -28,7 +28,9 @@ jobs:
     - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies
       run: |
         echo this workflow was triggered by ${{github.actor}}
+        pwd
         cd ..
+        pwd
         sbt "check"
     - name: Validate the Scala project (clean, compile, format, test, itTest)
       run: sbt validate
