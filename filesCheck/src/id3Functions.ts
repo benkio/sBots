@@ -4,7 +4,7 @@ import logger from './logger';
 
 export function fixMp3ArtistId3Tag(file: string, initialArtist: string): void {
   const artistTag = NodeID3.read(file).artist;
-  if (artistTag !== undefined && artistTag !== initialArtist) {
+  if (artistTag !== initialArtist) {
     logger.info(
       `[id3Functions] Update file ${path.basename(file)} with artist ${initialArtist}`,
     );
@@ -19,7 +19,7 @@ export function fixMp3ArtistId3Tag(file: string, initialArtist: string): void {
       logger.verbose(`[id3Functions] ✓ ${path.basename(file)}`);
     } else {
       logger.warn(
-        `[⚠️ id3Functions] ${path.basename(file)} not updated: initialArtist == undefined: ${initialArtist}`,
+        `[id3Functions] ⚠️ ${path.basename(file)} not updated: ${artistTag}(file) !== ${initialArtist}(wanted)`,
       );
     }
   }

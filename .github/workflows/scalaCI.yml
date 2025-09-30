@@ -17,9 +17,12 @@ jobs:
         java-version: '21'
         cache: 'sbt'
     - uses: sbt/setup-sbt@v1
-    - name: Formatting
+    - name: Check Formatting, JSONs Validity, Explicit Dependencies
       run: |
         echo this workflow was triggered by ${{github.actor}}
         sbt "check"
-    - name: Validate the project (clean, compile, format, test, itTest)
+        (cd filesCheck/ && npx prettier . --check)
+    - name: Validate the Typescript Utility
+      run: (cd filesCheck/ && npm run compile )
+    - name: Validate the Scala project (clean, compile, format, test, itTest)
       run: sbt validate

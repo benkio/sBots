@@ -120,7 +120,9 @@ function match(initialArtist: string) {
         );
       },
       logic: (f: string) => {
-        logger.warn(`[filesCheck] ⚠️ Ignore file ${f}`);
+        logger.warn(
+          `[filesCheck] ⚠️ Ignore ${path.extname(f)} file ${path.basename(f)}`,
+        );
       },
     },
   ];

@@ -12,17 +12,15 @@ export function checkAudioTrackMissing(
 ): Promise<MediaInfoCheckReturn> {
   return promisify(mediainfoExec)(filePath)
     .then((mediaInfoObj: any) => {
-      const tracksTypes = mediaInfoObj.media.track.some(
-        (tr: any) => {
-          if ('type' in tr && tr.type) {
-            return tr.type == "Audio";
-          } else if ('_type' in tr && tr._type) {
-            return tr._type  == "Audio";
-          } else {
-            return false;
-          }
-        },
-      );
+      const tracksTypes = mediaInfoObj.media.track.some((tr: any) => {
+        if ('type' in tr && tr.type) {
+          return tr.type == 'Audio';
+        } else if ('_type' in tr && tr._type) {
+          return tr._type == 'Audio';
+        } else {
+          return false;
+        }
+      });
       if (tracksTypes) {
         return {
           tracks: mediaInfoObj.media.track.map((tr: any) => {
@@ -45,15 +43,17 @@ export function checkAudioVideoTrackExists(
 ): Promise<MediaInfoCheckReturn> {
   return promisify(mediainfoExec)(filePath)
     .then((mediaInfoObj: any) => {
-    const tracksTypes = mediaInfoObj.media.track.map((tr: {type: string}| {_type: string}) => {
-        if ("type" in tr && tr.type) {
-          return tr.type;
-        } else if ("_type" in tr && tr._type) {
-          return tr._type;
-        } else {
-          return "";
-        }
-      });
+      const tracksTypes = mediaInfoObj.media.track.map(
+        (tr: {type: string} | {_type: string}) => {
+          if ('type' in tr && tr.type) {
+            return tr.type;
+          } else if ('_type' in tr && tr._type) {
+            return tr._type;
+          } else {
+            return '';
+          }
+        },
+      );
       if (tracksTypes.includes('Audio') && tracksTypes.includes('Video')) {
         return {};
       } else {
