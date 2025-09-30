@@ -1,6 +1,7 @@
 // @ts-ignore
 import {exec as mediainfoExec} from 'mediainfo-parser';
 import {promisify} from 'node:util';
+import logger from './logger';
 
 type Success = {};
 type Failure = {tracks: string[]};
@@ -33,7 +34,7 @@ export function checkAudioTrackMissing(
       }
     })
     .catch((error: Error) => {
-      console.log(
+      logger.error(
         `[mediaInfoFunctions] 🚫 ${filePath} checkAudioTrackMissing Error: ${error}`,
       );
     });
@@ -64,7 +65,7 @@ export function checkAudioVideoTrackExists(
       }
     })
     .catch((error: Error) => {
-      console.log(
+      logger.error(
         `[mediaInfoFunctions] 🚫 ${filePath} checkAudioVideoTrackExists Error: ${error}`,
       );
     });

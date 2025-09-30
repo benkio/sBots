@@ -7,6 +7,7 @@ import {
   checkAudioVideoTrackExists,
   MediaInfoCheckReturn,
 } from './mediaInfoFunctions';
+import logger from './logger';
 
 // Types //////////////////////////////////////////////////////////////////////
 type Input = {
@@ -71,11 +72,11 @@ function match(initialArtist: string) {
       logic: async (f: string) => {
         const result: MediaInfoCheckReturn = await checkAudioTrackMissing(f);
         if ('tracks' in result) {
-          console.log(
+          logger.error(
             `[filesCheck] 🚫  ${path.basename(f)} contains audio track ${result.tracks}`,
           );
         } else {
-          console.log(`[filesCheck] ✓ ${path.basename(f)}`);
+          logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`);
         }
       },
     },
@@ -91,11 +92,11 @@ function match(initialArtist: string) {
         const result: MediaInfoCheckReturn =
           await checkAudioVideoTrackExists(f);
         if ('tracks' in result) {
-          console.log(
+          logger.error(
             `[filesCheck] 🚫  ${path.basename(f)} doesn't contain both audio and video tracks: ${result.tracks}`,
           );
         } else {
-          console.log(`[filesCheck] ✓ ${path.basename(f)}`);
+          logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`);
         }
       },
     },
@@ -107,9 +108,11 @@ function match(initialArtist: string) {
           isDir = stats.isDirectory();
         }
         return (
-          (['token', 'jpg'].find(ext =>
-            path.basename(f).endsWith(ext),
-          ) !== undefined &&
+          ([
+            'token',
+            'jpg',
+            'gif', // #807 Remove this
+          ].find(ext => path.basename(f).endsWith(ext)) !== undefined &&
             botsInput.find(e => path.basename(f).startsWith(e.prefix)) !==
               undefined) ||
           isDir ||
@@ -117,7 +120,7 @@ function match(initialArtist: string) {
         );
       },
       logic: (f: string) => {
-        console.log(`[filesCheck] ⚠️ Ignore file ${f}`);
+        logger.warn(`[filesCheck] ⚠️ Ignore file ${f}`);
       },
     },
   ];
@@ -145,8 +148,8 @@ Promise.all(
   }),
 )
   .then(() => {
-    console.log('[filesCheck] ✓ Tag sanification completed');
+    logger.info('[filesCheck] ✓ Tag sanification completed');
   })
   .catch(err => {
-    console.error(`[filesCheck] 🚫 Error occurred: ${err}`);
+    logger.error(`[filesCheck] 🚫 Error occurred: ${err}`);
   });
