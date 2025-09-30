@@ -21,8 +21,8 @@ jobs:
       run: |
         echo this workflow was triggered by ${{github.actor}}
         sbt "check"
-        (cd filesCheck/ && npx prettier . --check)
+        (cd filesCheck/ && npm run check && npm run lint)
     - name: Validate the Typescript Utility
-      run: (cd filesCheck/ && npm run compile )
+      run: (cd filesCheck/ && npm run clean && npm run compile )
     - name: Validate the Scala project (clean, compile, format, test, itTest)
       run: sbt validate
