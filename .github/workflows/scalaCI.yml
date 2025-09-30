@@ -20,17 +20,13 @@ jobs:
     - name: Check Typescript Formatting, Linting & compile
       run: |
         cd filesCheck/
-        npm install
+        npm install # Compile included here
         npm run clean
         npm run check
         npm run lint
-        npm run compile
     - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies
       run: |
         echo this workflow was triggered by ${{github.actor}}
-        pwd
-        cd ..
-        pwd
         sbt "check"
     - name: Validate the Scala project (clean, compile, format, test, itTest)
       run: sbt validate
