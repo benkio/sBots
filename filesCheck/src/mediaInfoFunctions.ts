@@ -1,22 +1,22 @@
 // @ts-ignore
-import { exec as mediainfoExec } from "mediainfo-parser";
-import { promisify } from "node:util";
-import logger from "./logger";
+import { exec as mediainfoExec } from 'mediainfo-parser';
+import { promisify } from 'node:util';
+import logger from './logger';
 
 type Success = {};
 type Failure = { tracks: string[] };
 export type MediaInfoCheckReturn = Success | Failure;
 
 export function checkAudioTrackMissing(
-  filePath: string,
+  filePath: string
 ): Promise<MediaInfoCheckReturn> {
   return promisify(mediainfoExec)(filePath)
     .then((mediaInfoObj: any) => {
       const tracksTypes = mediaInfoObj.media.track.some((tr: any) => {
-        if ("type" in tr && tr.type) {
-          return tr.type === "Audio";
-        } else if ("_type" in tr && tr._type) {
-          return tr._type === "Audio";
+        if ('type' in tr && tr.type) {
+          return tr.type === 'Audio';
+        } else if ('_type' in tr && tr._type) {
+          return tr._type === 'Audio';
         } else {
           return false;
         }
@@ -33,28 +33,28 @@ export function checkAudioTrackMissing(
     })
     .catch((error: Error) => {
       logger.error(
-        `[mediaInfoFunctions] 🚫 ${filePath} checkAudioTrackMissing Error: ${error}`,
+        `[mediaInfoFunctions] 🚫 ${filePath} checkAudioTrackMissing Error: ${error}`
       );
     });
 }
 
 export function checkAudioVideoTrackExists(
-  filePath: string,
+  filePath: string
 ): Promise<MediaInfoCheckReturn> {
   return promisify(mediainfoExec)(filePath)
     .then((mediaInfoObj: any) => {
       const tracksTypes = mediaInfoObj.media.track.map(
         (tr: { type: string } | { _type: string }) => {
-          if ("type" in tr && tr.type) {
+          if ('type' in tr && tr.type) {
             return tr.type;
-          } else if ("_type" in tr && tr._type) {
+          } else if ('_type' in tr && tr._type) {
             return tr._type;
           } else {
-            return "";
+            return '';
           }
-        },
+        }
       );
-      if (tracksTypes.includes("Audio") && tracksTypes.includes("Video")) {
+      if (tracksTypes.includes('Audio') && tracksTypes.includes('Video')) {
         return {};
       } else {
         return {
@@ -66,7 +66,7 @@ export function checkAudioVideoTrackExists(
     })
     .catch((error: Error) => {
       logger.error(
-        `[mediaInfoFunctions] 🚫 ${filePath} checkAudioVideoTrackExists Error: ${error}`,
+        `[mediaInfoFunctions] 🚫 ${filePath} checkAudioVideoTrackExists Error: ${error}`
       );
     });
 }
