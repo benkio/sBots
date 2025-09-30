@@ -17,12 +17,18 @@ jobs:
         java-version: '21'
         cache: 'sbt'
     - uses: sbt/setup-sbt@v1
-    - name: Check Formatting, JSONs Validity, Explicit Dependencies
+    - name: Check Typescript Formatting, Linting & compile
+      run: |
+        cd filesCheck/
+        npm install
+        npm run clean
+        npm run check
+        npm run lint
+        npm run compile
+    - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies
       run: |
         echo this workflow was triggered by ${{github.actor}}
+        cd ..
         sbt "check"
-        (cd filesCheck/ && npm run check && npm run lint)
-    - name: Validate the Typescript Utility
-      run: (cd filesCheck/ && npm run clean && npm run compile )
     - name: Validate the Scala project (clean, compile, format, test, itTest)
       run: sbt validate
