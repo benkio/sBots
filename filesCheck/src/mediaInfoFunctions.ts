@@ -14,9 +14,9 @@ export function checkAudioTrackMissing(
     .then((mediaInfoObj: any) => {
       const tracksTypes = mediaInfoObj.media.track.some((tr: any) => {
         if ("type" in tr && tr.type) {
-          return tr.type == "Audio";
+          return tr.type === "Audio";
         } else if ("_type" in tr && tr._type) {
-          return tr._type == "Audio";
+          return tr._type === "Audio";
         } else {
           return false;
         }
