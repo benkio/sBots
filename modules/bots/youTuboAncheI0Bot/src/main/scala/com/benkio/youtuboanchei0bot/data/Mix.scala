@@ -313,7 +313,9 @@ object Mix:
     ReplyBundleMessage.textToMedia[F](
       "followers"
     )(
+      vid"ytai_CiaoFollowersNelBeneNelMale.mp4",
       gif"ytai_CiaoFollowersNelBeneNelMaleGif.mp4",
+      mp3"ytai_CiaoFollowersNelBeneNelMale.mp3",
       gif"ytai_BuonanotteFollowersGif.mp4",
       gif"ytai_CiaoCariAmiciFollowersGif.mp4",
       gif"ytai_PersonaliLotteFollowersGif.mp4",
@@ -391,7 +393,9 @@ object Mix:
       gif"ytai_Ciao2Gif.mp4",
       gif"ytai_Ciao3Gif.mp4",
       gif"ytai_CiaoRagazziGif.mp4",
+      vid"ytai_CiaoFollowersNelBeneNelMale.mp4",
       gif"ytai_CiaoFollowersNelBeneNelMaleGif.mp4",
+      mp3"ytai_CiaoFollowersNelBeneNelMale.mp3",
       gif"ytai_CiaoCariAmiciFollowersGif.mp4",
       mp3"ytai_CiaoNonCiArrivo.mp3",
       vid"ytai_CiaoNonCiArrivo.mp4",
@@ -1003,6 +1007,14 @@ object Mix:
       gif"ytai_SpuntinoColPaninoYoutuboAncheIoGif.mp4",
       mp3"ytai_SpuntinoColPaninoYoutuboAncheIo.mp3",
       vid"ytai_SpuntinoColPaninoYoutuboAncheIo.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "nel bene",
+      "nel male"
+    )(
+      vid"ytai_CiaoFollowersNelBeneNelMaleGif.mp4",
+      vid"ytai_CiaoFollowersNelBeneNelMale.mp4",
+      mp3"ytai_CiaoFollowersNelBeneNelMale.mp3"
     )
   )
 end Mix

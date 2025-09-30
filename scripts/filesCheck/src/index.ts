@@ -107,7 +107,7 @@ function match(initialArtist: string) {
           isDir = stats.isDirectory();
         }
         return (
-          (['token', 'jpg', 'gif'].find(ext =>
+          (['token', 'jpg'].find(ext =>
             path.basename(f).endsWith(ext),
           ) !== undefined &&
             botsInput.find(e => path.basename(f).startsWith(e.prefix)) !==

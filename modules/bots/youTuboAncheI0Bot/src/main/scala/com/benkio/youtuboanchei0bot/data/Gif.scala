@@ -862,12 +862,6 @@ object Gif:
       gif"ytai_LeggermenteImbarazzatoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "nel bene",
-      "nel male"
-    )(
-      gif"ytai_CiaoFollowersNelBeneNelMaleGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "se volete sapere",
       "100%",
       "non va per me"
