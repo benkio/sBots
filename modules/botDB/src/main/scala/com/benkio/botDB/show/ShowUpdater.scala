@@ -121,8 +121,12 @@ object ShowUpdater {
 
     override def updateShow: Resource[F, Unit] = {
       val program = for {
-        _                 <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
-        candidateIds      <- youTubeService.getAllBotNameIds
+        _            <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
+        candidateIds <- youTubeService.getAllBotNameIds.handleErrorWith(e =>
+          LogWriter.error(
+            s"[ShowUpdater] Error when fetching online show Ids. Continue with just stared data: ${e.getMessage}"
+          ) >> List.empty.pure
+        )
         _                 <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids")
         _                 <- LogWriter.info("[ShowUpdater] Fetching stored DbShowData")
         storedDbShowDatas <- getStoredDbShowDatas
