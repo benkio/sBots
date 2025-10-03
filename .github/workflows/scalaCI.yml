@@ -6,7 +6,19 @@ on:
         - "**"
 
 jobs:
-  lintAndTest:
+  typescriptCode:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Check Typescript Formatting, Linting & compile
+      run: |
+        cd filesCheck/
+        npm install # Compile included here
+        npm run clean
+        npm run check
+        npm run lint
+  scalaCode:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -17,9 +29,9 @@ jobs:
         java-version: '21'
         cache: 'sbt'
     - uses: sbt/setup-sbt@v1
-    - name: Formatting
+    - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies
       run: |
         echo this workflow was triggered by ${{github.actor}}
         sbt "check"
-    - name: Validate the project (clean, compile, format, test, itTest)
+    - name: Validate the Scala project (clean, compile, format, test, itTest)
       run: sbt validate

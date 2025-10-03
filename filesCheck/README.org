@@ -1,0 +1,10 @@
+* sBots File Check
+#+begin_src markdown
+  [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
+#+end_src
+
+Simple typescript program that checks the source files for the bots (usually stored in the Dropbox folder) and checks for:
+- The expected id3 tags for mp3 files and fix the artist in case.
+- The expected tracks (Video and Audio) for video files
+- The expected tracks (Video only) for gif files
+- File Naming Consistency

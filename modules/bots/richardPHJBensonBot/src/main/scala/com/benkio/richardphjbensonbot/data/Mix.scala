@@ -5028,7 +5028,7 @@ object Mix {
       )(
         mp3"rphjb_CompletamenteNudo.mp3",
         vid"rphjb_DifettiLeucemiaNudoFrocio.mp4",
-        gif"rphjb_DifettiLeucemiaNudoFrocioGIF.mp4",
+        gif"rphjb_DifettiLeucemiaNudoFrocioGif.mp4",
         mp3"rphjb_DifettiLeucemiaNudoFrocioAudio.mp3"
       ),
       ReplyBundleMessage
@@ -5039,7 +5039,7 @@ object Mix {
           "nascondere (molto )?bene"
         )(
           vid"rphjb_DifettiLeucemiaNudoFrocio.mp4",
-          gif"rphjb_DifettiLeucemiaNudoFrocioGIF.mp4",
+          gif"rphjb_DifettiLeucemiaNudoFrocioGif.mp4",
           mp3"rphjb_DifettiLeucemiaNudoFrocioAudio.mp3"
         ),
       ReplyBundleMessage
