@@ -10,7 +10,7 @@ export function fixMp3ArtistId3Tag(file: string, initialArtist: string): void {
     );
     const result = NodeID3.update({ artist: initialArtist }, file);
     if (result) {
-      logger.info('[id3Functions] Tag successfully written');
+      return;
     } else {
       logger.info('[id3Functions] Tag not updated: operation failed');
     }

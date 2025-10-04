@@ -16,6 +16,10 @@ type Input = {
   path: string;
 };
 
+type Matches = {
+  check: (f: string) => Boolean;
+  logic: (f: string) => void;
+};
 // Inputs /////////////////////////////////////////////////////////////////////
 
 const baseDir = '/Dropbox/sBots/';
@@ -49,14 +53,17 @@ const botsInput: Input[] = [
 
 // Logic //////////////////////////////////////////////////////////////////////
 
-function match(initialArtist: string) {
+function match(initialArtist: string): Matches[] {
   return [
     {
       check: (f: string) => {
         return (
           path.extname(f) === '.mp3' &&
-          botsInput.find((e) => path.basename(f).startsWith(e.prefix)) !==
-            undefined
+          botsInput.find(
+            (e) =>
+              path.basename(f).startsWith(e.prefix) &&
+              e.artist === initialArtist
+          ) !== undefined
         );
       },
       logic: (f: string) => fixMp3ArtistId3Tag(f, initialArtist),
@@ -65,8 +72,11 @@ function match(initialArtist: string) {
       check: (f: string) => {
         return (
           path.basename(f).endsWith('Gif.mp4') &&
-          botsInput.find((e) => path.basename(f).startsWith(e.prefix)) !==
-            undefined
+          botsInput.find(
+            (e) =>
+              path.basename(f).startsWith(e.prefix) &&
+              e.artist === initialArtist
+          ) !== undefined
         );
       },
       logic: async (f: string) => {
@@ -84,8 +94,11 @@ function match(initialArtist: string) {
       check: (f: string) => {
         return (
           path.basename(f).endsWith('.mp4') &&
-          botsInput.find((e) => path.basename(f).startsWith(e.prefix)) !==
-            undefined
+          botsInput.find(
+            (e) =>
+              path.basename(f).startsWith(e.prefix) &&
+              e.artist === initialArtist
+          ) !== undefined
         );
       },
       logic: async (f: string) => {
@@ -113,8 +126,11 @@ function match(initialArtist: string) {
             'jpg',
             'gif', // #807 Remove this
           ].find((ext) => path.basename(f).endsWith(ext)) !== undefined &&
-            botsInput.find((e) => path.basename(f).startsWith(e.prefix)) !==
-              undefined) ||
+            botsInput.find(
+              (e) =>
+                path.basename(f).startsWith(e.prefix) &&
+                e.artist === initialArtist
+            ) !== undefined) ||
           isDir ||
           path.basename(f) === 'application.conf'
         );
@@ -127,10 +143,16 @@ function match(initialArtist: string) {
     },
   ];
 }
-const defaultLogic = {
-  logic: (file: string) => {
-    throw new Error(`[filesCheck] 🚫 Error on ${path.basename(file)}`);
-  },
+const defaultLogic: (artist: string) => { logic: (file: string) => void } = (
+  artist: string
+) => {
+  return {
+    logic: (file: string) => {
+      logger.warn(
+        `[filesCheck] ⚠️  Not Processed ${path.basename(file)} for ${artist}`
+      );
+    },
+  };
 };
 
 // Entry Point ////////////////////////////////////////////////////////////////
@@ -142,8 +164,11 @@ Promise.all(
       fs.forEach((f) => {
         const { logic } =
           match(initialArtist).find(({ check }) => {
-            return check(f);
-          }) ?? defaultLogic;
+            logger.info(
+              `test ${initialArtist} ${path.basename(f)} -> ${check(f)}`
+            );
+            return check(f) ?? false;
+          }) ?? defaultLogic(initialArtist);
         return logic(f);
       });
     });
