@@ -660,7 +660,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "ammazza che sei",
-      "quasi un frocio"
+      "(quasi|proprio) un frocio".r.tr(15)
     )(
       mp3"rphjb_Frocio.mp3",
       gif"rphjb_FrocioGif.mp4",
@@ -5006,7 +5006,7 @@ object Mix {
         ),
       ReplyBundleMessage
         .textToMedia[F](
-          "non m[ei] c[ei] f[aà](re)? pens[aà](re)?".r.tr(18)
+          "non m[ei] c[ei] f[aà](r|re)? pens[aà](re)?".r.tr(18)
         )(
           mp3"rphjb_IncazzoComeUnaBestia.mp3",
           gif"rphjb_IncazzoComeUnaBestiaGif.mp4",
