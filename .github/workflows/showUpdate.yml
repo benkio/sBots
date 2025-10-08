@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v5
     - uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
@@ -36,6 +36,7 @@ jobs:
         cat /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
         head -c 5 /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
     - name: Revert Config Changes
+      run: echo 'TODO'
     - name: Create PR
       uses: peter-evans/create-pull-request@v7
       with:
@@ -50,5 +51,3 @@ jobs:
         base: main # Target branch for the PR
         labels: Update
         token: ${{ secrets.GITHUB_TOKEN }} # Use the default GitHub token
-
-
