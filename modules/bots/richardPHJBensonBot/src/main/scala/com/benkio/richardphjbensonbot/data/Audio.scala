@@ -404,8 +404,10 @@ object Audio {
       ),
     ReplyBundleMessage
       .textToMp3[F](
-        "rovinate",
-        "anche le sue"
+        "rovinat[eoia]".r.tr(8),
+        "anche le sue",
+        "poesie",
+        "non se le ricorda pi[uù]"
       )(
         mp3"rphjb_PoesieRovinate.mp3"
       ),
