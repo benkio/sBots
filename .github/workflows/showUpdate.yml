@@ -25,7 +25,7 @@ jobs:
     - uses: sbt/setup-sbt@v1
     - name: Install yt-dlp
       run: |
-        sudo add-apt-repository ppa:yt-dlp/stable    # Add ppa repo to apt
+        sudo add-apt-repository ppa:tomtomtom/yt-dlp # Add ppa repo to apt
         sudo apt update                              # Update package list
         sudo apt install yt-dlp                      # Install yt-dlp
     - name: Enable BotDB Show Fetch Configuration
