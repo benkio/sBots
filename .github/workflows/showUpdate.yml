@@ -23,6 +23,11 @@ jobs:
         java-version: '21'
         cache: 'sbt'
     - uses: sbt/setup-sbt@v1
+    - name: Install yt-dlp
+      run: |
+        sudo add-apt-repository ppa:yt-dlp/stable    # Add ppa repo to apt
+        sudo apt update                              # Update package list
+        sudo apt install yt-dlp                      # Install yt-dlp
     - name: Enable BotDB Show Fetch Configuration
       run: |
         sed -i 's!run-show-fetching = false!run-show-fetching = true!' /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
