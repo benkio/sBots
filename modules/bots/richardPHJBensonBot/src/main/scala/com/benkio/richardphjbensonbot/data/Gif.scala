@@ -130,21 +130,6 @@ object Gif {
       gif"rphjb_QuerelareGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "in fila"
-    )(
-      gif"rphjb_MettitiInFilaGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "non male"
-    )(
-      gif"rphjb_NonMaleGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "perchè si sente"
-    )(
-      gif"rphjb_SiSenteGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "chi cazzo sei"
     )(
       gif"rphjb_ChiCazzoSeiGif.mp4"
@@ -251,11 +236,6 @@ object Gif {
       "deal with it"
     )(
       gif"rphjb_OcchialiGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
-      "non è male"
-    )(
-      gif"rphjb_NonEMaleGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "così e basta",

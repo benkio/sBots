@@ -422,13 +422,6 @@ object Video {
       vid"rphjb_Vigile.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "loculi",
-      "la pace",
-      "tarpare le ali"
-    )(
-      vid"rphjb_TrovatoPaceGenitori.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "io non so mai",
       "più vicino alla fine",
       "hai un anno di più",
@@ -1205,12 +1198,6 @@ object Video {
       vid"rphjb_FesteACasaNicolaArigliano.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "genitori"
-    )(
-      vid"rphjb_TrovatoPaceGenitori.mp4",
-      vid"rphjb_CristoPinocchio.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "le vie sono tante"
     )(
       vid"rphjb_VieSonoTanteMilioniDiMilioniMiCoglioniViaDelleAlbizzie22.mp4"
@@ -1357,7 +1344,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "in giallo",
       "capelli (imbiondati|gialli)".r.tr(14),
-      "pazienza (d[ie] ferro| che hanno i marines)".r.tr(17),
       "non sentire più emozioni",
       "fa[s]+( )?[b]+inder".r.tr(9),
       "dizione",
@@ -1373,11 +1359,6 @@ object Video {
       "(ndo|dove) stanno i".r.tr(12)
     )(
       vid"rphjb_NapoletaniDoveStannoFateviVivi.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "mi sento un (pezzo di merda|l'ultimo)".r.tr(20)
-    )(
-      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "è troppo",
