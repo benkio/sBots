@@ -1,0 +1,54 @@
+name: Update Bots Shows
+
+on:
+  schedule:
+      - cron: '0 12 * * 0'
+  workflow_dispatch:
+    inputs:
+      fetchShowCaptions:
+        description: "Fetch Show Captions"
+        default: true
+        type: boolean
+        required: true
+
+jobs:
+  updateShows:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+        cache: 'sbt'
+    - uses: sbt/setup-sbt@v1
+    - name: Enable BotDB Show Fetch Configuration
+      run: |
+        sed -i 's!run-show-fetching = false!run-show-fetching = true!' /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
+    - name: Enable Caption Fetching
+      if: github.event.inputs.fetchShowCaptions == 'true'
+      run: sed -i 's!run-show-caption-fetching = false!run-show-caption-fetching = true!' /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
+    - name: Set Youtube API
+      run: printf '${{ secrets.YOUTUBE_API_KEY }}' > /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
+    - name: Run Fetch
+      run: |
+        cat /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
+        head -c 5 /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
+    - name: Revert Config Changes
+    - name: Create PR
+      uses: peter-evans/create-pull-request@v7
+      with:
+        commit-message: "[AutoPR] Update Bots Shows"
+        branch: auto-update-shows # Branch to create for the PR
+        delete-branch: true # Delete the branch after PR is merged
+        title: "[AutoPR] Update Bots Shows"
+        body: |
+          PR Adding the latest Bot's shows based on the BotDB sources'
+          Changes:
+          - JSON Show Files
+        base: main # Target branch for the PR
+        labels: Update
+        token: ${{ secrets.GITHUB_TOKEN }} # Use the default GitHub token
+
+
