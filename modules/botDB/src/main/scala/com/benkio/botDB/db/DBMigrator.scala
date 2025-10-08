@@ -3,7 +3,7 @@ package com.benkio.botDB.db
 import cats.effect.Sync
 import com.benkio.botDB.config.Config
 import org.flywaydb.core.api.configuration.FluentConfiguration
-import org.flywaydb.core.api.Location
+import org.flywaydb.core.internal.scanner.LocationParser
 import org.flywaydb.core.Flyway
 
 import scala.jdk.CollectionConverters.*
@@ -42,7 +42,7 @@ object DBMigrator {
       .failOnMissingLocations(true)
       .locations(
         config.migrationsLocations
-          .map(new Location(_))
+          .map(LocationParser.parseLocation(_))
           .toList*
       )
       .baselineOnMigrate(true)
