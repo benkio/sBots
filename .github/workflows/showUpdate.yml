@@ -45,11 +45,11 @@ jobs:
     - name: Check for changes
       id: check_changes
       run: |
-        if [[ -z $(git status --porcelain) ]]; then
-          echo "No changes detected"
+        if [[ -z $(git diff --name-only | grep -v '^botDB\.sqlite3$') ]]; then
+          echo "No changes detected (excluding botDB.sqlite3)"
           echo "has_changes=false" >> $GITHUB_OUTPUT
         else
-          echo "Changes detected"
+          echo "Changes detected (excluding botDB.sqlite3)"
           echo "has_changes=true" >> $GITHUB_OUTPUT
         fi
     - name: Create PR
