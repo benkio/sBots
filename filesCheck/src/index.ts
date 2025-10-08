@@ -164,9 +164,6 @@ Promise.all(
       fs.forEach((f) => {
         const { logic } =
           match(initialArtist).find(({ check }) => {
-            logger.info(
-              `test ${initialArtist} ${path.basename(f)} -> ${check(f)}`
-            );
             return check(f) ?? false;
           }) ?? defaultLogic(initialArtist);
         return logic(f);
