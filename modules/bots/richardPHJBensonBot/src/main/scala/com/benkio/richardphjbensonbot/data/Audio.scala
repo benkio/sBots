@@ -395,6 +395,26 @@ object Audio {
       "jim morrison"
     )(
       mp3"rphjb_JimMorrison.mp3"
-    )
+    ),
+    ReplyBundleMessage
+      .textToMp3[F](
+        "sei frocio"
+      )(
+        mp3"rphjb_SeiFrocio.mp3"
+      ),
+    ReplyBundleMessage
+      .textToMp3[F](
+        "rovinate",
+        "anche le sue"
+      )(
+        mp3"rphjb_PoesieRovinate.mp3"
+      ),
+    ReplyBundleMessage
+      .textToMp3[F](
+        "\\bfregat[ao]\\b".r.tr(6),
+        "mani tue"
+      )(
+        mp3"rphjb_FregatoManiTue.mp3"
+      )
   )
 }
