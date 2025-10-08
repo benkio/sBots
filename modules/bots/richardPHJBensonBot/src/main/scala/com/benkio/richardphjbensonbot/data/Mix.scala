@@ -472,8 +472,9 @@ object Mix {
       sticker"rphjb_WelaBensoniani.sticker"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "vattene a[ ]?[f]*fanculo".r.tr(16)
+      "[a]?[ ]?[f]*fanculo".r.tr(7)
     )(
+      vid"rphjb_AndateAFanculo.mp4",
       gif"rphjb_MaVatteneAffanculoGif.mp4",
       mp3"rphjb_MaVatteneAffanculo.mp3",
       vid"rphjb_PortlandVancuverFanculo.mp4",
@@ -481,7 +482,12 @@ object Mix {
       vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4",
       vid"rphjb_CambiaCanaleBruttoFrocio.mp4",
       vid"rphjb_TelefonataPappalardoFanculo.mp4",
-      gif"rphjb_VatteneAFanculoGif.mp4"
+      gif"rphjb_VatteneAFanculoGif.mp4",
+      mp3"rphjb_TeNeVaiAFanculo.mp3",
+      gif"rphjb_AffanculoManieraPazzescaGif.mp4",
+      vid"rphjb_AffanculoManieraPazzesca.mp4",
+      mp3"rphjb_AffanculoManieraPazzesca.mp3",
+      sticker"rphjb_IndicaAffanculoPazzescaBensoniani.sticker"
     ),
     ReplyBundleMessage.textToMedia[F](
       "feelings"
@@ -2414,7 +2420,7 @@ object Mix {
       mp3"rphjb_LetSGoodStateBene.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "a[ ]?[f]*fanculo in una maniera pazzesca".r.tr(33),
+      "maniera pazzesca",
       "altro che quel coglione"
     )(
       gif"rphjb_AffanculoManieraPazzescaGif.mp4",

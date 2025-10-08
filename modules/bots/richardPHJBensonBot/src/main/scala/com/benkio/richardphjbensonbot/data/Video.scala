@@ -1930,11 +1930,6 @@ object Video {
       vid"rphjb_CheSicuramente.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "andate (direttamente )?a[ ]?[f]*fanculo".r.tr(16)
-    )(
-      vid"rphjb_AndateAFanculo.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "il pubblico sta cambiando",
       "stanno invecchiando",
       "non riescono a seguire",
