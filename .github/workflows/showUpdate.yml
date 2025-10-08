@@ -32,11 +32,11 @@ jobs:
     - name: Set Youtube API
       run: printf '${{ secrets.YOUTUBE_API_KEY }}' > /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
     - name: Run Fetch
-      run: |
-        cat /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
-        head -c 5 /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
+      run: sbt botDB/run
     - name: Revert Config Changes
-      run: echo 'TODO'
+      run: |
+        git restore /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
+        git restore /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
     - name: Create PR
       uses: peter-evans/create-pull-request@v7
       with:
