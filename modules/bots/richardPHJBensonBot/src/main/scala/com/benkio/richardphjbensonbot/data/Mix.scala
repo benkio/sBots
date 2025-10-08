@@ -144,7 +144,8 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "\\bsput[ao]\\b".r.tr(5)
     )(
-      gif"rphjb_SputoGif.mp4",
+      gif"rphjb_FeelingsSputoLoopGif.mp4",
+      gif"rphjb_FeelingsSputoGif.mp4",
       vid"rphjb_FeelingsSputo.mp4",
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
       vid"rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
@@ -419,14 +420,14 @@ object Mix {
     )(
       mp3"rphjb_Canzonette.mp3",
       vid"rphjb_Canzonette.mp4",
-      gif"rphjb_Canzonette.gif"
+      gif"rphjb_CanzonetteGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "canzonette"
     )(
       mp3"rphjb_Canzonette.mp3",
       vid"rphjb_Canzonette.mp4",
-      gif"rphjb_Canzonette.gif",
+      gif"rphjb_CanzonetteGif.mp4",
       vid"rphjb_CanzonettePoesieAuschwitzCervello.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -485,12 +486,19 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "feelings"
     )(
-      gif"rphjb_Feelings.gif",
-      gif"rphjb_Feelings2Gif.mp4",
       mp3"rphjb_Feelings.mp3",
       vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
-      vid"rphjb_FeelingsSguardoPreghiera.mp4",
-      vid"rphjb_FeelingsSputo.mp4"
+      gif"rphjb_FeelingsIncazzarmiAndiamociSentireOriginaleGif.mp4",
+      mp3"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp3",
+      gif"rphjb_FeelingsPreghieraGif.mp4",
+      vid"rphjb_FeelingsPreghiera.mp4",
+      gif"rphjb_FeelingsATerraGif.mp4",
+      vid"rphjb_FeelingsATerra.mp4",
+      gif"rphjb_FeelingsSputoLoopGif.mp4",
+      gif"rphjb_FeelingsSputoGif.mp4",
+      vid"rphjb_FeelingsSputo.mp4",
+      gif"rphjb_FeelingsSguardoGif.mp4",
+      vid"rphjb_FeelingsSguardo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "me ne vado"
@@ -644,9 +652,7 @@ object Mix {
       vid"rphjb_RisataInfernale.mp4",
       gif"rphjb_Risata.gif",
       gif"rphjb_RisataGif.mp4",
-      vid"rphjb_OrmaiRisata.mp4",
       gif"rphjb_SorrisoGif.mp4",
-      gif"rphjb_Sorriso2.gif",
       gif"rphjb_SorrisoSognanteGif.mp4",
       mp3"rphjb_Risata2.mp3",
       vid"rphjb_SepolturaRisata.mp4",
@@ -656,7 +662,13 @@ object Mix {
       vid"rphjb_GeneriMusicali2.mp4",
       sticker"rphjb_RisataBensoniani.sticker",
       sticker"rphjb_Risata2Bensoniani.sticker",
-      sticker"rphjb_Risata3Bensoniani.sticker"
+      sticker"rphjb_Risata3Bensoniani.sticker",
+      gif"rphjb_NonEMaleGif.mp4",
+      mp3"rphjb_NonEMale.mp3",
+      vid"rphjb_NonEMale.mp4",
+      gif"rphjb_OrmaiRisataGif.mp4",
+      mp3"rphjb_OrmaiRisata.mp3",
+      vid"rphjb_OrmaiRisata.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "ammazza che sei",
@@ -783,7 +795,8 @@ object Mix {
       vid"rphjb_Assolo2.mp4",
       vid"rphjb_AssoloBeat.mp4",
       vid"rphjb_AssoloSubdolo.mp4",
-      gif"rphjb_BassoGif.mp4",
+      gif"rphjb_Bassista2Gif.mp4",
+      vid"rphjb_Bassista2.mp4",
       gif"rphjb_Chitarra1Gif.mp4",
       gif"rphjb_Chitarra2Gif.mp4",
       gif"rphjb_Chitarra3Gif.mp4",
@@ -826,7 +839,8 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "il basso\\b".r.tr(5)
     )(
-      gif"rphjb_BassoGif.mp4",
+      gif"rphjb_Bassista2Gif.mp4",
+      vid"rphjb_Bassista2.mp4",
       vid"rphjb_AssoloBasso.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -862,7 +876,9 @@ object Mix {
       vid"rphjb_AveteCapito2.mp4",
       gif"rphjb_AveteCapitoUnCazzoDiNuovoComeSempreGif.mp4",
       vid"rphjb_AveteCapitoUnCazzoDiNuovoComeSempre.mp4",
-      mp3"rphjb_AveteCapitoUnCazzoDiNuovoComeSempre.mp3"
+      mp3"rphjb_AveteCapitoUnCazzoDiNuovoComeSempre.mp3",
+      vid"rphjb_IlBastoneDiGesu.mp4",
+      mp3"rphjb_IlBastoneDiGesu.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "esperiment",
@@ -1292,7 +1308,9 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "\\blo[g]+i(c|g)o\\b".r.tr(6)
     )(
-      gif"rphjb_SembraLogicoGif.mp4",
+      gif"rphjb_TukulGif.mp4",
+      mp3"rphjb_Tukul.mp3",
+      vid"rphjb_Tukul.mp4",
       mp3"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp3",
       vid"rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4",
       gif"rphjb_MiPareLogicoMatematiciAnaliticiDiNoiaGif.mp4"
@@ -1790,7 +1808,6 @@ object Mix {
       mp3"rphjb_SonyVaMaleMetalRock.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "in preghiera",
       "desertici"
     )(
       vid"rphjb_IlBastoneDiGesu.mp4",
@@ -2257,8 +2274,9 @@ object Mix {
       "quattro solo",
       "faccio in tempo"
     )(
-      gif"rphjb_QuattroSoloGif.mp4",
-      vid"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4"
+      vid"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4",
+      gif"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsiGif.mp4",
+      mp3"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "televita"
@@ -2431,7 +2449,9 @@ object Mix {
       "l'originale"
     )(
       gif"rphjb_SentireOriginaleGif.mp4",
-      vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4"
+      vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
+      gif"rphjb_FeelingsIncazzarmiAndiamociSentireOriginaleGif.mp4",
+      mp3"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "gigi d'alessio"
@@ -2625,7 +2645,16 @@ object Mix {
       mp3"rphjb_PappalardoGeorgeMichaelFreddyMercuryFrocio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "preghier(a|ina)".r.tr(9),
+      "preghier"
+    )(
+      vid"rphjb_IlBastoneDiGesu.mp4",
+      mp3"rphjb_IlBastoneDiGesu.mp3",
+      gif"rphjb_FeelingsPreghieraGif.mp4",
+      vid"rphjb_FeelingsPreghiera.mp4",
+      mp3"rphjb_Chiesa.mp3",
+      vid"rphjb_PoveriIllusiChiesaPreghierinaPreteManfrineDottoreMedicina.mp4"
+    ),
+    ReplyBundleMessage.textToMedia[F](
       "io non credo",
       "la medicina",
       "andare dal dottore",
@@ -2751,7 +2780,8 @@ object Mix {
     )(
       gif"rphjb_PregaGif.mp4",
       gif"rphjb_Prega2Gif.mp4",
-      vid"rphjb_FeelingsSguardoPreghiera.mp4"
+      gif"rphjb_FeelingsPreghieraGif.mp4",
+      vid"rphjb_FeelingsPreghiera.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "sguardo"
@@ -2762,7 +2792,8 @@ object Mix {
       gif"rphjb_Sguardo3Gif.mp4",
       gif"rphjb_Sguardo4Gif.mp4",
       gif"rphjb_SguardoCanaroGif.mp4",
-      vid"rphjb_FeelingsSguardoPreghiera.mp4",
+      gif"rphjb_FeelingsSguardoGif.mp4",
+      vid"rphjb_FeelingsSguardo.mp4",
       vid"rphjb_Messaggio.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -2808,22 +2839,28 @@ object Mix {
       "meridionale",
       "terron"
     )(
+      vid"rphjb_GaioInGiallo.mp4",
       gif"rphjb_MeridionaleGif.mp4",
-      vid"rphjb_GaioInGiallo.mp4"
+      mp3"rphjb_Meridionale.mp3",
+      vid"rphjb_Meridionale.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "destino",
       "incontrare",
       "signor benson"
     )(
-      gif"rphjb_DestinoGif.mp4",
       vid"rphjb_GaioInGiallo.mp4",
-      sticker"rphjb_DestinoBensoniani.sticker"
+      sticker"rphjb_DestinoBensoniani.sticker",
+      gif"rphjb_SignorBensonDestinoGif.mp4",
+      mp3"rphjb_SignorBensonDestino.mp3",
+      vid"rphjb_SignorBensonDestino.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "tu( )?cul".r.tr(6)
+      "tu( )?[ck]ul".r.tr(6)
     )(
-      gif"rphjb_TuCulGif.mp4",
+      gif"rphjb_TukulGif.mp4",
+      mp3"rphjb_Tukul.mp3",
+      vid"rphjb_Tukul.mp4",
       vid"rphjb_GaioInGiallo.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -2837,7 +2874,9 @@ object Mix {
       "giù( giù)+".r.tr(7)
     )(
       mp3"rphjb_GiuGiuGiu.mp3",
-      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4"
+      vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4",
+      gif"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiuGif.mp4",
+      mp3"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp3"
     ),
     ReplyBundleMessage(
       trigger = TextTrigger(
@@ -2849,6 +2888,8 @@ object Mix {
           mp3"rphjb_SonoUltimo.mp3",
           mp3"rphjb_SonoIoUltimo.mp3",
           vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4",
+          gif"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiuGif.mp4",
+          mp3"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp3",
           vid"rphjb_UltimoListaUmaniVenerdi22.mp4"
         )
       ),
@@ -3389,6 +3430,8 @@ object Mix {
       "\\borolog[io]\\b".r.tr(7)
     )(
       vid"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4",
+      gif"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsiGif.mp4",
+      mp3"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp3",
       mp3"rphjb_PoesiaDolcezzaViolenta.mp3",
       vid"rphjb_PoesiaDolcezzaViolenta.mp4"
     ),
@@ -4643,12 +4686,12 @@ object Mix {
         gif"rphjb_TiDeviSpaventareGif.mp4",
         mp3"rphjb_TiDeviSpaventare.mp3",
         vid"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp4",
+        gif"rphjb_FeelingsIncazzarmiAndiamociSentireOriginaleGif.mp4",
+        mp3"rphjb_FeelingsIncazzarmiAndiamociSentireOriginale.mp3",
         vid"rphjb_SteveVaiRamazzotti.mp4",
         vid"rphjb_FiguracceDiscoSteveVai.mp4",
         vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4",
         vid"rphjb_FesteACasaNicolaArigliano.mp4",
-        vid"rphjb_FeelingsSguardoPreghiera.mp4",
-        vid"rphjb_FeelingsSputo.mp4",
         vid"rphjb_SteveVai.mp4",
         mp3"rphjb_SteveVai.mp3",
         gif"rphjb_SteveVaiGif.mp4"
@@ -4812,16 +4855,16 @@ object Mix {
       ReplyBundleMessage.textToMedia[F](
         "slap"
       )(
-        gif"rphjb_Bassista.gif",
-        gif"rphjb_BassoGif.mp4",
+        gif"rphjb_Bassista2Gif.mp4",
+        vid"rphjb_Bassista2.mp4",
         vid"rphjb_Bassista.mp4",
         mp3"rphjb_Bassista.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "bassista"
       )(
-        gif"rphjb_Bassista.gif",
-        gif"rphjb_BassoGif.mp4",
+        vid"rphjb_Bassista2.mp4",
+        gif"rphjb_Bassista2Gif.mp4",
         vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4",
         vid"rphjb_Bassista.mp4",
         mp3"rphjb_Bassista.mp3"
@@ -6124,6 +6167,84 @@ object Mix {
           vid"rphjb_Perfetto.mp4",
           mp3"rphjb_Perfetto.mp3",
           gif"rphjb_PerfettoGif.mp4"
-        )
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "\\battori\\b".r.tr(6),
+        "\\barbeit\\b".r.tr(6),
+        "\\bmacht\\b".r.tr(5),
+        "\\bfrei\\b".r.tr(4),
+        "sto cogline",
+        "levat(i|evi|e|a|emelo|emela) d[ai] torn[o]?".r.tr(15),
+        "fa[s]+[ ]?binder".r.tr(9)
+      )(
+        gif"rphjb_TantiAttoriArbeitMachtFreiGif.mp4",
+        mp3"rphjb_TantiAttoriArbeitMachtFrei.mp3",
+        vid"rphjb_TantiAttoriArbeitMachtFrei.mp4"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "pazienza",
+        "marines"
+      )(
+        gif"rphjb_PazienzaDiFerroMarinesGif.mp4",
+        mp3"rphjb_PazienzaDiFerroMarines.mp3",
+        vid"rphjb_PazienzaDiFerroMarines.mp4",
+        vid"rphjb_GaioInGiallo.mp4"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "mi sento un (pezzo di merda|l'ultimo)".r.tr(20)
+      )(
+        vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4",
+        gif"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiuGif.mp4",
+        mp3"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "in fila",
+        "e lui..."
+      )(
+        gif"rphjb_MettitiInFilaGif.mp4",
+        mp3"rphjb_MettitiInFila.mp3",
+        vid"rphjb_MettitiInFila.mp4"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "non (e' |è )male".r.tr(6)
+      )(
+        gif"rphjb_NonEMaleGif.mp4",
+        mp3"rphjb_NonEMale.mp3",
+        vid"rphjb_NonEMale.mp4"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "loculi",
+        "la pace",
+        "tarpare le ali",
+        "perchè da vivi"
+      )(
+        gif"rphjb_TrovatoPaceGenitoriGif.mp4",
+        mp3"rphjb_TrovatoPaceGenitori.mp3",
+        vid"rphjb_TrovatoPaceGenitori.mp4"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "genitori"
+      )(
+        gif"rphjb_TrovatoPaceGenitoriGif.mp4",
+        mp3"rphjb_TrovatoPaceGenitori.mp3",
+        vid"rphjb_TrovatoPaceGenitori.mp4",
+        vid"rphjb_CristoPinocchio.mp4"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "ormai..."
+        )(
+          gif"rphjb_OrmaiRisataGif.mp4",
+          mp3"rphjb_OrmaiRisata.mp3",
+          vid"rphjb_OrmaiRisata.mp4"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "perch[eè][?]* si sente".r.tr(15),
+        "si sente[?]+".r.tr(9)
+      )(
+        gif"rphjb_PercheSiSenteGif.mp4",
+        mp3"rphjb_PercheSiSente.mp3",
+        vid"rphjb_PercheSiSente.mp4"
+      )
     )
 }
