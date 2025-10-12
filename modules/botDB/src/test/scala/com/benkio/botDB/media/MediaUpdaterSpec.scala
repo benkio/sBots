@@ -39,7 +39,7 @@ class MediaUpdaterSpec extends CatsEffectSuite {
       .pure[IO]
   )
   val dbLayerMock = DBLayerMock.mock(
-    botName = "testBot",
+    botId = "testbot",
     medias = mediaEntities
   )
   val mediaUpdater: MediaUpdaterImpl[IO] = MediaUpdaterImpl[IO](

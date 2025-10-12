@@ -15,11 +15,11 @@ import scala.concurrent.duration.*
 
 class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   val testTimeoutChatId = 1L
-  val testBotName       = "botName"
+  val testBotId         = "botId"
 
   val testTimeout: DBTimeoutData = DBTimeoutData(
     chat_id = testTimeoutChatId,
-    bot_name = testBotName,
+    bot_id = testBotId,
     timeout_value = "15000",
     last_interaction = "1669302207"
   )
@@ -35,10 +35,10 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   test(
     "DBTimeout queries should check".ignore
   ) {
-    check(DBTimeout.getOrDefaultQuery(testTimeoutChatId, testBotName))
+    check(DBTimeout.getOrDefaultQuery(testTimeoutChatId, testBotId))
     check(DBTimeout.setTimeoutQuery(testTimeout))
-    check(DBTimeout.removeTimeoutQuery(testTimeout.chat_id, testTimeout.bot_name))
-    check(DBTimeout.logLastInteractionQuery(testTimeoutChatId, testBotName))
+    check(DBTimeout.removeTimeoutQuery(testTimeout.chat_id, testTimeout.bot_id))
+    check(DBTimeout.logLastInteractionQuery(testTimeoutChatId, testBotId))
   }
 
   databaseFixture.test(
@@ -46,7 +46,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     (for
       // Not present ChatID
-      timeout <- fixture.resourceDBLayer.evalMap(dbLayer => dbLayer.dbTimeout.getOrDefault(100L, testBotName))
+      timeout <- fixture.resourceDBLayer.evalMap(dbLayer => dbLayer.dbTimeout.getOrDefault(100L, testBotId))
     yield
       assertEquals(timeout.chat_id, 100L)
       assertEquals(timeout.timeout_value, "0")
@@ -59,7 +59,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
     (for {
       dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
       _         <- Resource.eval(dbTimeout.setTimeout(testTimeout))
-      timeout   <- Resource.eval(dbTimeout.getOrDefault(1L, testBotName)) // Present ChatID
+      timeout   <- Resource.eval(dbTimeout.getOrDefault(1L, testBotId)) // Present ChatID
     } yield {
       assertEquals(timeout.chat_id, 1L)
       assertEquals(timeout.timeout_value, "15000")
@@ -71,11 +71,11 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val chatId  = 2L
     val timeout =
-      DBTimeoutData(chatId, testBotName, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
+      DBTimeoutData(chatId, testBotId, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
     (for {
       dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
       _         <- Resource.eval(dbTimeout.setTimeout(timeout))
-      timeout   <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+      timeout   <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotId))
     } yield
       assertEquals(timeout.chat_id, 2L)
       assertEquals(timeout.timeout_value, "2000")
@@ -86,11 +86,11 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
     fixture =>
       val chatId  = 1L
       val timeout =
-        DBTimeoutData(chatId, testBotName, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
+        DBTimeoutData(chatId, testBotId, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
       (for {
         dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
         _         <- Resource.eval(dbTimeout.setTimeout(timeout))
-        result    <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+        result    <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotId))
       } yield
         assertEquals(result.chat_id, 1L)
         assertEquals(result.timeout_value, "2000")
@@ -103,8 +103,8 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val chatId = 2L
     (for {
       dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
-      _         <- Resource.eval(dbTimeout.logLastInteraction(chatId, testBotName))
-      timeout   <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+      _         <- Resource.eval(dbTimeout.logLastInteraction(chatId, testBotId))
+      timeout   <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotId))
     } yield
       assertEquals(timeout.chat_id, 2L)
       assertEquals(timeout.timeout_value, "0")
@@ -120,9 +120,9 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
     (for {
       dbTimeout    <- fixture.resourceDBLayer.map(_.dbTimeout)
       _            <- Resource.eval(dbTimeout.setTimeout(testTimeout))
-      prevTimeout  <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
-      _            <- Resource.eval(dbTimeout.logLastInteraction(chatId, testBotName))
-      afterTimeout <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+      prevTimeout  <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotId))
+      _            <- Resource.eval(dbTimeout.logLastInteraction(chatId, testBotId))
+      afterTimeout <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotId))
     } yield
       assertEquals(prevTimeout.chat_id, 1L)
       assertEquals(prevTimeout.timeout_value, "15000")
@@ -137,19 +137,19 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val chatId  = 1L
     val timeout =
-      DBTimeoutData(chatId, testBotName, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
+      DBTimeoutData(chatId, testBotId, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
     (for {
       dbTimeout     <- fixture.resourceDBLayer.map(_.dbTimeout)
       _             <- Resource.eval(dbTimeout.setTimeout(timeout))
-      beforeTimeout <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
-      _             <- Resource.eval(dbTimeout.removeTimeout(chatId, testBotName))
-      afterTimeout  <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotName))
+      beforeTimeout <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotId))
+      _             <- Resource.eval(dbTimeout.removeTimeout(chatId, testBotId))
+      afterTimeout  <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotId))
     } yield
       assertEquals(beforeTimeout.chat_id, 1L)
-      assertEquals(beforeTimeout.bot_name, testBotName)
+      assertEquals(beforeTimeout.bot_id, testBotId)
       assertEquals(beforeTimeout.timeout_value, "2000")
       assertEquals(afterTimeout.chat_id, 1L)
-      assertEquals(afterTimeout.bot_name, testBotName)
+      assertEquals(afterTimeout.bot_id, testBotId)
       assertEquals(afterTimeout.timeout_value, "0")
     ).use_
   }
@@ -160,7 +160,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val chatId = 1L
     (for {
       dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
-      result    <- Resource.eval(dbTimeout.removeTimeout(chatId, testBotName)).attempt
+      result    <- Resource.eval(dbTimeout.removeTimeout(chatId, testBotId)).attempt
     } yield assert(result.isRight)).use_
   }
 }

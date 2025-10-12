@@ -25,13 +25,14 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
   val botName                            = RichardPHJBensonBot.botName
+  val botId                              = RichardPHJBensonBot.botId
   val chatIdValue                        = 0L
   val chatId                             = ChatId(chatIdValue)
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
     chatId = chatId,
-    botName = botName,
+    botId = botId,
     cron = Cron.unsafeParse("* * * ? * *"),
     subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
   )
@@ -54,7 +55,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       _     <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
@@ -89,7 +90,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       _     <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
@@ -121,7 +122,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       _     <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))

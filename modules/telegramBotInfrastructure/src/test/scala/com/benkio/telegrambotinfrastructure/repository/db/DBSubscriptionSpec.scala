@@ -15,14 +15,14 @@ class DBSubscriptionSpec extends FunSuite {
     val actual = Subscription(
       id = SubscriptionId(UUID.randomUUID),
       chatId = ChatId(0),
-      botName = "botName",
+      botId = "botId",
       cron = Cron.unsafeParse("30 * * * * ?"),
       subscribedAt = now
     )
     val expected = DBSubscriptionData(
       id = actual.id.value.toString,
       chat_id = 0,
-      bot_name = "botName",
+      bot_id = "botId",
       cron = actual.cron.toString,
       subscribed_at = now.getEpochSecond.toString
     )

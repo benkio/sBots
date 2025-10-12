@@ -60,7 +60,7 @@ object BackgroundJobManager {
       dbSubscription: DBSubscription[F],
       dbShow: DBShow[F],
       repository: Repository[F],
-      botName: String
+      botId: String
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
       backgroundJobManager <- Async[F].pure(
@@ -68,7 +68,7 @@ object BackgroundJobManager {
           dbSubscription = dbSubscription,
           dbShow = dbShow,
           repository: Repository[F],
-          botName = botName
+          botId = botId
         )
       )
       _ <- backgroundJobManager.loadSubscriptions()
@@ -78,7 +78,7 @@ object BackgroundJobManager {
       dbSubscription: DBSubscription[F],
       dbShow: DBShow[F],
       repository: Repository[F],
-      val botName: String
+      val botId: String
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
@@ -87,7 +87,7 @@ object BackgroundJobManager {
 
     def loadSubscriptions(): F[Unit] =
       for {
-        subscriptionsData <- dbSubscription.getSubscriptions(botName)
+        subscriptionsData <- dbSubscription.getSubscriptions(botId)
         subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
         cancelSignal      <- subscriptions.traverse(subscription =>
           runSubscription(subscription).map { case (stream, cancel) =>
@@ -152,7 +152,7 @@ object BackgroundJobManager {
       val action: F[Instant] = for {
         now   <- Async[F].realTimeInstant
         _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
-        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbShow, botName)
+        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbShow, botId)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
         _     <- textTelegramReply.reply(
           reply = Text(reply),

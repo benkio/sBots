@@ -14,6 +14,7 @@ import telegramium.bots.Message
 class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
 
   val botName     = RichardPHJBensonBot.botName
+  val botId       = RichardPHJBensonBot.botId
   val chatIdValue = 0L
   val chatId      = ChatId(chatIdValue)
 
@@ -29,7 +30,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
     val wrongInput = "00:00:0F"
     val result     = for {
       dbLayer       <- fixture.resourceDBLayer
-      beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
+      beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
       reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
@@ -41,7 +42,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
           )
           .attempt
       )
-      afterTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
+      afterTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
     } yield {
       assertEquals(beforeTimeout, afterTimeout)
       assertEquals(
@@ -58,7 +59,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
     val wrongInput = "00:00:10"
     val result     = for {
       dbLayer       <- fixture.resourceDBLayer
-      beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
+      beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
       reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
@@ -70,13 +71,13 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
           )
           .attempt
       )
-      afterTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
+      afterTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
     } yield {
       assertEquals(
         beforeTimeout,
         DBTimeoutData(
           chat_id = chatIdValue,
-          bot_name = botName,
+          bot_id = botId,
           timeout_value = "0",
           last_interaction = beforeTimeout.last_interaction
         )
@@ -85,7 +86,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
         afterTimeout,
         DBTimeoutData(
           chat_id = chatIdValue,
-          bot_name = botName,
+          bot_id = botId,
           timeout_value = "10000",
           last_interaction = afterTimeout.last_interaction
         )
@@ -103,7 +104,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbLayer       <- fixture.resourceDBLayer
-      beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
+      beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
       reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
@@ -115,10 +116,10 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
           )
           .attempt
       )
-      afterTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botName = botName))
+      afterTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
     } yield {
       assertEquals(beforeTimeout.chat_id, afterTimeout.chat_id)
-      assertEquals(beforeTimeout.bot_name, afterTimeout.bot_name)
+      assertEquals(beforeTimeout.bot_id, afterTimeout.bot_id)
       assertEquals(beforeTimeout.timeout_value, afterTimeout.timeout_value)
       assertEquals(
         reply,

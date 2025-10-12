@@ -50,7 +50,7 @@ trait SBot[F[_]: Async: LogWriter] {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val disableForward: Boolean             = true
   val botName: String
-  val botPrefix: String
+  val botId: String
   val triggerListUri: Uri
   val triggerFilename: String
   val dbLayer: DBLayer[F]
@@ -161,7 +161,7 @@ trait SBot[F[_]: Async: LogWriter] {
       repository: Repository[F],
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    msg.messageType(botPrefix) match {
+    msg.messageType(botId) match {
       case MessageType.Message     => messageLogic(repository, msg)
       case MessageType.Command     => commandLogic(repository, msg)
       case MessageType.FileRequest => fileRequestLogic(repository, msg)

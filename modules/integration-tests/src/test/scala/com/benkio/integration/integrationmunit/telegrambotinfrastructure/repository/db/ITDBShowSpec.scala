@@ -16,12 +16,12 @@ import java.sql.DriverManager
 
 class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  val botName = "TestBot"
+  val botId = "TestBot"
 
   val testShowRaw: String =
     """{
       |    "show_id": "test",
-      |    "bot_name": "TestBot",
+      |    "bot_id": "TestBot",
       |    "show_title": "Test Show Title",
       |    "show_upload_date": "2025-04-24T12:01:24.000Z",
       |    "show_duration": 10,
@@ -58,9 +58,9 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val resourceAssert = for {
       testShow           <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw)))
       dbShow             <- fixture.resourceDBLayer.map(_.dbShow)
-      testShows          <- Resource.eval(dbShow.getShows(botName))
+      testShows          <- Resource.eval(dbShow.getShows(botId))
       testShowsByKeyword <- Resource.eval(
-        dbShow.getShowByShowQuery(ShowQuery("title=test+show&title=title"), botName)
+        dbShow.getShowByShowQuery(ShowQuery("title=test+show&title=title"), botId)
       )
     } yield (testShows, testShowsByKeyword, testShow)
 
@@ -78,7 +78,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val testShowRaw2: String =
       """{
         |    "show_id": "https://www.youtube.com/watch?v=test2",
-        |    "bot_name": "TestBot",
+        |    "bot_id": "TestBot",
         |    "show_title": "Test 2 Show Title",
         |    "show_upload_date": "2025-04-24T12:01:24.000Z",
         |    "show_duration": 10,
@@ -91,7 +91,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
       dbShow             <- fixture.resourceDBLayer.map(_.dbShow)
       _                  <- Resource.eval(dbShow.insertShow(testShow))
       testShowsByKeyword <- Resource.eval(
-        dbShow.getShowByShowQuery(ShowQuery("test 2"), botName)
+        dbShow.getShowByShowQuery(ShowQuery("test 2"), botId)
       )
       _ <- Resource.eval(dbShow.deleteShow(testShow))
     } yield (testShowsByKeyword, testShow)
@@ -107,10 +107,10 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val resourceAssert = for {
       dbShow     <- fixture.resourceDBLayer.map(_.dbShow)
       randomShow <- Resource.eval(
-        dbShow.getRandomShow(botName)
+        dbShow.getRandomShow(botId)
       )
     } yield {
-      assertEquals(randomShow.map(_.bot_name), Some(botName))
+      assertEquals(randomShow.map(_.bot_id), Some(botId))
     }
 
     resourceAssert.use_

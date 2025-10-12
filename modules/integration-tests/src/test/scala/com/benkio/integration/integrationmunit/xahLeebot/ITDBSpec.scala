@@ -25,7 +25,7 @@ import scala.io.Source
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
   val botName: String                       = "botname"
-  val botPrefix: String                     = "xah"
+  val botId: String                         = "xah"
   val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botName)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
@@ -37,7 +37,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       dbSubscription = emptyDBLayer.dbSubscription,
       dbShow = emptyDBLayer.dbShow,
       repository = repositoryMock,
-      botName = botName
+      botId = botId
     )
   )
 
@@ -53,8 +53,8 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       files           <- Resource.eval(
         CommandRepliesData
           .values[IO](
+            botId = botId,
             botName = botName,
-            botPrefix = botPrefix,
             dbLayer = resourceDBLayer,
             backgroundJobManager = bjm
           )
@@ -92,8 +92,8 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       mediaFiles      <- Resource.eval(
         CommandRepliesData
           .values[IO](
+            botId = botId,
             botName = botName,
-            botPrefix = botPrefix,
             dbLayer = resourceDBLayer,
             backgroundJobManager = bjm
           )

@@ -9,7 +9,7 @@ class SubscriptionSpec extends FunSuite {
     DBSubscriptionData(
       id = "232d1421-ad61-4835-b755-f09b07bc34c3",
       chat_id = 0L,
-      bot_name = "RichardPHJBensonBot",
+      bot_id = "rphjb",
       cron = cron,
       subscribed_at = "1662126018293"
     )

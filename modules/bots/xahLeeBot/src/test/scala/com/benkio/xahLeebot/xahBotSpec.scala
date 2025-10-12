@@ -49,7 +49,7 @@ class XahLeeBotSpec extends BaseBotSpec {
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     repository = repositoryMock,
-    botName = "XahLeeBot"
+    botId = XahLeeBot.botId
   ).map(bjm =>
     new XahLeeBotPolling[IO](
       repositoryInput = repositoryMock,

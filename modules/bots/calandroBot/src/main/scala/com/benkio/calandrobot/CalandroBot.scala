@@ -58,7 +58,7 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
 trait CalandroBot[F[_]: Async: LogWriter] extends SBot[F] {
 
   override val botName: String         = CalandroBot.botName
-  override val botPrefix: String       = CalandroBot.botPrefix
+  override val botId: String           = CalandroBot.botId
   override val triggerFilename: String = CalandroBot.triggerFilename
   override val triggerListUri: Uri     = CalandroBot.triggerListUri
 
@@ -72,7 +72,7 @@ trait CalandroBot[F[_]: Async: LogWriter] extends SBot[F] {
 object CalandroBot {
 
   val botName: String         = "CalandroBot"
-  val botPrefix: String       = "cala"
+  val botId: String           = "cala"
   val tokenFilename: String   = "cala_CalandroBot.token"
   val configNamespace: String = "cala"
   val triggerFilename: String = "cala_triggers.txt"
@@ -263,7 +263,7 @@ object CalandroBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName
+      botId = botId
     )
   } yield botSetup).use { botSetup =>
     action(
@@ -283,7 +283,7 @@ object CalandroBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName,
+      botId = botId,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new CalandroBotWebhook[F](

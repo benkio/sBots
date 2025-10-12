@@ -5,6 +5,7 @@ import cats.effect.Async
 import cats.effect.IO
 import cats.implicits.*
 import cats.Show
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
@@ -55,7 +56,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     repositoryMock,
-    botName = "RichardPHJBensonBot"
+    botId = RichardPHJBensonBot.botId
   ).map(bjm =>
     new RichardPHJBensonBotPolling[IO](
       repositoryInput = repositoryMock,

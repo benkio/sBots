@@ -17,31 +17,35 @@ object CommandPatternsGroup {
         dbShow: DBShow[F],
         dbSubscription: DBSubscription[F],
         backgroundJobManager: BackgroundJobManager[F],
-        botName: String
+        botName: String,
+        botId: String
     )(using log: LogWriter[F]): List[ReplyBundleCommand[F]] =
       List(
-        SearchShowCommand.searchShowReplyBundleCommand(dbShow, botName),
-        SubscribeUnsubscribeCommand.subscribeReplyBundleCommand(backgroundJobManager, botName),
-        SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand(backgroundJobManager, botName),
-        SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand(dbSubscription, backgroundJobManager, botName)
+        SearchShowCommand.searchShowReplyBundleCommand(
+          dbShow = dbShow,
+          botId = botId,
+          botName = botName
+        ),
+        SubscribeUnsubscribeCommand.subscribeReplyBundleCommand(backgroundJobManager, botId),
+        SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand(backgroundJobManager, botId),
+        SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand(dbSubscription, backgroundJobManager, botId)
       )
   }
 
   object TriggerGroup {
     def group[F[_]: Async](
         triggerFileUri: Uri,
-        botName: String,
+        botId: String,
         ignoreMessagePrefix: Option[String],
         messageRepliesData: List[ReplyBundleMessage[F]],
-        botPrefix: String,
         dbMedia: DBMedia[F],
         dbTimeout: DBTimeout[F]
     )(using log: LogWriter[F]): List[ReplyBundleCommand[F]] =
       List(
         TriggerListCommand.triggerListReplyBundleCommand(triggerFileUri),
-        TriggerSearchCommand.triggerSearchReplyBundleCommand(botName, ignoreMessagePrefix, messageRepliesData),
-        StatisticsCommands.topTwentyReplyBundleCommand(botPrefix, dbMedia),
-        TimeoutCommand.timeoutReplyBundleCommand(botName, dbTimeout)
+        TriggerSearchCommand.triggerSearchReplyBundleCommand(botId, ignoreMessagePrefix, messageRepliesData),
+        StatisticsCommands.topTwentyReplyBundleCommand(botId, dbMedia),
+        TimeoutCommand.timeoutReplyBundleCommand(botId, dbTimeout)
       )
   }
 }

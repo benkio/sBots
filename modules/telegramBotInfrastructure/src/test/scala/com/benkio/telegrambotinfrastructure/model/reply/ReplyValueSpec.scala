@@ -54,7 +54,8 @@ class ReplyValueSpec extends FunSuite {
 
   test("MediaFile.fromMimeType should return the expected MediaFile from Media") {
     val actual = Media(
-      mediaName = "mediaName.mp4",
+      mediaName = "botid_mediaName.mp4",
+      botId = "botid_",
       kinds = List("kind"),
       mimeType = MimeType.MP4,
       mediaSources = List(Right(uri"http://something.com")),

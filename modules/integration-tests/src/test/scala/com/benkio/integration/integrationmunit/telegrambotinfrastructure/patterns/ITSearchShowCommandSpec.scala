@@ -9,18 +9,18 @@ import munit.CatsEffectSuite
 
 class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
 
-  def testBot(botName: String, dbShow: DBShow[IO], input: String, optExpected: Option[String] = None): IO[Boolean] =
+  def testBot(botId: String, dbShow: DBShow[IO], input: String, optExpected: Option[String] = None): IO[Boolean] =
     SearchShowCommand
       .selectLinkByKeyword[IO](
         keywords = input,
         dbShow = dbShow,
-        botName = botName
+        botId = botId
       )
       .map(result => {
         val check = optExpected.fold(
           result != "Nessuna puntata/show contenente '' è stata trovata"
         )(e => result == e)
-        if !check then println(s"ERROR: $botName - $input - $optExpected - $result")
+        if !check then println(s"ERROR: $botId - $input - $optExpected - $result")
         check
       })
 

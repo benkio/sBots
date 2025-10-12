@@ -14,8 +14,8 @@ import log.effect.LogWriter
 import scala.concurrent.duration.*
 
 final case class DBMediaData(
-  media_name: String,
-  bot_id: String,
+    media_name: String,
+    bot_id: String,
     kinds: String,
     mime_type: String,
     media_sources: String,
@@ -202,8 +202,7 @@ object DBMedia {
         fr"""kinds LIKE $kindLike3"""
       )).query[DBMediaData]
 
-  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = 
-  {
+  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
     val q: Fragment =
       fr"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
         Fragments.whereAndOpt(mediaNamePrefix.map(s => fr"bot_id = $s")) ++

@@ -5,6 +5,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.integration.DBFixture
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
@@ -17,8 +18,10 @@ import java.nio.file.Files
 class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
 
   val testMediaName          = "rphjb_MaSgus.mp3"
+  val testMediaId            = RichardPHJBensonBot.botId
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
+    bot_id = testMediaId,
     kinds = """"[]"""",
     media_sources =
       """[\"https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1\"]""",

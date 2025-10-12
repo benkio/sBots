@@ -29,7 +29,9 @@ object MediaFileSource {
         Throwable(s"[MediafileSource] fromUriString cannot find a filename from this uri $uri")
       )
       _ <- MonadThrow[F].raiseUnless(filename.contains('_'))(
-        Throwable(s"[MediafileSource] fromUriString filename does not contains '_' separator between botId and actual name: $filename")
+        Throwable(
+          s"[MediafileSource] fromUriString filename does not contains '_' separator between botId and actual name: $filename"
+        )
       )
     yield MediaFileSource(
       filename = filename,

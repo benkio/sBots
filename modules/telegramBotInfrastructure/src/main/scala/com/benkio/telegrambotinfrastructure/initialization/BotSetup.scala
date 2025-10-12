@@ -100,25 +100,25 @@ object BotSetup {
       httpClient: Client[F],
       tokenFilename: String,
       namespace: String,
-      botName: String,
+      botId: String,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(using log: LogWriter[F], telegramReply: TelegramReply[Text]): Resource[F, BotSetup[F]] = for {
     tk            <- token[F](tokenFilename, ResourcesRepository.fromResources[F]())
     config        <- Resource.eval(Config.loadConfig[F](namespace))
-    _             <- Resource.eval(log.info(s"[$botName] Configuration: $config"))
+    _             <- Resource.eval(log.info(s"[$botId] Configuration: $config"))
     dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
     dbLayer       <- loadDB[F](config.db)
     repository = DBRepository.dbResources[F](dbLayer.dbMedia, dropboxClient)
-    _                     <- Resource.eval(log.info(s"[$botName] Delete webook..."))
+    _                     <- Resource.eval(log.info(s"[$botId] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _                     <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
         new RuntimeException(
-          s"[$botName] The delete webhook request failed: " + deleteWebhookResponse.as[String]
+          s"[$botId] The delete webhook request failed: " + deleteWebhookResponse.as[String]
         )
       )
     )
-    _       <- Resource.eval(log.info(s"[$botName] Webhook deleted"))
+    _       <- Resource.eval(log.info(s"[$botId] Webhook deleted"))
     baseUrl <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$tk")))
     api = BotApi(
       httpClient,
@@ -128,7 +128,7 @@ object BotSetup {
       BackgroundJobManager[F](
         dbSubscription = dbLayer.dbSubscription,
         dbShow = dbLayer.dbShow,
-        botName = botName,
+        botId = botId,
         repository = repository
       )(using Async[F], api, telegramReply, log)
     )

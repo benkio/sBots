@@ -18,7 +18,7 @@ object CommandRepliesData {
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
       botName: String,
-      botPrefix: String
+      botId: String
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] =
@@ -26,18 +26,19 @@ object CommandRepliesData {
       dbShow = dbLayer.dbShow,
       dbSubscription = dbLayer.dbSubscription,
       backgroundJobManager = backgroundJobManager,
+      botId = botId,
       botName = botName
-    ) ++ customCommands(dbMedia = dbLayer.dbMedia, botPrefix = botPrefix)
+    ) ++ customCommands(dbMedia = dbLayer.dbMedia, botId = botId)
 
   def customCommands[F[_]: Async](
       dbMedia: DBMedia[F],
-      botPrefix: String
+      botId: String
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] =
     List(
       RandomDataCommand.randomDataReplyBundleCommand[F](
-        botPrefix = botPrefix,
+        botId = botId,
         dbMedia = dbMedia
       )
     ) ++ xahCustomCommands.map { case (command, instruction) =>

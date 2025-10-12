@@ -1,6 +1,6 @@
 package com.benkio.botDB.show
 
-final case class ShowSource(youTubeSources: List[YouTubeSource], botName: String, outputFilePath: String)
+final case class ShowSource(youTubeSources: List[YouTubeSource], botId: String, outputFilePath: String)
 
 enum YouTubeSource:
   case Playlist(id: String)    extends YouTubeSource

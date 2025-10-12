@@ -12,8 +12,8 @@ import java.time.Instant
 import scala.util.Try
 
 final case class Media(
-  mediaName: String,
-  botId: String,
+    mediaName: String,
+    botId: String,
     kinds: List[String],
     mimeType: MimeType,
     mediaSources: List[Either[String, Uri]],

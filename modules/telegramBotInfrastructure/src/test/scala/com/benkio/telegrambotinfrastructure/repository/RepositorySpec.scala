@@ -70,6 +70,7 @@ class DBRepositorySpec extends CatsEffectSuite {
   val medias: List[DBMediaData] = List(
     DBMediaData(
       media_name = "bot_testMediaName.mp4",
+      bot_id = "bot",
       kinds = "[]",
       mime_type = "audio/mpeg",
       media_sources = """[ "http://benkio.github.io" ]""",
@@ -78,6 +79,7 @@ class DBRepositorySpec extends CatsEffectSuite {
     ),
     DBMediaData(
       media_name = "bot_testMediaName2.mp4",
+      bot_id = "bot",
       kinds = """["testkind"]""",
       mime_type = "audio/mpeg",
       media_sources = """[ "http://benkio.github.io" ]""",

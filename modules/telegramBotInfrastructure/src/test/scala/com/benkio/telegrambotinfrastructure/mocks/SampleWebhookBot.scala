@@ -38,12 +38,12 @@ class SampleWebhookBot(
   override def repository: Repository[IO] =
     repositoryInput
   override def postComputation: Message => IO[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[IO], Message) => IO[Boolean] =
-    FilteringTimeout.filter(dbLayer, botName)
+    FilteringTimeout.filter(dbLayer, botId)
 
   override val botName: String                     = "SampleWebhookBot"
-  override val botPrefix: String                   = "sbot"
+  override val botId: String                       = "sbot"
   override val ignoreMessagePrefix: Option[String] = Some("!")
   override val triggerFilename: String             = "sbot_triggers.txt"
   override val triggerListUri: Uri                 =
@@ -119,7 +119,7 @@ object SampleWebhookBot {
       dbSubscription = dbLayerMock.dbSubscription,
       dbShow = dbLayerMock.dbShow,
       repository = repositoryMock,
-      botName = "SampleWebhookBot"
+      botId = "samplewebhookbot"
     )
     ioBackgroundJobManagerMock.map(backgroundJobManagerMock =>
       new SampleWebhookBot(

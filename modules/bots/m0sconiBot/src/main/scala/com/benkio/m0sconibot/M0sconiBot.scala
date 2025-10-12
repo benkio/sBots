@@ -37,9 +37,9 @@ class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
   override def repository: Repository[F] =
     repositoryInput
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botName)
+    FilteringTimeout.filter(dbLayer, botId)
 }
 
 class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
@@ -54,15 +54,15 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
   override def repository: Repository[F] =
     repository
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botName)
+    FilteringTimeout.filter(dbLayer, botId)
 }
 
 trait M0sconiBot[F[_]: Async: LogWriter] extends SBot[F] {
 
+  override val botId: String                       = M0sconiBot.botId
   override val botName: String                     = M0sconiBot.botName
-  override val botPrefix: String                   = M0sconiBot.botPrefix
   override val ignoreMessagePrefix: Option[String] = M0sconiBot.ignoreMessagePrefix
   override val triggerFilename: String             = M0sconiBot.triggerFilename
   override val triggerListUri: Uri                 = M0sconiBot.triggerListUri
@@ -84,7 +84,7 @@ object M0sconiBot {
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "mos_triggers.txt"
   val botName: String                     = "M0sconiBot"
-  val botPrefix: String                   = "mos"
+  val botId: String                       = "mos"
   val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt"
   val tokenFilename: String   = "mos_M0sconiBot.token"
   val configNamespace: String = "mos"
@@ -110,16 +110,15 @@ object M0sconiBot {
   ): List[ReplyBundleCommand[F]] =
     CommandPatternsGroup.TriggerGroup.group[F](
       triggerFileUri = triggerListUri,
-      botName = botName,
+      botId = botId,
       ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix,
       messageRepliesData = messageRepliesData[F],
-      botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia,
       dbTimeout = dbLayer.dbTimeout
     ) ++
       List(
         RandomDataCommand.randomDataReplyBundleCommand[F](
-          botPrefix = botPrefix,
+          botId = botId,
           dbMedia = dbLayer.dbMedia
         )
       )
@@ -131,7 +130,7 @@ object M0sconiBot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        botName = botName
+        botId = botId
       )
     } yield new M0sconiBotPolling[F](
       repositoryInput = botSetup.repository,
@@ -148,7 +147,7 @@ object M0sconiBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName,
+      botId = botId,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new M0sconiBotWebhook[F](

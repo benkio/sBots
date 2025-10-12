@@ -8,7 +8,8 @@ import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 object TestData {
 
   val google: DBMediaData = DBMediaData(
-    media_name = "google.gif",
+    media_name = "botid_google.gif",
+    bot_id = "botid",
     kinds = "[]",
     mime_type = "image/gif",
     media_sources = """["https://www.google.com"]""",
@@ -16,7 +17,8 @@ object TestData {
     media_count = 0
   )
   val amazon: DBMediaData = DBMediaData(
-    media_name = "amazon.mp4",
+    media_name = "botid_amazon.mp4",
+    bot_id = "botid",
     kinds = """["kind"]""",
     mime_type = "video/mp4",
     media_sources = """["https://www.amazon.com"]""",
@@ -24,7 +26,8 @@ object TestData {
     media_count = 0
   )
   val facebook: DBMediaData = DBMediaData(
-    media_name = "facebook.mp3",
+    media_name = "botid_facebook.mp3",
+    bot_id = "botid",
     kinds = """["kind_innerKind"]""",
     mime_type = "audio/mpeg",
     media_sources = """["https://www.facebook.com"]""",
@@ -34,7 +37,7 @@ object TestData {
 
   val showSourceConfig: ShowSourceConfig = ShowSourceConfig(
     youtubeSources = List("PLO1i4nEhzCLYvR6gBHuZJS4z28he2S8yh"),
-    botName = "testBot",
+    botId = "testBot",
     captionLanguage = "it",
     outputFilePath = "./src/test/resources/testdata/testBotShow.json"
   )

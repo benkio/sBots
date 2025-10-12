@@ -85,10 +85,10 @@ object CommandPatterns {
     private val randomDataCommandEng: String =
       """'/random': Returns a random data (photo/video/audio/text) about the bot character"""
 
-    def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], botPrefix: String): F[MediaFile] =
+    def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], botId: String): F[MediaFile] =
       for
-        _              <- LogWriter.debug(s"[RandomCommand] Fetching random media for $botPrefix")
-        dbMediaDataOpt <- dbMedia.getRandomMedia(botPrefix)
+        _              <- LogWriter.debug(s"[RandomCommand] Fetching random media for $botId")
+        dbMediaDataOpt <- dbMedia.getRandomMedia(botId)
         _              <- LogWriter.debug("[RandomCommand] Convert DBMediaData to Media")
         media          <- dbMediaDataOpt.fold(Async[F].raiseError(RandomMediaNotFound))(dbMediaData =>
           Async[F].fromEither(Media(dbMediaData))
@@ -97,12 +97,12 @@ object CommandPatterns {
 
     def randomDataReplyBundleCommand[F[_]: Async: LogWriter](
         dbMedia: DBMedia[F],
-        botPrefix: String
+        botId: String
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("random"),
         reply = MediaReply[F](
-          mediaFiles = randomCommandLogic(dbMedia, botPrefix).map(List(_))
+          mediaFiles = randomCommandLogic(dbMedia, botId).map(List(_))
         ),
         instruction = CommandInstructionData.Instructions(
           ita = randomDataCommandIta,
@@ -142,22 +142,23 @@ Input as query string:
 
     private[patterns] def searchShowReplyBundleCommand[F[_]: Async](
         dbShow: DBShow[F],
-        botName: String
+        botName: String,
+        botId: String
     )(using log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("searchshow"),
         reply = TextReplyM[F](
           m =>
             handleCommandWithInput[F](
-              m,
-              "searchshow",
-              botName,
+              msg = m,
+              command = "searchshow",
+              botName = botName,
               keywords =>
                 SearchShowCommand
                   .selectLinkByKeyword[F](
-                    keywords,
-                    dbShow,
-                    botName
+                    keywords = keywords,
+                    dbShow = dbShow,
+                    botId = botId
                   )
                   .map(List(_)),
               "Input non riconosciuto. Controlla le instruzioni per i dettagli",
@@ -174,16 +175,16 @@ Input as query string:
     def selectLinkByKeyword[F[_]: Async](
         keywords: String,
         dbShow: DBShow[F],
-        botName: String
+        botId: String
     )(using log: LogWriter[F]): F[String] = {
       val query: ShowQuery            = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
-        case RandomQuery         => dbShow.getRandomShow(botName).map(_.toList)
-        case q: ShowQueryKeyword => dbShow.getShowByShowQuery(q, botName)
+        case RandomQuery         => dbShow.getRandomShow(botId).map(_.toList)
+        case q: ShowQueryKeyword => dbShow.getShowByShowQuery(q, botId)
       }
 
       for {
-        _       <- log.info(s"Select random Show: $botName - $keywords - $query")
+        _       <- log.info(s"Select random Show: $botId - $keywords - $query")
         results <- dbCall
         result  <-
           results.headOption
@@ -244,9 +245,9 @@ Input as query string:
         trigger = CommandTrigger("triggersearch"),
         reply = TextReplyM[F](m =>
           handleCommandWithInput[F](
-            m,
-            "triggersearch",
-            botName,
+            msg = m,
+            command = "triggersearch",
+            botName = botName,
             searchTriggerLogic(mdr, m, ignoreMessagePrefix),
             """Input Required: Insert the test keyword to check if it's in some bot trigger"""
           )
@@ -342,9 +343,9 @@ ${ignoreMessagePrefix
         trigger = CommandTrigger("instructions"),
         reply = TextReplyM[F](m =>
           handleCommandWithInput[F](
-            m,
-            "instructions",
-            botName,
+            msg = m,
+            command = "instructions",
+            botName = botName,
             instructionCommandLogic(botName, ignoreMessagePrefix, commands),
             "",
             true
@@ -394,9 +395,9 @@ ${ignoreMessagePrefix
         reply = TextReplyM[F](
           m =>
             handleCommandWithInput[F](
-              m,
-              "subscribe",
-              botName,
+              msg = m,
+              command = "subscribe",
+              botName = botName,
               subscribeCommandLogic(_, backgroundJobManager, m, botName),
               "Input Required: insert a valid 〈cron time〉. Check the instructions"
             ),
@@ -490,20 +491,20 @@ ${ignoreMessagePrefix
     private val topTwentyTriggersCommandDescriptionEng: String =
       "'/toptwenty': Return a list of files and theirs send frequency"
 
-    def topTwentyCommandLogic[F[_]: MonadThrow](botPrefix: String, dbMedia: DBMedia[F]): F[String] =
+    def topTwentyCommandLogic[F[_]: MonadThrow](botId: String, dbMedia: DBMedia[F]): F[String] =
       for {
-        dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botPrefix.some)
+        dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botId.some)
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
       } yield Media.mediaListToHTML(medias)
 
     private[patterns] def topTwentyReplyBundleCommand[F[_]: MonadThrow](
-        botPrefix: String,
+        botId: String,
         dbMedia: DBMedia[F]
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
         trigger = CommandTrigger("toptwenty"),
         reply = TextReplyM[F](
-          _ => topTwentyCommandLogic(botPrefix, dbMedia).map(List(_).map(Text(_, textType = Text.TextType.Html))),
+          _ => topTwentyCommandLogic(botId, dbMedia).map(List(_).map(Text(_, textType = Text.TextType.Html))),
           true
         ),
         instruction = CommandInstructionData.Instructions(
@@ -552,9 +553,9 @@ ${ignoreMessagePrefix
         reply = TextReplyM[F](
           msg =>
             handleCommandWithInput[F](
-              msg,
-              "timeout",
-              botName,
+              msg = msg,
+              command = "timeout",
+              botName = botName,
               timeoutLogic(_, msg, dbTimeout, botName, log).map(List(_)),
               """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
             ),

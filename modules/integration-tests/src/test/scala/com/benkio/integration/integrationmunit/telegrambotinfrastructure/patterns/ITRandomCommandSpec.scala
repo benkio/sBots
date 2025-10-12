@@ -13,14 +13,14 @@ class ITRandomCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
-      dbMedia   = dbLayer.dbMedia
-      botPrefix = "rphjb_"
+      dbMedia = dbLayer.dbMedia
+      botId   = "rphjb_"
       resultMediaFile <- Resource.eval(
-        RandomDataCommand.randomCommandLogic(dbMedia, botPrefix)
+        RandomDataCommand.randomCommandLogic(dbMedia, botId)
       )
     } yield assertEquals(
-      resultMediaFile.filename.take(botPrefix.length),
-      botPrefix
+      resultMediaFile.filename.take(botId.length),
+      botId
     )
     resourceAssert.use_
   }

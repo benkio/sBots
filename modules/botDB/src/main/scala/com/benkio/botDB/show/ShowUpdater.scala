@@ -84,7 +84,7 @@ object ShowUpdater {
             .getYouTubeVideos(youTubeBotIds.videoIds)
             .map(youTubeBotVideos =>
               YouTubeBotVideos(
-                botName = youTubeBotIds.botName,
+                botId = youTubeBotIds.botId,
                 outputFilePath = youTubeBotIds.outputFilePath,
                 captionLanguage = youTubeBotIds.captionLanguage,
                 videos = youTubeBotVideos
@@ -96,10 +96,10 @@ object ShowUpdater {
     def youTubeBotVideosToDbShowDatas(youTubeBotVideos: List[YouTubeBotVideos]): F[List[YouTubeBotDBShowDatas]] = {
       youTubeBotVideos.traverse(youTubeBotVideos =>
         youTubeBotVideos.videos
-          .traverse(videoToDBShowData(_, youTubeBotVideos.botName))
+          .traverse(videoToDBShowData(_, youTubeBotVideos.botId))
           .map((dBShowDatas: List[Option[DBShowData]]) =>
             YouTubeBotDBShowDatas(
-              botName = youTubeBotVideos.botName,
+              botId = youTubeBotVideos.botId,
               outputFilePath = youTubeBotVideos.outputFilePath,
               captionLanguage = youTubeBotVideos.captionLanguage,
               dbShowDatas = dBShowDatas.flatMap(_.toList)
@@ -132,7 +132,7 @@ object ShowUpdater {
         storedDbShowDatas <- getStoredDbShowDatas
         _                 <- storedDbShowDatas.traverse_(storedDbShowData =>
           LogWriter.info(
-            s"[ShowUpdater] ${storedDbShowData.botName} has ${storedDbShowData.dbShowDatas.length} stored in ${storedDbShowData.outputFilePath}"
+            s"[ShowUpdater] ${storedDbShowData.botId} has ${storedDbShowData.dbShowDatas.length} stored in ${storedDbShowData.outputFilePath}"
           )
         )
         youTubeBotIds = filterCandidateIds(candidateIds, storedDbShowDatas.flatMap(_.dbShowDatas.map(_.show_id)))
@@ -180,7 +180,7 @@ object ShowUpdater {
                 LogWriter.info(s"[ShowUpdater] Closing file $f")
               )
               .map(file =>
-                YouTubeBotFile(botName = showSource.botName, captionLanguage = showSource.captionLanguage, file = file)
+                YouTubeBotFile(botId = showSource.botId, captionLanguage = showSource.captionLanguage, file = file)
               )
           )
       val deleteFiles: F[List[YouTubeBotDBShowDatas]] =
@@ -199,7 +199,7 @@ object ShowUpdater {
                 showFileContentJson <- Async[F].fromEither(parse(Source.fromFile(showFile.file).mkString))
                 dbShowDatas         <- Async[F].fromEither(showFileContentJson.as[List[DBShowData]])
               } yield YouTubeBotDBShowDatas(
-                botName = showFile.botName,
+                botId = showFile.botId,
                 outputFilePath = showFile.file.toString,
                 captionLanguage = showFile.captionLanguage,
                 dbShowDatas = dbShowDatas.distinctBy(_.show_id)
@@ -281,7 +281,7 @@ object ShowUpdater {
               .partition(_.show_origin_automatic_caption.isEmpty)
 
           LogWriter.info(
-            s"[ShowUpdater] ${youTubeBotDBShowDatas.botName} Total No Caption ${youTubeBotDBShowDatasNoCaption.length}"
+            s"[ShowUpdater] ${youTubeBotDBShowDatas.botId} Total No Caption ${youTubeBotDBShowDatasNoCaption.length}"
           ) >>
             youTubeBotDBShowDatasNoCaption
               .parTraverse(dbShowData =>

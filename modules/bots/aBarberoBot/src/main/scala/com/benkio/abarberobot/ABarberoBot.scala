@@ -40,9 +40,9 @@ class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
   override def repository: Repository[F] =
     repositoryInput
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botName)
+    FilteringTimeout.filter(dbLayer, botId)
 }
 
 class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
@@ -57,15 +57,15 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
   override def repository: Repository[F] =
     repository
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botName)
+    FilteringTimeout.filter(dbLayer, botId)
 }
 
 trait ABarberoBot[F[_]: Async: LogWriter] extends SBot[F] {
 
   override val botName: String                     = ABarberoBot.botName
-  override val botPrefix: String                   = ABarberoBot.botPrefix
+  override val botId: String                       = ABarberoBot.botId
   override val triggerListUri: Uri                 = ABarberoBot.triggerListUri
   override val triggerFilename: String             = ABarberoBot.triggerFilename
   override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
@@ -87,7 +87,7 @@ object ABarberoBot {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
   val botName: String                     = "ABarberoBot"
-  val botPrefix: String                   = "abar"
+  val botId: String                       = "abar"
   val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt"
   val triggerFilename: String = "abar_triggers.txt"
   val tokenFilename: String   = "abar_ABarberoBot.token"
@@ -129,10 +129,9 @@ object ABarberoBot {
   ): List[ReplyBundleCommand[F]] =
     CommandPatternsGroup.TriggerGroup.group[F](
       triggerFileUri = triggerListUri,
-      botName = botName,
+      botId = botId,
       ignoreMessagePrefix = ABarberoBot.ignoreMessagePrefix,
       messageRepliesData = messageRepliesData[F],
-      botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia,
       dbTimeout = dbLayer.dbTimeout
     ) ++
@@ -140,11 +139,12 @@ object ABarberoBot {
         dbShow = dbLayer.dbShow,
         dbSubscription = dbLayer.dbSubscription,
         backgroundJobManager = backgroundJobManager,
+        botId = botId,
         botName = botName
       ) ++
       List(
         RandomDataCommand.randomDataReplyBundleCommand[F](
-          botPrefix = botPrefix,
+          botId = botId,
           dbMedia = dbLayer.dbMedia
         )
       )
@@ -156,7 +156,7 @@ object ABarberoBot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        botName = botName
+        botId = botId
       )
     } yield new ABarberoBotPolling[F](
       repositoryInput = botSetup.repository,
@@ -173,7 +173,7 @@ object ABarberoBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName,
+      botId = botId,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new ABarberoBotWebhook[F](
