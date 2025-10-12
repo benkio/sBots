@@ -37,7 +37,7 @@ object TestData {
 
   val showSourceConfig: ShowSourceConfig = ShowSourceConfig(
     youtubeSources = List("PLO1i4nEhzCLYvR6gBHuZJS4z28he2S8yh"),
-    botId = "testBot",
+    botId = "testbot",
     captionLanguage = "it",
     outputFilePath = "./src/test/resources/testdata/testBotShow.json"
   )

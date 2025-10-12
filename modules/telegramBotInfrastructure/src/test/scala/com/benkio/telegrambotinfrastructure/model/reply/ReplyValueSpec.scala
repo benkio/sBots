@@ -62,7 +62,7 @@ class ReplyValueSpec extends FunSuite {
       mediaCount = 0,
       createdAt = Instant.now()
     )
-    val expected = VideoFile("mediaName.mp4", false)
+    val expected = VideoFile("botid_mediaName.mp4", false)
     assertEquals(MediaFile.fromMimeType(actual), expected)
   }
 }

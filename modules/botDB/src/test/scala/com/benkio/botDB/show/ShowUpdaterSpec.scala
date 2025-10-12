@@ -23,7 +23,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   // Input Data
-  val botId                  = "testBot"
+  val botId                  = "testbot"
   val outputFilePath         = "./src/test/resources/testdata/testBotShow.json"
   val captionLanguage        = "it"
   val testCaption            = "Test Caption"
