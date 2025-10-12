@@ -29,7 +29,7 @@ class MessageOpsSpec extends FunSuite {
   }
 
   test(
-    "MessageOps.messageType should return MessageType.FileRequest if the start of the message matches the input telegram bot prefix"
+    "MessageOps.messageType should return MessageType.FileRequest if the start of the message matches the input telegram bot id"
   ) {
     val inputMessage: Message = Message(
       messageId = 0,
