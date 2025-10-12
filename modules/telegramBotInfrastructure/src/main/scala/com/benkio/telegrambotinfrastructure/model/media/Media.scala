@@ -12,7 +12,8 @@ import java.time.Instant
 import scala.util.Try
 
 final case class Media(
-    mediaName: String,
+  mediaName: String,
+  botId: String,
     kinds: List[String],
     mimeType: MimeType,
     mediaSources: List[Either[String, Uri]],
@@ -26,6 +27,7 @@ object Media {
     createdAt <- Try(Instant.ofEpochSecond(dbMediaData.created_at.toLong)).toEither
   } yield Media(
     mediaName = dbMediaData.media_name,
+    botId = dbMediaData.bot_id,
     kinds = decode[List[String]](dbMediaData.kinds)
       .handleErrorWith(_ => decode[String](dbMediaData.kinds).flatMap(decode[List[String]]))
       .getOrElse(List.empty),

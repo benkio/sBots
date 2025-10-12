@@ -73,6 +73,7 @@ object MediaUpdater {
           .insertMedia(
             DBMediaData(
               media_name = i.filename,
+              bot_id = i.botId,
               kinds = i.kinds.asJson.noSpaces,
               mime_type = Show[MimeType].show(i.mime),
               media_sources = i.sources.asJson.noSpaces,

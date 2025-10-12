@@ -211,7 +211,7 @@ object ShowUpdater {
       else getStoredDbShowDatas
     }
 
-    private[show] def videoToDBShowData(video: Video, botName: String): F[Option[DBShowData]] = {
+    private[show] def videoToDBShowData(video: Video, botId: String): F[Option[DBShowData]] = {
       def durationISO8601ToSeconds(isoDuration: String): Int = {
         val duration = Duration.parse(isoDuration)
         duration.getSeconds.toInt
@@ -223,7 +223,7 @@ object ShowUpdater {
         duration   <- Option(video.getContentDetails().getDuration())
       } yield DBShowData(
         show_id = id,
-        bot_name = botName,
+        bot_id = botId,
         show_title = title,
         show_upload_date = uploadDate,
         show_duration = durationISO8601ToSeconds(duration),
@@ -232,7 +232,7 @@ object ShowUpdater {
         show_origin_automatic_caption = None // Added in a followup step. need yt-dlp
       )
       maybeDBShowData.fold(
-        LogWriter.error(s"[PlaygroundMain] ERROR: $botName Video conversion problem for $video") *> None.pure[F]
+        LogWriter.error(s"[PlaygroundMain] ERROR: $botId Video conversion problem for $video") *> None.pure[F]
       )(
         _.some.pure[F]
       )

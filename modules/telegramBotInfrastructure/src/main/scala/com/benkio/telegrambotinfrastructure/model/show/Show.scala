@@ -10,7 +10,7 @@ import scala.util.Try
 
 final case class Show(
     id: String,
-    botName: String,
+    botId: String,
     title: String,
     uploadDate: LocalDate,
     duration: Int,
@@ -28,7 +28,7 @@ object Show {
     )
   } yield Show(
     id = dbShow.show_id,
-    botName = dbShow.bot_name,
+    botId = dbShow.bot_id,
     title = dbShow.show_title,
     uploadDate = uploadDate,
     duration = dbShow.show_duration,

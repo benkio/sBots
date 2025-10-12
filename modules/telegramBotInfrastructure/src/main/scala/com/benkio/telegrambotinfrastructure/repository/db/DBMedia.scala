@@ -14,7 +14,8 @@ import log.effect.LogWriter
 import scala.concurrent.duration.*
 
 final case class DBMediaData(
-    media_name: String,
+  media_name: String,
+  bot_id: String,
     kinds: String,
     mime_type: String,
     media_sources: String,
@@ -26,6 +27,7 @@ object DBMediaData {
 
   def apply(media: Media): DBMediaData = DBMediaData(
     media_name = media.mediaName,
+    bot_id = media.botId,
     kinds = media.kinds.asJson.noSpaces,
     mime_type = media.mimeType.show,
     media_sources = media.mediaSources.asJson.noSpaces,
@@ -36,7 +38,7 @@ object DBMediaData {
 
 trait DBMedia[F[_]] {
   def getMedia(filename: String, cache: Boolean = true): F[Option[DBMediaData]]
-  def getRandomMedia(botPrefix: String): F[Option[DBMediaData]]
+  def getRandomMedia(botId: String): F[Option[DBMediaData]]
   def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]]
   def getMediaByMediaCount(
       limit: Int = 20,
@@ -125,9 +127,9 @@ object DBMedia {
           } yield mediaOpt
       )
 
-    override def getRandomMedia(botPrefix: String): F[Option[DBMediaData]] =
-      log.debug(s"[DBMedia] getRandomMedia for $botPrefix. SQL: ${getMediaQueryByRandom(botPrefix).sql}") >>
-        getMediaQueryByRandom(botPrefix).unique
+    override def getRandomMedia(botId: String): F[Option[DBMediaData]] =
+      log.debug(s"[DBMedia] getRandomMedia for $botId. SQL: ${getMediaQueryByRandom(botId).sql}") >>
+        getMediaQueryByRandom(botId).unique
           .transact(transactor)
           .map(_.some)
           .handleError(_ => none)
@@ -180,40 +182,37 @@ object DBMedia {
   }
 
   def insertSql(dbMediaData: DBMediaData): Update0 =
-    sql"INSERT INTO media (media_name, kinds, mime_type, media_sources, created_at, media_count) VALUES (${dbMediaData.media_name}, ${dbMediaData.kinds.asJson.noSpaces}, ${dbMediaData.mime_type}, ${dbMediaData.media_sources.asJson.noSpaces}, ${dbMediaData.created_at}, 0);".update
+    sql"INSERT INTO media (media_name, bot_id, kinds, mime_type, media_sources, created_at, media_count) VALUES (${dbMediaData.media_name}, ${dbMediaData.bot_id}, ${dbMediaData.kinds.asJson.noSpaces}, ${dbMediaData.mime_type}, ${dbMediaData.media_sources.asJson.noSpaces}, ${dbMediaData.created_at}, 0);".update
 
   def updateOnConflictSql(dbMediaData: DBMediaData): Update0 =
     sql"UPDATE media SET kinds = ${dbMediaData.kinds.asJson.noSpaces}, media_sources = ${dbMediaData.media_sources.asJson.noSpaces} WHERE media_name = ${dbMediaData.media_name};".update
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
-    sql"SELECT media_name, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE media_name = $resourceName"
+    sql"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE media_name = $resourceName"
       .query[DBMediaData]
 
   def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
     val kindLike1 = s""""[\\"${kind}\\"%"""
     val kindLike2 = s"""%\\"${kind}\\"%"""
     val kindLike3 = s"""%\\"${kind}\\"]""""
-    (fr"SELECT media_name, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
+    (fr"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
       Fragments.whereOr(
         fr"""kinds LIKE $kindLike1""",
         fr"""kinds LIKE $kindLike2""",
         fr"""kinds LIKE $kindLike3"""
       )).query[DBMediaData]
 
-  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
+  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = 
+  {
     val q: Fragment =
-      fr"SELECT media_name, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
-        Fragments.whereAndOpt(mediaNamePrefix.map(s => {
-          val like = s + "%"
-          fr"media_name LIKE $like"
-        })) ++
+      fr"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
+        Fragments.whereAndOpt(mediaNamePrefix.map(s => fr"bot_id = $s")) ++
         fr"ORDER BY media_count DESC"
 
     q.query[DBMediaData]
   }
-  def getMediaQueryByRandom(botPrefix: String): Query0[DBMediaData] =
-    val like = botPrefix + "%"
-    sql"SELECT media_name, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE media_name LIKE $like ORDER BY RANDOM() LIMIT 1"
+  def getMediaQueryByRandom(botId: String): Query0[DBMediaData] =
+    sql"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE bot_id = $botId ORDER BY RANDOM() LIMIT 1"
       .query[DBMediaData]
   def incrementMediaCountQuery(media: DBMediaData): Update0 =
     sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update
