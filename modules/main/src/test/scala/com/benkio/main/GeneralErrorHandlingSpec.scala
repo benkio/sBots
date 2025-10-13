@@ -2,6 +2,7 @@ package com.benkio.main
 
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import log.effect.fs2.SyncLogWriter.noOpLog
 import log.effect.LogWriter
 import munit.CatsEffectSuite
@@ -19,7 +20,7 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
     IO.raiseError(new Throwable(expectedErrorMessage)).as(ExitCode.Error)
 
   test("GeneralErrorHandling should write logs when an error occurred in the failed resource") {
-    val emptyDBLayer          = DBLayerMock.mock("whateverBot")
+    val emptyDBLayer          = DBLayerMock.mock(SBotId("whateverBot"))
     val computation: IO[Unit] =
       GeneralErrorHandling
         .dbLogAndRestart(emptyDBLayer.dbLog, failedResource)
@@ -34,7 +35,7 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
   }
 
   test("GeneralErrorHandling should write logs when an error occurred in the failed IO") {
-    val emptyDBLayer          = DBLayerMock.mock("whateverBot")
+    val emptyDBLayer          = DBLayerMock.mock(SBotId("whateverBot"))
     val computation: IO[Unit] =
       GeneralErrorHandling
         .dbLogAndRestart(emptyDBLayer.dbLog, failedIO)

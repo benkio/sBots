@@ -12,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
@@ -87,9 +88,9 @@ class DBRepositorySpec extends CatsEffectSuite {
       created_at = "1755687972"
     )
   )
-  val emptyDBLayer: DBLayer[IO]                                           = DBLayerMock.mock("bot")
-  val fullDBLayer: DBLayer[IO]                                            = DBLayerMock.mock("bot", medias = medias)
-  val testFile: File                                                      = File("test.mp4")
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(SBotId("bot"))
+  val fullDBLayer: DBLayer[IO]  = DBLayerMock.mock(SBotId("bot"), medias = medias)
+  val testFile: File            = File("test.mp4")
   def dropboxClientMockBuild(expectedFileName: String): DropboxClient[IO] = DropboxClientMock.mock((inputFileName, _) =>
     Resource.eval(
       IO.raiseUnless(inputFileName == expectedFileName)(

@@ -16,7 +16,7 @@ import munit.CatsEffectSuite
 class CalandroBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO]      = consoleLogUpToLevel(LogLevels.Info)
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(CalandroBot.botName)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(CalandroBot.botId)
   val excludeTriggers           = List("GIOCHI PER IL MIO PC")
 
   exactTriggerReturnExpectedReplyBundle(CalandroBot.messageRepliesData[IO])

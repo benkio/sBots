@@ -3,6 +3,7 @@ package com.benkio.integration.integrationmunit.telegrambotinfrastructure.reposi
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBTimeout
 import com.benkio.telegrambotinfrastructure.repository.db.DBTimeoutData
 import doobie.munit.analysisspec.IOChecker
@@ -15,11 +16,11 @@ import scala.concurrent.duration.*
 
 class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   val testTimeoutChatId = 1L
-  val testBotId         = "botId"
+  val testBotId         = SBotId("botId")
 
   val testTimeout: DBTimeoutData = DBTimeoutData(
     chat_id = testTimeoutChatId,
-    bot_id = testBotId,
+    bot_id = testBotId.value,
     timeout_value = "15000",
     last_interaction = "1669302207"
   )
@@ -37,7 +38,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) {
     check(DBTimeout.getOrDefaultQuery(testTimeoutChatId, testBotId))
     check(DBTimeout.setTimeoutQuery(testTimeout))
-    check(DBTimeout.removeTimeoutQuery(testTimeout.chat_id, testTimeout.bot_id))
+    check(DBTimeout.removeTimeoutQuery(testTimeout.chat_id, testBotId))
     check(DBTimeout.logLastInteractionQuery(testTimeoutChatId, testBotId))
   }
 
@@ -71,7 +72,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val chatId  = 2L
     val timeout =
-      DBTimeoutData(chatId, testBotId, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
+      DBTimeoutData(chatId, testBotId.value, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
     (for {
       dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
       _         <- Resource.eval(dbTimeout.setTimeout(timeout))
@@ -86,7 +87,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
     fixture =>
       val chatId  = 1L
       val timeout =
-        DBTimeoutData(chatId, testBotId, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
+        DBTimeoutData(chatId, testBotId.value, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
       (for {
         dbTimeout <- fixture.resourceDBLayer.map(_.dbTimeout)
         _         <- Resource.eval(dbTimeout.setTimeout(timeout))
@@ -137,7 +138,7 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val chatId  = 1L
     val timeout =
-      DBTimeoutData(chatId, testBotId, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
+      DBTimeoutData(chatId, testBotId.value, 2.seconds.toMillis.toString, Instant.now().getEpochSecond().toString())
     (for {
       dbTimeout     <- fixture.resourceDBLayer.map(_.dbTimeout)
       _             <- Resource.eval(dbTimeout.setTimeout(timeout))
@@ -146,10 +147,10 @@ class ITDBTimeoutSpec extends CatsEffectSuite with DBFixture with IOChecker {
       afterTimeout  <- Resource.eval(dbTimeout.getOrDefault(chatId, testBotId))
     } yield
       assertEquals(beforeTimeout.chat_id, 1L)
-      assertEquals(beforeTimeout.bot_id, testBotId)
+      assertEquals(beforeTimeout.bot_id, testBotId.value)
       assertEquals(beforeTimeout.timeout_value, "2000")
       assertEquals(afterTimeout.chat_id, 1L)
-      assertEquals(afterTimeout.bot_id, testBotId)
+      assertEquals(afterTimeout.bot_id, testBotId.value)
       assertEquals(afterTimeout.timeout_value, "0")
     ).use_
   }

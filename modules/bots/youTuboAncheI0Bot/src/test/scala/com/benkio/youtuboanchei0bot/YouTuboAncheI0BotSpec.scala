@@ -12,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.Reply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
@@ -45,13 +46,13 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
       "test mediafile"
     )
   val repositoryMock            = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(YouTuboAncheI0Bot.botName)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(YouTuboAncheI0Bot.botId)
 
   val youtuboanchei0bot = BackgroundJobManager[IO](
-    emptyDBLayer.dbSubscription,
-    emptyDBLayer.dbShow,
-    repositoryMock,
-    "youTuboAncheI0Bot"
+    dbSubscription = emptyDBLayer.dbSubscription,
+    dbShow = emptyDBLayer.dbShow,
+    repository = repositoryMock,
+    botId = SBotId("ytai")
   ).map(bjm =>
     new YouTuboAncheI0BotPolling[IO](
       repositoryInput = repositoryMock,

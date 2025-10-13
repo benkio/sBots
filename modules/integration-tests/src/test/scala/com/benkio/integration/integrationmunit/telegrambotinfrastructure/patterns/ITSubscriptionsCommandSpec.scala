@@ -6,6 +6,7 @@ import cats.syntax.all.*
 import com.benkio.integration.DBFixture
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -26,7 +27,7 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
     DBSubscriptionData(
       id = testSubscriptionId,
       chat_id = chatIdValue,
-      bot_id = botId,
+      bot_id = botId.value,
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
     ),
@@ -40,7 +41,7 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
     DBSubscriptionData(
       id = "0be5a0f9-ce63-4a78-a972-5f40758f2275",
       chat_id = 1L,
-      bot_id = botId,
+      bot_id = botId.value,
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
     ),
@@ -78,7 +79,12 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
         )
       )
       subscriptionsFromCommandResult <- Resource.eval(
-        SubscribeUnsubscribeCommand.subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botName, msg)
+        SubscribeUnsubscribeCommand.subscriptionsCommandLogic(
+          dbSubscription = dbSubscription,
+          backgroundJobManager = backgroundJobManager,
+          botId = botId,
+          m = msg
+        )
       )
       _ <- Resource.eval(
         testSubscriptions.traverse(testSubscription =>

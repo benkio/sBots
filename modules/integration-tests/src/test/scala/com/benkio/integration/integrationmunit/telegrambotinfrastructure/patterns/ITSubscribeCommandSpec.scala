@@ -62,10 +62,10 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
             cronInput = testSubscription.cron.toString,
             backgroundJobManager = backgroundJobManager,
             m = msg,
-            botName = botName
+            botId = botId
           )
       )
-      subscriptionDatas <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
+      subscriptionDatas <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
       subscriptions     <- Resource.eval(
         subscriptionDatas.traverse(subscriptionData => IO.fromEither(Subscription(subscriptionData)))
       )

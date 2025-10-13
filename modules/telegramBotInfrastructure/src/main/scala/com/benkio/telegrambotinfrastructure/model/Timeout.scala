@@ -8,14 +8,14 @@ import scala.util.Try
 
 final case class Timeout(
     chatId: ChatId,
-    botId: String,
+    botId: SBotId,
     timeoutValue: FiniteDuration,
     lastInteraction: Instant
 )
 
 object Timeout {
 
-  def apply(chatId: ChatId, botId: String, timeoutValue: String): Either[Throwable, Timeout] =
+  def apply(chatId: ChatId, botId: SBotId, timeoutValue: String): Either[Throwable, Timeout] =
     Try(timeStringToDuration(timeoutValue))
       .map(timeoutValue =>
         Timeout(
@@ -27,7 +27,7 @@ object Timeout {
       )
       .toEither
 
-  def apply(chatId: ChatId, botId: String): Timeout = Timeout(
+  def apply(chatId: ChatId, botId: SBotId): Timeout = Timeout(
     chatId = chatId,
     botId = botId,
     timeoutValue = 0.millis,
@@ -39,7 +39,7 @@ object Timeout {
     lastInteraction <- Try(dbTimeoutData.last_interaction.toLong).toEither
   } yield Timeout(
     chatId = ChatId(dbTimeoutData.chat_id),
-    botId = dbTimeoutData.bot_id,
+    botId = SBotId(dbTimeoutData.bot_id),
     timeoutValue = timeoutValue,
     lastInteraction = Instant.ofEpochSecond(lastInteraction)
   )

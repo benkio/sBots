@@ -3,6 +3,8 @@ package com.benkio.telegrambotinfrastructure.patterns
 import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.repository.db.*
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -17,8 +19,8 @@ object CommandPatternsGroup {
         dbShow: DBShow[F],
         dbSubscription: DBSubscription[F],
         backgroundJobManager: BackgroundJobManager[F],
-        botName: String,
-        botId: String
+        botName: SBotName,
+        botId: SBotId
     )(using log: LogWriter[F]): List[ReplyBundleCommand[F]] =
       List(
         SearchShowCommand.searchShowReplyBundleCommand(
@@ -26,8 +28,8 @@ object CommandPatternsGroup {
           botId = botId,
           botName = botName
         ),
-        SubscribeUnsubscribeCommand.subscribeReplyBundleCommand(backgroundJobManager, botId),
-        SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand(backgroundJobManager, botId),
+        SubscribeUnsubscribeCommand.subscribeReplyBundleCommand(backgroundJobManager, botName = botName, botId = botId),
+        SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand(backgroundJobManager, botName = botName),
         SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand(dbSubscription, backgroundJobManager, botId)
       )
   }
@@ -35,7 +37,8 @@ object CommandPatternsGroup {
   object TriggerGroup {
     def group[F[_]: Async](
         triggerFileUri: Uri,
-        botId: String,
+        botId: SBotId,
+        botName: SBotName,
         ignoreMessagePrefix: Option[String],
         messageRepliesData: List[ReplyBundleMessage[F]],
         dbMedia: DBMedia[F],
@@ -43,9 +46,10 @@ object CommandPatternsGroup {
     )(using log: LogWriter[F]): List[ReplyBundleCommand[F]] =
       List(
         TriggerListCommand.triggerListReplyBundleCommand(triggerFileUri),
-        TriggerSearchCommand.triggerSearchReplyBundleCommand(botId, ignoreMessagePrefix, messageRepliesData),
-        StatisticsCommands.topTwentyReplyBundleCommand(botId, dbMedia),
-        TimeoutCommand.timeoutReplyBundleCommand(botId, dbTimeout)
+        TriggerSearchCommand
+          .triggerSearchReplyBundleCommand(botName = botName, ignoreMessagePrefix, messageRepliesData),
+        StatisticsCommands.topTwentyReplyBundleCommand(botId = botId, dbMedia),
+        TimeoutCommand.timeoutReplyBundleCommand(botName = botName, botId = botId, dbTimeout = dbTimeout)
       )
   }
 }

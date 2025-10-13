@@ -38,7 +38,7 @@ class XahLeeBotSpec extends BaseBotSpec {
       Async[F].pure(List.empty[Message])
   }
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(XahLeeBot.botName)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(XahLeeBot.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"

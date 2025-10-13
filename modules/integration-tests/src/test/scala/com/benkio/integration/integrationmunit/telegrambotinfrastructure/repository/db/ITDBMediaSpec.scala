@@ -19,7 +19,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   val testMediaId            = RichardPHJBensonBot.botId
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
-    bot_id = testMediaId,
+    bot_id = testMediaId.value,
     kinds = """"[]"""",
     media_sources =
       """"[\"https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1\"]"""",
@@ -56,7 +56,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     check(DBMedia.getMediaQueryByName(testMediaName))
     check(DBMedia.getMediaQueryByRandom(testMediaId))
     check(DBMedia.getMediaQueryByKind(testMediaKind))
-    check(DBMedia.getMediaQueryByMediaCount(mediaNamePrefix = Some(testMediaId)))
+    check(DBMedia.getMediaQueryByMediaCount(botId = Some(testMediaId)))
   }
 
   databaseFixture.test(
@@ -75,7 +75,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val expected: List[DBMediaData] = List(
       DBMediaData(
         media_name = "rphjb_ancheLaRabbiaHaUnCuore.txt",
-        bot_id = testMediaId,
+        bot_id = testMediaId.value,
         kinds = """"[\"rphjb_LinkSources\"]"""",
         media_sources =
           """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABLDyXAOThfUrS3EoR3kL6ma/rphjb_LinkSources/ancheLaRabbiaHaUnCuore.txt?dl=1\"]"""",
@@ -85,7 +85,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       ),
       DBMediaData(
         media_name = "rphjb_live.txt",
-        bot_id = testMediaId,
+        bot_id = testMediaId.value,
         kinds = """"[\"rphjb_LinkSources\"]"""",
         media_sources =
           """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACKI915JzajxuCSLy4spvbYa/rphjb_LinkSources/live.txt?dl=1\"]"""",
@@ -95,7 +95,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       ),
       DBMediaData(
         media_name = "rphjb_perCordeEGrida.txt",
-        bot_id = testMediaId,
+        bot_id = testMediaId.value,
         kinds = """"[\"rphjb_LinkSources\"]"""",
         media_sources =
           """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAA6aMpu41wxHF3wFrYZTXGba/rphjb_LinkSources/perCordeEGrida.txt?dl=1\"]"""",
@@ -105,7 +105,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       ),
       DBMediaData(
         media_name = "rphjb_puntateCocktailMicidiale.txt",
-        bot_id = testMediaId,
+        bot_id = testMediaId.value,
         kinds = """"[\"rphjb_LinkSources\"]"""",
         media_sources =
           """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAfPoTfoPzhKys-DPI0YV8aa/rphjb_LinkSources/puntateCocktailMicidiale.txt?dl=1\"]"""",
@@ -115,7 +115,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       ),
       DBMediaData(
         media_name = "rphjb_puntateRockMachine.txt",
-        bot_id = testMediaId,
+        bot_id = testMediaId.value,
         kinds = """"[\"rphjb_LinkSources\"]"""",
         media_sources =
           """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABSjYo7uJwDeQqKe3bA5cXea/rphjb_LinkSources/puntateRockMachine.txt?dl=1\"]"""",
@@ -138,7 +138,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val expected: List[DBMediaData] = List(
       DBMediaData(
         media_name = "rphjb_06Gif.mp4",
-        bot_id = testMediaId,
+        bot_id = testMediaId.value,
         kinds = """"[]"""",
         media_sources =
           """"[\"https://www.dropbox.com/scl/fi/zy8omnl7nj63l7ff350qf/rphjb_06Gif.mp4?rlkey=w88ow3t4ktru6txkgw2vuc7xk&dl=1\"]"""",
@@ -148,7 +148,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       ),
       DBMediaData(
         media_name = "rphjb_3Minuti.mp4",
-        bot_id = testMediaId,
+        bot_id = testMediaId.value,
         kinds = """"[]"""",
         media_sources =
           """"[\"https://www.dropbox.com/scl/fi/kzq7lkgzyle3tsp0ix292/rphjb_3Minuti.mp4?rlkey=pkaxiy7ue3w86ddczoz34gtc8&dl=1\"]"""",
@@ -158,7 +158,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       ),
       DBMediaData(
         media_name = "rphjb_9MesiUscireRientrare.mp3",
-        bot_id = testMediaId,
+        bot_id = testMediaId.value,
         kinds = """"[]"""",
         media_sources =
           """"[\"https://www.dropbox.com/scl/fi/u4wuuygbhgsqs1qq50q98/rphjb_9MesiUscireRientrare.mp3?rlkey=unm5uv3mvzihzrekih3umhmt6&dl=1\"]"""",

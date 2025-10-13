@@ -5,6 +5,7 @@ import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShow
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import doobie.munit.analysisspec.IOChecker
@@ -16,12 +17,12 @@ import java.sql.DriverManager
 
 class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  val botId = "TestBot"
+  val botId = SBotId("testbot")
 
   val testShowRaw: String =
     """{
       |    "show_id": "test",
-      |    "bot_id": "TestBot",
+      |    "bot_id": "testbot",
       |    "show_title": "Test Show Title",
       |    "show_upload_date": "2025-04-24T12:01:24.000Z",
       |    "show_duration": 10,
@@ -41,13 +42,14 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
   test(
     "DBShow queries should check"
   ) {
-    check(DBShow.getShowsQuery("TestBot"))
-    check(DBShow.getRandomShowQuery("TestBot"))
-    check(DBShow.getShowByShowQueryQuery(RandomQuery, "TestBot"))
+    val botId = SBotId("testBot")
+    check(DBShow.getShowsQuery(botId))
+    check(DBShow.getRandomShowQuery(botId))
+    check(DBShow.getShowByShowQueryQuery(RandomQuery, botId))
     check(
       DBShow.getShowByShowQueryQuery(
         ShowQuery("title=test+show&description=description&caption=caption&minDuration=1"),
-        "TestBot"
+        botId
       )
     )
   }
@@ -78,7 +80,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val testShowRaw2: String =
       """{
         |    "show_id": "https://www.youtube.com/watch?v=test2",
-        |    "bot_id": "TestBot",
+        |    "bot_id": "testbot",
         |    "show_title": "Test 2 Show Title",
         |    "show_upload_date": "2025-04-24T12:01:24.000Z",
         |    "show_duration": 10,
@@ -110,7 +112,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
         dbShow.getRandomShow(botId)
       )
     } yield {
-      assertEquals(randomShow.map(_.bot_id), Some(botId))
+      assertEquals(randomShow.map(_.bot_id), Some(botId.value))
     }
 
     resourceAssert.use_

@@ -3,6 +3,7 @@ package com.benkio.telegrambotinfrastructure.model.show
 import cats.implicits.*
 import cats.MonadThrow
 import cats.Show as CatsShow
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 
 import java.time.LocalDate
@@ -10,7 +11,7 @@ import scala.util.Try
 
 final case class Show(
     id: String,
-    botId: String,
+    botId: SBotId,
     title: String,
     uploadDate: LocalDate,
     duration: Int,
@@ -28,7 +29,7 @@ object Show {
     )
   } yield Show(
     id = dbShow.show_id,
-    botId = dbShow.bot_id,
+    botId = SBotId(dbShow.bot_id),
     title = dbShow.show_title,
     uploadDate = uploadDate,
     duration = dbShow.show_duration,

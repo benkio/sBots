@@ -14,6 +14,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.MessageType
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
@@ -49,8 +51,8 @@ trait SBot[F[_]: Async: LogWriter] {
   def repository: Repository[F]           = ResourcesRepository.fromResources[F]()
   val ignoreMessagePrefix: Option[String] = Some("!")
   val disableForward: Boolean             = true
-  val botName: String
-  val botId: String
+  val botName: SBotName
+  val botId: SBotId
   val triggerListUri: Uri
   val triggerFilename: String
   val dbLayer: DBLayer[F]

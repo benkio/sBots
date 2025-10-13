@@ -5,6 +5,7 @@ import cats.syntax.all.*
 import cats.Semigroup
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.ShowSourceConfig
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.http.HttpRequest
@@ -23,11 +24,11 @@ import scala.jdk.CollectionConverters.*
 import scala.sys.process.*
 import scala.util.Try
 
-final case class YouTubeBotFile(botId: String, captionLanguage: String, file: File)
-final case class YouTubeBotIds(botId: String, outputFilePath: String, captionLanguage: String, videoIds: List[String])
-final case class YouTubeBotVideos(botId: String, outputFilePath: String, captionLanguage: String, videos: List[Video])
+final case class YouTubeBotFile(botId: SBotId, captionLanguage: String, file: File)
+final case class YouTubeBotIds(botId: SBotId, outputFilePath: String, captionLanguage: String, videoIds: List[String])
+final case class YouTubeBotVideos(botId: SBotId, outputFilePath: String, captionLanguage: String, videos: List[Video])
 final case class YouTubeBotDBShowDatas(
-    botId: String,
+    botId: SBotId,
     outputFilePath: String,
     captionLanguage: String,
     dbShowDatas: List[DBShowData]
@@ -101,7 +102,7 @@ object YouTubeService {
                 case YouTubeSource.Channel(channelHandle) =>
                   getYouTubeChannelUploadsPlaylistId(youTubeService, channelHandle, youTubeApiKey)
               }
-              .map(YouTubeBotIds(botId, outputFilePath, captionLanguage, _))
+              .map(YouTubeBotIds(SBotId(botId), outputFilePath, captionLanguage, _))
         }
         _           <- LogWriter.info("[YouTubeService] Get Youtube videos Ids from sources")
         botVideoIds <- botPlaylistIds.traverse {

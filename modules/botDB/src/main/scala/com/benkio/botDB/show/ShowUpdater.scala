@@ -7,6 +7,7 @@ import cats.implicits.*
 import cats.Semigroup
 import com.benkio.botDB.config.Config
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import com.google.api.services.youtube.model.Video
@@ -180,7 +181,11 @@ object ShowUpdater {
                 LogWriter.info(s"[ShowUpdater] Closing file $f")
               )
               .map(file =>
-                YouTubeBotFile(botId = showSource.botId, captionLanguage = showSource.captionLanguage, file = file)
+                YouTubeBotFile(
+                  botId = SBotId(showSource.botId),
+                  captionLanguage = showSource.captionLanguage,
+                  file = file
+                )
               )
           )
       val deleteFiles: F[List[YouTubeBotDBShowDatas]] =
@@ -211,7 +216,7 @@ object ShowUpdater {
       else getStoredDbShowDatas
     }
 
-    private[show] def videoToDBShowData(video: Video, botId: String): F[Option[DBShowData]] = {
+    private[show] def videoToDBShowData(video: Video, botId: SBotId): F[Option[DBShowData]] = {
       def durationISO8601ToSeconds(isoDuration: String): Int = {
         val duration = Duration.parse(isoDuration)
         duration.getSeconds.toInt
@@ -223,7 +228,7 @@ object ShowUpdater {
         duration   <- Option(video.getContentDetails().getDuration())
       } yield DBShowData(
         show_id = id,
-        bot_id = botId,
+        bot_id = botId.value,
         show_title = title,
         show_upload_date = uploadDate,
         show_duration = durationISO8601ToSeconds(duration),

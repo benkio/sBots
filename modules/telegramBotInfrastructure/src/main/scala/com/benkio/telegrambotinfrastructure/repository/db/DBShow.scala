@@ -6,6 +6,7 @@ import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.Show
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import doobie.*
 import doobie.implicits.*
 import io.circe.*
@@ -33,7 +34,7 @@ object DBShowData {
 
   def apply(show: Show): DBShowData = DBShowData(
     show_id = show.id,
-    bot_id = show.botId,
+    bot_id = show.botId.value,
     show_title = show.title,
     show_upload_date = show.uploadDate.format(dateTimeFormatter),
     show_duration = show.duration,
@@ -44,9 +45,9 @@ object DBShowData {
 }
 
 trait DBShow[F[_]] {
-  def getShows(botId: String): F[List[DBShowData]]
-  def getRandomShow(botId: String): F[Option[DBShowData]]
-  def getShowByShowQuery(query: ShowQuery, botId: String): F[List[DBShowData]]
+  def getShows(botId: SBotId): F[List[DBShowData]]
+  def getRandomShow(botId: SBotId): F[Option[DBShowData]]
+  def getShowByShowQuery(query: ShowQuery, botId: SBotId): F[List[DBShowData]]
   def insertShow(dbShowData: DBShowData): F[Unit]
   def deleteShow(dbShowData: DBShowData): F[Unit]
 }
@@ -66,17 +67,17 @@ object DBShow {
       log: LogWriter[F]
   ) extends DBShow[F] {
 
-    override def getShows(botId: String): F[List[DBShowData]] =
+    override def getShows(botId: SBotId): F[List[DBShowData]] =
       DBShow.getShowsQuery(botId).stream.compile.toList.transact(transactor) <* log.debug(
         s"[DBShow] Get shows by bot name: $botId, sql: ${DBShow.getShowsQuery(botId).sql}"
       )
 
-    override def getRandomShow(botId: String): F[Option[DBShowData]] =
+    override def getRandomShow(botId: SBotId): F[Option[DBShowData]] =
       DBShow.getRandomShowQuery(botId).option.transact(transactor) <* log.debug(
         s"[DBShow] Get random show by bot name: $botId, sql: ${DBShow.getRandomShowQuery(botId).sql}"
       )
 
-    override def getShowByShowQuery(query: ShowQuery, botId: String): F[List[DBShowData]] =
+    override def getShowByShowQuery(query: ShowQuery, botId: SBotId): F[List[DBShowData]] =
       DBShow.getShowByShowQueryQuery(query, botId).stream.compile.toList.transact(transactor) <* log.debug(
         s"[DBShow] Get shows by bot name: $botId and keyword: $query, sql: ${DBShow.getShowByShowQueryQuery(query, botId).sql}"
       )
@@ -126,19 +127,19 @@ object DBShow {
         maxDate.toList.map(maxd => fr"show_upload_date < ${maxd.atStartOfDay().format(DBShowData.dateTimeFormatter)}")
   }
 
-  def getShowsQuery(botId: String): Query0[DBShowData] =
-    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_id = $botId"
+  def getShowsQuery(botId: SBotId): Query0[DBShowData] =
+    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_id = ${botId.value}"
       .query[DBShowData]
 
-  def getRandomShowQuery(botId: String): Query0[DBShowData] =
-    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_id = $botId ORDER BY RANDOM() LIMIT 1"
+  def getRandomShowQuery(botId: SBotId): Query0[DBShowData] =
+    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_id = ${botId.value} ORDER BY RANDOM() LIMIT 1"
       .query[DBShowData]
 
-  def getShowByShowQueryQuery(query: ShowQuery, botId: String): Query0[DBShowData] = {
+  def getShowByShowQueryQuery(query: ShowQuery, botId: SBotId): Query0[DBShowData] = {
     val q =
       fr"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++
         Fragments.whereAnd(
-          fr"bot_id = $botId",
+          fr"bot_id = ${botId.value}",
           showQueryToFragments(query)*
         )
 

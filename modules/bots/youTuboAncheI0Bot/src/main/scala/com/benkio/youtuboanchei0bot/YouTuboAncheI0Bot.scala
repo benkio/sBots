@@ -9,6 +9,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.pho
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
@@ -67,8 +69,8 @@ class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
 
 trait YouTuboAncheI0Bot[F[_]: Async: LogWriter] extends SBot[F] {
 
-  override val botName: String                     = YouTuboAncheI0Bot.botName
-  override val botId: String                       = YouTuboAncheI0Bot.botId
+  override val botName: SBotName                   = YouTuboAncheI0Bot.botName
+  override val botId: SBotId                       = YouTuboAncheI0Bot.botId
   override val ignoreMessagePrefix: Option[String] = YouTuboAncheI0Bot.ignoreMessagePrefix
   override val triggerListUri: Uri                 = YouTuboAncheI0Bot.triggerListUri
   override val triggerFilename: String             = YouTuboAncheI0Bot.triggerFilename
@@ -89,8 +91,8 @@ trait YouTuboAncheI0Bot[F[_]: Async: LogWriter] extends SBot[F] {
 object YouTuboAncheI0Bot {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
-  val botName: String                     = "YouTuboAncheI0Bot"
-  val botId: String                       = "ytai"
+  val botName: SBotName                   = SBotName("YouTuboAncheI0Bot")
+  val botId: SBotId                       = SBotId("ytai")
   val triggerListUri: Uri                 =
     uri"https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   val triggerFilename: String = "ytai_triggers.txt"
@@ -174,6 +176,7 @@ object YouTuboAncheI0Bot {
     CommandPatternsGroup.TriggerGroup.group[F](
       triggerFileUri = triggerListUri,
       botId = botId,
+      botName = botName,
       ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
       messageRepliesData = messageRepliesData[F],
       dbMedia = dbLayer.dbMedia,

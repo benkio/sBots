@@ -6,6 +6,7 @@ import cats.effect.implicits.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.ChatId
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
@@ -60,7 +61,7 @@ object BackgroundJobManager {
       dbSubscription: DBSubscription[F],
       dbShow: DBShow[F],
       repository: Repository[F],
-      botId: String
+      botId: SBotId
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
       backgroundJobManager <- Async[F].pure(
@@ -78,7 +79,7 @@ object BackgroundJobManager {
       dbSubscription: DBSubscription[F],
       dbShow: DBShow[F],
       repository: Repository[F],
-      val botId: String
+      val botId: SBotId
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 

@@ -6,6 +6,8 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -46,8 +48,8 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait XahLeeBot[F[_]: Async: LogWriter] extends SBot[F] {
 
-  override val botName: String         = XahLeeBot.botName
-  override val botId: String           = XahLeeBot.botId
+  override val botName: SBotName       = XahLeeBot.botName
+  override val botId: SBotId           = XahLeeBot.botId
   override val triggerFilename: String = XahLeeBot.triggerFilename
   override val triggerListUri: Uri     = XahLeeBot.triggerListUri
   val backgroundJobManager: BackgroundJobManager[F]
@@ -63,8 +65,8 @@ trait XahLeeBot[F[_]: Async: LogWriter] extends SBot[F] {
 
 object XahLeeBot {
 
-  val botName: String         = "XahLeeBot"
-  val botId: String           = "xah"
+  val botName: SBotName       = SBotName("XahLeeBot")
+  val botId: SBotId           = SBotId("xah")
   val tokenFilename: String   = "xah_XahLeeBot.token"
   val configNamespace: String = "xah"
   val triggerFilename: String = "xah_triggers.txt"

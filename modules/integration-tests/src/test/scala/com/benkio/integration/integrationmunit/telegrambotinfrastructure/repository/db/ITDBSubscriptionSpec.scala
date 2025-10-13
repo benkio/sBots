@@ -3,6 +3,7 @@ package com.benkio.integration.integrationmunit.telegrambotinfrastructure.reposi
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import doobie.munit.analysisspec.IOChecker
@@ -14,13 +15,13 @@ import java.util.UUID
 
 class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  val botId                      = "botname"
+  val botId                      = SBotId("botid")
   val testSubscriptionId: String = "83beabe1-cad9-4845-a838-65bbed34bc46"
 
   val testSubscription: DBSubscriptionData = DBSubscriptionData(
     id = testSubscriptionId,
     chat_id = 2L,
-    bot_id = botId,
+    bot_id = botId.value,
     cron = "0 0 0 12 4 *",
     subscribed_at = "2022-11-06T19:54:46Z"
   )

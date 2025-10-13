@@ -25,6 +25,8 @@ import com.benkio.telegrambotinfrastructure.model.toIta
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.model.Timeout
@@ -85,7 +87,7 @@ object CommandPatterns {
     private val randomDataCommandEng: String =
       """'/random': Returns a random data (photo/video/audio/text) about the bot character"""
 
-    def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], botId: String): F[MediaFile] =
+    def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], botId: SBotId): F[MediaFile] =
       for
         _              <- LogWriter.debug(s"[RandomCommand] Fetching random media for $botId")
         dbMediaDataOpt <- dbMedia.getRandomMedia(botId)
@@ -97,7 +99,7 @@ object CommandPatterns {
 
     def randomDataReplyBundleCommand[F[_]: Async: LogWriter](
         dbMedia: DBMedia[F],
-        botId: String
+        botId: SBotId
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("random"),
@@ -142,8 +144,8 @@ Input as query string:
 
     private[patterns] def searchShowReplyBundleCommand[F[_]: Async](
         dbShow: DBShow[F],
-        botName: String,
-        botId: String
+        botName: SBotName,
+        botId: SBotId
     )(using log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("searchshow"),
@@ -175,7 +177,7 @@ Input as query string:
     def selectLinkByKeyword[F[_]: Async](
         keywords: String,
         dbShow: DBShow[F],
-        botId: String
+        botId: SBotId
     )(using log: LogWriter[F]): F[String] = {
       val query: ShowQuery            = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
@@ -237,7 +239,7 @@ Input as query string:
 
     // TODO: #782 Return the closest match on failure
     private[patterns] def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](
-        botName: String,
+        botName: SBotName,
         ignoreMessagePrefix: Option[String],
         mdr: List[ReplyBundleMessage[F]]
     ): ReplyBundleCommand[F] =
@@ -263,7 +265,7 @@ Input as query string:
   object InstructionsCommand {
 
     private def instructionMessageIta(
-        botName: String,
+        botName: SBotName,
         ignoreMessagePrefix: Option[String],
         commandDescriptions: List[String]
     ) = s"""
@@ -283,7 +285,7 @@ ${ignoreMessagePrefix
 """
 
     def instructionMessageEng(
-        botName: String,
+        botName: SBotName,
         ignoreMessagePrefix: Option[String],
         commandDescriptions: List[String]
     ): String = s"""
@@ -302,7 +304,7 @@ ${ignoreMessagePrefix
         .getOrElse("")}
 """
     def instructionCommandLogic[F[_]: Applicative](
-        botName: String,
+        botName: SBotName,
         ignoreMessagePrefix: Option[String],
         commands: List[ReplyBundleCommand[F]]
     ): String => F[List[String]] = input =>
@@ -335,7 +337,7 @@ ${ignoreMessagePrefix
       }
 
     private[telegrambotinfrastructure] def instructionsReplyBundleCommand[F[_]: ApplicativeThrow](
-        botName: String,
+        botName: SBotName,
         ignoreMessagePrefix: Option[String],
         commands: List[ReplyBundleCommand[F]]
     ): ReplyBundleCommand[F] =
@@ -374,10 +376,10 @@ ${ignoreMessagePrefix
         cronInput: String,
         backgroundJobManager: BackgroundJobManager[F],
         m: Message,
-        botName: String
+        botId: SBotId
     ) =
       for
-        subscription <- Subscription(m.chat.id, botName, cronInput)
+        subscription <- Subscription(m.chat.id, botId, cronInput)
         nextOccurrence = subscription.cron
           .next(LocalDateTime.now)
           .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
@@ -388,7 +390,8 @@ ${ignoreMessagePrefix
 
     private[patterns] def subscribeReplyBundleCommand[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
-        botName: String
+        botName: SBotName,
+        botId: SBotId
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscribe"),
@@ -398,7 +401,7 @@ ${ignoreMessagePrefix
               msg = m,
               command = "subscribe",
               botName = botName,
-              subscribeCommandLogic(_, backgroundJobManager, m, botName),
+              subscribeCommandLogic(_, backgroundJobManager, m, botId),
               "Input Required: insert a valid 〈cron time〉. Check the instructions"
             ),
           true
@@ -427,7 +430,7 @@ ${ignoreMessagePrefix
 
     private[patterns] def unsubscribeReplyBundleCommand[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
-        botName: String
+        botName: SBotName
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("unsubscribe"),
@@ -453,10 +456,10 @@ ${ignoreMessagePrefix
     def subscriptionsCommandLogic[F[_]: Async](
         dbSubscription: DBSubscription[F],
         backgroundJobManager: BackgroundJobManager[F],
-        botName: String,
+        botId: SBotId,
         m: Message
     ): F[String] = for {
-      subscriptionsData <- dbSubscription.getSubscriptions(botName, Some(m.chat.id))
+      subscriptionsData <- dbSubscription.getSubscriptions(botId, Some(m.chat.id))
       subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
       memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
       memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chat.id }
@@ -469,12 +472,12 @@ ${ignoreMessagePrefix
     private[patterns] def subscriptionsReplyBundleCommand[F[_]: Async](
         dbSubscription: DBSubscription[F],
         backgroundJobManager: BackgroundJobManager[F],
-        botName: String
+        botId: SBotId
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscriptions"),
         reply = TextReplyM[F](
-          m => subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botName, m).map(List(_).toText),
+          m => subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botId, m).map(List(_).toText),
           true
         ),
         instruction = CommandInstructionData.Instructions(
@@ -491,14 +494,14 @@ ${ignoreMessagePrefix
     private val topTwentyTriggersCommandDescriptionEng: String =
       "'/toptwenty': Return a list of files and theirs send frequency"
 
-    def topTwentyCommandLogic[F[_]: MonadThrow](botId: String, dbMedia: DBMedia[F]): F[String] =
+    def topTwentyCommandLogic[F[_]: MonadThrow](botId: SBotId, dbMedia: DBMedia[F]): F[String] =
       for {
-        dbMedias <- dbMedia.getMediaByMediaCount(mediaNamePrefix = botId.some)
+        dbMedias <- dbMedia.getMediaByMediaCount(botId = botId.some)
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
       } yield Media.mediaListToHTML(medias)
 
     private[patterns] def topTwentyReplyBundleCommand[F[_]: MonadThrow](
-        botId: String,
+        botId: SBotId,
         dbMedia: DBMedia[F]
     ): ReplyBundleCommand[F] =
       ReplyBundleCommand(
@@ -526,12 +529,12 @@ ${ignoreMessagePrefix
         input: String,
         msg: Message,
         dbTimeout: DBTimeout[F],
-        botName: String,
+        botId: SBotId,
         log: LogWriter[F]
     ): F[String] =
-      if input.isEmpty then dbTimeout.removeTimeout(msg.chat.id, botName) *> "Timeout removed".pure[F]
+      if input.isEmpty then dbTimeout.removeTimeout(chatId = msg.chat.id, botId = botId) *> "Timeout removed".pure[F]
       else
-        Timeout(ChatId(msg.chat.id), botName, input)
+        Timeout(ChatId(msg.chat.id), botId, input)
           .fold(
             error =>
               log.info(
@@ -545,7 +548,8 @@ ${ignoreMessagePrefix
           )
 
     private[patterns] def timeoutReplyBundleCommand[F[_]: MonadThrow](
-        botName: String,
+        botName: SBotName,
+        botId: SBotId,
         dbTimeout: DBTimeout[F]
     )(using log: LogWriter[F]): ReplyBundleCommand[F] =
       ReplyBundleCommand(
@@ -556,7 +560,7 @@ ${ignoreMessagePrefix
               msg = msg,
               command = "timeout",
               botName = botName,
-              timeoutLogic(_, msg, dbTimeout, botName, log).map(List(_)),
+              timeoutLogic(_, msg, dbTimeout, botId, log).map(List(_)),
               """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
             ),
           true
@@ -571,7 +575,7 @@ ${ignoreMessagePrefix
   def handleCommandWithInput[F[_]: ApplicativeThrow](
       msg: Message,
       command: String,
-      botName: String,
+      botName: SBotName,
       computation: String => F[List[String]],
       defaultReply: String,
       allowEmptyString: Boolean = false

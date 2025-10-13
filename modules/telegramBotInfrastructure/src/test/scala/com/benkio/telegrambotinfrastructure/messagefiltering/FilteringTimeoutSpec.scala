@@ -2,6 +2,7 @@ package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBTimeoutData
 import munit.*
@@ -14,7 +15,7 @@ import scala.concurrent.duration.*
 class FilteringTimeoutSpec extends CatsEffectSuite {
 
   test("FilteringTimeout should return true if the timeout is expired") {
-    val botId  = "botid"
+    val botId  = SBotId("botid")
     val chatId = 0L
 
     val dbLayer: DBLayer[IO] =
@@ -23,7 +24,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
         timeouts = List(
           DBTimeoutData(
             chat_id = chatId,
-            bot_id = botId,
+            bot_id = botId.value,
             timeout_value = 800.millis.toMillis.toString,
             last_interaction = Instant.now.getEpochSecond.toString
           )
@@ -43,7 +44,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
     )
   }
   test("FilteringTimeout should return false if the timeout is not expired") {
-    val botId  = "botid"
+    val botId  = SBotId("botid")
     val chatId = 0L
 
     val dbLayer: DBLayer[IO] =
@@ -52,7 +53,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
         timeouts = List(
           DBTimeoutData(
             chat_id = chatId,
-            bot_id = botId,
+            bot_id = botId.value,
             timeout_value = 30.seconds.toMillis.toString,
             last_interaction = Instant.now.getEpochSecond.toString
           )

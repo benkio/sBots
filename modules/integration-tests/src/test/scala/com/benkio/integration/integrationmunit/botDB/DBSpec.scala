@@ -42,12 +42,14 @@ class DBSpec extends CatsEffectSuite with Constants {
 
   databaseConnection.test("The `media` table should exist and be readable/writable") { connection =>
     connection.createStatement().executeUpdate(DBSpec.mediaSQL)
-    val resultSet = connection.createStatement().executeQuery("SELECT media_name, created_at, media_count FROM media")
+    val resultSet = connection.createStatement().executeQuery("SELECT media_name, bot_id, created_at, media_count FROM media")
     resultSet.next()
     val actualMediaName      = resultSet.getString("media_name")
+    val actualBotId      = resultSet.getString("bot_id")
     val actualMediaCreatedAt = resultSet.getString("created_at")
     val actualCount          = resultSet.getInt("media_count")
-    assertEquals(actualMediaName, "test media.mp3")
+    assertEquals(actualMediaName, "testbot_media.mp3")
+    assertEquals(actualBotId, "testbot")
     assertEquals(actualMediaCreatedAt, "2008-01-01 00:00:01")
     assertEquals(actualCount, 0)
   }
@@ -64,7 +66,7 @@ class DBSpec extends CatsEffectSuite with Constants {
     val actualTimeoutValue           = resultSet.getString("timeout_value")
     val actualTimeoutLastInteraction = resultSet.getString("last_interaction")
     assertEquals(actualChatId, "123456789")
-    assertEquals(actualBotId, "botId")
+    assertEquals(actualBotId, "botid")
     assertEquals(actualTimeoutValue, "1000")
     assertEquals(actualTimeoutLastInteraction, "2008-01-01 00:00:01")
   }
@@ -83,10 +85,10 @@ class DBSpec extends CatsEffectSuite with Constants {
 object DBSpec {
 
   val mediaSQL: String = """
-INSERT INTO media (media_name, kinds, mime_type, media_sources, created_at, media_count) VALUES ('test media.mp3', '', 'audio/mpeg', json('["https://www.google.com"]'), '2008-01-01 00:00:01', 0);
+INSERT INTO media (media_name, bot_id, kinds, mime_type, media_sources, created_at, media_count) VALUES ('testbot_media.mp3', 'testbot', '', 'audio/mpeg', json('["https://www.google.com"]'), '2008-01-01 00:00:01', 0);
 """
 
   val timeoutSQL = """
-INSERT INTO timeout (chat_id, bot_id, timeout_value, last_interaction) VALUES (123456789, 'botId', 1000 ,'2008-01-01 00:00:01');
+INSERT INTO timeout (chat_id, bot_id, timeout_value, last_interaction) VALUES (123456789, 'botid', 1000 ,'2008-01-01 00:00:01');
 """
 }

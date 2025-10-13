@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.repository.db
 
 import com.benkio.telegrambotinfrastructure.model.ChatId
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import cron4s.*
@@ -15,7 +16,7 @@ class DBSubscriptionSpec extends FunSuite {
     val actual = Subscription(
       id = SubscriptionId(UUID.randomUUID),
       chatId = ChatId(0),
-      botId = "botId",
+      botId = SBotId("botId"),
       cron = Cron.unsafeParse("30 * * * * ?"),
       subscribedAt = now
     )

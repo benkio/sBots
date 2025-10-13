@@ -5,6 +5,7 @@ import cats.implicits.*
 import com.benkio.botDB.mocks.YouTubeServiceMock
 import com.benkio.botDB.show.ShowUpdater.ShowUpdaterImpl
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import com.google.api.services.youtube.model.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -23,7 +24,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   // Input Data
-  val botId                  = "testbot"
+  val botId: SBotId          = SBotId("testbot")
   val outputFilePath         = "./src/test/resources/testdata/testBotShow.json"
   val captionLanguage        = "it"
   val testCaption            = "Test Caption"
@@ -137,13 +138,13 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     val otherVideoId2: String = "yHLzy"
     val otherIds              = List(
       YouTubeBotIds(
-        botId = "testBot2",
+        botId = SBotId("testBot2"),
         outputFilePath = "i8EWm",
         captionLanguage = captionLanguage,
         videoIds = List(otherVideoId1)
       ),
       YouTubeBotIds(
-        botId = "testBot3",
+        botId = SBotId("testBot3"),
         outputFilePath = "cYVdV",
         captionLanguage = captionLanguage,
         videoIds = List(otherVideoId2)

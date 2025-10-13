@@ -12,6 +12,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
@@ -64,8 +66,8 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait ABarberoBot[F[_]: Async: LogWriter] extends SBot[F] {
 
-  override val botName: String                     = ABarberoBot.botName
-  override val botId: String                       = ABarberoBot.botId
+  override val botName: SBotName                   = ABarberoBot.botName
+  override val botId: SBotId                       = ABarberoBot.botId
   override val triggerListUri: Uri                 = ABarberoBot.triggerListUri
   override val triggerFilename: String             = ABarberoBot.triggerFilename
   override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
@@ -86,8 +88,8 @@ trait ABarberoBot[F[_]: Async: LogWriter] extends SBot[F] {
 object ABarberoBot {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
-  val botName: String                     = "ABarberoBot"
-  val botId: String                       = "abar"
+  val botName: SBotName                   = SBotName("ABarberoBot")
+  val botId: SBotId                       = SBotId("abar")
   val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt"
   val triggerFilename: String = "abar_triggers.txt"
   val tokenFilename: String   = "abar_ABarberoBot.token"
@@ -130,6 +132,7 @@ object ABarberoBot {
     CommandPatternsGroup.TriggerGroup.group[F](
       triggerFileUri = triggerListUri,
       botId = botId,
+      botName = botName,
       ignoreMessagePrefix = ABarberoBot.ignoreMessagePrefix,
       messageRepliesData = messageRepliesData[F],
       dbMedia = dbLayer.dbMedia,

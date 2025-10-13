@@ -37,6 +37,7 @@ addCommandAlias(
   "validate",
   ";clean; compile; checkJsonFiles; fix; generateTriggerTxt; coverage; test; integration/mUnitTests; coverageAggregate"
 )
+addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")
 addCommandAlias("integrationTests", "integration/mUnitTests")
 // Data Entry Aliases

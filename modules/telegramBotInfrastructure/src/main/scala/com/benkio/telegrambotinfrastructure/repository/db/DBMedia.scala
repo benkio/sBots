@@ -5,6 +5,7 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import doobie.*
 import doobie.implicits.*
 import io.chrisdavenport.mules.*
@@ -27,7 +28,7 @@ object DBMediaData {
 
   def apply(media: Media): DBMediaData = DBMediaData(
     media_name = media.mediaName,
-    bot_id = media.botId,
+    bot_id = media.botId.value,
     kinds = media.kinds.asJson.noSpaces,
     mime_type = media.mimeType.show,
     media_sources = media.mediaSources.asJson.noSpaces,
@@ -38,11 +39,11 @@ object DBMediaData {
 
 trait DBMedia[F[_]] {
   def getMedia(filename: String, cache: Boolean = true): F[Option[DBMediaData]]
-  def getRandomMedia(botId: String): F[Option[DBMediaData]]
+  def getRandomMedia(botId: SBotId): F[Option[DBMediaData]]
   def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]]
   def getMediaByMediaCount(
       limit: Int = 20,
-      mediaNamePrefix: Option[String] = None
+      botId: Option[SBotId] = None
   ): F[List[DBMediaData]]
   def incrementMediaCount(filename: String): F[Unit]
   def decrementMediaCount(filename: String): F[Unit]
@@ -127,7 +128,7 @@ object DBMedia {
           } yield mediaOpt
       )
 
-    override def getRandomMedia(botId: String): F[Option[DBMediaData]] =
+    override def getRandomMedia(botId: SBotId): F[Option[DBMediaData]] =
       log.debug(s"[DBMedia] getRandomMedia for $botId. SQL: ${getMediaQueryByRandom(botId).sql}") >>
         getMediaQueryByRandom(botId).unique
           .transact(transactor)
@@ -154,12 +155,12 @@ object DBMedia {
 
     override def getMediaByMediaCount(
         limit: Int = 20,
-        mediaNamePrefix: Option[String] = None
+        botId: Option[SBotId] = None
     ): F[List[DBMediaData]] =
       log.debug(
-        s"[DBMedia] getMediaByMediaCount for prefix $mediaNamePrefix. SQL: ${getMediaQueryByMediaCount(mediaNamePrefix = mediaNamePrefix).sql}"
+        s"[DBMedia] getMediaByMediaCount for prefix $botId. SQL: ${getMediaQueryByMediaCount(botId = botId).sql}"
       ) >>
-        getMediaQueryByMediaCount(mediaNamePrefix = mediaNamePrefix).stream
+        getMediaQueryByMediaCount(botId = botId).stream
           .take(limit.toLong)
           .compile
           .toList
@@ -202,16 +203,16 @@ object DBMedia {
         fr"""kinds LIKE $kindLike3"""
       )).query[DBMediaData]
 
-  def getMediaQueryByMediaCount(mediaNamePrefix: Option[String]): Query0[DBMediaData] = {
+  def getMediaQueryByMediaCount(botId: Option[SBotId]): Query0[DBMediaData] = {
     val q: Fragment =
       fr"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
-        Fragments.whereAndOpt(mediaNamePrefix.map(s => fr"bot_id = $s")) ++
+        Fragments.whereAndOpt(botId.map(s => fr"bot_id = ${s.value}")) ++
         fr"ORDER BY media_count DESC"
 
     q.query[DBMediaData]
   }
-  def getMediaQueryByRandom(botId: String): Query0[DBMediaData] =
-    sql"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE bot_id = $botId ORDER BY RANDOM() LIMIT 1"
+  def getMediaQueryByRandom(botId: SBotId): Query0[DBMediaData] =
+    sql"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE bot_id = ${botId.value} ORDER BY RANDOM() LIMIT 1"
       .query[DBMediaData]
   def incrementMediaCountQuery(media: DBMediaData): Update0 =
     sql"UPDATE media SET media_count = ${media.media_count + 1} WHERE media_name = ${media.media_name}".update

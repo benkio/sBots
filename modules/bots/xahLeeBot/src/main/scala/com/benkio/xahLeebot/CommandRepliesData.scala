@@ -4,6 +4,8 @@ import cats.effect.Async
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
@@ -17,8 +19,8 @@ object CommandRepliesData {
   def values[F[_]: Async](
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
-      botName: String,
-      botId: String
+      botName: SBotName,
+      botId: SBotId
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] =
@@ -32,7 +34,7 @@ object CommandRepliesData {
 
   def customCommands[F[_]: Async](
       dbMedia: DBMedia[F],
-      botId: String
+      botId: SBotId
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] =

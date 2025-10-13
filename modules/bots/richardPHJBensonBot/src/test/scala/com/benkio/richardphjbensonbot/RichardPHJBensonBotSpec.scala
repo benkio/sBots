@@ -50,7 +50,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
       "test mediafile"
     )
   val repositoryMock            = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(RichardPHJBensonBot.botName)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(RichardPHJBensonBot.botId)
 
   val richardPHJBensonBot = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,

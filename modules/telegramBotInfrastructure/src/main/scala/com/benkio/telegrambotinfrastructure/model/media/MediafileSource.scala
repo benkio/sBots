@@ -5,6 +5,7 @@ import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import io.circe.*
 import io.circe.generic.semiauto.*
 import io.circe.Encoder.encodeString
@@ -16,7 +17,7 @@ final case class MediaFileSource(
     mime: MimeType,
     sources: List[Either[String, Uri]]
 ) {
-  val botId: String = filename.takeWhile(_ != '_')
+  val botId: SBotId = SBotId(filename.takeWhile(_ != '_'))
 }
 
 object MediaFileSource {

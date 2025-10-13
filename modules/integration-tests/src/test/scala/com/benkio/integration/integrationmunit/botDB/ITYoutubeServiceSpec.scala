@@ -6,6 +6,7 @@ import com.benkio.botDB.config.Config
 import com.benkio.botDB.show.YouTubeBotDBShowDatas
 import com.benkio.botDB.show.YouTubeBotIds
 import com.benkio.botDB.show.YouTubeService
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -48,7 +49,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
       receivedIds,
       List(
         YouTubeBotIds(
-          botId = "testBot",
+          botId = SBotId("testBot"),
           outputFilePath = "../integration-tests/src/test/resources/testdata/testBotShow.json",
           captionLanguage = "it",
           videoIds = List(
@@ -122,7 +123,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
 
     val youTubeBotDBShowDatas1 =
       YouTubeBotDBShowDatas(
-        botId = "testBot",
+        botId = SBotId("testBot"),
         outputFilePath = "outputFilePath",
         captionLanguage = "it",
         dbShowDatas = List(dbShowData1)

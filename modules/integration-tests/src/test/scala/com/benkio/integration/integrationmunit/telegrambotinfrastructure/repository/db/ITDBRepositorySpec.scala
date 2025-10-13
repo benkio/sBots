@@ -21,7 +21,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
   val testMediaId            = RichardPHJBensonBot.botId
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
-    bot_id = testMediaId,
+    bot_id = testMediaId.value,
     kinds = """"[]"""",
     media_sources =
       """[\"https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1\"]""",

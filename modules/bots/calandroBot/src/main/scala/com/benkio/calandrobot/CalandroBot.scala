@@ -14,6 +14,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import com.benkio.telegrambotinfrastructure.model.tr
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
@@ -57,8 +59,8 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait CalandroBot[F[_]: Async: LogWriter] extends SBot[F] {
 
-  override val botName: String         = CalandroBot.botName
-  override val botId: String           = CalandroBot.botId
+  override val botName: SBotName       = CalandroBot.botName
+  override val botId: SBotId           = CalandroBot.botId
   override val triggerFilename: String = CalandroBot.triggerFilename
   override val triggerListUri: Uri     = CalandroBot.triggerListUri
 
@@ -71,8 +73,8 @@ trait CalandroBot[F[_]: Async: LogWriter] extends SBot[F] {
 
 object CalandroBot {
 
-  val botName: String         = "CalandroBot"
-  val botId: String           = "cala"
+  val botName: SBotName       = SBotName("CalandroBot")
+  val botId: SBotId           = SBotId("cala")
   val tokenFilename: String   = "cala_CalandroBot.token"
   val configNamespace: String = "cala"
   val triggerFilename: String = "cala_triggers.txt"

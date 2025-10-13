@@ -38,7 +38,7 @@ class ABarberoBotSpec extends BaseBotSpec {
       Async[F].pure(List.empty[Message])
   }
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.botName)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
@@ -47,10 +47,10 @@ class ABarberoBotSpec extends BaseBotSpec {
 
   val aBarberoBot =
     BackgroundJobManager[IO](
-      emptyDBLayer.dbSubscription,
-      emptyDBLayer.dbShow,
-      repositoryMock,
-      ABarberoBot.botName
+      dbSubscription = emptyDBLayer.dbSubscription,
+      dbShow = emptyDBLayer.dbShow,
+      repository = repositoryMock,
+      botId = ABarberoBot.botId
     ).map(bjm =>
       new ABarberoBotPolling[IO](
         repositoryInput = repositoryMock,

@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
 import com.benkio.telegrambotinfrastructure.model.MimeType
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import munit.*
 import org.http4s.Uri
@@ -11,7 +12,7 @@ class MediaSpec extends FunSuite {
   test("Media show instance should return the expected string") {
     val input: Media = Media(
       mediaName = "test_name",
-      botId = "botid",
+      botId = SBotId("botid"),
       kinds = List.empty,
       mimeType = MimeType.MP4,
       mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),
@@ -23,7 +24,7 @@ class MediaSpec extends FunSuite {
   test("Media.mediaListToHTML should return the expected string") {
     val input: Media = Media(
       mediaName = "test_name",
-      botId = "botid",
+      botId = SBotId("botid"),
       kinds = List.empty,
       mimeType = MimeType.MP4,
       mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),

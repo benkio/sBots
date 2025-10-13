@@ -3,6 +3,7 @@ package com.benkio.telegrambotinfrastructure.patterns
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
@@ -14,9 +15,9 @@ class CommandPatternsSpec extends CatsEffectSuite {
     date = 0,
     chat = Chat(id = 123, `type` = "private")
   )
-  val command      = "command"
-  val botName      = "botName"
-  val defaultReply = "defaultReply"
+  val command: String      = "command"
+  val botName: SBotName    = SBotName("botName")
+  val defaultReply: String = "defaultReply"
 
   def resultByInput(input: String, allowEmptyString: Boolean): IO[List[Text]] = CommandPatterns.handleCommandWithInput(
     msg = msg.copy(text = Some(input)),

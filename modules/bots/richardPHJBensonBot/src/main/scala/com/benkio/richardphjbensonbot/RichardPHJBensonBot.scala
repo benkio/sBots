@@ -12,6 +12,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
@@ -64,8 +66,8 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait RichardPHJBensonBot[F[_]: Async: LogWriter] extends SBot[F] {
 
-  override val botName: String                     = RichardPHJBensonBot.botName
-  override val botId: String                       = RichardPHJBensonBot.botId
+  override val botName: SBotName                   = RichardPHJBensonBot.botName
+  override val botId: SBotId                       = RichardPHJBensonBot.botId
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
   override val triggerFilename: String             = RichardPHJBensonBot.triggerFilename
   override val triggerListUri: Uri                 = RichardPHJBensonBot.triggerListUri
@@ -93,8 +95,8 @@ object RichardPHJBensonBot {
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
   import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData
 
-  val botName: String                     = "RichardPHJBensonBot"
-  val botId: String                       = "rphjb"
+  val botName: SBotName                   = SBotName("RichardPHJBensonBot")
+  val botId: SBotId                       = SBotId("rphjb")
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "rphjb_triggers.txt"
   val triggerListUri: Uri                 =
@@ -123,6 +125,7 @@ object RichardPHJBensonBot {
     CommandPatternsGroup.TriggerGroup.group[F](
       triggerFileUri = triggerListUri,
       botId = botId,
+      botName = botName,
       ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
       messageRepliesData = messageRepliesData[F],
       dbMedia = dbLayer.dbMedia,
@@ -145,11 +148,11 @@ object RichardPHJBensonBot {
           reply = TextReplyM[F](
             msg =>
               handleCommandWithInput[F](
-                msg,
-                "bensonify",
-                botId,
-                t => List(Bensonify.compute(t)).pure[F],
-                "E PARLAAAAAAA!!!!"
+                msg = msg,
+                command = "bensonify",
+                botName = botName,
+                computation = t => List(Bensonify.compute(t)).pure[F],
+                defaultReply = "E PARLAAAAAAA!!!!"
               ),
             true
           ),

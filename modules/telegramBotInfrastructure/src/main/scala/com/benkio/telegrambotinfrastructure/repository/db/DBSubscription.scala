@@ -2,6 +2,7 @@ package com.benkio.telegrambotinfrastructure.repository.db
 
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import doobie.*
 import doobie.implicits.*
@@ -23,14 +24,14 @@ object DBSubscriptionData {
     DBSubscriptionData(
       id = subscription.id.value.toString,
       chat_id = subscription.chatId.value,
-      bot_id = subscription.botId,
+      bot_id = subscription.botId.value,
       cron = subscription.cron.toString,
       subscribed_at = subscription.subscribedAt.getEpochSecond.toString
     )
 }
 
 trait DBSubscription[F[_]] {
-  def getSubscriptions(botId: String, chatId: Option[Long] = None): F[List[DBSubscriptionData]]
+  def getSubscriptions(botId: SBotId, chatId: Option[Long] = None): F[List[DBSubscriptionData]]
   def getSubscription(id: String): F[Option[DBSubscriptionData]]
   def getRandomSubscription(): F[Option[DBSubscriptionData]]
   def insertSubscription(subscription: DBSubscriptionData): F[Unit]
@@ -76,7 +77,7 @@ object DBSubscription {
         s"delete subscriptions for chat id $chatId"
       )
 
-    override def getSubscriptions(botId: String, chatId: Option[Long]): F[List[DBSubscriptionData]] =
+    override def getSubscriptions(botId: SBotId, chatId: Option[Long]): F[List[DBSubscriptionData]] =
       getSubscriptionsQuery(botId, chatId).stream.compile.toList.transact(transactor) <* log.debug(
         "Get subscriptions"
       )
@@ -97,9 +98,9 @@ object DBSubscription {
     sql"SELECT subscription_id, chat_id, bot_id, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
       .query[DBSubscriptionData]
 
-  def getSubscriptionsQuery(botId: String, chatId: Option[Long] = None): Query0[DBSubscriptionData] =
+  def getSubscriptionsQuery(botId: SBotId, chatId: Option[Long] = None): Query0[DBSubscriptionData] =
     (sql"SELECT subscription_id, chat_id, bot_id, cron, subscribed_at FROM subscription " ++ Fragments.whereAndOpt(
-      fr"bot_id = $botId".some,
+      fr"bot_id = ${botId.value}".some,
       chatId.map(cid => fr"chat_id = $cid")
     ))
       .query[DBSubscriptionData]

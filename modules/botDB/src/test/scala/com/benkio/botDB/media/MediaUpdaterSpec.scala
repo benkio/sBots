@@ -13,6 +13,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.MimeType
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -39,7 +40,7 @@ class MediaUpdaterSpec extends CatsEffectSuite {
       .pure[IO]
   )
   val dbLayerMock = DBLayerMock.mock(
-    botId = "testbot",
+    botId = SBotId("testbot"),
     medias = mediaEntities
   )
   val mediaUpdater: MediaUpdaterImpl[IO] = MediaUpdaterImpl[IO](

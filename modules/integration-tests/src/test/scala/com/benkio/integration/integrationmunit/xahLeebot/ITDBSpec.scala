@@ -11,10 +11,13 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.xahleebot.CommandRepliesData
+import com.benkio.xahleebot.XahLeeBot
 import doobie.implicits.*
 import io.circe.parser.decode
 import munit.CatsEffectSuite
@@ -24,9 +27,9 @@ import scala.io.Source
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  val botName: String                       = "botname"
-  val botId: String                         = "xah"
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botName)
+  val botName: SBotName                     = XahLeeBot.botName
+  val botId: SBotId                         = XahLeeBot.botId
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"

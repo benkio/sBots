@@ -13,6 +13,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.tr
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
@@ -42,12 +44,11 @@ class SampleWebhookBot(
   override def filteringMatchesMessages: (ReplyBundleMessage[IO], Message) => IO[Boolean] =
     FilteringTimeout.filter(dbLayer, botId)
 
-  override val botName: String                     = "SampleWebhookBot"
-  override val botId: String                       = "sbot"
-  override val ignoreMessagePrefix: Option[String] = Some("!")
-  override val triggerFilename: String             = "sbot_triggers.txt"
-  override val triggerListUri: Uri                 =
-    uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
+  override val botName: SBotName                   = SampleWebhookBot.botName
+  override val botId: SBotId                       = SampleWebhookBot.botId
+  override val ignoreMessagePrefix: Option[String] = SampleWebhookBot.ignoreMessagePrefix
+  override val triggerFilename: String             = SampleWebhookBot.triggerFilename
+  override val triggerListUri: Uri                 = SampleWebhookBot.triggerListUri
 
   override def messageRepliesDataF: IO[List[ReplyBundleMessage[IO]]] = List(
     ReplyBundleMessage.textToMp3[IO](
@@ -110,16 +111,23 @@ class SampleWebhookBot(
 
 object SampleWebhookBot {
 
+  val botName: SBotName                   = SBotName("SampleWebhookBot")
+  val botId: SBotId                       = SBotId("sbot")
+  val ignoreMessagePrefix: Option[String] = Some("!")
+  val triggerFilename: String             = "sbot_triggers.txt"
+  val triggerListUri: Uri                 =
+    uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
+
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def apply(): IO[SampleWebhookBot] = {
     val repositoryMock             = new RepositoryMock()
-    val dbLayerMock                = DBLayerMock.mock("SampleWebhookBot")
+    val dbLayerMock                = DBLayerMock.mock(botId)
     val ioBackgroundJobManagerMock = BackgroundJobManager(
       dbSubscription = dbLayerMock.dbSubscription,
       dbShow = dbLayerMock.dbShow,
       repository = repositoryMock,
-      botId = "samplewebhookbot"
+      botId = botId
     )
     ioBackgroundJobManagerMock.map(backgroundJobManagerMock =>
       new SampleWebhookBot(

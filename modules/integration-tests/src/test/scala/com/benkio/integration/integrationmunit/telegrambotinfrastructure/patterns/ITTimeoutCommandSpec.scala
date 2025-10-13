@@ -34,11 +34,11 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
-            wrongInput,
-            msg,
-            dbLayer.dbTimeout,
-            botName,
-            log
+            input = wrongInput,
+            msg = msg,
+            dbTimeout = dbLayer.dbTimeout,
+            botId = botId,
+            log = log
           )
           .attempt
       )
@@ -54,7 +54,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "TimeoutLogic Command should return a successful string and create a timeout in the db if the input is not properly formatted"
+    "TimeoutLogic Command should return a successful string and create a timeout in the db if the input is properly formatted".only
   ) { fixture =>
     val wrongInput = "00:00:10"
     val result     = for {
@@ -63,11 +63,11 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
-            wrongInput,
-            msg,
-            dbLayer.dbTimeout,
-            botName,
-            log
+            input = wrongInput,
+            msg = msg,
+            dbTimeout = dbLayer.dbTimeout,
+            botId = botId,
+            log = log
           )
           .attempt
       )
@@ -77,7 +77,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
         beforeTimeout,
         DBTimeoutData(
           chat_id = chatIdValue,
-          bot_id = botId,
+          bot_id = botId.value,
           timeout_value = "0",
           last_interaction = beforeTimeout.last_interaction
         )
@@ -86,7 +86,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
         afterTimeout,
         DBTimeoutData(
           chat_id = chatIdValue,
-          bot_id = botId,
+          bot_id = botId.value,
           timeout_value = "10000",
           last_interaction = afterTimeout.last_interaction
         )
@@ -108,11 +108,11 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
-            "",
-            msg,
-            dbLayer.dbTimeout,
-            botName,
-            log
+            input = "",
+            msg = msg,
+            dbTimeout = dbLayer.dbTimeout,
+            botId = botId,
+            log = log
           )
           .attempt
       )
