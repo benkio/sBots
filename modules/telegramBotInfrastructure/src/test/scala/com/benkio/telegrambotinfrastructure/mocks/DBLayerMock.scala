@@ -72,9 +72,9 @@ object DBLayerMock {
         lsShuffled <- rnd.shuffleList(ls.filter(_.media_name.startsWith(botId.value)))
         result     <- lsShuffled.headOption.fold[IO[Option[DBMediaData]]](None.pure)(_.some.pure)
       yield result
-    override def getMediaByKind(kind: String, cache: Boolean = true): IO[List[DBMediaData]] =
+    override def getMediaByKind(kind: String, botId: SBotId, cache: Boolean = true): IO[List[DBMediaData]] =
       db.get.map(
-        _.filter(m => m.kinds.contains(kind))
+        _.filter(m => m.kinds.contains(kind) && m.bot_id == botId.value)
       )
     override def getMediaByMediaCount(
         limit: Int = 20,

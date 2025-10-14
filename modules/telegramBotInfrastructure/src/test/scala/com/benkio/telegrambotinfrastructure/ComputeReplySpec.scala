@@ -79,7 +79,8 @@ class ComputeReplySpec extends CatsEffectSuite {
         replyBundle = input,
         message = message,
         filter = Applicative[IO].pure(true),
-        repository = RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO])
+        repository =
+          RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO])
       )
 
     val result2: IO[List[Message]] =

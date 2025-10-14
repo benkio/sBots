@@ -34,7 +34,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock = RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+  val repositoryMock = RepositoryMock(getResourceByKindHandler =
+    (_, inputBotId) =>
+      IO.raiseUnless(inputBotId == botId)(
+        Throwable(s"[ITDBSpec] getResourceByKindHandler received unexpected botId: $inputBotId")
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+  )
   val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(
     BackgroundJobManager(
       dbSubscription = emptyDBLayer.dbSubscription,

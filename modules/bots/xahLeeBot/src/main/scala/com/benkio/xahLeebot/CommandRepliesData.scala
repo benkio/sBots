@@ -48,7 +48,8 @@ object CommandRepliesData {
         dbMedia = dbMedia,
         commandName = command,
         kind = command.some,
-        instruction = instruction
+        instruction = instruction,
+        botId = botId
       )
     }
 

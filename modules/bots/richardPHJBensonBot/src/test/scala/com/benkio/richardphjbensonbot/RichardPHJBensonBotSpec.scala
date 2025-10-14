@@ -44,19 +44,25 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
       val _ = summon[Api[F]]
       Async[F].pure(List.empty[Message])
   }
+  val botId = RichardPHJBensonBot.botId
 
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock            = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(RichardPHJBensonBot.botId)
+  val repositoryMock = new RepositoryMock(getResourceByKindHandler =
+    (_, inputBotId) =>
+      IO.raiseUnless(inputBotId == botId)(
+        Throwable(s"[RichardPHJBensonBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+  )
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botId)
 
   val richardPHJBensonBot = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     repositoryMock,
-    botId = RichardPHJBensonBot.botId
+    botId = botId
   ).map(bjm =>
     new RichardPHJBensonBotPolling[IO](
       repositoryInput = repositoryMock,

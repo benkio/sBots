@@ -40,7 +40,7 @@ object DBMediaData {
 trait DBMedia[F[_]] {
   def getMedia(filename: String, cache: Boolean = true): F[Option[DBMediaData]]
   def getRandomMedia(botId: SBotId): F[Option[DBMediaData]]
-  def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]]
+  def getMediaByKind(kind: String, botId: SBotId, cache: Boolean = true): F[List[DBMediaData]]
   def getMediaByMediaCount(
       limit: Int = 20,
       botId: Option[SBotId] = None
@@ -135,20 +135,23 @@ object DBMedia {
           .map(_.some)
           .handleError(_ => none)
 
-    override def getMediaByKind(kind: String, cache: Boolean = true): F[List[DBMediaData]] =
+    override def getMediaByKind(kind: String, botId: SBotId, cache: Boolean = true): F[List[DBMediaData]] =
+      val cacheKey: String = s"${botId.value}_$kind"
       getMediaInternal[List[DBMediaData]](
-        cacheLookupValue = kind,
+        cacheLookupValue = cacheKey,
         cacheResultHandler = cachedValueOpt =>
           for {
             medias <- cachedValueOpt
               .filter(_ => cache)
               .fold(
-                log.debug(s"[DBMedia] getMediaByKind for $kind. SQL: ${getMediaQueryByKind(kind).sql}") >>
-                  getMediaQueryByKind(kind).stream.compile.toList.transact(transactor)
-                  <* log.debug(s"[DBMedia] getMediaByKind for $kind completed")
+                log.debug(
+                  s"[DBMedia] getMediaByKind for ${botId.value} - $kind. SQL: ${getMediaQueryByKind(kind, botId).sql}"
+                ) >>
+                  getMediaQueryByKind(kind = kind, botId = botId).stream.compile.toList.transact(transactor)
+                  <* log.debug(s"[DBMedia] getMediaByKind for ${botId.value} - $kind completed")
               )(Async[F].pure)
             _ <-
-              if cachedValueOpt.isEmpty then dbCache.insert(kind, medias)
+              if cachedValueOpt.isEmpty then dbCache.insert(cacheKey, medias)
               else Async[F].unit
           } yield medias
       )
@@ -192,15 +195,18 @@ object DBMedia {
     sql"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE media_name = $resourceName"
       .query[DBMediaData]
 
-  def getMediaQueryByKind(kind: String): Query0[DBMediaData] =
+  def getMediaQueryByKind(kind: String, botId: SBotId): Query0[DBMediaData] =
     val kindLike1 = s""""[\\"${kind}\\"%"""
     val kindLike2 = s"""%\\"${kind}\\"%"""
     val kindLike3 = s"""%\\"${kind}\\"]""""
     (fr"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
-      Fragments.whereOr(
-        fr"""kinds LIKE $kindLike1""",
-        fr"""kinds LIKE $kindLike2""",
-        fr"""kinds LIKE $kindLike3"""
+      Fragments.whereAnd(
+        fr"bot_id = ${botId.value}",
+        Fragments.or(
+          fr"""kinds LIKE $kindLike1""",
+          fr"""kinds LIKE $kindLike2""",
+          fr"""kinds LIKE $kindLike3"""
+        )
       )).query[DBMediaData]
 
   def getMediaQueryByMediaCount(botId: Option[SBotId]): Query0[DBMediaData] = {

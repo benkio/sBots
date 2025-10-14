@@ -6,6 +6,7 @@ import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import log.effect.LogWriter
 
@@ -17,7 +18,8 @@ import scala.io.Source
 
 trait Repository[F[_]] {
   def getResourcesByKind(
-      criteria: String
+      criteria: String,
+      botId: SBotId
   ): Resource[F, Either[Repository.RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]]
   def getResourceFile(
       mediaFile: MediaFile
@@ -27,8 +29,10 @@ trait Repository[F[_]] {
 object Repository {
 
   enum RepositoryError(msg: String) extends Throwable(msg):
-    case NoResourcesFoundKind(criteria: String)
-        extends RepositoryError(s"""[Repository] getResourcesByKind returned no results for $criteria""")
+    case NoResourcesFoundKind(criteria: String, botId: SBotId)
+        extends RepositoryError(
+          s"""[Repository] getResourcesByKind returned no results for ${botId.value} - $criteria"""
+        )
     case NoResourcesFoundFile(mediaFile: MediaFile)
         extends RepositoryError(s"[Repository] getResourceFile returned no results for $mediaFile")
     case NoResourcesFoundByteArray(resourceName: String)

@@ -43,7 +43,12 @@ class ABarberoBotSpec extends BaseBotSpec {
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+  val repositoryMock = new RepositoryMock(
+    getResourceByKindHandler = (_, botId) =>
+      IO.raiseUnless(botId == ABarberoBot.botId)(
+        Throwable(s"[ABarberoBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+  )
 
   val aBarberoBot =
     BackgroundJobManager[IO](

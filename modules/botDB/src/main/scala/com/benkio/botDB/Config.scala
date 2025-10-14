@@ -10,7 +10,7 @@ final case class Config(
     url: String,
     migrationsLocations: List[String],
     migrationsTable: String,
-    jsonLocation: List[String],
+    jsonLocation: List[JsonLocation],
     showConfig: ShowConfig
 ) derives ConfigReader
 
@@ -51,3 +51,5 @@ case class ShowSourceConfig(
     captionLanguage: String,
     outputFilePath: String
 ) derives ConfigReader
+
+case class JsonLocation(botId: String, value: String) derives ConfigReader

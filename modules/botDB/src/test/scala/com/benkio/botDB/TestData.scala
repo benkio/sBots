@@ -1,6 +1,7 @@
 package com.benkio.botDB
 
 import com.benkio.botDB.config.Config
+import com.benkio.botDB.config.JsonLocation
 import com.benkio.botDB.config.ShowConfig
 import com.benkio.botDB.config.ShowSourceConfig
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
@@ -48,7 +49,7 @@ object TestData {
     url = "jdbc:sqlite:../../botDB.sqlite3",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
-    jsonLocation = List("/testdata"),
+    jsonLocation = List(JsonLocation(botId = "testbot", value = "/testdata")),
     showConfig = ShowConfig(List(showSourceConfig), false, false, false, "sBots")
   )
 }

@@ -29,16 +29,19 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   )
 
   def checkMedia(actual: DBMediaData, expected: DBMediaData): Boolean = {
-    val result = actual.media_name == expected.media_name &&
-      actual.media_sources == expected.media_sources &&
-      actual.kinds == expected.kinds &&
-      actual.media_count == expected.media_count
+    val result =
+      actual.media_name == expected.media_name &&
+        actual.bot_id == expected.bot_id &&
+        actual.media_sources == expected.media_sources &&
+        actual.kinds == expected.kinds &&
+        actual.media_count == expected.media_count
     if !result then
       println(s"checkMedia test failure: $actual ≄ $expected")
       println(s"test 1 - ${actual.media_name == expected.media_name}")
-      println(s"test 2 - ${actual.media_sources == expected.media_sources}")
-      println(s"test 3 - ${actual.kinds == expected.kinds}")
-      println(s"test 4 - ${actual.media_count == expected.media_count}")
+      println(s"test 2 - ${actual.bot_id == expected.bot_id}")
+      println(s"test 3 - ${actual.media_sources == expected.media_sources}")
+      println(s"test 4 - ${actual.kinds == expected.kinds}")
+      println(s"test 5 - ${actual.media_count == expected.media_count}")
     result
   }
 
@@ -55,7 +58,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) {
     check(DBMedia.getMediaQueryByName(testMediaName))
     check(DBMedia.getMediaQueryByRandom(testMediaId))
-    check(DBMedia.getMediaQueryByKind(testMediaKind))
+    check(DBMedia.getMediaQueryByKind(kind = testMediaKind, botId = testMediaId))
     check(DBMedia.getMediaQueryByMediaCount(botId = Some(testMediaId)))
   }
 
@@ -127,7 +130,8 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      medias  <- Resource.eval(dbMedia.getMediaByKind(kind = "rphjb_LinkSources"))
+      medias  <- Resource.eval(dbMedia.getMediaByKind(kind = "rphjb_LinkSources", botId = testMediaId))
+      _ = println(s"[ITDBMediaSpec] TODO WTF $medias")
     } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) => acc && checkMedia(actual, exp) }
     resourceAssert.use(IO.pure).assert
   }
@@ -170,7 +174,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      medias  <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3))
+      medias  <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3, botId = Some(testMediaId)))
       _       <- Resource.eval(IO.println(medias))
     } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) =>
       acc && checkMedia(actual, exp)
@@ -183,9 +187,12 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) { fixture =>
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      media   <- Resource.eval(dbMedia.getRandomMedia(testMediaId)).attempt
-    } yield media.isRight // Just check if we get something back
-    resourceAssert.use(IO.pure).assert
+      media   <- Resource.eval(dbMedia.getRandomMedia(testMediaId))
+    } yield {
+      assertEquals(media.map(_.bot_id), Some(testMediaId.value))
+      assert(media.map(_.media_name.startsWith(testMediaId.value)).getOrElse(false))
+    }
+    resourceAssert.use(IO.pure)
   }
 
 }

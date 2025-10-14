@@ -7,6 +7,7 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import log.effect.LogWriter
 
 import java.io.ByteArrayOutputStream
@@ -55,7 +56,8 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
       .handleErrorWith(_ => Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundByteArray(resourceName))))
 
   def getResourcesByKind(
-      criteria: String
+      criteria: String,
+      botId: SBotId
   ): Resource[F, Either[Repository.RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]] = {
     val jarFile                     = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath())
     val result: ArrayBuffer[String] = new ArrayBuffer();
@@ -76,7 +78,7 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
     }
 
     NonEmptyList
-      .fromList(result.toList)
+      .fromList(result.filter(s => s.stripPrefix(s"$criteria/").startsWith(botId.value)).toList)
       .map(
         _.traverse(s =>
           getResourceByteArray(s).map(contentEither =>
@@ -98,6 +100,7 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
               .asScala
               .toList
               .tail
+              .filter((fl: Path) => fl.getFileName.toString.startsWith(botId.value))
               .map((fl: Path) =>
                 NonEmptyList
                   .one(
@@ -112,7 +115,7 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
           )
           .map(x => Resource.pure(Right(x)))
       )
-      .getOrElse(Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundKind(criteria))))
+      .getOrElse(Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundKind(criteria, botId))))
   }
 
   override def getResourceFile(

@@ -27,20 +27,25 @@ class MediaUpdaterSpec extends CatsEffectSuite {
 
   given log: LogWriter[IO]             = consoleLogUpToLevel(LogLevels.Info)
   val mediaEntities: List[DBMediaData] = List(google, amazon, facebook)
+  val botId                            = SBotId("testbot")
 
-  val repositoryMock = new RepositoryMock(location =>
-    NonEmptyList
-      .one(
-        NonEmptyList.fromListUnsafe(
-          File(getClass.getResource(location).toURI).listFiles
-            .map(f => MediaResourceFile(Resource.pure(f)): MediaResource[IO])
-            .toList
-        )
+  val repositoryMock = new RepositoryMock(
+    getResourceByKindHandler = (location, inputBotId) =>
+      IO.raiseUnless(inputBotId == botId)(
+        Throwable(s"[MediaUpdaterSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
+      ).as(
+        NonEmptyList
+          .one(
+            NonEmptyList.fromListUnsafe(
+              File(getClass.getResource(location).toURI).listFiles
+                .map(f => MediaResourceFile(Resource.pure(f)): MediaResource[IO])
+                .toList
+            )
+          )
       )
-      .pure[IO]
   )
   val dbLayerMock = DBLayerMock.mock(
-    botId = SBotId("testbot"),
+    botId = botId,
     medias = mediaEntities
   )
   val mediaUpdater: MediaUpdaterImpl[IO] = MediaUpdaterImpl[IO](
@@ -54,7 +59,9 @@ class MediaUpdaterSpec extends CatsEffectSuite {
       mediaUpdater.fetchRootBotFiles
         .flatMap(_.map(_.getMediaResourceFile).flatten.sequence)
         .use(_.map(_.getPath()).pure[IO]),
-      config.jsonLocation.flatMap(location => File(getClass.getResource(location).toURI).listFiles.map(_.getPath()))
+      config.jsonLocation.flatMap(location =>
+        File(getClass.getResource(location.value).toURI).listFiles.map(_.getPath())
+      )
     )
   }
 

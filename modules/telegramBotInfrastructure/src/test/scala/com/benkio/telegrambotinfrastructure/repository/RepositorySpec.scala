@@ -137,12 +137,14 @@ class DBRepositorySpec extends CatsEffectSuite {
       emptyDBLayer.dbMedia,
       dropboxClientMock
     )
+    val botId: SBotId      = SBotId("bot")
     val check: IO[Boolean] = dbRepository
-      .getResourcesByKind("testkind")
+      .getResourcesByKind(criteria = "testkind", botId = botId)
       .use(result =>
         result match {
-          case Left(RepositoryError.NoResourcesFoundKind(criteria)) => (criteria == "testkind").pure
-          case _                                                    => false.pure
+          case Left(RepositoryError.NoResourcesFoundKind(criteria = criteria, botId = botId)) =>
+            (criteria == "testkind").pure
+          case _ => false.pure
         }
       )
     assertIO(check, true)
@@ -151,8 +153,9 @@ class DBRepositorySpec extends CatsEffectSuite {
     val expectedFileName                     = "bot_testMediaName2.mp4"
     val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
     val dbRepository                         = DBRepository.dbResources[IO](fullDBLayer.dbMedia, dropboxClientMock)
+    val botId: SBotId                        = SBotId("bot")
     val check: IO[Boolean]                   = dbRepository
-      .getResourcesByKind("testkind")
+      .getResourcesByKind(criteria = "testkind", botId = botId)
       .flatMap(result =>
         result match {
           case Right(mediaResources) =>

@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
+import com.benkio.xahleebot.XahLeeBot
 import munit.CatsEffectSuite
 
 class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {
@@ -12,15 +13,17 @@ class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {
     "Top twenty command should return 20 results"
   ) { fixture =>
     val commandName    = "fak"
+    val botId          = XahLeeBot.botId
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
       dbMedia = dbLayer.dbMedia
-      dbDatas          <- Resource.eval(dbMedia.getMediaByKind(commandName))
+      dbDatas          <- Resource.eval(dbMedia.getMediaByKind(kind = commandName, botId = botId))
       resultMediaFiles <- Resource.eval(
         MediaByKindCommand.mediaCommandByKindLogic(
           dbMedia = dbMedia,
           commandName = commandName,
-          None
+          kind = None,
+          botId = botId
         )
       )
     } yield

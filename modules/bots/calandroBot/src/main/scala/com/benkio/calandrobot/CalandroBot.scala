@@ -169,7 +169,8 @@ object CalandroBot {
         dbMedia = dbLayer.dbMedia,
         commandName = "randomcard",
         kind = "cards".some,
-        instruction = CommandInstructionData.NoInstructions
+        instruction = CommandInstructionData.NoInstructions,
+        botId = CalandroBot.botId
       ),
       ReplyBundleCommand.textToMedia[F]("porcoladro", CommandInstructionData.NoInstructions)(
         mp3"cala_PorcoLadro.mp3"

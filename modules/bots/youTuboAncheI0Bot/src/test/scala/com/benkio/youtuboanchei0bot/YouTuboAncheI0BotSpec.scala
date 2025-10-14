@@ -12,7 +12,6 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.Reply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
-import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
@@ -41,18 +40,24 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
       Async[F].pure(List.empty[Message])
   }
 
+  val botId                                 = YouTuboAncheI0Bot.botId
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock            = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(YouTuboAncheI0Bot.botId)
+  val repositoryMock = new RepositoryMock(
+    getResourceByKindHandler = (_, inputBotId) =>
+      IO.raiseUnless(inputBotId == botId)(
+        Throwable(s"[YouTuboAncheI0BotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+  )
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botId)
 
   val youtuboanchei0bot = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     repository = repositoryMock,
-    botId = SBotId("ytai")
+    botId = botId
   ).map(bjm =>
     new YouTuboAncheI0BotPolling[IO](
       repositoryInput = repositoryMock,

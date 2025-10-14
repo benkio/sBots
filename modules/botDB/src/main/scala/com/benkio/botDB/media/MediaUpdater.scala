@@ -11,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.repository.Repository
@@ -48,7 +49,7 @@ object MediaUpdater {
       config.jsonLocation
         .flatTraverse(location =>
           repository
-            .getResourcesByKind(location)
+            .getResourcesByKind(location.value, SBotId(location.botId))
             .map(_.map(_.reduce.toList).getOrElse(List()))
         )
 

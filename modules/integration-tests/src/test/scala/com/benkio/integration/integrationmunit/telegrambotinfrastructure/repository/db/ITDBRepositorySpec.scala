@@ -4,6 +4,7 @@ import cats.data.NonEmptyList
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.calandrobot.CalandroBot
 import com.benkio.integration.DBFixture
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
@@ -97,7 +98,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
     )
     val resourceAssert = for {
       dbRepository <- fixture.repositoryResource
-      mediaSources <- dbRepository.getResourcesByKind("cards")
+      mediaSources <- dbRepository.getResourcesByKind(criteria = "cards", botId = CalandroBot.botId)
       files        <- mediaSources.fold(
         e => Resource.eval(IO.raiseError(Throwable(s"getResourceByKind returned an error $e"))),
         _.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
