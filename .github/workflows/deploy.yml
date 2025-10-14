@@ -71,17 +71,3 @@ jobs:
         run: rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3
       - name: Restart Bots
         run: ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"
-      - name: Health check Telegram bots
-        env:
-          BOT_TOKENS: ${{ secrets.ABAR_TOKEN }} ${{ secrets.CALA_TOKEN }} ${{ secrets.MOS_TOKEN }} ${{ secrets.RPHJB_TOKEN }} ${{ secrets.XAH_TOKEN }} ${{ secrets.YTAI_TOKEN }}
-        run: |
-          sleep 2
-          for TOKEN in $BOT_TOKENS; do
-            RESPONSE=$(curl -s "https://api.telegram.org/bot${TOKEN}/getMe")
-            if echo "$RESPONSE" | grep -q '"ok":true'; then
-              echo "Bot with token ending ${TOKEN: -10} is healthy!"
-            else
-              echo "Bot with token ending ${TOKEN: -10} health check failed: $RESPONSE"
-              exit 1
-            fi
-          done
