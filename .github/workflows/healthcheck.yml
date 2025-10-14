@@ -1,0 +1,26 @@
+name: Healthcheck
+
+on:
+  workflow_run:
+    workflows: ["Deploy"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Health check Telegram bots
+        env:
+          BOT_TOKENS: ${{ secrets.ABAR_TOKEN }} ${{ secrets.CALA_TOKEN }} ${{ secrets.MOS_TOKEN }} ${{ secrets.RPHJB_TOKEN }} ${{ secrets.XAH_TOKEN }} ${{ secrets.YTAI_TOKEN }}
+        run: |
+          for TOKEN in $BOT_TOKENS; do
+            RESPONSE=$(curl -s "https://api.telegram.org/bot${TOKEN}/getMe")
+            if echo "$RESPONSE" | grep -q '"ok":true'; then
+              echo "Bot with token ending ${TOKEN: -10} is healthy!"
+            else
+              echo "Bot with token ending ${TOKEN: -10} health check failed: $RESPONSE"
+              exit 1
+            fi
+          done
