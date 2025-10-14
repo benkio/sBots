@@ -11,6 +11,8 @@
         </encoder>
     </appender>
 
+    <logger name="org.flywaydb" level="WARN"/>
+
     <root level="INFO">
         <appender-ref ref="CONSOLE_${LOG_FORMAT:-JSON}"/>
     </root>
