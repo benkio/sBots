@@ -54,7 +54,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "TimeoutLogic Command should return a successful string and create a timeout in the db if the input is properly formatted".only
+    "TimeoutLogic Command should return a successful string and create a timeout in the db if the input is properly formatted"
   ) { fixture =>
     val wrongInput = "00:00:10"
     val result     = for {
