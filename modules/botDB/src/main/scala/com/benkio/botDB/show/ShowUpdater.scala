@@ -7,6 +7,7 @@ import cats.implicits.*
 import cats.Semigroup
 import com.benkio.botDB.config.Config
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import com.google.api.services.youtube.model.Video
@@ -84,7 +85,7 @@ object ShowUpdater {
             .getYouTubeVideos(youTubeBotIds.videoIds)
             .map(youTubeBotVideos =>
               YouTubeBotVideos(
-                botName = youTubeBotIds.botName,
+                botId = youTubeBotIds.botId,
                 outputFilePath = youTubeBotIds.outputFilePath,
                 captionLanguage = youTubeBotIds.captionLanguage,
                 videos = youTubeBotVideos
@@ -96,10 +97,10 @@ object ShowUpdater {
     def youTubeBotVideosToDbShowDatas(youTubeBotVideos: List[YouTubeBotVideos]): F[List[YouTubeBotDBShowDatas]] = {
       youTubeBotVideos.traverse(youTubeBotVideos =>
         youTubeBotVideos.videos
-          .traverse(videoToDBShowData(_, youTubeBotVideos.botName))
+          .traverse(videoToDBShowData(_, youTubeBotVideos.botId))
           .map((dBShowDatas: List[Option[DBShowData]]) =>
             YouTubeBotDBShowDatas(
-              botName = youTubeBotVideos.botName,
+              botId = youTubeBotVideos.botId,
               outputFilePath = youTubeBotVideos.outputFilePath,
               captionLanguage = youTubeBotVideos.captionLanguage,
               dbShowDatas = dBShowDatas.flatMap(_.toList)
@@ -132,7 +133,7 @@ object ShowUpdater {
         storedDbShowDatas <- getStoredDbShowDatas
         _                 <- storedDbShowDatas.traverse_(storedDbShowData =>
           LogWriter.info(
-            s"[ShowUpdater] ${storedDbShowData.botName} has ${storedDbShowData.dbShowDatas.length} stored in ${storedDbShowData.outputFilePath}"
+            s"[ShowUpdater] ${storedDbShowData.botId} has ${storedDbShowData.dbShowDatas.length} stored in ${storedDbShowData.outputFilePath}"
           )
         )
         youTubeBotIds = filterCandidateIds(candidateIds, storedDbShowDatas.flatMap(_.dbShowDatas.map(_.show_id)))
@@ -180,7 +181,11 @@ object ShowUpdater {
                 LogWriter.info(s"[ShowUpdater] Closing file $f")
               )
               .map(file =>
-                YouTubeBotFile(botName = showSource.botName, captionLanguage = showSource.captionLanguage, file = file)
+                YouTubeBotFile(
+                  botId = SBotId(showSource.botId),
+                  captionLanguage = showSource.captionLanguage,
+                  file = file
+                )
               )
           )
       val deleteFiles: F[List[YouTubeBotDBShowDatas]] =
@@ -196,10 +201,14 @@ object ShowUpdater {
             showFiles.traverse(showFile =>
               for {
                 _                   <- LogWriter.info(s"[ShowUpdater] Parse show file content: ${showFile.file}")
-                showFileContentJson <- Async[F].fromEither(parse(Source.fromFile(showFile.file).mkString))
-                dbShowDatas         <- Async[F].fromEither(showFileContentJson.as[List[DBShowData]])
+                showFileContentJson <- Async[F]
+                  .fromEither(parse(Source.fromFile(showFile.file).mkString))
+                  .onError(e => LogWriter.error(s"[ShowUpdater] Error Reading File $showFile: $e"))
+                dbShowDatas <- Async[F]
+                  .fromEither(showFileContentJson.as[List[DBShowData]])
+                  .onError(e => LogWriter.error(s"[ShowUpdater] Error Parsing file $showFile: $e"))
               } yield YouTubeBotDBShowDatas(
-                botName = showFile.botName,
+                botId = showFile.botId,
                 outputFilePath = showFile.file.toString,
                 captionLanguage = showFile.captionLanguage,
                 dbShowDatas = dbShowDatas.distinctBy(_.show_id)
@@ -211,7 +220,7 @@ object ShowUpdater {
       else getStoredDbShowDatas
     }
 
-    private[show] def videoToDBShowData(video: Video, botName: String): F[Option[DBShowData]] = {
+    private[show] def videoToDBShowData(video: Video, botId: SBotId): F[Option[DBShowData]] = {
       def durationISO8601ToSeconds(isoDuration: String): Int = {
         val duration = Duration.parse(isoDuration)
         duration.getSeconds.toInt
@@ -223,7 +232,7 @@ object ShowUpdater {
         duration   <- Option(video.getContentDetails().getDuration())
       } yield DBShowData(
         show_id = id,
-        bot_name = botName,
+        bot_id = botId.value,
         show_title = title,
         show_upload_date = uploadDate,
         show_duration = durationISO8601ToSeconds(duration),
@@ -232,7 +241,7 @@ object ShowUpdater {
         show_origin_automatic_caption = None // Added in a followup step. need yt-dlp
       )
       maybeDBShowData.fold(
-        LogWriter.error(s"[PlaygroundMain] ERROR: $botName Video conversion problem for $video") *> None.pure[F]
+        LogWriter.error(s"[PlaygroundMain] ERROR: $botId Video conversion problem for $video") *> None.pure[F]
       )(
         _.some.pure[F]
       )
@@ -281,7 +290,7 @@ object ShowUpdater {
               .partition(_.show_origin_automatic_caption.isEmpty)
 
           LogWriter.info(
-            s"[ShowUpdater] ${youTubeBotDBShowDatas.botName} Total No Caption ${youTubeBotDBShowDatasNoCaption.length}"
+            s"[ShowUpdater] ${youTubeBotDBShowDatas.botId} Total No Caption ${youTubeBotDBShowDatasNoCaption.length}"
           ) >>
             youTubeBotDBShowDatasNoCaption
               .parTraverse(dbShowData =>

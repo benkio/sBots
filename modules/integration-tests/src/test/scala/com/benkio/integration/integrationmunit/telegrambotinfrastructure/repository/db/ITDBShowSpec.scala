@@ -5,6 +5,7 @@ import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShow
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import doobie.munit.analysisspec.IOChecker
@@ -16,12 +17,12 @@ import java.sql.DriverManager
 
 class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  val botName = "TestBot"
+  val botId = SBotId("test")
 
   val testShowRaw: String =
     """{
       |    "show_id": "test",
-      |    "bot_name": "TestBot",
+      |    "bot_id": "test",
       |    "show_title": "Test Show Title",
       |    "show_upload_date": "2025-04-24T12:01:24.000Z",
       |    "show_duration": 10,
@@ -41,13 +42,14 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
   test(
     "DBShow queries should check"
   ) {
-    check(DBShow.getShowsQuery("TestBot"))
-    check(DBShow.getRandomShowQuery("TestBot"))
-    check(DBShow.getShowByShowQueryQuery(RandomQuery, "TestBot"))
+    val botId = SBotId("test")
+    check(DBShow.getShowsQuery(botId))
+    check(DBShow.getRandomShowQuery(botId))
+    check(DBShow.getShowByShowQueryQuery(RandomQuery, botId))
     check(
       DBShow.getShowByShowQueryQuery(
         ShowQuery("title=test+show&description=description&caption=caption&minDuration=1"),
-        "TestBot"
+        botId
       )
     )
   }
@@ -58,9 +60,9 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val resourceAssert = for {
       testShow           <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw)))
       dbShow             <- fixture.resourceDBLayer.map(_.dbShow)
-      testShows          <- Resource.eval(dbShow.getShows(botName))
+      testShows          <- Resource.eval(dbShow.getShows(botId))
       testShowsByKeyword <- Resource.eval(
-        dbShow.getShowByShowQuery(ShowQuery("title=test+show&title=title"), botName)
+        dbShow.getShowByShowQuery(ShowQuery("title=test+show&title=title"), botId)
       )
     } yield (testShows, testShowsByKeyword, testShow)
 
@@ -78,7 +80,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val testShowRaw2: String =
       """{
         |    "show_id": "https://www.youtube.com/watch?v=test2",
-        |    "bot_name": "TestBot",
+        |    "bot_id": "test",
         |    "show_title": "Test 2 Show Title",
         |    "show_upload_date": "2025-04-24T12:01:24.000Z",
         |    "show_duration": 10,
@@ -91,7 +93,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
       dbShow             <- fixture.resourceDBLayer.map(_.dbShow)
       _                  <- Resource.eval(dbShow.insertShow(testShow))
       testShowsByKeyword <- Resource.eval(
-        dbShow.getShowByShowQuery(ShowQuery("test 2"), botName)
+        dbShow.getShowByShowQuery(ShowQuery("test 2"), botId)
       )
       _ <- Resource.eval(dbShow.deleteShow(testShow))
     } yield (testShowsByKeyword, testShow)
@@ -107,10 +109,10 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val resourceAssert = for {
       dbShow     <- fixture.resourceDBLayer.map(_.dbShow)
       randomShow <- Resource.eval(
-        dbShow.getRandomShow(botName)
+        dbShow.getRandomShow(botId)
       )
     } yield {
-      assertEquals(randomShow.map(_.bot_name), Some(botName))
+      assertEquals(randomShow.map(_.bot_id), Some(botId.value))
     }
 
     resourceAssert.use_

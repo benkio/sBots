@@ -25,14 +25,14 @@ import scala.concurrent.duration.*
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4"))
-  val botName                            = RichardPHJBensonBot.botName
+  val botId                              = RichardPHJBensonBot.botId
 
   val cronScheduler = Cron4sScheduler.systemDefault[IO]
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
     chatId = ChatId(0L),
-    botName = botName,
+    botId = botId,
     cron = Cron.unsafeParse("* * * ? * *"),
     subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
   )
@@ -49,7 +49,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
     } yield assert(backgroundJobManager.getScheduledSubscriptions().isEmpty)
@@ -68,7 +68,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       _ <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(testSubscription.id.value))
@@ -104,11 +104,11 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
-      subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
+      subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
     } yield {
       assertEquals(backgroundJobManager.getScheduledSubscriptions().size, 1)
       assert(
@@ -142,7 +142,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       (mainStream, cancelSignal) <- Resource.eval(backgroundJobManager.runSubscription(testSubscription))
@@ -173,16 +173,16 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       _ <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       _ = println("[ITBackgroundJobManagerSpec] test subscription scheduled")
-      inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
+      inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
       _ = println("[ITBackgroundJobManagerSpec] test subscription fetched")
       _ <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))
       _ = println("[ITBackgroundJobManagerSpec] test subscription cancelled")
-      cancel_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
+      cancel_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
       _ = println("[ITBackgroundJobManagerSpec] test subscription re-fetched")
     } yield {
       assertEquals(backgroundJobManager.getScheduledSubscriptions().size, 0)
@@ -204,7 +204,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       (mainStream, _) <- Resource.eval(backgroundJobManager.runSubscription(testSubscription))

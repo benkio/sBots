@@ -5,6 +5,7 @@ import cats.implicits.*
 import com.benkio.botDB.mocks.YouTubeServiceMock
 import com.benkio.botDB.show.ShowUpdater.ShowUpdaterImpl
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import com.google.api.services.youtube.model.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -23,7 +24,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   // Input Data
-  val botName                = "testBot"
+  val botId: SBotId          = SBotId("testbot")
   val outputFilePath         = "./src/test/resources/testdata/testBotShow.json"
   val captionLanguage        = "it"
   val testCaption            = "Test Caption"
@@ -46,7 +47,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   val videos: List[Video] = List(video)
   val youTubeBotIds       = List(
     YouTubeBotIds(
-      botName = botName,
+      botId = botId,
       outputFilePath = outputFilePath,
       captionLanguage = captionLanguage,
       videoIds = videoIds
@@ -54,7 +55,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   )
   val expectedDBShowData = DBShowData(
     show_id = videoId,
-    bot_name = "testBot",
+    bot_id = "testbot",
     show_title = "videoTitle",
     show_upload_date = "2023-05-17T10:24:55.000Z",
     show_duration = 650,
@@ -66,7 +67,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   )
   val expectedYouTubeBotDBShowDatas = List(
     YouTubeBotDBShowDatas(
-      botName = botName,
+      botId = botId,
       outputFilePath = outputFilePath,
       captionLanguage = captionLanguage,
       dbShowDatas = List(expectedDBShowData)
@@ -74,13 +75,13 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   )
   val storedYouTubeBotDBShowDatas = List(
     YouTubeBotDBShowDatas(
-      botName = botName,
+      botId = botId,
       outputFilePath = outputFilePath,
       captionLanguage = captionLanguage,
       dbShowDatas = List(
         DBShowData(
           show_id = "ADACFpS1qJo",
-          bot_name = "ABarberoBot",
+          bot_id = "abar",
           show_title = "Chiedilo a Barbero - Trailer - Intesa Sanpaolo On Air",
           show_upload_date = "2023-05-17T10:24:55.000Z",
           show_duration = 69,
@@ -101,7 +102,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
 
   // Mocks
   val dbLayerMock = DBLayerMock.mock(
-    botName = botName
+    botId = botId
   )
   val youTubeServiceMock = YouTubeServiceMock(
     onGetAllBotNameIds = youTubeBotIds.pure[IO],
@@ -137,13 +138,13 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     val otherVideoId2: String = "yHLzy"
     val otherIds              = List(
       YouTubeBotIds(
-        botName = "testBot2",
+        botId = SBotId("testBot2"),
         outputFilePath = "i8EWm",
         captionLanguage = captionLanguage,
         videoIds = List(otherVideoId1)
       ),
       YouTubeBotIds(
-        botName = "testBot3",
+        botId = SBotId("testBot3"),
         outputFilePath = "cYVdV",
         captionLanguage = captionLanguage,
         videoIds = List(otherVideoId2)
@@ -157,18 +158,18 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   test("ShowUpdater.youTubeBotIdsToVideos should convert the expected video ids to videos") {
     assertIO(
       showUpdater.youTubeBotIdsToVideos(youTubeBotIds),
-      List(YouTubeBotVideos(botName, outputFilePath, captionLanguage, videos))
+      List(YouTubeBotVideos(botId, outputFilePath, captionLanguage, videos))
     )
   }
   test("ShowUpdater.videoToDBShowData should convert the input video without data to None if missing data") {
     assertIO(
-      showUpdater.videoToDBShowData(Video(), botName),
+      showUpdater.videoToDBShowData(Video(), botId),
       None
     )
   }
   test("ShowUpdater.videoToDBShowData should convert the input video with data to expected DBShowData") {
     assertIO(
-      showUpdater.videoToDBShowData(video, botName),
+      showUpdater.videoToDBShowData(video, botId),
       Some(
         value = expectedDBShowData
       )
@@ -177,7 +178,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   test("ShowUpdater.youTubeBotVideosToDbShowDatas should convert multiple youtube videos to expected DBShowData") {
     assertIO(
       showUpdater.youTubeBotVideosToDbShowDatas(
-        List(YouTubeBotVideos(botName, outputFilePath, captionLanguage, videos))
+        List(YouTubeBotVideos(botId, outputFilePath, captionLanguage, videos))
       ),
       expectedYouTubeBotDBShowDatas
     )
@@ -185,7 +186,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   test("ShowUpdater.insertDBShowDatas should insert the expected DBMediaData into the DB") {
     val input: List[YouTubeBotDBShowDatas] = List(
       YouTubeBotDBShowDatas(
-        botName = botName,
+        botId = botId,
         outputFilePath = outputFilePath,
         captionLanguage = captionLanguage,
         dbShowDatas = List(expectedDBShowData)
@@ -193,7 +194,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     )
     val expected: List[DBShowData] = List(expectedDBShowData)
     assertIO_(showUpdater.insertDBShowDatas(input)) >>
-      assertIO(dbLayerMock.dbShow.getShows(botName), expected)
+      assertIO(dbLayerMock.dbShow.getShows(botId), expected)
   }
   test("ShowUpdater.getStoredDbShowDatas should retrieve the ids from the show file") {
     assertIO(
@@ -224,7 +225,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   test("ShowUpdater.mergeShowDatas should successfully merge two db show data lists") {
     val secondDBShowData = DBShowData(
       show_id = "ADACFpS1qJo",
-      bot_name = "ABarberoBot",
+      bot_id = "abar",
       show_title = "mergeShowDatas test",
       show_upload_date = "2023-05-17T10:24:55.000Z",
       show_duration = 69,
@@ -234,7 +235,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     )
     val secondDBShowDatas = List(
       YouTubeBotDBShowDatas(
-        botName = botName,
+        botId = botId,
         outputFilePath = outputFilePath,
         captionLanguage = captionLanguage,
         dbShowDatas = List(secondDBShowData)

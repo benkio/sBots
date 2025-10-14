@@ -4,6 +4,8 @@ import cats.effect.Async
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
@@ -17,8 +19,8 @@ object CommandRepliesData {
   def values[F[_]: Async](
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
-      botName: String,
-      botPrefix: String
+      botName: SBotName,
+      botId: SBotId
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] =
@@ -26,18 +28,19 @@ object CommandRepliesData {
       dbShow = dbLayer.dbShow,
       dbSubscription = dbLayer.dbSubscription,
       backgroundJobManager = backgroundJobManager,
+      botId = botId,
       botName = botName
-    ) ++ customCommands(dbMedia = dbLayer.dbMedia, botPrefix = botPrefix)
+    ) ++ customCommands(dbMedia = dbLayer.dbMedia, botId = botId)
 
   def customCommands[F[_]: Async](
       dbMedia: DBMedia[F],
-      botPrefix: String
+      botId: SBotId
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] =
     List(
       RandomDataCommand.randomDataReplyBundleCommand[F](
-        botPrefix = botPrefix,
+        botId = botId,
         dbMedia = dbMedia
       )
     ) ++ xahCustomCommands.map { case (command, instruction) =>
@@ -45,7 +48,8 @@ object CommandRepliesData {
         dbMedia = dbMedia,
         commandName = command,
         kind = command.some,
-        instruction = instruction
+        instruction = instruction,
+        botId = botId
       )
     }
 

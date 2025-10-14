@@ -15,6 +15,7 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.xahleebot.XahLeeBot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
@@ -37,10 +38,10 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       repository                <- initialFixture.repositoryResource
       emptyBackgroundJobManager <- Resource.eval(
         BackgroundJobManager[IO](
-          dbLayer.dbSubscription,
-          dbLayer.dbShow,
-          repository,
-          ""
+          dbSubscription = dbLayer.dbSubscription,
+          dbShow = dbLayer.dbShow,
+          repository = repository,
+          botId = SBotId("")
         )
       )
       mediaFiles <- Resource.eval(

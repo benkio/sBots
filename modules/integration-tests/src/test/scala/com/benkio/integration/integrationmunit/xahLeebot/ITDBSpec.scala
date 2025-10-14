@@ -11,10 +11,13 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.xahleebot.CommandRepliesData
+import com.benkio.xahleebot.XahLeeBot
 import doobie.implicits.*
 import io.circe.parser.decode
 import munit.CatsEffectSuite
@@ -24,20 +27,25 @@ import scala.io.Source
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  val botName: String                       = "botname"
-  val botPrefix: String                     = "xah"
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botName)
+  val botName: SBotName                     = XahLeeBot.botName
+  val botId: SBotId                         = XahLeeBot.botId
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock = RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+  val repositoryMock = RepositoryMock(getResourceByKindHandler =
+    (_, inputBotId) =>
+      IO.raiseUnless(inputBotId == botId)(
+        Throwable(s"[ITDBSpec] getResourceByKindHandler received unexpected botId: $inputBotId")
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+  )
   val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(
     BackgroundJobManager(
       dbSubscription = emptyDBLayer.dbSubscription,
       dbShow = emptyDBLayer.dbShow,
       repository = repositoryMock,
-      botName = botName
+      botId = botId
     )
   )
 
@@ -53,8 +61,8 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       files           <- Resource.eval(
         CommandRepliesData
           .values[IO](
+            botId = botId,
             botName = botName,
-            botPrefix = botPrefix,
             dbLayer = resourceDBLayer,
             backgroundJobManager = bjm
           )
@@ -92,8 +100,8 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       mediaFiles      <- Resource.eval(
         CommandRepliesData
           .values[IO](
+            botId = botId,
             botName = botName,
-            botPrefix = botPrefix,
             dbLayer = resourceDBLayer,
             backgroundJobManager = bjm
           )

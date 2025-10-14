@@ -6,6 +6,7 @@ import cats.syntax.all.*
 import com.benkio.integration.DBFixture
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -19,34 +20,35 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId = "B674CCE0-9684-4D31-8CC7-9E2A41EA0878"
   val botName            = RichardPHJBensonBot.botName
+  val botId              = RichardPHJBensonBot.botId
   val chatIdValue        = 0L
 
   val testSubscriptions: List[DBSubscriptionData] = List(
     DBSubscriptionData(
       id = testSubscriptionId,
       chat_id = chatIdValue,
-      bot_name = botName,
+      bot_id = botId.value,
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
     ),
     DBSubscriptionData(
       id = "3c301111-ca9c-4909-8281-c9d171e9bf7d",
       chat_id = chatIdValue,
-      bot_name = "anotherBot",
+      bot_id = "anotherbot",
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
     ),
     DBSubscriptionData(
       id = "0be5a0f9-ce63-4a78-a972-5f40758f2275",
       chat_id = 1L,
-      bot_name = botName,
+      bot_id = botId.value,
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
     ),
     DBSubscriptionData(
       id = "94dc19a7-fde7-49eb-af02-1de51c44b8b1",
       chat_id = 1L,
-      bot_name = "anotherBot",
+      bot_id = "anotherbot",
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
     )
@@ -73,11 +75,16 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       subscriptionsFromCommandResult <- Resource.eval(
-        SubscribeUnsubscribeCommand.subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botName, msg)
+        SubscribeUnsubscribeCommand.subscriptionsCommandLogic(
+          dbSubscription = dbSubscription,
+          backgroundJobManager = backgroundJobManager,
+          botId = botId,
+          m = msg
+        )
       )
       _ <- Resource.eval(
         testSubscriptions.traverse(testSubscription =>

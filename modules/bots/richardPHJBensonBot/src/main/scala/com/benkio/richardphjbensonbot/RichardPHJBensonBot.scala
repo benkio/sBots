@@ -12,6 +12,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
@@ -40,9 +42,9 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
   override def repository: Repository[F] =
     repositoryInput
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botName)
+    FilteringTimeout.filter(dbLayer, botId)
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
@@ -57,15 +59,15 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
   override def repository: Repository[F] =
     repository
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botName)
+    FilteringTimeout.filter(dbLayer, botId)
 }
 
 trait RichardPHJBensonBot[F[_]: Async: LogWriter] extends SBot[F] {
 
-  override val botName: String                     = RichardPHJBensonBot.botName
-  override val botPrefix: String                   = RichardPHJBensonBot.botPrefix
+  override val botName: SBotName                   = RichardPHJBensonBot.botName
+  override val botId: SBotId                       = RichardPHJBensonBot.botId
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
   override val triggerFilename: String             = RichardPHJBensonBot.triggerFilename
   override val triggerListUri: Uri                 = RichardPHJBensonBot.triggerListUri
@@ -93,8 +95,8 @@ object RichardPHJBensonBot {
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
   import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData
 
-  val botName: String                     = "RichardPHJBensonBot"
-  val botPrefix: String                   = "rphjb"
+  val botName: SBotName                   = SBotName("RichardPHJBensonBot")
+  val botId: SBotId                       = SBotId("rphjb")
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "rphjb_triggers.txt"
   val triggerListUri: Uri                 =
@@ -122,10 +124,10 @@ object RichardPHJBensonBot {
   ): List[ReplyBundleCommand[F]] =
     CommandPatternsGroup.TriggerGroup.group[F](
       triggerFileUri = triggerListUri,
+      botId = botId,
       botName = botName,
       ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
       messageRepliesData = messageRepliesData[F],
-      botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia,
       dbTimeout = dbLayer.dbTimeout
     ) ++
@@ -133,11 +135,12 @@ object RichardPHJBensonBot {
         dbShow = dbLayer.dbShow,
         dbSubscription = dbLayer.dbSubscription,
         backgroundJobManager = backgroundJobManager,
+        botId = botId,
         botName = botName
       ) ++
       List(
         RandomDataCommand.randomDataReplyBundleCommand[F](
-          botPrefix = botPrefix,
+          botId = botId,
           dbMedia = dbLayer.dbMedia
         ),
         ReplyBundleCommand(
@@ -145,11 +148,11 @@ object RichardPHJBensonBot {
           reply = TextReplyM[F](
             msg =>
               handleCommandWithInput[F](
-                msg,
-                "bensonify",
-                botName,
-                t => List(Bensonify.compute(t)).pure[F],
-                "E PARLAAAAAAA!!!!"
+                msg = msg,
+                command = "bensonify",
+                botName = botName,
+                computation = t => List(Bensonify.compute(t)).pure[F],
+                defaultReply = "E PARLAAAAAAA!!!!"
               ),
             true
           ),
@@ -169,7 +172,7 @@ object RichardPHJBensonBot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        botName = botName
+        botId = botId
       )
     } yield new RichardPHJBensonBotPolling[F](
       repositoryInput = botSetup.repository,
@@ -186,7 +189,7 @@ object RichardPHJBensonBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName,
+      botId = botId,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new RichardPHJBensonBotWebhook[F](

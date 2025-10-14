@@ -19,20 +19,20 @@ object SubscriptionId:
 final case class Subscription(
     id: SubscriptionId,
     chatId: ChatId,
-    botName: String,
+    botId: SBotId,
     cron: CronExpr,
     subscribedAt: Instant
 )
 
 object Subscription {
-  def apply[F[_]: ApplicativeThrow](chatId: Long, botName: String, inputCron: String): F[Subscription] =
+  def apply[F[_]: ApplicativeThrow](chatId: Long, botId: SBotId, inputCron: String): F[Subscription] =
     ApplicativeThrow[F]
       .fromEither(Cron(inputCron))
       .map(cronExpr =>
         Subscription(
           id = SubscriptionId(UUID.randomUUID),
           chatId = ChatId(chatId),
-          botName = botName,
+          botId = botId,
           cron = cronExpr,
           subscribedAt = Instant.now()
         )
@@ -45,7 +45,7 @@ object Subscription {
   } yield Subscription(
     id = SubscriptionId(id),
     chatId = ChatId(dbSubscriptionData.chat_id.toLong),
-    botName = dbSubscriptionData.bot_name,
+    botId = SBotId(dbSubscriptionData.bot_id),
     cron = cronExpr,
     subscribedAt = subscribedAt
   )).toEither

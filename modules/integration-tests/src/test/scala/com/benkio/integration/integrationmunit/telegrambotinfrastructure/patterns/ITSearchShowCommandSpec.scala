@@ -3,24 +3,25 @@ package com.benkio.integration.integrationmunit.telegrambotinfrastructure.patter
 import cats.effect.IO
 import cats.implicits.*
 import com.benkio.integration.DBFixture
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBShow
 import munit.CatsEffectSuite
 
 class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
 
-  def testBot(botName: String, dbShow: DBShow[IO], input: String, optExpected: Option[String] = None): IO[Boolean] =
+  def testBot(botId: SBotId, dbShow: DBShow[IO], input: String, optExpected: Option[String] = None): IO[Boolean] =
     SearchShowCommand
       .selectLinkByKeyword[IO](
         keywords = input,
         dbShow = dbShow,
-        botName = botName
+        botId = botId
       )
       .map(result => {
         val check = optExpected.fold(
           result != "Nessuna puntata/show contenente '' è stata trovata"
         )(e => result == e)
-        if !check then println(s"ERROR: $botName - $input - $optExpected - $result")
+        if !check then println(s"ERROR: $botId - $input - $optExpected - $result")
         check
       })
 
@@ -29,8 +30,8 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check  <- List("ABarberoBot", "YouTuboAncheI0Bot", "RichardPHJBensonBot", "XahLeeBot")
-        .traverse(bot => testBot(bot, dbShow, ""))
+      check  <- List("abar", "ytai", "rphjb", "xah")
+        .traverse(botId => testBot(SBotId(botId), dbShow, ""))
     } yield check.foldLeft(true)(_ && _)
 
     result.assert
@@ -43,7 +44,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByTitle
         .traverse(testInput =>
-          testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -57,7 +58,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByDescription
         .traverse(testInput =>
-          testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -71,7 +72,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByCaption
         .traverse(testInput =>
-          testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -85,7 +86,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByMinDuration
         .traverse(testInput =>
-          testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -99,7 +100,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByMaxDuration
         .traverse(testInput =>
-          testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -113,7 +114,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByMinDate
         .traverse(testInput =>
-          testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -127,7 +128,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByMaxDate
         .traverse(testInput =>
-          testBot(testInput.botName, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -137,7 +138,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
 
 object ITSearchShowCommandSpec {
 
-  final case class TestInput(botName: String, randomLinkInput: String, expectedOutput: String)
+  final case class TestInput(botId: SBotId, randomLinkInput: String, expectedOutput: String)
 
   val expectedTestShowOutput: String = """2025-04-24 - https://www.youtube.com/watch?v=test
                                          | Test Show Title
@@ -146,7 +147,7 @@ object ITSearchShowCommandSpec {
 
   val showByTitle: List[TestInput] = List(
     TestInput(
-      botName = "TestBot",
+      botId = SBotId("test"),
       randomLinkInput = "test show title",
       expectedOutput = expectedTestShowOutput
     )
@@ -154,7 +155,7 @@ object ITSearchShowCommandSpec {
 
   val showByDescription: List[TestInput] = List(
     TestInput(
-      botName = "TestBot",
+      botId = SBotId("test"),
       randomLinkInput = "description=test+show",
       expectedOutput = expectedTestShowOutput
     )
@@ -162,7 +163,7 @@ object ITSearchShowCommandSpec {
 
   val showByCaption: List[TestInput] = List(
     TestInput(
-      botName = "TestBot",
+      botId = SBotId("test"),
       randomLinkInput = "caption=posuere+tellus",
       expectedOutput = expectedTestShowOutput
     )
@@ -170,7 +171,7 @@ object ITSearchShowCommandSpec {
 
   val showByMinDuration: List[TestInput] = List(
     TestInput(
-      botName = "TestBot",
+      botId = SBotId("test"),
       randomLinkInput = "minduration=0",
       expectedOutput = expectedTestShowOutput
     )
@@ -178,7 +179,7 @@ object ITSearchShowCommandSpec {
 
   val showByMaxDuration: List[TestInput] = List(
     TestInput(
-      botName = "TestBot",
+      botId = SBotId("test"),
       randomLinkInput = "maxduration=50",
       expectedOutput = expectedTestShowOutput
     )
@@ -186,7 +187,7 @@ object ITSearchShowCommandSpec {
 
   val showByMinDate: List[TestInput] = List(
     TestInput(
-      botName = "TestBot",
+      botId = SBotId("test"),
       randomLinkInput = "mindate=20241212",
       expectedOutput = expectedTestShowOutput
     )
@@ -194,7 +195,7 @@ object ITSearchShowCommandSpec {
 
   val showByMaxDate: List[TestInput] = List(
     TestInput(
-      botName = "TestBot",
+      botId = SBotId("test"),
       randomLinkInput = "maxdate=20250430",
       expectedOutput = expectedTestShowOutput
     )

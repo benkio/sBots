@@ -6,6 +6,7 @@ import cats.syntax.all.*
 import com.benkio.integration.DBFixture
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import munit.CatsEffectSuite
 
@@ -17,12 +18,12 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
       dbMedia = dbLayer.dbMedia
-      botName = "testBot"
+      botName = SBotName("testBot")
       resultTextReply <- Resource.pure(
         InstructionsCommand.instructionCommandLogic[IO](
-          botName,
-          Some("!"),
-          M0sconiBot.commandRepliesData[IO](DBLayerMock.mock(M0sconiBot.botName))
+          botName = botName,
+          ignoreMessagePrefix = Some("!"),
+          commands = M0sconiBot.commandRepliesData[IO](DBLayerMock.mock(M0sconiBot.botId))
         )
       )
       _ <- Resource.eval(
@@ -30,7 +31,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
           .flatTraverse(resultTextReply(_))
           .map(_.foreach { text =>
             assert(
-              text.contains(botName),
+              text.contains(botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: $text"
             )
             assert(
@@ -44,7 +45,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
           .flatTraverse(resultTextReply(_))
           .map(_.foreach { text =>
             assert(
-              text.contains(botName),
+              text.contains(botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: $text"
             )
             assert(

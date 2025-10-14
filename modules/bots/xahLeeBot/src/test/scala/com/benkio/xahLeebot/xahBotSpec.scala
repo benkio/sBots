@@ -37,19 +37,25 @@ class XahLeeBotSpec extends BaseBotSpec {
       val _ = summon[Api[F]]
       Async[F].pure(List.empty[Message])
   }
+  val botId = XahLeeBot.botId
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(XahLeeBot.botName)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+  val repositoryMock = new RepositoryMock(getResourceByKindHandler =
+    (_, inputBotId) =>
+      IO.raiseUnless(inputBotId == botId)(
+        Throwable(s"[M0sconiBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+  )
 
   val xahLeeBot = BackgroundJobManager[IO](
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     repository = repositoryMock,
-    botName = "XahLeeBot"
+    botId = botId
   ).map(bjm =>
     new XahLeeBotPolling[IO](
       repositoryInput = repositoryMock,

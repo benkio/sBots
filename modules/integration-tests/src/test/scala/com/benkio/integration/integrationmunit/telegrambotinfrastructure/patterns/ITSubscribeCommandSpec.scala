@@ -23,6 +23,7 @@ import java.util.UUID
 class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
+  val botId                              = RichardPHJBensonBot.botId
   val botName                            = RichardPHJBensonBot.botName
   val chatIdValue                        = 0L
   val chatId                             = ChatId(chatIdValue)
@@ -30,7 +31,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
     chatId = chatId,
-    botName = botName,
+    botId = botId,
     cron = Cron.unsafeParse("* * * ? * *"),
     subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
   )
@@ -52,19 +53,19 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           dbSubscription = dbLayer.dbSubscription,
           dbShow = dbLayer.dbShow,
           repository = repository,
-          botName = botName
+          botId = botId
         )
       )
       reply <- Resource.eval(
         SubscribeUnsubscribeCommand
           .subscribeCommandLogic[IO](
-            testSubscription.cron.toString,
-            backgroundJobManager,
-            msg,
-            botName
+            cronInput = testSubscription.cron.toString,
+            backgroundJobManager = backgroundJobManager,
+            m = msg,
+            botId = botId
           )
       )
-      subscriptionDatas <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botName))
+      subscriptionDatas <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
       subscriptions     <- Resource.eval(
         subscriptionDatas.traverse(subscriptionData => IO.fromEither(Subscription(subscriptionData)))
       )

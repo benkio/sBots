@@ -38,19 +38,24 @@ class ABarberoBotSpec extends BaseBotSpec {
       Async[F].pure(List.empty[Message])
   }
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.botName)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+  val repositoryMock = new RepositoryMock(
+    getResourceByKindHandler = (_, botId) =>
+      IO.raiseUnless(botId == ABarberoBot.botId)(
+        Throwable(s"[ABarberoBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+  )
 
   val aBarberoBot =
     BackgroundJobManager[IO](
-      emptyDBLayer.dbSubscription,
-      emptyDBLayer.dbShow,
-      repositoryMock,
-      ABarberoBot.botName
+      dbSubscription = emptyDBLayer.dbSubscription,
+      dbShow = emptyDBLayer.dbShow,
+      repository = repositoryMock,
+      botId = ABarberoBot.botId
     ).map(bjm =>
       new ABarberoBotPolling[IO](
         repositoryInput = repositoryMock,

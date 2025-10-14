@@ -33,7 +33,7 @@ It has specific modes: *SBotPolling* & *SBotWebhook*. (Mainly because of the [[h
 
 There are different logic based on the type of message:
 - Commands :: Messages that starts with `/`
-- FileRequest :: Messages that starts with the bot prefix
+- FileRequest :: Messages that starts with the bot id
 - Message :: normal logic
 
 **** Command Logic
@@ -58,7 +58,7 @@ The logic for the message is more complex as it needs several checks:
 **** FileRequest Logic
 
 The logic for the file request is pretty simple:
-1. Check the start of the message, if it matches the bot prefix then try to use that as a key for finding the data in the database
+1. Check the start of the message, if it matches the bot id then try to use that as a key for finding the data in the database
 2. If something is found, fetch the actual content on the web using the link
 3. Return the data
 

@@ -5,6 +5,7 @@ import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import io.circe.*
 import io.circe.generic.semiauto.*
 import io.circe.Encoder.encodeString
@@ -15,7 +16,9 @@ final case class MediaFileSource(
     kinds: List[String],
     mime: MimeType,
     sources: List[Either[String, Uri]]
-)
+) {
+  val botId: SBotId = SBotId(filename.takeWhile(_ != '_'))
+}
 
 object MediaFileSource {
 
@@ -25,6 +28,11 @@ object MediaFileSource {
       filename <- MonadThrow[F].fromOption(
         uri.path.segments.lastOption.map(_.decoded()),
         Throwable(s"[MediafileSource] fromUriString cannot find a filename from this uri $uri")
+      )
+      _ <- MonadThrow[F].raiseUnless(filename.contains('_'))(
+        Throwable(
+          s"[MediafileSource] fromUriString filename does not contains '_' separator between botId and actual name: $filename"
+        )
       )
     yield MediaFileSource(
       filename = filename,

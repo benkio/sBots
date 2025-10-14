@@ -9,6 +9,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.pho
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
@@ -43,9 +45,9 @@ class YouTuboAncheI0BotPolling[F[_]: Parallel: Async: Api: LogWriter](
   override def repository: Repository[F] =
     repositoryInput
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botName)
+    FilteringTimeout.filter(dbLayer, botId)
 }
 
 class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
@@ -60,15 +62,15 @@ class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
   override def repository: Repository[F] =
     repositoryInput
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botName = botName)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botName)
+    FilteringTimeout.filter(dbLayer, botId)
 }
 
 trait YouTuboAncheI0Bot[F[_]: Async: LogWriter] extends SBot[F] {
 
-  override val botName: String                     = YouTuboAncheI0Bot.botName
-  override val botPrefix: String                   = YouTuboAncheI0Bot.botPrefix
+  override val botName: SBotName                   = YouTuboAncheI0Bot.botName
+  override val botId: SBotId                       = YouTuboAncheI0Bot.botId
   override val ignoreMessagePrefix: Option[String] = YouTuboAncheI0Bot.ignoreMessagePrefix
   override val triggerListUri: Uri                 = YouTuboAncheI0Bot.triggerListUri
   override val triggerFilename: String             = YouTuboAncheI0Bot.triggerFilename
@@ -89,8 +91,8 @@ trait YouTuboAncheI0Bot[F[_]: Async: LogWriter] extends SBot[F] {
 object YouTuboAncheI0Bot {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
-  val botName: String                     = "YouTuboAncheI0Bot"
-  val botPrefix: String                   = "ytai"
+  val botName: SBotName                   = SBotName("YouTuboAncheI0Bot")
+  val botId: SBotId                       = SBotId("ytai")
   val triggerListUri: Uri                 =
     uri"https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   val triggerFilename: String = "ytai_triggers.txt"
@@ -173,10 +175,10 @@ object YouTuboAncheI0Bot {
   ): List[ReplyBundleCommand[F]] =
     CommandPatternsGroup.TriggerGroup.group[F](
       triggerFileUri = triggerListUri,
+      botId = botId,
       botName = botName,
       ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
       messageRepliesData = messageRepliesData[F],
-      botPrefix = botPrefix,
       dbMedia = dbLayer.dbMedia,
       dbTimeout = dbLayer.dbTimeout
     ) ++
@@ -184,11 +186,12 @@ object YouTuboAncheI0Bot {
         dbShow = dbLayer.dbShow,
         dbSubscription = dbLayer.dbSubscription,
         backgroundJobManager = backgroundJobManager,
+        botId = botId,
         botName = botName
       ) ++
       List(
         RandomDataCommand.randomDataReplyBundleCommand[F](
-          botPrefix = botPrefix,
+          botId = botId,
           dbMedia = dbLayer.dbMedia
         )
       )
@@ -202,7 +205,7 @@ object YouTuboAncheI0Bot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        botName = botName
+        botId = botId
       )
     } yield new YouTuboAncheI0BotPolling[F](
       repositoryInput = botSetup.repository,
@@ -219,7 +222,7 @@ object YouTuboAncheI0Bot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botName = botName,
+      botId = botId,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new YouTuboAncheI0BotWebhook[F](

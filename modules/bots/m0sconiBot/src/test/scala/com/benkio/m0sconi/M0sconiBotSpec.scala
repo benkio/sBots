@@ -40,20 +40,26 @@ class M0sconiBotSpec extends BaseBotSpec {
       val _ = summon[Api[F]]
       Async[F].pure(List.empty[Message])
   }
+  val botId = M0sconiBot.botId
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(M0sconiBot.botName)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock = new RepositoryMock(_ => NonEmptyList.one(NonEmptyList.one(mediaResource)).pure[IO])
+  val repositoryMock = new RepositoryMock(
+    getResourceByKindHandler = (_, inputBotId) =>
+      IO.raiseUnless(inputBotId == botId)(
+        Throwable(s"[M0sconiBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+  )
 
   val m0sconiBot =
     BackgroundJobManager[IO](
-      emptyDBLayer.dbSubscription,
-      emptyDBLayer.dbShow,
-      repositoryMock,
-      M0sconiBot.botName
+      dbSubscription = emptyDBLayer.dbSubscription,
+      dbShow = emptyDBLayer.dbShow,
+      repository = repositoryMock,
+      botId = botId
     ).map(bjm =>
       new M0sconiBotPolling[IO](
         repositoryInput = repositoryMock,

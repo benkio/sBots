@@ -1,6 +1,8 @@
 package com.benkio.botDB.show
 
-final case class ShowSource(youTubeSources: List[YouTubeSource], botName: String, outputFilePath: String)
+import com.benkio.telegrambotinfrastructure.model.SBotId
+
+final case class ShowSource(youTubeSources: List[YouTubeSource], botId: SBotId, outputFilePath: String)
 
 enum YouTubeSource:
   case Playlist(id: String)    extends YouTubeSource

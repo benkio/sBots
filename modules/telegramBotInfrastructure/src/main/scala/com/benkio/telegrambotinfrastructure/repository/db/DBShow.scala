@@ -6,6 +6,7 @@ import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.Show
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import doobie.*
 import doobie.implicits.*
 import io.circe.*
@@ -16,7 +17,7 @@ import java.time.format.DateTimeFormatter
 
 final case class DBShowData(
     show_id: String,
-    bot_name: String,
+    bot_id: String,
     show_title: String,
     show_upload_date: String,
     show_duration: Int,
@@ -33,7 +34,7 @@ object DBShowData {
 
   def apply(show: Show): DBShowData = DBShowData(
     show_id = show.id,
-    bot_name = show.botName,
+    bot_id = show.botId.value,
     show_title = show.title,
     show_upload_date = show.uploadDate.format(dateTimeFormatter),
     show_duration = show.duration,
@@ -44,9 +45,9 @@ object DBShowData {
 }
 
 trait DBShow[F[_]] {
-  def getShows(botName: String): F[List[DBShowData]]
-  def getRandomShow(botName: String): F[Option[DBShowData]]
-  def getShowByShowQuery(query: ShowQuery, botName: String): F[List[DBShowData]]
+  def getShows(botId: SBotId): F[List[DBShowData]]
+  def getRandomShow(botId: SBotId): F[Option[DBShowData]]
+  def getShowByShowQuery(query: ShowQuery, botId: SBotId): F[List[DBShowData]]
   def insertShow(dbShowData: DBShowData): F[Unit]
   def deleteShow(dbShowData: DBShowData): F[Unit]
 }
@@ -66,19 +67,19 @@ object DBShow {
       log: LogWriter[F]
   ) extends DBShow[F] {
 
-    override def getShows(botName: String): F[List[DBShowData]] =
-      DBShow.getShowsQuery(botName).stream.compile.toList.transact(transactor) <* log.debug(
-        s"[DBShow] Get shows by bot name: $botName, sql: ${DBShow.getShowsQuery(botName).sql}"
+    override def getShows(botId: SBotId): F[List[DBShowData]] =
+      DBShow.getShowsQuery(botId).stream.compile.toList.transact(transactor) <* log.debug(
+        s"[DBShow] Get shows by bot name: $botId, sql: ${DBShow.getShowsQuery(botId).sql}"
       )
 
-    override def getRandomShow(botName: String): F[Option[DBShowData]] =
-      DBShow.getRandomShowQuery(botName).option.transact(transactor) <* log.debug(
-        s"[DBShow] Get random show by bot name: $botName, sql: ${DBShow.getRandomShowQuery(botName).sql}"
+    override def getRandomShow(botId: SBotId): F[Option[DBShowData]] =
+      DBShow.getRandomShowQuery(botId).option.transact(transactor) <* log.debug(
+        s"[DBShow] Get random show by bot name: $botId, sql: ${DBShow.getRandomShowQuery(botId).sql}"
       )
 
-    override def getShowByShowQuery(query: ShowQuery, botName: String): F[List[DBShowData]] =
-      DBShow.getShowByShowQueryQuery(query, botName).stream.compile.toList.transact(transactor) <* log.debug(
-        s"[DBShow] Get shows by bot name: $botName and keyword: $query, sql: ${DBShow.getShowByShowQueryQuery(query, botName).sql}"
+    override def getShowByShowQuery(query: ShowQuery, botId: SBotId): F[List[DBShowData]] =
+      DBShow.getShowByShowQueryQuery(query, botId).stream.compile.toList.transact(transactor) <* log.debug(
+        s"[DBShow] Get shows by bot name: $botId and keyword: $query, sql: ${DBShow.getShowByShowQueryQuery(query, botId).sql}"
       )
 
     override def insertShow(dbShowData: DBShowData): F[Unit] =
@@ -126,30 +127,30 @@ object DBShow {
         maxDate.toList.map(maxd => fr"show_upload_date < ${maxd.atStartOfDay().format(DBShowData.dateTimeFormatter)}")
   }
 
-  def getShowsQuery(botName: String): Query0[DBShowData] =
-    sql"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_name = $botName"
+  def getShowsQuery(botId: SBotId): Query0[DBShowData] =
+    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_id = ${botId.value}"
       .query[DBShowData]
 
-  def getRandomShowQuery(botName: String): Query0[DBShowData] =
-    sql"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_name = $botName ORDER BY RANDOM() LIMIT 1"
+  def getRandomShowQuery(botId: SBotId): Query0[DBShowData] =
+    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_id = ${botId.value} ORDER BY RANDOM() LIMIT 1"
       .query[DBShowData]
 
-  def getShowByShowQueryQuery(query: ShowQuery, botName: String): Query0[DBShowData] = {
+  def getShowByShowQueryQuery(query: ShowQuery, botId: SBotId): Query0[DBShowData] = {
     val q =
-      fr"SELECT show_id, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++
+      fr"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++
         Fragments.whereAnd(
-          fr"bot_name = $botName",
+          fr"bot_id = ${botId.value}",
           showQueryToFragments(query)*
         )
 
     q.query[DBShowData]
   }
   def insertShowQuery(dbShowData: DBShowData): Update0 =
-    sql"INSERT INTO show (show_id, bot_name, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption) VALUES (${dbShowData.show_id}, ${dbShowData.bot_name}, ${dbShowData.show_title}, ${dbShowData.show_upload_date}, ${dbShowData.show_duration}, ${dbShowData.show_description}, ${dbShowData.show_is_live}, ${dbShowData.show_origin_automatic_caption})".update
+    sql"INSERT INTO show (show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption) VALUES (${dbShowData.show_id}, ${dbShowData.bot_id}, ${dbShowData.show_title}, ${dbShowData.show_upload_date}, ${dbShowData.show_duration}, ${dbShowData.show_description}, ${dbShowData.show_is_live}, ${dbShowData.show_origin_automatic_caption})".update
 
   def deleteShowQuery(dbShowData: DBShowData): Update0 =
     sql"DELETE FROM show WHERE show_id = ${dbShowData.show_id}".update
 
   def updateOnConflictSql(dbShowData: DBShowData): Update0 =
-    sql"UPDATE show SET bot_name = ${dbShowData.bot_name}, show_title = ${dbShowData.show_title}, show_upload_date = ${dbShowData.show_upload_date}, show_duration = ${dbShowData.show_duration}, show_description = ${dbShowData.show_description}, show_is_live = ${dbShowData.show_is_live}, show_origin_automatic_caption = ${dbShowData.show_origin_automatic_caption} WHERE show_id = ${dbShowData.show_id};".update
+    sql"UPDATE show SET bot_id = ${dbShowData.bot_id}, show_title = ${dbShowData.show_title}, show_upload_date = ${dbShowData.show_upload_date}, show_duration = ${dbShowData.show_duration}, show_description = ${dbShowData.show_description}, show_is_live = ${dbShowData.show_is_live}, show_origin_automatic_caption = ${dbShowData.show_origin_automatic_caption} WHERE show_id = ${dbShowData.show_id};".update
 }

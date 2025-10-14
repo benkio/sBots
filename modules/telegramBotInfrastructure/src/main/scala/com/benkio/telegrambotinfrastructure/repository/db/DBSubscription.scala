@@ -2,6 +2,7 @@ package com.benkio.telegrambotinfrastructure.repository.db
 
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import doobie.*
 import doobie.implicits.*
@@ -13,7 +14,7 @@ import java.util.UUID
 final case class DBSubscriptionData(
     id: String,
     chat_id: Long,
-    bot_name: String,
+    bot_id: String,
     cron: String,
     subscribed_at: String
 )
@@ -23,14 +24,14 @@ object DBSubscriptionData {
     DBSubscriptionData(
       id = subscription.id.value.toString,
       chat_id = subscription.chatId.value,
-      bot_name = subscription.botName,
+      bot_id = subscription.botId.value,
       cron = subscription.cron.toString,
       subscribed_at = subscription.subscribedAt.getEpochSecond.toString
     )
 }
 
 trait DBSubscription[F[_]] {
-  def getSubscriptions(botName: String, chatId: Option[Long] = None): F[List[DBSubscriptionData]]
+  def getSubscriptions(botId: SBotId, chatId: Option[Long] = None): F[List[DBSubscriptionData]]
   def getSubscription(id: String): F[Option[DBSubscriptionData]]
   def getRandomSubscription(): F[Option[DBSubscriptionData]]
   def insertSubscription(subscription: DBSubscriptionData): F[Unit]
@@ -76,8 +77,8 @@ object DBSubscription {
         s"delete subscriptions for chat id $chatId"
       )
 
-    override def getSubscriptions(botName: String, chatId: Option[Long]): F[List[DBSubscriptionData]] =
-      getSubscriptionsQuery(botName, chatId).stream.compile.toList.transact(transactor) <* log.debug(
+    override def getSubscriptions(botId: SBotId, chatId: Option[Long]): F[List[DBSubscriptionData]] =
+      getSubscriptionsQuery(botId, chatId).stream.compile.toList.transact(transactor) <* log.debug(
         "Get subscriptions"
       )
 
@@ -90,22 +91,22 @@ object DBSubscription {
   }
 
   def getSubscriptionQuery(id: String): Query0[DBSubscriptionData] =
-    sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
+    sql"SELECT subscription_id, chat_id, bot_id, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
       .query[DBSubscriptionData]
 
   def getRandomSubscriptionQuery(): Query0[DBSubscriptionData] =
-    sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
+    sql"SELECT subscription_id, chat_id, bot_id, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
       .query[DBSubscriptionData]
 
-  def getSubscriptionsQuery(botName: String, chatId: Option[Long] = None): Query0[DBSubscriptionData] =
-    (sql"SELECT subscription_id, chat_id, bot_name, cron, subscribed_at FROM subscription " ++ Fragments.whereAndOpt(
-      fr"bot_name = $botName".some,
+  def getSubscriptionsQuery(botId: SBotId, chatId: Option[Long] = None): Query0[DBSubscriptionData] =
+    (sql"SELECT subscription_id, chat_id, bot_id, cron, subscribed_at FROM subscription " ++ Fragments.whereAndOpt(
+      fr"bot_id = ${botId.value}".some,
       chatId.map(cid => fr"chat_id = $cid")
     ))
       .query[DBSubscriptionData]
 
   def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
-    sql"INSERT INTO subscription (subscription_id, chat_id, bot_name, cron, subscribed_at) VALUES ${fragments
+    sql"INSERT INTO subscription (subscription_id, chat_id, bot_id, cron, subscribed_at) VALUES ${fragments
         .parentheses(fragments.values(subscription))}".update
 
   def deleteSubscriptionQuery(subscriptionId: String): Update0 =

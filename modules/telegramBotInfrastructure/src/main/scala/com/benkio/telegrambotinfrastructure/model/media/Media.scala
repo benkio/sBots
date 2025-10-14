@@ -4,6 +4,7 @@ import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import io.circe.parser.decode
 import org.http4s.Uri
@@ -13,6 +14,7 @@ import scala.util.Try
 
 final case class Media(
     mediaName: String,
+    botId: SBotId,
     kinds: List[String],
     mimeType: MimeType,
     mediaSources: List[Either[String, Uri]],
@@ -26,6 +28,7 @@ object Media {
     createdAt <- Try(Instant.ofEpochSecond(dbMediaData.created_at.toLong)).toEither
   } yield Media(
     mediaName = dbMediaData.media_name,
+    botId = SBotId(dbMediaData.bot_id),
     kinds = decode[List[String]](dbMediaData.kinds)
       .handleErrorWith(_ => decode[String](dbMediaData.kinds).flatMap(decode[List[String]]))
       .getOrElse(List.empty),

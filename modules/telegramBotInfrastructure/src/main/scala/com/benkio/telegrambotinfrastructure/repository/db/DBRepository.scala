@@ -10,6 +10,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.repository.Repository
@@ -22,7 +23,8 @@ object DBRepository:
     new Repository[F] {
 
       override def getResourcesByKind(
-          criteria: String
+          criteria: String,
+          botId: SBotId
       ): Resource[F, Either[RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]] =
         for {
           _ <- Resource.eval(
@@ -30,9 +32,11 @@ object DBRepository:
           )
           eitherMedias: Either[RepositoryError, NonEmptyList[DBMediaData]] <- Resource.eval(
             dbMedia
-              .getMediaByKind(criteria)
+              .getMediaByKind(kind = criteria, botId = botId)
               .map(medias =>
-                NonEmptyList.fromList(medias).fold(Left(RepositoryError.NoResourcesFoundKind(criteria)))(Right(_))
+                NonEmptyList
+                  .fromList(medias)
+                  .fold(Left(RepositoryError.NoResourcesFoundKind(criteria, botId)))(Right(_))
               )
           )
           eitherMediaResources <-

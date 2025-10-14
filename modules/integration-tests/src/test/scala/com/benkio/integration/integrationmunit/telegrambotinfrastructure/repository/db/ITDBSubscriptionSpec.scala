@@ -3,6 +3,7 @@ package com.benkio.integration.integrationmunit.telegrambotinfrastructure.reposi
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscription
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import doobie.munit.analysisspec.IOChecker
@@ -14,13 +15,13 @@ import java.util.UUID
 
 class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  val botName                    = "botname"
+  val botId                      = SBotId("botid")
   val testSubscriptionId: String = "83beabe1-cad9-4845-a838-65bbed34bc46"
 
   val testSubscription: DBSubscriptionData = DBSubscriptionData(
     id = testSubscriptionId,
     chat_id = 2L,
-    bot_name = botName,
+    bot_id = botId.value,
     cron = "0 0 0 12 4 *",
     subscribed_at = "2022-11-06T19:54:46Z"
   )
@@ -36,7 +37,7 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
   test(
     "DBSubscription queries should check".ignore
   ) {
-    check(DBSubscription.getSubscriptionsQuery(botName))
+    check(DBSubscription.getSubscriptionsQuery(botId))
     check(DBSubscription.insertSubscriptionQuery(testSubscription))
     check(DBSubscription.deleteSubscriptionQuery(testSubscriptionId))
     check(DBSubscription.getSubscriptionQuery(testSubscriptionId))
@@ -50,9 +51,9 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     val resourceAssert = for {
       dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
       _              <- Resource.eval(dbSubscription.insertSubscription(testSubscription))
-      subscriptions1 <- Resource.eval(dbSubscription.getSubscriptions(botName))
+      subscriptions1 <- Resource.eval(dbSubscription.getSubscriptions(botId))
       _              <- Resource.eval(dbSubscription.deleteSubscription(UUID.fromString(testSubscription.id)))
-      subscriptions2 <- Resource.eval(dbSubscription.getSubscriptions(botName))
+      subscriptions2 <- Resource.eval(dbSubscription.getSubscriptions(botId))
     } yield (subscriptions1, subscriptions2)
 
     resourceAssert.use { case (preSubscriptions, postSubscriptions) =>

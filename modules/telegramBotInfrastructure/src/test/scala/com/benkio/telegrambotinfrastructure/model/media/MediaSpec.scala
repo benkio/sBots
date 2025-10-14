@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.media
 
 import com.benkio.telegrambotinfrastructure.model.MimeType
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import munit.*
 import org.http4s.Uri
@@ -11,6 +12,7 @@ class MediaSpec extends FunSuite {
   test("Media show instance should return the expected string") {
     val input: Media = Media(
       mediaName = "test_name",
+      botId = SBotId("botid"),
       kinds = List.empty,
       mimeType = MimeType.MP4,
       mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),
@@ -22,6 +24,7 @@ class MediaSpec extends FunSuite {
   test("Media.mediaListToHTML should return the expected string") {
     val input: Media = Media(
       mediaName = "test_name",
+      botId = SBotId("botid"),
       kinds = List.empty,
       mimeType = MimeType.MP4,
       mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),
@@ -46,6 +49,7 @@ class MediaSpec extends FunSuite {
   test("Media.apply should correctly parse a valid db record") {
     val input: DBMediaData = DBMediaData(
       media_name = "rphjb_Animali.mp3",
+      bot_id = "rphjb",
       kinds = """"[\"kind\"]"""",
       media_sources =
         """"[\"CQACAgQAAxkBAAEC15xnn5dbOnZ6NOodXkiKvxMsJrHqVAACjRgAAjmJAVFDx6HUqYYeWzYE\",\"https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1\"]"""",

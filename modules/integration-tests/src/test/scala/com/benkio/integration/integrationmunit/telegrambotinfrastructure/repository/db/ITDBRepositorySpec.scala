@@ -4,7 +4,9 @@ import cats.data.NonEmptyList
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.calandrobot.CalandroBot
 import com.benkio.integration.DBFixture
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
@@ -17,8 +19,10 @@ import java.nio.file.Files
 class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
 
   val testMediaName          = "rphjb_MaSgus.mp3"
+  val testMediaId            = RichardPHJBensonBot.botId
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
+    bot_id = testMediaId.value,
     kinds = """"[]"""",
     media_sources =
       """[\"https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1\"]""",
@@ -94,7 +98,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
     )
     val resourceAssert = for {
       dbRepository <- fixture.repositoryResource
-      mediaSources <- dbRepository.getResourcesByKind("cards")
+      mediaSources <- dbRepository.getResourcesByKind(criteria = "cards", botId = CalandroBot.botId)
       files        <- mediaSources.fold(
         e => Resource.eval(IO.raiseError(Throwable(s"getResourceByKind returned an error $e"))),
         _.reduce.toList.mapFilter(_.getMediaResourceFile).sequence

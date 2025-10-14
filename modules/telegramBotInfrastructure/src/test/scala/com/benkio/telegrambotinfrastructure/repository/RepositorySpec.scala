@@ -12,6 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
+import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
@@ -70,6 +71,7 @@ class DBRepositorySpec extends CatsEffectSuite {
   val medias: List[DBMediaData] = List(
     DBMediaData(
       media_name = "bot_testMediaName.mp4",
+      bot_id = "bot",
       kinds = "[]",
       mime_type = "audio/mpeg",
       media_sources = """[ "http://benkio.github.io" ]""",
@@ -78,6 +80,7 @@ class DBRepositorySpec extends CatsEffectSuite {
     ),
     DBMediaData(
       media_name = "bot_testMediaName2.mp4",
+      bot_id = "bot",
       kinds = """["testkind"]""",
       mime_type = "audio/mpeg",
       media_sources = """[ "http://benkio.github.io" ]""",
@@ -85,9 +88,9 @@ class DBRepositorySpec extends CatsEffectSuite {
       created_at = "1755687972"
     )
   )
-  val emptyDBLayer: DBLayer[IO]                                           = DBLayerMock.mock("bot")
-  val fullDBLayer: DBLayer[IO]                                            = DBLayerMock.mock("bot", medias = medias)
-  val testFile: File                                                      = File("test.mp4")
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(SBotId("bot"))
+  val fullDBLayer: DBLayer[IO]  = DBLayerMock.mock(SBotId("bot"), medias = medias)
+  val testFile: File            = File("test.mp4")
   def dropboxClientMockBuild(expectedFileName: String): DropboxClient[IO] = DropboxClientMock.mock((inputFileName, _) =>
     Resource.eval(
       IO.raiseUnless(inputFileName == expectedFileName)(
@@ -134,12 +137,14 @@ class DBRepositorySpec extends CatsEffectSuite {
       emptyDBLayer.dbMedia,
       dropboxClientMock
     )
+    val botId: SBotId      = SBotId("bot")
     val check: IO[Boolean] = dbRepository
-      .getResourcesByKind("testkind")
+      .getResourcesByKind(criteria = "testkind", botId = botId)
       .use(result =>
         result match {
-          case Left(RepositoryError.NoResourcesFoundKind(criteria)) => (criteria == "testkind").pure
-          case _                                                    => false.pure
+          case Left(RepositoryError.NoResourcesFoundKind(criteria = criteria, botId = botId)) =>
+            (criteria == "testkind").pure
+          case _ => false.pure
         }
       )
     assertIO(check, true)
@@ -148,8 +153,9 @@ class DBRepositorySpec extends CatsEffectSuite {
     val expectedFileName                     = "bot_testMediaName2.mp4"
     val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
     val dbRepository                         = DBRepository.dbResources[IO](fullDBLayer.dbMedia, dropboxClientMock)
+    val botId: SBotId                        = SBotId("bot")
     val check: IO[Boolean]                   = dbRepository
-      .getResourcesByKind("testkind")
+      .getResourcesByKind(criteria = "testkind", botId = botId)
       .flatMap(result =>
         result match {
           case Right(mediaResources) =>

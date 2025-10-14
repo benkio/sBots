@@ -10,7 +10,7 @@ final case class Config(
     url: String,
     migrationsLocations: List[String],
     migrationsTable: String,
-    jsonLocation: List[String],
+    jsonLocation: List[JsonLocation],
     showConfig: ShowConfig
 ) derives ConfigReader
 
@@ -47,7 +47,9 @@ case class ShowConfig(
 
 case class ShowSourceConfig(
     youtubeSources: List[String],
-    botName: String,
+    botId: String,
     captionLanguage: String,
     outputFilePath: String
 ) derives ConfigReader
+
+case class JsonLocation(botId: String, value: String) derives ConfigReader
