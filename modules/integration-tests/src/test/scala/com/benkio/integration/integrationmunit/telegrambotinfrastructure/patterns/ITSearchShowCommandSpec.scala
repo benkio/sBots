@@ -147,7 +147,7 @@ object ITSearchShowCommandSpec {
 
   val showByTitle: List[TestInput] = List(
     TestInput(
-      botId = SBotId("testbot"),
+      botId = SBotId("test"),
       randomLinkInput = "test show title",
       expectedOutput = expectedTestShowOutput
     )
@@ -155,7 +155,7 @@ object ITSearchShowCommandSpec {
 
   val showByDescription: List[TestInput] = List(
     TestInput(
-      botId = SBotId("testbot"),
+      botId = SBotId("test"),
       randomLinkInput = "description=test+show",
       expectedOutput = expectedTestShowOutput
     )
@@ -163,7 +163,7 @@ object ITSearchShowCommandSpec {
 
   val showByCaption: List[TestInput] = List(
     TestInput(
-      botId = SBotId("testbot"),
+      botId = SBotId("test"),
       randomLinkInput = "caption=posuere+tellus",
       expectedOutput = expectedTestShowOutput
     )
@@ -171,7 +171,7 @@ object ITSearchShowCommandSpec {
 
   val showByMinDuration: List[TestInput] = List(
     TestInput(
-      botId = SBotId("testbot"),
+      botId = SBotId("test"),
       randomLinkInput = "minduration=0",
       expectedOutput = expectedTestShowOutput
     )
@@ -179,7 +179,7 @@ object ITSearchShowCommandSpec {
 
   val showByMaxDuration: List[TestInput] = List(
     TestInput(
-      botId = SBotId("testbot"),
+      botId = SBotId("test"),
       randomLinkInput = "maxduration=50",
       expectedOutput = expectedTestShowOutput
     )
@@ -187,7 +187,7 @@ object ITSearchShowCommandSpec {
 
   val showByMinDate: List[TestInput] = List(
     TestInput(
-      botId = SBotId("testbot"),
+      botId = SBotId("test"),
       randomLinkInput = "mindate=20241212",
       expectedOutput = expectedTestShowOutput
     )
@@ -195,7 +195,7 @@ object ITSearchShowCommandSpec {
 
   val showByMaxDate: List[TestInput] = List(
     TestInput(
-      botId = SBotId("testbot"),
+      botId = SBotId("test"),
       randomLinkInput = "maxdate=20250430",
       expectedOutput = expectedTestShowOutput
     )

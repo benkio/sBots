@@ -17,12 +17,12 @@ import java.sql.DriverManager
 
 class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
-  val botId = SBotId("testbot")
+  val botId = SBotId("test")
 
   val testShowRaw: String =
     """{
       |    "show_id": "test",
-      |    "bot_id": "testbot",
+      |    "bot_id": "test",
       |    "show_title": "Test Show Title",
       |    "show_upload_date": "2025-04-24T12:01:24.000Z",
       |    "show_duration": 10,
@@ -42,7 +42,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
   test(
     "DBShow queries should check"
   ) {
-    val botId = SBotId("testBot")
+    val botId = SBotId("test")
     check(DBShow.getShowsQuery(botId))
     check(DBShow.getRandomShowQuery(botId))
     check(DBShow.getShowByShowQueryQuery(RandomQuery, botId))
@@ -80,7 +80,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val testShowRaw2: String =
       """{
         |    "show_id": "https://www.youtube.com/watch?v=test2",
-        |    "bot_id": "testbot",
+        |    "bot_id": "test",
         |    "show_title": "Test 2 Show Title",
         |    "show_upload_date": "2025-04-24T12:01:24.000Z",
         |    "show_duration": 10,
