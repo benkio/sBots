@@ -42,10 +42,11 @@ class DBSpec extends CatsEffectSuite with Constants {
 
   databaseConnection.test("The `media` table should exist and be readable/writable") { connection =>
     connection.createStatement().executeUpdate(DBSpec.mediaSQL)
-    val resultSet = connection.createStatement().executeQuery("SELECT media_name, bot_id, created_at, media_count FROM media")
+    val resultSet =
+      connection.createStatement().executeQuery("SELECT media_name, bot_id, created_at, media_count FROM media")
     resultSet.next()
     val actualMediaName      = resultSet.getString("media_name")
-    val actualBotId      = resultSet.getString("bot_id")
+    val actualBotId          = resultSet.getString("bot_id")
     val actualMediaCreatedAt = resultSet.getString("created_at")
     val actualCount          = resultSet.getInt("media_count")
     assertEquals(actualMediaName, "testbot_media.mp3")
