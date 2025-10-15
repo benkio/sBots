@@ -15,7 +15,7 @@ object Dependencies {
     val fs2Core            = "3.12.2"
     val fs2Cron            = "0.10.2"
     val fs2IO              = "3.12.2"
-    val flyway             = "11.14.0"
+    val flyway             = "11.14.1"
     val googleApiClient    = "2.8.1"
     val googleHttpClient   = "2.0.2"
     val googleOauthClient  = "1.39.0"
