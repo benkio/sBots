@@ -1839,9 +1839,9 @@ object Mix {
       "chi tocca (\\w)[,]? muore".r.tr(16),
       "ciao (2001|duemilauno)".r.tr(9)
     )(
+      vid"rphjb_Ciao2001FarsaManson.mp4",
       vid"rphjb_Ciao2001.mp4",
-      vid"rphjb_Ciao2001_2.mp4",
-      mp3"rphjb_Ciao2001_2.mp3",
+      mp3"rphjb_Ciao2001.mp3",
       gif"rphjb_Ciao2001Gif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -2222,7 +2222,7 @@ object Mix {
       "bastoni tra le ruote"
     )(
       gif"rphjb_Ciao2001Gif.mp4",
-      vid"rphjb_Ciao2001_2.mp4"
+      vid"rphjb_Ciao2001.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr(5)

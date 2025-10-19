@@ -281,7 +281,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "marilyn manson"
     )(
-      vid"rphjb_Ciao2001.mp4",
+      vid"rphjb_Ciao2001FarsaManson.mp4",
       vid"rphjb_StoriaMarlinManson.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
@@ -819,8 +819,7 @@ object Video {
       "\\bultr(à|as)\\b".r.tr(5),
       "direttore del coni",
       "parole grosse",
-      "fare del (male|bene)".r.tr(13),
-      "(una|na) farsa".r.tr(8)
+      "fare del (male|bene)".r.tr(13)
     )(
       vid"rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCalcio.mp4"
     ),
@@ -2011,6 +2010,12 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "era vero"
-    )(vid"rphjb_EraVero.mp4")
+    )(vid"rphjb_EraVero.mp4"),
+    ReplyBundleMessage.textToVideo[F](
+      "(una|na) farsa".r.tr(8)
+    )(
+      vid"rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCalcio.mp4",
+      vid"rphjb_Ciao2001FarsaManson.mp4"
+    )
   )
 }
