@@ -24,7 +24,7 @@ object Audio:
       "tedesco"
     )(
       mp3"abar_Kraft.mp3",
-      mp3"abar_Von_Hohenheim.mp3",
+      mp3"abar_VonHohenheim.mp3",
       mp3"abar_Haushofer.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](

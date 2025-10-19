@@ -10,8 +10,8 @@ import {
 import logger from './logger';
 
 // Types //////////////////////////////////////////////////////////////////////
-type Input = {
-  prefix: string;
+type Bot = {
+  id: string;
   artist: string;
   path: string;
 };
@@ -24,25 +24,25 @@ type Matches = {
 
 const baseDir = '/Dropbox/sBots/';
 
-const botsInput: Input[] = [
+const bots: Bot[] = [
   {
-    prefix: 'rphjb_',
+    id: 'rphjb',
     artist: 'Richard Philip Henry John Benson',
     path: 'richardPHJBensonBot/src/main/resources',
   },
   {
-    prefix: 'abar_',
+    id: 'abar',
     artist: 'Alessandro Barbero',
     path: 'aBarberoBot/src/main/resources',
   },
-  { prefix: 'xah_', artist: 'Xah Lee', path: 'xahLeeBot/src/main/resources' },
+  { id: 'xah', artist: 'Xah Lee', path: 'xahLeeBot/src/main/resources' },
   {
-    prefix: 'ytai_',
+    id: 'ytai',
     artist: 'Omar Palermo',
     path: 'youTuboAncheI0Bot/src/main/resources',
   },
   {
-    prefix: 'cala_',
+    id: 'cala',
     artist: 'Francesco Calandra',
     path: 'calandroBot/src/main/resources',
   },
@@ -53,31 +53,19 @@ const botsInput: Input[] = [
 
 // Logic //////////////////////////////////////////////////////////////////////
 
-function match(initialArtist: string): Matches[] {
+function match(bot: Bot): Matches[] {
   return [
     {
       check: (f: string) => {
-        return (
-          path.extname(f) === '.mp3' &&
-          botsInput.find(
-            (e) =>
-              path.basename(f).startsWith(e.prefix) &&
-              e.artist === initialArtist
-          ) !== undefined
-        );
+        const mp3Regex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp3$`);
+        return mp3Regex.test(path.basename(f));
       },
-      logic: (f: string) => fixMp3ArtistId3Tag(f, initialArtist),
+      logic: (f: string) => fixMp3ArtistId3Tag(f, bot.artist),
     },
     {
       check: (f: string) => {
-        return (
-          path.basename(f).endsWith('Gif.mp4') &&
-          botsInput.find(
-            (e) =>
-              path.basename(f).startsWith(e.prefix) &&
-              e.artist === initialArtist
-          ) !== undefined
-        );
+        const gifRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+Gif.mp4$`);
+        return gifRegex.test(path.basename(f));
       },
       logic: async (f: string) => {
         const result: MediaInfoCheckReturn = await checkAudioTrackMissing(f);
@@ -92,14 +80,8 @@ function match(initialArtist: string): Matches[] {
     },
     {
       check: (f: string) => {
-        return (
-          path.basename(f).endsWith('.mp4') &&
-          botsInput.find(
-            (e) =>
-              path.basename(f).startsWith(e.prefix) &&
-              e.artist === initialArtist
-          ) !== undefined
-        );
+        const videoRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp4$`);
+        return videoRegex.test(path.basename(f));
       },
       logic: async (f: string) => {
         const result: MediaInfoCheckReturn =
@@ -116,40 +98,43 @@ function match(initialArtist: string): Matches[] {
     {
       check: (f: string) => {
         const stats = fs.statSync(f);
-        let isDir = false;
-        if (stats !== undefined) {
-          isDir = stats.isDirectory();
-        }
+        const generalFilename = new RegExp(
+          `^${bot.id}_[A-Za-z0-9]+.[A-Za-z0-9]+$`
+        );
         return (
-          ([
-            'token',
-            'jpg',
-            'gif', // #807 Remove this
-          ].find((ext) => path.basename(f).endsWith(ext)) !== undefined &&
-            botsInput.find(
-              (e) =>
-                path.basename(f).startsWith(e.prefix) &&
-                e.artist === initialArtist
-            ) !== undefined) ||
-          isDir ||
-          path.basename(f) === 'application.conf'
+          stats.isFile() &&
+          [
+            '.token',
+            '.jpg',
+            '.gif', // #807 Remove this
+          ].find((ext) => path.extname(f) === ext) === undefined &&
+          !generalFilename.test(path.basename(f))
         );
       },
       logic: (f: string) => {
-        logger.warn(
-          `[filesCheck] ⚠️ Ignore ${path.extname(f)} file ${path.basename(f)}`
+        logger.error(
+          `[filesCheck] 🚫 ${path.basename(f)} file doesn't comply to expected filename`
         );
+      },
+    },
+    {
+      check: (f: string) => {
+        const stats = fs.statSync(f);
+        return stats.isDirectory() || path.basename(f) === 'application.conf';
+      },
+      logic: (f: string) => {
+        logger.warn(`[filesCheck] ⚠️ Ignore ${path.basename(f)}`);
       },
     },
   ];
 }
-const defaultLogic: (artist: string) => { logic: (file: string) => void } = (
-  artist: string
+const defaultLogic: (bot: Bot) => { logic: (file: string) => void } = (
+  bot: Bot
 ) => {
   return {
     logic: (file: string) => {
       logger.warn(
-        `[filesCheck] ⚠️  Not Processed ${path.basename(file)} for ${artist}`
+        `[filesCheck] ⚠️  Not Processed ${path.basename(file)} for ${bot.artist}`
       );
     },
   };
@@ -158,14 +143,13 @@ const defaultLogic: (artist: string) => { logic: (file: string) => void } = (
 // Entry Point ////////////////////////////////////////////////////////////////
 
 Promise.all(
-  botsInput.map((input) => {
-    const { artist: initialArtist, path: initialPath } = input;
-    return getFiles(initialPath).then((fs) => {
+  bots.map((bot) => {
+    return getFiles(bot.path).then((fs) => {
       fs.forEach((f) => {
         const { logic } =
-          match(initialArtist).find(({ check }) => {
+          match(bot).find(({ check }) => {
             return check(f) ?? false;
-          }) ?? defaultLogic(initialArtist);
+          }) ?? defaultLogic(bot);
         return logic(f);
       });
     });

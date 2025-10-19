@@ -206,7 +206,7 @@ object CalandroBot {
         mp3"cala_WwhaaawhaaaSingolo.mp3"
       ),
       ReplyBundleCommand.textToMedia[F]("daccordissimo", CommandInstructionData.NoInstructions)(
-        mp3"cala_D_accordissimo.mp3"
+        mp3"cala_DAccordissimo.mp3"
       ),
       ReplyBundleCommand.textToMedia[F]("stocazzo", CommandInstructionData.NoInstructions)(
         mp3"cala_Stocazzo.mp3"

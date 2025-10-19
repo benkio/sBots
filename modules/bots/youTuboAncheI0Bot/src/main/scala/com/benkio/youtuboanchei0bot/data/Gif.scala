@@ -515,8 +515,8 @@ object Gif:
       "rotear",
       "ruotar"
     )(
-      gif"ytai_M_MsGif.mp4",
-      gif"ytai_M_MsLoopGif.mp4"
+      gif"ytai_MnMsGif.mp4",
+      gif"ytai_MnMsLoopGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "(😂|🤣){3,}".r.tr(4),
