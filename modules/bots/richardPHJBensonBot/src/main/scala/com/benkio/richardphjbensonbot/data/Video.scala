@@ -888,6 +888,7 @@ object Video {
       vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
       vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4",
       vid"rphjb_DaHollywood.mp4",
+      mp3"rphjb_DaHollywood.mp3",
       vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
@@ -1150,7 +1151,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "fassino",
       "ritratto della salute",
-      "sembra un cadavere"
+      "cadavere"
     )(
       vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4"
     ),
@@ -1170,15 +1171,6 @@ object Video {
     )(
       vid"rphjb_SiPuoMigliorare.mp4",
       vid"rphjb_QuandoMiglioraStima.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "ballerino",
-      "non posso salutare",
-      "fornaio",
-      "barman",
-      "altro piano"
-    )(
-      vid"rphjb_DaHollywood.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "non mi fa rabbia",
