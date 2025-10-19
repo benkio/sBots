@@ -2707,6 +2707,7 @@ object Mix {
     )(
       gif"rphjb_HollywoodGif.mp4",
       vid"rphjb_DaHollywood.mp4",
+      mp3"rphjb_DaHollywood.mp3",
       sticker"rphjb_LavoraTuBensoniani.sticker"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -2830,6 +2831,7 @@ object Mix {
     )(
       vid"rphjb_ParteDiRomeo.mp4",
       vid"rphjb_DaHollywood.mp4",
+      mp3"rphjb_DaHollywood.mp3",
       gif"rphjb_FaccioLaParteGif.mp4",
       vid"rphjb_GaioInGiallo.mp4",
       vid"rphjb_GrandeMelGibsonRinunciaATutto.mp4",
@@ -6261,6 +6263,23 @@ object Mix {
         gif"rphjb_PercheSiSenteGif.mp4",
         mp3"rphjb_PercheSiSente.mp3",
         vid"rphjb_PercheSiSente.mp4"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "ballerino",
+        "non posso salutare",
+        "fornaio",
+        "barman",
+        "altro piano"
+      )(
+        vid"rphjb_DaHollywood.mp4",
+        mp3"rphjb_DaHollywood.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F]("cantante")(
+        vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
+        vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4",
+        vid"rphjb_DaHollywood.mp4",
+        mp3"rphjb_DaHollywood.mp3",
+        vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
       )
     )
 }
