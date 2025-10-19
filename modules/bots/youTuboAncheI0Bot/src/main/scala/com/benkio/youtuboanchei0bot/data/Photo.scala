@@ -25,7 +25,7 @@ object Photo:
       ),
     ReplyBundleMessage
       .textToMedia[F](
-        "(baci )?perugina"
+        "(baci )?perugina".r.tr(8)
       )(
         pho"ytai_BaciPerugina.jpg"
       )
