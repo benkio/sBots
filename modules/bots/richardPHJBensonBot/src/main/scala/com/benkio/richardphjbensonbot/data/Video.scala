@@ -884,13 +884,6 @@ object Video {
     ReplyBundleMessage.textToVideo[F]("trasmissione da urlo", "delay", "vita natural durante")(
       vid"rphjb_CarrellataInfernaleDelirioPureNellaGolaTrasmissioneDaUrloEchoDelayVitaNaturalDurante.mp4"
     ),
-    ReplyBundleMessage.textToVideo[F]("cantante")(
-      vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
-      vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4",
-      vid"rphjb_DaHollywood.mp4",
-      mp3"rphjb_DaHollywood.mp3",
-      vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
-    ),
     ReplyBundleMessage.textToVideo[F](
       "due bocce",
       "innamorato",

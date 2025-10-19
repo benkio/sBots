@@ -6264,15 +6264,22 @@ object Mix {
         mp3"rphjb_PercheSiSente.mp3",
         vid"rphjb_PercheSiSente.mp4"
       ),
-      ReplyBundleMessage.textToVideo[F](
-      "ballerino",
-      "non posso salutare",
-      "fornaio",
-      "barman",
-      "altro piano"
-    )(
-      vid"rphjb_DaHollywood.mp4",
-      mp3"rphjb_DaHollywood.mp3"
-    ),
+      ReplyBundleMessage.textToMedia[F](
+        "ballerino",
+        "non posso salutare",
+        "fornaio",
+        "barman",
+        "altro piano"
+      )(
+        vid"rphjb_DaHollywood.mp4",
+        mp3"rphjb_DaHollywood.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F]("cantante")(
+        vid"rphjb_CantantePreferitoNonSonoGaio.mp4",
+        vid"rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4",
+        vid"rphjb_DaHollywood.mp4",
+        mp3"rphjb_DaHollywood.mp3",
+        vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
+      )
     )
 }

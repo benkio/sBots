@@ -22,5 +22,11 @@ object Photo:
         "\\brimprover".r.tr(9)
       )(
         pho"ytai_Rimprovero.jpg"
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "(baci )?perugina"
+      )(
+        pho"ytai_BaciPerugina.jpg"
       )
   )
