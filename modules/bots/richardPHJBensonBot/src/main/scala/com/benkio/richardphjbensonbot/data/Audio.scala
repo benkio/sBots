@@ -407,7 +407,9 @@ object Audio {
         "rovinat[eoia]".r.tr(8),
         "anche le sue",
         "poesie",
-        "non se le ricorda pi[uù]"
+        "non se le ricorda pi[uù]",
+        "piscia(re)? in culo".r.tr(16),
+        "che cazzo stai a d[iì](re)?".r.tr(19)
       )(
         mp3"rphjb_PoesieRovinate.mp3"
       ),
