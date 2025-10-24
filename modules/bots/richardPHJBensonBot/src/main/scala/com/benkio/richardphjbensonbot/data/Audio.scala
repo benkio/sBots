@@ -419,6 +419,11 @@ object Audio {
         "mani tue"
       )(
         mp3"rphjb_FregatoManiTue.mp3"
-      )
+      ),
+    ReplyBundleMessage.textToMp3[F](
+      "davanti a gente"
+    )(
+      mp3"rphjb_DavantiGenteNonHaCapisceUnCazzo.mp3"
+    )
   )
 }

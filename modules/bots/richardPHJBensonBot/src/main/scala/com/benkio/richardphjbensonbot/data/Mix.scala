@@ -3601,11 +3601,17 @@ object Mix {
       ),
       ReplyBundleMessage.textToMedia[F](
         "musicalmente",
-        "non capisce un cazzo",
         "tanta gente"
       )(
         vid"rphjb_SvegiareMusicalmente.mp4",
         mp3"rphjb_SvegiareMusicalmente.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "non capisce un cazzo"
+      )(
+        vid"rphjb_SvegiareMusicalmente.mp4",
+        mp3"rphjb_SvegiareMusicalmente.mp3",
+        mp3"rphjb_DavantiGenteNonHaCapisceUnCazzo.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
         "caramell"
