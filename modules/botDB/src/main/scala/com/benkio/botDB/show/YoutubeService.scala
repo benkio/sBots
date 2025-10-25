@@ -141,7 +141,7 @@ object YouTubeService {
     override def fetchCaption(videoId: String, tempDir: Path, captionLanguage: String): F[Option[String]] = {
       val command =
         s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format json3 -o "%(id)s" -P $tempDir https://www.youtube.com/watch?v=${videoId}"""
-      val captionDownloadLogic = for {
+      val captionDownloadLogic: F[Option[String]] = for {
         _           <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption")
         _           <- Async[F].delay(command.!)
         captionFile <- Async[F].delay(tempDir.resolve(s"${videoId}.$captionLanguage.json3"))
@@ -161,9 +161,8 @@ object YouTubeService {
         _ <- LogWriter.info(
           s"[ShowUpdater] ${videoId} - $captionLanguage: caption length ${caption.length}"
         )
-      } yield caption
+      } yield Some(caption.replace("\n", " "))
       captionDownloadLogic
-        .map(Some(_))
         .handleErrorWith(e =>
           LogWriter.error(
             s"[ShowUpdater] ❌ ${videoId} - $captionLanguage Downloading Caption: $e"
