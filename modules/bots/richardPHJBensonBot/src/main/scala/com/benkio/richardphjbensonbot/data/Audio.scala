@@ -167,7 +167,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "finire male",
-      "tocca benson"
+      "qualche (storta|dispetto|torto) a me".r.tr(18)
     )(
       mp3"rphjb_FinireMale.mp3"
     ),

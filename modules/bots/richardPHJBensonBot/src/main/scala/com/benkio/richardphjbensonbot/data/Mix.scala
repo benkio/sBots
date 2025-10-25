@@ -1836,7 +1836,7 @@ object Mix {
       vid"rphjb_ConseguenzeDellaPasqua.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "chi tocca (\\w)[,]? muore".r.tr(16),
+      "chi tocca \\w+(,|...)?[ ]?muore".r.tr(16),
       "ciao (2001|duemilauno)".r.tr(9)
     )(
       vid"rphjb_Ciao2001FarsaManson.mp4",
