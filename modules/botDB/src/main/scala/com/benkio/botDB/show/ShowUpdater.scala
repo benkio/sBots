@@ -169,7 +169,10 @@ object ShowUpdater {
       } yield ()
       if config.showConfig.runShowFetching
       then Resource.eval(program)
-      else Resource.eval(LogWriter.info("[ShowUpdater] Option runShowFetching = true. No run"))
+      else
+        Resource.eval(
+          LogWriter.info(s"[ShowUpdater] Option runShowFetching = ${config.showConfig.runShowFetching}. No run")
+        )
     }
 
     private[show] def getStoredDbShowDatas: F[List[YouTubeBotDBShowDatas]] = {
@@ -236,7 +239,7 @@ object ShowUpdater {
         show_title = title,
         show_upload_date = uploadDate,
         show_duration = durationISO8601ToSeconds(duration),
-        show_description = Option(video.getSnippet().getDescription()),
+        show_description = Option(video.getSnippet().getDescription().replace("\n", " ")),
         show_is_live = Option(video.getLiveStreamingDetails()).isDefined,
         show_origin_automatic_caption = None // Added in a followup step. need yt-dlp
       )

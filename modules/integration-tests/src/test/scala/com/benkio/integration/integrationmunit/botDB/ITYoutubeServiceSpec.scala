@@ -49,7 +49,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
       receivedIds,
       List(
         YouTubeBotIds(
-          botId = SBotId("testBot"),
+          botId = SBotId("testbot"),
           outputFilePath = "../integration-tests/src/test/resources/testdata/testBotShow.json",
           captionLanguage = "it",
           videoIds = List(
@@ -80,7 +80,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
     )
   }
 
-  test("YouTubeService.FetchCaption implement") {
+  test("YouTubeService.FetchCaption should returns the expected caption on real data") {
     assume(runTestsCondition)
     for {
       tempDir <- IO.pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
@@ -91,14 +91,16 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
     } yield assertEquals(
       result,
       Some(
-        "ciao amici del canale sono qui per\naugurarvi buon i festeggiamenti in\nattesa del nuovo anno il 2018 che sia\nper voi per tutti noi carico di george\nma soprattutto di salute e di armonia\ncon il proprio io e con gli altri\nquesto l'augurio che sento di darvi e\nricordatevi il mio pensiero per voi\nanteprima di partire\nsono felice\ntante belle cose e ha presto vi\nraccomando continuate a seguirmi su\ncanale e se vi piace\nlasciate un manca\ne a voi che non siete iscritti\nricordatevi sempre che è una cosa\ngratuita ciao buon\n2018"
+        "ciao amici del canale sono qui per augurarvi buon i festeggiamenti in attesa del nuovo anno il 2018 che sia per voi per tutti noi carico di george ma soprattutto di salute e di armonia con il proprio io e con gli altri questo l'augurio che sento di darvi e ricordatevi il mio pensiero per voi anteprima di partire sono felice tante belle cose e ha presto vi raccomando continuate a seguirmi su canale e se vi piace lasciate un manca e a voi che non siete iscritti ricordatevi sempre che è una cosa gratuita ciao buon 2018"
       )
     )
   }
-  test("YouTubeBotDBShowDatas.semigroup implement") {
+  test(
+    "YouTubeBotDBShowDatas.semigroup should properly combine the data from the same bot to a single YouTubeBotDBShowDatas"
+  ) {
     val dbShowData1 = DBShowData(
       show_id = "3kKiB",
-      bot_id = "testBot",
+      bot_id = "testbot",
       show_title = "videoTitle",
       show_upload_date = "2023-05-17T10:24:55.000Z",
       show_duration = 650,
@@ -110,7 +112,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
     )
     val dbShowData2 = DBShowData(
       show_id = "3kKiB",
-      bot_id = "testBot",
+      bot_id = "testbot",
       show_title = "videoTitle",
       show_upload_date = "2023-05-17T10:24:55.000Z",
       show_duration = 650,
@@ -123,7 +125,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
 
     val youTubeBotDBShowDatas1 =
       YouTubeBotDBShowDatas(
-        botId = SBotId("testBot"),
+        botId = SBotId("testbot"),
         outputFilePath = "outputFilePath",
         captionLanguage = "it",
         dbShowDatas = List(dbShowData1)
