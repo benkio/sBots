@@ -26,7 +26,8 @@ final case class DBFixtureResources(
     connection: Connection,
     transactor: Transactor[IO],
     resourceDBLayer: Resource[IO, DBLayer[IO]],
-    repositoryResource: Resource[IO, Repository[IO]]
+    repositoryResource: Resource[IO, Repository[IO]],
+    dropboxClientResource: Resource[IO, DropboxClient[IO]]
 )
 
 trait DBFixture { self: FunSuite =>
@@ -54,28 +55,33 @@ object DBFixture {
     val conn = DriverManager.getConnection(DBFixture.dbUrl)
 
     runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
-    val transactor                                       = Transactor.fromConnection[IO](conn, None)
-    val dbLayerResource: Resource[IO, DBLayer[IO]]       = Resource.eval(DBLayer[IO](transactor))
-    val repositoryResource: Resource[IO, Repository[IO]] = dbLayerResource.flatMap(dbLayer =>
-      for {
-        _          <- Resource.eval(log.debug(s"DbUrl: $dbUrl ||| migrations path: $migrationPath"))
-        httpClient <- EmberClientBuilder
-          .default[IO]
-          .withMaxResponseHeaderSize(8192)
-          .build
-        dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
-      } yield DBRepository.dbResources[IO](
-        dbMedia = dbLayer.dbMedia,
-        dropboxClient = dropboxClient
+    val transactor                                 = Transactor.fromConnection[IO](conn, None)
+    val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
+    val dropboxClientNRepositoryResource: Resource[IO, (DropboxClient[IO], Repository[IO])] =
+      dbLayerResource.flatMap(dbLayer =>
+        for {
+          _          <- Resource.eval(log.debug(s"DbUrl: $dbUrl ||| migrations path: $migrationPath"))
+          httpClient <- EmberClientBuilder
+            .default[IO]
+            .withMaxResponseHeaderSize(8192)
+            .build
+          dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
+        } yield (
+          dropboxClient,
+          DBRepository.dbResources[IO](
+            dbMedia = dbLayer.dbMedia,
+            dropboxClient = dropboxClient
+          )
+        )
       )
-    )
 
     cleanDB(conn)
     DBFixtureResources(
       connection = conn,
       transactor = transactor,
       resourceDBLayer = dbLayerResource,
-      repositoryResource = repositoryResource
+      repositoryResource = dropboxClientNRepositoryResource.map(_._2),
+      dropboxClientResource = dropboxClientNRepositoryResource.map(_._1)
     )
   }
 
