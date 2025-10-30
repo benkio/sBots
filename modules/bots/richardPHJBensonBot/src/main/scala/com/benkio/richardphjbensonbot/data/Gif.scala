@@ -100,8 +100,7 @@ object Gif {
     ),
     ReplyBundleMessage.textToGif[F](
       "più co(gl|j)ione".r.tr(11),
-      "dice co(gl|j)ione".r.tr(12),
-      "co(gl|j)ion([e]{3,}|e[!]{3,})".r.tr(9)
+      "dice co(gl|j)ione".r.tr(12)
     )(
       gif"rphjb_CoglioneGif.mp4",
       gif"rphjb_PiuCoglioneGif.mp4",

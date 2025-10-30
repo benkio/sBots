@@ -1577,7 +1577,7 @@ object Mix {
       "città frontale",
       "battitori selvaggi",
       "napoli centrale",
-      "enzo (abitabile|granagnello)".r.tr(14),
+      "enzo (avitabile|granagnello)".r.tr(14),
       "joe amoruso",
       "ernesto vitolo",
       "tullio de piscopo"
@@ -5073,7 +5073,8 @@ object Mix {
         ),
       ReplyBundleMessage
         .textToMedia[F](
-          "non m[ei] c[ei] f[aà](r|re)? pens[aà](re)?".r.tr(18)
+          "non m[ei] c[ei] f[aà](r|re)? pens[aà](re)?".r.tr(18),
+          "non farmici pens[aà](re)?".r.tr(19) // non farmici pensare
         )(
           mp3"rphjb_IncazzoComeUnaBestia.mp3",
           gif"rphjb_IncazzoComeUnaBestiaGif.mp4",
@@ -6286,6 +6287,16 @@ object Mix {
         vid"rphjb_DaHollywood.mp4",
         mp3"rphjb_DaHollywood.mp3",
         vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "co(gl|j)ion([e]{3,}|e!)".r.tr(9),
+        "co(gl|j)ione(,|, | )co(gl|j)ione".r.tr(17)
+      )(
+        gif"rphjb_CoglioneGif.mp4",
+        gif"rphjb_PiuCoglioneGif.mp4",
+        gif"rphjb_CoglioneGif.mp4",
+        vid"rphjb_FrocioCoglione.mp4",
+        mp3"rphjb_FrocioCoglione.mp3"
       )
     )
 }

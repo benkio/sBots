@@ -858,7 +858,7 @@ object Mix:
     ),
     ReplyBundleMessage
       .textToMedia[F](
-        "scarpette",
+        "scarpett[ae]".r.tr(9),
         "perchè no?"
       )(
         gif"ytai_CiccioneGif.mp4",
