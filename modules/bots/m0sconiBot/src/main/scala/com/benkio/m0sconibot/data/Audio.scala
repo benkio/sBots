@@ -300,7 +300,7 @@ object Audio:
       mp3"mos_DioCaneMaNonEPossibile.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "dio (pa){3,}".r.tr(10)
+      "dio (pa[ ]?){3,}".r.tr(10)
     )(
       mp3"mos_DioPaPaPaPaPaPa.mp3"
     ),

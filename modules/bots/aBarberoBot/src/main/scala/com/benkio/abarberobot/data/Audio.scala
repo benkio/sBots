@@ -241,7 +241,7 @@ object Audio:
       mp3"abar_Stupidi.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bsubito(o|!){2,}".r.tr(9)
+      "\\bsubito!".r.tr(7)
     )(
       mp3"abar_Subito.mp3"
     ),
@@ -273,7 +273,7 @@ object Audio:
       mp3"abar_Taliani.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "c[a]{2,}[z]+[o]+".r.tr(5)
+      "caa[a]*z[z]*o[o]*".r.tr(5)
     )(
       mp3"abar_Cazzo.mp3"
     ),
@@ -292,7 +292,7 @@ object Audio:
       mp3"abar_Preoccupazione.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "son(o)? tu[t]+e ba[l]+e".r.tr(14)
+      "son(o)? tu[t]+e ba[l]+e".r.tr(13)
     )(
       mp3"abar_Bale.mp3"
     ),

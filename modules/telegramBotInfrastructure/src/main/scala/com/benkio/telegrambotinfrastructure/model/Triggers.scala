@@ -33,7 +33,7 @@ extension (regexTextTriggerValue: RegexTextTriggerValue) {
   def length1: IO[Int] = {
     def canGenerateSize(
         targetSize: Int,
-        trials: Int = 100
+        trials: Int = 200
     ): Boolean = {
       val params = Gen.Parameters.default.withSize(targetSize)
       (1 to trials).exists { _ =>

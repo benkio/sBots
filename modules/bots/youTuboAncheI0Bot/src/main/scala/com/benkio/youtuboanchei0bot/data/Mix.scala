@@ -541,13 +541,16 @@ object Mix:
       "\\b(ar)?rabbi([oa]|at[oa])\\b".r.tr(6),
       "collera",
       "indignato",
-      "[🤬😡😠]".r.tr(1)
+      "😠",
+      "😡",
+      "🤬"
     )(
       pho"ytai_Rabbia.jpg",
       gif"ytai_LoopArrabbiatoIndignatoGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "[😦😧]".r.tr(1),
+      "😦",
+      "😧",
       "shock"
     )(
       pho"ytai_Shock.jpg",

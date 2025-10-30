@@ -127,7 +127,7 @@ object Mix {
       vid"rphjb_RelIllusions.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "[a]+[t]{2,}[e]+[n]+[z]+[i]+[o]+[n]+[e]+[!]*[!e]$".r.tr(10)
+      "a[t]+en[z]+[i]+[o]+n[e]+".r.tr(9)
     )(
       mp3"rphjb_Attenzione.mp3",
       vid"rphjb_Attenzione.mp4",
@@ -737,7 +737,7 @@ object Mix {
       vid"rphjb_SceltaDelleNote.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "te[r]+[i]+[b]+[i]+l[e]+".r.tr(8)
+      "ter[r]*i[i]*b[b]*i[i]*le[e]*".r.tr(8)
     )(
       mp3"rphjb_Terribile.mp3",
       vid"rphjb_Terribile.mp4",
@@ -2512,7 +2512,7 @@ object Mix {
       vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "a[ ]?[f]*fanculo(,)? per contesia".r.tr(21)
+      "a[ ]?f[f]*anculo(,)? per contesia".r.tr(21)
     )(
       gif"rphjb_FanculoPerCortesiaGif.mp4",
       vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4"
@@ -2534,7 +2534,7 @@ object Mix {
       vid"rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoStronzi.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "ro[ckgh]+(ch|gh|k)e(d+|t+)ari".r.tr(10)
+      "ro[ckgh]+(ch|gh|k)e[dt]+ari".r.tr(9)
     )(
       gif"rphjb_DrogatiRockettari1Gif.mp4",
       vid"rphjb_DrogatiRockettari.mp4",
@@ -2827,7 +2827,7 @@ object Mix {
       " recit",
       " fing",
       "attrice",
-      "\\ba[t]{2,}[o]+re\\b".r.tr(6)
+      "\\bat[t]+[o]+re\\b".r.tr(6)
     )(
       vid"rphjb_ParteDiRomeo.mp4",
       vid"rphjb_DaHollywood.mp4",
@@ -4355,7 +4355,7 @@ object Mix {
       ),
       ReplyBundleMessage.textToMedia[F](
         "menzion",
-        "fi[b]+ri[l]+azioni".r.tr(13),
+        "fi[b]+ri[l]+azioni".r.tr(12),
         "al cuore"
       )(
         mp3"rphjb_SoloUnCuccioloMenzionare.mp3",

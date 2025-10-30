@@ -281,7 +281,7 @@ object Audio {
       mp3"rphjb_GelatinaFazzolettiSecchiAcquaSapone.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "e che cazz[o!]{2,}".r.tr(12)
+      "e che cazzo[o]*[!]?".r.tr(11)
     )(
       mp3"rphjb_SuonatoAbbastanzaBeneEVero.mp3"
     ),

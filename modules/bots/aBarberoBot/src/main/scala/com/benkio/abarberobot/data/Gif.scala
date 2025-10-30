@@ -78,7 +78,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       " a morte",
-      "\\bsi{3,}\\b".r.tr(8)
+      "\\bsi{3,}\\b".r.tr(6)
     )(
       gif"abar_SisiAMorte.gif"
     ),

@@ -180,7 +180,7 @@ object Video {
       vid"rphjb_AlbizziePerlaPioggia.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "[l]+[i]+[b]+[e]+[r]+[i]+".r.tr(6)
+      "l[i]+[b]+[e]+r[i]+".r.tr(6)
     )(
       vid"rphjb_Liberi.mp4"
     ),
