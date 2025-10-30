@@ -79,6 +79,7 @@ class M0sconiBotSpec extends BaseBotSpec {
       )
 
   exactTriggerReturnExpectedReplyBundle(M0sconiBot.messageRepliesData[IO])
+  regexTriggerReturnExpectedLength(M0sconiBot.messageRepliesData[IO])
 
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,

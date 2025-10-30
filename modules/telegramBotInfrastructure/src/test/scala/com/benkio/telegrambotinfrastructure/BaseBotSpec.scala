@@ -1,5 +1,8 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.length1
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
@@ -16,8 +19,8 @@ import telegramium.bots.Message
 import java.io.File
 import scala.io.Source
 
-trait BaseBotSpec extends CatsEffectSuite:
-  def checkContains(triggerContent: String, values: List[String]): Unit =
+trait BaseBotSpec extends CatsEffectSuite {
+  private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")
     }
@@ -170,4 +173,25 @@ trait BaseBotSpec extends CatsEffectSuite:
             }
         }
       }
-end BaseBotSpec
+
+  def regexTriggerReturnExpectedLength(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+    replyBundleMessages
+      .collect(replyBundle =>
+        replyBundle.trigger match {
+          case TextTrigger(triggerValues*) =>
+            triggerValues.filter(
+              TextTriggerValue.isRegex(_)
+            )
+        }
+      )
+      .flatten
+      .foreach { case (regexTextTriggerValue: RegexTextTriggerValue) =>
+        test(s"""Regex should have the expected length: "${regexTextTriggerValue.toString}"""") {
+          assertIO(
+            regexTextTriggerValue.length1,
+            regexTextTriggerValue.length // TODO: 853 to be removed, but keep the test to check that no exception is ever raised when a regex length is calculated
+          )
+        }
+        case stringTextTriggerValue => throw new Exception(s"[BaseBotSpec] regexTriggerReturnExpectedLength got a stringTextTriggerValue: $stringTextTriggerValue")
+      }
+}

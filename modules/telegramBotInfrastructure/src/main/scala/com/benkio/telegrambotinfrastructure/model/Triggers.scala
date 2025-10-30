@@ -1,11 +1,21 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import wolfendale.scalacheck.regexp.RegexpGen
+import org.scalacheck.Gen
+import org.scalacheck.rng.Seed
+import cats.effect.IO
 import cats.implicits.*
 import cats.Show
 import io.circe.*
 import io.circe.generic.semiauto.*
 
 import scala.util.matching.Regex
+
+///////////////////////////////////////////////////////////////////////////////
+//                                   Errors                                  //
+///////////////////////////////////////////////////////////////////////////////
+
+final case class RegexTextTriggerValueLengthNotFound(regexTextTriggerValue: RegexTextTriggerValue) extends Throwable(s"Usable to calculate the length for RegexTextTriggerValue: $regexTextTriggerValue")
 
 ///////////////////////////////////////////////////////////////////////////////
 //                   Extensionns and Basic Type Enrichment                   //
@@ -19,6 +29,29 @@ extension (textTriggerValue: TextTriggerValue)
     case RegexTextTriggerValue(_, _) => false
     case StringTextTriggerValue(_)   => true
   }
+extension (regexTextTriggerValue: RegexTextTriggerValue) {
+  def length1: IO[Int] = {
+    def canGenerateSize(
+        targetSize: Int,
+        trials: Int = 100
+    ): Boolean = {
+      val params = Gen.Parameters.default.withSize(targetSize)
+      (1 to trials).exists { _ =>
+        RegexpGen
+          .from(regexTextTriggerValue.trigger.toString)
+          .apply(params, Seed.random())
+          .exists(v => v.length == targetSize)
+      }
+    }
+
+    IO.fromOption(
+      (0 to 100).find { size =>
+        canGenerateSize(size)
+      }
+    )(RegexTextTriggerValueLengthNotFound(regexTextTriggerValue))
+  }
+}
+
 
 given Decoder[Regex] = Decoder.decodeString.map(_.r)
 given Encoder[Regex] = Encoder.encodeString.contramap[Regex](_.toString())
@@ -56,6 +89,11 @@ object TextTriggerValue {
   def fromStringOrRegex(v: String | RegexTextTriggerValue): TextTriggerValue = v match {
     case s: String                => StringTextTriggerValue(s)
     case r: RegexTextTriggerValue => r
+  }
+
+  def isRegex(textTriggerValue: TextTriggerValue): Boolean = textTriggerValue match {
+    case RegexTextTriggerValue(_, _) => true
+    case _                           => false
   }
 }
 

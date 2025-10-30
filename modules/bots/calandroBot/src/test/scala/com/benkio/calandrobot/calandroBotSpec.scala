@@ -20,6 +20,7 @@ class CalandroBotSpec extends BaseBotSpec {
   val excludeTriggers           = List("GIOCHI PER IL MIO PC")
 
   exactTriggerReturnExpectedReplyBundle(CalandroBot.messageRepliesData[IO])
+  regexTriggerReturnExpectedLength(CalandroBot.messageRepliesData[IO])
 
   jsonContainsFilenames(
     jsonFilename = "cala_list.json",
