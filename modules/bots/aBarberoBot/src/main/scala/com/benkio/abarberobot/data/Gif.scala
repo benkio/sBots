@@ -78,7 +78,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       " a morte",
-      "\\bsi si si\\b".r.tr(4)
+      "\\bsi{3,}\\b".r.tr(8)
     )(
       gif"abar_SisiAMorte.gif"
     ),
@@ -100,7 +100,7 @@ object Gif:
       gif"abar_AmmazziamoTuttiNoProblem.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bcert[o!]{3,}\\b".r.tr(5)
+      "\\bcert[o!]{3,}\\b".r.tr(7)
     )(
       gif"abar_Certo.gif"
     ),
@@ -115,7 +115,7 @@ object Gif:
       gif"abar_Semplifico.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "bere il (suo )?sangue".r.tr(15),
+      "bere il (suo )?sangue".r.tr(14),
       "taglia(re)? la gola".r.tr(14)
     )(
       gif"abar_TaglioGolaBereSangue.gif"
@@ -137,7 +137,7 @@ object Gif:
       gif"abar_Furfante.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bbasta(a|!){2,}".r.tr(5)
+      "\\bbasta(a|!){2,}".r.tr(7)
     )(
       gif"abar_Basta.gif"
     ),
@@ -186,12 +186,12 @@ object Gif:
       gif"abar_InDuePezzi.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bgiusto(o|!){2,}".r.tr(6)
+      "\\bgiusto(o|!){2,}".r.tr(8)
     )(
       gif"abar_Giusto.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "gli altri (che )?sono".r.tr(15)
+      "gli altri (che )?sono".r.tr(14)
     )(
       gif"abar_GliAltri.gif"
     ),

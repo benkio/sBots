@@ -56,7 +56,7 @@ object Mix:
       vid"ytai_RicordamiFinoADomani.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "ho perso (di nuovo )?qualcosa".r.tr(18)
+      "ho perso (di nuovo )?qualcosa".r.tr(17)
     )(
       gif"ytai_HoPersoQualcosaGif.mp4",
       mp3"ytai_HoPersoQualcosa.mp3"
@@ -363,7 +363,7 @@ object Mix:
       "verza",
       "cavolo cappuccio",
       "giuseppe",
-      "ma che m(i |')hai detto".r.tr(8)
+      "ma che m(i |')hai detto".r.tr(18)
     )(
       gif"ytai_VerzaGiuseppeGif.mp4",
       vid"ytai_VerzaGiuseppe.mp4"
@@ -780,7 +780,7 @@ object Mix:
         gif"ytai_ZuccheroCaffeOttimoGif.mp4"
       ),
     ReplyBundleMessage.textToMedia[F](
-      "ottimo[!]+".r.tr(5)
+      "ottimo[!]+".r.tr(7)
     )(
       gif"ytai_OttimoGif.mp4",
       vid"ytai_ZuccheroCaffeOttimo.mp4",
@@ -838,8 +838,8 @@ object Mix:
         "pecore",
         "pecora",
         "🐑",
-        "loro latte".r.tr(5),
-        "loro compagnia".r.tr(5),
+        "loro latte",
+        "loro compagnia",
         "casa con giardino",
         "uccellini"
       )(

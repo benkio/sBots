@@ -45,7 +45,7 @@ object Gif {
       gif"rphjb_TelefonataPilotataGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "come ha fatto a entr(à|are)".r.tr(23)
+      "come ha fatto a entr(à|are)".r.tr(21)
     )(
       gif"rphjb_ComeHaFattoAEntrareGif.mp4"
     ),
@@ -93,7 +93,7 @@ object Gif {
       gif"rphjb_ScherzoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "levati((...|..|.| )dai coglioni)?".r.tr(8),
+      " e levati((...|..|.| )dai coglioni)?".r.tr(9),
       "fuori(...|..|.| )dai coglioni".r.tr(18)
     )(
       gif"rphjb_LevatiDaiCoglioniGif.mp4"
@@ -203,7 +203,7 @@ object Gif {
       "🤨",
       "🧐",
       "sono confuso",
-      "[?]{3,}".r.tr(3)
+      "\\?\\?[\\?]+".r.tr(3)
     )(
       gif"rphjb_ConfusoGif.mp4"
     ),
@@ -227,7 +227,7 @@ object Gif {
       gif"rphjb_Sorpresa2Gif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "[u]{3,}".r.tr(3)
+      "uu[u]+".r.tr(3)
     )(
       gif"rphjb_UuuGif.mp4"
     ),

@@ -142,7 +142,7 @@ object Video {
       "illusioni",
       "m[ei] danno fastidio",
       "musica (non )?è grande".r.tr(15),
-      "re[a]?l i[l]+lusion[s]?".r.tr(13)
+      "re[a]?l i[l]+lusion[s]?".r.tr(12)
     )(
       vid"rphjb_RelIllusions.mp4"
     ),
@@ -203,7 +203,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "(mi|me) so(n|no)? rotto il ca\\b".r.tr(17),
       "impazzi(to|sce|ta) totalmente".r.tr(20),
-      "a([cg]ia[s]?){2,}".r.tr(7)
+      "a[cg]ia[s]?[cg]ia[s]?".r.tr(7)
     )(
       vid"rphjb_RottoIlCa.mp4"
     ),
@@ -213,7 +213,7 @@ object Video {
       vid"rphjb_DiventarePapa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r.tr(22),
+      "(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r.tr(21),
       "gli uomini(, |...)?mi fanno schifo",
       "le donne un po' meno"
     )(
@@ -227,10 +227,10 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "\\bbeat\\b".r.tr(4),
-      "(e poi[ ,]?[ ]?){2,}".r.tr(10),
+      "e poi(, | )e poi".r.tr(11),
       "qualche volta vedo lei",
       "non la vedo pi[uù]".r.tr(15),
-      "mi (si )?piange il cuor[e]?".r.tr(20),
+      "mi (si )?piange il cuor[e]?".r.tr(17),
       "sfasciavamo tutti gli strumenti"
     )(
       vid"rphjb_AssoloBeat.mp4"
@@ -305,7 +305,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "i genesis",
       "tecno(-| )thrash".r.tr(12),
-      "emerson(,)? lake (e|&) palmer".r.tr(22),
+      "emerson(,)? lake (e|&) palmer".r.tr(21),
       "gentle giant",
       "marillion"
     )(
@@ -380,7 +380,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "l'unico bravo",
-      "scarica d(i |')andrenalina".r.tr(20),
+      "scarica d(i |')andrenalina".r.tr(21),
       "non valgono (un cazzo|niente)".r.tr(18)
     )(
       vid"rphjb_UnicoBravo.mp4"
@@ -427,7 +427,7 @@ object Video {
       "hai un anno di più",
       "felicitazioni",
       "ma che siamo noi",
-      "rumor[ie] di vetro e di metallo".r.tr(27)
+      "rumor[ie] di vetro e di metallo".r.tr(28)
     )(
       vid"rphjb_AuguriCompleanno.mp4"
     ),
@@ -572,7 +572,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "un casino(,)? come al solito".r.tr(24),
       "quando ci sono io",
-      "l'acqua è (scivolata|scesa) (de|di) sotto".r.tr(28)
+      "l'acqua è (scivolata|scesa) (de|di) sotto".r.tr(24)
     )(
       vid"rphjb_UnCasinoComeAlSolito.mp4"
     ),
@@ -623,7 +623,7 @@ object Video {
       vid"rphjb_Nonno.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sangue (caldo )di un cavallo".r.tr(22),
+      "sangue (caldo )di un cavallo".r.tr(26),
       "diritto alla paura",
       "come una tigre",
       "migliaia di animali",
@@ -696,7 +696,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "una bella fi[cg]a".r.tr(14),
       "la fate aspettare",
-      "silenzio[,]?( dovuto)?".r.tr(11),
+      "in silenzio[,]?( dovuto)?".r.tr(11),
       "consumare dopo",
       "consumare durante"
     )(
@@ -713,7 +713,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "amico grasso",
       "(fare la| mettersi a) dieta".r.tr(13),
-      "circa (6|sei) mesi".r.tr(11),
+      "circa (6|sei) mesi".r.tr(12),
       "peso ideale",
       "pioppo",
       "zinco",
@@ -725,7 +725,7 @@ object Video {
       "dylan (dog|thomas)".r.tr(9),
       "un po' gay",
       "la (collezione|colazione)".r.tr(12),
-      "t[ei] sei sbagliato".r.tr(12)
+      "t[ei] sei sbagliato".r.tr(16)
     )(
       vid"rphjb_DylanDog.mp4"
     ),
@@ -781,14 +781,14 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "(due|2) orecchie".r.tr(10),
-      "(una|1) bocca".r.tr(6)
+      "(una|1) bocca".r.tr(7)
     )(
       vid"rphjb_2Orecchie1Bocca.mp4",
       vid"rphjb_2Orecchie1Bocca2.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "limitazioni",
-      "quante(,|...)? troppe".r.tr(12)
+      "quante(,|...)? troppe".r.tr(13)
     )(
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
     ),
@@ -800,7 +800,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "cambia canale",
-      "\\bcerchion[ie]\\b".r.tr(8)
+      "\\bcerchion[ie]\\b".r.tr(9)
     )(
       vid"rphjb_CambiaCanaleBruttoFrocio.mp4"
     ),
@@ -930,7 +930,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "stratovarius",
       "metallica",
-      "ultimo (disco|album)".r.tr(13)
+      "ultimo (disco|album)".r.tr(12)
     )(
       vid"rphjb_DeludendoQuasiTutto.mp4"
     ),
@@ -1211,7 +1211,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "eccoci qua",
       "di nuovo insieme",
-      "([ ]?hey[ ]?){2,}".r.tr(8)
+      "hey hey"
     )(
       vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4"
     ),
@@ -1329,7 +1329,6 @@ object Video {
       "in giallo",
       "capelli (imbiondati|gialli)".r.tr(14),
       "non sentire più emozioni",
-      "fa[s]+( )?[b]+inder".r.tr(9),
       "dizione",
       "indigeni",
       "selvaggina",
@@ -1352,7 +1351,7 @@ object Video {
       vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "giocattol(o|ino)".r.tr(9)
+      "giocattol(o|ino)".r.tr(10)
     )(
       vid"rphjb_CristoPinocchio.mp4"
     ),
@@ -1462,7 +1461,7 @@ object Video {
       vid"rphjb_GenteMalvagiaDistruggereSparlaGiornalistiSchifosiCarpiMingoliAntonellaDario.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "gruppi (nuovi|che spaccano il culo)".r.tr(13),
+      "gruppi (nuovi|che spaccano il culo)".r.tr(12),
       "intramezzate",
       "ibride",
       "stacchi all'unisono",
@@ -1613,7 +1612,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "storie d'amore",
       "nei particolari",
-      "(freg[aà]|fregare) d[ie] meno".r.tr(12)
+      "(freg[aà]|fregare) d[ie] meno".r.tr(13)
     )(
       vid"rphjb_NonPiaceEssereRipetitivoVarzettaStorieAmoreMeNePuoFregaDeMeno.mp4"
     ),
@@ -1680,7 +1679,7 @@ object Video {
       "più italiano",
       "(non|nun) (te|ti) capiscono".r.tr(16),
       "italianizzare",
-      "accento (all')?inglese".r.tr(16)
+      "accento (all')?inglese".r.tr(15)
     )(
       vid"rphjb_PiuItalianoItalianizzareStoFrocio.mp4"
     ),
@@ -1741,7 +1740,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "persone attente",
       "tipo cazzuto",
-      "calmatev[ei]".r.tr(8),
+      "calmatev[ei]".r.tr(9),
       "\\bseni\\b".r.tr(4),
       "letti (circolari|pieni)".r.tr(11),
       "l'erba",
@@ -1780,7 +1779,7 @@ object Video {
       "malvagi",
       "nemici",
       "tocca a te",
-      "momento (ibrido|contorto|instabile)".r.tr(15),
+      "momento (ibrido|contorto|instabile)".r.tr(14),
       "stabilità"
     )(
       vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
