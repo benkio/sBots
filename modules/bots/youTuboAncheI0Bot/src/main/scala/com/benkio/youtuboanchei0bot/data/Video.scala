@@ -12,9 +12,9 @@ object Video:
     ReplyBundleMessage.textToVideo[F](
       "in america",
       "dove ho sempre desiderato",
-      "(posto|carico) i video".r.tr(13),
-      "(restiamo|teniamo) in contatto".r.tr(19),
-      "(attraverso i|nei) commenti".r.tr(12),
+      "(posto|carico) i video".r.tr,
+      "(restiamo|teniamo) in contatto".r.tr,
+      "(attraverso i|nei) commenti".r.tr,
       "sto risolvendo"
     )(
       vid"ytai_SognoAmericano.mp4"

@@ -24,17 +24,17 @@ object Gif:
       gif"ytai_AffaticamentoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "ascolta (queste|le) mie parole".r.tr(21),
+      "ascolta (queste|le) mie parole".r.tr,
       "amareggiati",
-      "dedicaci (il tuo tempo|le tue notti)".r.tr(21)
+      "dedicaci (il tuo tempo|le tue notti)".r.tr
     )(
       gif"ytai_AmareggiatiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\barchitetta\\b".r.tr(10),
-      "\\bnotaia\\b".r.tr(6),
-      "\\bministra\\b".r.tr(8),
-      "\\bavvocata\\b".r.tr(8)
+      "\\barchitetta\\b".r.tr,
+      "\\bnotaia\\b".r.tr,
+      "\\bministra\\b".r.tr,
+      "\\bavvocata\\b".r.tr
     )(
       gif"ytai_ArchitettaGif.mp4"
     ),
@@ -102,12 +102,12 @@ object Gif:
       gif"ytai_FaiPureGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "fallo anche (tu|te)".r.tr(14)
+      "fallo anche (tu|te)".r.tr
     )(
       gif"ytai_FalloAncheTuGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "filet[ -]?o[ -]?fish".r.tr(10)
+      "filet[ -]?o[ -]?fish".r.tr
     )(
       gif"ytai_FiletOFishGif.mp4",
       gif"ytai_FiletOFish2Gif.mp4",
@@ -115,12 +115,12 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r
-        .tr(6)
+        .tr
     )(
       gif"ytai_FrustrazioneGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "ci sto (gi[aà] )?pensando".r.tr(15)
+      "ci sto (gi[aà] )?pensando".r.tr
     )(
       gif"ytai_GiaPensandoGif.mp4"
     ),
@@ -149,7 +149,7 @@ object Gif:
     ReplyBundleMessage.textToGif[F](
       "incredibile",
       "inimitabile",
-      "the number (one|1)".r.tr(12)
+      "the number (one|1)".r.tr
     )(
       gif"ytai_IncredibileInimitabileGif.mp4"
     ),
@@ -165,7 +165,7 @@ object Gif:
       gif"ytai_LoroDovereVostroDirittoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "lo so (bene )?anche io".r.tr(14)
+      "lo so (bene )?anche io".r.tr
     )(
       gif"ytai_LoSoAncheIoGif.mp4"
     ),
@@ -198,7 +198,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "monoporzioni",
-      "mezzo (chilo|kg)".r.tr(8)
+      "mezzo (chilo|kg)".r.tr
     )(
       gif"ytai_MonoporzioniTiramisuGif.mp4"
     ),
@@ -284,12 +284,12 @@ object Gif:
       gif"ytai_SilenzioGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "silenzio[,]? silenzio".r.tr(17)
+      "silenzio[,]? silenzio".r.tr
     )(
       gif"ytai_SilenzioGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "si v[àa] finch[eé] si v[aà]".r.tr(18),
+      "si v[àa] finch[eé] si v[aà]".r.tr,
       "quando non si potrà andare più",
       "è tanto facile"
     )(
@@ -341,19 +341,19 @@ object Gif:
       gif"ytai_BenvenutiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bdiploma\\b".r.tr(7),
+      "\\bdiploma\\b".r.tr,
       "per pisciare",
-      "ma (che )?stiamo scherzando".r.tr(20)
+      "ma (che )?stiamo scherzando".r.tr
     )(
       gif"ytai_DiplomaPisciareGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "non (mi sento|sto) bene".r.tr(12)
+      "non (mi sento|sto) bene".r.tr
     )(
       gif"ytai_DiversiGioniNonStoBeneGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "(grazie e )?arrivederci".r.tr(11)
+      "(grazie e )?arrivederci".r.tr
     )(
       gif"ytai_GrazieArrivederciGif.mp4"
     ),
@@ -376,7 +376,7 @@ object Gif:
       gif"ytai_NoScuseGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "sono (grosso|sono (quasi )?enorme|una palla di lardo)".r.tr(11)
+      "sono (grosso|sono (quasi )?enorme|una palla di lardo)".r.tr
     )(
       gif"ytai_PallaDiLardoGif.mp4"
     ),
@@ -403,7 +403,7 @@ object Gif:
       gif"ytai_SorpresaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bproviamo\\b".r.tr(8),
+      "\\bproviamo\\b".r.tr,
       "senza morire"
     )(
       gif"ytai_ProviamoSenzaMorireGif.mp4"
@@ -414,7 +414,7 @@ object Gif:
       gif"ytai_RiescoAFareGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "sentendo (davvero )?male".r.tr(13)
+      "sentendo (davvero )?male".r.tr
     )(
       gif"ytai_SentendoDavveroMaleGif.mp4"
     ),
@@ -435,17 +435,17 @@ object Gif:
       gif"ytai_SorpresaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "staccato (quasi )?il naso".r.tr(16)
+      "staccato (quasi )?il naso".r.tr
     )(
       gif"ytai_StaccatoNasoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "cuc[uù]+".r.tr(4)
+      "cuc[uù]+".r.tr
     )(
       gif"ytai_CucuGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "al[e]+ [o]{2,}".r.tr(6)
+      "al[e]+ [o]{2,}".r.tr
     )(
       gif"ytai_AleOooGif.mp4"
     ),
@@ -457,7 +457,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "capolavoro",
-      "\\bmeravigliosa\\b".r.tr(12)
+      "\\bmeravigliosa\\b".r.tr
     )(
       gif"ytai_CapolavoroMeravigliosaGif.mp4"
     ),
@@ -511,7 +511,7 @@ object Gif:
       gif"ytai_PaninoBuonoSpuntitoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "m[ ]?&[ ]?m['s]?".r.tr(3),
+      "m[ ]?&[ ]?m['s]?".r.tr,
       "rotear",
       "ruotar"
     )(
@@ -519,8 +519,8 @@ object Gif:
       gif"ytai_MnMsLoopGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "(😂|🤣){4,}".r.tr(4),
-      "(ah|ha){5,}".r.tr(10)
+      "(😂|🤣){4,}".r.tr,
+      "(ah|ha){5,}".r.tr
     )(
       gif"ytai_RisataGif.mp4"
     ),
@@ -538,7 +538,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "correre non serve",
-      "\\bfretta\\b".r.tr(6)
+      "\\bfretta\\b".r.tr
     )(
       gif"ytai_CorrereNonServeGif.mp4"
     ),
@@ -549,7 +549,7 @@ object Gif:
       gif"ytai_TorreMarmellataGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "(la|una) torre".r.tr(8)
+      "(la|una) torre".r.tr
     )(
       gif"ytai_TorreMarmellataGif.mp4",
       gif"ytai_TorreKinderFettaLatteGif.mp4"
@@ -576,7 +576,7 @@ object Gif:
       gif"ytai_QuestioniFilosoficheGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "mang[ai] in (mia )?compagnia".r.tr(18)
+      "mang[ai] in (mia )?compagnia".r.tr
     )(
       gif"ytai_InCompagniaGif.mp4"
     ),
@@ -594,7 +594,7 @@ object Gif:
       gif"ytai_GrazieAmicoChiarireGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "comm(uo|o)vendo".r.tr(10)
+      "comm(uo|o)vendo".r.tr
     )(
       gif"ytai_CommovendoGif.mp4",
       gif"ytai_CommuovendoFareQuelloChePiaceGif.mp4"
@@ -616,7 +616,7 @@ object Gif:
       gif"ytai_MancaForchettaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "solo[?]{2,}".r.tr(6)
+      "solo[?]{2,}".r.tr
     )(
       gif"ytai_SoloGif.mp4"
     ),
@@ -650,8 +650,8 @@ object Gif:
       gif"ytai_GrazieRagazziGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "mi (reputi|consideri) intelligente".r.tr(22),
-      "mi (reputi|consideri) sensibile".r.tr(19),
+      "mi (reputi|consideri) intelligente".r.tr,
+      "mi (reputi|consideri) sensibile".r.tr,
       "sensibile e intelligente"
     )(
       gif"ytai_SensibileIntelligenteGif.mp4"
@@ -695,7 +695,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "ce l'ho fatta",
-      "\\bp(à|a')\\b".r.tr(2)
+      "\\bp(à|a')\\b".r.tr
     )(
       gif"ytai_CeLhoFattaGif.mp4"
     ),
@@ -743,13 +743,13 @@ object Gif:
       gif"ytai_NeAvevoProprioVogliaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "c'entra (quasi )?sempre".r.tr(14)
+      "c'entra (quasi )?sempre".r.tr
     )(
       gif"ytai_CentraQuasiSempreGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "riesco a darvi",
-      "imparare (anche io )?(un po' )?di più".r.tr(15)
+      "imparare (anche io )?(un po' )?di più".r.tr
     )(
       gif"ytai_DarviImparareGif.mp4"
     ),
@@ -768,7 +768,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "mia filosofia",
-      "risol(to|vere) con tutti".r.tr(17)
+      "risol(to|vere) con tutti".r.tr
     )(
       gif"ytai_HoRisoltoConTuttiGif.mp4"
     ),
@@ -785,7 +785,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "quello che ci voleva",
-      "bibita (bella )?fresca".r.tr(13)
+      "bibita (bella )?fresca".r.tr
     )(
       gif"ytai_QuestaBibitaBellaFrescaGif.mp4"
     ),
@@ -806,14 +806,14 @@ object Gif:
       gif"ytai_ViveteQuestoMomentoConMeGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\btremo\\b".r.tr(5),
+      "\\btremo\\b".r.tr,
       "le mie condizioni"
     )(
       gif"ytai_TremoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "fallo anche (te|tu)".r.tr(14),
-      "\\bcome me\\b".r.tr(7)
+      "fallo anche (te|tu)".r.tr,
+      "\\bcome me\\b".r.tr
     )(
       gif"ytai_FalloAncheTeComeMeGif.mp4"
     ),
@@ -831,8 +831,8 @@ object Gif:
       gif"ytai_PrivatoSoldiLimitatoMoltoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bball(o|are|i)\\b".r.tr(5),
-      "\\bdanz(a|are|i)\\b".r.tr(5),
+      "\\bball(o|are|i)\\b".r.tr,
+      "\\bdanz(a|are|i)\\b".r.tr,
       "💃",
       "🕺"
     )(
@@ -856,7 +856,7 @@ object Gif:
       gif"ytai_SonoIpocritaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "imbarazz(o|ato)".r.tr(9)
+      "imbarazz(o|ato)".r.tr
     )(
       gif"ytai_SentireInImbarazzoGif.mp4",
       gif"ytai_LeggermenteImbarazzatoGif.mp4"
@@ -898,12 +898,12 @@ object Gif:
       gif"ytai_NonSonoFuorileggeNecessitaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "mi fa (tanto )?piacere".r.tr(13)
+      "mi fa (tanto )?piacere".r.tr
     )(
       gif"ytai_MiFaTantoPiacereGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bshow\\b".r.tr(4)
+      "\\bshow\\b".r.tr
     )(
       gif"ytai_LoShowDeveContunuareGif.mp4"
     ),
@@ -913,7 +913,7 @@ object Gif:
       gif"ytai_FeliceDiRitrovarviGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "fa(re|rti|tti) (due |i )?conti".r.tr(10),
+      "fa(re|rti|tti) (due |i )?conti".r.tr,
       "il lavoro che fai"
     )(
       gif"ytai_FattiDueContiGif.mp4"
@@ -930,7 +930,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "rinfrescante",
-      "s(\\.)?r(\\.)?l(\\.)?".r.tr(3) // s.r.l.
+      "s(\\.)?r(\\.)?l(\\.)?".r.tr
     )(
       gif"ytai_RinfrescanteDiCalabriaGif.mp4"
     ),
@@ -943,7 +943,7 @@ object Gif:
     ReplyBundleMessage.textToGif[F](
       "allevare",
       "galline",
-      "mi[ae] passion[ie]".r.tr(12)
+      "mi[ae] passion[ie]".r.tr
     )(
       gif"ytai_PassioneAllevareGallineGif.mp4"
     ),
@@ -986,7 +986,7 @@ object Gif:
       gif"ytai_OsticaInsalataGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\blotte\\b".r.tr(5),
+      "\\blotte\\b".r.tr,
       "condivido"
     )(
       gif"ytai_PersonaliLotteFollowersGif.mp4"
@@ -1024,8 +1024,8 @@ object Gif:
       gif"ytai_GrazieScaldatoPaniniGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bterminato\\b".r.tr(9),
-      "facilit[aàá]".r.tr(8)
+      "\\bterminato\\b".r.tr,
+      "facilit[aàá]".r.tr
     )(
       gif"ytai_EstremaFacilitaGif.mp4"
     ),
@@ -1040,7 +1040,7 @@ object Gif:
     ReplyBundleMessage.textToGif[F](
       "waffel",
       "inzuppati",
-      "profumo gradevol(e|issimo)".r.tr(17)
+      "profumo gradevol(e|issimo)".r.tr
     )(gif"ytai_WaffelInzuppatiGif.mp4"),
     ReplyBundleMessage.textToGif[F](
       "oliva"
@@ -1049,7 +1049,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "mpincia",
-      "cosa (mi )bevo".r.tr(12)
+      "cosa (mi )bevo".r.tr
     )(
       gif"ytai_MpinciaGif.mp4"
     ),
@@ -1077,7 +1077,7 @@ object Gif:
     ReplyBundleMessage
       .textToGif[F](
         "bottiglia",
-        "san[ ]?benedetto".r.tr(12)
+        "san[ ]?benedetto".r.tr
       )(
         gif"ytai_LoopBottigliaGif.mp4"
       )

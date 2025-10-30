@@ -86,7 +86,7 @@ object CalandroBot {
     )("Passo"),
     ReplyBundleMessage.textToText[F](
       "gay",
-      "froc[io]".r.tr(5),
+      "froc[io]".r.tr,
       "culattone",
       "ricchione"
     )("CHE SCHIFO!!!"),
@@ -97,7 +97,7 @@ object CalandroBot {
     ReplyBundleMessage.textToText[F](
       "ciao",
       "buongiorno",
-      "\\bsalve\\b".r.tr(5)
+      "\\bsalve\\b".r.tr
     )("Buongiorno Signori"),
     ReplyBundleMessage.textToText[F](
       "film"
@@ -111,8 +111,8 @@ object CalandroBot {
       matcher = MessageMatches.ContainsAll
     ),
     ReplyBundleMessage.textToText[F](
-      "\\bhd\\b".r.tr(2),
-      "nitid(o|ezza)".r.tr(6),
+      "\\bhd\\b".r.tr,
+      "nitid(o|ezza)".r.tr,
       "alta definizione"
     )("Eh sì, vedi...si nota l'indecisione dell'immagine"),
     ReplyBundleMessage.textToText[F](
@@ -123,10 +123,10 @@ object CalandroBot {
       "automobile"
     )("Hai visto l'ultima puntata di \"Top Gear\"?"),
     ReplyBundleMessage.textToText[F](
-      "\\bfiga\\b".r.tr(4),
-      "\\bfregna\\b".r.tr(6),
-      "\\bgnocca\\b".r.tr(6),
-      "\\bpatacca\\b".r.tr(7)
+      "\\bfiga\\b".r.tr,
+      "\\bfregna\\b".r.tr,
+      "\\bgnocca\\b".r.tr,
+      "\\bpatacca\\b".r.tr
     )("Io so come fare con le donne...ho letto tutto..."),
     ReplyBundleMessage.textToText[F](
       "ambulanza",

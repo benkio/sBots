@@ -45,7 +45,7 @@ object Gif {
       gif"rphjb_TelefonataPilotataGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "come ha fatto a entr(à|are)".r.tr(21)
+      "come ha fatto a entr(à|are)".r.tr
     )(
       gif"rphjb_ComeHaFattoAEntrareGif.mp4"
     ),
@@ -93,14 +93,14 @@ object Gif {
       gif"rphjb_ScherzoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      " e levati((...|..|.| )dai coglioni)?".r.tr(9),
-      "fuori(...|..|.| )dai coglioni".r.tr(18)
+      " e levati((...|..|.| )dai coglioni)?".r.tr,
+      "fuori(...|..|.| )dai coglioni".r.tr
     )(
       gif"rphjb_LevatiDaiCoglioniGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "più co(gl|j)ione".r.tr(11),
-      "dice co(gl|j)ione".r.tr(12)
+      "più co(gl|j)ione".r.tr,
+      "dice co(gl|j)ione".r.tr
     )(
       gif"rphjb_CoglioneGif.mp4",
       gif"rphjb_PiuCoglioneGif.mp4",
@@ -124,7 +124,7 @@ object Gif {
       gif"rphjb_CantantiSerieZGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "[gq]uerelare".r.tr(9)
+      "[gq]uerelare".r.tr
     )(
       gif"rphjb_QuerelareGif.mp4"
     ),
@@ -134,7 +134,7 @@ object Gif {
       gif"rphjb_ChiCazzoSeiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "(è|diventa) vecchi[ao]".r.tr(9)
+      "(è|diventa) vecchi[ao]".r.tr
     )(
       gif"rphjb_VecchioGif.mp4"
     ),
@@ -166,8 +166,8 @@ object Gif {
       gif"rphjb_IlSensoCapitoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "abi(t|d)ua(t|d)o".r.tr(8),
-      "proprioll(a|à)".r.tr(10)
+      "abi(t|d)ua(t|d)o".r.tr,
+      "proprioll(a|à)".r.tr
     )(
       gif"rphjb_PropriollaGif.mp4"
     ),
@@ -184,18 +184,18 @@ object Gif {
       gif"rphjb_IlBongoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "immagini ama(d|t)oriali".r.tr(19)
+      "immagini ama(d|t)oriali".r.tr
     )(
       gif"rphjb_InternetGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "prendere quello l[aà]".r.tr(18)
+      "prendere quello l[aà]".r.tr
     )(
       gif"rphjb_AaaPrendereQuelloLaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "col cazzo",
-      "non so suon[aà](re)?".r.tr(12)
+      "non so suon[aà](re)?".r.tr
     )(
       gif"rphjb_ColCazzoSuonaGif.mp4"
     ),
@@ -203,7 +203,7 @@ object Gif {
       "🤨",
       "🧐",
       "sono confuso",
-      "\\?\\?[\\?]+".r.tr(3)
+      "\\?\\?[\\?]+".r.tr
     )(
       gif"rphjb_ConfusoGif.mp4"
     ),
@@ -211,7 +211,7 @@ object Gif {
       "😑",
       "😒",
       "🫤",
-      "\\bwtf[!]*\\b".r.tr(3)
+      "\\bwtf[!]*\\b".r.tr
     )(
       gif"rphjb_WTFGif.mp4",
       gif"rphjb_WTF2Gif.mp4",
@@ -219,15 +219,15 @@ object Gif {
       gif"rphjb_WTF4Gif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bsorpresa\\b".r.tr(8),
-      "\\bshock\\b".r.tr(5),
+      "\\bsorpresa\\b".r.tr,
+      "\\bshock\\b".r.tr,
       "😮"
     )(
       gif"rphjb_SorpresaGif.mp4",
       gif"rphjb_Sorpresa2Gif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "uu[u]+".r.tr(3)
+      "uu[u]+".r.tr
     )(
       gif"rphjb_UuuGif.mp4"
     ),

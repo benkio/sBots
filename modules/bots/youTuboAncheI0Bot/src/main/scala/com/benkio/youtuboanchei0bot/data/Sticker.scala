@@ -11,20 +11,20 @@ object Sticker:
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToSticker[F](
-      "\\bpasta\\b".r.tr(5),
+      "\\bpasta\\b".r.tr,
       "🍝"
     )(
       sticker"ytai_PastaYtancheio.sticker",
       sticker"ytai_Pasta2Ytancheio.sticker"
     ),
     ReplyBundleMessage.textToSticker[F](
-      "\\bduplo\\b".r.tr(5),
+      "\\bduplo\\b".r.tr,
       "🍫"
     )(
       sticker"ytai_DuploYtancheio.sticker"
     ),
     ReplyBundleMessage.textToSticker[F](
-      "ka[p]?fen".r.tr(5),
+      "ka[p]?fen".r.tr,
       "bombolone"
     )(
       sticker"ytai_KrapfenYtancheio.sticker"
