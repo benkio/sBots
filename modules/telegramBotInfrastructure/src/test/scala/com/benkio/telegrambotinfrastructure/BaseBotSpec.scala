@@ -19,7 +19,7 @@ import telegramium.bots.Message
 import java.io.File
 import scala.io.Source
 
-trait BaseBotSpec extends CatsEffectSuite {
+trait BaseBotSpec extends FunSuite {
   private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")
@@ -187,9 +187,8 @@ trait BaseBotSpec extends CatsEffectSuite {
       .flatten
       .foreach { case (regexTextTriggerValue: RegexTextTriggerValue) =>
         test(s"""Regex should have the expected length: "${regexTextTriggerValue.toString}"""") {
-          assertIO(
-            regexTextTriggerValue.length1,
-            regexTextTriggerValue.length // TODO: 853 to be removed, but keep the test to check that no exception is ever raised when a regex length is calculated
+          assert(
+            Try(regexTextTriggerValue.length).isSuccess
           )
         }
         case stringTextTriggerValue => throw new Exception(s"[BaseBotSpec] regexTriggerReturnExpectedLength got a stringTextTriggerValue: $stringTextTriggerValue")

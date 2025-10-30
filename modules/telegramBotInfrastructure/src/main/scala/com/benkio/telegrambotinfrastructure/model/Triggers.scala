@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.model
 import wolfendale.scalacheck.regexp.RegexpGen
 import org.scalacheck.Gen
 import org.scalacheck.rng.Seed
-import cats.effect.IO
+
 import cats.implicits.*
 import cats.Show
 import io.circe.*
@@ -23,32 +23,11 @@ final case class RegexTextTriggerValueLengthNotFound(regexTextTriggerValue: Rege
 
 extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
 extension (r: Regex)
-  def tr(minimalLengthMatch: Int): RegexTextTriggerValue = RegexTextTriggerValue(r, minimalLengthMatch)
-extension (textTriggerValue: TextTriggerValue)
+  def tr: RegexTextTriggerValue = RegexTextTriggerValue(r)
+extension (textTriggerValue: TextTriggerValue) {
   def isStringTriggerValue: Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_, _) => false
+    case RegexTextTriggerValue(_) => false
     case StringTextTriggerValue(_)   => true
-  }
-extension (regexTextTriggerValue: RegexTextTriggerValue) {
-  def length1: IO[Int] = {
-    def canGenerateSize(
-        targetSize: Int,
-        trials: Int = 200
-    ): Boolean = {
-      val params = Gen.Parameters.default.withSize(targetSize)
-      (1 to trials).exists { _ =>
-        RegexpGen
-          .from(regexTextTriggerValue.trigger.toString)
-          .apply(params, Seed.random())
-          .exists(v => v.length == targetSize)
-      }
-    }
-
-    IO.fromOption(
-      (0 to 100).find { size =>
-        canGenerateSize(size)
-      }
-    )(RegexTextTriggerValueLengthNotFound(regexTextTriggerValue))
   }
 }
 
@@ -66,7 +45,7 @@ sealed trait TextTriggerValue {
 object TextTriggerValue {
 
   def matchValue(trigger: TextTriggerValue, source: String): Boolean = trigger match {
-    case RegexTextTriggerValue(v, _) => v.findFirstMatchIn(source).isDefined
+    case RegexTextTriggerValue(v) => v.findFirstMatchIn(source).isDefined
     case StringTextTriggerValue(v)   => source `contains` v
   }
 
@@ -77,7 +56,7 @@ object TextTriggerValue {
   given showInstance: Show[TextTriggerValue] = Show.show(ttv =>
     ttv match {
       case StringTextTriggerValue(t)   => t
-      case RegexTextTriggerValue(t, _) => t.toString
+      case RegexTextTriggerValue(t) => t.toString
     }
   )
 
@@ -92,7 +71,7 @@ object TextTriggerValue {
   }
 
   def isRegex(textTriggerValue: TextTriggerValue): Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_, _) => true
+    case RegexTextTriggerValue(_) => true
     case _                           => false
   }
 }
@@ -100,8 +79,25 @@ object TextTriggerValue {
 case class StringTextTriggerValue(trigger: String) extends TextTriggerValue {
   override def length: Int = trigger.length
 }
-case class RegexTextTriggerValue(trigger: Regex, minimalLengthMatch: Int) extends TextTriggerValue {
-  override def length: Int = minimalLengthMatch
+case class RegexTextTriggerValue(trigger: Regex) extends TextTriggerValue {
+  override def length: Int = {
+    def canGenerateSize(
+        targetSize: Int,
+        trials: Int = 200
+    ): Boolean = {
+      val params = Gen.Parameters.default.withSize(targetSize)
+      (1 to trials).exists { _ =>
+        RegexpGen
+          .from(trigger.toString)
+          .apply(params, Seed.random())
+          .exists(v => v.length == targetSize)
+      }
+    }
+
+    (0 to 100).find { size =>
+        canGenerateSize(size)
+      }.getOrElse(throw RegexTextTriggerValueLengthNotFound(this))
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
