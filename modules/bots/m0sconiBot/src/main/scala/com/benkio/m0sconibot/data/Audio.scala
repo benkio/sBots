@@ -104,12 +104,12 @@ object Audio:
       mp3"mos_PilotaRomanoAndreaDeCesariDioCanariaDeDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "a[h]? n[o]?n lo so".r.tr(11)
+      "a[h]? n[o]?n lo so".r.tr(10)
     )(
       mp3"mos_AhNonLoSo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "non posso (mica )?improvvisar(e|me)".r.tr(21)
+      "non posso (mica )?improvvisar(e|me)".r.tr(22)
     )(
       mp3"mos_AndateInMona.mp3"
     ),
@@ -213,7 +213,7 @@ object Audio:
       mp3"mos_Buongiorno2.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "but(tato|ta) per aria tutto".r.tr(22)
+      "but(tato|ta) per aria tutto".r.tr(20)
     )(
       mp3"mos_ButtaPellAria.mp3"
     ),
@@ -233,7 +233,7 @@ object Audio:
       mp3"mos_ChiEQuelMonaSbatteLaPortaChiudeUrlando.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "chissà che non m(i |')incazzo".r.tr(26)
+      "chissà che non m(i |')incazzo".r.tr(24)
     )(
       mp3"mos_ChissaCheNonMIncazzaEh.mp3"
     ),
@@ -289,8 +289,8 @@ object Audio:
       mp3"mos_Sigla.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\b(difa|ddbb|babba)\\b".r.tr(5),
-      "farfugl(i|a|iare|iamento)".r.tr(7)
+      "\\b(difa|ddbb|babba)\\b".r.tr(4),
+      "farfugl(i|a|iare|iamento)".r.tr(8)
     )(
       mp3"mos_Difabbddffbbaa.mp3"
     ),
@@ -300,7 +300,7 @@ object Audio:
       mp3"mos_DioCaneMaNonEPossibile.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "dio (pa){3,}".r.tr(6)
+      "dio (pa){3,}".r.tr(10)
     )(
       mp3"mos_DioPaPaPaPaPaPa.mp3"
     ),

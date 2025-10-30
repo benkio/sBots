@@ -108,7 +108,7 @@ object Mix:
       "documenti d'identità",
       "targhe di auto (rubate)?".r.tr(15),
       "timbri",
-      "(divise|palette) della polizia".r.tr(14),
+      "(divise|palette) della polizia".r.tr(20),
       "pacchetti di sigarette",
       "piselli de rica",
       "fagioli cirio",

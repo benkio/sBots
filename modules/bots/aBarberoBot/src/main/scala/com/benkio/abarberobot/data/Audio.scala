@@ -224,7 +224,7 @@ object Audio:
       mp3"abar_Reinterrogateli.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "i \\bre\\b".r.tr(2),
+      "i \\bre\\b".r.tr(4),
       "decapita"
     )(
       mp3"abar_Re.mp3"
@@ -241,7 +241,7 @@ object Audio:
       mp3"abar_Stupidi.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bsubito(o|!){2,}".r.tr(6)
+      "\\bsubito(o|!){2,}".r.tr(9)
     )(
       mp3"abar_Subito.mp3"
     ),
@@ -292,7 +292,7 @@ object Audio:
       mp3"abar_Preoccupazione.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "son(o)? tu[t]+e ba[l]+e".r.tr(13)
+      "son(o)? tu[t]+e ba[l]+e".r.tr(14)
     )(
       mp3"abar_Bale.mp3"
     ),

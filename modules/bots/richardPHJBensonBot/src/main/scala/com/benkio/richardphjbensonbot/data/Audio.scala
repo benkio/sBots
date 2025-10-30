@@ -149,7 +149,7 @@ object Audio {
       mp3"rphjb_Battesimo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "a( )?s[s]+tronzo".r.tr(8),
+      "a( )?s[s]+tronzo".r.tr(9),
       "stronz[o]{3,}".r.tr(9)
     )(
       mp3"rphjb_AStronzo.mp3"
@@ -209,7 +209,7 @@ object Audio {
       mp3"rphjb_FaccioSchifo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "ci sei ritornat[ao]".r.tr(15)
+      "ci sei ritornat[ao]".r.tr(16)
     )(
       mp3"rphjb_Ritornata.mp3"
     ),
@@ -321,7 +321,7 @@ object Audio {
       mp3"rphjb_MiseroAntroGanciAgnelliPisciata.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "mio (fidanzato|partner|moroso)".r.tr(11)
+      "mio (fidanzato|partner|moroso)".r.tr(10)
     )(
       mp3"rphjb_DonneSperma.mp3"
     ),
@@ -408,14 +408,14 @@ object Audio {
         "anche le sue",
         "poesie",
         "non se le ricorda pi[uù]",
-        "pisci[aà](re)? in culo".r.tr(16),
+        "pisci[aà](re)? in culo".r.tr(14),
         "che cazzo stai a d[iì](re)?".r.tr(19)
       )(
         mp3"rphjb_PoesieRovinate.mp3"
       ),
     ReplyBundleMessage
       .textToMp3[F](
-        "\\bfregat[ao]\\b".r.tr(6),
+        "\\bfregat[ao]\\b".r.tr(7),
         "mani tue"
       )(
         mp3"rphjb_FregatoManiTue.mp3"

@@ -519,8 +519,8 @@ object Gif:
       gif"ytai_MnMsLoopGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "(😂|🤣){3,}".r.tr(4),
-      "(ah|ha){5,}".r.tr(14)
+      "(😂|🤣){4,}".r.tr(4),
+      "(ah|ha){5,}".r.tr(10)
     )(
       gif"ytai_RisataGif.mp4"
     ),
@@ -616,7 +616,7 @@ object Gif:
       gif"ytai_MancaForchettaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "solo[?]{2,}".r.tr(5)
+      "solo[?]{2,}".r.tr(6)
     )(
       gif"ytai_SoloGif.mp4"
     ),
@@ -768,7 +768,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "mia filosofia",
-      "risol(to|vere) con tutti".r.tr(15)
+      "risol(to|vere) con tutti".r.tr(17)
     )(
       gif"ytai_HoRisoltoConTuttiGif.mp4"
     ),
@@ -813,7 +813,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "fallo anche (te|tu)".r.tr(14),
-      "\\bcome me\\b".r.tr(5)
+      "\\bcome me\\b".r.tr(7)
     )(
       gif"ytai_FalloAncheTeComeMeGif.mp4"
     ),
@@ -898,7 +898,7 @@ object Gif:
       gif"ytai_NonSonoFuorileggeNecessitaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "mi fa (tanto )?piacere".r.tr(12)
+      "mi fa (tanto )?piacere".r.tr(13)
     )(
       gif"ytai_MiFaTantoPiacereGif.mp4"
     ),
@@ -913,7 +913,7 @@ object Gif:
       gif"ytai_FeliceDiRitrovarviGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "fa(re|rti|tti) (due |i )?conti".r.tr(9),
+      "fa(re|rti|tti) (due |i )?conti".r.tr(10),
       "il lavoro che fai"
     )(
       gif"ytai_FattiDueContiGif.mp4"
@@ -1025,7 +1025,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "\\bterminato\\b".r.tr(9),
-      "facilit[aàá]".r.tr(7)
+      "facilit[aàá]".r.tr(8)
     )(
       gif"ytai_EstremaFacilitaGif.mp4"
     ),
@@ -1040,7 +1040,7 @@ object Gif:
     ReplyBundleMessage.textToGif[F](
       "waffel",
       "inzuppati",
-      "profumo gradevol(e|issimo)".r.tr(16)
+      "profumo gradevol(e|issimo)".r.tr(17)
     )(gif"ytai_WaffelInzuppatiGif.mp4"),
     ReplyBundleMessage.textToGif[F](
       "oliva"
@@ -1049,7 +1049,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "mpincia",
-      "cosa (mi )bevo".r.tr(9)
+      "cosa (mi )bevo".r.tr(12)
     )(
       gif"ytai_MpinciaGif.mp4"
     ),
