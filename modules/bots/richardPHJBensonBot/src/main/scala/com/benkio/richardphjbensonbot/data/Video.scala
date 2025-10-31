@@ -10,7 +10,7 @@ object Video {
   def messageRepliesVideoData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToVideo[F](
       "soldati",
-      "vorrei (tanto )?risentirlo".r.tr()
+      "vorrei (tanto )?risentirlo".r
     )(
       vid"rphjb_AmiciVeriVecchiSoldati.mp4"
     ),
@@ -22,12 +22,12 @@ object Video {
       vid"rphjb_CuoreInMano.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "accor(data|dana)".r.tr()
+      "accor(data|dana)".r
     )(
       vid"rphjb_Accordana.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "\\brap\\b".r.tr(),
+      "\\brap\\b".r,
       "musica italiana",
       "vi regalo",
       "quella merda"
@@ -41,7 +41,7 @@ object Video {
       vid"rphjb_QuesitoRegaloOtelloProfazioMarioLanzaTullioPaneLucianoTaglioliGianniCeleste.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "uo[m]+ini d'affari".r.tr(),
+      "uo[m]+ini d'affari".r,
       "andò in america",
       "non c'è la benzina",
       "a sbattere da tutte le parti",
@@ -74,7 +74,7 @@ object Video {
       vid"rphjb_PetrucciCapelliCorti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "fregat(a|ura)".r.tr(),
+      "fregat(a|ura)".r,
       "canaro",
       "magliana"
     )(
@@ -89,15 +89,15 @@ object Video {
       "streghe",
       "inquisizione",
       "al rogo",
-      "effetti (impropri|ipnotici)".r.tr()
+      "effetti (impropri|ipnotici)".r
     )(
       vid"rphjb_Streghe.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(tornando|andando) (all')?indietro".r.tr(),
+      "(tornando|andando) (all')?indietro".r,
       "innovazione",
       "composizione",
-      "idea (nuova|fresca)".r.tr()
+      "idea (nuova|fresca)".r
     )(
       vid"rphjb_ComposizioneIdeaFrescaInnovazioneAndareAvantiStiamoTornandoIndetro.mp4"
     ),
@@ -138,11 +138,11 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "già il titolo",
-      "(coi|quei) due punti".r.tr(),
+      "(coi|quei) due punti".r,
       "illusioni",
       "m[ei] danno fastidio",
-      "musica (non )?è grande".r.tr(),
-      "re[a]?l i[l]+lusion[s]?".r.tr()
+      "musica (non )?è grande".r,
+      "re[a]?l i[l]+lusion[s]?".r
     )(
       vid"rphjb_RelIllusions.mp4"
     ),
@@ -180,12 +180,12 @@ object Video {
       vid"rphjb_AlbizziePerlaPioggia.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "l[i]+[b]+[e]+r[i]+".r.tr(Some(6))
+      "l[i]+[b]+[e]+r[i]+".r.tr(6)
     )(
       vid"rphjb_Liberi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "\\bcinta\\b".r.tr(),
+      "\\bcinta\\b".r,
       "bruce kulick"
     )(
       vid"rphjb_CintaProblema.mp4"
@@ -201,9 +201,9 @@ object Video {
       vid"rphjb_BigMoney.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(mi|me) so(n|no)? rotto il ca\\b".r.tr(),
-      "impazzi(to|sce|ta) totalmente".r.tr(),
-      "a[cg]ia[s]?[cg]ia[s]?".r.tr()
+      "(mi|me) so(n|no)? rotto il ca\\b".r,
+      "impazzi(to|sce|ta) totalmente".r,
+      "a[cg]ia[s]?[cg]ia[s]?".r
     )(
       vid"rphjb_RottoIlCa.mp4"
     ),
@@ -213,7 +213,7 @@ object Video {
       vid"rphjb_DiventarePapa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r.tr(),
+      "(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r,
       "gli uomini(, |...)?mi fanno schifo",
       "le donne un po' meno"
     )(
@@ -226,11 +226,11 @@ object Video {
       vid"rphjb_PistoleroVeloceAmmazzarePersoneServitorePubblico.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "\\bbeat\\b".r.tr(),
-      "e poi(, | )e poi".r.tr(),
+      "\\bbeat\\b".r,
+      "e poi(, | )e poi".r,
       "qualche volta vedo lei",
-      "non la vedo pi[uù]".r.tr(),
-      "mi (si )?piange il cuor[e]?".r.tr(),
+      "non la vedo pi[uù]".r,
+      "mi (si )?piange il cuor[e]?".r,
       "sfasciavamo tutti gli strumenti"
     )(
       vid"rphjb_AssoloBeat.mp4"
@@ -248,10 +248,10 @@ object Video {
       vid"rphjb_RingraziareGianniTraffico.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(roba|droga) tagliata male".r.tr(),
+      "(roba|droga) tagliata male".r,
       "one television",
       "rock machine",
-      "(un po'|un attimo) (di|de) esercitazione".r.tr()
+      "(un po'|un attimo) (di|de) esercitazione".r
     )(
       vid"rphjb_RockMachineIntro.mp4"
     ),
@@ -274,7 +274,7 @@ object Video {
       "più pulito",
       "john travolta",
       "video didattico",
-      "fate venire le vostre (madri|mogli|fidanzate)".r.tr()
+      "fate venire le vostre (madri|mogli|fidanzate)".r
     )(
       vid"rphjb_DelirioDelSabatoSera.mp4"
     ),
@@ -291,7 +291,7 @@ object Video {
       vid"rphjb_FotoLookDreamTheater.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "impiegat[oi]".r.tr()
+      "impiegat[oi]".r
     )(
       vid"rphjb_PetrucciCapelliCorti.mp4",
       vid"rphjb_PoesiaArtistiImpiegati.mp4"
@@ -304,8 +304,8 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "i genesis",
-      "tecno(-| )thrash".r.tr(),
-      "emerson(,)? lake (e|&) palmer".r.tr(),
+      "tecno(-| )thrash".r,
+      "emerson(,)? lake (e|&) palmer".r,
       "gentle giant",
       "marillion"
     )(
@@ -340,7 +340,7 @@ object Video {
       vid"rphjb_MetteteviInGinocchio.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sigarett[ea]".r.tr()
+      "sigarett[ea]".r
     )(
       vid"rphjb_Sigarette.mp4",
       vid"rphjb_CollaSerpeSigarettePercussionista.mp4",
@@ -352,19 +352,19 @@ object Video {
       "radio rock",
       "informazioni sbagliate",
       "errore tragico",
-      "(22|ventidue) maggio".r.tr()
+      "(22|ventidue) maggio".r
     )(
       vid"rphjb_RadioRockErrori.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "uccidere",
-      "con due (dita|mani)".r.tr(),
+      "con due (dita|mani)".r,
       "lo soffoco"
     )(
       vid"rphjb_UccidereUnaPersona.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "insegnante di [cg]hi[dt]arra".r.tr()
+      "insegnante di [cg]hi[dt]arra".r
     )(
       vid"rphjb_InsegnanteDiChitarraModerna.mp4"
     ),
@@ -380,8 +380,8 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "l'unico bravo",
-      "scarica d(i |')andrenalina".r.tr(),
-      "non valgono (un cazzo|niente)".r.tr()
+      "scarica d(i |')andrenalina".r,
+      "non valgono (un cazzo|niente)".r
     )(
       vid"rphjb_UnicoBravo.mp4"
     ),
@@ -391,7 +391,7 @@ object Video {
       vid"rphjb_DubbioComeMiAiuta.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "\\bdubbio\\b".r.tr()
+      "\\bdubbio\\b".r
     )(
       vid"rphjb_DubbioComeMiAiuta.mp4",
       vid"rphjb_DubbioScantinatiGiocoRattoGatto.mp4"
@@ -399,19 +399,19 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "scantinati",
       "fare il gioco",
-      "gioco (io )?del gatto".r.tr(),
-      "(voi )?del (ratto|topo)".r.tr()
+      "gioco (io )?del gatto".r,
+      "(voi )?del (ratto|topo)".r
     )(vid"rphjb_DubbioScantinatiGiocoRattoGatto.mp4"),
     ReplyBundleMessage.textToVideo[F](
       "albero grande",
-      "anche un('| )amplificatore".r.tr(),
-      "tutti i (suoi )?frutti ti d[aà]".r.tr(),
+      "anche un('| )amplificatore".r,
+      "tutti i (suoi )?frutti ti d[aà]".r,
       "per quanti gliene domandi",
       "sempre uno ne troverà",
-      "il (fiore|frutto)".r.tr(),
+      "il (fiore|frutto)".r,
       "la foglia",
-      "di tutto s[ie] spoglia".r.tr(),
-      "cos'(è|e'|e) il rock".r.tr()
+      "di tutto s[ie] spoglia".r,
+      "cos'(è|e'|e) il rock".r
     )(
       vid"rphjb_PoesiaRock.mp4",
       vid"rphjb_PoesiaRockAlberoGrande.mp4"
@@ -427,13 +427,13 @@ object Video {
       "hai un anno di più",
       "felicitazioni",
       "ma che siamo noi",
-      "rumor[ie] di vetro e di metallo".r.tr()
+      "rumor[ie] di vetro e di metallo".r
     )(
       vid"rphjb_AuguriCompleanno.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(3|tre) minuti".r.tr(),
-      "ti va bene cos[iì]".r.tr()
+      "(3|tre) minuti".r,
+      "ti va bene cos[iì]".r
     )(
       vid"rphjb_3Minuti.mp4"
     ),
@@ -448,7 +448,7 @@ object Video {
       vid"rphjb_BresciaMiPiace.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "\\bdvd\\b".r.tr(),
+      "\\bdvd\\b".r,
       "non si trova online",
       "membrana speciale",
       "cellula fotoelettrica",
@@ -486,12 +486,12 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "se non ci credi",
-      "[pb]or[dt]land".r.tr()
+      "[pb]or[dt]land".r
     )(
       vid"rphjb_PortlandVancuverFanculo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "vancuv(er|a)".r.tr()
+      "vancuv(er|a)".r
     )(
       vid"rphjb_PortlandVancuverFanculo.mp4",
       vid"rphjb_StoriaMarlinManson.mp4"
@@ -511,7 +511,7 @@ object Video {
       "questa è una trasmissione",
       "caro avvocato",
       "punto di morte",
-      "ti da (la carica|l'energia)".r.tr(),
+      "ti da (la carica|l'energia)".r,
       "ritornare alla vita"
     )(
       vid"rphjb_InPuntoDiMorte.mp4"
@@ -557,7 +557,7 @@ object Video {
       vid"rphjb_SonoDemonio.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "mi assumo (tutte )?le responsabilità".r.tr()
+      "mi assumo (tutte )?le responsabilità".r
     )(
       vid"rphjb_TuttaColpaMia.mp4",
       vid"rphjb_MiaColpaColpaMia.mp4"
@@ -570,9 +570,9 @@ object Video {
       vid"rphjb_RovinarmiVintoIo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "un casino(,)? come al solito".r.tr(),
+      "un casino(,)? come al solito".r,
       "quando ci sono io",
-      "l'acqua è (scivolata|scesa) (de|di) sotto".r.tr()
+      "l'acqua è (scivolata|scesa) (de|di) sotto".r
     )(
       vid"rphjb_UnCasinoComeAlSolito.mp4"
     ),
@@ -588,27 +588,27 @@ object Video {
       vid"rphjb_TraICoglioni.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "investi(re|tore)".r.tr(),
+      "investi(re|tore)".r,
       "dubai",
-      "bel[s]?ize".r.tr(),
+      "bel[s]?ize".r,
       "nei punti più rilevanti",
       "non figura il mio nome",
       "sotto codici",
       "non si possono risalire",
-      "governo (svizzero|germanico|tedesco)".r.tr(),
-      "affar(i|isti)".r.tr()
+      "governo (svizzero|germanico|tedesco)".r,
+      "affar(i|isti)".r
     )(
       vid"rphjb_InvestitoreGoverno.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "pesce avaria[dt]o".r.tr(),
+      "pesce avaria[dt]o".r,
       "veramente di merda"
     )(
       vid"rphjb_PesceAvariato.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "governo americano",
-      "rock('n'| n |&)roll presidence band".r.tr(),
+      "rock('n'| n |&)roll presidence band".r,
       "sax"
     )(
       vid"rphjb_Obama.mp4"
@@ -618,12 +618,12 @@ object Video {
       "non ce la faccio più",
       "piove sempre",
       "a mio nonno",
-      "nipote[!]+".r.tr()
+      "nipote[!]+".r
     )(
       vid"rphjb_Nonno.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sangue (caldo )di un cavallo".r.tr(),
+      "sangue (caldo )di un cavallo".r,
       "diritto alla paura",
       "come una tigre",
       "migliaia di animali",
@@ -661,14 +661,14 @@ object Video {
       "in onore di satana",
       "mi tocca il pacco",
       "lo bevo",
-      "(il suo|i suoi) umor[ei]".r.tr()
+      "(il suo|i suoi) umor[ei]".r
     )(
       vid"rphjb_ConsigliSulPacco.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "rebus",
-      "tocco qua\\b".r.tr(),
-      "volt(o|are) pagina".r.tr()
+      "tocco qua\\b".r,
+      "volt(o|are) pagina".r
     )(
       vid"rphjb_Rebus.mp4"
     ),
@@ -689,14 +689,14 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "ci siamo sciolti",
       "non l'ha capita",
-      "\\bnodi\\b".r.tr()
+      "\\bnodi\\b".r
     )(
       vid"rphjb_Nodi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "una bella fi[cg]a".r.tr(),
+      "una bella fi[cg]a".r,
       "la fate aspettare",
-      "in silenzio[,]?( dovuto)?".r.tr(),
+      "in silenzio[,]?( dovuto)?".r,
       "consumare dopo",
       "consumare durante"
     )(
@@ -712,8 +712,8 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "amico grasso",
-      "(fare la| mettersi a) dieta".r.tr(),
-      "circa (6|sei) mesi".r.tr(),
+      "(fare la| mettersi a) dieta".r,
+      "circa (6|sei) mesi".r,
       "peso ideale",
       "pioppo",
       "zinco",
@@ -722,10 +722,10 @@ object Video {
       vid"rphjb_StoriaAmicoGrasso.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "dylan (dog|thomas)".r.tr(),
+      "dylan (dog|thomas)".r,
       "un po' gay",
-      "la (collezione|colazione)".r.tr(),
-      "t[ei] sei sbagliato".r.tr()
+      "la (collezione|colazione)".r,
+      "t[ei] sei sbagliato".r
     )(
       vid"rphjb_DylanDog.mp4"
     ),
@@ -737,12 +737,12 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "buckethead",
-      "guns (n|n'|and) roses".r.tr()
+      "guns (n|n'|and) roses".r
     )(
       vid"rphjb_BucketheadGunsNRoses.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "signor (jones|jonz|jons|gionz)".r.tr(),
+      "signor (jones|jonz|jons|gionz)".r,
       "janet",
       "coniglio"
     )(
@@ -758,7 +758,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "agisse da sola",
-      "che me lo (in)?presti".r.tr(),
+      "che me lo (in)?presti".r,
       "cani al cimitero",
       "solo uomini",
       "nemmeno una donna"
@@ -780,27 +780,27 @@ object Video {
       vid"rphjb_AngeloTrovamelo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(due|2) orecchie".r.tr(),
-      "(una|1) bocca".r.tr()
+      "(due|2) orecchie".r,
+      "(una|1) bocca".r
     )(
       vid"rphjb_2Orecchie1Bocca.mp4",
       vid"rphjb_2Orecchie1Bocca2.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "limitazioni",
-      "quante(,|...)? troppe".r.tr()
+      "quante(,|...)? troppe".r
     )(
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "l'uomo(,|...)? la donna".r.tr()
+      "l'uomo(,|...)? la donna".r
     )(
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
       vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "cambia canale",
-      "\\bcerchion[ie]\\b".r.tr()
+      "\\bcerchion[ie]\\b".r
     )(
       vid"rphjb_CambiaCanaleBruttoFrocio.mp4"
     ),
@@ -811,15 +811,15 @@ object Video {
       vid"rphjb_AnimaGarageVarazze.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "arbitri (truccati|pagati)".r.tr(),
+      "arbitri (truccati|pagati)".r,
       "giocatori dopati",
-      "(gioco del|il) calcio".r.tr(),
-      "\\bmoggi\\b".r.tr(),
-      "il coni\\b".r.tr(),
-      "\\bultr(à|as)\\b".r.tr(),
+      "(gioco del|il) calcio".r,
+      "\\bmoggi\\b".r,
+      "il coni\\b".r,
+      "\\bultr(à|as)\\b".r,
       "direttore del coni",
       "parole grosse",
-      "fare del (male|bene)".r.tr()
+      "fare del (male|bene)".r
     )(
       vid"rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCalcio.mp4"
     ),
@@ -829,12 +829,12 @@ object Video {
       vid"rphjb_PerfettoIncompetente.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sono (proprio )?un coglione".r.tr()
+      "sono (proprio )?un coglione".r
     )(vid"rphjb_SonoCoglione.mp4"),
     ReplyBundleMessage.textToVideo[F](
-      "sta[va]? male".r.tr(),
+      "sta[va]? male".r,
       "canzoni di natale",
-      "lo so (da anni|solo io)".r.tr()
+      "lo so (da anni|solo io)".r
     )(
       vid"rphjb_CanzoniNataleStavaMaleMalmsteen.mp4"
     ),
@@ -848,7 +848,7 @@ object Video {
       "guardando il padrone",
       "all'ombra",
       "cani piangono",
-      "aspett(a|ando|are)".r.tr()
+      "aspett(a|ando|are)".r
     )(vid"rphjb_CaneOmbraCipressoPadroneMortoIcaniPiangono.mp4"),
     ReplyBundleMessage.textToVideo[F]("pride")(vid"rphjb_BarzellettaPapaSonoGayPride.mp4"),
     ReplyBundleMessage
@@ -859,16 +859,16 @@ object Video {
         vid"rphjb_ParloDiDNonSonoGayCosiDifficileSemplice.mp4"
       ),
     ReplyBundleMessage.textToVideo[F](
-      "\\brbo\\b".r.tr(),
+      "\\brbo\\b".r,
       "cazzò",
-      "(5|cinque) livelli".r.tr()
+      "(5|cinque) livelli".r
     )(vid"rphjb_RBO.mp4"),
     ReplyBundleMessage.textToVideo[F]("effettivamente")(vid"rphjb_Effettivamente.mp4"),
     ReplyBundleMessage.textToVideo[F]("tigre")(vid"rphjb_LaTigre.mp4"),
     ReplyBundleMessage
       .textToVideo[F](
         "che gruppo",
-        "m[ei] ricorda".r.tr()
+        "m[ei] ricorda".r
       )(vid"rphjb_CheGruppoMiRicordaRisata.mp4"),
     ReplyBundleMessage.textToVideo[F]("il ciano", "luciano")(vid"rphjb_IlCiano.mp4"),
     ReplyBundleMessage.textToVideo[F](
@@ -902,12 +902,12 @@ object Video {
       "litfiba",
       "piero pelù",
       "ghigo renzulli",
-      "\\bpuzz[oi]\\b".r.tr(),
-      "completamente fro(ci|sh)o".r.tr()
+      "\\bpuzz[oi]\\b".r,
+      "completamente fro(ci|sh)o".r
     )(vid"rphjb_PuzzoGhigoRenzulliPieroPeluFrocio.mp4"),
     ReplyBundleMessage.textToVideo[F](
       "fammelo avere",
-      "al pi[ùu] presto".r.tr()
+      "al pi[ùu] presto".r
     )(
       vid"rphjb_FammeloAvereAlPiuPresto.mp4"
     ),
@@ -932,30 +932,30 @@ object Video {
       "cugini di campagna",
       "giardino dei semplici",
       "homo sapiens",
-      "(di|il) liscio".r.tr(),
-      "(di|il) rumba".r.tr(),
-      "cha[ ]?cha[ ]?cha".r.tr(),
-      "canzon[ei] napoletan[ae]".r.tr()
+      "(di|il) liscio".r,
+      "(di|il) rumba".r,
+      "cha[ ]?cha[ ]?cha".r,
+      "canzon[ei] napoletan[ae]".r
     )(
       vid"rphjb_CuginiCampagnaGiardinoSempliciHomoSapiensLiscioRumbaChaChaChaCanzoneNapoletanaOsanna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "stratovarius",
       "metallica",
-      "ultimo (disco|album)".r.tr()
+      "ultimo (disco|album)".r
     )(
       vid"rphjb_DeludendoQuasiTutto.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "donna (che merita|forte)".r.tr(),
-      "profilo (fisico|intellettuale)".r.tr(),
+      "donna (che merita|forte)".r,
+      "profilo (fisico|intellettuale)".r,
       "simile a me",
       "versione donna"
     )(
       vid"rphjb_DonnaMerita.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "mi sentivo (di fare)?così".r.tr(),
+      "mi sentivo (di fare)?così".r,
       "ho fatto così"
     )(
       vid"rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4"
@@ -1011,7 +1011,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "difficile guardare",
-      "(vedere|guardare) l[aà]".r.tr()
+      "(vedere|guardare) l[aà]".r
     )(
       vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4",
       vid"rphjb_LaDoveDifficileGuardare.mp4",
@@ -1023,12 +1023,12 @@ object Video {
       vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "eccoci qu[aà]".r.tr(),
-      "io sto l[aà]\\b".r.tr(),
-      "dove (ca[z]+[o]?)?sto".r.tr(),
-      "sto d[ie] (qu[aà]|l[aà])".r.tr(),
-      "sto l[iì]\\b".r.tr(),
-      "luce[tta]? rossa".r.tr()
+      "eccoci qu[aà]".r,
+      "io sto l[aà]\\b".r,
+      "dove (ca[z]+[o]?)?sto".r,
+      "sto d[ie] (qu[aà]|l[aà])".r,
+      "sto l[iì]\\b".r,
+      "luce[tta]? rossa".r
     )(
       vid"rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4"
     ),
@@ -1039,7 +1039,7 @@ object Video {
       vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sputat[oi] nel mondo".r.tr()
+      "sputat[oi] nel mondo".r
     )(
       vid"rphjb_EtichetteSupermercatoSputatiMondo.mp4",
       vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
@@ -1053,7 +1053,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "uno da bere",
       "sputatemi dalle vostre labbra",
-      "figlie(,)? ma di quale madre".r.tr(),
+      "figlie(,)? ma di quale madre".r,
       "fetenti feti di fede",
       "che ti inganna di notte",
       "che muore di giorno",
@@ -1077,7 +1077,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "tommy aldridge",
-      "white[ ]?snake".r.tr(),
+      "white[ ]?snake".r,
       "pat travers",
       "manona",
       "i('m|am) the leader",
@@ -1100,7 +1100,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "la mia faccia",
-      "figuracc(e|ia)".r.tr()
+      "figuracc(e|ia)".r
     )(
       vid"rphjb_FiguracceDiscoSteveVai.mp4"
     ),
@@ -1160,8 +1160,8 @@ object Video {
       vid"rphjb_SembraCadavereFassinoRitrattoSalute.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "vuoi (questo|la merda)".r.tr(),
-      "io te (lo d[òo]|la suono)".r.tr()
+      "vuoi (questo|la merda)".r,
+      "io te (lo d[òo]|la suono)".r
     )(
       vid"rphjb_VuoiMerdaIoSuono.mp4"
     ),
@@ -1171,7 +1171,7 @@ object Video {
       vid"rphjb_GenteSchifosa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "migliora(re)?".r.tr()
+      "migliora(re)?".r
     )(
       vid"rphjb_SiPuoMigliorare.mp4",
       vid"rphjb_QuandoMiglioraStima.mp4"
@@ -1184,7 +1184,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "questa sera",
-      "ancora di pi[uù]+".r.tr()
+      "ancora di pi[uù]+".r
     )(
       vid"rphjb_QuestaSeraAncoraDiPiu.mp4"
     ),
@@ -1251,7 +1251,7 @@ object Video {
       vid"rphjb_SognateViverePerSempreViveteMorireOggi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(quanta|troppa) gente".r.tr()
+      "(quanta|troppa) gente".r
     )(
       vid"rphjb_QuantaGenteTroppa.mp4"
     ),
@@ -1267,7 +1267,7 @@ object Video {
       vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "i (dis)?gusti".r.tr()
+      "i (dis)?gusti".r
     )(
       vid"rphjb_GustiPubblicoRappresentanoMieiDisgusti.mp4"
     ),
@@ -1275,7 +1275,7 @@ object Video {
       "che stronzo",
       "male di mente",
       "interviste",
-      "non (ci|cene) siamo (mai )?accorti".r.tr(),
+      "non (ci|cene) siamo (mai )?accorti".r,
       "fuori di testa"
     )(
       vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
@@ -1293,7 +1293,7 @@ object Video {
       vid"rphjb_MigliorAmicoCoppiaMicidialeGianniNeri.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "non (ne )?posso (più|continuare|più continuare)".r.tr()
+      "non (ne )?posso (più|continuare|più continuare)".r
     )(
       vid"rphjb_NonPossoContinuareCosiGianni.mp4"
     ),
@@ -1315,7 +1315,7 @@ object Video {
       "sudore",
       "zozzeria",
       "da togliere",
-      "levare d[ia] dosso".r.tr(),
+      "levare d[ia] dosso".r,
       "non contiamo niente"
     )(
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
@@ -1339,7 +1339,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "in giallo",
-      "capelli (imbiondati|gialli)".r.tr(),
+      "capelli (imbiondati|gialli)".r,
       "non sentire più emozioni",
       "dizione",
       "indigeni",
@@ -1351,19 +1351,19 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "napoletani",
       "fatevi vivi",
-      "(ndo|dove) stanno i".r.tr()
+      "(ndo|dove) stanno i".r
     )(
       vid"rphjb_NapoletaniDoveStannoFateviVivi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "è troppo",
       "indicibile",
-      "non (ci sta|c'è) col cervello".r.tr()
+      "non (ci sta|c'è) col cervello".r
     )(
       vid"rphjb_QuestoNoETroppoIndicibileSchifosa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "giocattol(o|ino)".r.tr()
+      "giocattol(o|ino)".r
     )(
       vid"rphjb_CristoPinocchio.mp4"
     ),
@@ -1405,7 +1405,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "sparisce nel",
-      "pi[uù] nero".r.tr()
+      "pi[uù] nero".r
     )(
       vid"rphjb_SparisceNelNulla.mp4"
     ),
@@ -1427,14 +1427,14 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "sto male",
-      "rif[aà]".r.tr(),
-      "(25|venticinque) anni".r.tr()
+      "rif[aà]".r,
+      "(25|venticinque) anni".r
     )(
       vid"rphjb_RifaQuello25AnniStoMale.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(1|un) minuto".r.tr(),
-      "(2|due) minuti".r.tr(),
+      "(1|un) minuto".r,
+      "(2|due) minuti".r,
       "quanto c'ho?"
     )(
       vid"rphjb_UnMinutoDueMinuti.mp4"
@@ -1454,7 +1454,7 @@ object Video {
       "mike portnoy",
       "capelli colorati",
       "john myung",
-      "\\blook\\b".r.tr()
+      "\\blook\\b".r
     )(
       vid"rphjb_FotoLookDreamTheater.mp4"
     ),
@@ -1462,7 +1462,7 @@ object Video {
       "malvagia",
       "la mia fine",
       "togliermi di mezzo",
-      "[s]?parla alle spalle".r.tr(),
+      "[s]?parla alle spalle".r,
       "giornalisti",
       "carpi",
       "mingoli",
@@ -1473,16 +1473,16 @@ object Video {
       vid"rphjb_GenteMalvagiaDistruggereSparlaGiornalistiSchifosiCarpiMingoliAntonellaDario.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "gruppi (nuovi|che spaccano il culo)".r.tr(),
+      "gruppi (nuovi|che spaccano il culo)".r,
       "intramezzate",
       "ibride",
       "stacchi all'unisono",
-      "tempi (composti|dispari|pari)".r.tr()
+      "tempi (composti|dispari|pari)".r
     )(
       vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "che h[ao] trovato".r.tr(),
+      "che h[ao] trovato".r,
       "tutti coglioni",
       "dispendio",
       "intelletto",
@@ -1491,7 +1491,7 @@ object Video {
       "legni",
       "magneti",
       "pedali",
-      "coni da (15|12|quindici|dodici)".r.tr(),
+      "coni da (15|12|quindici|dodici)".r,
       "vari intrugli",
       "casse",
       "jack",
@@ -1500,8 +1500,8 @@ object Video {
       vid"rphjb_HoTrovatoIoTuttiCoglioniFortunaDispendioIntellettoProvaCasseConiPedaliJack.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(il grande |l')amore".r.tr(),
-      "dal (bene|male)".r.tr(),
+      "(il grande |l')amore".r,
+      "dal (bene|male)".r,
       "chi ti sta vicino"
     )(
       vid"rphjb_IlGrandeAmoreDalMaleAmoreVero.mp4"
@@ -1532,16 +1532,16 @@ object Video {
       vid"rphjb_InsegnantiImportantiInsegnantiColtiDoveStanno.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(mica|non) sono come gli altri".r.tr(),
-      "fuori dal (coro|gregge)".r.tr()
+      "(mica|non) sono come gli altri".r,
+      "fuori dal (coro|gregge)".r
     )(
       vid"rphjb_IoMicaSonoComeGliAltriBestiaFuoriDalGreggeVoceFuoriDalCoro.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "contratti",
-      "vieni (qu[iì]|anche te|ad affrontare me)".r.tr(),
+      "vieni (qu[iì]|anche te|ad affrontare me)".r,
       "la tua faccia",
-      "se (c')?hai il coraggio".r.tr(),
+      "se (c')?hai il coraggio".r,
       "covo del metallo",
       "che non funzionano"
     )(
@@ -1577,13 +1577,13 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "malattia",
       "behringer",
-      "ferma(rsi|ti)".r.tr()
+      "ferma(rsi|ti)".r
     )(
       vid"rphjb_MalattiaBehringerNonRiesconoAFermarsi.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "tourn[eèé]{2}".r.tr(),
-      "(è|deve essere|dev'essere) ripreso".r.tr()
+      "tourn[eèé]{2}".r,
+      "(è|deve essere|dev'essere) ripreso".r
     )(
       vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
     ),
@@ -1602,15 +1602,15 @@ object Video {
       "ingiurie",
       "ci credono",
       "fino in fondo",
-      "mi (faccio|lavo) i denti".r.tr(),
+      "mi (faccio|lavo) i denti".r,
       "come dei monaci"
     )(
       vid"rphjb_MetallariPiuIncallitiFinoInFondoInContinuazioneMonaci.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "tagliare con un coltello",
-      "sangue (vero )?che scende".r.tr(),
-      "amore (col|miscelato al) dolore".r.tr()
+      "sangue (vero )?che scende".r,
+      "amore (col|miscelato al) dolore".r
     )(
       vid"rphjb_MioPubblicoIoAmoServitoreTagliareConUnColtelloSangueVeroAmoreMiscelatoAlDolore.mp4"
     ),
@@ -1624,7 +1624,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "storie d'amore",
       "nei particolari",
-      "(freg[aà]|fregare) d[ie] meno".r.tr()
+      "(freg[aà]|fregare) d[ie] meno".r
     )(
       vid"rphjb_NonPiaceEssereRipetitivoVarzettaStorieAmoreMeNePuoFregaDeMeno.mp4"
     ),
@@ -1638,7 +1638,7 @@ object Video {
       vid"rphjb_OcchiFariAbbagliantiCiSonoDavantiAmmaestratoNonSonoMalato.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sono (spariti|falliti)".r.tr(),
+      "sono (spariti|falliti)".r,
       "non c'è più nessuno",
       "per colpa vostra",
       "negozi importanti"
@@ -1649,7 +1649,7 @@ object Video {
       "in degli occhi",
       "hanno visto l[aà]",
       "trasmissione",
-      "può essere (anche )?un (piacere|letale)".r.tr(),
+      "può essere (anche )?un (piacere|letale)".r,
       "cambia la percezione",
       "auditiva",
       "discorsiva",
@@ -1659,7 +1659,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "è difficile",
-      "potrebbe essere (così )?semplice".r.tr(),
+      "potrebbe essere (così )?semplice".r,
       "un'altra donna"
     )(
       vid"rphjb_ParloDiDNonSonoGayCosiDifficileSemplice.mp4"
@@ -1680,25 +1680,25 @@ object Video {
       vid"rphjb_PiaccionoBelleDonneVallettaGianniNeriGrandeAmico.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "donne (trasgressive|dominatrici)".r.tr(),
+      "donne (trasgressive|dominatrici)".r,
       "soggiogare dal marito",
-      "le nostre (madri|nonne|trisavole)".r.tr()
+      "le nostre (madri|nonne|trisavole)".r
     )(
       vid"rphjb_PiaccionoDonneTrasgressiveDominatrici.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "sto frocio",
       "più italiano",
-      "(non|nun) (te|ti) capiscono".r.tr(),
+      "(non|nun) (te|ti) capiscono".r,
       "italianizzare",
-      "accento (all')?inglese".r.tr()
+      "accento (all')?inglese".r
     )(
       vid"rphjb_PiuItalianoItalianizzareStoFrocio.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "il primo disco",
       "beatles",
-      "ragione per cui io ero (venuto al mondo|nato)".r.tr(),
+      "ragione per cui io ero (venuto al mondo|nato)".r,
       "troppo forte"
     )(
       vid"rphjb_PrimoDiscoBeatlesRagioneVenutoMondoTroppoForte.mp4"
@@ -1712,8 +1712,8 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "questa no",
-      "questa è (mistica|ibrida|contorta)".r.tr(),
-      "può essere (anche )?dolce".r.tr()
+      "questa è (mistica|ibrida|contorta)".r,
+      "può essere (anche )?dolce".r
     )(
       vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
     ),
@@ -1739,7 +1739,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "allegro",
-      "s(i |')ammazza".r.tr()
+      "s(i |')ammazza".r
     )(
       vid"rphjb_SembravaAllegroPoiSAmmazzaMioPensiero.mp4"
     ),
@@ -1752,9 +1752,9 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "persone attente",
       "tipo cazzuto",
-      "calmatev[ei]".r.tr(),
-      "\\bseni\\b".r.tr(),
-      "letti (circolari|pieni)".r.tr(),
+      "calmatev[ei]".r,
+      "\\bseni\\b".r,
+      "letti (circolari|pieni)".r,
       "l'erba",
       "la coca"
     )(
@@ -1771,7 +1771,7 @@ object Video {
       "si muore",
       "tanti muoiono",
       "non sono mai morto",
-      "caus[ae] natural[ei]".r.tr()
+      "caus[ae] natural[ei]".r
     )(
       vid"rphjb_VecchiAmiciAnni70VeranoSostanzeImproprieNonSonoMaiMorto.mp4"
     ),
@@ -1791,7 +1791,7 @@ object Video {
       "malvagi",
       "nemici",
       "tocca a te",
-      "momento (ibrido|contorto|instabile)".r.tr(),
+      "momento (ibrido|contorto|instabile)".r,
       "stabilità"
     )(
       vid"rphjb_SputatiNelMondoTrovareFelicita.mp4"
@@ -1815,7 +1815,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "sporco frocio",
-      "sto su di (chi|te)".r.tr()
+      "sto su di (chi|te)".r
     )(
       vid"rphjb_StoSuDiChiTeSembrareSporcoFrocio.mp4"
     ),
@@ -1845,15 +1845,15 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "ti ho chiamato",
       "richiamarmi",
-      "non c[ie] posso fa(re)? niente".r.tr(),
+      "non c[ie] posso fa(re)? niente".r,
       "faccio quello che posso",
-      "arrivo fino a[d]? un certo punto".r.tr(),
-      "m[ei] butto d[ei] sotto".r.tr()
+      "arrivo fino a[d]? un certo punto".r,
+      "m[ei] butto d[ei] sotto".r
     )(
       vid"rphjb_TiHoChiamatoRichiamarmiFaccioQuelloChePosso.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "stringer(e|si) la mano".r.tr(),
+      "stringer(e|si) la mano".r,
       "non ti conosco",
       "saluto metal",
       "🤘",
@@ -1888,7 +1888,7 @@ object Video {
       vid"rphjb_VoltoNuovoSempreUomoDonnaSeniCosceTacchiCalzeCameranWoman.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "la vostra mente (abbietta|calpestata)?".r.tr(),
+      "la vostra mente (abbietta|calpestata)?".r,
       "mafia",
       "punto di partenza"
     )(
@@ -1941,21 +1941,21 @@ object Video {
       "tossicomane",
       "case di cura",
       "in galera",
-      "non (c'ha|c'è) più futuro".r.tr(),
+      "non (c'ha|c'è) più futuro".r,
       "senza futuro",
       "litiga coi genitori",
       "che si ribella",
       "ribelle",
       "musicista",
       "incazzato per natura",
-      "forse (un giorno)? lo troverai".r.tr(),
+      "forse (un giorno)? lo troverai".r,
       "attraverso noi",
       "armi da guerra"
     )(
       vid"rphjb_SeguireTuttiListaPersone.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(storia di )?romeo".r.tr(),
+      "(storia di )?romeo".r,
       "(settanta |settant'|70 )anni",
       "actor studio",
       "new york",
@@ -2008,7 +2008,7 @@ object Video {
       "era vero"
     )(vid"rphjb_EraVero.mp4"),
     ReplyBundleMessage.textToVideo[F](
-      "(una|na) farsa".r.tr()
+      "(una|na) farsa".r
     )(
       vid"rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCalcio.mp4",
       vid"rphjb_Ciao2001FarsaManson.mp4"

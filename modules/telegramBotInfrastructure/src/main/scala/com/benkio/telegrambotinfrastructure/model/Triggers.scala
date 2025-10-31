@@ -16,14 +16,10 @@ import scala.util.matching.Regex
 
 extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
 extension (r: Regex)
-  def tr(manualLength: Option[Int] = None): RegexTextTriggerValue =
-    manualLength.fold(
-      RegexTextTriggerValue(r)
-    )(v =>
-      new RegexTextTriggerValue(r) {
-        override val length = v
-      }
-    )
+  def tr(manualLength: Int): RegexTextTriggerValue =
+    new RegexTextTriggerValue(r) {
+      override val length = manualLength
+    }
 extension (textTriggerValue: TextTriggerValue) {
   def isStringTriggerValue: Boolean = textTriggerValue match {
     case RegexTextTriggerValue(_)  => false
@@ -64,8 +60,9 @@ object TextTriggerValue {
   given Decoder[TextTriggerValue]       = deriveDecoder[TextTriggerValue]
   given Encoder[TextTriggerValue]       = deriveEncoder[TextTriggerValue]
 
-  def fromStringOrRegex(v: String | RegexTextTriggerValue): TextTriggerValue = v match {
+  def fromStringOrRegex(v: String | Regex | RegexTextTriggerValue): TextTriggerValue = v match {
     case s: String                => StringTextTriggerValue(s)
+    case r: Regex                 => RegexTextTriggerValue(r)
     case r: RegexTextTriggerValue => r
   }
 

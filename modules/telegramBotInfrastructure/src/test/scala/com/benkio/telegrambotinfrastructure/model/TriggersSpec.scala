@@ -37,13 +37,13 @@ class TriggersSpec extends CatsEffectSuite {
 
   }
 
-  test("RegexTextTriggerValue.length should be the one expected if specified with `.tr(Some(#))`") {
+  test("RegexTextTriggerValue.length should be the one expected if specified with `.tr(#)`") {
     val input: List[(RegexTextTriggerValue, Int)] = List(
-      "infern[a]+l[e]+[!]*".r.tr(Some(9)) -> 9,
-      "fi[b]+ri[l]+azioni".r.tr(Some(12)) -> 12,
-      "fa[s]+[ ]?[b]+inder".r.tr(Some(9)) -> 9,
-      "infern[a]+l[i]+[!]*".r.tr(Some(9)) -> 9,
-      "l[i]+[b]+[e]+r[i]+".r.tr(Some(6))  -> 6
+      "infern[a]+l[e]+[!]*".r.tr(9) -> 9,
+      "fi[b]+ri[l]+azioni".r.tr(12) -> 12,
+      "fa[s]+[ ]?[b]+inder".r.tr(9) -> 9,
+      "infern[a]+l[i]+[!]*".r.tr(9) -> 9,
+      "l[i]+[b]+[e]+r[i]+".r.tr(6)  -> 6
     )
 
     input.foreach { case (regexTextTriggerValue, expected) =>

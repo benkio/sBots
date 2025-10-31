@@ -3,7 +3,6 @@ package com.benkio.youtuboanchei0bot.data
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.tr
 
 object Audio:
 
@@ -23,14 +22,14 @@ object Audio:
       mp3"ytai_BengalinoDiamantino.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "cocod[eè]".r.tr(),
+      "cocod[eè]".r,
       "gallina"
     )(
       mp3"ytai_Cocode.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bmisc\\b".r.tr(),
-      "\\bm[i]+[a]+[o]+\\b".r.tr()
+      "\\bmisc\\b".r,
+      "\\bm[i]+[a]+[o]+\\b".r
     )(
       mp3"ytai_Misc.mp3"
     ),

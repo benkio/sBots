@@ -5,18 +5,18 @@ import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.tr
+
 object Mix:
 
   def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
-      "\\bfrancesi\\b".r.tr()
+      "\\bfrancesi\\b".r
     )(
       gif"abar_Francesi.gif",
       mp3"abar_Luigi14.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r.tr()
+      "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r
     )(
       gif"abar_FiglioDi.gif",
       gif"abar_FiglioDi2.gif",
@@ -99,20 +99,20 @@ object Mix:
       "provolone",
       "marmellata",
       "burro",
-      "(dadi|pomodori) star".r.tr(),
-      "valigett[ae] 24[ ]?ore".r.tr(),
-      "giubbotto anti[ ]?proiettile".r.tr(),
-      "libri (gialli|fantascienza)".r.tr(),
+      "(dadi|pomodori) star".r,
+      "valigett[ae] 24[ ]?ore".r,
+      "giubbotto anti[ ]?proiettile".r,
+      "libri (gialli|fantascienza)".r,
       "fumetti",
       "charlie brown",
       "documenti d'identità",
-      "targhe di auto (rubate)?".r.tr(),
+      "targhe di auto (rubate)?".r,
       "timbri",
-      "(divise|palette) della polizia".r.tr(),
+      "(divise|palette) della polizia".r,
       "pacchetti di sigarette",
       "piselli de rica",
       "fagioli cirio",
-      "pasta (buitoni|barilla|corta)".r.tr(),
+      "pasta (buitoni|barilla|corta)".r,
       "spaghetti"
     )(
       vid"abar_ListaSpesaPartigiani.mp4",
@@ -125,10 +125,10 @@ object Mix:
       "acciaio",
       "oli minerali",
       "legname",
-      "\\brame\\b".r.tr(),
+      "\\brame\\b".r,
       "nitrato di sodio",
       "sali potassici",
-      "\\bgomma\\b".r.tr(),
+      "\\bgomma\\b".r,
       "toluolo",
       "trementina",
       "piombo",
@@ -142,11 +142,11 @@ object Mix:
       vid"abar_ListaMolibdeno.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "error[ie]".r.tr(),
-      "pernicios[oi]".r.tr(),
-      "scandalos[oi]".r.tr(),
-      "penstilenzial[ie]".r.tr(),
-      "velenosis[s]+imo".r.tr()
+      "error[ie]".r,
+      "pernicios[oi]".r,
+      "scandalos[oi]".r,
+      "penstilenzial[ie]".r,
+      "velenosis[s]+imo".r
     )(
       vid"abar_ErrorePestilenzialeVelenosissimo.mp4",
       mp3"abar_ErrorePestilenzialeVelenosissimo.mp3"
@@ -154,7 +154,7 @@ object Mix:
     ReplyBundleMessage
       .textToMedia[F](
         "uguaglianza",
-        "(nemmeno|neanche) per idea".r.tr(),
+        "(nemmeno|neanche) per idea".r,
         "democrazia",
         "porcata",
         "le razze",
@@ -162,7 +162,7 @@ object Mix:
         "tedeschi",
         "ubbidire",
         "schiavi",
-        "sterminat[ei]".r.tr()
+        "sterminat[ei]".r
       )(
         vid"abar_Razzista.mp4",
         mp3"abar_Razzista.mp3"

@@ -11,7 +11,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
-import com.benkio.telegrambotinfrastructure.model.tr
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.SBotId
@@ -86,7 +85,7 @@ object CalandroBot {
     )("Passo"),
     ReplyBundleMessage.textToText[F](
       "gay",
-      "froc[io]".r.tr(),
+      "froc[io]".r,
       "culattone",
       "ricchione"
     )("CHE SCHIFO!!!"),
@@ -97,7 +96,7 @@ object CalandroBot {
     ReplyBundleMessage.textToText[F](
       "ciao",
       "buongiorno",
-      "\\bsalve\\b".r.tr()
+      "\\bsalve\\b".r
     )("Buongiorno Signori"),
     ReplyBundleMessage.textToText[F](
       "film"
@@ -111,8 +110,8 @@ object CalandroBot {
       matcher = MessageMatches.ContainsAll
     ),
     ReplyBundleMessage.textToText[F](
-      "\\bhd\\b".r.tr(),
-      "nitid(o|ezza)".r.tr(),
+      "\\bhd\\b".r,
+      "nitid(o|ezza)".r,
       "alta definizione"
     )("Eh sì, vedi...si nota l'indecisione dell'immagine"),
     ReplyBundleMessage.textToText[F](
@@ -123,10 +122,10 @@ object CalandroBot {
       "automobile"
     )("Hai visto l'ultima puntata di \"Top Gear\"?"),
     ReplyBundleMessage.textToText[F](
-      "\\bfiga\\b".r.tr(),
-      "\\bfregna\\b".r.tr(),
-      "\\bgnocca\\b".r.tr(),
-      "\\bpatacca\\b".r.tr()
+      "\\bfiga\\b".r,
+      "\\bfregna\\b".r,
+      "\\bgnocca\\b".r,
+      "\\bpatacca\\b".r
     )("Io so come fare con le donne...ho letto tutto..."),
     ReplyBundleMessage.textToText[F](
       "ambulanza",

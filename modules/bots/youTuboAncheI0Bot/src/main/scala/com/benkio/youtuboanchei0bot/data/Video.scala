@@ -3,7 +3,7 @@ package com.benkio.youtuboanchei0bot.data
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.tr
+
 object Video:
 
   def messageRepliesVideoData[
@@ -12,9 +12,9 @@ object Video:
     ReplyBundleMessage.textToVideo[F](
       "in america",
       "dove ho sempre desiderato",
-      "(posto|carico) i video".r.tr(),
-      "(restiamo|teniamo) in contatto".r.tr(),
-      "(attraverso i|nei) commenti".r.tr(),
+      "(posto|carico) i video".r,
+      "(restiamo|teniamo) in contatto".r,
+      "(attraverso i|nei) commenti".r,
       "sto risolvendo"
     )(
       vid"ytai_SognoAmericano.mp4"
