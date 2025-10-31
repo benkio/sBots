@@ -133,7 +133,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
         |      "triggers" : [
         |        {
         |          "RegexTextTriggerValue" : {
-        |            "trigger" : "donne (vissute|con le palle)"
+        |            "trigger" : "donne (vissute|con le palle)",
         |            "regexLength" : null
         |          }
         |        },
