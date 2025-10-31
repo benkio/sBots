@@ -31,7 +31,7 @@ object GenerateTriggers extends IOApp {
       triggersStringList <- Resource.eval(
         triggers.traverse(_.prettyPrint())
       )
-      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
+      _  <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
       pw <- Resource.fromAutoCloseable(IO(new PrintWriter(triggerFilesPath)))
     yield pw.write(triggersStringList.mkString(""))
   }

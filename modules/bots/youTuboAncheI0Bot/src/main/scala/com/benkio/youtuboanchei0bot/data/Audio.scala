@@ -23,14 +23,14 @@ object Audio:
       mp3"ytai_BengalinoDiamantino.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "cocod[eè]".r.tr,
+      "cocod[eè]".r.tr(),
       "gallina"
     )(
       mp3"ytai_Cocode.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bmisc\\b".r.tr,
-      "\\bm[i]+[a]+[o]+\\b".r.tr
+      "\\bmisc\\b".r.tr(),
+      "\\bm[i]+[a]+[o]+\\b".r.tr()
     )(
       mp3"ytai_Misc.mp3"
     ),

@@ -35,7 +35,7 @@ class SBotSpec extends CatsEffectSuite {
     )
     val expected = ReplyBundleMessage
       .textToMedia[IO](
-        "carne (dura|vecchia|fresca)".r.tr
+        "carne (dura|vecchia|fresca)".r.tr()
       )(
         mp3"rphjb_CarneFrescaSaporita.mp3",
         vid"rphjb_CarneFrescaSaporita.mp4",

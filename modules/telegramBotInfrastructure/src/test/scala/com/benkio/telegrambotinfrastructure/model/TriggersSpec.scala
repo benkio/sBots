@@ -5,9 +5,8 @@ import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.CatsEffectSuite
 
-import scala.util.matching.Regex
 import scala.concurrent.duration.Duration
-
+import scala.util.matching.Regex
 
 class TriggersSpec extends CatsEffectSuite {
 

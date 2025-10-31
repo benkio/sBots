@@ -168,13 +168,16 @@ trait BaseBotSpec extends CatsEffectSuite {
             .sortBy(_._1)(using Trigger.orderingInstance.reverse)
             .headOption
             .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
-              assert(tr == TextTrigger(stringTrigger), s"$tr ≠ ${TextTrigger(stringTrigger)}")
+              assert(
+                tr == TextTrigger(stringTrigger),
+                s"$tr($tr.length) ≠ ${TextTrigger(stringTrigger)}(${stringTrigger.length})"
+              )
               assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
             }
         }
       }
 
-  def regexTriggerReturnExpectedLength(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+  def regexTriggerLengthReturnValue(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
     replyBundleMessages
       .collect(replyBundle =>
         replyBundle.trigger match {
@@ -187,14 +190,14 @@ trait BaseBotSpec extends CatsEffectSuite {
       .flatten
       .foreach {
         case (regexTextTriggerValue: RegexTextTriggerValue) =>
-          test(s"""Regex should have the expected length: "${regexTextTriggerValue.toString}"""") {
+          test(s"""Regex should return a valid length: "${regexTextTriggerValue.toString}"""") {
             assert(
               regexTextTriggerValue.length != Int.MaxValue
             )
           }
         case stringTextTriggerValue =>
           throw new Exception(
-            s"[BaseBotSpec] regexTriggerReturnExpectedLength got a stringTextTriggerValue: $stringTextTriggerValue"
+            s"[BaseBotSpec] regexTriggerLengthReturnValue got a stringTextTriggerValue: $stringTextTriggerValue"
           )
       }
 }

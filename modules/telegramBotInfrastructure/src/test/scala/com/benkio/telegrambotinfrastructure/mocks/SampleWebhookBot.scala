@@ -75,7 +75,7 @@ class SampleWebhookBot(
       "carne",
       "sperma",
       "da togliere",
-      "levare d[ia] dosso".r.tr,
+      "levare d[ia] dosso".r.tr(),
       "non contiamo niente"
     )(
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
@@ -89,7 +89,7 @@ class SampleWebhookBot(
       gif"rphjb_CarneFrescaSaporitaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[IO](
-      "carne (dura|vecchia|fresca)".r.tr
+      "carne (dura|vecchia|fresca)".r.tr()
     )(
       mp3"rphjb_CarneFrescaSaporita.mp3",
       vid"rphjb_CarneFrescaSaporita.mp4",

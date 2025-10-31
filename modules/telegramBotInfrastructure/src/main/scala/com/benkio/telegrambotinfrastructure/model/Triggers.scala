@@ -15,7 +15,15 @@ import scala.util.matching.Regex
 ///////////////////////////////////////////////////////////////////////////////
 
 extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
-extension (r: Regex) def tr: RegexTextTriggerValue                        = RegexTextTriggerValue(r)
+extension (r: Regex)
+  def tr(manualLength: Option[Int] = None): RegexTextTriggerValue =
+    manualLength.fold(
+      RegexTextTriggerValue(r)
+    )(v =>
+      new RegexTextTriggerValue(r) {
+        override val length = v
+      }
+    )
 extension (textTriggerValue: TextTriggerValue) {
   def isStringTriggerValue: Boolean = textTriggerValue match {
     case RegexTextTriggerValue(_)  => false
@@ -87,6 +95,7 @@ case class RegexTextTriggerValue(trigger: Regex) extends TextTriggerValue {
 
     (0 to 100)
       .find { size =>
+        if size == 40 then println(s"[Triggers] ⚠️ size >= $size for $trigger")
         canGenerateSize(size)
       }
       .getOrElse(Int.MaxValue)

@@ -18,14 +18,14 @@ object Photo:
       ),
     ReplyBundleMessage
       .textToMedia[F](
-        "\\bsgrida[tr]".r.tr,
-        "\\brimprover".r.tr
+        "\\bsgrida[tr]".r.tr(),
+        "\\brimprover".r.tr()
       )(
         pho"ytai_Rimprovero.jpg"
       ),
     ReplyBundleMessage
       .textToMedia[F](
-        "(baci )?perugina".r.tr
+        "(baci )?perugina".r.tr()
       )(
         pho"ytai_BaciPerugina.jpg"
       )

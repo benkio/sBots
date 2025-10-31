@@ -67,7 +67,7 @@ object Gif:
       gif"abar_TroppoFacile.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "chi(s| )se( )?ne( )?frega".r.tr
+      "chi(s| )se( )?ne( )?frega".r.tr()
     )(
       gif"abar_Chissenefrega.gif"
     ),
@@ -78,7 +78,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       " a morte",
-      "\\bsi{3,}\\b".r.tr
+      "\\bsi{3,}\\b".r.tr()
     )(
       gif"abar_SisiAMorte.gif"
     ),
@@ -100,7 +100,7 @@ object Gif:
       gif"abar_AmmazziamoTuttiNoProblem.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bcert[o!]{3,}\\b".r.tr
+      "\\bcert[o!]{3,}\\b".r.tr()
     )(
       gif"abar_Certo.gif"
     ),
@@ -115,18 +115,18 @@ object Gif:
       gif"abar_Semplifico.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "bere il (suo )?sangue".r.tr,
-      "taglia(re)? la gola".r.tr
+      "bere il (suo )?sangue".r.tr(),
+      "taglia(re)? la gola".r.tr()
     )(
       gif"abar_TaglioGolaBereSangue.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "spacco la (testa|faccia)".r.tr
+      "spacco la (testa|faccia)".r.tr()
     )(
       gif"abar_SpaccoLaTesta.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r.tr
+      "dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r.tr()
     )(
       gif"abar_OrifizioPosteriore.gif"
     ),
@@ -137,7 +137,7 @@ object Gif:
       gif"abar_Furfante.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bbasta(a|!){2,}".r.tr
+      "\\bbasta(a|!){2,}".r.tr()
     )(
       gif"abar_Basta.gif"
     ),
@@ -153,7 +153,7 @@ object Gif:
       gif"abar_Economisti.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "vieni (un po' )?qui".r.tr
+      "vieni (un po' )?qui".r.tr()
     )(
       gif"abar_VieniQui.gif"
     ),
@@ -169,8 +169,8 @@ object Gif:
       gif"abar_Riscatto.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bn[o]+!\\b".r.tr,
-      "non (lo )?vogli(a|o)".r.tr
+      "\\bn[o]+!\\b".r.tr(),
+      "non (lo )?vogli(a|o)".r.tr()
     )(
       gif"abar_No.gif"
     ),
@@ -186,12 +186,12 @@ object Gif:
       gif"abar_InDuePezzi.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bgiusto(o|!){2,}".r.tr
+      "\\bgiusto(o|!){2,}".r.tr()
     )(
       gif"abar_Giusto.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "gli altri (che )?sono".r.tr
+      "gli altri (che )?sono".r.tr()
     )(
       gif"abar_GliAltri.gif"
     ),

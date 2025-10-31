@@ -75,7 +75,7 @@ class XahLeeBotSpec extends BaseBotSpec {
       )
 
   exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData[IO])
-  regexTriggerReturnExpectedLength(XahLeeBot.messageRepliesData[IO])
+  regexTriggerLengthReturnValue(XahLeeBot.messageRepliesData[IO])
 
   jsonContainsFilenames(
     jsonFilename = "xah_list.json",

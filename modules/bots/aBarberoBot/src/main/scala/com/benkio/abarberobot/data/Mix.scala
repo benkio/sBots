@@ -10,13 +10,13 @@ object Mix:
 
   def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
-      "\\bfrancesi\\b".r.tr
+      "\\bfrancesi\\b".r.tr()
     )(
       gif"abar_Francesi.gif",
       mp3"abar_Luigi14.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r.tr
+      "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r.tr()
     )(
       gif"abar_FiglioDi.gif",
       gif"abar_FiglioDi2.gif",
@@ -99,20 +99,20 @@ object Mix:
       "provolone",
       "marmellata",
       "burro",
-      "(dadi|pomodori) star".r.tr,
-      "valigett[ae] 24[ ]?ore".r.tr,
-      "giubbotto anti[ ]?proiettile".r.tr,
-      "libri (gialli|fantascienza)".r.tr,
+      "(dadi|pomodori) star".r.tr(),
+      "valigett[ae] 24[ ]?ore".r.tr(),
+      "giubbotto anti[ ]?proiettile".r.tr(),
+      "libri (gialli|fantascienza)".r.tr(),
       "fumetti",
       "charlie brown",
       "documenti d'identità",
-      "targhe di auto (rubate)?".r.tr,
+      "targhe di auto (rubate)?".r.tr(),
       "timbri",
-      "(divise|palette) della polizia".r.tr,
+      "(divise|palette) della polizia".r.tr(),
       "pacchetti di sigarette",
       "piselli de rica",
       "fagioli cirio",
-      "pasta (buitoni|barilla|corta)".r.tr,
+      "pasta (buitoni|barilla|corta)".r.tr(),
       "spaghetti"
     )(
       vid"abar_ListaSpesaPartigiani.mp4",
@@ -125,10 +125,10 @@ object Mix:
       "acciaio",
       "oli minerali",
       "legname",
-      "\\brame\\b".r.tr,
+      "\\brame\\b".r.tr(),
       "nitrato di sodio",
       "sali potassici",
-      "\\bgomma\\b".r.tr,
+      "\\bgomma\\b".r.tr(),
       "toluolo",
       "trementina",
       "piombo",
@@ -142,11 +142,11 @@ object Mix:
       vid"abar_ListaMolibdeno.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "error[ie]".r.tr,
-      "pernicios[oi]".r.tr,
-      "scandalos[oi]".r.tr,
-      "penstilenzial[ie]".r.tr,
-      "velenosis[s]+imo".r.tr
+      "error[ie]".r.tr(),
+      "pernicios[oi]".r.tr(),
+      "scandalos[oi]".r.tr(),
+      "penstilenzial[ie]".r.tr(),
+      "velenosis[s]+imo".r.tr()
     )(
       vid"abar_ErrorePestilenzialeVelenosissimo.mp4",
       mp3"abar_ErrorePestilenzialeVelenosissimo.mp3"
@@ -154,7 +154,7 @@ object Mix:
     ReplyBundleMessage
       .textToMedia[F](
         "uguaglianza",
-        "(nemmeno|neanche) per idea".r.tr,
+        "(nemmeno|neanche) per idea".r.tr(),
         "democrazia",
         "porcata",
         "le razze",
@@ -162,7 +162,7 @@ object Mix:
         "tedeschi",
         "ubbidire",
         "schiavi",
-        "sterminat[ei]".r.tr
+        "sterminat[ei]".r.tr()
       )(
         vid"abar_Razzista.mp4",
         mp3"abar_Razzista.mp3"

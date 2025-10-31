@@ -66,7 +66,7 @@ object Audio {
       mp3"rphjb_EccomiQua.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "(mi sento|sto) meglio".r.tr
+      "(mi sento|sto) meglio".r.tr()
     )(
       mp3"rphjb_MiSentoMeglio.mp3"
     ),
@@ -83,7 +83,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "viale zara",
-      "cas(a|e) chius(a|e)".r.tr
+      "cas(a|e) chius(a|e)".r.tr()
     )(
       mp3"rphjb_VialeZara.mp3"
     ),
@@ -93,7 +93,7 @@ object Audio {
       mp3"rphjb_MiToccaIlCulo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "che (cazzo )?(m'|mi )ave[td]e mandato".r.tr,
+      "che (cazzo )?(m'|mi )ave[td]e mandato".r.tr(),
       "negli occhiali",
       "sulla spalla",
       "gianguido"
@@ -116,13 +116,13 @@ object Audio {
       mp3"rphjb_PoteriDemoniaci.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "sono( pure)? italiane".r.tr,
-      "non so(no)? ungheresi".r.tr
+      "sono( pure)? italiane".r.tr(),
+      "non so(no)? ungheresi".r.tr()
     )(
       mp3"rphjb_ItalianeUngheresi.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bcolpevole\\b".r.tr
+      "\\bcolpevole\\b".r.tr()
     )(
       mp3"rphjb_IlColpevole.mp3"
     ),
@@ -132,7 +132,7 @@ object Audio {
       mp3"rphjb_Sindaco.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "si leva (sta roba|sto schifo)".r.tr,
+      "si leva (sta roba|sto schifo)".r.tr(),
       "questo schifo"
     )(
       mp3"rphjb_QuestoSchifo.mp3"
@@ -149,8 +149,8 @@ object Audio {
       mp3"rphjb_Battesimo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "a( )?s[s]+tronzo".r.tr,
-      "stronz[o]{3,}".r.tr
+      "a( )?s[s]+tronzo".r.tr(),
+      "stronz[o]{3,}".r.tr()
     )(
       mp3"rphjb_AStronzo.mp3"
     ),
@@ -167,7 +167,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "finire male",
-      "qualche (storta|dispetto|torto) a me".r.tr
+      "qualche (storta|dispetto|torto) a me".r.tr()
     )(
       mp3"rphjb_FinireMale.mp3"
     ),
@@ -209,7 +209,7 @@ object Audio {
       mp3"rphjb_FaccioSchifo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "ci sei ritornat[ao]".r.tr
+      "ci sei ritornat[ao]".r.tr()
     )(
       mp3"rphjb_Ritornata.mp3"
     ),
@@ -219,12 +219,12 @@ object Audio {
       mp3"rphjb_CheSuccede.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "m[ie] fai( proprio)? schifo".r.tr
+      "m[ie] fai( proprio)? schifo".r.tr()
     )(
       mp3"rphjb_Schifo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "oppur[ae]".r.tr
+      "oppur[ae]".r.tr()
     )(
       mp3"rphjb_Oppura.mp3"
     ),
@@ -246,14 +246,14 @@ object Audio {
       mp3"rphjb_NonViDeludero.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "(col|con il) (cuore|cervello|anima|pisello|martello)".r.tr
+      "(col|con il) (cuore|cervello|anima|pisello|martello)".r.tr()
     )(
       mp3"rphjb_ViSaluto.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "funzioni gene[g]{2,}iative".r.tr,
+      "funzioni gene[g]{2,}iative".r.tr(),
       "non è un uomo",
-      "è (veramente )?una donna".r.tr
+      "è (veramente )?una donna".r.tr()
     )(
       mp3"rphjb_VoceDaUomo.mp3"
     ),
@@ -281,13 +281,13 @@ object Audio {
       mp3"rphjb_GelatinaFazzolettiSecchiAcquaSapone.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "e che cazzo[o]*[!]?".r.tr
+      "e che cazzo[o]*[!]?".r.tr()
     )(
       mp3"rphjb_SuonatoAbbastanzaBeneEVero.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "romantic",
-      "(ar|in) culo".r.tr
+      "(ar|in) culo".r.tr()
     )(
       mp3"rphjb_RomanticiDonneArCulo.mp3"
     ),
@@ -298,8 +298,8 @@ object Audio {
       mp3"rphjb_NelleManiDiBonolis.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "(9|nove) mesi".r.tr,
-      "voler (uscire|rientrare)".r.tr,
+      "(9|nove) mesi".r.tr(),
+      "voler (uscire|rientrare)".r.tr(),
       "una vita intera",
       "ci avevo messo"
     )(
@@ -316,12 +316,12 @@ object Audio {
       "adibiti ad agnelli",
       "una pisciata",
       "appendila a",
-      "\\bganci\\b".r.tr
+      "\\bganci\\b".r.tr()
     )(
       mp3"rphjb_MiseroAntroGanciAgnelliPisciata.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "mio (fidanzato|partner|moroso)".r.tr
+      "mio (fidanzato|partner|moroso)".r.tr()
     )(
       mp3"rphjb_DonneSperma.mp3"
     ),
@@ -334,7 +334,7 @@ object Audio {
       mp3"rphjb_IncidentePonte.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "peli (a[rl]|del) culo".r.tr
+      "peli (a[rl]|del) culo".r.tr()
     )(
       mp3"rphjb_RaccondaStoriaTegaBaffoPeliCulo.mp3"
     ),
@@ -381,7 +381,7 @@ object Audio {
       mp3"rphjb_BaracconeFurgoneTelevisione.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "mio (fidanzato|ragazzo|moroso)".r.tr,
+      "mio (fidanzato|ragazzo|moroso)".r.tr(),
       "capito che roba"
     )(
       mp3"rphjb_Fazzoletti.mp3"
@@ -391,7 +391,7 @@ object Audio {
       "morirò",
       "sarai felice",
       "hanno dovuto spostare",
-      "\\btomba\\b".r.tr,
+      "\\btomba\\b".r.tr(),
       "jim morrison"
     )(
       mp3"rphjb_JimMorrison.mp3"
@@ -404,18 +404,18 @@ object Audio {
       ),
     ReplyBundleMessage
       .textToMp3[F](
-        "rovinat[eoia]".r.tr,
+        "rovinat[eoia]".r.tr(),
         "anche le sue",
         "poesie",
         "non se le ricorda pi[uù]",
-        "pisci[aà](re)? in culo".r.tr,
-        "che cazzo stai a d[iì](re)?".r.tr
+        "pisci[aà](re)? in culo".r.tr(),
+        "che cazzo stai a d[iì](re)?".r.tr()
       )(
         mp3"rphjb_PoesieRovinate.mp3"
       ),
     ReplyBundleMessage
       .textToMp3[F](
-        "\\bfregat[ao]\\b".r.tr,
+        "\\bfregat[ao]\\b".r.tr(),
         "mani tue"
       )(
         mp3"rphjb_FregatoManiTue.mp3"
