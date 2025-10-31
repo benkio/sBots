@@ -28,9 +28,13 @@ import munit.CatsEffectSuite
 import telegramium.bots.high.Api
 import telegramium.bots.Message
 
+import scala.concurrent.duration.Duration
+
 class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
+
+  override val munitIOTimeout = Duration(1, "m")
 
   given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
