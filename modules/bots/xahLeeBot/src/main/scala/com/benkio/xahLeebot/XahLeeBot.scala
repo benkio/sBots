@@ -55,10 +55,10 @@ trait XahLeeBot[F[_]: Async: LogWriter] extends SBot[F] {
   val backgroundJobManager: BackgroundJobManager[F]
   val dbLayer: DBLayer[F]
 
-  override def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
+  override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
     LogWriter.debug("[XahLeeBot] Empty message reply data") *> XahLeeBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
+  override val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     XahLeeBot.commandRepliesData[F](backgroundJobManager, dbLayer).pure[F]
 
 }

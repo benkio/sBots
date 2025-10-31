@@ -101,7 +101,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "rimpinzati",
-      "(g|c)io(g|c)+ola(d|t)a".r,
+      "[cg]io[cg]+ola[dt]a".r,
       "pandori",
       "goldoni",
       "ciambelloni",
@@ -350,7 +350,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "non ci credete?",
-      "grande s(d|t)ronza(d|t)(e|a)".r
+      "grande s[dt]ronza[dt][ea]".r.tr(16)
     )(
       gif"rphjb_NonCiCredeteGif.mp4",
       mp3"rphjb_NonCiCredete.mp3"
@@ -403,7 +403,7 @@ object Mix {
       "che (cazzo |cazzo di roba )?mi avete dato".r,
       "lampi negli occhi",
       "gira(re|ra|rà|ndo)? la testa".r,
-      "insieme alla (c|g)o(c|g)a (c|g)ola".r
+      "insieme alla [cg]o[cg]a [cg]ola".r.tr(22)
     )(
       mp3"rphjb_CheCazzoEraQuellaRoba.mp3",
       vid"rphjb_CheCazzoEraQuellaRoba.mp4",
@@ -570,7 +570,7 @@ object Mix {
       sticker"rphjb_CristoCanaroBensoniani.sticker"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "ma[ ]?s(c|g)us[a]?".r
+      "ma[ ]?s[cg]us[a]?".r
     )(
       mp3"rphjb_MaSgus.mp3",
       gif"rphjb_MaSgusGif.mp4"
@@ -817,7 +817,7 @@ object Mix {
       mp3"rphjb_AncoraUnAltraCassa.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(g|c)hi(t|d)arra".r
+      "[cg]hi[dt]arra".r
     )(
       mp3"rphjb_Assolo.mp3",
       vid"rphjb_Assolo.mp4",
@@ -850,7 +850,7 @@ object Mix {
       vid"rphjb_AssoloBasso.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\b(g|c)a(b|p)i(d|t)o\\b".r,
+      "\\b[cg]a(b|p)i[dt]o\\b".r,
       "\\bcapissi\\b".r
     )(
       mp3"rphjb_HoCapito.mp3",
@@ -1048,7 +1048,7 @@ object Mix {
       vid"rphjb_SentirGiovanePamelaAnderson.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(sono |so )?a[r]{1,2}iva(d|t)o".r,
+      "(sono |so )?a[r]{1,2}iva[dt]o".r,
       "(eccomi|ciao).*\\bpiacere\\b".r
     )(
       gif"rphjb_ArivatoGif.mp4",
@@ -1066,7 +1066,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "fate come vi pare",
-      "sti[ ]?(g|c)azzi".r
+      "sti[ ]?[cg]azzi".r
     )(
       gif"rphjb_ComeViPareGif.mp4",
       mp3"rphjb_ComeViPare.mp3"
@@ -1125,7 +1125,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "vaniglia",
       "pandoro",
-      "crema alla (g|c)io(g|c)+ola(d|t)a".r,
+      "crema alla [gc]io[gc]+ola[dt]a".r.tr(20),
       "intrise"
     )(
       mp3"rphjb_ZuccheroVanigliaCremaCioccolataPandoro.mp3",
@@ -1135,7 +1135,7 @@ object Mix {
       "c'hai timore",
       "c'hai paura",
       "mi hai detto (all'orecchio )?prima".r,
-      "diri[g]+en(d|t)i".r
+      "diri[g]+en[dt]i".r
     )(
       mp3"rphjb_TimoreDirigenti.mp3",
       vid"rphjb_TimoreDirigenti.mp4",
@@ -1257,7 +1257,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "solo uno parl[oóò]".r,
       "uno solo parl[oóò]".r,
-      "(c|g)ri(d|t)i(g|c)a(d|t)o".r,
+      "[cg]ri[dt]i[cg]a[dt]o".r.tr(9),
       "sapevano tutto",
       "nessuno parlava"
     )(
@@ -1580,7 +1580,8 @@ object Mix {
       mp3"rphjb_ListaGruppi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "i (casuals|rocks|manfred mann|birds|buffalo springfield|dave clark five|soft (machine|heap)|gilgamesh|matching mole|magma|gong|headhunters|free spirits|return to forever)".r,
+      "i (casuals|rocks|manfred mann|birds|buffalo springfield|dave clark five|soft (machine|heap)|gilgamesh|matching mole|magma|gong|headhunters|free spirits|return to forever)".r
+        .tr(6),
       "robert wyatt",
       "univers zero",
       "etron fou leloublan",
@@ -2027,7 +2028,7 @@ object Mix {
       vid"rphjb_QualcheAltraDomanda.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "occhi (come le donne )?degli anni (settanta|70)".r
+      "occhi (come le donne )?degli anni (settanta|70)".r.tr(19)
     )(
       vid"rphjb_OcchiAnniSettantaFemmismoControcultura.mp4",
       mp3"rphjb_OcchiAnniSettantaFemmismoControcultura.mp3",
@@ -2181,7 +2182,7 @@ object Mix {
       vid"rphjb_Ciao2001.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "fro(ci|sh)o([ -]fro(ci|sh)o)+".r
+      "fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr(13)
     )(
       mp3"rphjb_NudoFrocio.mp3",
       vid"rphjb_FrocioFrocio.mp4",
@@ -2394,7 +2395,7 @@ object Mix {
 
   private def messageRepliesMixData3[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
-      "\\bn[o]+!\\b".r
+      "\\bn[o]+!\\b".r.tr(3)
     )(
       gif"rphjb_NoGif.mp4",
       vid"rphjb_FolliaQueenNo.mp4"
@@ -2509,7 +2510,7 @@ object Mix {
       vid"rphjb_InizioDellaFine.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(s(ono|o'|ò|o)|saranno) cazzi vostri".r
+      "(s(ono|o'|ò|o)|saranno) cazzi vostri".r.tr(15)
     )(
       mp3"rphjb_SarannoCazziVostri.mp3",
       vid"rphjb_SoCazziVostriStasera.mp4",
@@ -2980,7 +2981,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "che( cazzo)? c'è da prendere".r,
-      "prend(o|ere) ((il|er) motorino|(il|er) coso|la macchina|l'auto)".r,
+      "prend(o|ere) ((il|er) motorino|(il|er) coso|la macchina|l'auto)".r.tr(13),
       "\\bvengo\\b".r,
       "non vengo\\b".r
     )(
@@ -2997,7 +2998,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "pensa alla deficienza",
-      "ma si può dire una cosa (del genere|così)".r
+      "ma si può dire una cosa (del genere|così)".r.tr(28)
     )(
       gif"rphjb_DeficienzaGif.mp4",
       vid"rphjb_Deficienza.mp4"
@@ -3028,7 +3029,7 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "rifiutato",
       "lavor(a|à|are) troppo".r,
-      "non (mi va di|ho voglia di|voglio) lavor(a|à|are)".r,
+      "non (mi va di|ho voglia di|voglio) lavor(a|à|are)".r.tr(17),
       "andare a lavorare",
       "grande divertimento"
     )(
@@ -3052,7 +3053,7 @@ object Mix {
       "sbaciucchia",
       "tutti nudi",
       "lo soffocano",
-      "non riesce più a (parlà|cantà|respirà)".r,
+      "non riesce più a (parlà|cantà|respirà)".r.tr(22),
       "nazario saurio",
       "eddy napoli",
       "ray gelato",
@@ -3274,7 +3275,7 @@ object Mix {
       "passeggiata",
       "ossigena i polmoni",
       "in sedia a rotelle",
-      "pensa(re|to) (due volte|un secondo)".r
+      "pensa(re|to) (due volte|un secondo)".r.tr(17)
     )(
       vid"rphjb_PasseggiataAgireSubito.mp4",
       mp3"rphjb_PasseggiataAgireSubito.mp3"
@@ -3505,7 +3506,7 @@ object Mix {
         mp3"rphjb_ChitarristiProsciuttoOrecchie.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "nelle palle di (vostro|loro) padre".r,
+        "nelle palle di (vostro|loro) padre".r.tr(25),
         "prosciutto nelle orecchie"
       )(
         vid"rphjb_ChitarristiProsciuttoOrecchie.mp4",
@@ -3871,7 +3872,7 @@ object Mix {
         vid"rphjb_PoesiaAltroSenso.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "drog(a|he) (legger[ae]|pesant[ei])".r,
+        "drog(a|he) (legger[ae]|pesant[ei])".r.tr(13),
         "ammoniaca",
         "(sprecano|allungano) le foglie".r,
         "veleno per topi",
@@ -3924,7 +3925,7 @@ object Mix {
       ReplyBundleMessage.textToMedia[F](
         "(pubblico|gente) davanti".r,
         "\\ba fro(ci|sh)o\\b".r,
-        "facc[ei] ved(e|ere) (il|er) culo".r,
+        "facc[ei] ved(e|ere) (il|er) culo".r.tr(18),
         "quando scopi",
         "te lo faccio vedere",
         "oxford"
@@ -4250,7 +4251,7 @@ object Mix {
         "missiva",
         "degno erede",
         "ti chiedo solo una cosa",
-        "(fammi|chiedere) (una|questa) cortesia".r,
+        "(fammi|chiedere) (una|questa) cortesia".r.tr(18),
         "incassi",
         "sarà (più bravo di me|bravissimo)".r
       )(
@@ -4706,7 +4707,7 @@ object Mix {
         mp3"rphjb_VolumeAlMassimo.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "solo il me(t|d)al".r
+        "solo il me[dt]al".r
       )(
         gif"rphjb_GeneriMusicaliGif.mp4",
         vid"rphjb_GeneriMusicali2.mp4"
@@ -4859,7 +4860,7 @@ object Mix {
         mp3"rphjb_SuonatoAbbastanzaBeneEVero.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r
+        "perchè (cazzo)? mi hai fatto ven[i|ì](re)?".r.tr(25)
       )(
         mp3"rphjb_PercheCazzoMiHaiFattoVeni.mp3",
         gif"rphjb_PercheCazzoMiHaiFattoVeniGif.mp4"
@@ -5031,7 +5032,7 @@ object Mix {
         ),
       ReplyBundleMessage
         .textToMedia[F](
-          "non m[ei] c[ei] f[aà](r|re)? pens[aà](re)?".r,
+          "non m[ei] c[ei] f[aà](r|re)? pens[aà](re)?".r.tr(18),
           "non farmici pens[aà](re)?".r
         )(
           mp3"rphjb_IncazzoComeUnaBestia.mp3",
@@ -5079,14 +5080,14 @@ object Mix {
         ),
       ReplyBundleMessage
         .textToMedia[F](
-          "non dorm[eo] (quasi )?tutta la notte".r
+          "non dorm[eo] (quasi )?tutta la notte".r.tr(24)
         )(
           mp3"rphjb_NonDormoQuasiTuttaLaNotteAiutatemi.mp3",
           vid"rphjb_NonDormoQuasiTuttaLaNotteAiutatemi.mp4"
         ),
       ReplyBundleMessage
         .textToMedia[F](
-          "si (è )?dimostra(to)? (gentile|volenteroso)".r,
+          "si (è )?dimostra(to)? (gentile|volenteroso)".r.tr(19),
           "tutto il contrario",
           "schifo aberrante",
           "mi contraddico"
@@ -5107,8 +5108,8 @@ object Mix {
         ),
       ReplyBundleMessage
         .textToMedia[F](
-          "basta and[aà](re)? a cerc[aà](re)?".r,
-          "non v[ei] v[aà] d[ei] f[aà] un cazzo".r
+          "basta and[aà](re)? a cerc[aà](re)?".r.tr(18),
+          "non v[ei] v[aà] d[ei] f[aà] un cazzo".r.tr(24)
         )(
           mp3"rphjb_BastaAndaACercaNonViVa.mp3",
           gif"rphjb_BastaAndaACercaNonViVaGif.mp4",
@@ -6159,7 +6160,7 @@ object Mix {
         "\\bmacht\\b".r,
         "\\bfrei\\b".r,
         "sto cogline",
-        "levat(i|evi|e|a|emelo|emela) d[ai] torn[o]?".r
+        "levat(i|evi|e|a|emelo|emela) d[ai] torn[o]?".r.tr(14)
       )(
         gif"rphjb_TantiAttoriArbeitMachtFreiGif.mp4",
         mp3"rphjb_TantiAttoriArbeitMachtFrei.mp3",
@@ -6257,7 +6258,7 @@ object Mix {
       ),
       ReplyBundleMessage.textToMedia[F](
         "co(gl|j)ion(e[e]+|e!)".r,
-        "co(gl|j)ione(,|, | )co(gl|j)ione".r
+        "co(gl|j)ione(,|, | )co(gl|j)ione".r.tr(15)
       )(
         gif"rphjb_CoglioneGif.mp4",
         gif"rphjb_PiuCoglioneGif.mp4",
@@ -6278,7 +6279,7 @@ object Mix {
         gif"rphjb_MiPareLogicoMatematiciAnaliticiDiNoiaGif.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "\\blo[g]+i(c|g)o\\b".r
+        "\\blo[g]+i[cg]o\\b".r
       )(
         gif"rphjb_TukulGif.mp4",
         mp3"rphjb_Tukul.mp3",
@@ -6295,7 +6296,7 @@ object Mix {
         mp3"rphjb_TiDovrestiVergognare.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "(non|mica) so(no)? (un |n )?co(gl|j)ione".r,
+        "(non|mica) so(no)? (un |n )?co(gl|j)ione".r.tr(14),
         "sarete co(gl|j)ioni voi".r
       )(
         gif"rphjb_SareteCoglioniVoiGif.mp4",

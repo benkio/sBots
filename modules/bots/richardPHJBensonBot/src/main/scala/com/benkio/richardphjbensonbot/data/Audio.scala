@@ -93,7 +93,7 @@ object Audio {
       mp3"rphjb_MiToccaIlCulo.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "che (cazzo )?(m'|mi )ave[td]e mandato".r,
+      "che (cazzo )?(m'|mi )ave[td]e mandato".r.tr(19),
       "negli occhiali",
       "sulla spalla",
       "gianguido"
@@ -167,7 +167,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "finire male",
-      "qualche (storta|dispetto|torto) a me".r
+      "qualche (storta|dispetto|torto) a me".r.tr(18)
     )(
       mp3"rphjb_FinireMale.mp3"
     ),
@@ -246,7 +246,7 @@ object Audio {
       mp3"rphjb_NonViDeludero.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "(col|con il) (cuore|cervello|anima|pisello|martello)".r
+      "(col|con il) (cuore|cervello|anima|pisello|martello)".r.tr(9)
     )(
       mp3"rphjb_ViSaluto.mp3"
     ),

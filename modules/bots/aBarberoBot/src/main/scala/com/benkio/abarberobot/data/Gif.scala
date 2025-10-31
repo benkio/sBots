@@ -67,7 +67,7 @@ object Gif:
       gif"abar_TroppoFacile.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "chi(s| )se( )?ne( )?frega".r
+      "chi(s| )se( )?ne( )?frega".r.tr(13)
     )(
       gif"abar_Chissenefrega.gif"
     ),
@@ -78,7 +78,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       " a morte",
-      "\\bsi{3,}\\b".r
+      "\\b(si[ ]?){3,}\\b".r.tr(6)
     )(
       gif"abar_SisiAMorte.gif"
     ),
@@ -100,7 +100,7 @@ object Gif:
       gif"abar_AmmazziamoTuttiNoProblem.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bcerto[o]*!\\b".r
+      "\\bcerto[o]*!\\b".r.tr(6)
     )(
       gif"abar_Certo.gif"
     ),
@@ -115,18 +115,18 @@ object Gif:
       gif"abar_Semplifico.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "bere il (suo )?sangue".r,
-      "taglia(re)? la gola".r
+      "bere il (suo )?sangue".r.tr(6),
+      "taglia(re)? la gola".r.tr(14)
     )(
       gif"abar_TaglioGolaBereSangue.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "spacco la (testa|faccia)".r
+      "spacco la (testa|faccia)".r.tr(15)
     )(
       gif"abar_SpaccoLaTesta.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r
+      "dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r.tr(8)
     )(
       gif"abar_OrifizioPosteriore.gif"
     ),
@@ -153,7 +153,7 @@ object Gif:
       gif"abar_Economisti.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "vieni (un po' )?qui".r
+      "vieni (un po' )?qui".r.tr(14)
     )(
       gif"abar_VieniQui.gif"
     ),
@@ -169,8 +169,8 @@ object Gif:
       gif"abar_Riscatto.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bn[o]+!\\b".r,
-      "non (lo )?vogli(a|o)".r
+      "\\bn[o]+!\\b".r.tr(3),
+      "non (lo )?vogli(a|o)".r.tr(10)
     )(
       gif"abar_No.gif"
     ),
@@ -186,7 +186,7 @@ object Gif:
       gif"abar_InDuePezzi.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bgiusto[o]+!".r
+      "\\bgiusto[o]+!".r.tr(8)
     )(
       gif"abar_Giusto.gif"
     ),

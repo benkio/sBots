@@ -192,7 +192,7 @@ trait BaseBotSpec extends CatsEffectSuite {
         case (regexTextTriggerValue: RegexTextTriggerValue) =>
           test(s"""Regex should return a valid length: "${regexTextTriggerValue.toString}"""") {
             assert(
-              regexTextTriggerValue.length != Int.MaxValue
+              regexTextTriggerValue.length.value != Int.MaxValue
             )
           }
         case stringTextTriggerValue =>

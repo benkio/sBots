@@ -109,7 +109,7 @@ object Audio:
       mp3"mos_AhNonLoSo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "non posso (mica )?improvvisar(e|me)".r
+      "non posso (mica )?improvvisar(e|me)".r.tr(22)
     )(
       mp3"mos_AndateInMona.mp3"
     ),
@@ -213,7 +213,7 @@ object Audio:
       mp3"mos_Buongiorno2.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "but(tato|ta) per aria tutto".r
+      "but(tato|ta) per aria tutto".r.tr(20)
     )(
       mp3"mos_ButtaPellAria.mp3"
     ),
@@ -233,7 +233,7 @@ object Audio:
       mp3"mos_ChiEQuelMonaSbatteLaPortaChiudeUrlando.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "chissà che non m(i |')incazzo".r
+      "chissà che non m(i |')incazzo".r.tr(24)
     )(
       mp3"mos_ChissaCheNonMIncazzaEh.mp3"
     ),
@@ -273,7 +273,7 @@ object Audio:
       mp3"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "che cazzo ([cg]he )è qua sotto".r
+      "che cazzo ([cg]he )è qua sotto".r.tr(25)
     )(
       mp3"mos_CosaCheCazzoGheE.mp3"
     ),
@@ -352,7 +352,7 @@ object Audio:
       "giochi olimpici",
       "giorgio mazzetta",
       "giorgio mazzetta",
-      "m[ie] fermo un (secondo|attimo)".r
+      "m[ie] fermo un (secondo|attimo)".r.tr(18)
     )(
       mp3"mos_GiochiOlimpiciAspettaCheMeFermoUnAttimo.mp3"
     ),

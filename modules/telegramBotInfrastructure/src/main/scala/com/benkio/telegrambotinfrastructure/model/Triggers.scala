@@ -1,6 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits.*
+import cats.Eval
 import cats.Show
 import io.circe.*
 import io.circe.generic.semiauto.*
@@ -8,6 +9,8 @@ import org.scalacheck.rng.Seed
 import org.scalacheck.Gen
 import wolfendale.scalacheck.regexp.RegexpGen
 
+//import java.time.Duration
+//import java.time.Instant
 import scala.util.matching.Regex
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -32,7 +35,7 @@ given Encoder[Regex] = Encoder.encodeString.contramap[Regex](_.toString())
 //                              TextTriggerValue                             //
 ///////////////////////////////////////////////////////////////////////////////
 sealed trait TextTriggerValue {
-  val length: Int
+  val length: Eval[Int]
 }
 
 object TextTriggerValue {
@@ -71,10 +74,11 @@ object TextTriggerValue {
 }
 
 case class StringTextTriggerValue(trigger: String) extends TextTriggerValue {
-  override val length: Int = trigger.length
+  override val length: Eval[Int] = Eval.now(trigger.length)
 }
 case class RegexTextTriggerValue(trigger: Regex, regexLength: Option[Int] = None) extends TextTriggerValue {
-  override val length: Int = {
+  override val length: Eval[Int] = Eval.later {
+    // val start: Instant = Instant.now()
     def canGenerateSize(
         targetSize: Int,
         trials: Int = 200
@@ -87,13 +91,16 @@ case class RegexTextTriggerValue(trigger: Regex, regexLength: Option[Int] = None
           .exists(v => v.length == targetSize)
       }
     }
-    regexLength.getOrElse(
+    val result = regexLength.getOrElse(
       (0 to 40)
         .find { size =>
           canGenerateSize(size)
         }
         .getOrElse(Int.MaxValue)
     )
+    // val timeElapsed = Duration.between(start, Instant.now())
+    // if timeElapsed.toMillis() > 50L then println(s"[Triggers] $trigger is slow ${timeElapsed.toMillis()}: $result")
+    result
   }
 }
 
@@ -132,7 +139,7 @@ object Trigger {
   given Encoder[MessageTrigger] = deriveEncoder[MessageTrigger]
 
   def triggerLongestString(trigger: Trigger): Int = trigger match {
-    case TextTrigger(lt*)          => lt.max(using TextTriggerValue.orderingInstance).length
+    case TextTrigger(lt*)          => lt.max(using TextTriggerValue.orderingInstance).length.value
     case MessageLengthTrigger(_)   => 0
     case _: NewMemberTrigger.type  => 0
     case _: LeftMemberTrigger.type => 0

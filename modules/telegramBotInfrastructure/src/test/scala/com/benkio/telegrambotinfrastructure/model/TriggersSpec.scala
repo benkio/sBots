@@ -47,7 +47,7 @@ class TriggersSpec extends CatsEffectSuite {
     )
 
     input.foreach { case (regexTextTriggerValue, expected) =>
-      assertEquals(regexTextTriggerValue.length, expected)
+      assertEquals(regexTextTriggerValue.length.value, expected)
     }
   }
 
@@ -75,7 +75,7 @@ class TriggersSpec extends CatsEffectSuite {
     )
     inputExpected.foreach { case (regexTextTriggerValue, expected) =>
       assertEquals(
-        regexTextTriggerValue.length,
+        regexTextTriggerValue.length.value,
         expected
       )
     }

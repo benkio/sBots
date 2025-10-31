@@ -3,6 +3,7 @@ package com.benkio.richardphjbensonbot.data
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.tr
 
 object Gif {
 
@@ -44,7 +45,7 @@ object Gif {
       gif"rphjb_TelefonataPilotataGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "come ha fatto a entr(à|are)".r
+      "come ha fatto a entr(à|are)".r.tr(21)
     )(
       gif"rphjb_ComeHaFattoAEntrareGif.mp4"
     ),
@@ -92,8 +93,8 @@ object Gif {
       gif"rphjb_ScherzoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      " e levati((...|..|.| )dai coglioni)?".r,
-      "fuori(...|..|.| )dai coglioni".r
+      " e levati((...|..|.| )dai coglioni)?".r.tr(9),
+      "fuori(...|..|.| )dai coglioni".r.tr(18)
     )(
       gif"rphjb_LevatiDaiCoglioniGif.mp4"
     ),
@@ -165,7 +166,7 @@ object Gif {
       gif"rphjb_IlSensoCapitoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "abi(t|d)ua(t|d)o".r,
+      "abi[dt]ua[dt]o".r,
       "proprioll(a|à)".r
     )(
       gif"rphjb_PropriollaGif.mp4"
@@ -183,7 +184,7 @@ object Gif {
       gif"rphjb_IlBongoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "immagini ama(d|t)oriali".r
+      "immagini ama[dt]oriali".r.tr(19)
     )(
       gif"rphjb_InternetGif.mp4"
     ),

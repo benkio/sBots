@@ -49,7 +49,7 @@ class SampleWebhookBot(
   override val triggerFilename: String             = SampleWebhookBot.triggerFilename
   override val triggerListUri: Uri                 = SampleWebhookBot.triggerListUri
 
-  override def messageRepliesDataF: IO[List[ReplyBundleMessage[IO]]] = List(
+  override val messageRepliesDataF: IO[List[ReplyBundleMessage[IO]]] = List(
     ReplyBundleMessage.textToMp3[IO](
       "cosa preferisci",
       "ragazzetta",
@@ -96,7 +96,7 @@ class SampleWebhookBot(
     )
   ).pure[IO]
 
-  override def commandRepliesDataF: IO[List[ReplyBundleCommand[IO]]] =
+  override val commandRepliesDataF: IO[List[ReplyBundleCommand[IO]]] =
     List(
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),

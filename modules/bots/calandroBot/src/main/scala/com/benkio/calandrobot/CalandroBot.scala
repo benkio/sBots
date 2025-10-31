@@ -63,10 +63,10 @@ trait CalandroBot[F[_]: Async: LogWriter] extends SBot[F] {
   override val triggerFilename: String = CalandroBot.triggerFilename
   override val triggerListUri: Uri     = CalandroBot.triggerListUri
 
-  override def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
+  override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
     CalandroBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
+  override val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     CalandroBot.commandRepliesData[F](dbLayer = dbLayer).pure[F]
 }
 

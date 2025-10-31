@@ -74,10 +74,10 @@ trait RichardPHJBensonBot[F[_]: Async: LogWriter] extends SBot[F] {
 
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
+  override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
     RichardPHJBensonBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
+  override val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     RichardPHJBensonBot
       .commandRepliesData[F](
         backgroundJobManager,
