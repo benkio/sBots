@@ -52,7 +52,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
     val replyBundleInput: ReplyBundle[IO] = ReplyBundleMessage[IO](
       trigger = TextTrigger(
         StringTextTriggerValue("stringTextTriggerValue"),
-        RegexTextTriggerValue("regexTextTriggerValue".r, 21)
+        RegexTextTriggerValue("regexTextTriggerValue".r)
       ),
       reply = MediaReply[IO](mediaFiles = inputMediafile.pure[IO])
     )
@@ -134,7 +134,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
         |        {
         |          "RegexTextTriggerValue" : {
         |            "trigger" : "donne (vissute|con le palle)",
-        |            "minimalLengthMatch" : 13
+        |            "regexLength" : null
         |          }
         |        },
         |        {

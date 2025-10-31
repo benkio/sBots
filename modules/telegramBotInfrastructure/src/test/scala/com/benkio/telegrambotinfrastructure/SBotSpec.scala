@@ -10,7 +10,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
-import com.benkio.telegrambotinfrastructure.model.tr
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -35,7 +34,7 @@ class SBotSpec extends CatsEffectSuite {
     )
     val expected = ReplyBundleMessage
       .textToMedia[IO](
-        "carne (dura|vecchia|fresca)".r.tr(10)
+        "carne (dura|vecchia|fresca)".r
       )(
         mp3"rphjb_CarneFrescaSaporita.mp3",
         vid"rphjb_CarneFrescaSaporita.mp4",

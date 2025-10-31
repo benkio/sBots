@@ -27,9 +27,11 @@ object GenerateTriggers extends IOApp {
     val triggerFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$triggerFilename"
 
     for
+      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath Trigger file"))
       triggersStringList <- Resource.eval(
         triggers.traverse(_.prettyPrint())
       )
+      _  <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
       pw <- Resource.fromAutoCloseable(IO(new PrintWriter(triggerFilesPath)))
     yield pw.write(triggersStringList.mkString(""))
   }
@@ -41,7 +43,7 @@ object GenerateTriggers extends IOApp {
         ABarberoBot.triggerFilename,
         ABarberoBot.messageRepliesData[IO]
       )
-      $_ <- generateTriggerFile(
+      _ <- generateTriggerFile(
         "../bots/calandroBot/",
         CalandroBot.triggerFilename,
         CalandroBot.messageRepliesData[IO]

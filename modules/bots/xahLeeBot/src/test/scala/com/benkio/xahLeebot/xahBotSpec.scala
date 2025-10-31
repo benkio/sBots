@@ -19,7 +19,6 @@ import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import munit.CatsEffectSuite
 import telegramium.bots.high.Api
 import telegramium.bots.Message
 
@@ -76,6 +75,7 @@ class XahLeeBotSpec extends BaseBotSpec {
       )
 
   exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData[IO])
+  regexTriggerLengthReturnValue(XahLeeBot.messageRepliesData[IO])
 
   jsonContainsFilenames(
     jsonFilename = "xah_list.json",

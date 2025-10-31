@@ -3,7 +3,6 @@ package com.benkio.youtuboanchei0bot.data
 import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.pho
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.tr
 
 object Photo:
 
@@ -18,14 +17,14 @@ object Photo:
       ),
     ReplyBundleMessage
       .textToMedia[F](
-        "\\bsgrida[tr]".r.tr(7),
-        "\\brimprover".r.tr(9)
+        "\\bsgrida[tr]".r,
+        "\\brimprover".r
       )(
         pho"ytai_Rimprovero.jpg"
       ),
     ReplyBundleMessage
       .textToMedia[F](
-        "(baci )?perugina".r.tr(8)
+        "(baci )?perugina".r
       )(
         pho"ytai_BaciPerugina.jpg"
       )

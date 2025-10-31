@@ -14,6 +14,8 @@ import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.*
 import io.circe.generic.semiauto.*
 
+import scala.util.matching.Regex
+
 sealed trait ReplyBundle[F[_]] {
 
   def trigger: Trigger
@@ -41,7 +43,7 @@ object ReplyBundleMessage {
   )
 
   def textToMedia[F[_]: Applicative](
-      triggers: (String | RegexTextTriggerValue)*
+      triggers: (String | Regex | RegexTextTriggerValue)*
   )(mediaFiles: MediaFile*): ReplyBundleMessage[F] =
     ReplyBundleMessage[F](
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
@@ -49,32 +51,32 @@ object ReplyBundleMessage {
     )
 
   def textToVideo[F[_]: Applicative](
-      triggers: (String | RegexTextTriggerValue)*
+      triggers: (String | Regex | RegexTextTriggerValue)*
   )(videoFiles: VideoFile*): ReplyBundleMessage[F] =
     textToMedia(triggers*)(videoFiles*)
 
   def textToMp3[F[_]: Applicative](
-      triggers: (String | RegexTextTriggerValue)*
+      triggers: (String | Regex | RegexTextTriggerValue)*
   )(mp3Files: Mp3File*): ReplyBundleMessage[F] =
     textToMedia(triggers*)(mp3Files*)
 
   def textToGif[F[_]: Applicative](
-      triggers: (String | RegexTextTriggerValue)*
+      triggers: (String | Regex | RegexTextTriggerValue)*
   )(gifFiles: GifFile*): ReplyBundleMessage[F] =
     textToMedia(triggers*)(gifFiles*)
 
   def textToPhoto[F[_]: Applicative](
-      triggers: (String | RegexTextTriggerValue)*
+      triggers: (String | Regex | RegexTextTriggerValue)*
   )(photoFiles: PhotoFile*): ReplyBundleMessage[F] =
     textToMedia(triggers*)(photoFiles*)
 
   def textToSticker[F[_]: Applicative](
-      triggers: (String | RegexTextTriggerValue)*
+      triggers: (String | Regex | RegexTextTriggerValue)*
   )(photoFiles: Sticker*): ReplyBundleMessage[F] =
     textToMedia(triggers*)(photoFiles*)
 
   def textToText[F[_]](
-      triggers: (String | RegexTextTriggerValue)*
+      triggers: (String | Regex | RegexTextTriggerValue)*
   )(texts: String*): ReplyBundleMessage[F] =
     ReplyBundleMessage[F](
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),

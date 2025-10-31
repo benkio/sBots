@@ -11,7 +11,6 @@ import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import munit.CatsEffectSuite
 
 class CalandroBotSpec extends BaseBotSpec {
 
@@ -20,6 +19,7 @@ class CalandroBotSpec extends BaseBotSpec {
   val excludeTriggers           = List("GIOCHI PER IL MIO PC")
 
   exactTriggerReturnExpectedReplyBundle(CalandroBot.messageRepliesData[IO])
+  regexTriggerLengthReturnValue(CalandroBot.messageRepliesData[IO])
 
   jsonContainsFilenames(
     jsonFilename = "cala_list.json",

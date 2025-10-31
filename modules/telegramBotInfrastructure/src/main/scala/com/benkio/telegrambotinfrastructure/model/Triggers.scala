@@ -4,6 +4,9 @@ import cats.implicits.*
 import cats.Show
 import io.circe.*
 import io.circe.generic.semiauto.*
+import org.scalacheck.rng.Seed
+import org.scalacheck.Gen
+import wolfendale.scalacheck.regexp.RegexpGen
 
 import scala.util.matching.Regex
 
@@ -13,12 +16,14 @@ import scala.util.matching.Regex
 
 extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
 extension (r: Regex)
-  def tr(minimalLengthMatch: Int): RegexTextTriggerValue = RegexTextTriggerValue(r, minimalLengthMatch)
-extension (textTriggerValue: TextTriggerValue)
+  def tr(manualLength: Int): RegexTextTriggerValue =
+    RegexTextTriggerValue(r, Some(manualLength))
+extension (textTriggerValue: TextTriggerValue) {
   def isStringTriggerValue: Boolean = textTriggerValue match {
     case RegexTextTriggerValue(_, _) => false
     case StringTextTriggerValue(_)   => true
   }
+}
 
 given Decoder[Regex] = Decoder.decodeString.map(_.r)
 given Encoder[Regex] = Encoder.encodeString.contramap[Regex](_.toString())
@@ -27,7 +32,7 @@ given Encoder[Regex] = Encoder.encodeString.contramap[Regex](_.toString())
 //                              TextTriggerValue                             //
 ///////////////////////////////////////////////////////////////////////////////
 sealed trait TextTriggerValue {
-  def length: Int
+  val length: Int
 }
 
 object TextTriggerValue {
@@ -53,17 +58,43 @@ object TextTriggerValue {
   given Decoder[TextTriggerValue]       = deriveDecoder[TextTriggerValue]
   given Encoder[TextTriggerValue]       = deriveEncoder[TextTriggerValue]
 
-  def fromStringOrRegex(v: String | RegexTextTriggerValue): TextTriggerValue = v match {
+  def fromStringOrRegex(v: String | Regex | RegexTextTriggerValue): TextTriggerValue = v match {
     case s: String                => StringTextTriggerValue(s)
+    case r: Regex                 => RegexTextTriggerValue(r)
     case r: RegexTextTriggerValue => r
+  }
+
+  def isRegex(textTriggerValue: TextTriggerValue): Boolean = textTriggerValue match {
+    case RegexTextTriggerValue(_, _) => true
+    case _                           => false
   }
 }
 
 case class StringTextTriggerValue(trigger: String) extends TextTriggerValue {
-  override def length: Int = trigger.length
+  override val length: Int = trigger.length
 }
-case class RegexTextTriggerValue(trigger: Regex, minimalLengthMatch: Int) extends TextTriggerValue {
-  override def length: Int = minimalLengthMatch
+case class RegexTextTriggerValue(trigger: Regex, regexLength: Option[Int] = None) extends TextTriggerValue {
+  override val length: Int = {
+    def canGenerateSize(
+        targetSize: Int,
+        trials: Int = 200
+    ): Boolean = {
+      val params = Gen.Parameters.default.withSize(targetSize)
+      (1 to trials).exists { _ =>
+        RegexpGen
+          .from(trigger.toString)
+          .apply(params, Seed.random())
+          .exists(v => v.length == targetSize)
+      }
+    }
+    regexLength.getOrElse(
+      (0 to 40)
+        .find { size =>
+          canGenerateSize(size)
+        }
+        .getOrElse(Int.MaxValue)
+    )
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////

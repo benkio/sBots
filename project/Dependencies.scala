@@ -5,35 +5,37 @@ import Keys.*
 object Dependencies {
 
   lazy val versions = new {
-    val caseInsensitive    = "1.5.0"
-    val cats               = "2.13.0"
-    val catsEffectTime     = "0.2.1"
-    val catsEffectVersion  = "3.6.3"
-    val circe              = "0.14.15"
-    val cron4s             = "0.8.2"
-    val doobie             = "1.0.0-RC10"
-    val fs2Core            = "3.12.2"
-    val fs2Cron            = "0.10.3"
-    val fs2IO              = "3.12.2"
-    val flyway             = "11.15.0"
-    val googleApiClient    = "2.8.1"
-    val googleHttpClient   = "2.0.2"
-    val googleOauthClient  = "1.39.0"
-    val googleYouTubeApi   = "v3-rev20250714-2.0.0"
-    val http4s             = "0.23.33"
-    val logEffects         = "0.19.8"
-    val logbackClassic     = "1.5.20"
-    val logbackLogstash    = "9.0"
-    val mules              = "0.7.0"
-    val mulesHttp4s        = "0.4.0"
-    val munit              = "1.2.1"
-    val munitCatsEffect    = "2.1.0"
-    val pureConfig         = "0.17.9"
-    val shapeless          = "2.3.10"
-    val scalatest          = "3.2.16"
-    val sqlite             = "3.41.2.1"
-    val telegramiumVersion = "10.902.0"
-    val vault              = "3.6.0"
+    val caseInsensitive     = "1.5.0"
+    val cats                = "2.13.0"
+    val catsEffectTime      = "0.2.1"
+    val catsEffectVersion   = "3.6.3"
+    val circe               = "0.14.15"
+    val cron4s              = "0.8.2"
+    val doobie              = "1.0.0-RC10"
+    val flyway              = "11.15.0"
+    val fs2Core             = "3.12.2"
+    val fs2Cron             = "0.10.3"
+    val fs2IO               = "3.12.2"
+    val googleApiClient     = "2.8.1"
+    val googleHttpClient    = "2.0.2"
+    val googleOauthClient   = "1.39.0"
+    val googleYouTubeApi    = "v3-rev20250714-2.0.0"
+    val http4s              = "0.23.33"
+    val logEffects          = "0.19.8"
+    val logbackClassic      = "1.5.20"
+    val logbackLogstash     = "9.0"
+    val mules               = "0.7.0"
+    val mulesHttp4s         = "0.4.0"
+    val munit               = "1.2.1"
+    val munitCatsEffect     = "2.1.0"
+    val pureConfig          = "0.17.9"
+    val scalacheck          = "1.19.0"
+    val scalacheckGenRegexp = "1.1.0"
+    val scalatest           = "3.2.16"
+    val shapeless           = "2.3.10"
+    val sqlite              = "3.41.2.1"
+    val telegramiumVersion  = "10.902.0"
+    val vault               = "3.6.0"
   }
 
   lazy val libs = new {
@@ -71,20 +73,21 @@ object Dependencies {
     val http4sEmberServer = "org.http4s"             %% "http4s-ember-server"         % versions.http4s
     val logEffectsCore    = "io.laserdisc"           %% "log-effect-core"             % versions.logEffects
     val logEffectsFs2     = "io.laserdisc"           %% "log-effect-fs2"              % versions.logEffects
-    val logbackClassic  = "ch.qos.logback"       % "logback-classic"          % versions.logbackClassic  % Runtime
-    val logbackLogstash = "net.logstash.logback" % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
-
-    val mules           = "io.chrisdavenport"     %% "mules"             % versions.mules
-    val mulesHttp4s     = "io.chrisdavenport"     %% "mules-http4s"      % versions.mulesHttp4s
-    val munit           = "org.scalameta"         %% "munit"             % versions.munit           % "test"
-    val munitCatsEffect = "org.typelevel"         %% "munit-cats-effect" % versions.munitCatsEffect % "test"
-    val pureConfig      = "com.github.pureconfig" %% "pureconfig"        % versions.pureConfig
-    val pureConfigCore  = "com.github.pureconfig" %% "pureconfig-core"   % versions.pureConfig
-    val scalatest       = "org.scalatest"         %% "scalatest"         % versions.scalatest       % "test"
-    val sqlite          = "org.xerial"             % "sqlite-jdbc"       % versions.sqlite
-    val telegramiumCore = "io.github.apimorphism" %% "telegramium-core"  % versions.telegramiumVersion
-    val telegramiumHigh = "io.github.apimorphism" %% "telegramium-high"  % versions.telegramiumVersion
-    val vault           = "org.typelevel"         %% "vault"             % versions.vault
+    val logbackClassic      = "ch.qos.logback"         % "logback-classic"          % versions.logbackClassic  % Runtime
+    val logbackLogstash     = "net.logstash.logback"   % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
+    val mules               = "io.chrisdavenport"     %% "mules"                    % versions.mules
+    val mulesHttp4s         = "io.chrisdavenport"     %% "mules-http4s"             % versions.mulesHttp4s
+    val munit               = "org.scalameta"         %% "munit"                    % versions.munit           % "test"
+    val munitCatsEffect     = "org.typelevel"         %% "munit-cats-effect"        % versions.munitCatsEffect % "test"
+    val pureConfig          = "com.github.pureconfig" %% "pureconfig"               % versions.pureConfig
+    val pureConfigCore      = "com.github.pureconfig" %% "pureconfig-core"          % versions.pureConfig
+    val scalacheck          = "org.scalacheck"        %% "scalacheck"               % versions.scalacheck
+    val scalacheckGenRegexp = "io.github.wolfendale"  %% "scalacheck-gen-regexp"    % versions.scalacheckGenRegexp
+    val scalatest           = "org.scalatest"         %% "scalatest"                % versions.scalatest       % "test"
+    val sqlite              = "org.xerial"             % "sqlite-jdbc"              % versions.sqlite
+    val telegramiumCore     = "io.github.apimorphism" %% "telegramium-core"         % versions.telegramiumVersion
+    val telegramiumHigh     = "io.github.apimorphism" %% "telegramium-high"         % versions.telegramiumVersion
+    val vault               = "org.typelevel"         %% "vault"                    % versions.vault
   }
 
   private val CommonDependencies: Seq[ModuleID] = Seq(
@@ -130,6 +133,8 @@ object Dependencies {
       libs.mules,
       libs.mulesHttp4s,
       libs.pureConfigCore,
+      libs.scalacheck,
+      libs.scalacheckGenRegexp,
       libs.sqlite,
       libs.vault
     )

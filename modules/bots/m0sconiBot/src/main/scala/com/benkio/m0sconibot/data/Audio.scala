@@ -11,7 +11,7 @@ object Audio:
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
-      "va l[aà]".r.tr(5)
+      "va l[aà]".r
     )(
       mp3"mos_ChiudiQuellaPortaPerFavore.mp3",
       mp3"mos_AspettaUnSecondoDioCane.mp3",
@@ -19,7 +19,7 @@ object Audio:
       mp3"mos_VaffanuloDai.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(quella|la) porta".r.tr(8)
+      "(quella|la) porta".r
     )(
       mp3"mos_AvantiNdrioConQuellaPortaLi.mp3",
       mp3"mos_ChiEQuelMonaSbatteLaPortaChiudeUrlando.mp3",
@@ -28,7 +28,7 @@ object Audio:
       mp3"mos_SerraLaPortaDioCane.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\bmona\\b".r.tr(4)
+      "\\bmona\\b".r
     )(
       mp3"mos_AndateInMona.mp3",
       mp3"mos_ChiEQuelMonaSbatteLaPortaChiudeUrlando.mp3",
@@ -104,12 +104,12 @@ object Audio:
       mp3"mos_PilotaRomanoAndreaDeCesariDioCanariaDeDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "a[h]? n[o]?n lo so".r.tr(10)
+      "a[h]? n[o]?n lo so".r
     )(
       mp3"mos_AhNonLoSo.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "non posso (mica )?improvvisar(e|me)".r.tr(22)
+      "non posso (mica )?improvvisar(e|me)".r
     )(
       mp3"mos_AndateInMona.mp3"
     ),
@@ -121,7 +121,7 @@ object Audio:
       mp3"mos_MarioFerrettoPorcoDioRumoreLiFaAposta.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\b(in)?colla\\b".r.tr(5),
+      "\\b(in)?colla\\b".r,
       "le carte"
     )(
       mp3"mos_DioBonDiUnDioLeSeaTagaENonLeSeStaga.mp3",
@@ -154,7 +154,7 @@ object Audio:
       mp3"mos_AspettaUnSecondoDioCane.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "avanti (indrio|indietro)".r.tr(13)
+      "avanti (indrio|indietro)".r
     )(
       mp3"mos_AvantiNdrioConQuellaPortaLi.mp3"
     ),
@@ -177,9 +177,9 @@ object Audio:
       "palasport",
       "piazzale olimpia",
       "udine",
-      "di[tp]an".r.tr(5),
+      "di[tp]an".r,
       "diche",
-      "\\bdipen\\b".r.tr(5)
+      "\\bdipen\\b".r
     )(
       mp3"mos_BasketDioCaneDipenDipanDaCapo.mp3"
     ),
@@ -193,11 +193,11 @@ object Audio:
     ReplyBundleMessage.textToMedia[F](
       "quadro completo",
       "tanto tempo anche",
-      "brescia(-| )foggia".r.tr(14),
-      "cagliari(-| )roma".r.tr(13),
-      "fiorentina(-| )milan".r.tr(16),
-      "genova(-| )atalanta".r.tr(15),
-      "\\binter\\b".r.tr(5)
+      "brescia(-| )foggia".r,
+      "cagliari(-| )roma".r,
+      "fiorentina(-| )milan".r,
+      "genova(-| )atalanta".r,
+      "\\binter\\b".r
     )(
       mp3"mos_BresciaFoggia.mp3"
     ),
@@ -213,7 +213,7 @@ object Audio:
       mp3"mos_Buongiorno2.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "but(tato|ta) per aria tutto".r.tr(20)
+      "but(tato|ta) per aria tutto".r
     )(
       mp3"mos_ButtaPellAria.mp3"
     ),
@@ -233,7 +233,7 @@ object Audio:
       mp3"mos_ChiEQuelMonaSbatteLaPortaChiudeUrlando.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "chissà che non m(i |')incazzo".r.tr(24)
+      "chissà che non m(i |')incazzo".r
     )(
       mp3"mos_ChissaCheNonMIncazzaEh.mp3"
     ),
@@ -273,7 +273,7 @@ object Audio:
       mp3"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "che cazzo ([cg]he )è qua sotto".r.tr(25)
+      "che cazzo ([cg]he )è qua sotto".r
     )(
       mp3"mos_CosaCheCazzoGheE.mp3"
     ),
@@ -283,14 +283,14 @@ object Audio:
       mp3"mos_DaiVaLaRipartiamoSubito.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\bsigla\\b".r.tr(5)
+      "\\bsigla\\b".r
     )(
       mp3"mos_DallaSiglaDai.mp3",
       mp3"mos_Sigla.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\b(difa|ddbb|babba)\\b".r.tr(4),
-      "farfugl(i|a|iare|iamento)".r.tr(8)
+      "\\b(difa|ddbb|babba)\\b".r,
+      "farfugl(i|a|iare|iamento)".r
     )(
       mp3"mos_Difabbddffbbaa.mp3"
     ),
@@ -300,7 +300,7 @@ object Audio:
       mp3"mos_DioCaneMaNonEPossibile.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "dio (pa){3,}".r.tr(10)
+      "dio (pa[ ]?){3,}".r.tr(10)
     )(
       mp3"mos_DioPaPaPaPaPaPa.mp3"
     ),
@@ -327,7 +327,7 @@ object Audio:
       mp3"mos_EntraDentroMona.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "formula (uno|1)".r.tr(9),
+      "formula (uno|1)".r,
       "donington",
       "prima sessione"
     )(
@@ -343,7 +343,7 @@ object Audio:
       mp3"mos_VaffanculoDioPorco.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "ges[uù] cristo".r.tr(11),
+      "ges[uù] cristo".r,
       "no nessuno"
     )(
       mp3"mos_GesuCristoNoNessuno.mp3"
@@ -352,7 +352,7 @@ object Audio:
       "giochi olimpici",
       "giorgio mazzetta",
       "giorgio mazzetta",
-      "m[ie] fermo un (secondo|attimo)".r.tr(18)
+      "m[ie] fermo un (secondo|attimo)".r
     )(
       mp3"mos_GiochiOlimpiciAspettaCheMeFermoUnAttimo.mp3"
     ),
@@ -439,7 +439,7 @@ object Audio:
       mp3"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "non torno (indietro|indrio)".r.tr(16)
+      "non torno (indietro|indrio)".r
     )(
       mp3"mos_NoVaInMonaNonTornoIndrio.mp3",
       mp3"mos_NonTornoIndietroDonadoni.mp3"
@@ -498,7 +498,7 @@ object Audio:
       mp3"mos_PiovanelliPorcoDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "dio bub[uù]".r.tr(8)
+      "dio bub[uù]".r
     )(
       mp3"mos_PiproviamoDioBubu.mp3"
     ),
@@ -528,13 +528,13 @@ object Audio:
       mp3"mos_SeNonBestemmioGuarda.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "vi do un pu[g]?nio".r.tr(14),
+      "vi do un pu[g]?nio".r,
       "se venite avanti"
     )(
       mp3"mos_SeVeniteAvantiAncoraViDoUnPunio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(sei|6) vantaggi".r.tr(10)
+      "(sei|6) vantaggi".r
     )(
       mp3"mos_SeiVantaggiDiLunghezza.mp3"
     ),
@@ -584,7 +584,7 @@ object Audio:
     ),
     ReplyBundleMessage.textToMedia[F](
       "cesena",
-      "\\btorino\\b".r.tr(6),
+      "\\btorino\\b".r,
       "avellino",
       "walter shakner",
       "austriaco"
@@ -599,7 +599,7 @@ object Audio:
     ReplyBundleMessage
       .textToMp3[F](
         "maiuscole",
-        "\\bpunti\\b".r.tr(5)
+        "\\bpunti\\b".r
       )(
         mp3"mos_DioBoiaSenzaMaiuscolePunti.mp3"
       )

@@ -10,7 +10,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
-import com.benkio.telegrambotinfrastructure.model.tr
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.SBotId
@@ -75,7 +74,7 @@ class SampleWebhookBot(
       "carne",
       "sperma",
       "da togliere",
-      "levare d[ia] dosso".r.tr(15),
+      "levare d[ia] dosso".r,
       "non contiamo niente"
     )(
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
@@ -89,7 +88,7 @@ class SampleWebhookBot(
       gif"rphjb_CarneFrescaSaporitaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[IO](
-      "carne (dura|vecchia|fresca)".r.tr(10)
+      "carne (dura|vecchia|fresca)".r
     )(
       mp3"rphjb_CarneFrescaSaporita.mp3",
       vid"rphjb_CarneFrescaSaporita.mp4",

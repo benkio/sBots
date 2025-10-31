@@ -6,18 +6,21 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.reply.*
+import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.parser.decode
 import munit.*
+import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
 import java.io.File
 import scala.io.Source
 
-trait BaseBotSpec extends CatsEffectSuite:
-  def checkContains(triggerContent: String, values: List[String]): Unit =
+trait BaseBotSpec extends CatsEffectSuite {
+  private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")
     }
@@ -165,9 +168,36 @@ trait BaseBotSpec extends CatsEffectSuite:
             .sortBy(_._1)(using Trigger.orderingInstance.reverse)
             .headOption
             .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
-              assert(tr == TextTrigger(stringTrigger), s"$tr ≠ ${TextTrigger(stringTrigger)}")
+              assert(
+                tr == TextTrigger(stringTrigger),
+                s"$tr($tr.length) ≠ ${TextTrigger(stringTrigger)}(${stringTrigger.length})"
+              )
               assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
             }
         }
       }
-end BaseBotSpec
+
+  def regexTriggerLengthReturnValue(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+    replyBundleMessages
+      .collect(replyBundle =>
+        replyBundle.trigger match {
+          case TextTrigger(triggerValues*) =>
+            triggerValues.filter(
+              TextTriggerValue.isRegex(_)
+            )
+        }
+      )
+      .flatten
+      .foreach {
+        case (regexTextTriggerValue: RegexTextTriggerValue) =>
+          test(s"""Regex should return a valid length: "${regexTextTriggerValue.toString}"""") {
+            assert(
+              regexTextTriggerValue.length != Int.MaxValue
+            )
+          }
+        case stringTextTriggerValue =>
+          throw new Exception(
+            s"[BaseBotSpec] regexTriggerLengthReturnValue got a stringTextTriggerValue: $stringTextTriggerValue"
+          )
+      }
+}

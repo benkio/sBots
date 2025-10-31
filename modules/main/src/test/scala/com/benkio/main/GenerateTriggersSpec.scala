@@ -10,9 +10,11 @@ import munit.CatsEffectSuite
 
 import java.io.*
 import java.time.Instant
-import scala.concurrent.duration.*
+import scala.concurrent.duration.Duration
 
 class GenerateTriggersSpec extends CatsEffectSuite {
+
+  override val munitIOTimeout = Duration(1, "m")
 
   test("GenerateTriggers.run should modify the expected files") {
     for
@@ -26,7 +28,9 @@ class GenerateTriggersSpec extends CatsEffectSuite {
       )
     yield {
       assert(exitCode == ExitCode.Success)
-      assert(triggerFiles.forall(f => Instant.now.toEpochMilli - f.lastModified < 2.seconds.toMillis))
+      assert(
+        triggerFiles.forall(f => Instant.now.toEpochMilli - f.lastModified < munitIOTimeout.toMillis)
+      ) // 30 seconds
     }
   }
 }

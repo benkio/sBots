@@ -6,7 +6,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.tr
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import munit.*
 import telegramium.bots.Chat
@@ -18,7 +17,9 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
   val expectedSearchTriggerResponse: List[((List[ReplyBundleMessage[IO]], String), String)] = List(
     (
       List(
-        ReplyBundleMessage.textToMedia[IO]("fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr(5))(
+        ReplyBundleMessage.textToMedia[IO](
+          "fro(ci|sh)o([ -]fro(ci|sh)o)+".r
+        )(
           mp3"rphjb_NudoFrocio.mp3",
           vid"rphjb_FrocioFrocio.mp4"
         )

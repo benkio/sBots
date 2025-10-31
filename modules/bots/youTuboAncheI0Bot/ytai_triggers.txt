@@ -532,7 +532,7 @@ ytai_ViVoglioTantoBeneGif.mp4 | vi voglio (tanto )*bene
 ytai_ViVoglioTantoBene.mp4 | 
 --------------------------------------------------
 --------------------------------------------------
-ytai_TVTBGif.mp4          | ti voglio (tanto )?bene
+ytai_TVTBGif.mp4          | ti voglio (tanto )*bene
 ytai_AncheIoTiVoglioTantoBene.mp3 | 
 --------------------------------------------------
 --------------------------------------------------
@@ -1046,7 +1046,9 @@ ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3 |
 ytai_Rabbia.jpg           | \b(ar)?rabbi([oa]|at[oa])\b
 ytai_LoopArrabbiatoIndignatoGif.mp4 | collera
                           | indignato
-                          | [🤬😡😠]
+                          | 😠
+                          | 😡
+                          | 🤬
 --------------------------------------------------
 --------------------------------------------------
 ytai_TecnicaDelCricetoGif.mp4 | hamburger
@@ -1272,6 +1274,15 @@ ytai_ZebraGiraffaGif.mp4  | zebra
                           | giraffa
 --------------------------------------------------
 --------------------------------------------------
+ytai_BalloGif.mp4         | \bballo\b
+ytai_LoopBalloGif.mp4     | \bballare\b
+                          | \bballi\b
+                          | \bdanza\b
+                          | \bdanzare\b
+                          | 💃
+                          | 🕺
+--------------------------------------------------
+--------------------------------------------------
 ytai_GestoGustosoGif.mp4  | 😋
 ytai_MoltoGustosoGif.mp4  | yum
                           | gustoso
@@ -1346,7 +1357,7 @@ ytai_VeritaPegnoPeperoncino.mp4 |
 ytai_LoopScatolaGif.mp4   | scatol
 --------------------------------------------------
 --------------------------------------------------
-ytai_SoloGif.mp4          | solo[?]{2,}
+ytai_SoloGif.mp4          | solo?[?]+
 --------------------------------------------------
 --------------------------------------------------
 ytai_MnMsGif.mp4          | m[ ]?&[ ]?m['s]?
@@ -1388,8 +1399,9 @@ ytai_PizzaAllegriaGif.mp4 | 🍕
 ytai_PizzaYtancheio.sticker | 
 --------------------------------------------------
 --------------------------------------------------
-ytai_Shock.jpg            | [😦😧]
-ytai_LoopArrabbiatoIndignatoGif.mp4 | shock
+ytai_Shock.jpg            | 😦
+ytai_LoopArrabbiatoIndignatoGif.mp4 | 😧
+                          | shock
 --------------------------------------------------
 --------------------------------------------------
 ytai_CiaoGif.mp4          | ciao!
@@ -1416,13 +1428,11 @@ ytai_AppiccicaticcioMieleGif.mp4 |
 ytai_SpuntinoSmartGif.mp4 | smart
 --------------------------------------------------
 --------------------------------------------------
-ytai_BalloGif.mp4         | \bball(o|are|i)\b
-ytai_LoopBalloGif.mp4     | \bdanz(a|are|i)\b
-                          | 💃
-                          | 🕺
---------------------------------------------------
---------------------------------------------------
 ytai_NonnoMitoGif.mp4     | nonno
+--------------------------------------------------
+--------------------------------------------------
+ytai_Misc.mp3             | \bmisc\b
+                          | \bm[i]+[a]+[o]+\b
 --------------------------------------------------
 --------------------------------------------------
 ytai_BuonoRagu.mp3        | ragù
@@ -1437,10 +1447,6 @@ ytai_CodaLungaGif.mp4     | coda
 --------------------------------------------------
 --------------------------------------------------
 ytai_CucuGif.mp4          | cuc[uù]+
---------------------------------------------------
---------------------------------------------------
-ytai_Misc.mp3             | \bmisc\b
-                          | \bm[i]+[a]+[o]+\b
 --------------------------------------------------
 --------------------------------------------------
 ytai_OleGif.mp4           | olè
