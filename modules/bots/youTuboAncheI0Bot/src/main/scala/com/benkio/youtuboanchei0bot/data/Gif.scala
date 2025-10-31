@@ -114,8 +114,7 @@ object Gif:
       gif"ytai_BagnarloAcquaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r
-        .tr
+      "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r.tr
     )(
       gif"ytai_FrustrazioneGif.mp4"
     ),

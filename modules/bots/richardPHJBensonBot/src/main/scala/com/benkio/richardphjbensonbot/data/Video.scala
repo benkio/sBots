@@ -828,7 +828,9 @@ object Video {
     )(
       vid"rphjb_PerfettoIncompetente.mp4"
     ),
-    ReplyBundleMessage.textToVideo[F]("sono (proprio )?un coglione".r.tr,
+    ReplyBundleMessage.textToVideo[F](
+      "sono (proprio )?un coglione".r.tr
+    )(vid"rphjb_SonoCoglione.mp4"),
     ReplyBundleMessage.textToVideo[F](
       "sta[va]? male".r.tr,
       "canzoni di natale",
@@ -856,11 +858,18 @@ object Video {
         vid"rphjb_NonSonoGay.mp4",
         vid"rphjb_ParloDiDNonSonoGayCosiDifficileSemplice.mp4"
       ),
-    ReplyBundleMessage.textToVideo[F]("\\brbo\\b".r.tr,
+    ReplyBundleMessage.textToVideo[F](
+      "\\brbo\\b".r.tr,
+      "cazzò",
+      "(5|cinque) livelli".r.tr
+    )(vid"rphjb_RBO.mp4"),
     ReplyBundleMessage.textToVideo[F]("effettivamente")(vid"rphjb_Effettivamente.mp4"),
     ReplyBundleMessage.textToVideo[F]("tigre")(vid"rphjb_LaTigre.mp4"),
     ReplyBundleMessage
-      .textToVideo[F]("che gruppo", "m[ei] ricorda".r.tr,
+      .textToVideo[F](
+        "che gruppo",
+        "m[ei] ricorda".r.tr
+      )(vid"rphjb_CheGruppoMiRicordaRisata.mp4"),
     ReplyBundleMessage.textToVideo[F]("il ciano", "luciano")(vid"rphjb_IlCiano.mp4"),
     ReplyBundleMessage.textToVideo[F](
       "volta il cervello",
@@ -896,7 +905,7 @@ object Video {
       "\\bpuzz[oi]\\b".r.tr,
       "completamente fro(ci|sh)o".r.tr
     )(vid"rphjb_PuzzoGhigoRenzulliPieroPeluFrocio.mp4"),
-    ReplyBundleMessage.textToVideo[F]("fammelo avere", "al pi[ùu] presto".r.tr
+    ReplyBundleMessage.textToVideo[F]("fammelo avere", "al pi[ùu] presto".r.tr)(
       vid"rphjb_FammeloAvereAlPiuPresto.mp4"
     ),
     ReplyBundleMessage.textToVideo[F]("avvertire", "in guardia", "scelte giuste")(

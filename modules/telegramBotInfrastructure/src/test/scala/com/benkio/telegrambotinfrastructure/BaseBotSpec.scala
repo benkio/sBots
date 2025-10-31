@@ -1,25 +1,25 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.length1
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.reply.*
+import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.parser.decode
 import munit.*
+import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
 import java.io.File
 import scala.io.Source
 
-trait BaseBotSpec extends FunSuite {
+trait BaseBotSpec extends CatsEffectSuite {
   private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")
@@ -185,12 +185,16 @@ trait BaseBotSpec extends FunSuite {
         }
       )
       .flatten
-      .foreach { case (regexTextTriggerValue: RegexTextTriggerValue) =>
-        test(s"""Regex should have the expected length: "${regexTextTriggerValue.toString}"""") {
-          assert(
-            Try(regexTextTriggerValue.length).isSuccess
+      .foreach {
+        case (regexTextTriggerValue: RegexTextTriggerValue) =>
+          test(s"""Regex should have the expected length: "${regexTextTriggerValue.toString}"""") {
+            assert(
+              regexTextTriggerValue.length != Int.MaxValue
+            )
+          }
+        case stringTextTriggerValue =>
+          throw new Exception(
+            s"[BaseBotSpec] regexTriggerReturnExpectedLength got a stringTextTriggerValue: $stringTextTriggerValue"
           )
-        }
-        case stringTextTriggerValue => throw new Exception(s"[BaseBotSpec] regexTriggerReturnExpectedLength got a stringTextTriggerValue: $stringTextTriggerValue")
       }
 }

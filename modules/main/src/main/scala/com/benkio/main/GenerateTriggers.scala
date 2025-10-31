@@ -27,9 +27,11 @@ object GenerateTriggers extends IOApp {
     val triggerFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$triggerFilename"
 
     for
+      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath Trigger file"))
       triggersStringList <- Resource.eval(
         triggers.traverse(_.prettyPrint())
       )
+      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
       pw <- Resource.fromAutoCloseable(IO(new PrintWriter(triggerFilesPath)))
     yield pw.write(triggersStringList.mkString(""))
   }
@@ -40,27 +42,27 @@ object GenerateTriggers extends IOApp {
         "../bots/aBarberoBot/",
         ABarberoBot.triggerFilename,
         ABarberoBot.messageRepliesData[IO]
-      )
-      $_ <- generateTriggerFile(
+      ).start
+      _ <- generateTriggerFile(
         "../bots/calandroBot/",
         CalandroBot.triggerFilename,
         CalandroBot.messageRepliesData[IO]
-      )
+      ).start
       _ <- generateTriggerFile(
         "../bots/m0sconiBot/",
         M0sconiBot.triggerFilename,
         M0sconiBot.messageRepliesData[IO]
-      )
+      ).start
       _ <- generateTriggerFile(
         "../bots/richardPHJBensonBot/",
         RichardPHJBensonBot.triggerFilename,
         RichardPHJBensonBot.messageRepliesData[IO]
-      )
+      ).start
       _ <- generateTriggerFile(
         "../bots/youTuboAncheI0Bot/",
         YouTuboAncheI0Bot.triggerFilename,
         YouTuboAncheI0Bot.messageRepliesData[IO]
-      )
+      ).start
     } yield ExitCode.Success).use(_.pure)
 
 }

@@ -36,7 +36,7 @@ class MessageMatchesSpec extends FunSuite {
     trigger = TextTrigger(
       StringTextTriggerValue("test"),
       StringTextTriggerValue("some other long trigger"),
-      RegexTextTriggerValue("test regex with (optional|maybe)? values".r, 28)
+      RegexTextTriggerValue("test regex with (optional|maybe)? values".r)
     ),
     reply = MediaReply[IO](mediaFiles = IO.pure(inputMediafile))
   )

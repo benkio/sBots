@@ -18,7 +18,9 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
   val expectedSearchTriggerResponse: List[((List[ReplyBundleMessage[IO]], String), String)] = List(
     (
       List(
-        ReplyBundleMessage.textToMedia[IO]("fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr
+        ReplyBundleMessage.textToMedia[IO](
+          "fro(ci|sh)o([ -]fro(ci|sh)o)+".r.tr
+        )(
           mp3"rphjb_NudoFrocio.mp3",
           vid"rphjb_FrocioFrocio.mp4"
         )

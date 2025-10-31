@@ -1,36 +1,27 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import wolfendale.scalacheck.regexp.RegexpGen
-import org.scalacheck.Gen
-import org.scalacheck.rng.Seed
-
 import cats.implicits.*
 import cats.Show
 import io.circe.*
 import io.circe.generic.semiauto.*
+import org.scalacheck.rng.Seed
+import org.scalacheck.Gen
+import wolfendale.scalacheck.regexp.RegexpGen
 
 import scala.util.matching.Regex
-
-///////////////////////////////////////////////////////////////////////////////
-//                                   Errors                                  //
-///////////////////////////////////////////////////////////////////////////////
-
-final case class RegexTextTriggerValueLengthNotFound(regexTextTriggerValue: RegexTextTriggerValue) extends Throwable(s"Usable to calculate the length for RegexTextTriggerValue: $regexTextTriggerValue")
 
 ///////////////////////////////////////////////////////////////////////////////
 //                   Extensionns and Basic Type Enrichment                   //
 ///////////////////////////////////////////////////////////////////////////////
 
 extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
-extension (r: Regex)
-  def tr: RegexTextTriggerValue = RegexTextTriggerValue(r)
+extension (r: Regex) def tr: RegexTextTriggerValue                        = RegexTextTriggerValue(r)
 extension (textTriggerValue: TextTriggerValue) {
   def isStringTriggerValue: Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_) => false
-    case StringTextTriggerValue(_)   => true
+    case RegexTextTriggerValue(_)  => false
+    case StringTextTriggerValue(_) => true
   }
 }
-
 
 given Decoder[Regex] = Decoder.decodeString.map(_.r)
 given Encoder[Regex] = Encoder.encodeString.contramap[Regex](_.toString())
@@ -39,14 +30,14 @@ given Encoder[Regex] = Encoder.encodeString.contramap[Regex](_.toString())
 //                              TextTriggerValue                             //
 ///////////////////////////////////////////////////////////////////////////////
 sealed trait TextTriggerValue {
-  def length: Int
+  val length: Int
 }
 
 object TextTriggerValue {
 
   def matchValue(trigger: TextTriggerValue, source: String): Boolean = trigger match {
-    case RegexTextTriggerValue(v) => v.findFirstMatchIn(source).isDefined
-    case StringTextTriggerValue(v)   => source `contains` v
+    case RegexTextTriggerValue(v)  => v.findFirstMatchIn(source).isDefined
+    case StringTextTriggerValue(v) => source `contains` v
   }
 
   given orderingInstance: Ordering[TextTriggerValue] = new Ordering[TextTriggerValue] {
@@ -55,8 +46,8 @@ object TextTriggerValue {
   }
   given showInstance: Show[TextTriggerValue] = Show.show(ttv =>
     ttv match {
-      case StringTextTriggerValue(t)   => t
-      case RegexTextTriggerValue(t) => t.toString
+      case StringTextTriggerValue(t) => t
+      case RegexTextTriggerValue(t)  => t.toString
     }
   )
 
@@ -72,15 +63,15 @@ object TextTriggerValue {
 
   def isRegex(textTriggerValue: TextTriggerValue): Boolean = textTriggerValue match {
     case RegexTextTriggerValue(_) => true
-    case _                           => false
+    case _                        => false
   }
 }
 
 case class StringTextTriggerValue(trigger: String) extends TextTriggerValue {
-  override def length: Int = trigger.length
+  override val length: Int = trigger.length
 }
 case class RegexTextTriggerValue(trigger: Regex) extends TextTriggerValue {
-  override def length: Int = {
+  override val length: Int = {
     def canGenerateSize(
         targetSize: Int,
         trials: Int = 200
@@ -94,9 +85,11 @@ case class RegexTextTriggerValue(trigger: Regex) extends TextTriggerValue {
       }
     }
 
-    (0 to 100).find { size =>
+    (0 to 100)
+      .find { size =>
         canGenerateSize(size)
-      }.getOrElse(throw RegexTextTriggerValueLengthNotFound(this))
+      }
+      .getOrElse(Int.MaxValue)
   }
 }
 

@@ -1625,8 +1625,7 @@ object Mix {
       mp3"rphjb_ListaGruppi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "i (casuals|rocks|manfred mann|birds|buffalo springfield|dave clark five|soft (machine|heap)|gilgamesh|matching mole|magma|gong|headhunters|free spirits|return to forever)".r
-        .tr,
+      "i (casuals|rocks|manfred mann|birds|buffalo springfield|dave clark five|soft (machine|heap)|gilgamesh|matching mole|magma|gong|headhunters|free spirits|return to forever)".r.tr,
       "robert wyatt",
       "univers zero",
       "etron fou leloublan",
@@ -1650,7 +1649,9 @@ object Mix {
       mp3"rphjb_DoveStannoGliAppassionatiTanteMusiche.mp3",
       vid"rphjb_DoveStannoGliAppassionatiTanteMusiche.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F]("progressiv[oe]".r.tr
+    ReplyBundleMessage.textToMedia[F](
+      "progressiv[oe]".r.tr
+    )(
       gif"rphjb_MusicaEtichetteWhiskeyGif.mp4",
       vid"rphjb_MusicaEtichetteWhiskey.mp4",
       mp3"rphjb_MusicaEtichetteWhiskey.mp3",
@@ -3863,7 +3864,9 @@ object Mix {
         vid"rphjb_MessaggioInternet.mp4",
         mp3"rphjb_MessaggioInternet.mp3"
       ),
-      ReplyBundleMessage.textToMedia[F]("telecomand[oi]".r.tr
+      ReplyBundleMessage.textToMedia[F](
+        "telecomand[oi]".r.tr
+      )(
         mp3"rphjb_TelecomandoCambiareCanaleDischiNuovi.mp3",
         vid"rphjb_TelecomandoCambiareCanaleDischiNuovi.mp4",
         vid"rphjb_OttavaNotaRobaVecchiaSchifosi.mp4",
@@ -5206,7 +5209,9 @@ object Mix {
           vid"rphjb_LacrimaSullaGuancia.mp4",
           mp3"rphjb_LacrimaSullaGuancia.mp3"
         ),
-      ReplyBundleMessage.textToMedia[F]("(col|con il) sangue".r.tr
+      ReplyBundleMessage.textToMedia[F](
+        "(col|con il) sangue".r.tr
+      )(
         vid"rphjb_ColSangue.mp4",
         gif"rphjb_ConForzaDinamismoRabbiaVitalijGif.mp4",
         mp3"rphjb_ConForzaDinamismoRabbiaVitalij.mp3",
@@ -6199,7 +6204,7 @@ object Mix {
         "\\bmacht\\b".r.tr,
         "\\bfrei\\b".r.tr,
         "sto cogline",
-        "levat(i|evi|e|a|emelo|emela) d[ai] torn[o]?".r.tr,
+        "levat(i|evi|e|a|emelo|emela) d[ai] torn[o]?".r.tr
       )(
         gif"rphjb_TantiAttoriArbeitMachtFreiGif.mp4",
         mp3"rphjb_TantiAttoriArbeitMachtFrei.mp3",

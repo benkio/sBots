@@ -1,33 +1,37 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import munit.CatsEffectSuite
 import cats.implicits.*
 import io.circe.parser.decode
 import io.circe.syntax.*
+import munit.CatsEffectSuite
 
 import scala.util.matching.Regex
+import scala.concurrent.duration.Duration
+
 
 class TriggersSpec extends CatsEffectSuite {
+
+  override def munitIOTimeout = Duration(1, "s")
 
   test("matchValue should return true when source contains StringTextTriggerValue") {
     assert(TextTriggerValue.matchValue(StringTextTriggerValue("match"), "source with match) it"))
   }
   test("matchValue should return true when source has a match of RegexpTextTriggerValue") {
-    assert(TextTriggerValue.matchValue(RegexTextTriggerValue("m[ae]tch".r, 7), "this is a test with a match"))
+    assert(TextTriggerValue.matchValue(RegexTextTriggerValue("m[ae]tch".r), "this is a test with a match"))
   }
 
   test("matchValue should return false when source doesn't contains StringTextTriggerValue") {
     assert(!TextTriggerValue.matchValue(StringTextTriggerValue("no match"), "source without match it"))
   }
   test("matchValue should return false when source has not a match of RegexpTextTriggerValue") {
-    assert(!TextTriggerValue.matchValue(RegexTextTriggerValue("m[io]tch".r, 6), "this is a test without a match"))
+    assert(!TextTriggerValue.matchValue(RegexTextTriggerValue("m[io]tch".r), "this is a test without a match"))
   }
 
   test("ShowInstance of TextTriggerValue should return the expected string") {
     val expectedStringValue             = "test trigger"
     val expectedRegexValue              = "test [rR]egex(p)?".r
     val stringTrigger: TextTriggerValue = StringTextTriggerValue(expectedStringValue)
-    val regexTrigger: TextTriggerValue  = RegexTextTriggerValue(expectedRegexValue, 10)
+    val regexTrigger: TextTriggerValue  = RegexTextTriggerValue(expectedRegexValue)
 
     assertEquals(stringTrigger.show, expectedStringValue)
     assertEquals(regexTrigger.show, expectedRegexValue.toString)
@@ -35,31 +39,31 @@ class TriggersSpec extends CatsEffectSuite {
   }
 
   test("RegexTextTriggerValue.length should return the expected regex length") {
-    val inputExpected: List[RegexTextTriggerValue] = List(
-      RegexTextTriggerValue("(posto|carico) i video".r, 13),
-      RegexTextTriggerValue("(restiamo|teniamo) in contatto".r, 19),
-      RegexTextTriggerValue("(attraverso i|nei) commenti".r, 12),
-      RegexTextTriggerValue("cocod[eè]".r, 6),
-      RegexTextTriggerValue("\\bmisc\\b".r, 4),
-      RegexTextTriggerValue("\\bm[i]+[a]+[o]+\\b".r, 4),
-      RegexTextTriggerValue("\\bsgrida[tr]".r, 7),
-      RegexTextTriggerValue("\\brimprover".r, 9),
-      RegexTextTriggerValue("(baci )?perugina".r, 8),
-      RegexTextTriggerValue("velit[aà]".r, 6),
-      RegexTextTriggerValue("ho perso (di nuovo )?qualcosa".r, 17),
-      RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r, 22),
-      RegexTextTriggerValue("ti voglio (tanto )?bene".r, 14),
-      RegexTextTriggerValue("vi voglio (tanto )*bene".r, 14),
-      RegexTextTriggerValue("pu[oò] capitare".r, 12),
-      RegexTextTriggerValue("dopo (che ho )?mangiato".r, 13),
-      RegexTextTriggerValue("\\bops\\b".r, 3),
-      RegexTextTriggerValue("mi sto sentendo (bene|in compagnia)".r, 20),
-      RegexTextTriggerValue("(25|venticinque) (milioni|mila euro)".r, 10)
+    val inputExpected: List[(RegexTextTriggerValue, Int)] = List(
+      RegexTextTriggerValue("(posto|carico) i video".r)               -> 13,
+      RegexTextTriggerValue("(restiamo|teniamo) in contatto".r)       -> 19,
+      RegexTextTriggerValue("(attraverso i|nei) commenti".r)          -> 12,
+      RegexTextTriggerValue("cocod[eè]".r)                            -> 6,
+      RegexTextTriggerValue("\\bmisc\\b".r)                           -> 4,
+      RegexTextTriggerValue("\\bm[i]+[a]+[o]+\\b".r)                  -> 4,
+      RegexTextTriggerValue("\\bsgrida[tr]".r)                        -> 7,
+      RegexTextTriggerValue("\\brimprover".r)                         -> 9,
+      RegexTextTriggerValue("(baci )?perugina".r)                     -> 8,
+      RegexTextTriggerValue("velit[aà]".r)                            -> 6,
+      RegexTextTriggerValue("ho perso (di nuovo )?qualcosa".r)        -> 17,
+      RegexTextTriggerValue("tutti (quanti )?mi criticheranno".r)     -> 22,
+      RegexTextTriggerValue("ti voglio (tanto )?bene".r)              -> 14,
+      RegexTextTriggerValue("vi voglio (tanto )*bene".r)              -> 14,
+      RegexTextTriggerValue("pu[oò] capitare".r)                      -> 12,
+      RegexTextTriggerValue("dopo (che ho )?mangiato".r)              -> 13,
+      RegexTextTriggerValue("\\bops\\b".r)                            -> 3,
+      RegexTextTriggerValue("mi sto sentendo (bene|in compagnia)".r)  -> 20,
+      RegexTextTriggerValue("(25|venticinque) (milioni|mila euro)".r) -> 10
     )
-    inputExpected.foreach { case regexTextTriggerValue =>
-      assertIO(
-        regexTextTriggerValue.length1,
-        regexTextTriggerValue.minimalLengthMatch
+    inputExpected.foreach { case (regexTextTriggerValue, expected) =>
+      assertEquals(
+        regexTextTriggerValue.length,
+        expected
       )
     }
   }
@@ -67,7 +71,7 @@ class TriggersSpec extends CatsEffectSuite {
   test("ShowInstance of Trigger should return the expected string") {
     val textTrigger: Trigger = TextTrigger(
       StringTextTriggerValue("textTriggerValue"),
-      RegexTextTriggerValue("regexTriggerValue".r, 17)
+      RegexTextTriggerValue("regexTriggerValue".r)
     )
     val messageLengthTrigger: Trigger = MessageLengthTrigger(42)
     val newMemberTrigger: Trigger     = NewMemberTrigger
@@ -88,7 +92,7 @@ class TriggersSpec extends CatsEffectSuite {
     val leftMemberTrigger: Trigger      = LeftMemberTrigger
     val commandTrigger: Trigger         = CommandTrigger("/testcommand")
     val stringTrigger: TextTriggerValue = StringTextTriggerValue("test trigger")
-    val regexTrigger: TextTriggerValue  = RegexTextTriggerValue("test [rR]egex(p)?".r, 10)
+    val regexTrigger: TextTriggerValue  = RegexTextTriggerValue("test [rR]egex(p)?".r)
 
     assertEquals(Trigger.triggerLongestString(newMemberTrigger), 0)
     assertEquals(Trigger.triggerLongestString(leftMemberTrigger), 0)
@@ -106,7 +110,7 @@ class TriggersSpec extends CatsEffectSuite {
 
     val input2: TextTrigger = TextTrigger(
       StringTextTriggerValue("longer test"),
-      RegexTextTriggerValue("test [0-9]".r, 6)
+      RegexTextTriggerValue("test [0-9]".r)
     )
 
     assertEquals(Trigger.triggerLongestString(input1), 6)
@@ -146,8 +150,7 @@ class TriggersSpec extends CatsEffectSuite {
         |      },
         |      {
         |        "RegexTextTriggerValue" : {
-        |          "trigger" : "\brege[Xx]?(trigger|test)\b",
-        |          "minimalLengthMatch" : 8
+        |          "trigger" : "\brege[Xx]?(trigger|test)\b"
         |        }
         |      }
         |    ]
