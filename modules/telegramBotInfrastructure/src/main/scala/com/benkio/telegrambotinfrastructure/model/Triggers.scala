@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.model
 
 import cats.implicits.*
-import cats.Show
 import cats.Eval
+import cats.Show
 import io.circe.*
 import io.circe.generic.semiauto.*
 import org.scalacheck.rng.Seed
@@ -77,8 +77,8 @@ case class StringTextTriggerValue(trigger: String) extends TextTriggerValue {
   override val length: Eval[Int] = Eval.now(trigger.length)
 }
 case class RegexTextTriggerValue(trigger: Regex, regexLength: Option[Int] = None) extends TextTriggerValue {
-  override val length: Eval[Int] = Eval.later({
-    //val start: Instant = Instant.now()
+  override val length: Eval[Int] = Eval.later {
+    // val start: Instant = Instant.now()
     def canGenerateSize(
         targetSize: Int,
         trials: Int = 200
@@ -101,7 +101,7 @@ case class RegexTextTriggerValue(trigger: Regex, regexLength: Option[Int] = None
     // val timeElapsed = Duration.between(start, Instant.now())
     // if timeElapsed.toMillis() > 50L then println(s"[Triggers] $trigger is slow ${timeElapsed.toMillis()}: $result")
     result
-  })
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
