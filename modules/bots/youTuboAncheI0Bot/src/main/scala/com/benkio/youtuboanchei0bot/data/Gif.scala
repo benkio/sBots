@@ -115,7 +115,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "(deluso|insoddisfatto|inappagato|abbattuto|scoraggiato|demoralizzato|depresso|demotivato|avvilito|scocciato)".r
-        .tr()
+        .tr(Some(6))
     )(
       gif"ytai_FrustrazioneGif.mp4"
     ),
@@ -445,7 +445,7 @@ object Gif:
       gif"ytai_CucuGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "al[e]+ [o]{2,}".r.tr()
+      "al[e]+ [o]{2,}".r.tr(Some(6))
     )(
       gif"ytai_AleOooGif.mp4"
     ),
@@ -519,8 +519,8 @@ object Gif:
       gif"ytai_MnMsLoopGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "(😂|🤣){4,}".r.tr(),
-      "(ah|ha){5,}".r.tr()
+      "(😂|🤣){4,}".r.tr(Some(4)),
+      "(ah|ha){5,}".r.tr(Some(10))
     )(
       gif"ytai_RisataGif.mp4"
     ),
@@ -616,7 +616,7 @@ object Gif:
       gif"ytai_MancaForchettaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "solo[?]{2,}".r.tr()
+      "solo?[?]+".r.tr(Some(6))
     )(
       gif"ytai_SoloGif.mp4"
     ),
@@ -831,8 +831,11 @@ object Gif:
       gif"ytai_PrivatoSoldiLimitatoMoltoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bball(o|are|i)\\b".r.tr(),
-      "\\bdanz(a|are|i)\\b".r.tr(),
+      "\\bballo\\b".r.tr(),
+      "\\bballare\\b".r.tr(),
+      "\\bballi\\b".r.tr(),
+      "\\bdanza\\b".r.tr(),
+      "\\bdanzare\\b".r.tr(),
       "💃",
       "🕺"
     )(

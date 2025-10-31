@@ -100,7 +100,7 @@ object Gif:
       gif"abar_AmmazziamoTuttiNoProblem.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bcert[o!]{3,}\\b".r.tr()
+      "\\bcerto[o]*!\\b".r.tr()
     )(
       gif"abar_Certo.gif"
     ),
@@ -137,7 +137,7 @@ object Gif:
       gif"abar_Furfante.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bbasta(a|!){2,}".r.tr()
+      "\\bbasta[a]+!".r.tr(Some(7))
     )(
       gif"abar_Basta.gif"
     ),
@@ -186,7 +186,7 @@ object Gif:
       gif"abar_InDuePezzi.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bgiusto(o|!){2,}".r.tr()
+      "\\bgiusto[o]+!".r.tr()
     )(
       gif"abar_Giusto.gif"
     ),

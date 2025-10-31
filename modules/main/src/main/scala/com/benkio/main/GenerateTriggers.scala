@@ -42,27 +42,27 @@ object GenerateTriggers extends IOApp {
         "../bots/aBarberoBot/",
         ABarberoBot.triggerFilename,
         ABarberoBot.messageRepliesData[IO]
-      ).start
+      )
       _ <- generateTriggerFile(
         "../bots/calandroBot/",
         CalandroBot.triggerFilename,
         CalandroBot.messageRepliesData[IO]
-      ).start
+      )
       _ <- generateTriggerFile(
         "../bots/m0sconiBot/",
         M0sconiBot.triggerFilename,
         M0sconiBot.messageRepliesData[IO]
-      ).start
+      )
       _ <- generateTriggerFile(
         "../bots/richardPHJBensonBot/",
         RichardPHJBensonBot.triggerFilename,
         RichardPHJBensonBot.messageRepliesData[IO]
-      ).start
+      )
       _ <- generateTriggerFile(
         "../bots/youTuboAncheI0Bot/",
         YouTuboAncheI0Bot.triggerFilename,
         YouTuboAncheI0Bot.messageRepliesData[IO]
-      ).start
+      )
     } yield ExitCode.Success).use(_.pure)
 
 }

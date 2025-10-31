@@ -150,7 +150,7 @@ object Audio {
     ),
     ReplyBundleMessage.textToMp3[F](
       "a( )?s[s]+tronzo".r.tr(),
-      "stronz[o]{3,}".r.tr()
+      "stronz[o]{3,}".r.tr(Some(9))
     )(
       mp3"rphjb_AStronzo.mp3"
     ),
@@ -251,9 +251,9 @@ object Audio {
       mp3"rphjb_ViSaluto.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "funzioni gene[g]{2,}iative".r.tr(),
+      "funzioni geneg[g]+iative".r.tr(Some(21)),
       "non è un uomo",
-      "è (veramente )?una donna".r.tr()
+      "(è|e') (veramente )?una donna".r.tr()
     )(
       mp3"rphjb_VoceDaUomo.mp3"
     ),

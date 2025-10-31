@@ -300,7 +300,7 @@ object Audio:
       mp3"mos_DioCaneMaNonEPossibile.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "dio (pa[ ]?){3,}".r.tr()
+      "dio (pa[ ]?){3,}".r.tr(Some(10))
     )(
       mp3"mos_DioPaPaPaPaPaPa.mp3"
     ),
@@ -385,7 +385,7 @@ object Audio:
       mp3"mos_JuventusAustriaViennaPorcoDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "porco[ ]?[d]+[i]+o".r.tr()
+      "porco[ ]?[d]+[i]+o".r.tr(Some(8))
     )(
       mp3"mos_MaPorcoDio.mp3",
       mp3"mos_JuventusAustriaViennaPorcoDio.mp3",

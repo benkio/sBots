@@ -273,7 +273,7 @@ object Audio:
       mp3"abar_Taliani.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "caa[a]*z[z]*o[o]*".r.tr()
+      "caa[a]*z[z]*o[o]*".r.tr(Some(5))
     )(
       mp3"abar_Cazzo.mp3"
     ),
@@ -292,7 +292,7 @@ object Audio:
       mp3"abar_Preoccupazione.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "son(o)? tu[t]+e ba[l]+e".r.tr()
+      "son(o)? tu[t]+e ba[l]+e".r.tr(Some(13))
     )(
       mp3"abar_Bale.mp3"
     ),

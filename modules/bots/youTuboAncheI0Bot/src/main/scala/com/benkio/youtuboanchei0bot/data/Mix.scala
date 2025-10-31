@@ -538,7 +538,7 @@ object Mix:
       mp3"ytai_CensuraIphoneDropboxTelegram.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "\\b(ar)?rabbi([oa]|at[oa])\\b".r.tr(),
+      "\\b(ar)?rabbi([oa]|at[oa])\\b".r.tr(Some(6)),
       "collera",
       "indignato",
       "😠",
@@ -670,7 +670,7 @@ object Mix:
       gif"ytai_PassiDaGiganteGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(😄|😀|😃){3,}".r.tr(),
+      "(😄|😀|😃){3,}".r.tr(Some(3)),
       "sorriso"
     )(
       gif"ytai_SorrisoGif.mp4",
