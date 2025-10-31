@@ -94,7 +94,7 @@ object Video {
       vid"rphjb_Streghe.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(tornando|andando) (all')?indietro".r,
+      "(tornando|andando) (all')?indietro".r.tr(16),
       "innovazione",
       "composizione",
       "idea (nuova|fresca)".r
@@ -201,8 +201,8 @@ object Video {
       vid"rphjb_BigMoney.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(mi|me) so(n|no)? rotto il ca\\b".r,
-      "impazzi(to|sce|ta) totalmente".r,
+      "(mi|me) so(n|no)? rotto il ca\\b".r.tr(17),
+      "impazzi(to|sce|ta) totalmente".r.tr(20),
       "a[cg]ia[s]?[cg]ia[s]?".r
     )(
       vid"rphjb_RottoIlCa.mp4"
@@ -213,7 +213,7 @@ object Video {
       vid"rphjb_DiventarePapa.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(c|g)hi(t|d)a[r]+is(t|d)a pi(u|ù|ú) velo(c|g)e".r,
+      "[cg]hi[td]a[r]+is[td]a pi[uùú] velo[cg]e".r.tr(21),
       "gli uomini(, |...)?mi fanno schifo",
       "le donne un po' meno"
     )(
@@ -251,7 +251,7 @@ object Video {
       "(roba|droga) tagliata male".r,
       "one television",
       "rock machine",
-      "(un po'|un attimo) (di|de) esercitazione".r
+      "(un po'|un attimo) (di|de) esercitazione".r.tr(23)
     )(
       vid"rphjb_RockMachineIntro.mp4"
     ),
@@ -274,7 +274,7 @@ object Video {
       "più pulito",
       "john travolta",
       "video didattico",
-      "fate venire le vostre (madri|mogli|fidanzate)".r
+      "fate venire le vostre (madri|mogli|fidanzate)".r.tr(27)
     )(
       vid"rphjb_DelirioDelSabatoSera.mp4"
     ),
@@ -305,7 +305,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "i genesis",
       "tecno(-| )thrash".r,
-      "emerson(,)? lake (e|&) palmer".r,
+      "emerson(,)? lake (e|&) palmer".r.tr(21),
       "gentle giant",
       "marillion"
     )(
@@ -364,7 +364,7 @@ object Video {
       vid"rphjb_UccidereUnaPersona.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "insegnante di [cg]hi[dt]arra".r
+      "insegnante di [cg]hi[dt]arra".r.tr(22)
     )(
       vid"rphjb_InsegnanteDiChitarraModerna.mp4"
     ),
@@ -380,7 +380,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "l'unico bravo",
-      "scarica d(i |')andrenalina".r,
+      "scarica d(i |')andrenalina".r.tr(21),
       "non valgono (un cazzo|niente)".r
     )(
       vid"rphjb_UnicoBravo.mp4"
@@ -404,8 +404,8 @@ object Video {
     )(vid"rphjb_DubbioScantinatiGiocoRattoGatto.mp4"),
     ReplyBundleMessage.textToVideo[F](
       "albero grande",
-      "anche un('| )amplificatore".r,
-      "tutti i (suoi )?frutti ti d[aà]".r,
+      "anche un('| )amplificatore".r.tr(22),
+      "tutti i (suoi )?frutti ti d[aà]".r.tr(20),
       "per quanti gliene domandi",
       "sempre uno ne troverà",
       "il (fiore|frutto)".r,
@@ -427,7 +427,7 @@ object Video {
       "hai un anno di più",
       "felicitazioni",
       "ma che siamo noi",
-      "rumor[ie] di vetro e di metallo".r
+      "rumor[ie] di vetro e di metallo".r.tr(28)
     )(
       vid"rphjb_AuguriCompleanno.mp4"
     ),
@@ -557,7 +557,7 @@ object Video {
       vid"rphjb_SonoDemonio.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "mi assumo (tutte )?le responsabilità".r
+      "mi assumo (tutte )?le responsabilità".r.tr(27)
     )(
       vid"rphjb_TuttaColpaMia.mp4",
       vid"rphjb_MiaColpaColpaMia.mp4"
@@ -572,7 +572,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "un casino(,)? come al solito".r,
       "quando ci sono io",
-      "l'acqua è (scivolata|scesa) (de|di) sotto".r
+      "l'acqua è (scivolata|scesa) (de|di) sotto".r.tr(24)
     )(
       vid"rphjb_UnCasinoComeAlSolito.mp4"
     ),
@@ -595,7 +595,7 @@ object Video {
       "non figura il mio nome",
       "sotto codici",
       "non si possono risalire",
-      "governo (svizzero|germanico|tedesco)".r,
+      "governo (svizzero|germanico|tedesco)".r.tr(15),
       "affar(i|isti)".r
     )(
       vid"rphjb_InvestitoreGoverno.mp4"
@@ -608,7 +608,7 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo[F](
       "governo americano",
-      "rock('n'| n |&)roll presidence band".r,
+      "rock('n'| n |&)roll presidence band".r.tr(25),
       "sax"
     )(
       vid"rphjb_Obama.mp4"
@@ -1275,7 +1275,7 @@ object Video {
       "che stronzo",
       "male di mente",
       "interviste",
-      "non (ci|cene) siamo (mai )?accorti".r,
+      "non (ci|cene) siamo (mai )?accorti".r.tr(20),
       "fuori di testa"
     )(
       vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
@@ -1649,7 +1649,7 @@ object Video {
       "in degli occhi",
       "hanno visto l[aà]",
       "trasmissione",
-      "può essere (anche )?un (piacere|letale)".r,
+      "può essere (anche )?un (piacere|letale)".r.tr(20),
       "cambia la percezione",
       "auditiva",
       "discorsiva",
@@ -1698,7 +1698,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "il primo disco",
       "beatles",
-      "ragione per cui io ero (venuto al mondo|nato)".r,
+      "ragione per cui io ero (venuto al mondo|nato)".r.tr(27),
       "troppo forte"
     )(
       vid"rphjb_PrimoDiscoBeatlesRagioneVenutoMondoTroppoForte.mp4"
@@ -1845,7 +1845,7 @@ object Video {
     ReplyBundleMessage.textToVideo[F](
       "ti ho chiamato",
       "richiamarmi",
-      "non c[ie] posso fa(re)? niente".r,
+      "non c[ie] posso fa(re)? niente".r.tr(22),
       "faccio quello che posso",
       "arrivo fino a[d]? un certo punto".r,
       "m[ei] butto d[ei] sotto".r

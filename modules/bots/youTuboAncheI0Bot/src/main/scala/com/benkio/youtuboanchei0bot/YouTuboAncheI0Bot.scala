@@ -76,10 +76,10 @@ trait YouTuboAncheI0Bot[F[_]: Async: LogWriter] extends SBot[F] {
   override val triggerFilename: String             = YouTuboAncheI0Bot.triggerFilename
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
+  override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
     YouTuboAncheI0Bot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
+  override val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     YouTuboAncheI0Bot
       .commandRepliesData[F](
         dbLayer = dbLayer,

@@ -62,11 +62,11 @@ trait SBot[F[_]: Async: LogWriter] {
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
+  val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
     Async[F].*>(LogWriter.debug(s"$botName: Empty message reply data"))(
       Async[F].pure(List.empty[ReplyBundleMessage[F]])
     )
-  def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
+  val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     Async[F].*>(LogWriter.debug(s"$botName: Empty command reply data"))(
       Async[F].pure(List.empty[ReplyBundleCommand[F]])
     )

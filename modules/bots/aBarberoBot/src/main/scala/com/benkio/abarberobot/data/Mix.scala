@@ -5,6 +5,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.tr
 
 object Mix:
 
@@ -16,7 +17,7 @@ object Mix:
       mp3"abar_Luigi14.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r
+      "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r.tr(13)
     )(
       gif"abar_FiglioDi.gif",
       gif"abar_FiglioDi2.gif",
@@ -108,7 +109,7 @@ object Mix:
       "documenti d'identità",
       "targhe di auto (rubate)?".r,
       "timbri",
-      "(divise|palette) della polizia".r,
+      "(divise|palette) della polizia".r.tr(20),
       "pacchetti di sigarette",
       "piselli de rica",
       "fagioli cirio",

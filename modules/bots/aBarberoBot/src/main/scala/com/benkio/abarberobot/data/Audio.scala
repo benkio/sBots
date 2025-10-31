@@ -15,8 +15,8 @@ object Audio:
       mp3"abar_FerroFuocoAcquaBollenteAceto.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "luigi (14|quattordicesimo)".r,
-      "louis[- ]le[- ]grand".r
+      "luigi (14|quattordicesimo)".r.tr(8),
+      "louis[- ]le[- ]grand".r.tr(14)
     )(
       mp3"abar_Luigi14.mp3"
     ),
@@ -46,12 +46,12 @@ object Audio:
       mp3"abar_ParticelleCadaveriche.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "avrebbe (mai )?immaginato".r
+      "avrebbe (mai )?immaginato".r.tr(18)
     )(
       mp3"abar_NessunoAvrebbeImmaginato.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "mortalit[aà]".r
+      "mortalit[aà]".r.tr(9)
     )(
       mp3"abar_Mortalita.mp3"
     ),
@@ -88,12 +88,12 @@ object Audio:
       mp3"abar_Distrutto.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bpratica\\b".r
+      "\\bpratica\\b".r.tr(7)
     )(
       mp3"abar_PraticaPocoPatriotticah.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bferro\\b".r,
+      "\\bferro\\b".r.tr(5),
       "acqua bollente",
       "aceto"
     )(
@@ -123,7 +123,7 @@ object Audio:
       mp3"abar_Wikipedia.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\beccoh\\b".r
+      "\\beccoh\\b".r.tr(5)
     )(
       mp3"abar_Ecco.mp3",
       mp3"abar_Ecco2.mp3",
@@ -174,7 +174,7 @@ object Audio:
     ),
     ReplyBundleMessage.textToMp3[F](
       "cavallo",
-      "tiriamo(lo)? giù".r,
+      "tiriamo(lo)? giù".r.tr(11),
       "ammazziamolo"
     )(
       mp3"abar_Ammazziamolo.mp3"
@@ -224,13 +224,13 @@ object Audio:
       mp3"abar_Reinterrogateli.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "i \\bre\\b".r,
+      " (i|il|del) re\\b".r.tr(5),
       "decapita"
     )(
       mp3"abar_Re.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bascia\\b".r,
+      "\\bascia\\b".r.tr(5),
       "sangue"
     )(
       mp3"abar_Sangue.mp3"
@@ -241,7 +241,7 @@ object Audio:
       mp3"abar_Stupidi.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bsubito!".r
+      "\\bsubito!".r.tr(7)
     )(
       mp3"abar_Subito.mp3"
     ),
@@ -364,14 +364,14 @@ object Audio:
       "belle epoque",
       "nel progresso",
       "benessere",
-      "\\b1914\\b".r,
-      "\\b1915\\b".r
+      "\\b1914\\b".r.tr(4),
+      "\\b1915\\b".r.tr(4)
     )(
       mp3"abar_BelleEpoqueProgresso.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bgoti\\b".r,
-      "siamo (qui|dentro|tanti)".r
+      "\\bgoti\\b".r.tr(4),
+      "siamo (qui|dentro|tanti)".r.tr(9)
     )(
       mp3"abar_Goti.mp3"
     ),
@@ -383,8 +383,8 @@ object Audio:
       "non crede in",
       "bella figura",
       "ostenta",
-      "\\borge\\b".r,
-      "venerd[iì] santo".r,
+      "\\borge\\b".r.tr(4),
+      "venerd[iì] santo".r.tr(13),
       "il diavolo"
     )(
       mp3"abar_AteoIrriverente.mp3"
@@ -403,7 +403,7 @@ object Audio:
       "inesperta",
       "abietta",
       "servile",
-      "cognizione (governo|giustizia|religione)".r,
+      "cognizione (governo|giustizia|religione)".r.tr(18),
       "carnali",
       "lussuria",
       "avarizia",
@@ -434,10 +434,10 @@ object Audio:
         "furente",
         "furioso",
         "incazzosissimo",
-        "\\bnano\\b".r,
+        "\\bnano\\b".r.tr(4),
         "pigmeo",
         "piccoletto",
-        "\\btappo\\b".r,
+        "\\btappo\\b".r.tr(5),
         "lillipuziano",
         "bassotto"
       )(

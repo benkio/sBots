@@ -73,10 +73,10 @@ trait ABarberoBot[F[_]: Async: LogWriter] extends SBot[F] {
   override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override def messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
+  override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
     ABarberoBot.messageRepliesData[F].pure[F]
 
-  override def commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
+  override val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
     ABarberoBot
       .commandRepliesData[F](
         backgroundJobManager,
