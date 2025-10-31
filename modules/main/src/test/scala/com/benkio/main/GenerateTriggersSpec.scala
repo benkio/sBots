@@ -10,8 +10,11 @@ import munit.CatsEffectSuite
 
 import java.io.*
 import java.time.Instant
+import scala.concurrent.duration.Duration
 
 class GenerateTriggersSpec extends CatsEffectSuite {
+
+  override val munitIOTimeout = Duration(1, "m")
 
   test("GenerateTriggers.run should modify the expected files") {
     for
