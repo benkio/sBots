@@ -20,8 +20,8 @@ extension (r: Regex)
     RegexTextTriggerValue(r, Some(manualLength))
 extension (textTriggerValue: TextTriggerValue) {
   def isStringTriggerValue: Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_, _)  => false
-    case StringTextTriggerValue(_) => true
+    case RegexTextTriggerValue(_, _) => false
+    case StringTextTriggerValue(_)   => true
   }
 }
 
@@ -38,8 +38,8 @@ sealed trait TextTriggerValue {
 object TextTriggerValue {
 
   def matchValue(trigger: TextTriggerValue, source: String): Boolean = trigger match {
-    case RegexTextTriggerValue(v, _)  => v.findFirstMatchIn(source).isDefined
-    case StringTextTriggerValue(v) => source `contains` v
+    case RegexTextTriggerValue(v, _) => v.findFirstMatchIn(source).isDefined
+    case StringTextTriggerValue(v)   => source `contains` v
   }
 
   given orderingInstance: Ordering[TextTriggerValue] = new Ordering[TextTriggerValue] {
@@ -48,8 +48,8 @@ object TextTriggerValue {
   }
   given showInstance: Show[TextTriggerValue] = Show.show(ttv =>
     ttv match {
-      case StringTextTriggerValue(t) => t
-      case RegexTextTriggerValue(t, _)  => t.toString
+      case StringTextTriggerValue(t)   => t
+      case RegexTextTriggerValue(t, _) => t.toString
     }
   )
 
@@ -66,7 +66,7 @@ object TextTriggerValue {
 
   def isRegex(textTriggerValue: TextTriggerValue): Boolean = textTriggerValue match {
     case RegexTextTriggerValue(_, _) => true
-    case _                        => false
+    case _                           => false
   }
 }
 
