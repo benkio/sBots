@@ -164,6 +164,7 @@ class TriggersSpec extends CatsEffectSuite {
         |      {
         |        "RegexTextTriggerValue" : {
         |          "trigger" : "\brege[Xx]?(trigger|test)\b"
+        |          "regexLength" : null
         |        }
         |      }
         |    ]
