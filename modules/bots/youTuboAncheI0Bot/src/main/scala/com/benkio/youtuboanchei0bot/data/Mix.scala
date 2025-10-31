@@ -71,7 +71,7 @@ object Mix:
       mp3"ytai_CheVergogna.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "ti voglio (tanto )?bene".r
+      "ti voglio (tanto )*bene".r
     )(
       gif"ytai_TVTBGif.mp4",
       mp3"ytai_AncheIoTiVoglioTantoBene.mp3"

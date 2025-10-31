@@ -17,12 +17,10 @@ import scala.util.matching.Regex
 extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
 extension (r: Regex)
   def tr(manualLength: Int): RegexTextTriggerValue =
-    new RegexTextTriggerValue(r) {
-      override val length = manualLength
-    }
+    RegexTextTriggerValue(r, Some(manualLength))
 extension (textTriggerValue: TextTriggerValue) {
   def isStringTriggerValue: Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_)  => false
+    case RegexTextTriggerValue(_, _)  => false
     case StringTextTriggerValue(_) => true
   }
 }
@@ -40,7 +38,7 @@ sealed trait TextTriggerValue {
 object TextTriggerValue {
 
   def matchValue(trigger: TextTriggerValue, source: String): Boolean = trigger match {
-    case RegexTextTriggerValue(v)  => v.findFirstMatchIn(source).isDefined
+    case RegexTextTriggerValue(v, _)  => v.findFirstMatchIn(source).isDefined
     case StringTextTriggerValue(v) => source `contains` v
   }
 
@@ -51,7 +49,7 @@ object TextTriggerValue {
   given showInstance: Show[TextTriggerValue] = Show.show(ttv =>
     ttv match {
       case StringTextTriggerValue(t) => t
-      case RegexTextTriggerValue(t)  => t.toString
+      case RegexTextTriggerValue(t, _)  => t.toString
     }
   )
 
@@ -67,7 +65,7 @@ object TextTriggerValue {
   }
 
   def isRegex(textTriggerValue: TextTriggerValue): Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_) => true
+    case RegexTextTriggerValue(_, _) => true
     case _                        => false
   }
 }
@@ -75,7 +73,7 @@ object TextTriggerValue {
 case class StringTextTriggerValue(trigger: String) extends TextTriggerValue {
   override val length: Int = trigger.length
 }
-case class RegexTextTriggerValue(trigger: Regex) extends TextTriggerValue {
+case class RegexTextTriggerValue(trigger: Regex, regexLength: Option[Int] = None) extends TextTriggerValue {
   override val length: Int = {
     def canGenerateSize(
         targetSize: Int,
@@ -89,13 +87,13 @@ case class RegexTextTriggerValue(trigger: Regex) extends TextTriggerValue {
           .exists(v => v.length == targetSize)
       }
     }
-
-    (0 to 100)
-      .find { size =>
-        if size == 40 then println(s"[Triggers] ⚠️ size >= $size for $trigger")
-        canGenerateSize(size)
-      }
-      .getOrElse(Int.MaxValue)
+    regexLength.getOrElse(
+      (0 to 40)
+        .find { size =>
+          canGenerateSize(size)
+        }
+        .getOrElse(Int.MaxValue)
+    )
   }
 }
 
