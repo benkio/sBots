@@ -485,18 +485,6 @@ object Video {
       vid"rphjb_LoDeviSpiegare.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "se non ci credi",
-      "[pb]or[dt]land".r
-    )(
-      vid"rphjb_PortlandVancuverFanculo.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
-      "vancuv(er|a)".r
-    )(
-      vid"rphjb_PortlandVancuverFanculo.mp4",
-      vid"rphjb_StoriaMarlinManson.mp4"
-    ),
-    ReplyBundleMessage.textToVideo[F](
       "tempo al tempo",
       "non ne ho più"
     )(

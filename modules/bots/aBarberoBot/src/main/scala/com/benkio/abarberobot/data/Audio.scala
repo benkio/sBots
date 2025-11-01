@@ -137,8 +137,6 @@ object Audio:
       mp3"abar_Maglio.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "chiese",
-      "castelli",
       "villaggi",
       "assedi"
     )(

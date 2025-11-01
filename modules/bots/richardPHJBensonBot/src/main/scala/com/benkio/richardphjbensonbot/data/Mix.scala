@@ -478,6 +478,7 @@ object Mix {
       gif"rphjb_MaVatteneAffanculoGif.mp4",
       mp3"rphjb_MaVatteneAffanculo.mp3",
       vid"rphjb_PortlandVancuverFanculo.mp4",
+      mp3"rphjb_PortlandVancuverFanculo.mp3",
       gif"rphjb_FanculoPerCortesiaGif.mp4",
       vid"rphjb_DecidoIoMareCazzatePerCortesia.mp4",
       vid"rphjb_CambiaCanaleBruttoFrocio.mp4",
@@ -1337,7 +1338,6 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "corpicini",
       "da (succhiare|mangiare)".r,
-      "in jeans",
       "vanno sempre bene",
       "m[ei] sta tutto bene".r,
       "vita (rock|dura|violenta|piena di gioie|piena di ferite)".r
@@ -6310,6 +6310,40 @@ object Mix {
         gif"rphjb_NonLiSopportoGif.mp4",
         mp3"rphjb_NonLiSopporto.mp3",
         vid"rphjb_NonLiSopporto.mp4"
+      ),
+      ReplyBundleMessage
+        .textToMedia[F](
+          "gonn[ae]".r,
+          "rinnega",
+          "\\bchiappa\\b".r,
+          "\\bnatica\\b".r
+        )(
+          gif"rphjb_DonnaRinnegaGonneJeansChiappaLibertaGif.mp4",
+          vid"rphjb_DonnaRinnegaGonneJeansChiappaLiberta.mp4",
+          mp3"rphjb_DonnaRinnegaGonneJeansChiappaLiberta.mp3"
+        ),
+      ReplyBundleMessage.textToMedia[F](
+        "jeans"
+      )(
+        vid"rphjb_BisognoValletta.mp4",
+        mp3"rphjb_BisognoValletta.mp3",
+        gif"rphjb_DonnaRinnegaGonneJeansChiappaLibertaGif.mp4",
+        vid"rphjb_DonnaRinnegaGonneJeansChiappaLiberta.mp4",
+        mp3"rphjb_DonnaRinnegaGonneJeansChiappaLiberta.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "se non ci credi",
+        "[pb]or[dt]land".r
+      )(
+        vid"rphjb_PortlandVancuverFanculo.mp4",
+        mp3"rphjb_PortlandVancuverFanculo.mp3"
+      ),
+      ReplyBundleMessage.textToMedia[F](
+        "vancuv(er|a)".r
+      )(
+        vid"rphjb_PortlandVancuverFanculo.mp4",
+        mp3"rphjb_PortlandVancuverFanculo.mp3",
+        vid"rphjb_StoriaMarlinManson.mp4"
       )
     )
 }

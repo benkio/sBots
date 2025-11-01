@@ -167,6 +167,32 @@ object Mix:
       )(
         vid"abar_Razzista.mp4",
         mp3"abar_Razzista.mp3"
-      )
+      ),
+    ReplyBundleMessage
+      .textToMedia[F](
+        "scorrerie",
+        "scorreria",
+        "saccheggi",
+        "aggression[eai]".r,
+        "case",
+        "a tradimento",
+        "devantate",
+        "incendiate"
+      )(
+        gif"abar_ScorrerieSaccheggiGIF.mp4",
+        vid"abar_ScorrerieSaccheggi.mp4",
+        mp3"abar_ScorrerieSaccheggi.mp3"
+      ),
+    ReplyBundleMessage.textToMedia[F](
+      "chiese",
+      "chiesa",
+      "castelli",
+      "castello"
+    )(
+      mp3"abar_Assedi.mp3",
+      gif"abar_ScorrerieSaccheggiGIF.mp4",
+      vid"abar_ScorrerieSaccheggi.mp4",
+      mp3"abar_ScorrerieSaccheggi.mp3"
+    )
   )
 end Mix
