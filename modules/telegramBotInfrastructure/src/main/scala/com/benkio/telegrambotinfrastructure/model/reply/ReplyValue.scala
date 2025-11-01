@@ -35,7 +35,7 @@ final case class Mp3File(filepath: String, replyToMessage: Boolean = false) exte
 }
 
 final case class GifFile(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
-  require(filepath.endsWith(".gif") || filepath.endsWith(".mp4"))
+  require(filepath.endsWith(".mp4"))
 }
 
 final case class PhotoFile(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
@@ -58,7 +58,6 @@ object MediaFile {
 
   def fromString(filename: String): MediaFile = filename.takeRight(4) match {
     case ".mp3"                                       => Mp3File(filename)
-    case ".gif"                                       => GifFile(filename)
     case ".jpg" | ".png"                              => PhotoFile(filename)
     case ".mp4" if filename.takeRight(7) == "Gif.mp4" => GifFile(filename)
     case ".mp4"                                       => VideoFile(filename)

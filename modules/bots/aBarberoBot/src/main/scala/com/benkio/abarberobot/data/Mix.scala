@@ -13,56 +13,56 @@ object Mix:
     ReplyBundleMessage.textToMedia[F](
       "\\bfrancesi\\b".r
     )(
-      gif"abar_Francesi.gif",
+      gif"abar_FrancesiGif.mp4",
       mp3"abar_Luigi14.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r.tr(13)
     )(
-      gif"abar_FiglioDi.gif",
-      gif"abar_FiglioDi2.gif",
+      gif"abar_FiglioDiGif.mp4",
+      gif"abar_FiglioDi2Gif.mp4",
       mp3"abar_FiglioDi3.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "sgozza"
     )(
       mp3"abar_Sgozzamento.mp3",
-      gif"abar_Sgozzamento.gif"
+      gif"abar_SgozzamentoGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "bruciargli",
       "la casa"
     )(
       mp3"abar_Bruciare.mp3",
-      gif"abar_Bruciare.gif"
+      gif"abar_BruciareGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "a pezzi",
       "a pezzettini"
     )(
       mp3"abar_APezzettini.mp3",
-      gif"abar_APezzettini.gif"
+      gif"abar_APezzettiniGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "allarme",
       "priori"
     )(
       mp3"abar_Priori.mp3",
-      gif"abar_Priori.gif"
+      gif"abar_PrioriGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "carne"
     )(
       mp3"abar_Bbq.mp3",
       mp3"abar_Priori.mp3",
-      gif"abar_Priori.gif"
+      gif"abar_PrioriGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "zagaglia",
       "nemico"
     )(
       mp3"abar_Zagaglia.mp3",
-      gif"abar_Zagaglia.gif"
+      gif"abar_ZagagliaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "guerra"
@@ -74,19 +74,19 @@ object Mix:
       "faida"
     )(
       vid"abar_ParoleLongobarde.mp4",
-      gif"abar_Faida.gif"
+      gif"abar_FaidaGif.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
       "spranga"
     )(
-      gif"abar_Spranga.gif",
+      gif"abar_SprangaGif.mp4",
       vid"abar_ParoleLongobarde.mp4",
       mp3"abar_Spranga.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "trappola"
     )(
-      gif"abar_Trappola.gif",
+      gif"abar_TrappolaGif.mp4",
       vid"abar_ParoleLongobarde.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -179,7 +179,7 @@ object Mix:
         "devantate",
         "incendiate"
       )(
-        gif"abar_ScorrerieSaccheggiGIF.mp4",
+        gif"abar_ScorrerieSaccheggiGif.mp4",
         vid"abar_ScorrerieSaccheggi.mp4",
         mp3"abar_ScorrerieSaccheggi.mp3"
       ),
@@ -190,7 +190,7 @@ object Mix:
       "castello"
     )(
       mp3"abar_Assedi.mp3",
-      gif"abar_ScorrerieSaccheggiGIF.mp4",
+      gif"abar_ScorrerieSaccheggiGif.mp4",
       vid"abar_ScorrerieSaccheggi.mp4",
       mp3"abar_ScorrerieSaccheggi.mp3"
     )

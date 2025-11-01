@@ -29,7 +29,7 @@ class MessageMatchesSpec extends FunSuite {
     PhotoFile("picture.jpg"),
     PhotoFile("picture.png"),
     VideoFile("video.mp4"),
-    GifFile("a.gif")
+    GifFile("aGif.mp4")
   )
 
   val replyBundleInput: ReplyBundleMessage[IO] = ReplyBundleMessage[IO](
