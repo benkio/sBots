@@ -9,7 +9,7 @@ import telegramium.bots.Message
 class ReplySelectionSpec extends CatsEffectSuite {
 
   val input: List[MediaFile] =
-    List(Mp3File("a.mp3"), GifFile("b.gif"), PhotoFile("c.jpg"), PhotoFile("d.png"), VideoFile("e.mp4"))
+    List(Mp3File("a.mp3"), GifFile("bGif.mp4"), PhotoFile("c.jpg"), PhotoFile("d.png"), VideoFile("e.mp4"))
 
   val message = Message(
     messageId = 0,
@@ -30,7 +30,7 @@ class ReplySelectionSpec extends CatsEffectSuite {
         result.map(mediaFiles =>
           mediaFiles.forall {
             case (mediaFile: MediaFile) =>
-              List("a.mp3", "b.gif", "c.jpg", "d.png", "e.mp4").contains(mediaFile.filename)
+              List("a.mp3", "bGif.mp4", "c.jpg", "d.png", "e.mp4").contains(mediaFile.filename)
             case _ => fail("I expect a mediafile in here")
           }
         ),

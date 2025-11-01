@@ -47,7 +47,7 @@ class ComputeReplySpec extends CatsEffectSuite {
     Mp3File("audio.mp3"),
     PhotoFile("picture.jpg"),
     PhotoFile("picture.png"),
-    GifFile("a.gif"),
+    GifFile("aGif.mp4"),
     VideoFile("video.mp4"),
     Document("document.pdf")
   )
