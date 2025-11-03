@@ -780,7 +780,7 @@ object Video {
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "l'uomo(,|...)? la donna".r
+      "l'uomo(,|\\.\\.\\.)? la donna".r
     )(
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
       vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"

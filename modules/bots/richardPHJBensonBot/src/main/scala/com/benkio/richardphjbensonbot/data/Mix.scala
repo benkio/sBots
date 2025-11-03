@@ -949,7 +949,7 @@ object Mix {
       mp3"rphjb_OttavaNotaRobaVecchiaSchifosi.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "schifos(o)+(!)*".r
+      "schifos(o)+(!)*".r.tr(8)
     )(
       gif"rphjb_SchifosoGif.mp4",
       vid"rphjb_Vigile.mp4",
@@ -5531,7 +5531,7 @@ object Mix {
       ReplyBundleMessage
         .textToMedia[F](
           "pezzo unico",
-          "diviso in .*\\bpezzi\\b".r,
+          "diviso in .* pezzi(\\b|$)".r,
           "\\b(43|quarantatre)\\b".r
         )(
           vid"rphjb_PezzoUnicoDiviso43Pezzi.mp4",
