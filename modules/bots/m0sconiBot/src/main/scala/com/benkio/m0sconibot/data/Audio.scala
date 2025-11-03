@@ -185,8 +185,7 @@ object Audio:
     ),
     ReplyBundleMessage.textToMedia[F](
       "manovre offersive",
-      "imprecisi al tiro",
-      "sei vantaggi"
+      "imprecisi al tiro"
     )(
       mp3"mos_BasketSeiVantaggiDioPorco.mp3"
     ),
@@ -536,7 +535,8 @@ object Audio:
     ReplyBundleMessage.textToMedia[F](
       "(sei|6) vantaggi".r
     )(
-      mp3"mos_SeiVantaggiDiLunghezza.mp3"
+      mp3"mos_SeiVantaggiDiLunghezza.mp3",
+      mp3"mos_BasketSeiVantaggiDioPorco.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "tecnocop",

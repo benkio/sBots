@@ -18,7 +18,8 @@ class CalandroBotSpec extends BaseBotSpec {
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(CalandroBot.botId)
   val excludeTriggers           = List("GIOCHI PER IL MIO PC")
 
-  exactTriggerReturnExpectedReplyBundle(CalandroBot.messageRepliesData[IO])
+  exactStringTriggerReturnExpectedReplyBundle(CalandroBot.messageRepliesData[IO])
+  exactRegexTriggerReturnExpectedReplyBundle(CalandroBot.messageRepliesData[IO])
   regexTriggerLengthReturnValue(CalandroBot.messageRepliesData[IO])
 
   jsonContainsFilenames(

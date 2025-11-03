@@ -26,6 +26,10 @@ extension (textTriggerValue: TextTriggerValue) {
     case RegexTextTriggerValue(_, _) => false
     case StringTextTriggerValue(_)   => true
   }
+  def isRegexTriggerValue: Boolean = textTriggerValue match {
+    case RegexTextTriggerValue(_, _) => true
+    case StringTextTriggerValue(_)   => false
+  }
 }
 
 given Decoder[Regex] = Decoder.decodeString.map(_.r)
@@ -65,11 +69,6 @@ object TextTriggerValue {
     case s: String                => StringTextTriggerValue(s)
     case r: Regex                 => RegexTextTriggerValue(r)
     case r: RegexTextTriggerValue => r
-  }
-
-  def isRegex(textTriggerValue: TextTriggerValue): Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_, _) => true
-    case _                           => false
   }
 }
 

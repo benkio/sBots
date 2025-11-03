@@ -3,6 +3,7 @@ package com.benkio.telegrambotinfrastructure
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.model.isRegexTriggerValue
 import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.reply.*
@@ -13,13 +14,16 @@ import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.parser.decode
 import munit.*
 import munit.CatsEffectSuite
+import munit.ScalaCheckSuite
+import org.scalacheck.Prop.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
+import wolfendale.scalacheck.regexp.RegexpGen
 
 import java.io.File
 import scala.io.Source
 
-trait BaseBotSpec extends CatsEffectSuite {
+trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
   private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")
@@ -146,7 +150,7 @@ trait BaseBotSpec extends CatsEffectSuite {
       }
     }
 
-  def exactTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+  def exactStringTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
     replyBundleMessages
       .flatMap(replyBundle =>
         replyBundle.trigger match {
@@ -177,13 +181,53 @@ trait BaseBotSpec extends CatsEffectSuite {
         }
       }
 
+  def exactRegexTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+    replyBundleMessages
+      .flatMap(replyBundle =>
+        replyBundle.trigger match {
+          case TextTrigger(triggerValues*) if replyBundle.matcher == MessageMatches.ContainsOnce =>
+            triggerValues.filter(_.isRegexTriggerValue).map(regexTrigger => (regexTrigger, replyBundle))
+          case _ => Nil
+        }
+      )
+      .foreach {
+        case (regexTrigger: RegexTextTriggerValue, replyBundle) =>
+          property(s"""🔎 Only one reply bundle replies to: "${regexTrigger.trigger.toString}"""") {
+          forAll(RegexpGen.from(regexTrigger.trigger.toString)) {
+            case (regexMatchString: String) if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
+              val exactStringMessage = Message(
+                messageId = 0,
+                date = 0,
+                chat = Chat(id = 0, `type` = "test"),
+                text = Some(regexMatchString)
+              )
+              replyBundleMessages
+                .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+                .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+                .headOption
+                .fold(
+                  fail(
+                    s"expected a match for regex ${regexTrigger.trigger.toString}, but None found. Input: $regexMatchString"
+                  )
+                ) { case (tr, rbm) =>
+                  assert(
+                    tr == TextTrigger(regexTrigger),
+                    s"$tr($tr.length) ≠ ${TextTrigger(regexTrigger)}(${regexTrigger.length})"
+                  )
+                  assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
+                }
+          }
+        }
+        case x => fail(s"[BaseBotSpec] 🚫 Expected RegexTrigger, got $x")
+      }
+
   def regexTriggerLengthReturnValue(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
     replyBundleMessages
       .collect(replyBundle =>
         replyBundle.trigger match {
           case TextTrigger(triggerValues*) =>
             triggerValues.filter(
-              TextTriggerValue.isRegex(_)
+              _.isRegexTriggerValue
             )
         }
       )
@@ -196,7 +240,7 @@ trait BaseBotSpec extends CatsEffectSuite {
             )
           }
         case stringTextTriggerValue =>
-          throw new Exception(
+          Throwable(
             s"[BaseBotSpec] regexTriggerLengthReturnValue got a stringTextTriggerValue: $stringTextTriggerValue"
           )
       }
