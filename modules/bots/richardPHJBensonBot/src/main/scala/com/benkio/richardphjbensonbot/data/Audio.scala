@@ -246,8 +246,9 @@ object Audio {
       mp3"rphjb_NonViDeludero.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "(col|con il) (cuore|cervello|anima|pisello)".r.tr(9),
-      "con il martello"
+      "(col|con il) (cuore|anima|pisello)".r.tr(9),
+      "con il martello",
+      "con il cervello",
     )(
       mp3"rphjb_ViSaluto.mp3"
     ),

@@ -74,7 +74,6 @@ object Video {
       vid"rphjb_PetrucciCapelliCorti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "fregatura",
       "canaro",
       "magliana"
     )(
@@ -804,7 +803,7 @@ object Video {
       "(gioco del|il) calcio".r,
       "\\bmoggi\\b".r,
       "il coni\\b".r,
-      "(\\b|^)ultr(à|as)(\\b|4)".r,
+      "(\\b|^)ultr(à|as)(\\b|$)".r,
       "direttore del coni",
       "parole grosse",
       "fare del (male|bene)".r
@@ -817,7 +816,7 @@ object Video {
       vid"rphjb_PerfettoIncompetente.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sono (proprio )?un coglione".r
+      "sono (proprio )?un co(gl|j)ione".r.tr(15)
     )(vid"rphjb_SonoCoglione.mp4"),
     ReplyBundleMessage.textToVideo[F](
       "sta[va]? male".r,
@@ -1011,10 +1010,10 @@ object Video {
       vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "io sto l[aà]\\b".r,
+      "io sto l[aà](\\b|$)".r,
       "dove (ca[z]+[o]?)?sto".r,
       "sto d[ie] (qu[aà]|l[aà])".r,
-      "sto l[iì]\\b".r,
+      "sto l[iì](\\b|$)".r,
       "luce[tta]? rossa".r
     )(
       vid"rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4"

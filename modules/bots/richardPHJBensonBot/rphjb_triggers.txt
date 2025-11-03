@@ -1271,7 +1271,7 @@ rphjb_PannaOcchialiSpalla.mp3 | che (cazzo )?(m'|mi )ave[td]e mandato
                           | gianguido
 --------------------------------------------------
 --------------------------------------------------
-rphjb_SareteCoglioniVoiGif.mp4 | (non|mica) so(no)? (un |n )?co(gl|j)ione
+rphjb_SareteCoglioniVoiGif.mp4 | (non|mica) sono (un |n )?co(gl|j)ione
 rphjb_SareteCoglioniVoi.mp3 | sarete co(gl|j)ioni voi
 rphjb_SareteCoglioniVoi.mp4 | 
 --------------------------------------------------
@@ -1591,7 +1591,7 @@ rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCa
                           | (gioco del|il) calcio
                           | \bmoggi\b
                           | il coni\b
-                          | (\b|^)ultr(à|as)(\b|4)
+                          | (\b|^)ultr(à|as)(\b|$)
                           | direttore del coni
                           | parole grosse
                           | fare del (male|bene)
@@ -2205,9 +2205,6 @@ rphjb_CantanteDonnaVoceDaUomoDueBocceCosiInnamoratoPerdutamente.mp4 | due bocce
                           | benedictum
 --------------------------------------------------
 --------------------------------------------------
-rphjb_SonoCoglione.mp4    | sono (proprio )?un coglione
---------------------------------------------------
---------------------------------------------------
 rphjb_DylanDog.mp4        | dylan (dog|thomas)
                           | un po' gay
                           | la (collezione|colazione)
@@ -2353,7 +2350,7 @@ rphjb_NonPossibile2.mp4   |
 --------------------------------------------------
 --------------------------------------------------
 rphjb_CosaSuccessoGif.mp4 | cosa è successo
-rphjb_CosaGif.mp4         | \bcosa[?]{1,}\b
+rphjb_CosaGif.mp4         | (\b|^)cosa[?]{1,}(\b|$)
 rphjb_CosaCosaSuccessoMeNeVadoFacendoSoffrire.mp4 | 
 rphjb_CosaBensoniani.sticker | 
 --------------------------------------------------
@@ -2399,7 +2396,7 @@ rphjb_AdolfHitlerGif.mp4  | lui si chiamava
 rphjb_LuiSiChiamavaBensoniani.sticker | \badolf\b
 rphjb_AdolfHitler.mp3     | hitler
 rphjb_AdolfHitler.mp4     | belle arti
-                          | \bhitl[aà]\b
+                          | (\b|^)hitl[aà](\b|$)
 --------------------------------------------------
 --------------------------------------------------
 rphjb_IdeeConfuse.mp4     | non lo so
@@ -2614,6 +2611,9 @@ rphjb_EtichetteSulleBottiglieDiWhiskeyAlpheus.mp4 | mi sentivo (di fare)?così
                           | ho fatto così
 --------------------------------------------------
 --------------------------------------------------
+rphjb_SonoCoglione.mp4    | sono (proprio )?un co(gl|j)ione
+--------------------------------------------------
+--------------------------------------------------
 rphjb_BicchiereSputoLimitazioniUomoDonna.mp4 | l'uomo(,|...)? la donna
 rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4 | 
 --------------------------------------------------
@@ -2683,8 +2683,9 @@ rphjb_9MesiUscireRientrare.mp3 | (9|nove) mesi
                           | ci avevo messo
 --------------------------------------------------
 --------------------------------------------------
-rphjb_ViSaluto.mp3        | (col|con il) (cuore|cervello|anima|pisello)
+rphjb_ViSaluto.mp3        | (col|con il) (cuore|anima|pisello)
                           | con il martello
+                          | con il cervello
 --------------------------------------------------
 --------------------------------------------------
 rphjb_NonViDeludero.mp3   | non vi deluderò
@@ -3576,6 +3577,11 @@ rphjb_NelRettoBrianMay.mp4 | brian may
                           | nel retto
 --------------------------------------------------
 --------------------------------------------------
+rphjb_ArivatoGif.mp4      | (sono |so )?a[r]{1,2}iva[dt]o
+rphjb_Arivato.mp3         | (eccomi|ciao).* piacere\b
+rphjb_ArivatoGif.mp4      | 
+--------------------------------------------------
+--------------------------------------------------
 rphjb_CiaoComeStateGif.mp4 | ciao a tutti
 rphjb_CiaoComeState.mp4   | belle gioie
 rphjb_CiaoComeState.mp3   | 
@@ -3851,11 +3857,6 @@ rphjb_AllucinanteAssolo.mp4 |
 rphjb_AllucinanteAssoloGif.mp4 | 
 rphjb_BarzellettaTotti.mp4 | 
 rphjb_BarzellettaTotti.mp3 | 
---------------------------------------------------
---------------------------------------------------
-rphjb_ArivatoGif.mp4      | (sono |so )?a[r]{1,2}iva[dt]o
-rphjb_Arivato.mp3         | (eccomi|ciao).*\bpiacere\b
-rphjb_ArivatoGif.mp4      | 
 --------------------------------------------------
 --------------------------------------------------
 rphjb_UrlareLaRabbia.mp3  | esperiment
@@ -4328,10 +4329,10 @@ rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4 | eccoci q
 rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4 | 
 --------------------------------------------------
 --------------------------------------------------
-rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4 | io sto l[aà]\b
+rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4 | io sto l[aà](\b|$)
                           | dove (ca[z]+[o]?)?sto
                           | sto d[ie] (qu[aà]|l[aà])
-                          | sto l[iì]\b
+                          | sto l[iì](\b|$)
                           | luce[tta]? rossa
 --------------------------------------------------
 --------------------------------------------------
@@ -4714,6 +4715,17 @@ rphjb_BastoneInfernaleArtigianiBeccoMetallo.mp3 | teschio
                           | intarsi(ato)?
 --------------------------------------------------
 --------------------------------------------------
+rphjb_SchifosoGif.mp4     | schifos(o)+(!)*
+rphjb_Vigile.mp4          | 
+rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4 | 
+rphjb_BruttoSquallidoSchifoso.mp4 | 
+rphjb_BruttoSquallidoSchifoso.mp3 | 
+rphjb_BruttoSquallidoSchifosoGif.mp4 | 
+rphjb_DanzaMacabra.mp4    | 
+rphjb_DiventoViolento.mp4 | 
+rphjb_DiventoViolento.mp3 | 
+--------------------------------------------------
+--------------------------------------------------
 rphjb_Labbra.mp3          | le labbra
 rphjb_LabbraGif.mp4       | rossetto
 rphjb_RossettoBensoniani.sticker | 💄
@@ -4805,11 +4817,6 @@ rphjb_RelIllusions.mp4    |
 --------------------------------------------------
 rphjb_ChitarraPlettroVicoletto.mp4 | vicoletto
 rphjb_ChitarraVicolettoPlettro2.mp4 | 
---------------------------------------------------
---------------------------------------------------
-rphjb_FregataFregatura.mp4 | fregatura
-                          | canaro
-                          | magliana
 --------------------------------------------------
 --------------------------------------------------
 rphjb_Accordana.mp4       | accor(data|dana)
@@ -5130,17 +5137,6 @@ rphjb_Stanco.mp4          |
 rphjb_PannaOcchialiSpalla.mp3 | 
 --------------------------------------------------
 --------------------------------------------------
-rphjb_SchifosoGif.mp4     | schifos(o)+(!)*
-rphjb_Vigile.mp4          | 
-rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4 | 
-rphjb_BruttoSquallidoSchifoso.mp4 | 
-rphjb_BruttoSquallidoSchifoso.mp3 | 
-rphjb_BruttoSquallidoSchifosoGif.mp4 | 
-rphjb_DanzaMacabra.mp4    | 
-rphjb_DiventoViolento.mp4 | 
-rphjb_DiventoViolento.mp3 | 
---------------------------------------------------
---------------------------------------------------
 rphjb_ViCalpestoGif.mp4   | schifosi
 rphjb_ViCalpesto.mp3      | 
 rphjb_ViCalpesto.mp4      | 
@@ -5308,6 +5304,10 @@ rphjb_BiscionePiatti.mp4  | biscione
 --------------------------------------------------
 rphjb_PetrucciCapelliCorti.mp4 | petrucci
 rphjb_FotoLookDreamTheater.mp4 | 
+--------------------------------------------------
+--------------------------------------------------
+rphjb_FregataFregatura.mp4 | canaro
+                          | magliana
 --------------------------------------------------
 --------------------------------------------------
 rphjb_SorpresaGif.mp4     | \bsorpresa\b

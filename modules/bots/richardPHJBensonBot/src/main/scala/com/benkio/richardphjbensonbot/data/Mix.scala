@@ -1050,7 +1050,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "(sono |so )?a[r]{1,2}iva[dt]o".r,
-      "(eccomi|ciao).*\\bpiacere\\b".r
+      "(eccomi|ciao).* piacere\\b".r
     )(
       gif"rphjb_ArivatoGif.mp4",
       mp3"rphjb_Arivato.mp3",
@@ -1550,7 +1550,7 @@ object Mix {
       mp3"rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp3",
       gif"rphjb_MioGenioGif.mp4",
       vid"rphjb_MioGenio.mp4",
-      mp3"rphjb_MioGenio.mp3"
+      mp3"rphjb_MioGenio.mp3",
     ),
     ReplyBundleMessage.textToMedia[F](
       "la lingua"
@@ -4019,7 +4019,7 @@ object Mix {
         "\\badolf\\b".r,
         "hitler",
         "belle arti",
-        "\\bhitl[aà]\\b".r
+        "(\\b|^)hitl[aà](\\b|$)".r
       )(
         gif"rphjb_AdolfHitlerGif.mp4",
         sticker"rphjb_LuiSiChiamavaBensoniani.sticker",
@@ -4806,7 +4806,7 @@ object Mix {
       ),
       ReplyBundleMessage.textToMedia[F](
         "cosa è successo",
-        "\\bcosa[?]{1,}\\b".r
+        "(\\b|^)cosa[?]{1,}(\\b|$)".r
       )(
         gif"rphjb_CosaSuccessoGif.mp4",
         gif"rphjb_CosaGif.mp4",
@@ -6341,7 +6341,7 @@ object Mix {
         mp3"rphjb_TiDovrestiVergognare.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "(non|mica) so(no)? (un |n )?co(gl|j)ione".r.tr(14),
+        "(non|mica) sono (un |n )?co(gl|j)ione".r.tr(16),
         "sarete co(gl|j)ioni voi".r
       )(
         gif"rphjb_SareteCoglioniVoiGif.mp4",
