@@ -2411,7 +2411,7 @@ object Mix {
 
   private def messageRepliesMixData3[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
-      "\\bn[o]+!\\b".r.tr(3)
+      "(\\b|^)n[o]+!(\\b|$)".r.tr(3)
     )(
       gif"rphjb_NoGif.mp4",
       vid"rphjb_FolliaQueenNo.mp4"
@@ -3818,7 +3818,6 @@ object Mix {
       ReplyBundleMessage.textToMedia[F](
         "\\bsperma\\b".r
       )(
-        mp3"rphjb_DonneSperma.mp3",
         vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4",
         mp3"rphjb_Fazzoletti.mp3",
         vid"rphjb_IlPubblicoDavanti.mp4",
@@ -3949,7 +3948,7 @@ object Mix {
         mp3"rphjb_DonneDiUnaVoltaSeniCuomoMadonna.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "fatti lecc(are|a|à)\\b".r,
+        "fatti lecc(are|a|à)(\\b|$)".r,
         "katy monique cuomo",
         "mi vergogno",
         "porno[ ]?(diva|star)".r

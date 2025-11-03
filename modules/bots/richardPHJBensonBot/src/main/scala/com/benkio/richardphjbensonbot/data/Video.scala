@@ -804,7 +804,7 @@ object Video {
       "(gioco del|il) calcio".r,
       "\\bmoggi\\b".r,
       "il coni\\b".r,
-      "\\bultr(à|as)\\b".r,
+      "(\\b|^)ultr(à|as)(\\b|4)".r,
       "direttore del coni",
       "parole grosse",
       "fare del (male|bene)".r

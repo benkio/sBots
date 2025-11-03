@@ -100,7 +100,7 @@ object Gif:
       gif"abar_AmmazziamoTuttiNoProblem.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bcerto[o]*!\\b".r.tr(6)
+      "(\\b|^)certo[o]*!(\\b|$)".r.tr(6)
     )(
       gif"abar_Certo.gif"
     ),
@@ -169,7 +169,7 @@ object Gif:
       gif"abar_Riscatto.gif"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bn[o]+!\\b".r.tr(3),
+      "(\\b|^)n[o]+!(\\b|$)".r.tr(3),
       "non (lo )?vogli(a|o)".r.tr(10)
     )(
       gif"abar_No.gif"

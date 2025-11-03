@@ -322,11 +322,6 @@ object Audio {
       mp3"rphjb_MiseroAntroGanciAgnelliPisciata.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "mio (fidanzato|partner|moroso)".r
-    )(
-      mp3"rphjb_DonneSperma.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
       "ponte sisto",
       "manco il tevere",
       "cercando di farmi del male",
@@ -382,7 +377,7 @@ object Audio {
       mp3"rphjb_BaracconeFurgoneTelevisione.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "mio (fidanzato|ragazzo|moroso)".r,
+      "mio (fidanzato|partner|ragazzo|moroso)".r,
       "capito che roba"
     )(
       mp3"rphjb_Fazzoletti.mp3"

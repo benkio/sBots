@@ -690,7 +690,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "ce l'ho fatta",
-      "\\bp(à|a')\\b".r
+      "(\\b|^)p(à|a')(\\b|$)".r
     )(
       gif"ytai_CeLhoFattaGif.mp4"
     ),
