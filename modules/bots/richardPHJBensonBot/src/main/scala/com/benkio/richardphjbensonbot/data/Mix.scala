@@ -1550,7 +1550,7 @@ object Mix {
       mp3"rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp3",
       gif"rphjb_MioGenioGif.mp4",
       vid"rphjb_MioGenio.mp4",
-      mp3"rphjb_MioGenio.mp3",
+      mp3"rphjb_MioGenio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "la lingua"
