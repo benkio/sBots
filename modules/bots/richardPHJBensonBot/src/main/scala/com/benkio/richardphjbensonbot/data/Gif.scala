@@ -166,8 +166,7 @@ object Gif {
       gif"rphjb_IlSensoCapitoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "abi[dt]ua[dt]o".r,
-      "proprioll(a|à)".r
+      "abi[dt]ua[dt]o".r
     )(
       gif"rphjb_PropriollaGif.mp4"
     ),

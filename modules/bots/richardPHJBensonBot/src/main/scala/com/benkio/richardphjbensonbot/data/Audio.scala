@@ -246,7 +246,8 @@ object Audio {
       mp3"rphjb_NonViDeludero.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "(col|con il) (cuore|cervello|anima|pisello|martello)".r.tr(9)
+      "(col|con il) (cuore|cervello|anima|pisello)".r.tr(9),
+      "con il martello"
     )(
       mp3"rphjb_ViSaluto.mp3"
     ),
@@ -415,7 +416,7 @@ object Audio {
       ),
     ReplyBundleMessage
       .textToMp3[F](
-        "\\bfregat[ao]\\b".r,
+        "fregato",
         "mani tue"
       )(
         mp3"rphjb_FregatoManiTue.mp3"
