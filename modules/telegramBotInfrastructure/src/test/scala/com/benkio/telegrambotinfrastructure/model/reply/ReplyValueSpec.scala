@@ -25,7 +25,7 @@ class ReplyValueSpec extends FunSuite {
         |}""".stripMargin,
       """{
         |  "GifFile" : {
-        |    "filepath" : "testFilePath.gif",
+        |    "filepath" : "testFilePathGif.mp4",
         |    "replyToMessage" : false
         |  }
         |}""".stripMargin,

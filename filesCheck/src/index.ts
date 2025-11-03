@@ -97,23 +97,30 @@ function match(bot: Bot): Matches[] {
     },
     {
       check: (f: string) => {
+        return path.extname(f) === '.gif';
+      },
+      logic: (f: string) => {
+        logger.error(
+          `[filesCheck] 🚫  ${path.basename(f)} Gif is not supported`
+        );
+      },
+    },
+    {
+      check: (f: string) => {
         const stats = fs.statSync(f);
         const generalFilename = new RegExp(
           `^${bot.id}_[A-Za-z0-9]+.[A-Za-z0-9]+$`
         );
         return (
           stats.isFile() &&
-          [
-            '.token',
-            '.jpg',
-            '.gif', // #807 Remove this
-          ].find((ext) => path.extname(f) === ext) === undefined &&
+          ['.token', '.jpg'].find((ext) => path.extname(f) === ext) ===
+            undefined &&
           !generalFilename.test(path.basename(f))
         );
       },
       logic: (f: string) => {
         logger.error(
-          `[filesCheck] 🚫 ${path.basename(f)} file doesn't comply to expected filename`
+          `[filesCheck] 🚫 ${path.basename(f)} file doesn't comply to expected filename or not supported`
         );
       },
     },

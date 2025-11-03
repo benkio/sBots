@@ -11,38 +11,38 @@ object Gif:
     ReplyBundleMessage.textToGif[F](
       "ha ragione"
     )(
-      gif"abar_HaRagione.gif"
+      gif"abar_HaRagioneGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "seziona",
       "cadaveri",
       "morti"
     )(
-      gif"abar_Cadaveri.gif"
+      gif"abar_CadaveriGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "strappa",
       "gli arti",
       "le braccia"
     )(
-      gif"abar_Strappare.gif"
+      gif"abar_StrappareGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "saltare la testa",
       "questa macchina"
     )(
-      gif"abar_SaltareLaTesta.gif"
+      gif"abar_SaltareLaTestaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "un po' paura"
     )(
-      gif"abar_Paura.gif"
+      gif"abar_PauraGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "sega",
       "dov'è"
     )(
-      gif"abar_Sega.gif"
+      gif"abar_SegaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "potere",
@@ -51,149 +51,149 @@ object Gif:
       "appalti",
       "spartir"
     )(
-      gif"abar_Potere.gif"
+      gif"abar_PotereGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "grandioso",
       "magnifico",
       "capolavoro"
     )(
-      gif"abar_Capolavoro.gif"
+      gif"abar_CapolavoroGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "troppo facile",
       "easy"
     )(
-      gif"abar_TroppoFacile.gif"
+      gif"abar_TroppoFacileGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "chi(s| )se( )?ne( )?frega".r.tr(13)
     )(
-      gif"abar_Chissenefrega.gif"
+      gif"abar_ChissenefregaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "buonasera"
     )(
-      gif"abar_Buonasera.gif"
+      gif"abar_BuonaseraGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       " a morte",
       "\\b(si[ ]?){3,}\\b".r.tr(6)
     )(
-      gif"abar_SisiAMorte.gif"
+      gif"abar_SisiAMorteGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "viva il popolo",
       "comunis"
     )(
-      gif"abar_VivaIlPopolo.gif"
+      gif"abar_VivaIlPopoloGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "fare qualcosa"
     )(
-      gif"abar_FareQualcosa.gif"
+      gif"abar_FareQualcosaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "(no|nessun|non c'è) problem(a)?",
       "ammazziamo tutti"
     )(
-      gif"abar_AmmazziamoTuttiNoProblem.gif"
+      gif"abar_AmmazziamoTuttiNoProblemGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "(\\b|^)certo[o]*!(\\b|$)".r.tr(6)
     )(
-      gif"abar_Certo.gif"
+      gif"abar_CertoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "rogo"
     )(
-      gif"abar_Rogo.gif"
+      gif"abar_RogoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "semplific"
     )(
-      gif"abar_Semplifico.gif"
+      gif"abar_SemplificoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "bere il (suo )?sangue".r.tr(6),
       "taglia(re)? la gola".r.tr(14)
     )(
-      gif"abar_TaglioGolaBereSangue.gif"
+      gif"abar_TaglioGolaBereSangueGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "spacco la (testa|faccia)".r.tr(15)
     )(
-      gif"abar_SpaccoLaTesta.gif"
+      gif"abar_SpaccoLaTestaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "dal (culo|sedere|fondo schiera|orifizio posteriore|dietro)".r.tr(8)
     )(
-      gif"abar_OrifizioPosteriore.gif"
+      gif"abar_OrifizioPosterioreGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "faccia tosta",
       "furfante"
     )(
-      gif"abar_Furfante.gif"
+      gif"abar_FurfanteGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "\\bbasta[a]+!".r.tr(7)
     )(
-      gif"abar_Basta.gif"
+      gif"abar_BastaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "tutti insieme",
       "ghigliottina"
     )(
-      gif"abar_GhigliottinaTuttiInsieme.gif"
+      gif"abar_GhigliottinaTuttiInsiemeGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "economisti"
     )(
-      gif"abar_Economisti.gif"
+      gif"abar_EconomistiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "vieni (un po' )?qui".r.tr(14)
     )(
-      gif"abar_VieniQui.gif"
+      gif"abar_VieniQuiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "si fa così"
     )(
-      gif"abar_SiFaCosi.gif"
+      gif"abar_SiFaCosiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "rapire",
       "riscatto"
     )(
-      gif"abar_Riscatto.gif"
+      gif"abar_RiscattoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "(\\b|^)n[o]+!(\\b|$)".r.tr(3),
       "non (lo )?vogli(a|o)".r.tr(10)
     )(
-      gif"abar_No.gif"
+      gif"abar_NoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "in un attimo",
       "in piazza"
     )(
-      gif"abar_InPiazza.gif"
+      gif"abar_InPiazzaGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "in due pezzi"
     )(
-      gif"abar_InDuePezzi.gif"
+      gif"abar_InDuePezziGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "\\bgiusto[o]+!".r.tr(8)
     )(
-      gif"abar_Giusto.gif"
+      gif"abar_GiustoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "gli altri (che )?sono".r
     )(
-      gif"abar_GliAltri.gif"
+      gif"abar_GliAltriGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "👐",

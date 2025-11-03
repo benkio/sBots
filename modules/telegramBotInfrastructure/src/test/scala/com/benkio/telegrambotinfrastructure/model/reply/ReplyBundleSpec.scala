@@ -43,7 +43,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
     Mp3File("audio.mp3"),
     PhotoFile("picture.jpg"),
     PhotoFile("picture.png"),
-    GifFile("a.gif"),
+    GifFile("aGif.mp4"),
     VideoFile("video.mp4"),
     Document("document.pdf")
   )
@@ -64,7 +64,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
         |audio.mp3                 | stringTextTriggerValue
         |picture.jpg               | regexTextTriggerValue
         |picture.png               | 
-        |a.gif                     | 
+        |aGif.mp4                  | 
         |video.mp4                 | 
         |document.pdf              | 
         |--------------------------------------------------
@@ -117,7 +117,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
         |      "mediaFiles" : [
         |        {
         |          "GifFile" : {
-        |            "filepath" : "ytai_NoPainNoGain.mp4",
+        |            "filepath" : "ytai_NoPainNoGainGif.mp4",
         |            "replyToMessage" : false
         |          }
         |        }

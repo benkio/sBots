@@ -11,9 +11,9 @@ class ReplySpec extends FunSuite {
     val _ = Mp3File("test.mp3") // This shouldn't throw an exception
     intercept[IllegalArgumentException] { Mp3File("test.gif") }
   }
-  test("GifFile case class should accept only .gif extension when filename created") {
-    val _ = GifFile("test.gif")
-    intercept[IllegalArgumentException] { GifFile("test.mp3") }
+  test("GifFile case class should not accept .gif extension when filename created") {
+    val _ = GifFile("testGif.mp4")
+    intercept[IllegalArgumentException] { GifFile("test.gif") }
   }
   test("PhotoFile case class should accept only .jpg and .png extension when filenames create") {
     val _ = PhotoFile("test.jpg")
@@ -32,7 +32,7 @@ class ReplySpec extends FunSuite {
     assertEquals(mp3"audio.mp3", mp3"audio.mp3")
     assertEquals(pho"picture.jpg", pho"picture.jpg")
     assertEquals(pho"picture.png", pho"picture.png")
-    assertEquals(gif"gif.gif", gif"gif.gif")
+    assertEquals(gif"gif.mp4", gif"gif.mp4")
     assertEquals(vid"video.mp4", vid"video.mp4")
   }
 
@@ -40,7 +40,7 @@ class ReplySpec extends FunSuite {
     assertEquals(MediaFile.showInstance.show(mp3"audio.mp3"), "audio.mp3")
     assertEquals(MediaFile.showInstance.show(pho"picture.jpg"), "picture.jpg")
     assertEquals(MediaFile.showInstance.show(pho"picture.png"), "picture.png")
-    assertEquals(MediaFile.showInstance.show(gif"gif.gif"), "gif.gif")
+    assertEquals(MediaFile.showInstance.show(gif"gif.mp4"), "gif.mp4")
     assertEquals(MediaFile.showInstance.show(vid"video.mp4"), "video.mp4")
   }
 

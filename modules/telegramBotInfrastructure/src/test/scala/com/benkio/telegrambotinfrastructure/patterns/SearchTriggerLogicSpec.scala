@@ -127,13 +127,13 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         ReplyBundleMessage.textToMedia[IO](
           "spranga"
         )(
-          gif"abar_Spranga.gif",
+          gif"abar_SprangaGif.mp4",
           vid"abar_ParoleLongobarde.mp4"
         )
       ),
       "ti tiro una sprangata"
     ) -> """--------------------------------------------------
-           |abar_Spranga.gif          | spranga
+           |abar_SprangaGif.mp4       | spranga
            |abar_ParoleLongobarde.mp4 | 
            |--------------------------------------------------
            |""".stripMargin
