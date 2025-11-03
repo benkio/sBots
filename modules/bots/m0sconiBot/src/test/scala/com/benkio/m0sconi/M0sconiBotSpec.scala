@@ -78,8 +78,7 @@ class M0sconiBotSpec extends BaseBotSpec {
         yield prettyPrints
       )
 
-  exactStringTriggerReturnExpectedReplyBundle(M0sconiBot.messageRepliesData[IO])
-  exactRegexTriggerReturnExpectedReplyBundle(M0sconiBot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(M0sconiBot.messageRepliesData[IO])
   regexTriggerLengthReturnValue(M0sconiBot.messageRepliesData[IO])
 
   triggerlistCommandTest(

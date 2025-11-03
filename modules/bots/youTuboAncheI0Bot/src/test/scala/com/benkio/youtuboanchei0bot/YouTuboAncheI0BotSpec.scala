@@ -76,8 +76,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
         yield prettyPrints
       )
 
-  exactStringTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData[IO])
-  exactRegexTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData[IO])
   regexTriggerLengthReturnValue(YouTuboAncheI0Bot.messageRepliesData[IO])
 
   triggerlistCommandTest(

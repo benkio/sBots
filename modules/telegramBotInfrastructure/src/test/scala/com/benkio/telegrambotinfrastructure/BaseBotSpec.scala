@@ -4,12 +4,11 @@ import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.isRegexTriggerValue
-import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.reply.*
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.parser.decode
 import munit.*
@@ -150,75 +149,63 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
       }
     }
 
-  def exactStringTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+  def exactTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
     replyBundleMessages
       .flatMap(replyBundle =>
         replyBundle.trigger match {
           case TextTrigger(triggerValues*) if replyBundle.matcher == MessageMatches.ContainsOnce =>
-            triggerValues.filter(_.isStringTriggerValue).map(stringTrigger => (stringTrigger, replyBundle))
-          case _ => Nil
-        }
-      )
-      .foreach { case (stringTrigger, replyBundle) =>
-        test(s"""🔎 Only one reply bundle replies to: "${stringTrigger.show}"""") {
-          val exactStringMessage = Message(
-            messageId = 0,
-            date = 0,
-            chat = Chat(id = 0, `type` = "test"),
-            text = Some(stringTrigger.show)
-          )
-          replyBundleMessages
-            .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
-            .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-            .headOption
-            .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
-              assert(
-                tr == TextTrigger(stringTrigger),
-                s"$tr($tr.length) ≠ ${TextTrigger(stringTrigger)}(${stringTrigger.length})"
-              )
-              assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
-            }
-        }
-      }
-
-  def exactRegexTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
-    replyBundleMessages
-      .flatMap(replyBundle =>
-        replyBundle.trigger match {
-          case TextTrigger(triggerValues*) if replyBundle.matcher == MessageMatches.ContainsOnce =>
-            triggerValues.filter(_.isRegexTriggerValue).map(regexTrigger => (regexTrigger, replyBundle))
+            triggerValues.map(stringTrigger => (stringTrigger, replyBundle))
           case _ => Nil
         }
       )
       .foreach {
+        case (stringTrigger: StringTextTriggerValue, replyBundle) =>
+          test(s"""🔎 Only one reply bundle replies to: "${stringTrigger.show}"""") {
+            val exactStringMessage = Message(
+              messageId = 0,
+              date = 0,
+              chat = Chat(id = 0, `type` = "test"),
+              text = Some(stringTrigger.show)
+            )
+            replyBundleMessages
+              .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+              .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+              .headOption
+              .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
+                assert(
+                  tr == TextTrigger(stringTrigger),
+                  s"$tr($tr.length) ≠ ${TextTrigger(stringTrigger)}(${stringTrigger.length})"
+                )
+                assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
+              }
+          }
         case (regexTrigger: RegexTextTriggerValue, replyBundle) =>
           property(s"""🔎 Only one reply bundle replies to: "${regexTrigger.trigger.toString}"""") {
-          forAll(RegexpGen.from(regexTrigger.trigger.toString)) {
-            case (regexMatchString: String) if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
-              val exactStringMessage = Message(
-                messageId = 0,
-                date = 0,
-                chat = Chat(id = 0, `type` = "test"),
-                text = Some(regexMatchString)
-              )
-              replyBundleMessages
-                .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
-                .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-                .headOption
-                .fold(
-                  fail(
-                    s"expected a match for regex ${regexTrigger.trigger.toString}, but None found. Input: $regexMatchString"
-                  )
-                ) { case (tr, rbm) =>
-                  assert(
-                    tr == TextTrigger(regexTrigger),
-                    s"$tr($tr.length) ≠ ${TextTrigger(regexTrigger)}(${regexTrigger.length})"
-                  )
-                  assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
-                }
+            forAll(RegexpGen.from(regexTrigger.trigger.toString)) {
+              case (regexMatchString: String) if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
+                val exactStringMessage = Message(
+                  messageId = 0,
+                  date = 0,
+                  chat = Chat(id = 0, `type` = "test"),
+                  text = Some(regexMatchString)
+                )
+                replyBundleMessages
+                  .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+                  .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+                  .headOption
+                  .fold(
+                    fail(
+                      s"expected a match for regex ${regexTrigger.trigger.toString}, but None found. Input: $regexMatchString"
+                    )
+                  ) { case (tr, rbm) =>
+                    assert(
+                      tr == TextTrigger(regexTrigger),
+                      s"$tr($tr.length) ≠ ${TextTrigger(regexTrigger)}(${regexTrigger.length})"
+                    )
+                    assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
+                  }
+            }
           }
-        }
-        case x => fail(s"[BaseBotSpec] 🚫 Expected RegexTrigger, got $x")
       }
 
   def regexTriggerLengthReturnValue(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =

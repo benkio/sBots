@@ -85,8 +85,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
       yield prettyPrints
     )
 
-  exactStringTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData[IO])
-  exactRegexTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData[IO])
   regexTriggerLengthReturnValue(RichardPHJBensonBot.messageRepliesData[IO])
 
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {

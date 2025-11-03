@@ -74,8 +74,7 @@ class XahLeeBotSpec extends BaseBotSpec {
         yield prettyPrints
       )
 
-  exactStringTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData[IO])
-  exactRegexTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData[IO])
   regexTriggerLengthReturnValue(XahLeeBot.messageRepliesData[IO])
 
   jsonContainsFilenames(

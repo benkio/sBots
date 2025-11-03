@@ -74,8 +74,7 @@ class ABarberoBotSpec extends BaseBotSpec {
 
   val commandRepliesData = aBarberoBot.flatMap(_.allCommandRepliesDataF)
 
-  exactStringTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData[IO])
-  exactRegexTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData[IO])
   regexTriggerLengthReturnValue(ABarberoBot.messageRepliesData[IO])
 
   triggerlistCommandTest(
