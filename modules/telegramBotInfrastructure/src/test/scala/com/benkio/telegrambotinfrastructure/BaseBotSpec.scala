@@ -90,13 +90,56 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
       }
     }
 
-  def inputFileShouldRespondAsExpected(file: File): Unit = ??? // TODO: implement
+  def inputFileShouldRespondAsExpected(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+    test("The inputs in the `inputTest.txt` file returns the expected values".only) {
+      val inputTextTxt: String = new File("./src/test/resources/inputTest.txt").getCanonicalPath
+      val inputTextTxtContent: List[(String, List[String])] = Source
+        .fromFile(inputTextTxt)
+        .getLines()
+        .map(inputLine =>
+          val splitValue = inputLine.split(" -> ")
+          assertEquals(
+            splitValue.length,
+            2,
+            "[BaseBotSpec] inputText content does not conform to expected structure: input -> filenames comma separated. $inputLine"
+          )
+          splitValue(0) -> splitValue(1).split(",").map(_.trim).toList
+        )
+        .toList
+      val matchingFilenames: IO[List[List[MediaFile]]] = inputTextTxtContent.traverse { case (input, _) =>
+        val exactStringMessage = Message(
+          messageId = 0,
+          date = 0,
+          chat = Chat(id = 0, `type` = "test"),
+          text = Some(input)
+        )
+        replyBundleMessages
+          .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+          .headOption
+          .fold(fail(s"[BaseBotSpec] Expected a match for string ${input}, but None found"))(_._2.reply match {
+            case mf: MediaReply[IO] =>
+              mf.mediaFiles
+            case x => fail(s"[BaseBotSpec] Expected MediaReply, got $x")
+          })
+      }
+      matchingFilenames.map { mediaFiless =>
+        mediaFiless.zip(inputTextTxtContent).foreach {
+          case (mediaFiles, (_, expectedFilenames)) =>
+            expectedFilenames.foreach { expectedFilename =>
+              assert(
+                mediaFiles.exists(_.filename == expectedFilename),
+                s"[BaseBotSpec] $expectedFilename is not contained in $mediaFiles"
+              )
+            }
+        }
+      }
+    }
 
   def instructionsCommandTest(
       commandRepliesData: IO[List[ReplyBundleCommand[IO]]],
       italianInstructions: String,
       englishInstructions: String
-  ): Unit =
+  ): Unit = {
     def instructionMessage(value: String): Message = Message(
       messageId = 0,
       date = 0,
@@ -131,7 +174,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           List.fill(itaInstructionCommandResult.length)(italianInstructions)
         )
     }
-  end instructionsCommandTest
+  }
 
   def triggerlistCommandTest(
       commandRepliesData: IO[List[ReplyBundleCommand[IO]]],
@@ -193,7 +236,6 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
                 )
                 replyBundleMessages
                   .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
-                  .sortBy(_._1)(using Trigger.orderingInstance.reverse)
                   .headOption
                   .fold(
                     fail(

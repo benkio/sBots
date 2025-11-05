@@ -76,7 +76,7 @@ class ABarberoBotSpec extends BaseBotSpec {
 
   exactTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData[IO])
   regexTriggerLengthReturnValue(ABarberoBot.messageRepliesData[IO])
-  inputFileShouldRespondAsExpected()
+  inputFileShouldRespondAsExpected(ABarberoBot.messageRepliesData[IO])
 
   triggerlistCommandTest(
     commandRepliesData = aBarberoBot.flatMap(_.allCommandRepliesDataF),
