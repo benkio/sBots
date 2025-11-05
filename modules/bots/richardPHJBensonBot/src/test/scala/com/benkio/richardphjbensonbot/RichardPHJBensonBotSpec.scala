@@ -87,7 +87,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData[IO])
   regexTriggerLengthReturnValue(RichardPHJBensonBot.messageRepliesData[IO])
-
+  inputFileShouldRespondAsExpected()
+  
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {
     val result =
       messageRepliesSpecialData[IO]

@@ -90,6 +90,8 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
       }
     }
 
+  def inputFileShouldRespondAsExpected(file: File): Unit = ??? // TODO: implement
+
   def instructionsCommandTest(
       commandRepliesData: IO[List[ReplyBundleCommand[IO]]],
       italianInstructions: String,

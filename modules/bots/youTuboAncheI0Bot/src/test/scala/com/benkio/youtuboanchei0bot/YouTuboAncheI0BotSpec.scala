@@ -78,7 +78,8 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
   exactTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData[IO])
   regexTriggerLengthReturnValue(YouTuboAncheI0Bot.messageRepliesData[IO])
-
+  inputFileShouldRespondAsExpected()
+  
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,
     expectedReply =
