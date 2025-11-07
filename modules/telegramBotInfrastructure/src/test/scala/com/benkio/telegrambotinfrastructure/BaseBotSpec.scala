@@ -101,9 +101,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           assertEquals(
             splitValue.length,
             2,
-            "[BaseBotSpec] inputText content does not conform to expected structure: input -> filenames comma separated. $inputLine"
+            s"[BaseBotSpec] inputText content does not conform to expected structure: input -> filenames comma separated. $inputLine"
           )
-          splitValue(0) -> splitValue(1).split(",").map(_.trim).toList
+          splitValue(0).toLowerCase -> splitValue(1).split(",").map(_.trim).toList
         )
         .toList
       val matchingFilenames: IO[List[List[MediaFile]]] = inputTextTxtContent.traverse { case (input, _) =>
@@ -123,14 +123,13 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           })
       }
       matchingFilenames.map { mediaFiless =>
-        mediaFiless.zip(inputTextTxtContent).foreach {
-          case (mediaFiles, (_, expectedFilenames)) =>
-            expectedFilenames.foreach { expectedFilename =>
-              assert(
-                mediaFiles.exists(_.filename == expectedFilename),
-                s"[BaseBotSpec] $expectedFilename is not contained in $mediaFiles"
-              )
-            }
+        mediaFiless.zip(inputTextTxtContent).foreach { case (mediaFiles, (_, expectedFilenames)) =>
+          expectedFilenames.foreach { expectedFilename =>
+            assert(
+              mediaFiles.exists(_.filename == expectedFilename),
+              s"[BaseBotSpec] $expectedFilename is not contained in $mediaFiles"
+            )
+          }
         }
       }
     }

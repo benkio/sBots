@@ -4987,8 +4987,11 @@ object Mix {
       ReplyBundleMessage.textToMedia[F](
         "platinette",
         "due persone in una",
-        "quando scopo me la levo",
-        "m[ei] levo tutto".r
+        "[qg]uando s[cg]o[pb]o me la levo".r.tr(23),
+        "m[ei] levo tutto".r,
+        "sbagliato ottica",
+        "quanto m[ie] eccita".r,
+        "godono molto di pi[ùu]".r
       )(
         vid"rphjb_Platinette.mp4",
         mp3"rphjb_Platinette.mp3"
@@ -5891,8 +5894,8 @@ object Mix {
         ),
       ReplyBundleMessage
         .textToMedia[F](
-          "\\b(dieci|10)\\b".r,
-          "\\b(nove|9)\\b".r,
+          "\\b(dieci|10)\\b".r.tr(2),
+          "\\b(nove|9)\\b".r.tr(1),
           "conto alla rovescia"
         )(
           gif"rphjb_ContoAllaRovesciaGif.mp4",

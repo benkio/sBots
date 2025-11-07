@@ -303,7 +303,7 @@ object Audio {
       "(9|nove) mesi".r,
       "voler (uscire|rientrare)".r,
       "una vita intera",
-      "ci avevo messo"
+      "(ci |c')avevo messo".r
     )(
       mp3"rphjb_9MesiUscireRientrare.mp3"
     ),

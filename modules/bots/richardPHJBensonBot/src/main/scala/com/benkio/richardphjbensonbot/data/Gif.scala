@@ -93,8 +93,8 @@ object Gif {
       gif"rphjb_ScherzoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      " e levati((...|..|.| )dai coglioni)?".r.tr(9),
-      "fuori(...|..|.| )dai coglioni".r.tr(18)
+      "(\\b|^)e levati((\\.\\.\\.|\\.\\.|\\.| )dai coglioni)?".r.tr(8),
+      "fuori(\\.\\.\\.|\\.\\.|\\.| )dai coglioni".r.tr(18)
     )(
       gif"rphjb_LevatiDaiCoglioniGif.mp4"
     ),

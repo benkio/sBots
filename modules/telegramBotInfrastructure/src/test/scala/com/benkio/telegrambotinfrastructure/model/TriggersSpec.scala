@@ -18,14 +18,12 @@ class TriggersSpec extends CatsEffectSuite {
   test("matchValue should return true when source has a match of RegexpTextTriggerValue") {
     assert(TextTriggerValue.matchValue(RegexTextTriggerValue("m[ae]tch".r), "this is a test with a match"))
   }
-
   test("matchValue should return false when source doesn't contains StringTextTriggerValue") {
     assert(!TextTriggerValue.matchValue(StringTextTriggerValue("no match"), "source without match it"))
   }
   test("matchValue should return false when source has not a match of RegexpTextTriggerValue") {
     assert(!TextTriggerValue.matchValue(RegexTextTriggerValue("m[io]tch".r), "this is a test without a match"))
   }
-
   test("ShowInstance of TextTriggerValue should return the expected string") {
     val expectedStringValue             = "test trigger"
     val expectedRegexValue              = "test [rR]egex(p)?".r
@@ -36,7 +34,6 @@ class TriggersSpec extends CatsEffectSuite {
     assertEquals(regexTrigger.show, expectedRegexValue.toString)
 
   }
-
   test("RegexTextTriggerValue.length should be the one expected if specified with `.tr(#)`") {
     val input: List[(RegexTextTriggerValue, Int)] = List(
       "infern[a]+l[e]+[!]*".r.tr(9) -> 9,
@@ -50,7 +47,6 @@ class TriggersSpec extends CatsEffectSuite {
       assertEquals(regexTextTriggerValue.length.value, expected)
     }
   }
-
   test("RegexTextTriggerValue.length should return the expected regex length") {
     val inputExpected: List[(RegexTextTriggerValue, Int)] = List(
       RegexTextTriggerValue("(posto|carico) i video".r)               -> 13,
@@ -80,7 +76,6 @@ class TriggersSpec extends CatsEffectSuite {
       )
     }
   }
-
   test("ShowInstance of Trigger should return the expected string") {
     val textTrigger: Trigger = TextTrigger(
       StringTextTriggerValue("textTriggerValue"),
@@ -98,7 +93,6 @@ class TriggersSpec extends CatsEffectSuite {
     assertEquals(commandTrigger.show, "/testcommand")
 
   }
-
   test("triggerLongestString should return the expected longest trigger") {
     val messageLengthTrigger: Trigger   = MessageLengthTrigger(42)
     val newMemberTrigger: Trigger       = NewMemberTrigger
