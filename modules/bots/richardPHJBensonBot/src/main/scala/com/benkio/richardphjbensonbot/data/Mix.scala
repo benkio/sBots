@@ -6232,7 +6232,7 @@ object Mix {
         vid"rphjb_GaioInGiallo.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "mi sento un (pezzo di merda|l'ultimo)".r
+        "mi sento (un pezzo di merda|l'ultimo)".r
       )(
         vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4",
         gif"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiuGif.mp4",
