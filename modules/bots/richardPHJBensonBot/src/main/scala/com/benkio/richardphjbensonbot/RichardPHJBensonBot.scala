@@ -6,7 +6,6 @@ import cats.Applicative
 import cats.Parallel
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
@@ -105,11 +104,9 @@ object RichardPHJBensonBot {
   val configNamespace: String = "rphjb"
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
-    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
+    messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
       F
-    ] ++ messageRepliesSpecialData[F])
-      .sorted(using ReplyBundle.orderingInstance[F])
-      .reverse
+    ] ++ messageRepliesSpecialData[F]
 
   val bensonifyCommandDescriptionIta: String =
     "'/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio"

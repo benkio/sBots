@@ -6,7 +6,6 @@ import cats.implicits.*
 import com.benkio.m0sconibot.data.Audio
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotId
@@ -100,8 +99,6 @@ object M0sconiBot {
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] =
     messageRepliesAudioData[F]
-      .sorted(using ReplyBundle.orderingInstance[F])
-      .reverse
 
   def commandRepliesData[
       F[_]: Async

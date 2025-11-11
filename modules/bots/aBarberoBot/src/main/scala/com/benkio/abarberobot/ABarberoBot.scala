@@ -9,7 +9,6 @@ import com.benkio.abarberobot.data.Mix
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.vid
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotId
@@ -117,11 +116,9 @@ object ABarberoBot {
     Mix.messageRepliesMixData[F]
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
-    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
+    messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
       F
-    ])
-      .sorted(using ReplyBundle.orderingInstance[F])
-      .reverse
+    ]
 
   def commandRepliesData[F[_]: Async](
       backgroundJobManager: BackgroundJobManager[F],

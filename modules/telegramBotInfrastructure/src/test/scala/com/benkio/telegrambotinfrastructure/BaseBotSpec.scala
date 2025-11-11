@@ -115,6 +115,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
         )
         replyBundleMessages
           .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+          .sortBy(_._1)(using Trigger.orderingInstance.reverse)
           .headOption
           .fold(fail(s"[BaseBotSpec] Expected a match for string ${input}, but None found"))(_._2.reply match {
             case mf: MediaReply[IO] =>
@@ -235,6 +236,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
                 )
                 replyBundleMessages
                   .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+                  .sortBy(_._1)(using Trigger.orderingInstance.reverse)
                   .headOption
                   .fold(
                     fail(
