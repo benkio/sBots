@@ -91,7 +91,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
     }
 
   def inputFileShouldRespondAsExpected(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
-    test("The inputs in the `inputTest.txt` file returns the expected values".only) {
+    test("The inputs in the `inputTest.txt` file returns the expected values") {
       val inputTextTxt: String = new File("./src/test/resources/inputTest.txt").getCanonicalPath
       val inputTextTxtContent: List[(String, List[String])] = Source
         .fromFile(inputTextTxt)
