@@ -115,7 +115,6 @@ object Gif:
       gif"abar_SemplificoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "bere il (suo )?sangue".r.tr(6),
       "taglia(re)? la gola".r.tr(14)
     )(
       gif"abar_TaglioGolaBereSangueGif.mp4"

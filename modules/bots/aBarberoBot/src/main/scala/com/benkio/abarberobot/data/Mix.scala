@@ -193,6 +193,12 @@ object Mix:
       gif"abar_ScorrerieSaccheggiGif.mp4",
       vid"abar_ScorrerieSaccheggi.mp4",
       mp3"abar_ScorrerieSaccheggi.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "sangue"
+    )(
+      gif"abar_TaglioGolaBereSangueGif.mp4",
+      mp3"abar_Sangue.mp3"
     )
   )
 end Mix

@@ -264,7 +264,7 @@ object Audio:
       mp3"mos_CoppaDelleCoppeSampdoriaDioPorco.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "orco dio"
+      "(\\b|^)orco dio(\\b|^)".r.tr(8)
     )(
       mp3"mos_CortiOrcoDio.mp3",
       mp3"mos_Formula1DonningtonPrimaSessioneVaffanculo.mp3",
@@ -384,7 +384,7 @@ object Audio:
       mp3"mos_JuventusAustriaViennaPorcoDio.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "porco[ ]?[d]+[i]+o".r.tr(8)
+      "(\\b|^)porco[ ]?[d]+[i]+o".r.tr(8)
     )(
       mp3"mos_MaPorcoDio.mp3",
       mp3"mos_JuventusAustriaViennaPorcoDio.mp3",
