@@ -26,7 +26,7 @@ object Dependencies {
     val logbackLogstash     = "9.0"
     val mules               = "0.7.0"
     val mulesHttp4s         = "0.4.0"
-    val munit               = "1.2.1"
+    val munit               = "1.2.0"
     val munitCatsEffect     = "2.1.0"
     val pureConfig          = "0.17.9"
     val scalacheck          = "1.19.0"
@@ -79,6 +79,7 @@ object Dependencies {
     val mulesHttp4s         = "io.chrisdavenport"     %% "mules-http4s"             % versions.mulesHttp4s
     val munit               = "org.scalameta"         %% "munit"                    % versions.munit           % "test"
     val munitCatsEffect     = "org.typelevel"         %% "munit-cats-effect"        % versions.munitCatsEffect % "test"
+    val munitScalacheck     = "org.scalameta"         %% "munit-scalacheck"         % versions.munit           % "test"
     val pureConfig          = "com.github.pureconfig" %% "pureconfig"               % versions.pureConfig
     val pureConfigCore      = "com.github.pureconfig" %% "pureconfig-core"          % versions.pureConfig
     val scalacheck          = "org.scalacheck"        %% "scalacheck"               % versions.scalacheck
@@ -132,6 +133,7 @@ object Dependencies {
       libs.http4sEmberServer % "test",
       libs.mules,
       libs.mulesHttp4s,
+      libs.munitScalacheck,
       libs.pureConfigCore,
       libs.scalacheck,
       libs.scalacheckGenRegexp,

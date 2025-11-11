@@ -93,8 +93,8 @@ object Gif {
       gif"rphjb_ScherzoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      " e levati((...|..|.| )dai coglioni)?".r.tr(9),
-      "fuori(...|..|.| )dai coglioni".r.tr(18)
+      "(\\b|^)e levati((\\.\\.\\.|\\.\\.|\\.| )dai coglioni)?".r.tr(8),
+      "fuori(\\.\\.\\.|\\.\\.|\\.| )dai coglioni".r.tr(18)
     )(
       gif"rphjb_LevatiDaiCoglioniGif.mp4"
     ),
@@ -166,8 +166,7 @@ object Gif {
       gif"rphjb_IlSensoCapitoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "abi[dt]ua[dt]o".r,
-      "proprioll(a|à)".r
+      "abi[dt]ua[dt]o".r
     )(
       gif"rphjb_PropriollaGif.mp4"
     ),

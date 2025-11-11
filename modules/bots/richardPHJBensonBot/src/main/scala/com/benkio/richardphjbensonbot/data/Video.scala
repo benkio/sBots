@@ -74,7 +74,6 @@ object Video {
       vid"rphjb_PetrucciCapelliCorti.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "fregat(a|ura)".r,
       "canaro",
       "magliana"
     )(
@@ -584,7 +583,7 @@ object Video {
       "sotto codici",
       "non si possono risalire",
       "governo (svizzero|germanico|tedesco)".r.tr(15),
-      "affar(i|isti)".r
+      "affaristi"
     )(
       vid"rphjb_InvestitoreGoverno.mp4"
     ),
@@ -781,7 +780,7 @@ object Video {
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "l'uomo(,|...)? la donna".r
+      "l'uomo(,|\\.\\.\\.)? la donna".r
     )(
       vid"rphjb_BicchiereSputoLimitazioniUomoDonna.mp4",
       vid"rphjb_QuestaNoMisticaIbridaContortaDolceFunzioniUomoDonna.mp4"
@@ -804,7 +803,7 @@ object Video {
       "(gioco del|il) calcio".r,
       "\\bmoggi\\b".r,
       "il coni\\b".r,
-      "\\bultr(à|as)\\b".r,
+      "(\\b|^)ultr(à|as)(\\b|$)".r,
       "direttore del coni",
       "parole grosse",
       "fare del (male|bene)".r
@@ -817,7 +816,7 @@ object Video {
       vid"rphjb_PerfettoIncompetente.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "sono (proprio )?un coglione".r
+      "sono (proprio )?un co(gl|j)ione".r.tr(15)
     )(vid"rphjb_SonoCoglione.mp4"),
     ReplyBundleMessage.textToVideo[F](
       "sta[va]? male".r,
@@ -1011,14 +1010,19 @@ object Video {
       vid"rphjb_DifficileGuardareTuboCatodicoNienteCiSepara.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "eccoci qu[aà]".r,
-      "io sto l[aà]\\b".r,
+      "io sto l[aà](\\b|$)".r,
       "dove (ca[z]+[o]?)?sto".r,
       "sto d[ie] (qu[aà]|l[aà])".r,
-      "sto l[iì]\\b".r,
+      "sto l[iì](\\b|$)".r,
       "luce[tta]? rossa".r
     )(
       vid"rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "eccoci qu[aà]".r
+    )(
+      vid"rphjb_EccociQuaStoLaDoCazzoStoDiQuaDiLaLiDavantiConTeLucettaRossa.mp4",
+      vid"rphjb_WelaHeyHeyHeyDiNuovoInsieme.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "supermercato",
@@ -1087,8 +1091,7 @@ object Video {
       vid"rphjb_FiguraDiMerdaQuestaVoltaNo.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "la mia faccia",
-      "figuracc(e|ia)".r
+      "la mia faccia"
     )(
       vid"rphjb_FiguracceDiscoSteveVai.mp4"
     ),
@@ -1209,7 +1212,6 @@ object Video {
       vid"rphjb_ViaggioMenteUmana.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "eccoci qua",
       "di nuovo insieme",
       "hey hey"
     )(
@@ -1263,8 +1265,7 @@ object Video {
       "che stronzo",
       "male di mente",
       "interviste",
-      "non (ci|cene) siamo (mai )?accorti".r.tr(20),
-      "fuori di testa"
+      "non (ci|cene) siamo (mai )?accorti".r.tr(20)
     )(
       vid"rphjb_LoSapevoIoMaleDiMenteTimoTolki.mp4"
     ),
@@ -1441,8 +1442,7 @@ object Video {
       "pelato",
       "mike portnoy",
       "capelli colorati",
-      "john myung",
-      "\\blook\\b".r
+      "john myung"
     )(
       vid"rphjb_FotoLookDreamTheater.mp4"
     ),
@@ -1464,8 +1464,7 @@ object Video {
       "gruppi (nuovi|che spaccano il culo)".r,
       "intramezzate",
       "ibride",
-      "stacchi all'unisono",
-      "tempi (composti|dispari|pari)".r
+      "stacchi all'unisono"
     )(
       vid"rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4"
     ),
@@ -1943,7 +1942,7 @@ object Video {
       vid"rphjb_SeguireTuttiListaPersone.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "(storia di )?romeo".r,
+      "\\bromeo\\b".r,
       "(settanta |settant'|70 )anni",
       "actor studio",
       "new york",

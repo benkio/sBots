@@ -102,11 +102,6 @@ object Gif:
       gif"ytai_FaiPureGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "fallo anche (tu|te)".r
-    )(
-      gif"ytai_FalloAncheTuGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "filet[ -]?o[ -]?fish".r
     )(
       gif"ytai_FiletOFishGif.mp4",
@@ -695,7 +690,7 @@ object Gif:
     ),
     ReplyBundleMessage.textToGif[F](
       "ce l'ho fatta",
-      "\\bp(à|a')\\b".r
+      "(\\b|^)p(à|a')(\\b|$)".r
     )(
       gif"ytai_CeLhoFattaGif.mp4"
     ),
@@ -773,11 +768,6 @@ object Gif:
       gif"ytai_HoRisoltoConTuttiGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "sentendo in compagnia"
-    )(
-      gif"ytai_MiStoSentendoInCompagniaGif.mp4"
-    ),
-    ReplyBundleMessage.textToGif[F](
       "vengono le parole",
       "intendi dire"
     )(
@@ -815,7 +805,8 @@ object Gif:
       "fallo anche (te|tu)".r,
       "\\bcome me\\b".r
     )(
-      gif"ytai_FalloAncheTeComeMeGif.mp4"
+      gif"ytai_FalloAncheTeComeMeGif.mp4",
+      gif"ytai_FalloAncheTuGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
       "cercando di fare",

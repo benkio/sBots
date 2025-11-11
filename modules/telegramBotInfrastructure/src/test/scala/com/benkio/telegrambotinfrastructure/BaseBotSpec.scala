@@ -3,23 +3,26 @@ package com.benkio.telegrambotinfrastructure
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.isStringTriggerValue
+import com.benkio.telegrambotinfrastructure.model.isRegexTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.reply.*
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.parser.decode
 import munit.*
 import munit.CatsEffectSuite
+import munit.ScalaCheckSuite
+import org.scalacheck.Prop.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
+import wolfendale.scalacheck.regexp.RegexpGen
 
 import java.io.File
 import scala.io.Source
 
-trait BaseBotSpec extends CatsEffectSuite {
+trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
   private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")
@@ -87,11 +90,56 @@ trait BaseBotSpec extends CatsEffectSuite {
       }
     }
 
+  def inputFileShouldRespondAsExpected(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+    test("The inputs in the `inputTest.txt` file returns the expected values") {
+      val inputTextTxt: String = new File("./src/test/resources/inputTest.txt").getCanonicalPath
+      val inputTextTxtContent: List[(String, List[String])] = Source
+        .fromFile(inputTextTxt)
+        .getLines()
+        .map(inputLine =>
+          val splitValue = inputLine.split(" -> ")
+          assertEquals(
+            splitValue.length,
+            2,
+            s"[BaseBotSpec] inputText content does not conform to expected structure: input -> filenames comma separated. $inputLine"
+          )
+          splitValue(0).toLowerCase -> splitValue(1).split(",").map(_.trim).toList
+        )
+        .toList
+      val matchingFilenames: IO[List[List[MediaFile]]] = inputTextTxtContent.traverse { case (input, _) =>
+        val exactStringMessage = Message(
+          messageId = 0,
+          date = 0,
+          chat = Chat(id = 0, `type` = "test"),
+          text = Some(input)
+        )
+        replyBundleMessages
+          .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+          .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+          .headOption
+          .fold(fail(s"[BaseBotSpec] Expected a match for string ${input}, but None found"))(_._2.reply match {
+            case mf: MediaReply[IO] =>
+              mf.mediaFiles
+            case x => fail(s"[BaseBotSpec] Expected MediaReply, got $x")
+          })
+      }
+      matchingFilenames.map { mediaFiless =>
+        mediaFiless.zip(inputTextTxtContent).foreach { case (mediaFiles, (_, expectedFilenames)) =>
+          expectedFilenames.foreach { expectedFilename =>
+            assert(
+              mediaFiles.exists(_.filename == expectedFilename),
+              s"[BaseBotSpec] $expectedFilename is not contained in $mediaFiles"
+            )
+          }
+        }
+      }
+    }
+
   def instructionsCommandTest(
       commandRepliesData: IO[List[ReplyBundleCommand[IO]]],
       italianInstructions: String,
       englishInstructions: String
-  ): Unit =
+  ): Unit = {
     def instructionMessage(value: String): Message = Message(
       messageId = 0,
       date = 0,
@@ -126,7 +174,7 @@ trait BaseBotSpec extends CatsEffectSuite {
           List.fill(itaInstructionCommandResult.length)(italianInstructions)
         )
     }
-  end instructionsCommandTest
+  }
 
   def triggerlistCommandTest(
       commandRepliesData: IO[List[ReplyBundleCommand[IO]]],
@@ -151,30 +199,58 @@ trait BaseBotSpec extends CatsEffectSuite {
       .flatMap(replyBundle =>
         replyBundle.trigger match {
           case TextTrigger(triggerValues*) if replyBundle.matcher == MessageMatches.ContainsOnce =>
-            triggerValues.filter(_.isStringTriggerValue).map(stringTrigger => (stringTrigger, replyBundle))
+            triggerValues.map(stringTrigger => (stringTrigger, replyBundle))
           case _ => Nil
         }
       )
-      .foreach { case (stringTrigger, replyBundle) =>
-        test(s"""🔎 Only one reply bundle replies to: "${stringTrigger.show}"""") {
-          val exactStringMessage = Message(
-            messageId = 0,
-            date = 0,
-            chat = Chat(id = 0, `type` = "test"),
-            text = Some(stringTrigger.show)
-          )
-          replyBundleMessages
-            .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
-            .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-            .headOption
-            .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
-              assert(
-                tr == TextTrigger(stringTrigger),
-                s"$tr($tr.length) ≠ ${TextTrigger(stringTrigger)}(${stringTrigger.length})"
-              )
-              assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
+      .foreach {
+        case (stringTrigger: StringTextTriggerValue, replyBundle) =>
+          test(s"""🔎 Only one reply bundle replies to: "${stringTrigger.show}"""") {
+            val exactStringMessage = Message(
+              messageId = 0,
+              date = 0,
+              chat = Chat(id = 0, `type` = "test"),
+              text = Some(stringTrigger.show)
+            )
+            replyBundleMessages
+              .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+              .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+              .headOption
+              .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
+                assert(
+                  tr == TextTrigger(stringTrigger),
+                  s"$tr($tr.length) ≠ ${TextTrigger(stringTrigger)}(${stringTrigger.length})"
+                )
+                assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
+              }
+          }
+        case (regexTrigger: RegexTextTriggerValue, replyBundle) =>
+          property(s"""🔎 Only one reply bundle replies to: "${regexTrigger.trigger.toString}"""") {
+            forAll(RegexpGen.from(regexTrigger.trigger.toString)) {
+              case (regexMatchString: String) if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
+                val exactStringMessage = Message(
+                  messageId = 0,
+                  date = 0,
+                  chat = Chat(id = 0, `type` = "test"),
+                  text = Some(regexMatchString)
+                )
+                replyBundleMessages
+                  .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
+                  .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+                  .headOption
+                  .fold(
+                    fail(
+                      s"expected a match for regex ${regexTrigger.trigger.toString}, but None found. Input: $regexMatchString"
+                    )
+                  ) { case (tr, rbm) =>
+                    assert(
+                      tr == TextTrigger(regexTrigger),
+                      s"$tr($tr.length) ≠ ${TextTrigger(regexTrigger)}(${regexTrigger.length})"
+                    )
+                    assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
+                  }
             }
-        }
+          }
       }
 
   def regexTriggerLengthReturnValue(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
@@ -183,7 +259,7 @@ trait BaseBotSpec extends CatsEffectSuite {
         replyBundle.trigger match {
           case TextTrigger(triggerValues*) =>
             triggerValues.filter(
-              TextTriggerValue.isRegex(_)
+              _.isRegexTriggerValue
             )
         }
       )
@@ -196,7 +272,7 @@ trait BaseBotSpec extends CatsEffectSuite {
             )
           }
         case stringTextTriggerValue =>
-          throw new Exception(
+          Throwable(
             s"[BaseBotSpec] regexTriggerLengthReturnValue got a stringTextTriggerValue: $stringTextTriggerValue"
           )
       }

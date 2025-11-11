@@ -246,7 +246,9 @@ object Audio {
       mp3"rphjb_NonViDeludero.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "(col|con il) (cuore|cervello|anima|pisello|martello)".r.tr(9)
+      "(col|con il) (cuore|anima|pisello)".r.tr(9),
+      "con il martello",
+      "con il cervello"
     )(
       mp3"rphjb_ViSaluto.mp3"
     ),
@@ -301,7 +303,7 @@ object Audio {
       "(9|nove) mesi".r,
       "voler (uscire|rientrare)".r,
       "una vita intera",
-      "ci avevo messo"
+      "(ci |c')avevo messo".r
     )(
       mp3"rphjb_9MesiUscireRientrare.mp3"
     ),
@@ -319,11 +321,6 @@ object Audio {
       "\\bganci\\b".r
     )(
       mp3"rphjb_MiseroAntroGanciAgnelliPisciata.mp3"
-    ),
-    ReplyBundleMessage.textToMp3[F](
-      "mio (fidanzato|partner|moroso)".r
-    )(
-      mp3"rphjb_DonneSperma.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
       "ponte sisto",
@@ -381,7 +378,7 @@ object Audio {
       mp3"rphjb_BaracconeFurgoneTelevisione.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "mio (fidanzato|ragazzo|moroso)".r,
+      "mio (fidanzato|partner|ragazzo|moroso)".r,
       "capito che roba"
     )(
       mp3"rphjb_Fazzoletti.mp3"
@@ -415,7 +412,7 @@ object Audio {
       ),
     ReplyBundleMessage
       .textToMp3[F](
-        "\\bfregat[ao]\\b".r,
+        "fregato",
         "mani tue"
       )(
         mp3"rphjb_FregatoManiTue.mp3"

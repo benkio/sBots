@@ -26,6 +26,10 @@ extension (textTriggerValue: TextTriggerValue) {
     case RegexTextTriggerValue(_, _) => false
     case StringTextTriggerValue(_)   => true
   }
+  def isRegexTriggerValue: Boolean = textTriggerValue match {
+    case RegexTextTriggerValue(_, _) => true
+    case StringTextTriggerValue(_)   => false
+  }
 }
 
 given Decoder[Regex] = Decoder.decodeString.map(_.r)
@@ -51,31 +55,31 @@ object TextTriggerValue {
   }
   given showInstance: Show[TextTriggerValue] = Show.show(ttv =>
     ttv match {
-      case StringTextTriggerValue(t)   => t
-      case RegexTextTriggerValue(t, _) => t.toString
+      case strv: StringTextTriggerValue => strv.show
+      case rtrv: RegexTextTriggerValue  => rtrv.show
     }
   )
 
-  given Encoder[StringTextTriggerValue] = Encoder[StringTextTriggerValue](using sttv => Json.fromString(sttv.trigger))
-  given Decoder[StringTextTriggerValue] = Decoder.decodeString.map(StringTextTriggerValue(_))
-  given Decoder[TextTriggerValue]       = deriveDecoder[TextTriggerValue]
-  given Encoder[TextTriggerValue]       = deriveEncoder[TextTriggerValue]
+  given Decoder[TextTriggerValue] = deriveDecoder[TextTriggerValue]
+  given Encoder[TextTriggerValue] = deriveEncoder[TextTriggerValue]
 
   def fromStringOrRegex(v: String | Regex | RegexTextTriggerValue): TextTriggerValue = v match {
     case s: String                => StringTextTriggerValue(s)
     case r: Regex                 => RegexTextTriggerValue(r)
     case r: RegexTextTriggerValue => r
   }
-
-  def isRegex(textTriggerValue: TextTriggerValue): Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_, _) => true
-    case _                           => false
-  }
 }
 
 case class StringTextTriggerValue(trigger: String) extends TextTriggerValue {
   override val length: Eval[Int] = Eval.now(trigger.length)
 }
+
+object StringTextTriggerValue {
+  given showInstance: Show[StringTextTriggerValue] = Show.show(_.trigger)
+  given Encoder[StringTextTriggerValue] = Encoder[StringTextTriggerValue](using sttv => Json.fromString(sttv.trigger))
+  given Decoder[StringTextTriggerValue] = Decoder.decodeString.map(StringTextTriggerValue(_))
+}
+
 case class RegexTextTriggerValue(trigger: Regex, regexLength: Option[Int] = None) extends TextTriggerValue {
   override val length: Eval[Int] = Eval.later {
     // val start: Instant = Instant.now()
@@ -102,6 +106,10 @@ case class RegexTextTriggerValue(trigger: Regex, regexLength: Option[Int] = None
     // if timeElapsed.toMillis() > 50L then println(s"[Triggers] $trigger is slow ${timeElapsed.toMillis()}: $result")
     result
   }
+}
+
+object RegexTextTriggerValue {
+  given showInstance: Show[RegexTextTriggerValue] = Show.show(_.trigger.toString)
 }
 
 ///////////////////////////////////////////////////////////////////////////////

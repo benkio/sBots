@@ -6,7 +6,6 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.pho
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotId
@@ -155,15 +154,13 @@ object YouTuboAncheI0Bot {
   def messageRepliesData[
       F[_]: Applicative
   ]: List[ReplyBundleMessage[F]] =
-    (messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesPhotoData[
+    messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesPhotoData[
       F
     ] ++ messageRepliesStickerData[
       F
     ] ++ messageRepliesVideoData[
       F
-    ] ++ messageRepliesImageData[F])
-      .sorted(using ReplyBundle.orderingInstance[F])
-      .reverse
+    ] ++ messageRepliesImageData[F]
 
   def commandRepliesData[
       F[_]: Async

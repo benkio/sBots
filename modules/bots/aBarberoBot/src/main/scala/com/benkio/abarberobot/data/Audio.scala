@@ -228,8 +228,7 @@ object Audio:
       mp3"abar_Re.mp3"
     ),
     ReplyBundleMessage.textToMp3[F](
-      "\\bascia\\b".r.tr(5),
-      "sangue"
+      "\\bascia\\b".r.tr(5)
     )(
       mp3"abar_Sangue.mp3"
     ),

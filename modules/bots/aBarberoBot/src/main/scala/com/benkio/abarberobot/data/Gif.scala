@@ -100,7 +100,7 @@ object Gif:
       gif"abar_AmmazziamoTuttiNoProblemGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bcerto[o]*!\\b".r.tr(6)
+      "(\\b|^)certo[o]*!(\\b|$)".r.tr(6)
     )(
       gif"abar_CertoGif.mp4"
     ),
@@ -115,7 +115,6 @@ object Gif:
       gif"abar_SemplificoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "bere il (suo )?sangue".r.tr(6),
       "taglia(re)? la gola".r.tr(14)
     )(
       gif"abar_TaglioGolaBereSangueGif.mp4"
@@ -169,7 +168,7 @@ object Gif:
       gif"abar_RiscattoGif.mp4"
     ),
     ReplyBundleMessage.textToGif[F](
-      "\\bn[o]+!\\b".r.tr(3),
+      "(\\b|^)n[o]+!(\\b|$)".r.tr(3),
       "non (lo )?vogli(a|o)".r.tr(10)
     )(
       gif"abar_NoGif.mp4"
