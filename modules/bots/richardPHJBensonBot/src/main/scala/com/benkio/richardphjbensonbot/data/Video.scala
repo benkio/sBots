@@ -1575,10 +1575,10 @@ object Video {
       vid"rphjb_MiAuguroTimoTolkiTourneeMondiale.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "non tutto il male viene per nuocere",
-      "non sono (uno )?(scemo|stolto)",
-      "so dove voglio",
-      "so (quello che|cosa) sto facendo"
+      "non tutto il male viene (per|a) nuocere".r,
+      "non sono (uno |mica )?(scemo|stolto)".r.tr(14),
+      "so dove (io )?voglio".r,
+      "so (quello che|cosa) (sto facendo|faccio)".r.tr(14)
     )(
       vid"rphjb_NonTuttoIlMaleVieneNuocereSoQuelloCheStoFacendoNoScemoStolto.mp4"
     ),
