@@ -151,7 +151,7 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
      - Export the webhook host, locally using [[https://ngrok.com/][ngrok]], [[https://github.com/beyondcode/expose][expose]] or [[https://github.com/agrinman/tunnelto][tunnelTo]]. example: ~./expose share http://localhost:8080~
      - Change the entry ~WEBHOOK_HOST_URL~ with the name of the host from the previous step or change it in ~~sBots/main/src/main/resources/application.conf~
      - run ~sbt assembly~
-     - run ~java -cp main/target/scala-3.3.1/main.jar com.benkio.main.MainWebhook~
+     - run ~java -cp main/target/scala-3.7.2/main.jar com.benkio.main.MainWebhook~
 
 **** Docker
 
@@ -234,7 +234,7 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
    - ~keystore-path~ add the path to the keystore, eg ~sbotsKeystore.jks~
    - ~keystore-password~ add the password of the keystore, eg ~sbotsKeystorePassword~
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
- - Move the fat jar to the VM by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-2.13/main.jar>> <<user of the vm>>@<<public IP of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ubuntu_rsa.pem" /home/benkio/workspace/sBots/main/target/scala-2.13/main.jar ubuntu@129.152.27.196:/home/ubuntu/bots/main.jar~)
+ - Move the fat jar to the VM by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-3.7.2/main.jar>> <<user of the vm>>@<<public IP of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ubuntu_rsa.pem" /home/benkio/workspace/sBots/main/target/scala-3.7.2/main.jar ubuntu@129.152.27.196:/home/ubuntu/bots/main.jar~)
  - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~, or other changes in the process. No easy way to migrate the database as of now.
  - Login to the VM
  - OPTIONAL: be sure to have the right environment variables. IT'S RECOMMENDED TO
