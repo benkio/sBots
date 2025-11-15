@@ -569,6 +569,7 @@ object Mix {
       mp3"rphjb_Trasformista.mp3",
       gif"rphjb_TrasformistaGif.mp4",
       vid"rphjb_CristoCanaro.mp4",
+      gif"rphjb_CristoCanaroLoopGif.mp4",
       sticker"rphjb_CristoCanaroBensoniani.sticker"
     ),
     ReplyBundleMessage.textToMedia[F](
