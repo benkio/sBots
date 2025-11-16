@@ -4555,7 +4555,7 @@ object Mix {
       ),
       ReplyBundleMessage.textToMedia[F](
         "ancora[ n+]no!".r.tr(9),
-        "non l'ho ancora",
+        "non l'ho ancora"
       )(
         mp3"rphjb_AncoraNo.mp3",
         vid"rphjb_AncoraNo.mp4",
