@@ -563,11 +563,13 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "mi devo trasformare",
-      "cristo canaro"
+      "cristo canaro",
+      "black[ ]?face".r
     )(
       mp3"rphjb_Trasformista.mp3",
       gif"rphjb_TrasformistaGif.mp4",
       vid"rphjb_CristoCanaro.mp4",
+      gif"rphjb_CristoCanaroLoopGif.mp4",
       sticker"rphjb_CristoCanaroBensoniani.sticker"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -4552,7 +4554,8 @@ object Mix {
         vid"rphjb_GuerraPiuTotale.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "ancora no!"
+        "ancora[ n+]no!".r.tr(9),
+        "non l'ho ancora"
       )(
         mp3"rphjb_AncoraNo.mp3",
         vid"rphjb_AncoraNo.mp4",
