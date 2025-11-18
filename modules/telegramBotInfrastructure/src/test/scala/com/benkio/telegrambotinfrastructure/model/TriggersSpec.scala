@@ -72,7 +72,8 @@ class TriggersSpec extends CatsEffectSuite {
     inputExpected.foreach { case (regexTextTriggerValue, expected) =>
       assertEquals(
         regexTextTriggerValue.length.value,
-        expected
+        expected,
+        s"Mismatch for $regexTextTriggerValue"
       )
     }
   }
