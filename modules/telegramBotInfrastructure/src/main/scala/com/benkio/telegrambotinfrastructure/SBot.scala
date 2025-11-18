@@ -86,21 +86,20 @@ trait SBot[F[_]: Async: LogWriter] {
       msg: Message
   ): F[Option[ReplyBundleMessage[F]]] =
     if FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg)
-    then
-      Async[F].map(messageRepliesDataF)(
-        _.mapFilter(messageReplyBundle =>
-          MessageMatches
-            .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
-        ).sortBy(_._1)(using Trigger.orderingInstance.reverse)
-          .headOption
-          .map(_._2)
-      )
+    then Async[F].map(messageRepliesDataF)(
+      _.mapFilter(messageReplyBundle =>
+        MessageMatches
+          .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
+      ).sortBy(_._1)(using Trigger.orderingInstance.reverse)
+        .headOption
+        .map(_._2)
+    )
     else none.pure
 
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
   ): F[Option[ReplyBundleCommand[F]]] =
-    for
+    for {
       allCommands <- allCommandRepliesDataF
       result = msg.text.flatMap(text =>
         allCommands.find(rbc =>
@@ -109,7 +108,7 @@ trait SBot[F[_]: Async: LogWriter] {
             || text.startsWith(s"/${rbc.trigger.command}@${botName}")
         )
       )
-    yield result
+    } yield result
 
   def messageLogic(
       repository: Repository[F],
@@ -150,13 +149,13 @@ trait SBot[F[_]: Async: LogWriter] {
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
     for result <- msg.getContent.fold(Async[F].pure(List.empty))(content =>
-        TelegramReply[ReplyValue].reply(
-          reply = MediaFile.fromString(content),
-          msg = msg,
-          repository = repository,
-          replyToMessage = true
-        )
+      TelegramReply[ReplyValue].reply(
+        reply = MediaFile.fromString(content),
+        msg = msg,
+        repository = repository,
+        replyToMessage = true
       )
+    )
     yield result.some
 
   private def botLogic(

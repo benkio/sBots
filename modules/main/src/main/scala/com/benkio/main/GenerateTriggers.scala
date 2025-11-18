@@ -26,14 +26,14 @@ object GenerateTriggers extends IOApp {
   ): Resource[IO, Unit] = {
     val triggerFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$triggerFilename"
 
-    for
+    for {
       _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath Trigger file"))
       triggersStringList <- Resource.eval(
         triggers.traverse(_.prettyPrint())
       )
       _  <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
       pw <- Resource.fromAutoCloseable(IO(new PrintWriter(triggerFilesPath)))
-    yield pw.write(triggersStringList.mkString(""))
+    } yield pw.write(triggersStringList.mkString(""))
   }
 
   def run(args: List[String]): IO[ExitCode] =

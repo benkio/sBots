@@ -31,10 +31,11 @@ class XahLeeBotSpec extends BaseBotSpec {
         msg: Message,
         repository: Repository[F],
         replyToMessage: Boolean
-    ): F[List[Message]] =
+    ): F[List[Message]] = {
       val _ = summon[LogWriter[F]]
       val _ = summon[Api[F]]
       Async[F].pure(List.empty[Message])
+    }
   }
   val botId = XahLeeBot.botId
 
@@ -68,10 +69,10 @@ class XahLeeBotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     xahLeeBot
       .flatMap(xlb =>
-        for
+        for {
           messageReplies <- xlb.messageRepliesDataF
           prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-        yield prettyPrints
+        } yield prettyPrints
       )
 
   exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData[IO])

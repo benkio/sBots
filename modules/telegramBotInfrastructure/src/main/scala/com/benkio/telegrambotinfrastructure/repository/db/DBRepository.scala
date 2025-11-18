@@ -18,7 +18,7 @@ import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryErro
 import log.effect.LogWriter
 import org.http4s.Uri
 
-object DBRepository:
+object DBRepository {
   def dbResources[F[_]: Async: LogWriter](dbMedia: DBMedia[F], dropboxClient: DropboxClient[F]): Repository[F] =
     new Repository[F] {
 
@@ -85,7 +85,7 @@ object DBRepository:
               )
           })
 
-        val result = for
+        val result = for {
           media <- Resource.eval(Async[F].fromEither(Media(dbMediaData)))
           _ <- Resource.eval(LogWriter.info(s"[ResourcesAccess] fetching data for $media from ${media.mediaSources}"))
           nonEmptyMediaSources <- Resource.eval(
@@ -95,11 +95,11 @@ object DBRepository:
             )
           )
           mediaResource <- buildMediaResources(media.mediaName, nonEmptyMediaSources)
-        yield mediaResource
+        } yield mediaResource
 
         result
           .map(Right(_))
           .handleErrorWith(e => Resource.pure(Left(RepositoryError.DBMediaDataToMediaResourceError(dbMediaData, e))))
       }
     }
-end DBRepository
+} // end DBRepository

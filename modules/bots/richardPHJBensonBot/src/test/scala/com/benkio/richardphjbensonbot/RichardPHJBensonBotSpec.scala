@@ -43,10 +43,11 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         msg: Message,
         repository: Repository[F],
         replyToMessage: Boolean
-    ): F[List[Message]] =
+    ): F[List[Message]] = {
       val _ = summon[LogWriter[F]]
       val _ = summon[Api[F]]
       Async[F].pure(List.empty[Message])
+    }
   }
   val botId = RichardPHJBensonBot.botId
 
@@ -79,10 +80,10 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     richardPHJBensonBot.flatMap(_.allCommandRepliesDataF)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     richardPHJBensonBot.flatMap(rb =>
-      for
+      for {
         messageReplies <- rb.messageRepliesDataF
         prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-      yield prettyPrints
+      } yield prettyPrints
     )
 
   exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData[IO])

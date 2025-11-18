@@ -4,7 +4,7 @@ import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 
-object Video:
+object Video {
 
   def messageRepliesVideoData[
       F[_]: Applicative
@@ -35,4 +35,4 @@ object Video:
       vid"ytai_SushiQuestoEGigantescoBellezza.mp4"
     )
   )
-end Video
+} // end Video

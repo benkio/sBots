@@ -41,14 +41,14 @@ class SBotSpec extends CatsEffectSuite {
         gif"rphjb_CarneFrescaSaporitaGif.mp4"
       )
 
-    for
+    for {
       sampleWebhookBot <- SampleWebhookBot()
       resultOpt        <- sampleWebhookBot.selectReplyBundle(inputMessage)
       result           <- resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       expectedPP <- expected.prettyPrint()
-    yield assertEquals(result, expectedPP)
+    } yield assertEquals(result, expectedPP)
   }
 
   test("selectCommandReplyBundle should return all the expected `ReplyBundleCommand`") {
@@ -67,13 +67,13 @@ class SBotSpec extends CatsEffectSuite {
         instruction = CommandInstructionData.NoInstructions
       )
 
-    for
+    for {
       sampleWebhookBot <- SampleWebhookBot()
       resultOpt        <- sampleWebhookBot.selectCommandReplyBundle(inputMessage)
       result           <- resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       expectedPP <- expected.prettyPrint()
-    yield assertEquals(result, expectedPP)
+    } yield assertEquals(result, expectedPP)
   }
 }

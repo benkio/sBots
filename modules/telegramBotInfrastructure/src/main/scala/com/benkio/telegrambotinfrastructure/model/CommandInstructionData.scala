@@ -1,10 +1,11 @@
 package com.benkio.telegrambotinfrastructure.model
 
-enum CommandInstructionData:
+enum CommandInstructionData {
   case Instructions(ita: String, eng: String) extends CommandInstructionData
   case NoInstructions                         extends CommandInstructionData
+}
 
-extension (instructions: CommandInstructionData)
+extension (instructions: CommandInstructionData) {
   def toIta: Option[String] = instructions match {
     case CommandInstructionData.Instructions(ita, _) => Some(ita)
     case _                                           => None
@@ -13,3 +14,4 @@ extension (instructions: CommandInstructionData)
     case CommandInstructionData.Instructions(_, eng) => Some(eng)
     case _                                           => None
   }
+}

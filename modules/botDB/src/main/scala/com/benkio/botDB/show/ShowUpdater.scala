@@ -25,8 +25,9 @@ import scala.io.Source
 import scala.sys.process.*
 import scala.util.Try
 
-trait ShowUpdater[F[_]]:
+trait ShowUpdater[F[_]] {
   def updateShow: Resource[F, Unit]
+}
 
 object ShowUpdater {
 
@@ -62,10 +63,10 @@ object ShowUpdater {
       candidateIds: List[YouTubeBotIds],
       storedIds: List[String]
   ): List[YouTubeBotIds] = {
-    candidateIds.mapFilter(youTubeBotIds =>
+    candidateIds.mapFilter(youTubeBotIds => {
       val result = youTubeBotIds.copy(videoIds = youTubeBotIds.videoIds.filterNot(id => storedIds.contains(id)))
       if result.videoIds.isEmpty then None else Some(result)
-    )
+    })
   }
 
   private[show] class ShowUpdaterImpl[
@@ -147,10 +148,9 @@ object ShowUpdater {
         totalShowsNoCaption = mergeShowDatas(storedDbShowDatas, youTubeBotdbShowDatas)
         totalShows <-
           if config.showConfig.runShowCaptionFetching
-          then
-            LogWriter.info(
-              s"[ShowUpdater] ✓ run show caption fetching is ${config.showConfig.runShowCaptionFetching}"
-            ) >> addCaptions(totalShowsNoCaption)
+          then LogWriter.info(
+            s"[ShowUpdater] ✓ run show caption fetching is ${config.showConfig.runShowCaptionFetching}"
+          ) >> addCaptions(totalShowsNoCaption)
           else
             LogWriter.info(
               s"[ShowUpdater] ❌ run show caption fetching is ${config.showConfig.runShowCaptionFetching}"
@@ -287,7 +287,7 @@ object ShowUpdater {
         _       <- LogWriter.info("[ShowUpdater] Create caption temp folder")
         tempDir <- Async[F].pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
         _       <- LogWriter.info("[ShowUpdater] Start fetching captions")
-        result  <- youTubeBotDBShowDatass.traverse(youTubeBotDBShowDatas =>
+        result  <- youTubeBotDBShowDatass.traverse(youTubeBotDBShowDatas => {
           val (youTubeBotDBShowDatasNoCaption, youTubeBotDBShowDatasCaption) =
             youTubeBotDBShowDatas.dbShowDatas
               .partition(_.show_origin_automatic_caption.isEmpty)
@@ -302,7 +302,7 @@ object ShowUpdater {
                   .map(caption => dbShowData.copy(show_origin_automatic_caption = caption))
               )
               .map(dbShowDatas => youTubeBotDBShowDatas.copy(dbShowDatas = dbShowDatas ++ youTubeBotDBShowDatasCaption))
-        )
+        })
       } yield result
     }
   }

@@ -35,7 +35,7 @@ final case class YouTubeBotDBShowDatas(
 )
 
 object YouTubeBotDBShowDatas {
-  given Semigroup[YouTubeBotDBShowDatas]:
+  given Semigroup[YouTubeBotDBShowDatas] {
     def combine(d1: YouTubeBotDBShowDatas, d2: YouTubeBotDBShowDatas) =
       YouTubeBotDBShowDatas(
         botId = d1.botId,
@@ -43,6 +43,7 @@ object YouTubeBotDBShowDatas {
         captionLanguage = d1.captionLanguage,
         dbShowDatas = d1.dbShowDatas ++ d2.dbShowDatas
       )
+  }
 }
 
 trait YouTubeService[F[_]] {
@@ -124,7 +125,7 @@ object YouTubeService {
         requests <- videoIdsChucks.traverse(YouTubeRequests.createYouTubeVideoRequest(youTubeService, _, youTubeApiKey))
         _        <- LogWriter.debug(s"[YoutubeService] ${requests.length} YouTube requests")
         videos   <- requests.foldLeft(List.empty[Video].pure[F]) { case (ioAcc, request) =>
-          for
+          for {
             _        <- LogWriter.debug(s"[YoutubeService] Execute request $request")
             response <- Async[F].delay(request.execute())
             _        <- LogWriter.debug(s"[YoutubeService] request response $response")
@@ -133,7 +134,7 @@ object YouTubeService {
             acc <- ioAcc
             result = acc ++ videos
             _ <- LogWriter.debug(s"[YoutubeService] request results ${result.length}")
-          yield result
+          } yield result
         }
       } yield videos
     }
@@ -182,12 +183,12 @@ object YouTubeService {
     def collectAllIds(response: PlaylistItemListResponse): F[List[String]] =
       Option(response.getNextPageToken())
         .fold(List.empty.pure[F])(nextPageToken =>
-          for
+          for {
             nextRequest <- YouTubeRequests
               .createYouTubePlaylistRequest(youTubeService, playlistId, nextPageToken.some, youTubeApiKey)
             nextResponse <- Async[F].delay(nextRequest.execute())
             nextIds      <- collectAllIds(nextResponse)
-          yield nextIds
+          } yield nextIds
         )
         .map(nextIds => extractPlaylistIds(response) ++ nextIds)
     for {

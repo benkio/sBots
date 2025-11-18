@@ -40,7 +40,7 @@ trait TelegramReply[A] {
   ): F[List[Message]]
 }
 
-object TelegramReply:
+object TelegramReply {
 
   @inline def apply[F](implicit instance: TelegramReply[F]): TelegramReply[F] = instance
 
@@ -277,4 +277,4 @@ object TelegramReply:
       result.getOrElse(List.empty)
     }
   }
-end TelegramReply
+} // end TelegramReply

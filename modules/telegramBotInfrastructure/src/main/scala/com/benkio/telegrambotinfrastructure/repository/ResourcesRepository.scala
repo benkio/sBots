@@ -20,9 +20,10 @@ import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters.*
 import scala.util.Try
 
-object ResourcesRepository:
+object ResourcesRepository {
   def fromResources[F[_]: Async: LogWriter](stage: Option[String] = None): ResourceRepository[F] =
     new ResourceRepository[F](stage)
+}
 
 class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) extends Repository[F] {
 
@@ -69,7 +70,7 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
       while entries.hasMoreElements() do {
         val name = entries.nextElement().getName()
         if name
-            .startsWith(criteria + "/") && name.length > (criteria.length + 1)
+          .startsWith(criteria + "/") && name.length > (criteria.length + 1)
         then { // filter according to the path
           result += name
         }

@@ -7,7 +7,7 @@ import org.http4s.Uri
 
 import java.io.File
 
-object DropboxClientMock:
+object DropboxClientMock {
 
   def mock(
       handler: (String, Uri) => Resource[IO, File]
@@ -17,3 +17,4 @@ object DropboxClientMock:
       handler(filename, url)
 
   }
+}

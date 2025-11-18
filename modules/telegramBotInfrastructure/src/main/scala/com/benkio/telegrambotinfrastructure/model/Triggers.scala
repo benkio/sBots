@@ -18,9 +18,10 @@ import scala.util.matching.Regex
 ///////////////////////////////////////////////////////////////////////////////
 
 extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
-extension (r: Regex)
+extension (r: Regex) {
   def tr(manualLength: Int): RegexTextTriggerValue =
     RegexTextTriggerValue(r, Some(manualLength))
+}
 extension (textTriggerValue: TextTriggerValue) {
   def isStringTriggerValue: Boolean = textTriggerValue match {
     case RegexTextTriggerValue(_, _) => false

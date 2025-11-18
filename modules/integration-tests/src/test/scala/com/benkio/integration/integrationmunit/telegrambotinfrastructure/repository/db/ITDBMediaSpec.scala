@@ -35,13 +35,14 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         actual.media_sources == expected.media_sources &&
         actual.kinds == expected.kinds &&
         actual.media_count == expected.media_count
-    if !result then
+    if !result then {
       println(s"checkMedia test failure: $actual ≄ $expected")
       println(s"test 1 - ${actual.media_name == expected.media_name}")
       println(s"test 2 - ${actual.bot_id == expected.bot_id}")
       println(s"test 3 - ${actual.media_sources == expected.media_sources}")
       println(s"test 4 - ${actual.kinds == expected.kinds}")
       println(s"test 5 - ${actual.media_count == expected.media_count}")
+    }
     result
   }
 

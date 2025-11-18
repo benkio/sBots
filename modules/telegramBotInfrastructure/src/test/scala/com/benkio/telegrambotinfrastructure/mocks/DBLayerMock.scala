@@ -41,21 +41,21 @@ object DBLayerMock {
 
   class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]], botIdI: SBotId) extends DBTimeout[IO] {
     override def getOrDefault(chatId: Long, botId: SBotId): IO[DBTimeoutData] =
-      if botId == botIdI then
-        db.get.map(_.find(t => t.chat_id == chatId).getOrElse(DBTimeoutData(Timeout(ChatId(chatId), botId))))
+      if botId == botIdI then db.get.map(
+        _.find(t => t.chat_id == chatId).getOrElse(DBTimeoutData(Timeout(ChatId(chatId), botId)))
+      )
       else IO.raiseError(new Throwable(s"Unexpected botId, actual: $botId - expected: $botIdI"))
     override def setTimeout(timeout: DBTimeoutData): IO[Unit] =
       db.update(ts => ts.filterNot(t => t.chat_id == timeout.chat_id) :+ timeout)
     override def removeTimeout(chatId: Long, botId: SBotId): IO[Unit] =
       db.update(ts => ts.filterNot(t => t.chat_id == chatId && t.bot_id == botId.value))
     override def logLastInteraction(chatId: Long, botId: SBotId): IO[Unit] =
-      if botId == botIdI then
-        db.update(ts =>
-          ts.find(t => t.chat_id == chatId)
-            .fold(ts)(oldValue =>
-              ts.filterNot(_ == oldValue) :+ oldValue.copy(last_interaction = Instant.now().getEpochSecond().toString)
-            )
-        )
+      if botId == botIdI then db.update(ts =>
+        ts.find(t => t.chat_id == chatId)
+          .fold(ts)(oldValue =>
+            ts.filterNot(_ == oldValue) :+ oldValue.copy(last_interaction = Instant.now().getEpochSecond().toString)
+          )
+      )
       else IO.raiseError(new Throwable(s"Unexpected botId, actual: $botId - expected: $botIdI"))
   }
 
@@ -66,12 +66,12 @@ object DBLayerMock {
           .fold[IO[Option[DBMediaData]]](None.pure)(data => data.some.pure)
       )
     override def getRandomMedia(botId: SBotId): IO[Option[DBMediaData]] =
-      for
+      for {
         ls         <- db.get
         rnd        <- Random.scalaUtilRandom[IO]
         lsShuffled <- rnd.shuffleList(ls.filter(_.media_name.startsWith(botId.value)))
         result     <- lsShuffled.headOption.fold[IO[Option[DBMediaData]]](None.pure)(_.some.pure)
-      yield result
+      } yield result
     override def getMediaByKind(kind: String, botId: SBotId, cache: Boolean = true): IO[List[DBMediaData]] =
       db.get.map(
         _.filter(m => m.kinds.contains(kind) && m.bot_id == botId.value)
@@ -116,8 +116,9 @@ object DBLayerMock {
       db.get.map(_.filter(subs => subs.bot_id == botId.value && chatId.fold(true)(_ == subs.chat_id)))
     override def insertSubscription(subscription: DBSubscriptionData): IO[Unit] =
       db.update((subs: List[DBSubscriptionData]) =>
-        if subs.exists((s: DBSubscriptionData) => s.id == subscription.id) then
-          throw new Throwable("[TEST ERROR] Subscription id already present when inserting")
+        if subs.exists((s: DBSubscriptionData) => s.id == subscription.id) then throw new Throwable(
+          "[TEST ERROR] Subscription id already present when inserting"
+        )
         else subs :+ subscription
       )
     override def deleteSubscription(
@@ -133,32 +134,32 @@ object DBLayerMock {
     override def getSubscription(id: String): IO[Option[DBSubscriptionData]] =
       db.get.map(_.find(sub => sub.id.toString == id))
     override def getRandomSubscription(): IO[Option[DBSubscriptionData]] =
-      for
+      for {
         rnd  <- Random.scalaUtilRandom[IO]
         subs <- db.get
         elem <- rnd.elementOf(subs).map(Some(_)).handleError(_ => None)
-      yield elem
+      } yield elem
   }
 
   class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
     override def getShows(botId: SBotId): IO[List[DBShowData]] =
       db.get.map(_.filter(s => s.bot_id == botId.value))
     override def getRandomShow(botId: SBotId): IO[Option[DBShowData]] =
-      for
+      for {
         rnd  <- Random.scalaUtilRandom[IO]
         subs <- db.get
         elem <- rnd.elementOf(subs.filter(_.bot_id == botId.value)).map(Some(_)).handleError(_ => None)
-      yield elem
+      } yield elem
     override def getShowByShowQuery(query: ShowQuery, botId: SBotId): IO[List[DBShowData]] =
       ???
     override def insertShow(dbShowData: DBShowData): IO[Unit] =
-      for
+      for {
         shows <- db.get
         _     <- IO.raiseWhen(shows.exists(s => s.show_id == dbShowData.show_id))(
           Throwable(s"[DBShowMock] a show with id: ${dbShowData.show_id} already exists!")
         )
         _ <- db.update(shows => shows :+ dbShowData)
-      yield ()
+      } yield ()
     override def deleteShow(dbShowData: DBShowData): IO[Unit] = ???
   }
 

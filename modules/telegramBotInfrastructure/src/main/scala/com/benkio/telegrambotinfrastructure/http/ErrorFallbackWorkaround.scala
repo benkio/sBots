@@ -17,7 +17,7 @@ Workaround in case of Error a message will be sent to me. At least being paramet
 Ideally we should have a separate support chat for that and/or a dedicated Dashboard
 
  */
-object ErrorFallbackWorkaround:
+object ErrorFallbackWorkaround {
 
   val chatSupportGroupId: ChatIntId = ChatIntId(id = -4145546019L)
 
@@ -41,3 +41,4 @@ object ErrorFallbackWorkaround:
         .exec
         .void
   }
+}
