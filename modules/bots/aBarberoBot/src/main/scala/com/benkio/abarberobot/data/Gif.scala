@@ -5,7 +5,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
-object Gif:
+object Gif {
 
   def messageRepliesGifData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToGif[F](
@@ -201,4 +201,4 @@ object Gif:
       gif"abar_AlzaLeManiGif.mp4"
     )
   )
-end Gif
+} // end Gif

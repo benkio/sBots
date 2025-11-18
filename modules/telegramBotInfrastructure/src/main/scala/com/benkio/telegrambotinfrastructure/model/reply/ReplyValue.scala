@@ -8,21 +8,24 @@ import io.circe.generic.semiauto.*
 
 sealed trait ReplyValue
 
-object ReplyValue:
+object ReplyValue {
   given Decoder[ReplyValue] = deriveDecoder[ReplyValue]
   given Encoder[ReplyValue] = deriveEncoder[ReplyValue]
+}
 
 final case class Text(value: String, textType: Text.TextType = TextType.Plain) extends ReplyValue
 
-object Text:
-  enum TextType:
+object Text {
+  enum TextType {
     case Plain    extends TextType
     case Html     extends TextType
     case Markdown extends TextType
+  }
 
   given Show[Text]    = Show.show(_.value)
   given Decoder[Text] = Decoder[String].map(Text(_))
   given Encoder[Text] = Encoder[String].contramap(_.value)
+}
 
 sealed trait MediaFile extends ReplyValue {
   def filepath: String
@@ -76,7 +79,7 @@ object MediaFile {
   }
 }
 
-extension (sc: StringContext)
+extension (sc: StringContext) {
   def mp3(args: Any*): Mp3File     = Mp3File(sc.s(args*))
   def gif(args: Any*): GifFile     = GifFile(sc.s(args*))
   def vid(args: Any*): VideoFile   = VideoFile(sc.s(args*))
@@ -84,5 +87,6 @@ extension (sc: StringContext)
   def txt(args: Any*): Text        = Text(sc.s(args*))
   def doc(args: Any*): Document    = Document(sc.s(args*))
   def sticker(args: Any*): Sticker = Sticker(sc.s(args*))
+}
 
 extension (values: List[String]) def toText: List[Text] = values.map(Text(_))

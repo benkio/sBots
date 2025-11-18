@@ -112,9 +112,9 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       else IO.raiseError(Throwable(s"[ShowUpdaterSpec] Unexpected input video ids: $inputVideoIds")),
     onFetchCaption = (inputVideoId, tempDir, inputCaptionLanguage) =>
       if videoIds.exists(_ == inputVideoId) && captionLanguage == inputCaptionLanguage && List(
-          "target",
-          "ytdlpCaptions"
-        ).forall(tempDir.toString.contains)
+        "target",
+        "ytdlpCaptions"
+      ).forall(tempDir.toString.contains)
       then IO.pure(Some(testCaption))
       else
         IO.raiseError(
@@ -207,13 +207,14 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     val showFileContent =
       Files.readAllBytes(Paths.get(outputFilePath))
 
-    val assertTest = for
+    val assertTest = for {
       _ <- showUpdater.updateStoredJsons(outputFilePath, List(expectedDBShowData))
       afterContent: String = Files.readAllLines(Paths.get(outputFilePath)).asScala.reduce(_ + "\n" + _)
-    yield
+    } yield {
       assert(afterContent.contains(videoId))
       assert(afterContent.contains("videoTitle"))
       assert(afterContent.contains("videoDescription"))
+    }
 
     assertTest >> IO(
       Files.write(Paths.get(outputFilePath), showFileContent)
@@ -257,7 +258,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   test("ShowUpdater.addCaptions should successfully enrich the input with caption") {
     showUpdater
       .addCaptions(expectedYouTubeBotDBShowDatas, List("java"))
-      .map(result =>
+      .map(result => {
         assertEquals(result.length, 1)
         assertEquals(result.head.dbShowDatas.length, 1)
         assertEquals(
@@ -268,6 +269,6 @@ class ShowUpdaterSpec extends CatsEffectSuite {
             )
           )
         )
-      )
+      })
   }
 }

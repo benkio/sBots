@@ -32,10 +32,11 @@ class ABarberoBotSpec extends BaseBotSpec {
         msg: Message,
         repository: Repository[F],
         replyToMessage: Boolean
-    ): F[List[Message]] =
+    ): F[List[Message]] = {
       val _ = summon[LogWriter[F]]
       val _ = summon[Api[F]]
       Async[F].pure(List.empty[Message])
+    }
   }
 
   val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.botId)
@@ -66,10 +67,10 @@ class ABarberoBotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     aBarberoBot
       .flatMap(ab =>
-        for
+        for {
           messageReplies <- ab.messageRepliesDataF
           prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-        yield prettyPrints
+        } yield prettyPrints
       )
 
   val commandRepliesData = aBarberoBot.flatMap(_.allCommandRepliesDataF)

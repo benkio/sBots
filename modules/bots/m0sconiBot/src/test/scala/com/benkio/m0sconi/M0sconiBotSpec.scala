@@ -35,10 +35,11 @@ class M0sconiBotSpec extends BaseBotSpec {
         msg: Message,
         repository: Repository[F],
         replyToMessage: Boolean
-    ): F[List[Message]] =
+    ): F[List[Message]] = {
       val _ = summon[LogWriter[F]]
       val _ = summon[Api[F]]
       Async[F].pure(List.empty[Message])
+    }
   }
   val botId = M0sconiBot.botId
 
@@ -72,10 +73,10 @@ class M0sconiBotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     m0sconiBot
       .flatMap(mb =>
-        for
+        for {
           messageReplies <- mb.messageRepliesDataF
           prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-        yield prettyPrints
+        } yield prettyPrints
       )
 
   exactTriggerReturnExpectedReplyBundle(M0sconiBot.messageRepliesData[IO])

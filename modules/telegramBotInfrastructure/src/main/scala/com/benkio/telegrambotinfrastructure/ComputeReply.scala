@@ -12,7 +12,7 @@ import log.effect.LogWriter
 import telegramium.bots.high.Api
 import telegramium.bots.Message
 
-object ComputeReply:
+object ComputeReply {
 
   def execute[F[_]: Async: LogWriter: Api](
       replyBundle: ReplyBundle[F],
@@ -34,3 +34,4 @@ object ComputeReply:
       )
     )
   } yield result.flatten
+}

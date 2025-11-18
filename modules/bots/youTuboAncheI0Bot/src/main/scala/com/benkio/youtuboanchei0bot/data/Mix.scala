@@ -9,7 +9,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
-object Mix:
+object Mix {
 
   def messageRepliesMixData[
       F[_]: Applicative
@@ -1020,4 +1020,4 @@ object Mix:
       mp3"ytai_CiaoFollowersNelBeneNelMale.mp3"
     )
   )
-end Mix
+} // end Mix

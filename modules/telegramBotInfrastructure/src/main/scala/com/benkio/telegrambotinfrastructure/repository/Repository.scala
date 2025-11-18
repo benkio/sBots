@@ -28,7 +28,7 @@ trait Repository[F[_]] {
 
 object Repository {
 
-  enum RepositoryError(msg: String) extends Throwable(msg):
+  enum RepositoryError(msg: String) extends Throwable(msg) {
     case NoResourcesFoundKind(criteria: String, botId: SBotId)
         extends RepositoryError(
           s"""[Repository] getResourcesByKind returned no results for ${botId.value} - $criteria"""
@@ -43,6 +43,7 @@ object Repository {
         extends RepositoryError(
           s"[Repository] An error occurred when converting data from $dbMediaData to MediaResource: ${error.getMessage()}"
         )
+  }
 
   def toTempFile[F[_]: Async](fileName: String, content: Array[Byte]): Resource[F, File] = Resource.make(
     Async[F].delay {

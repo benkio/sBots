@@ -4,7 +4,7 @@ import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.SBotId
 import telegramium.bots.Message
 
-extension (msg: Message)
+extension (msg: Message) {
   def messageType(botId: SBotId): MessageType =
     msg.text.fold(MessageType.Message)(t =>
       (t.startsWith("/"), t.startsWith(botId.value)) match {
@@ -15,3 +15,4 @@ extension (msg: Message)
     )
   def getContent: Option[String] =
     msg.text.orElse(msg.caption)
+}

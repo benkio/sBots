@@ -33,7 +33,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
   val initialFixture: DBFixtureResources = DBFixture.fixtureSetup(null)
 
   val allMessageMediaFiles: Resource[IO, List[MediaFile]] =
-    for
+    for {
       dbLayer                   <- initialFixture.resourceDBLayer
       repository                <- initialFixture.repositoryResource
       emptyBackgroundJobManager <- Resource.eval(
@@ -59,7 +59,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           XahLeeBot.commandRepliesData[IO](emptyBackgroundJobManager, dbLayer))
           .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       )
-    yield mediaFiles.distinctBy(_.filename)
+    } yield mediaFiles.distinctBy(_.filename)
 
   def withFixture(test: OneArgTest): Outcome = {
     val fixtureParam = FixtureParam(DBFixture.fixtureSetup(null))

@@ -13,13 +13,13 @@ import java.nio.file.Files
 import java.nio.file.Path
 import scala.io.BufferedSource
 
-object DataEntry:
+object DataEntry {
 
   private[dataentry] def parseInput(links: List[String]): IO[List[MediaFileSource]] =
     links.traverse(link => MediaFileSource.fromUriString(link.replace("dl=0", "dl=1")))
 
   def dataEntryLogic(input: List[String], jsonFileResource: Resource[IO, BufferedSource], jsonFilePath: Path) =
-    for
+    for {
       _ <- IO.println(
         s"[DataEntry:22:42]] Read the input ${input.length} links & parse them to Json"
       )
@@ -42,7 +42,7 @@ object DataEntry:
       _ <- IO.println("[DataEntry] create media file source groups")
       mediaFileSourceGroups = MediaFileSourceGroup.fromMediaFileSourceList(mediafileSources)
       _ <- IO.println("[DataEntry] convert media file source groups to ReplyBundleMessages")
-    yield s"""List(
-             |  ${mediaFileSourceGroups.map(MediaFileSourceGroup.toReplyBundleMessageCode).mkString(",\n")}
-             |)""".stripMargin
-end DataEntry
+    } yield s"""List(
+               |  ${mediaFileSourceGroups.map(MediaFileSourceGroup.toReplyBundleMessageCode).mkString(",\n")}
+               |)""".stripMargin
+} // end DataEntry

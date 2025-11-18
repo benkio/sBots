@@ -4,7 +4,7 @@ import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.pho
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 
-object Photo:
+object Photo {
 
   def messageRepliesPhotoData[
       F[_]: Applicative
@@ -29,3 +29,4 @@ object Photo:
         pho"ytai_BaciPerugina.jpg"
       )
   )
+}

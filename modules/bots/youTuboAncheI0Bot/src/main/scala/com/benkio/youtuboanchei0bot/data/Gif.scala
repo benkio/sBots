@@ -5,7 +5,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
-object Gif:
+object Gif {
 
   def messageRepliesGifData[
       F[_]: Applicative
@@ -1076,4 +1076,4 @@ object Gif:
         gif"ytai_LoopBottigliaGif.mp4"
       )
   )
-end Gif
+} // end Gif

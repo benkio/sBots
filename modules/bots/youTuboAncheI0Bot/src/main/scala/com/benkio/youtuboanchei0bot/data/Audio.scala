@@ -4,7 +4,7 @@ import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 
-object Audio:
+object Audio {
 
   def messageRepliesAudioData[
       F[_]: Applicative
@@ -51,4 +51,4 @@ object Audio:
       mp3"ytai_Multa3000euro.mp3"
     )
   )
-end Audio
+} // end Audio

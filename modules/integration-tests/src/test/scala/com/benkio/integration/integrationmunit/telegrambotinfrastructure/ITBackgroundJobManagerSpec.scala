@@ -151,14 +151,14 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       mainStreamWithCronWithCancel = mainStreamWithCron.interruptWhen(cancelSignal)
     } yield (mainStreamWithCronWithCancel, cancelSignal)
     resultStreamResources.use { case (resultStream, cancel) =>
-      for
+      for {
         resultFiber <- resultStream.take(15).onFinalize(IO(println("Stream interrupted"))).compile.toList.start
         _ = println("[ITBackgroundJobManagerSpec] stream started")
         _ <- IO.sleep(3.seconds)
         _ <- cancel.set(true)
         _ = println("[ITBackgroundJobManagerSpec] stream cancelled")
         output <- resultFiber.joinWithNever
-      yield assertEquals(output.length, 3)
+      } yield assertEquals(output.length, 3)
     }
   }
 

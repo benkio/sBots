@@ -37,10 +37,11 @@ final case class BotSetup[F[_]](
 
 object BotSetup {
 
-  enum BotSetupError(msg: String) extends Throwable(msg):
+  enum BotSetupError(msg: String) extends Throwable(msg) {
     case TokenNotFound(tokenFilename: String) extends BotSetupError(s"[BotSetup] Cannot find the token $tokenFilename")
     case TokenIsEmpty(tokenFilename: String)
         extends BotSetupError(s"[BotSetup] the retrieved token $tokenFilename is empty")
+  }
 
   def deleteWebhooks[F[_]: Async](
       httpClient: Client[F],
@@ -61,7 +62,7 @@ object BotSetup {
       tokenFilename: String,
       repository: Repository[F]
   ): Resource[F, String] = {
-    for
+    for {
       _                   <- Resource.eval(LogWriter.info(s"[BotSetup:58:47] Retrieving Token $tokenFilename"))
       tokenMediaResources <- repository.getResourceFile(Document(tokenFilename))
       tokenFiles          <- tokenMediaResources
@@ -81,7 +82,7 @@ object BotSetup {
       _ <- Resource.eval(
         LogWriter.info(s"[BotSetup:58:47] Token $tokenFilename successfully retrieved")
       )
-    yield tokenFileContent
+    } yield tokenFileContent
   }
 
   def loadDB[F[_]: Async](config: DBConfig)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
