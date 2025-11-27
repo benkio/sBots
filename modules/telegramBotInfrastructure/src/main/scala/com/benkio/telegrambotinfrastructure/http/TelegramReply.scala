@@ -98,13 +98,13 @@ object TelegramReply {
         repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = reply match {
-      case mp3: Mp3File       => telegramMp3Reply.reply(mp3, msg, repository, replyToMessage)
-      case gif: GifFile       => telegramGifReply.reply(gif, msg, repository, replyToMessage)
-      case photo: PhotoFile   => telegramPhotoReply.reply(photo, msg, repository, replyToMessage)
-      case video: VideoFile   => telegramVideoReply.reply(video, msg, repository, replyToMessage)
-      case document: Document => telegramDocumentReply.reply(document, msg, repository, replyToMessage)
-      case sticker: Sticker   => telegramStickerReply.reply(sticker, msg, repository, replyToMessage)
-      case text: Text         => telegramTextReply.reply(text, msg, repository, replyToMessage)
+      case mp3: Mp3File       => telegramMp3Reply.reply(reply = mp3, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case gif: GifFile       => telegramGifReply.reply(reply = gif, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case photo: PhotoFile   => telegramPhotoReply.reply(reply = photo, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case video: VideoFile   => telegramVideoReply.reply(reply = video, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case document: Document => telegramDocumentReply.reply(reply = document, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case sticker: Sticker   => telegramStickerReply.reply(reply = sticker, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case text: Text         => telegramTextReply.reply(reply = text, msg = msg, repository = repository, replyToMessage = replyToMessage)
     }
   }
 
@@ -118,7 +118,7 @@ object TelegramReply {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
         repository = repository,
-        "upload_voice",
+        chatAction = "upload_voice",
         mediaFile = reply,
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
@@ -141,7 +141,7 @@ object TelegramReply {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
         repository = repository,
-        "upload_document",
+        chatAction = "upload_document",
         mediaFile = reply,
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
@@ -164,7 +164,7 @@ object TelegramReply {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
         repository = repository,
-        "upload_photo",
+        chatAction = "upload_photo",
         mediaFile = reply,
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
@@ -187,7 +187,7 @@ object TelegramReply {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
         repository = repository,
-        "upload_video",
+        chatAction = "upload_video",
         mediaFile = reply,
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
@@ -210,7 +210,7 @@ object TelegramReply {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
         repository = repository,
-        "upload_video",
+        chatAction = "upload_video",
         mediaFile = reply,
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
@@ -233,7 +233,7 @@ object TelegramReply {
       TelegramReply.telegramFileReplyPattern[F](
         msg = msg,
         repository = repository,
-        "upload_video",
+        chatAction = "upload_video",
         mediaFile = reply,
         replyToMessage = replyToMessage,
         sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>

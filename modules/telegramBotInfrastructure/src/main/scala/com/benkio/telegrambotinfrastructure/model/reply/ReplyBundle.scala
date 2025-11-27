@@ -123,7 +123,7 @@ object ReplyBundle {
         .handleError(_ => List.empty)
         .map(x => {
           val r = x
-            .zipAll(triggerStrings, "", "")
+            .zipAll(that = triggerStrings, thisElem = "", thatElem = "")
             .map { case (mfs, trs) =>
               s"${mfs.padTo(25, ' ')} | $trs"
             }
