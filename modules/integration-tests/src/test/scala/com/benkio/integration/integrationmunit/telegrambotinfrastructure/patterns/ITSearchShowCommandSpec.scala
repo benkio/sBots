@@ -31,7 +31,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- List("abar", "ytai", "rphjb", "xah")
-        .traverse(botId => testBot(SBotId(botId), dbShow, ""))
+        .traverse(botId => testBot(botId = SBotId(botId), dbShow = dbShow, input = ""))
     } yield check.foldLeft(true)(_ && _)
 
     result.assert
@@ -44,7 +44,12 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByTitle
         .traverse(testInput =>
-          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(
+            botId = testInput.botId,
+            dbShow = dbShow,
+            input = testInput.randomLinkInput,
+            optExpected = testInput.expectedOutput.some
+          )
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -58,7 +63,12 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByDescription
         .traverse(testInput =>
-          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(
+            botId = testInput.botId,
+            dbShow = dbShow,
+            input = testInput.randomLinkInput,
+            optExpected = testInput.expectedOutput.some
+          )
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -72,7 +82,12 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByCaption
         .traverse(testInput =>
-          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(
+            botId = testInput.botId,
+            dbShow = dbShow,
+            input = testInput.randomLinkInput,
+            optExpected = testInput.expectedOutput.some
+          )
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -86,7 +101,12 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByMinDuration
         .traverse(testInput =>
-          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(
+            botId = testInput.botId,
+            dbShow = dbShow,
+            input = testInput.randomLinkInput,
+            optExpected = testInput.expectedOutput.some
+          )
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -100,7 +120,12 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByMaxDuration
         .traverse(testInput =>
-          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(
+            botId = testInput.botId,
+            dbShow = dbShow,
+            input = testInput.randomLinkInput,
+            optExpected = testInput.expectedOutput.some
+          )
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -114,7 +139,12 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByMinDate
         .traverse(testInput =>
-          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(
+            botId = testInput.botId,
+            dbShow = dbShow,
+            input = testInput.randomLinkInput,
+            optExpected = testInput.expectedOutput.some
+          )
         )
     } yield check.foldLeft(true)(_ && _)
 
@@ -128,7 +158,12 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
       check  <- ITSearchShowCommandSpec.showByMaxDate
         .traverse(testInput =>
-          testBot(testInput.botId, dbShow, testInput.randomLinkInput, testInput.expectedOutput.some)
+          testBot(
+            botId = testInput.botId,
+            dbShow = dbShow,
+            input = testInput.randomLinkInput,
+            optExpected = testInput.expectedOutput.some
+          )
         )
     } yield check.foldLeft(true)(_ && _)
 

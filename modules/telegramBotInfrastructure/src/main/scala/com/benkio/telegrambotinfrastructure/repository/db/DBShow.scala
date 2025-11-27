@@ -68,7 +68,7 @@ object DBShow {
   ) extends DBShow[F] {
 
     override def getShows(botId: SBotId): F[List[DBShowData]] =
-      DBShow.getShowsQuery(botId).stream.compile.toList.transact(transactor) <* log.debug(
+      DBShow.getShowsQuery(botId).to[List].transact(transactor) <* log.debug(
         s"[DBShow] Get shows by bot name: $botId, sql: ${DBShow.getShowsQuery(botId).sql}"
       )
 
@@ -78,7 +78,7 @@ object DBShow {
       )
 
     override def getShowByShowQuery(query: ShowQuery, botId: SBotId): F[List[DBShowData]] =
-      DBShow.getShowByShowQueryQuery(query, botId).stream.compile.toList.transact(transactor) <* log.debug(
+      DBShow.getShowByShowQueryQuery(query, botId).to[List].transact(transactor) <* log.debug(
         s"[DBShow] Get shows by bot name: $botId and keyword: $query, sql: ${DBShow.getShowByShowQueryQuery(query, botId).sql}"
       )
 

@@ -10,6 +10,7 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
 import org.http4s.ember.client.*
+import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
 import java.nio.file.Files
@@ -26,7 +27,7 @@ class DropboxClientSpec extends CatsEffectSuite {
       .flatMap(httpClient => Resource.eval(DropboxClient[IO](httpClient)))
 
   test("fetch should follow the redirect and returno the file") {
-    val emptyUrl = Uri.unsafeFromString("http://0.0.0.0:8080/302TestFile")
+    val emptyUrl = uri"http://0.0.0.0:8080/302TestFile"
     val filename = "302TestFile"
     val expected = DropboxServerMock.servedFile.mkString
 
@@ -46,7 +47,7 @@ class DropboxClientSpec extends CatsEffectSuite {
 
   test("fetch should fail if the response is empty") {
 
-    val emptyUrl = Uri.unsafeFromString("http://0.0.0.0:8080/emptyResponseFilename")
+    val emptyUrl = uri"http://0.0.0.0:8080/emptyResponseFilename"
     val filename = "emptyResponseFilename"
 
     val result = for {

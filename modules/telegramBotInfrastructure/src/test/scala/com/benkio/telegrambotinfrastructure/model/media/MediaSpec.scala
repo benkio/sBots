@@ -4,6 +4,7 @@ import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import munit.*
+import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
 import java.time.Instant
@@ -15,7 +16,7 @@ class MediaSpec extends FunSuite {
       botId = SBotId("botid"),
       kinds = List.empty,
       mimeType = MimeType.MP4,
-      mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),
+      mediaSources = List(Right(uri"https://benkio.github.io")),
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
     )
@@ -27,7 +28,7 @@ class MediaSpec extends FunSuite {
       botId = SBotId("botid"),
       kinds = List.empty,
       mimeType = MimeType.MP4,
-      mediaSources = List(Right(Uri.unsafeFromString("https://benkio.github.io"))),
+      mediaSources = List(Right(uri"https://benkio.github.io")),
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
     )
@@ -73,9 +74,7 @@ class MediaSpec extends FunSuite {
         List(
           Left("CQACAgQAAxkBAAEC15xnn5dbOnZ6NOodXkiKvxMsJrHqVAACjRgAAjmJAVFDx6HUqYYeWzYE"),
           Right(
-            Uri.unsafeFromString(
-              "https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1"
-            )
+            uri"https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1"
           )
         )
       ),

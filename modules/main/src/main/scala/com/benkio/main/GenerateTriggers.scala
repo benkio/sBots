@@ -39,29 +39,29 @@ object GenerateTriggers extends IOApp {
   def run(args: List[String]): IO[ExitCode] =
     (for {
       _ <- generateTriggerFile(
-        "../bots/aBarberoBot/",
-        ABarberoBot.triggerFilename,
-        ABarberoBot.messageRepliesData[IO]
+        botModuleRelativeFolderPath = "../bots/aBarberoBot/",
+        triggerFilename = ABarberoBot.triggerFilename,
+        triggers = ABarberoBot.messageRepliesData[IO]
       )
       _ <- generateTriggerFile(
-        "../bots/calandroBot/",
-        CalandroBot.triggerFilename,
-        CalandroBot.messageRepliesData[IO]
+        botModuleRelativeFolderPath = "../bots/calandroBot/",
+        triggerFilename = CalandroBot.triggerFilename,
+        triggers = CalandroBot.messageRepliesData[IO]
       )
       _ <- generateTriggerFile(
-        "../bots/m0sconiBot/",
-        M0sconiBot.triggerFilename,
-        M0sconiBot.messageRepliesData[IO]
+        botModuleRelativeFolderPath = "../bots/m0sconiBot/",
+        triggerFilename = M0sconiBot.triggerFilename,
+        triggers = M0sconiBot.messageRepliesData[IO]
       )
       _ <- generateTriggerFile(
-        "../bots/richardPHJBensonBot/",
-        RichardPHJBensonBot.triggerFilename,
-        RichardPHJBensonBot.messageRepliesData[IO]
+        botModuleRelativeFolderPath = "../bots/richardPHJBensonBot/",
+        triggerFilename = RichardPHJBensonBot.triggerFilename,
+        triggers = RichardPHJBensonBot.messageRepliesData[IO]
       )
       _ <- generateTriggerFile(
-        "../bots/youTuboAncheI0Bot/",
-        YouTuboAncheI0Bot.triggerFilename,
-        YouTuboAncheI0Bot.messageRepliesData[IO]
+        botModuleRelativeFolderPath = "../bots/youTuboAncheI0Bot/",
+        triggerFilename = YouTuboAncheI0Bot.triggerFilename,
+        triggers = YouTuboAncheI0Bot.messageRepliesData[IO]
       )
     } yield ExitCode.Success).use(_.pure)
 

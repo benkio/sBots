@@ -260,7 +260,7 @@ object ShowUpdater {
             )
           )
         )
-        .as(())
+        .void
     }
 
     val shellDependencies: List[String]                                = List("yt-dlp")

@@ -19,6 +19,7 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
+import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
 import java.io.File
@@ -84,7 +85,7 @@ class MediaUpdaterSpec extends CatsEffectSuite {
         mime = MimeType.MPEG,
         sources = List(
           Right(
-            value = Uri.unsafeFromString("https://www.dropbox.com/scl/fi/hYPb0/test_testData.mp3?rlkey=BbLKm&dl=1")
+            value = uri"https://www.dropbox.com/scl/fi/hYPb0/test_testData.mp3?rlkey=BbLKm&dl=1"
           )
         )
       )

@@ -12,12 +12,17 @@ checkJsonFiles := JsonCheck.checkJsonFilesImpl.value
 
 name                     := "sBots"
 organization             := "com.benkio"
-ThisBuild / scalaVersion := "3.7.2"
+ThisBuild / scalaVersion := "3.7.4"
 ThisBuild / scalacOptions ++= Seq(
   "-java-output-version",
   "21",
   "-rewrite",
   "-no-indent"
+)
+
+ThisBuild / scalafixDependencies ++= Seq(
+  "com.github.jatcwang" %% "scalafix-named-params" % "0.2.6",
+  "org.typelevel"       %% "typelevel-scalafix"    % "0.5.0"
 )
 
 enablePlugins(FlywayPlugin)

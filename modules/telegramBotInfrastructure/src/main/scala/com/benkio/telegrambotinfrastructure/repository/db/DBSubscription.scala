@@ -78,7 +78,7 @@ object DBSubscription {
       )
 
     override def getSubscriptions(botId: SBotId, chatId: Option[Long]): F[List[DBSubscriptionData]] =
-      getSubscriptionsQuery(botId, chatId).stream.compile.toList.transact(transactor) <* log.debug(
+      getSubscriptionsQuery(botId, chatId).to[List].transact(transactor) <* log.debug(
         "Get subscriptions"
       )
 

@@ -157,7 +157,7 @@ Input as query string:
               msg = m,
               command = "searchshow",
               botName = botName,
-              keywords =>
+              computation = keywords =>
                 SearchShowCommand
                   .selectLinkByKeyword[F](
                     keywords = keywords,
@@ -165,7 +165,7 @@ Input as query string:
                     botId = botId
                   )
                   .map(List(_)),
-              "Input non riconosciuto. Controlla le instruzioni per i dettagli",
+              defaultReply = "Input non riconosciuto. Controlla le instruzioni per i dettagli",
               allowEmptyString = true
             ),
           true
@@ -252,8 +252,8 @@ Input as query string:
             msg = m,
             command = "triggersearch",
             botName = botName,
-            searchTriggerLogic(mdr, m, ignoreMessagePrefix),
-            """Input Required: Insert the test keyword to check if it's in some bot trigger"""
+            computation = searchTriggerLogic(mdr = mdr, m = m, ignoreMessagePrefix = ignoreMessagePrefix),
+            defaultReply = """Input Required: Insert the test keyword to check if it's in some bot trigger"""
           )
         ),
         instruction = CommandInstructionData.Instructions(
@@ -277,7 +277,7 @@ Per segnalare problemi, scrivere a: https://t.me/Benkio
 
 I comandi del bot sono:
 
-${commandDescriptions.mkString("- ", "\n- ", "")}
+${commandDescriptions.mkString(start = "- ", sep = "\n- ", end = "")}
 
 ${ignoreMessagePrefix
         .map(s =>
@@ -297,7 +297,7 @@ to report issues, write to: https://t.me/Benkio
 
 Bot commands are:
 
-${commandDescriptions.mkString("- ", "\n- ", "")}
+${commandDescriptions.mkString(start = "- ", sep = "\n- ", end = "")}
 
 ${ignoreMessagePrefix
         .map(s =>
@@ -351,9 +351,13 @@ ${ignoreMessagePrefix
             msg = m,
             command = "instructions",
             botName = botName,
-            instructionCommandLogic(botName, ignoreMessagePrefix, commands),
-            "",
-            true
+            computation = instructionCommandLogic(
+              botName = botName,
+              ignoreMessagePrefix = ignoreMessagePrefix,
+              commands = commands
+            ),
+            defaultReply = "",
+            allowEmptyString = true
           )
         ),
         instruction = CommandInstructionData.NoInstructions
@@ -404,8 +408,8 @@ ${ignoreMessagePrefix
               msg = m,
               command = "subscribe",
               botName = botName,
-              subscribeCommandLogic(_, backgroundJobManager, m, botId),
-              "Input Required: insert a valid 〈cron time〉. Check the instructions"
+              computation = subscribeCommandLogic(_, backgroundJobManager, m, botId),
+              defaultReply = "Input Required: insert a valid 〈cron time〉. Check the instructions"
             ),
           true
         ),
@@ -479,7 +483,13 @@ ${ignoreMessagePrefix
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscriptions"),
         reply = TextReplyM[F](
-          m => subscriptionsCommandLogic(dbSubscription, backgroundJobManager, botId, m).map(List(_).toText),
+          m =>
+            subscriptionsCommandLogic(
+              dbSubscription = dbSubscription,
+              backgroundJobManager = backgroundJobManager,
+              botId = botId,
+              m = m
+            ).map(List(_).toText),
           true
         ),
         instruction = CommandInstructionData.Instructions(
@@ -562,8 +572,8 @@ ${ignoreMessagePrefix
               msg = msg,
               command = "timeout",
               botName = botName,
-              timeoutLogic(_, msg, dbTimeout, botId, log).map(List(_)),
-              """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
+              computation = timeoutLogic(_, msg, dbTimeout, botId, log).map(List(_)),
+              defaultReply = """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
             ),
           true
         ),
