@@ -270,7 +270,6 @@ object Mix {
       vid"rphjb_UccidereUnaPersona.mp4"
     ),
     ReplyBundleMessage.textToMedia[F](
-      "brutto stronzo",
       "fatti avanti",
       "hai tirato sta roba",
       "vieni qua\\b".r
@@ -278,6 +277,15 @@ object Mix {
       gif"rphjb_FaccioVedereSpalleBracciaGif.mp4",
       vid"rphjb_FaccioVedereSpalleBraccia.mp4",
       mp3"rphjb_FaccioVedereSpalleBraccia.mp3"
+    ),
+    ReplyBundleMessage.textToMedia[F](
+      "brutto stronzo"
+    )(
+      gif"rphjb_FaccioVedereSpalleBracciaGif.mp4",
+      vid"rphjb_FaccioVedereSpalleBraccia.mp4",
+      mp3"rphjb_FaccioVedereSpalleBraccia.mp3",
+      vid"rphjb_DiventoViolento.mp4",
+      mp3"rphjb_DiventoViolento.mp3"
     ),
     ReplyBundleMessage.textToMedia[F](
       "non sapere",
@@ -4064,9 +4072,7 @@ object Mix {
         "spaghetti all'amatriciana",
         "bevo una sprite"
       )(
-        vid"rphjb_StronzoFiglioMignotta.mp4",
-        vid"rphjb_DiventoViolento.mp4",
-        mp3"rphjb_DiventoViolento.mp3"
+        vid"rphjb_StronzoFiglioMignotta.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
         "passa in fretta",
