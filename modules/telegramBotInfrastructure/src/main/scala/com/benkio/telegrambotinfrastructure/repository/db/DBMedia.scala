@@ -147,7 +147,7 @@ object DBMedia {
                 log.debug(
                   s"[DBMedia] getMediaByKind for ${botId.value} - $kind. SQL: ${getMediaQueryByKind(kind, botId).sql}"
                 ) >>
-                  getMediaQueryByKind(kind = kind, botId = botId).stream.compile.toList.transact(transactor)
+                  getMediaQueryByKind(kind = kind, botId = botId).to[List].transact(transactor)
                   <* log.debug(s"[DBMedia] getMediaByKind for ${botId.value} - $kind completed")
               )(Async[F].pure)
             _ <-
@@ -164,10 +164,9 @@ object DBMedia {
       log.debug(
         s"[DBMedia] getMediaByMediaCount for prefix $botId. SQL: ${getMediaQueryByMediaCount(botId = botId).sql}"
       ) >>
-        getMediaQueryByMediaCount(botId = botId).stream
-          .take(limit.toLong)
-          .compile
-          .toList
+        getMediaQueryByMediaCount(botId = botId)
+          .to[List]
+          .map(_.take(limit))
           .transact(transactor)
 
     override def insertMedia(dbMediaData: DBMediaData): F[Unit] =

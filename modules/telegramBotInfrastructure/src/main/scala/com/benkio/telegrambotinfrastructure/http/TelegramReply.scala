@@ -98,13 +98,25 @@ object TelegramReply {
         repository: Repository[F],
         replyToMessage: Boolean
     ): F[List[Message]] = reply match {
-      case mp3: Mp3File       => telegramMp3Reply.reply(reply = mp3, msg = msg, repository = repository, replyToMessage = replyToMessage)
-      case gif: GifFile       => telegramGifReply.reply(reply = gif, msg = msg, repository = repository, replyToMessage = replyToMessage)
-      case photo: PhotoFile   => telegramPhotoReply.reply(reply = photo, msg = msg, repository = repository, replyToMessage = replyToMessage)
-      case video: VideoFile   => telegramVideoReply.reply(reply = video, msg = msg, repository = repository, replyToMessage = replyToMessage)
-      case document: Document => telegramDocumentReply.reply(reply = document, msg = msg, repository = repository, replyToMessage = replyToMessage)
-      case sticker: Sticker   => telegramStickerReply.reply(reply = sticker, msg = msg, repository = repository, replyToMessage = replyToMessage)
-      case text: Text         => telegramTextReply.reply(reply = text, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case mp3: Mp3File =>
+        telegramMp3Reply.reply(reply = mp3, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case gif: GifFile =>
+        telegramGifReply.reply(reply = gif, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case photo: PhotoFile =>
+        telegramPhotoReply.reply(reply = photo, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case video: VideoFile =>
+        telegramVideoReply.reply(reply = video, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case document: Document =>
+        telegramDocumentReply.reply(
+          reply = document,
+          msg = msg,
+          repository = repository,
+          replyToMessage = replyToMessage
+        )
+      case sticker: Sticker =>
+        telegramStickerReply.reply(reply = sticker, msg = msg, repository = repository, replyToMessage = replyToMessage)
+      case text: Text =>
+        telegramTextReply.reply(reply = text, msg = msg, repository = repository, replyToMessage = replyToMessage)
     }
   }
 

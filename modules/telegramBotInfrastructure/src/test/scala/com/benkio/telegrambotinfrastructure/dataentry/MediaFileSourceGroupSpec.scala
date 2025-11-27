@@ -3,8 +3,8 @@ package com.benkio.telegrambotinfrastructure.dataentry
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import munit.*
+import org.http4s.syntax.literals.*
 import org.http4s.Uri
-import org.http4s.syntax.literals._
 
 class MediaFileSourceGroupSpec extends FunSuite {
   test("toReplyBundleMessageCode should return the expected scala code skeleton") {

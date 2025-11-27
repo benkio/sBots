@@ -54,7 +54,11 @@ object DBFixture {
     Class.forName("org.sqlite.JDBC")
     val conn = DriverManager.getConnection(DBFixture.dbUrl)
 
-    runMigrations(DBFixture.dbUrl, DBFixture.migrationTable, DBFixture.migrationPath)
+    runMigrations(
+      dbUrl = DBFixture.dbUrl,
+      migrationsTable = DBFixture.migrationTable,
+      migrationsLocations = DBFixture.migrationPath
+    )
     val transactor                                 = Transactor.fromConnection[IO](conn, None)
     val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
     val dropboxClientNRepositoryResource: Resource[IO, (DropboxClient[IO], Repository[IO])] =

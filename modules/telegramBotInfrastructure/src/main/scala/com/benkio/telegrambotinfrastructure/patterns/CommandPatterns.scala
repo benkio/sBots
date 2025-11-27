@@ -351,7 +351,11 @@ ${ignoreMessagePrefix
             msg = m,
             command = "instructions",
             botName = botName,
-            computation = instructionCommandLogic(botName = botName, ignoreMessagePrefix = ignoreMessagePrefix, commands = commands),
+            computation = instructionCommandLogic(
+              botName = botName,
+              ignoreMessagePrefix = ignoreMessagePrefix,
+              commands = commands
+            ),
             defaultReply = "",
             allowEmptyString = true
           )
@@ -479,7 +483,13 @@ ${ignoreMessagePrefix
       ReplyBundleCommand[F](
         trigger = CommandTrigger("subscriptions"),
         reply = TextReplyM[F](
-          m => subscriptionsCommandLogic(dbSubscription = dbSubscription, backgroundJobManager = backgroundJobManager, botId = botId, m = m).map(List(_).toText),
+          m =>
+            subscriptionsCommandLogic(
+              dbSubscription = dbSubscription,
+              backgroundJobManager = backgroundJobManager,
+              botId = botId,
+              m = m
+            ).map(List(_).toText),
           true
         ),
         instruction = CommandInstructionData.Instructions(

@@ -101,14 +101,22 @@ object YouTubeService {
               .traverse {
                 case YouTubeSource.Playlist(id)           => id.pure[F]
                 case YouTubeSource.Channel(channelHandle) =>
-                  getYouTubeChannelUploadsPlaylistId(youTubeService = youTubeService, channelHandle = channelHandle, youTubeApiKey = youTubeApiKey)
+                  getYouTubeChannelUploadsPlaylistId(
+                    youTubeService = youTubeService,
+                    channelHandle = channelHandle,
+                    youTubeApiKey = youTubeApiKey
+                  )
               }
               .map(YouTubeBotIds(SBotId(botId), outputFilePath, captionLanguage, _))
         }
         _           <- LogWriter.info("[YouTubeService] Get Youtube videos Ids from sources")
         botVideoIds <- botPlaylistIds.traverse {
           case YouTubeBotIds(botId, outputFilePath, captionLanguage, playlistIds) =>
-            getYouTubePlaylistsIds(youTubeService = youTubeService, playlistIds = playlistIds, youTubeApiKey = youTubeApiKey)
+            getYouTubePlaylistsIds(
+              youTubeService = youTubeService,
+              playlistIds = playlistIds,
+              youTubeApiKey = youTubeApiKey
+            )
               .map(videoIds => YouTubeBotIds(botId, outputFilePath, captionLanguage, videoIds))
         }
       } yield botVideoIds
@@ -206,7 +214,9 @@ object YouTubeService {
       playlistIds: List[String],
       youTubeApiKey: String
   ): F[List[String]] =
-    playlistIds.foldMapM(pId => getYouTubePlaylistIds(youTubeService = youTubeService, playlistId = pId, youTubeApiKey = youTubeApiKey))
+    playlistIds.foldMapM(pId =>
+      getYouTubePlaylistIds(youTubeService = youTubeService, playlistId = pId, youTubeApiKey = youTubeApiKey)
+    )
 
   private def getYouTubeChannelUploadsPlaylistId[F[_]: Async: LogWriter](
       youTubeService: YouTube,

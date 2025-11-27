@@ -19,10 +19,10 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
+import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
 import java.io.File
-import org.http4s.syntax.literals._
 
 class MediaUpdaterSpec extends CatsEffectSuite {
 

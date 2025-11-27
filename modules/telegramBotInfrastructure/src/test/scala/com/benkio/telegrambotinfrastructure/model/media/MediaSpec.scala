@@ -4,10 +4,10 @@ import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import munit.*
+import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
 import java.time.Instant
-import org.http4s.syntax.literals._
 
 class MediaSpec extends FunSuite {
   test("Media show instance should return the expected string") {

@@ -2,8 +2,8 @@ package com.benkio.telegrambotinfrastructure.dataentry
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import munit.*
+import org.http4s.syntax.literals.*
 import org.http4s.Uri
-import org.http4s.syntax.literals._
 
 class DataEntrySpec extends CatsEffectSuite {
   test("parseInput should successfully parse a valid input") {

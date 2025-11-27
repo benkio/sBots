@@ -10,10 +10,10 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
 import org.http4s.ember.client.*
+import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
 import java.nio.file.Files
-import org.http4s.syntax.literals._
 
 class DropboxClientSpec extends CatsEffectSuite {
 
