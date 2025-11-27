@@ -50,7 +50,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
         """/command@botName""",
         """/command   """,
         """/command@botName   """
-      ).map(resultByInput(_, false)).sequence
+      ).traverse(resultByInput(_, false))
     assertIO(result, List.fill(4)(List(Text(defaultReply))))
   }
 
