@@ -106,7 +106,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           splitValue(0).toLowerCase -> splitValue(1).split(",").map(_.trim).toList
         })
         .toList
-      val matchingFilenames: IO[List[List[MediaFile]]] = inputTextTxtContent.traverse { case (input, _) =>
+      val matchingFilenames: IO[List[List[MediaFile]]] = inputTextTxtContent.traverse { case (input, expectedMatch) =>
         val exactStringMessage = Message(
           messageId = 0,
           date = 0,
@@ -117,18 +117,18 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
           .sortBy(_._1)(using Trigger.orderingInstance.reverse)
           .headOption
-          .fold(fail(s"[BaseBotSpec] Expected a match for string ${input}, but None found"))(_._2.reply match {
+          .fold(fail(s"[BaseBotSpec] Expected $expectedMatch for string ${input}, but None found"))(_._2.reply match {
             case mf: MediaReply[IO] =>
               mf.mediaFiles
             case x => fail(s"[BaseBotSpec] Expected MediaReply, got $x")
           })
       }
       matchingFilenames.map { mediaFiless =>
-        mediaFiless.zip(inputTextTxtContent).foreach { case (mediaFiles, (_, expectedFilenames)) =>
+        mediaFiless.zip(inputTextTxtContent).foreach { case (mediaFiles, (input, expectedFilenames)) =>
           expectedFilenames.foreach { expectedFilename =>
             assert(
               mediaFiles.exists(_.filename == expectedFilename),
-              s"[BaseBotSpec] $expectedFilename is not contained in $mediaFiles"
+              s"[BaseBotSpec] $expectedFilename is not contained in $mediaFiles for $input"
             )
           }
         }
