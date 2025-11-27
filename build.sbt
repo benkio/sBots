@@ -20,6 +20,11 @@ ThisBuild / scalacOptions ++= Seq(
   "-no-indent"
 )
 
+ThisBuild / scalafixDependencies ++= Seq(
+  "com.github.jatcwang" %% "scalafix-named-params" % "0.2.6",
+  "org.typelevel" %% "typelevel-scalafix" % "0.5.0"
+)
+
 enablePlugins(FlywayPlugin)
 enablePlugins(GitVersioning)
 Global / onChangedBuildSource := ReloadOnSourceChanges
