@@ -26,7 +26,7 @@ class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {
           botId = botId
         )
       )
-    } yield
+    } yield {
       assertEquals(
         dbDatas.length,
         resultMediaFiles.length,
@@ -34,13 +34,14 @@ class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {
       )
       var mismatch = List.empty[String]
       assert(
-        resultMediaFiles.forall(mediaFile =>
+        resultMediaFiles.forall(mediaFile => {
           val result = dbDatas.exists(dbData => dbData.media_name == mediaFile.filename)
           if !result then mismatch = mediaFile.filename :: mismatch
           result
-        ),
+        }),
         s"[ITMediaCommandByKindSpec] Unexpected files were returned from the DB: $mismatch"
       )
+    }
 
     resourceAssert.use_
   }

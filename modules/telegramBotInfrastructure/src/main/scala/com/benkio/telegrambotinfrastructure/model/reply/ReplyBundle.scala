@@ -116,12 +116,12 @@ object ReplyBundle {
   given orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
     Trigger.orderingInstance.contramap(_.trigger)
 
-  extension [F[_]: ApplicativeThrow](rb: ReplyBundle[F])
+  extension [F[_]: ApplicativeThrow](rb: ReplyBundle[F]) {
     def prettyPrint()(using triggerShow: Show[Trigger]): F[String] = {
       val triggerStrings: List[String] = triggerShow.show(rb.trigger).split('\n').toList
       rb.reply.prettyPrint
         .handleError(_ => List.empty)
-        .map(x =>
+        .map(x => {
           val r = x
             .zipAll(triggerStrings, "", "")
             .map { case (mfs, trs) =>
@@ -129,8 +129,9 @@ object ReplyBundle {
             }
             .mkString("\n")
           ("-" * 50) + s"\n$r\n" + ("-" * 50) + "\n"
-        )
+        })
     }
+  }
 
   def containsMediaReply[F[_]](r: ReplyBundle[F]): Boolean =
     r.reply match {

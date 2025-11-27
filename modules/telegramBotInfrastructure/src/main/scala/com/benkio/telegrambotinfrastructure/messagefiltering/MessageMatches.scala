@@ -10,9 +10,10 @@ import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.*
 import telegramium.bots.Message
 
-enum MessageMatches:
+enum MessageMatches {
   case ContainsOnce extends MessageMatches
   case ContainsAll  extends MessageMatches
+}
 
 object MessageMatches {
 

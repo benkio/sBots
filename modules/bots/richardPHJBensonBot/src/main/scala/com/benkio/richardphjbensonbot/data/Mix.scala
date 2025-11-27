@@ -563,11 +563,13 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "mi devo trasformare",
-      "cristo canaro"
+      "cristo canaro",
+      "black[ ]?face".r
     )(
       mp3"rphjb_Trasformista.mp3",
       gif"rphjb_TrasformistaGif.mp4",
       vid"rphjb_CristoCanaro.mp4",
+      gif"rphjb_CristoCanaroLoopGif.mp4",
       sticker"rphjb_CristoCanaroBensoniani.sticker"
     ),
     ReplyBundleMessage.textToMedia[F](
@@ -1010,9 +1012,9 @@ object Mix {
       "\\bpaga(re)?\\b".r,
       "sold[oi]".r,
       "bollette",
-      "tasse",
+      "\\btasse\\b".r,
       "bolletta",
-      "tassa"
+      "\\btassa\\b".r
     )(
       gif"rphjb_ChiCacciaISoldiGif.mp4",
       mp3"rphjb_ChiCacciaISoldi.mp3",
@@ -2700,7 +2702,7 @@ object Mix {
     ),
     ReplyBundleMessage.textToMedia[F](
       "incrinata la voce",
-      "parlo come un(a specie di)? frocio".r
+      "parlo come un(a specie di)? fro[s]?cio".r
     )(
       mp3"rphjb_IncrinataLaVoceFrocio.mp3",
       vid"rphjb_IncrinataLaVoceFrocio.mp4"
@@ -3410,7 +3412,9 @@ object Mix {
     ReplyBundleMessage.textToMedia[F](
       "sfuggono",
       "\\bpols[io]\\b".r,
-      "\\borolog[io]\\b".r
+      "\\borolog[io]\\b".r,
+      "tu non hai capito",
+      "e[ ]?[s]+ai perch[eè]?".r
     )(
       vid"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsi.mp4",
       gif"rphjb_4SoloTempiInTestaOrologiSfuggonoPolsiGif.mp4",
@@ -4055,7 +4059,10 @@ object Mix {
         mp3"rphjb_DiventoViolento.mp3"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "stronzo"
+        "stronzo",
+        "partito della pagnotta",
+        "spaghetti all'amatriciana",
+        "bevo una sprite"
       )(
         vid"rphjb_StronzoFiglioMignotta.mp4",
         vid"rphjb_DiventoViolento.mp4",
@@ -4552,7 +4559,8 @@ object Mix {
         vid"rphjb_GuerraPiuTotale.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "ancora no!"
+        "ancora[ n+]no!".r.tr(9),
+        "non l'ho ancora"
       )(
         mp3"rphjb_AncoraNo.mp3",
         vid"rphjb_AncoraNo.mp4",
@@ -4652,7 +4660,7 @@ object Mix {
   private def messageRepliesMixData5[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
     List(
       ReplyBundleMessage.textToMedia[F](
-        "che si deve f(à|are)".r,
+        "che s[ei] deve f(a|à|are)".r,
         "campà"
       )(
         gif"rphjb_NonLiSopportoGif.mp4",
@@ -6232,7 +6240,7 @@ object Mix {
         vid"rphjb_GaioInGiallo.mp4"
       ),
       ReplyBundleMessage.textToMedia[F](
-        "mi sento (un pezzo di merda|l'ultimo)".r
+        "mi sento (un[ ]?pezzo[ ]?di[ ]?[m]+erda|l'ultimo)".r.tr(17)
       )(
         vid"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiu.mp4",
         gif"rphjb_MiSentoPezzoDiMerdaUltimoGiuGiuGif.mp4",

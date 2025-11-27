@@ -110,7 +110,8 @@ object Video {
       "diversi mondi",
       "letti sfatti"
     )(
-      vid"rphjb_LettiSfattiDiversiMondi.mp4"
+      vid"rphjb_LettiSfattiDiversiMondi.mp4",
+      vid"rphjb_AmmaestrareIlDolore.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
       "ramarro",
@@ -533,7 +534,8 @@ object Video {
       vid"rphjb_IngrassatoCinema.mp4"
     ),
     ReplyBundleMessage.textToVideo[F](
-      "parlo"
+      "parlo io",
+      "io parlo"
     )(
       vid"rphjb_NonMiFregaParloIo.mp4",
       vid"rphjb_IoParloDicoLaVeritaContrattiFantomaticiVieniQuiFaiVedereFacciaCovoDelMetalloSimposio.mp4"
@@ -1999,6 +2001,12 @@ object Video {
     )(
       vid"rphjb_ArbitriPagatiTruccatiGiocatoriDopatiMoggiCONITifosiUltrasTuttaFarsaGiocoCalcio.mp4",
       vid"rphjb_Ciao2001FarsaManson.mp4"
+    ),
+    ReplyBundleMessage.textToVideo[F](
+      "in mille trappole",
+      "l'unica salvezza"
+    )(
+      vid"rphjb_AmmaestrareIlDolore.mp4"
     )
   )
 }

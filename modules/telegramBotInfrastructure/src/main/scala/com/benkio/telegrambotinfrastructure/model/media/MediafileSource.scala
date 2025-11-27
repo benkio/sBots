@@ -23,7 +23,7 @@ final case class MediaFileSource(
 object MediaFileSource {
 
   def fromUriString[F[_]: MonadThrow](input: String): F[MediaFileSource] =
-    for
+    for {
       uri      <- MonadThrow[F].fromEither(Uri.fromString(input))
       filename <- MonadThrow[F].fromOption(
         uri.path.segments.lastOption.map(_.decoded()),
@@ -34,7 +34,7 @@ object MediaFileSource {
           s"[MediafileSource] fromUriString filename does not contains '_' separator between botId and actual name: $filename"
         )
       )
-    yield MediaFileSource(
+    } yield MediaFileSource(
       filename = filename,
       kinds = List.empty,
       mime = MimeTypeOps.mimeTypeOrDefault(filename, None),
@@ -42,11 +42,12 @@ object MediaFileSource {
     )
 
   // Decoder //////////////////////////////////////////////////////////////////
-  given Decoder[Either[String, Uri]] with
+  given Decoder[Either[String, Uri]] with {
     def apply(c: HCursor): Decoder.Result[Either[String, Uri]] =
       c.as[String].map { str =>
         Uri.requestTarget(str).leftMap(_ => str)
       }
+  }
 
   given Decoder[MediaFileSource] =
     new Decoder[MediaFileSource] {

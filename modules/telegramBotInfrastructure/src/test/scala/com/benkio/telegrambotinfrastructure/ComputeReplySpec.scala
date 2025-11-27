@@ -29,7 +29,7 @@ class ComputeReplySpec extends CatsEffectSuite {
         msg: Message,
         repository: Repository[F],
         replyToMessage: Boolean
-    ): F[List[Message]] =
+    ): F[List[Message]] = {
       val _ = summon[LogWriter[F]]
       val _ = summon[Api[F]]
       (reply match {
@@ -41,6 +41,7 @@ class ComputeReplySpec extends CatsEffectSuite {
         case _: Document  => List(msg.copy(text = Some("Document")))
         case _: Sticker   => List(msg.copy(text = Some("Sticker")))
       }).pure[F]
+    }
   }
 
   val inputMediafile: List[MediaFile] = List(

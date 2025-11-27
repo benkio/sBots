@@ -40,11 +40,12 @@ object Media {
     createdAt = createdAt
   )
 
-  extension (media: Media)
+  extension (media: Media) {
     def getLink: Option[Uri] = media.mediaSources.collectFirst { case Right(uri) => uri }
     def toHtmlRow: String    =
       s"""| ${media.mediaCount.toString
           .padTo(5, ' ')} | <a href="${media.getLink.map(_.toString).getOrElse("")}">${media.mediaName}</a> |"""
+  }
 
   def mediaListToHTML(medias: List[Media]): String =
     if medias.length == 0 then {

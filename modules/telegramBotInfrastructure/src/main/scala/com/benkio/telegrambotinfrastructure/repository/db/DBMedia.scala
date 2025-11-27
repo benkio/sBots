@@ -135,7 +135,7 @@ object DBMedia {
           .map(_.some)
           .handleError(_ => none)
 
-    override def getMediaByKind(kind: String, botId: SBotId, cache: Boolean = true): F[List[DBMediaData]] =
+    override def getMediaByKind(kind: String, botId: SBotId, cache: Boolean = true): F[List[DBMediaData]] = {
       val cacheKey: String = s"${botId.value}_$kind"
       getMediaInternal[List[DBMediaData]](
         cacheLookupValue = cacheKey,
@@ -155,6 +155,7 @@ object DBMedia {
               else Async[F].unit
           } yield medias
       )
+    }
 
     override def getMediaByMediaCount(
         limit: Int = 20,
@@ -195,7 +196,7 @@ object DBMedia {
     sql"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE media_name = $resourceName"
       .query[DBMediaData]
 
-  def getMediaQueryByKind(kind: String, botId: SBotId): Query0[DBMediaData] =
+  def getMediaQueryByKind(kind: String, botId: SBotId): Query0[DBMediaData] = {
     val kindLike1 = s""""[\\"${kind}\\"%"""
     val kindLike2 = s"""%\\"${kind}\\"%"""
     val kindLike3 = s"""%\\"${kind}\\"]""""
@@ -208,6 +209,7 @@ object DBMedia {
           fr"""kinds LIKE $kindLike3"""
         )
       )).query[DBMediaData]
+  }
 
   def getMediaQueryByMediaCount(botId: Option[SBotId]): Query0[DBMediaData] = {
     val q: Fragment =

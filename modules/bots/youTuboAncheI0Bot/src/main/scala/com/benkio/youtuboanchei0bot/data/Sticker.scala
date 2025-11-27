@@ -4,7 +4,7 @@ import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.sticker
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 
-object Sticker:
+object Sticker {
 
   def messageRepliesStickerData[
       F[_]: Applicative
@@ -29,3 +29,4 @@ object Sticker:
       sticker"ytai_KrapfenYtancheio.sticker"
     )
   )
+}

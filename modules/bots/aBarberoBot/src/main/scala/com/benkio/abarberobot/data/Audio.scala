@@ -5,7 +5,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
-object Audio:
+object Audio {
 
   def messageRepliesAudioData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMp3[F](
@@ -441,4 +441,4 @@ object Audio:
         mp3"abar_Nanerottolo.mp3"
       )
   )
-end Audio
+} // end Audio

@@ -34,10 +34,11 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
         msg: Message,
         repository: Repository[F],
         replyToMessage: Boolean
-    ): F[List[Message]] =
+    ): F[List[Message]] = {
       val _ = summon[LogWriter[F]]
       val _ = summon[Api[F]]
       Async[F].pure(List.empty[Message])
+    }
   }
 
   val botId                                 = YouTuboAncheI0Bot.botId
@@ -70,10 +71,10 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]]      =
     youtuboanchei0bot
       .flatMap(ab =>
-        for
+        for {
           messageReplies <- ab.messageRepliesDataF
           prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-        yield prettyPrints
+        } yield prettyPrints
       )
 
   exactTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData[IO])

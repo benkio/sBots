@@ -57,15 +57,15 @@ object DBMigrator {
       .load()
       .validateWithResult()
 
-    if !validated.validationSuccessful then
-      for error <- validated.invalidMigrations.asScala do
-        println(s"""
-                   |Failed validation:
-                   |  - version: ${error.version}
-                   |  - path: ${error.filepath}
-                   |  - description: ${error.description}
-                   |  - errorCode: ${error.errorDetails.errorCode}
-                   |  - errorMessage: ${error.errorDetails.errorMessage}
-        """.stripMargin.strip)
+    if !validated.validationSuccessful then for error <- validated.invalidMigrations.asScala do println(
+      s"""
+         |Failed validation:
+         |  - version: ${error.version}
+         |  - path: ${error.filepath}
+         |  - description: ${error.description}
+         |  - errorCode: ${error.errorDetails.errorCode}
+         |  - errorMessage: ${error.errorDetails.errorMessage}
+        """.stripMargin.strip
+    )
   }
 }

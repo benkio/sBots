@@ -12,9 +12,10 @@ import java.util.UUID
 import scala.util.Try
 
 opaque type SubscriptionId = UUID
-object SubscriptionId:
+object SubscriptionId {
   def apply(id: UUID): SubscriptionId                        = id
   extension (subscriptionId: SubscriptionId) def value: UUID = subscriptionId
+}
 
 final case class Subscription(
     id: SubscriptionId,

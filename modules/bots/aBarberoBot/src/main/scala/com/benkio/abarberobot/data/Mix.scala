@@ -7,7 +7,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr
 
-object Mix:
+object Mix {
 
   def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
     ReplyBundleMessage.textToMedia[F](
@@ -201,4 +201,4 @@ object Mix:
       mp3"abar_Sangue.mp3"
     )
   )
-end Mix
+} // end Mix

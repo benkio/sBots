@@ -23,7 +23,7 @@ final case class TextReply[F[_]](
     replyToMessage: Boolean = false
 ) extends Reply[F]
 
-object TextReply:
+object TextReply {
   def fromList[F[_]](values: String*)(
       replyToMessage: Boolean
   ): TextReply[F] =
@@ -31,18 +31,20 @@ object TextReply:
       text = values.toList.toText,
       replyToMessage = replyToMessage
     )
+}
 
 final case class MediaReply[F[_]](
     mediaFiles: F[List[MediaFile]],
     replyToMessage: Boolean = false
 ) extends Reply[F]
 
-object MediaReply:
+object MediaReply {
   def fromList[F[_]: Applicative](mediaFiles: List[MediaFile]): MediaReply[F] = MediaReply[F](
     mediaFiles = mediaFiles.pure[F]
   )
+}
 
-object Reply:
+object Reply {
 
   given replyDecoder[F[_]: Applicative]: Decoder[Reply[F]] = deriveDecoder[Reply[F]]
   given replyEncoder: Encoder[Reply[SyncIO]]               = deriveEncoder[Reply[SyncIO]]
@@ -63,10 +65,12 @@ object Reply:
   given failingEncoder[F[_]]: Encoder[Message => F[List[Text]]] =
     Encoder.instance[Message => F[List[Text]]](_ => Json.Null)
 
-  extension [F[_]: ApplicativeThrow](r: Reply[F])
+  extension [F[_]: ApplicativeThrow](r: Reply[F]) {
     def prettyPrint: F[List[String]] = r match {
       case TextReply(txt, _) => ApplicativeThrow[F].pure(txt.map(_.show))
       case TextReplyM(_, _)  =>
         ApplicativeThrow[F].raiseError(Throwable("[Reply] Can't carr `prettyPrint` on a `TextReplyM`"))
       case MediaReply(mediaFilesF, _) => mediaFilesF.map(mfs => mfs.map(_.show))
     }
+  }
+}

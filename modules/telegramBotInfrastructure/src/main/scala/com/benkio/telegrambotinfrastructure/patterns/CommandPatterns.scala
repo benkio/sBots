@@ -54,12 +54,12 @@ object CommandPatterns {
         kind: Option[String],
         botId: SBotId
     )(using log: LogWriter[F]): F[List[MediaFile]] =
-      for
+      for {
         _            <- log.debug(s"[MediaCommandByKind] Fetching DBMediaData for $kind")
         dbMediaDatas <- dbMedia.getMediaByKind(kind = kind.getOrElse(commandName), botId = botId)
         _            <- log.debug("[MediaCommandByKind] Convert to Media")
         medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
-      yield medias.map(media => MediaFile.fromMimeType(media))
+      } yield medias.map(media => MediaFile.fromMimeType(media))
 
     def mediaCommandByKind[F[_]: Async](
         dbMedia: DBMedia[F],
@@ -90,14 +90,14 @@ object CommandPatterns {
       """'/random': Returns a random data (photo/video/audio/text) about the bot character"""
 
     def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], botId: SBotId): F[MediaFile] =
-      for
+      for {
         _              <- LogWriter.debug(s"[RandomCommand] Fetching random media for $botId")
         dbMediaDataOpt <- dbMedia.getRandomMedia(botId)
         _              <- LogWriter.debug("[RandomCommand] Convert DBMediaData to Media")
         media          <- dbMediaDataOpt.fold(Async[F].raiseError(RandomMediaNotFound))(dbMediaData =>
           Async[F].fromEither(Media(dbMediaData))
         )
-      yield MediaFile.fromMimeType(media)
+      } yield MediaFile.fromMimeType(media)
 
     def randomDataReplyBundleCommand[F[_]: Async: LogWriter](
         dbMedia: DBMedia[F],
@@ -230,14 +230,14 @@ Input as query string:
         mdr: List[ReplyBundleMessage[F]],
         m: Message,
         ignoreMessagePrefix: Option[String]
-    ): String => F[List[String]] =
-      t =>
-        val matches = mdr
-          .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
-          .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-        if matches.isEmpty
-        then List(s"No matching trigger for $t").pure[F]
-        else matches.traverse { case (_, rbm) => rbm.prettyPrint() }
+    ): String => F[List[String]] = { t =>
+      val matches = mdr
+        .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
+        .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+      if matches.isEmpty
+      then List(s"No matching trigger for $t").pure[F]
+      else matches.traverse { case (_, rbm) => rbm.prettyPrint() }
+    }
 
     // TODO: #782 Return the closest match on failure
     private[patterns] def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](
@@ -309,7 +309,7 @@ ${ignoreMessagePrefix
         botName: SBotName,
         ignoreMessagePrefix: Option[String],
         commands: List[ReplyBundleCommand[F]]
-    ): String => F[List[String]] = input =>
+    ): String => F[List[String]] = input => {
       val itaMatches = List("it", "ita", "italian", "🇮🇹")
       val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
       val (commandDescriptionsIta, commandDescriptionsEng) =
@@ -337,6 +337,7 @@ ${ignoreMessagePrefix
         case _ =>
           instructionsEng.pure[F]
       }
+    }
 
     private[telegrambotinfrastructure] def instructionsReplyBundleCommand[F[_]: ApplicativeThrow](
         botName: SBotName,
@@ -380,13 +381,13 @@ ${ignoreMessagePrefix
         m: Message,
         botId: SBotId
     ) =
-      for
+      for {
         subscription <- Subscription(m.chat.id, botId, cronInput)
         nextOccurrence = subscription.cron
           .next(LocalDateTime.now)
           .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
         _ <- backgroundJobManager.scheduleSubscription(subscription)
-      yield List(
+      } yield List(
         s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
       )
 
@@ -419,10 +420,9 @@ ${ignoreMessagePrefix
         backgroundJobManager: BackgroundJobManager[F],
         m: Message
     ): F[String] = {
-      if subscriptionIdInput.isEmpty then
-        for {
-          _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
-        } yield "All Subscriptions for current chat successfully cancelled"
+      if subscriptionIdInput.isEmpty then for {
+        _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
+      } yield "All Subscriptions for current chat successfully cancelled"
       else
         for {
           subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
@@ -583,12 +583,12 @@ ${ignoreMessagePrefix
       allowEmptyString: Boolean = false
   ): F[List[Text]] =
     msg.text
-      .filter(t =>
+      .filter(t => {
         val (inputCommand, rest) = t.trim.span(_ != ' ')
         val restCheck            = allowEmptyString || (rest.trim.nonEmpty && !allowEmptyString)
         val commandCheck         = inputCommand == s"/$command" || inputCommand == s"/$command@$botName"
         commandCheck && restCheck
-      )
+      })
       .map(t => computation(t.dropWhile(_ != ' ').drop(1).trim))
       .getOrElse(List(defaultReply).pure[F])
       .handleErrorWith(e =>

@@ -17,7 +17,7 @@ class GenerateTriggersSpec extends CatsEffectSuite {
   override val munitIOTimeout = Duration(1, "m")
 
   test("GenerateTriggers.run should modify the expected files") {
-    for
+    for {
       exitCode <- GenerateTriggers.run(List.empty)
       triggerFiles: List[File] = List(
         File(s"../bots/aBarberoBot/${ABarberoBot.triggerFilename}"),
@@ -26,7 +26,7 @@ class GenerateTriggersSpec extends CatsEffectSuite {
         File(s"../bots/richardPHJBensonBot/${RichardPHJBensonBot.triggerFilename}"),
         File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.triggerFilename}")
       )
-    yield {
+    } yield {
       assert(exitCode == ExitCode.Success)
       assert(
         triggerFiles.forall(f => Instant.now.toEpochMilli - f.lastModified < munitIOTimeout.toMillis)
