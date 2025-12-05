@@ -10,7 +10,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
-import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.SBotId
@@ -61,6 +60,8 @@ trait CalandroBot[F[_]: Async: LogWriter] extends SBot[F] {
   override val botName: SBotName       = CalandroBot.botName
   override val botId: SBotId           = CalandroBot.botId
   override val triggerFilename: String = CalandroBot.triggerFilename
+  // TODO: Override when it's used by all bots 
+  val triggerJsonFilename: String = CalandroBot.triggerJsonFilename
   override val triggerListUri: Uri     = CalandroBot.triggerListUri
 
   override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
@@ -77,6 +78,7 @@ object CalandroBot {
   val tokenFilename: String   = "cala_CalandroBot.token"
   val configNamespace: String = "cala"
   val triggerFilename: String = "cala_triggers.txt"
+  val triggerJsonFilename: String = "cala_triggers.json"
   val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/abar_triggers.txt"
 
   def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(

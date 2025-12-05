@@ -6,7 +6,7 @@ import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import io.circe.parser.decode
 import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

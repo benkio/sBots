@@ -1,76 +1,58 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import cats.effect.SyncIO
-import cats.syntax.all.*
-import cats.Applicative
-import cats.ApplicativeThrow
-import com.benkio.telegrambotinfrastructure.model.reply.toText
-import io.circe.*
 import io.circe.generic.semiauto.*
-import telegramium.bots.Message
+import io.circe.Decoder
+import io.circe.Encoder
+import cats.syntax.all.*
 
-sealed trait Reply[F[_]] {
+sealed trait Reply {
   val replyToMessage: Boolean
 }
 
-final case class TextReplyM[F[_]](
-    textM: Message => F[List[Text]],
-    replyToMessage: Boolean = false
-) extends Reply[F]
-
-final case class TextReply[F[_]](
+final case class TextReply(
     text: List[Text],
     replyToMessage: Boolean = false
-) extends Reply[F]
+) extends Reply
 
 object TextReply {
-  def fromList[F[_]](values: String*)(
+  def fromList(values: String*)(
       replyToMessage: Boolean
-  ): TextReply[F] =
+  ): TextReply =
     TextReply(
       text = values.toList.toText,
       replyToMessage = replyToMessage
     )
 }
 
-final case class MediaReply[F[_]](
-    mediaFiles: F[List[MediaFile]],
+final case class MediaReply(
+    mediaFiles: List[MediaFile],
     replyToMessage: Boolean = false
-) extends Reply[F]
+) extends Reply
 
 object MediaReply {
-  def fromList[F[_]: Applicative](mediaFiles: List[MediaFile]): MediaReply[F] = MediaReply[F](
-    mediaFiles = mediaFiles.pure[F]
+  def fromList(mediaFiles: List[MediaFile]): MediaReply = MediaReply(
+    mediaFiles = mediaFiles
   )
 }
 
+// Holds a key that will later be resolved to an effectful computation
+final case class EffectfulReply(key: EffectfulKey, replyToMessage: Boolean = false) extends Reply
+
 object Reply {
 
-  given replyDecoder[F[_]: Applicative]: Decoder[Reply[F]] = deriveDecoder[Reply[F]]
-  given replyEncoder: Encoder[Reply[SyncIO]]               = deriveEncoder[Reply[SyncIO]]
+  given replyDecoder: Decoder[Reply] = deriveDecoder[Reply]
+  given replyEncoder: Encoder[Reply] = deriveEncoder[Reply]
 
-  given mediaFileListDecoder[F[_]: Applicative]: Decoder[F[List[MediaFile]]] =
+  given mediaFileListDecoder: Decoder[List[MediaFile]] =
     Decoder[List[MediaFile]]
-      .map(Applicative[F].pure)
-  given mediaFileListEncoder: Encoder[SyncIO[List[MediaFile]]] =
+  given mediaFileListEncoder: Encoder[List[MediaFile]] =
     Encoder[List[MediaFile]]
-      .contramap(_.unsafeRunSync())
 
-  // We can't translate to json such functions. This should never
-  // being called and the `TextReplyM` should remain in scala code only
-  given failingDecoder[F[_]]: Decoder[Message => F[List[Text]]] =
-    Decoder.failed[Message => F[List[Text]]](
-      DecodingFailure("Can't decode fuction `Message => F[List[Text]]`", List.empty)
-    )
-  given failingEncoder[F[_]]: Encoder[Message => F[List[Text]]] =
-    Encoder.instance[Message => F[List[Text]]](_ => Json.Null)
-
-  extension [F[_]: ApplicativeThrow](r: Reply[F]) {
-    def prettyPrint: F[List[String]] = r match {
-      case TextReply(txt, _) => ApplicativeThrow[F].pure(txt.map(_.show))
-      case TextReplyM(_, _)  =>
-        ApplicativeThrow[F].raiseError(Throwable("[Reply] Can't carr `prettyPrint` on a `TextReplyM`"))
-      case MediaReply(mediaFilesF, _) => mediaFilesF.map(mfs => mfs.map(_.show))
+  extension (r: Reply) {
+    def prettyPrint: List[String] = r match {
+      case TextReply(txt, _) => txt.map(_.show)
+      case EffectfulReply(key, _) => List(s"Reply for `$key`")
+      case MediaReply(mediaFiles, _) => mediaFiles.map(_.show)
     }
   }
 }

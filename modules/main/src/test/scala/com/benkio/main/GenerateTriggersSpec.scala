@@ -23,6 +23,7 @@ class GenerateTriggersSpec extends CatsEffectSuite {
         File(s"../bots/aBarberoBot/${ABarberoBot.triggerFilename}"),
         File(s"../bots/m0sconiBot/${M0sconiBot.triggerFilename}"),
         File(s"../bots/calandroBot/${CalandroBot.triggerFilename}"),
+        File(s"../bots/calandroBot/${CalandroBot.triggerJsonFilename}"),
         File(s"../bots/richardPHJBensonBot/${RichardPHJBensonBot.triggerFilename}"),
         File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.triggerFilename}")
       )

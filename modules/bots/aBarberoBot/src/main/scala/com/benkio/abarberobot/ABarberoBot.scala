@@ -33,13 +33,11 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    repositoryInput: Repository[F],
+    val repository: Repository[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F]
-) extends SBotPolling[F](repositoryInput)
+) extends SBotPolling[F]()
     with ABarberoBot[F] {
-  override def repository: Repository[F] =
-    repositoryInput
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
@@ -48,15 +46,13 @@ class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 
 class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    repositoryInput: Repository[F],
+    repository: Repository[F],
     val dbLayer: DBLayer[F],
     val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate, repositoryInput)
+) extends SBotWebhook[F](uri, path, webhookCertificate)
     with ABarberoBot[F] {
-  override def repository: Repository[F] =
-    repository
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
   override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =

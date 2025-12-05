@@ -1,8 +1,10 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
+import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.EffectfulReply
 import cats.effect.Async
 import cats.implicits.*
-import cats.Applicative
 import cats.ApplicativeThrow
 import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.given
@@ -10,12 +12,9 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.reply.toText
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
-import com.benkio.telegrambotinfrastructure.model.reply.TextReplyM
 import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.Show
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
@@ -61,18 +60,18 @@ object CommandPatterns {
         medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
       } yield medias.map(media => MediaFile.fromMimeType(media))
 
-    def mediaCommandByKind[F[_]: Async](
-        dbMedia: DBMedia[F],
+    def mediaCommandByKind(
         commandName: String,
-        kind: Option[String],
-        instruction: CommandInstructionData,
-        botId: SBotId
-    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
-      ReplyBundleCommand[F](
+        instruction: CommandInstructionData
+    )(using sBotId : SBotId): ReplyBundleCommand =
+      ReplyBundleCommand(
         trigger = CommandTrigger(commandName),
-        reply = MediaReply[F](
-          mediaFiles = mediaCommandByKindLogic(dbMedia = dbMedia, commandName = commandName, kind = kind, botId = botId)
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.Custom(commandName)
+        )// MediaReply(
+        //   mediaFiles = mediaCommandByKindLogic(dbMedia = dbMedia, commandName = commandName, kind = kind, botId = botId)
+        // )
+        ,
         instruction = instruction
       )
   }
@@ -99,20 +98,20 @@ object CommandPatterns {
         )
       } yield MediaFile.fromMimeType(media)
 
-    def randomDataReplyBundleCommand[F[_]: Async: LogWriter](
-        dbMedia: DBMedia[F],
+    def randomDataReplyBundleCommand(
         botId: SBotId
-    ): ReplyBundleCommand[F] =
-      ReplyBundleCommand[F](
+    ): ReplyBundleCommand =
+      ReplyBundleCommand(
         trigger = CommandTrigger("random"),
-        reply = MediaReply[F](
-          mediaFiles = randomCommandLogic(dbMedia, botId).map(List(_))
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.Random
+        )
+        ,
         instruction = CommandInstructionData.Instructions(
           ita = randomDataCommandIta,
           eng = randomDataCommandEng
         )
-      )
+      )(using botId)
   }
 
   object SearchShowCommand {
@@ -144,37 +143,43 @@ Input as query string:
   If the input is not recognized it will be considered as a title.
   Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
 
-    private[patterns] def searchShowReplyBundleCommand[F[_]: Async](
-        dbShow: DBShow[F],
-        botName: SBotName,
+    def searchShowCommandLogic[F[_]: Async: LogWriter](
+      msg: Message,
+      botName: SBotName,
+      dbLayer: DBLayer[F],
+      botId: SBotId,
+  ): F[List[Text]] = 
+      handleCommandWithInput[F](
+        msg = msg,
+        command = "searchshow",
+        botName = botName,
+        computation = keywords =>
+          SearchShowCommand
+            .selectLinkByKeyword[F](
+              keywords = keywords,
+              dbShow = dbLayer.dbShow,
+              botId = botId
+            )
+            .map(List(_)),
+        defaultReply = "Input non riconosciuto. Controlla le instruzioni per i dettagli",
+        allowEmptyString = true
+      )
+      
+    private[patterns] def searchShowReplyBundleCommand(
         botId: SBotId
-    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
-      ReplyBundleCommand[F](
+    ): ReplyBundleCommand =
+      ReplyBundleCommand(
         trigger = CommandTrigger("searchshow"),
-        reply = TextReplyM[F](
-          m =>
-            handleCommandWithInput[F](
-              msg = m,
-              command = "searchshow",
-              botName = botName,
-              computation = keywords =>
-                SearchShowCommand
-                  .selectLinkByKeyword[F](
-                    keywords = keywords,
-                    dbShow = dbShow,
-                    botId = botId
-                  )
-                  .map(List(_)),
-              defaultReply = "Input non riconosciuto. Controlla le instruzioni per i dettagli",
-              allowEmptyString = true
-            ),
-          true
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.SearchShow,
+          replyToMessage = true
+        )
+        ,
         instruction = CommandInstructionData.Instructions(
           ita = searchShowCommandIta,
           eng = searchShowCommandEng
         )
-      )
+      )(using botId)
 
     def selectLinkByKeyword[F[_]: Async](
         keywords: String,
@@ -208,7 +213,10 @@ Input as query string:
     def triggerListLogic(triggerFileUri: Uri): String =
       s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri"
 
-    private[patterns] def triggerListReplyBundleCommand[F[_]](triggerFileUri: Uri): ReplyBundleCommand[F] =
+    private[patterns] def triggerListReplyBundleCommand[F[_]](
+      triggerFileUri: Uri,
+      botId: SBotId
+    ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
         reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true),
@@ -216,7 +224,7 @@ Input as query string:
           ita = triggerListCommandDescriptionIta,
           eng = triggerListCommandDescriptionEng
         )
-      )
+      )(using botId)
   }
 
   object TriggerSearchCommand {
@@ -226,41 +234,42 @@ Input as query string:
     private val triggerSearchCommandDescriptionEng: String =
       "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
 
-    private[patterns] def searchTriggerLogic[F[_]: ApplicativeThrow](
-        mdr: List[ReplyBundleMessage[F]],
+    private[patterns] def searchTriggerLogic(
+        mdr: List[ReplyBundleMessage],
         m: Message,
         ignoreMessagePrefix: Option[String]
-    ): String => F[List[String]] = { t =>
+    ): String => List[String] = { t =>
       val matches = mdr
         .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
         .sortBy(_._1)(using Trigger.orderingInstance.reverse)
       if matches.isEmpty
-      then List(s"No matching trigger for $t").pure[F]
-      else matches.traverse { case (_, rbm) => rbm.prettyPrint() }
+      then List(s"No matching trigger for $t")
+      else matches.map { case (_, rbm) => rbm.prettyPrint() }
     }
 
     // TODO: #782 Return the closest match on failure
-    private[patterns] def triggerSearchReplyBundleCommand[F[_]: ApplicativeThrow](
-        botName: SBotName,
-        ignoreMessagePrefix: Option[String],
-        mdr: List[ReplyBundleMessage[F]]
-    ): ReplyBundleCommand[F] =
+    private[patterns] def triggerSearchReplyBundleCommand(
+        botId: SBotId
+    ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggersearch"),
-        reply = TextReplyM[F](m =>
-          handleCommandWithInput[F](
-            msg = m,
-            command = "triggersearch",
-            botName = botName,
-            computation = searchTriggerLogic(mdr = mdr, m = m, ignoreMessagePrefix = ignoreMessagePrefix),
-            defaultReply = """Input Required: Insert the test keyword to check if it's in some bot trigger"""
-          )
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.TriggerSearch
+        )// TextReplyM[F](m =>
+        //   handleCommandWithInput[F](
+        //     msg = m,
+        //     command = "triggersearch",
+        //     botName = botName,
+        //     computation = searchTriggerLogic(mdr = mdr, m = m, ignoreMessagePrefix = ignoreMessagePrefix),
+        //     defaultReply = """Input Required: Insert the test keyword to check if it's in some bot trigger"""
+        //   )
+        // )
+        ,
         instruction = CommandInstructionData.Instructions(
           ita = triggerSearchCommandDescriptionIta,
           eng = triggerSearchCommandDescriptionEng
         )
-      )
+      )(using botId)
 
   }
 
@@ -305,11 +314,11 @@ ${ignoreMessagePrefix
         )
         .getOrElse("")}
 """
-    def instructionCommandLogic[F[_]: Applicative](
+    def instructionCommandLogic(
         botName: SBotName,
         ignoreMessagePrefix: Option[String],
-        commands: List[ReplyBundleCommand[F]]
-    ): String => F[List[String]] = input => {
+        commands: List[ReplyBundleCommand]
+    ): String => List[String] = input => {
       val itaMatches = List("it", "ita", "italian", "🇮🇹")
       val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
       val (commandDescriptionsIta, commandDescriptionsEng) =
@@ -331,37 +340,38 @@ ${ignoreMessagePrefix
       )
       input match {
         case v if itaMatches.contains(v) =>
-          instructionsIta.pure[F]
+          instructionsIta
         case v if engMatches.contains(v) =>
-          instructionsEng.pure[F]
+          instructionsEng
         case _ =>
-          instructionsEng.pure[F]
+          instructionsEng
       }
     }
 
-    private[telegrambotinfrastructure] def instructionsReplyBundleCommand[F[_]: ApplicativeThrow](
-        botName: SBotName,
-        ignoreMessagePrefix: Option[String],
-        commands: List[ReplyBundleCommand[F]]
-    ): ReplyBundleCommand[F] =
+    private[telegrambotinfrastructure] def instructionsReplyBundleCommand(
+        botId: SBotId
+    ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("instructions"),
-        reply = TextReplyM[F](m =>
-          handleCommandWithInput[F](
-            msg = m,
-            command = "instructions",
-            botName = botName,
-            computation = instructionCommandLogic(
-              botName = botName,
-              ignoreMessagePrefix = ignoreMessagePrefix,
-              commands = commands
-            ),
-            defaultReply = "",
-            allowEmptyString = true
-          )
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.Instructions
+        )// TextReplyM[F](m =>
+        //   handleCommandWithInput[F](
+        //     msg = m,
+        //     command = "instructions",
+        //     botName = botName,
+        //     computation = instructionCommandLogic(
+        //       botName = botName,
+        //       ignoreMessagePrefix = ignoreMessagePrefix,
+        //       commands = commands
+        //     ),
+        //     defaultReply = "",
+        //     allowEmptyString = true
+        //   )
+        // )
+        ,
         instruction = CommandInstructionData.NoInstructions
-      )
+      )(using botId)
   }
 
   object SubscribeUnsubscribeCommand {
@@ -395,29 +405,30 @@ ${ignoreMessagePrefix
         s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
       )
 
-    private[patterns] def subscribeReplyBundleCommand[F[_]: Async](
-        backgroundJobManager: BackgroundJobManager[F],
-        botName: SBotName,
+    private[patterns] def subscribeReplyBundleCommand(
         botId: SBotId
-    ): ReplyBundleCommand[F] =
-      ReplyBundleCommand[F](
+    ): ReplyBundleCommand =
+      ReplyBundleCommand(
         trigger = CommandTrigger("subscribe"),
-        reply = TextReplyM[F](
-          m =>
-            handleCommandWithInput[F](
-              msg = m,
-              command = "subscribe",
-              botName = botName,
-              computation = subscribeCommandLogic(_, backgroundJobManager, m, botId),
-              defaultReply = "Input Required: insert a valid 〈cron time〉. Check the instructions"
-            ),
-          true
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.Subscribe
+        )// TextReplyM[F](
+        //   m =>
+        //     handleCommandWithInput[F](
+        //       msg = m,
+        //       command = "subscribe",
+        //       botName = botName,
+        //       computation = subscribeCommandLogic(_, backgroundJobManager, m, botId),
+        //       defaultReply = "Input Required: insert a valid 〈cron time〉. Check the instructions"
+        //     ),
+        //   true
+        // )
+        ,
         instruction = CommandInstructionData.Instructions(
           ita = subscribeCommandDescriptionIta,
           eng = subscribeCommandDescriptionEng
         )
-      )
+      )(using botId)
 
     def unsubcribeCommandLogic[F[_]: Async](
         subscriptionIdInput: String,
@@ -434,30 +445,32 @@ ${ignoreMessagePrefix
         } yield "Subscription successfully cancelled"
     }
 
-    private[patterns] def unsubscribeReplyBundleCommand[F[_]: Async](
-        backgroundJobManager: BackgroundJobManager[F],
-        botName: SBotName
-    ): ReplyBundleCommand[F] =
-      ReplyBundleCommand[F](
+    private[patterns] def unsubscribeReplyBundleCommand(
+        botId: SBotId
+    ): ReplyBundleCommand =
+      ReplyBundleCommand(
         trigger = CommandTrigger("unsubscribe"),
-        reply = TextReplyM[F](
-          m =>
-            handleCommandWithInput[F](
-              msg = m,
-              command = "unsubscribe",
-              botName = botName,
-              computation = unsubcribeCommandLogic(_, backgroundJobManager, m).map(List(_)),
-              defaultReply =
-                "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions",
-              allowEmptyString = true
-            ),
-          true
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.Unsubscribe
+        )// TextReplyM[F](
+        //   m =>
+        //     handleCommandWithInput[F](
+        //       msg = m,
+        //       command = "unsubscribe",
+        //       botName = botName,
+        //       computation = unsubcribeCommandLogic(_, backgroundJobManager, m).map(List(_)),
+        //       defaultReply =
+        //         "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions",
+        //       allowEmptyString = true
+        //     ),
+        //   true
+        // )
+        ,
         instruction = CommandInstructionData.Instructions(
           ita = unsubscribeCommandDescriptionIta,
           eng = unsubscribeCommandDescriptionEng
         )
-      )
+      )(using botId)
 
     def subscriptionsCommandLogic[F[_]: Async](
         dbSubscription: DBSubscription[F],
@@ -475,28 +488,30 @@ ${ignoreMessagePrefix
       s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
       memChatSubscriptions.map(_.show).mkString("\n")
 
-    private[patterns] def subscriptionsReplyBundleCommand[F[_]: Async](
-        dbSubscription: DBSubscription[F],
-        backgroundJobManager: BackgroundJobManager[F],
+    private[patterns] def subscriptionsReplyBundleCommand(
         botId: SBotId
-    ): ReplyBundleCommand[F] =
-      ReplyBundleCommand[F](
+    ): ReplyBundleCommand =
+      ReplyBundleCommand(
         trigger = CommandTrigger("subscriptions"),
-        reply = TextReplyM[F](
-          m =>
-            subscriptionsCommandLogic(
-              dbSubscription = dbSubscription,
-              backgroundJobManager = backgroundJobManager,
-              botId = botId,
-              m = m
-            ).map(List(_).toText),
-          true
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.Subscriptions,
+          replyToMessage = true
+        )// TextReplyM[F](
+        //   m =>
+        //     subscriptionsCommandLogic(
+        //       dbSubscription = dbSubscription,
+        //       backgroundJobManager = backgroundJobManager,
+        //       botId = botId,
+        //       m = m
+        //     ).map(List(_).toText),
+        //   true
+        // )
+        ,
         instruction = CommandInstructionData.Instructions(
           ita = subscriptionsCommandDescriptionIta,
           eng = subscriptionsCommandDescriptionEng
         )
-      )
+      )(using botId)
   }
 
   object StatisticsCommands {
@@ -512,21 +527,23 @@ ${ignoreMessagePrefix
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
       } yield Media.mediaListToHTML(medias)
 
-    private[patterns] def topTwentyReplyBundleCommand[F[_]: MonadThrow](
-        botId: SBotId,
-        dbMedia: DBMedia[F]
-    ): ReplyBundleCommand[F] =
+    private[patterns] def topTwentyReplyBundleCommand(
+        botId: SBotId
+    ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("toptwenty"),
-        reply = TextReplyM[F](
-          _ => topTwentyCommandLogic(botId, dbMedia).map(List(_).map(Text(_, textType = Text.TextType.Html))),
-          true
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.TopTwenty
+        )// TextReplyM[F](
+        //   _ => topTwentyCommandLogic(botId, dbMedia).map(List(_).map(Text(_, textType = Text.TextType.Html))),
+        //   true
+        // )
+        ,
         instruction = CommandInstructionData.Instructions(
           ita = topTwentyTriggersCommandDescriptionIta,
           eng = topTwentyTriggersCommandDescriptionEng
         )
-      )
+      )(using botId)
 
   }
 
@@ -559,29 +576,31 @@ ${ignoreMessagePrefix
               ) *> s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}".pure[F]
           )
 
-    private[patterns] def timeoutReplyBundleCommand[F[_]: MonadThrow](
-        botName: SBotName,
-        botId: SBotId,
-        dbTimeout: DBTimeout[F]
-    )(using log: LogWriter[F]): ReplyBundleCommand[F] =
+    private[patterns] def timeoutReplyBundleCommand(
+      botId : SBotId
+    ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("timeout"),
-        reply = TextReplyM[F](
-          msg =>
-            handleCommandWithInput[F](
-              msg = msg,
-              command = "timeout",
-              botName = botName,
-              computation = timeoutLogic(_, msg, dbTimeout, botId, log).map(List(_)),
-              defaultReply = """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
-            ),
-          true
-        ),
+        reply = EffectfulReply(
+          key = EffectfulKey.Timeout,
+          replyToMessage = true
+        )// TextReplyM[F](
+        //   msg =>
+        //     handleCommandWithInput[F](
+        //       msg = msg,
+        //       command = "timeout",
+        //       botName = botName,
+        //       computation = timeoutLogic(_, msg, dbTimeout, botId, log).map(List(_)),
+        //       defaultReply = """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
+        //     ),
+        //   true
+        // )
+        ,
         instruction = CommandInstructionData.Instructions(
           ita = timeoutCommandDescriptionIta,
           eng = timeoutCommandDescriptionEng
         )
-      )
+      )(using botId)
   }
 
   def handleCommandWithInput[F[_]: ApplicativeThrow](

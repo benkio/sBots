@@ -27,11 +27,11 @@ object MessageMatches {
     )
   given Encoder[MessageMatches] = Encoder[MessageMatches](using mm => Json.fromString(mm.toString))
 
-  def doesMatch[F[_]](
-      replyBundleMessage: ReplyBundleMessage[F],
+  def doesMatch(
+      replyBundleMessage: ReplyBundleMessage,
       message: Message,
       ignoreMessagePrefix: Option[String]
-  ): Option[(Trigger, ReplyBundleMessage[F])] =
+  ): Option[(Trigger, ReplyBundleMessage)] =
     (
       ignoreMessagePrefix,
       replyBundleMessage.matcher,

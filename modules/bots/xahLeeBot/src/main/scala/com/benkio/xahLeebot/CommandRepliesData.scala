@@ -23,32 +23,22 @@ object CommandRepliesData {
       botId: SBotId
   )(using
       log: LogWriter[F]
-  ): List[ReplyBundleCommand[F]] =
+  ): List[ReplyBundleCommand] =
     CommandPatternsGroup.ShowGroup.group[F](
-      dbShow = dbLayer.dbShow,
-      dbSubscription = dbLayer.dbSubscription,
-      backgroundJobManager = backgroundJobManager,
       botId = botId,
-      botName = botName
-    ) ++ customCommands(dbMedia = dbLayer.dbMedia, botId = botId)
+    ) ++ customCommands(botId = botId)
 
   def customCommands[F[_]: Async](
-      dbMedia: DBMedia[F],
       botId: SBotId
   )(using
       log: LogWriter[F]
   ): List[ReplyBundleCommand[F]] =
     List(
       RandomDataCommand.randomDataReplyBundleCommand[F](
-        botId = botId,
-        dbMedia = dbMedia
+        botId = botId
       )
     ) ++ xahCustomCommands.map { case (command, instruction) =>
       MediaByKindCommand.mediaCommandByKind(
-        dbMedia = dbMedia,
-        commandName = command,
-        kind = command.some,
-        instruction = instruction,
         botId = botId
       )
     }

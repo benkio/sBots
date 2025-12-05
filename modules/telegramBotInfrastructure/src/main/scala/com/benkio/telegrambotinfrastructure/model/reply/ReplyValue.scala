@@ -27,6 +27,24 @@ object Text {
   given Encoder[Text] = Encoder[String].contramap(_.value)
 }
 
+enum EffectfulKey extends ReplyValue {
+  case Random
+  case SearchShow
+  case TriggerSearch
+  case Instructions
+  case Subscribe
+  case Unsubscribe
+  case Subscriptions
+  case TopTwenty
+  case Timeout
+  case Custom(key: String)
+}
+
+object EffectfulKey {
+  given replyDecoder: Decoder[EffectfulKey] = deriveDecoder[EffectfulKey]
+  given replyEncoder: Encoder[EffectfulKey] = deriveEncoder[EffectfulKey]
+}
+
 sealed trait MediaFile extends ReplyValue {
   def filepath: String
   def filename: String  = filepath.split('/').last

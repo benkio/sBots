@@ -13,7 +13,7 @@ import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import doobie.Transactor
 import log.effect.LogWriter
@@ -128,8 +128,7 @@ object BotSetup {
     )
     backgroundJobManager <- Resource.eval(
       BackgroundJobManager[F](
-        dbSubscription = dbLayer.dbSubscription,
-        dbShow = dbLayer.dbShow,
+        dbLayer = dbLayer,
         botId = botId,
         repository = repository
       )(using Async[F], api, telegramReply, log)

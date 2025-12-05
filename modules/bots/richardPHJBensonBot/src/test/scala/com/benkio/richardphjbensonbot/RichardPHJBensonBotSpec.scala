@@ -18,7 +18,7 @@ import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

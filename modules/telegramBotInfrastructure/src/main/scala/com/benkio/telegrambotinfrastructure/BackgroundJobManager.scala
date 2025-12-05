@@ -4,17 +4,18 @@ import cats.*
 import cats.effect.*
 import cats.effect.implicits.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.SBotId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
-import com.benkio.telegrambotinfrastructure.repository.db.DBShow
-import com.benkio.telegrambotinfrastructure.repository.db.DBSubscription
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+
+
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
 import fs2.Stream
@@ -58,16 +59,14 @@ object BackgroundJobManager {
       )
 
   def apply[F[_]: Async: Api](
-      dbSubscription: DBSubscription[F],
-      dbShow: DBShow[F],
+      dbLayer: DBLayer[F],
       repository: Repository[F],
       botId: SBotId
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
       backgroundJobManager <- Async[F].pure(
         new BackgroundJobManagerImpl(
-          dbSubscription = dbSubscription,
-          dbShow = dbShow,
+          dbLayer = dbLayer,
           repository: Repository[F],
           botId = botId
         )
@@ -76,8 +75,7 @@ object BackgroundJobManager {
     } yield backgroundJobManager
 
   class BackgroundJobManagerImpl[F[_]: Async: Api](
-      dbSubscription: DBSubscription[F],
-      dbShow: DBShow[F],
+      dbLayer: DBLayer[F],
       repository: Repository[F],
       val botId: SBotId
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
@@ -88,7 +86,7 @@ object BackgroundJobManager {
 
     def loadSubscriptions(): F[Unit] =
       for {
-        subscriptionsData <- dbSubscription.getSubscriptions(botId)
+        subscriptionsData <- dbLayer.dbSubscription.getSubscriptions(botId)
         subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
         cancelSignal      <- subscriptions.traverse(subscription =>
           runSubscription(subscription).map { case (stream, cancel) =>
@@ -110,7 +108,7 @@ object BackgroundJobManager {
         _ <- Async[F]
           .raiseError(SubscriptionAlreadyExists(subscription))
           .whenA(scheduleReferences.contains(SubscriptionKey(subscription.id, subscription.chatId)))
-        _                <- dbSubscription.insertSubscription(DBSubscriptionData(subscription))
+        _                <- dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(subscription))
         (stream, cancel) <- runSubscription(subscription)
         cronStream = cronScheduler.awakeEvery(subscription.cron) >> stream
         _ <- cronStream.interruptWhen(cancel).compile.drain.start
@@ -125,7 +123,7 @@ object BackgroundJobManager {
           if optCancellingBoolean.isEmpty
           then Async[F].raiseError(SubscriptionIdNotFound(subscriptionId))
           else optCancellingBoolean.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
-        _ <- dbSubscription.deleteSubscription(subscriptionId.value)
+        _ <- dbLayer.dbSubscription.deleteSubscription(subscriptionId.value)
       } yield scheduleReferences = onGoingScheduleReferences
     }
 
@@ -134,7 +132,7 @@ object BackgroundJobManager {
         case (SubscriptionKey(_, cId), _) => cId == chatId
       }
       for {
-        _ <- dbSubscription.deleteSubscriptions(chatId.value)
+        _ <- dbLayer.dbSubscription.deleteSubscriptions(chatId.value)
         _ <- optCancellingBooleans.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
       } yield scheduleReferences = onGoingScheduleReferences
     }
@@ -155,14 +153,15 @@ object BackgroundJobManager {
       val action: F[Instant] = for {
         now   <- Async[F].realTimeInstant
         _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
-        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbShow, botId)
+        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, botId)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
-        _     <- textTelegramReply.reply(
+        _     <- textTelegramReply.reply[F](
           reply = Text(reply),
           msg = message,
           repository = repository,
+          dbLayer = dbLayer,
           replyToMessage = true
-        )
+        )(using Async[F], log, summon[Api[F]], botId)
       } yield now // For testing purposes
 
       for cancel <- cancelF

@@ -12,6 +12,7 @@ import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import io.circe.syntax.*
 
 import java.io.*
 
@@ -36,6 +37,23 @@ object GenerateTriggers extends IOApp {
     } yield pw.write(triggersStringList.mkString(""))
   }
 
+  def generateTriggersJsonFile(
+    botModuleRelativeFolderPath: String,
+    triggerJsonFilename: String,
+    triggers: List[ReplyBundleMessage[IO]]
+  ): Resource[IO, Unit] = {
+    val triggerFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$triggerJsonFilename"
+
+    for {
+      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath JSON Trigger file"))
+      triggersJsonList <- Resource.eval(
+        triggers.traverse(_.asJson)
+      )
+      _  <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
+      pw <- Resource.fromAutoCloseable(IO(new PrintWriter(triggerFilesPath)))
+    } yield pw.write(triggersJsonList.spaces2)
+  }
+
   def run(args: List[String]): IO[ExitCode] =
     (for {
       _ <- generateTriggerFile(
@@ -44,6 +62,11 @@ object GenerateTriggers extends IOApp {
         triggers = ABarberoBot.messageRepliesData[IO]
       )
       _ <- generateTriggerFile(
+        botModuleRelativeFolderPath = "../bots/calandroBot/",
+        triggerFilename = CalandroBot.triggerFilename,
+        triggers = CalandroBot.messageRepliesData[IO]
+      )
+      _ <- generateTriggersJsonFile(
         botModuleRelativeFolderPath = "../bots/calandroBot/",
         triggerFilename = CalandroBot.triggerFilename,
         triggers = CalandroBot.messageRepliesData[IO]

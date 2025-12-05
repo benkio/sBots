@@ -10,7 +10,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import com.benkio.telegrambotinfrastructure.ComputeReply
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
