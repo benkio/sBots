@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import cats.effect.*

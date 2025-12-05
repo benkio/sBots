@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.repository.db
 
 import com.benkio.telegrambotinfrastructure.model.ChatId
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import cron4s.*

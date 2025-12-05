@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.model.show
 import cats.implicits.*
 import cats.MonadThrow
 import cats.Show as CatsShow
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 
 import java.time.LocalDate

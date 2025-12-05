@@ -3,7 +3,7 @@ package com.benkio.telegrambotinfrastructure.patterns
 
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 

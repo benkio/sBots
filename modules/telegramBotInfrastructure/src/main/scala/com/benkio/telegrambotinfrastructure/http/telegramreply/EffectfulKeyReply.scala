@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.http.telegramreply
 
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply.given
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import cats.syntax.all.*
 import cats.effect.*

@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import cats.*
 import scala.annotation.targetName
 

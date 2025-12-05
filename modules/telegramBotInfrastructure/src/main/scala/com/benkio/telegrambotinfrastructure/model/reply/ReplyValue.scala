@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import cats.Show
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.MimeType
@@ -27,17 +28,17 @@ object Text {
   given Encoder[Text] = Encoder[String].contramap(_.value)
 }
 
-enum EffectfulKey extends ReplyValue {
-  case Random
-  case SearchShow
-  case TriggerSearch
-  case Instructions
-  case Subscribe
-  case Unsubscribe
-  case Subscriptions
-  case TopTwenty
-  case Timeout
-  case Custom(key: String)
+enum EffectfulKey(val sBotInfo: SBotInfo) extends ReplyValue {
+  case Random(override val sBotInfo: SBotInfo)              extends EffectfulKey(sBotInfo)
+  case SearchShow(override val sBotInfo: SBotInfo)          extends EffectfulKey(sBotInfo)
+  case TriggerSearch(override val sBotInfo: SBotInfo)       extends EffectfulKey(sBotInfo)
+  case Instructions(override val sBotInfo: SBotInfo)        extends EffectfulKey(sBotInfo)
+  case Subscribe(override val sBotInfo: SBotInfo)           extends EffectfulKey(sBotInfo)
+  case Unsubscribe(override val sBotInfo: SBotInfo)         extends EffectfulKey(sBotInfo)
+  case Subscriptions(override val sBotInfo: SBotInfo)       extends EffectfulKey(sBotInfo)
+  case TopTwenty(override val sBotInfo: SBotInfo)           extends EffectfulKey(sBotInfo)
+  case Timeout(override val sBotInfo: SBotInfo)             extends EffectfulKey(sBotInfo)
+  case Custom(key: String, override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
 }
 
 object EffectfulKey {

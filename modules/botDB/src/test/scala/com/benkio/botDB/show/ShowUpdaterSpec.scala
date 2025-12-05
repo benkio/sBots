@@ -5,7 +5,7 @@ import cats.implicits.*
 import com.benkio.botDB.mocks.YouTubeServiceMock
 import com.benkio.botDB.show.ShowUpdater.ShowUpdaterImpl
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import com.google.api.services.youtube.model.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

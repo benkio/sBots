@@ -15,7 +15,7 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.xahleebot.XahLeeBot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot

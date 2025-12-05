@@ -3,7 +3,7 @@ package com.benkio.integration.integrationmunit.telegrambotinfrastructure.patter
 import cats.effect.IO
 import cats.implicits.*
 import com.benkio.integration.DBFixture
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBShow
 import munit.CatsEffectSuite

@@ -12,7 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository

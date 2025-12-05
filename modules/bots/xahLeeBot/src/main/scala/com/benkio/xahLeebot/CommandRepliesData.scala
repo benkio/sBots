@@ -4,7 +4,7 @@ import cats.effect.Async
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand

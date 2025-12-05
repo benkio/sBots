@@ -2,7 +2,7 @@ package com.benkio.main
 
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import log.effect.fs2.SyncLogWriter.noOpLog
 import log.effect.LogWriter
 import munit.CatsEffectSuite

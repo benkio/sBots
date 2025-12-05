@@ -1,6 +1,6 @@
 package com.benkio.botDB.show
 
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 
 final case class ShowSource(youTubeSources: List[YouTubeSource], botId: SBotId, outputFilePath: String)
 

@@ -11,7 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.MimeType
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.repository.Repository

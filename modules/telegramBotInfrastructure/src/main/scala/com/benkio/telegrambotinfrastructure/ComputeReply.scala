@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure
 
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import cats.*
 import cats.effect.*
 import cats.implicits.*

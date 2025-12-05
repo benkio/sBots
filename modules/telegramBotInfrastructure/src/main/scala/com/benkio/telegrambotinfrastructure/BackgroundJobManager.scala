@@ -7,7 +7,7 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.ChatId
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
@@ -61,14 +61,14 @@ object BackgroundJobManager {
   def apply[F[_]: Async: Api](
       dbLayer: DBLayer[F],
       repository: Repository[F],
-      botId: SBotId
+      sBotInfo: SBotInfo
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
       backgroundJobManager <- Async[F].pure(
         new BackgroundJobManagerImpl(
           dbLayer = dbLayer,
-          repository: Repository[F],
-          botId = botId
+          repository = repository,
+          sBotInfo = sBotInfo
         )
       )
       _ <- backgroundJobManager.loadSubscriptions()
@@ -77,7 +77,7 @@ object BackgroundJobManager {
   class BackgroundJobManagerImpl[F[_]: Async: Api](
       dbLayer: DBLayer[F],
       repository: Repository[F],
-      val botId: SBotId
+      sBotInfo: SBotInfo
   )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
@@ -86,7 +86,7 @@ object BackgroundJobManager {
 
     def loadSubscriptions(): F[Unit] =
       for {
-        subscriptionsData <- dbLayer.dbSubscription.getSubscriptions(botId)
+        subscriptionsData <- dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId)
         subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
         cancelSignal      <- subscriptions.traverse(subscription =>
           runSubscription(subscription).map { case (stream, cancel) =>
@@ -153,7 +153,7 @@ object BackgroundJobManager {
       val action: F[Instant] = for {
         now   <- Async[F].realTimeInstant
         _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
-        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, botId)
+        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo.botId)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
         _     <- textTelegramReply.reply[F](
           reply = Text(reply),
@@ -161,7 +161,7 @@ object BackgroundJobManager {
           repository = repository,
           dbLayer = dbLayer,
           replyToMessage = true
-        )(using Async[F], log, summon[Api[F]], botId)
+        )(using Async[F], log, summon[Api[F]], sBotInfo.botId)
       } yield now // For testing purposes
 
       for cancel <- cancelF

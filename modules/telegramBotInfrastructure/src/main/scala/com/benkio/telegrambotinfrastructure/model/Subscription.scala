@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import cats.syntax.all.*
 import cats.ApplicativeThrow
 import cats.Show

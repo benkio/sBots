@@ -5,7 +5,7 @@ import cats.syntax.all.*
 import cats.Semigroup
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.ShowSourceConfig
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.http.HttpRequest
