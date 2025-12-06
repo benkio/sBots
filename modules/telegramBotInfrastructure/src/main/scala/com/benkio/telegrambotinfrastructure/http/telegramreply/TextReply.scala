@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import cats.*
 import cats.data.EitherT
@@ -41,7 +41,7 @@ object TextReply {
       repository: Repository[F],
       dbLayer: DBLayer[F],
       replyToMessage: Boolean
-    )(using botId: SBotId): F[List[Message]] = {
+    ): F[List[Message]] = {
       val chatId: ChatId               = ChatIntId(msg.chat.id)
       val parseMode: Option[ParseMode] = reply.textType match {
         case Text.TextType.Plain    => None

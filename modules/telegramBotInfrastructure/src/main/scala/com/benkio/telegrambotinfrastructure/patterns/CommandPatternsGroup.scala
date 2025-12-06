@@ -33,7 +33,8 @@ object CommandPatternsGroup {
       sBotInfo: SBotInfo
     ): List[ReplyBundleCommand] =
       List(
-        TriggerListCommand.triggerListReplyBundleCommand(triggerFileUri, sBotInfo = sBotInfo),
+        TriggerListCommand.triggerListReplyBundleCommand(
+          triggerFileUri = triggerFileUri),
         TriggerSearchCommand
           .triggerSearchReplyBundleCommand(sBotInfo = sBotInfo),
         StatisticsCommands.topTwentyReplyBundleCommand(sBotInfo = sBotInfo),

@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import cats.effect.*
@@ -24,7 +24,7 @@ object MediaFileReply {
         repository: Repository[F],
         dbLayer: DBLayer[F],
         replyToMessage: Boolean
-    )(using botId: SBotId): F[List[Message]] = reply match {
+    ): F[List[Message]] = reply match {
       case mp3: Mp3File =>
         telegramMp3Reply.reply(
           reply = mp3,
@@ -82,7 +82,7 @@ object MediaFileReply {
           repository: Repository[F],
           dbLayer: DBLayer[F],
           replyToMessage: Boolean
-      )(using botId: SBotId): F[List[Message]] = {
+      ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
           msg = msg,
           repository = repository,
@@ -106,7 +106,7 @@ object MediaFileReply {
           repository: Repository[F],
           dbLayer: DBLayer[F],
           replyToMessage: Boolean
-      )(using botId: SBotId): F[List[Message]] = {
+      ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
           msg = msg,
           repository = repository,
@@ -130,7 +130,7 @@ object MediaFileReply {
           repository: Repository[F],
           dbLayer: DBLayer[F],
           replyToMessage: Boolean
-      )(using botId: SBotId): F[List[Message]] = {
+      ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
           msg = msg,
           repository = repository,
@@ -154,7 +154,7 @@ object MediaFileReply {
           repository: Repository[F],
           dbLayer: DBLayer[F],
           replyToMessage: Boolean
-      )(using botId: SBotId): F[List[Message]] = {
+      ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
           msg = msg,
           repository = repository,
@@ -178,7 +178,7 @@ object MediaFileReply {
           repository: Repository[F],
           dbLayer: DBLayer[F],
           replyToMessage: Boolean
-      )(using botId: SBotId): F[List[Message]] = {
+      ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
           msg = msg,
           repository = repository,
@@ -202,7 +202,7 @@ object MediaFileReply {
           repository: Repository[F],
           dbLayer: DBLayer[F],
           replyToMessage: Boolean
-      )(using botId: SBotId): F[List[Message]] = {
+      ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
           msg = msg,
           repository = repository,

@@ -106,8 +106,7 @@ trait SBot[F[_]: Async: LogWriter] {
               msg,
               filteringMatchesMessages(replyBundle, msg),
               repository,
-              dbLayer,
-              botInfo
+              dbLayer
             )
       )
 
@@ -122,8 +121,7 @@ trait SBot[F[_]: Async: LogWriter] {
             msg,
             true,
             repository,
-            dbLayer,
-            botInfo
+            dbLayer
           )
       )
 

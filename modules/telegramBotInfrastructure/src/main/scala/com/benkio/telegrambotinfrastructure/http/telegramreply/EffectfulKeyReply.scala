@@ -5,7 +5,7 @@ import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply.given
 import com.benkio.telegrambotinfrastructure.model.reply.*
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia

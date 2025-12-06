@@ -1,10 +1,11 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+
 import cats.*
+import cats.syntax.all.*
 import scala.annotation.targetName
 
-import cats.implicits.*
+
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
@@ -37,23 +38,13 @@ object ReplyBundleMessage {
   given replyBundleMessageEncoder: Encoder[ReplyBundleMessage] =
     deriveEncoder[ReplyBundleMessage]
 
-  @targetName("ReplyBundleMessageApply")
-  def apply(
-      trigger: MessageTrigger,
-      reply: Reply,
-      matcher: MessageMatches = MessageMatches.ContainsOnce
-  ): ReplyBundleMessage = ReplyBundleMessage(
-    trigger = trigger,
-    reply = reply,
-    matcher = matcher
-  )
-
   def textToMedia(
       triggers: (String | Regex | RegexTextTriggerValue)*
   )(mediaFiles: MediaFile*): ReplyBundleMessage =
     ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
-      reply = MediaReply.fromList(mediaFiles = mediaFiles.toList)
+      reply = MediaReply.fromList(mediaFiles = mediaFiles.toList),
+      matcher = MessageMatches.ContainsAll
     )
 
   def textToVideo(
@@ -86,7 +77,8 @@ object ReplyBundleMessage {
   )(texts: String*): ReplyBundleMessage =
     ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
-      reply = TextReply.fromList(texts*)(false)
+      reply = TextReply.fromList(texts*)(false),
+      matcher = MessageMatches.ContainsAll
     )
 }
 
@@ -97,16 +89,6 @@ final case class ReplyBundleCommand private (
 ) extends ReplyBundle
 
 object ReplyBundleCommand {
-  @targetName("ReplyBundleCommandApply")
-  def apply(
-      trigger: CommandTrigger,
-      reply: Reply,
-      instruction: CommandInstructionData
-  ): ReplyBundleCommand = ReplyBundleCommand(
-    trigger = trigger,
-    reply = reply,
-    instruction = instruction
-  )
 
   def textToMedia(trigger: String, instruction: CommandInstructionData)(
       mediaFiles: MediaFile*

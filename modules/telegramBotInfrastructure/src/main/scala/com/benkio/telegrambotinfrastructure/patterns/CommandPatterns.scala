@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
+import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
@@ -25,9 +26,9 @@ import com.benkio.telegrambotinfrastructure.model.toIta
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
-import com.benkio.telegrambotinfrastructure.model.Subscription
+
+
+
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.model.Trigger
@@ -93,7 +94,7 @@ object CommandPatterns {
     def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], sBotInfo: SBotInfo): F[MediaFile] =
       for {
         _              <- LogWriter.debug(s"[RandomCommand] Fetching random media for ${sBotInfo.botId}")
-        dbMediaDataOpt <- dbMedia.getRandomMedia(botId)
+        dbMediaDataOpt <- dbMedia.getRandomMedia(sBotInfo.botId)
         _              <- LogWriter.debug("[RandomCommand] Convert DBMediaData to Media")
         media          <- dbMediaDataOpt.fold(Async[F].raiseError(RandomMediaNotFound))(dbMediaData =>
           Async[F].fromEither(Media(dbMediaData))
@@ -215,8 +216,7 @@ Input as query string:
       s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri"
 
     private[patterns] def triggerListReplyBundleCommand[F[_]](
-      triggerFileUri: Uri,
-      sBotInfo: SBotInfo
+      triggerFileUri: Uri
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
@@ -397,7 +397,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ) =
       for {
-        subscription <- Subscription(m.chat.id, botId, cronInput)
+        subscription <- Subscription(m.chat.id, sBotInfo.botId, cronInput)
         nextOccurrence = subscription.cron
           .next(LocalDateTime.now)
           .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
@@ -479,7 +479,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo,
         m: Message
     ): F[String] = for {
-      subscriptionsData <- dbSubscription.getSubscriptions(botId, Some(m.chat.id))
+      subscriptionsData <- dbSubscription.getSubscriptions(sBotInfo.botId, Some(m.chat.id))
       subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
       memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
       memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chat.id }
@@ -524,7 +524,7 @@ ${ignoreMessagePrefix
 
     def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[String] =
       for {
-        dbMedias <- dbMedia.getMediaByMediaCount(botId = botId.some)
+        dbMedias <- dbMedia.getMediaByMediaCount(botId = sBotInfo.botId.some)
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
       } yield Media.mediaListToHTML(medias)
 
@@ -562,9 +562,9 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo,
         log: LogWriter[F]
     ): F[String] =
-      if input.isEmpty then dbTimeout.removeTimeout(chatId = msg.chat.id, botId = botId) *> "Timeout removed".pure[F]
+      if input.isEmpty then dbTimeout.removeTimeout(chatId = msg.chat.id, botId = sBotInfo.botId) *> "Timeout removed".pure[F]
       else
-        Timeout(ChatId(msg.chat.id), botId, input)
+        Timeout(ChatId(msg.chat.id), sBotInfo.botId, input)
           .fold(
             error =>
               log.info(
@@ -578,7 +578,7 @@ ${ignoreMessagePrefix
           )
 
     private[patterns] def timeoutReplyBundleCommand(
-      botId : SBotId
+      sBotInfo : SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("timeout"),
