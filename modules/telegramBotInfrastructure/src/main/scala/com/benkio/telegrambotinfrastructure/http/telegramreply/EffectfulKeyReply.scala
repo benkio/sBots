@@ -1,12 +1,13 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
-import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply.given
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import cats.syntax.all.*
 import cats.effect.*
+import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply.given
 import com.benkio.telegrambotinfrastructure.model.reply.*
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
@@ -22,32 +23,34 @@ object EffectfulKeyReply {
         repository: Repository[F],
         dbLayer: DBLayer[F],
         replyToMessage: Boolean
-    )(using botId: SBotId): F[List[Message]] = reply match {
-      case EffectfulKey.Random =>
+    ): F[List[Message]] = reply match {
+      case EffectfulKey.Random(sBotInfo) =>
         randomTelegraReply(
           dbLayer.dbMedia,
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          sBotInfo = sBotInfo
         )
 
-      case EffectfulKey.SearchShow          =>
+      case EffectfulKey.SearchShow(sBotInfo) =>
         searchShowTelegramReply(
           dbLayer.dbMedia,
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          sBotInfo = sBotInfo
         )
-      case EffectfulKey.TriggerSearch       => ???
-      case EffectfulKey.Instructions        => ???
-      case EffectfulKey.Subscribe           => ???
-      case EffectfulKey.Unsubscribe         => ???
-      case EffectfulKey.Subscriptions       => ???
-      case EffectfulKey.TopTwenty           => ???
-      case EffectfulKey.Timeout             => ???
-      case EffectfulKey.Custom(key: String) => ???
+      case EffectfulKey.TriggerSearch(sBotInfo) => ???
+      case EffectfulKey.Instructions(sBotInfo)  => ???
+      case EffectfulKey.Subscribe(sBotInfo)     => ???
+      case EffectfulKey.Unsubscribe(sBotInfo)   => ???
+      case EffectfulKey.Subscriptions(sBotInfo) => ???
+      case EffectfulKey.TopTwenty(sBotInfo)     => ???
+      case EffectfulKey.Timeout(sBotInfo)       => ???
+      case EffectfulKey.Custom(key, sBotInfo)   => ???
     }
   }
 
@@ -56,9 +59,10 @@ object EffectfulKeyReply {
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
-      replyToMessage: Boolean
-  )(using botId: SBotId): F[List[Message]] = for {
-    mediaFile <- RandomDataCommand.randomCommandLogic[F](dbMedia = dbMedia, botId = botId)
+      replyToMessage: Boolean,
+      sBotInfo: SBotInfo
+  ): F[List[Message]] = for {
+    mediaFile <- RandomDataCommand.randomCommandLogic[F](dbMedia = dbMedia, sBotInfo = sBotInfo)
     messages  <- TelegramReply[MediaFile].reply(
       reply = mediaFile,
       msg = msg,
@@ -73,8 +77,8 @@ object EffectfulKeyReply {
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
-      replyToMessage: Boolean
-  )(using botId: SBotId): F[List[Message]] = ???
+      replyToMessage: Boolean,
+      sBotInfo: SBotInfo
+  ): F[List[Message]] = ???
 
-  
 }

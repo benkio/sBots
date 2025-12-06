@@ -153,7 +153,7 @@ object BackgroundJobManager {
       val action: F[Instant] = for {
         now   <- Async[F].realTimeInstant
         _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
-        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo.botId)
+        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
         _     <- textTelegramReply.reply[F](
           reply = Text(reply),
@@ -161,7 +161,7 @@ object BackgroundJobManager {
           repository = repository,
           dbLayer = dbLayer,
           replyToMessage = true
-        )(using Async[F], log, summon[Api[F]], sBotInfo.botId)
+        )
       } yield now // For testing purposes
 
       for cancel <- cancelF

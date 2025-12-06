@@ -14,8 +14,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.MessageType
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
@@ -50,8 +49,7 @@ trait SBot[F[_]: Async: LogWriter] {
   def repository: Repository[F]           = ResourcesRepository.fromResources[F]()
   val ignoreMessagePrefix: Option[String] = Some("!")
   val disableForward: Boolean             = true
-  val botName: SBotName
-  given botId: SBotId
+  val botInfo: SBotInfo
   val triggerListUri: Uri
   val triggerFilename: String
   val dbLayer: DBLayer[F]
@@ -69,7 +67,7 @@ trait SBot[F[_]: Async: LogWriter] {
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   def allCommandRepliesData: List[ReplyBundleCommand] =
-    commandRepliesData :+ InstructionsCommand.instructionsReplyBundleCommand(botId)
+    commandRepliesData :+ InstructionsCommand.instructionsReplyBundleCommand(botInfo)
 
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
@@ -91,7 +89,7 @@ trait SBot[F[_]: Async: LogWriter] {
         allCommandRepliesData.find(rbc =>
           text.startsWith(s"/${rbc.trigger.command} ")
             || text == s"/${rbc.trigger.command}"
-            || text.startsWith(s"/${rbc.trigger.command}@${botName}")
+            || text.startsWith(s"/${rbc.trigger.command}@${botInfo.botName}")
         )
       )
 
@@ -108,7 +106,8 @@ trait SBot[F[_]: Async: LogWriter] {
               msg,
               filteringMatchesMessages(replyBundle, msg),
               repository,
-              dbLayer
+              dbLayer,
+              botInfo
             )
       )
 
@@ -117,13 +116,14 @@ trait SBot[F[_]: Async: LogWriter] {
   )(using api: Api[F]): F[Option[List[Message]]] =
     selectCommandReplyBundle(msg)
       .traverse(commandReply =>
-        LogWriter.info(s"$botName: Computing command ${msg.text} matching command reply bundle") *>
+        LogWriter.info(s"${botInfo.botName}: Computing command ${msg.text} matching command reply bundle") *>
           ComputeReply.execute[F](
             commandReply,
             msg,
             true,
             repository,
-            dbLayer
+            dbLayer,
+            botInfo
           )
       )
 
@@ -144,7 +144,7 @@ trait SBot[F[_]: Async: LogWriter] {
   private def botLogic(
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    msg.messageType(botId) match {
+    msg.messageType(botInfo.botId) match {
       case MessageType.Message     => messageLogic(msg)
       case MessageType.Command     => commandLogic(msg)
       case MessageType.FileRequest => fileRequestLogic(msg)
@@ -152,11 +152,11 @@ trait SBot[F[_]: Async: LogWriter] {
 
   def onMessageLogic(msg: Message)(using api: Api[F]): F[Unit] = {
     val x: OptionT[F, Unit] = for {
-      _ <- OptionT.liftF(LogWriter.trace(s"$botName: A message arrived: $msg"))
-      _ <- OptionT.liftF(LogWriter.info(s"$botName: A message arrived with content: ${msg.text}"))
+      _ <- OptionT.liftF(LogWriter.trace(s"${botInfo.botName}: A message arrived: $msg"))
+      _ <- OptionT.liftF(LogWriter.info(s"${botInfo.botName}: A message arrived with content: ${msg.text}"))
       _ <- OptionT(botLogic(msg))
       _ <- OptionT.liftF(postComputation(msg))
     } yield ()
-    x.getOrElseF(LogWriter.debug(s"$botName: Input message produced no result: $msg"))
+    x.getOrElseF(LogWriter.debug(s"${botInfo.botName}: Input message produced no result: $msg"))
   }
 }

@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import cats.*
@@ -21,8 +22,9 @@ object ComputeReply {
       message: Message,
       filter: Boolean,
     repository: Repository[F],
-          dbLayer: DBLayer[F],
-  )(using telegramReply: TelegramReply[ReplyValue], botId: SBotId): F[List[Message]] = for {
+    dbLayer: DBLayer[F],
+    botInfo: SBotInfo
+  )(using telegramReply: TelegramReply[ReplyValue]): F[List[Message]] = for {
     dataToReply <-
       if filter then Async[F].pure(replyBundle.reply)
       else Async[F].raiseError(new Exception(s"No replies for the given message: $message"))

@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
@@ -102,25 +103,25 @@ object BotSetup {
       httpClient: Client[F],
       tokenFilename: String,
       namespace: String,
-      botId: SBotId,
+      sBotInfo: SBotInfo,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(using log: LogWriter[F], telegramReply: TelegramReply[Text]): Resource[F, BotSetup[F]] = for {
     tk            <- token[F](tokenFilename, ResourcesRepository.fromResources[F]())
     config        <- Resource.eval(Config.loadConfig[F](namespace))
-    _             <- Resource.eval(log.info(s"[$botId] Configuration: $config"))
+    _             <- Resource.eval(log.info(s"[${sBotInfo.botId}] Configuration: $config"))
     dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
     dbLayer       <- loadDB[F](config.db)
     repository = DBRepository.dbResources[F](dbLayer.dbMedia, dropboxClient)
-    _                     <- Resource.eval(log.info(s"[$botId] Delete webook..."))
+    _                     <- Resource.eval(log.info(s"[${sBotInfo.botId}] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _                     <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
         new RuntimeException(
-          s"[$botId] The delete webhook request failed: " + deleteWebhookResponse.as[String]
+          s"[${sBotInfo.botId}] The delete webhook request failed: " + deleteWebhookResponse.as[String]
         )
       )
     )
-    _       <- Resource.eval(log.info(s"[$botId] Webhook deleted"))
+    _       <- Resource.eval(log.info(s"[${sBotInfo.botId}] Webhook deleted"))
     baseUrl <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$tk")))
     api = BotApi(
       httpClient,
@@ -129,7 +130,7 @@ object BotSetup {
     backgroundJobManager <- Resource.eval(
       BackgroundJobManager[F](
         dbLayer = dbLayer,
-        botId = botId,
+        sBotInfo = sBotInfo,
         repository = repository
       )(using Async[F], api, telegramReply, log)
     )

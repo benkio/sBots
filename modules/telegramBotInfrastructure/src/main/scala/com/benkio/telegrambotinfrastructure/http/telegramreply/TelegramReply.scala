@@ -39,7 +39,7 @@ trait TelegramReply[A] {
       repository: Repository[F],
       dbLayer: DBLayer[F],
       replyToMessage: Boolean
-  )(using botId: SBotId): F[List[Message]]
+  ): F[List[Message]]
 }
 
 object TelegramReply {

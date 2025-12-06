@@ -22,14 +22,12 @@ sealed trait ReplyBundle {
 
   def trigger: Trigger
   def reply: Reply
-  def sBotId: SBotId
 }
 
 case class ReplyBundleMessage private (
   trigger: MessageTrigger,
   reply: Reply,
   matcher: MessageMatches,
-  sBotId: SBotId
 ) extends ReplyBundle
 
 object ReplyBundleMessage {
@@ -44,16 +42,15 @@ object ReplyBundleMessage {
       trigger: MessageTrigger,
       reply: Reply,
       matcher: MessageMatches = MessageMatches.ContainsOnce
-  )(using sBotId: SBotId): ReplyBundleMessage = ReplyBundleMessage(
+  ): ReplyBundleMessage = ReplyBundleMessage(
     trigger = trigger,
     reply = reply,
-    matcher = matcher,
-    sBotId = sBotId
+    matcher = matcher
   )
 
   def textToMedia(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(mediaFiles: MediaFile*)(using sBotId: SBotId): ReplyBundleMessage =
+  )(mediaFiles: MediaFile*): ReplyBundleMessage =
     ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
       reply = MediaReply.fromList(mediaFiles = mediaFiles.toList)
@@ -61,32 +58,32 @@ object ReplyBundleMessage {
 
   def textToVideo(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(videoFiles: VideoFile*)(using sBotId: SBotId): ReplyBundleMessage =
+  )(videoFiles: VideoFile*): ReplyBundleMessage =
     textToMedia(triggers*)(videoFiles*)
 
   def textToMp3(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(mp3Files: Mp3File*)(using sBotId: SBotId): ReplyBundleMessage =
+  )(mp3Files: Mp3File*): ReplyBundleMessage =
     textToMedia(triggers*)(mp3Files*)
 
   def textToGif(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(gifFiles: GifFile*)(using sBotId: SBotId): ReplyBundleMessage =
+  )(gifFiles: GifFile*): ReplyBundleMessage =
     textToMedia(triggers*)(gifFiles*)
 
   def textToPhoto(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(photoFiles: PhotoFile*)(using sBotId: SBotId): ReplyBundleMessage =
+  )(photoFiles: PhotoFile*): ReplyBundleMessage =
     textToMedia(triggers*)(photoFiles*)
 
   def textToSticker(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(photoFiles: Sticker*)(using sBotId: SBotId): ReplyBundleMessage =
+  )(photoFiles: Sticker*): ReplyBundleMessage =
     textToMedia(triggers*)(photoFiles*)
 
   def textToText(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(texts: String*)(using sBotId: SBotId): ReplyBundleMessage =
+  )(texts: String*): ReplyBundleMessage =
     ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
       reply = TextReply.fromList(texts*)(false)
@@ -96,8 +93,7 @@ object ReplyBundleMessage {
 final case class ReplyBundleCommand private (
   trigger: CommandTrigger,
   reply: Reply,
-  instruction: CommandInstructionData,
-  sBotId: SBotId
+  instruction: CommandInstructionData
 ) extends ReplyBundle
 
 object ReplyBundleCommand {
@@ -106,16 +102,15 @@ object ReplyBundleCommand {
       trigger: CommandTrigger,
       reply: Reply,
       instruction: CommandInstructionData
-  )(using sBotId: SBotId): ReplyBundleCommand = ReplyBundleCommand(
+  ): ReplyBundleCommand = ReplyBundleCommand(
     trigger = trigger,
     reply = reply,
-    instruction = instruction,
-    sBotId = sBotId
+    instruction = instruction
   )
 
   def textToMedia(trigger: String, instruction: CommandInstructionData)(
       mediaFiles: MediaFile*
-  )(using sBotId: SBotId): ReplyBundleCommand =
+  ): ReplyBundleCommand =
     ReplyBundleCommand(
       trigger = CommandTrigger(trigger),
       reply = MediaReply.fromList(mediaFiles = mediaFiles.toList),
