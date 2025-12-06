@@ -160,6 +160,7 @@ object BackgroundJobManager {
           msg = message,
           repository = repository,
           dbLayer = dbLayer,
+          backgroundJobManager=backgroundJobManager,
           replyToMessage = true
         )
       } yield now // For testing purposes

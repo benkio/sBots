@@ -21,6 +21,7 @@ object ComputeReply {
       message: Message,
       filter: Boolean,
     repository: Repository[F],
+    backgroundJobManager: BackgroundJobManager[F],
     dbLayer: DBLayer[F]
   )(using telegramReply: TelegramReply[ReplyValue]): F[List[Message]] = for {
     dataToReply <-
@@ -33,6 +34,7 @@ object ComputeReply {
         msg = message,
         repository = repository,
         dbLayer = dbLayer,
+        backgroundJobManager = backgroundJobManager,
         replyToMessage = replyBundle.reply.replyToMessage
       )
     )

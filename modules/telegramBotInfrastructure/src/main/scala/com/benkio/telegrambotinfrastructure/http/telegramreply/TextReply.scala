@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import cats.*
@@ -40,6 +41,7 @@ object TextReply {
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
+      backgroundJobManager:BackgroundJobManager[F],
       replyToMessage: Boolean
     ): F[List[Message]] = {
       val chatId: ChatId               = ChatIntId(msg.chat.id)

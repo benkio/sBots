@@ -238,7 +238,8 @@ Input as query string:
     def searchTriggerLogic[F[_]: ApplicativeThrow](
         mdr: List[ReplyBundleMessage],
         m: Message,
-        ignoreMessagePrefix: Option[String]
+        ignoreMessagePrefix: Option[String],
+        sBotInfo: SBotInfo
     ): F[List[Text]] = { 
 
                 handleCommandWithInput[F](
@@ -259,12 +260,14 @@ Input as query string:
 
     // TODO: #782 Return the closest match on failure
     private[patterns] def triggerSearchReplyBundleCommand(
-        sBotInfo: SBotInfo
+        sBotInfo: SBotInfo,
+        replyBundleMessage: List[ReplyBundleMessage],
+        ignoreMessagePrefix: Option[String]
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggersearch"),
         reply = EffectfulReply(
-          key = EffectfulKey.TriggerSearch(sBotInfo)
+          key = EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix)
         ),
         instruction = CommandInstructionData.Instructions(
           ita = triggerSearchCommandDescriptionIta,
@@ -315,12 +318,13 @@ ${ignoreMessagePrefix
         )
         .getOrElse("")}
 """
-    def instructionCommandLogic(
+    def instructionCommandLogic[F[_]: ApplicativeThrow](
+        msg: Message,
         sBotInfo: SBotInfo,
         ignoreMessagePrefix: Option[String],
         commands: List[ReplyBundleCommand]
     ): F[List[Text]] = {
-      val computation = input => {
+      val computation = (input: String) => {
       val itaMatches = List("it", "ita", "italian", "🇮🇹")
       val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
       val (commandDescriptionsIta, commandDescriptionsEng) =
@@ -342,15 +346,15 @@ ${ignoreMessagePrefix
       )
       input match {
         case v if itaMatches.contains(v) =>
-          instructionsIta
+          instructionsIta.pure[F]
         case v if engMatches.contains(v) =>
-          instructionsEng
+          instructionsEng.pure[F]
         case _ =>
-          instructionsEng
+          instructionsEng.pure[F]
       }
       }
       handleCommandWithInput[F](
-            msg = m,
+            msg = msg,
             command = "instructions",
             sBotInfo = sBotInfo,
             computation = computation,
@@ -360,12 +364,14 @@ ${ignoreMessagePrefix
     }
 
     private[telegrambotinfrastructure] def instructionsReplyBundleCommand(
-        sBotInfo: SBotInfo
+        sBotInfo: SBotInfo,
+        commands: List[ReplyBundleCommand],
+        ignoreMessagePrefix: Option[String]
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("instructions"),
         reply = EffectfulReply(
-          key = EffectfulKey.Instructions(sBotInfo)
+          key = EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands)
         ),
         instruction = CommandInstructionData.NoInstructions
       )
@@ -387,12 +393,11 @@ ${ignoreMessagePrefix
       "'/subscriptions': Return the amout of subscriptions for the current chat"
 
     def subscribeCommandLogic[F[_]: Async](
-        cronInput: String,
         backgroundJobManager: BackgroundJobManager[F],
         m: Message,
         sBotInfo: SBotInfo
-    ) =
-      for {
+    ): F[List[Text]] = {
+      val computation = (cronInput: String) => for {
         subscription <- Subscription(m.chat.id, sBotInfo.botId, cronInput)
         nextOccurrence = subscription.cron
           .next(LocalDateTime.now)
@@ -401,6 +406,14 @@ ${ignoreMessagePrefix
       } yield List(
         s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
       )
+      handleCommandWithInput[F](
+            msg = m,
+            command = "subscribe",
+            sBotInfo = sBotInfo,
+            computation = computation,
+            defaultReply = "Input Required: insert a valid 〈cron time〉. Check the instructions"
+          )
+    }
 
     private[patterns] def subscribeReplyBundleCommand(
         sBotInfo: SBotInfo
@@ -409,18 +422,7 @@ ${ignoreMessagePrefix
         trigger = CommandTrigger("subscribe"),
         reply = EffectfulReply(
           key = EffectfulKey.Subscribe(sBotInfo)
-        )// TextReplyM[F](
-        //   m =>
-        //     handleCommandWithInput[F](
-        //       msg = m,
-        //       command = "subscribe",
-        //       sBotInfo = sBotInfo,
-        //       computation = subscribeCommandLogic(_, backgroundJobManager, m, botId),
-        //       defaultReply = "Input Required: insert a valid 〈cron time〉. Check the instructions"
-        //     ),
-        //   true
-        // )
-        ,
+        ),
         instruction = CommandInstructionData.Instructions(
           ita = subscribeCommandDescriptionIta,
           eng = subscribeCommandDescriptionEng
@@ -428,18 +430,30 @@ ${ignoreMessagePrefix
       )
 
     def unsubcribeCommandLogic[F[_]: Async](
-        subscriptionIdInput: String,
         backgroundJobManager: BackgroundJobManager[F],
-        m: Message
-    ): F[String] = {
-      if subscriptionIdInput.isEmpty then for {
-        _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
-      } yield "All Subscriptions for current chat successfully cancelled"
-      else
-        for {
-          subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
-          _              <- backgroundJobManager.cancelSubscription(subscriptionId)
-        } yield "Subscription successfully cancelled"
+        m: Message,
+        sBotInfo: SBotInfo
+    ): F[List[Text]] = {
+      val computation = (subscriptionIdInput: String) => 
+        if subscriptionIdInput.isEmpty then 
+          for {
+            _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
+          } yield List("All Subscriptions for current chat successfully cancelled")
+        else
+          for {
+            subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
+            _              <- backgroundJobManager.cancelSubscription(subscriptionId)
+          } yield List("Subscription successfully cancelled")
+
+      handleCommandWithInput[F](
+            msg = m,
+            command = "unsubscribe",
+            sBotInfo = sBotInfo,
+            computation = computation,
+            defaultReply =
+              "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions",
+            allowEmptyString = true
+          )
     }
 
     private[patterns] def unsubscribeReplyBundleCommand(
@@ -449,20 +463,7 @@ ${ignoreMessagePrefix
         trigger = CommandTrigger("unsubscribe"),
         reply = EffectfulReply(
           key = EffectfulKey.Unsubscribe(sBotInfo)
-        )// TextReplyM[F](
-        //   m =>
-        //     handleCommandWithInput[F](
-        //       msg = m,
-        //       command = "unsubscribe",
-        //       sBotInfo = sBotInfo,
-        //       computation = unsubcribeCommandLogic(_, backgroundJobManager, m).map(List(_)),
-        //       defaultReply =
-        //         "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions",
-        //       allowEmptyString = true
-        //     ),
-        //   true
-        // )
-        ,
+        ),
         instruction = CommandInstructionData.Instructions(
           ita = unsubscribeCommandDescriptionIta,
           eng = unsubscribeCommandDescriptionEng

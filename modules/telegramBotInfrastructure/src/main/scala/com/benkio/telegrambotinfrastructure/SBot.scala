@@ -49,6 +49,7 @@ trait SBot[F[_]: Async: LogWriter] {
   val triggerListUri: Uri
   val triggerFilename: String
   val dbLayer: DBLayer[F]
+  val backgroundJobManager: BackgroundJobManager[F]
   def filteringMatchesMessages: (ReplyBundleMessage, Message) => Boolean =
     (_: ReplyBundleMessage, _: Message) => true
   def postComputation: Message => F[Unit] = _ => Async[F].unit
@@ -62,8 +63,14 @@ trait SBot[F[_]: Async: LogWriter] {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  def allCommandRepliesData: List[ReplyBundleCommand] =
-    commandRepliesData :+ InstructionsCommand.instructionsReplyBundleCommand(botInfo)
+  def allCommandRepliesData: List[ReplyBundleCommand] = {
+    val instructionsCmd = InstructionsCommand.instructionsReplyBundleCommand(
+      sBotInfo = botInfo,
+      commands = commandRepliesData,
+      ignoreMessagePrefix = ignoreMessagePrefix
+    )
+    commandRepliesData :+ instructionsCmd
+  }
 
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
@@ -102,7 +109,8 @@ trait SBot[F[_]: Async: LogWriter] {
               msg,
               filteringMatchesMessages(replyBundle, msg),
               repository,
-              dbLayer
+              backgroundJobManager,
+              dbLayer,
             )
       )
 
@@ -117,7 +125,8 @@ trait SBot[F[_]: Async: LogWriter] {
             msg,
             true,
             repository,
-            dbLayer
+            backgroundJobManager,
+            dbLayer,
           )
       )
 
@@ -130,6 +139,7 @@ trait SBot[F[_]: Async: LogWriter] {
         msg = msg,
         repository = repository,
         dbLayer = dbLayer,
+        backgroundJobManager = backgroundJobManager,
         replyToMessage = true
       )
     )

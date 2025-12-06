@@ -87,6 +87,11 @@ final case class ReplyBundleCommand (
 
 object ReplyBundleCommand {
 
+  given replyBundleCommandDecoder: Decoder[ReplyBundleCommand] =
+    deriveDecoder[ReplyBundleCommand]
+  given replyBundleCommandEncoder: Encoder[ReplyBundleCommand] =
+    deriveEncoder[ReplyBundleCommand]
+
   def textToMedia(trigger: String, instruction: CommandInstructionData)(
       mediaFiles: MediaFile*
   ): ReplyBundleCommand =

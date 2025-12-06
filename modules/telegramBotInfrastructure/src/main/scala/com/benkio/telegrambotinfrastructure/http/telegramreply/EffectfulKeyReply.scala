@@ -1,7 +1,12 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
+import com.benkio.telegrambotinfrastructure.repository.Repository
+
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply.given
@@ -10,22 +15,20 @@ import com.benkio.telegrambotinfrastructure.model.reply.*
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
-import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.Message
-import annotation.unused
 
 object EffectfulKeyReply {
 
   given TelegramReply[EffectfulKey] = new TelegramReply[EffectfulKey] {
-    def reply[F[_]: Async: LogWriter: Api](
+    override def reply[F[_]: Async: LogWriter: Api](
         reply: EffectfulKey,
         msg: Message,
         repository: Repository[F],
         dbLayer: DBLayer[F],
-        replyToMessage: Boolean
+        backgroundJobManager: BackgroundJobManager[F],
+        replyToMessage: Boolean,
     ): F[List[Message]] = reply match {
       case EffectfulKey.Random(sBotInfo) =>
         randomTelegraReply(
@@ -33,7 +36,8 @@ object EffectfulKeyReply {
           repository = repository,
           dbLayer = dbLayer,
           replyToMessage = replyToMessage,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          backgroundJobManager=backgroundJobManager
         )
 
       case EffectfulKey.SearchShow(sBotInfo) =>
@@ -42,19 +46,22 @@ object EffectfulKeyReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
       case EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix) =>
         sendTextReplies(
-          repliesF = TriggerSearchCommand.searchTriggerLogic(replyBundleMessage, msg, ignoreMessagePrefix),
+          repliesF = TriggerSearchCommand.searchTriggerLogic(replyBundleMessage, msg, ignoreMessagePrefix, sBotInfo),
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
-      case EffectfulKey.Instructions(sBotInfo, commands, ignoreMessagePrefix)  =>
+      case EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands)  =>
         sendTextReplies(
-          repliesF = instructionCommandLogic(
+          repliesF = InstructionsCommand.instructionCommandLogic(
+            msg = msg,
             sBotInfo = sBotInfo,
             ignoreMessagePrefix = ignoreMessagePrefix,
             commands = commands
@@ -62,10 +69,37 @@ object EffectfulKeyReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
-      case EffectfulKey.Subscribe(sBotInfo)     => ???
-      case EffectfulKey.Unsubscribe(sBotInfo)   => ???
+      case EffectfulKey.Subscribe(sBotInfo)     =>
+        
+            sendTextReplies(
+              repliesF = SubscribeUnsubscribeCommand.subscribeCommandLogic(
+                backgroundJobManager = backgroundJobManager,
+                m = msg,
+                sBotInfo = sBotInfo
+              ),
+              msg = msg,
+              repository = repository,
+              dbLayer = dbLayer,
+              replyToMessage = replyToMessage,
+              backgroundJobManager=backgroundJobManager
+            )
+      case EffectfulKey.Unsubscribe(sBotInfo)   =>
+ 
+            sendTextReplies(
+              repliesF = SubscribeUnsubscribeCommand.unsubcribeCommandLogic(
+                backgroundJobManager = backgroundJobManager,
+                m = msg,
+                sBotInfo = sBotInfo
+              ),
+              msg = msg,
+              repository = repository,
+              dbLayer = dbLayer,
+              replyToMessage = replyToMessage,
+              backgroundJobManager=backgroundJobManager
+            )
       case EffectfulKey.Subscriptions(sBotInfo) => ???
       case EffectfulKey.TopTwenty(sBotInfo)     => ???
       case EffectfulKey.Timeout(sBotInfo)       => ???
@@ -77,8 +111,9 @@ object EffectfulKeyReply {
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
+    backgroundJobManager: BackgroundJobManager[F],
       replyToMessage: Boolean,
-      sBotInfo: SBotInfo
+    sBotInfo: SBotInfo,
   ): F[List[Message]] = for {
     mediaFile <- RandomDataCommand.randomCommandLogic[F](dbMedia = dbLayer.dbMedia, sBotInfo = sBotInfo)
     messages  <- TelegramReply[MediaFile].reply(
@@ -86,6 +121,7 @@ object EffectfulKeyReply {
       msg = msg,
       repository = repository,
       dbLayer = dbLayer,
+      backgroundJobManager=backgroundJobManager,
       replyToMessage = replyToMessage
     )
   } yield messages
@@ -94,6 +130,7 @@ object EffectfulKeyReply {
       repliesF: F[List[Text]],
       msg: Message,
       repository: Repository[F],
+    backgroundJobManager: BackgroundJobManager[F],
       dbLayer: DBLayer[F],
       replyToMessage: Boolean
     ): F[List[Message]] =
@@ -104,6 +141,7 @@ object EffectfulKeyReply {
         msg = msg,
         repository = repository,
         dbLayer = dbLayer,
+        backgroundJobManager=backgroundJobManager,
         replyToMessage = replyToMessage
       ))
       yield messages

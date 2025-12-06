@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import cats.*
@@ -37,7 +38,8 @@ trait TelegramReply[A] {
       reply: A,
       msg: Message,
       repository: Repository[F],
-      dbLayer: DBLayer[F],
+    dbLayer: DBLayer[F],
+    backgroundJobManager: BackgroundJobManager[F],
       replyToMessage: Boolean
   ): F[List[Message]]
 }
@@ -94,12 +96,13 @@ object TelegramReply {
   }
 
   given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    def reply[F[_]: Async: LogWriter: Api](
+    override def reply[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
         msg: Message,
         repository: Repository[F],
         dbLayer: DBLayer[F],
-        replyToMessage: Boolean
+      backgroundJobManager:BackgroundJobManager[F],
+      replyToMessage: Boolean,
     ): F[List[Message]] = reply match {
       case mediaFile: MediaFile =>
         TelegramReply[MediaFile].reply(
@@ -107,7 +110,8 @@ object TelegramReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
       case text: Text =>
         TelegramReply[Text].reply(
@@ -115,7 +119,8 @@ object TelegramReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
       case key: EffectfulKey =>
         TelegramReply[EffectfulKey].reply(
@@ -123,7 +128,8 @@ object TelegramReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
     }
   }

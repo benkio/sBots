@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
@@ -23,7 +24,8 @@ object MediaFileReply {
         msg: Message,
         repository: Repository[F],
         dbLayer: DBLayer[F],
-        replyToMessage: Boolean
+      backgroundJobManager:BackgroundJobManager[F],
+      replyToMessage: Boolean,
     ): F[List[Message]] = reply match {
       case mp3: Mp3File =>
         telegramMp3Reply.reply(
@@ -31,7 +33,8 @@ object MediaFileReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
       case gif: GifFile =>
         telegramGifReply.reply(
@@ -39,7 +42,8 @@ object MediaFileReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
       case photo: PhotoFile =>
         telegramPhotoReply.reply(
@@ -47,7 +51,8 @@ object MediaFileReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
       case video: VideoFile =>
         telegramVideoReply.reply(
@@ -55,7 +60,8 @@ object MediaFileReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
       case document: Document =>
         telegramDocumentReply.reply(
@@ -63,7 +69,8 @@ object MediaFileReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
       case sticker: Sticker =>
         telegramStickerReply.reply(
@@ -71,7 +78,8 @@ object MediaFileReply {
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage,
+          backgroundJobManager=backgroundJobManager
         )
     }
 
@@ -80,7 +88,8 @@ object MediaFileReply {
           reply: Mp3File,
           msg: Message,
           repository: Repository[F],
-          dbLayer: DBLayer[F],
+        dbLayer: DBLayer[F],
+        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -104,7 +113,8 @@ object MediaFileReply {
           reply: GifFile,
           msg: Message,
           repository: Repository[F],
-          dbLayer: DBLayer[F],
+        dbLayer: DBLayer[F],
+        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -128,7 +138,8 @@ object MediaFileReply {
           reply: PhotoFile,
           msg: Message,
           repository: Repository[F],
-          dbLayer: DBLayer[F],
+        dbLayer: DBLayer[F],
+        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -152,7 +163,8 @@ object MediaFileReply {
           reply: VideoFile,
           msg: Message,
           repository: Repository[F],
-          dbLayer: DBLayer[F],
+        dbLayer: DBLayer[F],
+        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -176,7 +188,8 @@ object MediaFileReply {
           reply: Document,
           msg: Message,
           repository: Repository[F],
-          dbLayer: DBLayer[F],
+        dbLayer: DBLayer[F],
+        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -200,7 +213,8 @@ object MediaFileReply {
           reply: Sticker,
           msg: Message,
           repository: Repository[F],
-          dbLayer: DBLayer[F],
+        dbLayer: DBLayer[F],
+        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
