@@ -5,6 +5,7 @@ import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import io.circe.parser.decode
@@ -19,27 +20,6 @@ import telegramium.bots.Message
 class ReplyBundleSpec extends CatsEffectSuite {
 
   given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
-  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    override def reply[F[_]: Async: LogWriter: Api](
-        reply: ReplyValue,
-        msg: Message,
-        repository: Repository[F],
-        replyToMessage: Boolean
-    ): F[List[Message]] = {
-      val _ = summon[LogWriter[F]]
-      val _ = summon[Api[F]]
-      (reply match {
-        case _: Mp3File   => List(msg.copy(text = Some("Mp3")))
-        case _: GifFile   => List(msg.copy(text = Some("Gif")))
-        case _: PhotoFile => List(msg.copy(text = Some("Photo")))
-        case _: VideoFile => List(msg.copy(text = Some("Video")))
-        case _: Text      => List(msg.copy(text = Some("Text")))
-        case _: Document  => List(msg.copy(text = Some("Document")))
-        case _: Sticker   => List(msg.copy(text = Some("Sticker")))
-      }).pure[F]
-    }
-  }
-
   val inputMediafile: List[MediaFile] = List(
     Mp3File("audio.mp3"),
     PhotoFile("picture.jpg"),
@@ -50,16 +30,17 @@ class ReplyBundleSpec extends CatsEffectSuite {
   )
 
   test("prettyPrint of ReplyBundle should return the expected string") {
-    val replyBundleInput: ReplyBundle[IO] = ReplyBundleMessage[IO](
+    val replyBundleInput: ReplyBundle = ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("stringTextTriggerValue"),
         RegexTextTriggerValue("regexTextTriggerValue".r)
       ),
-      reply = MediaReply[IO](mediaFiles = inputMediafile.pure[IO])
+      reply = MediaReply(mediaFiles = inputMediafile),
+      matcher = MessageMatches.ContainsAll
     )
-    val result: IO[String] = replyBundleInput.prettyPrint()
+    val result: String = replyBundleInput.prettyPrint()
 
-    assertIO(
+    assertEquals(
       result,
       """--------------------------------------------------
         |audio.mp3                 | stringTextTriggerValue
@@ -169,7 +150,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
 
     for inputString <- jsonInputs
     yield {
-      val eitherMessageTrigger = decode[ReplyBundleMessage[SyncIO]](inputString)
+      val eitherMessageTrigger = decode[ReplyBundleMessage](inputString)
       eitherMessageTrigger.fold(
         e => fail("failed in parsing the input string as reply bundle message", e),
         ms => assertEquals(ms.asJson.toString, inputString)

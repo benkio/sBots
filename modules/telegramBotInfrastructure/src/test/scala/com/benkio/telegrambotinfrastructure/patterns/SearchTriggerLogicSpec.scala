@@ -14,10 +14,10 @@ import telegramium.bots.Message
 import java.time.Instant
 
 class SearchTriggerLogicSpec extends CatsEffectSuite {
-  val expectedSearchTriggerResponse: List[((List[ReplyBundleMessage[IO]], String), String)] = List(
+  val expectedSearchTriggerResponse: List[((List[ReplyBundleMessage], String), String)] = List(
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "fro(ci|sh)o([ -]fro(ci|sh)o)+".r
         )(
           mp3"rphjb_NudoFrocio.mp3",
@@ -32,7 +32,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "una vergogna"
         )(
           mp3"rphjb_Vergogna.mp3",
@@ -51,7 +51,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "ostia"
         )(
           mp3"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3",
@@ -66,7 +66,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "ciclismo"
         )(
           mp3"mos_CiclismoAllieviDio.mp3",
@@ -81,7 +81,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "francesismo"
         )(
           mp3"ytai_Francesismo.mp3"
@@ -94,7 +94,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "miele"
         )(
           gif"ytai_ForteProfumoMieleGif.mp4",
@@ -109,7 +109,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "italiani",
           "arrendetevi"
         )(
@@ -124,7 +124,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "spranga"
         )(
           gif"abar_SprangaGif.mp4",
@@ -148,7 +148,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         text = Some(s"/testCommand $query")
       )
       TriggerSearchCommand
-        .searchTriggerLogic[IO](mdr, msg, Some("!"))
+        .searchTriggerLogic(mdr, msg, Some("!"))
         .apply(query)
         .map(result => {
           assertEquals(result.length, 1)

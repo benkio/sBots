@@ -22,7 +22,7 @@ sealed trait ReplyBundle {
   def reply: Reply
 }
 
-case class ReplyBundleMessage private (
+case class ReplyBundleMessage(
   trigger: MessageTrigger,
   reply: Reply,
   matcher: MessageMatches,

@@ -76,7 +76,7 @@ class ReplySpec extends FunSuite {
 
     for inputString <- jsonInputs
     yield {
-      val eitherMessageTrigger = decode[Reply[SyncIO]](inputString)
+      val eitherMessageTrigger = decode[Reply](inputString)
       eitherMessageTrigger.fold(
         e => fail("failed in parsing the input string as Reply", e),
         ms => assertEquals(ms.asJson.toString, inputString)

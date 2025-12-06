@@ -25,7 +25,7 @@ class TelegramReplySpec extends CatsEffectSuite {
     val message = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
     val text    = Text("input Text")
     val result  = TelegramReply.telegramTextReply
-      .reply[IO](
+      .reply(
         text,
         message,
         null,
@@ -45,7 +45,7 @@ class TelegramReplySpec extends CatsEffectSuite {
         ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramVideoReply
-      .reply[IO](
+      .reply(
         video,
         message,
         repositoryMock,
@@ -65,7 +65,7 @@ class TelegramReplySpec extends CatsEffectSuite {
         ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramPhotoReply
-      .reply[IO](
+      .reply(
         photo,
         message,
         repositoryMock,
@@ -85,7 +85,7 @@ class TelegramReplySpec extends CatsEffectSuite {
         ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramDocumentReply
-      .reply[IO](
+      .reply(
         document,
         message,
         repositoryMock,
@@ -105,7 +105,7 @@ class TelegramReplySpec extends CatsEffectSuite {
         ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramGifReply
-      .reply[IO](
+      .reply(
         gif,
         message,
         repositoryMock,
@@ -125,7 +125,7 @@ class TelegramReplySpec extends CatsEffectSuite {
         ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
     val result = TelegramReply.telegramMp3Reply
-      .reply[IO](
+      .reply(
         mp3,
         message,
         repositoryMock,

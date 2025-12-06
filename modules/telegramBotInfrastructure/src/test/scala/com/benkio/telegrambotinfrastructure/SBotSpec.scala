@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import cats.effect.IO
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
@@ -33,7 +34,7 @@ class SBotSpec extends CatsEffectSuite {
       text = Some("carne dura")
     )
     val expected = ReplyBundleMessage
-      .textToMedia[IO](
+      .textToMedia(
         "carne (dura|vecchia|fresca)".r
       )(
         mp3"rphjb_CarneFrescaSaporita.mp3",
@@ -41,14 +42,14 @@ class SBotSpec extends CatsEffectSuite {
         gif"rphjb_CarneFrescaSaporitaGif.mp4"
       )
 
-    for {
-      sampleWebhookBot <- SampleWebhookBot()
-      resultOpt        <- sampleWebhookBot.selectReplyBundle(inputMessage)
-      result           <- resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+    SampleWebhookBot().map(sampleWebhookBot => {
+      val resultOpt = sampleWebhookBot.selectReplyBundle(inputMessage)
+      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
-      expectedPP <- expected.prettyPrint()
-    } yield assertEquals(result, expectedPP)
+      val expectedPP = expected.prettyPrint()
+      assertEquals(result, expectedPP)
+    })
   }
 
   test("selectCommandReplyBundle should return all the expected `ReplyBundleCommand`") {
@@ -61,19 +62,18 @@ class SBotSpec extends CatsEffectSuite {
     val expected =
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),
-        reply = TextReply.fromList[IO](
+        reply = TextReply.fromList(
           "test command reply"
         )(false),
         instruction = CommandInstructionData.NoInstructions
       )
-
-    for {
-      sampleWebhookBot <- SampleWebhookBot()
-      resultOpt        <- sampleWebhookBot.selectCommandReplyBundle(inputMessage)
-      result           <- resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+    SampleWebhookBot().map(sampleWebhookBot => {
+      val resultOpt = sampleWebhookBot.selectCommandReplyBundle(inputMessage)
+      val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
-      expectedPP <- expected.prettyPrint()
-    } yield assertEquals(result, expectedPP)
+      val expectedPP = expected.prettyPrint()
+      assertEquals(result, expectedPP)
+    })
   }
 }

@@ -1,12 +1,14 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
 
 class CommandPatternsSpec extends CatsEffectSuite {
 
@@ -16,13 +18,13 @@ class CommandPatternsSpec extends CatsEffectSuite {
     chat = Chat(id = 123, `type` = "private")
   )
   val command: String      = "command"
-  val botName: SBotName    = SBotName("botName")
   val defaultReply: String = "defaultReply"
+  val sBotInfo: SBotInfo = SampleWebhookBot.sBotInfo
 
   def resultByInput(input: String, allowEmptyString: Boolean): IO[List[Text]] = CommandPatterns.handleCommandWithInput(
     msg = msg.copy(text = Some(input)),
     command = command,
-    botName = botName,
+    sBotInfo = sBotInfo,
     defaultReply = defaultReply,
     allowEmptyString = allowEmptyString,
     computation = input => (if input.isEmpty then List("success") else List("failed")).pure[IO]
@@ -58,7 +60,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
     val result = CommandPatterns.handleCommandWithInput(
       msg = msg.copy(text = Some("""/command""")),
       command = command,
-      botName = botName,
+      sBotInfo = sBotInfo,
       defaultReply = defaultReply,
       allowEmptyString = true,
       computation = _ =>
