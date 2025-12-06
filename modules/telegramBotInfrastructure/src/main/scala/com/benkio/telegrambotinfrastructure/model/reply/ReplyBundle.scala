@@ -3,9 +3,6 @@ package com.benkio.telegrambotinfrastructure.model.reply
 
 import cats.*
 import cats.syntax.all.*
-import scala.annotation.targetName
-
-
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
@@ -82,7 +79,7 @@ object ReplyBundleMessage {
     )
 }
 
-final case class ReplyBundleCommand private (
+final case class ReplyBundleCommand (
   trigger: CommandTrigger,
   reply: Reply,
   instruction: CommandInstructionData

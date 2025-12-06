@@ -4,11 +4,7 @@ import cats.*
 import cats.data.OptionT
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.messagefiltering.getContent
-import com.benkio.telegrambotinfrastructure.messagefiltering.messageType
-import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringForward
-import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringOlder
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.messagefiltering.*
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage

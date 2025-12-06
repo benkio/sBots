@@ -235,17 +235,26 @@ Input as query string:
     private val triggerSearchCommandDescriptionEng: String =
       "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
 
-    private[patterns] def searchTriggerLogic(
+    def searchTriggerLogic[F[_]: ApplicativeThrow](
         mdr: List[ReplyBundleMessage],
         m: Message,
         ignoreMessagePrefix: Option[String]
-    ): String => List[String] = { t =>
+    ): F[List[Text]] = { 
+
+                handleCommandWithInput[F](
+            msg = m,
+            command = "triggersearch",
+            sBotInfo = sBotInfo,
+            computation = t => {
       val matches = mdr
         .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
         .sortBy(_._1)(using Trigger.orderingInstance.reverse)
       if matches.isEmpty
-      then List(s"No matching trigger for $t")
-      else matches.map { case (_, rbm) => rbm.prettyPrint() }
+      then List(s"No matching trigger for $t").pure[F]
+      else matches.map { case (_, rbm) => rbm.prettyPrint() }.pure[F]
+            },
+        defaultReply = """Input Required: Insert the test keyword to check if it's in some bot trigger"""
+          )
     }
 
     // TODO: #782 Return the closest match on failure
@@ -256,16 +265,7 @@ Input as query string:
         trigger = CommandTrigger("triggersearch"),
         reply = EffectfulReply(
           key = EffectfulKey.TriggerSearch(sBotInfo)
-        )// TextReplyM[F](m =>
-        //   handleCommandWithInput[F](
-        //     msg = m,
-        //     command = "triggersearch",
-        //     sBotInfo = sBotInfo,
-        //     computation = searchTriggerLogic(mdr = mdr, m = m, ignoreMessagePrefix = ignoreMessagePrefix),
-        //     defaultReply = """Input Required: Insert the test keyword to check if it's in some bot trigger"""
-        //   )
-        // )
-        ,
+        ),
         instruction = CommandInstructionData.Instructions(
           ita = triggerSearchCommandDescriptionIta,
           eng = triggerSearchCommandDescriptionEng
@@ -319,7 +319,8 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo,
         ignoreMessagePrefix: Option[String],
         commands: List[ReplyBundleCommand]
-    ): String => List[String] = input => {
+    ): F[List[Text]] = {
+      val computation = input => {
       val itaMatches = List("it", "ita", "italian", "🇮🇹")
       val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
       val (commandDescriptionsIta, commandDescriptionsEng) =
@@ -347,6 +348,15 @@ ${ignoreMessagePrefix
         case _ =>
           instructionsEng
       }
+      }
+      handleCommandWithInput[F](
+            msg = m,
+            command = "instructions",
+            sBotInfo = sBotInfo,
+            computation = computation,
+            defaultReply = "",
+            allowEmptyString = true
+          )
     }
 
     private[telegrambotinfrastructure] def instructionsReplyBundleCommand(
@@ -356,21 +366,7 @@ ${ignoreMessagePrefix
         trigger = CommandTrigger("instructions"),
         reply = EffectfulReply(
           key = EffectfulKey.Instructions(sBotInfo)
-        )// TextReplyM[F](m =>
-        //   handleCommandWithInput[F](
-        //     msg = m,
-        //     command = "instructions",
-        //     sBotInfo = sBotInfo,
-        //     computation = instructionCommandLogic(
-        //       sBotInfo = sBotInfo,
-        //       ignoreMessagePrefix = ignoreMessagePrefix,
-        //       commands = commands
-        //     ),
-        //     defaultReply = "",
-        //     allowEmptyString = true
-        //   )
-        // )
-        ,
+        ),
         instruction = CommandInstructionData.NoInstructions
       )
   }

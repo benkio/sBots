@@ -7,7 +7,7 @@ import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
 
-import com.benkio.telegrambotinfrastructure.messagefiltering.getContent
+import com.benkio.telegrambotinfrastructure.messagefiltering.*
 
 
 

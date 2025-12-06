@@ -1,9 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import cats.Show
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.MimeType
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import io.circe.*
 import io.circe.generic.semiauto.*
 
@@ -29,10 +29,18 @@ object Text {
 }
 
 enum EffectfulKey(val sBotInfo: SBotInfo) extends ReplyValue {
-  case Random(override val sBotInfo: SBotInfo)              extends EffectfulKey(sBotInfo)
-  case SearchShow(override val sBotInfo: SBotInfo)          extends EffectfulKey(sBotInfo)
-  case TriggerSearch(override val sBotInfo: SBotInfo)       extends EffectfulKey(sBotInfo)
-  case Instructions(override val sBotInfo: SBotInfo)        extends EffectfulKey(sBotInfo)
+  case Random(override val sBotInfo: SBotInfo)     extends EffectfulKey(sBotInfo)
+  case SearchShow(override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
+  case TriggerSearch(
+      override val sBotInfo: SBotInfo,
+      replyBundleMessage: List[ReplyBundleMessage],
+      ignoreMessagePrefix: Option[String]
+  ) extends EffectfulKey(sBotInfo)
+  case Instructions(
+      override val sBotInfo: SBotInfo,
+      ignoreMessagePrefix: Option[String],
+      commands: List[ReplyBundleCommand]
+  )                                                         extends EffectfulKey(sBotInfo)
   case Subscribe(override val sBotInfo: SBotInfo)           extends EffectfulKey(sBotInfo)
   case Unsubscribe(override val sBotInfo: SBotInfo)         extends EffectfulKey(sBotInfo)
   case Subscriptions(override val sBotInfo: SBotInfo)       extends EffectfulKey(sBotInfo)

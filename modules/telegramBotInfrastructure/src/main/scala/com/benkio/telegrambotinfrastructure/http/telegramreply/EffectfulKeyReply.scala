@@ -1,11 +1,13 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SearchShowCommand
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply.given
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply.given
 import com.benkio.telegrambotinfrastructure.model.reply.*
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
-
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
@@ -13,6 +15,7 @@ import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.Message
+import annotation.unused
 
 object EffectfulKeyReply {
 
@@ -26,7 +29,6 @@ object EffectfulKeyReply {
     ): F[List[Message]] = reply match {
       case EffectfulKey.Random(sBotInfo) =>
         randomTelegraReply(
-          dbLayer.dbMedia,
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
@@ -35,16 +37,33 @@ object EffectfulKeyReply {
         )
 
       case EffectfulKey.SearchShow(sBotInfo) =>
-        searchShowTelegramReply(
-          dbLayer.dbMedia,
+        sendTextReplies(
+          repliesF = SearchShowCommand.searchShowCommandLogic(msg, dbLayer, sBotInfo),
           msg = msg,
           repository = repository,
           dbLayer = dbLayer,
-          replyToMessage = replyToMessage,
-          sBotInfo = sBotInfo
+          replyToMessage = replyToMessage
         )
-      case EffectfulKey.TriggerSearch(sBotInfo) => ???
-      case EffectfulKey.Instructions(sBotInfo)  => ???
+      case EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix) =>
+        sendTextReplies(
+          repliesF = TriggerSearchCommand.searchTriggerLogic(replyBundleMessage, msg, ignoreMessagePrefix),
+          msg = msg,
+          repository = repository,
+          dbLayer = dbLayer,
+          replyToMessage = replyToMessage
+        )
+      case EffectfulKey.Instructions(sBotInfo, commands, ignoreMessagePrefix)  =>
+        sendTextReplies(
+          repliesF = instructionCommandLogic(
+            sBotInfo = sBotInfo,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commands = commands
+          ),
+          msg = msg,
+          repository = repository,
+          dbLayer = dbLayer,
+          replyToMessage = replyToMessage
+        )
       case EffectfulKey.Subscribe(sBotInfo)     => ???
       case EffectfulKey.Unsubscribe(sBotInfo)   => ???
       case EffectfulKey.Subscriptions(sBotInfo) => ???
@@ -55,14 +74,13 @@ object EffectfulKeyReply {
   }
 
   def randomTelegraReply[F[_]: Async: LogWriter: Api](
-      dbMedia: DBMedia[F],
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
       replyToMessage: Boolean,
       sBotInfo: SBotInfo
   ): F[List[Message]] = for {
-    mediaFile <- RandomDataCommand.randomCommandLogic[F](dbMedia = dbMedia, sBotInfo = sBotInfo)
+    mediaFile <- RandomDataCommand.randomCommandLogic[F](dbMedia = dbLayer.dbMedia, sBotInfo = sBotInfo)
     messages  <- TelegramReply[MediaFile].reply(
       reply = mediaFile,
       msg = msg,
@@ -72,13 +90,21 @@ object EffectfulKeyReply {
     )
   } yield messages
 
-  def searchShowTelegramReply[F[_]: Async: LogWriter: Api](
-      dbMedia: DBMedia[F],
+    private def sendTextReplies[F[_]: Async: LogWriter: Api](
+      repliesF: F[List[Text]],
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
-      replyToMessage: Boolean,
-      sBotInfo: SBotInfo
-  ): F[List[Message]] = ???
-
+      replyToMessage: Boolean
+    ): F[List[Message]] =
+      for
+      replies <- repliesF
+      messages <- replies.flatTraverse(reply => TelegramReply[Text].reply(
+        reply = reply,
+        msg = msg,
+        repository = repository,
+        dbLayer = dbLayer,
+        replyToMessage = replyToMessage
+      ))
+      yield messages
 }
