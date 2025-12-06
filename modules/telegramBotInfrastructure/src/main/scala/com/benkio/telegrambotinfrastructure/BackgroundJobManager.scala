@@ -1,21 +1,22 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import cats.*
 import cats.effect.*
 import cats.effect.implicits.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
-import com.benkio.telegrambotinfrastructure.model.reply.Text
+
+
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
 
 
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
-import com.benkio.telegrambotinfrastructure.repository.Repository
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
 import fs2.Stream
@@ -36,7 +37,7 @@ trait BackgroundJobManager[F[_]] {
   // For Testing Purposes
   def runSubscription(
       subscription: Subscription
-  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[(Stream[F, Instant], SignallingRef[F, Boolean])]
+  )(using log: LogWriter[F]): F[(Stream[F, Instant], SignallingRef[F, Boolean])]
 }
 
 final case class SubscriptionKey(subscriptionId: SubscriptionId, chatId: ChatId)
@@ -60,14 +61,12 @@ object BackgroundJobManager {
 
   def apply[F[_]: Async: Api](
       dbLayer: DBLayer[F],
-      repository: Repository[F],
       sBotInfo: SBotInfo
-  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] =
+  )(using  log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
       backgroundJobManager <- Async[F].pure(
         new BackgroundJobManagerImpl(
           dbLayer = dbLayer,
-          repository = repository,
           sBotInfo = sBotInfo
         )
       )
@@ -76,9 +75,8 @@ object BackgroundJobManager {
 
   class BackgroundJobManagerImpl[F[_]: Async: Api](
       dbLayer: DBLayer[F],
-      repository: Repository[F],
       sBotInfo: SBotInfo
-  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
+  )(using  log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
     val cronScheduler                                                        = Cron4sScheduler.systemDefault[F]
@@ -140,7 +138,7 @@ object BackgroundJobManager {
     override def runSubscription(
         subscription: Subscription
     )(using
-        textTelegramReply: TelegramReply[Text],
+        
         log: LogWriter[F]
     ): F[(Stream[F, Instant], SignallingRef[F, Boolean])] = {
       val message = Message(
@@ -155,12 +153,9 @@ object BackgroundJobManager {
         _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
         reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
-        _     <- textTelegramReply.reply[F](
+        _     <- TextReply.sendText[F](
           reply = Text(reply),
           msg = message,
-          repository = repository,
-          dbLayer = dbLayer,
-          backgroundJobManager=backgroundJobManager,
           replyToMessage = true
         )
       } yield now // For testing purposes

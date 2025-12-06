@@ -1,5 +1,7 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.StatisticsCommands
 import com.benkio.telegrambotinfrastructure.repository.Repository
 
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
@@ -9,8 +11,8 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUn
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply.given
-import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply.given
+import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
 import com.benkio.telegrambotinfrastructure.model.reply.*
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
@@ -21,8 +23,7 @@ import telegramium.bots.Message
 
 object EffectfulKeyReply {
 
-  given TelegramReply[EffectfulKey] = new TelegramReply[EffectfulKey] {
-    override def reply[F[_]: Async: LogWriter: Api](
+  def sendEffectfulKey[F[_]: Async: LogWriter: Api](
         reply: EffectfulKey,
         msg: Message,
         repository: Repository[F],
@@ -37,26 +38,19 @@ object EffectfulKeyReply {
           dbLayer = dbLayer,
           replyToMessage = replyToMessage,
           sBotInfo = sBotInfo,
-          backgroundJobManager=backgroundJobManager
         )
 
       case EffectfulKey.SearchShow(sBotInfo) =>
         sendTextReplies(
           repliesF = SearchShowCommand.searchShowCommandLogic(msg, dbLayer, sBotInfo),
           msg = msg,
-          repository = repository,
-          dbLayer = dbLayer,
-          replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
+          replyToMessage = replyToMessage
         )
       case EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix) =>
         sendTextReplies(
           repliesF = TriggerSearchCommand.searchTriggerLogic(replyBundleMessage, msg, ignoreMessagePrefix, sBotInfo),
           msg = msg,
-          repository = repository,
-          dbLayer = dbLayer,
-          replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
+          replyToMessage = replyToMessage
         )
       case EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands)  =>
         sendTextReplies(
@@ -67,13 +61,9 @@ object EffectfulKeyReply {
             commands = commands
           ),
           msg = msg,
-          repository = repository,
-          dbLayer = dbLayer,
-          replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
+          replyToMessage = replyToMessage
         )
       case EffectfulKey.Subscribe(sBotInfo)     =>
-        
             sendTextReplies(
               repliesF = SubscribeUnsubscribeCommand.subscribeCommandLogic(
                 backgroundJobManager = backgroundJobManager,
@@ -81,10 +71,7 @@ object EffectfulKeyReply {
                 sBotInfo = sBotInfo
               ),
               msg = msg,
-              repository = repository,
-              dbLayer = dbLayer,
               replyToMessage = replyToMessage,
-              backgroundJobManager=backgroundJobManager
             )
       case EffectfulKey.Unsubscribe(sBotInfo)   =>
  
@@ -95,33 +82,53 @@ object EffectfulKeyReply {
                 sBotInfo = sBotInfo
               ),
               msg = msg,
-              repository = repository,
-              dbLayer = dbLayer,
-              replyToMessage = replyToMessage,
-              backgroundJobManager=backgroundJobManager
+              replyToMessage = replyToMessage
             )
-      case EffectfulKey.Subscriptions(sBotInfo) => ???
-      case EffectfulKey.TopTwenty(sBotInfo)     => ???
-      case EffectfulKey.Timeout(sBotInfo)       => ???
-      case EffectfulKey.Custom(key, sBotInfo)   => ???
+      case EffectfulKey.Subscriptions(sBotInfo) =>
+        sendTextReplies(
+          repliesF = SubscribeUnsubscribeCommand.subscriptionsCommandLogic(
+            dbSubscription = dbLayer.dbSubscription,
+            backgroundJobManager = backgroundJobManager,
+            sBotInfo = sBotInfo,
+            m = msg,
+          ),
+          msg = msg,
+          replyToMessage = replyToMessage
+        )
+      case EffectfulKey.TopTwenty(sBotInfo)     =>
+        sendTextReplies(
+          repliesF = StatisticsCommands.topTwentyCommandLogic(
+            dbMedia = dbLayer.dbMedia,
+            sBotInfo = sBotInfo
+          ),
+          msg = msg,
+          replyToMessage = replyToMessage
+        )
+      case EffectfulKey.Timeout(sBotInfo)       =>
+        sendTextReplies(
+          repliesF = TimeoutCommand.timeoutLogic(
+            msg = msg,
+            dbTimeout = dbLayer.dbTimeout,
+            sBotInfo = sBotInfo,
+          ),
+          msg = msg,
+          replyToMessage = replyToMessage
+        )        
+      case EffectfulKey.MediaByKind(key, sBotInfo)   => ???
     }
-  }
 
   def randomTelegraReply[F[_]: Async: LogWriter: Api](
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
-    backgroundJobManager: BackgroundJobManager[F],
       replyToMessage: Boolean,
     sBotInfo: SBotInfo,
   ): F[List[Message]] = for {
     mediaFile <- RandomDataCommand.randomCommandLogic[F](dbMedia = dbLayer.dbMedia, sBotInfo = sBotInfo)
-    messages  <- TelegramReply[MediaFile].reply(
+    messages  <- MediaFileReply.sendMediaFile(
       reply = mediaFile,
       msg = msg,
       repository = repository,
-      dbLayer = dbLayer,
-      backgroundJobManager=backgroundJobManager,
       replyToMessage = replyToMessage
     )
   } yield messages
@@ -129,19 +136,13 @@ object EffectfulKeyReply {
     private def sendTextReplies[F[_]: Async: LogWriter: Api](
       repliesF: F[List[Text]],
       msg: Message,
-      repository: Repository[F],
-    backgroundJobManager: BackgroundJobManager[F],
-      dbLayer: DBLayer[F],
       replyToMessage: Boolean
     ): F[List[Message]] =
       for
       replies <- repliesF
-      messages <- replies.flatTraverse(reply => TelegramReply[Text].reply(
+      messages <- replies.flatTraverse(reply => TextReply.sendText(
         reply = reply,
         msg = msg,
-        repository = repository,
-        dbLayer = dbLayer,
-        backgroundJobManager=backgroundJobManager,
         replyToMessage = replyToMessage
       ))
       yield messages

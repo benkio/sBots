@@ -1,8 +1,7 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.model.reply.Document
@@ -18,78 +17,60 @@ import telegramium.bots.Message
 
 object MediaFileReply {
 
-  given telegramMediaFileReplyValue: TelegramReply[MediaFile] = new TelegramReply[MediaFile] {
-    override def reply[F[_]: Async: LogWriter: Api](
+  def sendMediaFile[F[_]: Async: LogWriter: Api](
         reply: MediaFile,
         msg: Message,
         repository: Repository[F],
-        dbLayer: DBLayer[F],
-      backgroundJobManager:BackgroundJobManager[F],
       replyToMessage: Boolean,
     ): F[List[Message]] = reply match {
       case mp3: Mp3File =>
-        telegramMp3Reply.reply(
+        sendMp3(
           reply = mp3,
           msg = msg,
           repository = repository,
-          dbLayer = dbLayer,
-          replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
+          replyToMessage = replyToMessage
         )
       case gif: GifFile =>
-        telegramGifReply.reply(
+        sendGif(
           reply = gif,
           msg = msg,
           repository = repository,
-          dbLayer = dbLayer,
-          replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
+          replyToMessage = replyToMessage
         )
       case photo: PhotoFile =>
-        telegramPhotoReply.reply(
+        sendPhoto(
           reply = photo,
           msg = msg,
           repository = repository,
-          dbLayer = dbLayer,
           replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
         )
       case video: VideoFile =>
-        telegramVideoReply.reply(
+        sendVideo(
           reply = video,
           msg = msg,
           repository = repository,
-          dbLayer = dbLayer,
           replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
         )
       case document: Document =>
-        telegramDocumentReply.reply(
+        sendDocument(
           reply = document,
           msg = msg,
           repository = repository,
-          dbLayer = dbLayer,
           replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
         )
       case sticker: Sticker =>
-        telegramStickerReply.reply(
+        sendSticker(
           reply = sticker,
           msg = msg,
           repository = repository,
-          dbLayer = dbLayer,
           replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
         )
     }
 
-    given telegramMp3Reply: TelegramReply[Mp3File] = new TelegramReply[Mp3File] {
-      override def reply[F[_]: Async: LogWriter: Api](
+    def sendMp3[F[_]: Async: LogWriter: Api](
           reply: Mp3File,
           msg: Message,
           repository: Repository[F],
-        dbLayer: DBLayer[F],
-        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -106,15 +87,11 @@ object MediaFileReply {
             )
         )
       }
-    }
 
-    given telegramGifReply: TelegramReply[GifFile] = new TelegramReply[GifFile] {
-      override def reply[F[_]: Async: LogWriter: Api](
+    def sendGif[F[_]: Async: LogWriter: Api](
           reply: GifFile,
           msg: Message,
           repository: Repository[F],
-        dbLayer: DBLayer[F],
-        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -131,15 +108,11 @@ object MediaFileReply {
             )
         )
       }
-    }
 
-    given telegramPhotoReply: TelegramReply[PhotoFile] = new TelegramReply[PhotoFile] {
-      override def reply[F[_]: Async: LogWriter: Api](
+    def sendPhoto[F[_]: Async: LogWriter: Api](
           reply: PhotoFile,
           msg: Message,
           repository: Repository[F],
-        dbLayer: DBLayer[F],
-        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -156,15 +129,11 @@ object MediaFileReply {
             )
         )
       }
-    }
 
-    given telegramVideoReply: TelegramReply[VideoFile] = new TelegramReply[VideoFile] {
-      override def reply[F[_]: Async: LogWriter: Api](
+    def sendVideo[F[_]: Async: LogWriter: Api](
           reply: VideoFile,
           msg: Message,
           repository: Repository[F],
-        dbLayer: DBLayer[F],
-        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -181,15 +150,11 @@ object MediaFileReply {
             )
         )
       }
-    }
 
-    given telegramDocumentReply: TelegramReply[Document] = new TelegramReply[Document] {
-      override def reply[F[_]: Async: LogWriter: Api](
+    def sendDocument[F[_]: Async: LogWriter: Api](
           reply: Document,
           msg: Message,
           repository: Repository[F],
-        dbLayer: DBLayer[F],
-        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -206,15 +171,11 @@ object MediaFileReply {
             )
         )
       }
-    }
 
-    given telegramStickerReply: TelegramReply[Sticker] = new TelegramReply[Sticker] {
-      override def reply[F[_]: Async: LogWriter: Api](
+    def sendSticker[F[_]: Async: LogWriter: Api](
           reply: Sticker,
           msg: Message,
           repository: Repository[F],
-        dbLayer: DBLayer[F],
-        backgroundJobManager:BackgroundJobManager[F],
           replyToMessage: Boolean
       ): F[List[Message]] = {
         TelegramReply.telegramFileReplyPattern[F](
@@ -232,5 +193,3 @@ object MediaFileReply {
         )
       }
     }
-  }
-}

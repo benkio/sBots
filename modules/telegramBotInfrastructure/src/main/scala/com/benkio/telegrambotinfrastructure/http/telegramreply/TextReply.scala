@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+
+
 import cats.*
 import cats.data.EitherT
 import cats.effect.*
@@ -20,7 +20,7 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.*
 
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 
-import com.benkio.telegrambotinfrastructure.repository.Repository
+
 import log.effect.LogWriter
 
 import telegramium.bots.high.*
@@ -35,13 +35,9 @@ import telegramium.bots.ParseMode
 import telegramium.bots.ReplyParameters
 
 object TextReply {
-  given telegramTextReply: TelegramReply[Text] = new TelegramReply[Text] {
-    override def reply[F[_]: Async: LogWriter: Api](
+  def sendText[F[_]: Async: LogWriter: Api](
       reply: Text,
       msg: Message,
-      repository: Repository[F],
-      dbLayer: DBLayer[F],
-      backgroundJobManager:BackgroundJobManager[F],
       replyToMessage: Boolean
     ): F[List[Message]] = {
       val chatId: ChatId               = ChatIntId(msg.chat.id)
@@ -68,4 +64,3 @@ object TextReply {
       result.getOrElse(List.empty)
     }
   }
-}

@@ -7,7 +7,7 @@ import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
+
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import log.effect.LogWriter
@@ -23,13 +23,13 @@ object ComputeReply {
     repository: Repository[F],
     backgroundJobManager: BackgroundJobManager[F],
     dbLayer: DBLayer[F]
-  )(using telegramReply: TelegramReply[ReplyValue]): F[List[Message]] = for {
+  ): F[List[Message]] = for {
     dataToReply <-
       if filter then Async[F].pure(replyBundle.reply)
       else Async[F].raiseError(new Exception(s"No replies for the given message: $message"))
     replies <- RandomSelection.select(dataToReply)
     result  <- replies.traverse[F, List[Message]](reply =>
-      telegramReply.reply[F](
+      TelegramReply.sendReplyValue[F](
         reply = reply,
         msg = message,
         repository = repository,

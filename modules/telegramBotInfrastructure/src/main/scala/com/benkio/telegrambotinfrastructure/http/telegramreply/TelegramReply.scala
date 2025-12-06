@@ -7,9 +7,9 @@ import cats.*
 import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.http.telegramreply.EffectfulKeyReply.given
-import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply.given
-import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply.given
+
+
+
 import com.benkio.telegrambotinfrastructure.http.ErrorFallbackWorkaround
 import com.benkio.telegrambotinfrastructure.model.media.toTelegramApi
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
@@ -33,20 +33,7 @@ import telegramium.bots.IFile
 import telegramium.bots.Message
 import telegramium.bots.ReplyParameters
 
-trait TelegramReply[A] {
-  def reply[F[_]: Async: LogWriter: Api](
-      reply: A,
-      msg: Message,
-      repository: Repository[F],
-    dbLayer: DBLayer[F],
-    backgroundJobManager: BackgroundJobManager[F],
-      replyToMessage: Boolean
-  ): F[List[Message]]
-}
-
 object TelegramReply {
-
-  @inline def apply[F](implicit instance: TelegramReply[F]): TelegramReply[F] = instance
 
   def telegramFileReplyPattern[F[_]: Async: LogWriter: Api](
       msg: Message,
@@ -95,8 +82,7 @@ object TelegramReply {
     result.getOrElse(List.empty)
   }
 
-  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    override def reply[F[_]: Async: LogWriter: Api](
+  def sendReplyValue[F[_]: Async: LogWriter: Api](
         reply: ReplyValue,
         msg: Message,
         repository: Repository[F],
@@ -105,25 +91,20 @@ object TelegramReply {
       replyToMessage: Boolean,
     ): F[List[Message]] = reply match {
       case mediaFile: MediaFile =>
-        TelegramReply[MediaFile].reply(
+        MediaFileReply.sendMediaFile(
           reply = mediaFile,
           msg = msg,
           repository = repository,
-          dbLayer = dbLayer,
           replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
         )
       case text: Text =>
-        TelegramReply[Text].reply(
+        TextReply.sendText(
           reply = text,
           msg = msg,
-          repository = repository,
-          dbLayer = dbLayer,
-          replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
+          replyToMessage = replyToMessage
         )
       case key: EffectfulKey =>
-        TelegramReply[EffectfulKey].reply(
+        EffectfulKeyReply.sendEffectfulKey(
           reply = key,
           msg = msg,
           repository = repository,
@@ -133,4 +114,3 @@ object TelegramReply {
         )
     }
   }
-}

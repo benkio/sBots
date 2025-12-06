@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
+import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
@@ -8,7 +9,7 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.*
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
+
 import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Trigger
@@ -16,7 +17,7 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.Instruction
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
-import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
+
 import log.effect.LogWriter
 import org.http4s.implicits.*
 import org.http4s.Uri
@@ -134,12 +135,10 @@ trait SBot[F[_]: Async: LogWriter] {
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
     for result <- msg.getContent.fold(Async[F].pure(List.empty))(content =>
-      TelegramReply[ReplyValue].reply(
+      MediaFileReply.sendMediaFile(
         reply = MediaFile.fromString(content),
         msg = msg,
         repository = repository,
-        dbLayer = dbLayer,
-        backgroundJobManager = backgroundJobManager,
         replyToMessage = true
       )
     )

@@ -70,7 +70,7 @@ object CommandPatterns {
       ReplyBundleCommand(
         trigger = CommandTrigger(commandName),
         reply = EffectfulReply(
-          key = EffectfulKey.Custom(commandName,sBotInfo)
+          key = EffectfulKey.MediaByKind(commandName,sBotInfo)
         )// MediaReply(
         //   mediaFiles = mediaCommandByKindLogic(dbMedia = dbMedia, commandName = commandName, kind = kind, botId = botId)
         // )
@@ -475,16 +475,18 @@ ${ignoreMessagePrefix
         backgroundJobManager: BackgroundJobManager[F],
         sBotInfo: SBotInfo,
         m: Message
-    ): F[String] = for {
+    ): F[List[Text]] = for {
       subscriptionsData <- dbSubscription.getSubscriptions(sBotInfo.botId, Some(m.chat.id))
       subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
       memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
       memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chat.id }
-    } yield s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
+    } yield List(s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
       .map(_.show)
       .mkString("\n") ++
       s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
       memChatSubscriptions.map(_.show).mkString("\n")
+    )
+      .toText
 
     private[patterns] def subscriptionsReplyBundleCommand(
         sBotInfo: SBotInfo
@@ -494,17 +496,7 @@ ${ignoreMessagePrefix
         reply = EffectfulReply(
           key = EffectfulKey.Subscriptions(sBotInfo),
           replyToMessage = true
-        )// TextReplyM[F](
-        //   m =>
-        //     subscriptionsCommandLogic(
-        //       dbSubscription = dbSubscription,
-        //       backgroundJobManager = backgroundJobManager,
-        //       botId = botId,
-        //       m = m
-        //     ).map(List(_).toText),
-        //   true
-        // )
-        ,
+        ),
         instruction = CommandInstructionData.Instructions(
           ita = subscriptionsCommandDescriptionIta,
           eng = subscriptionsCommandDescriptionEng
@@ -519,11 +511,11 @@ ${ignoreMessagePrefix
     private val topTwentyTriggersCommandDescriptionEng: String =
       "'/toptwenty': Return a list of files and theirs send frequency"
 
-    def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[String] =
+    def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[List[Text]] =
       for {
         dbMedias <- dbMedia.getMediaByMediaCount(botId = sBotInfo.botId.some)
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-      } yield Media.mediaListToHTML(medias)
+      } yield List(Media.mediaListToHTML(medias)).toText
 
     private[patterns] def topTwentyReplyBundleCommand(
         sBotInfo: SBotInfo
@@ -532,11 +524,7 @@ ${ignoreMessagePrefix
         trigger = CommandTrigger("toptwenty"),
         reply = EffectfulReply(
           key = EffectfulKey.TopTwenty(sBotInfo)
-        )// TextReplyM[F](
-        //   _ => topTwentyCommandLogic(botId, dbMedia).map(List(_).map(Text(_, textType = Text.TextType.Html))),
-        //   true
-        // )
-        ,
+        ),
         instruction = CommandInstructionData.Instructions(
           ita = topTwentyTriggersCommandDescriptionIta,
           eng = topTwentyTriggersCommandDescriptionEng
@@ -552,27 +540,36 @@ ${ignoreMessagePrefix
     private val timeoutCommandDescriptionEng: String =
       "'/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed"
 
-    def timeoutLogic[F[_]: MonadThrow](
-        input: String,
+    def timeoutLogic[F[_]: MonadThrow: LogWriter](
         msg: Message,
         dbTimeout: DBTimeout[F],
         sBotInfo: SBotInfo,
-        log: LogWriter[F]
-    ): F[String] =
-      if input.isEmpty then dbTimeout.removeTimeout(chatId = msg.chat.id, botId = sBotInfo.botId) *> "Timeout removed".pure[F]
-      else
-        Timeout(ChatId(msg.chat.id), sBotInfo.botId, input)
-          .fold(
-            error =>
-              log.info(
-                s"[ERROR] While parsing the timeout input: $error"
-              ) *> s"Timeout set failed: wrong input format for $input, the input must be in the form '/timeout 00:00:00'"
-                .pure[F],
-            timeout =>
-              dbTimeout.setTimeout(
-                DBTimeoutData(timeout)
-              ) *> s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}".pure[F]
-          )
+    ): F[List[Text]] ={
+      val computation = (input:String) => {
+        if input.isEmpty
+        then dbTimeout.removeTimeout(chatId = msg.chat.id, botId = sBotInfo.botId) *> List("Timeout removed").pure[F]
+        else
+          Timeout(ChatId(msg.chat.id), sBotInfo.botId, input)
+            .fold(
+              error =>
+                LogWriter.info(
+                  s"[ERROR] While parsing the timeout input: $error"
+                ) *> List(s"Timeout set failed: wrong input format for $input, the input must be in the form '/timeout 00:00:00'")
+                  .pure[F],
+              timeout =>
+                dbTimeout.setTimeout(
+                  DBTimeoutData(timeout)
+                ) *> List(s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}").pure[F]
+            )
+      }
+      handleCommandWithInput[F](
+        msg = msg,
+        command = "timeout",
+        sBotInfo = sBotInfo,
+        computation = computation,
+        defaultReply = """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
+      )
+    }
 
     private[patterns] def timeoutReplyBundleCommand(
       sBotInfo : SBotInfo
@@ -582,18 +579,7 @@ ${ignoreMessagePrefix
         reply = EffectfulReply(
           key = EffectfulKey.Timeout(sBotInfo),
           replyToMessage = true
-        )// TextReplyM[F](
-        //   msg =>
-        //     handleCommandWithInput[F](
-        //       msg = msg,
-        //       command = "timeout",
-        //       sBotInfo = sBotInfo,
-        //       computation = timeoutLogic(_, msg, dbTimeout, botId, log).map(List(_)),
-        //       defaultReply = """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
-        //     ),
-        //   true
-        // )
-        ,
+        ),
         instruction = CommandInstructionData.Instructions(
           ita = timeoutCommandDescriptionIta,
           eng = timeoutCommandDescriptionEng

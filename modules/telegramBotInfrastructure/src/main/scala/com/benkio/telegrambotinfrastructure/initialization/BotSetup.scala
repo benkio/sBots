@@ -10,13 +10,13 @@ import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.http.DropboxClient
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.Document
-import com.benkio.telegrambotinfrastructure.model.reply.Text
+
 
 
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
-import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
+
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import doobie.Transactor
 import log.effect.LogWriter
@@ -107,7 +107,7 @@ object BotSetup {
       namespace: String,
       sBotInfo: SBotInfo,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
-  )(using log: LogWriter[F], telegramReply: TelegramReply[Text]): Resource[F, BotSetup[F]] = for {
+  )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
     tk            <- token[F](tokenFilename, ResourcesRepository.fromResources[F]())
     config        <- Resource.eval(Config.loadConfig[F](namespace))
     _             <- Resource.eval(log.info(s"[${sBotInfo.botId}] Configuration: $config"))
@@ -132,9 +132,8 @@ object BotSetup {
     backgroundJobManager <- Resource.eval(
       BackgroundJobManager[F](
         dbLayer = dbLayer,
-        sBotInfo = sBotInfo,
-        repository = repository
-      )(using Async[F], api, telegramReply, log)
+        sBotInfo = sBotInfo
+      )(using Async[F], api, log)
     )
     path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
