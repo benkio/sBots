@@ -6,6 +6,9 @@ import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import munit.*
 import telegramium.bots.Chat
@@ -14,6 +17,10 @@ import telegramium.bots.Message
 import java.time.Instant
 
 class SearchTriggerLogicSpec extends CatsEffectSuite {
+  val sBotInfo: SBotInfo = SBotInfo(
+    botName = SBotInfo.SBotName("TestBot"),
+    botId = SBotInfo.SBotId("test")
+  )
   val expectedSearchTriggerResponse: List[((List[ReplyBundleMessage], String), String)] = List(
     (
       List(
@@ -145,14 +152,13 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         messageId = 0,
         date = Instant.now.getEpochSecond().toInt,
         chat = Chat(id = 0, `type` = "test"),
-        text = Some(s"/testCommand $query")
+        text = Some(s"/triggersearch $query")
       )
       TriggerSearchCommand
-        .searchTriggerLogic(mdr, msg, Some("!"))
-        .apply(query)
+        .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo)
         .map(result => {
           assertEquals(result.length, 1)
-          assertEquals(result.head, expectedResponse)
+          assertEquals(result.head.value, expectedResponse)
         })
     }
   }

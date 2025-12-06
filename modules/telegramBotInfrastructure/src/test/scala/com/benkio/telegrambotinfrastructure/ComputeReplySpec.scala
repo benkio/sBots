@@ -1,5 +1,8 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.mocks.BackgroundJobManagerMock
+import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import cats.data.NonEmptyList
 import cats.effect.*
@@ -62,7 +65,9 @@ class ComputeReplySpec extends CatsEffectSuite {
         message = message,
         filter = true,
         repository =
-          RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO])
+          RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO]),
+        backgroundJobManager = BackgroundJobManagerMock.mock(),
+        dbLayer = DBLayerMock.mock(SampleWebhookBot.sBotInfo.botId)
       )
 
     val result2: IO[List[Message]] =

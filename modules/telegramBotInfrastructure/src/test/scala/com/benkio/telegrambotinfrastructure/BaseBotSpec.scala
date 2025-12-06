@@ -10,6 +10,7 @@ import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import io.circe.parser.decode
 import munit.*
 import munit.CatsEffectSuite
@@ -153,20 +154,35 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           instructionMessage(_)
         )
         itaInstructionInputs = List("it", "ita", "italian", "🇮🇹").map(instructionMessage(_))
-        engInstructionCommandResult <- instructionCommand.reply match {
-          case _ => IO.raiseError(Throwable("[BaseBotSpec] `instruction` command sholud be a `TextReplyM`"))
+        (sBotInfo, ignoreMessagePrefix, commands) <- instructionCommand.reply match {
+          case EffectfulReply(EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands), _) =>
+            IO.pure((sBotInfo, ignoreMessagePrefix, commands))
+          case _ => IO.raiseError(Throwable("[BaseBotSpec] `instruction` command should be an `EffectfulReply` with `EffectfulKey.Instructions`"))
         }
-        itaInstructionCommandResult <- instructionCommand.reply match {
-          case _ => IO.raiseError(Throwable("[BaseBotSpec] `instruction` command sholud be a `TextReplyM`"))
-        }
+        engInstructionCommandResult <- engInstructionInputs.traverse(msg =>
+          InstructionsCommand.instructionCommandLogic[IO](
+            msg = msg,
+            sBotInfo = sBotInfo,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commands = commands
+          )
+        )
+        itaInstructionCommandResult <- itaInstructionInputs.traverse(msg =>
+          InstructionsCommand.instructionCommandLogic[IO](
+            msg = msg,
+            sBotInfo = sBotInfo,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commands = commands
+          )
+        )
       } yield {
         assertEquals(
-          engInstructionCommandResult.map(_.value),
-          List.fill(engInstructionCommandResult.length)(englishInstructions)
+          engInstructionCommandResult.flatten.map(_.value),
+          List.fill(engInstructionCommandResult.flatten.length)(englishInstructions)
         )
         assertEquals(
-          itaInstructionCommandResult.map(_.value),
-          List.fill(itaInstructionCommandResult.length)(italianInstructions)
+          itaInstructionCommandResult.flatten.map(_.value),
+          List.fill(itaInstructionCommandResult.flatten.length)(italianInstructions)
         )
       }
     }
