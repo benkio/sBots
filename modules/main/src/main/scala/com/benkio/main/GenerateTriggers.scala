@@ -37,6 +37,7 @@ object GenerateTriggers extends IOApp {
     } yield pw.write(triggersStringList.mkString(""))
   }
 
+  // TODO: 785
   def generateTriggersJsonFile(
     botModuleRelativeFolderPath: String,
     triggerJsonFilename: String,
@@ -66,11 +67,12 @@ object GenerateTriggers extends IOApp {
         triggerFilename = CalandroBot.triggerFilename,
         triggers = CalandroBot.messageRepliesData[IO]
       )
-      _ <- generateTriggersJsonFile(
-        botModuleRelativeFolderPath = "../bots/calandroBot/",
-        triggerFilename = CalandroBot.triggerFilename,
-        triggers = CalandroBot.messageRepliesData[IO]
-      )
+      // TODO: 785
+      // _ <- generateTriggersJsonFile(
+      //   botModuleRelativeFolderPath = "../bots/calandroBot/",
+      //   triggerFilename = CalandroBot.triggerFilename,
+      //   triggers = CalandroBot.messageRepliesData[IO]
+      // )
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/m0sconiBot/",
         triggerFilename = M0sconiBot.triggerFilename,
