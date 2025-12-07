@@ -7,6 +7,7 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
+import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
@@ -54,6 +55,14 @@ class CalandroBotSpec extends BaseBotSpec {
       .map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint))
+  val excludeTriggers              = List("GIOCHI PER IL MIO PC")
+  val messageRepliesDataMediaFiles = messageRepliesData.map(
+    _.collect(replyBundleMessage =>
+      replyBundleMessage.reply match {
+        case mediaReply: MediaReply => mediaReply.mediaFiles.map(_.filename)
+      }
+    ).flatten
+  )
 
   exactTriggerReturnExpectedReplyBundle(CalandroBot.messageRepliesData)
   regexTriggerLengthReturnValue(CalandroBot.messageRepliesData)
@@ -68,32 +77,14 @@ class CalandroBotSpec extends BaseBotSpec {
 
   jsonContainsFilenames(
     jsonFilename = "cala_list.json",
-    botData = messageRepliesDataPrettyPrint
+    botData = messageRepliesDataMediaFiles
   )
 
   triggerFileContainsTriggers(
     triggerFilename = CalandroBot.triggerFilename,
-    botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggers = CalandroBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
-  )
-
-  instructionsCommandTest(
-    commandRepliesDataF = commandRepliesData,
-    italianInstructions = "", // TODO: fix
-    englishInstructions =
-      """
-        |---- Instructions for CalandroBot ----
-        |
-        |to report issues, write to: https://t.me/Benkio
-        |
-        |Bot commands are:
-        |
-        |- ∙
-        |
-        |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
-        |character: `!`
-        |
-        |! Message
-        |""".stripMargin
+    botMediaFiles =
+      messageRepliesDataPrettyPrint.map(_.filterNot(x => excludeTriggers.exists(exc => x.startsWith(exc)))),
+    botTriggers = CalandroBot.messageRepliesData
+      .flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )
 }

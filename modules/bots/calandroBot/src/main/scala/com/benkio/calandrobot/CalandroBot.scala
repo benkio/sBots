@@ -1,18 +1,13 @@
 package com.benkio.calandrobot
 
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import cats.*
 import cats.effect.*
-import com.benkio.telegrambotinfrastructure.model.reply.txt
-
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
-
-
+import com.benkio.telegrambotinfrastructure.model.reply.txt
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
@@ -23,6 +18,7 @@ import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
@@ -35,7 +31,6 @@ import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 
-
 import scala.util.Random
 
 class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
@@ -43,8 +38,7 @@ class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val repository: Repository[F],
     override val dbLayer: DBLayer[F]
 ) extends SBotPolling[F]()
-    with CalandroBot[F] {
-}
+    with CalandroBot[F] {}
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
@@ -54,16 +48,15 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
 ) extends SBotWebhook[F](uri, path, webhookCertificate)
-    with CalandroBot[F] {
-}
+    with CalandroBot[F] {}
 
 trait CalandroBot[F[_]] extends SBot[F] {
 
-  override val sBotInfo: SBotInfo                  = CalandroBot.sBotInfo
+  override val sBotInfo: SBotInfo      = CalandroBot.sBotInfo
   override val triggerFilename: String = CalandroBot.triggerFilename
   // TODO: 785 Override when it's used by all bots
-  val triggerJsonFilename: String = CalandroBot.triggerJsonFilename
-  override val triggerListUri: Uri     = CalandroBot.triggerListUri
+  val triggerJsonFilename: String  = CalandroBot.triggerJsonFilename
+  override val triggerListUri: Uri = CalandroBot.triggerListUri
 
   override val messageRepliesData: List[ReplyBundleMessage] =
     CalandroBot.messageRepliesData
@@ -74,12 +67,12 @@ trait CalandroBot[F[_]] extends SBot[F] {
 
 object CalandroBot {
 
-  val botName: SBotInfo.SBotName       = SBotInfo.SBotName("CalandroBot")
-  val botId: SBotId           = SBotId("cala")
-  val sBotInfo: SBotInfo      = SBotInfo(botId, botName)
-  val tokenFilename: String   = "cala_CalandroBot.token"
-  val configNamespace: String = "cala"
-  val triggerFilename: String = "cala_triggers.txt"
+  val botName: SBotInfo.SBotName  = SBotInfo.SBotName("CalandroBot")
+  val botId: SBotId               = SBotId("cala")
+  val sBotInfo: SBotInfo          = SBotInfo(botId, botName)
+  val tokenFilename: String       = "cala_CalandroBot.token"
+  val configNamespace: String     = "cala"
+  val triggerFilename: String     = "cala_triggers.txt"
   val triggerJsonFilename: String = "cala_triggers.json"
   val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/abar_triggers.txt"
 

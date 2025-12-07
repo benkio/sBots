@@ -39,25 +39,26 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
       val jsonMediaFileSource = decode[List[MediaFileSource]](jsonContent)
 
       for {
-        _ <- assert(
-          jsonMediaFileSource.isRight,
-          s"got an error trying to open/parse $jsonFilename @ $listPath: $jsonMediaFileSource"
-        ).pure[IO]
         mediaFileSources <- IO.fromEither(jsonMediaFileSource)
         files = mediaFileSources.map(_.filename)
         urls  = mediaFileSources.flatMap(_.sources.collect { case Right(uri) => uri })
         filenames <- botData
-        _         <- filenames
+      } yield {
+        assert(
+          jsonMediaFileSource.isRight,
+          s"got an error trying to open/parse $jsonFilename @ $listPath: $jsonMediaFileSource"
+        )
+        filenames
           .foreach(filename => assert(files.contains(filename), s"$filename is not contained in bot data file"))
-          .pure[IO]
-        _ <- assert(
+
+        assert(
           Set(files*).size == files.length,
           s"there's a duplicate filename into the json ${files.diff(Set(files*).toList)}"
-        ).pure[IO]
-        _ <- assert(
+        )
+        assert(
           urls.forall(_.query.exists { case (key, optValue) => key == "dl" && optValue.fold(false)(_ == "1") })
-        ).pure[IO]
-        _ <- mediaFileSources
+        )
+        mediaFileSources
           .foreach(mfs =>
             mfs.sources.foreach {
               case Right(uri) =>
@@ -68,8 +69,8 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
               case _ => assert(true)
             }
           )
-          .pure[IO]
-      } yield ()
+
+      }
       end for
     }
 
