@@ -1,75 +1,59 @@
 package com.benkio.youtuboanchei0bot
 
 import cats.data.NonEmptyList
-import cats.effect.Async
 import cats.effect.IO
-import cats.implicits.*
+import cats.syntax.all.*
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
-import com.benkio.telegrambotinfrastructure.model.reply.Reply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import munit.CatsEffectSuite
-import telegramium.bots.high.Api
-import telegramium.bots.Message
 
 class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
-  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-
-  val botId                                 = YouTuboAncheI0Bot.botId
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(YouTuboAncheI0Bot.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == botId)(
+      IO.raiseUnless(inputBotId == YouTuboAncheI0Bot.sBotInfo.botId)(
         Throwable(s"[YouTuboAncheI0BotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botId)
 
   val youtuboanchei0bot = BackgroundJobManager[IO](
     dbLayer = emptyDBLayer,
     sBotInfo = YouTuboAncheI0Bot.sBotInfo
   ).map(bjm =>
     new YouTuboAncheI0BotPolling[IO](
-      repositoryInput = repositoryMock,
+      repository = repositoryMock,
       dbLayer = emptyDBLayer,
       backgroundJobManager = bjm
     )
   )
 
-  val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.flatMap(_.allCommandRepliesDataF)
-  val messageRepliesDataPrettyPrint: IO[List[String]]      =
-    youtuboanchei0bot
-      .flatMap(ab =>
-        for {
-          messageReplies <- ab.messageRepliesDataF
-          prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-        } yield prettyPrints
-      )
+  val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.map(_.allCommandRepliesData)
+  val messageRepliesDataPrettyPrint: IO[List[String]]  =
+    youtuboanchei0bot.map(ab => ab.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
 
-  exactTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData[IO])
-  regexTriggerLengthReturnValue(YouTuboAncheI0Bot.messageRepliesData[IO])
-  inputFileShouldRespondAsExpected(YouTuboAncheI0Bot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData)
+  regexTriggerLengthReturnValue(YouTuboAncheI0Bot.messageRepliesData)
+  inputFileShouldRespondAsExpected(YouTuboAncheI0Bot.messageRepliesData)
 
   triggerlistCommandTest(
-    commandRepliesData = commandRepliesData,
+    commandRepliesData = YouTuboAncheI0Bot.commandRepliesData.pure[IO],
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   )
@@ -85,12 +69,12 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
   triggerFileContainsTriggers(
     triggerFilename = YouTuboAncheI0Bot.triggerFilename,
-    botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggers = YouTuboAncheI0Bot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botMediaFiles = YouTuboAncheI0Bot.messageRepliesData.flatMap(mr => mr.reply.prettyPrint).pure[IO],
+    botTriggers = YouTuboAncheI0Bot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )
 
   instructionsCommandTest(
-    commandRepliesData = commandRepliesData,
+    commandRepliesDataF = commandRepliesData,
     """
       |---- Instruzioni Per YouTuboAncheI0Bot ----
       |

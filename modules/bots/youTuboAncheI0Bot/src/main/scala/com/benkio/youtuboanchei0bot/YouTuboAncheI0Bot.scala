@@ -2,14 +2,13 @@ package com.benkio.youtuboanchei0bot
 
 import cats.*
 import cats.effect.*
-import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.pho
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
@@ -36,160 +35,114 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class YouTuboAncheI0BotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    val repositoryInput: Repository[F],
-    val dbLayer: DBLayer[F],
-    val backgroundJobManager: BackgroundJobManager[F]
-) extends SBotPolling[F](repositoryInput)
+    override val repository: Repository[F],
+    override val dbLayer: DBLayer[F],
+    override val backgroundJobManager: BackgroundJobManager[F]
+) extends SBotPolling[F]()
     with YouTuboAncheI0Bot[F] {
-  override def repository: Repository[F] =
-    repositoryInput
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
-  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+  override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 }
 
 class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    repositoryInput: Repository[F],
-    val dbLayer: DBLayer[F],
-    val backgroundJobManager: BackgroundJobManager[F],
+    override val repository: Repository[F],
+    override val dbLayer: DBLayer[F],
+    override val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate, repositoryInput)
+) extends SBotWebhook[F](uri, path, webhookCertificate)
     with YouTuboAncheI0Bot[F] {
-  override def repository: Repository[F] =
-    repositoryInput
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
-  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+  override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 }
 
-trait YouTuboAncheI0Bot[F[_]: Async: LogWriter] extends SBot[F] {
+trait YouTuboAncheI0Bot[F[_]] extends SBot[F] {
 
-  override val botName: SBotName                   = YouTuboAncheI0Bot.botName
-  override val botId: SBotId                       = YouTuboAncheI0Bot.botId
+  override val sBotInfo: SBotInfo                  = YouTuboAncheI0Bot.sBotInfo
   override val ignoreMessagePrefix: Option[String] = YouTuboAncheI0Bot.ignoreMessagePrefix
   override val triggerListUri: Uri                 = YouTuboAncheI0Bot.triggerListUri
   override val triggerFilename: String             = YouTuboAncheI0Bot.triggerFilename
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
-    YouTuboAncheI0Bot.messageRepliesData[F].pure[F]
+  override val messageRepliesData: List[ReplyBundleMessage] =
+    YouTuboAncheI0Bot.messageRepliesData
 
-  override val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
-    YouTuboAncheI0Bot
-      .commandRepliesData[F](
-        dbLayer = dbLayer,
-        backgroundJobManager = backgroundJobManager
-      )
-      .pure[F]
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    YouTuboAncheI0Bot.commandRepliesData
 
 }
 object YouTuboAncheI0Bot {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
-  val botName: SBotName                   = SBotName("YouTuboAncheI0Bot")
+  val botName: SBotInfo.SBotName          = SBotInfo.SBotName("YouTuboAncheI0Bot")
   val botId: SBotId                       = SBotId("ytai")
+  val sBotInfo: SBotInfo                  = SBotInfo(botId, botName)
   val triggerListUri: Uri                 =
     uri"https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   val triggerFilename: String = "ytai_triggers.txt"
   val tokenFilename: String   = "ytai_YouTuboAncheI0Bot.token"
   val configNamespace: String = "ytai"
 
-  def messageRepliesAudioData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] =
-    Audio.messageRepliesAudioData[F]
+  def messageRepliesAudioData: List[ReplyBundleMessage] =
+    Audio.messageRepliesAudioData
 
-  def messageRepliesGifData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] =
-    Gif.messageRepliesGifData[F]
+  def messageRepliesGifData: List[ReplyBundleMessage] =
+    Gif.messageRepliesGifData
 
-  def messageRepliesMixData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] =
-    Mix.messageRepliesMixData[F]
+  def messageRepliesMixData: List[ReplyBundleMessage] =
+    Mix.messageRepliesMixData
 
-  def messageRepliesPhotoData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] =
-    Photo.messageRepliesPhotoData[F]
+  def messageRepliesPhotoData: List[ReplyBundleMessage] =
+    Photo.messageRepliesPhotoData
 
-  def messageRepliesStickerData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] =
-    Sticker.messageRepliesStickerData[F]
+  def messageRepliesStickerData: List[ReplyBundleMessage] =
+    Sticker.messageRepliesStickerData
 
-  def messageRepliesVideoData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] =
-    Video.messageRepliesVideoData[F]
+  def messageRepliesVideoData: List[ReplyBundleMessage] =
+    Video.messageRepliesVideoData
 
-  def messageRepliesImageData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToPhoto[F](
+  def messageRepliesImageData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage.textToPhoto(
       "😐",
       "attonito"
     )(
       pho"ytai_Attonito.jpg"
     ),
-    ReplyBundleMessage.textToPhoto[F](
+    ReplyBundleMessage.textToPhoto(
       "barbiere",
       "schiuma da barba",
       "pelata"
     )(
       pho"ytai_Barbiere.jpg"
     ),
-    ReplyBundleMessage.textToPhoto[F](
+    ReplyBundleMessage.textToPhoto(
       "calzone"
     )(
       pho"ytai_Calzone.jpg"
     )
   )
 
-  def messageRepliesData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] =
-    messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesMixData[F] ++ messageRepliesPhotoData[
-      F
-    ] ++ messageRepliesStickerData[
-      F
-    ] ++ messageRepliesVideoData[
-      F
-    ] ++ messageRepliesImageData[F]
+  val messageRepliesData: List[ReplyBundleMessage] =
+    messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesMixData ++ messageRepliesPhotoData ++ messageRepliesStickerData ++ messageRepliesVideoData ++ messageRepliesImageData
 
-  def commandRepliesData[
-      F[_]: Async
-  ](
-      backgroundJobManager: BackgroundJobManager[F],
-      dbLayer: DBLayer[F]
-  )(using
-      log: LogWriter[F]
-  ): List[ReplyBundleCommand[F]] =
-    CommandPatternsGroup.TriggerGroup.group[F](
+  val commandRepliesData: List[ReplyBundleCommand] =
+    CommandPatternsGroup.TriggerGroup.group(
       triggerFileUri = triggerListUri,
-      botId = botId,
-      botName = botName,
-      ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix,
-      messageRepliesData = messageRepliesData[F],
-      dbMedia = dbLayer.dbMedia,
-      dbTimeout = dbLayer.dbTimeout
+      sBotInfo = YouTuboAncheI0Bot.sBotInfo,
+      messageRepliesData = messageRepliesData,
+      ignoreMessagePrefix = YouTuboAncheI0Bot.ignoreMessagePrefix
     ) ++
-      CommandPatternsGroup.ShowGroup.group[F](
-        dbShow = dbLayer.dbShow,
-        dbSubscription = dbLayer.dbSubscription,
-        backgroundJobManager = backgroundJobManager,
-        botId = botId,
-        botName = botName
+      CommandPatternsGroup.ShowGroup.group(
+        sBotInfo = YouTuboAncheI0Bot.sBotInfo
       ) ++
       List(
-        RandomDataCommand.randomDataReplyBundleCommand[F](
-          botId = botId,
-          dbMedia = dbLayer.dbMedia
+        RandomDataCommand.randomDataReplyBundleCommand(
+          sBotInfo = YouTuboAncheI0Bot.sBotInfo
         )
       )
 
@@ -202,10 +155,10 @@ object YouTuboAncheI0Bot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        botId = botId
+        sBotInfo = sBotInfo
       )
     } yield new YouTuboAncheI0BotPolling[F](
-      repositoryInput = botSetup.repository,
+      repository = botSetup.repository,
       dbLayer = botSetup.dbLayer,
       backgroundJobManager = botSetup.backgroundJobManager
     )(using Parallel[F], Async[F], botSetup.api, log)
@@ -219,13 +172,13 @@ object YouTuboAncheI0Bot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botId = botId,
+      sBotInfo = sBotInfo,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new YouTuboAncheI0BotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        repositoryInput = botSetup.repository,
+        repository = botSetup.repository,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate
