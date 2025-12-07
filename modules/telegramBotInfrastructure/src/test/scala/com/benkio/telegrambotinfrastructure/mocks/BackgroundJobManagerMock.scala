@@ -2,11 +2,11 @@ package com.benkio.telegrambotinfrastructure.mocks
 
 import cats.effect.IO
 import cats.syntax.all.*
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.SubscriptionKey
 import fs2.concurrent.SignallingRef
 import fs2.Stream
 import log.effect.LogWriter
@@ -27,11 +27,11 @@ object BackgroundJobManagerMock {
     override def scheduleSubscription(subscription: Subscription): IO[Unit] =
       for {
         key <- IO.pure(SubscriptionKey(subscription.id, subscription.chatId))
-        _ <- IO.raiseWhen(scheduleReferences.contains(key))(
+        _   <- IO.raiseWhen(scheduleReferences.contains(key))(
           BackgroundJobManager.SubscriptionAlreadyExists(subscription)
         )
         cancel <- SignallingRef[IO, Boolean](false)
-        _ <- IO {
+        _      <- IO {
           scheduleReferences += key -> cancel
         }
       } yield ()
@@ -42,13 +42,13 @@ object BackgroundJobManagerMock {
     override def cancelSubscription(subscriptionId: SubscriptionId): IO[Unit] =
       for {
         keyOpt <- IO(scheduleReferences.keys.find(_.subscriptionId == subscriptionId))
-        _ <- keyOpt.fold(
+        _      <- keyOpt.fold(
           IO.raiseError(BackgroundJobManager.SubscriptionIdNotFound(subscriptionId))
         ) { key =>
           for {
             cancel <- IO(scheduleReferences(key))
-            _ <- cancel.set(true)
-            _ <- IO {
+            _      <- cancel.set(true)
+            _      <- IO {
               scheduleReferences -= key
             }
           } yield ()
@@ -58,11 +58,11 @@ object BackgroundJobManagerMock {
     override def cancelSubscriptions(chatId: ChatId): IO[Unit] =
       for {
         keysToCancel <- IO(scheduleReferences.keys.filter(_.chatId == chatId).toList)
-        _ <- keysToCancel.traverse_ { key =>
+        _            <- keysToCancel.traverse_ { key =>
           for {
             cancel <- IO(scheduleReferences(key))
-            _ <- cancel.set(true)
-            _ <- IO {
+            _      <- cancel.set(true)
+            _      <- IO {
               scheduleReferences -= key
             }
           } yield ()
@@ -79,4 +79,3 @@ object BackgroundJobManagerMock {
       } yield (stream, cancel)
   }
 }
-

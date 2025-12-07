@@ -1,32 +1,28 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.mocks.BackgroundJobManagerMock
-import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import cats.data.NonEmptyList
 import cats.effect.*
 import cats.syntax.all.*
-import cats.Applicative
+import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import com.benkio.telegrambotinfrastructure.mocks.BackgroundJobManagerMock
+import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
+import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import com.benkio.telegrambotinfrastructure.ComputeReply
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import telegramium.bots.high.Api
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
 class ComputeReplySpec extends CatsEffectSuite {
 
-  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
+  given log: LogWriter[IO]            = consoleLogUpToLevel(LogLevels.Info)
   val inputMediafile: List[MediaFile] = List(
     Mp3File("audio.mp3"),
     PhotoFile("picture.jpg"),
@@ -63,7 +59,6 @@ class ComputeReplySpec extends CatsEffectSuite {
       ComputeReply.execute(
         replyBundle = input,
         message = message,
-        filter = true,
         repository =
           RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO]),
         backgroundJobManager = BackgroundJobManagerMock.mock(),

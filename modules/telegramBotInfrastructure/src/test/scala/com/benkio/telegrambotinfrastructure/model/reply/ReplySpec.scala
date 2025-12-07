@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-import cats.effect.*
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.FunSuite

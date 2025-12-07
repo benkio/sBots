@@ -146,7 +146,7 @@ object Trigger {
 
   given Decoder[MessageTrigger] = deriveDecoder[MessageTrigger]
   given Encoder[MessageTrigger] = deriveEncoder[MessageTrigger]
-  
+
   given Decoder[CommandTrigger] = deriveDecoder[CommandTrigger]
   given Encoder[CommandTrigger] = deriveEncoder[CommandTrigger]
 

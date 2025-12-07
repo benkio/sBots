@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import cats.effect.IO
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
 import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
@@ -69,7 +69,7 @@ class SBotSpec extends CatsEffectSuite {
       )
     SampleWebhookBot().map(sampleWebhookBot => {
       val resultOpt = sampleWebhookBot.selectCommandReplyBundle(inputMessage)
-      val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       val expectedPP = expected.prettyPrint()

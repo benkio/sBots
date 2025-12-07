@@ -1,12 +1,7 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
-import cats.effect.IO
 import cats.effect.Async
-import cats.syntax.all.*
-import telegramium.bots.high.Api
+import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.reply.gif
@@ -17,6 +12,9 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
@@ -27,6 +25,7 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import org.http4s.implicits.*
 import org.http4s.Uri
+import telegramium.bots.high.Api
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
@@ -46,12 +45,12 @@ class SampleWebhookBot(
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
     FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 
-  override val sBotInfo: SBotInfo = SampleWebhookBot.sBotInfo
+  override val sBotInfo: SBotInfo                  = SampleWebhookBot.sBotInfo
   override val ignoreMessagePrefix: Option[String] = SampleWebhookBot.ignoreMessagePrefix
   override val triggerFilename: String             = SampleWebhookBot.triggerFilename
   override val triggerListUri: Uri                 = SampleWebhookBot.triggerListUri
 
-  override val messageRepliesDataF: IO[List[ReplyBundleMessage]] = List(
+  override val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage.textToMp3(
       "cosa preferisci",
       "ragazzetta",
@@ -96,9 +95,9 @@ class SampleWebhookBot(
       vid"rphjb_CarneFrescaSaporita.mp4",
       gif"rphjb_CarneFrescaSaporitaGif.mp4"
     )
-  ).pure[IO]
+  )
 
-  override val commandRepliesDataF: IO[List[ReplyBundleCommand]] =
+  override val commandRepliesData: List[ReplyBundleCommand] =
     List(
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),
@@ -107,12 +106,12 @@ class SampleWebhookBot(
         )(false),
         instruction = CommandInstructionData.NoInstructions
       )
-    ).pure[IO]
+    )
 }
 
 object SampleWebhookBot {
 
-  val sBotInfo: SBotInfo                   = SBotInfo(
+  val sBotInfo: SBotInfo = SBotInfo(
     botName = SBotInfo.SBotName("SampleWebhookBot"),
     botId = SBotInfo.SBotId("sbot")
   )

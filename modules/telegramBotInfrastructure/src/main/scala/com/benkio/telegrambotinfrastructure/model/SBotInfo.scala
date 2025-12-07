@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import io.circe.generic.semiauto.*
 import io.circe.Decoder
 import io.circe.Encoder
-import io.circe.generic.semiauto.*
 
 final case class SBotInfo(botId: SBotInfo.SBotId, botName: SBotInfo.SBotName)
 

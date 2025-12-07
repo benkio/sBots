@@ -40,12 +40,12 @@ enum EffectfulKey(val sBotInfo: SBotInfo) extends ReplyValue {
       override val sBotInfo: SBotInfo,
       ignoreMessagePrefix: Option[String],
       commands: List[ReplyBundleCommand]
-  )                                                         extends EffectfulKey(sBotInfo)
-  case Subscribe(override val sBotInfo: SBotInfo)           extends EffectfulKey(sBotInfo)
-  case Unsubscribe(override val sBotInfo: SBotInfo)         extends EffectfulKey(sBotInfo)
-  case Subscriptions(override val sBotInfo: SBotInfo)       extends EffectfulKey(sBotInfo)
-  case TopTwenty(override val sBotInfo: SBotInfo)           extends EffectfulKey(sBotInfo)
-  case Timeout(override val sBotInfo: SBotInfo)             extends EffectfulKey(sBotInfo)
+  )                                                              extends EffectfulKey(sBotInfo)
+  case Subscribe(override val sBotInfo: SBotInfo)                extends EffectfulKey(sBotInfo)
+  case Unsubscribe(override val sBotInfo: SBotInfo)              extends EffectfulKey(sBotInfo)
+  case Subscriptions(override val sBotInfo: SBotInfo)            extends EffectfulKey(sBotInfo)
+  case TopTwenty(override val sBotInfo: SBotInfo)                extends EffectfulKey(sBotInfo)
+  case Timeout(override val sBotInfo: SBotInfo)                  extends EffectfulKey(sBotInfo)
   case MediaByKind(key: String, override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
 }
 

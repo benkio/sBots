@@ -157,7 +157,12 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
         (sBotInfo, ignoreMessagePrefix, commands) <- instructionCommand.reply match {
           case EffectfulReply(EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands), _) =>
             IO.pure((sBotInfo, ignoreMessagePrefix, commands))
-          case _ => IO.raiseError(Throwable("[BaseBotSpec] `instruction` command should be an `EffectfulReply` with `EffectfulKey.Instructions`"))
+          case _ =>
+            IO.raiseError(
+              Throwable(
+                "[BaseBotSpec] `instruction` command should be an `EffectfulReply` with `EffectfulKey.Instructions`"
+              )
+            )
         }
         engInstructionCommandResult <- engInstructionInputs.traverse(msg =>
           InstructionsCommand.instructionCommandLogic[IO](

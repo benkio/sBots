@@ -1,34 +1,17 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
-
-
-
 import cats.*
 import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
-
 import com.benkio.telegrambotinfrastructure.messagefiltering.*
-
-
-
-
-
-
-
-
-
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-
-
 import log.effect.LogWriter
-
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*
 import telegramium.bots.ChatId
 import telegramium.bots.ChatIntId
 import telegramium.bots.Html
-
 import telegramium.bots.Markdown2
 import telegramium.bots.Message
 import telegramium.bots.ParseMode
@@ -39,28 +22,28 @@ object TextReply {
       reply: Text,
       msg: Message,
       replyToMessage: Boolean
-    ): F[List[Message]] = {
-      val chatId: ChatId               = ChatIntId(msg.chat.id)
-      val parseMode: Option[ParseMode] = reply.textType match {
-        case Text.TextType.Plain    => None
-        case Text.TextType.Markdown => Markdown2.some
-        case Text.TextType.Html     => Html.some
-      }
-      val result: EitherT[F, Throwable, List[Message]] =
-        for {
-          _       <- EitherT.liftF(LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}"))
-          _       <- Methods.sendChatAction(chatId, "typing").exec.attemptT
-          message <-
-            Methods
-              .sendMessage(
-                chatId = chatId,
-                text = reply.value,
-                replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId)),
-                parseMode = parseMode
-              )
-              .exec
-              .attemptT
-        } yield List(message)
-      result.getOrElse(List.empty)
+  ): F[List[Message]] = {
+    val chatId: ChatId               = ChatIntId(msg.chat.id)
+    val parseMode: Option[ParseMode] = reply.textType match {
+      case Text.TextType.Plain    => None
+      case Text.TextType.Markdown => Markdown2.some
+      case Text.TextType.Html     => Html.some
     }
+    val result: EitherT[F, Throwable, List[Message]] =
+      for {
+        _       <- EitherT.liftF(LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}"))
+        _       <- Methods.sendChatAction(chatId, "typing").exec.attemptT
+        message <-
+          Methods
+            .sendMessage(
+              chatId = chatId,
+              text = reply.value,
+              replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId)),
+              parseMode = parseMode
+            )
+            .exec
+            .attemptT
+      } yield List(message)
+    result.getOrElse(List.empty)
   }
+}

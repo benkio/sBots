@@ -1,14 +1,9 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
-
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
-
-
-
 import org.http4s.Uri
 
 object CommandPatternsGroup {
@@ -30,14 +25,13 @@ object CommandPatternsGroup {
 
   object TriggerGroup {
     def group(
-      triggerFileUri: Uri,
-      sBotInfo: SBotInfo,
-      messageRepliesData: List[ReplyBundleMessage],
-      ignoreMessagePrefix: Option[String]
+        triggerFileUri: Uri,
+        sBotInfo: SBotInfo,
+        messageRepliesData: List[ReplyBundleMessage],
+        ignoreMessagePrefix: Option[String]
     ): List[ReplyBundleCommand] =
       List(
-        TriggerListCommand.triggerListReplyBundleCommand(
-          triggerFileUri = triggerFileUri),
+        TriggerListCommand.triggerListReplyBundleCommand(triggerFileUri = triggerFileUri),
         TriggerSearchCommand
           .triggerSearchReplyBundleCommand(
             sBotInfo = sBotInfo,

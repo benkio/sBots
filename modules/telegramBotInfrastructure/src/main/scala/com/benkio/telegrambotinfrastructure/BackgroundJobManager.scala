@@ -1,21 +1,17 @@
 package com.benkio.telegrambotinfrastructure
 
-import com.benkio.telegrambotinfrastructure.model.reply.Text
 import cats.*
 import cats.effect.*
 import cats.effect.implicits.*
 import cats.implicits.*
-
-
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
-
-
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
@@ -62,7 +58,7 @@ object BackgroundJobManager {
   def apply[F[_]: Async: Api](
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo
-  )(using  log: LogWriter[F]): F[BackgroundJobManager[F]] =
+  )(using log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
       backgroundJobManager <- Async[F].pure(
         new BackgroundJobManagerImpl(
@@ -76,7 +72,7 @@ object BackgroundJobManager {
   class BackgroundJobManagerImpl[F[_]: Async: Api](
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo
-  )(using  log: LogWriter[F])
+  )(using log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
     val cronScheduler                                                        = Cron4sScheduler.systemDefault[F]
@@ -138,7 +134,6 @@ object BackgroundJobManager {
     override def runSubscription(
         subscription: Subscription
     )(using
-        
         log: LogWriter[F]
     ): F[(Stream[F, Instant], SignallingRef[F, Boolean])] = {
       val message = Message(

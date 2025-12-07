@@ -1,9 +1,9 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
+import cats.syntax.all.*
 import io.circe.generic.semiauto.*
 import io.circe.Decoder
 import io.circe.Encoder
-import cats.syntax.all.*
 
 sealed trait Reply {
   val replyToMessage: Boolean
@@ -50,8 +50,8 @@ object Reply {
 
   extension (r: Reply) {
     def prettyPrint: List[String] = r match {
-      case TextReply(txt, _) => txt.map(_.show)
-      case EffectfulReply(key, _) => List(s"Reply for `$key`")
+      case TextReply(txt, _)         => txt.map(_.show)
+      case EffectfulReply(key, _)    => List(s"Reply for `$key`")
       case MediaReply(mediaFiles, _) => mediaFiles.map(_.show)
     }
   }

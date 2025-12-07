@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
-
 import cats.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
@@ -23,9 +22,9 @@ sealed trait ReplyBundle {
 }
 
 case class ReplyBundleMessage(
-  trigger: MessageTrigger,
-  reply: Reply,
-  matcher: MessageMatches,
+    trigger: MessageTrigger,
+    reply: Reply,
+    matcher: MessageMatches
 ) extends ReplyBundle
 
 object ReplyBundleMessage {
@@ -79,10 +78,10 @@ object ReplyBundleMessage {
     )
 }
 
-final case class ReplyBundleCommand (
-  trigger: CommandTrigger,
-  reply: Reply,
-  instruction: CommandInstructionData
+final case class ReplyBundleCommand(
+    trigger: CommandTrigger,
+    reply: Reply,
+    instruction: CommandInstructionData
 ) extends ReplyBundle
 
 object ReplyBundleCommand {
@@ -110,7 +109,7 @@ object ReplyBundle {
   extension (rb: ReplyBundle) {
     def prettyPrint()(using triggerShow: Show[Trigger]): String = {
       val triggerStrings: List[String] = triggerShow.show(rb.trigger).split('\n').toList
-      val result = rb.reply.prettyPrint
+      val result                       = rb.reply.prettyPrint
         .zipAll(that = triggerStrings, thisElem = "", thatElem = "")
         .map { case (mfs, trs) =>
           s"${mfs.padTo(25, ' ')} | $trs"

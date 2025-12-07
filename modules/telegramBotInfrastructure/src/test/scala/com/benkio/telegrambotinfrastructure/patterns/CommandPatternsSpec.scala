@@ -1,14 +1,13 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import cats.effect.*
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
 
 class CommandPatternsSpec extends CatsEffectSuite {
 
@@ -19,7 +18,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
   )
   val command: String      = "command"
   val defaultReply: String = "defaultReply"
-  val sBotInfo: SBotInfo = SampleWebhookBot.sBotInfo
+  val sBotInfo: SBotInfo   = SampleWebhookBot.sBotInfo
 
   def resultByInput(input: String, allowEmptyString: Boolean): IO[List[Text]] = CommandPatterns.handleCommandWithInput(
     msg = msg.copy(text = Some(input)),

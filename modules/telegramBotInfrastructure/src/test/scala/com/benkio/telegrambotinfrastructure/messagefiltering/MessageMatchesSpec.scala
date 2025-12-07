@@ -1,7 +1,6 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.model.reply.GifFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaReply

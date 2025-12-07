@@ -1,28 +1,19 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import cats.*
 import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
-
-
-
 import com.benkio.telegrambotinfrastructure.http.ErrorFallbackWorkaround
 import com.benkio.telegrambotinfrastructure.model.media.toTelegramApi
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
-
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-
-
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
-
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import log.effect.LogWriter
 import telegramium.bots.client.Method
 import telegramium.bots.high.*
@@ -83,34 +74,34 @@ object TelegramReply {
   }
 
   def sendReplyValue[F[_]: Async: LogWriter: Api](
-        reply: ReplyValue,
-        msg: Message,
-        repository: Repository[F],
-        dbLayer: DBLayer[F],
-      backgroundJobManager:BackgroundJobManager[F],
-      replyToMessage: Boolean,
-    ): F[List[Message]] = reply match {
-      case mediaFile: MediaFile =>
-        MediaFileReply.sendMediaFile(
-          reply = mediaFile,
-          msg = msg,
-          repository = repository,
-          replyToMessage = replyToMessage,
-        )
-      case text: Text =>
-        TextReply.sendText(
-          reply = text,
-          msg = msg,
-          replyToMessage = replyToMessage
-        )
-      case key: EffectfulKey =>
-        EffectfulKeyReply.sendEffectfulKey(
-          reply = key,
-          msg = msg,
-          repository = repository,
-          dbLayer = dbLayer,
-          replyToMessage = replyToMessage,
-          backgroundJobManager=backgroundJobManager
-        )
-    }
+      reply: ReplyValue,
+      msg: Message,
+      repository: Repository[F],
+      dbLayer: DBLayer[F],
+      backgroundJobManager: BackgroundJobManager[F],
+      replyToMessage: Boolean
+  ): F[List[Message]] = reply match {
+    case mediaFile: MediaFile =>
+      MediaFileReply.sendMediaFile(
+        reply = mediaFile,
+        msg = msg,
+        repository = repository,
+        replyToMessage = replyToMessage
+      )
+    case text: Text =>
+      TextReply.sendText(
+        reply = text,
+        msg = msg,
+        replyToMessage = replyToMessage
+      )
+    case key: EffectfulKey =>
+      EffectfulKeyReply.sendEffectfulKey(
+        reply = key,
+        msg = msg,
+        repository = repository,
+        dbLayer = dbLayer,
+        replyToMessage = replyToMessage,
+        backgroundJobManager = backgroundJobManager
+      )
   }
+}

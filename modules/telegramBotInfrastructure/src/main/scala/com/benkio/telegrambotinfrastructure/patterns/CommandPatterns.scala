@@ -1,10 +1,5 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import com.benkio.telegrambotinfrastructure.model.Subscription
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
-import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.EffectfulReply
 import cats.effect.Async
 import cats.implicits.*
 import cats.ApplicativeThrow
@@ -13,7 +8,10 @@ import com.benkio.telegrambotinfrastructure.given
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.reply.toText
+import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
+import com.benkio.telegrambotinfrastructure.model.reply.EffectfulReply
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
@@ -26,9 +24,8 @@ import com.benkio.telegrambotinfrastructure.model.toIta
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-
-
-
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
+import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.model.Timeout
 import com.benkio.telegrambotinfrastructure.model.Trigger
@@ -63,13 +60,13 @@ object CommandPatterns {
 
     def mediaCommandByKind(
         commandName: String,
-      instruction: CommandInstructionData,
-      sBotInfo: SBotInfo
+        instruction: CommandInstructionData,
+        sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger(commandName),
         reply = EffectfulReply(
-          key = EffectfulKey.MediaByKind(commandName,sBotInfo)
+          key = EffectfulKey.MediaByKind(commandName, sBotInfo)
         ),
         instruction = instruction
       )
@@ -104,8 +101,7 @@ object CommandPatterns {
         trigger = CommandTrigger("random"),
         reply = EffectfulReply(
           key = EffectfulKey.Random(sBotInfo)
-        )
-        ,
+        ),
         instruction = CommandInstructionData.Instructions(
           ita = randomDataCommandIta,
           eng = randomDataCommandEng
@@ -143,10 +139,10 @@ Input as query string:
   Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
 
     def searchShowCommandLogic[F[_]: Async: LogWriter](
-      msg: Message,
-      dbLayer: DBLayer[F],
-      sBotInfo: SBotInfo,
-  ): F[List[Text]] =
+        msg: Message,
+        dbLayer: DBLayer[F],
+        sBotInfo: SBotInfo
+    ): F[List[Text]] =
       handleCommandWithInput[F](
         msg = msg,
         command = "searchshow",
@@ -171,8 +167,7 @@ Input as query string:
         reply = EffectfulReply(
           key = EffectfulKey.SearchShow(sBotInfo),
           replyToMessage = true
-        )
-        ,
+        ),
         instruction = CommandInstructionData.Instructions(
           ita = searchShowCommandIta,
           eng = searchShowCommandEng
@@ -212,7 +207,7 @@ Input as query string:
       s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri"
 
     private[patterns] def triggerListReplyBundleCommand[F[_]](
-      triggerFileUri: Uri
+        triggerFileUri: Uri
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("triggerlist"),
@@ -236,22 +231,22 @@ Input as query string:
         m: Message,
         ignoreMessagePrefix: Option[String],
         sBotInfo: SBotInfo
-    ): F[List[Text]] = { 
+    ): F[List[Text]] = {
 
-                handleCommandWithInput[F](
-            msg = m,
-            command = "triggersearch",
-            sBotInfo = sBotInfo,
-            computation = t => {
-      val matches = mdr
-        .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
-        .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-      if matches.isEmpty
-      then List(s"No matching trigger for $t").pure[F]
-      else matches.map { case (_, rbm) => rbm.prettyPrint() }.pure[F]
-            },
+      handleCommandWithInput[F](
+        msg = m,
+        command = "triggersearch",
+        sBotInfo = sBotInfo,
+        computation = t => {
+          val matches = mdr
+            .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
+            .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+          if matches.isEmpty
+          then List(s"No matching trigger for $t").pure[F]
+          else matches.map { case (_, rbm) => rbm.prettyPrint() }.pure[F]
+        },
         defaultReply = """Input Required: Insert the test keyword to check if it's in some bot trigger"""
-          )
+      )
     }
 
     // TODO: #782 Return the closest match on failure
@@ -321,42 +316,42 @@ ${ignoreMessagePrefix
         commands: List[ReplyBundleCommand]
     ): F[List[Text]] = {
       val computation = (input: String) => {
-      val itaMatches = List("it", "ita", "italian", "🇮🇹")
-      val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
-      val (commandDescriptionsIta, commandDescriptionsEng) =
-        commands
-          .unzip(using cmd => (cmd.instruction.toIta.toList, cmd.instruction.toEng.toList))
-      val instructionsIta = List(
-        instructionMessageIta(
-          sBotInfo = sBotInfo,
-          ignoreMessagePrefix = ignoreMessagePrefix,
-          commandDescriptions = commandDescriptionsIta.flatten
+        val itaMatches = List("it", "ita", "italian", "🇮🇹")
+        val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
+        val (commandDescriptionsIta, commandDescriptionsEng) =
+          commands
+            .unzip(using cmd => (cmd.instruction.toIta.toList, cmd.instruction.toEng.toList))
+        val instructionsIta = List(
+          instructionMessageIta(
+            sBotInfo = sBotInfo,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commandDescriptions = commandDescriptionsIta.flatten
+          )
         )
-      )
-      val instructionsEng = List(
-        instructionMessageEng(
-          sBotInfo = sBotInfo,
-          ignoreMessagePrefix = ignoreMessagePrefix,
-          commandDescriptions = commandDescriptionsEng.flatten
+        val instructionsEng = List(
+          instructionMessageEng(
+            sBotInfo = sBotInfo,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commandDescriptions = commandDescriptionsEng.flatten
+          )
         )
-      )
-      input match {
-        case v if itaMatches.contains(v) =>
-          instructionsIta.pure[F]
-        case v if engMatches.contains(v) =>
-          instructionsEng.pure[F]
-        case _ =>
-          instructionsEng.pure[F]
-      }
+        input match {
+          case v if itaMatches.contains(v) =>
+            instructionsIta.pure[F]
+          case v if engMatches.contains(v) =>
+            instructionsEng.pure[F]
+          case _ =>
+            instructionsEng.pure[F]
+        }
       }
       handleCommandWithInput[F](
-            msg = msg,
-            command = "instructions",
-            sBotInfo = sBotInfo,
-            computation = computation,
-            defaultReply = "",
-            allowEmptyString = true
-          )
+        msg = msg,
+        command = "instructions",
+        sBotInfo = sBotInfo,
+        computation = computation,
+        defaultReply = "",
+        allowEmptyString = true
+      )
     }
 
     private[telegrambotinfrastructure] def instructionsReplyBundleCommand(
@@ -393,22 +388,23 @@ ${ignoreMessagePrefix
         m: Message,
         sBotInfo: SBotInfo
     ): F[List[Text]] = {
-      val computation = (cronInput: String) => for {
-        subscription <- Subscription(m.chat.id, sBotInfo.botId, cronInput)
-        nextOccurrence = subscription.cron
-          .next(LocalDateTime.now)
-          .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
-        _ <- backgroundJobManager.scheduleSubscription(subscription)
-      } yield List(
-        s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
-      )
+      val computation = (cronInput: String) =>
+        for {
+          subscription <- Subscription(m.chat.id, sBotInfo.botId, cronInput)
+          nextOccurrence = subscription.cron
+            .next(LocalDateTime.now)
+            .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
+          _ <- backgroundJobManager.scheduleSubscription(subscription)
+        } yield List(
+          s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
+        )
       handleCommandWithInput[F](
-            msg = m,
-            command = "subscribe",
-            sBotInfo = sBotInfo,
-            computation = computation,
-            defaultReply = "Input Required: insert a valid 〈cron time〉. Check the instructions"
-          )
+        msg = m,
+        command = "subscribe",
+        sBotInfo = sBotInfo,
+        computation = computation,
+        defaultReply = "Input Required: insert a valid 〈cron time〉. Check the instructions"
+      )
     }
 
     private[patterns] def subscribeReplyBundleCommand(
@@ -430,11 +426,10 @@ ${ignoreMessagePrefix
         m: Message,
         sBotInfo: SBotInfo
     ): F[List[Text]] = {
-      val computation = (subscriptionIdInput: String) => 
-        if subscriptionIdInput.isEmpty then 
-          for {
-            _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
-          } yield List("All Subscriptions for current chat successfully cancelled")
+      val computation = (subscriptionIdInput: String) =>
+        if subscriptionIdInput.isEmpty then for {
+          _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
+        } yield List("All Subscriptions for current chat successfully cancelled")
         else
           for {
             subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
@@ -442,14 +437,14 @@ ${ignoreMessagePrefix
           } yield List("Subscription successfully cancelled")
 
       handleCommandWithInput[F](
-            msg = m,
-            command = "unsubscribe",
-            sBotInfo = sBotInfo,
-            computation = computation,
-            defaultReply =
-              "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions",
-            allowEmptyString = true
-          )
+        msg = m,
+        command = "unsubscribe",
+        sBotInfo = sBotInfo,
+        computation = computation,
+        defaultReply =
+          "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions",
+        allowEmptyString = true
+      )
     }
 
     private[patterns] def unsubscribeReplyBundleCommand(
@@ -476,13 +471,13 @@ ${ignoreMessagePrefix
       subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
       memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
       memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chat.id }
-    } yield List(s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
-      .map(_.show)
-      .mkString("\n") ++
-      s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
-      memChatSubscriptions.map(_.show).mkString("\n")
-    )
-      .toText
+    } yield List(
+      s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
+        .map(_.show)
+        .mkString("\n") ++
+        s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
+        memChatSubscriptions.map(_.show).mkString("\n")
+    ).toText
 
     private[patterns] def subscriptionsReplyBundleCommand(
         sBotInfo: SBotInfo
@@ -539,9 +534,9 @@ ${ignoreMessagePrefix
     def timeoutLogic[F[_]: MonadThrow: LogWriter](
         msg: Message,
         dbTimeout: DBTimeout[F],
-        sBotInfo: SBotInfo,
-    ): F[List[Text]] ={
-      val computation = (input:String) => {
+        sBotInfo: SBotInfo
+    ): F[List[Text]] = {
+      val computation = (input: String) => {
         if input.isEmpty
         then dbTimeout.removeTimeout(chatId = msg.chat.id, botId = sBotInfo.botId) *> List("Timeout removed").pure[F]
         else
@@ -550,7 +545,9 @@ ${ignoreMessagePrefix
               error =>
                 LogWriter.info(
                   s"[ERROR] While parsing the timeout input: $error"
-                ) *> List(s"Timeout set failed: wrong input format for $input, the input must be in the form '/timeout 00:00:00'")
+                ) *> List(
+                  s"Timeout set failed: wrong input format for $input, the input must be in the form '/timeout 00:00:00'"
+                )
                   .pure[F],
               timeout =>
                 dbTimeout.setTimeout(
@@ -568,7 +565,7 @@ ${ignoreMessagePrefix
     }
 
     private[patterns] def timeoutReplyBundleCommand(
-      sBotInfo : SBotInfo
+        sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandTrigger("timeout"),
