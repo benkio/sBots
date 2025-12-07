@@ -1,19 +1,23 @@
 package com.benkio.calandrobot
 
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import cats.*
 import cats.effect.*
-import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.model.reply.txt
+
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
+
+
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.reply.Text
+
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
@@ -30,77 +34,75 @@ import org.http4s.implicits.*
 import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
-import telegramium.bots.Message
+
 
 import scala.util.Random
 
 class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    repositoryInput: Repository[F],
-    val dbLayer: DBLayer[F]
-) extends SBotPolling[F](repositoryInput)
+    override val backgroundJobManager: BackgroundJobManager[F],
+    override val repository: Repository[F],
+    override val dbLayer: DBLayer[F]
+) extends SBotPolling[F]()
     with CalandroBot[F] {
-  override def repository: Repository[F] =
-    repositoryInput
 }
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    repositoryInput: Repository[F],
-    val dbLayer: DBLayer[F],
+    override val backgroundJobManager: BackgroundJobManager[F],
+    override val repository: Repository[F],
+    override val dbLayer: DBLayer[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate, repositoryInput)
+) extends SBotWebhook[F](uri, path, webhookCertificate)
     with CalandroBot[F] {
-  override def repository: Repository[F] =
-    repositoryInput
 }
 
-trait CalandroBot[F[_]: Async: LogWriter] extends SBot[F] {
+trait CalandroBot[F[_]] extends SBot[F] {
 
-  override val botName: SBotName       = CalandroBot.botName
-  override val botId: SBotId           = CalandroBot.botId
+  override val sBotInfo: SBotInfo                  = CalandroBot.sBotInfo
   override val triggerFilename: String = CalandroBot.triggerFilename
-  // TODO: Override when it's used by all bots 
+  // TODO: 785 Override when it's used by all bots
   val triggerJsonFilename: String = CalandroBot.triggerJsonFilename
   override val triggerListUri: Uri     = CalandroBot.triggerListUri
 
-  override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
-    CalandroBot.messageRepliesData[F].pure[F]
+  override val messageRepliesData: List[ReplyBundleMessage] =
+    CalandroBot.messageRepliesData
 
-  override val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
-    CalandroBot.commandRepliesData[F](dbLayer = dbLayer).pure[F]
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    CalandroBot.commandRepliesData
 }
 
 object CalandroBot {
 
-  val botName: SBotName       = SBotName("CalandroBot")
+  val botName: SBotInfo.SBotName       = SBotInfo.SBotName("CalandroBot")
   val botId: SBotId           = SBotId("cala")
+  val sBotInfo: SBotInfo      = SBotInfo(botId, botName)
   val tokenFilename: String   = "cala_CalandroBot.token"
   val configNamespace: String = "cala"
   val triggerFilename: String = "cala_triggers.txt"
   val triggerJsonFilename: String = "cala_triggers.json"
   val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/abar_triggers.txt"
 
-  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToText[F](
+  val messageRepliesData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage.textToText(
       "sbrighi"
     )("Passo"),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "gay",
       "froc[io]".r,
       "culattone",
       "ricchione"
     )("CHE SCHIFO!!!"),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "caldo",
       "scotta"
     )("Come i carbofreni della Brembo!!"),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "ciao",
       "buongiorno",
       "\\bsalve\\b".r
     )("Buongiorno Signori"),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "film"
     )("Lo riguardo volentieri"),
     ReplyBundleMessage(
@@ -108,28 +110,28 @@ object CalandroBot {
         StringTextTriggerValue("stasera"),
         StringTextTriggerValue("?")
       ),
-      reply = TextReply[F](List(Text("Facciamo qualcosa tutti assieme?")), false),
+      reply = TextReply.fromList("Facciamo qualcosa tutti assieme?")(false),
       matcher = MessageMatches.ContainsAll
     ),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "\\bhd\\b".r,
       "nitid(o|ezza)".r,
       "alta definizione"
     )("Eh sì, vedi...si nota l'indecisione dell'immagine"),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "qualità"
     )("A 48x masterizza meglio"),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "macchina",
       "automobile"
     )("Hai visto l'ultima puntata di \"Top Gear\"?"),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "\\bfiga\\b".r,
       "\\bfregna\\b".r,
       "\\bgnocca\\b".r,
       "\\bpatacca\\b".r
     )("Io so come fare con le donne...ho letto tutto..."),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "ambulanza",
       "🚑"
     )(
@@ -140,121 +142,117 @@ object CalandroBot {
       "🤘",
       "😤"
     ),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "pc",
       "computer"
     )("Il fisso performa meglio rispetto al portatile!!!"),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       "videogioc",
       "🎮"
     )(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
-    ReplyBundleMessage.textToText[F](
+    ReplyBundleMessage.textToText(
       " hs",
       "hearthstone"
     )("BASTA CON QUESTI TAUNT!!!"),
     ReplyBundleMessage(
       MessageLengthTrigger(280),
-      reply = TextReplyM[F](
-        (msg: Message) =>
-          Applicative[F].pure(
-            List(Text(s"""wawaaa rischio calandrico in aumento(${msg.text.getOrElse("").length} / 280)"""))
-          ),
-        true
-      )
+      reply = TextReply(
+        text = List(txt"wawaaa rischio calandrico in aumento!!!"),
+        replyToMessage = true
+      ),
+      matcher = MessageMatches.ContainsOnce
     )
   )
 
-  def commandRepliesData[F[_]: Async: LogWriter](dbLayer: DBLayer[F]): List[ReplyBundleCommand[F]] =
+  val commandRepliesData: List[ReplyBundleCommand] =
     List(
       MediaByKindCommand.mediaCommandByKind(
-        dbMedia = dbLayer.dbMedia,
         commandName = "randomcard",
-        kind = "cards".some,
         instruction = CommandInstructionData.NoInstructions,
-        botId = CalandroBot.botId
+        sBotInfo = sBotInfo
       ),
-      ReplyBundleCommand.textToMedia[F]("porcoladro", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("porcoladro", CommandInstructionData.NoInstructions)(
         mp3"cala_PorcoLadro.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("unoduetre", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("unoduetre", CommandInstructionData.NoInstructions)(
         mp3"cala_Unoduetre.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("ancorauna", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("ancorauna", CommandInstructionData.NoInstructions)(
         mp3"cala_AncoraUnaDoveLaMetto.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("lacipolla", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("lacipolla", CommandInstructionData.NoInstructions)(
         mp3"cala_CipollaCalandrica.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("lavorogiusto", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("lavorogiusto", CommandInstructionData.NoInstructions)(
         mp3"cala_IlLavoroVaPagato.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("motivazioniinternet", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("motivazioniinternet", CommandInstructionData.NoInstructions)(
         mp3"cala_InternetMotivazioniCalandriche.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("cazzomene", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("cazzomene", CommandInstructionData.NoInstructions)(
         mp3"cala_IoSonVaccinato.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("arrivoarrivo", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("arrivoarrivo", CommandInstructionData.NoInstructions)(
         mp3"cala_SubmissionCalandra.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("vaginadepilata", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("vaginadepilata", CommandInstructionData.NoInstructions)(
         mp3"cala_VaginaDepilataCalandra.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("whawha_fallout4", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("whawha_fallout4", CommandInstructionData.NoInstructions)(
         mp3"cala_Waawahaawha.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("whawha_short", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("whawha_short", CommandInstructionData.NoInstructions)(
         mp3"cala_WwhaaawhaaaSingolo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("daccordissimo", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("daccordissimo", CommandInstructionData.NoInstructions)(
         mp3"cala_DAccordissimo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("stocazzo", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("stocazzo", CommandInstructionData.NoInstructions)(
         mp3"cala_Stocazzo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("cazzodibudda", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("cazzodibudda", CommandInstructionData.NoInstructions)(
         mp3"cala_CazzoDiBudda.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("personapulita", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("personapulita", CommandInstructionData.NoInstructions)(
         mp3"cala_PersonaPulita.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("losquirt", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("losquirt", CommandInstructionData.NoInstructions)(
         mp3"cala_LoSquirt.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("fuoridalmondo", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("fuoridalmondo", CommandInstructionData.NoInstructions)(
         mp3"cala_FuoriDalMondo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("qualitaolive", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("qualitaolive", CommandInstructionData.NoInstructions)(
         mp3"cala_QualitaOlive.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("gioielli", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("gioielli", CommandInstructionData.NoInstructions)(
         mp3"cala_Gioielli.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("risata", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("risata", CommandInstructionData.NoInstructions)(
         mp3"cala_RisataCalandrica.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("sonocosternato", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("sonocosternato", CommandInstructionData.NoInstructions)(
         mp3"cala_SonoCosternato.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("demenza", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("demenza", CommandInstructionData.NoInstructions)(
         mp3"cala_LaDemenzaDiUnUomo.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("wha", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("wha", CommandInstructionData.NoInstructions)(
         mp3"cala_WhaSecco.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("imparatounafava", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("imparatounafava", CommandInstructionData.NoInstructions)(
         mp3"cala_ImparatoUnaFava.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("lesbiche", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("lesbiche", CommandInstructionData.NoInstructions)(
         mp3"cala_SieteLesbiche.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("firstlesson", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("firstlesson", CommandInstructionData.NoInstructions)(
         mp3"cala_FirstLessonPlease.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("noprogrammato", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("noprogrammato", CommandInstructionData.NoInstructions)(
         mp3"cala_NoGrazieProgrammato.mp3"
       ),
-      ReplyBundleCommand.textToMedia[F]("fiammeinferno", CommandInstructionData.NoInstructions)(
+      ReplyBundleCommand.textToMedia("fiammeinferno", CommandInstructionData.NoInstructions)(
         mp3"cala_Fiamme.mp3"
       )
     )
@@ -267,12 +265,13 @@ object CalandroBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botId = botId
+      sBotInfo = sBotInfo
     )
   } yield botSetup).use { botSetup =>
     action(
       new CalandroBotPolling[F](
-        repositoryInput = botSetup.repository,
+        backgroundJobManager = botSetup.backgroundJobManager,
+        repository = botSetup.repository,
         dbLayer = botSetup.dbLayer
       )(using Parallel[F], Async[F], botSetup.api, log)
     )
@@ -287,13 +286,14 @@ object CalandroBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botId = botId,
+      sBotInfo = sBotInfo,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new CalandroBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        repositoryInput = botSetup.repository,
+        repository = botSetup.repository,
+        backgroundJobManager = botSetup.backgroundJobManager,
         dbLayer = botSetup.dbLayer,
         webhookCertificate = webhookCertificate
       )(using Async[F], botSetup.api, log)
