@@ -1,6 +1,5 @@
 package com.benkio.abarberobot.data
 
-import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
@@ -9,87 +8,87 @@ import com.benkio.telegrambotinfrastructure.model.tr
 
 object Mix {
 
-  def messageRepliesMixData[F[_]: Applicative]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToMedia[F](
+  def messageRepliesMixData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage.textToMedia(
       "\\bfrancesi\\b".r
     )(
       gif"abar_FrancesiGif.mp4",
       mp3"abar_Luigi14.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "(figlio|fijo) (di|de) (mignotta|puttana|troia)".r.tr(13)
     )(
       gif"abar_FiglioDiGif.mp4",
       gif"abar_FiglioDi2Gif.mp4",
       mp3"abar_FiglioDi3.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "sgozza"
     )(
       mp3"abar_Sgozzamento.mp3",
       gif"abar_SgozzamentoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "bruciargli",
       "la casa"
     )(
       mp3"abar_Bruciare.mp3",
       gif"abar_BruciareGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "a pezzi",
       "a pezzettini"
     )(
       mp3"abar_APezzettini.mp3",
       gif"abar_APezzettiniGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "allarme",
       "priori"
     )(
       mp3"abar_Priori.mp3",
       gif"abar_PrioriGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "carne"
     )(
       mp3"abar_Bbq.mp3",
       mp3"abar_Priori.mp3",
       gif"abar_PrioriGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "zagaglia",
       "nemico"
     )(
       mp3"abar_Zagaglia.mp3",
       gif"abar_ZagagliaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "guerra"
     )(
       vid"abar_ParoleLongobarde.mp4",
       mp3"abar_Guerra.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "faida"
     )(
       vid"abar_ParoleLongobarde.mp4",
       gif"abar_FaidaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "spranga"
     )(
       gif"abar_SprangaGif.mp4",
       vid"abar_ParoleLongobarde.mp4",
       mp3"abar_Spranga.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "trappola"
     )(
       gif"abar_TrappolaGif.mp4",
       vid"abar_ParoleLongobarde.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "pistola",
       "mitragliatrice",
       "fucile da caccia",
@@ -119,7 +118,7 @@ object Mix {
       vid"abar_ListaSpesaPartigiani.mp4",
       mp3"abar_ListaSpesaPartigiani.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "tonnellate",
       "zirconio",
       "carbone",
@@ -142,7 +141,7 @@ object Mix {
       mp3"abar_ListaMolibdeno.mp3",
       vid"abar_ListaMolibdeno.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "error[ie]".r,
       "pernicios[oi]".r,
       "scandalos[oi]".r,
@@ -153,7 +152,7 @@ object Mix {
       mp3"abar_ErrorePestilenzialeVelenosissimo.mp3"
     ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "uguaglianza",
         "(nemmeno|neanche) per idea".r,
         "democrazia",
@@ -169,7 +168,7 @@ object Mix {
         mp3"abar_Razzista.mp3"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "scorrerie",
         "scorreria",
         "saccheggi",
@@ -183,7 +182,7 @@ object Mix {
         vid"abar_ScorrerieSaccheggi.mp4",
         mp3"abar_ScorrerieSaccheggi.mp3"
       ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "chiese",
       "chiesa",
       "castelli",
@@ -194,7 +193,7 @@ object Mix {
       vid"abar_ScorrerieSaccheggi.mp4",
       mp3"abar_ScorrerieSaccheggi.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "sangue"
     )(
       gif"abar_TaglioGolaBereSangueGif.mp4",

@@ -1,86 +1,60 @@
 package com.benkio.abarberobot
 
 import cats.data.NonEmptyList
-import cats.effect.Async
 import cats.effect.IO
-import cats.implicits.*
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.http.telegramreply.TelegramReply
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import telegramium.bots.high.Api
-import telegramium.bots.Message
 
 class ABarberoBotSpec extends BaseBotSpec {
 
-  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
-  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    override def reply[F[_]: Async: LogWriter: Api](
-        reply: ReplyValue,
-        msg: Message,
-        repository: Repository[F],
-        replyToMessage: Boolean
-    ): F[List[Message]] = {
-      val _ = summon[LogWriter[F]]
-      val _ = summon[Api[F]]
-      Async[F].pure(List.empty[Message])
-    }
-  }
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.botId)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, botId) =>
-      IO.raiseUnless(botId == ABarberoBot.botId)(
+      IO.raiseUnless(botId == ABarberoBot.sBotInfo.botId)(
         Throwable(s"[ABarberoBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
   val aBarberoBot =
     BackgroundJobManager[IO](
-      dbSubscription = emptyDBLayer.dbSubscription,
-      dbShow = emptyDBLayer.dbShow,
-      repository = repositoryMock,
-      botId = ABarberoBot.botId
+      dbLayer = emptyDBLayer,
+      sBotInfo = ABarberoBot.sBotInfo
     ).map(bjm =>
       new ABarberoBotPolling[IO](
-        repositoryInput = repositoryMock,
+        repository = repositoryMock,
         dbLayer = emptyDBLayer,
         backgroundJobManager = bjm
       )
     )
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     aBarberoBot
-      .flatMap(ab =>
-        for {
-          messageReplies <- ab.messageRepliesDataF
-          prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-        } yield prettyPrints
-      )
+      .map(ab => ab.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
 
-  val commandRepliesData = aBarberoBot.flatMap(_.allCommandRepliesDataF)
+  val commandRepliesData = aBarberoBot.map(_.allCommandRepliesData)
 
-  exactTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData[IO])
-  regexTriggerLengthReturnValue(ABarberoBot.messageRepliesData[IO])
-  inputFileShouldRespondAsExpected(ABarberoBot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData)
+  regexTriggerLengthReturnValue(ABarberoBot.messageRepliesData)
+  inputFileShouldRespondAsExpected(ABarberoBot.messageRepliesData)
 
   triggerlistCommandTest(
-    commandRepliesData = aBarberoBot.flatMap(_.allCommandRepliesDataF),
+    commandRepliesData = commandRepliesData,
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt"
   )
@@ -88,7 +62,8 @@ class ABarberoBotSpec extends BaseBotSpec {
   test("ABarberoBot should contain the expected number of commands") {
     assertIO(
       commandRepliesData.map(_.length),
-      10
+      10,
+      "ABarberoBot should have 10 commands"
     )
   }
 
@@ -100,11 +75,11 @@ class ABarberoBotSpec extends BaseBotSpec {
   triggerFileContainsTriggers(
     triggerFilename = ABarberoBot.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggers = ABarberoBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botTriggers = ABarberoBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )
 
   instructionsCommandTest(
-    commandRepliesData = commandRepliesData,
+    commandRepliesDataF = commandRepliesData,
     italianInstructions =
       """
         |---- Instruzioni Per ABarberoBot ----
