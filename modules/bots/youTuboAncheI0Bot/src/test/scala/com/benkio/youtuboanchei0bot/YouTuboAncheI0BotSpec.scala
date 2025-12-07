@@ -28,18 +28,7 @@ import telegramium.bots.Message
 class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
-  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    def reply[F[_]: Async: LogWriter: Api](
-        reply: ReplyValue,
-        msg: Message,
-        repository: Repository[F],
-        replyToMessage: Boolean
-    ): F[List[Message]] = {
-      val _ = summon[LogWriter[F]]
-      val _ = summon[Api[F]]
-      Async[F].pure(List.empty[Message])
-    }
-  }
+
 
   val botId                                 = YouTuboAncheI0Bot.botId
   val mediaResource: MediaResourceIFile[IO] =
@@ -55,10 +44,8 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botId)
 
   val youtuboanchei0bot = BackgroundJobManager[IO](
-    dbSubscription = emptyDBLayer.dbSubscription,
-    dbShow = emptyDBLayer.dbShow,
-    repository = repositoryMock,
-    botId = botId
+    dbLayer = emptyDBLayer,
+    sBotInfo = YouTuboAncheI0Bot.sBotInfo
   ).map(bjm =>
     new YouTuboAncheI0BotPolling[IO](
       repositoryInput = repositoryMock,
@@ -67,7 +54,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
     )
   )
 
-  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] = youtuboanchei0bot.flatMap(_.allCommandRepliesDataF)
+  val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.flatMap(_.allCommandRepliesDataF)
   val messageRepliesDataPrettyPrint: IO[List[String]]      =
     youtuboanchei0bot
       .flatMap(ab =>

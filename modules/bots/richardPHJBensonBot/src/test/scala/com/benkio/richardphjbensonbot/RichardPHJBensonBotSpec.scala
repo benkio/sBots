@@ -67,7 +67,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     dbSubscription = emptyDBLayer.dbSubscription,
     dbShow = emptyDBLayer.dbShow,
     repositoryMock,
-    botId = botId
+    sBotInfo = sBotInfo
   ).map(bjm =>
     new RichardPHJBensonBotPolling[IO](
       repositoryInput = repositoryMock,
@@ -76,7 +76,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     )
   )
 
-  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] =
+  val commandRepliesData: IO[List[ReplyBundleCommand]] =
     richardPHJBensonBot.flatMap(_.allCommandRepliesDataF)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     richardPHJBensonBot.flatMap(rb =>

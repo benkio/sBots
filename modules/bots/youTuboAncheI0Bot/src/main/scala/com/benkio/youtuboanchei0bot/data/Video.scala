@@ -1,15 +1,13 @@
 package com.benkio.youtuboanchei0bot.data
 
-import cats.Applicative
+
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 
 object Video {
 
-  def messageRepliesVideoData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToVideo[F](
+  def messageRepliesVideoData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage.textToVideo(
       "in america",
       "dove ho sempre desiderato",
       "(posto|carico) i video".r,
@@ -19,7 +17,7 @@ object Video {
     )(
       vid"ytai_SognoAmericano.mp4"
     ),
-    ReplyBundleMessage.textToVideo[F](
+    ReplyBundleMessage.textToVideo(
       "senape",
       "non è scaduta",
       "ha un gusto strano",
@@ -27,7 +25,7 @@ object Video {
     )(
       vid"ytai_Senape.mp4"
     ),
-    ReplyBundleMessage.textToVideo[F](
+    ReplyBundleMessage.textToVideo(
       "gigantesco",
       "sushi",
       "che bellezza"

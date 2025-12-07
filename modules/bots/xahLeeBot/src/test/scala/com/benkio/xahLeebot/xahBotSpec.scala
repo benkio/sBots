@@ -25,18 +25,6 @@ import telegramium.bots.Message
 class XahLeeBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
-  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    override def reply[F[_]: Async: LogWriter: Api](
-        reply: ReplyValue,
-        msg: Message,
-        repository: Repository[F],
-        replyToMessage: Boolean
-    ): F[List[Message]] = {
-      val _ = summon[LogWriter[F]]
-      val _ = summon[Api[F]]
-      Async[F].pure(List.empty[Message])
-    }
-  }
   val botId = XahLeeBot.botId
 
   val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botId)
@@ -52,10 +40,8 @@ class XahLeeBotSpec extends BaseBotSpec {
   )
 
   val xahLeeBot = BackgroundJobManager[IO](
-    dbSubscription = emptyDBLayer.dbSubscription,
-    dbShow = emptyDBLayer.dbShow,
-    repository = repositoryMock,
-    botId = botId
+    dbLayer = emptyDBLayer.dbLayer,
+    sBotInfo = sBotInfo
   ).map(bjm =>
     new XahLeeBotPolling[IO](
       repositoryInput = repositoryMock,
@@ -64,7 +50,7 @@ class XahLeeBotSpec extends BaseBotSpec {
     )
   )
 
-  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] =
+  val commandRepliesData: IO[List[ReplyBundleCommand]] =
     xahLeeBot.flatMap(_.allCommandRepliesDataF)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     xahLeeBot
