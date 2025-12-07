@@ -9,10 +9,10 @@ import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import telegramium.bots.Message
 
 object FilteringTimeout {
-  def filter[F[_]: MonadThrow](dbLayer: DBLayer[F], botId: SBotId): (ReplyBundleMessage, Message) => F[Boolean] =
+  def filter[F[_]: MonadThrow](dbLayer: DBLayer[F], sBotId: SBotId): (ReplyBundleMessage, Message) => F[Boolean] =
     (_: ReplyBundleMessage, msg: Message) =>
       for {
-        dbTimeout <- dbLayer.dbTimeout.getOrDefault(msg.chat.id, botId)
+        dbTimeout <- dbLayer.dbTimeout.getOrDefault(msg.chat.id, sBotId)
         timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
 }

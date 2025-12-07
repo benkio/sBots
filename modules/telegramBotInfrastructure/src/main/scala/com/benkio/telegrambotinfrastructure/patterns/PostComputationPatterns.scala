@@ -6,6 +6,6 @@ import telegramium.bots.Message
 
 object PostComputationPatterns {
 
-  def timeoutPostComputation[F[_]](dbTimeout: DBTimeout[F], botId: SBotId): Message => F[Unit] = m =>
-    dbTimeout.logLastInteraction(m.chat.id, botId)
+  def timeoutPostComputation[F[_]](dbTimeout: DBTimeout[F], sBotId: SBotId): Message => F[Unit] = m =>
+    dbTimeout.logLastInteraction(m.chat.id, sBotId)
 }

@@ -41,7 +41,7 @@ class SampleWebhookBot(
   override def repository: Repository[IO] =
     repositoryInput
   override def postComputation: Message => IO[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
     FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 

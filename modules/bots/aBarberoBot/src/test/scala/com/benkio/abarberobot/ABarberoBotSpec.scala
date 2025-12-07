@@ -7,6 +7,8 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -43,11 +45,15 @@ class ABarberoBotSpec extends BaseBotSpec {
         backgroundJobManager = bjm
       )
     )
-  val messageRepliesDataPrettyPrint: IO[List[String]] =
-    aBarberoBot
-      .map(ab => ab.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
 
-  val commandRepliesData = aBarberoBot.map(_.allCommandRepliesData)
+  val messageRepliesData: IO[List[ReplyBundleMessage]] =
+    aBarberoBot
+      .map(ab => ab.messageRepliesData)
+  val commandRepliesData: IO[List[ReplyBundleCommand]] =
+    aBarberoBot
+      .map(_.allCommandRepliesData)
+  val messageRepliesDataPrettyPrint: IO[List[String]] =
+    messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint))
 
   exactTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData)
   regexTriggerLengthReturnValue(ABarberoBot.messageRepliesData)

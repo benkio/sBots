@@ -135,7 +135,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
     }
 
   def instructionsCommandTest(
-      commandRepliesData: List[ReplyBundleCommand],
+      commandRepliesDataF: IO[List[ReplyBundleCommand]],
       italianInstructions: String,
       englishInstructions: String
   ): Unit = {
@@ -147,6 +147,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
     )
     test("instructions command should return the expected message") {
       for {
+        commandRepliesData <- commandRepliesDataF
         instructionCommand <- IO.fromOption(commandRepliesData.find(_.trigger.command == "instructions"))(
           Throwable("[BaseBotSpec] can't find the `instruction` command")
         )
@@ -194,23 +195,27 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
   }
 
   def triggerlistCommandTest(
-      commandRepliesData: List[ReplyBundleCommand],
+      commandRepliesData: IO[List[ReplyBundleCommand]],
       expectedReply: String
   ): Unit =
     test("triggerlist should return a list of all triggers when called") {
-      val triggerListCommand = commandRepliesData.filter(_.trigger.command == "triggerlist")
-      triggerListCommand
-        .traverse(_.reply.prettyPrint)
-        .map(triggerListCommandPrettyPrint => {
-          assert(triggerListCommandPrettyPrint.length == 1)
-          assertEquals(
-            triggerListCommandPrettyPrint.headOption,
-            expectedReply.some
-          )
-        })
+      for {
+        commandReplies <- commandRepliesData
+        triggerListCommandPrettyPrint: List[String] = commandReplies
+          .filter(_.trigger.command == "triggerlist")
+          .flatMap(_.reply.prettyPrint)
+      } yield {
+        assertEquals(triggerListCommandPrettyPrint.length, 1)
+        assertEquals(
+          triggerListCommandPrettyPrint.headOption,
+          expectedReply.some
+        )
+      }
     }
 
-  def exactTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage]): Unit =
+  def exactTriggerReturnExpectedReplyBundle(
+    replyBundleMessages: List[ReplyBundleMessage]
+  ): Unit =
     replyBundleMessages
       .flatMap(replyBundle =>
         replyBundle.trigger match {

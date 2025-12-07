@@ -71,7 +71,7 @@ trait ABarberoBot[F[_]] extends SBot[F] {
     ABarberoBot.messageRepliesData
 
   override val commandRepliesData: List[ReplyBundleCommand] =
-    ABarberoBot.commandRepliesData()
+    ABarberoBot.commandRepliesData
 }
 
 object ABarberoBot {
@@ -85,13 +85,7 @@ object ABarberoBot {
   val tokenFilename: String   = "abar_ABarberoBot.token"
   val configNamespace: String = "abar"
 
-  def messageRepliesAudioData: List[ReplyBundleMessage] =
-    Audio.messageRepliesAudioData
-
-  def messageRepliesGifData: List[ReplyBundleMessage] =
-    Gif.messageRepliesGifData
-
-  def messageRepliesVideoData: List[ReplyBundleMessage] = List(
+  val messageRepliesVideoData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage.textToVideo(
       "parole longobarde",
       "zuffa",
@@ -103,13 +97,10 @@ object ABarberoBot {
     )
   )
 
-  def messageRepliesMixData: List[ReplyBundleMessage] =
-    Mix.messageRepliesMixData
+  val messageRepliesData: List[ReplyBundleMessage] =
+    Audio.messageRepliesAudioData ++ Gif.messageRepliesGifData ++ messageRepliesVideoData ++ Mix.messageRepliesMixData
 
-  def messageRepliesData: List[ReplyBundleMessage] =
-    messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesVideoData ++ messageRepliesMixData
-
-  def commandRepliesData(): List[ReplyBundleCommand] =
+  val commandRepliesData: List[ReplyBundleCommand] =
     CommandPatternsGroup.TriggerGroup.group(
       triggerFileUri = triggerListUri,
       sBotInfo = ABarberoBot.sBotInfo,
