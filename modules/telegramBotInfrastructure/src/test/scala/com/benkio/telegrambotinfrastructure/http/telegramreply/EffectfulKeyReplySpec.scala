@@ -8,20 +8,18 @@ import com.benkio.telegrambotinfrastructure.mocks.BackgroundJobManagerMock
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
-import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
-import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
-import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
 import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
 import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
+import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
+import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
-
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -32,11 +30,14 @@ import telegramium.bots.Message
 class EffectfulKeyReplySpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val sBotInfo = SampleWebhookBot.sBotInfo
-  val message  = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+  val sBotInfo             = SampleWebhookBot.sBotInfo
+  val message              = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+  val dbLayer              = DBLayerMock.mock(sBotInfo.botId)
+  val repositoryMock       = RepositoryMock()
+  val backgroundJobManager = BackgroundJobManagerMock.mock()
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Random") {
-    val dbLayer = DBLayerMock.mock(
+    val dbLayerWithMedia = DBLayerMock.mock(
       sBotInfo.botId,
       medias = List(
         DBMediaData(
@@ -50,19 +51,17 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         )
       )
     )
-    val repositoryMock = RepositoryMock(
-      getResourceFileHandler = _ =>
-        IO.pure(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
+    val repositoryMockWithHandler = RepositoryMock(
+      getResourceFileHandler = _ => IO.pure(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
-    val effectfulKey         = EffectfulKey.Random(sBotInfo)
+    val effectfulKey = EffectfulKey.Random(sBotInfo)
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
         msg = message,
-        repository = repositoryMock,
-        dbLayer = dbLayer,
+        repository = repositoryMockWithHandler,
+        dbLayer = dbLayerWithMedia,
         backgroundJobManager = backgroundJobManager,
         replyToMessage = false
       )
@@ -72,10 +71,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for SearchShow") {
-    val dbLayer = DBLayerMock.mock(sBotInfo.botId)
-    val repositoryMock = RepositoryMock()
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
-    val effectfulKey         = EffectfulKey.SearchShow(sBotInfo)
+    val effectfulKey = EffectfulKey.SearchShow(sBotInfo)
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
@@ -92,9 +88,6 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for TriggerSearch") {
-    val dbLayer = DBLayerMock.mock(sBotInfo.botId)
-    val repositoryMock = RepositoryMock()
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
     val replyBundleMessages = List(
       ReplyBundleMessage(
         trigger = TextTrigger(StringTextTriggerValue("test")),
@@ -123,9 +116,6 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Instructions") {
-    val dbLayer = DBLayerMock.mock(sBotInfo.botId)
-    val repositoryMock = RepositoryMock()
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
     val commands = List(
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),
@@ -154,10 +144,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Subscribe") {
-    val dbLayer = DBLayerMock.mock(sBotInfo.botId)
-    val repositoryMock = RepositoryMock()
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
-    val effectfulKey         = EffectfulKey.Subscribe(sBotInfo)
+    val effectfulKey = EffectfulKey.Subscribe(sBotInfo)
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
@@ -174,10 +161,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Unsubscribe") {
-    val dbLayer = DBLayerMock.mock(sBotInfo.botId)
-    val repositoryMock = RepositoryMock()
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
-    val effectfulKey         = EffectfulKey.Unsubscribe(sBotInfo)
+    val effectfulKey = EffectfulKey.Unsubscribe(sBotInfo)
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
@@ -194,10 +178,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Subscriptions") {
-    val dbLayer = DBLayerMock.mock(sBotInfo.botId)
-    val repositoryMock = RepositoryMock()
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
-    val effectfulKey         = EffectfulKey.Subscriptions(sBotInfo)
+    val effectfulKey = EffectfulKey.Subscriptions(sBotInfo)
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
@@ -214,10 +195,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for TopTwenty") {
-    val dbLayer = DBLayerMock.mock(sBotInfo.botId)
-    val repositoryMock = RepositoryMock()
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
-    val effectfulKey         = EffectfulKey.TopTwenty(sBotInfo)
+    val effectfulKey = EffectfulKey.TopTwenty(sBotInfo)
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
@@ -234,10 +212,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Timeout") {
-    val dbLayer = DBLayerMock.mock(sBotInfo.botId)
-    val repositoryMock = RepositoryMock()
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
-    val effectfulKey         = EffectfulKey.Timeout(sBotInfo)
+    val effectfulKey = EffectfulKey.Timeout(sBotInfo)
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
@@ -254,7 +229,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for MediaByKind") {
-    val dbLayer = DBLayerMock.mock(
+    val dbLayerWithMedia = DBLayerMock.mock(
       sBotInfo.botId,
       medias = List(
         DBMediaData(
@@ -268,19 +243,17 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         )
       )
     )
-    val repositoryMock = RepositoryMock(
-      getResourceFileHandler = _ =>
-        IO.pure(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
+    val repositoryMockWithHandler = RepositoryMock(
+      getResourceFileHandler = _ => IO.pure(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
     )
-    val backgroundJobManager = BackgroundJobManagerMock.mock()
-    val effectfulKey         = EffectfulKey.MediaByKind("audio", sBotInfo)
+    val effectfulKey = EffectfulKey.MediaByKind("audio", sBotInfo)
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
         msg = message,
-        repository = repositoryMock,
-        dbLayer = dbLayer,
+        repository = repositoryMockWithHandler,
+        dbLayer = dbLayerWithMedia,
         backgroundJobManager = backgroundJobManager,
         replyToMessage = false
       )
@@ -289,4 +262,3 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
     assertIO(result, List(Some("[apiMock] sendMp3 reply")))
   }
 }
-
