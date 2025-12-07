@@ -39,7 +39,7 @@ class MessageMatchesSpec extends FunSuite {
       RegexTextTriggerValue("test regex with (optional|maybe)? values".r)
     ),
     reply = MediaReply(mediaFiles = inputMediafile),
-    matcher = MessageMatches.ContainsAll
+    matcher = MessageMatches.ContainsOnce
   )
 
   val ignoreMessagePrefix: Some[String] = Some("!")

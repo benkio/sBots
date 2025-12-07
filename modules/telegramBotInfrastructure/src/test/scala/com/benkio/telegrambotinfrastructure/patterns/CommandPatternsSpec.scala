@@ -35,9 +35,9 @@ class CommandPatternsSpec extends CatsEffectSuite {
     val result =
       List(
         """/command""",
-        """/command@botName""",
+        """/command@SampleWebhookBot""",
         """/command   """,
-        """/command@botName   """
+        """/command@SampleWebhookBot   """
       ).traverse(resultByInput(_, true))
     assertIO(result, List.fill(4)(List(Text("success"))))
   }
@@ -48,9 +48,9 @@ class CommandPatternsSpec extends CatsEffectSuite {
     val result: IO[List[List[Text]]] =
       List(
         """/command""",
-        """/command@botName""",
+        """/command@SampleWebhookBot""",
         """/command   """,
-        """/command@botName   """
+        """/command@SampleWebhookBot   """
       ).traverse(resultByInput(_, false))
     assertIO(result, List.fill(4)(List(Text(defaultReply))))
   }
@@ -70,7 +70,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
     val expectedError =
       """|An error occurred processing the command: command
          | message text: /command
-         | bot: botName
+         | bot: SampleWebhookBot
          | error: [CommandPatternsSpec] this should trigger the error handling of the handleCommandWithInput""".stripMargin
     assertIO(result, List(Text(expectedError)))
   }

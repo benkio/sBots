@@ -40,12 +40,12 @@ class ComputeReplySpec extends CatsEffectSuite {
           StringTextTriggerValue("test")
         ),
         reply = reply,
-        matcher = MessageMatches.ContainsAll
+        matcher = MessageMatches.ContainsOnce
       )
 
-    val replyBundleInput2: ReplyBundleMessage = input(
+    val replyBundleInput: ReplyBundleMessage = input(
       TextReply.fromList(
-        "this string will be overwritten by the given"
+        "Reply sent to Telegram"
       )(false)
     )
 
@@ -65,12 +65,12 @@ class ComputeReplySpec extends CatsEffectSuite {
         dbLayer = DBLayerMock.mock(SampleWebhookBot.sBotInfo.botId)
       )
 
-    val result2: IO[List[Message]] =
-      computeResult(replyBundleInput2)
+    val result: IO[List[Message]] =
+      computeResult(replyBundleInput)
 
-    for {
-      _ <- assertIO(result2.map(_.length), 1)
-      _ <- assertIO(result2.map(_.contains(message.copy(text = Some("Text")))), true)
-    } yield ()
+    result.map(r => {
+      assertEquals(r.length, 1)
+      assertEquals(r.map(_.text), List(Some("[apiMock] sendMessage reply")))
+    })
   }
 }

@@ -40,7 +40,7 @@ object ReplyBundleMessage {
     ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
       reply = MediaReply.fromList(mediaFiles = mediaFiles.toList),
-      matcher = MessageMatches.ContainsAll
+      matcher = MessageMatches.ContainsOnce
     )
 
   def textToVideo(
@@ -74,7 +74,7 @@ object ReplyBundleMessage {
     ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
       reply = TextReply.fromList(texts*)(false),
-      matcher = MessageMatches.ContainsAll
+      matcher = MessageMatches.ContainsOnce
     )
 }
 
