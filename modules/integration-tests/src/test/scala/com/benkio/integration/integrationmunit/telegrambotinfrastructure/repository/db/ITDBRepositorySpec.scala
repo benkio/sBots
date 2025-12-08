@@ -98,7 +98,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
     )
     val resourceAssert = for {
       dbRepository <- fixture.repositoryResource
-      mediaSources <- dbRepository.getResourcesByKind(criteria = "cards", botId = CalandroBot.botId)
+      mediaSources <- dbRepository.getResourcesByKind(criteria = "randomcard", botId = CalandroBot.botId)
       files        <- mediaSources.fold(
         e => Resource.eval(IO.raiseError(Throwable(s"getResourceByKind returned an error $e"))),
         _.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
