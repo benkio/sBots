@@ -115,7 +115,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "Unsubscribe Command should remove all chat subscription if input is empty".only
+    "Unsubscribe Command should remove all chat subscription if input is empty"
   ) { fixture =>
     val result = for {
       dbLayer              <- fixture.resourceDBLayer
