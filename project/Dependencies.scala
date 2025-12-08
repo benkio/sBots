@@ -157,7 +157,8 @@ object Dependencies {
     CommonDependencies ++
       Seq(
         libs.doobieMunit,
-        libs.pureConfigCore
+        libs.pureConfigCore,
+        libs.circeCore
       )
 
   val BotDBDependencies: Seq[ModuleID] = Seq(
