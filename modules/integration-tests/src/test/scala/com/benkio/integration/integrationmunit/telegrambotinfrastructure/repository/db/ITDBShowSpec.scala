@@ -5,7 +5,7 @@ import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShow
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import doobie.munit.analysisspec.IOChecker

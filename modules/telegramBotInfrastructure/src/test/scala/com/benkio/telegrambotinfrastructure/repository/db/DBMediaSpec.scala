@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.repository.db
 
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.MimeType
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import munit.*
 import org.http4s.implicits.*
 import org.http4s.Uri

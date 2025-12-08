@@ -1,6 +1,5 @@
 package com.benkio.youtuboanchei0bot.data
 
-import cats.Applicative
 import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.pho
@@ -11,10 +10,8 @@ import com.benkio.telegrambotinfrastructure.model.tr
 
 object Mix {
 
-  def messageRepliesMixData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] = List(
-    ReplyBundleMessage.textToMedia[F](
+  def messageRepliesMixData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage.textToMedia(
       "colore"
     )(
       gif"ytai_ColoreMeravigliosoGif.mp4",
@@ -22,7 +19,7 @@ object Mix {
       gif"ytai_VeritaPegnoPeperoncinoGif.mp4",
       vid"ytai_VeritaPegnoPeperoncino.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "velit[aà]".r,
       "pagare pegno",
       "per intero",
@@ -32,7 +29,7 @@ object Mix {
       gif"ytai_VeritaPegnoPeperoncinoGif.mp4",
       vid"ytai_VeritaPegnoPeperoncino.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "prezzemolo",
       "profumo"
     )(
@@ -40,7 +37,7 @@ object Mix {
       gif"ytai_PrezzemoloProfumoIncantevoleGif.mp4",
       vid"ytai_PrezzemoloProfumoIncantevole.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "parma",
       "eccellenza",
       "bel paese"
@@ -49,19 +46,19 @@ object Mix {
       vid"ytai_CrudoParma.mp4",
       gif"ytai_CrudoParmaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "ricordami fino a domani"
     )(
       gif"ytai_RicordamiGif.mp4",
       vid"ytai_RicordamiFinoADomani.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "ho perso (di nuovo )?qualcosa".r
     )(
       gif"ytai_HoPersoQualcosaGif.mp4",
       mp3"ytai_HoPersoQualcosa.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "che vergogna",
       "non ce l'ho",
       "sopracciglia",
@@ -70,32 +67,32 @@ object Mix {
       gif"ytai_CheVergognaGif.mp4",
       mp3"ytai_CheVergogna.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "ti voglio (tanto )*bene".r
     )(
       gif"ytai_TVTBGif.mp4",
       mp3"ytai_AncheIoTiVoglioTantoBene.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "vi voglio (tanto )*bene".r
     )(
       gif"ytai_ViVoglioTantoBeneGif.mp4",
       vid"ytai_ViVoglioTantoBene.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "pu[oò] capitare".r
     )(
       gif"ytai_PuoCapitareGif.mp4",
       vid"ytai_PuoCapitare.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "strudel"
     )(
       mp3"ytai_30CentimentriStrudelBuonissimo.mp3",
       vid"ytai_30CentimentriStrudelBuonissimo.mp4",
       gif"ytai_30CentimentriStrudelBuonissimoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "boscaiolo",
       "come si presenta"
     )(
@@ -103,14 +100,14 @@ object Mix {
       vid"ytai_BoscaioloPresentaColFungo.mp4",
       gif"ytai_BoscaioloPresentaColFungoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "buon salame"
     )(
       mp3"ytai_BuonSalameCariAmici.mp3",
       vid"ytai_BuonSalameCariAmici.mp4",
       gif"ytai_BuonSalameCariAmiciGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "cari amici"
     )(
       mp3"ytai_BuonSalameCariAmici.mp3",
@@ -129,21 +126,21 @@ object Mix {
       vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
       mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "buono!"
     )(
       mp3"ytai_Buono.mp3",
       vid"ytai_Buono.mp4",
       gif"ytai_BuonoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "ragù"
     )(
       mp3"ytai_BuonoRagu.mp3",
       vid"ytai_BuonoRagu.mp4",
       gif"ytai_BuonoRaguGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "non ci arrivo",
       "dopo (che ho )?mangiato".r
     )(
@@ -151,7 +148,7 @@ object Mix {
       vid"ytai_CiaoNonCiArrivo.mp4",
       gif"ytai_CiaoNonCiArrivoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "cocco e cioccolata",
       "unione strepitosa"
     )(
@@ -159,7 +156,7 @@ object Mix {
       vid"ytai_CoccoCioccolataUnioneStrepitosa.mp4",
       gif"ytai_CoccoCioccolataUnioneStrepitosaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "cotto bene",
       "croccante"
     )(
@@ -167,7 +164,7 @@ object Mix {
       vid"ytai_CottoBeneMoltoCroccante.mp4",
       gif"ytai_CottoBeneMoltoCroccanteGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "vivete questo momento con me",
       "sempre sul tubo"
     )(
@@ -175,7 +172,7 @@ object Mix {
       vid"ytai_CredeteSempreSulTuboViveteMomentoConMe.mp4",
       gif"ytai_CredeteSempreSulTuboViveteMomentoConMeGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "cucchiaio",
       "da battaglia"
     )(
@@ -183,7 +180,7 @@ object Mix {
       vid"ytai_CucchiaioBattagliaTiramisu.mp4",
       gif"ytai_CucchiaioBattagliaTiramisuGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "champignon",
       "in un paio d'ore",
       "rovinato lo stomaco",
@@ -193,7 +190,7 @@ object Mix {
       vid"ytai_StoriaChampignon.mp4",
       gif"ytai_FungoChampignonRovinatoStomacoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "ho spinto a bere",
       "un bicchiere tira l'altro",
       "aspettavo che portassero la carne",
@@ -202,7 +199,7 @@ object Mix {
       vid"ytai_StoriaChampignon.mp4",
       gif"ytai_HoSpintoABereGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "sapete come si chiama?",
       "incoscienza",
       "non pensarci",
@@ -212,7 +209,7 @@ object Mix {
       vid"ytai_NonIncoscienzaNonPensarci.mp4",
       gif"ytai_NonIncoscienzaNonPensarciGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "prosciutto crudo"
     )(
       mp3"ytai_ProsciuttoCrudoSpettacolo.mp3",
@@ -225,7 +222,7 @@ object Mix {
       mp3"ytai_CrudoParma.mp3",
       gif"ytai_CrudoParmaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "rafforzare lo stomaco",
       "polletto"
     )(
@@ -233,7 +230,7 @@ object Mix {
       vid"ytai_RafforzareStomacoPolletto.mp4",
       gif"ytai_RafforzareStomacoPollettoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "(30|trenta) centimetri"
     )(
       mp3"ytai_30CentimentriStrudelBuonissimo.mp3",
@@ -243,20 +240,20 @@ object Mix {
       vid"ytai_Serpentello30Centimetri.mp4",
       gif"ytai_Serpentello30CentimetriGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "serpentello"
     )(
       mp3"ytai_Serpentello30Centimetri.mp3",
       vid"ytai_Serpentello30Centimetri.mp4",
       gif"ytai_Serpentello30CentimetriGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "matrimonio"
     )(
       vid"ytai_StoriaChampignon.mp4",
       mp3"ytai_StoriaChampignon.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "superiamo questi limiti",
       "limiti di pensiero",
       "andiamo oltre"
@@ -265,7 +262,7 @@ object Mix {
       mp3"ytai_SuperiamoLimitiPensiero.mp3",
       gif"ytai_SuperiamoLimitiPensieroGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "rovesciata l'acqua",
       "\\bops\\b".r
     )(
@@ -273,7 +270,7 @@ object Mix {
       gif"ytai_OpsRovesciataAcquaGif.mp4",
       vid"ytai_OpsRovesciataAcqua.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "ho fatto bene a farlo",
       "non lo volevo fare",
       "mi sto sentendo (bene|in compagnia)".r
@@ -282,7 +279,7 @@ object Mix {
       mp3"ytai_NoVideoHoFattoBeneCompagnia.mp3",
       vid"ytai_NoVideoHoFattoBeneCompagnia.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "(25|venticinque) (milioni|mila euro)".r,
       "\\b25000\\b".r,
       "visualizzazioni"
@@ -291,7 +288,7 @@ object Mix {
       vid"ytai_25MilioniVisualizzazioni25MilaEuro.mp4",
       mp3"ytai_25MilioniVisualizzazioni25MilaEuro.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "autori",
       "massicci piedi"
     )(
@@ -299,7 +296,7 @@ object Mix {
       vid"ytai_AutoriMassicciPiedi.mp4",
       mp3"ytai_AutoriMassicciPiedi.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "criceto",
       "🐹"
     )(
@@ -310,7 +307,7 @@ object Mix {
       vid"ytai_TecnicaDelCriceto.mp4",
       mp3"ytai_TecnicaDelCriceto.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "followers"
     )(
       vid"ytai_CiaoFollowersNelBeneNelMale.mp4",
@@ -329,26 +326,26 @@ object Mix {
       vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
       mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "allora l[iì]".r
     )(
       gif"ytai_AlloraLiGif.mp4",
       mp3"ytai_AlloraLi.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "donazioni"
     )(
       gif"ytai_DonazioniGif.mp4",
       mp3"ytai_Donazioni.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "a me niente va bene",
       "non [tm]i va bene niente".r
     )(
       gif"ytai_NienteVaBeneGif.mp4",
       mp3"ytai_NienteVaBene.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "mi assomiglia",
       "stessa forma",
       "pomodoro",
@@ -359,7 +356,7 @@ object Mix {
       vid"ytai_PomodoroNanoStessaFormaSostegno.mp4",
       gif"ytai_PomodoroNanoStessaFormaSostegnoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "verza",
       "cavolo cappuccio",
       "giuseppe",
@@ -368,7 +365,7 @@ object Mix {
       gif"ytai_VerzaGiuseppeGif.mp4",
       vid"ytai_VerzaGiuseppe.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "per cortesia",
       "dottori",
       "dentist[ia]".r,
@@ -378,7 +375,7 @@ object Mix {
       vid"ytai_DentistiDottoriFame.mp4",
       gif"ytai_DentistiDottoriFameGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "tiramisù"
     )(
       gif"ytai_MonoporzioniTiramisuGif.mp4",
@@ -388,7 +385,7 @@ object Mix {
       gif"ytai_CucchiaioBattagliaTiramisuGif.mp4",
       gif"ytai_LoopAperturaTiramisuGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F]("ciao!")(
+    ReplyBundleMessage.textToMedia("ciao!")(
       gif"ytai_CiaoGif.mp4",
       gif"ytai_Ciao2Gif.mp4",
       gif"ytai_Ciao3Gif.mp4",
@@ -402,7 +399,7 @@ object Mix {
       gif"ytai_CiaoNonCiArrivoGif.mp4",
       sticker"ytai_CiaoYtancheio.sticker"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "buongiorno",
       "buon sabato"
     )(
@@ -410,7 +407,7 @@ object Mix {
       vid"ytai_CariAmiciFollowersBuongiornoSabato.mp4",
       mp3"ytai_CariAmiciFollowersBuongiornoSabato.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "eh (no|allora)".r,
       "imbeccare",
       "bengalini"
@@ -419,7 +416,7 @@ object Mix {
       vid"ytai_ImbeccareComeBengalini.mp4",
       mp3"ytai_ImbeccareComeBengalini.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "hamburger",
       "🍔"
     )(
@@ -427,7 +424,7 @@ object Mix {
       vid"ytai_TecnicaDelCriceto.mp4",
       mp3"ytai_TecnicaDelCriceto.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "\\btermina\\b".r,
       "nella vita"
     )(
@@ -435,7 +432,7 @@ object Mix {
       vid"ytai_TuttoNellaVitaTermina.mp4",
       mp3"ytai_TuttoNellaVitaTermina.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "torcia",
       "🔦"
     )(
@@ -443,7 +440,7 @@ object Mix {
       vid"ytai_Torcia.mp4",
       mp3"ytai_Torcia.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "molto emozionato",
       "cominciare subito"
     )(
@@ -451,7 +448,7 @@ object Mix {
       vid"ytai_MoltoEmozionatoCominciareSubito.mp4",
       mp3"ytai_MoltoEmozionatoCominciareSubito.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "non posso dire niente",
       "restate iscritti",
       "mi raccomando"
@@ -460,7 +457,7 @@ object Mix {
       vid"ytai_NonPossoDireNienteRestateIscritti.mp4",
       mp3"ytai_NonPossoDireNienteRestateIscritti.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "spese (inattese|pretestuose)".r,
       "non ho soldi",
       "pagare"
@@ -469,7 +466,7 @@ object Mix {
       vid"ytai_SpeseInattesePretestuose.mp4",
       mp3"ytai_SpeseInattesePretestuose.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "in un video",
       "ti riescono",
       "si blocca tutto"
@@ -478,7 +475,7 @@ object Mix {
       vid"ytai_VideoImprevisti.mp4",
       mp3"ytai_VideoImprevisti.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "benvenuto",
       "convenevoli",
       "salerno[ -]?reggio[- ]?calabria".r,
@@ -491,7 +488,7 @@ object Mix {
       vid"ytai_SpezzanoAlbanese.mp4",
       mp3"ytai_SpezzanoAlbanese.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "sono fermo"
     )(
       gif"ytai_SpezzanoAlbaneseGif.mp4",
@@ -501,7 +498,7 @@ object Mix {
       vid"ytai_Incidente.mp4",
       mp3"ytai_Incidente.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "incidente",
       "feriti",
       "gravi o meno",
@@ -519,7 +516,7 @@ object Mix {
       vid"ytai_Incidente.mp4",
       mp3"ytai_Incidente.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "inquadro",
       "fare riprese",
       "censura",
@@ -537,7 +534,7 @@ object Mix {
       vid"ytai_CensuraIphoneDropboxTelegram.mp4",
       mp3"ytai_CensuraIphoneDropboxTelegram.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "\\b(ar)?rabbi([oa]|at[oa])\\b".r.tr(6),
       "collera",
       "indignato",
@@ -548,7 +545,7 @@ object Mix {
       pho"ytai_Rabbia.jpg",
       gif"ytai_LoopArrabbiatoIndignatoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "😦",
       "😧",
       "shock"
@@ -556,14 +553,14 @@ object Mix {
       pho"ytai_Shock.jpg",
       gif"ytai_LoopArrabbiatoIndignatoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "obesit[àa]".r,
       "scusate"
     )(
       vid"ytai_SalutoDaObesita.mp4",
       gif"ytai_SalutoDaObesitaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "un (caro )?saluto".r
     )(
       vid"ytai_SalutoDaObesita.mp4",
@@ -572,7 +569,7 @@ object Mix {
       vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
       mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "\\btazza\\b".r,
       "che differenza"
     )(
@@ -580,7 +577,7 @@ object Mix {
       gif"ytai_TazzaGrandeGif.mp4",
       vid"ytai_TazzaGrande.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "buon appetito"
     )(
       gif"ytai_BuonAppetitoGif.mp4",
@@ -589,7 +586,7 @@ object Mix {
       mp3"ytai_BuonAppetitoCompagnia.mp3",
       gif"ytai_BuonAppetitoCompagniaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "vostra compagnia"
     )(
       gif"ytai_SeParloPocoGif.mp4",
@@ -597,14 +594,14 @@ object Mix {
       mp3"ytai_BuonAppetitoCompagnia.mp3",
       gif"ytai_BuonAppetitoCompagniaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "sarei (stato )?da solo"
     )(
       vid"ytai_BuonAppetitoCompagnia.mp4",
       mp3"ytai_BuonAppetitoCompagnia.mp3",
       gif"ytai_BuonAppetitoCompagniaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "(buona )?pizza".r,
       "🍕"
     )(
@@ -612,7 +609,7 @@ object Mix {
       gif"ytai_PizzaAllegriaGif.mp4",
       sticker"ytai_PizzaYtancheio.sticker"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "acqua calabria"
     )(
       gif"ytai_AcquaSguardoGif.mp4",
@@ -623,13 +620,13 @@ object Mix {
       sticker"ytai_AcquaYtancheio.sticker",
       sticker"ytai_Acqua2Ytancheio.sticker"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "\\btopolin[oi]\\b".r
     )(
       mp3"ytai_Topolino.mp3",
       sticker"ytai_TopolinoYtancheio.sticker"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "caffè",
       "☕"
     )(
@@ -639,7 +636,7 @@ object Mix {
       mp3"ytai_ZuccheroCaffeOttimo.mp3",
       gif"ytai_ZuccheroCaffeOttimoGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "ciotola",
       "🍜",
       "🥣",
@@ -649,7 +646,7 @@ object Mix {
       gif"ytai_LoopCiotola2Gif.mp4",
       sticker"ytai_CiotolaYtancheio.sticker"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "buonissimo"
     )(
       mp3"ytai_Buonissimo.mp3",
@@ -662,14 +659,14 @@ object Mix {
       mp3"ytai_Buonissimo2.mp3",
       vid"ytai_Buonissimo2.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "passi da gigante"
     )(
       mp3"ytai_PassiDaGigante.mp3",
       vid"ytai_PassiDaGigante.mp4",
       gif"ytai_PassiDaGiganteGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "(😄|😀|😃){3,}".r.tr(3),
       "sorriso"
     )(
@@ -678,14 +675,14 @@ object Mix {
       pho"ytai_SorrisoTortaFelice.jpg"
     ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "\\ba dopo\\b".r
       )(
         gif"ytai_NelMioCuoreContinuazioneCariAmiciFollowersGif.mp4",
         vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
         mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
       ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "natale",
       "augurato",
       "a voi(, |\\.\\.\\.| )tutti".r
@@ -695,14 +692,14 @@ object Mix {
       mp3"ytai_SerenoNataleAVoiTutti.mp3"
     ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "prelibatezza"
       )(
         gif"ytai_PrelibatezzaIncantevoleGif.mp4",
         vid"ytai_PrelibatezzaIncantevole.mp4",
         mp3"ytai_PrelibatezzaIncantevole.mp3"
       ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "incantevole"
     )(
       mp3"ytai_PrezzemoloProfumoIncantevole.mp3",
@@ -713,7 +710,7 @@ object Mix {
       mp3"ytai_PrelibatezzaIncantevole.mp3"
     ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "come ci voleva",
         "quest'acqua"
       )(
@@ -721,7 +718,7 @@ object Mix {
         vid"ytai_CiVolevaQuestAcqua.mp4",
         mp3"ytai_CiVolevaQuestAcqua.mp3"
       ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "tanti(ssimi)? auguri".r
     )(
       mp3"ytai_TantiAuguri.mp3",
@@ -733,7 +730,7 @@ object Mix {
       mp3"ytai_TantissimiAuguri.mp3"
     ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "youtubo anche io"
       )(
         gif"ytai_TantissimiAuguriGif.mp4",
@@ -744,7 +741,7 @@ object Mix {
         vid"ytai_SpuntinoColPaninoYoutuboAncheIo.mp4"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "ginevra",
         "rigorosamente",
         "non dimentichiamoci mai"
@@ -754,7 +751,7 @@ object Mix {
         mp3"ytai_AcquaGinevra.mp3"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "guardate"
       )(
         vid"ytai_OliveGrandiMeravigliose.mp4",
@@ -765,7 +762,7 @@ object Mix {
         gif"ytai_BelloRavanelloGif.mp4"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "meravigliose",
         "olive"
       )(
@@ -774,7 +771,7 @@ object Mix {
         gif"ytai_OliveGrandiMeraviglioseGif.mp4"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "zucchero",
         "come volevasi (confermare|dimostrare)".r
       )(
@@ -782,7 +779,7 @@ object Mix {
         mp3"ytai_ZuccheroCaffeOttimo.mp3",
         gif"ytai_ZuccheroCaffeOttimoGif.mp4"
       ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "ottimo[!]+".r
     )(
       gif"ytai_OttimoGif.mp4",
@@ -791,7 +788,7 @@ object Mix {
       gif"ytai_ZuccheroCaffeOttimoGif.mp4"
     ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "wikipedia",
         "apprendere",
         "notizie"
@@ -801,7 +798,7 @@ object Mix {
         gif"ytai_WikipediaGif.mp4"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "\\bmorso\\b".r,
         "di unico\\b".r
       )(
@@ -809,7 +806,7 @@ object Mix {
         mp3"ytai_MorsoUnico.mp3",
         vid"ytai_MorsoUnico.mp4"
       ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "il silenzio"
     )(
       gif"ytai_SilenzioMomentoMagicoGif.mp4",
@@ -818,7 +815,7 @@ object Mix {
       vid"ytai_SilenzioVirtu.mp4"
     ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "virtù",
         "quando si mangia"
       )(
@@ -827,7 +824,7 @@ object Mix {
         vid"ytai_SilenzioVirtu.mp4"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "ravanello",
         "vedete",
         "quant'è bello"
@@ -837,7 +834,7 @@ object Mix {
         vid"ytai_BelloRavanello.mp4"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "pecore",
         "pecora",
         "🐑",
@@ -850,7 +847,7 @@ object Mix {
         mp3"ytai_AmoLePecore.mp3",
         vid"ytai_AmoLePecore.mp4"
       ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "ciccione"
     )(
       gif"ytai_MollaGif.mp4",
@@ -860,7 +857,7 @@ object Mix {
       vid"ytai_Ciccione.mp4"
     ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "scarpett[ae]".r,
         "perchè no?"
       )(
@@ -869,7 +866,7 @@ object Mix {
         vid"ytai_Ciccione.mp4"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "pazienza",
         "disiscriverete",
         "ripartirò",
@@ -880,7 +877,7 @@ object Mix {
         vid"ytai_ViDisisrivetePazienza.mp4"
       ),
     ReplyBundleMessage
-      .textToGif[F](
+      .textToGif(
         "\\bmacchia\\b".r,
         "pulire",
         "camicia"
@@ -888,7 +885,7 @@ object Mix {
         gif"ytai_LoopCamiciaGif.mp4"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "fiatone",
         "stanco",
         "non potete (neanche )?immaginare".r,
@@ -901,7 +898,7 @@ object Mix {
         gif"ytai_FiatoneStancoGif.mp4"
       ),
     ReplyBundleMessage
-      .textToMedia[F](
+      .textToMedia(
         "farcita",
         "abbondantemente",
         "generosamente"
@@ -910,7 +907,7 @@ object Mix {
         mp3"ytai_FarcitaAbbondantementeGenerosamente.mp3",
         gif"ytai_FarcitaAbbondantementeGenerosamenteGif.mp4"
       ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "caspita"
     )(
       gif"ytai_PallaDiLardoGif.mp4",
@@ -918,7 +915,7 @@ object Mix {
       mp3"ytai_FarcitaAbbondantementeGenerosamente.mp3",
       gif"ytai_FarcitaAbbondantementeGenerosamenteGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "lo chiudiamo",
       "non dovesse scappare",
       "sottraendosi",
@@ -928,7 +925,7 @@ object Mix {
       mp3"ytai_SottraendosiAlleMieFauci.mp3",
       gif"ytai_SottraendosiAlleMieFauciGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "nel mio cuore"
     )(
       vid"ytai_SempreNelMioCuore.mp4",
@@ -938,7 +935,7 @@ object Mix {
       vid"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp4",
       mp3"ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "crostatina",
       "ananas"
     )(
@@ -946,7 +943,7 @@ object Mix {
       mp3"ytai_CrostatinaAnanas.mp3",
       gif"ytai_CrostatinaAnanasGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "sete",
       "(sorso|bicchiere) d'acqua".r
     )(
@@ -955,7 +952,7 @@ object Mix {
       gif"ytai_FameSeteNotturnaGif.mp4",
       pho"ytai_Acqua.jpg"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "per il momento",
       "cannolo"
     )(
@@ -963,14 +960,14 @@ object Mix {
       mp3"ytai_Cannolo.mp3",
       gif"ytai_CannoloGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "buon compleanno"
     )(
       mp3"ytai_BuonCompleannoCariAmici.mp3",
       vid"ytai_BuonCompleannoCariAmici.mp4",
       gif"ytai_BuonCompleannoCariAmiciGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "alla (tua )?salute".r
     )(
       gif"ytai_AllaSaluteGif.mp4",
@@ -978,7 +975,7 @@ object Mix {
       vid"ytai_AllaTuaSalute.mp4",
       gif"ytai_AllaTuaSaluteGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "stemperata",
       "ottimamente"
     )(
@@ -986,7 +983,7 @@ object Mix {
       mp3"ytai_AcquaQuasiOttimamenteStemperata.mp3",
       gif"ytai_AcquaQuasiOttimamenteStemperataGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "spuntino"
     )(
       gif"ytai_SpuntinoConMeGif.mp4",
@@ -1000,7 +997,7 @@ object Mix {
       mp3"ytai_SpuntinoColPaninoYoutuboAncheIo.mp3",
       vid"ytai_SpuntinoColPaninoYoutuboAncheIo.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "panino"
     )(
       gif"ytai_PaninoBuonoSpuntitoGif.mp4",
@@ -1011,7 +1008,7 @@ object Mix {
       mp3"ytai_SpuntinoColPaninoYoutuboAncheIo.mp3",
       vid"ytai_SpuntinoColPaninoYoutuboAncheIo.mp4"
     ),
-    ReplyBundleMessage.textToMedia[F](
+    ReplyBundleMessage.textToMedia(
       "nel bene",
       "nel male"
     )(

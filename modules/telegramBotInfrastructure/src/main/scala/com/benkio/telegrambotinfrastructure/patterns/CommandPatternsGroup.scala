@@ -1,55 +1,45 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import cats.effect.Async
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
-import com.benkio.telegrambotinfrastructure.repository.db.*
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import log.effect.LogWriter
 import org.http4s.Uri
 
 object CommandPatternsGroup {
 
   object ShowGroup {
 
-    def group[F[_]: Async](
-        dbShow: DBShow[F],
-        dbSubscription: DBSubscription[F],
-        backgroundJobManager: BackgroundJobManager[F],
-        botName: SBotName,
-        botId: SBotId
-    )(using log: LogWriter[F]): List[ReplyBundleCommand[F]] =
+    def group(
+        sBotInfo: SBotInfo
+    ): List[ReplyBundleCommand] =
       List(
         SearchShowCommand.searchShowReplyBundleCommand(
-          dbShow = dbShow,
-          botId = botId,
-          botName = botName
+          sBotInfo = sBotInfo
         ),
-        SubscribeUnsubscribeCommand.subscribeReplyBundleCommand(backgroundJobManager, botName = botName, botId = botId),
-        SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand(backgroundJobManager, botName = botName),
-        SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand(dbSubscription, backgroundJobManager, botId)
+        SubscribeUnsubscribeCommand.subscribeReplyBundleCommand(sBotInfo = sBotInfo),
+        SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand(sBotInfo = sBotInfo),
+        SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand(sBotInfo = sBotInfo)
       )
   }
 
   object TriggerGroup {
-    def group[F[_]: Async](
+    def group(
         triggerFileUri: Uri,
-        botId: SBotId,
-        botName: SBotName,
-        ignoreMessagePrefix: Option[String],
-        messageRepliesData: List[ReplyBundleMessage[F]],
-        dbMedia: DBMedia[F],
-        dbTimeout: DBTimeout[F]
-    )(using log: LogWriter[F]): List[ReplyBundleCommand[F]] =
+        sBotInfo: SBotInfo,
+        messageRepliesData: List[ReplyBundleMessage],
+        ignoreMessagePrefix: Option[String]
+    ): List[ReplyBundleCommand] =
       List(
-        TriggerListCommand.triggerListReplyBundleCommand(triggerFileUri),
+        TriggerListCommand.triggerListReplyBundleCommand(triggerFileUri = triggerFileUri),
         TriggerSearchCommand
-          .triggerSearchReplyBundleCommand(botName = botName, ignoreMessagePrefix, messageRepliesData),
-        StatisticsCommands.topTwentyReplyBundleCommand(botId = botId, dbMedia),
-        TimeoutCommand.timeoutReplyBundleCommand(botName = botName, botId = botId, dbTimeout = dbTimeout)
+          .triggerSearchReplyBundleCommand(
+            sBotInfo = sBotInfo,
+            replyBundleMessage = messageRepliesData,
+            ignoreMessagePrefix = ignoreMessagePrefix
+          ),
+        StatisticsCommands.topTwentyReplyBundleCommand(sBotInfo = sBotInfo),
+        TimeoutCommand.timeoutReplyBundleCommand(sBotInfo = sBotInfo)
       )
   }
 }

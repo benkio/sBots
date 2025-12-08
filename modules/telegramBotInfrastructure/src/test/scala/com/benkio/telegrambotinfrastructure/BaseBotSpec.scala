@@ -10,6 +10,7 @@ import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import io.circe.parser.decode
 import munit.*
 import munit.CatsEffectSuite
@@ -38,25 +39,26 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
       val jsonMediaFileSource = decode[List[MediaFileSource]](jsonContent)
 
       for {
-        _ <- assert(
-          jsonMediaFileSource.isRight,
-          s"got an error trying to open/parse $jsonFilename @ $listPath: $jsonMediaFileSource"
-        ).pure[IO]
         mediaFileSources <- IO.fromEither(jsonMediaFileSource)
         files = mediaFileSources.map(_.filename)
         urls  = mediaFileSources.flatMap(_.sources.collect { case Right(uri) => uri })
         filenames <- botData
-        _         <- filenames
+      } yield {
+        assert(
+          jsonMediaFileSource.isRight,
+          s"got an error trying to open/parse $jsonFilename @ $listPath: $jsonMediaFileSource"
+        )
+        filenames
           .foreach(filename => assert(files.contains(filename), s"$filename is not contained in bot data file"))
-          .pure[IO]
-        _ <- assert(
+
+        assert(
           Set(files*).size == files.length,
           s"there's a duplicate filename into the json ${files.diff(Set(files*).toList)}"
-        ).pure[IO]
-        _ <- assert(
+        )
+        assert(
           urls.forall(_.query.exists { case (key, optValue) => key == "dl" && optValue.fold(false)(_ == "1") })
-        ).pure[IO]
-        _ <- mediaFileSources
+        )
+        mediaFileSources
           .foreach(mfs =>
             mfs.sources.foreach {
               case Right(uri) =>
@@ -67,8 +69,8 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
               case _ => assert(true)
             }
           )
-          .pure[IO]
-      } yield ()
+
+      }
       end for
     }
 
@@ -90,7 +92,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
       }
     }
 
-  def inputFileShouldRespondAsExpected(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+  def inputFileShouldRespondAsExpected(replyBundleMessages: List[ReplyBundleMessage]): Unit =
     test("The inputs in the `inputTest.txt` file returns the expected values") {
       val inputTextTxt: String = new File("./src/test/resources/inputTest.txt").getCanonicalPath
       val inputTextTxtContent: List[(String, List[String])] = Source
@@ -106,7 +108,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           splitValue(0).toLowerCase -> splitValue(1).split(",").map(_.trim).toList
         })
         .toList
-      val matchingFilenames: IO[List[List[MediaFile]]] = inputTextTxtContent.traverse { case (input, expectedMatch) =>
+      val matchingFilenames: List[List[MediaFile]] = inputTextTxtContent.map { case (input, expectedMatch) =>
         val exactStringMessage = Message(
           messageId = 0,
           date = 0,
@@ -118,25 +120,23 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           .sortBy(_._1)(using Trigger.orderingInstance.reverse)
           .headOption
           .fold(fail(s"[BaseBotSpec] Expected $expectedMatch for string ${input}, but None found"))(_._2.reply match {
-            case mf: MediaReply[IO] =>
+            case mf: MediaReply =>
               mf.mediaFiles
             case x => fail(s"[BaseBotSpec] Expected MediaReply, got $x")
           })
       }
-      matchingFilenames.map { mediaFiless =>
-        mediaFiless.zip(inputTextTxtContent).foreach { case (mediaFiles, (input, expectedFilenames)) =>
-          expectedFilenames.foreach { expectedFilename =>
-            assert(
-              mediaFiles.exists(_.filename == expectedFilename),
-              s"[BaseBotSpec] $expectedFilename is not contained in $mediaFiles for $input"
-            )
-          }
+      matchingFilenames.zip(inputTextTxtContent).foreach { case (mediaFiles, (input, expectedFilenames)) =>
+        expectedFilenames.foreach { expectedFilename =>
+          assert(
+            mediaFiles.exists(_.filename == expectedFilename),
+            s"[BaseBotSpec] $expectedFilename is not contained in $mediaFiles for $input"
+          )
         }
       }
     }
 
   def instructionsCommandTest(
-      commandRepliesData: IO[List[ReplyBundleCommand[IO]]],
+      commandRepliesDataF: IO[List[ReplyBundleCommand]],
       italianInstructions: String,
       englishInstructions: String
   ): Unit = {
@@ -148,46 +148,65 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
     )
     test("instructions command should return the expected message") {
       for {
-        data               <- commandRepliesData
-        instructionCommand <- IO.fromOption(data.find(_.trigger.command == "instructions"))(
+        commandRepliesData <- commandRepliesDataF
+        instructionCommand <- IO.fromOption(commandRepliesData.find(_.trigger.command == "instructions"))(
           Throwable("[BaseBotSpec] can't find the `instruction` command")
         )
         engInstructionInputs = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english").map(
           instructionMessage(_)
         )
         itaInstructionInputs = List("it", "ita", "italian", "🇮🇹").map(instructionMessage(_))
-        engInstructionCommandResult <- instructionCommand.reply match {
-          case TextReplyM(textM, _) => engInstructionInputs.flatTraverse(textM(_))
-          case _ => IO.raiseError(Throwable("[BaseBotSpec] `instruction` command sholud be a `TextReplyM`"))
+        (sBotInfo, ignoreMessagePrefix, commands) <- instructionCommand.reply match {
+          case EffectfulReply(EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands), _) =>
+            IO.pure((sBotInfo, ignoreMessagePrefix, commands))
+          case _ =>
+            IO.raiseError(
+              Throwable(
+                "[BaseBotSpec] `instruction` command should be an `EffectfulReply` with `EffectfulKey.Instructions`"
+              )
+            )
         }
-        itaInstructionCommandResult <- instructionCommand.reply match {
-          case TextReplyM(textM, _) => itaInstructionInputs.flatTraverse(textM(_))
-          case _ => IO.raiseError(Throwable("[BaseBotSpec] `instruction` command sholud be a `TextReplyM`"))
-        }
+        engInstructionCommandResult <- engInstructionInputs.traverse(msg =>
+          InstructionsCommand.instructionCommandLogic[IO](
+            msg = msg,
+            sBotInfo = sBotInfo,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commands = commands
+          )
+        )
+        itaInstructionCommandResult <- itaInstructionInputs.traverse(msg =>
+          InstructionsCommand.instructionCommandLogic[IO](
+            msg = msg,
+            sBotInfo = sBotInfo,
+            ignoreMessagePrefix = ignoreMessagePrefix,
+            commands = commands
+          )
+        )
       } yield {
         assertEquals(
-          engInstructionCommandResult.map(_.value),
-          List.fill(engInstructionCommandResult.length)(englishInstructions)
+          engInstructionCommandResult.flatten.map(_.value),
+          List.fill(engInstructionCommandResult.flatten.length)(englishInstructions)
         )
         assertEquals(
-          itaInstructionCommandResult.map(_.value),
-          List.fill(itaInstructionCommandResult.length)(italianInstructions)
+          itaInstructionCommandResult.flatten.map(_.value),
+          List.fill(itaInstructionCommandResult.flatten.length)(italianInstructions)
         )
       }
     }
   }
 
   def triggerlistCommandTest(
-      commandRepliesData: IO[List[ReplyBundleCommand[IO]]],
+      commandRepliesData: IO[List[ReplyBundleCommand]],
       expectedReply: String
   ): Unit =
     test("triggerlist should return a list of all triggers when called") {
       for {
-        commands <- commandRepliesData
-        triggerListCommand = commands.filter(_.trigger.command == "triggerlist")
-        triggerListCommandPrettyPrint <- triggerListCommand.flatTraverse(_.reply.prettyPrint)
+        commandReplies <- commandRepliesData
+        triggerListCommandPrettyPrint: List[String] = commandReplies
+          .filter(_.trigger.command == "triggerlist")
+          .flatMap(_.reply.prettyPrint)
       } yield {
-        assert(triggerListCommandPrettyPrint.length == 1)
+        assertEquals(triggerListCommandPrettyPrint.length, 1)
         assertEquals(
           triggerListCommandPrettyPrint.headOption,
           expectedReply.some
@@ -195,7 +214,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
       }
     }
 
-  def exactTriggerReturnExpectedReplyBundle(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+  def exactTriggerReturnExpectedReplyBundle(
+      replyBundleMessages: List[ReplyBundleMessage]
+  ): Unit =
     replyBundleMessages
       .flatMap(replyBundle =>
         replyBundle.trigger match {
@@ -254,7 +275,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           }
       }
 
-  def regexTriggerLengthReturnValue(replyBundleMessages: List[ReplyBundleMessage[IO]]): Unit =
+  def regexTriggerLengthReturnValue(replyBundleMessages: List[ReplyBundleMessage]): Unit =
     replyBundleMessages
       .collect(replyBundle =>
         replyBundle.trigger match {

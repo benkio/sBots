@@ -1,32 +1,23 @@
 package com.benkio.richardphjbensonbot
 
 import cats.data.NonEmptyList
-import cats.effect.Async
 import cats.effect.IO
-import cats.implicits.*
 import cats.Show
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
-import com.benkio.telegrambotinfrastructure.model.reply.Reply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import munit.CatsEffectSuite
-import telegramium.bots.high.Api
-import telegramium.bots.Message
 
 import scala.concurrent.duration.Duration
 
@@ -36,63 +27,43 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   override val munitIOTimeout = Duration(1, "m")
 
-  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
-  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    override def reply[F[_]: Async: LogWriter: Api](
-        reply: ReplyValue,
-        msg: Message,
-        repository: Repository[F],
-        replyToMessage: Boolean
-    ): F[List[Message]] = {
-      val _ = summon[LogWriter[F]]
-      val _ = summon[Api[F]]
-      Async[F].pure(List.empty[Message])
-    }
-  }
-  val botId = RichardPHJBensonBot.botId
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(RichardPHJBensonBot.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(getResourceByKindHandler =
     (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == botId)(
+      IO.raiseUnless(inputBotId == RichardPHJBensonBot.sBotInfo.botId)(
         Throwable(s"[RichardPHJBensonBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
-  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(botId)
 
   val richardPHJBensonBot = BackgroundJobManager[IO](
-    dbSubscription = emptyDBLayer.dbSubscription,
-    dbShow = emptyDBLayer.dbShow,
-    repositoryMock,
-    botId = botId
+    dbLayer = emptyDBLayer,
+    sBotInfo = RichardPHJBensonBot.sBotInfo
   ).map(bjm =>
     new RichardPHJBensonBotPolling[IO](
-      repositoryInput = repositoryMock,
+      repository = repositoryMock,
       dbLayer = emptyDBLayer,
       backgroundJobManager = bjm
     )
   )
 
-  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] =
-    richardPHJBensonBot.flatMap(_.allCommandRepliesDataF)
+  val commandRepliesData: IO[List[ReplyBundleCommand]] =
+    richardPHJBensonBot.map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
-    richardPHJBensonBot.flatMap(rb =>
-      for {
-        messageReplies <- rb.messageRepliesDataF
-        prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-      } yield prettyPrints
-    )
+    richardPHJBensonBot.map(rb => rb.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
 
-  exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData[IO])
-  regexTriggerLengthReturnValue(RichardPHJBensonBot.messageRepliesData[IO])
-  inputFileShouldRespondAsExpected(RichardPHJBensonBot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData)
+  regexTriggerLengthReturnValue(RichardPHJBensonBot.messageRepliesData)
+  inputFileShouldRespondAsExpected(RichardPHJBensonBot.messageRepliesData)
 
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {
     val result =
-      messageRepliesSpecialData[IO]
+      messageRepliesSpecialData
         .map(_.trigger match {
           case NewMemberTrigger => true
           case _                => false
@@ -104,7 +75,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   test("messageRepliesSpecialData should contain a LeftMemberTrigger") {
     val result =
-      messageRepliesSpecialData[IO]
+      messageRepliesSpecialData
         .map(_.trigger match {
           case LeftMemberTrigger => true
           case _                 => false
@@ -132,11 +103,11 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   triggerFileContainsTriggers(
     triggerFilename = RichardPHJBensonBot.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggers = RichardPHJBensonBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botTriggers = RichardPHJBensonBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )
 
   instructionsCommandTest(
-    commandRepliesData = commandRepliesData,
+    commandRepliesDataF = commandRepliesData,
     italianInstructions =
       """
         |---- Instruzioni Per RichardPHJBensonBot ----

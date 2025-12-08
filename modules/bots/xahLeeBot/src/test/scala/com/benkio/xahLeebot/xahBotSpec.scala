@@ -1,82 +1,53 @@
 package com.benkio.xahleebot
 
 import cats.data.NonEmptyList
-import cats.effect.Async
 import cats.effect.IO
-import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
-import com.benkio.telegrambotinfrastructure.model.reply.Reply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import telegramium.bots.high.Api
-import telegramium.bots.Message
 
 class XahLeeBotSpec extends BaseBotSpec {
 
-  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
-  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    override def reply[F[_]: Async: LogWriter: Api](
-        reply: ReplyValue,
-        msg: Message,
-        repository: Repository[F],
-        replyToMessage: Boolean
-    ): F[List[Message]] = {
-      val _ = summon[LogWriter[F]]
-      val _ = summon[Api[F]]
-      Async[F].pure(List.empty[Message])
-    }
-  }
-  val botId = XahLeeBot.botId
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botId)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(XahLeeBot.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(getResourceByKindHandler =
     (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == botId)(
-        Throwable(s"[M0sconiBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
+      IO.raiseUnless(inputBotId == XahLeeBot.sBotInfo.botId)(
+        Throwable(s"[XahLeeBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
   val xahLeeBot = BackgroundJobManager[IO](
-    dbSubscription = emptyDBLayer.dbSubscription,
-    dbShow = emptyDBLayer.dbShow,
-    repository = repositoryMock,
-    botId = botId
+    dbLayer = emptyDBLayer,
+    sBotInfo = XahLeeBot.sBotInfo
   ).map(bjm =>
     new XahLeeBotPolling[IO](
-      repositoryInput = repositoryMock,
+      repository = repositoryMock,
       dbLayer = emptyDBLayer,
       backgroundJobManager = bjm
     )
   )
 
-  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] =
-    xahLeeBot.flatMap(_.allCommandRepliesDataF)
+  val commandRepliesData: IO[List[ReplyBundleCommand]] =
+    xahLeeBot.map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
-    xahLeeBot
-      .flatMap(xlb =>
-        for {
-          messageReplies <- xlb.messageRepliesDataF
-          prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-        } yield prettyPrints
-      )
+    xahLeeBot.map(xlb => xlb.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
 
-  exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData[IO])
-  regexTriggerLengthReturnValue(XahLeeBot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData)
+  regexTriggerLengthReturnValue(XahLeeBot.messageRepliesData)
 
   jsonContainsFilenames(
     jsonFilename = "xah_list.json",
@@ -84,7 +55,7 @@ class XahLeeBotSpec extends BaseBotSpec {
   )
 
   instructionsCommandTest(
-    commandRepliesData = commandRepliesData,
+    commandRepliesDataF = commandRepliesData,
     italianInstructions =
       """
         |---- Instruzioni Per XahLeeBot ----

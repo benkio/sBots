@@ -3,6 +3,7 @@ package com.benkio.telegrambotinfrastructure.model.reply
 import cats.Show
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.MimeType
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import io.circe.*
 import io.circe.generic.semiauto.*
 
@@ -25,6 +26,32 @@ object Text {
   given Show[Text]    = Show.show(_.value)
   given Decoder[Text] = Decoder[String].map(Text(_))
   given Encoder[Text] = Encoder[String].contramap(_.value)
+}
+
+enum EffectfulKey(val sBotInfo: SBotInfo) extends ReplyValue {
+  case Random(override val sBotInfo: SBotInfo)     extends EffectfulKey(sBotInfo)
+  case SearchShow(override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
+  case TriggerSearch(
+      override val sBotInfo: SBotInfo,
+      replyBundleMessage: List[ReplyBundleMessage],
+      ignoreMessagePrefix: Option[String]
+  ) extends EffectfulKey(sBotInfo)
+  case Instructions(
+      override val sBotInfo: SBotInfo,
+      ignoreMessagePrefix: Option[String],
+      commands: List[ReplyBundleCommand]
+  )                                                              extends EffectfulKey(sBotInfo)
+  case Subscribe(override val sBotInfo: SBotInfo)                extends EffectfulKey(sBotInfo)
+  case Unsubscribe(override val sBotInfo: SBotInfo)              extends EffectfulKey(sBotInfo)
+  case Subscriptions(override val sBotInfo: SBotInfo)            extends EffectfulKey(sBotInfo)
+  case TopTwenty(override val sBotInfo: SBotInfo)                extends EffectfulKey(sBotInfo)
+  case Timeout(override val sBotInfo: SBotInfo)                  extends EffectfulKey(sBotInfo)
+  case MediaByKind(key: String, override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
+}
+
+object EffectfulKey {
+  given replyDecoder: Decoder[EffectfulKey] = deriveDecoder[EffectfulKey]
+  given replyEncoder: Encoder[EffectfulKey] = deriveEncoder[EffectfulKey]
 }
 
 sealed trait MediaFile extends ReplyValue {

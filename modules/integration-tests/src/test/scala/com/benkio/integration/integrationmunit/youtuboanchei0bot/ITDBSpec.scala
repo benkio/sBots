@@ -20,8 +20,8 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
+    val mp3s       = messageRepliesAudioData.flatMap(r => ReplyBundle.getMediaFiles(r))
     val testAssert = for {
-      mp3s   <- messageRepliesAudioData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       checks <-
         mp3s
           .traverse((mp3: MediaFile) =>
@@ -42,8 +42,8 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
     fixture =>
       val transactor = fixture.transactor
+      val gifs       = messageRepliesGifData.flatMap(r => ReplyBundle.getMediaFiles(r))
       val testAssert = for {
-        gifs   <- messageRepliesGifData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
         checks <-
           gifs
             .traverse((gif: MediaFile) =>
@@ -57,16 +57,16 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
             )
       } yield checks.foldLeft(true)(_ && _)
 
-      testAssert.assert
+      assertIO(testAssert, true)
   }
 
   databaseFixture.test(
     "messageRepliesMixData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
+    val specials   = messageRepliesMixData.flatMap(r => ReplyBundle.getMediaFiles(r))
     val testAssert = for {
-      specials <- messageRepliesMixData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
-      checks   <-
+      checks <-
         specials
           .traverse((special: MediaFile) =>
             DBMedia
@@ -87,9 +87,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     "messageRepliesVideoData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
+    val specials   = messageRepliesVideoData.flatMap(r => ReplyBundle.getMediaFiles(r))
     val testAssert = for {
-      specials <- messageRepliesVideoData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
-      checks   <-
+      checks <-
         specials
           .traverse((special: MediaFile) =>
             DBMedia

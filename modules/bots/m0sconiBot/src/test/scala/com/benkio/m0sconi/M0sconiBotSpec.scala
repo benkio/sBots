@@ -1,9 +1,8 @@
 package com.benkio.M0sconi
 
 import cats.data.NonEmptyList
-import cats.effect.Async
 import cats.effect.IO
-import cats.implicits.*
+import cats.syntax.all.*
 import cats.Show
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.m0sconibot.M0sconiBotPolling
@@ -12,79 +11,52 @@ import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import munit.CatsEffectSuite
-import telegramium.bots.high.Api
-import telegramium.bots.Message
 
 class M0sconiBotSpec extends BaseBotSpec {
 
-  given log: LogWriter[IO]                            = consoleLogUpToLevel(LogLevels.Info)
-  given telegramReplyValue: TelegramReply[ReplyValue] = new TelegramReply[ReplyValue] {
-    override def reply[F[_]: Async: LogWriter: Api](
-        reply: ReplyValue,
-        msg: Message,
-        repository: Repository[F],
-        replyToMessage: Boolean
-    ): F[List[Message]] = {
-      val _ = summon[LogWriter[F]]
-      val _ = summon[Api[F]]
-      Async[F].pure(List.empty[Message])
-    }
-  }
-  val botId = M0sconiBot.botId
+  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botId)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(M0sconiBot.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == botId)(
+      IO.raiseUnless(inputBotId == M0sconiBot.sBotInfo.botId)(
         Throwable(s"[M0sconiBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
   val m0sconiBot =
     BackgroundJobManager[IO](
-      dbSubscription = emptyDBLayer.dbSubscription,
-      dbShow = emptyDBLayer.dbShow,
-      repository = repositoryMock,
-      botId = botId
+      dbLayer = emptyDBLayer,
+      sBotInfo = M0sconiBot.sBotInfo
     ).map(bjm =>
       new M0sconiBotPolling[IO](
-        repositoryInput = repositoryMock,
+        repository = repositoryMock,
         dbLayer = emptyDBLayer,
         backgroundJobManager = bjm
       )
     )
-  val commandRepliesData: IO[List[ReplyBundleCommand[IO]]] =
-    m0sconiBot.flatMap(_.allCommandRepliesDataF)
+  val commandRepliesData: IO[List[ReplyBundleCommand]] =
+    m0sconiBot.map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
-    m0sconiBot
-      .flatMap(mb =>
-        for {
-          messageReplies <- mb.messageRepliesDataF
-          prettyPrints   <- messageReplies.flatTraverse(mr => mr.reply.prettyPrint)
-        } yield prettyPrints
-      )
+    m0sconiBot.map(mb => mb.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
 
-  exactTriggerReturnExpectedReplyBundle(M0sconiBot.messageRepliesData[IO])
-  regexTriggerLengthReturnValue(M0sconiBot.messageRepliesData[IO])
-  inputFileShouldRespondAsExpected(M0sconiBot.messageRepliesData[IO])
+  exactTriggerReturnExpectedReplyBundle(M0sconiBot.messageRepliesData)
+  regexTriggerLengthReturnValue(M0sconiBot.messageRepliesData)
+  inputFileShouldRespondAsExpected(M0sconiBot.messageRepliesData)
 
   triggerlistCommandTest(
-    commandRepliesData = commandRepliesData,
+    commandRepliesData = M0sconiBot.commandRepliesData.pure[IO],
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt"
   )
@@ -100,12 +72,12 @@ class M0sconiBotSpec extends BaseBotSpec {
 
   triggerFileContainsTriggers(
     triggerFilename = M0sconiBot.triggerFilename,
-    botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggers = M0sconiBot.messageRepliesData[IO].flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botMediaFiles = M0sconiBot.messageRepliesData.flatMap(mr => mr.reply.prettyPrint).pure[IO],
+    botTriggers = M0sconiBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )
 
   instructionsCommandTest(
-    commandRepliesData = commandRepliesData,
+    commandRepliesDataF = commandRepliesData,
     """
       |---- Instruzioni Per M0sconiBot ----
       |

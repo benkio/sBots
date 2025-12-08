@@ -6,6 +6,9 @@ import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TriggerSearchCommand
 import munit.*
 import telegramium.bots.Chat
@@ -14,10 +17,14 @@ import telegramium.bots.Message
 import java.time.Instant
 
 class SearchTriggerLogicSpec extends CatsEffectSuite {
-  val expectedSearchTriggerResponse: List[((List[ReplyBundleMessage[IO]], String), String)] = List(
+  val sBotInfo: SBotInfo = SBotInfo(
+    botName = SBotInfo.SBotName("TestBot"),
+    botId = SBotInfo.SBotId("test")
+  )
+  val expectedSearchTriggerResponse: List[((List[ReplyBundleMessage], String), String)] = List(
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "fro(ci|sh)o([ -]fro(ci|sh)o)+".r
         )(
           mp3"rphjb_NudoFrocio.mp3",
@@ -32,7 +39,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "una vergogna"
         )(
           mp3"rphjb_Vergogna.mp3",
@@ -51,7 +58,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "ostia"
         )(
           mp3"mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3",
@@ -66,7 +73,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "ciclismo"
         )(
           mp3"mos_CiclismoAllieviDio.mp3",
@@ -81,7 +88,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "francesismo"
         )(
           mp3"ytai_Francesismo.mp3"
@@ -94,7 +101,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "miele"
         )(
           gif"ytai_ForteProfumoMieleGif.mp4",
@@ -109,7 +116,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "italiani",
           "arrendetevi"
         )(
@@ -124,7 +131,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
            |""".stripMargin,
     (
       List(
-        ReplyBundleMessage.textToMedia[IO](
+        ReplyBundleMessage.textToMedia(
           "spranga"
         )(
           gif"abar_SprangaGif.mp4",
@@ -145,14 +152,13 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         messageId = 0,
         date = Instant.now.getEpochSecond().toInt,
         chat = Chat(id = 0, `type` = "test"),
-        text = Some(s"/testCommand $query")
+        text = Some(s"/triggersearch $query")
       )
       TriggerSearchCommand
-        .searchTriggerLogic[IO](mdr, msg, Some("!"))
-        .apply(query)
+        .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo)
         .map(result => {
           assertEquals(result.length, 1)
-          assertEquals(result.head, expectedResponse)
+          assertEquals(result.head.value, expectedResponse)
         })
     }
   }

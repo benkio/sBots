@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.model
 
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import munit.*
 
 import java.time.Instant

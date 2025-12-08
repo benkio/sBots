@@ -5,7 +5,7 @@ import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.model.media.Media
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource.given
 import com.benkio.telegrambotinfrastructure.model.MimeTypeOps.given
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import doobie.*
 import doobie.implicits.*
 import io.chrisdavenport.mules.*

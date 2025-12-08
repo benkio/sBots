@@ -2,7 +2,7 @@ package com.benkio.telegrambotinfrastructure.repository.db
 
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import doobie.*
 import doobie.implicits.*

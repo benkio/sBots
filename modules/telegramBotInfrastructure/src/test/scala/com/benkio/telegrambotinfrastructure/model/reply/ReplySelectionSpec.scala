@@ -21,8 +21,7 @@ class ReplySelectionSpec extends CatsEffectSuite {
     "RandomSelection select should be a function returning a list of one element when a list of multiple element is provided"
   ) {
     val result: IO[List[ReplyValue]] = RandomSelection.select[IO](
-      reply = MediaReply.fromList[IO](input),
-      message = message
+      reply = MediaReply.fromList(input)
     )
     for {
       _ <- assertIO(result.map(_.length), 1)

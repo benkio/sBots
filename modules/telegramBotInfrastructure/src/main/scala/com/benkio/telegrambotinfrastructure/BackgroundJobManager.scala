@@ -4,17 +4,15 @@ import cats.*
 import cats.effect.*
 import cats.effect.implicits.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.ChatId
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
-import com.benkio.telegrambotinfrastructure.repository.db.DBShow
-import com.benkio.telegrambotinfrastructure.repository.db.DBSubscription
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
 import fs2.Stream
@@ -35,7 +33,7 @@ trait BackgroundJobManager[F[_]] {
   // For Testing Purposes
   def runSubscription(
       subscription: Subscription
-  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[(Stream[F, Instant], SignallingRef[F, Boolean])]
+  )(using log: LogWriter[F]): F[(Stream[F, Instant], SignallingRef[F, Boolean])]
 }
 
 final case class SubscriptionKey(subscriptionId: SubscriptionId, chatId: ChatId)
@@ -58,29 +56,23 @@ object BackgroundJobManager {
       )
 
   def apply[F[_]: Async: Api](
-      dbSubscription: DBSubscription[F],
-      dbShow: DBShow[F],
-      repository: Repository[F],
-      botId: SBotId
-  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F]): F[BackgroundJobManager[F]] =
+      dbLayer: DBLayer[F],
+      sBotInfo: SBotInfo
+  )(using log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
       backgroundJobManager <- Async[F].pure(
         new BackgroundJobManagerImpl(
-          dbSubscription = dbSubscription,
-          dbShow = dbShow,
-          repository: Repository[F],
-          botId = botId
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo
         )
       )
       _ <- backgroundJobManager.loadSubscriptions()
     } yield backgroundJobManager
 
   class BackgroundJobManagerImpl[F[_]: Async: Api](
-      dbSubscription: DBSubscription[F],
-      dbShow: DBShow[F],
-      repository: Repository[F],
-      val botId: SBotId
-  )(using textTelegramReply: TelegramReply[Text], log: LogWriter[F])
+      dbLayer: DBLayer[F],
+      sBotInfo: SBotInfo
+  )(using log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
     val cronScheduler                                                        = Cron4sScheduler.systemDefault[F]
@@ -88,7 +80,7 @@ object BackgroundJobManager {
 
     def loadSubscriptions(): F[Unit] =
       for {
-        subscriptionsData <- dbSubscription.getSubscriptions(botId)
+        subscriptionsData <- dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId)
         subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
         cancelSignal      <- subscriptions.traverse(subscription =>
           runSubscription(subscription).map { case (stream, cancel) =>
@@ -106,11 +98,11 @@ object BackgroundJobManager {
 
     override def scheduleSubscription(subscription: Subscription): F[Unit] =
       for {
-        _ <- log.info(s"Schedule subscription: $subscription")
+        _ <- log.info(s"[BackgroundJobManager] Schedule subscription: $subscription")
         _ <- Async[F]
           .raiseError(SubscriptionAlreadyExists(subscription))
           .whenA(scheduleReferences.contains(SubscriptionKey(subscription.id, subscription.chatId)))
-        _                <- dbSubscription.insertSubscription(DBSubscriptionData(subscription))
+        _                <- dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(subscription))
         (stream, cancel) <- runSubscription(subscription)
         cronStream = cronScheduler.awakeEvery(subscription.cron) >> stream
         _ <- cronStream.interruptWhen(cancel).compile.drain.start
@@ -125,7 +117,7 @@ object BackgroundJobManager {
           if optCancellingBoolean.isEmpty
           then Async[F].raiseError(SubscriptionIdNotFound(subscriptionId))
           else optCancellingBoolean.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
-        _ <- dbSubscription.deleteSubscription(subscriptionId.value)
+        _ <- dbLayer.dbSubscription.deleteSubscription(subscriptionId.value)
       } yield scheduleReferences = onGoingScheduleReferences
     }
 
@@ -134,7 +126,8 @@ object BackgroundJobManager {
         case (SubscriptionKey(_, cId), _) => cId == chatId
       }
       for {
-        _ <- dbSubscription.deleteSubscriptions(chatId.value)
+        _ <- log.info(s"[BackgroundJobManager] Cancel subscriptions for: $chatId")
+        _ <- dbLayer.dbSubscription.deleteSubscriptions(chatId.value)
         _ <- optCancellingBooleans.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
       } yield scheduleReferences = onGoingScheduleReferences
     }
@@ -142,7 +135,6 @@ object BackgroundJobManager {
     override def runSubscription(
         subscription: Subscription
     )(using
-        textTelegramReply: TelegramReply[Text],
         log: LogWriter[F]
     ): F[(Stream[F, Instant], SignallingRef[F, Boolean])] = {
       val message = Message(
@@ -155,12 +147,11 @@ object BackgroundJobManager {
       val action: F[Instant] = for {
         now   <- Async[F].realTimeInstant
         _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
-        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbShow, botId)
+        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
-        _     <- textTelegramReply.reply(
+        _     <- TextReply.sendText[F](
           reply = Text(reply),
           msg = message,
-          repository = repository,
           replyToMessage = true
         )
       } yield now // For testing purposes

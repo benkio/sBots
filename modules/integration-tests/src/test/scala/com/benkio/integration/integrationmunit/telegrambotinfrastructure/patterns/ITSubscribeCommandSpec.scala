@@ -23,16 +23,17 @@ import java.util.UUID
 class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
-  val botId                              = RichardPHJBensonBot.botId
-  val botName                            = RichardPHJBensonBot.botName
+  val sBotInfo                           = RichardPHJBensonBot.sBotInfo
   val chatIdValue                        = 0L
   val chatId                             = ChatId(chatIdValue)
+  val cronValue                          = "* * * ? * *"
+  val cron                               = Cron.unsafeParse(cronValue)
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
     chatId = chatId,
-    botId = botId,
-    cron = Cron.unsafeParse("* * * ? * *"),
+    botId = sBotInfo.botId,
+    cron = cron,
     subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
   )
 
@@ -50,22 +51,19 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
-          dbSubscription = dbLayer.dbSubscription,
-          dbShow = dbLayer.dbShow,
-          repository = repository,
-          botId = botId
+          dbLayer = dbLayer,
+          sBotInfo = RichardPHJBensonBot.sBotInfo
         )
       )
       reply <- Resource.eval(
         SubscribeUnsubscribeCommand
-          .subscribeCommandLogic[IO](
-            cronInput = testSubscription.cron.toString,
+          .subscribeCommandLogic(
             backgroundJobManager = backgroundJobManager,
-            m = msg,
-            botId = botId
+            m = msg.copy(text = Some(s"/subscribe $cronValue")),
+            sBotInfo = RichardPHJBensonBot.sBotInfo
           )
       )
-      subscriptionDatas <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
+      subscriptionDatas <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(RichardPHJBensonBot.botId))
       subscriptions     <- Resource.eval(
         subscriptionDatas.traverse(subscriptionData => IO.fromEither(Subscription(subscriptionData)))
       )
@@ -73,8 +71,8 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       assert(subscriptions.length == 1)
       assert(reply.length == 1)
       val testCheck = reply.zip(subscriptions).map { case (r, s) =>
-        val result = r.startsWith("Subscription successfully scheduled. Next occurrence of subscription is ") &&
-          r.endsWith(s"Refer to this subscription with the ID: ${s.id.value.toString}")
+        val result = r.value.startsWith("Subscription successfully scheduled. Next occurrence of subscription is ") &&
+          r.value.endsWith(s"Refer to this subscription with the ID: ${s.id.value.toString}")
         if !result then println(s"[ITUnsubscribeCommandSpec:78:57]] Failed test with $r and $s") else ()
         result
       }

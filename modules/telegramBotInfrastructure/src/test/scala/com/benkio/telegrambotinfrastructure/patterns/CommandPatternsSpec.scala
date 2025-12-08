@@ -2,8 +2,9 @@ package com.benkio.telegrambotinfrastructure.patterns
 
 import cats.effect.*
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
@@ -16,13 +17,13 @@ class CommandPatternsSpec extends CatsEffectSuite {
     chat = Chat(id = 123, `type` = "private")
   )
   val command: String      = "command"
-  val botName: SBotName    = SBotName("botName")
   val defaultReply: String = "defaultReply"
+  val sBotInfo: SBotInfo   = SampleWebhookBot.sBotInfo
 
   def resultByInput(input: String, allowEmptyString: Boolean): IO[List[Text]] = CommandPatterns.handleCommandWithInput(
     msg = msg.copy(text = Some(input)),
     command = command,
-    botName = botName,
+    sBotInfo = sBotInfo,
     defaultReply = defaultReply,
     allowEmptyString = allowEmptyString,
     computation = input => (if input.isEmpty then List("success") else List("failed")).pure[IO]
@@ -34,9 +35,9 @@ class CommandPatternsSpec extends CatsEffectSuite {
     val result =
       List(
         """/command""",
-        """/command@botName""",
+        """/command@SampleWebhookBot""",
         """/command   """,
-        """/command@botName   """
+        """/command@SampleWebhookBot   """
       ).traverse(resultByInput(_, true))
     assertIO(result, List.fill(4)(List(Text("success"))))
   }
@@ -47,9 +48,9 @@ class CommandPatternsSpec extends CatsEffectSuite {
     val result: IO[List[List[Text]]] =
       List(
         """/command""",
-        """/command@botName""",
+        """/command@SampleWebhookBot""",
         """/command   """,
-        """/command@botName   """
+        """/command@SampleWebhookBot   """
       ).traverse(resultByInput(_, false))
     assertIO(result, List.fill(4)(List(Text(defaultReply))))
   }
@@ -58,7 +59,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
     val result = CommandPatterns.handleCommandWithInput(
       msg = msg.copy(text = Some("""/command""")),
       command = command,
-      botName = botName,
+      sBotInfo = sBotInfo,
       defaultReply = defaultReply,
       allowEmptyString = true,
       computation = _ =>
@@ -69,7 +70,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
     val expectedError =
       """|An error occurred processing the command: command
          | message text: /command
-         | bot: botName
+         | bot: SampleWebhookBot
          | error: [CommandPatternsSpec] this should trigger the error handling of the handleCommandWithInput""".stripMargin
     assertIO(result, List(Text(expectedError)))
   }

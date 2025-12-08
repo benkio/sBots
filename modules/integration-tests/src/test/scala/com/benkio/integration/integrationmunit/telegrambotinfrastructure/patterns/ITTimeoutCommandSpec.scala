@@ -34,11 +34,9 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
-            input = wrongInput,
-            msg = msg,
+            msg = msg.copy(text = Some(s"/timeout $wrongInput")),
             dbTimeout = dbLayer.dbTimeout,
-            botId = botId,
-            log = log
+            sBotInfo = RichardPHJBensonBot.sBotInfo
           )
           .attempt
       )
@@ -46,7 +44,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
     } yield {
       assertEquals(beforeTimeout, afterTimeout)
       assertEquals(
-        reply,
+        reply.map(_.head.value),
         Right("Timeout set failed: wrong input format for 00:00:0F, the input must be in the form '/timeout 00:00:00'")
       )
     }
@@ -63,11 +61,9 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
-            input = wrongInput,
-            msg = msg,
+            msg = msg.copy(text = Some(s"/timeout $wrongInput")),
             dbTimeout = dbLayer.dbTimeout,
-            botId = botId,
-            log = log
+            sBotInfo = RichardPHJBensonBot.sBotInfo
           )
           .attempt
       )
@@ -92,7 +88,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
         )
       )
       assertEquals(
-        reply,
+        reply.map(_.head.value),
         Right("Timeout set successfully to 00:00:10.000")
       )
     }
@@ -108,11 +104,9 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       reply         <- Resource.eval(
         TimeoutCommand
           .timeoutLogic[IO](
-            input = "",
-            msg = msg,
+            msg = msg.copy(text = Some("/timeout ")),
             dbTimeout = dbLayer.dbTimeout,
-            botId = botId,
-            log = log
+            sBotInfo = RichardPHJBensonBot.sBotInfo
           )
           .attempt
       )
@@ -122,7 +116,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       assertEquals(beforeTimeout.bot_id, afterTimeout.bot_id)
       assertEquals(beforeTimeout.timeout_value, afterTimeout.timeout_value)
       assertEquals(
-        reply,
+        reply.map(_.head.value),
         Right("Timeout removed")
       )
     }

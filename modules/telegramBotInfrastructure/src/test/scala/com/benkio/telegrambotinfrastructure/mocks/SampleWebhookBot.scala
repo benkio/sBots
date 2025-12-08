@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.mocks
 
+import cats.effect.Async
 import cats.effect.IO
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.reply.gif
@@ -12,8 +12,9 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
-import com.benkio.telegrambotinfrastructure.model.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
@@ -24,6 +25,7 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import org.http4s.implicits.*
 import org.http4s.Uri
+import telegramium.bots.high.Api
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
@@ -35,29 +37,28 @@ class SampleWebhookBot(
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
 )(using logWriterIO: LogWriter[IO])
-    extends SBotWebhook[IO](uri, path, webhookCertificate, repositoryInput) {
+    extends SBotWebhook[IO](uri, path, webhookCertificate) {
   override def repository: Repository[IO] =
     repositoryInput
   override def postComputation: Message => IO[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
-  override def filteringMatchesMessages: (ReplyBundleMessage[IO], Message) => IO[Boolean] =
-    FilteringTimeout.filter(dbLayer, botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+  override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
+    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 
-  override val botName: SBotName                   = SampleWebhookBot.botName
-  override val botId: SBotId                       = SampleWebhookBot.botId
+  override val sBotInfo: SBotInfo                  = SampleWebhookBot.sBotInfo
   override val ignoreMessagePrefix: Option[String] = SampleWebhookBot.ignoreMessagePrefix
   override val triggerFilename: String             = SampleWebhookBot.triggerFilename
   override val triggerListUri: Uri                 = SampleWebhookBot.triggerListUri
 
-  override val messageRepliesDataF: IO[List[ReplyBundleMessage[IO]]] = List(
-    ReplyBundleMessage.textToMp3[IO](
+  override val messageRepliesData: List[ReplyBundleMessage] = List(
+    ReplyBundleMessage.textToMp3(
       "cosa preferisci",
       "ragazzetta",
       "carne bianca"
     )(
       mp3"rphjb_RagazzettaCarne.mp3"
     ),
-    ReplyBundleMessage.textToVideo[IO](
+    ReplyBundleMessage.textToVideo(
       "brooklyn",
       "carne morta",
       "manhattan",
@@ -65,7 +66,7 @@ class SampleWebhookBot(
     )(
       vid"rphjb_PrimoSbaglio.mp4"
     ),
-    ReplyBundleMessage.textToVideo[IO](
+    ReplyBundleMessage.textToVideo(
       "non siamo niente",
       "siamo esseri umani",
       "sudore",
@@ -79,7 +80,7 @@ class SampleWebhookBot(
     )(
       vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
     ),
-    ReplyBundleMessage.textToMedia[IO](
+    ReplyBundleMessage.textToMedia(
       "carne saporita"
     )(
       mp3"rphjb_RagazzettaCarne.mp3",
@@ -87,31 +88,33 @@ class SampleWebhookBot(
       vid"rphjb_CarneFrescaSaporita.mp4",
       gif"rphjb_CarneFrescaSaporitaGif.mp4"
     ),
-    ReplyBundleMessage.textToMedia[IO](
+    ReplyBundleMessage.textToMedia(
       "carne (dura|vecchia|fresca)".r
     )(
       mp3"rphjb_CarneFrescaSaporita.mp3",
       vid"rphjb_CarneFrescaSaporita.mp4",
       gif"rphjb_CarneFrescaSaporitaGif.mp4"
     )
-  ).pure[IO]
+  )
 
-  override val commandRepliesDataF: IO[List[ReplyBundleCommand[IO]]] =
+  override val commandRepliesData: List[ReplyBundleCommand] =
     List(
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),
-        reply = TextReply.fromList[IO](
+        reply = TextReply.fromList(
           "test command reply"
         )(false),
         instruction = CommandInstructionData.NoInstructions
       )
-    ).pure[IO]
+    )
 }
 
 object SampleWebhookBot {
 
-  val botName: SBotName                   = SBotName("SampleWebhookBot")
-  val botId: SBotId                       = SBotId("sbot")
+  val sBotInfo: SBotInfo = SBotInfo(
+    botName = SBotInfo.SBotName("SampleWebhookBot"),
+    botId = SBotInfo.SBotId("sbot")
+  )
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "sbot_triggers.txt"
   val triggerListUri: Uri                 =
@@ -119,14 +122,12 @@ object SampleWebhookBot {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  def apply(): IO[SampleWebhookBot] = {
+  def apply()(using Async[IO], Api[IO]): IO[SampleWebhookBot] = {
     val repositoryMock             = new RepositoryMock()
-    val dbLayerMock                = DBLayerMock.mock(botId)
-    val ioBackgroundJobManagerMock = BackgroundJobManager(
-      dbSubscription = dbLayerMock.dbSubscription,
-      dbShow = dbLayerMock.dbShow,
-      repository = repositoryMock,
-      botId = botId
+    val dbLayerMock                = DBLayerMock.mock(sBotInfo.botId)
+    val ioBackgroundJobManagerMock = BackgroundJobManager[IO](
+      dbLayer = dbLayerMock,
+      sBotInfo = sBotInfo
     )
     ioBackgroundJobManagerMock.map(backgroundJobManagerMock =>
       new SampleWebhookBot(

@@ -20,8 +20,8 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     "messageRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
+    val files      = messageRepliesData.flatMap(r => ReplyBundle.getMediaFiles(r))
     val testAssert = for {
-      files  <- messageRepliesData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       checks <-
         files
           .traverse((file: MediaFile) =>
@@ -35,7 +35,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
           )
     } yield checks.foldLeft(true)(_ && _)
 
-    testAssert.assert
+    assertIO(testAssert, true)
   }
 
   databaseFixture.test(
@@ -45,7 +45,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val testAssert = for {
       dbLayer <- fixture.resourceDBLayer
       files   <- Resource.eval(
-        commandRepliesData[IO](dbLayer).flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
+        IO.pure(commandRepliesData.flatMap(r => ReplyBundle.getMediaFiles(r)))
       )
       checks <-
         Resource.eval(
@@ -62,6 +62,6 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         )
     } yield checks.foldLeft(true)(_ && _)
 
-    testAssert.use(IO.pure).assert
+    testAssert.use(_.pure[IO]).assert
   }
 }

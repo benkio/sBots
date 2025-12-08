@@ -147,6 +147,9 @@ object Trigger {
   given Decoder[MessageTrigger] = deriveDecoder[MessageTrigger]
   given Encoder[MessageTrigger] = deriveEncoder[MessageTrigger]
 
+  given Decoder[CommandTrigger] = deriveDecoder[CommandTrigger]
+  given Encoder[CommandTrigger] = deriveEncoder[CommandTrigger]
+
   def triggerLongestString(trigger: Trigger): Int = trigger match {
     case TextTrigger(lt*)          => lt.max(using TextTriggerValue.orderingInstance).length.value
     case MessageLengthTrigger(_)   => 0

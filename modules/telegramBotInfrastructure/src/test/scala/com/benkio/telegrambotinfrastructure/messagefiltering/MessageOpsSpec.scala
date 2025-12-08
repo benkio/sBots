@@ -1,7 +1,7 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import com.benkio.telegrambotinfrastructure.model.MessageType
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message

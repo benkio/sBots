@@ -1,8 +1,7 @@
 package com.benkio.telegrambotinfrastructure.model.reply
 
 import cats.*
-import cats.effect.*
-import cats.implicits.*
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
@@ -16,131 +15,118 @@ import io.circe.generic.semiauto.*
 
 import scala.util.matching.Regex
 
-sealed trait ReplyBundle[F[_]] {
+sealed trait ReplyBundle {
 
   def trigger: Trigger
-  def reply: Reply[F]
+  def reply: Reply
 }
 
-final case class ReplyBundleMessage[F[_]](trigger: MessageTrigger, reply: Reply[F], matcher: MessageMatches)
-    extends ReplyBundle[F]
+case class ReplyBundleMessage(
+    trigger: MessageTrigger,
+    reply: Reply,
+    matcher: MessageMatches
+) extends ReplyBundle
 
 object ReplyBundleMessage {
 
-  given replyBundleMessageDecoder[F[_]: Applicative]: Decoder[ReplyBundleMessage[F]] =
-    deriveDecoder[ReplyBundleMessage[F]]
-  given replyBundleMessageEncoder: Encoder[ReplyBundleMessage[SyncIO]] =
-    deriveEncoder[ReplyBundleMessage[SyncIO]]
+  given replyBundleMessageDecoder: Decoder[ReplyBundleMessage] =
+    deriveDecoder[ReplyBundleMessage]
+  given replyBundleMessageEncoder: Encoder[ReplyBundleMessage] =
+    deriveEncoder[ReplyBundleMessage]
 
-  def apply[F[_]](
-      trigger: MessageTrigger,
-      reply: Reply[F],
-      matcher: MessageMatches = MessageMatches.ContainsOnce
-  ): ReplyBundleMessage[F] = new ReplyBundleMessage[F](
-    trigger = trigger,
-    reply = reply,
-    matcher = matcher
-  )
-
-  def textToMedia[F[_]: Applicative](
+  def textToMedia(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(mediaFiles: MediaFile*): ReplyBundleMessage[F] =
-    ReplyBundleMessage[F](
+  )(mediaFiles: MediaFile*): ReplyBundleMessage =
+    ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
-      reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList)
+      reply = MediaReply.fromList(mediaFiles = mediaFiles.toList),
+      matcher = MessageMatches.ContainsOnce
     )
 
-  def textToVideo[F[_]: Applicative](
+  def textToVideo(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(videoFiles: VideoFile*): ReplyBundleMessage[F] =
+  )(videoFiles: VideoFile*): ReplyBundleMessage =
     textToMedia(triggers*)(videoFiles*)
 
-  def textToMp3[F[_]: Applicative](
+  def textToMp3(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(mp3Files: Mp3File*): ReplyBundleMessage[F] =
+  )(mp3Files: Mp3File*): ReplyBundleMessage =
     textToMedia(triggers*)(mp3Files*)
 
-  def textToGif[F[_]: Applicative](
+  def textToGif(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(gifFiles: GifFile*): ReplyBundleMessage[F] =
+  )(gifFiles: GifFile*): ReplyBundleMessage =
     textToMedia(triggers*)(gifFiles*)
 
-  def textToPhoto[F[_]: Applicative](
+  def textToPhoto(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(photoFiles: PhotoFile*): ReplyBundleMessage[F] =
+  )(photoFiles: PhotoFile*): ReplyBundleMessage =
     textToMedia(triggers*)(photoFiles*)
 
-  def textToSticker[F[_]: Applicative](
+  def textToSticker(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(photoFiles: Sticker*): ReplyBundleMessage[F] =
+  )(photoFiles: Sticker*): ReplyBundleMessage =
     textToMedia(triggers*)(photoFiles*)
 
-  def textToText[F[_]](
+  def textToText(
       triggers: (String | Regex | RegexTextTriggerValue)*
-  )(texts: String*): ReplyBundleMessage[F] =
-    ReplyBundleMessage[F](
+  )(texts: String*): ReplyBundleMessage =
+    ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
-      reply = TextReply.fromList[F](texts*)(false)
+      reply = TextReply.fromList(texts*)(false),
+      matcher = MessageMatches.ContainsOnce
     )
 }
 
-final case class ReplyBundleCommand[F[_]](
+final case class ReplyBundleCommand(
     trigger: CommandTrigger,
-    reply: Reply[F],
+    reply: Reply,
     instruction: CommandInstructionData
-) extends ReplyBundle[F]
+) extends ReplyBundle
 
 object ReplyBundleCommand {
-  def apply[F[_]](
-      trigger: CommandTrigger,
-      reply: Reply[F],
-      instruction: CommandInstructionData
-  ): ReplyBundleCommand[F] = new ReplyBundleCommand[F](
-    trigger = trigger,
-    reply = reply,
-    instruction = instruction
-  )
 
-  def textToMedia[F[_]: Applicative](trigger: String, instruction: CommandInstructionData)(
+  given replyBundleCommandDecoder: Decoder[ReplyBundleCommand] =
+    deriveDecoder[ReplyBundleCommand]
+  given replyBundleCommandEncoder: Encoder[ReplyBundleCommand] =
+    deriveEncoder[ReplyBundleCommand]
+
+  def textToMedia(trigger: String, instruction: CommandInstructionData)(
       mediaFiles: MediaFile*
-  ): ReplyBundleCommand[F] =
-    ReplyBundleCommand[F](
+  ): ReplyBundleCommand =
+    ReplyBundleCommand(
       trigger = CommandTrigger(trigger),
-      reply = MediaReply.fromList[F](mediaFiles = mediaFiles.toList),
+      reply = MediaReply.fromList(mediaFiles = mediaFiles.toList),
       instruction = instruction
     )
 }
 
 object ReplyBundle {
 
-  given orderingInstance[F[_]]: Ordering[ReplyBundle[F]] =
+  given orderingInstance: Ordering[ReplyBundle] =
     Trigger.orderingInstance.contramap(_.trigger)
 
-  extension [F[_]: ApplicativeThrow](rb: ReplyBundle[F]) {
-    def prettyPrint()(using triggerShow: Show[Trigger]): F[String] = {
+  extension (rb: ReplyBundle) {
+    def prettyPrint()(using triggerShow: Show[Trigger]): String = {
       val triggerStrings: List[String] = triggerShow.show(rb.trigger).split('\n').toList
-      rb.reply.prettyPrint
-        .handleError(_ => List.empty)
-        .map(x => {
-          val r = x
-            .zipAll(that = triggerStrings, thisElem = "", thatElem = "")
-            .map { case (mfs, trs) =>
-              s"${mfs.padTo(25, ' ')} | $trs"
-            }
-            .mkString("\n")
-          ("-" * 50) + s"\n$r\n" + ("-" * 50) + "\n"
-        })
-    }
-  }
-
-  def containsMediaReply[F[_]](r: ReplyBundle[F]): Boolean =
-    r.reply match {
-      case MediaReply(_, _) => true
-      case _                => false
+      val result                       = rb.reply.prettyPrint
+        .zipAll(that = triggerStrings, thisElem = "", thatElem = "")
+        .map { case (mfs, trs) =>
+          s"${mfs.padTo(25, ' ')} | $trs"
+        }
+        .mkString("\n")
+      ("-" * 50) + s"\n$result\n" + ("-" * 50) + "\n"
     }
 
-  def getMediaFiles[F[_]: Applicative](r: ReplyBundle[F]): F[List[MediaFile]] = r.reply match {
-    case MediaReply(mediaFiles, _) => mediaFiles
-    case _                         => List.empty.pure[F]
+    def containsMediaReply(r: ReplyBundle): Boolean =
+      r.reply match {
+        case MediaReply(_, _) => true
+        case _                => false
+      }
+
+    def getMediaFiles: List[MediaFile] = rb.reply match {
+      case MediaReply(mediaFiles, _) => mediaFiles
+      case _                         => List.empty
+    }
   }
 }

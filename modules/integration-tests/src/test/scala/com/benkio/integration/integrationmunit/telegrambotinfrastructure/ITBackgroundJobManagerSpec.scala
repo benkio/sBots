@@ -25,14 +25,14 @@ import scala.concurrent.duration.*
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4"))
-  val botId                              = RichardPHJBensonBot.botId
+  val sBotInfo                           = RichardPHJBensonBot.sBotInfo
 
   val cronScheduler = Cron4sScheduler.systemDefault[IO]
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
     chatId = ChatId(0L),
-    botId = botId,
+    botId = sBotInfo.botId,
     cron = Cron.unsafeParse("* * * ? * *"),
     subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
   )
@@ -46,10 +46,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
-          dbSubscription = dbLayer.dbSubscription,
-          dbShow = dbLayer.dbShow,
-          repository = repository,
-          botId = botId
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo
         )
       )
     } yield assert(backgroundJobManager.getScheduledSubscriptions().isEmpty)
@@ -65,10 +63,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       _          <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
-          dbSubscription = dbLayer.dbSubscription,
-          dbShow = dbLayer.dbShow,
-          repository = repository,
-          botId = botId
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo
         )
       )
       _ <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(testSubscription.id.value))
@@ -101,14 +97,12 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
-          dbSubscription = dbLayer.dbSubscription,
-          dbShow = dbLayer.dbShow,
-          repository = repository,
-          botId = botId
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo
         )
       )
       _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
-      subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
+      subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
     } yield {
       assertEquals(backgroundJobManager.getScheduledSubscriptions().size, 1)
       assert(
@@ -139,10 +133,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
-          dbSubscription = dbLayer.dbSubscription,
-          dbShow = dbLayer.dbShow,
-          repository = repository,
-          botId = botId
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo
         )
       )
       (mainStream, cancelSignal) <- Resource.eval(backgroundJobManager.runSubscription(testSubscription))
@@ -170,19 +162,17 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
-          dbSubscription = dbLayer.dbSubscription,
-          dbShow = dbLayer.dbShow,
-          repository = repository,
-          botId = botId
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo
         )
       )
       _ <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       _ = println("[ITBackgroundJobManagerSpec] test subscription scheduled")
-      inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
+      inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
       _ = println("[ITBackgroundJobManagerSpec] test subscription fetched")
       _ <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))
       _ = println("[ITBackgroundJobManagerSpec] test subscription cancelled")
-      cancel_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
+      cancel_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
       _ = println("[ITBackgroundJobManagerSpec] test subscription re-fetched")
     } yield {
       assertEquals(backgroundJobManager.getScheduledSubscriptions().size, 0)
@@ -201,10 +191,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
-          dbSubscription = dbLayer.dbSubscription,
-          dbShow = dbLayer.dbShow,
-          repository = repository,
-          botId = botId
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo
         )
       )
       (mainStream, _) <- Resource.eval(backgroundJobManager.runSubscription(testSubscription))

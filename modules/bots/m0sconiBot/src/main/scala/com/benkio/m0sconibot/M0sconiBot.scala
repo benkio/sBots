@@ -2,14 +2,13 @@ package com.benkio.m0sconibot
 
 import cats.*
 import cats.effect.*
-import cats.implicits.*
 import com.benkio.m0sconibot.data.Audio
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
@@ -30,96 +29,71 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    val repositoryInput: Repository[F],
-    val dbLayer: DBLayer[F],
-    val backgroundJobManager: BackgroundJobManager[F]
-) extends SBotPolling[F](repositoryInput)
+    override val repository: Repository[F],
+    override val dbLayer: DBLayer[F],
+    override val backgroundJobManager: BackgroundJobManager[F]
+) extends SBotPolling[F]()
     with M0sconiBot[F] {
-  override def repository: Repository[F] =
-    repositoryInput
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
-  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+  override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 }
 
 class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    repositoryInput: Repository[F],
-    val dbLayer: DBLayer[F],
-    val backgroundJobManager: BackgroundJobManager[F],
+    override val repository: Repository[F],
+    override val dbLayer: DBLayer[F],
+    override val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate, repositoryInput)
+) extends SBotWebhook[F](uri, path, webhookCertificate)
     with M0sconiBot[F] {
-  override def repository: Repository[F] =
-    repository
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
-  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+  override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 }
 
-trait M0sconiBot[F[_]: Async: LogWriter] extends SBot[F] {
+trait M0sconiBot[F[_]] extends SBot[F] {
 
-  override val botId: SBotId                       = M0sconiBot.botId
-  override val botName: SBotName                   = M0sconiBot.botName
+  override val sBotInfo: SBotInfo                  = M0sconiBot.sBotInfo
   override val ignoreMessagePrefix: Option[String] = M0sconiBot.ignoreMessagePrefix
   override val triggerFilename: String             = M0sconiBot.triggerFilename
   override val triggerListUri: Uri                 = M0sconiBot.triggerListUri
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
-    M0sconiBot.messageRepliesData[F].pure[F]
+  override val messageRepliesData: List[ReplyBundleMessage] =
+    M0sconiBot.messageRepliesData
 
-  override val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
-    M0sconiBot
-      .commandRepliesData[F](
-        dbLayer = dbLayer
-      )
-      .pure[F]
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    M0sconiBot.commandRepliesData
 
 }
 object M0sconiBot {
 
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "mos_triggers.txt"
-  val botName: SBotName                   = SBotName("M0sconiBot")
+  val botName: SBotInfo.SBotName          = SBotInfo.SBotName("M0sconiBot")
   val botId: SBotId                       = SBotId("mos")
+  val sBotInfo: SBotInfo                  = SBotInfo(botId, botName)
   val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt"
   val tokenFilename: String   = "mos_M0sconiBot.token"
   val configNamespace: String = "mos"
 
-  def messageRepliesAudioData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] =
-    Audio.messageRepliesAudioData[F]
+  val messageRepliesData: List[ReplyBundleMessage] =
+    Audio.messageRepliesAudioData
 
-  def messageRepliesData[
-      F[_]: Applicative
-  ]: List[ReplyBundleMessage[F]] =
-    messageRepliesAudioData[F]
-
-  def commandRepliesData[
-      F[_]: Async
-  ](
-      dbLayer: DBLayer[F]
-  )(using
-      log: LogWriter[F]
-  ): List[ReplyBundleCommand[F]] =
-    CommandPatternsGroup.TriggerGroup.group[F](
+  val commandRepliesData: List[ReplyBundleCommand] =
+    CommandPatternsGroup.TriggerGroup.group(
       triggerFileUri = triggerListUri,
-      botId = botId,
-      botName = botName,
-      ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix,
-      messageRepliesData = messageRepliesData[F],
-      dbMedia = dbLayer.dbMedia,
-      dbTimeout = dbLayer.dbTimeout
+      sBotInfo = M0sconiBot.sBotInfo,
+      messageRepliesData = messageRepliesData,
+      ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix
     ) ++
       List(
-        RandomDataCommand.randomDataReplyBundleCommand[F](
-          botId = botId,
-          dbMedia = dbLayer.dbMedia
+        RandomDataCommand.randomDataReplyBundleCommand(
+          sBotInfo = M0sconiBot.sBotInfo
         )
       )
 
@@ -130,10 +104,10 @@ object M0sconiBot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        botId = botId
+        sBotInfo = sBotInfo
       )
     } yield new M0sconiBotPolling[F](
-      repositoryInput = botSetup.repository,
+      repository = botSetup.repository,
       dbLayer = botSetup.dbLayer,
       backgroundJobManager = botSetup.backgroundJobManager
     )(using Parallel[F], Async[F], botSetup.api, log)
@@ -147,13 +121,13 @@ object M0sconiBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botId = botId,
+      sBotInfo = sBotInfo,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new M0sconiBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        repositoryInput = botSetup.repository,
+        repository = botSetup.repository,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate

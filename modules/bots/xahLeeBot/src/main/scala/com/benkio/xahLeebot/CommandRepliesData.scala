@@ -1,55 +1,33 @@
 package com.benkio.xahleebot
 
-import cats.effect.Async
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
-import com.benkio.telegrambotinfrastructure.model.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import log.effect.LogWriter
 
 object CommandRepliesData {
 
-  def values[F[_]: Async](
-      dbLayer: DBLayer[F],
-      backgroundJobManager: BackgroundJobManager[F],
-      botName: SBotName,
-      botId: SBotId
-  )(using
-      log: LogWriter[F]
-  ): List[ReplyBundleCommand[F]] =
-    CommandPatternsGroup.ShowGroup.group[F](
-      dbShow = dbLayer.dbShow,
-      dbSubscription = dbLayer.dbSubscription,
-      backgroundJobManager = backgroundJobManager,
-      botId = botId,
-      botName = botName
-    ) ++ customCommands(dbMedia = dbLayer.dbMedia, botId = botId)
+  def values(
+      sBotInfo: SBotInfo
+  ): List[ReplyBundleCommand] =
+    CommandPatternsGroup.ShowGroup.group(
+      sBotInfo = sBotInfo
+    ) ++ customCommands(sBotInfo = sBotInfo)
 
-  def customCommands[F[_]: Async](
-      dbMedia: DBMedia[F],
-      botId: SBotId
-  )(using
-      log: LogWriter[F]
-  ): List[ReplyBundleCommand[F]] =
+  def customCommands(
+      sBotInfo: SBotInfo
+  ): List[ReplyBundleCommand] =
     List(
-      RandomDataCommand.randomDataReplyBundleCommand[F](
-        botId = botId,
-        dbMedia = dbMedia
+      RandomDataCommand.randomDataReplyBundleCommand(
+        sBotInfo = sBotInfo
       )
     ) ++ xahCustomCommands.map { case (command, instruction) =>
       MediaByKindCommand.mediaCommandByKind(
-        dbMedia = dbMedia,
         commandName = command,
-        kind = command.some,
         instruction = instruction,
-        botId = botId
+        sBotInfo = sBotInfo
       )
     }
 

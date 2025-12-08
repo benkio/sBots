@@ -7,13 +7,11 @@ import cats.MonadThrow
 import com.benkio.telegrambotinfrastructure.http.DropboxClient
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.Document
-import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
-import com.benkio.telegrambotinfrastructure.telegram.TelegramReply
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import doobie.Transactor
 import log.effect.LogWriter
@@ -102,25 +100,25 @@ object BotSetup {
       httpClient: Client[F],
       tokenFilename: String,
       namespace: String,
-      botId: SBotId,
+      sBotInfo: SBotInfo,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
-  )(using log: LogWriter[F], telegramReply: TelegramReply[Text]): Resource[F, BotSetup[F]] = for {
+  )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
     tk            <- token[F](tokenFilename, ResourcesRepository.fromResources[F]())
     config        <- Resource.eval(Config.loadConfig[F](namespace))
-    _             <- Resource.eval(log.info(s"[$botId] Configuration: $config"))
+    _             <- Resource.eval(log.info(s"[${sBotInfo.botId}] Configuration: $config"))
     dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
     dbLayer       <- loadDB[F](config.db)
     repository = DBRepository.dbResources[F](dbLayer.dbMedia, dropboxClient)
-    _                     <- Resource.eval(log.info(s"[$botId] Delete webook..."))
+    _                     <- Resource.eval(log.info(s"[${sBotInfo.botId}] Delete webook..."))
     deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
     _                     <- Resource.eval(
       Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
         new RuntimeException(
-          s"[$botId] The delete webhook request failed: " + deleteWebhookResponse.as[String]
+          s"[${sBotInfo.botId}] The delete webhook request failed: " + deleteWebhookResponse.as[String]
         )
       )
     )
-    _       <- Resource.eval(log.info(s"[$botId] Webhook deleted"))
+    _       <- Resource.eval(log.info(s"[${sBotInfo.botId}] Webhook deleted"))
     baseUrl <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$tk")))
     api = BotApi(
       httpClient,
@@ -128,11 +126,9 @@ object BotSetup {
     )
     backgroundJobManager <- Resource.eval(
       BackgroundJobManager[F](
-        dbSubscription = dbLayer.dbSubscription,
-        dbShow = dbLayer.dbShow,
-        botId = botId,
-        repository = repository
-      )(using Async[F], api, telegramReply, log)
+        dbLayer = dbLayer,
+        sBotInfo = sBotInfo
+      )(using Async[F], api, log)
     )
     path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
     webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))

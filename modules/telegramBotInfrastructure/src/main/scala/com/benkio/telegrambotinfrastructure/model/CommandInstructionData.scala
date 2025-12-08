@@ -1,8 +1,16 @@
 package com.benkio.telegrambotinfrastructure.model
 
+import io.circe.*
+import io.circe.generic.semiauto.*
+
 enum CommandInstructionData {
   case Instructions(ita: String, eng: String) extends CommandInstructionData
   case NoInstructions                         extends CommandInstructionData
+}
+
+object CommandInstructionData {
+  given decoder: Decoder[CommandInstructionData] = deriveDecoder[CommandInstructionData]
+  given encoder: Encoder[CommandInstructionData] = deriveEncoder[CommandInstructionData]
 }
 
 extension (instructions: CommandInstructionData) {
