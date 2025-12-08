@@ -426,7 +426,7 @@ ${ignoreMessagePrefix
         m: Message,
         sBotInfo: SBotInfo
     ): F[List[Text]] = {
-      val computation = (subscriptionIdInput: String) =>
+      val computation = (subscriptionIdInput: String) => {
         if subscriptionIdInput.isEmpty then for {
           _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
         } yield List("All Subscriptions for current chat successfully cancelled")
@@ -435,7 +435,7 @@ ${ignoreMessagePrefix
             subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
             _              <- backgroundJobManager.cancelSubscription(subscriptionId)
           } yield List("Subscription successfully cancelled")
-
+      }
       handleCommandWithInput[F](
         msg = m,
         command = "unsubscribe",
@@ -560,6 +560,7 @@ ${ignoreMessagePrefix
         command = "timeout",
         sBotInfo = sBotInfo,
         computation = computation,
+        allowEmptyString = true,
         defaultReply = """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
       )
     }

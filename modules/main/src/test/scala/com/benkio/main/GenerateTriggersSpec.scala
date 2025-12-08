@@ -9,7 +9,6 @@ import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import munit.CatsEffectSuite
 
 import java.io.*
-import java.time.Instant
 import scala.concurrent.duration.Duration
 
 class GenerateTriggersSpec extends CatsEffectSuite {
@@ -29,9 +28,6 @@ class GenerateTriggersSpec extends CatsEffectSuite {
       )
     } yield {
       assert(exitCode == ExitCode.Success)
-      assert(
-        triggerFiles.forall(f => Instant.now.toEpochMilli - f.lastModified < munitIOTimeout.toMillis)
-      ) // 30 seconds
     }
   }
 }

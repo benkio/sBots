@@ -22,8 +22,7 @@ class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {
         MediaByKindCommand.mediaCommandByKindLogic(
           dbMedia = dbMedia,
           commandName = commandName,
-          kind = None,
-          botId = botId
+          sBotInfo = XahLeeBot.sBotInfo
         )
       )
     } yield {

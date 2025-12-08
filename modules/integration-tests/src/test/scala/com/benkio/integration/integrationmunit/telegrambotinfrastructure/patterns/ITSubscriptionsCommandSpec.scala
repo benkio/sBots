@@ -72,17 +72,15 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
       )
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
-          dbSubscription = dbLayer.dbSubscription,
-          dbShow = dbLayer.dbShow,
-          repository = repository,
-          botId = botId
+          dbLayer = dbLayer,
+          sBotInfo = RichardPHJBensonBot.sBotInfo
         )
       )
       subscriptionsFromCommandResult <- Resource.eval(
         SubscribeUnsubscribeCommand.subscriptionsCommandLogic(
           dbSubscription = dbSubscription,
           backgroundJobManager = backgroundJobManager,
-          botId = botId,
+          sBotInfo = RichardPHJBensonBot.sBotInfo,
           m = msg
         )
       )
@@ -91,13 +89,16 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
           dbSubscription.deleteSubscription(UUID.fromString(testSubscription.id))
         )
       )
-    } yield assertEquals(
-      subscriptionsFromCommandResult,
-      """There are 1 stored subscriptions for this chat:
-        |Subscription Id: b674cce0-9684-4d31-8cc7-9e2a41ea0878 - cron value: * * * ? * *
-        |There are 1/2 scheduled subscriptions for this chat:
-        |Subscription Id: b674cce0-9684-4d31-8cc7-9e2a41ea0878 - chat id: 0""".stripMargin
-    )
+    } yield {
+      assertEquals(subscriptionsFromCommandResult.length, 1)
+      assertEquals(
+        subscriptionsFromCommandResult.headOption.map(_.value),
+        """There are 1 stored subscriptions for this chat:
+          |Subscription Id: b674cce0-9684-4d31-8cc7-9e2a41ea0878 - cron value: * * * ? * *
+          |There are 1/2 scheduled subscriptions for this chat:
+          |Subscription Id: b674cce0-9684-4d31-8cc7-9e2a41ea0878 - chat id: 0""".stripMargin.some
+      )
+    }
     resourceAssert.use_
   }
 

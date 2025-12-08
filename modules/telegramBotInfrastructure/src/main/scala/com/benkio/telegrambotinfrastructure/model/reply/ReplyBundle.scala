@@ -124,7 +124,7 @@ object ReplyBundle {
         case _                => false
       }
 
-    def getMediaFiles(r: ReplyBundle): List[MediaFile] = r.reply match {
+    def getMediaFiles: List[MediaFile] = rb.reply match {
       case MediaReply(mediaFiles, _) => mediaFiles
       case _                         => List.empty
     }

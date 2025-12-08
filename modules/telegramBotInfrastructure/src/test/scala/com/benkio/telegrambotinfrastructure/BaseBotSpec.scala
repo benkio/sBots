@@ -215,7 +215,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
     }
 
   def exactTriggerReturnExpectedReplyBundle(
-    replyBundleMessages: List[ReplyBundleMessage]
+      replyBundleMessages: List[ReplyBundleMessage]
   ): Unit =
     replyBundleMessages
       .flatMap(replyBundle =>

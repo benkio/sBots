@@ -3,7 +3,6 @@ package com.benkio.integration.integrationmunit.M0sconi
 import cats.effect.IO
 import cats.implicits.*
 import com.benkio.integration.DBFixture
-import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
@@ -12,7 +11,7 @@ import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  import M0sconiBot.*
+  import com.benkio.m0sconibot.data.Audio.messageRepliesAudioData
 
   // File Reference Check
 
@@ -20,8 +19,8 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val transactor = fixture.transactor
+    val mp3s       = messageRepliesAudioData.flatMap(r => ReplyBundle.getMediaFiles(r))
     val testAssert = for {
-      mp3s   <- messageRepliesAudioData[IO].flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
       checks <-
         mp3s
           .traverse((mp3: MediaFile) =>
@@ -35,7 +34,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
           )
     } yield checks.foldLeft(true)(_ && _)
 
-    testAssert.assert
+    assertIO(testAssert, true)
   }
 
 }

@@ -11,8 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -27,25 +26,22 @@ import scala.io.Source
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  val botName: SBotName                     = XahLeeBot.botName
-  val botId: SBotId                         = XahLeeBot.botId
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(botId)
+  val sBotInfo: SBotInfo                    = XahLeeBot.sBotInfo
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = RepositoryMock(getResourceByKindHandler =
     (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == botId)(
+      IO.raiseUnless(inputBotId == sBotInfo.botId)(
         Throwable(s"[ITDBSpec] getResourceByKindHandler received unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
   val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(
     BackgroundJobManager(
-      dbSubscription = emptyDBLayer.dbSubscription,
-      dbShow = emptyDBLayer.dbShow,
-      repository = repositoryMock,
-      botId = botId
+      dbLayer = emptyDBLayer,
+      sBotInfo = sBotInfo
     )
   )
 
@@ -58,16 +54,10 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       resourceDBLayer <- fixture.resourceDBLayer
       bjm             <- emptyBackgroundJobManager
-      files           <- Resource.eval(
+      files =
         CommandRepliesData
-          .values[IO](
-            botId = botId,
-            botName = botName,
-            dbLayer = resourceDBLayer,
-            backgroundJobManager = bjm
-          )
-          .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
-      )
+          .values(sBotInfo)
+          .flatMap((r: ReplyBundle) => ReplyBundle.getMediaFiles(r))
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
@@ -82,7 +72,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       )
     } yield checks.foldLeft(true)(_ && _)
 
-    resourceAssert.use(IO.pure).assert
+    resourceAssert.use(_.pure[IO]).assert
   }
 
   // File json file check
@@ -97,16 +87,10 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       resourceDBLayer <- fixture.resourceDBLayer
       bjm             <- emptyBackgroundJobManager
-      mediaFiles      <- Resource.eval(
+      mediaFiles =
         CommandRepliesData
-          .values[IO](
-            botId = botId,
-            botName = botName,
-            dbLayer = resourceDBLayer,
-            backgroundJobManager = bjm
-          )
-          .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
-      )
+          .values(sBotInfo)
+          .flatMap((r: ReplyBundle) => ReplyBundle.getMediaFiles(r))
       checks <- Resource.pure(
         mediaFiles
           .map((mediaFile: MediaFile) =>
@@ -126,6 +110,6 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       )
     } yield checks.foldLeft(true)(_ && _)
 
-    resourceAssert.use(IO.pure).assert
+    resourceAssert.use(_.pure[IO]).assert
   }
 }

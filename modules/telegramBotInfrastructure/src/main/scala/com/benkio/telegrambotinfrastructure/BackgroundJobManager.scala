@@ -98,7 +98,7 @@ object BackgroundJobManager {
 
     override def scheduleSubscription(subscription: Subscription): F[Unit] =
       for {
-        _ <- log.info(s"Schedule subscription: $subscription")
+        _ <- log.info(s"[BackgroundJobManager] Schedule subscription: $subscription")
         _ <- Async[F]
           .raiseError(SubscriptionAlreadyExists(subscription))
           .whenA(scheduleReferences.contains(SubscriptionKey(subscription.id, subscription.chatId)))
@@ -126,6 +126,7 @@ object BackgroundJobManager {
         case (SubscriptionKey(_, cId), _) => cId == chatId
       }
       for {
+        _ <- log.info(s"[BackgroundJobManager] Cancel subscriptions for: $chatId")
         _ <- dbLayer.dbSubscription.deleteSubscriptions(chatId.value)
         _ <- optCancellingBooleans.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
       } yield scheduleReferences = onGoingScheduleReferences

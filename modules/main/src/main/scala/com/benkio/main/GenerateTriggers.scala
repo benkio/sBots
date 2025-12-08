@@ -37,9 +37,9 @@ object GenerateTriggers extends IOApp {
 
   // TODO: 785
   def generateTriggersJsonFile(
-    botModuleRelativeFolderPath: String,
-    triggerJsonFilename: String,
-    triggers: List[ReplyBundleMessage]
+      botModuleRelativeFolderPath: String,
+      triggerJsonFilename: String,
+      triggers: List[ReplyBundleMessage]
   ): Resource[IO, Unit] = {
     val triggerFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$triggerJsonFilename"
 

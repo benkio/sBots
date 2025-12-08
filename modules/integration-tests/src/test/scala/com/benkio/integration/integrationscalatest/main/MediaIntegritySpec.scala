@@ -15,7 +15,6 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.xahleebot.XahLeeBot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
@@ -38,27 +37,24 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       repository                <- initialFixture.repositoryResource
       emptyBackgroundJobManager <- Resource.eval(
         BackgroundJobManager[IO](
-          dbSubscription = dbLayer.dbSubscription,
-          dbShow = dbLayer.dbShow,
-          repository = repository,
-          botId = SBotId("")
+          dbLayer = dbLayer,
+          sBotInfo = RichardPHJBensonBot.sBotInfo
         )
       )
-      mediaFiles <- Resource.eval(
-        (RichardPHJBensonBot.messageRepliesData[IO] ++
-          RichardPHJBensonBot.commandRepliesData[IO](emptyBackgroundJobManager, dbLayer) ++
-          ABarberoBot.messageRepliesData[IO] ++
-          ABarberoBot.commandRepliesData[IO](emptyBackgroundJobManager, dbLayer) ++
-          YouTuboAncheI0Bot.messageRepliesData[IO] ++
-          YouTuboAncheI0Bot.commandRepliesData[IO](emptyBackgroundJobManager, dbLayer) ++
-          M0sconiBot.messageRepliesData[IO] ++
-          M0sconiBot.commandRepliesData[IO](dbLayer) ++
-          CalandroBot.messageRepliesData[IO] ++
-          CalandroBot.commandRepliesData[IO](dbLayer) ++
-          XahLeeBot.messageRepliesData[IO] ++
-          XahLeeBot.commandRepliesData[IO](emptyBackgroundJobManager, dbLayer))
-          .flatTraverse((r: ReplyBundle[IO]) => ReplyBundle.getMediaFiles[IO](r))
-      )
+      mediaFiles =
+        (RichardPHJBensonBot.messageRepliesData ++
+          RichardPHJBensonBot.commandRepliesData ++
+          ABarberoBot.messageRepliesData ++
+          ABarberoBot.commandRepliesData ++
+          YouTuboAncheI0Bot.messageRepliesData ++
+          YouTuboAncheI0Bot.commandRepliesData ++
+          M0sconiBot.messageRepliesData ++
+          M0sconiBot.commandRepliesData ++
+          CalandroBot.messageRepliesData ++
+          CalandroBot.commandRepliesData ++
+          XahLeeBot.messageRepliesData ++
+          XahLeeBot.commandRepliesData)
+          .flatMap((r: ReplyBundle) => ReplyBundle.getMediaFiles(r))
     } yield mediaFiles.distinctBy(_.filename)
 
   def withFixture(test: OneArgTest): Outcome = {

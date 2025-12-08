@@ -5,10 +5,12 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.integration.DBFixture
 import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.model.SBotName
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import munit.CatsEffectSuite
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
 
@@ -17,40 +19,57 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
-      dbMedia = dbLayer.dbMedia
-      botName = SBotName("testBot")
-      resultTextReply <- Resource.pure(
-        InstructionsCommand.instructionCommandLogic[IO](
-          botName = botName,
-          ignoreMessagePrefix = Some("!"),
-          commands = M0sconiBot.commandRepliesData[IO](DBLayerMock.mock(M0sconiBot.botId))
-        )
-      )
+      dbMedia  = dbLayer.dbMedia
+      sBotInfo = SBotInfo(M0sconiBot.sBotInfo.botId, SBotName("testBot"))
       _ <- Resource.eval(
         List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
-          .flatTraverse(resultTextReply(_))
-          .map(_.foreach { text =>
+          .traverse(input =>
+            InstructionsCommand.instructionCommandLogic[IO](
+              msg = Message(
+                messageId = 0,
+                date = 0,
+                chat = Chat(id = 0, `type` = "private"),
+                text = Some(s"/instructions $input")
+              ),
+              sBotInfo = sBotInfo,
+              ignoreMessagePrefix = Some("!"),
+              commands = M0sconiBot.commandRepliesData
+            )
+          )
+          .map(_.flatten.foreach { text =>
             assert(
-              text.contains(botName.value),
-              s"[ITInstructionsCommandSpec] description should contains the botname: $text"
+              text.value.contains(sBotInfo.botName.value),
+              s"[ITInstructionsCommandSpec] description should contains the botname: ${text.value}"
             )
             assert(
-              text.contains("'/random': Returns a random data"),
-              s"[ITInstructionsCommandSpec] instructionCommandLogic should return the eng description: $text"
+              text.value.contains("'/random': Returns a random data"),
+              s"[ITInstructionsCommandSpec] instructionCommandLogic should return the eng description: ${text.value}"
             )
           })
       )
       _ <- Resource.eval(
         List("it", "ita", "🇮🇹", "italian")
-          .flatTraverse(resultTextReply(_))
-          .map(_.foreach { text =>
+          .traverse(input =>
+            InstructionsCommand.instructionCommandLogic[IO](
+              msg = Message(
+                messageId = 0,
+                date = 0,
+                chat = Chat(id = 0, `type` = "private"),
+                text = Some(s"/instructions $input")
+              ),
+              sBotInfo = sBotInfo,
+              ignoreMessagePrefix = Some("!"),
+              commands = M0sconiBot.commandRepliesData
+            )
+          )
+          .map(_.flatten.foreach { text =>
             assert(
-              text.contains(botName.value),
-              s"[ITInstructionsCommandSpec] description should contains the botname: $text"
+              text.value.contains(sBotInfo.botName.value),
+              s"[ITInstructionsCommandSpec] description should contains the botname: ${text.value}"
             )
             assert(
-              text.contains("'/random': Restituisce un dato"),
-              s"[ITInstructionsCommandSpec] instructionCommandLogic should return the ita description: $text"
+              text.value.contains("'/random': Restituisce un dato"),
+              s"[ITInstructionsCommandSpec] instructionCommandLogic should return the ita description: ${text.value}"
             )
           })
       )
