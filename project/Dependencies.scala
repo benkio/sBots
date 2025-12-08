@@ -12,7 +12,7 @@ object Dependencies {
     val circe               = "0.14.15"
     val cron4s              = "0.8.2"
     val doobie              = "1.0.0-RC11"
-    val flyway              = "11.18.0"
+    val flyway              = "11.19.0"
     val fs2Core             = "3.12.2"
     val fs2Cron             = "0.10.3"
     val fs2IO               = "3.12.2"
