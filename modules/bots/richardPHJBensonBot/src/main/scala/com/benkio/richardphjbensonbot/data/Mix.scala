@@ -1,6 +1,5 @@
 package com.benkio.richardphjbensonbot.data
 
-
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3

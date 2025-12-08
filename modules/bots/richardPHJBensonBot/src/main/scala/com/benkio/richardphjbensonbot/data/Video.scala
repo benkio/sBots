@@ -1,6 +1,5 @@
 package com.benkio.richardphjbensonbot.data
 
-
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.tr

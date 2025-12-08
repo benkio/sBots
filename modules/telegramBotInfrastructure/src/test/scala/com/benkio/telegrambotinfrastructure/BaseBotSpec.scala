@@ -108,7 +108,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
           splitValue(0).toLowerCase -> splitValue(1).split(",").map(_.trim).toList
         })
         .toList
-      val matchingFilenames: List[List[MediaFile]] = inputTextTxtContent.traverse { case (input, expectedMatch) =>
+      val matchingFilenames: List[List[MediaFile]] = inputTextTxtContent.map { case (input, expectedMatch) =>
         val exactStringMessage = Message(
           messageId = 0,
           date = 0,

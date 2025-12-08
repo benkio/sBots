@@ -1,17 +1,16 @@
 package com.benkio.richardphjbensonbot
 
 import cats.effect.*
-import cats.implicits.*
-import cats.Applicative
 import cats.Parallel
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
@@ -32,56 +31,46 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    repositoryInput: Repository[F],
-    val dbLayer: DBLayer[F],
-    val backgroundJobManager: BackgroundJobManager[F]
-) extends SBotPolling[F](repositoryInput)
+    override val repository: Repository[F],
+    override val dbLayer: DBLayer[F],
+    override val backgroundJobManager: BackgroundJobManager[F]
+) extends SBotPolling[F]()
     with RichardPHJBensonBot[F] {
-  override def repository: Repository[F] =
-    repositoryInput
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
-  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+  override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     uri: Uri,
-    repositoryInput: Repository[F],
-    val dbLayer: DBLayer[F],
-    val backgroundJobManager: BackgroundJobManager[F],
+    override val repository: Repository[F],
+    override val dbLayer: DBLayer[F],
+    override val backgroundJobManager: BackgroundJobManager[F],
     path: Uri = uri"/",
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate, repositoryInput)
+) extends SBotWebhook[F](uri, path, webhookCertificate)
     with RichardPHJBensonBot[F] {
-  override def repository: Repository[F] =
-    repository
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, botId = botId)
-  override def filteringMatchesMessages: (ReplyBundleMessage[F], Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+  override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
+    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 }
 
-trait RichardPHJBensonBot[F[_]: Async: LogWriter] extends SBot[F] {
+trait RichardPHJBensonBot[F[_]] extends SBot[F] {
 
-  override val botName: SBotName                   = RichardPHJBensonBot.botName
-  override val botId: SBotId                       = RichardPHJBensonBot.botId
+  override val sBotInfo: SBotInfo                  = RichardPHJBensonBot.sBotInfo
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
   override val triggerFilename: String             = RichardPHJBensonBot.triggerFilename
   override val triggerListUri: Uri                 = RichardPHJBensonBot.triggerListUri
 
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override val messageRepliesDataF: F[List[ReplyBundleMessage[F]]] =
-    RichardPHJBensonBot.messageRepliesData[F].pure[F]
+  override val messageRepliesData: List[ReplyBundleMessage] =
+    RichardPHJBensonBot.messageRepliesData
 
-  override val commandRepliesDataF: F[List[ReplyBundleCommand[F]]] =
-    RichardPHJBensonBot
-      .commandRepliesData[F](
-        backgroundJobManager,
-        dbLayer
-      )
-      .pure[F]
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    RichardPHJBensonBot.commandRepliesData
 
 }
 
@@ -93,8 +82,9 @@ object RichardPHJBensonBot {
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
   import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData
 
-  val botName: SBotName                   = SBotName("RichardPHJBensonBot")
+  val botName: SBotInfo.SBotName          = SBotInfo.SBotName("RichardPHJBensonBot")
   val botId: SBotId                       = SBotId("rphjb")
+  val sBotInfo: SBotInfo                  = SBotInfo(botId, botName)
   val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "rphjb_triggers.txt"
   val triggerListUri: Uri                 =
@@ -102,56 +92,31 @@ object RichardPHJBensonBot {
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
   val configNamespace: String = "rphjb"
 
-  def messageRepliesData[F[_]: Applicative]: List[ReplyBundleMessage[F]] =
-    messageRepliesAudioData[F] ++ messageRepliesGifData[F] ++ messageRepliesVideoData[F] ++ messageRepliesMixData[
-      F
-    ] ++ messageRepliesSpecialData[F]
+  val messageRepliesData: List[ReplyBundleMessage] =
+    messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesVideoData ++ messageRepliesMixData ++ messageRepliesSpecialData
 
   val bensonifyCommandDescriptionIta: String =
     "'/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio"
   val bensonifyCommandDescriptionEng: String =
     "'/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
 
-  def commandRepliesData[F[_]: Async](
-      backgroundJobManager: BackgroundJobManager[F],
-      dbLayer: DBLayer[F]
-  )(using
-      log: LogWriter[F]
-  ): List[ReplyBundleCommand[F]] =
-    CommandPatternsGroup.TriggerGroup.group[F](
+  val commandRepliesData: List[ReplyBundleCommand] =
+    CommandPatternsGroup.TriggerGroup.group(
       triggerFileUri = triggerListUri,
-      botId = botId,
-      botName = botName,
-      ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix,
-      messageRepliesData = messageRepliesData[F],
-      dbMedia = dbLayer.dbMedia,
-      dbTimeout = dbLayer.dbTimeout
+      sBotInfo = RichardPHJBensonBot.sBotInfo,
+      messageRepliesData = messageRepliesData,
+      ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix
     ) ++
-      CommandPatternsGroup.ShowGroup.group[F](
-        dbShow = dbLayer.dbShow,
-        dbSubscription = dbLayer.dbSubscription,
-        backgroundJobManager = backgroundJobManager,
-        botId = botId,
-        botName = botName
+      CommandPatternsGroup.ShowGroup.group(
+        sBotInfo = RichardPHJBensonBot.sBotInfo
       ) ++
       List(
-        RandomDataCommand.randomDataReplyBundleCommand[F](
-          botId = botId,
-          dbMedia = dbLayer.dbMedia
+        RandomDataCommand.randomDataReplyBundleCommand(
+          sBotInfo = RichardPHJBensonBot.sBotInfo
         ),
         ReplyBundleCommand(
           trigger = CommandTrigger("bensonify"),
-          reply = TextReplyM[F](
-            msg =>
-              handleCommandWithInput[F](
-                msg = msg,
-                command = "bensonify",
-                botName = botName,
-                computation = t => List(Bensonify.compute(t)).pure[F],
-                defaultReply = "E PARLAAAAAAA!!!!"
-              ),
-            true
-          ),
+          reply = TextReply.fromList("E PARLAAAAAAA!!!!")(true),
           instruction = CommandInstructionData.Instructions(
             ita = bensonifyCommandDescriptionIta,
             eng = bensonifyCommandDescriptionEng
@@ -168,10 +133,10 @@ object RichardPHJBensonBot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        botId = botId
+        sBotInfo = sBotInfo
       )
     } yield new RichardPHJBensonBotPolling[F](
-      repositoryInput = botSetup.repository,
+      repository = botSetup.repository,
       dbLayer = botSetup.dbLayer,
       backgroundJobManager = botSetup.backgroundJobManager
     )(using Parallel[F], Async[F], botSetup.api, log)
@@ -185,13 +150,13 @@ object RichardPHJBensonBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      botId = botId,
+      sBotInfo = sBotInfo,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new RichardPHJBensonBotWebhook[F](
         uri = botSetup.webhookUri,
         path = botSetup.webhookPath,
-        repositoryInput = botSetup.repository,
+        repository = botSetup.repository,
         dbLayer = botSetup.dbLayer,
         backgroundJobManager = botSetup.backgroundJobManager,
         webhookCertificate = webhookCertificate
