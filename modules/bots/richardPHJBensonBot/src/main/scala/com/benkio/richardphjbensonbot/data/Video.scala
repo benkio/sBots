@@ -126,7 +126,7 @@ object Video {
     ReplyBundleMessage.textToVideo(
       "amore nello suonare",
       "uno freddo",
-      "buddisti"
+      "buddist"
     )(
       vid"rphjb_AmoreSuonareFreddoBuddistiSchifoso.mp4"
     ),
@@ -1482,7 +1482,7 @@ object Video {
       "coni da (15|12|quindici|dodici)".r,
       "vari intrugli",
       "casse",
-      "jack",
+      "il jack\\b".r.tr(7),
       "basta che non sia rotto"
     )(
       vid"rphjb_HoTrovatoIoTuttiCoglioniFortunaDispendioIntellettoProvaCasseConiPedaliJack.mp4"
@@ -2006,6 +2006,12 @@ object Video {
       "l'unica salvezza"
     )(
       vid"rphjb_AmmaestrareIlDolore.mp4"
-    )
+    ),
+    ReplyBundleMessage.textToVideo(
+      "l'ultimo l'è un altro",
+      "qualcun altro è l'ultimo",
+    )(
+      vid"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4"
+    ),
   )
 }
