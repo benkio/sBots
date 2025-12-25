@@ -44,7 +44,8 @@ object Gif {
       gif"rphjb_TelefonataPilotataGif.mp4"
     ),
     ReplyBundleMessage.textToGif(
-      "come ha fatto a entr(à|are)".r.tr(21)
+      "(come cazzo)? ha fatto a entr(a|à|are)".r.tr(15),
+      "intruso"
     )(
       gif"rphjb_ComeHaFattoAEntrareGif.mp4"
     ),
