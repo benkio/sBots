@@ -2009,9 +2009,9 @@ object Video {
     ),
     ReplyBundleMessage.textToVideo(
       "l'ultimo l'è un altro",
-      "qualcun altro è l'ultimo",
+      "qualcun altro è l'ultimo"
     )(
       vid"rphjb_BruttiSchifosiUltimiDegliUltimiNonSonoUltimo.mp4"
-    ),
+    )
   )
 }
