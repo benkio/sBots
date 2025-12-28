@@ -240,6 +240,15 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
           media_sources = """["http://test.com"]""",
           media_count = 0,
           created_at = "1662126018293"
+        ),
+        DBMediaData(
+          media_name = "sbot_test_2.mp3",
+          bot_id = sBotInfo.botId.value,
+          kinds = """["audio"]""",
+          mime_type = "audio/mpeg",
+          media_sources = """["http://test2.com"]""",
+          media_count = 0,
+          created_at = "1662126018293"
         )
       )
     )

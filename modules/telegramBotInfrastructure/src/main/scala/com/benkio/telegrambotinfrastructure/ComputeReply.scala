@@ -21,8 +21,8 @@ object ComputeReply {
       backgroundJobManager: BackgroundJobManager[F],
       dbLayer: DBLayer[F]
   ): F[List[Message]] = for {
-    replies <- RandomSelection.select(replyBundle.reply)
-    result  <- replies.traverse[F, List[Message]](reply =>
+    reply  <- RandomSelection.select(replyBundle.reply)
+    result <-
       TelegramReply.sendReplyValue[F](
         reply = reply,
         msg = message,
@@ -31,6 +31,5 @@ object ComputeReply {
         backgroundJobManager = backgroundJobManager,
         replyToMessage = replyBundle.reply.replyToMessage
       )
-    )
-  } yield result.flatten
+  } yield result
 }
