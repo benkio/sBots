@@ -3,6 +3,7 @@ package com.benkio.telegrambotinfrastructure.http.telegramreply
 import cats.data.NonEmptyList
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.http.telegramreply.EffectfulKeyReply
+import com.benkio.telegrambotinfrastructure.messagefiltering.getContent
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.BackgroundJobManagerMock
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
@@ -14,6 +15,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
 import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
@@ -282,6 +284,28 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Callback") {
-    ???
+    val callbackKey = "uppercase"
+    // Setup a simple callback that takes the message text and makes it uppercase
+    val callback: Message => IO[List[Text]] = (msg: Message) =>
+      IO.pure(
+        List(Text(msg.getContent.map(_.toUpperCase).getOrElse("")))
+      )
+    val effectfulCallbacks = Map(callbackKey -> callback)
+    val effectfulKey       = EffectfulKey.Callback(key = callbackKey, sBotInfo = sBotInfo)
+    val testMessage        = message.copy(text = Some("hello world"))
+
+    val result = EffectfulKeyReply
+      .sendEffectfulKey[IO](
+        reply = effectfulKey,
+        msg = testMessage,
+        repository = repositoryMock,
+        dbLayer = dbLayer,
+        backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = effectfulCallbacks,
+        replyToMessage = false
+      )
+      .map(messages => messages.map(_.text))
+
+    assertIO(result, List(Some("[apiMock] sendMessage reply")))
   }
 }
