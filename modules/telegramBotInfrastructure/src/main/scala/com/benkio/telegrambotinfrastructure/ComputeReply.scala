@@ -11,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
 import telegramium.bots.high.Api
 import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 
 object ComputeReply {
 
@@ -18,7 +19,8 @@ object ComputeReply {
       replyBundle: ReplyBundle,
       message: Message,
       repository: Repository[F],
-      backgroundJobManager: BackgroundJobManager[F],
+    backgroundJobManager: BackgroundJobManager[F],
+    effectfulCallbacks: Map[String, Message => F[List[Text]]],
       dbLayer: DBLayer[F]
   ): F[List[Message]] = for {
     reply  <- RandomSelection.select(replyBundle.reply)
@@ -29,6 +31,7 @@ object ComputeReply {
         repository = repository,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = effectfulCallbacks,
         replyToMessage = replyBundle.reply.replyToMessage
       )
   } yield result

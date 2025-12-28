@@ -30,6 +30,7 @@ object EffectfulKeyReply {
       repository: Repository[F],
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
+      effectfulCallbacks: Map[String, Message => F[List[Text]]],
       replyToMessage: Boolean
   ): F[List[Message]] = reply match {
     case EffectfulKey.Random(sBotInfo) =>
@@ -123,8 +124,25 @@ object EffectfulKeyReply {
         replyToMessage = replyToMessage,
         commandKey = key,
         sBotInfo = sBotInfo,
+        effectfulCallbacks = effectfulCallbacks,
         backgroundJobManager = backgroundJobManager
       )
+    case EffectfulKey.Callback(key, sBotInfo) =>
+      effectfulCallbacks
+        .get(key)
+        .fold(
+          Async[F].raiseError(
+            Throwable(
+              s"[EffectfulKeyReply] callback not found. Check your sync between commands and callback in the ${sBotInfo.botName} code"
+            )
+          )
+        )(callback =>
+          sendTextReplies(
+            repliesF = callback(msg),
+            msg = msg,
+            replyToMessage = replyToMessage
+          )
+        )
   }
 
   private def randomTelegraReply[F[_]: Async: LogWriter: Api](
@@ -147,7 +165,8 @@ object EffectfulKeyReply {
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
-      backgroundJobManager: BackgroundJobManager[F],
+    backgroundJobManager: BackgroundJobManager[F],
+          effectfulCallbacks: Map[String, Message => F[List[Text]]],
       replyToMessage: Boolean,
       commandKey: String,
       sBotInfo: SBotInfo
@@ -164,7 +183,8 @@ object EffectfulKeyReply {
       repository = repository,
       replyToMessage = replyToMessage,
       dbLayer = dbLayer,
-      backgroundJobManager = backgroundJobManager
+      backgroundJobManager = backgroundJobManager,
+      effectfulCallbacks = effectfulCallbacks
     )
   } yield messages
 

@@ -22,6 +22,7 @@ import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 
 abstract class SBotPolling[F[_]: Parallel: Async: Api: LogWriter]()
     extends LongPollBot[F](summon[Api[F]])
@@ -60,7 +61,9 @@ trait SBot[F[_]: Async: LogWriter] {
   val commandRepliesData: List[ReplyBundleCommand] =
     List.empty[ReplyBundleCommand]
 
-  // Bot logic //////////////////////////////////////////////////////////////////////////////
+  // Commands //////////////////////////////////////////////////////////////////////////////
+
+  val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
 
   def allCommandRepliesData: List[ReplyBundleCommand] = {
     val instructionsCmd = InstructionsCommand.instructionsReplyBundleCommand(
@@ -70,6 +73,8 @@ trait SBot[F[_]: Async: LogWriter] {
     )
     commandRepliesData :+ instructionsCmd
   }
+
+  // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
@@ -112,6 +117,7 @@ trait SBot[F[_]: Async: LogWriter] {
                 message = msg,
                 repository = repository,
                 backgroundJobManager = backgroundJobManager,
+                effectfulCallbacks = commandEffectfulCallback,
                 dbLayer = dbLayer
               )
             else List.empty.pure[F]
@@ -129,6 +135,7 @@ trait SBot[F[_]: Async: LogWriter] {
             message = msg,
             repository = repository,
             backgroundJobManager = backgroundJobManager,
+            effectfulCallbacks = commandEffectfulCallback,
             dbLayer = dbLayer
           )
       )

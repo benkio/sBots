@@ -1,12 +1,13 @@
 package com.benkio.richardphjbensonbot
 
+import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
 import cats.effect.*
 import cats.Parallel
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.reply.EffectfulReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
@@ -116,7 +117,10 @@ object RichardPHJBensonBot {
         ),
         ReplyBundleCommand(
           trigger = CommandTrigger("bensonify"),
-          reply = TextReply.fromList("E PARLAAAAAAA!!!!")(true),
+          reply = EffectfulReply(
+            key = EffectfulKey.Callback(key = "bensonify", sBotInfo = RichardPHJBensonBot.sBotInfo),
+            replyToMessage = true
+          ),
           instruction = CommandInstructionData.Instructions(
             ita = bensonifyCommandDescriptionIta,
             eng = bensonifyCommandDescriptionEng
