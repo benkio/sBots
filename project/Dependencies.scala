@@ -30,6 +30,7 @@ object Dependencies {
     val munitCatsEffect     = "2.1.0"
     val pureConfig          = "0.17.9"
     val scalacheck          = "1.19.0"
+    val scalacheckEffectMunit = "1.0.4"
     val scalacheckGenRegexp = "1.1.0"
     val scalatest           = "3.2.16"
     val shapeless           = "2.3.10"
@@ -83,6 +84,7 @@ object Dependencies {
     val pureConfig          = "com.github.pureconfig" %% "pureconfig"               % versions.pureConfig
     val pureConfigCore      = "com.github.pureconfig" %% "pureconfig-core"          % versions.pureConfig
     val scalacheck          = "org.scalacheck"        %% "scalacheck"               % versions.scalacheck
+    val scalacheckEffectMunit    = "org.typelevel"         %% "scalacheck-effect-munit"        % versions.scalacheckEffectMunit
     val scalacheckGenRegexp = "io.github.wolfendale"  %% "scalacheck-gen-regexp"    % versions.scalacheckGenRegexp
     val scalatest           = "org.scalatest"         %% "scalatest"                % versions.scalatest       % "test"
     val sqlite              = "org.xerial"             % "sqlite-jdbc"              % versions.sqlite
@@ -136,6 +138,7 @@ object Dependencies {
       libs.munitScalacheck,
       libs.pureConfigCore,
       libs.scalacheck,
+      libs.scalacheckEffectMunit,
       libs.scalacheckGenRegexp,
       libs.sqlite,
       libs.vault
