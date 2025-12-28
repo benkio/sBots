@@ -43,7 +43,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
             )
             assert(
               text.value.contains("'/random': Returns a random data"),
-              s"[ITInstructionsCommandSpec] instructionCommandLogic should return the eng description: ${text.value}"
+              s"[ITInstructionsCommandSpec] M0sconiBot.instructionCommandLogic should return the eng description and contain the random command: ${text.value}"
             )
           })
       )
@@ -69,7 +69,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
             )
             assert(
               text.value.contains("'/random': Restituisce un dato"),
-              s"[ITInstructionsCommandSpec] instructionCommandLogic should return the ita description: ${text.value}"
+              s"[ITInstructionsCommandSpec] M0sconiBot.instructionCommandLogic should return the ita description and contain the random command: ${text.value}"
             )
           })
       )

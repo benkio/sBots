@@ -4,6 +4,7 @@ import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
+import com.benkio.telegrambotinfrastructure.messagefiltering.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.reply.*
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
@@ -121,7 +122,8 @@ object EffectfulKeyReply {
         dbLayer = dbLayer,
         replyToMessage = replyToMessage,
         commandKey = key,
-        sBotInfo = sBotInfo
+        sBotInfo = sBotInfo,
+        backgroundJobManager = backgroundJobManager
       )
   }
 
@@ -145,6 +147,7 @@ object EffectfulKeyReply {
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
+      backgroundJobManager: BackgroundJobManager[F],
       replyToMessage: Boolean,
       commandKey: String,
       sBotInfo: SBotInfo
@@ -154,13 +157,14 @@ object EffectfulKeyReply {
       commandName = commandKey,
       sBotInfo = sBotInfo
     )
-    messages <- mediaFiles.flatTraverse(mediaFile =>
-      MediaFileReply.sendMediaFile(
-        reply = mediaFile,
-        msg = msg,
-        repository = repository,
-        replyToMessage = replyToMessage
-      )
+    mediaFile <- RandomSelection.select(MediaReply(mediaFiles = mediaFiles))
+    messages  <- TelegramReply.sendReplyValue(
+      reply = mediaFile,
+      msg = msg,
+      repository = repository,
+      replyToMessage = replyToMessage,
+      dbLayer = dbLayer,
+      backgroundJobManager = backgroundJobManager
     )
   } yield messages
 

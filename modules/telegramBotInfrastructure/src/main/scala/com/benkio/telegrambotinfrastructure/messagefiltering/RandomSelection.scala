@@ -11,7 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import scala.util.Random
 
 object RandomSelection {
-  def select[F[_]: Sync](reply: Reply): F[List[ReplyValue]] =
+  def select[F[_]: Sync](reply: Reply): F[ReplyValue] =
     for {
       randomNumGen <- Sync[F].delay(new Random())
       replies = reply match {
@@ -20,5 +20,5 @@ object RandomSelection {
         case EffectfulReply(key, _)    => List(key)
       }
       randomVal <- Sync[F].delay(randomNumGen.between(0, replies.size))
-    } yield List(replies(randomVal))
+    } yield replies(randomVal)
 }
