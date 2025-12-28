@@ -18,6 +18,10 @@ import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
+import org.scalacheck.effect.PropF
+import org.scalacheck.Gen
+import telegramium.bots.Chat
+import telegramium.bots.Message
 
 import scala.concurrent.duration.Duration
 
@@ -181,4 +185,30 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         |""".stripMargin
   )
 
+  test("Bensonify command callback should return the expected result") {
+    PropF.forAllF(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (input: String) =>
+      for {
+        bot <- richardPHJBensonBot
+        // Check that the callback exists with the bensonify key
+        callback <- IO.fromOption(bot.commandEffectfulCallback.get(RichardPHJBensonBot.bensonifyKey))(
+          Throwable(s"Callback with key '${RichardPHJBensonBot.bensonifyKey}' not found")
+        )
+        // Create a test message with the command format
+        testMessage = Message(
+          messageId = 0,
+          date = 0,
+          chat = Chat(id = 0, `type` = "private"),
+          text = Some(s"/bensonify $input")
+        )
+        // Call the callback
+        callbackResult <- callback(testMessage)
+        // Compute expected result
+        expectedResult = Bensonify.compute(input)
+      } yield {
+        // Verify the callback returns the expected result
+        assertEquals(callbackResult.length, 1)
+        assertEquals(callbackResult.head.value, expectedResult)
+      }
+    }
+  }
 }

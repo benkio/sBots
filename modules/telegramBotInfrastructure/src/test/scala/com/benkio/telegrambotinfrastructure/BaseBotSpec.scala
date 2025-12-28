@@ -14,7 +14,7 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.Instruction
 import io.circe.parser.decode
 import munit.*
 import munit.CatsEffectSuite
-import munit.ScalaCheckSuite
+import munit.ScalaCheckEffectSuite
 import org.scalacheck.Prop.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
@@ -23,7 +23,7 @@ import wolfendale.scalacheck.regexp.RegexpGen
 import java.io.File
 import scala.io.Source
 
-trait BaseBotSpec extends CatsEffectSuite with ScalaCheckSuite {
+trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
   private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")

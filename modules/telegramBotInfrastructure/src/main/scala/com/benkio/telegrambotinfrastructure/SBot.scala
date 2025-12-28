@@ -9,6 +9,7 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.*
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Trigger
@@ -60,7 +61,9 @@ trait SBot[F[_]: Async: LogWriter] {
   val commandRepliesData: List[ReplyBundleCommand] =
     List.empty[ReplyBundleCommand]
 
-  // Bot logic //////////////////////////////////////////////////////////////////////////////
+  // Commands //////////////////////////////////////////////////////////////////////////////
+
+  val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
 
   def allCommandRepliesData: List[ReplyBundleCommand] = {
     val instructionsCmd = InstructionsCommand.instructionsReplyBundleCommand(
@@ -70,6 +73,8 @@ trait SBot[F[_]: Async: LogWriter] {
     )
     commandRepliesData :+ instructionsCmd
   }
+
+  // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
@@ -112,6 +117,7 @@ trait SBot[F[_]: Async: LogWriter] {
                 message = msg,
                 repository = repository,
                 backgroundJobManager = backgroundJobManager,
+                effectfulCallbacks = commandEffectfulCallback,
                 dbLayer = dbLayer
               )
             else List.empty.pure[F]
@@ -129,6 +135,7 @@ trait SBot[F[_]: Async: LogWriter] {
             message = msg,
             repository = repository,
             backgroundJobManager = backgroundJobManager,
+            effectfulCallbacks = commandEffectfulCallback,
             dbLayer = dbLayer
           )
       )

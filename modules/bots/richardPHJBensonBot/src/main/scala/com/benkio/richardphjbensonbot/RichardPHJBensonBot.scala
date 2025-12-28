@@ -1,16 +1,21 @@
 package com.benkio.richardphjbensonbot
 
+import cats.*
 import cats.effect.*
+import cats.syntax.all.*
 import cats.Parallel
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
+import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
+import com.benkio.telegrambotinfrastructure.model.reply.EffectfulReply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
@@ -57,7 +62,7 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     FilteringTimeout.filter(dbLayer, sBotInfo.botId)
 }
 
-trait RichardPHJBensonBot[F[_]] extends SBot[F] {
+trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
 
   override val sBotInfo: SBotInfo                  = RichardPHJBensonBot.sBotInfo
   override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
@@ -72,6 +77,20 @@ trait RichardPHJBensonBot[F[_]] extends SBot[F] {
   override val commandRepliesData: List[ReplyBundleCommand] =
     RichardPHJBensonBot.commandRepliesData
 
+  override val commandEffectfulCallback: Map[String, Message => F[List[Text]]] =
+    Map(
+      (
+        RichardPHJBensonBot.bensonifyKey,
+        (msg: Message) =>
+          CommandPatterns.handleCommandWithInput[F](
+            msg = msg,
+            command = RichardPHJBensonBot.bensonifyKey,
+            sBotInfo = sBotInfo,
+            computation = t => List(Bensonify.compute(t)).pure[F],
+            defaultReply = "E PARLAAAAAAA!!!!"
+          )
+      )
+    )
 }
 
 object RichardPHJBensonBot {
@@ -95,10 +114,11 @@ object RichardPHJBensonBot {
   val messageRepliesData: List[ReplyBundleMessage] =
     messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesVideoData ++ messageRepliesMixData ++ messageRepliesSpecialData
 
+  val bensonifyKey: String                   = "bensonify"
   val bensonifyCommandDescriptionIta: String =
-    "'/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio"
+    s"'/$bensonifyKey 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio"
   val bensonifyCommandDescriptionEng: String =
-    "'/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
+    s"'/$bensonifyKey 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
 
   val commandRepliesData: List[ReplyBundleCommand] =
     CommandPatternsGroup.TriggerGroup.group(
@@ -115,8 +135,11 @@ object RichardPHJBensonBot {
           sBotInfo = RichardPHJBensonBot.sBotInfo
         ),
         ReplyBundleCommand(
-          trigger = CommandTrigger("bensonify"),
-          reply = TextReply.fromList("E PARLAAAAAAA!!!!")(true),
+          trigger = CommandTrigger(bensonifyKey),
+          reply = EffectfulReply(
+            key = EffectfulKey.Callback(key = bensonifyKey, sBotInfo = RichardPHJBensonBot.sBotInfo),
+            replyToMessage = true
+          ),
           instruction = CommandInstructionData.Instructions(
             ita = bensonifyCommandDescriptionIta,
             eng = bensonifyCommandDescriptionEng
