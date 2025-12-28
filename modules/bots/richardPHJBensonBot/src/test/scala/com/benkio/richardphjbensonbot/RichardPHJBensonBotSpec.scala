@@ -181,4 +181,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         |""".stripMargin
   )
 
+  test("Bensonify command callback should return the expected result") {
+    ???
+  }
 }

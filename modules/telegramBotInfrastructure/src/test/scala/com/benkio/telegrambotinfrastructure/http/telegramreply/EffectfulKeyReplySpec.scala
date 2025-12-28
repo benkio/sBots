@@ -270,4 +270,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
 
     assertIO(result, List(Some("[apiMock] sendMp3 reply")))
   }
+
+  test("EffectfulKeyReply.sendEffectfulKey should work for Callback") {
+    ???
+  }
 }
