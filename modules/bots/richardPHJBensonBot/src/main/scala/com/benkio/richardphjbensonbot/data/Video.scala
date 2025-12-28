@@ -684,7 +684,7 @@ object Video {
     ReplyBundleMessage.textToVideo(
       "una bella fi[cg]a".r,
       "la fate aspettare",
-      "in silenzio[,]?( dovuto)?".r,
+      "silenzio[,]?( dovuto)?".r,
       "consumare dopo",
       "consumare durante"
     )(
