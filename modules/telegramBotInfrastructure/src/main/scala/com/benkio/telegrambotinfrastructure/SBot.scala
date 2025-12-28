@@ -9,6 +9,7 @@ import com.benkio.telegrambotinfrastructure.messagefiltering.*
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Trigger
@@ -22,7 +23,6 @@ import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.model.reply.Text
 
 abstract class SBotPolling[F[_]: Parallel: Async: Api: LogWriter]()
     extends LongPollBot[F](summon[Api[F]])

@@ -1,7 +1,7 @@
 package com.benkio.richardphjbensonbot
 
-import cats.effect.*
 import cats.*
+import cats.effect.*
 import cats.syntax.all.*
 import cats.Parallel
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup

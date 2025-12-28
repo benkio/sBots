@@ -47,7 +47,7 @@ enum EffectfulKey(val sBotInfo: SBotInfo) extends ReplyValue {
   case TopTwenty(override val sBotInfo: SBotInfo)                extends EffectfulKey(sBotInfo)
   case Timeout(override val sBotInfo: SBotInfo)                  extends EffectfulKey(sBotInfo)
   case MediaByKind(key: String, override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
-  case Callback(key: String, override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
+  case Callback(key: String, override val sBotInfo: SBotInfo)    extends EffectfulKey(sBotInfo)
 }
 
 object EffectfulKey {

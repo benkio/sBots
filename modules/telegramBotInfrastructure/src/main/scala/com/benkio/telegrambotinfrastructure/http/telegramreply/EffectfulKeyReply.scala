@@ -165,8 +165,8 @@ object EffectfulKeyReply {
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
-    backgroundJobManager: BackgroundJobManager[F],
-          effectfulCallbacks: Map[String, Message => F[List[Text]]],
+      backgroundJobManager: BackgroundJobManager[F],
+      effectfulCallbacks: Map[String, Message => F[List[Text]]],
       replyToMessage: Boolean,
       commandKey: String,
       sBotInfo: SBotInfo

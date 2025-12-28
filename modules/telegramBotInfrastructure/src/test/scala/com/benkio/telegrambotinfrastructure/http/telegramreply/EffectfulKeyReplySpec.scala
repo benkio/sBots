@@ -63,6 +63,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMockWithHandler,
         dbLayer = dbLayerWithMedia,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))
@@ -80,6 +81,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMock,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))
@@ -108,6 +110,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMock,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))
@@ -136,6 +139,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMock,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))
@@ -153,6 +157,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMock,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))
@@ -170,6 +175,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMock,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))
@@ -187,6 +193,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMock,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))
@@ -204,6 +211,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMock,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))
@@ -221,6 +229,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMock,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))
@@ -264,6 +273,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         repository = repositoryMockWithHandler,
         dbLayer = dbLayerWithMedia,
         backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
         replyToMessage = false
       )
       .map(messages => messages.map(_.text))

@@ -78,8 +78,8 @@ object TelegramReply {
       msg: Message,
       repository: Repository[F],
       dbLayer: DBLayer[F],
-    backgroundJobManager: BackgroundJobManager[F],
-    effectfulCallbacks: Map[String, Message => F[List[Text]]],
+      backgroundJobManager: BackgroundJobManager[F],
+      effectfulCallbacks: Map[String, Message => F[List[Text]]],
       replyToMessage: Boolean
   ): F[List[Message]] = reply match {
     case mediaFile: MediaFile =>

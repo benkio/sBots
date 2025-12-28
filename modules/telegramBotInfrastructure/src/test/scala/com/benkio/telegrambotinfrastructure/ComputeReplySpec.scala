@@ -62,6 +62,7 @@ class ComputeReplySpec extends CatsEffectSuite {
         repository =
           RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO]),
         backgroundJobManager = BackgroundJobManagerMock.mock(),
+        effectfulCallbacks = Map.empty,
         dbLayer = DBLayerMock.mock(SampleWebhookBot.sBotInfo.botId)
       )
 
