@@ -21,8 +21,8 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       )
       .map(result => {
         val check = optExpected.fold(
-          result != "Nessuna puntata/show contenente '' è stata trovata"
-        )(e => result == e)
+          result.value != "Nessuna puntata/show contenente '' è stata trovata"
+        )(e => result.value == e)
         if !check then println(s"ERROR: $botId - $input - $optExpected - $result")
         check
       })

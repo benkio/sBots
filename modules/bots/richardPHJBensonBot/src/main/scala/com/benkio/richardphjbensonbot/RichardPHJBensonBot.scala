@@ -6,6 +6,7 @@ import cats.syntax.all.*
 import cats.Parallel
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
+import com.benkio.telegrambotinfrastructure.model.reply.toText
 import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
 import com.benkio.telegrambotinfrastructure.model.reply.EffectfulReply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
@@ -86,7 +87,7 @@ trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
             msg = msg,
             command = RichardPHJBensonBot.bensonifyKey,
             sBotInfo = sBotInfo,
-            computation = t => List(Bensonify.compute(t)).pure[F],
+            computation = t => List(Bensonify.compute(t)).toText.pure[F],
             defaultReply = "E PARLAAAAAAA!!!!"
           )
       )

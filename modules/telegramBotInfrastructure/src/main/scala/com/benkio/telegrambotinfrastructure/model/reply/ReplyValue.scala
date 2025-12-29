@@ -7,6 +7,8 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import io.circe.*
 import io.circe.generic.semiauto.*
 
+import scala.concurrent.duration.FiniteDuration
+
 sealed trait ReplyValue
 
 object ReplyValue {
@@ -14,7 +16,11 @@ object ReplyValue {
   given Encoder[ReplyValue] = deriveEncoder[ReplyValue]
 }
 
-final case class Text(value: String, textType: Text.TextType = TextType.Plain) extends ReplyValue
+final case class Text(
+    value: String,
+    textType: Text.TextType = TextType.Plain,
+    timeToLive: Option[FiniteDuration] = None
+) extends ReplyValue
 
 object Text {
   enum TextType {

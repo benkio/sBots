@@ -19,6 +19,7 @@ object ApiMock {
   given Api[IO]                            = new ApiMock
   val expectedResponses: Map[String, Json] = Map(
     "sendChatAction" -> Json.False,
+    "deleteMessage"    -> true.asJson,
     "sendMessage"    -> Message(
       0,
       date = 0,

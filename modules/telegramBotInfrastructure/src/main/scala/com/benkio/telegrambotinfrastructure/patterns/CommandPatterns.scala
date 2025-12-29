@@ -40,6 +40,7 @@ import telegramium.bots.Message
 
 import java.time.LocalDateTime
 import java.util.UUID
+import scala.concurrent.duration.*
 import scala.util.Try
 
 object CommandPatterns {
@@ -178,7 +179,7 @@ Input as query string:
         keywords: String,
         dbShow: DBShow[F],
         sBotInfo: SBotInfo
-    )(using log: LogWriter[F]): F[String] = {
+    )(using log: LogWriter[F]): F[Text] = {
       val query: ShowQuery            = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
         case RandomQuery         => dbShow.getRandomShow(sBotInfo.botId).map(_.toList)
@@ -191,7 +192,14 @@ Input as query string:
         result  <-
           results.headOption
             .traverse(Show.apply[F](_).map(_.show))
-            .map(_.getOrElse(s"Nessuna puntata/show contenente '$keywords' è stata trovata"))
+            .map(
+              _.fold(
+                Text(
+                  value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
+                  timeToLive = 10.seconds.some
+                )
+              )(Text(_))
+            )
       } yield result
     }
   }
@@ -242,8 +250,8 @@ Input as query string:
             .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
             .sortBy(_._1)(using Trigger.orderingInstance.reverse)
           if matches.isEmpty
-          then List(s"No matching trigger for $t").pure[F]
-          else matches.map { case (_, rbm) => rbm.prettyPrint() }.pure[F]
+          then List(Text(value = s"No matching trigger for $t", timeToLive = 10.seconds.some)).pure[F]
+          else matches.map { case (_, rbm) => rbm.prettyPrint() }.toText.pure[F]
         },
         defaultReply = """Input Required: Insert the test keyword to check if it's in some bot trigger"""
       )
@@ -315,7 +323,7 @@ ${ignoreMessagePrefix
         ignoreMessagePrefix: Option[String],
         commands: List[ReplyBundleCommand]
     ): F[List[Text]] = {
-      val computation = (input: String) => {
+      val computation: String => F[List[Text]] = (input: String) => {
         val itaMatches = List("it", "ita", "italian", "🇮🇹")
         val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
         val (commandDescriptionsIta, commandDescriptionsEng) =
@@ -337,11 +345,11 @@ ${ignoreMessagePrefix
         )
         input match {
           case v if itaMatches.contains(v) =>
-            instructionsIta.pure[F]
+            instructionsIta.toText.pure[F]
           case v if engMatches.contains(v) =>
-            instructionsEng.pure[F]
+            instructionsEng.toText.pure[F]
           case _ =>
-            instructionsEng.pure[F]
+            instructionsEng.toText.pure[F]
         }
       }
       handleCommandWithInput[F](
@@ -388,7 +396,7 @@ ${ignoreMessagePrefix
         m: Message,
         sBotInfo: SBotInfo
     ): F[List[Text]] = {
-      val computation = (cronInput: String) =>
+      val computation: String => F[List[Text]] = (cronInput: String) =>
         for {
           subscription <- Subscription(m.chat.id, sBotInfo.botId, cronInput)
           nextOccurrence = subscription.cron
@@ -397,7 +405,7 @@ ${ignoreMessagePrefix
           _ <- backgroundJobManager.scheduleSubscription(subscription)
         } yield List(
           s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
-        )
+        ).toText
       handleCommandWithInput[F](
         msg = m,
         command = "subscribe",
@@ -426,15 +434,17 @@ ${ignoreMessagePrefix
         m: Message,
         sBotInfo: SBotInfo
     ): F[List[Text]] = {
-      val computation = (subscriptionIdInput: String) => {
+      val computation: String => F[List[Text]] = (subscriptionIdInput: String) => {
         if subscriptionIdInput.isEmpty then for {
           _ <- backgroundJobManager.cancelSubscriptions(ChatId(m.chat.id))
-        } yield List("All Subscriptions for current chat successfully cancelled")
+        } yield List(
+          Text(value = "All Subscriptions for current chat successfully cancelled", timeToLive = 10.seconds.some)
+        )
         else
           for {
             subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
             _              <- backgroundJobManager.cancelSubscription(subscriptionId)
-          } yield List("Subscription successfully cancelled")
+          } yield List(Text(value = "Subscription successfully cancelled", timeToLive = 10.seconds.some))
       }
       handleCommandWithInput[F](
         msg = m,
@@ -536,9 +546,11 @@ ${ignoreMessagePrefix
         dbTimeout: DBTimeout[F],
         sBotInfo: SBotInfo
     ): F[List[Text]] = {
-      val computation = (input: String) => {
+      val computation: String => F[List[Text]] = (input: String) => {
         if input.isEmpty
-        then dbTimeout.removeTimeout(chatId = msg.chat.id, botId = sBotInfo.botId) *> List("Timeout removed").pure[F]
+        then dbTimeout.removeTimeout(chatId = msg.chat.id, botId = sBotInfo.botId) *> List(
+          Text(value = "Timeout removed", timeToLive = 10.seconds.some)
+        ).pure[F]
         else
           Timeout(ChatId(msg.chat.id), sBotInfo.botId, input)
             .fold(
@@ -546,13 +558,22 @@ ${ignoreMessagePrefix
                 LogWriter.info(
                   s"[ERROR] While parsing the timeout input: $error"
                 ) *> List(
-                  s"Timeout set failed: wrong input format for $input, the input must be in the form '/timeout 00:00:00'"
+                  Text(
+                    value =
+                      s"Timeout set failed: wrong input format for $input, the input must be in the form '/timeout 00:00:00'",
+                    timeToLive = 10.seconds.some
+                  )
                 )
                   .pure[F],
               timeout =>
                 dbTimeout.setTimeout(
                   DBTimeoutData(timeout)
-                ) *> List(s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}").pure[F]
+                ) *> List(
+                  Text(
+                    value = s"Timeout set successfully to ${Timeout.formatTimeout(timeout)}",
+                    timeToLive = 10.seconds.some
+                  )
+                ).pure[F]
             )
       }
       handleCommandWithInput[F](
@@ -585,7 +606,7 @@ ${ignoreMessagePrefix
       msg: Message,
       command: String,
       sBotInfo: SBotInfo,
-      computation: String => F[List[String]],
+      computation: String => F[List[Text]],
       defaultReply: String,
       allowEmptyString: Boolean = false
   ): F[List[Text]] =
@@ -597,14 +618,16 @@ ${ignoreMessagePrefix
         commandCheck && restCheck
       })
       .map(t => computation(t.dropWhile(_ != ' ').drop(1).trim))
-      .getOrElse(List(defaultReply).pure[F])
+      .getOrElse(List(Text(value = defaultReply, timeToLive = 10.seconds.some)).pure[F])
       .handleErrorWith(e =>
         List(
-          s"""An error occurred processing the command: $command
-             | message text: ${msg.text.orElse(msg.caption).getOrElse("")}
-             | bot: ${sBotInfo.botName}
-             | error: ${e.getMessage}""".stripMargin
+          Text(
+            value = s"""An error occurred processing the command: $command
+                       | message text: ${msg.text.orElse(msg.caption).getOrElse("")}
+                       | bot: ${sBotInfo.botName}
+                       | error: ${e.getMessage}""".stripMargin,
+            timeToLive = 10.seconds.some
+          )
         ).pure[F]
       )
-      .map(_.toText)
 }

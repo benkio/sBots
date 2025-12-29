@@ -1,8 +1,10 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
+import scala.concurrent.duration.*
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
+import com.benkio.telegrambotinfrastructure.model.reply.toText
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import munit.*
@@ -26,7 +28,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
     sBotInfo = sBotInfo,
     defaultReply = defaultReply,
     allowEmptyString = allowEmptyString,
-    computation = input => (if input.isEmpty then List("success") else List("failed")).pure[IO]
+    computation = input => (if input.isEmpty then List("success") else List("failed")).toText.pure[IO]
   )
 
   test(
@@ -52,7 +54,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
         """/command   """,
         """/command@SampleWebhookBot   """
       ).traverse(resultByInput(_, false))
-    assertIO(result, List.fill(4)(List(Text(defaultReply))))
+    assertIO(result, List.fill(4)(List(Text(value = defaultReply, timeToLive = 10.seconds.some ))))
   }
 
   test("handleCommandWithInput should return the error if the command's input causes an error ") {
@@ -72,6 +74,6 @@ class CommandPatternsSpec extends CatsEffectSuite {
          | message text: /command
          | bot: SampleWebhookBot
          | error: [CommandPatternsSpec] this should trigger the error handling of the handleCommandWithInput""".stripMargin
-    assertIO(result, List(Text(expectedError)))
+    assertIO(result, List(Text(expectedError, timeToLive = 10.seconds.some)))
   }
 }

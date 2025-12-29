@@ -5,7 +5,6 @@ import cats.effect.*
 import cats.effect.implicits.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
-import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Subscription
@@ -150,7 +149,7 @@ object BackgroundJobManager {
         reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
         _     <- TextReply.sendText[F](
-          reply = Text(reply),
+          reply = reply,
           msg = message,
           replyToMessage = true
         )

@@ -1,7 +1,9 @@
 package com.benkio.telegrambotinfrastructure.telegram
 
+import scala.concurrent.duration.*
 import cats.data.NonEmptyList
 import cats.effect.IO
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
@@ -23,16 +25,16 @@ import telegramium.bots.Message
 class TelegramReplySpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  test("TextReply.sendText reply should work as expected") {
-    val message = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val text    = Text("input Text")
+  test("TextReply.sendText reply should work as expected".only) {
+    val message = Message(6666, date = 0, chat = Chat(6666, `type` = "private"), text = Some("test message"))
+    val text    = Text("input Text with time to live", timeToLive = 1.seconds.some)
     val result  = TextReply
       .sendText[IO](
         text,
         message,
         false
       )
-      .map(messages => messages.map(_.text))
+      .map(messages => messages.map(_.text)) <* IO.sleep(2.seconds)
     assertIO(result, List(Some("[apiMock] sendMessage reply")))
   }
 
