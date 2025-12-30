@@ -20,7 +20,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
       dbMedia  = dbLayer.dbMedia
-      sBotInfo = SBotInfo(M0sconiBot.sBotInfo.botId, SBotName("testBot"))
+      sBotInfo = SBotInfo(M0sconiBot.sBotConfig.sBotInfo.botId, SBotName("testBot"))
       _ <- Resource.eval(
         List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
           .traverse(input =>
@@ -33,7 +33,8 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
               ),
               sBotInfo = sBotInfo,
               ignoreMessagePrefix = Some("!"),
-              commands = M0sconiBot.commandRepliesData
+              commands = M0sconiBot.commandRepliesData,
+              ttl = M0sconiBot.sBotConfig.messageTimeToLive
             )
           )
           .map(_.flatten.foreach { text =>
@@ -59,7 +60,8 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
               ),
               sBotInfo = sBotInfo,
               ignoreMessagePrefix = Some("!"),
-              commands = M0sconiBot.commandRepliesData
+              commands = M0sconiBot.commandRepliesData,
+              ttl = M0sconiBot.sBotConfig.messageTimeToLive
             )
           )
           .map(_.flatten.foreach { text =>

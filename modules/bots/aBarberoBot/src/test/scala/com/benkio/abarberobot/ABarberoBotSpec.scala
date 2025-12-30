@@ -38,7 +38,7 @@ class ABarberoBotSpec extends BaseBotSpec {
     BackgroundJobManager[IO](
       dbLayer = emptyDBLayer,
       sBotInfo = ABarberoBot.sBotConfig.sBotInfo,
-      ttl = ABarberoBot.sBotConfig.messageTimeToLive,
+      ttl = ABarberoBot.sBotConfig.messageTimeToLive
     ).map(bjm =>
       new ABarberoBotPolling[IO](
         repository = repositoryMock,

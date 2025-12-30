@@ -100,10 +100,10 @@ object RichardPHJBensonBot {
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
   import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData
 
-  val triggerFilename: String             = "rphjb_triggers.txt"
+  val triggerFilename: String = "rphjb_triggers.txt"
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
   val configNamespace: String = "rphjb"
-  val sBotConfig: SBotConfig = SBotConfig(
+  val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("rphjb"), SBotInfo.SBotName("RichardPHJBensonBot")),
     triggerFilename = triggerFilename,
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"

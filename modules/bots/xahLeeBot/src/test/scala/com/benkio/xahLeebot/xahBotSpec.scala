@@ -33,7 +33,7 @@ class XahLeeBotSpec extends BaseBotSpec {
   val xahLeeBot = BackgroundJobManager[IO](
     dbLayer = emptyDBLayer,
     sBotInfo = XahLeeBot.sBotConfig.sBotInfo,
-    ttl = XahLeeBot.sBotConfig.messageTimeToLive,
+    ttl = XahLeeBot.sBotConfig.messageTimeToLive
   ).map(bjm =>
     new XahLeeBotPolling[IO](
       repository = repositoryMock,

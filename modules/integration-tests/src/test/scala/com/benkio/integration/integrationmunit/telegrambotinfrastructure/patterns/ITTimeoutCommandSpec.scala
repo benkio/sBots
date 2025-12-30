@@ -13,8 +13,8 @@ import telegramium.bots.Message
 
 class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
 
-  val botName     = RichardPHJBensonBot.botName
-  val botId       = RichardPHJBensonBot.botId
+  val botName     = RichardPHJBensonBot.sBotConfig.sBotInfo.botName
+  val botId       = RichardPHJBensonBot.sBotConfig.sBotInfo.botId
   val chatIdValue = 0L
   val chatId      = ChatId(chatIdValue)
 
@@ -36,7 +36,8 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
           .timeoutLogic[IO](
             msg = msg.copy(text = Some(s"/timeout $wrongInput")),
             dbTimeout = dbLayer.dbTimeout,
-            sBotInfo = RichardPHJBensonBot.sBotInfo
+            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
           )
           .attempt
       )
@@ -63,7 +64,8 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
           .timeoutLogic[IO](
             msg = msg.copy(text = Some(s"/timeout $wrongInput")),
             dbTimeout = dbLayer.dbTimeout,
-            sBotInfo = RichardPHJBensonBot.sBotInfo
+            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
           )
           .attempt
       )
@@ -106,7 +108,8 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
           .timeoutLogic[IO](
             msg = msg.copy(text = Some("/timeout ")),
             dbTimeout = dbLayer.dbTimeout,
-            sBotInfo = RichardPHJBensonBot.sBotInfo
+            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
           )
           .attempt
       )

@@ -17,7 +17,8 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       .selectLinkByKeyword[IO](
         keywords = input,
         dbShow = dbShow,
-        sBotInfo = SBotInfo(botId, SBotName("testBot"))
+        sBotInfo = SBotInfo(botId, SBotName("testBot")),
+        ttl = None
       )
       .map(result => {
         val check = optExpected.fold(

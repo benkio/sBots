@@ -26,7 +26,7 @@ import scala.io.Source
 
 class ITDBSpec extends CatsEffectSuite with DBFixture {
 
-  val sBotInfo: SBotInfo                    = XahLeeBot.sBotInfo
+  val sBotInfo: SBotInfo                    = XahLeeBot.sBotConfig.sBotInfo
   val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
@@ -41,7 +41,8 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(
     BackgroundJobManager(
       dbLayer = emptyDBLayer,
-      sBotInfo = sBotInfo
+      sBotInfo = sBotInfo,
+      ttl = XahLeeBot.sBotConfig.messageTimeToLive
     )
   )
 

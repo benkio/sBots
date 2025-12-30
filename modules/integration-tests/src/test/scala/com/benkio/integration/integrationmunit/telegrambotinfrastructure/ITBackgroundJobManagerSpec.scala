@@ -25,7 +25,7 @@ import scala.concurrent.duration.*
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4"))
-  val sBotInfo                           = RichardPHJBensonBot.sBotInfo
+  val sBotInfo                           = RichardPHJBensonBot.sBotConfig.sBotInfo
 
   val cronScheduler = Cron4sScheduler.systemDefault[IO]
 
@@ -47,7 +47,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
     } yield assert(backgroundJobManager.getScheduledSubscriptions().isEmpty)
@@ -64,7 +65,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
       _ <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(testSubscription.id.value))
@@ -98,7 +100,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
       _             <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
@@ -134,7 +137,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
       (mainStream, cancelSignal) <- Resource.eval(backgroundJobManager.runSubscription(testSubscription))
@@ -163,7 +167,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
       _ <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
@@ -192,7 +197,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
       (mainStream, _) <- Resource.eval(backgroundJobManager.runSubscription(testSubscription))

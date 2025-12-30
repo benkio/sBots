@@ -38,7 +38,8 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       emptyBackgroundJobManager <- Resource.eval(
         BackgroundJobManager[IO](
           dbLayer = dbLayer,
-          sBotInfo = RichardPHJBensonBot.sBotInfo
+          sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
       mediaFiles =

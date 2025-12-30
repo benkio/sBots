@@ -70,13 +70,13 @@ trait M0sconiBot[F[_]] extends SBot[F] {
 }
 object M0sconiBot {
 
-  val triggerFilename: String             = "mos_triggers.txt"
-   val tokenFilename: String   = "mos_M0sconiBot.token"
+  val triggerFilename: String = "mos_triggers.txt"
+  val tokenFilename: String   = "mos_M0sconiBot.token"
   val configNamespace: String = "mos"
-  val sBotConfig: SBotConfig = SBotConfig(
+  val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("mos"), SBotInfo.SBotName("M0sconiBot")),
     triggerFilename = triggerFilename,
-    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt",
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt"
   )
 
   val messageRepliesData: List[ReplyBundleMessage] =

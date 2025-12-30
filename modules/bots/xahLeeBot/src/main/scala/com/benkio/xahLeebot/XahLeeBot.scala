@@ -1,8 +1,8 @@
 package com.benkio.xahleebot
 
-import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import cats.*
 import cats.effect.*
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
@@ -42,7 +42,7 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait XahLeeBot[F[_]] extends SBot[F] {
 
-  override val sBotConfig: SBotConfig      = XahLeeBot.sBotConfig
+  override val sBotConfig: SBotConfig = XahLeeBot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
   val dbLayer: DBLayer[F]
 
@@ -61,8 +61,8 @@ object XahLeeBot {
     triggerFilename = "xah_triggers.txt",
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/xah_triggers.txt"
   )
-  val tokenFilename: String      = "xah_XahLeeBot.token"
-  val configNamespace: String    = "xah"
+  val tokenFilename: String   = "xah_XahLeeBot.token"
+  val configNamespace: String = "xah"
 
   val messageRepliesData: List[ReplyBundleMessage] = List.empty
 

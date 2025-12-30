@@ -1,6 +1,5 @@
 package com.benkio.calandrobot
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import cats.*
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
@@ -15,6 +14,7 @@ import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
@@ -56,7 +56,7 @@ trait CalandroBot[F[_]] extends SBot[F] {
 
   override val sBotConfig: SBotConfig = CalandroBot.sBotConfig
   // TODO: 785 Override when it's used by all bots
-  val triggerJsonFilename: String  = CalandroBot.triggerJsonFilename
+  val triggerJsonFilename: String = CalandroBot.triggerJsonFilename
 
   override val messageRepliesData: List[ReplyBundleMessage] =
     CalandroBot.messageRepliesData
@@ -70,7 +70,7 @@ object CalandroBot {
   val tokenFilename: String       = "cala_CalandroBot.token"
   val configNamespace: String     = "cala"
   val triggerJsonFilename: String = "cala_triggers.json"
-  val sBotConfig: SBotConfig = SBotConfig(
+  val sBotConfig: SBotConfig      = SBotConfig(
     sBotInfo = SBotInfo(SBotId("cala"), SBotName("CalandroBot")),
     triggerFilename = "cala_triggers.txt",
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/abar_triggers.txt"

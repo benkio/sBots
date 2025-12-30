@@ -19,7 +19,7 @@ import java.nio.file.Files
 class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
 
   val testMediaName          = "rphjb_MaSgus.mp3"
-  val testMediaId            = RichardPHJBensonBot.botId
+  val testMediaId            = RichardPHJBensonBot.sBotConfig.sBotInfo.botId
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
     bot_id = testMediaId.value,
@@ -98,8 +98,11 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
     )
     val resourceAssert = for {
       dbRepository <- fixture.repositoryResource
-      mediaSources <- dbRepository.getResourcesByKind(criteria = "randomcard", botId = CalandroBot.botId)
-      files        <- mediaSources.fold(
+      mediaSources <- dbRepository.getResourcesByKind(
+        criteria = "randomcard",
+        botId = CalandroBot.sBotConfig.sBotInfo.botId
+      )
+      files <- mediaSources.fold(
         e => Resource.eval(IO.raiseError(Throwable(s"getResourceByKind returned an error $e"))),
         _.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
       )
