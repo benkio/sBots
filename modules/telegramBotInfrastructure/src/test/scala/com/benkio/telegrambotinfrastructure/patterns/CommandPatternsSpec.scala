@@ -10,8 +10,6 @@ import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
-
-
 class CommandPatternsSpec extends CatsEffectSuite {
 
   val msg: Message = Message(

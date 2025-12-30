@@ -6,7 +6,6 @@ import com.benkio.integration.DBFixture
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.reply.toText
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
@@ -76,11 +75,14 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
         reply,
         Right(
           List(
-            """An error occurred processing the command: unsubscribe
-              | message text: /unsubscribe 04F08147-DCD7-4F15-9CF8-D7950CB2AD90
-              | bot: RichardPHJBensonBot
-              | error: Subscription Id is not found: 04f08147-dcd7-4f15-9cf8-d7950cb2ad90""".stripMargin
-          ).toText
+            Text(
+              value = """An error occurred processing the command: unsubscribe
+                        | message text: /unsubscribe 04F08147-DCD7-4F15-9CF8-D7950CB2AD90
+                        | bot: RichardPHJBensonBot
+                        | error: Subscription Id is not found: 04f08147-dcd7-4f15-9cf8-d7950cb2ad90""".stripMargin,
+              timeToLive = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+            )
+          )
         )
       )
     }
@@ -100,7 +102,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
-      _     <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
+      _                                    <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       reply: Either[Throwable, List[Text]] <- Resource.eval(
         SubscribeUnsubscribeCommand
           .unsubcribeCommandLogic(
@@ -132,7 +134,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
-      _     <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
+      _                                    <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
       reply: Either[Throwable, List[Text]] <- Resource.eval(
         SubscribeUnsubscribeCommand
           .unsubcribeCommandLogic(
