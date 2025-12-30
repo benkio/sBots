@@ -62,6 +62,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       .sendEffectfulKey[IO](
         reply = effectfulKey,
         msg = message,
+        ttl = None,
         repository = repositoryMockWithHandler,
         dbLayer = dbLayerWithMedia,
         backgroundJobManager = backgroundJobManager,
@@ -79,6 +80,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
+        ttl = None,
         msg = message.copy(text = Some("/searchshow")),
         repository = repositoryMock,
         dbLayer = dbLayer,
@@ -108,6 +110,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
+        ttl = None,
         msg = message.copy(text = Some("/triggersearch test")),
         repository = repositoryMock,
         dbLayer = dbLayer,
@@ -137,6 +140,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
+        ttl = None,
         msg = message.copy(text = Some("/instructions")),
         repository = repositoryMock,
         dbLayer = dbLayer,
@@ -155,6 +159,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
+        ttl = None,
         msg = message.copy(text = Some("/subscribe 0 * * ? * *")),
         repository = repositoryMock,
         dbLayer = dbLayer,
@@ -173,6 +178,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
+        ttl = None,
         msg = message.copy(text = Some("/unsubscribe")),
         repository = repositoryMock,
         dbLayer = dbLayer,
@@ -196,7 +202,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = Map.empty,
-        replyToMessage = false
+        replyToMessage = false,
+        ttl = None
       )
       .map(messages => messages.map(_.text))
 
@@ -214,7 +221,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = Map.empty,
-        replyToMessage = false
+        replyToMessage = false,
+        ttl = None
       )
       .map(messages => messages.map(_.text))
 
@@ -232,7 +240,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = Map.empty,
-        replyToMessage = false
+        replyToMessage = false,
+        ttl = None
       )
       .map(messages => messages.map(_.text))
 
@@ -276,7 +285,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         dbLayer = dbLayerWithMedia,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = Map.empty,
-        replyToMessage = false
+        replyToMessage = false,
+        ttl = None
       )
       .map(messages => messages.map(_.text))
 
@@ -302,7 +312,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = effectfulCallbacks,
-        replyToMessage = false
+        replyToMessage = false,
+        ttl = None
       )
       .map(messages => messages.map(_.text))
 

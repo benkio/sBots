@@ -171,7 +171,8 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
             msg = msg,
             sBotInfo = sBotInfo,
             ignoreMessagePrefix = ignoreMessagePrefix,
-            commands = commands
+            commands = commands,
+            ttl = None
           )
         )
         itaInstructionCommandResult <- itaInstructionInputs.traverse(msg =>
@@ -179,7 +180,8 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
             msg = msg,
             sBotInfo = sBotInfo,
             ignoreMessagePrefix = ignoreMessagePrefix,
-            commands = commands
+            commands = commands,
+            ttl = None
           )
         )
       } yield {

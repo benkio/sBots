@@ -24,6 +24,8 @@ import telegramium.bots.IFile
 import telegramium.bots.Message
 import telegramium.bots.ReplyParameters
 
+import scala.concurrent.duration.FiniteDuration
+
 object TelegramReply {
 
   def telegramFileReplyPattern[F[_]: Async: LogWriter: Api](
@@ -80,7 +82,8 @@ object TelegramReply {
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
-      replyToMessage: Boolean
+      replyToMessage: Boolean,
+      ttl: Option[FiniteDuration]
   ): F[List[Message]] = reply match {
     case mediaFile: MediaFile =>
       MediaFileReply.sendMediaFile(
@@ -103,7 +106,8 @@ object TelegramReply {
         dbLayer = dbLayer,
         replyToMessage = replyToMessage,
         effectfulCallbacks = effectfulCallbacks,
-        backgroundJobManager = backgroundJobManager
+        backgroundJobManager = backgroundJobManager,
+        ttl = ttl
       )
   }
 }

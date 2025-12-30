@@ -19,8 +19,8 @@ import java.util.UUID
 class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId = "B674CCE0-9684-4D31-8CC7-9E2A41EA0878"
-  val botName            = RichardPHJBensonBot.botName
-  val botId              = RichardPHJBensonBot.botId
+  val botName            = RichardPHJBensonBot.sBotConfig.sBotInfo.botName
+  val botId              = RichardPHJBensonBot.sBotConfig.sBotInfo.botId
   val chatIdValue        = 0L
 
   val testSubscriptions: List[DBSubscriptionData] = List(
@@ -73,14 +73,15 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = RichardPHJBensonBot.sBotInfo
+          sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
       subscriptionsFromCommandResult <- Resource.eval(
         SubscribeUnsubscribeCommand.subscriptionsCommandLogic(
           dbSubscription = dbSubscription,
           backgroundJobManager = backgroundJobManager,
-          sBotInfo = RichardPHJBensonBot.sBotInfo,
+          sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
           m = msg
         )
       )

@@ -21,21 +21,22 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(YouTuboAncheI0Bot.sBotInfo.botId)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(YouTuboAncheI0Bot.sBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == YouTuboAncheI0Bot.sBotInfo.botId)(
+      IO.raiseUnless(inputBotId == YouTuboAncheI0Bot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[YouTuboAncheI0BotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
   val youtuboanchei0bot = BackgroundJobManager[IO](
     dbLayer = emptyDBLayer,
-    sBotInfo = YouTuboAncheI0Bot.sBotInfo
+    sBotInfo = YouTuboAncheI0Bot.sBotConfig.sBotInfo,
+    ttl = YouTuboAncheI0Bot.sBotConfig.messageTimeToLive
   ).map(bjm =>
     new YouTuboAncheI0BotPolling[IO](
       repository = repositoryMock,
@@ -68,7 +69,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = YouTuboAncheI0Bot.triggerFilename,
+    triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
     botMediaFiles = YouTuboAncheI0Bot.messageRepliesData.flatMap(mr => mr.reply.prettyPrint).pure[IO],
     botTriggers = YouTuboAncheI0Bot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )

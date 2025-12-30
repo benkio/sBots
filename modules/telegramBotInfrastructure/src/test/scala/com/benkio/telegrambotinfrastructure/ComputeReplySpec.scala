@@ -59,6 +59,7 @@ class ComputeReplySpec extends CatsEffectSuite {
       ComputeReply.execute(
         replyBundle = input,
         message = message,
+        ttl = None,
         repository =
           RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO]),
         backgroundJobManager = BackgroundJobManagerMock.mock(),

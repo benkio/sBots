@@ -55,33 +55,33 @@ object GenerateTriggers extends IOApp {
     (for {
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/aBarberoBot/",
-        triggerFilename = ABarberoBot.triggerFilename,
+        triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
         triggers = ABarberoBot.messageRepliesData
       )
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/calandroBot/",
-        triggerFilename = CalandroBot.triggerFilename,
+        triggerFilename = CalandroBot.sBotConfig.triggerFilename,
         triggers = CalandroBot.messageRepliesData
       )
       // TODO: 785
       // _ <- generateTriggersJsonFile(
       //   botModuleRelativeFolderPath = "../bots/calandroBot/",
-      //   triggerFilename = CalandroBot.triggerFilename,
+      //   triggerFilename = CalandroBot.sBotConfig.triggerFilename,
       //   triggers = CalandroBot.messageRepliesData[IO]
       // )
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/m0sconiBot/",
-        triggerFilename = M0sconiBot.triggerFilename,
+        triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
         triggers = M0sconiBot.messageRepliesData
       )
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/richardPHJBensonBot/",
-        triggerFilename = RichardPHJBensonBot.triggerFilename,
+        triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
         triggers = RichardPHJBensonBot.messageRepliesData
       )
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/youTuboAncheI0Bot/",
-        triggerFilename = YouTuboAncheI0Bot.triggerFilename,
+        triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
         triggers = YouTuboAncheI0Bot.messageRepliesData
       )
     } yield ExitCode.Success).use(_.pure)

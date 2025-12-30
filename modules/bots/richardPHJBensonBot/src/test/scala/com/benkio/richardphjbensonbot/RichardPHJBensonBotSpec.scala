@@ -33,21 +33,22 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(RichardPHJBensonBot.sBotInfo.botId)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(RichardPHJBensonBot.sBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(getResourceByKindHandler =
     (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == RichardPHJBensonBot.sBotInfo.botId)(
+      IO.raiseUnless(inputBotId == RichardPHJBensonBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[RichardPHJBensonBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
   val richardPHJBensonBot = BackgroundJobManager[IO](
     dbLayer = emptyDBLayer,
-    sBotInfo = RichardPHJBensonBot.sBotInfo
+    sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+    ttl = None
   ).map(bjm =>
     new RichardPHJBensonBotPolling[IO](
       repository = repositoryMock,
@@ -105,7 +106,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = RichardPHJBensonBot.triggerFilename,
+    triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = RichardPHJBensonBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )

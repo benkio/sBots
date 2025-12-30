@@ -16,7 +16,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
   val testMediaName          = "rphjb_MaSgus.mp3"
   val testMediaKind          = "some kind"
-  val testMediaId            = RichardPHJBensonBot.botId
+  val testMediaId            = RichardPHJBensonBot.sBotConfig.sBotInfo.botId
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
     bot_id = testMediaId.value,

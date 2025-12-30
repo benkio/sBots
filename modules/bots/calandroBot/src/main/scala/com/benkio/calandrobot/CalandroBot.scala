@@ -2,6 +2,7 @@ package com.benkio.calandrobot
 
 import cats.*
 import cats.effect.*
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
@@ -13,6 +14,7 @@ import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
@@ -52,11 +54,9 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait CalandroBot[F[_]] extends SBot[F] {
 
-  override val sBotInfo: SBotInfo      = CalandroBot.sBotInfo
-  override val triggerFilename: String = CalandroBot.triggerFilename
+  override val sBotConfig: SBotConfig = CalandroBot.sBotConfig
   // TODO: 785 Override when it's used by all bots
-  val triggerJsonFilename: String  = CalandroBot.triggerJsonFilename
-  override val triggerListUri: Uri = CalandroBot.triggerListUri
+  val triggerJsonFilename: String = CalandroBot.triggerJsonFilename
 
   override val messageRepliesData: List[ReplyBundleMessage] =
     CalandroBot.messageRepliesData
@@ -67,14 +67,14 @@ trait CalandroBot[F[_]] extends SBot[F] {
 
 object CalandroBot {
 
-  val botName: SBotInfo.SBotName  = SBotInfo.SBotName("CalandroBot")
-  val botId: SBotId               = SBotId("cala")
-  val sBotInfo: SBotInfo          = SBotInfo(botId, botName)
   val tokenFilename: String       = "cala_CalandroBot.token"
   val configNamespace: String     = "cala"
-  val triggerFilename: String     = "cala_triggers.txt"
   val triggerJsonFilename: String = "cala_triggers.json"
-  val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/abar_triggers.txt"
+  val sBotConfig: SBotConfig      = SBotConfig(
+    sBotInfo = SBotInfo(SBotId("cala"), SBotName("CalandroBot")),
+    triggerFilename = "cala_triggers.txt",
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/abar_triggers.txt"
+  )
 
   val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage.textToText(
@@ -162,7 +162,7 @@ object CalandroBot {
       MediaByKindCommand.mediaCommandByKind(
         commandName = "randomcard",
         instruction = CommandInstructionData.NoInstructions,
-        sBotInfo = sBotInfo
+        sBotInfo = sBotConfig.sBotInfo
       ),
       ReplyBundleCommand.textToMedia("porcoladro", CommandInstructionData.NoInstructions)(
         mp3"cala_PorcoLadro.mp3"
@@ -258,7 +258,7 @@ object CalandroBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      sBotInfo = sBotInfo
+      sBotConfig = sBotConfig
     )
   } yield botSetup).use { botSetup =>
     action(
@@ -279,7 +279,7 @@ object CalandroBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      sBotInfo = sBotInfo,
+      sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new CalandroBotWebhook[F](

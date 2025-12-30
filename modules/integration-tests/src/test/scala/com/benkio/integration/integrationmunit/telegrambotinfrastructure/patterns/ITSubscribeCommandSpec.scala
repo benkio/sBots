@@ -23,7 +23,7 @@ import java.util.UUID
 class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
-  val sBotInfo                           = RichardPHJBensonBot.sBotInfo
+  val sBotInfo                           = RichardPHJBensonBot.sBotConfig.sBotInfo
   val chatIdValue                        = 0L
   val chatId                             = ChatId(chatIdValue)
   val cronValue                          = "* * * ? * *"
@@ -52,7 +52,8 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = RichardPHJBensonBot.sBotInfo
+          sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
         )
       )
       reply <- Resource.eval(
@@ -60,11 +61,14 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           .subscribeCommandLogic(
             backgroundJobManager = backgroundJobManager,
             m = msg.copy(text = Some(s"/subscribe $cronValue")),
-            sBotInfo = RichardPHJBensonBot.sBotInfo
+            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
           )
       )
-      subscriptionDatas <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(RichardPHJBensonBot.botId))
-      subscriptions     <- Resource.eval(
+      subscriptionDatas <- Resource.eval(
+        dbLayer.dbSubscription.getSubscriptions(RichardPHJBensonBot.sBotConfig.sBotInfo.botId)
+      )
+      subscriptions <- Resource.eval(
         subscriptionDatas.traverse(subscriptionData => IO.fromEither(Subscription(subscriptionData)))
       )
     } yield {

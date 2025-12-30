@@ -17,12 +17,13 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
       .selectLinkByKeyword[IO](
         keywords = input,
         dbShow = dbShow,
-        sBotInfo = SBotInfo(botId, SBotName("testBot"))
+        sBotInfo = SBotInfo(botId, SBotName("testBot")),
+        ttl = None
       )
       .map(result => {
         val check = optExpected.fold(
-          result != "Nessuna puntata/show contenente '' è stata trovata"
-        )(e => result == e)
+          result.value != "Nessuna puntata/show contenente '' è stata trovata"
+        )(e => result.value == e)
         if !check then println(s"ERROR: $botId - $input - $optExpected - $result")
         check
       })

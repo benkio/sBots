@@ -19,12 +19,12 @@ class GenerateTriggersSpec extends CatsEffectSuite {
     for {
       exitCode <- GenerateTriggers.run(List.empty)
       triggerFiles: List[File] = List(
-        File(s"../bots/aBarberoBot/${ABarberoBot.triggerFilename}"),
-        File(s"../bots/m0sconiBot/${M0sconiBot.triggerFilename}"),
-        File(s"../bots/calandroBot/${CalandroBot.triggerFilename}"),
+        File(s"../bots/aBarberoBot/${ABarberoBot.sBotConfig.triggerFilename}"),
+        File(s"../bots/m0sconiBot/${M0sconiBot.sBotConfig.triggerFilename}"),
+        File(s"../bots/calandroBot/${CalandroBot.sBotConfig.triggerFilename}"),
         File(s"../bots/calandroBot/${CalandroBot.triggerJsonFilename}"),
-        File(s"../bots/richardPHJBensonBot/${RichardPHJBensonBot.triggerFilename}"),
-        File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.triggerFilename}")
+        File(s"../bots/richardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
+        File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.sBotConfig.triggerFilename}")
       )
     } yield {
       assert(exitCode == ExitCode.Success)

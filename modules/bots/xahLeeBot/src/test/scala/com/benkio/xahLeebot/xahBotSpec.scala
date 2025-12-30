@@ -18,21 +18,22 @@ class XahLeeBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(XahLeeBot.sBotInfo.botId)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(XahLeeBot.sBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(getResourceByKindHandler =
     (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == XahLeeBot.sBotInfo.botId)(
+      IO.raiseUnless(inputBotId == XahLeeBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[XahLeeBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
   val xahLeeBot = BackgroundJobManager[IO](
     dbLayer = emptyDBLayer,
-    sBotInfo = XahLeeBot.sBotInfo
+    sBotInfo = XahLeeBot.sBotConfig.sBotInfo,
+    ttl = XahLeeBot.sBotConfig.messageTimeToLive
   ).map(bjm =>
     new XahLeeBotPolling[IO](
       repository = repositoryMock,

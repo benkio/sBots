@@ -2,6 +2,7 @@ package com.benkio.xahleebot
 
 import cats.*
 import cats.effect.*
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
@@ -41,9 +42,7 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait XahLeeBot[F[_]] extends SBot[F] {
 
-  override val sBotInfo: SBotInfo      = XahLeeBot.sBotInfo
-  override val triggerFilename: String = XahLeeBot.triggerFilename
-  override val triggerListUri: Uri     = XahLeeBot.triggerListUri
+  override val sBotConfig: SBotConfig = XahLeeBot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
   val dbLayer: DBLayer[F]
 
@@ -57,20 +56,20 @@ trait XahLeeBot[F[_]] extends SBot[F] {
 
 object XahLeeBot {
 
-  val botName: SBotInfo.SBotName = SBotInfo.SBotName("XahLeeBot")
-  val botId: SBotId              = SBotId("xah")
-  val sBotInfo: SBotInfo         = SBotInfo(botId, botName)
-  val tokenFilename: String      = "xah_XahLeeBot.token"
-  val configNamespace: String    = "xah"
-  val triggerFilename: String    = "xah_triggers.txt"
-  val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/xah_triggers.txt"
+  val sBotConfig: SBotConfig = SBotConfig(
+    sBotInfo = SBotInfo(SBotId("xah"), SBotInfo.SBotName("XahLeeBot")),
+    triggerFilename = "xah_triggers.txt",
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/xah_triggers.txt"
+  )
+  val tokenFilename: String   = "xah_XahLeeBot.token"
+  val configNamespace: String = "xah"
 
   val messageRepliesData: List[ReplyBundleMessage] = List.empty
 
   val commandRepliesData: List[ReplyBundleCommand] =
     CommandRepliesData
       .values(
-        sBotInfo = sBotInfo
+        sBotInfo = sBotConfig.sBotInfo
       )
 
   def buildPollingBot[F[_]: Parallel: Async: Network](using log: LogWriter[F]): Resource[F, XahLeeBotPolling[F]] =
@@ -80,7 +79,7 @@ object XahLeeBot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        sBotInfo = sBotInfo
+        sBotConfig = sBotConfig
       )
     } yield new XahLeeBotPolling[F](
       repository = botSetup.repository,
@@ -97,7 +96,7 @@ object XahLeeBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      sBotInfo = sBotInfo,
+      sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new XahLeeBotWebhook[F](

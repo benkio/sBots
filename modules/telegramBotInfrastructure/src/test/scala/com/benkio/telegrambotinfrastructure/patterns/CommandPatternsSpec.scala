@@ -3,6 +3,7 @@ package com.benkio.telegrambotinfrastructure.patterns
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
+import com.benkio.telegrambotinfrastructure.model.reply.toText
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import munit.*
@@ -26,7 +27,8 @@ class CommandPatternsSpec extends CatsEffectSuite {
     sBotInfo = sBotInfo,
     defaultReply = defaultReply,
     allowEmptyString = allowEmptyString,
-    computation = input => (if input.isEmpty then List("success") else List("failed")).pure[IO]
+    computation = input => (if input.isEmpty then List("success") else List("failed")).toText.pure[IO],
+    ttl = None
   )
 
   test(
@@ -52,7 +54,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
         """/command   """,
         """/command@SampleWebhookBot   """
       ).traverse(resultByInput(_, false))
-    assertIO(result, List.fill(4)(List(Text(defaultReply))))
+    assertIO(result, List.fill(4)(List(Text(value = defaultReply))))
   }
 
   test("handleCommandWithInput should return the error if the command's input causes an error ") {
@@ -65,7 +67,8 @@ class CommandPatternsSpec extends CatsEffectSuite {
       computation = _ =>
         IO.raiseError(
           Throwable("[CommandPatternsSpec] this should trigger the error handling of the handleCommandWithInput")
-        )
+        ),
+      ttl = None
     )
     val expectedError =
       """|An error occurred processing the command: command

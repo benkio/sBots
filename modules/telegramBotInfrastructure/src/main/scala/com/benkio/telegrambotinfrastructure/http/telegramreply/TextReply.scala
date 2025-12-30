@@ -1,7 +1,6 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
 import cats.*
-import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.*
@@ -17,6 +16,8 @@ import telegramium.bots.Message
 import telegramium.bots.ParseMode
 import telegramium.bots.ReplyParameters
 
+import scala.concurrent.duration.FiniteDuration
+
 object TextReply {
   def sendText[F[_]: Async: LogWriter: Api](
       reply: Text,
@@ -29,10 +30,10 @@ object TextReply {
       case Text.TextType.Markdown => Markdown2.some
       case Text.TextType.Html     => Html.some
     }
-    val result: EitherT[F, Throwable, List[Message]] =
+    val result: F[List[Message]] =
       for {
-        _       <- EitherT.liftF(LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}"))
-        _       <- Methods.sendChatAction(chatId, "typing").exec.attemptT
+        _       <- LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}")
+        _       <- Methods.sendChatAction(chatId, "typing").exec
         message <-
           Methods
             .sendMessage(
@@ -42,8 +43,44 @@ object TextReply {
               parseMode = parseMode
             )
             .exec
-            .attemptT
+        _ <- reply.timeToLive.fold(Async[F].unit)(ttl => {
+          Async[F]
+            .start(
+              deleteMessage(
+                chatId = message.chat.id,
+                messageId = message.messageId,
+                ttl = ttl,
+                reply = reply
+              )
+            )
+            .void
+        })
       } yield List(message)
-    result.getOrElse(List.empty)
+    result.handleErrorWith(e =>
+      LogWriter.error(s"[TextReply] error occurred when sending `${reply.value}`. Error: $e") *> List.empty.pure[F]
+    )
+  }
+
+  def deleteMessage[F[_]: Async: LogWriter: Api](
+      chatId: Long,
+      messageId: Int,
+      ttl: FiniteDuration,
+      reply: Text
+  ): F[Boolean] = {
+    Async[F].sleep(ttl) >>
+      LogWriter.info(s"[TelegramReply[Text]] deleting `${reply.value}` after $ttl") >>
+      Methods
+        .deleteMessage(
+          chatId = ChatIntId(chatId),
+          messageId = messageId
+        )
+        .exec
+        .handleErrorWith(e =>
+          LogWriter
+            .error(
+              s"[TelegramReply[Text]] error occurred when deleting `${reply.value}` after $ttl. Error: $e"
+            )
+            .as(false)
+        )
   }
 }
