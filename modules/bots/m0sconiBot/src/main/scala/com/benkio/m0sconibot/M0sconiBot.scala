@@ -3,6 +3,7 @@ package com.benkio.m0sconibot
 import cats.*
 import cats.effect.*
 import com.benkio.m0sconibot.data.Audio
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
@@ -35,9 +36,9 @@ class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 ) extends SBotPolling[F]()
     with M0sconiBot[F] {
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
+    FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
 class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
@@ -50,17 +51,14 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](uri, path, webhookCertificate)
     with M0sconiBot[F] {
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
+    FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
 trait M0sconiBot[F[_]] extends SBot[F] {
 
-  override val sBotInfo: SBotInfo                  = M0sconiBot.sBotInfo
-  override val ignoreMessagePrefix: Option[String] = M0sconiBot.ignoreMessagePrefix
-  override val triggerFilename: String             = M0sconiBot.triggerFilename
-  override val triggerListUri: Uri                 = M0sconiBot.triggerListUri
+  override val sBotConfig: SBotConfig = M0sconiBot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
 
   override val messageRepliesData: List[ReplyBundleMessage] =
@@ -72,28 +70,28 @@ trait M0sconiBot[F[_]] extends SBot[F] {
 }
 object M0sconiBot {
 
-  val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "mos_triggers.txt"
-  val botName: SBotInfo.SBotName          = SBotInfo.SBotName("M0sconiBot")
-  val botId: SBotId                       = SBotId("mos")
-  val sBotInfo: SBotInfo                  = SBotInfo(botId, botName)
-  val triggerListUri: Uri     = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt"
-  val tokenFilename: String   = "mos_M0sconiBot.token"
+   val tokenFilename: String   = "mos_M0sconiBot.token"
   val configNamespace: String = "mos"
+  val sBotConfig: SBotConfig = SBotConfig(
+    sBotInfo = SBotInfo(SBotId("mos"), SBotInfo.SBotName("M0sconiBot")),
+    triggerFilename = triggerFilename,
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt",
+  )
 
   val messageRepliesData: List[ReplyBundleMessage] =
     Audio.messageRepliesAudioData
 
   val commandRepliesData: List[ReplyBundleCommand] =
     CommandPatternsGroup.TriggerGroup.group(
-      triggerFileUri = triggerListUri,
-      sBotInfo = M0sconiBot.sBotInfo,
+      triggerFileUri = sBotConfig.triggerListUri,
+      sBotInfo = sBotConfig.sBotInfo,
       messageRepliesData = messageRepliesData,
-      ignoreMessagePrefix = M0sconiBot.ignoreMessagePrefix
+      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
     ) ++
       List(
         RandomDataCommand.randomDataReplyBundleCommand(
-          sBotInfo = M0sconiBot.sBotInfo
+          sBotInfo = sBotConfig.sBotInfo
         )
       )
 
@@ -104,7 +102,7 @@ object M0sconiBot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        sBotInfo = sBotInfo
+        sBotConfig = sBotConfig
       )
     } yield new M0sconiBotPolling[F](
       repository = botSetup.repository,
@@ -121,7 +119,7 @@ object M0sconiBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      sBotInfo = sBotInfo,
+      sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new M0sconiBotWebhook[F](

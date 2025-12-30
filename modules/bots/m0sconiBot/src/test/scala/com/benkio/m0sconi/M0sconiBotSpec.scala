@@ -23,14 +23,14 @@ class M0sconiBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(M0sconiBot.sBotInfo.botId)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(M0sconiBot.sBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == M0sconiBot.sBotInfo.botId)(
+      IO.raiseUnless(inputBotId == M0sconiBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[M0sconiBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
@@ -38,7 +38,8 @@ class M0sconiBotSpec extends BaseBotSpec {
   val m0sconiBot =
     BackgroundJobManager[IO](
       dbLayer = emptyDBLayer,
-      sBotInfo = M0sconiBot.sBotInfo
+      sBotInfo = M0sconiBot.sBotConfig.sBotInfo,
+      ttl = M0sconiBot.sBotConfig.messageTimeToLive
     ).map(bjm =>
       new M0sconiBotPolling[IO](
         repository = repositoryMock,
@@ -71,7 +72,7 @@ class M0sconiBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = M0sconiBot.triggerFilename,
+    triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
     botMediaFiles = M0sconiBot.messageRepliesData.flatMap(mr => mr.reply.prettyPrint).pure[IO],
     botTriggers = M0sconiBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )

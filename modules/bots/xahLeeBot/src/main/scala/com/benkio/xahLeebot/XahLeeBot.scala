@@ -56,10 +56,8 @@ trait XahLeeBot[F[_]] extends SBot[F] {
 
 object XahLeeBot {
 
-  val botName: SBotInfo.SBotName = SBotInfo.SBotName("XahLeeBot")
-  val botId: SBotId              = SBotId("xah")
   val sBotConfig: SBotConfig = SBotConfig(
-    sBotInfo = SBotInfo(botId, botName),
+    sBotInfo = SBotInfo(SBotId("xah"), SBotInfo.SBotName("XahLeeBot")),
     triggerFilename = "xah_triggers.txt",
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/xah_triggers.txt"
   )

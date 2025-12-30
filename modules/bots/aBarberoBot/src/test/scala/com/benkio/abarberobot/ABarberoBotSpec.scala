@@ -22,14 +22,14 @@ class ABarberoBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.sBotInfo.botId)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.sBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, botId) =>
-      IO.raiseUnless(botId == ABarberoBot.sBotInfo.botId)(
+      IO.raiseUnless(botId == ABarberoBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[ABarberoBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
@@ -37,7 +37,8 @@ class ABarberoBotSpec extends BaseBotSpec {
   val aBarberoBot =
     BackgroundJobManager[IO](
       dbLayer = emptyDBLayer,
-      sBotInfo = ABarberoBot.sBotInfo
+      sBotInfo = ABarberoBot.sBotConfig.sBotInfo,
+      ttl = ABarberoBot.sBotConfig.messageTimeToLive,
     ).map(bjm =>
       new ABarberoBotPolling[IO](
         repository = repositoryMock,
@@ -79,7 +80,7 @@ class ABarberoBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = ABarberoBot.triggerFilename,
+    triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggers = ABarberoBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
   )

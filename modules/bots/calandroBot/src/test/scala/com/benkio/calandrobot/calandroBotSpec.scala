@@ -23,14 +23,14 @@ class CalandroBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(CalandroBot.sBotInfo.botId)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(CalandroBot.sBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, botId) =>
-      IO.raiseUnless(botId == CalandroBot.sBotInfo.botId)(
+      IO.raiseUnless(botId == CalandroBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[CalandroBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
@@ -38,7 +38,8 @@ class CalandroBotSpec extends BaseBotSpec {
   val calandroBot =
     BackgroundJobManager[IO](
       dbLayer = emptyDBLayer,
-      sBotInfo = CalandroBot.sBotInfo
+      sBotInfo = CalandroBot.sBotConfig.sBotInfo,
+      ttl = CalandroBot.sBotConfig.messageTimeToLive
     ).map(bjm =>
       new CalandroBotPolling[IO](
         repository = repositoryMock,
@@ -81,7 +82,7 @@ class CalandroBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = CalandroBot.triggerFilename,
+    triggerFilename = CalandroBot.sBotConfig.triggerFilename,
     botMediaFiles =
       messageRepliesDataPrettyPrint.map(_.filterNot(x => excludeTriggers.exists(exc => x.startsWith(exc)))),
     botTriggers = CalandroBot.messageRepliesData

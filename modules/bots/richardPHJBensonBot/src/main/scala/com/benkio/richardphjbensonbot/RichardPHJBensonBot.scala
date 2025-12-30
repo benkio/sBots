@@ -4,6 +4,7 @@ import cats.*
 import cats.effect.*
 import cats.syntax.all.*
 import cats.Parallel
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.toText
@@ -43,9 +44,9 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 ) extends SBotPolling[F]()
     with RichardPHJBensonBot[F] {
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
+    FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
@@ -58,18 +59,14 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](uri, path, webhookCertificate)
     with RichardPHJBensonBot[F] {
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
+    FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
 trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
 
-  override val sBotInfo: SBotInfo                  = RichardPHJBensonBot.sBotInfo
-  override val ignoreMessagePrefix: Option[String] = RichardPHJBensonBot.ignoreMessagePrefix
-  override val triggerFilename: String             = RichardPHJBensonBot.triggerFilename
-  override val triggerListUri: Uri                 = RichardPHJBensonBot.triggerListUri
-
+  override val sBotConfig: SBotConfig = RichardPHJBensonBot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
 
   override val messageRepliesData: List[ReplyBundleMessage] =
@@ -86,9 +83,10 @@ trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
           CommandPatterns.handleCommandWithInput[F](
             msg = msg,
             command = RichardPHJBensonBot.bensonifyKey,
-            sBotInfo = sBotInfo,
+            sBotInfo = sBotConfig.sBotInfo,
             computation = t => List(Bensonify.compute(t)).toText.pure[F],
-            defaultReply = "E PARLAAAAAAA!!!!"
+            defaultReply = "E PARLAAAAAAA!!!!",
+            ttl = sBotConfig.messageTimeToLive
           )
       )
     )
@@ -102,15 +100,14 @@ object RichardPHJBensonBot {
   import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
   import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData
 
-  val botName: SBotInfo.SBotName          = SBotInfo.SBotName("RichardPHJBensonBot")
-  val botId: SBotId                       = SBotId("rphjb")
-  val sBotInfo: SBotInfo                  = SBotInfo(botId, botName)
-  val ignoreMessagePrefix: Option[String] = Some("!")
   val triggerFilename: String             = "rphjb_triggers.txt"
-  val triggerListUri: Uri                 =
-    uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
   val configNamespace: String = "rphjb"
+  val sBotConfig: SBotConfig = SBotConfig(
+    sBotInfo = SBotInfo(SBotId("rphjb"), SBotInfo.SBotName("RichardPHJBensonBot")),
+    triggerFilename = triggerFilename,
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
+  )
 
   val messageRepliesData: List[ReplyBundleMessage] =
     messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesVideoData ++ messageRepliesMixData ++ messageRepliesSpecialData
@@ -123,22 +120,22 @@ object RichardPHJBensonBot {
 
   val commandRepliesData: List[ReplyBundleCommand] =
     CommandPatternsGroup.TriggerGroup.group(
-      triggerFileUri = triggerListUri,
-      sBotInfo = RichardPHJBensonBot.sBotInfo,
+      triggerFileUri = sBotConfig.triggerListUri,
+      sBotInfo = sBotConfig.sBotInfo,
       messageRepliesData = messageRepliesData,
-      ignoreMessagePrefix = RichardPHJBensonBot.ignoreMessagePrefix
+      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
     ) ++
       CommandPatternsGroup.ShowGroup.group(
-        sBotInfo = RichardPHJBensonBot.sBotInfo
+        sBotInfo = sBotConfig.sBotInfo
       ) ++
       List(
         RandomDataCommand.randomDataReplyBundleCommand(
-          sBotInfo = RichardPHJBensonBot.sBotInfo
+          sBotInfo = sBotConfig.sBotInfo
         ),
         ReplyBundleCommand(
           trigger = CommandTrigger(bensonifyKey),
           reply = EffectfulReply(
-            key = EffectfulKey.Callback(key = bensonifyKey, sBotInfo = RichardPHJBensonBot.sBotInfo),
+            key = EffectfulKey.Callback(key = bensonifyKey, sBotInfo = sBotConfig.sBotInfo),
             replyToMessage = true
           ),
           instruction = CommandInstructionData.Instructions(
@@ -157,7 +154,7 @@ object RichardPHJBensonBot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        sBotInfo = sBotInfo
+        sBotConfig = sBotConfig
       )
     } yield new RichardPHJBensonBotPolling[F](
       repository = botSetup.repository,
@@ -174,7 +171,7 @@ object RichardPHJBensonBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      sBotInfo = sBotInfo,
+      sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new RichardPHJBensonBotWebhook[F](

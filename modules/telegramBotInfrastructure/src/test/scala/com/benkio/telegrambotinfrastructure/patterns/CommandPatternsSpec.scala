@@ -10,7 +10,7 @@ import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
-
+import scala.concurrent.duration.*
 
 class CommandPatternsSpec extends CatsEffectSuite {
 
@@ -56,7 +56,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
         """/command   """,
         """/command@SampleWebhookBot   """
       ).traverse(resultByInput(_, false))
-    assertIO(result, List.fill(4)(List(Text(value = defaultReply))))
+    assertIO(result, List.fill(4)(List(Text(value = defaultReply, timeToLive = 10.seconds.some))))
   }
 
   test("handleCommandWithInput should return the error if the command's input causes an error ") {
@@ -77,6 +77,6 @@ class CommandPatternsSpec extends CatsEffectSuite {
          | message text: /command
          | bot: SampleWebhookBot
          | error: [CommandPatternsSpec] this should trigger the error handling of the handleCommandWithInput""".stripMargin
-    assertIO(result, List(Text(expectedError)))
+    assertIO(result, List(Text(expectedError, timeToLive = 10.seconds.some)))
   }
 }

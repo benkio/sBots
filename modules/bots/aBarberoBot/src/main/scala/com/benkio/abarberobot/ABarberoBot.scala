@@ -5,6 +5,7 @@ import cats.effect.*
 import com.benkio.abarberobot.data.Audio
 import com.benkio.abarberobot.data.Gif
 import com.benkio.abarberobot.data.Mix
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.model.reply.vid
@@ -39,9 +40,9 @@ class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 ) extends SBotPolling[F]()
     with ABarberoBot[F] {
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
+    FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
 class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
@@ -54,17 +55,14 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](uri, path, webhookCertificate)
     with ABarberoBot[F] {
   override def postComputation: Message => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
-    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
+    FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
 trait ABarberoBot[F[_]] extends SBot[F] {
 
-  override val sBotInfo: SBotInfo                  = ABarberoBot.sBotInfo
-  override val triggerListUri: Uri                 = ABarberoBot.triggerListUri
-  override val triggerFilename: String             = ABarberoBot.triggerFilename
-  override val ignoreMessagePrefix: Option[String] = ABarberoBot.ignoreMessagePrefix
+  override val sBotConfig: SBotConfig = ABarberoBot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
 
   override val messageRepliesData: List[ReplyBundleMessage] =
@@ -76,14 +74,13 @@ trait ABarberoBot[F[_]] extends SBot[F] {
 
 object ABarberoBot {
 
-  val ignoreMessagePrefix: Option[String] = Some("!")
-  val botName: SBotName                   = SBotName("ABarberoBot")
-  val botId: SBotId                       = SBotId("abar")
-  val sBotInfo: SBotInfo                  = SBotInfo(botId, botName)
-  val triggerListUri: Uri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt"
-  val triggerFilename: String = "abar_triggers.txt"
   val tokenFilename: String   = "abar_ABarberoBot.token"
   val configNamespace: String = "abar"
+  val sBotConfig: SBotConfig = SBotConfig(
+    sBotInfo = SBotInfo(SBotId("abar"), SBotName("ABarberoBot")),
+    triggerFilename = "abar_triggers.txt",
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt",
+  )
 
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage.textToVideo(
@@ -102,17 +99,17 @@ object ABarberoBot {
 
   val commandRepliesData: List[ReplyBundleCommand] =
     CommandPatternsGroup.TriggerGroup.group(
-      triggerFileUri = triggerListUri,
-      sBotInfo = ABarberoBot.sBotInfo,
+      triggerFileUri = sBotConfig.triggerListUri,
+      sBotInfo = sBotConfig.sBotInfo,
       messageRepliesData = messageRepliesData,
-      ignoreMessagePrefix = ABarberoBot.ignoreMessagePrefix
+      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
     ) ++
       CommandPatternsGroup.ShowGroup.group(
-        sBotInfo = ABarberoBot.sBotInfo
+        sBotInfo = sBotConfig.sBotInfo
       ) ++
       List(
         RandomDataCommand.randomDataReplyBundleCommand(
-          sBotInfo = ABarberoBot.sBotInfo
+          sBotInfo = sBotConfig.sBotInfo
         )
       )
 
@@ -123,7 +120,7 @@ object ABarberoBot {
         httpClient = httpClient,
         tokenFilename = tokenFilename,
         namespace = configNamespace,
-        sBotInfo = sBotInfo
+        sBotConfig = sBotConfig
       )
     } yield new ABarberoBotPolling[F](
       repository = botSetup.repository,
@@ -140,7 +137,7 @@ object ABarberoBot {
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
-      sBotInfo = sBotInfo,
+      sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
     ).map { botSetup =>
       new ABarberoBotWebhook[F](
