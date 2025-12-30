@@ -142,8 +142,8 @@ Input as query string:
     def searchShowCommandLogic[F[_]: Async: LogWriter](
         msg: Message,
         dbLayer: DBLayer[F],
-      sBotInfo: SBotInfo,
-            ttl: Option[FiniteDuration]
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
     ): F[List[Text]] =
       handleCommandWithInput[F](
         msg = msg,
@@ -181,8 +181,8 @@ Input as query string:
     def selectLinkByKeyword[F[_]: Async](
         keywords: String,
         dbShow: DBShow[F],
-      sBotInfo: SBotInfo,
-      ttl: Option[FiniteDuration]
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
     )(using log: LogWriter[F]): F[Text] = {
       val query: ShowQuery            = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
@@ -200,7 +200,7 @@ Input as query string:
               _.fold(
                 Text(
                   value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
-                  timeToLive = ttl,
+                  timeToLive = ttl
                 )
               )(Text(_))
             )
@@ -242,8 +242,8 @@ Input as query string:
         mdr: List[ReplyBundleMessage],
         m: Message,
         ignoreMessagePrefix: Option[String],
-      sBotInfo: SBotInfo,
-            ttl: Option[FiniteDuration]
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
     ): F[List[Text]] = {
 
       handleCommandWithInput[F](
@@ -327,8 +327,8 @@ ${ignoreMessagePrefix
         msg: Message,
         sBotInfo: SBotInfo,
         ignoreMessagePrefix: Option[String],
-      commands: List[ReplyBundleCommand],
-            ttl: Option[FiniteDuration]
+        commands: List[ReplyBundleCommand],
+        ttl: Option[FiniteDuration]
     ): F[List[Text]] = {
       val computation: String => F[List[Text]] = (input: String) => {
         val itaMatches = List("it", "ita", "italian", "🇮🇹")
@@ -402,8 +402,8 @@ ${ignoreMessagePrefix
     def subscribeCommandLogic[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
         m: Message,
-      sBotInfo: SBotInfo,
-            ttl: Option[FiniteDuration]
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
     ): F[List[Text]] = {
       val computation: String => F[List[Text]] = (cronInput: String) =>
         for {
@@ -442,8 +442,8 @@ ${ignoreMessagePrefix
     def unsubcribeCommandLogic[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
         m: Message,
-      sBotInfo: SBotInfo,
-            ttl: Option[FiniteDuration]
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
     ): F[List[Text]] = {
       val computation: String => F[List[Text]] = (subscriptionIdInput: String) => {
         if subscriptionIdInput.isEmpty then for {
@@ -556,8 +556,8 @@ ${ignoreMessagePrefix
     def timeoutLogic[F[_]: MonadThrow: LogWriter](
         msg: Message,
         dbTimeout: DBTimeout[F],
-      sBotInfo: SBotInfo,
-            ttl: Option[FiniteDuration]
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
     ): F[List[Text]] = {
       val computation: String => F[List[Text]] = (input: String) => {
         if input.isEmpty
@@ -595,7 +595,7 @@ ${ignoreMessagePrefix
         sBotInfo = sBotInfo,
         computation = computation,
         allowEmptyString = true,
-        ttl = ttl, 
+        ttl = ttl,
         defaultReply = """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
       )
     }
@@ -622,8 +622,8 @@ ${ignoreMessagePrefix
       sBotInfo: SBotInfo,
       computation: String => F[List[Text]],
       defaultReply: String,
-    allowEmptyString: Boolean = false,
-          ttl: Option[FiniteDuration]
+      allowEmptyString: Boolean = false,
+      ttl: Option[FiniteDuration]
   ): F[List[Text]] =
     msg.text
       .filter(t => {

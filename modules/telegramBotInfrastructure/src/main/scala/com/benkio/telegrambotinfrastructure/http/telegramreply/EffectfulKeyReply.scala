@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
-import scala.concurrent.duration.FiniteDuration
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
@@ -23,6 +22,8 @@ import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.Message
 
+import scala.concurrent.duration.FiniteDuration
+
 object EffectfulKeyReply {
 
   def sendEffectfulKey[F[_]: Async: LogWriter: Api](
@@ -32,8 +33,8 @@ object EffectfulKeyReply {
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
-    replyToMessage: Boolean,
-          ttl: Option[FiniteDuration]
+      replyToMessage: Boolean,
+      ttl: Option[FiniteDuration]
   ): F[List[Message]] = reply match {
     case EffectfulKey.Random(sBotInfo) =>
       randomTelegraReply(
@@ -121,7 +122,8 @@ object EffectfulKeyReply {
         repliesF = TimeoutCommand.timeoutLogic(
           msg = msg,
           dbTimeout = dbLayer.dbTimeout,
-          sBotInfo = sBotInfo, ttl = ttl
+          sBotInfo = sBotInfo,
+          ttl = ttl
         ),
         msg = msg,
         replyToMessage = replyToMessage
@@ -161,7 +163,7 @@ object EffectfulKeyReply {
       repository: Repository[F],
       dbLayer: DBLayer[F],
       replyToMessage: Boolean,
-    sBotInfo: SBotInfo
+      sBotInfo: SBotInfo
   ): F[List[Message]] = for {
     mediaFile <- RandomDataCommand.randomCommandLogic[F](dbMedia = dbLayer.dbMedia, sBotInfo = sBotInfo)
     messages  <- MediaFileReply.sendMediaFile(
@@ -180,8 +182,8 @@ object EffectfulKeyReply {
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
       replyToMessage: Boolean,
       commandKey: String,
-    sBotInfo: SBotInfo,
-          ttl: Option[FiniteDuration]
+      sBotInfo: SBotInfo,
+      ttl: Option[FiniteDuration]
   ): F[List[Message]] = for {
     mediaFiles <- MediaByKindCommand.mediaCommandByKindLogic[F](
       dbMedia = dbLayer.dbMedia,

@@ -19,7 +19,7 @@ object MediaFileReply {
       reply: MediaFile,
       msg: Message,
       repository: Repository[F],
-    replyToMessage: Boolean
+      replyToMessage: Boolean
   ): F[List[Message]] = reply match {
     case mp3: Mp3File =>
       sendMp3(
@@ -69,7 +69,7 @@ object MediaFileReply {
       reply: Mp3File,
       msg: Message,
       repository: Repository[F],
-    replyToMessage: Boolean
+      replyToMessage: Boolean
   ): F[List[Message]] = {
     TelegramReply.telegramFileReplyPattern[F](
       msg = msg,
@@ -90,7 +90,7 @@ object MediaFileReply {
       reply: GifFile,
       msg: Message,
       repository: Repository[F],
-    replyToMessage: Boolean
+      replyToMessage: Boolean
   ): F[List[Message]] = {
     TelegramReply.telegramFileReplyPattern[F](
       msg = msg,
@@ -111,7 +111,7 @@ object MediaFileReply {
       reply: PhotoFile,
       msg: Message,
       repository: Repository[F],
-    replyToMessage: Boolean
+      replyToMessage: Boolean
   ): F[List[Message]] = {
     TelegramReply.telegramFileReplyPattern[F](
       msg = msg,
@@ -132,7 +132,7 @@ object MediaFileReply {
       reply: VideoFile,
       msg: Message,
       repository: Repository[F],
-    replyToMessage: Boolean
+      replyToMessage: Boolean
   ): F[List[Message]] = {
     TelegramReply.telegramFileReplyPattern[F](
       msg = msg,
@@ -153,7 +153,7 @@ object MediaFileReply {
       reply: Document,
       msg: Message,
       repository: Repository[F],
-    replyToMessage: Boolean
+      replyToMessage: Boolean
   ): F[List[Message]] = {
     TelegramReply.telegramFileReplyPattern[F](
       msg = msg,
@@ -174,7 +174,7 @@ object MediaFileReply {
       reply: Sticker,
       msg: Message,
       repository: Repository[F],
-    replyToMessage: Boolean
+      replyToMessage: Boolean
   ): F[List[Message]] = {
     TelegramReply.telegramFileReplyPattern[F](
       msg = msg,

@@ -128,7 +128,8 @@ object SampleWebhookBot {
     val dbLayerMock                = DBLayerMock.mock(sBotInfo.botId)
     val ioBackgroundJobManagerMock = BackgroundJobManager[IO](
       dbLayer = dbLayerMock,
-      sBotInfo = sBotInfo
+      sBotInfo = sBotInfo,
+      ttl = None
     )
     ioBackgroundJobManagerMock.map(backgroundJobManagerMock =>
       new SampleWebhookBot(

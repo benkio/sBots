@@ -1,14 +1,13 @@
 package com.benkio.telegrambotinfrastructure.initialization
 
-import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
 import cats.MonadThrow
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.http.DropboxClient
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.Document
-
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
 import com.benkio.telegrambotinfrastructure.repository.Repository
@@ -31,8 +30,8 @@ final case class BotSetup[F[_]](
     backgroundJobManager: BackgroundJobManager[F],
     api: Api[F],
     webhookUri: Uri,
-  webhookPath: Uri,
-  sBotConfig: SBotConfig
+    webhookPath: Uri,
+    sBotConfig: SBotConfig
 )
 
 object BotSetup {
@@ -144,6 +143,6 @@ object BotSetup {
     api = api,
     webhookUri = webhookBaseUri,
     webhookPath = path,
-    sBotConfig = sBotConfig,
+    sBotConfig = sBotConfig
   )
 }

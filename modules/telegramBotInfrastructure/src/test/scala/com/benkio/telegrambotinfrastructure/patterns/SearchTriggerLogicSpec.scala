@@ -155,7 +155,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         text = Some(s"/triggersearch $query")
       )
       TriggerSearchCommand
-        .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo)
+        .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo, ttl = None)
         .map(result => {
           assertEquals(result.length, 1)
           assertEquals(result.head.value, expectedResponse)

@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure
 
-import scala.concurrent.duration.FiniteDuration
 import cats.*
 import cats.effect.*
 import cats.effect.implicits.*
@@ -23,6 +22,7 @@ import telegramium.bots.Message
 
 import java.time.Instant
 import scala.collection.mutable.Map as MMap
+import scala.concurrent.duration.FiniteDuration
 
 trait BackgroundJobManager[F[_]] {
   def scheduleSubscription(subscription: Subscription): F[Unit]
@@ -57,8 +57,8 @@ object BackgroundJobManager {
 
   def apply[F[_]: Async: Api](
       dbLayer: DBLayer[F],
-    sBotInfo: SBotInfo,
-          ttl: Option[FiniteDuration]
+      sBotInfo: SBotInfo,
+      ttl: Option[FiniteDuration]
   )(using log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
       backgroundJobManager <- Async[F].pure(
@@ -73,8 +73,8 @@ object BackgroundJobManager {
 
   class BackgroundJobManagerImpl[F[_]: Async: Api](
       dbLayer: DBLayer[F],
-    sBotInfo: SBotInfo,
-    ttl: Option[FiniteDuration]
+      sBotInfo: SBotInfo,
+      ttl: Option[FiniteDuration]
   )(using log: LogWriter[F])
       extends BackgroundJobManager[F] {
 

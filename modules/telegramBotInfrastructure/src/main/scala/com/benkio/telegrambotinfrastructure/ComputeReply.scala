@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure
 
-import scala.concurrent.duration.FiniteDuration
 import cats.*
 import cats.effect.*
 import cats.implicits.*
@@ -14,6 +13,8 @@ import log.effect.LogWriter
 import telegramium.bots.high.Api
 import telegramium.bots.Message
 
+import scala.concurrent.duration.FiniteDuration
+
 object ComputeReply {
 
   def execute[F[_]: Async: LogWriter: Api](
@@ -22,8 +23,8 @@ object ComputeReply {
       repository: Repository[F],
       backgroundJobManager: BackgroundJobManager[F],
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
-    dbLayer: DBLayer[F],
-          ttl: Option[FiniteDuration]
+      dbLayer: DBLayer[F],
+      ttl: Option[FiniteDuration]
   ): F[List[Message]] = for {
     reply  <- RandomSelection.select(replyBundle.reply)
     result <-
