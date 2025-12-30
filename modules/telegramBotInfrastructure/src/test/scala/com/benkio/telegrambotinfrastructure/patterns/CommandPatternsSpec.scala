@@ -1,6 +1,5 @@
 package com.benkio.telegrambotinfrastructure.patterns
 
-import scala.concurrent.duration.*
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
@@ -10,6 +9,8 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
+
+import scala.concurrent.duration.*
 
 class CommandPatternsSpec extends CatsEffectSuite {
 
@@ -54,7 +55,7 @@ class CommandPatternsSpec extends CatsEffectSuite {
         """/command   """,
         """/command@SampleWebhookBot   """
       ).traverse(resultByInput(_, false))
-    assertIO(result, List.fill(4)(List(Text(value = defaultReply, timeToLive = 10.seconds.some ))))
+    assertIO(result, List.fill(4)(List(Text(value = defaultReply, timeToLive = 10.seconds.some))))
   }
 
   test("handleCommandWithInput should return the error if the command's input causes an error ") {

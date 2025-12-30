@@ -1,9 +1,8 @@
-package com.benkio.telegrambotinfrastructure.telegram
+package com.benkio.telegrambotinfrastructure.telegram.telegramreply
 
-import scala.concurrent.duration.*
 import cats.data.NonEmptyList
 import cats.effect.IO
-import cats.syntax.all.*
+
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
@@ -22,19 +21,21 @@ import munit.*
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
+import scala.concurrent.duration.*
+
 class TelegramReplySpec extends CatsEffectSuite {
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  test("TextReply.sendText reply should work as expected".only) {
-    val message = Message(6666, date = 0, chat = Chat(6666, `type` = "private"), text = Some("test message"))
-    val text    = Text("input Text with time to live", timeToLive = 1.seconds.some)
+  test("TextReply.sendText reply should work as expected") {
+    val message = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val text    = Text("input Text")
     val result  = TextReply
       .sendText[IO](
         text,
         message,
         false
       )
-      .map(messages => messages.map(_.text)) <* IO.sleep(2.seconds)
+      .map(messages => messages.map(_.text))
     assertIO(result, List(Some("[apiMock] sendMessage reply")))
   }
 
@@ -136,5 +137,17 @@ class TelegramReplySpec extends CatsEffectSuite {
       )
       .map(messages => messages.map(_.text))
     assertIO(result, List(Some("[apiMock] sendMp3 reply")))
+  }
+
+  test("TextReply.deleteMessage reply should work as expected") {
+    val text    = Text("input Text with time to live")
+    val result  = TextReply
+      .deleteMessage[IO](
+        chatId = 0L,
+        messageId = 0,
+        ttl = 300.millis,
+        reply = text
+      )
+    assertIO(result, true)
   }
 }
