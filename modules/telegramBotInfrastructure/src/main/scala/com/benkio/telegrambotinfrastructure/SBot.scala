@@ -4,6 +4,7 @@ import cats.*
 import cats.data.OptionT
 import cats.effect.*
 import cats.implicits.*
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
 import com.benkio.telegrambotinfrastructure.messagefiltering.*
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
@@ -11,7 +12,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.MessageType
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
@@ -42,12 +42,8 @@ abstract class SBotWebhook[F[_]: Async: Api: LogWriter](
 trait SBot[F[_]: Async: LogWriter] {
 
   // Configuration values & functions /////////////////////////////////////////////////////
-  def repository: Repository[F]           = ResourcesRepository.fromResources[F]()
-  val ignoreMessagePrefix: Option[String] = Some("!")
-  val disableForward: Boolean             = true
-  val sBotInfo: SBotInfo
-  val triggerListUri: Uri
-  val triggerFilename: String
+  def repository: Repository[F] = ResourcesRepository.fromResources[F]()
+  val sBotConfig: SBotConfig
   val dbLayer: DBLayer[F]
   val backgroundJobManager: BackgroundJobManager[F]
   def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
@@ -67,9 +63,9 @@ trait SBot[F[_]: Async: LogWriter] {
 
   def allCommandRepliesData: List[ReplyBundleCommand] = {
     val instructionsCmd = InstructionsCommand.instructionsReplyBundleCommand(
-      sBotInfo = sBotInfo,
+      sBotInfo = sBotConfig.sBotInfo,
       commands = commandRepliesData,
-      ignoreMessagePrefix = ignoreMessagePrefix
+      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
     )
     commandRepliesData :+ instructionsCmd
   }
@@ -79,11 +75,11 @@ trait SBot[F[_]: Async: LogWriter] {
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
   ): Option[ReplyBundleMessage] =
-    if FilteringForward.filter(msg, disableForward) && FilteringOlder.filter(msg)
+    if FilteringForward.filter(msg, sBotConfig.disableForward) && FilteringOlder.filter(msg)
     then messageRepliesData
       .mapFilter(messageReplyBundle =>
         MessageMatches
-          .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
+          .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
       )
       .sortBy(_._1)(using Trigger.orderingInstance.reverse)
       .headOption
@@ -97,7 +93,7 @@ trait SBot[F[_]: Async: LogWriter] {
       allCommandRepliesData.find(rbc =>
         text.startsWith(s"/${rbc.trigger.command} ")
           || text == s"/${rbc.trigger.command}"
-          || text.startsWith(s"/${rbc.trigger.command}@${sBotInfo.botName}")
+          || text.startsWith(s"/${rbc.trigger.command}@${sBotConfig.sBotInfo.botName}")
       )
     )
 
@@ -118,7 +114,8 @@ trait SBot[F[_]: Async: LogWriter] {
                 repository = repository,
                 backgroundJobManager = backgroundJobManager,
                 effectfulCallbacks = commandEffectfulCallback,
-                dbLayer = dbLayer
+                dbLayer = dbLayer,
+                ttl = sBotConfig.messageTimeToLive
               )
             else List.empty.pure[F]
         } yield result
@@ -129,14 +126,17 @@ trait SBot[F[_]: Async: LogWriter] {
   )(using api: Api[F]): F[Option[List[Message]]] =
     selectCommandReplyBundle(msg)
       .traverse(commandReply =>
-        LogWriter.info(s"${sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle") *>
+        LogWriter.info(
+          s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"
+        ) *>
           ComputeReply.execute[F](
             replyBundle = commandReply,
             message = msg,
             repository = repository,
             backgroundJobManager = backgroundJobManager,
             effectfulCallbacks = commandEffectfulCallback,
-            dbLayer = dbLayer
+            dbLayer = dbLayer,
+            ttl = sBotConfig.messageTimeToLive
           )
       )
 
@@ -156,7 +156,7 @@ trait SBot[F[_]: Async: LogWriter] {
   private def botLogic(
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    msg.messageType(sBotInfo.botId) match {
+    msg.messageType(sBotConfig.sBotInfo.botId) match {
       case MessageType.Message     => messageLogic(msg)
       case MessageType.Command     => commandLogic(msg)
       case MessageType.FileRequest => fileRequestLogic(msg)
@@ -164,11 +164,11 @@ trait SBot[F[_]: Async: LogWriter] {
 
   def onMessageLogic(msg: Message)(using api: Api[F]): F[Unit] = {
     val x: OptionT[F, Unit] = for {
-      _ <- OptionT.liftF(LogWriter.trace(s"${sBotInfo.botName}: A message arrived: $msg"))
-      _ <- OptionT.liftF(LogWriter.info(s"${sBotInfo.botName}: A message arrived with content: ${msg.text}"))
+      _ <- OptionT.liftF(LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg"))
+      _ <- OptionT.liftF(LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}"))
       _ <- OptionT(botLogic(msg))
       _ <- OptionT.liftF(postComputation(msg))
     } yield ()
-    x.getOrElseF(LogWriter.debug(s"${sBotInfo.botName}: Input message produced no result: $msg"))
+    x.getOrElseF(LogWriter.debug(s"${sBotConfig.sBotInfo.botName}: Input message produced no result: $msg"))
   }
 }

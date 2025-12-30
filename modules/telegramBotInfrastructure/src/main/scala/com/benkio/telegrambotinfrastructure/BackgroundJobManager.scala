@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure
 
+import scala.concurrent.duration.FiniteDuration
 import cats.*
 import cats.effect.*
 import cats.effect.implicits.*
@@ -56,13 +57,15 @@ object BackgroundJobManager {
 
   def apply[F[_]: Async: Api](
       dbLayer: DBLayer[F],
-      sBotInfo: SBotInfo
+    sBotInfo: SBotInfo,
+          ttl: Option[FiniteDuration]
   )(using log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
       backgroundJobManager <- Async[F].pure(
         new BackgroundJobManagerImpl(
           dbLayer = dbLayer,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          ttl = ttl
         )
       )
       _ <- backgroundJobManager.loadSubscriptions()
@@ -70,7 +73,8 @@ object BackgroundJobManager {
 
   class BackgroundJobManagerImpl[F[_]: Async: Api](
       dbLayer: DBLayer[F],
-      sBotInfo: SBotInfo
+    sBotInfo: SBotInfo,
+    ttl: Option[FiniteDuration]
   )(using log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
@@ -146,7 +150,7 @@ object BackgroundJobManager {
       val action: F[Instant] = for {
         now   <- Async[F].realTimeInstant
         _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
-        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo)
+        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo, ttl)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
         _     <- TextReply.sendText[F](
           reply = reply,

@@ -2,7 +2,6 @@ package com.benkio.telegrambotinfrastructure.telegram.telegramreply
 
 import cats.data.NonEmptyList
 import cats.effect.IO
-
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
@@ -140,8 +139,8 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("TextReply.deleteMessage reply should work as expected") {
-    val text    = Text("input Text with time to live")
-    val result  = TextReply
+    val text   = Text("input Text with time to live")
+    val result = TextReply
       .deleteMessage[IO](
         chatId = 0L,
         messageId = 0,

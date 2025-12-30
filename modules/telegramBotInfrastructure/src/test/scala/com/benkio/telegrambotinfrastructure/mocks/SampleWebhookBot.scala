@@ -2,6 +2,7 @@ package com.benkio.telegrambotinfrastructure.mocks
 
 import cats.effect.Async
 import cats.effect.IO
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.reply.gif
@@ -41,14 +42,15 @@ class SampleWebhookBot(
   override def repository: Repository[IO] =
     repositoryInput
   override def postComputation: Message => IO[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
-    FilteringTimeout.filter(dbLayer, sBotInfo.botId)
+    FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 
-  override val sBotInfo: SBotInfo                  = SampleWebhookBot.sBotInfo
-  override val ignoreMessagePrefix: Option[String] = SampleWebhookBot.ignoreMessagePrefix
-  override val triggerFilename: String             = SampleWebhookBot.triggerFilename
-  override val triggerListUri: Uri                 = SampleWebhookBot.triggerListUri
+  override val sBotConfig: SBotConfig = SBotConfig(
+    sBotInfo = SampleWebhookBot.sBotInfo,
+    triggerFilename = SampleWebhookBot.triggerFilename,
+    triggerListUri = SampleWebhookBot.triggerListUri
+  )
 
   override val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage.textToMp3(
@@ -115,9 +117,8 @@ object SampleWebhookBot {
     botName = SBotInfo.SBotName("SampleWebhookBot"),
     botId = SBotInfo.SBotId("sbot")
   )
-  val ignoreMessagePrefix: Option[String] = Some("!")
-  val triggerFilename: String             = "sbot_triggers.txt"
-  val triggerListUri: Uri                 =
+  val triggerFilename: String = "sbot_triggers.txt"
+  val triggerListUri: Uri     =
     uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)

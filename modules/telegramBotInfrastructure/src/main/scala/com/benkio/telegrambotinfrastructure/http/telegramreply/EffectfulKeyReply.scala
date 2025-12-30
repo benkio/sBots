@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
+import scala.concurrent.duration.FiniteDuration
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
@@ -31,7 +32,8 @@ object EffectfulKeyReply {
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
-      replyToMessage: Boolean
+    replyToMessage: Boolean,
+          ttl: Option[FiniteDuration]
   ): F[List[Message]] = reply match {
     case EffectfulKey.Random(sBotInfo) =>
       randomTelegraReply(
@@ -44,13 +46,18 @@ object EffectfulKeyReply {
 
     case EffectfulKey.SearchShow(sBotInfo) =>
       sendTextReplies(
-        repliesF = SearchShowCommand.searchShowCommandLogic(msg, dbLayer, sBotInfo),
+        repliesF = SearchShowCommand.searchShowCommandLogic(
+          msg,
+          dbLayer,
+          sBotInfo,
+          ttl = ttl
+        ),
         msg = msg,
         replyToMessage = replyToMessage
       )
     case EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix) =>
       sendTextReplies(
-        repliesF = TriggerSearchCommand.searchTriggerLogic(replyBundleMessage, msg, ignoreMessagePrefix, sBotInfo),
+        repliesF = TriggerSearchCommand.searchTriggerLogic(replyBundleMessage, msg, ignoreMessagePrefix, sBotInfo, ttl),
         msg = msg,
         replyToMessage = replyToMessage
       )
@@ -60,7 +67,8 @@ object EffectfulKeyReply {
           msg = msg,
           sBotInfo = sBotInfo,
           ignoreMessagePrefix = ignoreMessagePrefix,
-          commands = commands
+          commands = commands,
+          ttl = ttl
         ),
         msg = msg,
         replyToMessage = replyToMessage
@@ -70,7 +78,8 @@ object EffectfulKeyReply {
         repliesF = SubscribeUnsubscribeCommand.subscribeCommandLogic(
           backgroundJobManager = backgroundJobManager,
           m = msg,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          ttl = ttl
         ),
         msg = msg,
         replyToMessage = replyToMessage
@@ -81,7 +90,8 @@ object EffectfulKeyReply {
         repliesF = SubscribeUnsubscribeCommand.unsubcribeCommandLogic(
           backgroundJobManager = backgroundJobManager,
           m = msg,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo,
+          ttl = ttl
         ),
         msg = msg,
         replyToMessage = replyToMessage
@@ -111,7 +121,7 @@ object EffectfulKeyReply {
         repliesF = TimeoutCommand.timeoutLogic(
           msg = msg,
           dbTimeout = dbLayer.dbTimeout,
-          sBotInfo = sBotInfo
+          sBotInfo = sBotInfo, ttl = ttl
         ),
         msg = msg,
         replyToMessage = replyToMessage
@@ -125,7 +135,8 @@ object EffectfulKeyReply {
         commandKey = key,
         sBotInfo = sBotInfo,
         effectfulCallbacks = effectfulCallbacks,
-        backgroundJobManager = backgroundJobManager
+        backgroundJobManager = backgroundJobManager,
+        ttl = ttl
       )
     case EffectfulKey.Callback(key, sBotInfo) =>
       effectfulCallbacks
@@ -150,7 +161,7 @@ object EffectfulKeyReply {
       repository: Repository[F],
       dbLayer: DBLayer[F],
       replyToMessage: Boolean,
-      sBotInfo: SBotInfo
+    sBotInfo: SBotInfo
   ): F[List[Message]] = for {
     mediaFile <- RandomDataCommand.randomCommandLogic[F](dbMedia = dbLayer.dbMedia, sBotInfo = sBotInfo)
     messages  <- MediaFileReply.sendMediaFile(
@@ -169,7 +180,8 @@ object EffectfulKeyReply {
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
       replyToMessage: Boolean,
       commandKey: String,
-      sBotInfo: SBotInfo
+    sBotInfo: SBotInfo,
+          ttl: Option[FiniteDuration]
   ): F[List[Message]] = for {
     mediaFiles <- MediaByKindCommand.mediaCommandByKindLogic[F](
       dbMedia = dbLayer.dbMedia,
@@ -184,7 +196,8 @@ object EffectfulKeyReply {
       replyToMessage = replyToMessage,
       dbLayer = dbLayer,
       backgroundJobManager = backgroundJobManager,
-      effectfulCallbacks = effectfulCallbacks
+      effectfulCallbacks = effectfulCallbacks,
+      ttl = ttl
     )
   } yield messages
 

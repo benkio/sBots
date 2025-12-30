@@ -1,5 +1,6 @@
 package com.benkio.telegrambotinfrastructure.http.telegramreply
 
+import scala.concurrent.duration.FiniteDuration
 import cats.*
 import cats.data.EitherT
 import cats.effect.*
@@ -32,7 +33,7 @@ object TelegramReply {
       chatAction: String,
       mediaFile: MediaFile,
       replyToMessage: Boolean,
-      sendFileAPIMethod: (ChatId, IFile, Option[ReplyParameters]) => Method[Message]
+    sendFileAPIMethod: (ChatId, IFile, Option[ReplyParameters]) => Method[Message]
   ): F[List[Message]] = {
     val chatId: ChatId                                                    = ChatIntId(msg.chat.id)
     def computeMediaResource(mediaResource: MediaResource[F]): F[Message] =
@@ -80,7 +81,8 @@ object TelegramReply {
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
-      replyToMessage: Boolean
+    replyToMessage: Boolean,
+          ttl: Option[FiniteDuration]
   ): F[List[Message]] = reply match {
     case mediaFile: MediaFile =>
       MediaFileReply.sendMediaFile(
@@ -103,7 +105,8 @@ object TelegramReply {
         dbLayer = dbLayer,
         replyToMessage = replyToMessage,
         effectfulCallbacks = effectfulCallbacks,
-        backgroundJobManager = backgroundJobManager
+        backgroundJobManager = backgroundJobManager,
+        ttl = ttl
       )
   }
 }
