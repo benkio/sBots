@@ -19,6 +19,7 @@ import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.Show
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.show.SimpleShowQuery
 import com.benkio.telegrambotinfrastructure.model.toEng
 import com.benkio.telegrambotinfrastructure.model.toIta
 import com.benkio.telegrambotinfrastructure.model.ChatId
@@ -123,7 +124,7 @@ Input come query string:
   - 'maxduration=X': restituisce uno show di durata massima pari a X secondi. Esempio: 'maxduration=1000'
   - 'mindate=YYYYMMDD': restituisce uno show più recente della data specificata. Esempio: 'mindate=20200101'
   - 'maxdate=YYYYMMDD': restituisce uno show più vecchio della data specificata. Esempio: 'mandate=20220101'
-  In caso di input non riconosciuto, verrà considerato come titolo.
+  In caso di input non riconosciuto, verrà considerato come titolo, o descrizione, o caption.
   I campi possono essere concatenati. Esempio: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
     private val searchShowCommandEng: String =
       """'/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
@@ -136,7 +137,7 @@ Input as query string:
   - 'maxduration=X': returns a show with maximal duration of X seconds.  Example: 'maxduration=1000'
   - 'mindate=YYYYMMDD': returns a show newer than the specified date.  Example: 'mindate=20200101'
   - 'maxdate=YYYYMMDD': returns a show older than the specified date.  Example: 'mandate=20220101'
-  If the input is not recognized it will be considered as a title.
+  If the input is not recognized it will be considered as a title, or description, or caption.
   Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
 
     def searchShowCommandLogic[F[_]: Async: LogWriter](
@@ -187,6 +188,7 @@ Input as query string:
       val query: ShowQuery            = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
         case RandomQuery         => dbShow.getRandomShow(sBotInfo.botId).map(_.toList)
+        case q: SimpleShowQuery  => dbShow.getShowBySimpleShowQuery(q, sBotInfo.botId)
         case q: ShowQueryKeyword => dbShow.getShowByShowQuery(q, sBotInfo.botId)
       }
 

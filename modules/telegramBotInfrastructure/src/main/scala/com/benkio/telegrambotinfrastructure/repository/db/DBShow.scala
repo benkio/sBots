@@ -6,6 +6,7 @@ import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.Show
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQueryKeyword
+import com.benkio.telegrambotinfrastructure.model.show.SimpleShowQuery
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import doobie.*
 import doobie.implicits.*
@@ -48,6 +49,7 @@ trait DBShow[F[_]] {
   def getShows(botId: SBotId): F[List[DBShowData]]
   def getRandomShow(botId: SBotId): F[Option[DBShowData]]
   def getShowByShowQuery(query: ShowQuery, botId: SBotId): F[List[DBShowData]]
+  def getShowBySimpleShowQuery(query: SimpleShowQuery, botId: SBotId): F[List[DBShowData]]
   def insertShow(dbShowData: DBShowData): F[Unit]
   def deleteShow(dbShowData: DBShowData): F[Unit]
 }
@@ -69,17 +71,22 @@ object DBShow {
 
     override def getShows(botId: SBotId): F[List[DBShowData]] =
       DBShow.getShowsQuery(botId).to[List].transact(transactor) <* log.debug(
-        s"[DBShow] Get shows by bot name: $botId, sql: ${DBShow.getShowsQuery(botId).sql}"
+        s"[DBShow] Get shows by bot id: $botId, sql: ${DBShow.getShowsQuery(botId).sql}"
       )
 
     override def getRandomShow(botId: SBotId): F[Option[DBShowData]] =
       DBShow.getRandomShowQuery(botId).option.transact(transactor) <* log.debug(
-        s"[DBShow] Get random show by bot name: $botId, sql: ${DBShow.getRandomShowQuery(botId).sql}"
+        s"[DBShow] Get random show by bot id: $botId, sql: ${DBShow.getRandomShowQuery(botId).sql}"
       )
 
     override def getShowByShowQuery(query: ShowQuery, botId: SBotId): F[List[DBShowData]] =
       DBShow.getShowByShowQueryQuery(query, botId).to[List].transact(transactor) <* log.debug(
-        s"[DBShow] Get shows by bot name: $botId and keyword: $query, sql: ${DBShow.getShowByShowQueryQuery(query, botId).sql}"
+        s"[DBShow] Get shows by bot id: $botId and keyword: $query, sql: ${DBShow.getShowByShowQueryQuery(query, botId).sql}"
+      )
+
+    override def getShowBySimpleShowQuery(query: SimpleShowQuery, botId: SBotId): F[List[DBShowData]] =
+      DBShow.getShowBySimpleShowQueryQuery(query, botId).to[List].transact(transactor) <* log.debug(
+        s"[DBShow] Get shows by bot id: $botId and keyword: $query, sql: ${DBShow.getShowBySimpleShowQueryQuery(query, botId).sql}"
       )
 
     override def insertShow(dbShowData: DBShowData): F[Unit] =
@@ -102,7 +109,13 @@ object DBShow {
   }
 
   private def showQueryToFragments(query: ShowQuery): List[Fragment] = query match {
-    case RandomQuery => List.empty
+    case RandomQuery                                                                      => List.empty
+    case SimpleShowQuery(titleKeyword = tk, descriptionKeyword = dk, captionKeyword = ck) =>
+      List(
+        fr"""lower(show_title) LIKE ${"%" + tk.toLowerCase + "%"}""",
+        fr"""lower(show_description) LIKE ${"%" + dk.toLowerCase + "%"}""",
+        fr"""lower(show_origin_automatic_caption) LIKE ${"%" + ck.toLowerCase + "%"}"""
+      )
     case ShowQueryKeyword(
           titleKeywords,
           descriptionKeywords,
@@ -141,6 +154,16 @@ object DBShow {
         Fragments.whereAnd(
           fr"bot_id = ${botId.value}",
           showQueryToFragments(query)*
+        )
+
+    q.query[DBShowData]
+  }
+  def getShowBySimpleShowQueryQuery(query: SimpleShowQuery, botId: SBotId): Query0[DBShowData] = {
+    val q =
+      fr"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++
+        Fragments.whereAnd(
+          fr"bot_id = ${botId.value}",
+          Fragments.orOpt(showQueryToFragments(query)).getOrElse(fr"TRUE")
         )
 
     q.query[DBShowData]

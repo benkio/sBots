@@ -12,14 +12,17 @@ class ShowQuerySpec extends FunSuite {
   test(
     "ShowQuery.apply should return ShowQueryKeyword with one element as title keywords if the input is not a valid query string"
   ) {
-    assertEquals(ShowQuery("testQuery"), ShowQueryKeyword(titleKeywords = Some(List("testQuery"))))
     assertEquals(
-      ShowQuery("?key=value&minDate=abc"),
-      ShowQueryKeyword(titleKeywords = Some(List("?key=value&minDate=abc")))
+      ShowQuery("testQuery"),
+      SimpleShowQuery(titleKeyword = "testQuery", descriptionKeyword = "testQuery", captionKeyword = "testQuery")
     )
     assertEquals(
-      ShowQuery("key=value&minDate=abc"),
-      ShowQueryKeyword(titleKeywords = Some(List("key=value&minDate=abc")))
+      ShowQuery("?key=value&minDate=abc"),
+      SimpleShowQuery(
+        titleKeyword = "?key=value&minDate=abc",
+        descriptionKeyword = "?key=value&minDate=abc",
+        captionKeyword = "?key=value&minDate=abc"
+      )
     )
   }
   test("ShowQuery.apply should return expected ShowQueryKeyword if the input is a valid query string") {
