@@ -5,6 +5,7 @@ import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.show.RandomQuery
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.show.SimpleShowQuery
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBShow
 import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
@@ -77,30 +78,46 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
   databaseFixture.test(
     "DBShow: should insert the test show sample"
   ) { fixture =>
-    val testShowRaw2: String =
-      """{
-        |    "show_id": "https://www.youtube.com/watch?v=test2",
-        |    "bot_id": "test",
-        |    "show_title": "Test 2 Show Title",
-        |    "show_upload_date": "2025-04-24T12:01:24.000Z",
-        |    "show_duration": 10,
-        |    "show_description": "Test 2 Show Description",
-        |    "show_is_live": false,
-        |    "show_origin_automatic_caption": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl."
-        |  }""".stripMargin
     val resourceAssert = for {
-      testShow           <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw2)))
-      dbShow             <- fixture.resourceDBLayer.map(_.dbShow)
-      _                  <- Resource.eval(dbShow.insertShow(testShow))
-      testShowsByKeyword <- Resource.eval(
-        dbShow.getShowByShowQuery(ShowQuery("test 2"), botId)
+      dbShow              <- fixture.resourceDBLayer.map(_.dbShow)
+      testShows           <- Resource.eval(dbShow.getShows(botId))
+      testShowsByKeyword1 <- Resource.eval(
+        dbShow.getShowBySimpleShowQuery(
+          SimpleShowQuery(
+            titleKeyword = "title",
+            descriptionKeyword = "no match",
+            captionKeyword = "no match"
+          ),
+          botId
+        )
       )
-      _ <- Resource.eval(dbShow.deleteShow(testShow))
-    } yield (testShowsByKeyword, testShow)
-
-    resourceAssert.use { case (testShowsByKeyword, testShow) =>
-      IO.pure(assertEquals(testShowsByKeyword, List(testShow)))
+      testShowsByKeyword2 <- Resource.eval(
+        dbShow.getShowBySimpleShowQuery(
+          SimpleShowQuery(
+            titleKeyword = "no match",
+            descriptionKeyword = "description",
+            captionKeyword = "no match"
+          ),
+          botId
+        )
+      )
+      testShowsByKeyword3 <- Resource.eval(
+        dbShow.getShowBySimpleShowQuery(
+          SimpleShowQuery(
+            titleKeyword = "no match",
+            descriptionKeyword = "no match",
+            captionKeyword = "purus."
+          ),
+          botId
+        )
+      )
+    } yield {
+      assertEquals(testShowsByKeyword1, testShows)
+      assertEquals(testShowsByKeyword2, testShows)
+      assertEquals(testShowsByKeyword3, testShows)
     }
+
+    resourceAssert.use(IO.pure)
   }
 
   databaseFixture.test(

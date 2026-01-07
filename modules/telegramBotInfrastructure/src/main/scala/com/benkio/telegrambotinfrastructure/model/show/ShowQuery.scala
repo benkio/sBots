@@ -18,6 +18,11 @@ final case class ShowQueryKeyword(
     minDate: Option[LocalDate] = None,
     maxDate: Option[LocalDate] = None
 ) extends ShowQuery
+final case class SimpleShowQuery(
+    titleKeyword: String,
+    descriptionKeyword: String,
+    captionKeyword: String
+) extends ShowQuery
 case object RandomQuery extends ShowQuery
 
 object ShowQuery {
@@ -48,8 +53,13 @@ object ShowQuery {
 
     (queryString, Query.unsafeFromString(queryString)) match {
       case (x, _) if x.isEmpty                => RandomQuery
-      case (x, query) if allParamsNone(query) => ShowQueryKeyword(titleKeywords = Some(List(x)))
-      case (_, query)                         =>
+      case (x, query) if allParamsNone(query) =>
+        SimpleShowQuery(
+          titleKeyword = x,
+          descriptionKeyword = x,
+          captionKeyword = x
+        )
+      case (_, query) =>
         ShowQueryKeyword(
           titleKeywords = TitleKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),
           descriptionKeywords = DescriptionKeywordsQueryParamMatcher.unapplySeq(query.multiParams).map(_.toList),

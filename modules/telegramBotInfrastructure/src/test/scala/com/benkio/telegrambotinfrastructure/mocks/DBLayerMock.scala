@@ -5,6 +5,7 @@ import cats.effect.std.Random
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
+import com.benkio.telegrambotinfrastructure.model.show.SimpleShowQuery
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.Timeout
@@ -151,6 +152,8 @@ object DBLayerMock {
         elem <- rnd.elementOf(subs.filter(_.bot_id == botId.value)).map(Some(_)).handleError(_ => None)
       } yield elem
     override def getShowByShowQuery(query: ShowQuery, botId: SBotId): IO[List[DBShowData]] =
+      ???
+    override def getShowBySimpleShowQuery(query: SimpleShowQuery, botId: SBotId): IO[List[DBShowData]] =
       ???
     override def insertShow(dbShowData: DBShowData): IO[Unit] =
       for {
