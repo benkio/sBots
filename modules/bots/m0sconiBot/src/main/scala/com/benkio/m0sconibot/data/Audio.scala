@@ -489,7 +489,9 @@ object Audio {
     ),
     ReplyBundleMessage.textToMedia(
       "piovanelli",
-      "atalanta"
+      "atalanta",
+      "franco landri",
+      "direttore sportivo"
     )(
       mp3"mos_PiovanelliPorcoDio.mp3"
     ),

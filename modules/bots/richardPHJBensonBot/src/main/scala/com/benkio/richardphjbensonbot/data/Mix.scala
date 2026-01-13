@@ -4992,7 +4992,9 @@ object Mix {
         vid"rphjb_GerarchieInfernali3.mp4"
       ),
       ReplyBundleMessage.textToMedia(
-        "con questa tecnica"
+        "con questa tecnica",
+        "riesce a suonare",
+        "voglio vedere qualcuno che"
       )(
         vid"rphjb_ConQuestaTecnica.mp4",
         mp3"rphjb_ConQuestaTecnica.mp3"
