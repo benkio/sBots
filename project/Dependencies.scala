@@ -35,7 +35,7 @@ object Dependencies {
     val scalatest             = "3.2.16"
     val shapeless             = "2.3.10"
     val sqlite                = "3.41.2.1"
-    val telegramiumVersion    = "10.902.0"
+    val telegramiumVersion    = "10.903.0"
     val vault                 = "3.6.0"
   }
 
