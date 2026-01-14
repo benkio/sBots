@@ -100,9 +100,10 @@ object Audio {
       mp3"rphjb_PannaOcchialiSpalla.mp3"
     ),
     ReplyBundleMessage.textToMp3(
-      "state zitti"
+      "sta(te|re) zitti".r
     )(
-      mp3"rphjb_StateZittiZozziUltimi.mp3"
+      mp3"rphjb_StateZittiZozziUltimi.mp3",
+      mp3"rphjb_HoCapito.mp3"
     ),
     ReplyBundleMessage.textToMp3(
       "solo io"

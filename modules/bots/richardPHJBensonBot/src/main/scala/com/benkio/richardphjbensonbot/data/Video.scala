@@ -558,7 +558,6 @@ object Video {
       vid"rphjb_RovinarmiVintoIo.mp4"
     ),
     ReplyBundleMessage.textToVideo(
-      "un casino(,)? come al solito".r,
       "quando ci sono io",
       "l'acqua è (scivolata|scesa) (de|di) sotto".r.tr(24)
     )(

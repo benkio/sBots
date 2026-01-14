@@ -878,7 +878,7 @@ object Mix {
       gif"rphjb_CapitoDoveStiamoGif.mp4",
       gif"rphjb_NonHoCapitoGif.mp4",
       gif"rphjb_AveteCapitoEhGif.mp4",
-      gif"rphjb_ComeAlSolitoNonAveteCapitoGif.mp4",
+      gif"rphjb_AveteCapitoGif.mp4",
       mp3"rphjb_CapitoDoveStiamo.mp3",
       mp3"rphjb_CapisciRidotti.mp3",
       mp3"rphjb_CapitoCheMagagnaKikoLoureiroSalvaSituazione.mp3",
@@ -6407,6 +6407,14 @@ object Mix {
         vid"rphjb_PortlandVancuverFanculo.mp4",
         mp3"rphjb_PortlandVancuverFanculo.mp3",
         vid"rphjb_StoriaMarlinManson.mp4"
+      ),
+      ReplyBundleMessage.textToMedia(
+        "come al solito"
+      )(
+        vid"rphjb_UnCasinoComeAlSolito.mp4",
+        mp3"rphjb_AveteCapito.mp3",
+        vid"rphjb_AveteCapito.mp4",
+        gif"rphjb_AveteCapitoGif.mp4"
       )
     )
 }
