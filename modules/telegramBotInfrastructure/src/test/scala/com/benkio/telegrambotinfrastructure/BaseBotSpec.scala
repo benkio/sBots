@@ -251,7 +251,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         case (regexTrigger: RegexTextTriggerValue, replyBundle) =>
           property(s"""🔎 Only one reply bundle replies to: "${regexTrigger.trigger.toString}"""") {
             forAll(RegexpGen.from(regexTrigger.trigger.toString)) {
-              case (regexMatchString: String) if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
+              case regexMatchString: String if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
                 val exactStringMessage = Message(
                   messageId = 0,
                   date = 0,
@@ -289,7 +289,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       )
       .flatten
       .foreach {
-        case (regexTextTriggerValue: RegexTextTriggerValue) =>
+        case regexTextTriggerValue: RegexTextTriggerValue =>
           test(s"""Regex should return a valid length: "${regexTextTriggerValue.toString}"""") {
             assert(
               regexTextTriggerValue.length.value != Int.MaxValue
