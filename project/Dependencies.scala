@@ -22,7 +22,7 @@ object Dependencies {
     val googleYouTubeApi      = "v3-rev20251217-2.0.0"
     val http4s                = "0.23.33"
     val logEffects            = "0.19.9"
-    val logbackClassic        = "1.5.27"
+    val logbackClassic        = "1.5.28"
     val logbackLogstash       = "9.0"
     val mules                 = "0.7.0"
     val mulesHttp4s           = "0.4.0"
