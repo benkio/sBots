@@ -5,7 +5,7 @@ import com.benkio.botDB.show.YouTubeBotIds
 import com.benkio.botDB.show.YouTubeService
 import com.google.api.services.youtube.model.Video
 
-import fs2.io.file.Path
+import java.nio.file.Path
 
 class YouTubeServiceMock(
     onGetAllBotNameIds: IO[List[YouTubeBotIds]] = IO.raiseError(Throwable("[YouTubeServiceMock] Unexpected Call")),

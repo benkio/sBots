@@ -10,7 +10,7 @@ import io.circe.Json
 
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
-import fs2.io.file.Path
+import java.nio.file.Path
 import scala.io.BufferedSource
 
 object DataEntry {

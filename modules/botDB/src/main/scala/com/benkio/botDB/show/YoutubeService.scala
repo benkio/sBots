@@ -19,7 +19,7 @@ import log.effect.LogWriter
 
 import java.io.File
 import java.nio.file.Files
-import fs2.io.file.Path
+import java.nio.file.Path
 import scala.jdk.CollectionConverters.*
 import scala.sys.process.*
 import scala.util.Try

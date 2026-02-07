@@ -5,16 +5,15 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import org.http4s.Uri
 
 import scala.concurrent.duration.*
-import fs2.io.file.Path
 
 case class SBotConfig(
     disableForward: Boolean,
     ignoreMessagePrefix: Option[String],
     messageTimeToLive: Option[FiniteDuration],
     sBotInfo: SBotInfo,
-    triggerFilename: Path,
+    triggerFilename: String,
     triggerListUri: Uri,
-    triggerJsonFilename: Path
+    triggerJsonFilename: String
 )
 
 object SBotConfig {

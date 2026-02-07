@@ -14,7 +14,7 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
 import java.nio.file.Files
-import fs2.io.file.Path
+import java.nio.file.Path
 import java.util.jar.JarFile
 import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters.*
