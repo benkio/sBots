@@ -59,7 +59,7 @@ object GenerateTriggers extends IOApp {
       )
       // TODO: Uncomment when migrating data to JSON and then remove
       // _ <- generateTriggersJsonFile(
-      //   botModuleRelativeFolderPath = "../bots/aBarberoBot/",
+      //   botModuleRelativeFolderPath = "../bots/aBarberoBot/src/main/resources",
       //   triggerJsonFilename = ABarberoBot.sBotConfig.triggerJsonFilename,
       //   triggers = ABarberoBot.messageRepliesData
       // )
@@ -69,7 +69,7 @@ object GenerateTriggers extends IOApp {
         triggers = CalandroBot.messageRepliesData
       )
       _ <- generateTriggersJsonFile(
-        botModuleRelativeFolderPath = "../bots/calandroBot/",
+        botModuleRelativeFolderPath = "../bots/calandroBot/src/main/resources",
         triggerJsonFilename = CalandroBot.sBotConfig.triggerJsonFilename,
         triggers = CalandroBot.messageRepliesData
       )
@@ -80,7 +80,7 @@ object GenerateTriggers extends IOApp {
       )
       // TODO: Uncomment when migrating data to JSON and then remove
       // _ <- generateTriggersJsonFile(
-      //   botModuleRelativeFolderPath = "../bots/m0sconiBot/",
+      //   botModuleRelativeFolderPath = "../bots/m0sconiBot/src/main/resources",
       //   triggerJsonFilename = M0sconiBot.sBotConfig.triggerJsonFilename,
       //   triggers = M0sconiBot.messageRepliesData
       // )
@@ -91,7 +91,7 @@ object GenerateTriggers extends IOApp {
       )
       // TODO: Uncomment when migrating data to JSON and then remove
       // _ <- generateTriggersJsonFile(
-      //   botModuleRelativeFolderPath = "../bots/richardPHJBensonBotBot/",
+      //   botModuleRelativeFolderPath = "../bots/richardPHJBensonBotBot/src/main/resources",
       //   triggerJsonFilename = RichardPHJBensonBotBot.sBotConfig.triggerJsonFilename,
       //   triggers = RichardPHJBensonBotBot.messageRepliesData
       // )
@@ -102,7 +102,7 @@ object GenerateTriggers extends IOApp {
       )
       // TODO: Uncomment when migrating data to JSON and then remove
       // _ <- generateTriggersJsonFile(
-      //   botModuleRelativeFolderPath = "../bots/youTuboAncheI0BotBot/",
+      //   botModuleRelativeFolderPath = "../bots/youTuboAncheI0BotBot/src/main/resources",
       //   triggerJsonFilename = YouTuboAncheI0BotBot.sBotConfig.triggerJsonFilename,
       //   triggers = YouTuboAncheI0BotBot.messageRepliesData
       // )
