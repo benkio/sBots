@@ -12,14 +12,16 @@ case class SBotConfig(
     messageTimeToLive: Option[FiniteDuration],
     sBotInfo: SBotInfo,
     triggerFilename: String,
-    triggerListUri: Uri
+    triggerListUri: Uri,
+    triggerJsonFilename: String
 )
 
 object SBotConfig {
   def apply(
       sBotInfo: SBotInfo,
       triggerFilename: String,
-      triggerListUri: Uri,
+    triggerListUri: Uri,
+    triggerJsonFilename: String,
       messageTimeToLive: Option[FiniteDuration] = 10.seconds.some,
       ignoreMessagePrefix: Option[String] = Some("!"),
       disableForward: Boolean = true
@@ -29,6 +31,7 @@ object SBotConfig {
     messageTimeToLive = messageTimeToLive,
     sBotInfo = sBotInfo,
     triggerFilename = triggerFilename,
+    triggerJsonFilename = triggerJsonFilename,
     triggerListUri = triggerListUri
   )
 }

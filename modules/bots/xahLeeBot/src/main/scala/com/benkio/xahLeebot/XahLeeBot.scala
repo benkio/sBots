@@ -59,7 +59,8 @@ object XahLeeBot {
   val sBotConfig: SBotConfig = SBotConfig(
     sBotInfo = SBotInfo(SBotId("xah"), SBotInfo.SBotName("XahLeeBot")),
     triggerFilename = "xah_triggers.txt",
-    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/xah_triggers.txt"
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/xah_triggers.txt",
+    triggerJsonFilename = "xah_replies.json"
   )
   val tokenFilename: String   = "xah_XahLeeBot.token"
   val configNamespace: String = "xah"

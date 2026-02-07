@@ -76,7 +76,8 @@ object M0sconiBot {
   val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("mos"), SBotInfo.SBotName("M0sconiBot")),
     triggerFilename = triggerFilename,
-    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt"
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt",
+    triggerJsonFilename = "mos_replies.json"
   )
 
   val messageRepliesData: List[ReplyBundleMessage] =
