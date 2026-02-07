@@ -1,21 +1,22 @@
 package com.benkio.telegrambotinfrastructure.repository
 
-import java.io.File
+import cats.data.NonEmptyList
 import cats.effect.IO
 import cats.effect.Resource
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
+import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.reply.Document
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
-import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
-import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
-import cats.data.NonEmptyList
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import io.circe.syntax.*
+
+import java.io.File
 
 class JsonRepliesRepositorySpec extends CatsEffectSuite {
 
@@ -23,11 +24,12 @@ class JsonRepliesRepositorySpec extends CatsEffectSuite {
 
   private def repositoryWithJsonFile(tempFile: File): Repository[IO] =
     RepositoryMock(
-      getResourceFileHandler = (mediaFile: MediaFile) => mediaFile match {
-        case Document(filename, _) if filename == SampleWebhookBot.repliesJsonFilename =>
-          IO.pure(Right(NonEmptyList.one(MediaResourceFile(Resource.pure(tempFile)))))
-        case x => IO.raiseError(Throwable(s"$x is not the expected Document"))
-      }
+      getResourceFileHandler = (mediaFile: MediaFile) =>
+        mediaFile match {
+          case Document(filename, _) if filename == SampleWebhookBot.repliesJsonFilename =>
+            IO.pure(Right(NonEmptyList.one(MediaResourceFile(Resource.pure(tempFile)))))
+          case x => IO.raiseError(Throwable(s"$x is not the expected Document"))
+        }
     )
 
   private def assertLoadedMatchesExpected(
@@ -56,15 +58,15 @@ class JsonRepliesRepositorySpec extends CatsEffectSuite {
 
   test("loadReplies raises FileNotFound when the repository returns no file for the JSON filename") {
     val repository = RepositoryMock(
-      getResourceFileHandler = (mediaFile: MediaFile) =>
-        IO.pure(Left(Repository.RepositoryError.NoResourcesFoundFile(mediaFile)))
+      getResourceFileHandler =
+        (mediaFile: MediaFile) => IO.pure(Left(Repository.RepositoryError.NoResourcesFoundFile(mediaFile)))
     )
     val repo = JsonRepliesRepository[IO](repository)
 
     repo.loadReplies(SampleWebhookBot.repliesJsonFilename).attempt.map {
       case Left(_: JsonRepliesRepository.JsonRepliesRepositoryError.FileNotFound) => ()
-      case Left(other)  => fail(s"expected FileNotFound, got $other")
-      case Right(_)     => fail("expected failure")
+      case Left(other) => fail(s"expected FileNotFound, got $other")
+      case Right(_)    => fail("expected failure")
     }
   }
 }

@@ -113,15 +113,15 @@ object SampleWebhookBot {
     botName = SBotInfo.SBotName("SampleWebhookBot"),
     botId = SBotInfo.SBotId("sbot")
   )
-  val triggerFilename: String = "sbot_triggers.txt"
+  val triggerFilename: String     = "sbot_triggers.txt"
   val repliesJsonFilename: String = "sbot_replies.json"
-  val triggerListUri: Uri     =
+  val triggerListUri: Uri         =
     uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
   val sBotConfig: SBotConfig = SBotConfig(
     sBotInfo = SampleWebhookBot.sBotInfo,
     triggerFilename = SampleWebhookBot.triggerFilename,
     triggerListUri = SampleWebhookBot.triggerListUri,
-    repliesJsonFilename = SampleWebhookBot.repliesJsonFilename,
+    repliesJsonFilename = SampleWebhookBot.repliesJsonFilename
   )
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 

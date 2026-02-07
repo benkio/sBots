@@ -20,8 +20,8 @@ object SBotConfig {
   def apply(
       sBotInfo: SBotInfo,
       triggerFilename: String,
-    triggerListUri: Uri,
-    repliesJsonFilename: String,
+      triggerListUri: Uri,
+      repliesJsonFilename: String,
       messageTimeToLive: Option[FiniteDuration] = 10.seconds.some,
       ignoreMessagePrefix: Option[String] = Some("!"),
       disableForward: Boolean = true
