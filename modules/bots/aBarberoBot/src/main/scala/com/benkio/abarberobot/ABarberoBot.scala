@@ -79,8 +79,7 @@ object ABarberoBot {
   val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("abar"), SBotName("ABarberoBot")),
     triggerFilename = "abar_triggers.txt",
-    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt",
-    triggerJsonFilename = "abar_replies.json"
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt"
   )
 
   val messageRepliesVideoData: List[ReplyBundleMessage] = List(

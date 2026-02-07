@@ -46,7 +46,11 @@ class SampleWebhookBot(
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 
-  override val sBotConfig: SBotConfig = SampleWebhookBot.sBotConfig
+  override val sBotConfig: SBotConfig = SBotConfig(
+    sBotInfo = SampleWebhookBot.sBotInfo,
+    triggerFilename = SampleWebhookBot.triggerFilename,
+    triggerListUri = SampleWebhookBot.triggerListUri
+  )
 
   override val messageRepliesData: List[ReplyBundleMessage] = List(
     ReplyBundleMessage.textToMp3(
@@ -114,15 +118,9 @@ object SampleWebhookBot {
     botId = SBotInfo.SBotId("sbot")
   )
   val triggerFilename: String = "sbot_triggers.txt"
-  val triggerJsonFilename: String = "sbot_replies.json"
   val triggerListUri: Uri     =
     uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
-  val sBotConfig: SBotConfig = SBotConfig(
-    sBotInfo = SampleWebhookBot.sBotInfo,
-    triggerFilename = SampleWebhookBot.triggerFilename,
-    triggerListUri = SampleWebhookBot.triggerListUri,
-    triggerJsonFilename = SampleWebhookBot.triggerJsonFilename,
-  )
+
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
   def apply()(using Async[IO], Api[IO]): IO[SampleWebhookBot] = {

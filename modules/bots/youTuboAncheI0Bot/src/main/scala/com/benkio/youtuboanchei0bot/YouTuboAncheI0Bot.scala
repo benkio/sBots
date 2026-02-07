@@ -81,8 +81,7 @@ object YouTuboAncheI0Bot {
   val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("ytai"), SBotInfo.SBotName("YouTuboAncheI0Bot")),
     triggerFilename = "ytai_triggers.txt",
-    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt",
-    triggerJsonFilename = "ytai_replies.json"
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   )
 
   def messageRepliesAudioData: List[ReplyBundleMessage] =

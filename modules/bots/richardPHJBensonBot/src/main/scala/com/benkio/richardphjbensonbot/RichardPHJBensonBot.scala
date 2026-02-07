@@ -106,8 +106,7 @@ object RichardPHJBensonBot {
   val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("rphjb"), SBotInfo.SBotName("RichardPHJBensonBot")),
     triggerFilename = triggerFilename,
-    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt",
-    triggerJsonFilename = "rphjb_replies.json"
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
   )
 
   val messageRepliesData: List[ReplyBundleMessage] =
