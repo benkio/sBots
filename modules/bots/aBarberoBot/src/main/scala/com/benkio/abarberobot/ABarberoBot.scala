@@ -60,13 +60,13 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
-trait ABarberoBot[F[_]] extends SBot[F] {
+trait ABarberoBot[F[_]: Applicative] extends SBot[F] {
 
   override val sBotConfig: SBotConfig = ABarberoBot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override val messageRepliesData: List[ReplyBundleMessage] =
-    ABarberoBot.messageRepliesData
+  override val messageRepliesData: F[List[ReplyBundleMessage]] =
+    Applicative[F].pure(ABarberoBot.messageRepliesData)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     ABarberoBot.commandRepliesData

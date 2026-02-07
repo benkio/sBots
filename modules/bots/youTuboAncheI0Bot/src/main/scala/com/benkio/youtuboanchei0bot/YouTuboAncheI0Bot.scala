@@ -62,13 +62,13 @@ class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
-trait YouTuboAncheI0Bot[F[_]] extends SBot[F] {
+trait YouTuboAncheI0Bot[F[_]: Applicative] extends SBot[F] {
 
   override val sBotConfig: SBotConfig = YouTuboAncheI0Bot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override val messageRepliesData: List[ReplyBundleMessage] =
-    YouTuboAncheI0Bot.messageRepliesData
+  override val messageRepliesData: F[List[ReplyBundleMessage]] =
+    Applicative[F].pure(YouTuboAncheI0Bot.messageRepliesData)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     YouTuboAncheI0Bot.commandRepliesData

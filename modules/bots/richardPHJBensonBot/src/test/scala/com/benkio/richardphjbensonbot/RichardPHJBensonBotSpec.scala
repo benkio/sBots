@@ -59,8 +59,10 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     richardPHJBensonBot.map(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]] =
-    richardPHJBensonBot.map(rb => rb.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
+  val messageRepliesDataPrettyPrint: IO[List[String]] = for {
+    bot     <- richardPHJBensonBot
+    replies <- bot.messageRepliesData
+  } yield replies.flatMap(_.reply.prettyPrint)
 
   exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData)
   regexTriggerLengthReturnValue(RichardPHJBensonBot.messageRepliesData)

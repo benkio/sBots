@@ -42,14 +42,12 @@ class SBotSpec extends CatsEffectSuite {
         gif"rphjb_CarneFrescaSaporitaGif.mp4"
       )
 
-    SampleWebhookBot().map(sampleWebhookBot => {
-      val resultOpt = sampleWebhookBot.selectReplyBundle(inputMessage)
-      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
-        _.prettyPrint()
+    SampleWebhookBot().flatMap(sampleWebhookBot =>
+      sampleWebhookBot.selectReplyBundle(inputMessage).flatMap { resultOpt =>
+        val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String])(_.prettyPrint().pure[IO])
+        result.flatMap(r => IO(assertEquals(r, expected.prettyPrint())))
       }
-      val expectedPP = expected.prettyPrint()
-      assertEquals(result, expectedPP)
-    })
+    )
   }
 
   test("selectCommandReplyBundle should return all the expected `ReplyBundleCommand`") {

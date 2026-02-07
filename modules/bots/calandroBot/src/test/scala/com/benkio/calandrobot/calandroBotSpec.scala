@@ -50,7 +50,7 @@ class CalandroBotSpec extends BaseBotSpec {
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
     calandroBot
-      .map(ab => ab.messageRepliesData)
+      .flatMap(ab => ab.messageRepliesData)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     calandroBot
       .map(_.allCommandRepliesData)

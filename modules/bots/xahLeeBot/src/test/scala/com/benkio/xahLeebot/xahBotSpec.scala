@@ -44,8 +44,10 @@ class XahLeeBotSpec extends BaseBotSpec {
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     xahLeeBot.map(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]] =
-    xahLeeBot.map(xlb => xlb.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
+  val messageRepliesDataPrettyPrint: IO[List[String]] =for {
+    bot     <- xahLeeBot
+    replies <- bot.messageRepliesData
+  } yield replies.flatMap(_.reply.prettyPrint)
 
   exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData)
   regexTriggerLengthReturnValue(XahLeeBot.messageRepliesData)

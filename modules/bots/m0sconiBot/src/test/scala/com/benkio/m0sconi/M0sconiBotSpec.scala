@@ -49,8 +49,10 @@ class M0sconiBotSpec extends BaseBotSpec {
     )
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     m0sconiBot.map(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]] =
-    m0sconiBot.map(mb => mb.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
+  val messageRepliesDataPrettyPrint: IO[List[String]] = for {
+    bot     <- m0sconiBot
+    replies <- bot.messageRepliesData
+  } yield replies.flatMap(_.reply.prettyPrint)
 
   exactTriggerReturnExpectedReplyBundle(M0sconiBot.messageRepliesData)
   regexTriggerLengthReturnValue(M0sconiBot.messageRepliesData)

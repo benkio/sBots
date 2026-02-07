@@ -49,7 +49,7 @@ class ABarberoBotSpec extends BaseBotSpec {
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
     aBarberoBot
-      .map(ab => ab.messageRepliesData)
+      .flatMap(ab => ab.messageRepliesData)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     aBarberoBot
       .map(_.allCommandRepliesData)

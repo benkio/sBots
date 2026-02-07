@@ -52,12 +52,12 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](uri, path, webhookCertificate)
     with CalandroBot[F] {}
 
-trait CalandroBot[F[_]] extends SBot[F] {
+trait CalandroBot[F[_]: Applicative] extends SBot[F] {
 
   override val sBotConfig: SBotConfig = CalandroBot.sBotConfig
 
-  override val messageRepliesData: List[ReplyBundleMessage] =
-    CalandroBot.messageRepliesData
+  override val messageRepliesData: F[List[ReplyBundleMessage]] =
+    Applicative[F].pure(CalandroBot.messageRepliesData)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     CalandroBot.commandRepliesData

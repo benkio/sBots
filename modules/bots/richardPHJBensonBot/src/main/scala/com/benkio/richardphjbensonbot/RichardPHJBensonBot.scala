@@ -69,8 +69,8 @@ trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
   override val sBotConfig: SBotConfig = RichardPHJBensonBot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override val messageRepliesData: List[ReplyBundleMessage] =
-    RichardPHJBensonBot.messageRepliesData
+  override val messageRepliesData: F[List[ReplyBundleMessage]] =
+    Applicative[F].pure(RichardPHJBensonBot.messageRepliesData)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     RichardPHJBensonBot.commandRepliesData

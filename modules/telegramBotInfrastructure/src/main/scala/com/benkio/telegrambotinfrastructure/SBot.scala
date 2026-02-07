@@ -52,8 +52,8 @@ trait SBot[F[_]: Async: LogWriter] {
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  val messageRepliesData: List[ReplyBundleMessage] =
-    List.empty[ReplyBundleMessage]
+  val messageRepliesData: F[List[ReplyBundleMessage]] =
+    List.empty[ReplyBundleMessage].pure[F]
   val commandRepliesData: List[ReplyBundleCommand] =
     List.empty[ReplyBundleCommand]
 
@@ -74,17 +74,20 @@ trait SBot[F[_]: Async: LogWriter] {
 
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
-  ): Option[ReplyBundleMessage] =
-    if FilteringForward.filter(msg, sBotConfig.disableForward) && FilteringOlder.filter(msg)
-    then messageRepliesData
-      .mapFilter(messageReplyBundle =>
-        MessageMatches
-          .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
-      )
-      .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-      .headOption
-      .map(_._2)
-    else None
+  ): F[Option[ReplyBundleMessage]] =
+    if !FilteringForward.filter(msg, sBotConfig.disableForward) || !FilteringOlder.filter(msg)
+    then None.pure[F]
+    else
+      messageRepliesData.map { list =>
+        list
+          .mapFilter(messageReplyBundle =>
+            MessageMatches
+              .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
+          )
+          .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+          .headOption
+          .map(_._2)
+      }
 
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
@@ -100,8 +103,8 @@ trait SBot[F[_]: Async: LogWriter] {
   def messageLogic(
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    selectReplyBundle(msg)
-      .traverse(replyBundle =>
+    selectReplyBundle(msg).flatMap(
+      _.traverse(replyBundle =>
         for {
           _ <- LogWriter
             .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
@@ -120,6 +123,7 @@ trait SBot[F[_]: Async: LogWriter] {
             else List.empty.pure[F]
         } yield result
       )
+    )
 
   def commandLogic(
       msg: Message

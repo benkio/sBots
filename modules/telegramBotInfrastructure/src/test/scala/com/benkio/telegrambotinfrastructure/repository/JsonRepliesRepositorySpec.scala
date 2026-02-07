@@ -48,12 +48,14 @@ class JsonRepliesRepositorySpec extends CatsEffectSuite {
   }
 
   test("loadReplies loads and decodes ReplyBundleMessages from JSON using SampleWebhookBot config") {
-    SampleWebhookBot().flatMap { bot =>
-      val jsonBytes = bot.messageRepliesData.asJson.noSpaces.getBytes
-      Repository
+    for {
+      bot          <- SampleWebhookBot()
+      expectedList <- bot.messageRepliesData
+      jsonBytes = expectedList.asJson.noSpaces.getBytes
+      result <- Repository
         .toTempFile[IO](SampleWebhookBot.repliesJsonFilename, jsonBytes)
-        .use(tempFile => loadRepliesAndAssert(repositoryWithJsonFile(tempFile), bot.messageRepliesData))
-    }
+        .use(tempFile => loadRepliesAndAssert(repositoryWithJsonFile(tempFile), expectedList))
+    } yield result
   }
 
   test("loadReplies raises FileNotFound when the repository returns no file for the JSON filename") {

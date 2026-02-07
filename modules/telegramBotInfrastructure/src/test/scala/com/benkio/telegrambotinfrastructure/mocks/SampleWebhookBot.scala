@@ -48,7 +48,7 @@ class SampleWebhookBot(
 
   override val sBotConfig: SBotConfig = SampleWebhookBot.sBotConfig
 
-  override val messageRepliesData: List[ReplyBundleMessage] = List(
+  override val messageRepliesData: IO[List[ReplyBundleMessage]] = IO.pure(List(
     ReplyBundleMessage.textToMp3(
       "cosa preferisci",
       "ragazzetta",
@@ -93,7 +93,7 @@ class SampleWebhookBot(
       vid"rphjb_CarneFrescaSaporita.mp4",
       gif"rphjb_CarneFrescaSaporitaGif.mp4"
     )
-  )
+  ))
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     List(

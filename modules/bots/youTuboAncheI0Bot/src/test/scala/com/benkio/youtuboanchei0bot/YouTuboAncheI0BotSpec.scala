@@ -46,8 +46,10 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   )
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.map(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]]  =
-    youtuboanchei0bot.map(ab => ab.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
+  val messageRepliesDataPrettyPrint: IO[List[String]]  = for {
+    bot     <- youtuboanchei0bot
+    replies <- bot.messageRepliesData
+  } yield replies.flatMap(_.reply.prettyPrint)
 
   exactTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData)
   regexTriggerLengthReturnValue(YouTuboAncheI0Bot.messageRepliesData)

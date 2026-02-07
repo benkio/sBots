@@ -56,13 +56,13 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
-trait M0sconiBot[F[_]] extends SBot[F] {
+trait M0sconiBot[F[_]: Applicative] extends SBot[F] {
 
   override val sBotConfig: SBotConfig = M0sconiBot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
 
-  override val messageRepliesData: List[ReplyBundleMessage] =
-    M0sconiBot.messageRepliesData
+  override val messageRepliesData: F[List[ReplyBundleMessage]] =
+    Applicative[F].pure(M0sconiBot.messageRepliesData)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     M0sconiBot.commandRepliesData

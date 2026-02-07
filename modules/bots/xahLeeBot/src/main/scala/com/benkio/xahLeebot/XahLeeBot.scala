@@ -40,14 +40,14 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](uri, path, webhookCertificate)
     with XahLeeBot[F] {}
 
-trait XahLeeBot[F[_]] extends SBot[F] {
+trait XahLeeBot[F[_]: Applicative] extends SBot[F] {
 
   override val sBotConfig: SBotConfig = XahLeeBot.sBotConfig
   val backgroundJobManager: BackgroundJobManager[F]
   val dbLayer: DBLayer[F]
 
-  override val messageRepliesData: List[ReplyBundleMessage] =
-    XahLeeBot.messageRepliesData
+  override val messageRepliesData: F[List[ReplyBundleMessage]] =
+    Applicative[F].pure(XahLeeBot.messageRepliesData)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     XahLeeBot.commandRepliesData
