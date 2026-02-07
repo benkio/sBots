@@ -29,6 +29,7 @@ import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.db.*
 import com.benkio.telegrambotinfrastructure.repository.JsonRepliesRepository
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
 import io.circe.syntax.*
@@ -155,10 +156,10 @@ object GenerateTriggers extends IOApp {
   }
 
   private def forTriggerGeneration(sBotConfig: SBotConfig)(using log: LogWriter[IO]): IO[BotSetup[IO]] = {
-    val repo    = TriggerGenerationStubs.stubRepository[IO]
-    val client  = TriggerGenerationStubs.stubClient[IO]
-    val api     = TriggerGenerationStubs.stubApi[IO]
-    val dbLayer = TriggerGenerationStubs.stubDBLayer[IO]()
+    val resourcesRepository = ResourcesRepository.fromResources[IO]()
+    val client             = TriggerGenerationStubs.stubClient[IO]
+    val api                = TriggerGenerationStubs.stubApi[IO]
+    val dbLayer            = TriggerGenerationStubs.stubDBLayer[IO](sBotConfig.sBotInfo.botId)
     BackgroundJobManager[IO](
       dbLayer = dbLayer,
       sBotInfo = sBotConfig.sBotInfo,
@@ -167,8 +168,8 @@ object GenerateTriggers extends IOApp {
       BotSetup(
         token = "trigger-generation",
         httpClient = client,
-        repository = repo,
-        jsonRepliesRepository = JsonRepliesRepository[IO](repo),
+        repository = resourcesRepository,
+        jsonRepliesRepository = JsonRepliesRepository[IO](resourcesRepository),
         dbLayer = dbLayer,
         backgroundJobManager = bjm,
         api = api,

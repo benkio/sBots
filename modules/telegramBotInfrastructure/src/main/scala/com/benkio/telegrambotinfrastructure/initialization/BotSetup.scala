@@ -106,7 +106,8 @@ object BotSetup {
       sBotConfig: SBotConfig,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
-    tk            <- token[F](tokenFilename, ResourcesRepository.fromResources[F]())
+    resourceRepository = ResourcesRepository.fromResources[F]()
+    tk            <- token[F](tokenFilename, resourceRepository)
     config        <- Resource.eval(Config.loadConfig[F](namespace))
     _             <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
     dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
@@ -140,7 +141,7 @@ object BotSetup {
     token = tk,
     httpClient = httpClient,
     repository = repository,
-    jsonRepliesRepository = JsonRepliesRepository[F](repository),
+    jsonRepliesRepository = JsonRepliesRepository[F](resourceRepository),
     dbLayer = dbLayer,
     backgroundJobManager = backgroundJobManager,
     api = api,
