@@ -159,7 +159,7 @@ object GenerateTriggers extends IOApp {
     val resourcesRepository = ResourcesRepository.fromResources[IO]()
     val client             = TriggerGenerationStubs.stubClient[IO]
     val api                = TriggerGenerationStubs.stubApi[IO]
-    val dbLayer            = TriggerGenerationStubs.stubDBLayer[IO](sBotConfig.sBotInfo.botId)
+    val dbLayer            = TriggerGenerationStubs.stubDBLayer[IO]()
     BackgroundJobManager[IO](
       dbLayer = dbLayer,
       sBotInfo = sBotConfig.sBotInfo,

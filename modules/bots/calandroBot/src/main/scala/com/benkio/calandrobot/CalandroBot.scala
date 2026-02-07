@@ -4,19 +4,13 @@ import cats.*
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
-import com.benkio.telegrambotinfrastructure.model.reply.txt
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
-import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
-import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
@@ -30,8 +24,6 @@ import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 
-import scala.util.Random
-
 class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F]
 ) extends SBotPolling[F](sBotSetup)
@@ -43,10 +35,10 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with CalandroBot[F] {}
 
-trait CalandroBot[F[_]: Applicative] extends SBot[F] {
+trait CalandroBot[F[_]] extends SBot[F] {
 
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    Applicative[F].pure(CalandroBot.messageRepliesData)
+    sBotSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     CalandroBot.commandRepliesData
@@ -63,86 +55,7 @@ object CalandroBot {
     repliesJsonFilename = "cala_replies.json"
   )
 
-  val messageRepliesData: List[ReplyBundleMessage] = List(
-    ReplyBundleMessage.textToText(
-      "sbrighi"
-    )("Passo"),
-    ReplyBundleMessage.textToText(
-      "gay",
-      "froc[io]".r,
-      "culattone",
-      "ricchione"
-    )("CHE SCHIFO!!!"),
-    ReplyBundleMessage.textToText(
-      "caldo",
-      "scotta"
-    )("Come i carbofreni della Brembo!!"),
-    ReplyBundleMessage.textToText(
-      "ciao",
-      "buongiorno",
-      "\\bsalve\\b".r
-    )("Buongiorno Signori"),
-    ReplyBundleMessage.textToText(
-      "film"
-    )("Lo riguardo volentieri"),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("stasera"),
-        StringTextTriggerValue("?")
-      ),
-      reply = TextReply.fromList("Facciamo qualcosa tutti assieme?")(false),
-      matcher = MessageMatches.ContainsAll
-    ),
-    ReplyBundleMessage.textToText(
-      "\\bhd\\b".r,
-      "nitid(o|ezza)".r,
-      "alta definizione"
-    )("Eh sì, vedi...si nota l'indecisione dell'immagine"),
-    ReplyBundleMessage.textToText(
-      "qualità"
-    )("A 48x masterizza meglio"),
-    ReplyBundleMessage.textToText(
-      "macchina",
-      "automobile"
-    )("Hai visto l'ultima puntata di \"Top Gear\"?"),
-    ReplyBundleMessage.textToText(
-      "\\bfiga\\b".r,
-      "\\bfregna\\b".r,
-      "\\bgnocca\\b".r,
-      "\\bpatacca\\b".r
-    )("Io so come fare con le donne...ho letto tutto..."),
-    ReplyBundleMessage.textToText(
-      "ambulanza",
-      "🚑"
-    )(
-      "😤",
-      "🤘",
-      "🤞",
-      "🤞",
-      "🤘",
-      "😤"
-    ),
-    ReplyBundleMessage.textToText(
-      "pc",
-      "computer"
-    )("Il fisso performa meglio rispetto al portatile!!!"),
-    ReplyBundleMessage.textToText(
-      "videogioc",
-      "🎮"
-    )(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
-    ReplyBundleMessage.textToText(
-      " hs",
-      "hearthstone"
-    )("BASTA CON QUESTI TAUNT!!!"),
-    ReplyBundleMessage(
-      MessageLengthTrigger(280),
-      reply = TextReply(
-        text = List(txt"wawaaa rischio calandrico in aumento!!!"),
-        replyToMessage = true
-      ),
-      matcher = MessageMatches.ContainsOnce
-    )
-  )
+  val messageRepliesData: List[ReplyBundleMessage] = ??? // TODO: to be removed - delete test dependencies
 
   val commandRepliesData: List[ReplyBundleCommand] =
     List(

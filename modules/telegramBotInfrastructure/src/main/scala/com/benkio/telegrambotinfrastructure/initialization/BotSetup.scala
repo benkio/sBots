@@ -105,48 +105,51 @@ object BotSetup {
       namespace: String,
       sBotConfig: SBotConfig,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
-  )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = for {
-    resourceRepository = ResourcesRepository.fromResources[F]()
-    tk            <- token[F](tokenFilename, resourceRepository)
-    config        <- Resource.eval(Config.loadConfig[F](namespace))
-    _             <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
-    dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
-    dbLayer       <- loadDB[F](config.db)
-    repository = DBRepository.dbResources[F](dbLayer.dbMedia, dropboxClient)
-    _                     <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Delete webook..."))
-    deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
-    _                     <- Resource.eval(
-      Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
-        new RuntimeException(
-          s"[${sBotConfig.sBotInfo.botId}] The delete webhook request failed: " + deleteWebhookResponse.as[String]
+  )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = {
+
+    val resourceRepository = ResourcesRepository.fromResources[F]()
+    for {
+      tk            <- token[F](tokenFilename, resourceRepository)
+      config        <- Resource.eval(Config.loadConfig[F](namespace))
+      _             <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
+      dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
+      dbLayer       <- loadDB[F](config.db)
+      repository = DBRepository.dbResources[F](dbLayer.dbMedia, dropboxClient)
+      _                     <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Delete webook..."))
+      deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
+      _                     <- Resource.eval(
+        Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
+          new RuntimeException(
+            s"[${sBotConfig.sBotInfo.botId}] The delete webhook request failed: " + deleteWebhookResponse.as[String]
+          )
         )
       )
+      _       <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Webhook deleted"))
+      baseUrl <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$tk")))
+      api = BotApi(
+        httpClient,
+        baseUrl = baseUrl.renderString
+      )
+      backgroundJobManager <- Resource.eval(
+        BackgroundJobManager[F](
+          dbLayer = dbLayer,
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )(using Async[F], api, log)
+      )
+      path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
+      webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
+    } yield BotSetup(
+      token = tk,
+      httpClient = httpClient,
+      repository = repository,
+      jsonRepliesRepository = JsonRepliesRepository[F](resourceRepository),
+      dbLayer = dbLayer,
+      backgroundJobManager = backgroundJobManager,
+      api = api,
+      webhookUri = webhookBaseUri,
+      webhookPath = path,
+      sBotConfig = sBotConfig
     )
-    _       <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Webhook deleted"))
-    baseUrl <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$tk")))
-    api = BotApi(
-      httpClient,
-      baseUrl = baseUrl.renderString
-    )
-    backgroundJobManager <- Resource.eval(
-      BackgroundJobManager[F](
-        dbLayer = dbLayer,
-        sBotInfo = sBotConfig.sBotInfo,
-        ttl = sBotConfig.messageTimeToLive
-      )(using Async[F], api, log)
-    )
-    path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
-    webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
-  } yield BotSetup(
-    token = tk,
-    httpClient = httpClient,
-    repository = repository,
-    jsonRepliesRepository = JsonRepliesRepository[F](resourceRepository),
-    dbLayer = dbLayer,
-    backgroundJobManager = backgroundJobManager,
-    api = api,
-    webhookUri = webhookBaseUri,
-    webhookPath = path,
-    sBotConfig = sBotConfig
-  )
+  }
 }
