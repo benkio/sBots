@@ -21,9 +21,6 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.*
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
@@ -38,10 +35,8 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F],
-    override val backgroundJobManager: BackgroundJobManager[F]
-) extends SBotPolling[F]()
+    override val sBotSetup: BotSetup[F]
+) extends SBotPolling[F](sBotSetup)
     with RichardPHJBensonBot[F] {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
@@ -50,13 +45,9 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 }
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
-    uri: Uri,
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F],
-    override val backgroundJobManager: BackgroundJobManager[F],
-    path: Uri = uri"/",
+    override val sBotSetup: BotSetup[F],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate)
+) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with RichardPHJBensonBot[F] {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
@@ -65,9 +56,6 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 }
 
 trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
-
-  override val sBotConfig: SBotConfig = RichardPHJBensonBot.sBotConfig
-  val backgroundJobManager: BackgroundJobManager[F]
 
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
     Applicative[F].pure(RichardPHJBensonBot.messageRepliesData)
@@ -157,11 +145,7 @@ object RichardPHJBensonBot {
         namespace = configNamespace,
         sBotConfig = sBotConfig
       )
-    } yield new RichardPHJBensonBotPolling[F](
-      repository = botSetup.repository,
-      dbLayer = botSetup.dbLayer,
-      backgroundJobManager = botSetup.backgroundJobManager
-    )(using Parallel[F], Async[F], botSetup.api, log)
+    } yield new RichardPHJBensonBotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
@@ -174,14 +158,7 @@ object RichardPHJBensonBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map { botSetup =>
-      new RichardPHJBensonBotWebhook[F](
-        uri = botSetup.webhookUri,
-        path = botSetup.webhookPath,
-        repository = botSetup.repository,
-        dbLayer = botSetup.dbLayer,
-        backgroundJobManager = botSetup.backgroundJobManager,
-        webhookCertificate = webhookCertificate
-      )(using Async[F], botSetup.api, log)
-    }
+    ).map(botSetup =>
+      new RichardPHJBensonBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log)
+    )
 }

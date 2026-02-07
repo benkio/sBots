@@ -8,8 +8,9 @@ import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import cats.effect.Async
+import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -30,21 +31,18 @@ class XahLeeBotSpec extends BaseBotSpec {
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
-  val xahLeeBot = BackgroundJobManager[IO](
+  val xahLeeBot = buildTestBotSetup(
+    repository = repositoryMock,
     dbLayer = emptyDBLayer,
-    sBotInfo = XahLeeBot.sBotConfig.sBotInfo,
+    sBotConfig = XahLeeBot.sBotConfig,
     ttl = XahLeeBot.sBotConfig.messageTimeToLive
-  ).map(bjm =>
-    new XahLeeBotPolling[IO](
-      repository = repositoryMock,
-      dbLayer = emptyDBLayer,
-      backgroundJobManager = bjm
-    )
+  ).map(botSetup =>
+    new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
   )
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     xahLeeBot.map(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]] =for {
+  val messageRepliesDataPrettyPrint: IO[List[String]] = for {
     bot     <- xahLeeBot
     replies <- bot.messageRepliesData
   } yield replies.flatMap(_.reply.prettyPrint)

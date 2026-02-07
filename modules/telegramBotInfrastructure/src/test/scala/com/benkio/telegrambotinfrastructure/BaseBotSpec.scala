@@ -2,7 +2,21 @@ package com.benkio.telegrambotinfrastructure
 
 import cats.effect.IO
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
+import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
+import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.JsonRepliesRepository
+import log.effect.LogWriter
+import org.http4s.HttpApp
+import org.http4s.Response
+import org.http4s.Status
+import org.http4s.client.Client
+import org.http4s.implicits.*
+import telegramium.bots.high.Api
+
+import scala.concurrent.duration.FiniteDuration
 import com.benkio.telegrambotinfrastructure.model.isRegexTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.reply.*
@@ -24,6 +38,29 @@ import java.io.File
 import scala.io.Source
 
 trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
+
+  def buildTestBotSetup(
+      repository: Repository[IO],
+      dbLayer: DBLayer[IO],
+      sBotConfig: SBotConfig,
+      ttl: Option[FiniteDuration]
+  )(using Api[IO], LogWriter[IO]): IO[BotSetup[IO]] =
+    BackgroundJobManager[IO](dbLayer = dbLayer, sBotInfo = sBotConfig.sBotInfo, ttl = ttl).map { bjm =>
+      val stubClient = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok))))
+      BotSetup(
+        token = "test",
+        httpClient = stubClient,
+        repository = repository,
+        jsonRepliesRepository = JsonRepliesRepository[IO](repository),
+        dbLayer = dbLayer,
+        backgroundJobManager = bjm,
+        api = summon[Api[IO]],
+        webhookUri = uri"https://localhost",
+        webhookPath = uri"/",
+        sBotConfig = sBotConfig
+      )
+    }
+
   private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")

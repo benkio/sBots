@@ -11,8 +11,9 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import cats.effect.Async
+import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -33,16 +34,13 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
-  val youtuboanchei0bot = BackgroundJobManager[IO](
+  val youtuboanchei0bot = buildTestBotSetup(
+    repository = repositoryMock,
     dbLayer = emptyDBLayer,
-    sBotInfo = YouTuboAncheI0Bot.sBotConfig.sBotInfo,
+    sBotConfig = YouTuboAncheI0Bot.sBotConfig,
     ttl = YouTuboAncheI0Bot.sBotConfig.messageTimeToLive
-  ).map(bjm =>
-    new YouTuboAncheI0BotPolling[IO](
-      repository = repositoryMock,
-      dbLayer = emptyDBLayer,
-      backgroundJobManager = bjm
-    )
+  ).map(botSetup =>
+    new YouTuboAncheI0BotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
   )
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.map(_.allCommandRepliesData)

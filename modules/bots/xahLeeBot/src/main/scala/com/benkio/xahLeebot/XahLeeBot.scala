@@ -8,9 +8,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
@@ -24,27 +21,17 @@ import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 
 class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F],
-    override val backgroundJobManager: BackgroundJobManager[F]
-) extends SBotPolling[F]()
+    override val sBotSetup: BotSetup[F]
+) extends SBotPolling[F](sBotSetup)
     with XahLeeBot[F] {}
 
 class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
-    uri: Uri,
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F],
-    override val backgroundJobManager: BackgroundJobManager[F],
-    path: Uri = uri"/",
+    override val sBotSetup: BotSetup[F],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate)
+) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with XahLeeBot[F] {}
 
 trait XahLeeBot[F[_]: Applicative] extends SBot[F] {
-
-  override val sBotConfig: SBotConfig = XahLeeBot.sBotConfig
-  val backgroundJobManager: BackgroundJobManager[F]
-  val dbLayer: DBLayer[F]
 
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
     Applicative[F].pure(XahLeeBot.messageRepliesData)
@@ -82,11 +69,7 @@ object XahLeeBot {
         namespace = configNamespace,
         sBotConfig = sBotConfig
       )
-    } yield new XahLeeBotPolling[F](
-      repository = botSetup.repository,
-      dbLayer = botSetup.dbLayer,
-      backgroundJobManager = botSetup.backgroundJobManager
-    )(using Parallel[F], Async[F], botSetup.api, log)
+    } yield new XahLeeBotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
@@ -99,14 +82,7 @@ object XahLeeBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map { botSetup =>
-      new XahLeeBotWebhook[F](
-        uri = botSetup.webhookUri,
-        path = botSetup.webhookPath,
-        repository = botSetup.repository,
-        dbLayer = botSetup.dbLayer,
-        backgroundJobManager = botSetup.backgroundJobManager,
-        webhookCertificate = webhookCertificate
-      )(using Async[F], botSetup.api, log)
-    }
+    ).map(botSetup =>
+      new XahLeeBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log)
+    )
 }

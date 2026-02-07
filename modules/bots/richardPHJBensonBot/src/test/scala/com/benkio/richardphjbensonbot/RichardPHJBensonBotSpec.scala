@@ -13,8 +13,9 @@ import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import cats.effect.Async
+import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -45,16 +46,13 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
-  val richardPHJBensonBot = BackgroundJobManager[IO](
+  val richardPHJBensonBot = buildTestBotSetup(
+    repository = repositoryMock,
     dbLayer = emptyDBLayer,
-    sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+    sBotConfig = RichardPHJBensonBot.sBotConfig,
     ttl = None
-  ).map(bjm =>
-    new RichardPHJBensonBotPolling[IO](
-      repository = repositoryMock,
-      dbLayer = emptyDBLayer,
-      backgroundJobManager = bjm
-    )
+  ).map(botSetup =>
+    new RichardPHJBensonBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
   )
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =

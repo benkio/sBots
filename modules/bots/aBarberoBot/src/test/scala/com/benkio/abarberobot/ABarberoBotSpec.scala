@@ -11,8 +11,9 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import cats.effect.Async
+import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -34,18 +35,14 @@ class ABarberoBotSpec extends BaseBotSpec {
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
-  val aBarberoBot =
-    BackgroundJobManager[IO](
-      dbLayer = emptyDBLayer,
-      sBotInfo = ABarberoBot.sBotConfig.sBotInfo,
-      ttl = ABarberoBot.sBotConfig.messageTimeToLive
-    ).map(bjm =>
-      new ABarberoBotPolling[IO](
-        repository = repositoryMock,
-        dbLayer = emptyDBLayer,
-        backgroundJobManager = bjm
-      )
-    )
+  val aBarberoBot = buildTestBotSetup(
+    repository = repositoryMock,
+    dbLayer = emptyDBLayer,
+    sBotConfig = ABarberoBot.sBotConfig,
+    ttl = ABarberoBot.sBotConfig.messageTimeToLive
+  ).map(botSetup =>
+    new ABarberoBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+  )
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
     aBarberoBot

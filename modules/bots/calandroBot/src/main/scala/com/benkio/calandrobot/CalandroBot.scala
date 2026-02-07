@@ -18,9 +18,6 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
@@ -36,25 +33,17 @@ import telegramium.bots.InputPartFile
 import scala.util.Random
 
 class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val backgroundJobManager: BackgroundJobManager[F],
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F]
-) extends SBotPolling[F]()
+    override val sBotSetup: BotSetup[F]
+) extends SBotPolling[F](sBotSetup)
     with CalandroBot[F] {}
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
-    uri: Uri,
-    override val backgroundJobManager: BackgroundJobManager[F],
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F],
-    path: Uri = uri"/",
+    override val sBotSetup: BotSetup[F],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate)
+) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with CalandroBot[F] {}
 
 trait CalandroBot[F[_]: Applicative] extends SBot[F] {
-
-  override val sBotConfig: SBotConfig = CalandroBot.sBotConfig
 
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
     Applicative[F].pure(CalandroBot.messageRepliesData)
@@ -258,15 +247,9 @@ object CalandroBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig
     )
-  } yield botSetup).use { botSetup =>
-    action(
-      new CalandroBotPolling[F](
-        backgroundJobManager = botSetup.backgroundJobManager,
-        repository = botSetup.repository,
-        dbLayer = botSetup.dbLayer
-      )(using Parallel[F], Async[F], botSetup.api, log)
-    )
-  }
+  } yield botSetup).use(botSetup =>
+    action(new CalandroBotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log))
+  )
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
@@ -279,14 +262,7 @@ object CalandroBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map { botSetup =>
-      new CalandroBotWebhook[F](
-        uri = botSetup.webhookUri,
-        path = botSetup.webhookPath,
-        repository = botSetup.repository,
-        backgroundJobManager = botSetup.backgroundJobManager,
-        dbLayer = botSetup.dbLayer,
-        webhookCertificate = webhookCertificate
-      )(using Async[F], botSetup.api, log)
-    }
+    ).map(botSetup =>
+      new CalandroBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log)
+    )
 }

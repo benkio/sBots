@@ -2,10 +2,11 @@ package com.benkio.telegrambotinfrastructure
 
 import cats.*
 import cats.data.OptionT
+import cats.syntax.all.*
 import cats.effect.*
-import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
+import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.*
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
@@ -16,36 +17,41 @@ import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import log.effect.LogWriter
-import org.http4s.implicits.*
-import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
-abstract class SBotPolling[F[_]: Parallel: Async: Api: LogWriter]()
-    extends LongPollBot[F](summon[Api[F]])
+
+abstract class SBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+  override val sBotSetup: BotSetup[F]
+) extends LongPollBot[F](summon[Api[F]])
     with SBot[F] {
   override def onMessage(msg: Message): F[Unit] = onMessageLogic(msg)
 }
 
 abstract class SBotWebhook[F[_]: Async: Api: LogWriter](
-    uri: Uri,
-    path: Uri = uri"/",
+    override val sBotSetup: BotSetup[F],
     webhookCertificate: Option[InputPartFile] = None
-) extends WebhookBot[F](summon[Api[F]], uri.renderString, path.renderString, certificate = webhookCertificate)
+) extends WebhookBot[F](
+      summon[Api[F]],
+      sBotSetup.webhookUri.renderString,
+      sBotSetup.webhookPath.renderString,
+      certificate = webhookCertificate
+    )
     with SBot[F] {
   override def onMessage(msg: Message): F[Unit] = onMessageLogic(msg)
 }
 
 trait SBot[F[_]: Async: LogWriter] {
 
-  // Configuration values & functions /////////////////////////////////////////////////////
-  def repository: Repository[F] = ResourcesRepository.fromResources[F]()
-  val sBotConfig: SBotConfig
-  val dbLayer: DBLayer[F]
-  val backgroundJobManager: BackgroundJobManager[F]
+  val sBotSetup: BotSetup[F]
+
+  // Configuration values & functions (from BotSetup) ///////////////////////////////////
+  def repository: Repository[F] = sBotSetup.repository
+  def sBotConfig: SBotConfig    = sBotSetup.sBotConfig
+  def dbLayer: DBLayer[F]       = sBotSetup.dbLayer
+  def backgroundJobManager: BackgroundJobManager[F] = sBotSetup.backgroundJobManager
   def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
     (_: ReplyBundleMessage, _: Message) => true.pure[F]
   def postComputation: Message => F[Unit] = _ => Async[F].unit

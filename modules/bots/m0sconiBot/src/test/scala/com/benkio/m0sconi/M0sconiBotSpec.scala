@@ -13,8 +13,9 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import cats.effect.Async
+import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -35,18 +36,14 @@ class M0sconiBotSpec extends BaseBotSpec {
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
-  val m0sconiBot =
-    BackgroundJobManager[IO](
-      dbLayer = emptyDBLayer,
-      sBotInfo = M0sconiBot.sBotConfig.sBotInfo,
-      ttl = M0sconiBot.sBotConfig.messageTimeToLive
-    ).map(bjm =>
-      new M0sconiBotPolling[IO](
-        repository = repositoryMock,
-        dbLayer = emptyDBLayer,
-        backgroundJobManager = bjm
-      )
-    )
+  val m0sconiBot = buildTestBotSetup(
+    repository = repositoryMock,
+    dbLayer = emptyDBLayer,
+    sBotConfig = M0sconiBot.sBotConfig,
+    ttl = M0sconiBot.sBotConfig.messageTimeToLive
+  ).map(botSetup =>
+    new M0sconiBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+  )
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     m0sconiBot.map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] = for {

@@ -12,8 +12,9 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import cats.effect.Async
+import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -35,18 +36,14 @@ class CalandroBotSpec extends BaseBotSpec {
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
-  val calandroBot =
-    BackgroundJobManager[IO](
-      dbLayer = emptyDBLayer,
-      sBotInfo = CalandroBot.sBotConfig.sBotInfo,
-      ttl = CalandroBot.sBotConfig.messageTimeToLive
-    ).map(bjm =>
-      new CalandroBotPolling[IO](
-        repository = repositoryMock,
-        dbLayer = emptyDBLayer,
-        backgroundJobManager = bjm
-      )
-    )
+  val calandroBot = buildTestBotSetup(
+    repository = repositoryMock,
+    dbLayer = emptyDBLayer,
+    sBotConfig = CalandroBot.sBotConfig,
+    ttl = CalandroBot.sBotConfig.messageTimeToLive
+  ).map(botSetup =>
+    new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+  )
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
     calandroBot
