@@ -44,7 +44,7 @@ class BotSetupSpec extends CatsEffectSuite {
       getResourceFileHandler = resourceName =>
         IO.raiseUnless(resourceName.filepath == tokenFilename)(
           Throwable(s"[RepositoryMock] getResourceByteArrayHandler input mismatch: $resourceName ≠ $tokenFilename")
-        ).as(NonEmptyList.one(MediaResourceFile(expectedFile)))
+        ).as(Right(NonEmptyList.one(MediaResourceFile(expectedFile))))
     )
 
     BotSetup

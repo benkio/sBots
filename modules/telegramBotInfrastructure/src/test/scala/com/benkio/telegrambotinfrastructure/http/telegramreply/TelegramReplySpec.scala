@@ -45,7 +45,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == video.filepath)(
           Throwable(s"[repositoryMock] ${mediaFile.filepath} ≠ ${video.filepath}")
-        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
+        ).as(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
     )
     val result = MediaFileReply
       .sendVideo[IO](
@@ -65,7 +65,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == photo.filepath)(
           Throwable(s"[repositoryMock] ${mediaFile.filepath} ≠ ${photo.filepath}")
-        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
+        ).as(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
     )
     val result = MediaFileReply
       .sendPhoto[IO](
@@ -85,7 +85,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == document.filepath)(
           Throwable(s"[repositoryMock] ${mediaFile.filepath} ≠ ${document.filepath}")
-        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
+        ).as(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
     )
     val result = MediaFileReply
       .sendDocument[IO](
@@ -105,7 +105,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == gif.filepath)(
           Throwable(s"[repositoryMock] ${mediaFile.filepath} ≠ ${gif.filepath}")
-        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
+        ).as(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
     )
     val result = MediaFileReply
       .sendGif[IO](
@@ -125,7 +125,7 @@ class TelegramReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == mp3.filepath)(
           Throwable(s"[repositoryMock] ${mediaFile.filepath} ≠ ${mp3.filepath}")
-        ).as(NonEmptyList.one(MediaResource.MediaResourceIFile("test value")))
+        ).as(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
     )
     val result = MediaFileReply
       .sendMp3[IO](

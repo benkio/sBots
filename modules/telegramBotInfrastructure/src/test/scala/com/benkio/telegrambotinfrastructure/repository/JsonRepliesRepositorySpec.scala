@@ -1,62 +1,70 @@
 package com.benkio.telegrambotinfrastructure.repository
 
+import java.io.File
 import cats.effect.IO
+import cats.effect.Resource
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceFile
+import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
+import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
+import cats.data.NonEmptyList
+import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
+import io.circe.syntax.*
 
 class JsonRepliesRepositorySpec extends CatsEffectSuite {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  // private def repositoryWithRepliesJson(replies: List[ReplyBundleMessage]): Repository[IO] = {
-  //   val json = replies.asJson.noSpaces
-  //   new RepositoryMock(
-  //     getResourceFileHandler = {
-  //       case Document(SampleWebhookBot.triggerJsonFilename) =>
-  //         IO {
-  //           val f = File.createTempFile("sbot_replies", ".json")
-  //           Files.writeString(f.toPath, json, StandardCharsets.UTF_8)
-  //           f.deleteOnExit()
-  //           f
-  //         }.map(f => NonEmptyList.one(MediaResourceFile(Resource.pure(f))))
-  //       case _ =>
-  //         IO.raiseError(Throwable("[JsonRepliesRepositorySpec] getResourceFile called with unexpected file"))
-  //     }
-  //   )
-  // }
+  private def repositoryWithJsonFile(tempFile: File): Repository[IO] =
+    RepositoryMock(
+      getResourceFileHandler = (mediaFile: MediaFile) => mediaFile match {
+        case Document(filename, _) if filename == SampleWebhookBot.repliesJsonFilename =>
+          IO.pure(Right(NonEmptyList.one(MediaResourceFile(Resource.pure(tempFile)))))
+        case x => IO.raiseError(Throwable(s"$x is not the expected Document"))
+      }
+    )
 
-  // test("loadReplies loads and decodes ReplyBundleMessages from JSON using SampleWebhookBot config") {
-  //   for {
-  //     bot        <- SampleWebhookBot()
-  //     repository  = repositoryWithRepliesJson(bot.messageRepliesData)
-  //     repo       = JsonRepliesRepository[IO](repository)
-  //     loaded    <- repo.loadReplies(SampleWebhookBot.sBotConfig)
-  //     _         <- IO(assertEquals(loaded.length, bot.messageRepliesData.length))
-  //     _         <- IO(assertEquals(loaded, bot.messageRepliesData))
-  //   } yield ()
-  // }
+  private def assertLoadedMatchesExpected(
+      loaded: List[ReplyBundleMessage],
+      expected: List[ReplyBundleMessage]
+  ): IO[Unit] =
+    IO(assertEquals(loaded.length, expected.length)) >>
+      IO(assertEquals(loaded.asJson, expected.asJson))
 
-  // test("loadReplies raises FileNotFound when the repository returns no file for the JSON filename") {
-  //   val repository = new Repository[IO] {
-  //     override def getResourceFile(
-  //         mediaFile: MediaFile
-  //     ): Resource[IO, Either[Repository.RepositoryError, NonEmptyList[MediaResource[IO]]]] =
-  //       Resource.eval(IO.pure(Left(Repository.RepositoryError.NoResourcesFoundFile(mediaFile))))
-  //     override def getResourcesByKind(
-  //         criteria: String,
-  //         botId: SBotId
-  //     ): Resource[IO, Either[Repository.RepositoryError, NonEmptyList[NonEmptyList[MediaResource[IO]]]]] =
-  //       Resource.eval(IO.raiseError(Throwable("not used in this test")))
-  //   }
-  //   val repo = JsonRepliesRepository[IO](repository)
+  private def loadRepliesAndAssert(
+      repository: Repository[IO],
+      expected: List[ReplyBundleMessage]
+  ): IO[Unit] = {
+    val repo = JsonRepliesRepository[IO](repository)
+    repo.loadReplies(SampleWebhookBot.repliesJsonFilename).flatMap(assertLoadedMatchesExpected(_, expected))
+  }
 
-  //   repo.loadReplies(SampleWebhookBot.sBotConfig).attempt.map {
-  //     case Left(_: JsonRepliesRepository.JsonRepliesRepositoryError.FileNotFound) => ()
-  //     case Left(other)  => fail(s"expected FileNotFound, got $other")
-  //     case Right(_)     => fail("expected failure")
-  //   }
-  // }
+  test("loadReplies loads and decodes ReplyBundleMessages from JSON using SampleWebhookBot config") {
+    SampleWebhookBot().flatMap { bot =>
+      val jsonBytes = bot.messageRepliesData.asJson.noSpaces.getBytes
+      Repository
+        .toTempFile[IO](SampleWebhookBot.repliesJsonFilename, jsonBytes)
+        .use(tempFile => loadRepliesAndAssert(repositoryWithJsonFile(tempFile), bot.messageRepliesData))
+    }
+  }
+
+  test("loadReplies raises FileNotFound when the repository returns no file for the JSON filename") {
+    val repository = RepositoryMock(
+      getResourceFileHandler = (mediaFile: MediaFile) =>
+        IO.pure(Left(Repository.RepositoryError.NoResourcesFoundFile(mediaFile)))
+    )
+    val repo = JsonRepliesRepository[IO](repository)
+
+    repo.loadReplies(SampleWebhookBot.repliesJsonFilename).attempt.map {
+      case Left(_: JsonRepliesRepository.JsonRepliesRepositoryError.FileNotFound) => ()
+      case Left(other)  => fail(s"expected FileNotFound, got $other")
+      case Right(_)     => fail("expected failure")
+    }
+  }
 }

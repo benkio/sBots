@@ -70,8 +70,8 @@ object CalandroBot {
   val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("cala"), SBotName("CalandroBot")),
     triggerFilename = "cala_triggers.txt",
-    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/abar_triggers.txt",
-    triggerJsonFilename = "cala_replies.json"
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/cala_triggers.txt",
+    repliesJsonFilename = "cala_replies.json"
   )
 
   val messageRepliesData: List[ReplyBundleMessage] = List(

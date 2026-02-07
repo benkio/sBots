@@ -37,10 +37,10 @@ object GenerateTriggers extends IOApp {
 
   def generateTriggersJsonFile(
       botModuleRelativeFolderPath: String,
-      triggerJsonFilename: String,
+      repliesJsonFilename: String,
       triggers: List[ReplyBundleMessage]
   ): Resource[IO, Unit] = {
-    val triggerFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$triggerJsonFilename"
+    val triggerFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$repliesJsonFilename"
 
     for {
       _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath JSON Trigger file"))
@@ -60,7 +60,7 @@ object GenerateTriggers extends IOApp {
       // TODO: Uncomment when migrating data to JSON and then remove
       // _ <- generateTriggersJsonFile(
       //   botModuleRelativeFolderPath = "../bots/aBarberoBot/src/main/resources",
-      //   triggerJsonFilename = ABarberoBot.sBotConfig.triggerJsonFilename,
+      //   repliesJsonFilename = ABarberoBot.sBotConfig.repliesJsonFilename,
       //   triggers = ABarberoBot.messageRepliesData
       // )
       _ <- generateTriggerFile(
@@ -70,7 +70,7 @@ object GenerateTriggers extends IOApp {
       )
       _ <- generateTriggersJsonFile(
         botModuleRelativeFolderPath = "../bots/calandroBot/src/main/resources",
-        triggerJsonFilename = CalandroBot.sBotConfig.triggerJsonFilename,
+        repliesJsonFilename = CalandroBot.sBotConfig.repliesJsonFilename,
         triggers = CalandroBot.messageRepliesData
       )
       _ <- generateTriggerFile(
@@ -81,7 +81,7 @@ object GenerateTriggers extends IOApp {
       // TODO: Uncomment when migrating data to JSON and then remove
       // _ <- generateTriggersJsonFile(
       //   botModuleRelativeFolderPath = "../bots/m0sconiBot/src/main/resources",
-      //   triggerJsonFilename = M0sconiBot.sBotConfig.triggerJsonFilename,
+      //   repliesJsonFilename = M0sconiBot.sBotConfig.repliesJsonFilename,
       //   triggers = M0sconiBot.messageRepliesData
       // )
       _ <- generateTriggerFile(
@@ -92,7 +92,7 @@ object GenerateTriggers extends IOApp {
       // TODO: Uncomment when migrating data to JSON and then remove
       // _ <- generateTriggersJsonFile(
       //   botModuleRelativeFolderPath = "../bots/richardPHJBensonBotBot/src/main/resources",
-      //   triggerJsonFilename = RichardPHJBensonBotBot.sBotConfig.triggerJsonFilename,
+      //   repliesJsonFilename = RichardPHJBensonBotBot.sBotConfig.repliesJsonFilename,
       //   triggers = RichardPHJBensonBotBot.messageRepliesData
       // )
       _ <- generateTriggerFile(
@@ -103,7 +103,7 @@ object GenerateTriggers extends IOApp {
       // TODO: Uncomment when migrating data to JSON and then remove
       // _ <- generateTriggersJsonFile(
       //   botModuleRelativeFolderPath = "../bots/youTuboAncheI0BotBot/src/main/resources",
-      //   triggerJsonFilename = YouTuboAncheI0BotBot.sBotConfig.triggerJsonFilename,
+      //   repliesJsonFilename = YouTuboAncheI0BotBot.sBotConfig.repliesJsonFilename,
       //   triggers = YouTuboAncheI0BotBot.messageRepliesData
       // )
     } yield ExitCode.Success).use(_.pure)
