@@ -1,29 +1,29 @@
 package com.benkio.calandrobot
 
-import com.benkio.telegrambotinfrastructure.model.reply.Document
 import cats.data.NonEmptyList
+import cats.effect.Async
 import cats.effect.IO
 import cats.syntax.all.*
+import cats.Parallel
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaReply
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import cats.effect.Async
-import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
-import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 
 class CalandroBotSpec extends BaseBotSpec {
 
@@ -39,11 +39,12 @@ class CalandroBotSpec extends BaseBotSpec {
       IO.raiseUnless(botId == CalandroBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[CalandroBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
-    getResourceFileHandler = (mediaFile: MediaFile) => mediaFile match {
-      case Document(v,_) if v == CalandroBot.sBotConfig.repliesJsonFilename =>
-        ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
-      case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
-    }
+    getResourceFileHandler = (mediaFile: MediaFile) =>
+      mediaFile match {
+        case Document(v, _) if v == CalandroBot.sBotConfig.repliesJsonFilename =>
+          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
+        case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
+      }
   )
 
   val calandroBot = buildTestBotSetup(
@@ -51,9 +52,7 @@ class CalandroBotSpec extends BaseBotSpec {
     dbLayer = emptyDBLayer,
     sBotConfig = CalandroBot.sBotConfig,
     ttl = CalandroBot.sBotConfig.messageTimeToLive
-  ).map(botSetup =>
-    new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-  )
+  ).map(botSetup => new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
     calandroBot
@@ -74,12 +73,12 @@ class CalandroBotSpec extends BaseBotSpec {
     ).flatten
   )
 
-  messageRepliesData.map((mrds) =>{
-    exactTriggerReturnExpectedReplyBundle(mrds)
-    regexTriggerLengthReturnValue(mrds)
-  }
-  ).unsafeRunSync()
-
+  messageRepliesData
+    .map(mrds => {
+      exactTriggerReturnExpectedReplyBundle(mrds)
+      regexTriggerLengthReturnValue(mrds)
+    })
+    .unsafeRunSync()
 
   test("CalandroBot should contain the expected number of commands") {
     assertIO(
