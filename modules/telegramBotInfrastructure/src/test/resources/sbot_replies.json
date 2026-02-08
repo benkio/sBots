@@ -1,0 +1,44 @@
+[
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "test"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "TextReply": {
+        "text": ["testReply1"],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "est"
+          },
+          {
+            "RegexTextTriggerValue": {
+              "trigger": "marc[io]",
+              "regexLength": null
+            }
+          }
+        ]
+      }
+    },
+    "reply": {
+      "TextReply": {
+        "text": ["Test Reply 2"],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  }
+]
