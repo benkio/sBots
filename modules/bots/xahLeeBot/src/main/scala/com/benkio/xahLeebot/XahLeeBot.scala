@@ -82,7 +82,5 @@ object XahLeeBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup =>
-      new XahLeeBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log)
-    )
+    ).map(botSetup => new XahLeeBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
 }

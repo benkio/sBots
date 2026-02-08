@@ -124,7 +124,5 @@ object ABarberoBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup =>
-      new ABarberoBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log)
-    )
+    ).map(botSetup => new ABarberoBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
 }

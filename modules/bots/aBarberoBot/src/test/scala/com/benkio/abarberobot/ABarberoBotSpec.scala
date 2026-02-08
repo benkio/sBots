@@ -1,7 +1,10 @@
 package com.benkio.abarberobot
 
 import cats.data.NonEmptyList
+import cats.effect.Async
 import cats.effect.IO
+import cats.syntax.all.*
+import cats.Parallel
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
@@ -12,8 +15,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import cats.effect.Async
-import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -40,9 +41,7 @@ class ABarberoBotSpec extends BaseBotSpec {
     dbLayer = emptyDBLayer,
     sBotConfig = ABarberoBot.sBotConfig,
     ttl = ABarberoBot.sBotConfig.messageTimeToLive
-  ).map(botSetup =>
-    new ABarberoBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-  )
+  ).map(botSetup => new ABarberoBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
     aBarberoBot
@@ -79,7 +78,7 @@ class ABarberoBotSpec extends BaseBotSpec {
   triggerFileContainsTriggers(
     triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggers = ABarberoBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botTriggersIO = ABarberoBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')).pure[IO]
   )
 
   instructionsCommandTest(

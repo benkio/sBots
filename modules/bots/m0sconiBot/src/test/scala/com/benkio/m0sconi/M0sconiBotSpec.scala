@@ -1,8 +1,10 @@
 package com.benkio.M0sconi
 
 import cats.data.NonEmptyList
+import cats.effect.Async
 import cats.effect.IO
 import cats.syntax.all.*
+import cats.Parallel
 import cats.Show
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.m0sconibot.M0sconiBotPolling
@@ -14,8 +16,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import cats.effect.Async
-import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -41,9 +41,7 @@ class M0sconiBotSpec extends BaseBotSpec {
     dbLayer = emptyDBLayer,
     sBotConfig = M0sconiBot.sBotConfig,
     ttl = M0sconiBot.sBotConfig.messageTimeToLive
-  ).map(botSetup =>
-    new M0sconiBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-  )
+  ).map(botSetup => new M0sconiBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     m0sconiBot.map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] = for {
@@ -73,7 +71,7 @@ class M0sconiBotSpec extends BaseBotSpec {
   triggerFileContainsTriggers(
     triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
     botMediaFiles = M0sconiBot.messageRepliesData.flatMap(mr => mr.reply.prettyPrint).pure[IO],
-    botTriggers = M0sconiBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botTriggersIO = M0sconiBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')).pure[IO]
   )
 
   instructionsCommandTest(

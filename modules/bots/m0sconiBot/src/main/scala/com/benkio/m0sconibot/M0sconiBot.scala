@@ -106,7 +106,5 @@ object M0sconiBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup =>
-      new M0sconiBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log)
-    )
+    ).map(botSetup => new M0sconiBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
 }

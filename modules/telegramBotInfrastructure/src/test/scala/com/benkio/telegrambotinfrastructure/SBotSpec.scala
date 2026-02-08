@@ -4,9 +4,6 @@ import cats.effect.IO
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
-import com.benkio.telegrambotinfrastructure.model.reply.gif
-import com.benkio.telegrambotinfrastructure.model.reply.mp3
-import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
@@ -31,20 +28,16 @@ class SBotSpec extends CatsEffectSuite {
       messageId = 0,
       date = Instant.now.getEpochSecond().toInt,
       chat = Chat(id = 0, `type` = "test"),
-      text = Some("carne dura")
+      text = Some("test")
     )
-    val expected = ReplyBundleMessage
-      .textToMedia(
-        "carne (dura|vecchia|fresca)".r
-      )(
-        mp3"rphjb_CarneFrescaSaporita.mp3",
-        vid"rphjb_CarneFrescaSaporita.mp4",
-        gif"rphjb_CarneFrescaSaporitaGif.mp4"
-      )
+    val expected = ReplyBundleMessage.textToText(
+      "test"
+    )("testReply1")
 
     SampleWebhookBot().flatMap(sampleWebhookBot =>
       sampleWebhookBot.selectReplyBundle(inputMessage).flatMap { resultOpt =>
-        val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String])(_.prettyPrint().pure[IO])
+        val result =
+          resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String])(_.prettyPrint().pure[IO])
         result.flatMap(r => IO(assertEquals(r, expected.prettyPrint())))
       }
     )

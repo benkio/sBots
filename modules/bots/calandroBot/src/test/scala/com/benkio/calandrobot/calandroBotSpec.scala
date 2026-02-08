@@ -1,7 +1,9 @@
 package com.benkio.calandrobot
 
+import com.benkio.telegrambotinfrastructure.model.reply.Document
 import cats.data.NonEmptyList
 import cats.effect.IO
+import cats.syntax.all.*
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
@@ -19,6 +21,9 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 
 class CalandroBotSpec extends BaseBotSpec {
 
@@ -33,7 +38,12 @@ class CalandroBotSpec extends BaseBotSpec {
     getResourceByKindHandler = (_, botId) =>
       IO.raiseUnless(botId == CalandroBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[CalandroBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
-      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
+    getResourceFileHandler = (mediaFile: MediaFile) => mediaFile match {
+      case Document(v,_) if v == CalandroBot.sBotConfig.repliesJsonFilename =>
+        ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
+      case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
+    }
   )
 
   val calandroBot = buildTestBotSetup(
@@ -53,6 +63,8 @@ class CalandroBotSpec extends BaseBotSpec {
       .map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint))
+  val messageRepliesDataTriggers =
+    messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   val excludeTriggers              = List("GIOCHI PER IL MIO PC")
   val messageRepliesDataMediaFiles = messageRepliesData.map(
     _.collect(replyBundleMessage =>
@@ -62,8 +74,12 @@ class CalandroBotSpec extends BaseBotSpec {
     ).flatten
   )
 
-  exactTriggerReturnExpectedReplyBundle(CalandroBot.messageRepliesData)
-  regexTriggerLengthReturnValue(CalandroBot.messageRepliesData)
+  messageRepliesData.map((mrds) =>{
+    exactTriggerReturnExpectedReplyBundle(mrds)
+    regexTriggerLengthReturnValue(mrds)
+  }
+  ).unsafeRunSync()
+
 
   test("CalandroBot should contain the expected number of commands") {
     assertIO(
@@ -82,7 +98,6 @@ class CalandroBotSpec extends BaseBotSpec {
     triggerFilename = CalandroBot.sBotConfig.triggerFilename,
     botMediaFiles =
       messageRepliesDataPrettyPrint.map(_.filterNot(x => excludeTriggers.exists(exc => x.startsWith(exc)))),
-    botTriggers = CalandroBot.messageRepliesData
-      .flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botTriggersIO = messageRepliesDataTriggers
   )
 }

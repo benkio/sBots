@@ -6,9 +6,6 @@ import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.model.reply.gif
-import com.benkio.telegrambotinfrastructure.model.reply.mp3
-import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
@@ -24,11 +21,11 @@ import com.benkio.telegrambotinfrastructure.SBotWebhook
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
+import org.http4s.client.Client
+import org.http4s.implicits.*
 import org.http4s.HttpApp
 import org.http4s.Response
 import org.http4s.Status
-import org.http4s.client.Client
-import org.http4s.implicits.*
 import org.http4s.Uri
 import telegramium.bots.high.Api
 import telegramium.bots.Message
@@ -40,52 +37,8 @@ class SampleWebhookBot(override val sBotSetup: BotSetup[IO])(using logWriterIO: 
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 
-  override val messageRepliesData: IO[List[ReplyBundleMessage]] = IO.pure(List(
-    ReplyBundleMessage.textToMp3(
-      "cosa preferisci",
-      "ragazzetta",
-      "carne bianca"
-    )(
-      mp3"rphjb_RagazzettaCarne.mp3"
-    ),
-    ReplyBundleMessage.textToVideo(
-      "brooklyn",
-      "carne morta",
-      "manhattan",
-      "cane da guerra"
-    )(
-      vid"rphjb_PrimoSbaglio.mp4"
-    ),
-    ReplyBundleMessage.textToVideo(
-      "non siamo niente",
-      "siamo esseri umani",
-      "sudore",
-      "pelle",
-      "zozzeria",
-      "carne",
-      "sperma",
-      "da togliere",
-      "levare d[ia] dosso".r,
-      "non contiamo niente"
-    )(
-      vid"rphjb_EsseriUmaniZozzeriaCarnePelleSputoSudoreSpermaNonContiamoNiente.mp4"
-    ),
-    ReplyBundleMessage.textToMedia(
-      "carne saporita"
-    )(
-      mp3"rphjb_RagazzettaCarne.mp3",
-      mp3"rphjb_CarneFrescaSaporita.mp3",
-      vid"rphjb_CarneFrescaSaporita.mp4",
-      gif"rphjb_CarneFrescaSaporitaGif.mp4"
-    ),
-    ReplyBundleMessage.textToMedia(
-      "carne (dura|vecchia|fresca)".r
-    )(
-      mp3"rphjb_CarneFrescaSaporita.mp3",
-      vid"rphjb_CarneFrescaSaporita.mp4",
-      gif"rphjb_CarneFrescaSaporitaGif.mp4"
-    )
-  ))
+  override val messageRepliesData: IO[List[ReplyBundleMessage]] =
+    sBotSetup.jsonRepliesRepository.loadReplies(SampleWebhookBot.sBotConfig.repliesJsonFilename)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     List(
@@ -131,7 +84,8 @@ object SampleWebhookBot {
         token = "test",
         httpClient = stubClient,
         repository = repositoryMock,
-        jsonRepliesRepository = JsonRepliesRepository[IO](repositoryMock),
+        jsonRepliesRepository = JsonRepliesRepository[IO]( // repositoryMock
+        ),
         dbLayer = dbLayerMock,
         backgroundJobManager = backgroundJobManager,
         api = summon[Api[IO]],

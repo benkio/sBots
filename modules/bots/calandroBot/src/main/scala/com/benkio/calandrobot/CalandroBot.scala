@@ -55,8 +55,6 @@ object CalandroBot {
     repliesJsonFilename = "cala_replies.json"
   )
 
-  val messageRepliesData: List[ReplyBundleMessage] = ??? // TODO: to be removed - delete test dependencies
-
   val commandRepliesData: List[ReplyBundleCommand] =
     List(
       MediaByKindCommand.mediaCommandByKind(
@@ -175,7 +173,5 @@ object CalandroBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup =>
-      new CalandroBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log)
-    )
+    ).map(botSetup => new CalandroBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
 }

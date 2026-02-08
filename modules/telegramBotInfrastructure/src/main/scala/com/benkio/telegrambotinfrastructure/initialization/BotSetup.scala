@@ -143,7 +143,8 @@ object BotSetup {
       token = tk,
       httpClient = httpClient,
       repository = repository,
-      jsonRepliesRepository = JsonRepliesRepository[F](resourceRepository),
+      jsonRepliesRepository = JsonRepliesRepository[F]( // resourceRepository
+      ),
       dbLayer = dbLayer,
       backgroundJobManager = backgroundJobManager,
       api = api,

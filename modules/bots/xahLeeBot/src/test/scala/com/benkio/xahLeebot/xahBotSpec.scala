@@ -1,7 +1,9 @@
 package com.benkio.xahleebot
 
 import cats.data.NonEmptyList
+import cats.effect.Async
 import cats.effect.IO
+import cats.Parallel
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
@@ -9,8 +11,6 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import cats.effect.Async
-import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -36,9 +36,7 @@ class XahLeeBotSpec extends BaseBotSpec {
     dbLayer = emptyDBLayer,
     sBotConfig = XahLeeBot.sBotConfig,
     ttl = XahLeeBot.sBotConfig.messageTimeToLive
-  ).map(botSetup =>
-    new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-  )
+  ).map(botSetup => new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     xahLeeBot.map(_.allCommandRepliesData)

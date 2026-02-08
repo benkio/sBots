@@ -155,7 +155,5 @@ object YouTuboAncheI0Bot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup =>
-      new YouTuboAncheI0BotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log)
-    )
+    ).map(botSetup => new YouTuboAncheI0BotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
 }

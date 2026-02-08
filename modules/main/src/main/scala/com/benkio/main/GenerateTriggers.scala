@@ -1,6 +1,5 @@
 package com.benkio.main
 
-import cats.Parallel
 import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.ExitCode
@@ -8,6 +7,7 @@ import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
 import cats.implicits.*
+import cats.Parallel
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.abarberobot.ABarberoBotPolling
 import com.benkio.calandrobot.CalandroBot
@@ -16,31 +16,31 @@ import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.m0sconibot.M0sconiBotPolling
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBotPolling
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.SimpleShowQuery
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
+import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.*
 import com.benkio.telegrambotinfrastructure.repository.JsonRepliesRepository
+import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
+import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
 import io.circe.syntax.*
+import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
+import org.http4s.client.Client
+import org.http4s.implicits.*
 import org.http4s.HttpApp
 import org.http4s.Response
 import org.http4s.Status
-import org.http4s.client.Client
-import org.http4s.implicits.*
 import telegramium.bots.client.Method
 import telegramium.bots.high.Api
 
@@ -54,7 +54,9 @@ object GenerateTriggers extends IOApp {
 
     def stubRepository[F[_]: Async]: Repository[F] =
       new Repository[F] {
-        override def getResourceFile(mediaFile: MediaFile): Resource[F, Either[RepositoryError, NonEmptyList[MediaResource[F]]]] =
+        override def getResourceFile(
+            mediaFile: MediaFile
+        ): Resource[F, Either[RepositoryError, NonEmptyList[MediaResource[F]]]] =
           Resource.eval(Async[F].pure(Left(RepositoryError.NoResourcesFoundFile(mediaFile))))
         override def getResourcesByKind(
             criteria: String,
@@ -69,7 +71,11 @@ object GenerateTriggers extends IOApp {
     def stubApi[F[_]: Async]: Api[F] =
       new Api[F] {
         override def execute[Res](method: Method[Res]): F[Res] =
-          Async[F].raiseError(new UnsupportedOperationException(s"TriggerGenerationStubs.stubApi: execute(${method.payload.name}) not supported"))
+          Async[F].raiseError(
+            new UnsupportedOperationException(
+              s"TriggerGenerationStubs.stubApi: execute(${method.payload.name}) not supported"
+            )
+          )
       }
 
     private def unsupported[F[_]: Async, A](name: String): F[A] =
@@ -157,9 +163,9 @@ object GenerateTriggers extends IOApp {
 
   private def forTriggerGeneration(sBotConfig: SBotConfig)(using log: LogWriter[IO]): IO[BotSetup[IO]] = {
     val resourcesRepository = ResourcesRepository.fromResources[IO]()
-    val client             = TriggerGenerationStubs.stubClient[IO]
-    val api                = TriggerGenerationStubs.stubApi[IO]
-    val dbLayer            = TriggerGenerationStubs.stubDBLayer[IO]()
+    val client              = TriggerGenerationStubs.stubClient[IO]
+    val api                 = TriggerGenerationStubs.stubApi[IO]
+    val dbLayer             = TriggerGenerationStubs.stubDBLayer[IO]()
     BackgroundJobManager[IO](
       dbLayer = dbLayer,
       sBotInfo = sBotConfig.sBotInfo,
@@ -169,7 +175,7 @@ object GenerateTriggers extends IOApp {
         token = "trigger-generation",
         httpClient = client,
         repository = resourcesRepository,
-        jsonRepliesRepository = JsonRepliesRepository[IO](resourcesRepository),
+        jsonRepliesRepository = JsonRepliesRepository[IO](),
         dbLayer = dbLayer,
         backgroundJobManager = bjm,
         api = api,
@@ -206,27 +212,37 @@ object GenerateTriggers extends IOApp {
 
     for {
       _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath JSON Trigger file"))
-      triggersJsonList = triggers.map(_.asJson)
+      triggersJson = triggers.asJson
       _  <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
       pw <- Resource.fromAutoCloseable(IO(new PrintWriter(triggerFilesPath)))
-    } yield pw.write(triggersJsonList.mkString(""))
+    } yield pw.write(triggersJson.spaces2)
   }
 
   def run(args: List[String]): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
     (for {
       aBarberoSetup <- Resource.eval(forTriggerGeneration(ABarberoBot.sBotConfig)(using log))
-      aBarberoBot   = new ABarberoBotPolling[IO](aBarberoSetup)(using summon[Parallel[IO]], summon[Async[IO]], aBarberoSetup.api, log)
-      aBarberoData  <- Resource.eval(aBarberoBot.messageRepliesData)
-      _ <- generateTriggerFile(
+      aBarberoBot = new ABarberoBotPolling[IO](aBarberoSetup)(using
+        summon[Parallel[IO]],
+        summon[Async[IO]],
+        aBarberoSetup.api,
+        log
+      )
+      aBarberoData <- Resource.eval(aBarberoBot.messageRepliesData)
+      _            <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/aBarberoBot/",
         triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
         triggers = aBarberoData
       )
       calandroSetup <- Resource.eval(forTriggerGeneration(CalandroBot.sBotConfig)(using log))
-      calandroBot   = new CalandroBotPolling[IO](calandroSetup)(using summon[Parallel[IO]], summon[Async[IO]], calandroSetup.api, log)
-      calandroData  <- Resource.eval(calandroBot.messageRepliesData)
-      _ <- generateTriggerFile(
+      calandroBot = new CalandroBotPolling[IO](calandroSetup)(using
+        summon[Parallel[IO]],
+        summon[Async[IO]],
+        calandroSetup.api,
+        log
+      )
+      calandroData <- Resource.eval(calandroBot.messageRepliesData)
+      _            <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/calandroBot/",
         triggerFilename = CalandroBot.sBotConfig.triggerFilename,
         triggers = calandroData
@@ -237,25 +253,40 @@ object GenerateTriggers extends IOApp {
         triggers = calandroData
       )
       m0sconiSetup <- Resource.eval(forTriggerGeneration(M0sconiBot.sBotConfig)(using log))
-      m0sconiBot   = new M0sconiBotPolling[IO](m0sconiSetup)(using summon[Parallel[IO]], summon[Async[IO]], m0sconiSetup.api, log)
-      m0sconiData  <- Resource.eval(m0sconiBot.messageRepliesData)
-      _ <- generateTriggerFile(
+      m0sconiBot = new M0sconiBotPolling[IO](m0sconiSetup)(using
+        summon[Parallel[IO]],
+        summon[Async[IO]],
+        m0sconiSetup.api,
+        log
+      )
+      m0sconiData <- Resource.eval(m0sconiBot.messageRepliesData)
+      _           <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/m0sconiBot/",
         triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
         triggers = m0sconiData
       )
       richardSetup <- Resource.eval(forTriggerGeneration(RichardPHJBensonBot.sBotConfig)(using log))
-      richardBot   = new RichardPHJBensonBotPolling[IO](richardSetup)(using summon[Parallel[IO]], summon[Async[IO]], richardSetup.api, log)
-      richardData  <- Resource.eval(richardBot.messageRepliesData)
-      _ <- generateTriggerFile(
+      richardBot = new RichardPHJBensonBotPolling[IO](richardSetup)(using
+        summon[Parallel[IO]],
+        summon[Async[IO]],
+        richardSetup.api,
+        log
+      )
+      richardData <- Resource.eval(richardBot.messageRepliesData)
+      _           <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/richardPHJBensonBot/",
         triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
         triggers = richardData
       )
       youTuboSetup <- Resource.eval(forTriggerGeneration(YouTuboAncheI0Bot.sBotConfig)(using log))
-      youTuboBot   = new YouTuboAncheI0BotPolling[IO](youTuboSetup)(using summon[Parallel[IO]], summon[Async[IO]], youTuboSetup.api, log)
-      youTuboData  <- Resource.eval(youTuboBot.messageRepliesData)
-      _ <- generateTriggerFile(
+      youTuboBot = new YouTuboAncheI0BotPolling[IO](youTuboSetup)(using
+        summon[Parallel[IO]],
+        summon[Async[IO]],
+        youTuboSetup.api,
+        log
+      )
+      youTuboData <- Resource.eval(youTuboBot.messageRepliesData)
+      _           <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/youTuboAncheI0Bot/",
         triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
         triggers = youTuboData

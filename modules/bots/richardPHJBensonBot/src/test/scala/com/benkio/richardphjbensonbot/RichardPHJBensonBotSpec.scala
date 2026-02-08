@@ -1,7 +1,10 @@
 package com.benkio.richardphjbensonbot
 
 import cats.data.NonEmptyList
+import cats.effect.Async
 import cats.effect.IO
+import cats.syntax.all.*
+import cats.Parallel
 import cats.Show
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
@@ -14,8 +17,6 @@ import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import cats.effect.Async
-import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -51,9 +52,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     dbLayer = emptyDBLayer,
     sBotConfig = RichardPHJBensonBot.sBotConfig,
     ttl = None
-  ).map(botSetup =>
-    new RichardPHJBensonBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-  )
+  ).map(botSetup => new RichardPHJBensonBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     richardPHJBensonBot.map(_.allCommandRepliesData)
@@ -108,7 +107,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   triggerFileContainsTriggers(
     triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggers = RichardPHJBensonBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botTriggersIO =
+      RichardPHJBensonBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')).pure[IO]
   )
 
   instructionsCommandTest(

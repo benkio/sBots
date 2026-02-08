@@ -1,8 +1,10 @@
 package com.benkio.youtuboanchei0bot
 
 import cats.data.NonEmptyList
+import cats.effect.Async
 import cats.effect.IO
 import cats.syntax.all.*
+import cats.Parallel
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
@@ -12,8 +14,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import cats.effect.Async
-import cats.Parallel
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -39,9 +39,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
     dbLayer = emptyDBLayer,
     sBotConfig = YouTuboAncheI0Bot.sBotConfig,
     ttl = YouTuboAncheI0Bot.sBotConfig.messageTimeToLive
-  ).map(botSetup =>
-    new YouTuboAncheI0BotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-  )
+  ).map(botSetup => new YouTuboAncheI0BotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]]  = for {
@@ -71,7 +69,8 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   triggerFileContainsTriggers(
     triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
     botMediaFiles = YouTuboAncheI0Bot.messageRepliesData.flatMap(mr => mr.reply.prettyPrint).pure[IO],
-    botTriggers = YouTuboAncheI0Bot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botTriggersIO =
+      YouTuboAncheI0Bot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')).pure[IO]
   )
 
   instructionsCommandTest(
