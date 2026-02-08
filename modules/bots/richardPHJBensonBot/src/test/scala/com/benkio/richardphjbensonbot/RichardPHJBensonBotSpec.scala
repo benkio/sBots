@@ -1,7 +1,10 @@
 package com.benkio.richardphjbensonbot
 
 import cats.data.NonEmptyList
+import cats.effect.Async
 import cats.effect.IO
+import cats.syntax.all.*
+import cats.Parallel
 import cats.Show
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
@@ -13,7 +16,6 @@ import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -45,22 +47,19 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
-  val richardPHJBensonBot = BackgroundJobManager[IO](
+  val richardPHJBensonBot = buildTestBotSetup(
+    repository = repositoryMock,
     dbLayer = emptyDBLayer,
-    sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+    sBotConfig = RichardPHJBensonBot.sBotConfig,
     ttl = None
-  ).map(bjm =>
-    new RichardPHJBensonBotPolling[IO](
-      repository = repositoryMock,
-      dbLayer = emptyDBLayer,
-      backgroundJobManager = bjm
-    )
-  )
+  ).map(botSetup => new RichardPHJBensonBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     richardPHJBensonBot.map(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]] =
-    richardPHJBensonBot.map(rb => rb.messageRepliesData.flatMap(mr => mr.reply.prettyPrint))
+  val messageRepliesDataPrettyPrint: IO[List[String]] = for {
+    bot     <- richardPHJBensonBot
+    replies <- bot.messageRepliesData
+  } yield replies.flatMap(_.reply.prettyPrint)
 
   exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData)
   regexTriggerLengthReturnValue(RichardPHJBensonBot.messageRepliesData)
@@ -108,7 +107,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   triggerFileContainsTriggers(
     triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggers = RichardPHJBensonBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n'))
+    botTriggersIO =
+      RichardPHJBensonBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')).pure[IO]
   )
 
   instructionsCommandTest(

@@ -13,9 +13,6 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
@@ -36,10 +33,8 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class YouTuboAncheI0BotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F],
-    override val backgroundJobManager: BackgroundJobManager[F]
-) extends SBotPolling[F]()
+    override val sBotSetup: BotSetup[F]
+) extends SBotPolling[F](sBotSetup)
     with YouTuboAncheI0Bot[F] {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
@@ -48,13 +43,9 @@ class YouTuboAncheI0BotPolling[F[_]: Parallel: Async: Api: LogWriter](
 }
 
 class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
-    uri: Uri,
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F],
-    override val backgroundJobManager: BackgroundJobManager[F],
-    path: Uri = uri"/",
+    override val sBotSetup: BotSetup[F],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate)
+) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with YouTuboAncheI0Bot[F] {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
@@ -62,13 +53,10 @@ class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
-trait YouTuboAncheI0Bot[F[_]] extends SBot[F] {
+trait YouTuboAncheI0Bot[F[_]: Applicative] extends SBot[F] {
 
-  override val sBotConfig: SBotConfig = YouTuboAncheI0Bot.sBotConfig
-  val backgroundJobManager: BackgroundJobManager[F]
-
-  override val messageRepliesData: List[ReplyBundleMessage] =
-    YouTuboAncheI0Bot.messageRepliesData
+  override val messageRepliesData: F[List[ReplyBundleMessage]] =
+    Applicative[F].pure(YouTuboAncheI0Bot.messageRepliesData)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     YouTuboAncheI0Bot.commandRepliesData
@@ -81,7 +69,8 @@ object YouTuboAncheI0Bot {
   val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("ytai"), SBotInfo.SBotName("YouTuboAncheI0Bot")),
     triggerFilename = "ytai_triggers.txt",
-    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt",
+    repliesJsonFilename = "ytai_replies.json"
   )
 
   def messageRepliesAudioData: List[ReplyBundleMessage] =
@@ -153,11 +142,7 @@ object YouTuboAncheI0Bot {
         namespace = configNamespace,
         sBotConfig = sBotConfig
       )
-    } yield new YouTuboAncheI0BotPolling[F](
-      repository = botSetup.repository,
-      dbLayer = botSetup.dbLayer,
-      backgroundJobManager = botSetup.backgroundJobManager
-    )(using Parallel[F], Async[F], botSetup.api, log)
+    } yield new YouTuboAncheI0BotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
@@ -170,14 +155,5 @@ object YouTuboAncheI0Bot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map { botSetup =>
-      new YouTuboAncheI0BotWebhook[F](
-        uri = botSetup.webhookUri,
-        path = botSetup.webhookPath,
-        repository = botSetup.repository,
-        dbLayer = botSetup.dbLayer,
-        backgroundJobManager = botSetup.backgroundJobManager,
-        webhookCertificate = webhookCertificate
-      )(using Async[F], botSetup.api, log)
-    }
+    ).map(botSetup => new YouTuboAncheI0BotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
 }

@@ -12,14 +12,14 @@ import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryErro
 class RepositoryMock(
     getResourceByKindHandler: (String, SBotId) => IO[NonEmptyList[NonEmptyList[MediaResource[IO]]]] = (_, _) =>
       IO.raiseError(Throwable("[RepositoryMock] getResourceByKindHandler call unexpected")),
-    getResourceFileHandler: MediaFile => IO[NonEmptyList[MediaResource[IO]]] = _ =>
+    getResourceFileHandler: MediaFile => IO[Either[RepositoryError, NonEmptyList[MediaResource[IO]]]] = _ =>
       IO.raiseError(Throwable("[RepositoryMock] getResourceByteArray call unexpected"))
 ) extends Repository[IO] {
 
   override def getResourceFile(
       mediaFile: MediaFile
   ): Resource[IO, Either[RepositoryError, NonEmptyList[MediaResource[IO]]]] =
-    Resource.eval(getResourceFileHandler(mediaFile).map(Right(_)))
+    Resource.eval(getResourceFileHandler(mediaFile))
   override def getResourcesByKind(
       criteria: String,
       botId: SBotId

@@ -2,6 +2,8 @@ package com.benkio.telegrambotinfrastructure
 
 import cats.effect.IO
 import cats.syntax.all.*
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
+import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.isRegexTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
@@ -11,19 +13,54 @@ import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.JsonRepliesRepository
+import com.benkio.telegrambotinfrastructure.repository.Repository
 import io.circe.parser.decode
+import log.effect.LogWriter
 import munit.*
 import munit.CatsEffectSuite
 import munit.ScalaCheckEffectSuite
+import org.http4s.client.Client
+import org.http4s.implicits.*
+import org.http4s.HttpApp
+import org.http4s.Response
+import org.http4s.Status
 import org.scalacheck.Prop.*
+import telegramium.bots.high.Api
 import telegramium.bots.Chat
 import telegramium.bots.Message
 import wolfendale.scalacheck.regexp.RegexpGen
 
 import java.io.File
+import scala.concurrent.duration.FiniteDuration
 import scala.io.Source
 
 trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
+
+  def buildTestBotSetup(
+      repository: Repository[IO],
+      dbLayer: DBLayer[IO],
+      sBotConfig: SBotConfig,
+      ttl: Option[FiniteDuration]
+  )(using Api[IO], LogWriter[IO]): IO[BotSetup[IO]] =
+    BackgroundJobManager[IO](dbLayer = dbLayer, sBotInfo = sBotConfig.sBotInfo, ttl = ttl).map { bjm =>
+      val stubClient = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok))))
+      BotSetup(
+        token = "test",
+        httpClient = stubClient,
+        repository = repository,
+        jsonRepliesRepository = JsonRepliesRepository[IO]( // repository
+        ),
+        dbLayer = dbLayer,
+        backgroundJobManager = bjm,
+        api = summon[Api[IO]],
+        webhookUri = uri"https://localhost",
+        webhookPath = uri"/",
+        sBotConfig = sBotConfig
+      )
+    }
+
   private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")
@@ -77,14 +114,16 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
   def triggerFileContainsTriggers(
       triggerFilename: String,
       botMediaFiles: IO[List[String]],
-      botTriggers: List[String]
+      botTriggersIO: IO[List[String]]
   ): Unit =
     test(s"the `$triggerFilename` should contain all the triggers of the bot") {
       val listPath: String       = new File(".").getCanonicalPath + s"/$triggerFilename"
       val triggerContent: String = Source.fromFile(listPath).getLines().mkString("\n")
 
-      for mediaFileStrings <- botMediaFiles
-      yield {
+      for {
+        mediaFileStrings <- botMediaFiles
+        botTriggers      <- botTriggersIO
+      } yield {
         checkContains(triggerContent, mediaFileStrings)
         checkContains(triggerContent, botTriggers)
         val noLowercaseTriggers = botTriggers.filter(s => s != s.toLowerCase)

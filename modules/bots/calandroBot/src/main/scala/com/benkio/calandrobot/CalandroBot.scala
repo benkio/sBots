@@ -4,23 +4,14 @@ import cats.*
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
-import com.benkio.telegrambotinfrastructure.model.reply.txt
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
-import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
-import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
@@ -33,33 +24,21 @@ import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 
-import scala.util.Random
-
 class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val backgroundJobManager: BackgroundJobManager[F],
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F]
-) extends SBotPolling[F]()
+    override val sBotSetup: BotSetup[F]
+) extends SBotPolling[F](sBotSetup)
     with CalandroBot[F] {}
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
-    uri: Uri,
-    override val backgroundJobManager: BackgroundJobManager[F],
-    override val repository: Repository[F],
-    override val dbLayer: DBLayer[F],
-    path: Uri = uri"/",
+    override val sBotSetup: BotSetup[F],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](uri, path, webhookCertificate)
+) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with CalandroBot[F] {}
 
 trait CalandroBot[F[_]] extends SBot[F] {
 
-  override val sBotConfig: SBotConfig = CalandroBot.sBotConfig
-  // TODO: 785 Override when it's used by all bots
-  val triggerJsonFilename: String = CalandroBot.triggerJsonFilename
-
-  override val messageRepliesData: List[ReplyBundleMessage] =
-    CalandroBot.messageRepliesData
+  override val messageRepliesData: F[List[ReplyBundleMessage]] =
+    sBotSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     CalandroBot.commandRepliesData
@@ -67,94 +46,13 @@ trait CalandroBot[F[_]] extends SBot[F] {
 
 object CalandroBot {
 
-  val tokenFilename: String       = "cala_CalandroBot.token"
-  val configNamespace: String     = "cala"
-  val triggerJsonFilename: String = "cala_triggers.json"
-  val sBotConfig: SBotConfig      = SBotConfig(
+  val tokenFilename: String   = "cala_CalandroBot.token"
+  val configNamespace: String = "cala"
+  val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("cala"), SBotName("CalandroBot")),
     triggerFilename = "cala_triggers.txt",
-    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/abar_triggers.txt"
-  )
-
-  val messageRepliesData: List[ReplyBundleMessage] = List(
-    ReplyBundleMessage.textToText(
-      "sbrighi"
-    )("Passo"),
-    ReplyBundleMessage.textToText(
-      "gay",
-      "froc[io]".r,
-      "culattone",
-      "ricchione"
-    )("CHE SCHIFO!!!"),
-    ReplyBundleMessage.textToText(
-      "caldo",
-      "scotta"
-    )("Come i carbofreni della Brembo!!"),
-    ReplyBundleMessage.textToText(
-      "ciao",
-      "buongiorno",
-      "\\bsalve\\b".r
-    )("Buongiorno Signori"),
-    ReplyBundleMessage.textToText(
-      "film"
-    )("Lo riguardo volentieri"),
-    ReplyBundleMessage(
-      TextTrigger(
-        StringTextTriggerValue("stasera"),
-        StringTextTriggerValue("?")
-      ),
-      reply = TextReply.fromList("Facciamo qualcosa tutti assieme?")(false),
-      matcher = MessageMatches.ContainsAll
-    ),
-    ReplyBundleMessage.textToText(
-      "\\bhd\\b".r,
-      "nitid(o|ezza)".r,
-      "alta definizione"
-    )("Eh sì, vedi...si nota l'indecisione dell'immagine"),
-    ReplyBundleMessage.textToText(
-      "qualità"
-    )("A 48x masterizza meglio"),
-    ReplyBundleMessage.textToText(
-      "macchina",
-      "automobile"
-    )("Hai visto l'ultima puntata di \"Top Gear\"?"),
-    ReplyBundleMessage.textToText(
-      "\\bfiga\\b".r,
-      "\\bfregna\\b".r,
-      "\\bgnocca\\b".r,
-      "\\bpatacca\\b".r
-    )("Io so come fare con le donne...ho letto tutto..."),
-    ReplyBundleMessage.textToText(
-      "ambulanza",
-      "🚑"
-    )(
-      "😤",
-      "🤘",
-      "🤞",
-      "🤞",
-      "🤘",
-      "😤"
-    ),
-    ReplyBundleMessage.textToText(
-      "pc",
-      "computer"
-    )("Il fisso performa meglio rispetto al portatile!!!"),
-    ReplyBundleMessage.textToText(
-      "videogioc",
-      "🎮"
-    )(s"GIOCHI PER IL MIO PC #${Random.nextInt(Int.MaxValue)}??No ma io non lo compro per i giochi!!!"),
-    ReplyBundleMessage.textToText(
-      " hs",
-      "hearthstone"
-    )("BASTA CON QUESTI TAUNT!!!"),
-    ReplyBundleMessage(
-      MessageLengthTrigger(280),
-      reply = TextReply(
-        text = List(txt"wawaaa rischio calandrico in aumento!!!"),
-        replyToMessage = true
-      ),
-      matcher = MessageMatches.ContainsOnce
-    )
+    triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/CalandroBot/cala_triggers.txt",
+    repliesJsonFilename = "cala_replies.json"
   )
 
   val commandRepliesData: List[ReplyBundleCommand] =
@@ -260,15 +158,9 @@ object CalandroBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig
     )
-  } yield botSetup).use { botSetup =>
-    action(
-      new CalandroBotPolling[F](
-        backgroundJobManager = botSetup.backgroundJobManager,
-        repository = botSetup.repository,
-        dbLayer = botSetup.dbLayer
-      )(using Parallel[F], Async[F], botSetup.api, log)
-    )
-  }
+  } yield botSetup).use(botSetup =>
+    action(new CalandroBotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log))
+  )
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
@@ -281,14 +173,5 @@ object CalandroBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map { botSetup =>
-      new CalandroBotWebhook[F](
-        uri = botSetup.webhookUri,
-        path = botSetup.webhookPath,
-        repository = botSetup.repository,
-        backgroundJobManager = botSetup.backgroundJobManager,
-        dbLayer = botSetup.dbLayer,
-        webhookCertificate = webhookCertificate
-      )(using Async[F], botSetup.api, log)
-    }
+    ).map(botSetup => new CalandroBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
 }

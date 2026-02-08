@@ -1,22 +1,18 @@
 package com.benkio.integration.integrationmunit.xahleebot
 
-import cats.data.NonEmptyList
-import cats.effect.*
+import cats.effect.Async
+import cats.effect.IO
+import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.integration.DBFixture
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
+import cats.Parallel
+import com.benkio.integration.BotSetupFixture
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.xahleebot.CommandRepliesData
 import com.benkio.xahleebot.XahLeeBot
+import com.benkio.xahleebot.XahLeeBotPolling
 import doobie.implicits.*
 import io.circe.parser.decode
 import munit.CatsEffectSuite
@@ -24,41 +20,20 @@ import munit.CatsEffectSuite
 import java.io.File
 import scala.io.Source
 
-class ITDBSpec extends CatsEffectSuite with DBFixture {
+class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
-  val sBotInfo: SBotInfo                    = XahLeeBot.sBotConfig.sBotInfo
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(sBotInfo.botId)
-  val mediaResource: MediaResourceIFile[IO] =
-    MediaResourceIFile(
-      "test mediafile"
-    )
-  val repositoryMock = RepositoryMock(getResourceByKindHandler =
-    (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == sBotInfo.botId)(
-        Throwable(s"[ITDBSpec] getResourceByKindHandler received unexpected botId: $inputBotId")
-      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
-  )
-  val emptyBackgroundJobManager: Resource[IO, BackgroundJobManager[IO]] = Resource.eval(
-    BackgroundJobManager(
-      dbLayer = emptyDBLayer,
-      sBotInfo = sBotInfo,
-      ttl = XahLeeBot.sBotConfig.messageTimeToLive
-    )
-  )
+  override def botSetupFixtureConfig: SBotConfig = XahLeeBot.sBotConfig
 
   // File Reference Check
 
-  databaseFixture.test(
+  botSetupFixture.test(
     "commandRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
-    val transactor     = fixture.transactor
     val resourceAssert = for {
-      resourceDBLayer <- fixture.resourceDBLayer
-      bjm             <- emptyBackgroundJobManager
-      files =
-        CommandRepliesData
-          .values(sBotInfo)
-          .flatMap((r: ReplyBundle) => ReplyBundle.getMediaFiles(r))
+      botSetup <- fixture.botSetupResource
+      xahLeeBot  = new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+      transactor = fixture.dbResources.transactor
+      files      = xahLeeBot.commandRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
@@ -73,25 +48,24 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       )
     } yield checks.foldLeft(true)(_ && _)
 
-    resourceAssert.use(_.pure[IO]).assert
+    resourceAssert.use(b => assertIO(IO.pure(b), true))
   }
 
   // File json file check
 
-  databaseFixture.test(
+  botSetupFixture.test(
     "commandRepliesData random files should be contained in the jsons"
   ) { fixture =>
-    val listPath                                   = new File("./../bots/xahLeeBot").getCanonicalPath + "/xah_list.json"
-    val jsonContent                                = Source.fromFile(listPath).getLines().mkString("\n")
-    val json: Either[io.circe.Error, List[String]] = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
+    val listPath    = new File("./../bots/xahLeeBot").getCanonicalPath + "/xah_list.json"
+    val jsonContent = Source.fromFile(listPath).getLines().mkString("\n")
+    val json        = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val resourceAssert = for {
-      resourceDBLayer <- fixture.resourceDBLayer
-      bjm             <- emptyBackgroundJobManager
+      botSetup <- fixture.botSetupResource
+      xahLeeBot  = new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
       mediaFiles =
-        CommandRepliesData
-          .values(sBotInfo)
-          .flatMap((r: ReplyBundle) => ReplyBundle.getMediaFiles(r))
+        xahLeeBot.commandRepliesData
+          .flatMap(r => r.getMediaFiles)
       checks <- Resource.pure(
         mediaFiles
           .map((mediaFile: MediaFile) =>
@@ -111,6 +85,6 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       )
     } yield checks.foldLeft(true)(_ && _)
 
-    resourceAssert.use(_.pure[IO]).assert
+    resourceAssert.use(b => assertIO(IO.pure(b), true))
   }
 }

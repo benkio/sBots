@@ -1,40 +1,48 @@
-package com.benkio.integration.integrationmunit.M0sconi
+package com.benkio.integration.integrationmunit.m0sconi
 
+import cats.effect.Async
 import cats.effect.IO
+import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.integration.DBFixture
+import cats.Parallel
+import com.benkio.integration.BotSetupFixture
+import com.benkio.m0sconibot.M0sconiBot
+import com.benkio.m0sconibot.M0sconiBotPolling
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import doobie.implicits.*
 import munit.CatsEffectSuite
 
-class ITDBSpec extends CatsEffectSuite with DBFixture {
+class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
-  import com.benkio.m0sconibot.data.Audio.messageRepliesAudioData
+  override def botSetupFixtureConfig: SBotConfig = M0sconiBot.sBotConfig
 
   // File Reference Check
 
-  databaseFixture.test(
-    "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
+  botSetupFixture.test(
+    "messageRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
-    val transactor = fixture.transactor
-    val mp3s       = messageRepliesAudioData.flatMap(r => ReplyBundle.getMediaFiles(r))
     val testAssert = for {
-      checks <-
-        mp3s
-          .traverse((mp3: MediaFile) =>
+      botSetup <- fixture.botSetupResource
+      m0sconiBot = new M0sconiBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+      files <- Resource.eval(m0sconiBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      transactor = fixture.dbResources.transactor
+      checks <- Resource.eval(
+        files
+          .traverse((file: MediaFile) =>
             DBMedia
-              .getMediaQueryByName(mp3.filename)
+              .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
-              .onError { case _ => IO.println("[ERROR] mp3 missing from the DB: " + mp3) }
+              .onError { case _ => IO.println("[ERROR] file missing from the DB: " + file) }
               .attempt
               .map(_.isRight)
           )
+      )
     } yield checks.foldLeft(true)(_ && _)
 
-    assertIO(testAssert, true)
+    testAssert.use(assert(_, true).pure[IO])
   }
-
 }

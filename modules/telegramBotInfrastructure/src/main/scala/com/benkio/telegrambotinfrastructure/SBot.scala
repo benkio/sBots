@@ -3,9 +3,10 @@ package com.benkio.telegrambotinfrastructure
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
-import cats.implicits.*
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
+import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.*
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
@@ -16,44 +17,48 @@ import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
-import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import log.effect.LogWriter
-import org.http4s.implicits.*
-import org.http4s.Uri
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
-abstract class SBotPolling[F[_]: Parallel: Async: Api: LogWriter]()
-    extends LongPollBot[F](summon[Api[F]])
+abstract class SBotPolling[F[_]: Parallel: Async: Api: LogWriter](
+    override val sBotSetup: BotSetup[F]
+) extends LongPollBot[F](summon[Api[F]])
     with SBot[F] {
   override def onMessage(msg: Message): F[Unit] = onMessageLogic(msg)
 }
 
 abstract class SBotWebhook[F[_]: Async: Api: LogWriter](
-    uri: Uri,
-    path: Uri = uri"/",
+    override val sBotSetup: BotSetup[F],
     webhookCertificate: Option[InputPartFile] = None
-) extends WebhookBot[F](summon[Api[F]], uri.renderString, path.renderString, certificate = webhookCertificate)
+) extends WebhookBot[F](
+      summon[Api[F]],
+      sBotSetup.webhookUri.renderString,
+      sBotSetup.webhookPath.renderString,
+      certificate = webhookCertificate
+    )
     with SBot[F] {
   override def onMessage(msg: Message): F[Unit] = onMessageLogic(msg)
 }
 
 trait SBot[F[_]: Async: LogWriter] {
 
-  // Configuration values & functions /////////////////////////////////////////////////////
-  def repository: Repository[F] = ResourcesRepository.fromResources[F]()
-  val sBotConfig: SBotConfig
-  val dbLayer: DBLayer[F]
-  val backgroundJobManager: BackgroundJobManager[F]
+  val sBotSetup: BotSetup[F]
+
+  // Configuration values & functions (from BotSetup) ///////////////////////////////////
+  def repository: Repository[F]                                             = sBotSetup.repository
+  def sBotConfig: SBotConfig                                                = sBotSetup.sBotConfig
+  def dbLayer: DBLayer[F]                                                   = sBotSetup.dbLayer
+  def backgroundJobManager: BackgroundJobManager[F]                         = sBotSetup.backgroundJobManager
   def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
     (_: ReplyBundleMessage, _: Message) => true.pure[F]
   def postComputation: Message => F[Unit] = _ => Async[F].unit
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  val messageRepliesData: List[ReplyBundleMessage] =
-    List.empty[ReplyBundleMessage]
+  val messageRepliesData: F[List[ReplyBundleMessage]] =
+    List.empty[ReplyBundleMessage].pure[F]
   val commandRepliesData: List[ReplyBundleCommand] =
     List.empty[ReplyBundleCommand]
 
@@ -74,17 +79,20 @@ trait SBot[F[_]: Async: LogWriter] {
 
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
-  ): Option[ReplyBundleMessage] =
-    if FilteringForward.filter(msg, sBotConfig.disableForward) && FilteringOlder.filter(msg)
-    then messageRepliesData
-      .mapFilter(messageReplyBundle =>
-        MessageMatches
-          .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
-      )
-      .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-      .headOption
-      .map(_._2)
-    else None
+  ): F[Option[ReplyBundleMessage]] =
+    if !FilteringForward.filter(msg, sBotConfig.disableForward) || !FilteringOlder.filter(msg)
+    then None.pure[F]
+    else
+      messageRepliesData.map { list =>
+        list
+          .mapFilter(messageReplyBundle =>
+            MessageMatches
+              .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
+          )
+          .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+          .headOption
+          .map(_._2)
+      }
 
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
@@ -100,8 +108,8 @@ trait SBot[F[_]: Async: LogWriter] {
   def messageLogic(
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    selectReplyBundle(msg)
-      .traverse(replyBundle =>
+    selectReplyBundle(msg).flatMap(
+      _.traverse(replyBundle =>
         for {
           _ <- LogWriter
             .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
@@ -120,6 +128,7 @@ trait SBot[F[_]: Async: LogWriter] {
             else List.empty.pure[F]
         } yield result
       )
+    )
 
   def commandLogic(
       msg: Message

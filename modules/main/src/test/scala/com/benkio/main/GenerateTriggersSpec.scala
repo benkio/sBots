@@ -16,18 +16,26 @@ class GenerateTriggersSpec extends CatsEffectSuite {
   override val munitIOTimeout = Duration(1, "m")
 
   test("GenerateTriggers.run should modify the expected files") {
-    for {
-      exitCode <- GenerateTriggers.run(List.empty)
-      triggerFiles: List[File] = List(
-        File(s"../bots/aBarberoBot/${ABarberoBot.sBotConfig.triggerFilename}"),
-        File(s"../bots/m0sconiBot/${M0sconiBot.sBotConfig.triggerFilename}"),
-        File(s"../bots/calandroBot/${CalandroBot.sBotConfig.triggerFilename}"),
-        File(s"../bots/calandroBot/${CalandroBot.triggerJsonFilename}"),
-        File(s"../bots/richardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
-        File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.sBotConfig.triggerFilename}")
-      )
-    } yield {
-      assert(exitCode == ExitCode.Success)
-    }
+    val triggerFiles: List[File] = List(
+      File(s"../bots/aBarberoBot/${ABarberoBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/m0sconiBot/${M0sconiBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/calandroBot/${CalandroBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/richardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.sBotConfig.triggerFilename}")
+    )
+    val fiveMinutesAgo = System.currentTimeMillis() - (5 * 60 * 1000)
+    GenerateTriggers
+      .run(List.empty)
+      .map(exitCode => {
+
+        assert(exitCode == ExitCode.Success)
+        triggerFiles.foreach { file =>
+          assert(file.exists(), s"${file.getAbsolutePath} should exist")
+          assert(
+            file.lastModified() >= fiveMinutesAgo,
+            s"${file.getAbsolutePath} should have been modified in the last 5 minutes (lastModified=${file.lastModified()}, fiveMinutesAgo=$fiveMinutesAgo)"
+          )
+        }
+      })
   }
 }
