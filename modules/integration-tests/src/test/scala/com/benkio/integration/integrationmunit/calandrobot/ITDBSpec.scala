@@ -1,6 +1,9 @@
 package com.benkio.integration.integrationmunit.calandrobot
 
+import com.benkio.integration.BotSetupFixture
+import com.benkio.integration.BotSetupFixtureResources
 import cats.effect.IO
+import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.integration.DBFixture
@@ -9,20 +12,26 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import doobie.implicits.*
 import munit.CatsEffectSuite
+import com.benkio.calandrobot.CalandroBot
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
+import cats.Parallel
+import com.benkio.calandrobot.CalandroBotPolling
 
-class ITDBSpec extends CatsEffectSuite with DBFixture {
+class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
-  import com.benkio.calandrobot.CalandroBot.*
+  override def botSetupFixtureConfig: SBotConfig = CalandroBot.sBotConfig
 
   // File Reference Check
 
-  databaseFixture.test(
+  botSetupFixture.test(
     "messageRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
-    val transactor = fixture.transactor
-    val files      = messageRepliesData.flatMap(r => ReplyBundle.getMediaFiles(r))
     val testAssert = for {
-      checks <-
+      botSetup <- fixture.botSetupResource
+      calandroBot = new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+      files      <- Resource.eval(calandroBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      transactor = fixture.dbResources.transactor
+      checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
             DBMedia
@@ -33,35 +42,35 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
               .attempt
               .map(_.isRight)
           )
+      )
     } yield checks.foldLeft(true)(_ && _)
 
-    assertIO(testAssert, true)
+    testAssert.use(assert(_, true).pure[IO])
   }
 
-  databaseFixture.test(
+  botSetupFixture.test(
     "commandRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
-    val transactor = fixture.transactor
     val testAssert = for {
-      dbLayer <- fixture.resourceDBLayer
-      files   <- Resource.eval(
-        IO.pure(commandRepliesData.flatMap(r => ReplyBundle.getMediaFiles(r)))
+      botSetup <- fixture.botSetupResource
+      calandroBot = new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+      transactor = fixture.dbResources.transactor
+      dbLayer <- fixture.dbResources.resourceDBLayer
+      files      = calandroBot.commandRepliesData.flatMap(r => r.getMediaFiles)
+      checks <- Resource.eval(
+        files
+          .traverse((file: MediaFile) =>
+            DBMedia
+              .getMediaQueryByName(file.filename)
+              .unique
+              .transact(transactor)
+              .onError { case _ => IO.println("[ERROR] file missing from the DB: " + file) }
+              .attempt
+              .map(_.isRight)
+          )
       )
-      checks <-
-        Resource.eval(
-          files
-            .traverse((file: MediaFile) =>
-              DBMedia
-                .getMediaQueryByName(file.filename)
-                .unique
-                .transact(transactor)
-                .onError { case _ => IO.println("[ERROR] file missing from the DB: " + file) }
-                .attempt
-                .map(_.isRight)
-            )
-        )
     } yield checks.foldLeft(true)(_ && _)
 
-    testAssert.use(_.pure[IO]).assert
+    testAssert.use(assert(_, true).pure[IO])
   }
 }
