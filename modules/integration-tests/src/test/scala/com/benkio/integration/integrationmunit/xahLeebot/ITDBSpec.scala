@@ -1,18 +1,18 @@
 package com.benkio.integration.integrationmunit.xahleebot
 
-import cats.Parallel
 import cats.effect.Async
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
+import cats.Parallel
 import com.benkio.integration.BotSetupFixture
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
+import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.xahleebot.XahLeeBot
 import com.benkio.xahleebot.XahLeeBotPolling
-import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import doobie.implicits.*
 import io.circe.parser.decode
 import munit.CatsEffectSuite
@@ -30,7 +30,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     "commandRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val resourceAssert = for {
-      botSetup   <- fixture.botSetupResource
+      botSetup <- fixture.botSetupResource
       xahLeeBot  = new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
       transactor = fixture.dbResources.transactor
       files      = xahLeeBot.commandRepliesData.flatMap(r => r.getMediaFiles)
@@ -61,8 +61,8 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val json        = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val resourceAssert = for {
-      botSetup  <- fixture.botSetupResource
-      xahLeeBot = new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+      botSetup <- fixture.botSetupResource
+      xahLeeBot  = new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
       mediaFiles =
         xahLeeBot.commandRepliesData
           .flatMap(r => r.getMediaFiles)

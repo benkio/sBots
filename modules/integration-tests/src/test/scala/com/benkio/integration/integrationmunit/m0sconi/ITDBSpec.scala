@@ -1,18 +1,18 @@
 package com.benkio.integration.integrationmunit.m0sconi
 
-import cats.Parallel
 import cats.effect.Async
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
+import cats.Parallel
 import com.benkio.integration.BotSetupFixture
 import com.benkio.m0sconibot.M0sconiBot
+import com.benkio.m0sconibot.M0sconiBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import doobie.implicits.*
-import com.benkio.m0sconibot.M0sconiBotPolling
 import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
@@ -27,7 +27,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup <- fixture.botSetupResource
       m0sconiBot = new M0sconiBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      files      <- Resource.eval(m0sconiBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      files <- Resource.eval(m0sconiBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(
         files

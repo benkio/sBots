@@ -1,19 +1,19 @@
 package com.benkio.integration.integrationmunit.youtuboanchei0bot
 
-import cats.Parallel
 import cats.effect.Async
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
+import cats.Parallel
 import com.benkio.integration.BotSetupFixture
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
 import doobie.implicits.*
 import munit.CatsEffectSuite
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
 
 class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
@@ -23,11 +23,11 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
   botSetupFixture.test(
     "messageRepliesData should never raise an exception when try to open the file in bot"
-   ) { fixture =>
+  ) { fixture =>
     val testAssert = for {
       botSetup <- fixture.botSetupResource
       youTuboBot = new YouTuboAncheI0BotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      files      <- Resource.eval(youTuboBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      files <- Resource.eval(youTuboBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(
         files

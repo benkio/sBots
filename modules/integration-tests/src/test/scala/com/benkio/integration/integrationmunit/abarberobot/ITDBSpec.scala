@@ -1,8 +1,10 @@
 package com.benkio.integration.integrationmunit.abarberobot
 
+import cats.effect.Async
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
+import cats.Parallel
 import com.benkio.abarberobot.ABarberoBot
 import com.benkio.abarberobot.ABarberoBotPolling
 import com.benkio.integration.BotSetupFixture
@@ -11,8 +13,6 @@ import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import doobie.implicits.*
-import cats.Parallel
-import cats.effect.Async
 import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
@@ -25,7 +25,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup <- fixture.botSetupResource
       aBarberoBot = new ABarberoBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      files      <- Resource.eval(aBarberoBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      files <- Resource.eval(aBarberoBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(
         files

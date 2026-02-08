@@ -1,21 +1,19 @@
 package com.benkio.integration.integrationmunit.calandrobot
 
-import com.benkio.integration.BotSetupFixture
-import com.benkio.integration.BotSetupFixtureResources
-import cats.effect.IO
 import cats.effect.Async
+import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.integration.DBFixture
+import cats.Parallel
+import com.benkio.calandrobot.CalandroBot
+import com.benkio.calandrobot.CalandroBotPolling
+import com.benkio.integration.BotSetupFixture
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import doobie.implicits.*
 import munit.CatsEffectSuite
-import com.benkio.calandrobot.CalandroBot
-import com.benkio.telegrambotinfrastructure.config.SBotConfig
-import cats.Parallel
-import com.benkio.calandrobot.CalandroBotPolling
 
 class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
@@ -29,7 +27,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup <- fixture.botSetupResource
       calandroBot = new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      files      <- Resource.eval(calandroBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      files <- Resource.eval(calandroBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(
         files
@@ -54,9 +52,9 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup <- fixture.botSetupResource
       calandroBot = new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      transactor = fixture.dbResources.transactor
+      transactor  = fixture.dbResources.transactor
       dbLayer <- fixture.dbResources.resourceDBLayer
-      files      = calandroBot.commandRepliesData.flatMap(r => r.getMediaFiles)
+      files = calandroBot.commandRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
