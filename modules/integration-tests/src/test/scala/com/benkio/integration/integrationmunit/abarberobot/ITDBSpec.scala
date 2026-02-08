@@ -1,59 +1,46 @@
 package com.benkio.integration.integrationmunit.abarberobot
 
 import cats.effect.IO
+import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.integration.DBFixture
+import com.benkio.abarberobot.ABarberoBot
+import com.benkio.abarberobot.ABarberoBotPolling
+import com.benkio.integration.BotSetupFixture
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import doobie.implicits.*
+import cats.Parallel
+import cats.effect.Async
 import munit.CatsEffectSuite
 
-class ITDBSpec extends CatsEffectSuite with DBFixture {
+class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
-  import com.benkio.abarberobot.data.Audio
-  import com.benkio.abarberobot.data.Gif
+  override def botSetupFixtureConfig: SBotConfig = ABarberoBot.sBotConfig
 
-  // File Reference Check
-
-  databaseFixture.test(
-    "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
+  botSetupFixture.test(
+    "messageRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
-    val transactor            = fixture.transactor
-    val mp3s: List[MediaFile] = Audio.messageRepliesAudioData.flatMap(r => ReplyBundle.getMediaFiles(r))
-    val testAssert            =
-      mp3s
-        .traverse((mp3: MediaFile) =>
-          DBMedia
-            .getMediaQueryByName(mp3.filename)
-            .unique
-            .transact(transactor)
-            .onError { case _ => IO.println("[ERROR] mp3 missing from the DB: " + mp3) }
-            .attempt
-            .map(_.isRight)
-        )
-        .map(_.foldLeft(true)(_ && _))
-
-    assertIO(testAssert, true)
-  }
-
-  databaseFixture.test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
-    fixture =>
-      val transactor = fixture.transactor
-      val gifs       = Gif.messageRepliesGifData.flatMap(r => ReplyBundle.getMediaFiles(r))
-      val testAssert =
-        gifs
-          .traverse((gif: MediaFile) =>
+    val testAssert = for {
+      botSetup <- fixture.botSetupResource
+      aBarberoBot = new ABarberoBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+      files      <- Resource.eval(aBarberoBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      transactor = fixture.dbResources.transactor
+      checks <- Resource.eval(
+        files
+          .traverse((file: MediaFile) =>
             DBMedia
-              .getMediaQueryByName(gif.filename)
+              .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
-              .onError { case _ => IO.println("[ERROR] gif missing from the DB: " + gif) }
+              .onError { case _ => IO.println("[ERROR] file missing from the DB: " + file) }
               .attempt
               .map(_.isRight)
           )
-          .map(_.foldLeft(true)(_ && _))
+      )
+    } yield checks.foldLeft(true)(_ && _)
 
-      assertIO(testAssert, true)
+    testAssert.use(assert(_, true).pure[IO])
   }
 }

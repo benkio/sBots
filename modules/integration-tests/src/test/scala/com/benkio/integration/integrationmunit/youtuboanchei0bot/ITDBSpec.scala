@@ -1,109 +1,48 @@
 package com.benkio.integration.integrationmunit.youtuboanchei0bot
 
+import cats.Parallel
+import cats.effect.Async
 import cats.effect.IO
+import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.integration.DBFixture
+import com.benkio.integration.BotSetupFixture
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import doobie.implicits.*
 import munit.CatsEffectSuite
+import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
 
-class ITDBSpec extends CatsEffectSuite with DBFixture {
+class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
-  import YouTuboAncheI0Bot.*
+  override def botSetupFixtureConfig: SBotConfig = YouTuboAncheI0Bot.sBotConfig
 
   // File Reference Check
 
-  databaseFixture.test(
-    "messageRepliesAudioData should never raise an exception when try to open the file in resounces"
-  ) { fixture =>
-    val transactor = fixture.transactor
-    val mp3s       = messageRepliesAudioData.flatMap(r => ReplyBundle.getMediaFiles(r))
+  botSetupFixture.test(
+    "messageRepliesData should never raise an exception when try to open the file in bot"
+   ) { fixture =>
     val testAssert = for {
-      checks <-
-        mp3s
-          .traverse((mp3: MediaFile) =>
+      botSetup <- fixture.botSetupResource
+      youTuboBot = new YouTuboAncheI0BotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+      files      <- Resource.eval(youTuboBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      transactor = fixture.dbResources.transactor
+      checks <- Resource.eval(
+        files
+          .traverse((file: MediaFile) =>
             DBMedia
-              .getMediaQueryByName(mp3.filename)
+              .getMediaQueryByName(file.filename)
               .unique
               .transact(transactor)
-              .onError { case _ => IO.println("[ERROR] mp3 missing from the DB: " + mp3) }
+              .onError { case _ => IO.println("[ERROR] file missing from the DB: " + file) }
               .attempt
               .map(_.isRight)
           )
-
+      )
     } yield checks.foldLeft(true)(_ && _)
 
-    testAssert.assert
+    testAssert.use(assert(_, true).pure[IO])
   }
-
-  databaseFixture.test("messageRepliesGifData should never raise an exception when try to open the file in resounces") {
-    fixture =>
-      val transactor = fixture.transactor
-      val gifs       = messageRepliesGifData.flatMap(r => ReplyBundle.getMediaFiles(r))
-      val testAssert = for {
-        checks <-
-          gifs
-            .traverse((gif: MediaFile) =>
-              DBMedia
-                .getMediaQueryByName(gif.filename)
-                .unique
-                .transact(transactor)
-                .onError { case _ => IO.println("[ERROR] gif missing from the DB: " + gif) }
-                .attempt
-                .map(_.isRight)
-            )
-      } yield checks.foldLeft(true)(_ && _)
-
-      assertIO(testAssert, true)
-  }
-
-  databaseFixture.test(
-    "messageRepliesMixData should never raise an exception when try to open the file in resounces"
-  ) { fixture =>
-    val transactor = fixture.transactor
-    val specials   = messageRepliesMixData.flatMap(r => ReplyBundle.getMediaFiles(r))
-    val testAssert = for {
-      checks <-
-        specials
-          .traverse((special: MediaFile) =>
-            DBMedia
-              .getMediaQueryByName(special.filename)
-              .unique
-              .transact(transactor)
-              .onError { case _ => IO.println("[ERROR] special missing from the DB: " + special) }
-              .attempt
-              .map(_.isRight)
-          )
-
-    } yield checks.foldLeft(true)(_ && _)
-
-    testAssert.assert
-  }
-
-  databaseFixture.test(
-    "messageRepliesVideoData should never raise an exception when try to open the file in resounces"
-  ) { fixture =>
-    val transactor = fixture.transactor
-    val specials   = messageRepliesVideoData.flatMap(r => ReplyBundle.getMediaFiles(r))
-    val testAssert = for {
-      checks <-
-        specials
-          .traverse((special: MediaFile) =>
-            DBMedia
-              .getMediaQueryByName(special.filename)
-              .unique
-              .transact(transactor)
-              .onError { case _ => IO.println("[ERROR] special missing from the DB: " + special) }
-              .attempt
-              .map(_.isRight)
-          )
-
-    } yield checks.foldLeft(true)(_ && _)
-
-    testAssert.assert
-  }
-
 }
