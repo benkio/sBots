@@ -234,11 +234,6 @@ object GenerateTriggers extends IOApp {
         triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
         triggers = aBarberoData
       )
-      _ <- generateTriggersJsonFile(
-        botModuleRelativeFolderPath = "../bots/aBarberoBot/src/main/resources",
-        repliesJsonFilename = ABarberoBot.sBotConfig.repliesJsonFilename,
-        triggers = aBarberoData
-      )
       calandroSetup <- Resource.eval(forTriggerGeneration(CalandroBot.sBotConfig)(using log))
       calandroBot = new CalandroBotPolling[IO](calandroSetup)(using
         summon[Parallel[IO]],
@@ -289,6 +284,11 @@ object GenerateTriggers extends IOApp {
       _           <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/youTuboAncheI0Bot/",
         triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
+        triggers = youTuboData
+      )
+      _ <- generateTriggersJsonFile(
+        botModuleRelativeFolderPath = "../bots/youTuboAncheI0Bot/src/main/resources",
+        repliesJsonFilename = YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename,
         triggers = youTuboData
       )
     } yield ExitCode.Success).use(_.pure)
