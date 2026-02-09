@@ -60,8 +60,8 @@ trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
     Applicative[F].pure(RichardPHJBensonBot.messageRepliesData)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    RichardPHJBensonBot.commandRepliesData
+  override val commandRepliesData: F[List[ReplyBundleCommand]] =
+    RichardPHJBensonBot.commandRepliesData.pure[F]
 
   override val commandEffectfulCallback: Map[String, Message => F[List[Text]]] =
     Map(

@@ -55,7 +55,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   ).map(botSetup => new RichardPHJBensonBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
-    richardPHJBensonBot.map(_.allCommandRepliesData)
+    richardPHJBensonBot.flatMap(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] = for {
     bot     <- richardPHJBensonBot
     replies <- bot.messageRepliesData

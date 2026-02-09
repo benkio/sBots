@@ -2,6 +2,7 @@ package com.benkio.youtuboanchei0bot
 
 import cats.*
 import cats.effect.*
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
@@ -58,8 +59,8 @@ trait YouTuboAncheI0Bot[F[_]: Applicative] extends SBot[F] {
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
     Applicative[F].pure(YouTuboAncheI0Bot.messageRepliesData)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    YouTuboAncheI0Bot.commandRepliesData
+  override val commandRepliesData: F[List[ReplyBundleCommand]] =
+    YouTuboAncheI0Bot.commandRepliesData.pure[F]
 
 }
 object YouTuboAncheI0Bot {

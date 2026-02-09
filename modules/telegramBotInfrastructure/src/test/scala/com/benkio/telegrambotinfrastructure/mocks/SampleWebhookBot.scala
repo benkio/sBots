@@ -2,6 +2,7 @@ package com.benkio.telegrambotinfrastructure.mocks
 
 import cats.effect.Async
 import cats.effect.IO
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
@@ -40,7 +41,7 @@ class SampleWebhookBot(override val sBotSetup: BotSetup[IO])(using logWriterIO: 
   override val messageRepliesData: IO[List[ReplyBundleMessage]] =
     sBotSetup.jsonRepliesRepository.loadReplies(SampleWebhookBot.sBotConfig.repliesJsonFilename)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
+  override val commandRepliesData: IO[List[ReplyBundleCommand]] =
     List(
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),
@@ -49,7 +50,7 @@ class SampleWebhookBot(override val sBotSetup: BotSetup[IO])(using logWriterIO: 
         )(false),
         instruction = CommandInstructionData.NoInstructions
       )
-    )
+    ).pure[IO]
 }
 
 object SampleWebhookBot {

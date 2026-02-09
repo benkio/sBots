@@ -58,13 +58,13 @@ class SBotSpec extends CatsEffectSuite {
         )(false),
         instruction = CommandInstructionData.NoInstructions
       )
-    SampleWebhookBot().map(sampleWebhookBot => {
+    SampleWebhookBot().flatMap(sampleWebhookBot => {
       val resultOpt = sampleWebhookBot.selectCommandReplyBundle(inputMessage)
-      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+      val result    = resultOpt.map(_.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
-      }
+      })
       val expectedPP = expected.prettyPrint()
-      assertEquals(result, expectedPP)
+      assertIO(result, expectedPP)
     })
   }
 }

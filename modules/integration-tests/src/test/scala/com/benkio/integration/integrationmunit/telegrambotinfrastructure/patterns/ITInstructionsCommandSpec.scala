@@ -4,7 +4,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.integration.DBFixture
-import com.benkio.m0sconibot.M0sconiBot
+import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
@@ -20,7 +20,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
       dbMedia  = dbLayer.dbMedia
-      sBotInfo = SBotInfo(M0sconiBot.sBotConfig.sBotInfo.botId, SBotName("testBot"))
+      sBotInfo = SBotInfo(RichardPHJBensonBot.sBotConfig.sBotInfo.botId, SBotName("testBot"))
       _ <- Resource.eval(
         List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
           .traverse(input =>
@@ -33,8 +33,8 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
               ),
               sBotInfo = sBotInfo,
               ignoreMessagePrefix = Some("!"),
-              commands = M0sconiBot.commandRepliesData,
-              ttl = M0sconiBot.sBotConfig.messageTimeToLive
+              commands = RichardPHJBensonBot.commandRepliesData,
+              ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
             )
           )
           .map(_.flatten.foreach { text =>
@@ -44,7 +44,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
             )
             assert(
               text.value.contains("'/random': Returns a random data"),
-              s"[ITInstructionsCommandSpec] M0sconiBot.instructionCommandLogic should return the eng description and contain the random command: ${text.value}"
+              s"[ITInstructionsCommandSpec] RichardPHJBensonBot.instructionCommandLogic should return the eng description and contain the random command: ${text.value}"
             )
           })
       )
@@ -60,8 +60,8 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
               ),
               sBotInfo = sBotInfo,
               ignoreMessagePrefix = Some("!"),
-              commands = M0sconiBot.commandRepliesData,
-              ttl = M0sconiBot.sBotConfig.messageTimeToLive
+              commands = RichardPHJBensonBot.commandRepliesData,
+              ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
             )
           )
           .map(_.flatten.foreach { text =>
@@ -71,7 +71,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
             )
             assert(
               text.value.contains("'/random': Restituisce un dato"),
-              s"[ITInstructionsCommandSpec] M0sconiBot.instructionCommandLogic should return the ita description and contain the random command: ${text.value}"
+              s"[ITInstructionsCommandSpec] RichardPHJBensonBot.instructionCommandLogic should return the ita description and contain the random command: ${text.value}"
             )
           })
       )

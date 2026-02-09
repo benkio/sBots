@@ -39,7 +39,7 @@ class XahLeeBotSpec extends BaseBotSpec {
   ).map(botSetup => new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
-    xahLeeBot.map(_.allCommandRepliesData)
+    xahLeeBot.flatMap(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] = for {
     bot     <- xahLeeBot
     replies <- bot.messageRepliesData

@@ -2,6 +2,7 @@ package com.benkio.xahleebot
 
 import cats.*
 import cats.effect.*
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
@@ -36,8 +37,8 @@ trait XahLeeBot[F[_]: Applicative] extends SBot[F] {
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
     Applicative[F].pure(XahLeeBot.messageRepliesData)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    XahLeeBot.commandRepliesData
+  override val commandRepliesData: F[List[ReplyBundleCommand]] =
+    XahLeeBot.commandRepliesData.pure[F]
 
 }
 
