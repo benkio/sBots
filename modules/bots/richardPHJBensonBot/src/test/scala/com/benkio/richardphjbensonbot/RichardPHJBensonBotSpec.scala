@@ -3,7 +3,6 @@ package com.benkio.richardphjbensonbot
 import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
-import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
@@ -12,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
@@ -56,14 +56,19 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     richardPHJBensonBot.flatMap(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]] = for {
+  val messageRepliesData: IO[List[ReplyBundleMessage]] = for {
     bot     <- richardPHJBensonBot
     replies <- bot.messageRepliesData
-  } yield replies.flatMap(_.reply.prettyPrint)
+  } yield replies
+  val messageRepliesDataPrettyPrint: IO[List[String]] = messageRepliesData.map(_.flatMap(_.reply.prettyPrint))
 
-  exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData)
-  regexTriggerLengthReturnValue(RichardPHJBensonBot.messageRepliesData)
-  inputFileShouldRespondAsExpected(RichardPHJBensonBot.messageRepliesData)
+  messageRepliesData
+    .map(mrd => {
+      exactTriggerReturnExpectedReplyBundle(mrd)
+      regexTriggerLengthReturnValue(mrd)
+      inputFileShouldRespondAsExpected(mrd)
+    })
+    .unsafeRunSync()
 
   test("messageRepliesSpecialData should contain a NewMemberTrigger") {
     val result =
@@ -106,9 +111,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   triggerFileContainsTriggers(
     triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
-    botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggersIO =
-      RichardPHJBensonBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')).pure[IO]
+    botMediaFiles = messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint)),
+    botTriggersIO = messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   )
 
   instructionsCommandTest(

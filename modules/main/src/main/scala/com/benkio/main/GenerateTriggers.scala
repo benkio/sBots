@@ -286,11 +286,6 @@ object GenerateTriggers extends IOApp {
         triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
         triggers = youTuboData
       )
-      _ <- generateTriggersJsonFile(
-        botModuleRelativeFolderPath = "../bots/youTuboAncheI0Bot/src/main/resources",
-        repliesJsonFilename = YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename,
-        triggers = youTuboData
-      )
     } yield ExitCode.Success).use(_.pure)
   }
 

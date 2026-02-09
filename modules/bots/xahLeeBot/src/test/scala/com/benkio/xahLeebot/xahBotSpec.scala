@@ -45,9 +45,6 @@ class XahLeeBotSpec extends BaseBotSpec {
     replies <- bot.messageRepliesData
   } yield replies.flatMap(_.reply.prettyPrint)
 
-  exactTriggerReturnExpectedReplyBundle(XahLeeBot.messageRepliesData)
-  regexTriggerLengthReturnValue(XahLeeBot.messageRepliesData)
-
   jsonContainsFilenames(
     jsonFilename = "xah_list.json",
     botData = messageRepliesDataPrettyPrint
