@@ -14,7 +14,9 @@ object JsonCheck {
     "modules/bots/xahLeeBot/xah_list.json",
     "modules/bots/youTuboAncheI0Bot/youtuboShows.json",
     "modules/bots/youTuboAncheI0Bot/ytai_list.json",
-    "modules/bots/calandroBot/src/main/resources/cala_replies.json"
+    "modules/bots/calandroBot/src/main/resources/cala_replies.json",
+    "modules/bots/m0sconiBot/src/main/resources/mos_replies.json",
+    "modules/bots/aBarberoBot/src/main/resources/abar_replies.json"
   )
 
   lazy val checkJsonFilesImpl =
