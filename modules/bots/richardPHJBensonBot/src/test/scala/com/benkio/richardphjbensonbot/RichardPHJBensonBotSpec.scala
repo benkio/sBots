@@ -29,8 +29,6 @@ import scala.concurrent.duration.Duration
 
 class RichardPHJBensonBotSpec extends BaseBotSpec {
 
-  import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
-
   override val munitIOTimeout = Duration(1, "m")
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
@@ -70,28 +68,30 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     })
     .unsafeRunSync()
 
-  test("messageRepliesSpecialData should contain a NewMemberTrigger") {
+  test("messageRepliesData should contain a NewMemberTrigger") {
     val result =
-      messageRepliesSpecialData
-        .map(_.trigger match {
+      messageRepliesData.map(
+        _.map(_.trigger match {
           case NewMemberTrigger => true
           case _                => false
         })
-        .exists(identity(_))
+          .exists(identity(_))
+      )
 
-    assert(result, true)
+    assertIO(result, true)
   }
 
-  test("messageRepliesSpecialData should contain a LeftMemberTrigger") {
+  test("messageRepliesData should contain a LeftMemberTrigger") {
     val result =
-      messageRepliesSpecialData
-        .map(_.trigger match {
+      messageRepliesData.map(
+        _.map(_.trigger match {
           case LeftMemberTrigger => true
           case _                 => false
         })
-        .exists(identity(_))
+          .exists(identity(_))
+      )
 
-    assert(result, true)
+    assertIO(result, true)
   }
 
   triggerlistCommandTest(
