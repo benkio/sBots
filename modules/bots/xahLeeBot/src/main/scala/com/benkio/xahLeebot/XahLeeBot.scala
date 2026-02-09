@@ -2,10 +2,10 @@ package com.benkio.xahleebot
 
 import cats.*
 import cats.effect.*
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.SBot
@@ -33,11 +33,8 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait XahLeeBot[F[_]: Applicative] extends SBot[F] {
 
-  override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    Applicative[F].pure(XahLeeBot.messageRepliesData)
-
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    XahLeeBot.commandRepliesData
+  override val commandRepliesData: F[List[ReplyBundleCommand]] =
+    XahLeeBot.commandRepliesData.pure[F]
 
 }
 
@@ -51,8 +48,6 @@ object XahLeeBot {
   )
   val tokenFilename: String   = "xah_XahLeeBot.token"
   val configNamespace: String = "xah"
-
-  val messageRepliesData: List[ReplyBundleMessage] = List.empty
 
   val commandRepliesData: List[ReplyBundleCommand] =
     CommandRepliesData

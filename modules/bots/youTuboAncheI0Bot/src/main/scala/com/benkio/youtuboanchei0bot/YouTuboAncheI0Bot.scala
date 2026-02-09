@@ -2,10 +2,10 @@ package com.benkio.youtuboanchei0bot
 
 import cats.*
 import cats.effect.*
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
-import com.benkio.telegrambotinfrastructure.model.reply.pho
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
@@ -16,12 +16,6 @@ import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
-import com.benkio.youtuboanchei0bot.data.Audio
-import com.benkio.youtuboanchei0bot.data.Gif
-import com.benkio.youtuboanchei0bot.data.Mix
-import com.benkio.youtuboanchei0bot.data.Photo
-import com.benkio.youtuboanchei0bot.data.Sticker
-import com.benkio.youtuboanchei0bot.data.Video
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.client.Client
@@ -56,10 +50,10 @@ class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
 trait YouTuboAncheI0Bot[F[_]: Applicative] extends SBot[F] {
 
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    Applicative[F].pure(YouTuboAncheI0Bot.messageRepliesData)
+    sBotSetup.jsonRepliesRepository.loadReplies(YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    YouTuboAncheI0Bot.commandRepliesData
+  override val commandRepliesData: F[List[ReplyBundleCommand]] =
+    messageRepliesData.map(YouTuboAncheI0Bot.commandRepliesData)
 
 }
 object YouTuboAncheI0Bot {
@@ -73,49 +67,7 @@ object YouTuboAncheI0Bot {
     repliesJsonFilename = "ytai_replies.json"
   )
 
-  def messageRepliesAudioData: List[ReplyBundleMessage] =
-    Audio.messageRepliesAudioData
-
-  def messageRepliesGifData: List[ReplyBundleMessage] =
-    Gif.messageRepliesGifData
-
-  def messageRepliesMixData: List[ReplyBundleMessage] =
-    Mix.messageRepliesMixData
-
-  def messageRepliesPhotoData: List[ReplyBundleMessage] =
-    Photo.messageRepliesPhotoData
-
-  def messageRepliesStickerData: List[ReplyBundleMessage] =
-    Sticker.messageRepliesStickerData
-
-  def messageRepliesVideoData: List[ReplyBundleMessage] =
-    Video.messageRepliesVideoData
-
-  def messageRepliesImageData: List[ReplyBundleMessage] = List(
-    ReplyBundleMessage.textToPhoto(
-      "😐",
-      "attonito"
-    )(
-      pho"ytai_Attonito.jpg"
-    ),
-    ReplyBundleMessage.textToPhoto(
-      "barbiere",
-      "schiuma da barba",
-      "pelata"
-    )(
-      pho"ytai_Barbiere.jpg"
-    ),
-    ReplyBundleMessage.textToPhoto(
-      "calzone"
-    )(
-      pho"ytai_Calzone.jpg"
-    )
-  )
-
-  val messageRepliesData: List[ReplyBundleMessage] =
-    messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesMixData ++ messageRepliesPhotoData ++ messageRepliesStickerData ++ messageRepliesVideoData ++ messageRepliesImageData
-
-  val commandRepliesData: List[ReplyBundleCommand] =
+  def commandRepliesData(messageRepliesData: List[ReplyBundleMessage]): List[ReplyBundleCommand] =
     CommandPatternsGroup.TriggerGroup.group(
       triggerFileUri = sBotConfig.triggerListUri,
       sBotInfo = sBotConfig.sBotInfo,

@@ -58,10 +58,10 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
 
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    Applicative[F].pure(RichardPHJBensonBot.messageRepliesData)
+    sBotSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    RichardPHJBensonBot.commandRepliesData
+  override val commandRepliesData: F[List[ReplyBundleCommand]] =
+    messageRepliesData.map(RichardPHJBensonBot.commandRepliesData)
 
   override val commandEffectfulCallback: Map[String, Message => F[List[Text]]] =
     Map(
@@ -82,12 +82,6 @@ trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
 
 object RichardPHJBensonBot {
 
-  import com.benkio.richardphjbensonbot.data.Audio.messageRepliesAudioData
-  import com.benkio.richardphjbensonbot.data.Gif.messageRepliesGifData
-  import com.benkio.richardphjbensonbot.data.Mix.messageRepliesMixData
-  import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
-  import com.benkio.richardphjbensonbot.data.Video.messageRepliesVideoData
-
   val triggerFilename: String = "rphjb_triggers.txt"
   val tokenFilename: String   = "rphjb_RichardPHJBensonBot.token"
   val configNamespace: String = "rphjb"
@@ -98,16 +92,13 @@ object RichardPHJBensonBot {
     repliesJsonFilename = "rphjb_replies.json"
   )
 
-  val messageRepliesData: List[ReplyBundleMessage] =
-    messageRepliesAudioData ++ messageRepliesGifData ++ messageRepliesVideoData ++ messageRepliesMixData ++ messageRepliesSpecialData
-
   val bensonifyKey: String                   = "bensonify"
   val bensonifyCommandDescriptionIta: String =
     s"'/$bensonifyKey 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio"
   val bensonifyCommandDescriptionEng: String =
     s"'/$bensonifyKey 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
 
-  val commandRepliesData: List[ReplyBundleCommand] =
+  def commandRepliesData(messageRepliesData: List[ReplyBundleMessage]): List[ReplyBundleCommand] =
     CommandPatternsGroup.TriggerGroup.group(
       triggerFileUri = sBotConfig.triggerListUri,
       sBotInfo = sBotConfig.sBotInfo,

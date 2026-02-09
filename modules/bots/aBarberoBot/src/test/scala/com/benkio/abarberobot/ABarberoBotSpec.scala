@@ -3,7 +3,6 @@ package com.benkio.abarberobot
 import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
-import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
@@ -48,13 +47,18 @@ class ABarberoBotSpec extends BaseBotSpec {
       .flatMap(ab => ab.messageRepliesData)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     aBarberoBot
-      .map(_.allCommandRepliesData)
+      .flatMap(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint))
 
-  exactTriggerReturnExpectedReplyBundle(ABarberoBot.messageRepliesData)
-  regexTriggerLengthReturnValue(ABarberoBot.messageRepliesData)
-  inputFileShouldRespondAsExpected(ABarberoBot.messageRepliesData)
+  messageRepliesData
+    .map(mrd => {
+
+      exactTriggerReturnExpectedReplyBundle(mrd)
+      regexTriggerLengthReturnValue(mrd)
+      inputFileShouldRespondAsExpected(mrd)
+    })
+    .unsafeRunSync()
 
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,
@@ -78,7 +82,7 @@ class ABarberoBotSpec extends BaseBotSpec {
   triggerFileContainsTriggers(
     triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggersIO = ABarberoBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')).pure[IO]
+    botTriggersIO = messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   )
 
   instructionsCommandTest(

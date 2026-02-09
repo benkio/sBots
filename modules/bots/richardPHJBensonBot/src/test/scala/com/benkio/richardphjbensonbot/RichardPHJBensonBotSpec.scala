@@ -3,7 +3,6 @@ package com.benkio.richardphjbensonbot
 import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
-import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
@@ -12,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
@@ -28,8 +28,6 @@ import telegramium.bots.Message
 import scala.concurrent.duration.Duration
 
 class RichardPHJBensonBotSpec extends BaseBotSpec {
-
-  import com.benkio.richardphjbensonbot.data.Special.messageRepliesSpecialData
 
   override val munitIOTimeout = Duration(1, "m")
 
@@ -55,38 +53,45 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   ).map(botSetup => new RichardPHJBensonBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
-    richardPHJBensonBot.map(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]] = for {
+    richardPHJBensonBot.flatMap(_.allCommandRepliesData)
+  val messageRepliesData: IO[List[ReplyBundleMessage]] = for {
     bot     <- richardPHJBensonBot
     replies <- bot.messageRepliesData
-  } yield replies.flatMap(_.reply.prettyPrint)
+  } yield replies
+  val messageRepliesDataPrettyPrint: IO[List[String]] = messageRepliesData.map(_.flatMap(_.reply.prettyPrint))
 
-  exactTriggerReturnExpectedReplyBundle(RichardPHJBensonBot.messageRepliesData)
-  regexTriggerLengthReturnValue(RichardPHJBensonBot.messageRepliesData)
-  inputFileShouldRespondAsExpected(RichardPHJBensonBot.messageRepliesData)
+  messageRepliesData
+    .map(mrd => {
+      exactTriggerReturnExpectedReplyBundle(mrd)
+      regexTriggerLengthReturnValue(mrd)
+      inputFileShouldRespondAsExpected(mrd)
+    })
+    .unsafeRunSync()
 
-  test("messageRepliesSpecialData should contain a NewMemberTrigger") {
+  test("messageRepliesData should contain a NewMemberTrigger") {
     val result =
-      messageRepliesSpecialData
-        .map(_.trigger match {
+      messageRepliesData.map(
+        _.map(_.trigger match {
           case NewMemberTrigger => true
           case _                => false
         })
-        .exists(identity(_))
+          .exists(identity(_))
+      )
 
-    assert(result, true)
+    assertIO(result, true)
   }
 
-  test("messageRepliesSpecialData should contain a LeftMemberTrigger") {
+  test("messageRepliesData should contain a LeftMemberTrigger") {
     val result =
-      messageRepliesSpecialData
-        .map(_.trigger match {
+      messageRepliesData.map(
+        _.map(_.trigger match {
           case LeftMemberTrigger => true
           case _                 => false
         })
-        .exists(identity(_))
+          .exists(identity(_))
+      )
 
-    assert(result, true)
+    assertIO(result, true)
   }
 
   triggerlistCommandTest(
@@ -106,9 +111,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   triggerFileContainsTriggers(
     triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
-    botMediaFiles = messageRepliesDataPrettyPrint,
-    botTriggersIO =
-      RichardPHJBensonBot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')).pure[IO]
+    botMediaFiles = messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint)),
+    botTriggersIO = messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   )
 
   instructionsCommandTest(

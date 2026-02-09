@@ -2,6 +2,7 @@ package com.benkio.calandrobot
 
 import cats.*
 import cats.effect.*
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
@@ -35,13 +36,13 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with CalandroBot[F] {}
 
-trait CalandroBot[F[_]] extends SBot[F] {
+trait CalandroBot[F[_]: Applicative] extends SBot[F] {
 
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
     sBotSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    CalandroBot.commandRepliesData
+  override val commandRepliesData: F[List[ReplyBundleCommand]] =
+    CalandroBot.commandRepliesData.pure[F]
 }
 
 object CalandroBot {

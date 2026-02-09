@@ -3,7 +3,6 @@ package com.benkio.youtuboanchei0bot
 import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
-import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
@@ -11,6 +10,7 @@ import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
@@ -41,18 +41,23 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
     ttl = YouTuboAncheI0Bot.sBotConfig.messageTimeToLive
   ).map(botSetup => new YouTuboAncheI0BotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
-  val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.map(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]]  = for {
+  val messageRepliesData: IO[List[ReplyBundleMessage]] = for {
     bot     <- youtuboanchei0bot
     replies <- bot.messageRepliesData
-  } yield replies.flatMap(_.reply.prettyPrint)
+  } yield replies
+  val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.flatMap(_.allCommandRepliesData)
+  val messageRepliesDataPrettyPrint: IO[List[String]]  = messageRepliesData.map(_.flatMap(_.reply.prettyPrint))
 
-  exactTriggerReturnExpectedReplyBundle(YouTuboAncheI0Bot.messageRepliesData)
-  regexTriggerLengthReturnValue(YouTuboAncheI0Bot.messageRepliesData)
-  inputFileShouldRespondAsExpected(YouTuboAncheI0Bot.messageRepliesData)
+  messageRepliesData
+    .map(mrd => {
+      exactTriggerReturnExpectedReplyBundle(mrd)
+      regexTriggerLengthReturnValue(mrd)
+      inputFileShouldRespondAsExpected(mrd)
+    })
+    .unsafeRunSync()
 
   triggerlistCommandTest(
-    commandRepliesData = YouTuboAncheI0Bot.commandRepliesData.pure[IO],
+    commandRepliesData = commandRepliesData,
     expectedReply =
       "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/youTuboAncheI0Bot/ytai_triggers.txt"
   )
@@ -68,9 +73,8 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
   triggerFileContainsTriggers(
     triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
-    botMediaFiles = YouTuboAncheI0Bot.messageRepliesData.flatMap(mr => mr.reply.prettyPrint).pure[IO],
-    botTriggersIO =
-      YouTuboAncheI0Bot.messageRepliesData.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')).pure[IO]
+    botMediaFiles = messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint)),
+    botTriggersIO = messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   )
 
   instructionsCommandTest(

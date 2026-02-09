@@ -59,20 +59,21 @@ trait SBot[F[_]: Async: LogWriter] {
 
   val messageRepliesData: F[List[ReplyBundleMessage]] =
     List.empty[ReplyBundleMessage].pure[F]
-  val commandRepliesData: List[ReplyBundleCommand] =
-    List.empty[ReplyBundleCommand]
+  val commandRepliesData: F[List[ReplyBundleCommand]] =
+    List.empty[ReplyBundleCommand].pure[F]
 
   // Commands //////////////////////////////////////////////////////////////////////////////
 
   val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
 
-  def allCommandRepliesData: List[ReplyBundleCommand] = {
-    val instructionsCmd = InstructionsCommand.instructionsReplyBundleCommand(
-      sBotInfo = sBotConfig.sBotInfo,
-      commands = commandRepliesData,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+  def allCommandRepliesData: F[List[ReplyBundleCommand]] = {
+    commandRepliesData.map(crd =>
+      crd :+ InstructionsCommand.instructionsReplyBundleCommand(
+        sBotInfo = sBotConfig.sBotInfo,
+        commands = crd,
+        ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+      )
     )
-    commandRepliesData :+ instructionsCmd
   }
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
@@ -96,12 +97,14 @@ trait SBot[F[_]: Async: LogWriter] {
 
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
-  ): Option[ReplyBundleCommand] =
-    msg.text.flatMap(text =>
-      allCommandRepliesData.find(rbc =>
-        text.startsWith(s"/${rbc.trigger.command} ")
-          || text == s"/${rbc.trigger.command}"
-          || text.startsWith(s"/${rbc.trigger.command}@${sBotConfig.sBotInfo.botName}")
+  ): F[Option[ReplyBundleCommand]] =
+    allCommandRepliesData.map(commands =>
+      msg.text.flatMap(text =>
+        commands.find(rbc =>
+          text.startsWith(s"/${rbc.trigger.command} ")
+            || text == s"/${rbc.trigger.command}"
+            || text.startsWith(s"/${rbc.trigger.command}@${sBotConfig.sBotInfo.botName}")
+        )
       )
     )
 
@@ -133,8 +136,8 @@ trait SBot[F[_]: Async: LogWriter] {
   def commandLogic(
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    selectCommandReplyBundle(msg)
-      .traverse(commandReply =>
+    selectCommandReplyBundle(msg).flatMap(
+      _.traverse(commandReply =>
         LogWriter.info(
           s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"
         ) *>
@@ -148,6 +151,7 @@ trait SBot[F[_]: Async: LogWriter] {
             ttl = sBotConfig.messageTimeToLive
           )
       )
+    )
 
   private def fileRequestLogic(
       msg: Message
