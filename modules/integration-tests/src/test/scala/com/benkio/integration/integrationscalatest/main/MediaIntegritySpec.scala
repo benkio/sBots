@@ -46,9 +46,10 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       .botSetupResource(initialFixture, config)
       .use { setup =>
         val bot = mkBot(setup)
-        bot.messageRepliesData.map { msgList =>
-          (msgList ++ bot.commandRepliesData).flatMap(r => r.getMediaFiles)
-        }
+        for {
+          msgList <- bot.messageRepliesData
+          cmdList <- bot.commandRepliesData
+        } yield (msgList ++ cmdList).flatMap(r => r.getMediaFiles)
       }
 
   val allMessageMediaFiles: Resource[IO, List[MediaFile]] =

@@ -41,7 +41,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
     ttl = YouTuboAncheI0Bot.sBotConfig.messageTimeToLive
   ).map(botSetup => new YouTuboAncheI0BotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
 
-  val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.map(_.allCommandRepliesData)
+  val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.flatMap(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]]  = for {
     bot     <- youtuboanchei0bot
     replies <- bot.messageRepliesData

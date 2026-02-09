@@ -2,6 +2,7 @@ package com.benkio.abarberobot
 
 import cats.*
 import cats.effect.*
+import cats.syntax.all.*
 import com.benkio.abarberobot.data.Audio
 import com.benkio.abarberobot.data.Gif
 import com.benkio.abarberobot.data.Mix
@@ -56,8 +57,8 @@ trait ABarberoBot[F[_]: Applicative] extends SBot[F] {
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
     Applicative[F].pure(ABarberoBot.messageRepliesData)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    ABarberoBot.commandRepliesData
+  override val commandRepliesData: F[List[ReplyBundleCommand]] =
+    ABarberoBot.commandRepliesData.pure[F]
 }
 
 object ABarberoBot {

@@ -2,7 +2,7 @@ package com.benkio.m0sconibot
 
 import cats.*
 import cats.effect.*
-import com.benkio.m0sconibot.data.Audio
+import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
@@ -50,10 +50,10 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
 trait M0sconiBot[F[_]: Applicative] extends SBot[F] {
 
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    Applicative[F].pure(M0sconiBot.messageRepliesData)
+    sBotSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    M0sconiBot.commandRepliesData
+  override val commandRepliesData: F[List[ReplyBundleCommand]] =
+    messageRepliesData.map(M0sconiBot.commandRepliesData)
 
 }
 object M0sconiBot {
@@ -68,10 +68,7 @@ object M0sconiBot {
     repliesJsonFilename = "mos_replies.json"
   )
 
-  val messageRepliesData: List[ReplyBundleMessage] =
-    Audio.messageRepliesAudioData
-
-  val commandRepliesData: List[ReplyBundleCommand] =
+  def commandRepliesData(messageRepliesData: List[ReplyBundleMessage]): List[ReplyBundleCommand] =
     CommandPatternsGroup.TriggerGroup.group(
       triggerFileUri = sBotConfig.triggerListUri,
       sBotInfo = sBotConfig.sBotInfo,

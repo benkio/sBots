@@ -54,8 +54,8 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
       calandroBot = new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
       transactor  = fixture.dbResources.transactor
       dbLayer <- fixture.dbResources.resourceDBLayer
-      files = calandroBot.commandRepliesData.flatMap(r => r.getMediaFiles)
-      checks <- Resource.eval(
+      files   <- Resource.eval(calandroBot.commandRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      checks  <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
             DBMedia

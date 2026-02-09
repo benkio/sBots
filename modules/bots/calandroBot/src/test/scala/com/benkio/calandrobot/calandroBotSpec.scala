@@ -59,7 +59,7 @@ class CalandroBotSpec extends BaseBotSpec {
       .flatMap(ab => ab.messageRepliesData)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     calandroBot
-      .map(_.allCommandRepliesData)
+      .flatMap(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint))
   val messageRepliesDataTriggers =

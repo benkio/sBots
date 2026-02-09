@@ -33,7 +33,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
       botSetup <- fixture.botSetupResource
       xahLeeBot  = new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
       transactor = fixture.dbResources.transactor
-      files      = xahLeeBot.commandRepliesData.flatMap(r => r.getMediaFiles)
+      files  <- Resource.eval(xahLeeBot.commandRepliesData.map(_.flatMap(r => r.getMediaFiles)))
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
@@ -62,11 +62,9 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
     val resourceAssert = for {
       botSetup <- fixture.botSetupResource
-      xahLeeBot  = new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      mediaFiles =
-        xahLeeBot.commandRepliesData
-          .flatMap(r => r.getMediaFiles)
-      checks <- Resource.pure(
+      xahLeeBot = new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+      mediaFiles <- Resource.eval(xahLeeBot.commandRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      checks     <- Resource.pure(
         mediaFiles
           .map((mediaFile: MediaFile) =>
             json.fold(
