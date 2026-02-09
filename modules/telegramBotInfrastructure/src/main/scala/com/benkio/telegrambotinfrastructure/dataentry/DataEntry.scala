@@ -43,6 +43,6 @@ object DataEntry {
       mediaFileSourceGroups = MediaFileSourceGroup.fromMediaFileSourceList(mediafileSources)
       _ <- IO.println("[DataEntry] convert media file source groups to ReplyBundleMessages")
     } yield s"""List(
-               |  ${mediaFileSourceGroups.map(MediaFileSourceGroup.toReplyBundleMessageCode).asJson.spaces2}
+               |  ${mediaFileSourceGroups.map(MediaFileSourceGroup.toReplyBundleMessage).asJson.spaces2}
                |)""".stripMargin
 } // end DataEntry
