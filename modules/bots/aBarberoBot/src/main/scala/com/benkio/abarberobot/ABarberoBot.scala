@@ -3,13 +3,9 @@ package com.benkio.abarberobot
 import cats.*
 import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.abarberobot.data.Audio
-import com.benkio.abarberobot.data.Gif
-import com.benkio.abarberobot.data.Mix
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
-import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
@@ -55,10 +51,10 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
 trait ABarberoBot[F[_]: Applicative] extends SBot[F] {
 
   override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    Applicative[F].pure(ABarberoBot.messageRepliesData)
+    sBotSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
 
   override val commandRepliesData: F[List[ReplyBundleCommand]] =
-    ABarberoBot.commandRepliesData.pure[F]
+    messageRepliesData.map(ABarberoBot.commandRepliesData(_))
 }
 
 object ABarberoBot {
@@ -72,22 +68,7 @@ object ABarberoBot {
     repliesJsonFilename = "abar_replies.json"
   )
 
-  val messageRepliesVideoData: List[ReplyBundleMessage] = List(
-    ReplyBundleMessage.textToVideo(
-      "parole longobarde",
-      "zuffa",
-      "spaccare",
-      "arraffare",
-      "tanfo"
-    )(
-      vid"abar_ParoleLongobarde.mp4"
-    )
-  )
-
-  val messageRepliesData: List[ReplyBundleMessage] =
-    Audio.messageRepliesAudioData ++ Gif.messageRepliesGifData ++ messageRepliesVideoData ++ Mix.messageRepliesMixData
-
-  val commandRepliesData: List[ReplyBundleCommand] =
+  def commandRepliesData(messageRepliesData: List[ReplyBundleMessage]): List[ReplyBundleCommand] =
     CommandPatternsGroup.TriggerGroup.group(
       triggerFileUri = sBotConfig.triggerListUri,
       sBotInfo = sBotConfig.sBotInfo,
