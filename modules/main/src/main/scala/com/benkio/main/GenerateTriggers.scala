@@ -247,11 +247,6 @@ object GenerateTriggers extends IOApp {
         triggerFilename = CalandroBot.sBotConfig.triggerFilename,
         triggers = calandroData
       )
-      _ <- generateTriggersJsonFile(
-        botModuleRelativeFolderPath = "../bots/calandroBot/src/main/resources",
-        repliesJsonFilename = CalandroBot.sBotConfig.repliesJsonFilename,
-        triggers = calandroData
-      )
       m0sconiSetup <- Resource.eval(forTriggerGeneration(M0sconiBot.sBotConfig)(using log))
       m0sconiBot = new M0sconiBotPolling[IO](m0sconiSetup)(using
         summon[Parallel[IO]],
@@ -263,6 +258,11 @@ object GenerateTriggers extends IOApp {
       _           <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/m0sconiBot/",
         triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
+        triggers = m0sconiData
+      )
+      _ <- generateTriggersJsonFile(
+        botModuleRelativeFolderPath = "../bots/m0sconiBot/src/main/resources",
+        repliesJsonFilename = M0sconiBot.sBotConfig.repliesJsonFilename,
         triggers = m0sconiData
       )
       richardSetup <- Resource.eval(forTriggerGeneration(RichardPHJBensonBot.sBotConfig)(using log))
