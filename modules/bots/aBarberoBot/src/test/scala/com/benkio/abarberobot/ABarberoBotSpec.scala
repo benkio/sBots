@@ -51,12 +51,14 @@ class ABarberoBotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint))
 
-  messageRepliesData.map((mrd) =>  {
+  messageRepliesData
+    .map(mrd => {
 
-  exactTriggerReturnExpectedReplyBundle(mrd)
-  regexTriggerLengthReturnValue(mrd)
-  inputFileShouldRespondAsExpected(mrd)
-  }).unsafeRunSync()
+      exactTriggerReturnExpectedReplyBundle(mrd)
+      regexTriggerLengthReturnValue(mrd)
+      inputFileShouldRespondAsExpected(mrd)
+    })
+    .unsafeRunSync()
 
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,
