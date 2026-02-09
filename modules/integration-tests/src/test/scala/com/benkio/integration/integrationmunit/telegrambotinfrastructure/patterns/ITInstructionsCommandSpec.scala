@@ -1,10 +1,12 @@
 package com.benkio.integration.integrationmunit.telegrambotinfrastructure.patterns
 
-import cats.effect.IO
-import cats.effect.Resource
+import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.integration.DBFixture
+import cats.Parallel
+import com.benkio.integration.BotSetupFixture
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
+import com.benkio.richardphjbensonbot.RichardPHJBensonBotPolling
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
@@ -12,16 +14,18 @@ import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
 
-class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
+class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
 
-  databaseFixture.test(
+  override def botSetupFixtureConfig: SBotConfig = RichardPHJBensonBot.sBotConfig
+
+  botSetupFixture.test(
     "Instruction Command should return a TextReply with the input instructions"
   ) { fixture =>
     val resourceAssert = for {
-      dbLayer <- fixture.resourceDBLayer
-      dbMedia  = dbLayer.dbMedia
-      sBotInfo = SBotInfo(RichardPHJBensonBot.sBotConfig.sBotInfo.botId, SBotName("testBot"))
-      _ <- Resource.eval(
+      botSetup <- fixture.botSetupResource
+      richardBot = new RichardPHJBensonBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
+      commandRepliesData <- Resource.eval(richardBot.commandRepliesData)
+      _                  <- Resource.eval(
         List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
           .traverse(input =>
             InstructionsCommand.instructionCommandLogic[IO](
@@ -31,15 +35,15 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
                 chat = Chat(id = 0, `type` = "private"),
                 text = Some(s"/instructions $input")
               ),
-              sBotInfo = sBotInfo,
+              sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
               ignoreMessagePrefix = Some("!"),
-              commands = RichardPHJBensonBot.commandRepliesData,
+              commands = commandRepliesData,
               ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
             )
           )
           .map(_.flatten.foreach { text =>
             assert(
-              text.value.contains(sBotInfo.botName.value),
+              text.value.contains(RichardPHJBensonBot.sBotConfig.sBotInfo.botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: ${text.value}"
             )
             assert(
@@ -58,15 +62,15 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with DBFixture {
                 chat = Chat(id = 0, `type` = "private"),
                 text = Some(s"/instructions $input")
               ),
-              sBotInfo = sBotInfo,
+              sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
               ignoreMessagePrefix = Some("!"),
-              commands = RichardPHJBensonBot.commandRepliesData,
+              commands = commandRepliesData,
               ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
             )
           )
           .map(_.flatten.foreach { text =>
             assert(
-              text.value.contains(sBotInfo.botName.value),
+              text.value.contains(RichardPHJBensonBot.sBotConfig.sBotInfo.botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: ${text.value}"
             )
             assert(
