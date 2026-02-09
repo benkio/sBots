@@ -46,10 +46,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
     replies <- bot.messageRepliesData
   } yield replies
   val commandRepliesData: IO[List[ReplyBundleCommand]] = youtuboanchei0bot.flatMap(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]]  = for {
-    bot     <- youtuboanchei0bot
-    replies <- bot.messageRepliesData
-  } yield replies.flatMap(_.reply.prettyPrint)
+  val messageRepliesDataPrettyPrint: IO[List[String]]  = messageRepliesData.map(_.flatMap(_.reply.prettyPrint))
 
   messageRepliesData
     .map(mrd => {
