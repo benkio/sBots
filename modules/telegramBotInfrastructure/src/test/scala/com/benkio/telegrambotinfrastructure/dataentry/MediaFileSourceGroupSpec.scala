@@ -5,9 +5,10 @@ import com.benkio.telegrambotinfrastructure.model.MimeType
 import munit.*
 import org.http4s.syntax.literals.*
 import org.http4s.Uri
+import io.circe.syntax.*
 
 class MediaFileSourceGroupSpec extends FunSuite {
-  test("toReplyBundleMessageCode should return the expected scala code skeleton") {
+  test("toReplyBundleMessage.asJson.spaces2 should return the expected json") {
     val input = MediaFileSourceGroup(
       List(
         MediaFileSource(
@@ -42,15 +43,44 @@ class MediaFileSourceGroupSpec extends FunSuite {
         )
       )
     )
-    val actual   = MediaFileSourceGroup.toReplyBundleMessageCode(input)
-    val expected = """ReplyBundleMessage
-                     |  .textToMedia[F](
-                     |    ""
-                     |  )(
-                     |    mp3"rphjb_5DitaRivolta.mp3",
-                     |    vid"rphjb_5DitaRivolta.mp4",
-                     |    gif"rphjb_5DitaRivoltaGif.mp4"
-                     |  )""".stripMargin
+    val actual   = MediaFileSourceGroup.toReplyBundleMessage(input).asJson.spaces2
+    val expected = """{
+                     |  "trigger" : {
+                     |    "TextTrigger" : {
+                     |      "triggers" : [
+                     |        {
+                     |          "StringTextTriggerValue" : ""
+                     |        }
+                     |      ]
+                     |    }
+                     |  },
+                     |  "reply" : {
+                     |    "MediaReply" : {
+                     |      "mediaFiles" : [
+                     |        {
+                     |          "Mp3File" : {
+                     |            "filepath" : "rphjb_5DitaRivolta.mp3",
+                     |            "replyToMessage" : false
+                     |          }
+                     |        },
+                     |        {
+                     |          "VideoFile" : {
+                     |            "filepath" : "rphjb_5DitaRivolta.mp4",
+                     |            "replyToMessage" : false
+                     |          }
+                     |        },
+                     |        {
+                     |          "GifFile" : {
+                     |            "filepath" : "rphjb_5DitaRivoltaGif.mp4",
+                     |            "replyToMessage" : false
+                     |          }
+                     |        }
+                     |      ],
+                     |      "replyToMessage" : false
+                     |    }
+                     |  },
+                     |  "matcher" : "ContainsOnce"
+                     |}""".stripMargin
     assertEquals(actual, expected)
   }
 
