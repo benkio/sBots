@@ -67,7 +67,6 @@ class ABarberoBotSpec extends BaseBotSpec {
     .map(mrd => {
 
       exactTriggerReturnExpectedReplyBundle(mrd)
-      regexTriggerLengthReturnValue(mrd)
       inputFileShouldRespondAsExpected(mrd)
     })
     .unsafeRunSync()

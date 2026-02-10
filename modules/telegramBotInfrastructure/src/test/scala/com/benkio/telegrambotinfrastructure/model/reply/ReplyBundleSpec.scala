@@ -28,7 +28,7 @@ class ReplyBundleSpec extends CatsEffectSuite {
     val replyBundleInput: ReplyBundle = ReplyBundleMessage(
       trigger = TextTrigger(
         StringTextTriggerValue("stringTextTriggerValue"),
-        RegexTextTriggerValue("regexTextTriggerValue".r)
+        RegexTextTriggerValue("regexTextTriggerValue".r, 19)
       ),
       reply = MediaReply(mediaFiles = inputMediafile),
       matcher = MessageMatches.ContainsAll

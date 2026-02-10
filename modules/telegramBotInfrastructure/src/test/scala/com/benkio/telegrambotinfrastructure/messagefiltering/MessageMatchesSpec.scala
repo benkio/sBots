@@ -36,7 +36,7 @@ class MessageMatchesSpec extends FunSuite {
     trigger = TextTrigger(
       StringTextTriggerValue("test"),
       StringTextTriggerValue("some other long trigger"),
-      RegexTextTriggerValue("test regex with (optional|maybe)? values".r)
+      RegexTextTriggerValue("test regex with (optional|maybe)? values".r, 23)
     ),
     reply = MediaReply(mediaFiles = inputMediafile),
     matcher = MessageMatches.ContainsOnce

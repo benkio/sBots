@@ -5,12 +5,7 @@ import cats.Eval
 import cats.Show
 import io.circe.*
 import io.circe.generic.semiauto.*
-import org.scalacheck.rng.Seed
-import org.scalacheck.Gen
-import wolfendale.scalacheck.regexp.RegexpGen
 
-//import java.time.Duration
-//import java.time.Instant
 import scala.util.matching.Regex
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -20,7 +15,7 @@ import scala.util.matching.Regex
 extension (sc: StringContext) def stt(args: Any*): StringTextTriggerValue = StringTextTriggerValue(sc.s(args*))
 extension (r: Regex) {
   def tr(manualLength: Int): RegexTextTriggerValue =
-    RegexTextTriggerValue(r, Some(manualLength))
+    RegexTextTriggerValue(r, manualLength)
 }
 extension (textTriggerValue: TextTriggerValue) {
   def isStringTriggerValue: Boolean = textTriggerValue match {
@@ -64,9 +59,8 @@ object TextTriggerValue {
   given Decoder[TextTriggerValue] = deriveDecoder[TextTriggerValue]
   given Encoder[TextTriggerValue] = deriveEncoder[TextTriggerValue]
 
-  def fromStringOrRegex(v: String | Regex | RegexTextTriggerValue): TextTriggerValue = v match {
+  def fromStringOrRegex(v: String | RegexTextTriggerValue): TextTriggerValue = v match {
     case s: String                => StringTextTriggerValue(s)
-    case r: Regex                 => RegexTextTriggerValue(r)
     case r: RegexTextTriggerValue => r
   }
 }
@@ -81,32 +75,8 @@ object StringTextTriggerValue {
   given Decoder[StringTextTriggerValue] = Decoder.decodeString.map(StringTextTriggerValue(_))
 }
 
-case class RegexTextTriggerValue(trigger: Regex, regexLength: Option[Int] = None) extends TextTriggerValue {
-  override val length: Eval[Int] = Eval.later {
-    // val start: Instant = Instant.now()
-    def canGenerateSize(
-        targetSize: Int,
-        trials: Int = 200
-    ): Boolean = {
-      val params = Gen.Parameters.default.withSize(targetSize)
-      (1 to trials).exists { _ =>
-        RegexpGen
-          .from(trigger.toString)
-          .apply(params, Seed.random())
-          .exists(v => v.length == targetSize)
-      }
-    }
-    val result = regexLength.getOrElse(
-      (0 to 40)
-        .find { size =>
-          canGenerateSize(size)
-        }
-        .getOrElse(Int.MaxValue)
-    )
-    // val timeElapsed = Duration.between(start, Instant.now())
-    // if timeElapsed.toMillis() > 50L then println(s"[Triggers] $trigger is slow ${timeElapsed.toMillis()}: $result")
-    result
-  }
+case class RegexTextTriggerValue(trigger: Regex, regexLength: Int) extends TextTriggerValue {
+  override val length: Eval[Int] = Eval.now(regexLength)
 }
 
 object RegexTextTriggerValue {

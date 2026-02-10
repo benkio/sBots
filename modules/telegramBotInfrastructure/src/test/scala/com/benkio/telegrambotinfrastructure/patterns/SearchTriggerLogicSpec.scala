@@ -6,6 +6,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.gif
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
 import com.benkio.telegrambotinfrastructure.model.reply.vid
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
@@ -25,7 +26,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
     (
       List(
         ReplyBundleMessage.textToMedia(
-          "fro(ci|sh)o([ -]fro(ci|sh)o)+".r
+          RegexTextTriggerValue("fro(ci|sh)o([ -]fro(ci|sh)o)+".r, 13)
         )(
           mp3"rphjb_NudoFrocio.mp3",
           vid"rphjb_FrocioFrocio.mp4"

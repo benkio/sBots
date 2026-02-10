@@ -13,8 +13,6 @@ import com.benkio.telegrambotinfrastructure.model.Trigger
 import io.circe.*
 import io.circe.generic.semiauto.*
 
-import scala.util.matching.Regex
-
 sealed trait ReplyBundle {
 
   def trigger: Trigger
@@ -35,7 +33,7 @@ object ReplyBundleMessage {
     deriveEncoder[ReplyBundleMessage]
 
   def textToMedia(
-      triggers: (String | Regex | RegexTextTriggerValue)*
+      triggers: (String | RegexTextTriggerValue)*
   )(mediaFiles: MediaFile*): ReplyBundleMessage =
     ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),
@@ -44,32 +42,32 @@ object ReplyBundleMessage {
     )
 
   def textToVideo(
-      triggers: (String | Regex | RegexTextTriggerValue)*
+      triggers: (String | RegexTextTriggerValue)*
   )(videoFiles: VideoFile*): ReplyBundleMessage =
     textToMedia(triggers*)(videoFiles*)
 
   def textToMp3(
-      triggers: (String | Regex | RegexTextTriggerValue)*
+      triggers: (String | RegexTextTriggerValue)*
   )(mp3Files: Mp3File*): ReplyBundleMessage =
     textToMedia(triggers*)(mp3Files*)
 
   def textToGif(
-      triggers: (String | Regex | RegexTextTriggerValue)*
+      triggers: (String | RegexTextTriggerValue)*
   )(gifFiles: GifFile*): ReplyBundleMessage =
     textToMedia(triggers*)(gifFiles*)
 
   def textToPhoto(
-      triggers: (String | Regex | RegexTextTriggerValue)*
+      triggers: (String | RegexTextTriggerValue)*
   )(photoFiles: PhotoFile*): ReplyBundleMessage =
     textToMedia(triggers*)(photoFiles*)
 
   def textToSticker(
-      triggers: (String | Regex | RegexTextTriggerValue)*
+      triggers: (String | RegexTextTriggerValue)*
   )(photoFiles: Sticker*): ReplyBundleMessage =
     textToMedia(triggers*)(photoFiles*)
 
   def textToText(
-      triggers: (String | Regex | RegexTextTriggerValue)*
+      triggers: (String | RegexTextTriggerValue)*
   )(texts: String*): ReplyBundleMessage =
     ReplyBundleMessage(
       trigger = TextTrigger(triggers.map(TextTriggerValue.fromStringOrRegex)*),

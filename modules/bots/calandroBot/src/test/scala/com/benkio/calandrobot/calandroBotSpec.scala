@@ -82,7 +82,6 @@ class CalandroBotSpec extends BaseBotSpec {
   messageRepliesData
     .map(mrds => {
       exactTriggerReturnExpectedReplyBundle(mrds)
-      regexTriggerLengthReturnValue(mrds)
     })
     .unsafeRunSync()
 

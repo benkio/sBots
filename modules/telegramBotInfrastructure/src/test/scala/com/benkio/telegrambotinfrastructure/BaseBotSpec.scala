@@ -5,7 +5,6 @@ import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.isRegexTriggerValue
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.reply.*
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
@@ -316,27 +315,4 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
           }
       }
 
-  def regexTriggerLengthReturnValue(replyBundleMessages: List[ReplyBundleMessage]): Unit =
-    replyBundleMessages
-      .collect(replyBundle =>
-        replyBundle.trigger match {
-          case TextTrigger(triggerValues*) =>
-            triggerValues.filter(
-              _.isRegexTriggerValue
-            )
-        }
-      )
-      .flatten
-      .foreach {
-        case regexTextTriggerValue: RegexTextTriggerValue =>
-          test(s"""Regex should return a valid length: "${regexTextTriggerValue.toString}"""") {
-            assert(
-              regexTextTriggerValue.length.value != Int.MaxValue
-            )
-          }
-        case stringTextTriggerValue =>
-          Throwable(
-            s"[BaseBotSpec] regexTriggerLengthReturnValue got a stringTextTriggerValue: $stringTextTriggerValue"
-          )
-      }
 }

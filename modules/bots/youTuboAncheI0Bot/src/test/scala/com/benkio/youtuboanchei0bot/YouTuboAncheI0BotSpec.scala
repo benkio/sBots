@@ -69,7 +69,6 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   messageRepliesData
     .map(mrd => {
       exactTriggerReturnExpectedReplyBundle(mrd)
-      regexTriggerLengthReturnValue(mrd)
       inputFileShouldRespondAsExpected(mrd)
     })
     .unsafeRunSync()

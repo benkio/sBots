@@ -80,7 +80,6 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   messageRepliesData
     .map(mrd => {
       exactTriggerReturnExpectedReplyBundle(mrd)
-      regexTriggerLengthReturnValue(mrd)
       inputFileShouldRespondAsExpected(mrd)
     })
     .unsafeRunSync()
