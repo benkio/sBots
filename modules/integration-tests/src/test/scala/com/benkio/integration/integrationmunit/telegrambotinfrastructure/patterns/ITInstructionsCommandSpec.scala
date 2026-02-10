@@ -22,10 +22,18 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
     "Instruction Command should return a TextReply with the input instructions"
   ) { fixture =>
     val resourceAssert = for {
-      botSetup <- fixture.botSetupResource
-      richardBot = new RichardPHJBensonBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      commandRepliesData <- Resource.eval(richardBot.commandRepliesData)
-      _                  <- Resource.eval(
+      botSetup           <- fixture.botSetupResource
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
+      )
+      richardBot = new RichardPHJBensonBotPolling[IO](botSetup, messageRepliesData)(using
+        Parallel[IO],
+        Async[IO],
+        botSetup.api,
+        log
+      )
+      commandRepliesData = richardBot.allCommandRepliesData
+      _ <- Resource.eval(
         List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
           .traverse(input =>
             InstructionsCommand.instructionCommandLogic[IO](

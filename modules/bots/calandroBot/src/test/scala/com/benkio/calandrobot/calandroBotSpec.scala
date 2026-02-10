@@ -47,15 +47,16 @@ class CalandroBotSpec extends BaseBotSpec {
       }
   )
 
-  val calandroBot = for{
+  val calandroBot = for {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
       sBotConfig = CalandroBot.sBotConfig,
       ttl = CalandroBot.sBotConfig.messageTimeToLive
     )
-    //messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
-  } yield new CalandroBotPolling[IO](botSetup, // messageRepliesData
+    // messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
+  } yield new CalandroBotPolling[IO](
+    botSetup, // messageRepliesData
     List.empty
   )(using Parallel[IO], Async[IO], botSetup.api, log)
 

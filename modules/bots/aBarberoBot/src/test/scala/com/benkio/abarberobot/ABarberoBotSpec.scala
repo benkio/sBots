@@ -3,16 +3,21 @@ package com.benkio.abarberobot
 import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
+import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -32,22 +37,29 @@ class ABarberoBotSpec extends BaseBotSpec {
     getResourceByKindHandler = (_, botId) =>
       IO.raiseUnless(botId == ABarberoBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[ABarberoBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
-      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
+    getResourceFileHandler = (mediaFile: MediaFile) =>
+      mediaFile match {
+        case Document(v, _) if v == ABarberoBot.sBotConfig.repliesJsonFilename =>
+          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
+        case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
+      }
   )
 
-  val aBarberoBot = buildTestBotSetup(
-    repository = repositoryMock,
-    dbLayer = emptyDBLayer,
-    sBotConfig = ABarberoBot.sBotConfig,
-    ttl = ABarberoBot.sBotConfig.messageTimeToLive
-  ).map(botSetup => new ABarberoBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
+  val aBarberoBot = for {
+    botSetup <- buildTestBotSetup(
+      repository = repositoryMock,
+      dbLayer = emptyDBLayer,
+      sBotConfig = ABarberoBot.sBotConfig,
+      ttl = ABarberoBot.sBotConfig.messageTimeToLive
+    )
+    messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
+  } yield new ABarberoBotPolling[IO](botSetup, messageRepliesData)(using Parallel[IO], Async[IO], botSetup.api, log)
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
-    aBarberoBot
-      .flatMap(ab => ab.messageRepliesData)
+    aBarberoBot.map(_.messageRepliesData)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
-    aBarberoBot
-      .flatMap(_.allCommandRepliesData)
+    aBarberoBot.map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint))
 

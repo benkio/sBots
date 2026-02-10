@@ -35,7 +35,8 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val sBotSetup: BotSetup[F]
+    override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage]
 ) extends SBotPolling[F](sBotSetup)
     with RichardPHJBensonBot[F] {
   override def postComputation: Message => F[Unit] =
@@ -46,6 +47,7 @@ class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 
 class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with RichardPHJBensonBot[F] {
@@ -57,11 +59,8 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 
 trait RichardPHJBensonBot[F[_]: ApplicativeThrow] extends SBot[F] {
 
-  override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    sBotSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
-
-  override val commandRepliesData: F[List[ReplyBundleCommand]] =
-    messageRepliesData.map(RichardPHJBensonBot.commandRepliesData)
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    RichardPHJBensonBot.commandRepliesData(messageRepliesData)
 
   override val commandEffectfulCallback: Map[String, Message => F[List[Text]]] =
     Map(
@@ -136,20 +135,34 @@ object RichardPHJBensonBot {
         namespace = configNamespace,
         sBotConfig = sBotConfig
       )
-    } yield new RichardPHJBensonBotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log)
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
+      )
+    } yield new RichardPHJBensonBotPolling[F](botSetup, messageRepliesData)(using
+      Parallel[F],
+      Async[F],
+      botSetup.api,
+      log
+    )
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(using log: LogWriter[F]): Resource[F, RichardPHJBensonBotWebhook[F]] =
-    BotSetup(
+  )(using log: LogWriter[F]): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
+    botSetup <- BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup =>
-      new RichardPHJBensonBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log)
     )
+    messageRepliesData <- Resource.eval(
+      botSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
+    )
+  } yield new RichardPHJBensonBotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using
+    Async[F],
+    botSetup.api,
+    log
+  )
 }

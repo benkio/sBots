@@ -83,24 +83,25 @@ trait SBot[F[_]: Async: LogWriter] {
     if !FilteringForward.filter(msg, sBotConfig.disableForward) || !FilteringOlder.filter(msg)
     then None
     else
-      messageRepliesData.mapFilter(messageReplyBundle =>
-            MessageMatches
-              .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
-          )
-          .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-          .headOption
-          .map(_._2)
+      messageRepliesData
+        .mapFilter(messageReplyBundle =>
+          MessageMatches
+            .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
+        )
+        .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+        .headOption
+        .map(_._2)
 
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
   ): Option[ReplyBundleCommand] =
-      msg.text.flatMap(text =>
-        allCommandRepliesData.find(rbc =>
-          text.startsWith(s"/${rbc.trigger.command} ")
-            || text == s"/${rbc.trigger.command}"
-            || text.startsWith(s"/${rbc.trigger.command}@${sBotConfig.sBotInfo.botName}")
-        )
+    msg.text.flatMap(text =>
+      allCommandRepliesData.find(rbc =>
+        text.startsWith(s"/${rbc.trigger.command} ")
+          || text == s"/${rbc.trigger.command}"
+          || text.startsWith(s"/${rbc.trigger.command}@${sBotConfig.sBotInfo.botName}")
       )
+    )
 
   def messageLogic(
       msg: Message

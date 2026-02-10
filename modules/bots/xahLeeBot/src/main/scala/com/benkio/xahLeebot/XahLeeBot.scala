@@ -2,10 +2,10 @@ package com.benkio.xahleebot
 
 import cats.*
 import cats.effect.*
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.SBot
@@ -21,20 +21,22 @@ import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 
 class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val sBotSetup: BotSetup[F]
+    override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage]
 ) extends SBotPolling[F](sBotSetup)
     with XahLeeBot[F] {}
 
 class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with XahLeeBot[F] {}
 
-trait XahLeeBot[F[_]: Applicative] extends SBot[F] {
+trait XahLeeBot[F[_]] extends SBot[F] {
 
-  override val commandRepliesData: F[List[ReplyBundleCommand]] =
-    XahLeeBot.commandRepliesData.pure[F]
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    XahLeeBot.commandRepliesData
 
 }
 
@@ -64,7 +66,7 @@ object XahLeeBot {
         namespace = configNamespace,
         sBotConfig = sBotConfig
       )
-    } yield new XahLeeBotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log)
+    } yield new XahLeeBotPolling[F](botSetup, List.empty)(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
@@ -77,5 +79,7 @@ object XahLeeBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup => new XahLeeBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
+    ).map(botSetup =>
+      new XahLeeBotWebhook[F](botSetup, List.empty, webhookCertificate)(using Async[F], botSetup.api, log)
+    )
 }

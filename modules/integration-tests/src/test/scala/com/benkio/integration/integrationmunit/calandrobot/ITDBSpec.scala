@@ -25,9 +25,17 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     "messageRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val testAssert = for {
-      botSetup <- fixture.botSetupResource
-      calandroBot = new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      files <- Resource.eval(calandroBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      botSetup           <- fixture.botSetupResource
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
+      )
+      calandroBot = new CalandroBotPolling[IO](botSetup, messageRepliesData)(using
+        Parallel[IO],
+        Async[IO],
+        botSetup.api,
+        log
+      )
+      files      = calandroBot.messageRepliesData.flatMap(r => r.getMediaFiles)
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(
         files
@@ -50,12 +58,20 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     "commandRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val testAssert = for {
-      botSetup <- fixture.botSetupResource
-      calandroBot = new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      transactor  = fixture.dbResources.transactor
+      botSetup           <- fixture.botSetupResource
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
+      )
+      calandroBot = new CalandroBotPolling[IO](botSetup, messageRepliesData)(using
+        Parallel[IO],
+        Async[IO],
+        botSetup.api,
+        log
+      )
+      transactor = fixture.dbResources.transactor
       dbLayer <- fixture.dbResources.resourceDBLayer
-      files   <- Resource.eval(calandroBot.commandRepliesData.map(_.flatMap(r => r.getMediaFiles)))
-      checks  <- Resource.eval(
+      files = calandroBot.commandRepliesData.flatMap(r => r.getMediaFiles)
+      checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
             DBMedia

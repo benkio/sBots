@@ -36,14 +36,12 @@ class XahLeeBotSpec extends BaseBotSpec {
     dbLayer = emptyDBLayer,
     sBotConfig = XahLeeBot.sBotConfig,
     ttl = XahLeeBot.sBotConfig.messageTimeToLive
-  ).map(botSetup => new XahLeeBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
+  ).map(botSetup => new XahLeeBotPolling[IO](botSetup, List.empty)(using Parallel[IO], Async[IO], botSetup.api, log))
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
-    xahLeeBot.flatMap(_.allCommandRepliesData)
-  val messageRepliesDataPrettyPrint: IO[List[String]] = for {
-    bot     <- xahLeeBot
-    replies <- bot.messageRepliesData
-  } yield replies.flatMap(_.reply.prettyPrint)
+    xahLeeBot.map(_.allCommandRepliesData)
+  val messageRepliesDataPrettyPrint: IO[List[String]] =
+    xahLeeBot.map(_.messageRepliesData.flatMap(_.reply.prettyPrint))
 
   jsonContainsFilenames(
     jsonFilename = "xah_list.json",

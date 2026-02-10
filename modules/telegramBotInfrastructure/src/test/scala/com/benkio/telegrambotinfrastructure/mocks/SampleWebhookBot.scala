@@ -31,8 +31,8 @@ import telegramium.bots.high.Api
 import telegramium.bots.Message
 
 class SampleWebhookBot(
-  override val sBotSetup: BotSetup[IO],
-  override val messageRepliesData: List[ReplyBundleMessage]
+    override val sBotSetup: BotSetup[IO],
+    override val messageRepliesData: List[ReplyBundleMessage]
 )(using logWriterIO: LogWriter[IO])
     extends SBotWebhook[IO](sBotSetup) {
   override def postComputation: Message => IO[Unit] =
@@ -77,9 +77,9 @@ object SampleWebhookBot {
     val stubClient     = Client.fromHttpApp(stubHttpApp)
     for {
       backgroundJobManager <- BackgroundJobManager[IO](
-      dbLayer = dbLayerMock,
-      sBotInfo = sBotInfo,
-      ttl = None
+        dbLayer = dbLayerMock,
+        sBotInfo = sBotInfo,
+        ttl = None
       )(using Async[IO], summon[Api[IO]], log)
       botSetup = BotSetup(
         token = "test",

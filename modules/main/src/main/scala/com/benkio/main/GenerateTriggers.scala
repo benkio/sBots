@@ -7,15 +7,10 @@ import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
 import cats.implicits.*
-import cats.Parallel
 import com.benkio.abarberobot.ABarberoBot
-import com.benkio.abarberobot.ABarberoBotPolling
 import com.benkio.calandrobot.CalandroBot
-import com.benkio.calandrobot.CalandroBotPolling
 import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.m0sconibot.M0sconiBotPolling
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
@@ -31,7 +26,6 @@ import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryErro
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
 import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -222,66 +216,46 @@ object GenerateTriggers extends IOApp {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
     (for {
       aBarberoSetup <- Resource.eval(forTriggerGeneration(ABarberoBot.sBotConfig)(using log))
-      aBarberoBot = new ABarberoBotPolling[IO](aBarberoSetup)(using
-        summon[Parallel[IO]],
-        summon[Async[IO]],
-        aBarberoSetup.api,
-        log
+      aBarberoData  <- Resource.eval(
+        aBarberoSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
       )
-      aBarberoData <- Resource.eval(aBarberoBot.messageRepliesData)
-      _            <- generateTriggerFile(
+      _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/aBarberoBot/",
         triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
         triggers = aBarberoData
       )
       calandroSetup <- Resource.eval(forTriggerGeneration(CalandroBot.sBotConfig)(using log))
-      calandroBot = new CalandroBotPolling[IO](calandroSetup)(using
-        summon[Parallel[IO]],
-        summon[Async[IO]],
-        calandroSetup.api,
-        log
+      calandroData  <- Resource.eval(
+        calandroSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
       )
-      calandroData <- Resource.eval(calandroBot.messageRepliesData)
-      _            <- generateTriggerFile(
+      _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/calandroBot/",
         triggerFilename = CalandroBot.sBotConfig.triggerFilename,
         triggers = calandroData
       )
       m0sconiSetup <- Resource.eval(forTriggerGeneration(M0sconiBot.sBotConfig)(using log))
-      m0sconiBot = new M0sconiBotPolling[IO](m0sconiSetup)(using
-        summon[Parallel[IO]],
-        summon[Async[IO]],
-        m0sconiSetup.api,
-        log
+      m0sconiData  <- Resource.eval(
+        m0sconiSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
       )
-      m0sconiData <- Resource.eval(m0sconiBot.messageRepliesData)
-      _           <- generateTriggerFile(
+      _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/m0sconiBot/",
         triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
         triggers = m0sconiData
       )
       richardSetup <- Resource.eval(forTriggerGeneration(RichardPHJBensonBot.sBotConfig)(using log))
-      richardBot = new RichardPHJBensonBotPolling[IO](richardSetup)(using
-        summon[Parallel[IO]],
-        summon[Async[IO]],
-        richardSetup.api,
-        log
+      richardData  <- Resource.eval(
+        richardSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
       )
-      richardData <- Resource.eval(richardBot.messageRepliesData)
-      _           <- generateTriggerFile(
+      _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/richardPHJBensonBot/",
         triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
         triggers = richardData
       )
       youTuboSetup <- Resource.eval(forTriggerGeneration(YouTuboAncheI0Bot.sBotConfig)(using log))
-      youTuboBot = new YouTuboAncheI0BotPolling[IO](youTuboSetup)(using
-        summon[Parallel[IO]],
-        summon[Async[IO]],
-        youTuboSetup.api,
-        log
+      youTuboData  <- Resource.eval(
+        youTuboSetup.jsonRepliesRepository.loadReplies(YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
       )
-      youTuboData <- Resource.eval(youTuboBot.messageRepliesData)
-      _           <- generateTriggerFile(
+      _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/youTuboAncheI0Bot/",
         triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
         triggers = youTuboData
