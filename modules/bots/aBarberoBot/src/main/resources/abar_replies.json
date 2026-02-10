@@ -3892,5 +3892,97 @@
       }
     },
     "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "partner"
+          },
+          {
+            "StringTextTriggerValue": "con le dita"
+          },
+          {
+            "StringTextTriggerValue": "altri strumenti"
+          },
+          {
+            "StringTextTriggerValue": "ansie"
+          },
+          {
+            "StringTextTriggerValue": "temperate"
+          },
+          {
+            "StringTextTriggerValue": "coito"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "Mp3File": {
+              "filepath": "abar_CoitoAnsieTemperate.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "abar_CoitoAnsieTemperateGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "abar_CoitoAnsieTemperate.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "masturbazione"
+          },
+          {
+            "StringTextTriggerValue": "peccato"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "Mp3File": {
+              "filepath": "abar_MasturbazioneFemminile.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "abar_MasturbazioneFemminileGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "abar_MasturbazioneFemminile.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
   }
 ]

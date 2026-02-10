@@ -1,7 +1,8 @@
 package com.benkio.telegrambotinfrastructure.dataentry
 
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
-import com.benkio.telegrambotinfrastructure.model.MimeType
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 
 case class MediaFileSourceGroup(
     mediaFileSources: List[MediaFileSource]
@@ -17,34 +18,8 @@ object MediaFileSourceGroup {
       }
       .toList
 
-  def toReplyBundleMessageCode(mediaFileSourceGroup: MediaFileSourceGroup): String = {
-    def toMediaFiles(mfs: List[MediaFileSource]): String = mfs
-      .map(mfs => {
-        val stringContext = mfs.mime match {
-          case MimeType.GIF                 => "gif"
-          case MimeType.JPEG | MimeType.PNG => "pho"
-          case MimeType.STICKER             => "sticker"
-          case MimeType.MPEG                => "mp3"
-          case MimeType.MP4                 => "vid"
-          case MimeType.DOC                 => "doc"
-        }
-        s"""$stringContext"${mfs.filename}""""
-      })
-      .mkString(",\n    ")
-    val replyBundleMessageMethod: String = mediaFileSourceGroup match {
-      case MediaFileSourceGroup(mediaFileSources) if mediaFileSources.forall(_.mime == MimeType.GIF) =>
-        "textToGif"
-      case MediaFileSourceGroup(mediaFileSources) if mediaFileSources.forall(_.mime == MimeType.MPEG) =>
-        "textToMp3"
-      case MediaFileSourceGroup(mediaFileSources) if mediaFileSources.forall(_.mime == MimeType.MP4) =>
-        "textToVideo"
-      case MediaFileSourceGroup(mediaFileSources) => "textToMedia"
-    }
-    s"""ReplyBundleMessage
-       |  .$replyBundleMessageMethod[F](
-       |    ""
-       |  )(
-       |    ${toMediaFiles(mediaFileSourceGroup.mediaFileSources)}
-       |  )""".stripMargin
-  }
+  def toReplyBundleMessage(mediaFileSourceGroup: MediaFileSourceGroup): ReplyBundleMessage =
+    ReplyBundleMessage.textToMedia("")(
+      mediaFileSourceGroup.mediaFileSources.map(mediaFileSource => MediaFile.fromString(mediaFileSource.filename))*
+    )
 } // end MediaFileSourceGroup
