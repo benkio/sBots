@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.dataentry
 
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 
 case class MediaFileSourceGroup(
     mediaFileSources: List[MediaFileSource]
@@ -20,8 +20,6 @@ object MediaFileSourceGroup {
 
   def toReplyBundleMessage(mediaFileSourceGroup: MediaFileSourceGroup): ReplyBundleMessage =
     ReplyBundleMessage.textToMedia("")(
-      mediaFileSourceGroup.mediaFileSources.map(mediaFileSource =>
-        MediaFile.fromString(mediaFileSource.filename)
-      )*
+      mediaFileSourceGroup.mediaFileSources.map(mediaFileSource => MediaFile.fromString(mediaFileSource.filename))*
     )
 } // end MediaFileSourceGroup

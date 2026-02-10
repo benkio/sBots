@@ -2,10 +2,10 @@ package com.benkio.telegrambotinfrastructure.dataentry
 
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.MimeType
+import io.circe.syntax.*
 import munit.*
 import org.http4s.syntax.literals.*
 import org.http4s.Uri
-import io.circe.syntax.*
 
 class MediaFileSourceGroupSpec extends FunSuite {
   test("toReplyBundleMessage.asJson.spaces2 should return the expected json") {
