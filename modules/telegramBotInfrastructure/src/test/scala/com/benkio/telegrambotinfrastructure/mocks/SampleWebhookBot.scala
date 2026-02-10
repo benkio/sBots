@@ -2,7 +2,6 @@ package com.benkio.telegrambotinfrastructure.mocks
 
 import cats.effect.Async
 import cats.effect.IO
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
@@ -31,17 +30,17 @@ import org.http4s.Uri
 import telegramium.bots.high.Api
 import telegramium.bots.Message
 
-class SampleWebhookBot(override val sBotSetup: BotSetup[IO])(using logWriterIO: LogWriter[IO])
+class SampleWebhookBot(
+  override val sBotSetup: BotSetup[IO],
+  override val messageRepliesData: List[ReplyBundleMessage]
+)(using logWriterIO: LogWriter[IO])
     extends SBotWebhook[IO](sBotSetup) {
   override def postComputation: Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 
-  override val messageRepliesData: IO[List[ReplyBundleMessage]] =
-    sBotSetup.jsonRepliesRepository.loadReplies(SampleWebhookBot.sBotConfig.repliesJsonFilename)
-
-  override val commandRepliesData: IO[List[ReplyBundleCommand]] =
+  override val commandRepliesData: List[ReplyBundleCommand] =
     List(
       ReplyBundleCommand(
         trigger = CommandTrigger("testcommand"),
@@ -50,7 +49,7 @@ class SampleWebhookBot(override val sBotSetup: BotSetup[IO])(using logWriterIO: 
         )(false),
         instruction = CommandInstructionData.NoInstructions
       )
-    ).pure[IO]
+    )
 }
 
 object SampleWebhookBot {
@@ -76,12 +75,13 @@ object SampleWebhookBot {
     val dbLayerMock    = DBLayerMock.mock(sBotInfo.botId)
     val stubHttpApp    = HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok)))
     val stubClient     = Client.fromHttpApp(stubHttpApp)
-    BackgroundJobManager[IO](
+    for {
+      backgroundJobManager <- BackgroundJobManager[IO](
       dbLayer = dbLayerMock,
       sBotInfo = sBotInfo,
       ttl = None
-    )(using Async[IO], summon[Api[IO]], log).map { backgroundJobManager =>
-      val botSetup = BotSetup(
+      )(using Async[IO], summon[Api[IO]], log)
+      botSetup = BotSetup(
         token = "test",
         httpClient = stubClient,
         repository = repositoryMock,
@@ -94,7 +94,8 @@ object SampleWebhookBot {
         webhookPath = uri"/",
         sBotConfig = sBotConfig
       )
-      new SampleWebhookBot(botSetup)
-    }
+      // not memoized or resourced as it's just a test bot. other bot should be under Resource
+      messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(SampleWebhookBot.sBotConfig.repliesJsonFilename)
+    } yield new SampleWebhookBot(botSetup, messageRepliesData)
   }
 }

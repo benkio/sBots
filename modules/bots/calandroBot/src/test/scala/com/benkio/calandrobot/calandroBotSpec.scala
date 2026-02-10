@@ -47,19 +47,24 @@ class CalandroBotSpec extends BaseBotSpec {
       }
   )
 
-  val calandroBot = buildTestBotSetup(
-    repository = repositoryMock,
-    dbLayer = emptyDBLayer,
-    sBotConfig = CalandroBot.sBotConfig,
-    ttl = CalandroBot.sBotConfig.messageTimeToLive
-  ).map(botSetup => new CalandroBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
+  val calandroBot = for{
+    botSetup <- buildTestBotSetup(
+      repository = repositoryMock,
+      dbLayer = emptyDBLayer,
+      sBotConfig = CalandroBot.sBotConfig,
+      ttl = CalandroBot.sBotConfig.messageTimeToLive
+    )
+    //messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
+  } yield new CalandroBotPolling[IO](botSetup, // messageRepliesData
+    List.empty
+  )(using Parallel[IO], Async[IO], botSetup.api, log)
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
     calandroBot
-      .flatMap(ab => ab.messageRepliesData)
+      .map(ab => ab.messageRepliesData)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     calandroBot
-      .flatMap(_.allCommandRepliesData)
+      .map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint))
   val messageRepliesDataTriggers =

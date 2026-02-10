@@ -32,8 +32,7 @@ class JsonRepliesRepositorySpec extends CatsEffectSuite {
   test("loadReplies loads and decodes ReplyBundleMessages from JSON using SampleWebhookBot config") {
     for {
       bot          <- SampleWebhookBot()
-      expectedList <- bot.messageRepliesData
-      result       <- loadRepliesAndAssert(expectedList)
+      result       <- loadRepliesAndAssert(bot.messageRepliesData)
     } yield ()
   }
 

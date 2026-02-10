@@ -57,62 +57,56 @@ trait SBot[F[_]: Async: LogWriter] {
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  val messageRepliesData: F[List[ReplyBundleMessage]] =
-    List.empty[ReplyBundleMessage].pure[F]
-  val commandRepliesData: F[List[ReplyBundleCommand]] =
-    List.empty[ReplyBundleCommand].pure[F]
+  val messageRepliesData: List[ReplyBundleMessage] =
+    List.empty[ReplyBundleMessage]
+  val commandRepliesData: List[ReplyBundleCommand] =
+    List.empty[ReplyBundleCommand]
 
   // Commands //////////////////////////////////////////////////////////////////////////////
 
   val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
 
-  def allCommandRepliesData: F[List[ReplyBundleCommand]] = {
-    commandRepliesData.map(crd =>
-      crd :+ InstructionsCommand.instructionsReplyBundleCommand(
-        sBotInfo = sBotConfig.sBotInfo,
-        commands = crd,
-        ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
-      )
+  lazy val allCommandRepliesData: List[ReplyBundleCommand] = {
+    val instructionsCmd = InstructionsCommand.instructionsReplyBundleCommand(
+      sBotInfo = sBotConfig.sBotInfo,
+      commands = commandRepliesData,
+      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
     )
+    commandRepliesData :+ instructionsCmd
   }
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   private[telegrambotinfrastructure] def selectReplyBundle(
       msg: Message
-  ): F[Option[ReplyBundleMessage]] =
+  ): Option[ReplyBundleMessage] =
     if !FilteringForward.filter(msg, sBotConfig.disableForward) || !FilteringOlder.filter(msg)
-    then None.pure[F]
+    then None
     else
-      messageRepliesData.map { list =>
-        list
-          .mapFilter(messageReplyBundle =>
+      messageRepliesData.mapFilter(messageReplyBundle =>
             MessageMatches
               .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
           )
           .sortBy(_._1)(using Trigger.orderingInstance.reverse)
           .headOption
           .map(_._2)
-      }
 
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
       msg: Message
-  ): F[Option[ReplyBundleCommand]] =
-    allCommandRepliesData.map(commands =>
+  ): Option[ReplyBundleCommand] =
       msg.text.flatMap(text =>
-        commands.find(rbc =>
+        allCommandRepliesData.find(rbc =>
           text.startsWith(s"/${rbc.trigger.command} ")
             || text == s"/${rbc.trigger.command}"
             || text.startsWith(s"/${rbc.trigger.command}@${sBotConfig.sBotInfo.botName}")
         )
       )
-    )
 
   def messageLogic(
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    selectReplyBundle(msg).flatMap(
-      _.traverse(replyBundle =>
+    selectReplyBundle(msg)
+      .traverse(replyBundle =>
         for {
           _ <- LogWriter
             .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
@@ -131,13 +125,12 @@ trait SBot[F[_]: Async: LogWriter] {
             else List.empty.pure[F]
         } yield result
       )
-    )
 
   def commandLogic(
       msg: Message
   )(using api: Api[F]): F[Option[List[Message]]] =
-    selectCommandReplyBundle(msg).flatMap(
-      _.traverse(commandReply =>
+    selectCommandReplyBundle(msg)
+      .traverse(commandReply =>
         LogWriter.info(
           s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"
         ) *>
@@ -151,7 +144,6 @@ trait SBot[F[_]: Async: LogWriter] {
             ttl = sBotConfig.messageTimeToLive
           )
       )
-    )
 
   private def fileRequestLogic(
       msg: Message

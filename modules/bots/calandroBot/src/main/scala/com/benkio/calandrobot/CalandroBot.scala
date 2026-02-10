@@ -2,7 +2,6 @@ package com.benkio.calandrobot
 
 import cats.*
 import cats.effect.*
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.mp3
@@ -26,23 +25,22 @@ import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 
 class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val sBotSetup: BotSetup[F]
+    override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage]
 ) extends SBotPolling[F](sBotSetup)
     with CalandroBot[F] {}
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with CalandroBot[F] {}
 
-trait CalandroBot[F[_]: Applicative] extends SBot[F] {
+trait CalandroBot[F[_]] extends SBot[F] {
 
-  override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    sBotSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
-
-  override val commandRepliesData: F[List[ReplyBundleCommand]] =
-    CalandroBot.commandRepliesData.pure[F]
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    CalandroBot.commandRepliesData
 }
 
 object CalandroBot {
@@ -159,20 +157,34 @@ object CalandroBot {
       namespace = configNamespace,
       sBotConfig = sBotConfig
     )
-  } yield botSetup).use(botSetup =>
-    action(new CalandroBotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log))
-  )
+    messageRepliesData <- Resource.eval(
+      botSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
+    )
+  } yield (botSetup, messageRepliesData)).use { case (botSetup, messageRepliesData) =>
+    action(
+      new CalandroBotPolling[F](sBotSetup = botSetup, messageRepliesData = messageRepliesData)(using
+        Parallel[F],
+        Async[F],
+        botSetup.api,
+        log
+      )
+    )
+  }
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(using log: LogWriter[F]): Resource[F, CalandroBotWebhook[F]] =
-    BotSetup(
+  )(using log: LogWriter[F]): Resource[F, CalandroBotWebhook[F]] = for {
+    botSetup <- BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup => new CalandroBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
+    )
+    messageRepliesData <- Resource.eval(
+      botSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
+    )
+  } yield new CalandroBotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using Async[F], botSetup.api, log)
 }
