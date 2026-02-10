@@ -2,7 +2,6 @@ package com.benkio.youtuboanchei0bot
 
 import cats.*
 import cats.effect.*
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
@@ -27,7 +26,8 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class YouTuboAncheI0BotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val sBotSetup: BotSetup[F]
+    override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage]
 ) extends SBotPolling[F](sBotSetup)
     with YouTuboAncheI0Bot[F] {
   override def postComputation: Message => F[Unit] =
@@ -38,6 +38,7 @@ class YouTuboAncheI0BotPolling[F[_]: Parallel: Async: Api: LogWriter](
 
 class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with YouTuboAncheI0Bot[F] {
@@ -47,13 +48,10 @@ class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
-trait YouTuboAncheI0Bot[F[_]: Applicative] extends SBot[F] {
+trait YouTuboAncheI0Bot[F[_]] extends SBot[F] {
 
-  override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    sBotSetup.jsonRepliesRepository.loadReplies(YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
-
-  override val commandRepliesData: F[List[ReplyBundleCommand]] =
-    messageRepliesData.map(YouTuboAncheI0Bot.commandRepliesData)
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    YouTuboAncheI0Bot.commandRepliesData(messageRepliesData)
 
 }
 object YouTuboAncheI0Bot {
@@ -94,18 +92,34 @@ object YouTuboAncheI0Bot {
         namespace = configNamespace,
         sBotConfig = sBotConfig
       )
-    } yield new YouTuboAncheI0BotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log)
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonRepliesRepository.loadReplies(YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
+      )
+    } yield new YouTuboAncheI0BotPolling[F](botSetup, messageRepliesData)(using
+      Parallel[F],
+      Async[F],
+      botSetup.api,
+      log
+    )
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(using log: LogWriter[F]): Resource[F, YouTuboAncheI0BotWebhook[F]] =
-    BotSetup(
+  )(using log: LogWriter[F]): Resource[F, YouTuboAncheI0BotWebhook[F]] = for {
+    botSetup <- BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup => new YouTuboAncheI0BotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
+    )
+    messageRepliesData <- Resource.eval(
+      botSetup.jsonRepliesRepository.loadReplies(YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
+    )
+  } yield new YouTuboAncheI0BotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using
+    Async[F],
+    botSetup.api,
+    log
+  )
 }

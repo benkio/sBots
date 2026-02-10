@@ -34,13 +34,14 @@ class SBotSpec extends CatsEffectSuite {
       "test"
     )("testReply1")
 
-    SampleWebhookBot().flatMap(sampleWebhookBot =>
-      sampleWebhookBot.selectReplyBundle(inputMessage).flatMap { resultOpt =>
-        val result =
-          resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String])(_.prettyPrint().pure[IO])
-        result.flatMap(r => IO(assertEquals(r, expected.prettyPrint())))
+    SampleWebhookBot().map(sampleWebhookBot => {
+      val resultOpt = sampleWebhookBot.selectReplyBundle(inputMessage)
+      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+        _.prettyPrint()
       }
-    )
+      val expectedPP = expected.prettyPrint()
+      assertEquals(result, expectedPP)
+    })
   }
 
   test("selectCommandReplyBundle should return all the expected `ReplyBundleCommand`") {
@@ -58,13 +59,13 @@ class SBotSpec extends CatsEffectSuite {
         )(false),
         instruction = CommandInstructionData.NoInstructions
       )
-    SampleWebhookBot().flatMap(sampleWebhookBot => {
+    SampleWebhookBot().map(sampleWebhookBot => {
       val resultOpt = sampleWebhookBot.selectCommandReplyBundle(inputMessage)
-      val result    = resultOpt.map(_.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
-      })
+      }
       val expectedPP = expected.prettyPrint()
-      assertIO(result, expectedPP)
+      assertEquals(result, expectedPP)
     })
   }
 }

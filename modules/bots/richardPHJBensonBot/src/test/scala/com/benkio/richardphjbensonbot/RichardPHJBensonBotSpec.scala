@@ -3,6 +3,7 @@ package com.benkio.richardphjbensonbot
 import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
+import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
@@ -10,12 +11,16 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -38,26 +43,38 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     MediaResourceIFile(
       "test mediafile"
     )
-  val repositoryMock = new RepositoryMock(getResourceByKindHandler =
-    (_, inputBotId) =>
+  val repositoryMock = new RepositoryMock(
+    getResourceByKindHandler = (_, inputBotId) =>
       IO.raiseUnless(inputBotId == RichardPHJBensonBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[RichardPHJBensonBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
-      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
+    getResourceFileHandler = (mediaFile: MediaFile) =>
+      mediaFile match {
+        case Document(v, _) if v == RichardPHJBensonBot.sBotConfig.repliesJsonFilename =>
+          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
+        case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
+      }
   )
 
-  val richardPHJBensonBot = buildTestBotSetup(
-    repository = repositoryMock,
-    dbLayer = emptyDBLayer,
-    sBotConfig = RichardPHJBensonBot.sBotConfig,
-    ttl = None
-  ).map(botSetup => new RichardPHJBensonBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
+  val richardPHJBensonBot = for {
+    botSetup <- buildTestBotSetup(
+      repository = repositoryMock,
+      dbLayer = emptyDBLayer,
+      sBotConfig = RichardPHJBensonBot.sBotConfig,
+      ttl = None
+    )
+    messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
+  } yield new RichardPHJBensonBotPolling[IO](botSetup, messageRepliesData)(using
+    Parallel[IO],
+    Async[IO],
+    botSetup.api,
+    log
+  )
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
-    richardPHJBensonBot.flatMap(_.allCommandRepliesData)
-  val messageRepliesData: IO[List[ReplyBundleMessage]] = for {
-    bot     <- richardPHJBensonBot
-    replies <- bot.messageRepliesData
-  } yield replies
+    richardPHJBensonBot.map(_.allCommandRepliesData)
+  val messageRepliesData: IO[List[ReplyBundleMessage]] =
+    richardPHJBensonBot.map(_.messageRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] = messageRepliesData.map(_.flatMap(_.reply.prettyPrint))
 
   messageRepliesData

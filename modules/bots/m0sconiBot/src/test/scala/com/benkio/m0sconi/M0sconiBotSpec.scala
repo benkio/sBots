@@ -3,6 +3,7 @@ package com.benkio.M0sconi
 import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
+import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
 import com.benkio.m0sconibot.M0sconiBot
@@ -11,10 +12,14 @@ import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
+import com.benkio.telegrambotinfrastructure.model.reply.Document
+import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
+import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
+import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -33,21 +38,28 @@ class M0sconiBotSpec extends BaseBotSpec {
     getResourceByKindHandler = (_, inputBotId) =>
       IO.raiseUnless(inputBotId == M0sconiBot.sBotConfig.sBotInfo.botId)(
         Throwable(s"[M0sconiBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
-      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
+      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
+    getResourceFileHandler = (mediaFile: MediaFile) =>
+      mediaFile match {
+        case Document(v, _) if v == M0sconiBot.sBotConfig.repliesJsonFilename =>
+          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
+        case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
+      }
   )
 
-  val m0sconiBot = buildTestBotSetup(
-    repository = repositoryMock,
-    dbLayer = emptyDBLayer,
-    sBotConfig = M0sconiBot.sBotConfig,
-    ttl = M0sconiBot.sBotConfig.messageTimeToLive
-  ).map(botSetup => new M0sconiBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log))
+  val m0sconiBot = for {
+    botSetup <- buildTestBotSetup(
+      repository = repositoryMock,
+      dbLayer = emptyDBLayer,
+      sBotConfig = M0sconiBot.sBotConfig,
+      ttl = M0sconiBot.sBotConfig.messageTimeToLive
+    )
+    messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
+  } yield new M0sconiBotPolling[IO](botSetup, messageRepliesData)(using Parallel[IO], Async[IO], botSetup.api, log)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
-    m0sconiBot.flatMap(_.allCommandRepliesData)
-  val messageRepliesData: IO[List[ReplyBundleMessage]] = for {
-    bot     <- m0sconiBot
-    replies <- bot.messageRepliesData
-  } yield replies
+    m0sconiBot.map(_.allCommandRepliesData)
+  val messageRepliesData: IO[List[ReplyBundleMessage]] =
+    m0sconiBot.map(_.messageRepliesData)
 
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     messageRepliesData.map(_.flatMap(_.reply.prettyPrint))

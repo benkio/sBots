@@ -2,7 +2,6 @@ package com.benkio.abarberobot
 
 import cats.*
 import cats.effect.*
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
@@ -28,7 +27,8 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val sBotSetup: BotSetup[F]
+    override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage]
 ) extends SBotPolling[F](sBotSetup)
     with ABarberoBot[F] {
   override def postComputation: Message => F[Unit] =
@@ -39,6 +39,7 @@ class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 
 class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with ABarberoBot[F] {
@@ -48,13 +49,10 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
-trait ABarberoBot[F[_]: Applicative] extends SBot[F] {
+trait ABarberoBot[F[_]] extends SBot[F] {
 
-  override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    sBotSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
-
-  override val commandRepliesData: F[List[ReplyBundleCommand]] =
-    messageRepliesData.map(ABarberoBot.commandRepliesData(_))
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    ABarberoBot.commandRepliesData(messageRepliesData)
 }
 
 object ABarberoBot {
@@ -93,18 +91,25 @@ object ABarberoBot {
         namespace = configNamespace,
         sBotConfig = sBotConfig
       )
-    } yield new ABarberoBotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log)
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
+      )
+    } yield new ABarberoBotPolling[F](botSetup, messageRepliesData)(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(using log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] =
-    BotSetup(
+  )(using log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] = for {
+    botSetup <- BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup => new ABarberoBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
+    )
+    messageRepliesData <- Resource.eval(
+      botSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
+    )
+  } yield new ABarberoBotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using Async[F], botSetup.api, log)
 }

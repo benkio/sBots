@@ -25,9 +25,17 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     "messageRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val testAssert = for {
-      botSetup <- fixture.botSetupResource
-      m0sconiBot = new M0sconiBotPolling[IO](botSetup)(using Parallel[IO], Async[IO], botSetup.api, log)
-      files <- Resource.eval(m0sconiBot.messageRepliesData.map(_.flatMap(r => r.getMediaFiles)))
+      botSetup           <- fixture.botSetupResource
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
+      )
+      m0sconiBot = new M0sconiBotPolling[IO](botSetup, messageRepliesData)(using
+        Parallel[IO],
+        Async[IO],
+        botSetup.api,
+        log
+      )
+      files      = m0sconiBot.messageRepliesData.flatMap(r => r.getMediaFiles)
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(
         files

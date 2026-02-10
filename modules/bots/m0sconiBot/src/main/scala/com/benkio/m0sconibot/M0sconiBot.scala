@@ -2,7 +2,6 @@ package com.benkio.m0sconibot
 
 import cats.*
 import cats.effect.*
-import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.FilteringTimeout
@@ -27,7 +26,8 @@ import telegramium.bots.InputPartFile
 import telegramium.bots.Message
 
 class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
-    override val sBotSetup: BotSetup[F]
+    override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage]
 ) extends SBotPolling[F](sBotSetup)
     with M0sconiBot[F] {
   override def postComputation: Message => F[Unit] =
@@ -38,6 +38,7 @@ class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
 
 class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
+    override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with M0sconiBot[F] {
@@ -47,13 +48,10 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
-trait M0sconiBot[F[_]: Applicative] extends SBot[F] {
+trait M0sconiBot[F[_]] extends SBot[F] {
 
-  override val messageRepliesData: F[List[ReplyBundleMessage]] =
-    sBotSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
-
-  override val commandRepliesData: F[List[ReplyBundleCommand]] =
-    messageRepliesData.map(M0sconiBot.commandRepliesData)
+  override val commandRepliesData: List[ReplyBundleCommand] =
+    M0sconiBot.commandRepliesData(messageRepliesData)
 
 }
 object M0sconiBot {
@@ -90,18 +88,25 @@ object M0sconiBot {
         namespace = configNamespace,
         sBotConfig = sBotConfig
       )
-    } yield new M0sconiBotPolling[F](botSetup)(using Parallel[F], Async[F], botSetup.api, log)
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
+      )
+    } yield new M0sconiBotPolling[F](botSetup, messageRepliesData)(using Parallel[F], Async[F], botSetup.api, log)
 
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
-  )(using log: LogWriter[F]): Resource[F, M0sconiBotWebhook[F]] =
-    BotSetup(
+  )(using log: LogWriter[F]): Resource[F, M0sconiBotWebhook[F]] = for {
+    botSetup <- BotSetup(
       httpClient = httpClient,
       tokenFilename = tokenFilename,
       namespace = configNamespace,
       sBotConfig = sBotConfig,
       webhookBaseUrl = webhookBaseUrl
-    ).map(botSetup => new M0sconiBotWebhook[F](botSetup, webhookCertificate)(using Async[F], botSetup.api, log))
+    )
+    messageRepliesData <- Resource.eval(
+      botSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
+    )
+  } yield new M0sconiBotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using Async[F], botSetup.api, log)
 }

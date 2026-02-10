@@ -23,6 +23,7 @@ import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.xahleebot.XahLeeBot
 import com.benkio.xahleebot.XahLeeBotPolling
@@ -41,15 +42,21 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
   given log: LogWriter[IO]               = consoleLogUpToLevel(LogLevels.Info)
   val initialFixture: DBFixtureResources = DBFixture.fixtureSetup(null)
 
-  def mediaFilesFromBot(config: SBotConfig, mkBot: BotSetup[IO] => SBot[IO]): IO[List[MediaFile]] =
+  def mediaFilesFromBot(
+      config: SBotConfig,
+      mkBot: (BotSetup[IO], List[ReplyBundleMessage]) => SBot[IO]
+  ): IO[List[MediaFile]] =
     BotSetupFixture
       .botSetupResource(initialFixture, config)
       .use { setup =>
-        val bot = mkBot(setup)
-        for {
-          msgList <- bot.messageRepliesData
-          cmdList <- bot.commandRepliesData
-        } yield (msgList ++ cmdList).flatMap(r => r.getMediaFiles)
+        val messageRepliesData =
+          if config.sBotInfo.botId == XahLeeBot.sBotConfig.sBotInfo.botId then IO.pure(List.empty[ReplyBundleMessage])
+          else
+            setup.jsonRepliesRepository.loadReplies(config.repliesJsonFilename)
+        messageRepliesData.map { msgData =>
+          val bot = mkBot(setup, msgData)
+          (bot.messageRepliesData ++ bot.allCommandRepliesData).flatMap(r => r.getMediaFiles)
+        }
       }
 
   val allMessageMediaFiles: Resource[IO, List[MediaFile]] =
@@ -59,37 +66,39 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       abarberoFiles <- Resource.eval(
         mediaFilesFromBot(
           ABarberoBot.sBotConfig,
-          setup => new ABarberoBotPolling[IO](setup)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData) => new ABarberoBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       calandroFiles <- Resource.eval(
         mediaFilesFromBot(
           CalandroBot.sBotConfig,
-          setup => new CalandroBotPolling[IO](setup)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData) => new CalandroBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       m0sconiFiles <- Resource.eval(
         mediaFilesFromBot(
           M0sconiBot.sBotConfig,
-          setup => new M0sconiBotPolling[IO](setup)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData) => new M0sconiBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       richardFiles <- Resource.eval(
         mediaFilesFromBot(
           RichardPHJBensonBot.sBotConfig,
-          setup => new RichardPHJBensonBotPolling[IO](setup)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData) =>
+            new RichardPHJBensonBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       youTuboFiles <- Resource.eval(
         mediaFilesFromBot(
           YouTuboAncheI0Bot.sBotConfig,
-          setup => new YouTuboAncheI0BotPolling[IO](setup)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData) =>
+            new YouTuboAncheI0BotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       xahLeeFiles <- Resource.eval(
         mediaFilesFromBot(
           XahLeeBot.sBotConfig,
-          setup => new XahLeeBotPolling[IO](setup)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, _) => new XahLeeBotPolling[IO](setup, List.empty)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       allFiles = (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ xahLeeFiles)
