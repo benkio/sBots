@@ -10591,6 +10591,49 @@
       "TextTrigger": {
         "triggers": [
           {
+            "StringTextTriggerValue": "stacchi all'unisono"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "GifFile": {
+              "filepath": "rphjb_GiocareConLaMusicaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_GiocareConLaMusica.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_GiocareConLaMusica.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
             "RegexTextTriggerValue": {
               "trigger": "gruppi (nuovi|che spaccano il culo)",
               "regexLength": 12
@@ -10601,9 +10644,6 @@
           },
           {
             "StringTextTriggerValue": "ibride"
-          },
-          {
-            "StringTextTriggerValue": "stacchi all'unisono"
           }
         ]
       }
@@ -46588,6 +46628,62 @@
           {
             "Mp3File": {
               "filepath": "rphjb_LookDellaTuaRazza.mp3",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "RegexTextTriggerValue": {
+              "trigger": "musicisti (da guerra|terrificanti)",
+              "regexLength": 19
+            }
+          },
+          {
+            "StringTextTriggerValue": "giocare con la musica"
+          },
+          {
+            "StringTextTriggerValue": "poliritmia"
+          },
+          ,
+          {
+            "StringTextTriggerValue": "stesure ritmiche"
+          },
+          {
+            "StringTextTriggerValue": "ce giochi"
+          },
+          {
+            "StringTextTriggerValue": "te diverti"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "GifFile": {
+              "filepath": "rphjb_GiocareConLaMusicaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_GiocareConLaMusica.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_GiocareConLaMusica.mp3",
               "replyToMessage": false
             }
           }
