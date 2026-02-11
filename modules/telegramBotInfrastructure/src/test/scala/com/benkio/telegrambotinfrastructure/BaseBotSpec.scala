@@ -311,6 +311,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
                     )
                     assert(rbm == replyBundle, s"$rbm ≠ $replyBundle")
                   }
+              case _ =>
+                // Generated string does not match regex (e.g. empty string from shrinker), skip this sample
+                ()
             }
           }
       }
