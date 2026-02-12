@@ -1,0 +1,32 @@
+# Context
+In each bot resource folder there is a <<botprefix>>_replies.json
+
+It contains the mapping between the files the bot will reply in the
+telegram chat and the triggers that will fire the reply with one of
+the random files in the list.
+
+The hard constraint is that there shouldn't be clashes between
+triggers: when, given an input, you can have 2 triggers firing.
+You can still have case where you have more specific triggers that
+shadows more generic ones.
+
+# Goal
+
+In the <<botprefix>>_replies.json there are entries with no triggers
+set.
+
+Your task is to go into the files and provide the right trigger for
+the entries that has only empty string (placeholder). To do so, use
+the transcript of the files I provide below, extract the keywords in
+there. Use them as triggers. You can use regexp as well if you see
+them fit.
+
+If necessary, add the files in other triggers if they are relevant for
+the specific trigger
+
+# transcripts
+
+rphjb_GiocareConLaMusica
+```
+veramente terrificanti, terrificanti! Musicisti da guerra. Dove le stesure ritmiche, dispare, composte, stacchi all'unisono, armonie, melodie, assoli, mezzi scritti, improvvisati, con linee, stacchi di sestine, quartine, poliritmia, suddivisioni, complete... Giocare con la musica, quando ce l'hai in mano, ce giochi. Fa parte di te, ce scherzi pure sopra, te diverti.
+```
