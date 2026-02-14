@@ -199,31 +199,22 @@ object GenerateTriggers extends IOApp {
 
   def generateTriggersJsonFile(
       botModuleRelativeFolderPath: String,
-      repliesJsonFilename: String,
-      triggers: List[ReplyBundleMessage]
+      commandsJsonFilename: String,
+      commands: List[ReplyBundleCommand]
   ): Resource[IO, Unit] = {
-    val triggerFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$repliesJsonFilename"
+    val commandFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$commandJsonFilename"
 
     for {
-      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath JSON Trigger file"))
-      triggersJson = triggers.asJson
+      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath JSON command file"))
+      commandsJson = commands.asJson
       _  <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
-      pw <- Resource.fromAutoCloseable(IO(new PrintWriter(triggerFilesPath)))
-    } yield pw.write(triggersJson.spaces2)
+      pw <- Resource.fromAutoCloseable(IO(new PrintWriter(commandFilesPath)))
+    } yield pw.write(commandsJson.spaces2)
   }
 
   def run(args: List[String]): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
     (for {
-      aBarberoSetup <- Resource.eval(forTriggerGeneration(ABarberoBot.sBotConfig)(using log))
-      aBarberoData  <- Resource.eval(
-        aBarberoSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
-      )
-      _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/aBarberoBot/",
-        triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
-        triggers = aBarberoData
-      )
       calandroSetup <- Resource.eval(forTriggerGeneration(CalandroBot.sBotConfig)(using log))
       calandroData  <- Resource.eval(
         calandroSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
@@ -232,6 +223,21 @@ object GenerateTriggers extends IOApp {
         botModuleRelativeFolderPath = "../bots/calandroBot/",
         triggerFilename = CalandroBot.sBotConfig.triggerFilename,
         triggers = calandroData
+      )
+      _ <- generateTriggersJsonFile(
+        botModuleRelativeFolderPath = "../bots/calandroBot/",
+      commandsJsonFilename = CalandroBot.sBotConfig.commandsJsonFilename,
+      commands = CalandroBot.commandRepliesData
+  )
+
+      aBarberoSetup <- Resource.eval(forTriggerGeneration(ABarberoBot.sBotConfig)(using log))
+      aBarberoData  <- Resource.eval(
+        aBarberoSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
+      )
+      _ <- generateTriggerFile(
+        botModuleRelativeFolderPath = "../bots/aBarberoBot/",
+        triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
+        triggers = aBarberoData
       )
       m0sconiSetup <- Resource.eval(forTriggerGeneration(M0sconiBot.sBotConfig)(using log))
       m0sconiData  <- Resource.eval(
