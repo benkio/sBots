@@ -19531,7 +19531,7 @@
         "triggers": [
           {
             "RegexTextTriggerValue": {
-              "trigger": "guerra pi[uù] totale",
+              "trigger": "guerra pi[uùú] totale",
               "regexLength": 17
             }
           },
@@ -34777,6 +34777,40 @@
               "replyToMessage": false
             }
           },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_AdolfHitler.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_AdolfHitler.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+    {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "palchetto"
+          },
+          {
+            "StringTextTriggerValue": "antistante"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
           {
             "Mp3File": {
               "filepath": "rphjb_AdolfHitler.mp3",

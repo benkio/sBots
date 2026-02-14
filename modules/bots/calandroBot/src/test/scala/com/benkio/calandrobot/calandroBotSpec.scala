@@ -54,10 +54,12 @@ class CalandroBotSpec extends BaseBotSpec {
       sBotConfig = CalandroBot.sBotConfig,
       ttl = CalandroBot.sBotConfig.messageTimeToLive
     )
-    // messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(CalandroBot.sBotConfig.repliesJsonFilename)
+    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](CalandroBot.sBotConfig.repliesJsonFilename)
+    commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](CalandroBot.sBotConfig.commandsJsonFilename)
   } yield new CalandroBotPolling[IO](
-    botSetup, // messageRepliesData
-    List.empty
+    botSetup,
+    messageRepliesData,
+    commandRepliesData
   )(using Parallel[IO], Async[IO], botSetup.api, log)
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =

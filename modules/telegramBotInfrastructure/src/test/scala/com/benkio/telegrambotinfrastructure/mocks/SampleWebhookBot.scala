@@ -15,7 +15,7 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
-import com.benkio.telegrambotinfrastructure.repository.JsonRepliesRepository
+import com.benkio.telegrambotinfrastructure.repository.JsonDataRepository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SBotWebhook
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -58,16 +58,16 @@ object SampleWebhookBot {
     botName = SBotInfo.SBotName("SampleWebhookBot"),
     botId = SBotInfo.SBotId("sbot")
   )
-  val triggerFilename: String     = "sbot_triggers.txt"
-  val repliesJsonFilename: String = "sbot_replies.json"
+  val triggerFilename: String      = "sbot_triggers.txt"
+  val repliesJsonFilename: String  = "sbot_replies.json"
   val commandsJsonFilename: String = "sbot_commands.json"
-  val triggerListUri: Uri         =
+  val triggerListUri: Uri          =
     uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
   val sBotConfig: SBotConfig = SBotConfig(
     sBotInfo = SampleWebhookBot.sBotInfo,
     triggerFilename = SampleWebhookBot.triggerFilename,
     triggerListUri = SampleWebhookBot.triggerListUri,
-    repliesJsonFilename = SampleWebhookBot.repliesJsonFilename
+    repliesJsonFilename = SampleWebhookBot.repliesJsonFilename,
     commandsJsonFilename = SampleWebhookBot.commandsJsonFilename
   )
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
@@ -87,7 +87,7 @@ object SampleWebhookBot {
         token = "test",
         httpClient = stubClient,
         repository = repositoryMock,
-        jsonRepliesRepository = JsonRepliesRepository[IO]( // repositoryMock
+        jsonDataRepository = JsonDataRepository[IO]( // repositoryMock
         ),
         dbLayer = dbLayerMock,
         backgroundJobManager = backgroundJobManager,
@@ -97,7 +97,9 @@ object SampleWebhookBot {
         sBotConfig = sBotConfig
       )
       // not memoized or resourced as it's just a test bot. other bot should be under Resource
-      messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(SampleWebhookBot.sBotConfig.repliesJsonFilename)
+      messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
+        SampleWebhookBot.sBotConfig.repliesJsonFilename
+      )
     } yield new SampleWebhookBot(botSetup, messageRepliesData)
   }
 }

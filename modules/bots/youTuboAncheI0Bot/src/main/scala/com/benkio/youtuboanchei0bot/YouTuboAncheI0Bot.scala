@@ -94,7 +94,7 @@ object YouTuboAncheI0Bot {
         sBotConfig = sBotConfig
       )
       messageRepliesData <- Resource.eval(
-        botSetup.jsonRepliesRepository.loadReplies(YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
       )
     } yield new YouTuboAncheI0BotPolling[F](botSetup, messageRepliesData)(using
       Parallel[F],
@@ -116,7 +116,7 @@ object YouTuboAncheI0Bot {
       webhookBaseUrl = webhookBaseUrl
     )
     messageRepliesData <- Resource.eval(
-      botSetup.jsonRepliesRepository.loadReplies(YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
+      botSetup.jsonDataRepository.loadData[ReplyBundleMessage](YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
     )
   } yield new YouTuboAncheI0BotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using
     Async[F],

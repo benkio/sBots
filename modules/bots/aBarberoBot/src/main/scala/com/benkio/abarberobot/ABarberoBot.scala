@@ -93,7 +93,7 @@ object ABarberoBot {
         sBotConfig = sBotConfig
       )
       messageRepliesData <- Resource.eval(
-        botSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
       )
     } yield new ABarberoBotPolling[F](botSetup, messageRepliesData)(using Parallel[F], Async[F], botSetup.api, log)
 
@@ -110,7 +110,7 @@ object ABarberoBot {
       webhookBaseUrl = webhookBaseUrl
     )
     messageRepliesData <- Resource.eval(
-      botSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
+      botSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
     )
   } yield new ABarberoBotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using Async[F], botSetup.api, log)
 }

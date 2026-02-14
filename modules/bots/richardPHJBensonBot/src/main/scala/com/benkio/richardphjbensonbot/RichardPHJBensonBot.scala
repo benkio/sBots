@@ -88,7 +88,8 @@ object RichardPHJBensonBot {
     sBotInfo = SBotInfo(SBotId("rphjb"), SBotInfo.SBotName("RichardPHJBensonBot")),
     triggerFilename = triggerFilename,
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt",
-    repliesJsonFilename = "rphjb_replies.json"
+    repliesJsonFilename = "rphjb_replies.json",
+    commandsJsonFilename = "rphjb_commands.json"
   )
 
   val bensonifyKey: String                   = "bensonify"
@@ -136,7 +137,7 @@ object RichardPHJBensonBot {
         sBotConfig = sBotConfig
       )
       messageRepliesData <- Resource.eval(
-        botSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
       )
     } yield new RichardPHJBensonBotPolling[F](botSetup, messageRepliesData)(using
       Parallel[F],
@@ -158,7 +159,7 @@ object RichardPHJBensonBot {
       webhookBaseUrl = webhookBaseUrl
     )
     messageRepliesData <- Resource.eval(
-      botSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
+      botSetup.jsonDataRepository.loadData[ReplyBundleMessage](RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
     )
   } yield new RichardPHJBensonBotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using
     Async[F],

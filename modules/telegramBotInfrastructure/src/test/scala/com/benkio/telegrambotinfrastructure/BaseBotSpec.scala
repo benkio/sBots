@@ -13,7 +13,7 @@ import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.JsonRepliesRepository
+import com.benkio.telegrambotinfrastructure.repository.JsonDataRepository
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import io.circe.parser.decode
 import log.effect.LogWriter
@@ -49,7 +49,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         token = "test",
         httpClient = stubClient,
         repository = repository,
-        jsonRepliesRepository = JsonRepliesRepository[IO]( // repository
+        jsonDataRepository = JsonDataRepository[IO]( // repository
         ),
         dbLayer = dbLayer,
         backgroundJobManager = bjm,

@@ -7,6 +7,7 @@ import com.benkio.integration.BotSetupFixture
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
@@ -24,7 +25,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
     val resourceAssert = for {
       botSetup           <- fixture.botSetupResource
       messageRepliesData <- Resource.eval(
-        botSetup.jsonRepliesRepository.loadReplies(RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
       )
       richardBot = new RichardPHJBensonBotPolling[IO](botSetup, messageRepliesData)(using
         Parallel[IO],

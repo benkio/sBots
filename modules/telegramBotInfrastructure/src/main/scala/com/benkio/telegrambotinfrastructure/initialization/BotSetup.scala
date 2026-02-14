@@ -10,7 +10,7 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResou
 import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
-import com.benkio.telegrambotinfrastructure.repository.JsonRepliesRepository
+import com.benkio.telegrambotinfrastructure.repository.JsonDataRepository
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -27,7 +27,7 @@ final case class BotSetup[F[_]](
     token: String,
     httpClient: Client[F],
     repository: Repository[F],
-    jsonRepliesRepository: JsonRepliesRepository[F],
+    jsonDataRepository: JsonDataRepository[F],
     dbLayer: DBLayer[F],
     backgroundJobManager: BackgroundJobManager[F],
     api: Api[F],
@@ -143,7 +143,7 @@ object BotSetup {
       token = tk,
       httpClient = httpClient,
       repository = repository,
-      jsonRepliesRepository = JsonRepliesRepository[F]( // resourceRepository
+      jsonDataRepository = JsonDataRepository[F]( // resourceRepository
       ),
       dbLayer = dbLayer,
       backgroundJobManager = backgroundJobManager,

@@ -23,6 +23,7 @@ import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.xahleebot.XahLeeBot
@@ -44,7 +45,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
 
   def mediaFilesFromBot(
       config: SBotConfig,
-      mkBot: (BotSetup[IO], List[ReplyBundleMessage]) => SBot[IO]
+      mkBot: (BotSetup[IO], List[ReplyBundleMessage], List[ReplyBundleCommand]) => SBot[IO]
   ): IO[List[MediaFile]] =
     BotSetupFixture
       .botSetupResource(initialFixture, config)
@@ -52,9 +53,13 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
         val messageRepliesData =
           if config.sBotInfo.botId == XahLeeBot.sBotConfig.sBotInfo.botId then IO.pure(List.empty[ReplyBundleMessage])
           else
-            setup.jsonRepliesRepository.loadReplies(config.repliesJsonFilename)
-        messageRepliesData.map { msgData =>
-          val bot = mkBot(setup, msgData)
+            setup.jsonDataRepository.loadData[ReplyBundleMessage](config.repliesJsonFilename)
+        val commandRepliesData =
+          if config.sBotInfo.botId == CalandroBot.sBotConfig.sBotInfo.botId then setup.jsonDataRepository
+            .loadData[ReplyBundleCommand](config.commandsJsonFilename)
+          else IO.pure(List.empty[ReplyBundleCommand])
+        (messageRepliesData, commandRepliesData).tupled.map { case (msgData, cmdData) =>
+          val bot = mkBot(setup, msgData, cmdData)
           (bot.messageRepliesData ++ bot.allCommandRepliesData).flatMap(r => r.getMediaFiles)
         }
       }
@@ -66,39 +71,42 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       abarberoFiles <- Resource.eval(
         mediaFilesFromBot(
           ABarberoBot.sBotConfig,
-          (setup, msgData) => new ABarberoBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, _) =>
+            new ABarberoBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       calandroFiles <- Resource.eval(
         mediaFilesFromBot(
           CalandroBot.sBotConfig,
-          (setup, msgData) => new CalandroBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, cmdData) =>
+            new CalandroBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       m0sconiFiles <- Resource.eval(
         mediaFilesFromBot(
           M0sconiBot.sBotConfig,
-          (setup, msgData) => new M0sconiBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, _) =>
+            new M0sconiBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       richardFiles <- Resource.eval(
         mediaFilesFromBot(
           RichardPHJBensonBot.sBotConfig,
-          (setup, msgData) =>
+          (setup, msgData, _) =>
             new RichardPHJBensonBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       youTuboFiles <- Resource.eval(
         mediaFilesFromBot(
           YouTuboAncheI0Bot.sBotConfig,
-          (setup, msgData) =>
+          (setup, msgData, _) =>
             new YouTuboAncheI0BotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       xahLeeFiles <- Resource.eval(
         mediaFilesFromBot(
           XahLeeBot.sBotConfig,
-          (setup, _) => new XahLeeBotPolling[IO](setup, List.empty)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, _, _) => new XahLeeBotPolling[IO](setup, List.empty)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       allFiles = (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ xahLeeFiles)

@@ -6,7 +6,7 @@ import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.http.DropboxClient
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
-import com.benkio.telegrambotinfrastructure.repository.JsonRepliesRepository
+import com.benkio.telegrambotinfrastructure.repository.JsonDataRepository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import log.effect.LogWriter
 import munit.*
@@ -86,7 +86,7 @@ object BotSetupFixture {
       token = token,
       httpClient = httpClient,
       repository = repository,
-      jsonRepliesRepository = JsonRepliesRepository[IO](),
+      jsonDataRepository = JsonDataRepository[IO](),
       dbLayer = dbLayer,
       backgroundJobManager = backgroundJobManager,
       api = api,
