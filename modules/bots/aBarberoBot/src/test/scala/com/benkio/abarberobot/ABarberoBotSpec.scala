@@ -53,7 +53,9 @@ class ABarberoBotSpec extends BaseBotSpec {
       sBotConfig = ABarberoBot.sBotConfig,
       ttl = ABarberoBot.sBotConfig.messageTimeToLive
     )
-    messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
+    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
+      ABarberoBot.sBotConfig.repliesJsonFilename
+    )
   } yield new ABarberoBotPolling[IO](botSetup, messageRepliesData)(using Parallel[IO], Async[IO], botSetup.api, log)
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =

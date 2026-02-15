@@ -54,7 +54,9 @@ class M0sconiBotSpec extends BaseBotSpec {
       sBotConfig = M0sconiBot.sBotConfig,
       ttl = M0sconiBot.sBotConfig.messageTimeToLive
     )
-    messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
+    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
+      M0sconiBot.sBotConfig.repliesJsonFilename
+    )
   } yield new M0sconiBotPolling[IO](botSetup, messageRepliesData)(using Parallel[IO], Async[IO], botSetup.api, log)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     m0sconiBot.map(_.allCommandRepliesData)

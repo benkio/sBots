@@ -9,6 +9,7 @@ import com.benkio.integration.BotSetupFixture
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
@@ -27,7 +28,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup           <- fixture.botSetupResource
       messageRepliesData <- Resource.eval(
-        botSetup.jsonRepliesRepository.loadReplies(YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
       )
       youTuboBot = new YouTuboAncheI0BotPolling[IO](botSetup, messageRepliesData)(using
         Parallel[IO],

@@ -63,7 +63,8 @@ object ABarberoBot {
     sBotInfo = SBotInfo(SBotId("abar"), SBotName("ABarberoBot")),
     triggerFilename = "abar_triggers.txt",
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt",
-    repliesJsonFilename = "abar_replies.json"
+    repliesJsonFilename = "abar_replies.json",
+    commandsJsonFilename = "abar_commands.json"
   )
 
   def commandRepliesData(messageRepliesData: List[ReplyBundleMessage]): List[ReplyBundleCommand] =
@@ -92,7 +93,7 @@ object ABarberoBot {
         sBotConfig = sBotConfig
       )
       messageRepliesData <- Resource.eval(
-        botSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
       )
     } yield new ABarberoBotPolling[F](botSetup, messageRepliesData)(using Parallel[F], Async[F], botSetup.api, log)
 
@@ -109,7 +110,7 @@ object ABarberoBot {
       webhookBaseUrl = webhookBaseUrl
     )
     messageRepliesData <- Resource.eval(
-      botSetup.jsonRepliesRepository.loadReplies(ABarberoBot.sBotConfig.repliesJsonFilename)
+      botSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
     )
   } yield new ABarberoBotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using Async[F], botSetup.api, log)
 }

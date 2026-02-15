@@ -52,7 +52,9 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
       sBotConfig = YouTuboAncheI0Bot.sBotConfig,
       ttl = YouTuboAncheI0Bot.sBotConfig.messageTimeToLive
     )
-    messageRepliesData <- botSetup.jsonRepliesRepository.loadReplies(YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
+    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
+      YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename
+    )
   } yield new YouTuboAncheI0BotPolling[IO](botSetup, messageRepliesData)(using
     Parallel[IO],
     Async[IO],

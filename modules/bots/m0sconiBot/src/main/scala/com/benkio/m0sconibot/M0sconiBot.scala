@@ -63,7 +63,8 @@ object M0sconiBot {
     sBotInfo = SBotInfo(SBotId("mos"), SBotInfo.SBotName("M0sconiBot")),
     triggerFilename = triggerFilename,
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt",
-    repliesJsonFilename = "mos_replies.json"
+    repliesJsonFilename = "mos_replies.json",
+    commandsJsonFilename = "mos_commands.json"
   )
 
   def commandRepliesData(messageRepliesData: List[ReplyBundleMessage]): List[ReplyBundleCommand] =
@@ -89,7 +90,7 @@ object M0sconiBot {
         sBotConfig = sBotConfig
       )
       messageRepliesData <- Resource.eval(
-        botSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)
       )
     } yield new M0sconiBotPolling[F](botSetup, messageRepliesData)(using Parallel[F], Async[F], botSetup.api, log)
 
@@ -106,7 +107,7 @@ object M0sconiBot {
       webhookBaseUrl = webhookBaseUrl
     )
     messageRepliesData <- Resource.eval(
-      botSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
+      botSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)
     )
   } yield new M0sconiBotWebhook[F](botSetup, messageRepliesData, webhookCertificate)(using Async[F], botSetup.api, log)
 }

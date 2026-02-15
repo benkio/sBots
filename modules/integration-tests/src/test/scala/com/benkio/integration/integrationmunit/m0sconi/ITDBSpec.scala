@@ -11,6 +11,7 @@ import com.benkio.m0sconibot.M0sconiBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import doobie.implicits.*
 import munit.CatsEffectSuite
@@ -27,7 +28,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup           <- fixture.botSetupResource
       messageRepliesData <- Resource.eval(
-        botSetup.jsonRepliesRepository.loadReplies(M0sconiBot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)
       )
       m0sconiBot = new M0sconiBotPolling[IO](botSetup, messageRepliesData)(using
         Parallel[IO],

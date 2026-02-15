@@ -11,7 +11,7 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
 
-class JsonRepliesRepositorySpec extends CatsEffectSuite {
+class JsonDataRepositorySpec extends CatsEffectSuite {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
@@ -25,21 +25,23 @@ class JsonRepliesRepositorySpec extends CatsEffectSuite {
   private def loadRepliesAndAssert(
       expected: List[ReplyBundleMessage]
   ): IO[Unit] = {
-    val repo = JsonRepliesRepository[IO]()
-    repo.loadReplies(SampleWebhookBot.repliesJsonFilename).flatMap(assertLoadedMatchesExpected(_, expected))
+    val repo = JsonDataRepository[IO]()
+    repo
+      .loadData[ReplyBundleMessage](SampleWebhookBot.repliesJsonFilename)
+      .flatMap(assertLoadedMatchesExpected(_, expected))
   }
 
-  test("loadReplies loads and decodes ReplyBundleMessages from JSON using SampleWebhookBot config") {
+  test("loadData[ReplyBundleMessage] loads and decodes ReplyBundleMessages from JSON using SampleWebhookBot config") {
     for {
       bot    <- SampleWebhookBot()
       result <- loadRepliesAndAssert(bot.messageRepliesData)
     } yield ()
   }
 
-  test("loadReplies raises FileNotFound when the repository returns no file for the JSON filename") {
-    val repo = JsonRepliesRepository[IO]()
+  test("loadData[ReplyBundleMessage] raises FileNotFound when the repository returns no file for the JSON filename") {
+    val repo = JsonDataRepository[IO]()
 
-    repo.loadReplies("non_existent_file.json").attempt.map {
+    repo.loadData[ReplyBundleMessage]("non_existent_file.json").attempt.map {
       case Left(_: RepositoryError.NoResourcesFoundByteArray) => ()
       case e => fail(s"expected NoResourcesFoundByteArray failure, got: $e")
     }

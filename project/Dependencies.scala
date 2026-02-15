@@ -97,6 +97,7 @@ object Dependencies {
     libs.catsCore,
     libs.catsEffect,
     libs.catsEffectKernel,
+    libs.circeCore,
     libs.circeParser,
     libs.fs2IO,
     libs.http4sCirce,
@@ -120,7 +121,6 @@ object Dependencies {
       libs.catsEffectTime,
       libs.catsFree,
       libs.catsKernel,
-      libs.circeCore,
       libs.circeGeneric,
       libs.cron4s,
       libs.doobieCore,
@@ -162,8 +162,7 @@ object Dependencies {
         libs.doobieMunit,
         libs.fs2Core,
         libs.pureConfigCore,
-        libs.vault,
-        libs.circeCore
+        libs.vault
       )
 
   val BotDBDependencies: Seq[ModuleID] = Seq(
