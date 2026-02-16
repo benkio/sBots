@@ -5,8 +5,6 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
 import cats.Parallel
-import com.benkio.CalandroBot.CalandroBot
-import com.benkio.CalandroBot.CalandroBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
@@ -14,12 +12,15 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
+import com.benkio.CalandroBot.CalandroBot
 import doobie.implicits.*
 import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
-  override def botSetupFixtureConfig: SBotConfig = CalandroBot.sBotConfig
+  override def botSetupFixtureConfig: SBotConfig = SBot.buildSBotConfig(CalandroBot.sBotInfo)
 
   // File Reference Check
 
@@ -29,18 +30,18 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup           <- fixture.botSetupResource
       messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](CalandroBot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
       )
       commandRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](CalandroBot.sBotConfig.commandsJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      Calandrobot = new CalandroBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+      calandroBot = new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,
         log
       )
-      files      = Calandrobot.messageRepliesData.flatMap(r => r.getMediaFiles)
+      files      = calandroBot.messageRepliesData.flatMap(r => r.getMediaFiles)
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(
         files
@@ -65,12 +66,12 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup           <- fixture.botSetupResource
       messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](CalandroBot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
       )
       commandRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](CalandroBot.sBotConfig.commandsJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      Calandrobot = new CalandroBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+      calandroBot = new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,
@@ -78,7 +79,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
       )
       transactor = fixture.dbResources.transactor
       dbLayer <- fixture.dbResources.resourceDBLayer
-      files = Calandrobot.commandRepliesData.flatMap(r => r.getMediaFiles)
+      files = calandroBot.commandRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>

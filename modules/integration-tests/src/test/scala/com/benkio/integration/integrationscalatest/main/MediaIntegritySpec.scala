@@ -18,10 +18,11 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.ISBot
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.ABarberoBot.ABarberoBotPolling
 import com.benkio.CalandroBot.CalandroBot
-import com.benkio.CalandroBot.CalandroBotPolling
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.M0sconiBot.M0sconiBotPolling
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
@@ -55,7 +56,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           else
             setup.jsonDataRepository.loadData[ReplyBundleMessage](config.repliesJsonFilename)
         val commandRepliesData =
-          if config.sBotInfo.botId == CalandroBot.sBotConfig.sBotInfo.botId then setup.jsonDataRepository
+          if config.sBotInfo.botId == CalandroBot.sBotInfo.botId then setup.jsonDataRepository
             .loadData[ReplyBundleCommand](config.commandsJsonFilename)
           else IO.pure(List.empty[ReplyBundleCommand])
         (messageRepliesData, commandRepliesData).tupled.map { case (msgData, cmdData) =>
@@ -77,9 +78,9 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       )
       calandroFiles <- Resource.eval(
         mediaFilesFromBot(
-          CalandroBot.sBotConfig,
+          SBot.buildSBotConfig(CalandroBot.sBotInfo),
           (setup, msgData, cmdData) =>
-            new CalandroBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
+            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       m0sconiFiles <- Resource.eval(

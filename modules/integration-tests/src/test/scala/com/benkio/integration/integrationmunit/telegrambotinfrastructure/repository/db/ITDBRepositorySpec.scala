@@ -100,7 +100,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       dbRepository <- fixture.repositoryResource
       mediaSources <- dbRepository.getResourcesByKind(
         criteria = "randomcard",
-        botId = CalandroBot.sBotConfig.sBotInfo.botId
+        botId = CalandroBot.sBotInfo.botId
       )
       files <- mediaSources.fold(
         e => Resource.eval(IO.raiseError(Throwable(s"getResourceByKind returned an error $e"))),
