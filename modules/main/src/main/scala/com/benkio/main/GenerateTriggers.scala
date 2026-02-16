@@ -247,7 +247,7 @@ object GenerateTriggers extends IOApp {
         m0sconiSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/m0sconiBot/",
+        botModuleRelativeFolderPath = "../bots/M0sconiBot/",
         triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
         triggers = m0sconiData
       )
