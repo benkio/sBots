@@ -38,12 +38,12 @@ jobs:
         run: |
           sed -i 's!\"\.\./botDB\.sqlite3"!\"botDB\.sqlite3\"!g' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
           cat /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
-          printf '${{ secrets.ABAR_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/aBarberoBot/src/main/resources/abar_ABarberoBot.token
-          printf '${{ secrets.CALA_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/calandroBot/src/main/resources/cala_CalandroBot.token
-          printf '${{ secrets.MOS_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/m0sconiBot/src/main/resources/mos_M0sconiBot.token
-          printf '${{ secrets.RPHJB_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/richardPHJBensonBot/src/main/resources/rphjb_RichardPHJBensonBot.token
-          printf '${{ secrets.XAH_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/xahLeeBot/src/main/resources/xah_XahLeeBot.token
-          printf '${{ secrets.YTAI_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/youTuboAncheI0Bot/src/main/resources/ytai_YouTuboAncheI0Bot.token
+          printf '${{ secrets.ABAR_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/ABarberoBot/src/main/resources/abar_ABarberoBot.token
+          printf '${{ secrets.CALA_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/CalandroBot/src/main/resources/cala_CalandroBot.token
+          printf '${{ secrets.MOS_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/M0sconiBot/src/main/resources/mos_M0sconiBot.token
+          printf '${{ secrets.RPHJB_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/RichardPHJBensonBot/src/main/resources/rphjb_RichardPHJBensonBot.token
+          printf '${{ secrets.XAH_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/XahLeeBot/src/main/resources/xah_XahLeeBot.token
+          printf '${{ secrets.YTAI_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/YouTuboAncheI0Bot/src/main/resources/ytai_YouTuboAncheI0Bot.token
           sbt "assembly"
       - name: Create SSH key
         run: |
