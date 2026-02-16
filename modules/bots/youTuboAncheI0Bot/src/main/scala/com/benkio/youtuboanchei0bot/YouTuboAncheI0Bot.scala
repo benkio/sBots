@@ -14,7 +14,7 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.ISBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
-import com.benkio.telegrambotinfrastructure.SBotWebhook
+import com.benkio.telegrambotinfrastructure.ISBotWebhook
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.client.Client
@@ -40,7 +40,7 @@ class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](sBotSetup, webhookCertificate)
+) extends ISBotWebhook[F](sBotSetup, webhookCertificate)
     with YouTuboAncheI0Bot[F] {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)

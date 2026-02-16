@@ -23,7 +23,7 @@ import telegramium.bots.InputPartFile
 class XahLeeBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage]
-) extends SBotPolling[F](sBotSetup)
+) extends ISBotPolling[F](sBotSetup)
     with XahLeeBot[F] {}
 
 class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](

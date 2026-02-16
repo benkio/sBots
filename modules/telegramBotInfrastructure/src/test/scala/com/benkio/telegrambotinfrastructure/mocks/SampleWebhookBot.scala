@@ -17,7 +17,7 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.repository.JsonDataRepository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.SBotWebhook
+import com.benkio.telegrambotinfrastructure.ISBotWebhook
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -34,7 +34,7 @@ class SampleWebhookBot(
     override val sBotSetup: BotSetup[IO],
     override val messageRepliesData: List[ReplyBundleMessage]
 )(using logWriterIO: LogWriter[IO])
-    extends SBotWebhook[IO](sBotSetup) {
+    extends ISBotWebhook[IO](sBotSetup) {
   override def postComputation: Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
