@@ -6,18 +6,10 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
 import cats.Parallel
-import com.benkio.abarberobot.ABarberoBot
-import com.benkio.abarberobot.ABarberoBotPolling
-import com.benkio.calandrobot.CalandroBot
-import com.benkio.calandrobot.CalandroBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.SlowTest
-import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.m0sconibot.M0sconiBotPolling
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
@@ -25,11 +17,20 @@ import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.ISBot
 import com.benkio.telegrambotinfrastructure.SBot
-import com.benkio.xahleebot.XahLeeBot
-import com.benkio.xahleebot.XahLeeBotPolling
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
+import com.benkio.telegrambotinfrastructure.SBotPolling
+import com.benkio.ABarberoBot.ABarberoBot
+import com.benkio.ABarberoBot.ABarberoBotPolling
+import com.benkio.CalandroBot.CalandroBot
+import com.benkio.M0sconiBot.M0sconiBot
+import com.benkio.M0sconiBot.M0sconiBotPolling
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotPolling
+import com.benkio.XahLeeBot.XahLeeBot
+import com.benkio.XahLeeBot.XahLeeBotPolling
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -45,7 +46,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
 
   def mediaFilesFromBot(
       config: SBotConfig,
-      mkBot: (BotSetup[IO], List[ReplyBundleMessage], List[ReplyBundleCommand]) => SBot[IO]
+      mkBot: (BotSetup[IO], List[ReplyBundleMessage], List[ReplyBundleCommand]) => ISBot[IO]
   ): IO[List[MediaFile]] =
     BotSetupFixture
       .botSetupResource(initialFixture, config)
@@ -55,7 +56,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           else
             setup.jsonDataRepository.loadData[ReplyBundleMessage](config.repliesJsonFilename)
         val commandRepliesData =
-          if config.sBotInfo.botId == CalandroBot.sBotConfig.sBotInfo.botId then setup.jsonDataRepository
+          if config.sBotInfo.botId == CalandroBot.sBotInfo.botId then setup.jsonDataRepository
             .loadData[ReplyBundleCommand](config.commandsJsonFilename)
           else IO.pure(List.empty[ReplyBundleCommand])
         (messageRepliesData, commandRepliesData).tupled.map { case (msgData, cmdData) =>
@@ -77,9 +78,9 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       )
       calandroFiles <- Resource.eval(
         mediaFilesFromBot(
-          CalandroBot.sBotConfig,
+          SBot.buildSBotConfig(CalandroBot.sBotInfo),
           (setup, msgData, cmdData) =>
-            new CalandroBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
+            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       m0sconiFiles <- Resource.eval(
@@ -106,7 +107,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       xahLeeFiles <- Resource.eval(
         mediaFilesFromBot(
           XahLeeBot.sBotConfig,
-          (setup, _, _) => new XahLeeBotPolling[IO](setup, List.empty)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, _) => new XahLeeBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       allFiles = (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ xahLeeFiles)

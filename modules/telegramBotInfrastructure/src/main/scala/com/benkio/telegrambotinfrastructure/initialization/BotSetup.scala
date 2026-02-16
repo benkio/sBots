@@ -101,16 +101,14 @@ object BotSetup {
 
   def apply[F[_]: Async](
       httpClient: Client[F],
-      tokenFilename: String,
-      namespace: String,
       sBotConfig: SBotConfig,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
   )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = {
 
     val resourceRepository = ResourcesRepository.fromResources[F]()
     for {
-      tk            <- token[F](tokenFilename, resourceRepository)
-      config        <- Resource.eval(Config.loadConfig[F](namespace))
+      tk            <- token[F](sBotConfig.token, resourceRepository)
+      config        <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
       _             <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
       dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
       dbLayer       <- loadDB[F](config.db)

@@ -51,13 +51,13 @@ addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile")
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")
 addCommandAlias("integrationTests", "integration/mUnitTests")
 // Data Entry Aliases
-addCommandAlias("abarAddData", "aBarberoBot/runMain com.benkio.abarberobot.ABarberoBotMainDataEntry")
-addCommandAlias("xahAddData", "xahLeeBot/runMain com.benkio.xahleebot.XahLeeBotMainDataEntry")
-addCommandAlias("mosAddData", "m0sconiBot/runMain com.benkio.m0sconibot.M0sconiBotMainDataEntry")
-addCommandAlias("ytaiAddData", "youTuboAncheI0Bot/runMain com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainDataEntry")
+addCommandAlias("abarAddData", "ABarberoBot/runMain com.benkio.ABarberoBot.ABarberoBotMainDataEntry")
+addCommandAlias("xahAddData", "XahLeeBot/runMain com.benkio.XahLeeBot.XahLeeBotMainDataEntry")
+addCommandAlias("mosAddData", "M0sconiBot/runMain com.benkio.M0sconiBot.M0sconiBotMainDataEntry")
+addCommandAlias("ytaiAddData", "YouTuboAncheI0Bot/runMain com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotMainDataEntry")
 addCommandAlias(
   "rphjbAddData",
-  "richardPHJBensonBot/runMain com.benkio.richardphjbensonbot.RichardPHJBensonBotMainDataEntry"
+  "RichardPHJBensonBot/runMain com.benkio.RichardPHJBensonBot.RichardPHJBensonBotMainDataEntry"
 )
 
 // PROJECTS
@@ -69,12 +69,12 @@ lazy val sBots =
       main,
       botDB,
       telegramBotInfrastructure,
-      calandroBot,
-      aBarberoBot,
-      richardPHJBensonBot,
-      xahLeeBot,
-      youTuboAncheI0Bot,
-      m0sconiBot
+      CalandroBot,
+      ABarberoBot,
+      RichardPHJBensonBot,
+      XahLeeBot,
+      YouTuboAncheI0Bot,
+      M0sconiBot
     )
 
 lazy val telegramBotInfrastructure =
@@ -83,38 +83,38 @@ lazy val telegramBotInfrastructure =
     .settings(Settings.TelegramBotInfrastructureSettings *)
     .disablePlugins(AssemblyPlugin)
 
-lazy val calandroBot =
-  Project("calandroBot", file("modules/bots/calandroBot"))
+lazy val CalandroBot =
+  Project("CalandroBot", file("modules/bots/CalandroBot"))
     .settings(Settings.settings *)
     .settings(Settings.CalandroBotSettings *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
-lazy val aBarberoBot =
-  Project("aBarberoBot", file("modules/bots/aBarberoBot"))
+lazy val ABarberoBot =
+  Project("ABarberoBot", file("modules/bots/ABarberoBot"))
     .settings(Settings.settings *)
     .settings(Settings.ABarberoBotSettings *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
-lazy val richardPHJBensonBot =
-  Project("richardPHJBensonBot", file("modules/bots/richardPHJBensonBot"))
+lazy val RichardPHJBensonBot =
+  Project("RichardPHJBensonBot", file("modules/bots/RichardPHJBensonBot"))
     .settings(Settings.settings *)
     .settings(Settings.RichardPHJBensonBotSettings *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
-lazy val xahLeeBot =
-  Project("xahLeeBot", file("modules/bots/xahLeeBot"))
+lazy val XahLeeBot =
+  Project("XahLeeBot", file("modules/bots/XahLeeBot"))
     .settings(Settings.settings *)
     .settings(Settings.XahLeeBotSettings *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
-lazy val youTuboAncheI0Bot =
-  Project("youTuboAncheI0Bot", file("modules/bots/youTuboAncheI0Bot"))
+lazy val YouTuboAncheI0Bot =
+  Project("YouTuboAncheI0Bot", file("modules/bots/YouTuboAncheI0Bot"))
     .settings(Settings.settings *)
     .settings(Settings.YouTuboAncheI0BotSettings *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
-lazy val m0sconiBot =
-  Project("m0sconiBot", file("modules/bots/m0sconiBot"))
+lazy val M0sconiBot =
+  Project("M0sconiBot", file("modules/bots/M0sconiBot"))
     .settings(Settings.settings *)
     .settings(Settings.M0sconiBotSettings *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
@@ -124,12 +124,12 @@ lazy val main = project
   .settings(Settings.settings *)
   .settings(Settings.MainSettings)
   .dependsOn(
-    calandroBot,
-    aBarberoBot,
-    richardPHJBensonBot,
-    xahLeeBot,
-    youTuboAncheI0Bot,
-    m0sconiBot,
+    CalandroBot,
+    ABarberoBot,
+    RichardPHJBensonBot,
+    XahLeeBot,
+    YouTuboAncheI0Bot,
+    M0sconiBot,
     telegramBotInfrastructure % "compile->compile;test->test"
   )
 
@@ -146,12 +146,12 @@ lazy val botDB =
 lazy val integration = (project in file("modules/integration-tests"))
   .dependsOn(
     telegramBotInfrastructure % "compile->compile;test->test",
-    calandroBot,
-    aBarberoBot,
-    richardPHJBensonBot,
-    xahLeeBot,
-    youTuboAncheI0Bot,
-    m0sconiBot,
+    CalandroBot,
+    ABarberoBot,
+    RichardPHJBensonBot,
+    XahLeeBot,
+    YouTuboAncheI0Bot,
+    M0sconiBot,
     botDB % "compile->compile;test->test",
     main
   )

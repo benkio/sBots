@@ -6,13 +6,13 @@ import cats.effect.Resource
 import cats.implicits.*
 import cats.Parallel
 import com.benkio.integration.BotSetupFixture
-import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.m0sconibot.M0sconiBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
+import com.benkio.M0sconiBot.M0sconiBot
+import com.benkio.M0sconiBot.M0sconiBotPolling
 import doobie.implicits.*
 import munit.CatsEffectSuite
 

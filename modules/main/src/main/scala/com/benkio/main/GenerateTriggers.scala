@@ -7,10 +7,6 @@ import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.abarberobot.ABarberoBot
-import com.benkio.calandrobot.CalandroBot
-import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
@@ -26,7 +22,12 @@ import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.ABarberoBot.ABarberoBot
+import com.benkio.CalandroBot.CalandroBot
+import com.benkio.M0sconiBot.M0sconiBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -215,18 +216,19 @@ object GenerateTriggers extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+    val calaSBotConfig       = SBot.buildSBotConfig(CalandroBot.sBotInfo)
     (for {
-      calandroSetup <- Resource.eval(forTriggerGeneration(CalandroBot.sBotConfig)(using log))
+      calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(
-        calandroSetup.jsonDataRepository.loadData[ReplyBundleMessage](CalandroBot.sBotConfig.repliesJsonFilename)
+        calandroSetup.jsonDataRepository.loadData[ReplyBundleMessage](calaSBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/calandroBot/",
-        triggerFilename = CalandroBot.sBotConfig.triggerFilename,
+        botModuleRelativeFolderPath = "../bots/CalandroBot/",
+        triggerFilename = calaSBotConfig.triggerFilename,
         triggers = calandroData
       )
       //     _ <- generateTriggersJsonFile(
-      //       botModuleRelativeFolderPath = "../bots/calandroBot/src/main/resources",
+      //       botModuleRelativeFolderPath = "../bots/CalandroBot/src/main/resources",
       //     commandsJsonFilename = CalandroBot.sBotConfig.commandsJsonFilename,
       //     commands = CalandroBot.commandRepliesData
       // )
@@ -236,7 +238,7 @@ object GenerateTriggers extends IOApp {
         aBarberoSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/aBarberoBot/",
+        botModuleRelativeFolderPath = "../bots/ABarberoBot/",
         triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
         triggers = aBarberoData
       )
@@ -245,7 +247,7 @@ object GenerateTriggers extends IOApp {
         m0sconiSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/m0sconiBot/",
+        botModuleRelativeFolderPath = "../bots/M0sconiBot/",
         triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
         triggers = m0sconiData
       )
@@ -255,7 +257,7 @@ object GenerateTriggers extends IOApp {
           .loadData[ReplyBundleMessage](RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/richardPHJBensonBot/",
+        botModuleRelativeFolderPath = "../bots/RichardPHJBensonBot/",
         triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
         triggers = richardData
       )
@@ -265,7 +267,7 @@ object GenerateTriggers extends IOApp {
           .loadData[ReplyBundleMessage](YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/youTuboAncheI0Bot/",
+        botModuleRelativeFolderPath = "../bots/YouTuboAncheI0Bot/",
         triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
         triggers = youTuboData
       )

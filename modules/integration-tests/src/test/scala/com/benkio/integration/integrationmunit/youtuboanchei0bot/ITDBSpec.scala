@@ -11,8 +11,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotPolling
 import doobie.implicits.*
 import munit.CatsEffectSuite
 

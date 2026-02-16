@@ -1,11 +1,12 @@
 package com.benkio.main
 
 import cats.effect.ExitCode
-import com.benkio.abarberobot.ABarberoBot
-import com.benkio.calandrobot.CalandroBot
-import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.ABarberoBot.ABarberoBot
+import com.benkio.CalandroBot.CalandroBot
+import com.benkio.M0sconiBot.M0sconiBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import munit.CatsEffectSuite
 
 import java.io.*
@@ -16,12 +17,13 @@ class GenerateTriggersSpec extends CatsEffectSuite {
   override val munitIOTimeout = Duration(1, "m")
 
   test("GenerateTriggers.run should modify the expected files") {
+    val calaSBotConfig           = SBot.buildSBotConfig(CalandroBot.sBotInfo)
     val triggerFiles: List[File] = List(
-      File(s"../bots/aBarberoBot/${ABarberoBot.sBotConfig.triggerFilename}"),
-      File(s"../bots/m0sconiBot/${M0sconiBot.sBotConfig.triggerFilename}"),
-      File(s"../bots/calandroBot/${CalandroBot.sBotConfig.triggerFilename}"),
-      File(s"../bots/richardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
-      File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.sBotConfig.triggerFilename}")
+      File(s"../bots/ABarberoBot/${ABarberoBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/M0sconiBot/${M0sconiBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/CalandroBot/${calaSBotConfig.triggerFilename}"),
+      File(s"../bots/RichardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/YouTuboAncheI0Bot/${YouTuboAncheI0Bot.sBotConfig.triggerFilename}")
     )
     val fiveMinutesAgo = System.currentTimeMillis() - (5 * 60 * 1000)
     GenerateTriggers

@@ -3,7 +3,6 @@ package com.benkio.integration.integrationmunit.telegrambotinfrastructure.patter
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.ChatId
@@ -12,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import cron4s.Cron
 import munit.CatsEffectSuite
 import telegramium.bots.Chat

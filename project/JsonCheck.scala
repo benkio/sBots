@@ -4,23 +4,23 @@ import java.io.File
 
 object JsonCheck {
   val jsonFiles: Seq[String] = Seq(
-    "modules/bots/aBarberoBot/abar_list.json",
-    "modules/bots/aBarberoBot/barberoShows.json",
-    "modules/bots/calandroBot/cala_list.json",
-    "modules/bots/m0sconiBot/mos_list.json",
-    "modules/bots/richardPHJBensonBot/bensonShows.json",
-    "modules/bots/richardPHJBensonBot/rphjb_list.json",
-    "modules/bots/xahLeeBot/xahShows.json",
-    "modules/bots/xahLeeBot/xah_list.json",
-    "modules/bots/youTuboAncheI0Bot/youtuboShows.json",
-    "modules/bots/youTuboAncheI0Bot/ytai_list.json",
+    "modules/bots/ABarberoBot/abar_list.json",
+    "modules/bots/ABarberoBot/barberoShows.json",
+    "modules/bots/CalandroBot/cala_list.json",
+    "modules/bots/M0sconiBot/mos_list.json",
+    "modules/bots/RichardPHJBensonBot/bensonShows.json",
+    "modules/bots/RichardPHJBensonBot/rphjb_list.json",
+    "modules/bots/XahLeeBot/xahShows.json",
+    "modules/bots/XahLeeBot/xah_list.json",
+    "modules/bots/YouTuboAncheI0Bot/youtuboShows.json",
+    "modules/bots/YouTuboAncheI0Bot/ytai_list.json",
 
-    "modules/bots/calandroBot/src/main/resources/cala_replies.json",
-    "modules/bots/m0sconiBot/src/main/resources/mos_replies.json",
-    "modules/bots/aBarberoBot/src/main/resources/abar_replies.json",
-    "modules/bots/youTuboAncheI0Bot/src/main/resources/ytai_replies.json",
-    "modules/bots/richardPHJBensonBot/src/main/resources/rphjb_replies.json",
-    "modules/bots/calandroBot/src/main/resources/cala_commands.json"
+    "modules/bots/CalandroBot/src/main/resources/cala_replies.json",
+    "modules/bots/M0sconiBot/src/main/resources/mos_replies.json",
+    "modules/bots/ABarberoBot/src/main/resources/abar_replies.json",
+    "modules/bots/YouTuboAncheI0Bot/src/main/resources/ytai_replies.json",
+    "modules/bots/RichardPHJBensonBot/src/main/resources/rphjb_replies.json",
+    "modules/bots/CalandroBot/src/main/resources/cala_commands.json"
   )
 
   lazy val checkJsonFilesImpl =

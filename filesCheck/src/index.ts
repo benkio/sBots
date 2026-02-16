@@ -33,7 +33,7 @@ const bots: Bot[] = [
   {
     id: 'abar',
     artist: 'Alessandro Barbero',
-    path: 'aBarberoBot/src/main/resources',
+    path: 'ABarberoBot/src/main/resources',
   },
   { id: 'xah', artist: 'Xah Lee', path: 'xahLeeBot/src/main/resources' },
   {
@@ -44,7 +44,7 @@ const bots: Bot[] = [
   {
     id: 'cala',
     artist: 'Francesco Calandra',
-    path: 'calandroBot/src/main/resources',
+    path: 'CalandroBot/src/main/resources',
   },
 ].map((i) => {
   i.path = buildResourceDirectory(baseDir, i.path);

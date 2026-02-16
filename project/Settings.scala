@@ -55,7 +55,7 @@ object Settings {
     name                     := "CalandroBot",
     libraryDependencies      := CalandroBotDependencies,
     dependencyOverrides      := CalandroBotDependencies,
-    mainClass                := Some("com.benkio.calandrobot.CalandroBotMainPolling"),
+    mainClass                := Some("com.benkio.CalandroBot.CalandroBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
@@ -63,7 +63,7 @@ object Settings {
     name                     := "ABarberoBot",
     libraryDependencies      := ABarberoBotDependencies,
     dependencyOverrides      := ABarberoBotDependencies,
-    mainClass                := Some("com.benkio.abarberobot.ABarberoBotMainPolling"),
+    mainClass                := Some("com.benkio.ABarberoBot.ABarberoBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
@@ -71,7 +71,7 @@ object Settings {
     name                     := "RichardPHJBensonBot",
     libraryDependencies      := RichardPHJBensonBotDependencies,
     dependencyOverrides      := RichardPHJBensonBotDependencies,
-    mainClass                := Some("com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling"),
+    mainClass                := Some("com.benkio.RichardPHJBensonBot.RichardPHJBensonBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
@@ -79,7 +79,7 @@ object Settings {
     name                     := "XahLeeBot",
     libraryDependencies      := XahLeeBotDependencies,
     dependencyOverrides      := XahLeeBotDependencies,
-    mainClass                := Some("com.benkio.xahleebot.XahLeeBotMainPolling"),
+    mainClass                := Some("com.benkio.XahLeeBot.XahLeeBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
@@ -87,7 +87,7 @@ object Settings {
     name                     := "YouTuboAncheI0Bot",
     libraryDependencies      := YouTuboAncheI0BotDependencies,
     dependencyOverrides      := YouTuboAncheI0BotDependencies,
-    mainClass                := Some("com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainPolling"),
+    mainClass                := Some("com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
@@ -95,7 +95,7 @@ object Settings {
     name                     := "M0sconiBot",
     libraryDependencies      := M0sconiBotDependencies,
     dependencyOverrides      := M0sconiBotDependencies,
-    mainClass                := Some("com.benkio.M0sconibot.M0sconiBotMainPolling"),
+    mainClass                := Some("com.benkio.M0sconiBot.M0sconiBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 

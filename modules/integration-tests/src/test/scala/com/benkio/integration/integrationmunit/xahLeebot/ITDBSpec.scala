@@ -12,8 +12,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
-import com.benkio.xahleebot.XahLeeBot
-import com.benkio.xahleebot.XahLeeBotPolling
+import com.benkio.XahLeeBot.XahLeeBot
+import com.benkio.XahLeeBot.XahLeeBotPolling
 import doobie.implicits.*
 import io.circe.parser.decode
 import munit.CatsEffectSuite
@@ -31,8 +31,11 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     "commandRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val resourceAssert = for {
-      botSetup <- fixture.botSetupResource
-      xahLeeBot = new XahLeeBotPolling[IO](botSetup, List.empty[ReplyBundleMessage])(using
+      botSetup           <- fixture.botSetupResource
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](XahLeeBot.sBotConfig.repliesJsonFilename)
+      )
+      xahLeeBot = new XahLeeBotPolling[IO](botSetup, messageRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,
@@ -62,13 +65,16 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
   botSetupFixture.test(
     "commandRepliesData random files should be contained in the jsons"
   ) { fixture =>
-    val listPath    = new File("./../bots/xahLeeBot").getCanonicalPath + "/xah_list.json"
+    val listPath    = new File("./../bots/XahLeeBot").getCanonicalPath + "/xah_list.json"
     val jsonContent = Source.fromFile(listPath).getLines().mkString("\n")
     val json        = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val resourceAssert = for {
-      botSetup <- fixture.botSetupResource
-      xahLeeBot = new XahLeeBotPolling[IO](botSetup, List.empty[ReplyBundleMessage])(using
+      botSetup           <- fixture.botSetupResource
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](XahLeeBot.sBotConfig.repliesJsonFilename)
+      )
+      xahLeeBot = new XahLeeBotPolling[IO](botSetup, messageRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,

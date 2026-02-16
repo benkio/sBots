@@ -4,14 +4,14 @@ import cats.data.NonEmptyList
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
-import com.benkio.calandrobot.CalandroBot
 import com.benkio.integration.DBFixture
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import com.benkio.telegrambotinfrastructure.model.reply.Sticker
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
+import com.benkio.CalandroBot.CalandroBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite
 
 import java.nio.file.Files
@@ -100,7 +100,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       dbRepository <- fixture.repositoryResource
       mediaSources <- dbRepository.getResourcesByKind(
         criteria = "randomcard",
-        botId = CalandroBot.sBotConfig.sBotInfo.botId
+        botId = CalandroBot.sBotInfo.botId
       )
       files <- mediaSources.fold(
         e => Resource.eval(IO.raiseError(Throwable(s"getResourceByKind returned an error $e"))),

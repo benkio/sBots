@@ -4,13 +4,13 @@ import cats.effect.*
 import cats.syntax.all.*
 import cats.Parallel
 import com.benkio.integration.BotSetupFixture
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotPolling
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
 import telegramium.bots.Message
