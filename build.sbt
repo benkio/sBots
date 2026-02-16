@@ -53,7 +53,7 @@ addCommandAlias("integrationTests", "integration/mUnitTests")
 // Data Entry Aliases
 addCommandAlias("abarAddData", "ABarberoBot/runMain com.benkio.ABarberoBot.ABarberoBotMainDataEntry")
 addCommandAlias("xahAddData", "xahLeeBot/runMain com.benkio.xahleebot.XahLeeBotMainDataEntry")
-addCommandAlias("mosAddData", "m0sconiBot/runMain com.benkio.m0sconibot.M0sconiBotMainDataEntry")
+addCommandAlias("mosAddData", "M0sconiBot/runMain com.benkio.M0sconiBot.M0sconiBotMainDataEntry")
 addCommandAlias("ytaiAddData", "youTuboAncheI0Bot/runMain com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainDataEntry")
 addCommandAlias(
   "rphjbAddData",
@@ -74,7 +74,7 @@ lazy val sBots =
       richardPHJBensonBot,
       xahLeeBot,
       youTuboAncheI0Bot,
-      m0sconiBot
+      M0sconiBot
     )
 
 lazy val telegramBotInfrastructure =
@@ -113,8 +113,8 @@ lazy val youTuboAncheI0Bot =
     .settings(Settings.YouTuboAncheI0BotSettings *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
-lazy val m0sconiBot =
-  Project("m0sconiBot", file("modules/bots/m0sconiBot"))
+lazy val M0sconiBot =
+  Project("M0sconiBot", file("modules/bots/M0sconiBot"))
     .settings(Settings.settings *)
     .settings(Settings.M0sconiBotSettings *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
@@ -129,7 +129,7 @@ lazy val main = project
     richardPHJBensonBot,
     xahLeeBot,
     youTuboAncheI0Bot,
-    m0sconiBot,
+    M0sconiBot,
     telegramBotInfrastructure % "compile->compile;test->test"
   )
 
@@ -151,7 +151,7 @@ lazy val integration = (project in file("modules/integration-tests"))
     richardPHJBensonBot,
     xahLeeBot,
     youTuboAncheI0Bot,
-    m0sconiBot,
+    M0sconiBot,
     botDB % "compile->compile;test->test",
     main
   )

@@ -6,8 +6,8 @@ import cats.effect.IO
 import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
-import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.m0sconibot.M0sconiBotPolling
+import com.benkio.M0sconiBot.M0sconiBot
+import com.benkio.M0sconiBot.M0sconiBotPolling
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock

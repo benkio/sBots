@@ -14,8 +14,8 @@ import com.benkio.integration.BotSetupFixture
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.SlowTest
-import com.benkio.m0sconibot.M0sconiBot
-import com.benkio.m0sconibot.M0sconiBotPolling
+import com.benkio.M0sconiBot.M0sconiBot
+import com.benkio.M0sconiBot.M0sconiBotPolling
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig

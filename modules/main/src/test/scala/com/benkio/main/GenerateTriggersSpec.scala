@@ -3,7 +3,7 @@ package com.benkio.main
 import cats.effect.ExitCode
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
-import com.benkio.m0sconibot.M0sconiBot
+import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import munit.CatsEffectSuite

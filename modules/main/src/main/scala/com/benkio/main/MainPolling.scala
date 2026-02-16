@@ -5,7 +5,7 @@ import cats.effect.IO
 import cats.effect.IOApp
 import com.benkio.ABarberoBot.ABarberoBotMainPolling
 import com.benkio.CalandroBot.CalandroBotMainPolling
-import com.benkio.m0sconibot.M0sconiBotMainPolling
+import com.benkio.M0sconiBot.M0sconiBotMainPolling
 import com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling
 import com.benkio.xahleebot.XahLeeBotMainPolling
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainPolling

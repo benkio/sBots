@@ -1,4 +1,4 @@
-package com.benkio.m0sconibot
+package com.benkio.M0sconiBot
 
 import cats.effect.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -11,7 +11,7 @@ object M0sconiBotMainPolling extends IOApp {
   private def internalRun(logLevel: LogLevel): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
     M0sconiBot
-      .buildPollingBot[IO, Unit]
+      .buildPollingBot[IO]
       .use(_.start())
       .as(ExitCode.Success)
   }

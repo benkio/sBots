@@ -9,7 +9,7 @@ import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
-import com.benkio.m0sconibot.M0sconiBot
+import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup

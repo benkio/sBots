@@ -1,4 +1,4 @@
-package com.benkio.m0sconibot
+package com.benkio.M0sconiBot
 
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.dataentry.DataEntry

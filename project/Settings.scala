@@ -95,7 +95,7 @@ object Settings {
     name                     := "M0sconiBot",
     libraryDependencies      := M0sconiBotDependencies,
     dependencyOverrides      := M0sconiBotDependencies,
-    mainClass                := Some("com.benkio.M0sconibot.M0sconiBotMainPolling"),
+    mainClass                := Some("com.benkio.M0sconiBot.M0sconiBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
