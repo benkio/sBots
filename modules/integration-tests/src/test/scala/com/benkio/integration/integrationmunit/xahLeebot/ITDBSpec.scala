@@ -31,7 +31,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     "commandRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val resourceAssert = for {
-      botSetup <- fixture.botSetupResource
+      botSetup           <- fixture.botSetupResource
       messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](XahLeeBot.sBotConfig.repliesJsonFilename)
       )
@@ -70,7 +70,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val json        = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
 
     val resourceAssert = for {
-      botSetup <- fixture.botSetupResource
+      botSetup           <- fixture.botSetupResource
       messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](XahLeeBot.sBotConfig.repliesJsonFilename)
       )

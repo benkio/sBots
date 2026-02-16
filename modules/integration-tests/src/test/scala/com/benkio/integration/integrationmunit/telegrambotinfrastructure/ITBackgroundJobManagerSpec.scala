@@ -3,7 +3,6 @@ package com.benkio.integration.integrationmunit.telegrambotinfrastructure
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.Subscription
@@ -11,6 +10,7 @@ import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import com.benkio.telegrambotinfrastructure.SubscriptionKey
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import cron4s.*
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
