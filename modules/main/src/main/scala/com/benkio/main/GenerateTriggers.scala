@@ -10,7 +10,7 @@ import cats.implicits.*
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
@@ -26,7 +26,7 @@ import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
@@ -255,7 +255,7 @@ object GenerateTriggers extends IOApp {
           .loadData[ReplyBundleMessage](RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/richardPHJBensonBot/",
+        botModuleRelativeFolderPath = "../bots/RichardPHJBensonBot/",
         triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
         triggers = richardData
       )
@@ -265,7 +265,7 @@ object GenerateTriggers extends IOApp {
           .loadData[ReplyBundleMessage](YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/youTuboAncheI0Bot/",
+        botModuleRelativeFolderPath = "../bots/YouTuboAncheI0Bot/",
         triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
         triggers = youTuboData
       )

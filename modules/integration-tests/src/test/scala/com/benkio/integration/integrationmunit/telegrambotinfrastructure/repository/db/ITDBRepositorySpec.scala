@@ -6,7 +6,7 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.integration.DBFixture
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.Mp3File

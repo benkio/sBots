@@ -7,9 +7,9 @@ import cats.effect.Resource
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter

@@ -4,8 +4,8 @@ import cats.effect.ExitCode
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import munit.CatsEffectSuite
 
 import java.io.*
@@ -20,8 +20,8 @@ class GenerateTriggersSpec extends CatsEffectSuite {
       File(s"../bots/ABarberoBot/${ABarberoBot.sBotConfig.triggerFilename}"),
       File(s"../bots/m0sconiBot/${M0sconiBot.sBotConfig.triggerFilename}"),
       File(s"../bots/CalandroBot/${CalandroBot.sBotConfig.triggerFilename}"),
-      File(s"../bots/richardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
-      File(s"../bots/youTuboAncheI0Bot/${YouTuboAncheI0Bot.sBotConfig.triggerFilename}")
+      File(s"../bots/RichardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/YouTuboAncheI0Bot/${YouTuboAncheI0Bot.sBotConfig.triggerFilename}")
     )
     val fiveMinutesAgo = System.currentTimeMillis() - (5 * 60 * 1000)
     GenerateTriggers

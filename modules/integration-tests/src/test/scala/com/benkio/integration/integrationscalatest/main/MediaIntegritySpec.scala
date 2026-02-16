@@ -16,8 +16,8 @@ import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.SlowTest
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.M0sconiBot.M0sconiBotPolling
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBotPolling
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
@@ -28,8 +28,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.ISBot
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.XahLeeBot.XahLeeBotPolling
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter

@@ -6,9 +6,9 @@ import cats.effect.IOApp
 import com.benkio.ABarberoBot.ABarberoBotMainPolling
 import com.benkio.CalandroBot.CalandroBotMainPolling
 import com.benkio.M0sconiBot.M0sconiBotMainPolling
-import com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotMainPolling
 import com.benkio.XahLeeBot.XahLeeBotMainPolling
-import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainPolling
+import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotMainPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter

@@ -6,8 +6,8 @@ import cats.effect.Resource
 import cats.implicits.*
 import cats.Parallel
 import com.benkio.integration.BotSetupFixture
-import com.benkio.richardphjbensonbot.RichardPHJBensonBot
-import com.benkio.richardphjbensonbot.RichardPHJBensonBotPolling
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotPolling
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle

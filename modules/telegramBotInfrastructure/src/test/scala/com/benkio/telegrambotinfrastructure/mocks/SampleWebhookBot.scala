@@ -63,7 +63,7 @@ object SampleWebhookBot {
   val commandsJsonFilename: String = "sbot_commands.json"
   val token: String = "sbot_SampleWebhookBot.token"
   val triggerListUri: Uri          =
-    uri"https://github.com/benkio/sBots/blob/main/modules/bots/richardPHJBensonBot/rphjb_triggers.txt"
+    uri"https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/rphjb_triggers.txt"
   val sBotConfig: SBotConfig = SBotConfig(
     sBotInfo = SampleWebhookBot.sBotInfo,
     triggerFilename = SampleWebhookBot.triggerFilename,
