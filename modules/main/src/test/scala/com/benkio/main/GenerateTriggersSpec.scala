@@ -20,7 +20,7 @@ class GenerateTriggersSpec extends CatsEffectSuite {
     val calaSBotConfig           = SBot.buildSBotConfig(CalandroBot.sBotInfo)
     val triggerFiles: List[File] = List(
       File(s"../bots/ABarberoBot/${ABarberoBot.sBotConfig.triggerFilename}"),
-      File(s"../bots/m0sconiBot/${M0sconiBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/M0sconiBot/${M0sconiBot.sBotConfig.triggerFilename}"),
       File(s"../bots/CalandroBot/${calaSBotConfig.triggerFilename}"),
       File(s"../bots/RichardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
       File(s"../bots/YouTuboAncheI0Bot/${YouTuboAncheI0Bot.sBotConfig.triggerFilename}")
