@@ -15,6 +15,7 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import org.http4s.server.Server
 import telegramium.bots.high.WebhookBot
+import com.benkio.telegrambotinfrastructure.SBot
 
 object MainWebhook extends IOApp {
 
@@ -37,8 +38,9 @@ object MainWebhook extends IOApp {
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )
-      calandroWebhook <- CalandroBot.buildWebhookBot[IO](
+      calandroWebhook <- SBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,
+        sBotInfo = CalandroBot.sBotInfo,
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )

@@ -41,6 +41,7 @@ import telegramium.bots.high.Api
 
 import java.io.*
 import java.util.UUID
+import com.benkio.telegrambotinfrastructure.SBot
 
 object GenerateTriggers extends IOApp {
 
@@ -215,14 +216,15 @@ object GenerateTriggers extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
+    val calaSBotConfig = SBot.buildSBotConfig(CalandroBot.sBotInfo)
     (for {
-      calandroSetup <- Resource.eval(forTriggerGeneration(CalandroBot.sBotConfig)(using log))
+      calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(
-        calandroSetup.jsonDataRepository.loadData[ReplyBundleMessage](CalandroBot.sBotConfig.repliesJsonFilename)
+        calandroSetup.jsonDataRepository.loadData[ReplyBundleMessage](calaSBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/CalandroBot/",
-        triggerFilename = CalandroBot.sBotConfig.triggerFilename,
+        triggerFilename = calaSBotConfig.triggerFilename,
         triggers = calandroData
       )
       //     _ <- generateTriggersJsonFile(

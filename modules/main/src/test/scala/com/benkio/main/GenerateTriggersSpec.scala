@@ -10,16 +10,18 @@ import munit.CatsEffectSuite
 
 import java.io.*
 import scala.concurrent.duration.Duration
+import com.benkio.telegrambotinfrastructure.SBot
 
 class GenerateTriggersSpec extends CatsEffectSuite {
 
   override val munitIOTimeout = Duration(1, "m")
 
   test("GenerateTriggers.run should modify the expected files") {
+    val calaSBotConfig = SBot.buildSBotConfig(CalandroBot.sBotInfo)
     val triggerFiles: List[File] = List(
       File(s"../bots/ABarberoBot/${ABarberoBot.sBotConfig.triggerFilename}"),
       File(s"../bots/m0sconiBot/${M0sconiBot.sBotConfig.triggerFilename}"),
-      File(s"../bots/CalandroBot/${CalandroBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/CalandroBot/${calaSBotConfig.triggerFilename}"),
       File(s"../bots/RichardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
       File(s"../bots/YouTuboAncheI0Bot/${YouTuboAncheI0Bot.sBotConfig.triggerFilename}")
     )
