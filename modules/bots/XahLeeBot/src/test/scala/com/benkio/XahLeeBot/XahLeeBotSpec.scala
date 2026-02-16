@@ -4,12 +4,12 @@ import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
 import cats.Parallel
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

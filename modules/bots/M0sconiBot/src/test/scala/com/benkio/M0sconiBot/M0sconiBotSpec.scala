@@ -6,8 +6,6 @@ import cats.effect.IO
 import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
-import com.benkio.M0sconiBot.M0sconiBot
-import com.benkio.M0sconiBot.M0sconiBotPolling
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
@@ -21,6 +19,8 @@ import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import com.benkio.M0sconiBot.M0sconiBot
+import com.benkio.M0sconiBot.M0sconiBotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter

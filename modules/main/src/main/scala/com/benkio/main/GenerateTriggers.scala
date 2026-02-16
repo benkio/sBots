@@ -7,10 +7,6 @@ import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.ABarberoBot.ABarberoBot
-import com.benkio.CalandroBot.CalandroBot
-import com.benkio.M0sconiBot.M0sconiBot
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
@@ -26,6 +22,11 @@ import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.ABarberoBot.ABarberoBot
+import com.benkio.CalandroBot.CalandroBot
+import com.benkio.M0sconiBot.M0sconiBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -41,7 +42,6 @@ import telegramium.bots.high.Api
 
 import java.io.*
 import java.util.UUID
-import com.benkio.telegrambotinfrastructure.SBot
 
 object GenerateTriggers extends IOApp {
 
@@ -216,7 +216,7 @@ object GenerateTriggers extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-    val calaSBotConfig = SBot.buildSBotConfig(CalandroBot.sBotInfo)
+    val calaSBotConfig       = SBot.buildSBotConfig(CalandroBot.sBotInfo)
     (for {
       calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(

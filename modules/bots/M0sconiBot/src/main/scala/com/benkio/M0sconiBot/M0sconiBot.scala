@@ -27,8 +27,7 @@ import telegramium.bots.Message
 class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage]
-) extends SBotPolling[F](sBotSetup, messageRepliesData, M0sconiBot.commandRepliesData(messageRepliesData))
-{
+) extends SBotPolling[F](sBotSetup, messageRepliesData, M0sconiBot.commandRepliesData(messageRepliesData)) {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
@@ -39,8 +38,12 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](sBotSetup, messageRepliesData, M0sconiBot.commandRepliesData(messageRepliesData), webhookCertificate)
- {
+) extends SBotWebhook[F](
+      sBotSetup,
+      messageRepliesData,
+      M0sconiBot.commandRepliesData(messageRepliesData),
+      webhookCertificate
+    ) {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
@@ -49,10 +52,10 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
 
 object M0sconiBot {
 
-  val triggerFilename: String   = "mos_triggers.txt"
-  val tokenFilename: String     = "mos_M0sconiBot.token"
-  val configNamespace: String   = "mos"
-  val sBotConfig: SBotConfig   = SBotConfig(
+  val triggerFilename: String = "mos_triggers.txt"
+  val tokenFilename: String   = "mos_M0sconiBot.token"
+  val configNamespace: String = "mos"
+  val sBotConfig: SBotConfig  = SBotConfig(
     sBotInfo = SBotInfo(SBotId("mos"), SBotName("M0sconiBot")),
     triggerFilename = triggerFilename,
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/m0sconiBot/mos_triggers.txt",
@@ -76,8 +79,8 @@ object M0sconiBot {
 
   def buildPollingBot[F[_]: Parallel: Async: Network](using log: LogWriter[F]): Resource[F, M0sconiBotPolling[F]] =
     for {
-      httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-      botSetup   <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
+      httpClient         <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+      botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
       messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)
       )
@@ -88,7 +91,7 @@ object M0sconiBot {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
   )(using log: LogWriter[F]): Resource[F, M0sconiBotWebhook[F]] = for {
-    botSetup <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
+    botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
     messageRepliesData <- Resource.eval(
       botSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)
     )

@@ -14,16 +14,16 @@ case class SBotConfig(
     triggerFilename: String,
     triggerListUri: Uri,
     repliesJsonFilename: String,
-  commandsJsonFilename: String,
-  token: String
+    commandsJsonFilename: String,
+    token: String
 )
 
 object SBotConfig {
   def apply(
       sBotInfo: SBotInfo,
       triggerFilename: String,
-    triggerListUri: Uri,
-    token: String,
+      triggerListUri: Uri,
+      token: String,
       repliesJsonFilename: String,
       commandsJsonFilename: String,
       messageTimeToLive: Option[FiniteDuration] = 10.seconds.some,

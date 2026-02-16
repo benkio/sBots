@@ -28,8 +28,7 @@ import telegramium.bots.Message
 class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage]
-) extends SBotPolling[F](sBotSetup, messageRepliesData, ABarberoBot.commandRepliesData(messageRepliesData))
-    {
+) extends SBotPolling[F](sBotSetup, messageRepliesData, ABarberoBot.commandRepliesData(messageRepliesData)) {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
@@ -40,8 +39,12 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](sBotSetup, messageRepliesData, ABarberoBot.commandRepliesData(messageRepliesData), webhookCertificate)
-    {
+) extends SBotWebhook[F](
+      sBotSetup,
+      messageRepliesData,
+      ABarberoBot.commandRepliesData(messageRepliesData),
+      webhookCertificate
+    ) {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
@@ -79,8 +82,8 @@ object ABarberoBot {
 
   def buildPollingBot[F[_]: Parallel: Async: Network](using log: LogWriter[F]): Resource[F, ABarberoBotPolling[F]] =
     for {
-      httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-      botSetup   <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
+      httpClient         <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+      botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
       messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
       )
@@ -91,7 +94,7 @@ object ABarberoBot {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
   )(using log: LogWriter[F]): Resource[F, ABarberoBotWebhook[F]] = for {
-    botSetup <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
+    botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
     messageRepliesData <- Resource.eval(
       botSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
     )

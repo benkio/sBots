@@ -6,6 +6,7 @@ import cats.effect.IO
 import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
@@ -20,19 +21,18 @@ import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
-import com.benkio.telegrambotinfrastructure.config.SBotConfig
-import com.benkio.telegrambotinfrastructure.SBot
-import com.benkio.telegrambotinfrastructure.SBotPolling
 
 class CalandroBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val sBotConfig :SBotConfig = SBot.buildSBotConfig(CalandroBot.sBotInfo)
+  val sBotConfig: SBotConfig                = SBot.buildSBotConfig(CalandroBot.sBotInfo)
   val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(sBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(

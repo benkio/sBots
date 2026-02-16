@@ -4,6 +4,7 @@ import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
+import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
@@ -15,7 +16,6 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import org.http4s.server.Server
 import telegramium.bots.high.WebhookBot
-import com.benkio.telegrambotinfrastructure.SBot
 
 object MainWebhook extends IOApp {
 

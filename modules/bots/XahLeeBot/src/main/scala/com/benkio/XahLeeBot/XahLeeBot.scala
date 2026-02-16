@@ -48,8 +48,8 @@ object XahLeeBot {
 
   def buildPollingBot[F[_]: Parallel: Async: Network](using log: LogWriter[F]): Resource[F, XahLeeBotPolling[F]] =
     for {
-      httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-      botSetup   <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
+      httpClient         <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+      botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
       messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](XahLeeBot.sBotConfig.repliesJsonFilename)
       )
@@ -60,7 +60,7 @@ object XahLeeBot {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
   )(using log: LogWriter[F]): Resource[F, XahLeeBotWebhook[F]] = for {
-    botSetup <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
+    botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
     messageRepliesData <- Resource.eval(
       botSetup.jsonDataRepository.loadData[ReplyBundleMessage](XahLeeBot.sBotConfig.repliesJsonFilename)
     )

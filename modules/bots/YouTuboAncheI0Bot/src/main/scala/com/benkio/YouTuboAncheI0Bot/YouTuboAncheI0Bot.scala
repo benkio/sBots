@@ -38,7 +38,12 @@ class YouTuboAncheI0BotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](sBotSetup, messageRepliesData, YouTuboAncheI0Bot.commandRepliesData(messageRepliesData), webhookCertificate) {
+) extends SBotWebhook[F](
+      sBotSetup,
+      messageRepliesData,
+      YouTuboAncheI0Bot.commandRepliesData(messageRepliesData),
+      webhookCertificate
+    ) {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
@@ -78,8 +83,8 @@ object YouTuboAncheI0Bot {
       log: LogWriter[F]
   ): Resource[F, YouTuboAncheI0BotPolling[F]] =
     for {
-      httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-      botSetup   <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
+      httpClient         <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+      botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
       messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
       )
@@ -95,7 +100,7 @@ object YouTuboAncheI0Bot {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
   )(using log: LogWriter[F]): Resource[F, YouTuboAncheI0BotWebhook[F]] = for {
-    botSetup <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
+    botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
     messageRepliesData <- Resource.eval(
       botSetup.jsonDataRepository.loadData[ReplyBundleMessage](YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
     )

@@ -49,7 +49,12 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage],
     webhookCertificate: Option[InputPartFile] = None
-) extends SBotWebhook[F](sBotSetup, messageRepliesData, RichardPHJBensonBot.commandRepliesData(messageRepliesData), webhookCertificate)
+) extends SBotWebhook[F](
+      sBotSetup,
+      messageRepliesData,
+      RichardPHJBensonBot.commandRepliesData(messageRepliesData),
+      webhookCertificate
+    )
     with RichardPHJBensonBot[F] {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
@@ -127,8 +132,8 @@ object RichardPHJBensonBot {
       log: LogWriter[F]
   ): Resource[F, RichardPHJBensonBotPolling[F]] =
     for {
-      httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-      botSetup   <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
+      httpClient         <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+      botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig)
       messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
       )
@@ -144,7 +149,7 @@ object RichardPHJBensonBot {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[InputPartFile] = None
   )(using log: LogWriter[F]): Resource[F, RichardPHJBensonBotWebhook[F]] = for {
-    botSetup <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
+    botSetup           <- BotSetup(httpClient = httpClient, sBotConfig = sBotConfig, webhookBaseUrl = webhookBaseUrl)
     messageRepliesData <- Resource.eval(
       botSetup.jsonDataRepository.loadData[ReplyBundleMessage](RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
     )
