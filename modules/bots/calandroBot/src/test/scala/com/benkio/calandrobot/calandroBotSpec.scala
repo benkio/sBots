@@ -24,24 +24,28 @@ import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 import munit.CatsEffectSuite
+import com.benkio.telegrambotinfrastructure.config.SBotConfig
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 
 class CalandroBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(CalandroBot.sBotConfig.sBotInfo.botId)
+  val sBotConfig :SBotConfig = SBot.buildSBotConfig(CalandroBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(sBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, botId) =>
-      IO.raiseUnless(botId == CalandroBot.sBotConfig.sBotInfo.botId)(
+      IO.raiseUnless(botId == sBotConfig.sBotInfo.botId)(
         Throwable(s"[CalandroBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
     getResourceFileHandler = (mediaFile: MediaFile) =>
       mediaFile match {
-        case Document(v, _) if v == CalandroBot.sBotConfig.repliesJsonFilename =>
+        case Document(v, _) if v == sBotConfig.repliesJsonFilename =>
           ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
         case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
       }
@@ -51,16 +55,16 @@ class CalandroBotSpec extends BaseBotSpec {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
-      sBotConfig = CalandroBot.sBotConfig,
-      ttl = CalandroBot.sBotConfig.messageTimeToLive
+      sBotConfig = sBotConfig,
+      ttl = sBotConfig.messageTimeToLive
     )
     messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      CalandroBot.sBotConfig.repliesJsonFilename
+      sBotConfig.repliesJsonFilename
     )
     commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      CalandroBot.sBotConfig.commandsJsonFilename
+      sBotConfig.commandsJsonFilename
     )
-  } yield new CalandroBotPolling[IO](
+  } yield new SBotPolling[IO](
     botSetup,
     messageRepliesData,
     commandRepliesData
@@ -105,7 +109,7 @@ class CalandroBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = CalandroBot.sBotConfig.triggerFilename,
+    triggerFilename = sBotConfig.triggerFilename,
     botMediaFiles =
       messageRepliesDataPrettyPrint.map(_.filterNot(x => excludeTriggers.exists(exc => x.startsWith(exc)))),
     botTriggersIO = messageRepliesDataTriggers
