@@ -12,7 +12,7 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
-import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.ISBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
 import fs2.io.net.Network
@@ -48,7 +48,7 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
 }
 
-trait M0sconiBot[F[_]] extends SBot[F] {
+trait M0sconiBot[F[_]] extends ISBot[F] {
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     M0sconiBot.commandRepliesData(messageRepliesData)

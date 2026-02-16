@@ -8,7 +8,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.ISBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
 import fs2.io.net.Network
@@ -33,7 +33,7 @@ class XahLeeBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
     with XahLeeBot[F] {}
 
-trait XahLeeBot[F[_]] extends SBot[F] {
+trait XahLeeBot[F[_]] extends ISBot[F] {
 
   override val commandRepliesData: List[ReplyBundleCommand] =
     XahLeeBot.commandRepliesData

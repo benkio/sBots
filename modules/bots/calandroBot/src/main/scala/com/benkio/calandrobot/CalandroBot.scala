@@ -9,7 +9,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
-import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.ISBot
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
 import fs2.io.net.Network
@@ -26,7 +26,7 @@ class CalandroBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val messageRepliesData: List[ReplyBundleMessage],
     override val commandRepliesData: List[ReplyBundleCommand]
 ) extends SBotPolling[F](sBotSetup)
-    with SBot[F] {}
+    with ISBot[F] {}
 
 class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
@@ -34,7 +34,7 @@ class CalandroBotWebhook[F[_]: Async: Api: LogWriter](
     override val commandRepliesData: List[ReplyBundleCommand],
     webhookCertificate: Option[InputPartFile] = None
 ) extends SBotWebhook[F](sBotSetup, webhookCertificate)
-    with SBot[F] {}
+    with ISBot[F] {}
 
 object CalandroBot {
 

@@ -25,7 +25,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.ISBot
 import com.benkio.xahleebot.XahLeeBot
 import com.benkio.xahleebot.XahLeeBotPolling
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
@@ -45,7 +45,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
 
   def mediaFilesFromBot(
       config: SBotConfig,
-      mkBot: (BotSetup[IO], List[ReplyBundleMessage], List[ReplyBundleCommand]) => SBot[IO]
+      mkBot: (BotSetup[IO], List[ReplyBundleMessage], List[ReplyBundleCommand]) => ISBot[IO]
   ): IO[List[MediaFile]] =
     BotSetupFixture
       .botSetupResource(initialFixture, config)

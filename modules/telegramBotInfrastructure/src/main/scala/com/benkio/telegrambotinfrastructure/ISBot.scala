@@ -25,7 +25,7 @@ import telegramium.bots.Message
 abstract class SBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F]
 ) extends LongPollBot[F](summon[Api[F]])
-    with SBot[F] {
+    with ISBot[F] {
   override def onMessage(msg: Message): F[Unit] = onMessageLogic(msg)
 }
 
@@ -38,11 +38,11 @@ abstract class SBotWebhook[F[_]: Async: Api: LogWriter](
       sBotSetup.webhookPath.renderString,
       certificate = webhookCertificate
     )
-    with SBot[F] {
+    with ISBot[F] {
   override def onMessage(msg: Message): F[Unit] = onMessageLogic(msg)
 }
 
-trait SBot[F[_]: Async: LogWriter] {
+trait ISBot[F[_]: Async: LogWriter] {
 
   val sBotSetup: BotSetup[F]
 

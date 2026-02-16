@@ -19,7 +19,7 @@ import telegramium.bots.Message
 
 import java.time.Instant
 
-class SBotSpec extends CatsEffectSuite {
+class ISBotSpec extends CatsEffectSuite {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
