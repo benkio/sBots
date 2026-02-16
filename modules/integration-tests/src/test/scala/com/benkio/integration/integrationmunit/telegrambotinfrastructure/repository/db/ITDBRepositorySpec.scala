@@ -4,7 +4,7 @@ import cats.data.NonEmptyList
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
-import com.benkio.calandrobot.CalandroBot
+import com.benkio.CalandroBot.CalandroBot
 import com.benkio.integration.DBFixture
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile

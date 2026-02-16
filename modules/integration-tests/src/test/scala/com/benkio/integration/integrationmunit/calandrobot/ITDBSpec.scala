@@ -1,12 +1,12 @@
-package com.benkio.integration.integrationmunit.calandrobot
+package com.benkio.integration.integrationmunit.Calandrobot
 
 import cats.effect.Async
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
 import cats.Parallel
-import com.benkio.calandrobot.CalandroBot
-import com.benkio.calandrobot.CalandroBotPolling
+import com.benkio.CalandroBot.CalandroBot
+import com.benkio.CalandroBot.CalandroBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
@@ -34,13 +34,13 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](CalandroBot.sBotConfig.commandsJsonFilename)
       )
-      calandroBot = new CalandroBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+      Calandrobot = new CalandroBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,
         log
       )
-      files      = calandroBot.messageRepliesData.flatMap(r => r.getMediaFiles)
+      files      = Calandrobot.messageRepliesData.flatMap(r => r.getMediaFiles)
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(
         files
@@ -70,7 +70,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](CalandroBot.sBotConfig.commandsJsonFilename)
       )
-      calandroBot = new CalandroBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+      Calandrobot = new CalandroBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,
@@ -78,7 +78,7 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
       )
       transactor = fixture.dbResources.transactor
       dbLayer <- fixture.dbResources.resourceDBLayer
-      files = calandroBot.commandRepliesData.flatMap(r => r.getMediaFiles)
+      files = Calandrobot.commandRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>

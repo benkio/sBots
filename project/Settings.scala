@@ -55,7 +55,7 @@ object Settings {
     name                     := "CalandroBot",
     libraryDependencies      := CalandroBotDependencies,
     dependencyOverrides      := CalandroBotDependencies,
-    mainClass                := Some("com.benkio.calandrobot.CalandroBotMainPolling"),
+    mainClass                := Some("com.benkio.CalandroBot.CalandroBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 
@@ -63,7 +63,7 @@ object Settings {
     name                     := "ABarberoBot",
     libraryDependencies      := ABarberoBotDependencies,
     dependencyOverrides      := ABarberoBotDependencies,
-    mainClass                := Some("com.benkio.abarberobot.ABarberoBotMainPolling"),
+    mainClass                := Some("com.benkio.ABarberoBot.ABarberoBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 

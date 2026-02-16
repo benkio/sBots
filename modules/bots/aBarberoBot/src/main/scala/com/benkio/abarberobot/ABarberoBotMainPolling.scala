@@ -1,4 +1,4 @@
-package com.benkio.abarberobot
+package com.benkio.ABarberoBot
 
 import cats.effect.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

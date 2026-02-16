@@ -1,4 +1,4 @@
-package com.benkio.abarberobot
+package com.benkio.ABarberoBot
 
 import cats.data.NonEmptyList
 import cats.effect.Async
@@ -46,7 +46,7 @@ class ABarberoBotSpec extends BaseBotSpec {
       }
   )
 
-  val aBarberoBot = for {
+  val aBarberoBot: IO[ABarberoBotPolling[IO]] = for {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
@@ -76,7 +76,7 @@ class ABarberoBotSpec extends BaseBotSpec {
   triggerlistCommandTest(
     commandRepliesData = commandRepliesData,
     expectedReply =
-      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/aBarberoBot/abar_triggers.txt"
+      "Puoi trovare la lista dei trigger al seguente URL: https://github.com/benkio/sBots/blob/main/modules/bots/ABarberoBot/abar_triggers.txt"
   )
 
   test("ABarberoBot should contain the expected number of commands") {

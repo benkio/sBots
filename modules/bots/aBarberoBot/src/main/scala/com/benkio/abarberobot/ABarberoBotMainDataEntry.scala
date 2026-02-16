@@ -1,4 +1,4 @@
-package com.benkio.abarberobot
+package com.benkio.ABarberoBot
 
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.dataentry.DataEntry

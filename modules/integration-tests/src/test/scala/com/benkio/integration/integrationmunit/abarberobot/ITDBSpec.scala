@@ -1,12 +1,12 @@
-package com.benkio.integration.integrationmunit.abarberobot
+package com.benkio.integration.integrationmunit.ABarberoBot
 
 import cats.effect.Async
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
 import cats.Parallel
-import com.benkio.abarberobot.ABarberoBot
-import com.benkio.abarberobot.ABarberoBotPolling
+import com.benkio.ABarberoBot.ABarberoBot
+import com.benkio.ABarberoBot.ABarberoBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
@@ -28,13 +28,13 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
       messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
       )
-      aBarberoBot = new ABarberoBotPolling[IO](botSetup, messageRepliesData)(using
+      ABarberoBot = new ABarberoBotPolling[IO](botSetup, messageRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,
         log
       )
-      files      = aBarberoBot.messageRepliesData.flatMap(r => r.getMediaFiles)
+      files      = ABarberoBot.messageRepliesData.flatMap(r => r.getMediaFiles)
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(
         files

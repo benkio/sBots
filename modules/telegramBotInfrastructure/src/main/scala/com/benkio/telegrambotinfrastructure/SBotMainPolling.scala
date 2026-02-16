@@ -1,4 +1,4 @@
-package com.benkio.calandrobot
+package com.benkio.CalandroBot
 
 import cats.effect.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

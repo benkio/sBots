@@ -6,10 +6,10 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
 import cats.Parallel
-import com.benkio.abarberobot.ABarberoBot
-import com.benkio.abarberobot.ABarberoBotPolling
-import com.benkio.calandrobot.CalandroBot
-import com.benkio.calandrobot.CalandroBotPolling
+import com.benkio.ABarberoBot.ABarberoBot
+import com.benkio.ABarberoBot.ABarberoBotPolling
+import com.benkio.CalandroBot.CalandroBot
+import com.benkio.CalandroBot.CalandroBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources

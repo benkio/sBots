@@ -1,4 +1,4 @@
-package com.benkio.calandrobot
+package com.benkio.CalandroBot
 
 import cats.data.NonEmptyList
 import cats.effect.Async
@@ -51,7 +51,7 @@ class CalandroBotSpec extends BaseBotSpec {
       }
   )
 
-  val calandroBot = for {
+  val Calandrobot = for {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
@@ -71,10 +71,10 @@ class CalandroBotSpec extends BaseBotSpec {
   )(using Parallel[IO], Async[IO], botSetup.api, log)
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
-    calandroBot
+    Calandrobot
       .map(ab => ab.messageRepliesData)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
-    calandroBot
+    Calandrobot
       .map(_.allCommandRepliesData)
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint))

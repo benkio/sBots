@@ -1,4 +1,4 @@
-package com.benkio.calandrobot
+package com.benkio.CalandroBot
 
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId

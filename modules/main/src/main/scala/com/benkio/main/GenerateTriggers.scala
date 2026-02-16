@@ -7,8 +7,8 @@ import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.abarberobot.ABarberoBot
-import com.benkio.calandrobot.CalandroBot
+import com.benkio.ABarberoBot.ABarberoBot
+import com.benkio.CalandroBot.CalandroBot
 import com.benkio.m0sconibot.M0sconiBot
 import com.benkio.richardphjbensonbot.RichardPHJBensonBot
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
@@ -221,12 +221,12 @@ object GenerateTriggers extends IOApp {
         calandroSetup.jsonDataRepository.loadData[ReplyBundleMessage](CalandroBot.sBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/calandroBot/",
+        botModuleRelativeFolderPath = "../bots/CalandroBot/",
         triggerFilename = CalandroBot.sBotConfig.triggerFilename,
         triggers = calandroData
       )
       //     _ <- generateTriggersJsonFile(
-      //       botModuleRelativeFolderPath = "../bots/calandroBot/src/main/resources",
+      //       botModuleRelativeFolderPath = "../bots/CalandroBot/src/main/resources",
       //     commandsJsonFilename = CalandroBot.sBotConfig.commandsJsonFilename,
       //     commands = CalandroBot.commandRepliesData
       // )
@@ -236,7 +236,7 @@ object GenerateTriggers extends IOApp {
         aBarberoSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/aBarberoBot/",
+        botModuleRelativeFolderPath = "../bots/ABarberoBot/",
         triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
         triggers = aBarberoData
       )
