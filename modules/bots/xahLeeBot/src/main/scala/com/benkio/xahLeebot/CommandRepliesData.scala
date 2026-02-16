@@ -1,4 +1,4 @@
-package com.benkio.xahleebot
+package com.benkio.XahLeeBot
 
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData

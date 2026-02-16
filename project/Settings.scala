@@ -79,7 +79,7 @@ object Settings {
     name                     := "XahLeeBot",
     libraryDependencies      := XahLeeBotDependencies,
     dependencyOverrides      := XahLeeBotDependencies,
-    mainClass                := Some("com.benkio.xahleebot.XahLeeBotMainPolling"),
+    mainClass                := Some("com.benkio.XahLeeBot.XahLeeBotMainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 

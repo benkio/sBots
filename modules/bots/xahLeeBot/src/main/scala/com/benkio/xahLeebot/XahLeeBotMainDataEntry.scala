@@ -1,4 +1,4 @@
-package com.benkio.xahleebot
+package com.benkio.XahLeeBot
 
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.dataentry.DataEntry

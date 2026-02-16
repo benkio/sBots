@@ -4,7 +4,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
-import com.benkio.xahleebot.XahLeeBot
+import com.benkio.XahLeeBot.XahLeeBot
 import munit.CatsEffectSuite
 
 class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {

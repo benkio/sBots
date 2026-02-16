@@ -1,9 +1,10 @@
-package com.benkio.xahleebot
+package com.benkio.XahLeeBot
 
 import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
 import cats.Parallel
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
@@ -31,12 +32,17 @@ class XahLeeBotSpec extends BaseBotSpec {
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
-  val xahLeeBot = buildTestBotSetup(
-    repository = repositoryMock,
-    dbLayer = emptyDBLayer,
-    sBotConfig = XahLeeBot.sBotConfig,
-    ttl = XahLeeBot.sBotConfig.messageTimeToLive
-  ).map(botSetup => new XahLeeBotPolling[IO](botSetup, List.empty)(using Parallel[IO], Async[IO], botSetup.api, log))
+  val xahLeeBot: IO[XahLeeBotPolling[IO]] = for {
+    botSetup <- buildTestBotSetup(
+      repository = repositoryMock,
+      dbLayer = emptyDBLayer,
+      sBotConfig = XahLeeBot.sBotConfig,
+      ttl = XahLeeBot.sBotConfig.messageTimeToLive
+    )
+    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
+      XahLeeBot.sBotConfig.repliesJsonFilename
+    )
+  } yield new XahLeeBotPolling[IO](botSetup, messageRepliesData)(using Parallel[IO], Async[IO], botSetup.api, log)
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     xahLeeBot.map(_.allCommandRepliesData)

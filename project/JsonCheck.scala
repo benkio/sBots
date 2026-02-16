@@ -10,8 +10,8 @@ object JsonCheck {
     "modules/bots/m0sconiBot/mos_list.json",
     "modules/bots/richardPHJBensonBot/bensonShows.json",
     "modules/bots/richardPHJBensonBot/rphjb_list.json",
-    "modules/bots/xahLeeBot/xahShows.json",
-    "modules/bots/xahLeeBot/xah_list.json",
+    "modules/bots/XahLeeBot/xahShows.json",
+    "modules/bots/XahLeeBot/xah_list.json",
     "modules/bots/youTuboAncheI0Bot/youtuboShows.json",
     "modules/bots/youTuboAncheI0Bot/ytai_list.json",
 

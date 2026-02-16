@@ -7,7 +7,7 @@ import com.benkio.ABarberoBot.ABarberoBotMainPolling
 import com.benkio.CalandroBot.CalandroBotMainPolling
 import com.benkio.M0sconiBot.M0sconiBotMainPolling
 import com.benkio.richardphjbensonbot.RichardPHJBensonBotMainPolling
-import com.benkio.xahleebot.XahLeeBotMainPolling
+import com.benkio.XahLeeBot.XahLeeBotMainPolling
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotMainPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels

@@ -1,4 +1,4 @@
-package com.benkio.xahleebot
+package com.benkio.XahLeeBot
 
 import cats.effect.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

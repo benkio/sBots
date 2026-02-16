@@ -26,8 +26,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.ISBot
-import com.benkio.xahleebot.XahLeeBot
-import com.benkio.xahleebot.XahLeeBotPolling
+import com.benkio.XahLeeBot.XahLeeBot
+import com.benkio.XahLeeBot.XahLeeBotPolling
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0Bot
 import com.benkio.youtuboanchei0bot.YouTuboAncheI0BotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -106,7 +106,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       xahLeeFiles <- Resource.eval(
         mediaFilesFromBot(
           XahLeeBot.sBotConfig,
-          (setup, _, _) => new XahLeeBotPolling[IO](setup, List.empty)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, _) => new XahLeeBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       allFiles = (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ xahLeeFiles)

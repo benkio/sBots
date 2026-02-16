@@ -12,8 +12,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
-import com.benkio.xahleebot.XahLeeBot
-import com.benkio.xahleebot.XahLeeBotPolling
+import com.benkio.XahLeeBot.XahLeeBot
+import com.benkio.XahLeeBot.XahLeeBotPolling
 import doobie.implicits.*
 import io.circe.parser.decode
 import munit.CatsEffectSuite
@@ -32,7 +32,10 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
   ) { fixture =>
     val resourceAssert = for {
       botSetup <- fixture.botSetupResource
-      xahLeeBot = new XahLeeBotPolling[IO](botSetup, List.empty[ReplyBundleMessage])(using
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](XahLeeBot.sBotConfig.repliesJsonFilename)
+      )
+      xahLeeBot = new XahLeeBotPolling[IO](botSetup, messageRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,
@@ -68,7 +71,10 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
     val resourceAssert = for {
       botSetup <- fixture.botSetupResource
-      xahLeeBot = new XahLeeBotPolling[IO](botSetup, List.empty[ReplyBundleMessage])(using
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](XahLeeBot.sBotConfig.repliesJsonFilename)
+      )
+      xahLeeBot = new XahLeeBotPolling[IO](botSetup, messageRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,
