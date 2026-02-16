@@ -7,7 +7,7 @@ object JsonCheck {
     "modules/bots/ABarberoBot/abar_list.json",
     "modules/bots/ABarberoBot/barberoShows.json",
     "modules/bots/CalandroBot/cala_list.json",
-    "modules/bots/m0sconiBot/mos_list.json",
+    "modules/bots/M0sconiBot/mos_list.json",
     "modules/bots/RichardPHJBensonBot/bensonShows.json",
     "modules/bots/RichardPHJBensonBot/rphjb_list.json",
     "modules/bots/XahLeeBot/xahShows.json",
@@ -16,7 +16,7 @@ object JsonCheck {
     "modules/bots/YouTuboAncheI0Bot/ytai_list.json",
 
     "modules/bots/CalandroBot/src/main/resources/cala_replies.json",
-    "modules/bots/m0sconiBot/src/main/resources/mos_replies.json",
+    "modules/bots/M0sconiBot/src/main/resources/mos_replies.json",
     "modules/bots/ABarberoBot/src/main/resources/abar_replies.json",
     "modules/bots/YouTuboAncheI0Bot/src/main/resources/ytai_replies.json",
     "modules/bots/RichardPHJBensonBot/src/main/resources/rphjb_replies.json",
