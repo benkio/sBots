@@ -249,11 +249,6 @@ object GenerateTriggers extends IOApp {
         triggerFilename = xahSBotConfig.triggerFilename,
         triggers = xahLeeData
       )
-      // _ <- generateTriggersJsonFile(
-      //       botModuleRelativeFolderPath = "../bots/XahLeeBot/src/main/resources",
-      //     commandsJsonFilename = XahLeeBot.sBotConfig.commandsJsonFilename,
-      //     commands = XahLeeBot.commandRepliesData
-      // )
       m0sconiSetup <- Resource.eval(forTriggerGeneration(M0sconiBot.sBotConfig)(using log))
       m0sconiData  <- Resource.eval(
         m0sconiSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)
@@ -263,6 +258,11 @@ object GenerateTriggers extends IOApp {
         triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
         triggers = m0sconiData
       )
+      // _ <- generateTriggersJsonFile(
+      //       botModuleRelativeFolderPath = "../bots/M0sconiBot/src/main/resources",
+      //     commandsJsonFilename = M0sconiBot.sBotConfig.commandsJsonFilename,
+      //     commands = M0sconiBot.commandRepliesData
+      // )
       richardSetup <- Resource.eval(forTriggerGeneration(RichardPHJBensonBot.sBotConfig)(using log))
       richardData  <- Resource.eval(
         richardSetup.jsonDataRepository
