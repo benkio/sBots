@@ -221,6 +221,7 @@ object GenerateTriggers extends IOApp {
     val abarSBotConfig       = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
     val xahSBotConfig        = SBot.buildSBotConfig(XahLeeBot.sBotInfo)
     val m0sconiSBotConfig    = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
+    val ytaiSBotConfig       = SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo)
     (for {
       calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(
@@ -259,10 +260,20 @@ object GenerateTriggers extends IOApp {
         triggerFilename = m0sconiSBotConfig.triggerFilename,
         triggers = m0sconiData
       )
+      youTuboSetup <- Resource.eval(forTriggerGeneration(ytaiSBotConfig)(using log))
+      youTuboData  <- Resource.eval(
+        youTuboSetup.jsonDataRepository
+          .loadData[ReplyBundleMessage](ytaiSBotConfig.repliesJsonFilename)
+      )
+      _ <- generateTriggerFile(
+        botModuleRelativeFolderPath = "../bots/YouTuboAncheI0Bot/",
+        triggerFilename = ytaiSBotConfig.triggerFilename,
+        triggers = youTuboData
+      )
       // _ <- generateTriggersJsonFile(
-      //       botModuleRelativeFolderPath = "../bots/M0sconiBot/src/main/resources",
-      //     commandsJsonFilename = M0sconiBot.sBotConfig.commandsJsonFilename,
-      //     commands = M0sconiBot.commandRepliesData
+      //       botModuleRelativeFolderPath = "../bots/YouTuboAncheI0Bot/src/main/resources",
+      //     commandsJsonFilename = YouTuboAncheI0Bot.sBotConfig.commandsJsonFilename,
+      //     commands = YouTuboAncheI0Bot.commandRepliesData
       // )
       richardSetup <- Resource.eval(forTriggerGeneration(RichardPHJBensonBot.sBotConfig)(using log))
       richardData  <- Resource.eval(
@@ -274,16 +285,7 @@ object GenerateTriggers extends IOApp {
         triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
         triggers = richardData
       )
-      youTuboSetup <- Resource.eval(forTriggerGeneration(YouTuboAncheI0Bot.sBotConfig)(using log))
-      youTuboData  <- Resource.eval(
-        youTuboSetup.jsonDataRepository
-          .loadData[ReplyBundleMessage](YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
-      )
-      _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/YouTuboAncheI0Bot/",
-        triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
-        triggers = youTuboData
-      )
+
     } yield ExitCode.Success).use(_.pure)
   }
 

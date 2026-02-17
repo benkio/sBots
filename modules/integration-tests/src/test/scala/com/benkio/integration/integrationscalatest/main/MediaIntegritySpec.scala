@@ -27,7 +27,6 @@ import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotPolling
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
-import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -57,9 +56,9 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
             CalandroBot.sBotInfo.botId,
             ABarberoBot.sBotInfo.botId,
             XahLeeBot.sBotInfo.botId,
-            M0sconiBot.sBotInfo.botId
-          )
-            .contains(config.sBotInfo.botId)
+            M0sconiBot.sBotInfo.botId,
+            YouTuboAncheI0Bot.sBotInfo.botId
+          ).contains(config.sBotInfo.botId)
           then setup.jsonDataRepository.loadData[ReplyBundleCommand](config.commandsJsonFilename)
           else IO.pure(List.empty[ReplyBundleCommand])
         (messageRepliesData, commandRepliesData).tupled.map { case (msgData, cmdData) =>
@@ -102,9 +101,9 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       )
       youTuboFiles <- Resource.eval(
         mediaFilesFromBot(
-          YouTuboAncheI0Bot.sBotConfig,
-          (setup, msgData, _) =>
-            new YouTuboAncheI0BotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
+          SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo),
+          (setup, msgData, cmdData) =>
+            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       xahLeeFiles <- Resource.eval(
