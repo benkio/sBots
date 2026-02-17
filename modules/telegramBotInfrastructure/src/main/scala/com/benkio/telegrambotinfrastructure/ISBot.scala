@@ -67,18 +67,20 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
 
-  val fixedCommands: List[ReplyBundleCommand] =
-    CommandPatternsGroup.TriggerGroup.group(
-      triggerFileUri = sBotConfig.triggerListUri,
-      sBotInfo = sBotConfig.sBotInfo,
-      messageRepliesData = messageRepliesData,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
-    ) :+
-      InstructionsCommand.instructionsReplyBundleCommand(
+  lazy val fixedCommands: List[ReplyBundleCommand] = {
+    val commandsPattersGroup =
+      CommandPatternsGroup.TriggerGroup.group(
+        triggerFileUri = sBotConfig.triggerListUri,
         sBotInfo = sBotConfig.sBotInfo,
-        commands = commandRepliesData,
+        messageRepliesData = messageRepliesData,
         ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
       )
+    commandsPattersGroup :+ InstructionsCommand.instructionsReplyBundleCommand(
+      sBotInfo = sBotConfig.sBotInfo,
+      commands = commandRepliesData ++ commandsPattersGroup,
+      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+    )
+  }
 
   lazy val allCommandRepliesData: List[ReplyBundleCommand] =
     commandRepliesData ++ fixedCommands
