@@ -23,8 +23,9 @@ object MainWebhook extends IOApp {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
     def server(mainSetup: MainSetup[IO]): Resource[IO, Server] = for {
-      xahWebhook <- XahLeeBot.buildWebhookBot[IO](
+      xahWebhook <- SBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,
+        sBotInfo = XahLeeBot.sBotInfo,
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )

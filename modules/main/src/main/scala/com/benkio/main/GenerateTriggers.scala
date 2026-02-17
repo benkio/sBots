@@ -27,6 +27,7 @@ import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -218,6 +219,7 @@ object GenerateTriggers extends IOApp {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
     val calaSBotConfig       = SBot.buildSBotConfig(CalandroBot.sBotInfo)
     val abarSBotConfig       = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
+    val xahSBotConfig        = SBot.buildSBotConfig(XahLeeBot.sBotInfo)
     (for {
       calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(
@@ -237,10 +239,20 @@ object GenerateTriggers extends IOApp {
         triggerFilename = abarSBotConfig.triggerFilename,
         triggers = aBarberoData
       )
+
+      xahLeeSetup <- Resource.eval(forTriggerGeneration(xahSBotConfig)(using log))
+      xahLeeData  <- Resource.eval(
+        xahLeeSetup.jsonDataRepository.loadData[ReplyBundleMessage](xahSBotConfig.repliesJsonFilename)
+      )
+      _ <- generateTriggerFile(
+        botModuleRelativeFolderPath = "../bots/XahLeeBot/",
+        triggerFilename = xahSBotConfig.triggerFilename,
+        triggers = xahLeeData
+      )
       // _ <- generateTriggersJsonFile(
-      //       botModuleRelativeFolderPath = "../bots/ABarberoBot/src/main/resources",
-      //     commandsJsonFilename = ABarberoBot.sBotConfig.commandsJsonFilename,
-      //     commands = ABarberoBot.commandRepliesData
+      //       botModuleRelativeFolderPath = "../bots/XahLeeBot/src/main/resources",
+      //     commandsJsonFilename = XahLeeBot.sBotConfig.commandsJsonFilename,
+      //     commands = XahLeeBot.commandRepliesData
       // )
       m0sconiSetup <- Resource.eval(forTriggerGeneration(M0sconiBot.sBotConfig)(using log))
       m0sconiData  <- Resource.eval(

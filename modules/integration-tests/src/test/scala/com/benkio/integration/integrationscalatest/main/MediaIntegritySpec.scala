@@ -27,7 +27,6 @@ import com.benkio.M0sconiBot.M0sconiBotPolling
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotPolling
 import com.benkio.XahLeeBot.XahLeeBot
-import com.benkio.XahLeeBot.XahLeeBotPolling
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -51,11 +50,13 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       .botSetupResource(initialFixture, config)
       .use { setup =>
         val messageRepliesData =
-          if config.sBotInfo.botId == XahLeeBot.sBotConfig.sBotInfo.botId then IO.pure(List.empty[ReplyBundleMessage])
+          if config.sBotInfo.botId == XahLeeBot.sBotInfo.botId then IO.pure(List.empty[ReplyBundleMessage])
           else
             setup.jsonDataRepository.loadData[ReplyBundleMessage](config.repliesJsonFilename)
         val commandRepliesData =
-          if List(CalandroBot.sBotInfo.botId, ABarberoBot.sBotInfo.botId).contains(config.sBotInfo.botId)
+          if List(CalandroBot.sBotInfo.botId, ABarberoBot.sBotInfo.botId, XahLeeBot.sBotInfo.botId).contains(
+            config.sBotInfo.botId
+          )
           then setup.jsonDataRepository.loadData[ReplyBundleCommand](config.commandsJsonFilename)
           else IO.pure(List.empty[ReplyBundleCommand])
         (messageRepliesData, commandRepliesData).tupled.map { case (msgData, cmdData) =>
@@ -105,8 +106,9 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       )
       xahLeeFiles <- Resource.eval(
         mediaFilesFromBot(
-          XahLeeBot.sBotConfig,
-          (setup, msgData, _) => new XahLeeBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
+          SBot.buildSBotConfig(XahLeeBot.sBotInfo),
+          (setup, msgData, cmdData) =>
+            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       allFiles = (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ xahLeeFiles)
