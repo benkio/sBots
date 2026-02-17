@@ -217,6 +217,7 @@ object GenerateTriggers extends IOApp {
   def run(args: List[String]): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
     val calaSBotConfig       = SBot.buildSBotConfig(CalandroBot.sBotInfo)
+    val abarSBotConfig       = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
     (for {
       calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(
@@ -227,21 +228,20 @@ object GenerateTriggers extends IOApp {
         triggerFilename = calaSBotConfig.triggerFilename,
         triggers = calandroData
       )
-      //     _ <- generateTriggersJsonFile(
-      //       botModuleRelativeFolderPath = "../bots/CalandroBot/src/main/resources",
-      //     commandsJsonFilename = CalandroBot.sBotConfig.commandsJsonFilename,
-      //     commands = CalandroBot.commandRepliesData
-      // )
-
-      aBarberoSetup <- Resource.eval(forTriggerGeneration(ABarberoBot.sBotConfig)(using log))
+      aBarberoSetup <- Resource.eval(forTriggerGeneration(abarSBotConfig)(using log))
       aBarberoData  <- Resource.eval(
-        aBarberoSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
+        aBarberoSetup.jsonDataRepository.loadData[ReplyBundleMessage](abarSBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/ABarberoBot/",
-        triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
+        triggerFilename = abarSBotConfig.triggerFilename,
         triggers = aBarberoData
       )
+      // _ <- generateTriggersJsonFile(
+      //       botModuleRelativeFolderPath = "../bots/ABarberoBot/src/main/resources",
+      //     commandsJsonFilename = ABarberoBot.sBotConfig.commandsJsonFilename,
+      //     commands = ABarberoBot.commandRepliesData
+      // )
       m0sconiSetup <- Resource.eval(forTriggerGeneration(M0sconiBot.sBotConfig)(using log))
       m0sconiData  <- Resource.eval(
         m0sconiSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)

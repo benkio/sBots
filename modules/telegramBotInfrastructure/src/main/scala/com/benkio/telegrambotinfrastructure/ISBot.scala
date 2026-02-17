@@ -15,6 +15,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
@@ -66,14 +67,23 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
 
-  lazy val allCommandRepliesData: List[ReplyBundleCommand] = {
-    val instructionsCmd = InstructionsCommand.instructionsReplyBundleCommand(
+  lazy val fixedCommands: List[ReplyBundleCommand] = {
+    val commandsPattersGroup =
+      CommandPatternsGroup.TriggerGroup.group(
+        triggerFileUri = sBotConfig.triggerListUri,
+        sBotInfo = sBotConfig.sBotInfo,
+        messageRepliesData = messageRepliesData,
+        ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+      )
+    commandsPattersGroup :+ InstructionsCommand.instructionsReplyBundleCommand(
       sBotInfo = sBotConfig.sBotInfo,
-      commands = commandRepliesData,
+      commands = commandRepliesData ++ commandsPattersGroup,
       ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
     )
-    commandRepliesData :+ instructionsCmd
   }
+
+  lazy val allCommandRepliesData: List[ReplyBundleCommand] =
+    commandRepliesData ++ fixedCommands
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 

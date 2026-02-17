@@ -19,6 +19,8 @@ import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -26,37 +28,45 @@ import munit.CatsEffectSuite
 
 class ABarberoBotSpec extends BaseBotSpec {
 
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ABarberoBot.sBotConfig.sBotInfo.botId)
+  given log: LogWriter[IO]                  = consoleLogUpToLevel(LogLevels.Info)
+  val abarSBotConfig                        = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(abarSBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, botId) =>
-      IO.raiseUnless(botId == ABarberoBot.sBotConfig.sBotInfo.botId)(
+      IO.raiseUnless(botId == abarSBotConfig.sBotInfo.botId)(
         Throwable(s"[ABarberoBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
     getResourceFileHandler = (mediaFile: MediaFile) =>
       mediaFile match {
-        case Document(v, _) if v == ABarberoBot.sBotConfig.repliesJsonFilename =>
+        case Document(v, _) if v == abarSBotConfig.repliesJsonFilename =>
           ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
         case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
       }
   )
 
-  val aBarberoBot: IO[ABarberoBotPolling[IO]] = for {
+  val aBarberoBot: IO[SBotPolling[IO]] = for {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
-      sBotConfig = ABarberoBot.sBotConfig,
-      ttl = ABarberoBot.sBotConfig.messageTimeToLive
+      sBotConfig = abarSBotConfig,
+      ttl = abarSBotConfig.messageTimeToLive
     )
     messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      ABarberoBot.sBotConfig.repliesJsonFilename
+      abarSBotConfig.repliesJsonFilename
     )
-  } yield new ABarberoBotPolling[IO](botSetup, messageRepliesData)(using Parallel[IO], Async[IO], botSetup.api, log)
+    messageCommandData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
+      abarSBotConfig.commandsJsonFilename
+    )
+  } yield new SBotPolling[IO](botSetup, messageRepliesData, messageCommandData)(using
+    Parallel[IO],
+    Async[IO],
+    botSetup.api,
+    log
+  )
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
     aBarberoBot.map(_.messageRepliesData)
@@ -93,7 +103,7 @@ class ABarberoBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = ABarberoBot.sBotConfig.triggerFilename,
+    triggerFilename = abarSBotConfig.triggerFilename,
     botMediaFiles = messageRepliesDataPrettyPrint,
     botTriggersIO = messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   )
@@ -108,10 +118,6 @@ class ABarberoBotSpec extends BaseBotSpec {
         |
         |I comandi del bot sono:
         |
-        |- '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
-        |- '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
-        |- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
-        |- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
         |- '/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
         |Input come query string:
         |  - No input: restituisce uno show random
@@ -128,6 +134,10 @@ class ABarberoBotSpec extends BaseBotSpec {
         |- '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input
         |- '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
         |- '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
+        |- '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
+        |- '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
+        |- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
+        |- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
         |
         |Se si vuole disabilitare il bot per un particolare messaggio impedendo
         |che interagisca, è possibile farlo iniziando il messaggio con il
@@ -143,10 +153,6 @@ class ABarberoBotSpec extends BaseBotSpec {
         |
         |Bot commands are:
         |
-        |- '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
-        |- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
-        |- '/toptwenty': Return a list of files and theirs send frequency
-        |- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
         |- '/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
         |Input as query string:
         |  - No input: returns a random show
@@ -163,6 +169,10 @@ class ABarberoBotSpec extends BaseBotSpec {
         |- '/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted
         |- '/subscriptions': Return the amout of subscriptions for the current chat
         |- '/random': Returns a random data (photo/video/audio/text) about the bot character
+        |- '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
+        |- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
+        |- '/toptwenty': Return a list of files and theirs send frequency
+        |- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
         |
         |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
         |character: `!`

@@ -142,10 +142,6 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         |
         |I comandi del bot sono:
         |
-        |- '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
-        |- '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
-        |- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
-        |- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
         |- '/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
         |Input come query string:
         |  - No input: restituisce uno show random
@@ -163,6 +159,10 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         |- '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
         |- '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
         |- '/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio
+        |- '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
+        |- '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
+        |- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
+        |- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
         |
         |Se si vuole disabilitare il bot per un particolare messaggio impedendo
         |che interagisca, è possibile farlo iniziando il messaggio con il
@@ -178,10 +178,6 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         |
         |Bot commands are:
         |
-        |- '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
-        |- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
-        |- '/toptwenty': Return a list of files and theirs send frequency
-        |- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
         |- '/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
         |Input as query string:
         |  - No input: returns a random show
@@ -199,6 +195,10 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         |- '/subscriptions': Return the amout of subscriptions for the current chat
         |- '/random': Returns a random data (photo/video/audio/text) about the bot character
         |- '/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory
+        |- '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
+        |- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
+        |- '/toptwenty': Return a list of files and theirs send frequency
+        |- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
         |
         |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
         |character: `!`

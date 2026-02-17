@@ -1,22 +1,14 @@
 package com.benkio.ABarberoBot
 
 import cats.effect.*
-import com.benkio.telegrambotinfrastructure.dataentry.DataEntry
-
-import java.nio.file.Paths
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotDataEntry
 
 object ABarberoBotMainDataEntry extends IOApp {
 
-  val abarListFilename     = "abar_list.json"
-  val abarListFileResource =
-    Resource.make(IO.delay(scala.io.Source.fromFile(abarListFilename)))(bufferedSorce => IO.delay(bufferedSorce.close))
-
-  def mainLogic(args: List[String]): IO[String] =
-    DataEntry
-      .dataEntryLogic(args, abarListFileResource, Paths.get(abarListFilename))
-
   def run(args: List[String]): IO[ExitCode] =
-    mainLogic(args)
+    SBotDataEntry
+      .run(args, SBot.buildSBotConfig(ABarberoBot.sBotInfo))
       .flatMap(IO.println(_))
       .as(ExitCode.Success)
 }

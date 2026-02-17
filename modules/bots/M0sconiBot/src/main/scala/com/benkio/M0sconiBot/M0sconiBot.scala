@@ -11,7 +11,6 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.RandomDataCommand
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.telegrambotinfrastructure.SBotWebhook
@@ -27,7 +26,7 @@ import telegramium.bots.Message
 class M0sconiBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage]
-) extends SBotPolling[F](sBotSetup, messageRepliesData, M0sconiBot.commandRepliesData(messageRepliesData)) {
+) extends SBotPolling[F](sBotSetup, messageRepliesData, M0sconiBot.commandRepliesData) {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
@@ -41,7 +40,7 @@ class M0sconiBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](
       sBotSetup,
       messageRepliesData,
-      M0sconiBot.commandRepliesData(messageRepliesData),
+      M0sconiBot.commandRepliesData,
       webhookCertificate
     ) {
   override def postComputation: Message => F[Unit] =
@@ -60,22 +59,17 @@ object M0sconiBot {
     triggerFilename = triggerFilename,
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/M0sconiBot/mos_triggers.txt",
     token = tokenFilename,
+    listJsonFilename = "mos_list.json",
     repliesJsonFilename = "mos_replies.json",
     commandsJsonFilename = "mos_commands.json"
   )
 
-  def commandRepliesData(messageRepliesData: List[ReplyBundleMessage]): List[ReplyBundleCommand] =
-    CommandPatternsGroup.TriggerGroup.group(
-      triggerFileUri = sBotConfig.triggerListUri,
-      sBotInfo = sBotConfig.sBotInfo,
-      messageRepliesData = messageRepliesData,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
-    ) ++
-      List(
-        RandomDataCommand.randomDataReplyBundleCommand(
-          sBotInfo = sBotConfig.sBotInfo
-        )
+  val commandRepliesData: List[ReplyBundleCommand] =
+    List(
+      RandomDataCommand.randomDataReplyBundleCommand(
+        sBotInfo = sBotConfig.sBotInfo
       )
+    )
 
   def buildPollingBot[F[_]: Parallel: Async: Network](using log: LogWriter[F]): Resource[F, M0sconiBotPolling[F]] =
     for {
