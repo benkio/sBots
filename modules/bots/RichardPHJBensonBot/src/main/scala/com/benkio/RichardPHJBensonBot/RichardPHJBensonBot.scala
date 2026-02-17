@@ -37,7 +37,7 @@ import telegramium.bots.Message
 class RichardPHJBensonBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage]
-) extends SBotPolling[F](sBotSetup, messageRepliesData, RichardPHJBensonBot.commandRepliesData(messageRepliesData))
+) extends SBotPolling[F](sBotSetup, messageRepliesData, RichardPHJBensonBot.commandRepliesData)
     with RichardPHJBensonBot[F] {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
@@ -52,7 +52,7 @@ class RichardPHJBensonBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](
       sBotSetup,
       messageRepliesData,
-      RichardPHJBensonBot.commandRepliesData(messageRepliesData),
+      RichardPHJBensonBot.commandRepliesData,
       webhookCertificate
     )
     with RichardPHJBensonBot[F] {
@@ -102,16 +102,10 @@ object RichardPHJBensonBot {
   val bensonifyCommandDescriptionEng: String =
     s"'/$bensonifyKey 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
 
-  def commandRepliesData(messageRepliesData: List[ReplyBundleMessage]): List[ReplyBundleCommand] =
-    CommandPatternsGroup.TriggerGroup.group(
-      triggerFileUri = sBotConfig.triggerListUri,
-      sBotInfo = sBotConfig.sBotInfo,
-      messageRepliesData = messageRepliesData,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+  val commandRepliesData: List[ReplyBundleCommand] =
+    CommandPatternsGroup.ShowGroup.group(
+      sBotInfo = sBotConfig.sBotInfo
     ) ++
-      CommandPatternsGroup.ShowGroup.group(
-        sBotInfo = sBotConfig.sBotInfo
-      ) ++
       List(
         RandomDataCommand.randomDataReplyBundleCommand(
           sBotInfo = sBotConfig.sBotInfo
