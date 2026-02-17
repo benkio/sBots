@@ -220,6 +220,7 @@ object GenerateTriggers extends IOApp {
     val calaSBotConfig       = SBot.buildSBotConfig(CalandroBot.sBotInfo)
     val abarSBotConfig       = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
     val xahSBotConfig        = SBot.buildSBotConfig(XahLeeBot.sBotInfo)
+    val m0sconiSBotConfig    = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
     (for {
       calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(
@@ -249,13 +250,13 @@ object GenerateTriggers extends IOApp {
         triggerFilename = xahSBotConfig.triggerFilename,
         triggers = xahLeeData
       )
-      m0sconiSetup <- Resource.eval(forTriggerGeneration(M0sconiBot.sBotConfig)(using log))
+      m0sconiSetup <- Resource.eval(forTriggerGeneration(m0sconiSBotConfig)(using log))
       m0sconiData  <- Resource.eval(
-        m0sconiSetup.jsonDataRepository.loadData[ReplyBundleMessage](M0sconiBot.sBotConfig.repliesJsonFilename)
+        m0sconiSetup.jsonDataRepository.loadData[ReplyBundleMessage](m0sconiSBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/M0sconiBot/",
-        triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
+        triggerFilename = m0sconiSBotConfig.triggerFilename,
         triggers = m0sconiData
       )
       // _ <- generateTriggersJsonFile(
