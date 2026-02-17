@@ -1,22 +1,14 @@
 package com.benkio.M0sconiBot
 
 import cats.effect.*
-import com.benkio.telegrambotinfrastructure.dataentry.DataEntry
-
-import java.nio.file.Paths
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotDataEntry
 
 object M0sconiBotMainDataEntry extends IOApp {
 
-  val mosListFilename     = "mos_list.json"
-  val mosListFileResource =
-    Resource.make(IO.delay(scala.io.Source.fromFile(mosListFilename)))(bufferedSorce => IO.delay(bufferedSorce.close))
-
-  def mainLogic(args: List[String]): IO[String] =
-    DataEntry
-      .dataEntryLogic(args, mosListFileResource, Paths.get(mosListFilename))
-
   def run(args: List[String]): IO[ExitCode] =
-    mainLogic(args)
+    SBotDataEntry
+      .run(args, SBot.buildSBotConfig(M0sconiBot.sBotInfo))
       .flatMap(IO.println(_))
       .as(ExitCode.Success)
 }

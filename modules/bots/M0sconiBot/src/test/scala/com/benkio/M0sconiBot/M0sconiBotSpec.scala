@@ -19,29 +19,32 @@ import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.M0sconiBot.M0sconiBot
-import com.benkio.M0sconiBot.M0sconiBotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
 
 class M0sconiBotSpec extends BaseBotSpec {
 
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(M0sconiBot.sBotConfig.sBotInfo.botId)
+  given log: LogWriter[IO]                  = consoleLogUpToLevel(LogLevels.Info)
+  val mosSBotConfig                         = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(mosSBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == M0sconiBot.sBotConfig.sBotInfo.botId)(
+      IO.raiseUnless(inputBotId == mosSBotConfig.sBotInfo.botId)(
         Throwable(s"[M0sconiBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
     getResourceFileHandler = (mediaFile: MediaFile) =>
       mediaFile match {
-        case Document(v, _) if v == M0sconiBot.sBotConfig.repliesJsonFilename =>
+        case Document(v, _) if v == mosSBotConfig.repliesJsonFilename =>
+          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
+        case Document(v, _) if v == mosSBotConfig.commandsJsonFilename =>
           ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
         case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
       }
@@ -51,13 +54,21 @@ class M0sconiBotSpec extends BaseBotSpec {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
-      sBotConfig = M0sconiBot.sBotConfig,
-      ttl = M0sconiBot.sBotConfig.messageTimeToLive
+      sBotConfig = mosSBotConfig,
+      ttl = mosSBotConfig.messageTimeToLive
     )
     messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      M0sconiBot.sBotConfig.repliesJsonFilename
+      mosSBotConfig.repliesJsonFilename
     )
-  } yield new M0sconiBotPolling[IO](botSetup, messageRepliesData)(using Parallel[IO], Async[IO], botSetup.api, log)
+    commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
+      mosSBotConfig.commandsJsonFilename
+    )
+  } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+    Parallel[IO],
+    Async[IO],
+    botSetup.api,
+    log
+  )
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     m0sconiBot.map(_.allCommandRepliesData)
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
@@ -89,7 +100,7 @@ class M0sconiBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = M0sconiBot.sBotConfig.triggerFilename,
+    triggerFilename = mosSBotConfig.triggerFilename,
     botMediaFiles = messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint)),
     botTriggersIO = messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   )

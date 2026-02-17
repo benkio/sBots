@@ -23,7 +23,6 @@ import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
-import com.benkio.M0sconiBot.M0sconiBotPolling
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotPolling
 import com.benkio.XahLeeBot.XahLeeBot
@@ -54,9 +53,13 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           else
             setup.jsonDataRepository.loadData[ReplyBundleMessage](config.repliesJsonFilename)
         val commandRepliesData =
-          if List(CalandroBot.sBotInfo.botId, ABarberoBot.sBotInfo.botId, XahLeeBot.sBotInfo.botId).contains(
-            config.sBotInfo.botId
+          if List(
+            CalandroBot.sBotInfo.botId,
+            ABarberoBot.sBotInfo.botId,
+            XahLeeBot.sBotInfo.botId,
+            M0sconiBot.sBotInfo.botId
           )
+            .contains(config.sBotInfo.botId)
           then setup.jsonDataRepository.loadData[ReplyBundleCommand](config.commandsJsonFilename)
           else IO.pure(List.empty[ReplyBundleCommand])
         (messageRepliesData, commandRepliesData).tupled.map { case (msgData, cmdData) =>
@@ -85,9 +88,9 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       )
       m0sconiFiles <- Resource.eval(
         mediaFilesFromBot(
-          M0sconiBot.sBotConfig,
-          (setup, msgData, _) =>
-            new M0sconiBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
+          SBot.buildSBotConfig(M0sconiBot.sBotInfo),
+          (setup, msgData, cmdData) =>
+            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       richardFiles <- Resource.eval(
