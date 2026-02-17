@@ -91,6 +91,7 @@ object RichardPHJBensonBot {
     triggerFilename = triggerFilename,
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/rphjb_triggers.txt",
     token = tokenFilename,
+    listJsonFilename = "rphjb_list.json",
     repliesJsonFilename = "rphjb_replies.json",
     commandsJsonFilename = "rphjb_commands.json"
   )

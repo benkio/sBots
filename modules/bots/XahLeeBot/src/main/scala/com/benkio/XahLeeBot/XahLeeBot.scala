@@ -39,6 +39,7 @@ object XahLeeBot {
     triggerFilename = "xah_triggers.txt",
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/xah_triggers.txt",
     token = tokenFilename,
+    listJsonFilename = "xah_list.json",
     repliesJsonFilename = "xah_replies.json",
     commandsJsonFilename = "xah_commands.json"
   )

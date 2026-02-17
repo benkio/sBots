@@ -59,6 +59,7 @@ object YouTuboAncheI0Bot {
     triggerFilename = "ytai_triggers.txt",
     triggerListUri = uri"https://github.com/benkio/sBots/blob/main/modules/bots/YouTuboAncheI0Bot/ytai_triggers.txt",
     token = tokenFilename,
+    listJsonFilename = "ytai_list.json",
     repliesJsonFilename = "ytai_replies.json",
     commandsJsonFilename = "ytai_commands.json"
   )

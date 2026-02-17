@@ -49,8 +49,9 @@ object MainWebhook extends IOApp {
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )
-      aBarberoWebhook <- ABarberoBot.buildWebhookBot[IO](
+      aBarberoWebhook <- SBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,
+        sBotInfo = ABarberoBot.sBotInfo,
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )

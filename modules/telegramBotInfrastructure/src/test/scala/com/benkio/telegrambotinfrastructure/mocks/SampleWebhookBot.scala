@@ -59,6 +59,7 @@ object SampleWebhookBot {
     botId = SBotInfo.SBotId("sbot")
   )
   val triggerFilename: String      = "sbot_triggers.txt"
+  val listJsonFilename: String     = "sbot_list.json"
   val repliesJsonFilename: String  = "sbot_replies.json"
   val commandsJsonFilename: String = "sbot_commands.json"
   val token: String                = "sbot_SampleWebhookBot.token"
@@ -68,6 +69,7 @@ object SampleWebhookBot {
     sBotInfo = SampleWebhookBot.sBotInfo,
     triggerFilename = SampleWebhookBot.triggerFilename,
     triggerListUri = SampleWebhookBot.triggerListUri,
+    listJsonFilename = SampleWebhookBot.listJsonFilename,
     repliesJsonFilename = SampleWebhookBot.repliesJsonFilename,
     commandsJsonFilename = SampleWebhookBot.commandsJsonFilename,
     token = SampleWebhookBot.token

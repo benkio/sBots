@@ -8,17 +8,18 @@ import cats.Parallel
 import com.benkio.integration.BotSetupFixture
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.ABarberoBot.ABarberoBot
-import com.benkio.ABarberoBot.ABarberoBotPolling
 import doobie.implicits.*
 import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
-  override def botSetupFixtureConfig: SBotConfig = ABarberoBot.sBotConfig
+  override def botSetupFixtureConfig: SBotConfig = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
 
   botSetupFixture.test(
     "messageRepliesData should never raise an exception when try to open the file in resounces"
@@ -26,9 +27,12 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup           <- fixture.botSetupResource
       messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](ABarberoBot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
       )
-      aBarberoBot = new ABarberoBotPolling[IO](botSetup, messageRepliesData)(using
+      commandRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
+      )
+      aBarberoBot = new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,
@@ -36,6 +40,43 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
       )
       files      = aBarberoBot.messageRepliesData.flatMap(r => r.getMediaFiles)
       transactor = fixture.dbResources.transactor
+      checks <- Resource.eval(
+        files
+          .traverse((file: MediaFile) =>
+            DBMedia
+              .getMediaQueryByName(file.filename)
+              .unique
+              .transact(transactor)
+              .onError { case _ => IO.println("[ERROR] file missing from the DB: " + file) }
+              .attempt
+              .map(_.isRight)
+          )
+      )
+    } yield checks.foldLeft(true)(_ && _)
+
+    testAssert.use(assert(_, true).pure[IO])
+  }
+
+  botSetupFixture.test(
+    "commandRepliesData should never raise an exception when try to open the file in resounces"
+  ) { fixture =>
+    val testAssert = for {
+      botSetup           <- fixture.botSetupResource
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
+      )
+      commandRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
+      )
+      aBarberoBot = new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+        Parallel[IO],
+        Async[IO],
+        botSetup.api,
+        log
+      )
+      transactor = fixture.dbResources.transactor
+      dbLayer <- fixture.dbResources.resourceDBLayer
+      files = aBarberoBot.commandRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>

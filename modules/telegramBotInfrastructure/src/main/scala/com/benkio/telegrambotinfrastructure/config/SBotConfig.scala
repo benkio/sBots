@@ -13,6 +13,7 @@ case class SBotConfig(
     sBotInfo: SBotInfo,
     triggerFilename: String,
     triggerListUri: Uri,
+    listJsonFilename: String,
     repliesJsonFilename: String,
     commandsJsonFilename: String,
     token: String
@@ -24,6 +25,7 @@ object SBotConfig {
       triggerFilename: String,
       triggerListUri: Uri,
       token: String,
+      listJsonFilename: String,
       repliesJsonFilename: String,
       commandsJsonFilename: String,
       messageTimeToLive: Option[FiniteDuration] = 10.seconds.some,
@@ -35,6 +37,7 @@ object SBotConfig {
     messageTimeToLive = messageTimeToLive,
     sBotInfo = sBotInfo,
     triggerFilename = triggerFilename,
+    listJsonFilename = listJsonFilename,
     repliesJsonFilename = repliesJsonFilename,
     commandsJsonFilename = commandsJsonFilename,
     triggerListUri = triggerListUri,

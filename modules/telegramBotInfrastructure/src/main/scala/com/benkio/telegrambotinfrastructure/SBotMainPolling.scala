@@ -1,4 +1,4 @@
-package com.benkio.CalandroBot
+package com.benkio.telegrambotinfrastructure
 
 import cats.effect.*
 import com.benkio.telegrambotinfrastructure.model.SBotInfo

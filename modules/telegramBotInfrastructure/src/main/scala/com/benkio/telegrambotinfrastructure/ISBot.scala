@@ -15,13 +15,13 @@ import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 
 abstract class ISBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F]
@@ -74,11 +74,11 @@ trait ISBot[F[_]: Async: LogWriter] {
       messageRepliesData = messageRepliesData,
       ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
     ) :+
-    InstructionsCommand.instructionsReplyBundleCommand(
-      sBotInfo = sBotConfig.sBotInfo,
-      commands = commandRepliesData,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
-    )
+      InstructionsCommand.instructionsReplyBundleCommand(
+        sBotInfo = sBotConfig.sBotInfo,
+        commands = commandRepliesData,
+        ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+      )
 
   lazy val allCommandRepliesData: List[ReplyBundleCommand] =
     commandRepliesData ++ fixedCommands
