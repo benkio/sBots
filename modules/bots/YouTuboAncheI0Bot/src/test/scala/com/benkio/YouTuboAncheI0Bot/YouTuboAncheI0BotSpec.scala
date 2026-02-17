@@ -19,6 +19,8 @@ import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -27,35 +29,41 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(YouTuboAncheI0Bot.sBotConfig.sBotInfo.botId)
+  val ytaiSBotConfig                        = SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ytaiSBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == YouTuboAncheI0Bot.sBotConfig.sBotInfo.botId)(
+      IO.raiseUnless(inputBotId == ytaiSBotConfig.sBotInfo.botId)(
         Throwable(s"[YouTuboAncheI0BotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
     getResourceFileHandler = (mediaFile: MediaFile) =>
       mediaFile match {
-        case Document(v, _) if v == YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename =>
+        case Document(v, _) if v == ytaiSBotConfig.repliesJsonFilename =>
+          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
+        case Document(v, _) if v == ytaiSBotConfig.commandsJsonFilename =>
           ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
         case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
       }
   )
 
-  val youTuboAncheI0Bot: IO[YouTuboAncheI0BotPolling[IO]] = for {
+  val youTuboAncheI0Bot: IO[SBotPolling[IO]] = for {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
-      sBotConfig = YouTuboAncheI0Bot.sBotConfig,
-      ttl = YouTuboAncheI0Bot.sBotConfig.messageTimeToLive
+      sBotConfig = ytaiSBotConfig,
+      ttl = ytaiSBotConfig.messageTimeToLive
     )
     messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename
+      ytaiSBotConfig.repliesJsonFilename
     )
-  } yield new YouTuboAncheI0BotPolling[IO](botSetup, messageRepliesData)(using
+    commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
+      ytaiSBotConfig.commandsJsonFilename
+    )
+  } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
     Parallel[IO],
     Async[IO],
     botSetup.api,
@@ -91,7 +99,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = YouTuboAncheI0Bot.sBotConfig.triggerFilename,
+    triggerFilename = ytaiSBotConfig.triggerFilename,
     botMediaFiles = messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint)),
     botTriggersIO = messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   )

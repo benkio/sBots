@@ -8,17 +8,18 @@ import cats.Parallel
 import com.benkio.integration.BotSetupFixture
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
-import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotPolling
 import doobie.implicits.*
 import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
-  override def botSetupFixtureConfig: SBotConfig = YouTuboAncheI0Bot.sBotConfig
+  override def botSetupFixtureConfig: SBotConfig = SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo)
 
   // File Reference Check
 
@@ -28,9 +29,12 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     val testAssert = for {
       botSetup           <- fixture.botSetupResource
       messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](YouTuboAncheI0Bot.sBotConfig.repliesJsonFilename)
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
       )
-      youTuboBot = new YouTuboAncheI0BotPolling[IO](botSetup, messageRepliesData)(using
+      commandRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
+      )
+      youTuboBot = new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
         Parallel[IO],
         Async[IO],
         botSetup.api,

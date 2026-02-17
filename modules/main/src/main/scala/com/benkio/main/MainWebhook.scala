@@ -29,8 +29,9 @@ object MainWebhook extends IOApp {
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )
-      youTuboAncheI0BotWebhook <- YouTuboAncheI0Bot.buildWebhookBot[IO](
+      youTuboAncheI0BotWebhook <- SBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,
+        sBotInfo = YouTuboAncheI0Bot.sBotInfo,
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )
