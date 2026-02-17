@@ -1,21 +1,12 @@
 package com.benkio.XahLeeBot
 
 import cats.effect.*
-import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
-import log.effect.LogLevel
+import com.benkio.telegrambotinfrastructure.SBotMainPolling
 import log.effect.LogLevels
-import log.effect.LogWriter
 
 object XahLeeBotMainPolling extends IOApp {
 
-  private def internalRun(logLevel: LogLevel): IO[ExitCode] = {
-    given log: LogWriter[IO] = consoleLogUpToLevel(logLevel)
-    XahLeeBot
-      .buildPollingBot[IO]
-      .use(_.start())
-      .as(ExitCode.Success)
-  }
-
   def run(args: List[String]): IO[ExitCode] =
-    internalRun(LogLevels.Info)
+    SBotMainPolling.run(logLevel = LogLevels.Info, sBotInfo = XahLeeBot.sBotInfo)
+
 }

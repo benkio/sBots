@@ -13,7 +13,7 @@ class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {
     "Top twenty command should return 20 results"
   ) { fixture =>
     val commandName    = "fak"
-    val botId          = XahLeeBot.sBotConfig.sBotInfo.botId
+    val botId          = XahLeeBot.sBotInfo.botId
     val resourceAssert = for {
       dbLayer <- fixture.resourceDBLayer
       dbMedia = dbLayer.dbMedia
@@ -22,7 +22,7 @@ class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {
         MediaByKindCommand.mediaCommandByKindLogic(
           dbMedia = dbMedia,
           commandName = commandName,
-          sBotInfo = XahLeeBot.sBotConfig.sBotInfo
+          sBotInfo = XahLeeBot.sBotInfo
         )
       )
     } yield {

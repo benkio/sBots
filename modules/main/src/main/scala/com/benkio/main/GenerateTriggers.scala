@@ -27,6 +27,7 @@ import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -42,7 +43,6 @@ import telegramium.bots.high.Api
 
 import java.io.*
 import java.util.UUID
-import com.benkio.XahLeeBot.XahLeeBot
 
 object GenerateTriggers extends IOApp {
 
@@ -219,7 +219,7 @@ object GenerateTriggers extends IOApp {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
     val calaSBotConfig       = SBot.buildSBotConfig(CalandroBot.sBotInfo)
     val abarSBotConfig       = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
-    val xahSBotConfig       = SBot.buildSBotConfig(XahLeeBot.sBotConfig.sBotInfo)
+    val xahSBotConfig        = SBot.buildSBotConfig(XahLeeBot.sBotInfo)
     (for {
       calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(

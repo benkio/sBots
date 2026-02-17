@@ -12,6 +12,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -20,29 +22,38 @@ class XahLeeBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(XahLeeBot.sBotConfig.sBotInfo.botId)
+  val xahSBotConfig                         = SBot.buildSBotConfig(XahLeeBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(XahLeeBot.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(getResourceByKindHandler =
     (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == XahLeeBot.sBotConfig.sBotInfo.botId)(
+      IO.raiseUnless(inputBotId == XahLeeBot.sBotInfo.botId)(
         Throwable(s"[XahLeeBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
   )
 
-  val xahLeeBot: IO[XahLeeBotPolling[IO]] = for {
+  val xahLeeBot: IO[SBotPolling[IO]] = for {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
-      sBotConfig = XahLeeBot.sBotConfig,
-      ttl = XahLeeBot.sBotConfig.messageTimeToLive
+      sBotConfig = xahSBotConfig,
+      ttl = xahSBotConfig.messageTimeToLive
     )
     messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      XahLeeBot.sBotConfig.repliesJsonFilename
+      xahSBotConfig.repliesJsonFilename
     )
-  } yield new XahLeeBotPolling[IO](botSetup, messageRepliesData)(using Parallel[IO], Async[IO], botSetup.api, log)
+    commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
+      xahSBotConfig.commandsJsonFilename
+    )
+  } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+    Parallel[IO],
+    Async[IO],
+    botSetup.api,
+    log
+  )
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     xahLeeBot.map(_.allCommandRepliesData)
