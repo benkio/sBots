@@ -28,7 +28,7 @@ import telegramium.bots.Message
 class ABarberoBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage]
-) extends SBotPolling[F](sBotSetup, messageRepliesData, ABarberoBot.commandRepliesData(messageRepliesData)) {
+) extends SBotPolling[F](sBotSetup, messageRepliesData, ABarberoBot.commandRepliesData) {
   override def postComputation: Message => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
@@ -42,7 +42,7 @@ class ABarberoBotWebhook[F[_]: Async: Api: LogWriter](
 ) extends SBotWebhook[F](
       sBotSetup,
       messageRepliesData,
-      ABarberoBot.commandRepliesData(messageRepliesData),
+      ABarberoBot.commandRepliesData,
       webhookCertificate
     ) {
   override def postComputation: Message => F[Unit] =
@@ -64,13 +64,7 @@ object ABarberoBot {
     commandsJsonFilename = "abar_commands.json"
   )
 
-  def commandRepliesData(messageRepliesData: List[ReplyBundleMessage]): List[ReplyBundleCommand] =
-    CommandPatternsGroup.TriggerGroup.group(
-      triggerFileUri = sBotConfig.triggerListUri,
-      sBotInfo = sBotConfig.sBotInfo,
-      messageRepliesData = messageRepliesData,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
-    ) ++
+  val commandRepliesData: List[ReplyBundleCommand] =
       CommandPatternsGroup.ShowGroup.group(
         sBotInfo = sBotConfig.sBotInfo
       ) ++

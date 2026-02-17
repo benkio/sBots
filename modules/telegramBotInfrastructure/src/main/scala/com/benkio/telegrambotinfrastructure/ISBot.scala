@@ -21,6 +21,7 @@ import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
 
 abstract class ISBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F]
@@ -66,14 +67,21 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
 
-  lazy val allCommandRepliesData: List[ReplyBundleCommand] = {
-    val instructionsCmd = InstructionsCommand.instructionsReplyBundleCommand(
+  val fixedCommands: List[ReplyBundleCommand] =
+    CommandPatternsGroup.TriggerGroup.group(
+      triggerFileUri = sBotConfig.triggerListUri,
+      sBotInfo = sBotConfig.sBotInfo,
+      messageRepliesData = messageRepliesData,
+      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+    ) :+
+    InstructionsCommand.instructionsReplyBundleCommand(
       sBotInfo = sBotConfig.sBotInfo,
       commands = commandRepliesData,
       ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
     )
-    commandRepliesData :+ instructionsCmd
-  }
+
+  lazy val allCommandRepliesData: List[ReplyBundleCommand] =
+    commandRepliesData ++ fixedCommands
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
