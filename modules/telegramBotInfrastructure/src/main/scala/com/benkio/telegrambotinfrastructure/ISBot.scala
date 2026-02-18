@@ -16,13 +16,13 @@ import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatternsGroup
+import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 
 abstract class ISBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F]

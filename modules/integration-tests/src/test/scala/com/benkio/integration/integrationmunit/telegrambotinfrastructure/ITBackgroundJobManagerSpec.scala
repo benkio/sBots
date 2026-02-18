@@ -9,8 +9,8 @@ import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.SubscriptionKey
 import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SubscriptionKey
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import cron4s.*
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
@@ -25,7 +25,7 @@ import scala.concurrent.duration.*
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
-  val sBotConfig         = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
+  val sBotConfig                         = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("9E072CCB-8AF2-457A-9BF6-0F179F4B64D4"))
   val sBotInfo                           = sBotConfig.sBotInfo
 

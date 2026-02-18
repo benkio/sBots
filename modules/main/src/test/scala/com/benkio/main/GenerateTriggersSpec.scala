@@ -21,7 +21,7 @@ class GenerateTriggersSpec extends CatsEffectSuite {
     val abarSBotConfig           = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
     val mosSBotConfig            = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
     val ytaiSBotConfig           = SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo)
-    val rphjbSBotConfig       = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
+    val rphjbSBotConfig          = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
     val triggerFiles: List[File] = List(
       File(s"../bots/ABarberoBot/${abarSBotConfig.triggerFilename}"),
       File(s"../bots/M0sconiBot/${mosSBotConfig.triggerFilename}"),

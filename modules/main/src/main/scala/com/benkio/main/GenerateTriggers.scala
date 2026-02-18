@@ -205,7 +205,7 @@ object GenerateTriggers extends IOApp {
     val xahSBotConfig        = SBot.buildSBotConfig(XahLeeBot.sBotInfo)
     val m0sconiSBotConfig    = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
     val ytaiSBotConfig       = SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo)
-    val rphjbSBotConfig       = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
+    val rphjbSBotConfig      = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
     (for {
       calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(

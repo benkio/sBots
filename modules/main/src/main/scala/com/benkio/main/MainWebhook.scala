@@ -9,6 +9,7 @@ import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -16,7 +17,6 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import org.http4s.server.Server
 import telegramium.bots.high.WebhookBot
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 
 object MainWebhook extends IOApp {
 

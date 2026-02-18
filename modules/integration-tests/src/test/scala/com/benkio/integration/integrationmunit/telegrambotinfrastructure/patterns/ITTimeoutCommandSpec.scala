@@ -15,8 +15,8 @@ import telegramium.bots.Message
 class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
 
   val sBotConfig  = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
-  val botName    = sBotConfig.sBotInfo.botName
-  val botId      = sBotConfig.sBotInfo.botId
+  val botName     = sBotConfig.sBotInfo.botName
+  val botId       = sBotConfig.sBotInfo.botId
   val chatIdValue = 0L
   val chatId      = ChatId(chatIdValue)
 

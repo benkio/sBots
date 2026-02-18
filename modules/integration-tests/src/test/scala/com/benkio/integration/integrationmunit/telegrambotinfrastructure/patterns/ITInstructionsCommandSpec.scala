@@ -25,8 +25,8 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
     "Instruction Command should return a TextReply with the input instructions"
   ) { fixture =>
     val resourceAssert = for {
-      botSetup            <- fixture.botSetupResource
-      messageRepliesData  <- Resource.eval(
+      botSetup           <- fixture.botSetupResource
+      messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
       )
       commandRepliesData <- Resource.eval(

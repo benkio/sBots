@@ -24,7 +24,7 @@ import java.util.UUID
 
 class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
 
-  val sBotConfig         = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
+  val sBotConfig                         = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
   val botName                            = sBotConfig.sBotInfo.botName
   val botId                              = sBotConfig.sBotInfo.botId

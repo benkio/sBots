@@ -28,8 +28,8 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     "messageRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val testAssert = for {
-      botSetup            <- fixture.botSetupResource
-      messageRepliesData  <- Resource.eval(
+      botSetup           <- fixture.botSetupResource
+      messageRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
       )
       commandRepliesData <- Resource.eval(

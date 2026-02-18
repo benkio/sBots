@@ -1,21 +1,21 @@
 package com.benkio.RichardPHJBensonBot
 
 import cats.syntax.all.*
+import cats.ApplicativeThrow
+import com.benkio.telegrambotinfrastructure.model.reply.toText
+import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
-import telegramium.bots.Message
-import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
-import com.benkio.telegrambotinfrastructure.model.reply.toText
-import cats.ApplicativeThrow
 import com.benkio.telegrambotinfrastructure.SBot
+import telegramium.bots.Message
 
 object RichardPHJBensonBot {
 
   val sBotInfo: SBotInfo = SBotInfo(SBotId("rphjb"), SBotName("RichardPHJBensonBot"))
 
-  val bensonifyKey: String                   = "bensonify"
+  val bensonifyKey: String                                                                    = "bensonify"
   def commandEffectfulCallback[F[_]: ApplicativeThrow]: Map[String, Message => F[List[Text]]] =
     Map(
       (

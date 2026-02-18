@@ -10,8 +10,8 @@ import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import com.benkio.telegrambotinfrastructure.model.reply.Sticker
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
-import com.benkio.CalandroBot.CalandroBot
 import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.CalandroBot.CalandroBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite
 
