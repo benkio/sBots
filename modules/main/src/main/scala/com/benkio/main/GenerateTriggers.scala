@@ -11,7 +11,6 @@ import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.show.ShowQuery
 import com.benkio.telegrambotinfrastructure.model.show.SimpleShowQuery
@@ -29,7 +28,6 @@ import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
-import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -200,21 +198,6 @@ object GenerateTriggers extends IOApp {
     } yield pw.write(triggersStringList.mkString(""))
   }
 
-  def generateTriggersJsonFile(
-      botModuleRelativeFolderPath: String,
-      commandsJsonFilename: String,
-      commands: List[ReplyBundleCommand]
-  ): Resource[IO, Unit] = {
-    val commandFilesPath = new File(botModuleRelativeFolderPath).getCanonicalPath + s"/$commandsJsonFilename"
-
-    for {
-      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath JSON command file"))
-      commandsJson = commands.asJson
-      _  <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
-      pw <- Resource.fromAutoCloseable(IO(new PrintWriter(commandFilesPath)))
-    } yield pw.write(commandsJson.spaces2)
-  }
-
   def run(args: List[String]): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
     val calaSBotConfig       = SBot.buildSBotConfig(CalandroBot.sBotInfo)
@@ -270,11 +253,6 @@ object GenerateTriggers extends IOApp {
         triggerFilename = ytaiSBotConfig.triggerFilename,
         triggers = youTuboData
       )
-      // _ <- generateTriggersJsonFile(
-      //       botModuleRelativeFolderPath = "../bots/YouTuboAncheI0Bot/src/main/resources",
-      //     commandsJsonFilename = YouTuboAncheI0Bot.sBotConfig.commandsJsonFilename,
-      //     commands = YouTuboAncheI0Bot.commandRepliesData
-      // )
       richardSetup <- Resource.eval(forTriggerGeneration(RichardPHJBensonBot.sBotConfig)(using log))
       richardData  <- Resource.eval(
         richardSetup.jsonDataRepository
@@ -285,7 +263,6 @@ object GenerateTriggers extends IOApp {
         triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
         triggers = richardData
       )
-
     } yield ExitCode.Success).use(_.pure)
   }
 
