@@ -9,6 +9,7 @@ import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
@@ -18,9 +19,10 @@ import java.util.UUID
 
 class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
 
+  val sBotConfig         = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val testSubscriptionId = "B674CCE0-9684-4D31-8CC7-9E2A41EA0878"
-  val botName            = RichardPHJBensonBot.sBotConfig.sBotInfo.botName
-  val botId              = RichardPHJBensonBot.sBotConfig.sBotInfo.botId
+  val botName            = sBotConfig.sBotInfo.botName
+  val botId              = sBotConfig.sBotInfo.botId
   val chatIdValue        = 0L
 
   val testSubscriptions: List[DBSubscriptionData] = List(
@@ -73,15 +75,15 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
         )
       )
       subscriptionsFromCommandResult <- Resource.eval(
         SubscribeUnsubscribeCommand.subscriptionsCommandLogic(
           dbSubscription = dbSubscription,
           backgroundJobManager = backgroundJobManager,
-          sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
+          sBotInfo = sBotConfig.sBotInfo,
           m = msg
         )
       )

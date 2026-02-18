@@ -24,7 +24,6 @@ import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotPolling
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -51,16 +50,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           if config.sBotInfo.botId == XahLeeBot.sBotInfo.botId then IO.pure(List.empty[ReplyBundleMessage])
           else
             setup.jsonDataRepository.loadData[ReplyBundleMessage](config.repliesJsonFilename)
-        val commandRepliesData =
-          if List(
-            CalandroBot.sBotInfo.botId,
-            ABarberoBot.sBotInfo.botId,
-            XahLeeBot.sBotInfo.botId,
-            M0sconiBot.sBotInfo.botId,
-            YouTuboAncheI0Bot.sBotInfo.botId
-          ).contains(config.sBotInfo.botId)
-          then setup.jsonDataRepository.loadData[ReplyBundleCommand](config.commandsJsonFilename)
-          else IO.pure(List.empty[ReplyBundleCommand])
+        val commandRepliesData = setup.jsonDataRepository.loadData[ReplyBundleCommand](config.commandsJsonFilename)
         (messageRepliesData, commandRepliesData).tupled.map { case (msgData, cmdData) =>
           val bot = mkBot(setup, msgData, cmdData)
           (bot.messageRepliesData ++ bot.allCommandRepliesData).flatMap(r => r.getMediaFiles)
@@ -94,9 +84,14 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       )
       richardFiles <- Resource.eval(
         mediaFilesFromBot(
-          RichardPHJBensonBot.sBotConfig,
-          (setup, msgData, _) =>
-            new RichardPHJBensonBotPolling[IO](setup, msgData)(using Parallel[IO], Async[IO], setup.api, log)
+          SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo),
+          (setup, msgData, cmdData) =>
+            new SBotPolling[IO](
+              setup,
+              msgData,
+              cmdData,
+              RichardPHJBensonBot.commandEffectfulCallback[IO]
+            )(using Parallel[IO], Async[IO], setup.api, log)
         )
       )
       youTuboFiles <- Resource.eval(

@@ -9,6 +9,7 @@ import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
@@ -47,10 +48,12 @@ object MainWebhook extends IOApp {
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )
-      richardPHJBensonWebhook <- RichardPHJBensonBot.buildWebhookBot[IO](
+      richardPHJBensonWebhook <- SBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,
+        sBotInfo = RichardPHJBensonBot.sBotInfo,
         webhookBaseUrl = mainSetup.webhookBaseUrl,
-        webhookCertificate = mainSetup.webhookCertificate
+        webhookCertificate = mainSetup.webhookCertificate,
+        commandEffectfulCallback = commandEffectfulCallback[IO]
       )
       aBarberoWebhook <- SBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,

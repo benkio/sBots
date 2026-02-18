@@ -21,6 +21,9 @@ import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BaseBotSpec
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -35,40 +38,50 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   override val munitIOTimeout = Duration(1, "m")
 
-  given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(RichardPHJBensonBot.sBotConfig.sBotInfo.botId)
+  given log: LogWriter[IO]                  = consoleLogUpToLevel(LogLevels.Info)
+  val rphjbSBotConfig                       = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(rphjbSBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == RichardPHJBensonBot.sBotConfig.sBotInfo.botId)(
+      IO.raiseUnless(inputBotId == rphjbSBotConfig.sBotInfo.botId)(
         Throwable(s"[RichardPHJBensonBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
     getResourceFileHandler = (mediaFile: MediaFile) =>
       mediaFile match {
-        case Document(v, _) if v == RichardPHJBensonBot.sBotConfig.repliesJsonFilename =>
+        case Document(v, _) if v == rphjbSBotConfig.repliesJsonFilename =>
+          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
+        case Document(v, _) if v == rphjbSBotConfig.commandsJsonFilename =>
           ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
         case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
       }
   )
 
-  val richardPHJBensonBot: IO[RichardPHJBensonBotPolling[IO]] = for {
-    botSetup <- buildTestBotSetup(
+  val richardPHJBensonBot: IO[SBotPolling[IO]] = for {
+    sBotSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
-      sBotConfig = RichardPHJBensonBot.sBotConfig,
+      sBotConfig = rphjbSBotConfig,
       ttl = None
     )
-    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      RichardPHJBensonBot.sBotConfig.repliesJsonFilename
+    messageRepliesData <- sBotSetup.jsonDataRepository.loadData[ReplyBundleMessage](
+      rphjbSBotConfig.repliesJsonFilename
     )
-  } yield new RichardPHJBensonBotPolling[IO](botSetup, messageRepliesData)(using
+    commandRepliesData <- sBotSetup.jsonDataRepository.loadData[ReplyBundleCommand](
+      rphjbSBotConfig.commandsJsonFilename
+    )
+  } yield new SBotPolling[IO](
+    sBotSetup = sBotSetup,
+    messageRepliesData = messageRepliesData,
+    commandRepliesData = commandRepliesData,
+    commandEffectfulCallback = commandEffectfulCallback[IO]
+  )(using
     Parallel[IO],
     Async[IO],
-    botSetup.api,
+    sBotSetup.api,
     log
   )
 
@@ -127,7 +140,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
+    triggerFilename = rphjbSBotConfig.triggerFilename,
     botMediaFiles = messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint)),
     botTriggersIO = messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   )

@@ -21,11 +21,12 @@ class GenerateTriggersSpec extends CatsEffectSuite {
     val abarSBotConfig           = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
     val mosSBotConfig            = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
     val ytaiSBotConfig           = SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo)
+    val rphjbSBotConfig          = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
     val triggerFiles: List[File] = List(
       File(s"../bots/ABarberoBot/${abarSBotConfig.triggerFilename}"),
       File(s"../bots/M0sconiBot/${mosSBotConfig.triggerFilename}"),
       File(s"../bots/CalandroBot/${calaSBotConfig.triggerFilename}"),
-      File(s"../bots/RichardPHJBensonBot/${RichardPHJBensonBot.sBotConfig.triggerFilename}"),
+      File(s"../bots/RichardPHJBensonBot/${rphjbSBotConfig.triggerFilename}"),
       File(s"../bots/YouTuboAncheI0Bot/${ytaiSBotConfig.triggerFilename}")
     )
     val fiveMinutesAgo = System.currentTimeMillis() - (5 * 60 * 1000)

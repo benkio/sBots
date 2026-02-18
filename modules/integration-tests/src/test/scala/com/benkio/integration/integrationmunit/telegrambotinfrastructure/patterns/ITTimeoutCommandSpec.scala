@@ -6,6 +6,7 @@ import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.TimeoutCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBTimeoutData
+import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite
 import telegramium.bots.Chat
@@ -13,8 +14,9 @@ import telegramium.bots.Message
 
 class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
 
-  val botName     = RichardPHJBensonBot.sBotConfig.sBotInfo.botName
-  val botId       = RichardPHJBensonBot.sBotConfig.sBotInfo.botId
+  val sBotConfig  = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
+  val botName     = sBotConfig.sBotInfo.botName
+  val botId       = sBotConfig.sBotInfo.botId
   val chatIdValue = 0L
   val chatId      = ChatId(chatIdValue)
 
@@ -36,8 +38,8 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
           .timeoutLogic[IO](
             msg = msg.copy(text = Some(s"/timeout $wrongInput")),
             dbTimeout = dbLayer.dbTimeout,
-            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+            sBotInfo = sBotConfig.sBotInfo,
+            ttl = sBotConfig.messageTimeToLive
           )
           .attempt
       )
@@ -64,8 +66,8 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
           .timeoutLogic[IO](
             msg = msg.copy(text = Some(s"/timeout $wrongInput")),
             dbTimeout = dbLayer.dbTimeout,
-            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+            sBotInfo = sBotConfig.sBotInfo,
+            ttl = sBotConfig.messageTimeToLive
           )
           .attempt
       )
@@ -108,8 +110,8 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
           .timeoutLogic[IO](
             msg = msg.copy(text = Some("/timeout ")),
             dbTimeout = dbLayer.dbTimeout,
-            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+            sBotInfo = sBotConfig.sBotInfo,
+            ttl = sBotConfig.messageTimeToLive
           )
           .attempt
       )
