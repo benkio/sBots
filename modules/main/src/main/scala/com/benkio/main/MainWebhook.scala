@@ -16,6 +16,7 @@ import log.effect.LogLevels
 import log.effect.LogWriter
 import org.http4s.server.Server
 import telegramium.bots.high.WebhookBot
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 
 object MainWebhook extends IOApp {
 
@@ -47,10 +48,12 @@ object MainWebhook extends IOApp {
         webhookBaseUrl = mainSetup.webhookBaseUrl,
         webhookCertificate = mainSetup.webhookCertificate
       )
-      richardPHJBensonWebhook <- RichardPHJBensonBot.buildWebhookBot[IO](
+      richardPHJBensonWebhook <- SBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,
+        sBotInfo = RichardPHJBensonBot.sBotInfo,
         webhookBaseUrl = mainSetup.webhookBaseUrl,
-        webhookCertificate = mainSetup.webhookCertificate
+        webhookCertificate = mainSetup.webhookCertificate,
+        commandEffectfulCallback = commandEffectfulCallback[IO]
       )
       aBarberoWebhook <- SBot.buildWebhookBot[IO](
         httpClient = mainSetup.httpClient,

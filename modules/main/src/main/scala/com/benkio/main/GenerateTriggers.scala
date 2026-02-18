@@ -205,6 +205,7 @@ object GenerateTriggers extends IOApp {
     val xahSBotConfig        = SBot.buildSBotConfig(XahLeeBot.sBotInfo)
     val m0sconiSBotConfig    = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
     val ytaiSBotConfig       = SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo)
+    val rphjbSBotConfig       = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
     (for {
       calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
       calandroData  <- Resource.eval(
@@ -253,14 +254,14 @@ object GenerateTriggers extends IOApp {
         triggerFilename = ytaiSBotConfig.triggerFilename,
         triggers = youTuboData
       )
-      richardSetup <- Resource.eval(forTriggerGeneration(RichardPHJBensonBot.sBotConfig)(using log))
+      richardSetup <- Resource.eval(forTriggerGeneration(rphjbSBotConfig)(using log))
       richardData  <- Resource.eval(
         richardSetup.jsonDataRepository
-          .loadData[ReplyBundleMessage](RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
+          .loadData[ReplyBundleMessage](rphjbSBotConfig.repliesJsonFilename)
       )
       _ <- generateTriggerFile(
         botModuleRelativeFolderPath = "../bots/RichardPHJBensonBot/",
-        triggerFilename = RichardPHJBensonBot.sBotConfig.triggerFilename,
+        triggerFilename = rphjbSBotConfig.triggerFilename,
         triggers = richardData
       )
     } yield ExitCode.Success).use(_.pure)
