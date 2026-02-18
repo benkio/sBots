@@ -22,6 +22,7 @@ import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.patterns.PostComputationPatterns
 
 abstract class ISBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F]
@@ -53,8 +54,9 @@ trait ISBot[F[_]: Async: LogWriter] {
   def dbLayer: DBLayer[F]                                                   = sBotSetup.dbLayer
   def backgroundJobManager: BackgroundJobManager[F]                         = sBotSetup.backgroundJobManager
   def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
-    (_: ReplyBundleMessage, _: Message) => true.pure[F]
-  def postComputation: Message => F[Unit] = _ => Async[F].unit
+    FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
+  def postComputation: Message => F[Unit] =
+    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
