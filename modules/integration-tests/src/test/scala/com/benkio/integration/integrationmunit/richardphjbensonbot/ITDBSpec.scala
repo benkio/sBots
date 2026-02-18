@@ -9,16 +9,18 @@ import com.benkio.integration.BotSetupFixture
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
+import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
+import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotPolling
 import doobie.implicits.*
 import munit.CatsEffectSuite
 
 class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
 
-  override def botSetupFixtureConfig: SBotConfig = RichardPHJBensonBot.sBotConfig
+  override def botSetupFixtureConfig: SBotConfig = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
 
   // File Reference Check
 
@@ -26,16 +28,19 @@ class ITDBSpec extends CatsEffectSuite with BotSetupFixture {
     "messageRepliesData should never raise an exception when try to open the file in resounces"
   ) { fixture =>
     val testAssert = for {
-      botSetup           <- fixture.botSetupResource
-      messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](RichardPHJBensonBot.sBotConfig.repliesJsonFilename)
+      botSetup            <- fixture.botSetupResource
+      messageRepliesData  <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
       )
-      richardBot = new RichardPHJBensonBotPolling[IO](botSetup, messageRepliesData)(using
-        Parallel[IO],
-        Async[IO],
-        botSetup.api,
-        log
+      commandRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
+      richardBot = new SBotPolling[IO](
+        botSetup,
+        messageRepliesData,
+        commandRepliesData,
+        RichardPHJBensonBot.commandEffectfulCallback[IO]
+      )(using Parallel[IO], Async[IO], botSetup.api, log)
       files      = richardBot.messageRepliesData.flatMap(r => r.getMediaFiles)
       transactor = fixture.dbResources.transactor
       checks <- Resource.eval(

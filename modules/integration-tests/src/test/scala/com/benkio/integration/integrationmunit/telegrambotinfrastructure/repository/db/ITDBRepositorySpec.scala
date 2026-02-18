@@ -11,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import com.benkio.telegrambotinfrastructure.model.reply.Sticker
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.CalandroBot.CalandroBot
+import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite
 
@@ -18,8 +19,9 @@ import java.nio.file.Files
 
 class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
 
+  val sBotConfig             = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val testMediaName          = "rphjb_MaSgus.mp3"
-  val testMediaId            = RichardPHJBensonBot.sBotConfig.sBotInfo.botId
+  val testMediaId            = sBotConfig.sBotInfo.botId
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
     bot_id = testMediaId.value,

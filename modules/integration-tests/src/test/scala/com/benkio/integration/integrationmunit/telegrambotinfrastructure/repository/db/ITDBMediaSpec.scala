@@ -5,6 +5,7 @@ import cats.effect.Resource
 import com.benkio.integration.DBFixture
 import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
+import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import doobie.munit.analysisspec.IOChecker
 import doobie.Transactor
@@ -14,9 +15,10 @@ import java.sql.DriverManager
 
 class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
 
+  val sBotConfig             = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val testMediaName          = "rphjb_MaSgus.mp3"
   val testMediaKind          = "some kind"
-  val testMediaId            = RichardPHJBensonBot.sBotConfig.sBotInfo.botId
+  val testMediaId            = sBotConfig.sBotInfo.botId
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
     bot_id = testMediaId.value,

@@ -11,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.SubscriptionId
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.telegrambotinfrastructure.repository.db.DBSubscriptionData
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
+import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import cron4s.Cron
 import munit.CatsEffectSuite
@@ -23,9 +24,10 @@ import java.util.UUID
 
 class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
 
+  val sBotConfig         = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
-  val botName                            = RichardPHJBensonBot.sBotConfig.sBotInfo.botName
-  val botId                              = RichardPHJBensonBot.sBotConfig.sBotInfo.botId
+  val botName                            = sBotConfig.sBotInfo.botName
+  val botId                              = sBotConfig.sBotInfo.botId
   val chatIdValue                        = 0L
   val chatId                             = ChatId(chatIdValue)
 
@@ -53,8 +55,8 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
         )
       )
       _     <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
@@ -63,8 +65,8 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           .unsubcribeCommandLogic(
             backgroundJobManager,
             m = msg.copy(text = Some(s"/unsubscribe $subscriptionIdNotFound")),
-            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+            sBotInfo = sBotConfig.sBotInfo,
+            ttl = sBotConfig.messageTimeToLive
           )
           .attempt
       )
@@ -80,7 +82,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
                         | message text: /unsubscribe 04F08147-DCD7-4F15-9CF8-D7950CB2AD90
                         | bot: RichardPHJBensonBot
                         | error: Subscription Id is not found: 04f08147-dcd7-4f15-9cf8-d7950cb2ad90""".stripMargin,
-              timeToLive = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+              timeToLive = sBotConfig.messageTimeToLive
             )
           )
         )
@@ -98,8 +100,8 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
         )
       )
       _                                    <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
@@ -108,8 +110,8 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           .unsubcribeCommandLogic(
             backgroundJobManager,
             msg.copy(text = Some(s"/unsubscribe ${testSubscriptionId.value.toString}")),
-            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+            sBotInfo = sBotConfig.sBotInfo,
+            ttl = sBotConfig.messageTimeToLive
           )
           .attempt
       )
@@ -130,8 +132,8 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       backgroundJobManager <- Resource.eval(
         BackgroundJobManager(
           dbLayer = dbLayer,
-          sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-          ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
         )
       )
       _                                    <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
@@ -140,8 +142,8 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
           .unsubcribeCommandLogic(
             backgroundJobManager,
             msg.copy(text = Some("/unsubscribe")),
-            sBotInfo = RichardPHJBensonBot.sBotConfig.sBotInfo,
-            ttl = RichardPHJBensonBot.sBotConfig.messageTimeToLive
+            sBotInfo = sBotConfig.sBotInfo,
+            ttl = sBotConfig.messageTimeToLive
           )
           .attempt
       )
