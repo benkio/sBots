@@ -25,7 +25,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
 
   // Input Data
   val botId: SBotId          = SBotId("testbot")
-  val outputFilePath         = "./src/test/resources/testdata/testBotShow.json"
+  val outputFilePath         = "./src/test/resources/testdata/test_shows.json"
   val captionLanguage        = "it"
   val testCaption            = "Test Caption"
   val videoId                = "6Tw1z"

@@ -14,7 +14,6 @@ import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import log.effect.LogLevels
@@ -34,7 +33,7 @@ extension (botRegistryEntry: BotRegistryEntry[IO]) {
       sBotInfo = botRegistryEntry.sBotInfo,
       webhookBaseUrl = mainSetup.webhookBaseUrl,
       webhookCertificate = mainSetup.webhookCertificate,
-      commandEffectfulCallback = commandEffectfulCallback[IO]
+      commandEffectfulCallback = botRegistryEntry.commandEffectfulCallback
     )
   }
   def sBotConfig: SBotConfig = SBot.buildSBotConfig(botRegistryEntry.sBotInfo)
