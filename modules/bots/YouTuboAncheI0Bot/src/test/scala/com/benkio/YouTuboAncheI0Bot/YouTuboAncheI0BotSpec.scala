@@ -93,6 +93,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
     assertIO(commandRepliesData.map(_.length), 10)
   }
 
+  botJsonsAreValid(ytaiSBotConfig)
   jsonContainsFilenames(
     jsonFilename = "ytai_list.json",
     botData = messageRepliesDataPrettyPrint

@@ -3,12 +3,6 @@ package com.benkio.main
 import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
-import com.benkio.ABarberoBot.ABarberoBotMainPolling
-import com.benkio.CalandroBot.CalandroBotMainPolling
-import com.benkio.M0sconiBot.M0sconiBotMainPolling
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBotMainPolling
-import com.benkio.XahLeeBot.XahLeeBotMainPolling
-import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotMainPolling
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -21,12 +15,7 @@ object MainPolling extends IOApp {
     MainSetup[IO]().use { mainSetup =>
       GeneralErrorHandling.dbLogAndRestart(
         mainSetup.dbLayer.dbLog,
-        ABarberoBotMainPolling.run(args) &>
-          CalandroBotMainPolling.run(args) &>
-          RichardPHJBensonBotMainPolling.run(args) &>
-          XahLeeBotMainPolling.run(args) &>
-          YouTuboAncheI0BotMainPolling.run(args) &>
-          M0sconiBotMainPolling.run(args)
+        BotRegistry.value.runPolling()
       )
     }
 

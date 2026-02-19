@@ -15,6 +15,8 @@ import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.Instruction
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.JsonDataRepository
 import com.benkio.telegrambotinfrastructure.repository.Repository
+import io.circe.*
+import io.circe.parser.*
 import io.circe.parser.decode
 import log.effect.LogWriter
 import munit.*
@@ -32,8 +34,12 @@ import telegramium.bots.Message
 import wolfendale.scalacheck.regexp.RegexpGen
 
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
 import scala.concurrent.duration.FiniteDuration
 import scala.io.Source
+import scala.jdk.CollectionConverters.*
 
 trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
 
@@ -64,6 +70,34 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     values.foreach { value =>
       assert(triggerContent.contains(value), s"$value is not contained in trigger file")
     }
+
+  def botJsonsAreValid(
+      sBotConfig: SBotConfig
+  ): Unit = {
+    val jsonRootPaths: List[Path] =
+      List(
+        sBotConfig.listJsonFilename,
+        sBotConfig.showFilename
+      ).map(p => Paths.get(new File(".").getCanonicalPath, "/" + p))
+    val jsonResourcePaths: List[Path] =
+      List(
+        sBotConfig.repliesJsonFilename,
+        sBotConfig.commandsJsonFilename
+      ).map(p => Paths.get(new File(".").getCanonicalPath, "src", "main", "resources", p))
+    (jsonRootPaths ++ jsonResourcePaths).foreach((jsonPath: Path) => {
+      test(s"Check Json is valid: `$jsonPath`") {
+        if !Files.exists(jsonPath) then {
+          fail(s"JSON file not found: $jsonPath")
+        } else {
+          val content = Files.readAllLines(jsonPath).asScala.foldLeft("")(_ + _)
+          parse(content) match {
+            case Right(_)    => assert(true, "✓ valid")
+            case Left(error) => fail(s"❌ Invalid JSON in $jsonPath: ${error.getMessage}")
+          }
+        }
+      }
+    })
+  }
 
   def jsonContainsFilenames(
       jsonFilename: String,

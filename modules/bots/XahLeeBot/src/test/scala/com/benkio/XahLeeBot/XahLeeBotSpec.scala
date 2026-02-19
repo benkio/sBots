@@ -60,6 +60,7 @@ class XahLeeBotSpec extends BaseBotSpec {
   val messageRepliesDataPrettyPrint: IO[List[String]] =
     xahLeeBot.map(_.messageRepliesData.flatMap(_.reply.prettyPrint))
 
+  botJsonsAreValid(xahSBotConfig)
   jsonContainsFilenames(
     jsonFilename = "xah_list.json",
     botData = messageRepliesDataPrettyPrint

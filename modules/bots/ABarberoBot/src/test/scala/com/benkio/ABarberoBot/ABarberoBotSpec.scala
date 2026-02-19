@@ -101,6 +101,7 @@ class ABarberoBotSpec extends BaseBotSpec {
     jsonFilename = "abar_list.json",
     botData = messageRepliesDataPrettyPrint
   )
+  botJsonsAreValid(abarSBotConfig)
 
   triggerFileContainsTriggers(
     triggerFilename = abarSBotConfig.triggerFilename,

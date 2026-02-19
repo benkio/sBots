@@ -94,6 +94,7 @@ class M0sconiBotSpec extends BaseBotSpec {
     assertIO(commandRepliesData.map(_.length), 6)
   }
 
+  botJsonsAreValid(mosSBotConfig)
   jsonContainsFilenames(
     jsonFilename = "mos_list.json",
     botData = messageRepliesDataPrettyPrint

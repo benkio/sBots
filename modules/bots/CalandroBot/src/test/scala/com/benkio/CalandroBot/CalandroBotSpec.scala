@@ -32,20 +32,20 @@ class CalandroBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val sBotConfig: SBotConfig                = SBot.buildSBotConfig(CalandroBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(sBotConfig.sBotInfo.botId)
+  val calaSBotConfig: SBotConfig            = SBot.buildSBotConfig(CalandroBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(calaSBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, botId) =>
-      IO.raiseUnless(botId == sBotConfig.sBotInfo.botId)(
+      IO.raiseUnless(botId == calaSBotConfig.sBotInfo.botId)(
         Throwable(s"[CalandroBotSpec] getResourceByKindHandler called with unexpected botId: $botId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
     getResourceFileHandler = (mediaFile: MediaFile) =>
       mediaFile match {
-        case Document(v, _) if v == sBotConfig.repliesJsonFilename =>
+        case Document(v, _) if v == calaSBotConfig.repliesJsonFilename =>
           ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
         case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
       }
@@ -55,14 +55,14 @@ class CalandroBotSpec extends BaseBotSpec {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
-      sBotConfig = sBotConfig,
-      ttl = sBotConfig.messageTimeToLive
+      sBotConfig = calaSBotConfig,
+      ttl = calaSBotConfig.messageTimeToLive
     )
     messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      sBotConfig.repliesJsonFilename
+      calaSBotConfig.repliesJsonFilename
     )
     commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      sBotConfig.commandsJsonFilename
+      calaSBotConfig.commandsJsonFilename
     )
   } yield new SBotPolling[IO](
     botSetup,
@@ -103,13 +103,14 @@ class CalandroBotSpec extends BaseBotSpec {
     )
   }
 
+  botJsonsAreValid(calaSBotConfig)
   jsonContainsFilenames(
     jsonFilename = "cala_list.json",
     botData = messageRepliesDataMediaFiles
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = sBotConfig.triggerFilename,
+    triggerFilename = calaSBotConfig.triggerFilename,
     botMediaFiles =
       messageRepliesDataPrettyPrint.map(_.filterNot(x => excludeTriggers.exists(exc => x.startsWith(exc)))),
     botTriggersIO = messageRepliesDataTriggers
