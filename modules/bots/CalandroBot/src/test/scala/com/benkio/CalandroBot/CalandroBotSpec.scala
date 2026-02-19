@@ -32,7 +32,7 @@ class CalandroBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
 
-  val calaSBotConfig: SBotConfig                = SBot.buildSBotConfig(CalandroBot.sBotInfo)
+  val calaSBotConfig: SBotConfig            = SBot.buildSBotConfig(CalandroBot.sBotInfo)
   val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(calaSBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(

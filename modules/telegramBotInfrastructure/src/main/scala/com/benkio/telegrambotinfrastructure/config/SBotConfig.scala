@@ -13,8 +13,8 @@ case class SBotConfig(
     sBotInfo: SBotInfo,
     triggerFilename: String,
     triggerListUri: Uri,
-  listJsonFilename: String,
-  showFilename: String,
+    listJsonFilename: String,
+    showFilename: String,
     repliesJsonFilename: String,
     commandsJsonFilename: String,
     token: String
@@ -28,8 +28,8 @@ object SBotConfig {
       token: String,
       listJsonFilename: String,
       repliesJsonFilename: String,
-    commandsJsonFilename: String,
-    showFilename: String,
+      commandsJsonFilename: String,
+      showFilename: String,
       messageTimeToLive: Option[FiniteDuration] = 10.seconds.some,
       ignoreMessagePrefix: Option[String] = Some("!"),
       disableForward: Boolean = true

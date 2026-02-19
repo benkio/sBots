@@ -3,7 +3,7 @@ import Settings.*
 
 // TASKS
 
-lazy val runMigrate     = taskKey[Unit]("Migrates the database schema.")
+lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
 
 // GLOBAL SETTINGS
 
