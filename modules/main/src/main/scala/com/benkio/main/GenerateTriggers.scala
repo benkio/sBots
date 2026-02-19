@@ -21,13 +21,6 @@ import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.SBot
-import com.benkio.ABarberoBot.ABarberoBot
-import com.benkio.CalandroBot.CalandroBot
-import com.benkio.M0sconiBot.M0sconiBot
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
-import com.benkio.XahLeeBot.XahLeeBot
-import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel
 import log.effect.LogLevels
 import log.effect.LogWriter
@@ -200,71 +193,23 @@ object GenerateTriggers extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] = {
     given log: LogWriter[IO] = consoleLogUpToLevel(LogLevels.Info)
-    val calaSBotConfig       = SBot.buildSBotConfig(CalandroBot.sBotInfo)
-    val abarSBotConfig       = SBot.buildSBotConfig(ABarberoBot.sBotInfo)
-    val xahSBotConfig        = SBot.buildSBotConfig(XahLeeBot.sBotInfo)
-    val m0sconiSBotConfig    = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
-    val ytaiSBotConfig       = SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo)
-    val rphjbSBotConfig      = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
-    (for {
-      calandroSetup <- Resource.eval(forTriggerGeneration(calaSBotConfig)(using log))
-      calandroData  <- Resource.eval(
-        calandroSetup.jsonDataRepository.loadData[ReplyBundleMessage](calaSBotConfig.repliesJsonFilename)
+    BotRegistry
+      .toList(BotRegistry.value)
+      .traverse_((botRegistryEntry: com.benkio.main.BotRegistryEntry[IO]) =>
+        for {
+          botSetup <- Resource.eval(forTriggerGeneration(botRegistryEntry.sBotConfig)(using log))
+          botData  <- Resource.eval(
+            botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botRegistryEntry.sBotConfig.repliesJsonFilename)
+          )
+          _ <- generateTriggerFile(
+            botModuleRelativeFolderPath = s"../bots/${botRegistryEntry.sBotInfo.botName.value}/",
+            triggerFilename = botRegistryEntry.sBotConfig.triggerFilename,
+            triggers = botData
+          )
+        } yield ()
       )
-      _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/CalandroBot/",
-        triggerFilename = calaSBotConfig.triggerFilename,
-        triggers = calandroData
-      )
-      aBarberoSetup <- Resource.eval(forTriggerGeneration(abarSBotConfig)(using log))
-      aBarberoData  <- Resource.eval(
-        aBarberoSetup.jsonDataRepository.loadData[ReplyBundleMessage](abarSBotConfig.repliesJsonFilename)
-      )
-      _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/ABarberoBot/",
-        triggerFilename = abarSBotConfig.triggerFilename,
-        triggers = aBarberoData
-      )
-
-      xahLeeSetup <- Resource.eval(forTriggerGeneration(xahSBotConfig)(using log))
-      xahLeeData  <- Resource.eval(
-        xahLeeSetup.jsonDataRepository.loadData[ReplyBundleMessage](xahSBotConfig.repliesJsonFilename)
-      )
-      _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/XahLeeBot/",
-        triggerFilename = xahSBotConfig.triggerFilename,
-        triggers = xahLeeData
-      )
-      m0sconiSetup <- Resource.eval(forTriggerGeneration(m0sconiSBotConfig)(using log))
-      m0sconiData  <- Resource.eval(
-        m0sconiSetup.jsonDataRepository.loadData[ReplyBundleMessage](m0sconiSBotConfig.repliesJsonFilename)
-      )
-      _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/M0sconiBot/",
-        triggerFilename = m0sconiSBotConfig.triggerFilename,
-        triggers = m0sconiData
-      )
-      youTuboSetup <- Resource.eval(forTriggerGeneration(ytaiSBotConfig)(using log))
-      youTuboData  <- Resource.eval(
-        youTuboSetup.jsonDataRepository
-          .loadData[ReplyBundleMessage](ytaiSBotConfig.repliesJsonFilename)
-      )
-      _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/YouTuboAncheI0Bot/",
-        triggerFilename = ytaiSBotConfig.triggerFilename,
-        triggers = youTuboData
-      )
-      richardSetup <- Resource.eval(forTriggerGeneration(rphjbSBotConfig)(using log))
-      richardData  <- Resource.eval(
-        richardSetup.jsonDataRepository
-          .loadData[ReplyBundleMessage](rphjbSBotConfig.repliesJsonFilename)
-      )
-      _ <- generateTriggerFile(
-        botModuleRelativeFolderPath = "../bots/RichardPHJBensonBot/",
-        triggerFilename = rphjbSBotConfig.triggerFilename,
-        triggers = richardData
-      )
-    } yield ExitCode.Success).use(_.pure)
+      .as(ExitCode.Success)
+      .use(_.pure)
   }
 
 }

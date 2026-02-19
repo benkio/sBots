@@ -1,12 +1,9 @@
 import Dependencies.*
-import JsonCheck.*
 import Settings.*
 
 // TASKS
 
 lazy val runMigrate     = taskKey[Unit]("Migrates the database schema.")
-lazy val checkJsonFiles = taskKey[Unit]("Checks if bot's JSON files are valid")
-checkJsonFiles := JsonCheck.checkJsonFilesImpl.value
 
 // GLOBAL SETTINGS
 
@@ -40,12 +37,12 @@ addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt")
 addCommandAlias(
   "check",
-  "checkJsonFiles; undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
+  "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
 )
 addCommandAlias("generateTriggerTxt", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
   "validate",
-  ";clean; compile; checkJsonFiles; fix; generateTriggerTxt; coverage; test; integration/mUnitTests; coverageAggregate"
+  ";clean; compile; fix; generateTriggerTxt; coverage; test; integration/mUnitTests; coverageAggregate"
 )
 addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")

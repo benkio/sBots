@@ -134,6 +134,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     assertIO(commandRepliesData.map(_.length), 11)
   }
 
+  botJsonsAreValid(rphjbSBotConfig)
   jsonContainsFilenames(
     jsonFilename = "rphjb_list.json",
     botData = messageRepliesDataPrettyPrint

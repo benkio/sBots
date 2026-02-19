@@ -29,22 +29,22 @@ import log.effect.LogWriter
 class M0sconiBotSpec extends BaseBotSpec {
 
   given log: LogWriter[IO]                  = consoleLogUpToLevel(LogLevels.Info)
-  val mosSBotConfig                         = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(mosSBotConfig.sBotInfo.botId)
+  val m0sSBotConfig                         = SBot.buildSBotConfig(M0sconiBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(m0sSBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(
       "test mediafile"
     )
   val repositoryMock = new RepositoryMock(
     getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == mosSBotConfig.sBotInfo.botId)(
+      IO.raiseUnless(inputBotId == m0sSBotConfig.sBotInfo.botId)(
         Throwable(s"[M0sconiBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
       ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
     getResourceFileHandler = (mediaFile: MediaFile) =>
       mediaFile match {
-        case Document(v, _) if v == mosSBotConfig.repliesJsonFilename =>
+        case Document(v, _) if v == m0sSBotConfig.repliesJsonFilename =>
           ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
-        case Document(v, _) if v == mosSBotConfig.commandsJsonFilename =>
+        case Document(v, _) if v == m0sSBotConfig.commandsJsonFilename =>
           ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
         case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
       }
@@ -54,14 +54,14 @@ class M0sconiBotSpec extends BaseBotSpec {
     botSetup <- buildTestBotSetup(
       repository = repositoryMock,
       dbLayer = emptyDBLayer,
-      sBotConfig = mosSBotConfig,
-      ttl = mosSBotConfig.messageTimeToLive
+      sBotConfig = m0sSBotConfig,
+      ttl = m0sSBotConfig.messageTimeToLive
     )
     messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      mosSBotConfig.repliesJsonFilename
+      m0sSBotConfig.repliesJsonFilename
     )
     commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      mosSBotConfig.commandsJsonFilename
+      m0sSBotConfig.commandsJsonFilename
     )
   } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
     Parallel[IO],
@@ -94,13 +94,14 @@ class M0sconiBotSpec extends BaseBotSpec {
     assertIO(commandRepliesData.map(_.length), 6)
   }
 
+  botJsonsAreValid(m0sSBotConfig)
   jsonContainsFilenames(
     jsonFilename = "mos_list.json",
     botData = messageRepliesDataPrettyPrint
   )
 
   triggerFileContainsTriggers(
-    triggerFilename = mosSBotConfig.triggerFilename,
+    triggerFilename = m0sSBotConfig.triggerFilename,
     botMediaFiles = messageRepliesData.map(_.flatMap(mr => mr.reply.prettyPrint)),
     botTriggersIO = messageRepliesData.map(_.flatMap(mrd => Show[Trigger].show(mrd.trigger).split('\n')))
   )
