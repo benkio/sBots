@@ -1460,11 +1460,18 @@
       "TextTrigger": {
         "triggers": [
           {
-            "StringTextTriggerValue": "se non mi aiuta"
+            "RegexTextTriggerValue": {
+              "trigger": "se non m(i |')aiuta",
+              "regexLength": 14
+            }
           },
           {
-            "StringTextTriggerValue": "cosa mi aiuta"
-          }
+            "RegexTextTriggerValue": {
+              "trigger": "cosa m(i |')aiuta",
+              "regexLength": 12
+            }
+          },
+          { "StringTextTriggerValue": "sentite che roba" }
         ]
       }
     },

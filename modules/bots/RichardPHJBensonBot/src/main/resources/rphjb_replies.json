@@ -2037,7 +2037,10 @@
       "TextTrigger": {
         "triggers": [
           {
-            "StringTextTriggerValue": "davanti a gente"
+            "RegexTextTriggerValue": {
+              "trigger": "sempre davanti (a )?gente",
+              "regexLength": 20
+            }
           }
         ]
       }
@@ -14628,7 +14631,7 @@
               "replyToMessage": false
             }
           },
-            {
+          {
             "GifFile": {
               "filepath": "rphjb_LeDecidoIoMareDiCazzateGif.mp4",
               "replyToMessage": false
@@ -15786,7 +15789,7 @@
               "replyToMessage": false
             }
           },
-{
+          {
             "GifFile": {
               "filepath": "rphjb_LeDecidoIoMareDiCazzateGif.mp4",
               "replyToMessage": false
@@ -24554,7 +24557,7 @@
               "replyToMessage": false
             }
           },
-{
+          {
             "GifFile": {
               "filepath": "rphjb_LeDecidoIoMareDiCazzateGif.mp4",
               "replyToMessage": false
@@ -25761,7 +25764,7 @@
               "replyToMessage": false
             }
           },
-            {
+          {
             "GifFile": {
               "filepath": "rphjb_MaVatteneAffanculoBruttoFrocioGif.mp4",
               "replyToMessage": false
@@ -25776,6 +25779,34 @@
           {
             "Mp3File": {
               "filepath": "rphjb_MaVatteneAffanculoBruttoFrocio.mp3",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "sono un brutto frocio"
+          },
+          {
+            "StringTextTriggerValue": "ormai mi sono abituato"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "Mp3File": {
+              "filepath": "rphjb_BruttoFrocio.mp3",
               "replyToMessage": false
             }
           }
@@ -26783,7 +26814,7 @@
     "reply": {
       "MediaReply": {
         "mediaFiles": [
-{
+          {
             "GifFile": {
               "filepath": "rphjb_LeDecidoIoMareDiCazzateGif.mp4",
               "replyToMessage": false
@@ -34795,7 +34826,7 @@
     },
     "matcher": "ContainsOnce"
   },
-    {
+  {
     "trigger": {
       "TextTrigger": {
         "triggers": [
@@ -39184,7 +39215,7 @@
     "reply": {
       "MediaReply": {
         "mediaFiles": [
-            {
+          {
             "GifFile": {
               "filepath": "rphjb_BastoneInfernaleInTabaccheriaGif.mp4",
               "replyToMessage": false
@@ -39512,8 +39543,8 @@
     },
     "reply": {
       "MediaReply": {
-          "mediaFiles": [
-              {
+        "mediaFiles": [
+          {
             "GifFile": {
               "filepath": "rphjb_LeDecidoIoMareDiCazzateGif.mp4",
               "replyToMessage": false
@@ -47070,7 +47101,7 @@
               "replyToMessage": false
             }
           },
-            {
+          {
             "GifFile": {
               "filepath": "rphjb_LeDecidoIoMareDiCazzateGif.mp4",
               "replyToMessage": false
@@ -47105,12 +47136,15 @@
             "StringTextTriggerValue": "good vibration"
           },
           {
-            "StringTextTriggerValue": "barbara ann"
+            "RegexTextTriggerValue": {
+              "trigger": "bar[ ]?bara ann",
+              "regexLength": 11
+            }
           },
           {
             "RegexTextTriggerValue": {
-                "trigger": "(ba[ ]?){3,}[ ]?bur[ ]?[ea]n",
-              "regexLength": 11
+              "trigger": "(ba[ ]?){2,}[ ]?bur[ ]?[ea]n",
+              "regexLength": 9
             }
           }
         ]
@@ -47219,10 +47253,10 @@
       "TextTrigger": {
         "triggers": [
           {
-              "RegexTextTriggerValue": {
-                  "trigger": "(pi(gl|j)iare|pi(gl|j)i[aà]) per il culo",
-                  "regexLength": 17
-              }
+            "RegexTextTriggerValue": {
+              "trigger": "(pi(gl|j)iare|pi(gl|j)i[aà]) per il culo",
+              "regexLength": 17
+            }
           }
         ]
       }
