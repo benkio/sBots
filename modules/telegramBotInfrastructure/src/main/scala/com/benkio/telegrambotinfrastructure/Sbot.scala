@@ -45,6 +45,7 @@ object SBot {
         s"https://github.com/benkio/sBots/blob/main/modules/bots/${sBotInfo.botName}/${sBotInfo.botId}_triggers.txt"
       ),
       listJsonFilename = s"${sBotInfo.botId}_list.json",
+      showFilename = s"${sBotInfo.botId}_shows.json",
       repliesJsonFilename = s"${sBotInfo.botId}_replies.json",
       commandsJsonFilename = s"${sBotInfo.botId}_commands.json",
       token = s"${sBotInfo.botId}_${sBotInfo.botName}.token"

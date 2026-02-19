@@ -40,6 +40,7 @@ object SBotConfig {
     sBotInfo = sBotInfo,
     triggerFilename = triggerFilename,
     listJsonFilename = listJsonFilename,
+    showFilename = showFilename,
     repliesJsonFilename = repliesJsonFilename,
     commandsJsonFilename = commandsJsonFilename,
     triggerListUri = triggerListUri,
