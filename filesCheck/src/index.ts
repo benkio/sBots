@@ -28,18 +28,23 @@ const bots: Bot[] = [
   {
     id: 'rphjb',
     artist: 'Richard Philip Henry John Benson',
-    path: 'richardPHJBensonBot/src/main/resources',
+    path: 'RichardPHJBensonBot/src/main/resources',
   },
   {
     id: 'abar',
     artist: 'Alessandro Barbero',
     path: 'ABarberoBot/src/main/resources',
   },
-  { id: 'xah', artist: 'Xah Lee', path: 'xahLeeBot/src/main/resources' },
+  { id: 'xah', artist: 'Xah Lee', path: 'XahLeeBot/src/main/resources' },
+  {
+    id: 'mos',
+    artist: 'Germano Mosconi',
+    path: 'M0sconiBot/src/main/resources',
+  },
   {
     id: 'ytai',
     artist: 'Omar Palermo',
-    path: 'youTuboAncheI0Bot/src/main/resources',
+    path: 'YouTuboAncheI0Bot/src/main/resources',
   },
   {
     id: 'cala',
@@ -114,7 +119,7 @@ function match(bot: Bot): Matches[] {
         return (
           stats.isFile() &&
           ['.token', '.jpg'].find((ext) => path.extname(f) === ext) ===
-            undefined &&
+          undefined &&
           !generalFilename.test(path.basename(f))
         );
       },

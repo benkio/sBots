@@ -2259,7 +2259,19 @@
         "mediaFiles": [
           {
             "GifFile": {
-              "filepath": "rphjb_ComeHaFattoAEntrareGif.mp4",
+              "filepath": "rphjb_ComeCazzoFattoEntrareGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_ComeCazzoFattoEntrare.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_ComeCazzoFattoEntrare.mp3",
               "replyToMessage": false
             }
           }
@@ -5471,13 +5483,56 @@
       "TextTrigger": {
         "triggers": [
           {
+            "RegexTextTriggerValue": {
+              "trigger": "gran('|de )troia",
+              "regexLength": 10
+            }
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "VideoFile": {
+              "filepath": "rphjb_LeonNeon.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_MillyDAbbraccio.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_MillyDAbbraccio.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_MillyDAbbraccioGif.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
             "StringTextTriggerValue": "leon neon"
           },
           {
             "StringTextTriggerValue": "faccia d'angelo"
-          },
-          {
-            "StringTextTriggerValue": "grande troia"
           }
         ]
       }
@@ -23850,6 +23905,64 @@
       "TextTrigger": {
         "triggers": [
           {
+            "RegexTextTriggerValue": {
+              "trigger": "lo (devo|dovevo) infil[aà]",
+              "regexLength": 19
+            }
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "VideoFile": {
+              "filepath": "rphjb_MillyDAbbraccio.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_MillyDAbbraccio.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_MillyDAbbraccioGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_CambiataTuttaPiercingPropriolla.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_CambiataTuttaPiercingPropriolla.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_CambiataTuttaPiercingPropriollaGif.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
             "StringTextTriggerValue": "sei cambiata tutta"
           },
           {
@@ -23863,12 +23976,6 @@
           },
           {
             "StringTextTriggerValue": "in mezzo alle gambe"
-          },
-          {
-            "RegexTextTriggerValue": {
-              "trigger": "dove lo devo infil[aà]",
-              "regexLength": 19
-            }
           }
         ]
       }
@@ -32355,7 +32462,10 @@
       "TextTrigger": {
         "triggers": [
           {
-            "StringTextTriggerValue": "chi è"
+            "RegexTextTriggerValue": {
+              "trigger": "chi è(\\?| entrato| questa persona)",
+              "regexLength": 6
+            }
           }
         ]
       }
@@ -32365,7 +32475,37 @@
         "mediaFiles": [
           {
             "GifFile": {
-              "filepath": "rphjb_QuestaPersonaScusateGif.mp4",
+              "filepath": "rphjb_ChiQuestaPersonaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_ChiQuestaPersona.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_ChiQuestaPersona.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_MaChiEntratoGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_MaChiEntrato.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_MaChiEntrato.mp3",
               "replyToMessage": false
             }
           },
@@ -38716,6 +38856,24 @@
       "MediaReply": {
         "mediaFiles": [
           {
+            "VideoFile": {
+              "filepath": "rphjb_MillyDAbbraccio.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_MillyDAbbraccio.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_MillyDAbbraccioGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
             "GifFile": {
               "filepath": "rphjb_SorcaLeccisoGif.mp4",
               "replyToMessage": false
@@ -38942,14 +39100,20 @@
       "MediaReply": {
         "mediaFiles": [
           {
-            "GifFile": {
-              "filepath": "rphjb_CosaSuccessoGif.mp4",
+            "VideoFile": {
+              "filepath": "rphjb_CosaSuccesso.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_CosaSuccesso.mp3",
               "replyToMessage": false
             }
           },
           {
             "GifFile": {
-              "filepath": "rphjb_CosaGif.mp4",
+              "filepath": "rphjb_CosaSuccessoGif.mp4",
               "replyToMessage": false
             }
           },
@@ -46823,8 +46987,44 @@
         "mediaFiles": [
           {
             "GifFile": {
-              "filepath": "rphjb_QuestaPersonaScusateGif.mp4",
-              "replyToMessage": true
+              "filepath": "rphjb_ChiQuestaPersonaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_ChiQuestaPersona.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_ChiQuestaPersona.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_MaChiEntratoGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_MaChiEntrato.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_MaChiEntrato.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_TelefonataInLinea.mp4",
+              "replyToMessage": false
             }
           }
         ],
@@ -47331,6 +47531,55 @@
           {
             "Mp3File": {
               "filepath": "rphjb_QuattroBambiniMagistratoEstromesso.mp3",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "milly d'abbraccio"
+          },
+          {
+            "StringTextTriggerValue": "liquido speciale"
+          },
+          {
+            "StringTextTriggerValue": "bomboletta"
+          },
+          {
+            "RegexTextTriggerValue": {
+              "trigger": "non s[ei] bagnava",
+              "regexLength": 14
+            }
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "VideoFile": {
+              "filepath": "rphjb_MillyDAbbraccio.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_MillyDAbbraccio.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_MillyDAbbraccioGif.mp4",
               "replyToMessage": false
             }
           }
