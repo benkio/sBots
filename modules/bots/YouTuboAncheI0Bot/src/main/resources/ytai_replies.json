@@ -6326,7 +6326,7 @@
       "TextTrigger": {
         "triggers": [
           {
-            "StringTextTriggerValue": "cocco e cioccolata"
+            "StringTextTriggerValue": "cocco"
           }
         ]
       }
@@ -9478,6 +9478,24 @@
       "MediaReply": {
         "mediaFiles": [
           {
+            "GifFile": {
+              "filepath": "ytai_AttaccoCardiacoGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "ytai_AttaccoCardiaco.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "ytai_AttaccoCardiaco.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
             "VideoFile": {
               "filepath": "ytai_OliveGrandiMeravigliose.mp4",
               "replyToMessage": false
@@ -10877,6 +10895,98 @@
       "TextTrigger": {
         "triggers": [
           {
+            "StringTextTriggerValue": "nocciola"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "GifFile": {
+              "filepath": "ytai_BaciPeruginaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "ytai_BaciPerugina.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "ytai_BaciPerugina.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "cioccolata"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "GifFile": {
+              "filepath": "ytai_BaciPeruginaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "ytai_BaciPerugina.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "ytai_BaciPerugina.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "ytai_CoccoCioccolataUnioneStrepitosa.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "ytai_CoccoCioccolataUnioneStrepitosa.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "ytai_CoccoCioccolataUnioneStrepitosaGif.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
             "RegexTextTriggerValue": {
               "trigger": "\\bpasta\\b",
               "regexLength": 5
@@ -11606,6 +11716,178 @@
           {
             "Mp3File": {
               "filepath": "ytai_AcquaLeggeraOttima.mp3",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "RegexTextTriggerValue": {
+              "trigger": "\\bcalma\\b",
+              "regexLength": 5
+            }
+          },
+          {
+            "StringTextTriggerValue": "facendo un video"
+          },
+          {
+            "StringTextTriggerValue": "seguono sul canale"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "GifFile": {
+              "filepath": "ytai_CalmaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "ytai_Calma.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "ytai_Calma.mp3",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "biscotti secchi"
+          },
+          {
+            "StringTextTriggerValue": "mi piacciono"
+          },
+          {
+            "StringTextTriggerValue": "di due tipi"
+          },
+          {
+            "RegexTextTriggerValue": {
+              "trigger": "(1|un) (kilo|kg)",
+              "regexLength": 4
+            }
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "Mp3File": {
+              "filepath": "ytai_BiscottiSecchi.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "ytai_BiscottiSecchi.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "ytai_BiscottiSecchiGif.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "RegexTextTriggerValue": {
+              "trigger": "passiamo (subito )?ai fatti",
+              "regexLength": 17
+            }
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "Mp3File": {
+              "filepath": "ytai_PassiamoFatti.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "ytai_PassiamoFatti.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "ytai_PassiamoFattiGif.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "attacco cardiaco"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "GifFile": {
+              "filepath": "ytai_AttaccoCardiacoGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "ytai_AttaccoCardiaco.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "ytai_AttaccoCardiaco.mp4",
               "replyToMessage": false
             }
           }
