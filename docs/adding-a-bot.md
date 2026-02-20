@@ -41,7 +41,7 @@ This updates `build.sbt` and `modules/main/.../BotsRegistry.scala` (defines the 
 
 **Option B – Manual**
 
-1. **Define the project and add it to `botProjects`**  
+1. **Define the project and add it to `botProjects`**
    In `build.sbt`:
    - Add a lazy val for your bot (same pattern as the others):
      ```scala
@@ -59,7 +59,7 @@ This updates `build.sbt` and `modules/main/.../BotsRegistry.scala` (defines the 
      )
      ```
 
-2. **Register in BotsRegistry**  
+2. **Register in BotsRegistry**
    In `modules/main/src/main/scala/com/benkio/main/BotsRegistry.scala`:
 
    - Add the import:
@@ -85,6 +85,10 @@ Aggregate and `main.dependsOn` will then include your bot automatically.
 - From the project root: `sbt compile`
 - Run the bot (e.g. `sbt "MyNewBot/run"`) once you have added a token and any needed resources.
 
+## Step 4: Update README.md
+
+Update the `README.md` file with the new bot entry in the table.
+
 ## Optional: Data entry alias
 
 The template includes a main class for data entry (`TemplateBotMainDataEntry` → `MyNewBotMainDataEntry`). To run it from sbt, add a command alias in `build.sbt` (see existing `abarAddData`, `xahAddData`, etc.):
@@ -106,5 +110,6 @@ addCommandAlias("mynewAddData", "MyNewBot/runMain com.benkio.MyNewBot.MyNewBotMa
 | 1. Create module | Copy `_template` to `modules/bots/YourBotName` and replace TemplateBot → YourBotName, tpl → yourid (or run `sbt newBot YourBotName yourid`) |
 | 2. Register in build & registry | Run `./scripts/CompleteBotRegistration.sc YourBotName yourid` **or** manually edit build.sbt and BotsRegistry.scala |
 | 3. Verify | `sbt compile` and optionally run the bot |
+| 4. Docs | Update the README with the new bot |
 
 No changes are needed in `project/Settings.scala` or `project/Dependencies.scala`; the shared `botProjectSettings` and `BotDependencies` apply to every bot.
