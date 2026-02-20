@@ -5,6 +5,13 @@ import Settings.*
 
 lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
 
+lazy val newBot = inputKey[Unit]("Create new bot from template: newBot <BotName> <id> (e.g. newBot MyNewBot mynew)")
+newBot := {
+  val args = sbt.complete.Parsers.spaceDelimited("<BotName> <id>").parsed
+  if (args.size < 2) throw new sbt.MessageOnlyException("Usage: newBot <BotName> <id>")
+  NewBotTask.createFromTemplate(baseDirectory.value, args(0), args(1))
+}
+
 // GLOBAL SETTINGS
 
 name                     := "sBots"
@@ -59,20 +66,21 @@ addCommandAlias(
 
 // PROJECTS
 
+// Bot projects: when adding a bot, define the project below and add it here so aggregate and main.dependsOn include it.
+lazy val botProjects: Seq[sbt.ProjectReference] = Seq(
+  CalandroBot,
+  ABarberoBot,
+  RichardPHJBensonBot,
+  XahLeeBot,
+  YouTuboAncheI0Bot,
+  M0sconiBot
+)
+
 lazy val sBots =
   Project("sBots", file("."))
     .settings(Settings.settings *)
-    .aggregate(
-      main,
-      botDB,
-      telegramBotInfrastructure,
-      CalandroBot,
-      ABarberoBot,
-      RichardPHJBensonBot,
-      XahLeeBot,
-      YouTuboAncheI0Bot,
-      M0sconiBot
-    )
+    .aggregate(main, botDB, telegramBotInfrastructure)
+    .aggregate(botProjects *)
 
 lazy val telegramBotInfrastructure =
   Project("telegramBotInfrastructure", file("modules/telegramBotInfrastructure"))
@@ -83,52 +91,45 @@ lazy val telegramBotInfrastructure =
 lazy val CalandroBot =
   Project("CalandroBot", file("modules/bots/CalandroBot"))
     .settings(Settings.settings *)
-    .settings(Settings.CalandroBotSettings *)
+    .settings(Settings.botProjectSettings("CalandroBot") *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val ABarberoBot =
   Project("ABarberoBot", file("modules/bots/ABarberoBot"))
     .settings(Settings.settings *)
-    .settings(Settings.ABarberoBotSettings *)
+    .settings(Settings.botProjectSettings("ABarberoBot") *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val RichardPHJBensonBot =
   Project("RichardPHJBensonBot", file("modules/bots/RichardPHJBensonBot"))
     .settings(Settings.settings *)
-    .settings(Settings.RichardPHJBensonBotSettings *)
+    .settings(Settings.botProjectSettings("RichardPHJBensonBot") *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val XahLeeBot =
   Project("XahLeeBot", file("modules/bots/XahLeeBot"))
     .settings(Settings.settings *)
-    .settings(Settings.XahLeeBotSettings *)
+    .settings(Settings.botProjectSettings("XahLeeBot") *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val YouTuboAncheI0Bot =
   Project("YouTuboAncheI0Bot", file("modules/bots/YouTuboAncheI0Bot"))
     .settings(Settings.settings *)
-    .settings(Settings.YouTuboAncheI0BotSettings *)
+    .settings(Settings.botProjectSettings("YouTuboAncheI0Bot") *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val M0sconiBot =
   Project("M0sconiBot", file("modules/bots/M0sconiBot"))
     .settings(Settings.settings *)
-    .settings(Settings.M0sconiBotSettings *)
+    .settings(Settings.botProjectSettings("M0sconiBot") *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val main = project
   .in(file("modules/main"))
   .settings(Settings.settings *)
   .settings(Settings.MainSettings)
-  .dependsOn(
-    CalandroBot,
-    ABarberoBot,
-    RichardPHJBensonBot,
-    XahLeeBot,
-    YouTuboAncheI0Bot,
-    M0sconiBot,
-    telegramBotInfrastructure % "compile->compile;test->test"
-  )
+  .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+  .dependsOn(botProjects.map(_ % "compile->compile;test->test"): _*)
 
 lazy val botDB =
   Project("botDB", file("modules/botDB"))
@@ -143,13 +144,7 @@ lazy val botDB =
 lazy val integration = (project in file("modules/integration-tests"))
   .dependsOn(
     telegramBotInfrastructure % "compile->compile;test->test",
-    CalandroBot,
-    ABarberoBot,
-    RichardPHJBensonBot,
-    XahLeeBot,
-    YouTuboAncheI0Bot,
-    M0sconiBot,
-    botDB % "compile->compile;test->test",
+    botDB                     % "compile->compile;test->test",
     main
   )
   .settings(Settings.settings *)
