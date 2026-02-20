@@ -19,10 +19,45 @@ object NewBotTask {
       throw new MessageOnlyException(s"Target already exists: $targetDir")
 
     copyAndSubstitute(templateDir, targetDir, templateDir, botName, id)
+    addBotToApplicationConf(base, botName, id)
     println(s"Created bot module at $targetDir")
     println(
       s"Next: define the project in build.sbt, add to BotsRegistry (or run: ./scripts/CompleteBotRegistration.sc $botName $id). See docs/adding-a-bot.md"
     )
+  }
+
+  private def addBotToApplicationConf(base: File, botName: String, id: String): Unit = {
+    val appConf = base / "modules" / "botDB" / "src" / "main" / "resources" / "application.conf"
+    if (!appConf.isFile) return
+    var content = IO.read(appConf)
+    if (content.contains(s"""bot-id = "$id"""")) return // already added
+    content = content.replace(
+      """{ bot-id = "ytai", value = "../../../../bots/YouTuboAncheI0Bot"},""",
+      s"""{ bot-id = "ytai", value = "../../../../bots/YouTuboAncheI0Bot"},
+         |        { bot-id = "$id", value = "../../../../bots/$botName"},""".stripMargin
+    )
+    content = content.replace(
+      """            {
+        |                bot-id        = "ytai",
+        |                caption-language = "it",
+        |                youtube-sources = ["@youtuboancheio1365"],
+        |                output-file-path = "../bots/youTuboAncheI0Bot/ytai_shows.json"
+        |            },""".stripMargin,
+      """            {
+        |                bot-id        = "ytai",
+        |                caption-language = "it",
+        |                youtube-sources = ["@youtuboancheio1365"],
+        |                output-file-path = "../bots/youTuboAncheI0Bot/ytai_shows.json"
+        |            },
+        |            {
+        |                bot-id        = "$id",
+        |                caption-language = "it",
+        |                youtube-sources = [],
+        |                output-file-path = "../bots/$botName/${id}_shows.json"
+        |            },""".stripMargin
+    )
+    IO.write(appConf, content)
+    println(s"Updated botDB application.conf with $botName ($id)")
   }
 
   private def copyAndSubstitute(src: File, dest: File, templateRoot: File, botName: String, id: String): Unit = {
