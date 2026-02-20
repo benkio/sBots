@@ -5,6 +5,13 @@ import Settings.*
 
 lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
 
+lazy val newBot = inputKey[Unit]("Create new bot from template: newBot <BotName> <id> (e.g. newBot MyNewBot mynew)")
+newBot := {
+  val args = sbt.complete.Parsers.spaceDelimited("<BotName> <id>").parsed
+  if (args.size < 2) throw new sbt.MessageOnlyException("Usage: newBot <BotName> <id>")
+  NewBotTask.createFromTemplate(baseDirectory.value, args(0), args(1))
+}
+
 // GLOBAL SETTINGS
 
 name                     := "sBots"
@@ -59,15 +66,15 @@ addCommandAlias(
 
 // PROJECTS
 
-// Bot projects: keep in sync with BotProjects.botProjectNames in project/BotProjects.scala.
-// When adding a bot: add name there, define the project below, then add it here so aggregate and main.dependsOn include it.
+// Bot projects: when adding a bot, define the project below and add it here so aggregate and main.dependsOn include it.
 lazy val botProjects: Seq[sbt.ProjectReference] = Seq(
   CalandroBot,
   ABarberoBot,
   RichardPHJBensonBot,
   XahLeeBot,
   YouTuboAncheI0Bot,
-  M0sconiBot
+  M0sconiBot,
+  VSgarbiBot
 )
 
 lazy val sBots =
@@ -117,6 +124,12 @@ lazy val M0sconiBot =
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("M0sconiBot") *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+
+lazy val VSgarbiBot =
+Project("VSgarbiBot", file("modules/bots/VSgarbiBot"))
+  .settings(Settings.settings *)
+  .settings(Settings.botProjectSettings("VSgarbiBot") *)
+  .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val main = project
   .in(file("modules/main"))
