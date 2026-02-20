@@ -143,13 +143,7 @@ lazy val botDB =
 lazy val integration = (project in file("modules/integration-tests"))
   .dependsOn(
     telegramBotInfrastructure % "compile->compile;test->test",
-    CalandroBot,
-    ABarberoBot,
-    RichardPHJBensonBot,
-    XahLeeBot,
-    YouTuboAncheI0Bot,
-    M0sconiBot,
-    botDB % "compile->compile;test->test",
+    botDB                     % "compile->compile;test->test",
     main
   )
   .settings(Settings.settings *)
