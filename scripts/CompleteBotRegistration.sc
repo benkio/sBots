@@ -7,7 +7,7 @@
   * MyNewBot mynew
   *
   * Edits:
-  *   - build.sbt: defines the project and adds it to botProjects
+  *   - build.sbt: defines the project, adds it to botProjects, adds data-entry alias (e.g. mynewAddData)
   *   - modules/main/.../BotsRegistry.scala: adds import and BotRegistryEntry (no commandEffectfulCallback)
   */
 
@@ -111,8 +111,19 @@ if registryContent.contains(s"$pkg.$botName") then {
   println(s"Updated ${botsRegistry.getPath}")
 }
 
-println(
-  s"""Done.
-     | - Update the `README.md` file
-     | - Optional: add data-entry alias in build.sbt: addCommandAlias(\"${id}AddData\", \"$botName/runMain $pkg.${botName}MainDataEntry\")""".stripMargin
-)
+// 3. build.sbt: add data-entry alias
+val buildContentNow = read(buildSbt)
+val aliasName       = s"${id}AddData"
+val aliasLine       = s"""addCommandAlias("$aliasName", "$botName/runMain $pkg.${botName}MainDataEntry")"""
+if !buildContentNow.contains(aliasName) then {
+  val newBuildWithAlias = buildContentNow.replace(
+    "\n\n// PROJECTS",
+    s"\n$aliasLine\n\n// PROJECTS"
+  )
+  if newBuildWithAlias != buildContentNow then {
+    write(buildSbt, newBuildWithAlias)
+    println(s"Added data-entry alias: $aliasName")
+  }
+}
+
+println("Done. Remember to update the README.md file if needed.")

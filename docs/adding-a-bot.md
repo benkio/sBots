@@ -37,7 +37,7 @@ From the project root, run the script (requires [scala-cli](https://scala-cli.vi
 ./scripts/CompleteBotRegistration.sc MyNewBot mynew
 ```
 
-This updates `build.sbt` and `modules/main/.../BotsRegistry.scala` (defines the project, adds it to `botProjects`, adds the registry entry with no custom callbacks). If your bot needs `commandEffectfulCallback` (like RichardPHJBensonBot), add it manually in BotsRegistry after running the script.
+This updates `build.sbt` and `modules/main/.../BotsRegistry.scala`: defines the project, adds it to `botProjects`, adds the data-entry alias (e.g. `mynewAddData`), and adds the registry entry (no custom callbacks). If your bot needs `commandEffectfulCallback` (like RichardPHJBensonBot), add it manually in BotsRegistry after running the script.
 
 **Option B – Manual**
 
@@ -89,15 +89,13 @@ Aggregate and `main.dependsOn` will then include your bot automatically.
 
 Update the `README.md` file with the new bot entry in the table.
 
-## Optional: Data entry alias
+## Data entry alias
 
-The template includes a main class for data entry (`TemplateBotMainDataEntry` → `MyNewBotMainDataEntry`). To run it from sbt, add a command alias in `build.sbt` (see existing `abarAddData`, `xahAddData`, etc.):
+The template includes a main class for data entry (`TemplateBotMainDataEntry` → `MyNewBotMainDataEntry`). The registration script adds the command alias automatically (e.g. `mynewAddData` for id `mynew`). If you register manually, add in `build.sbt`:
 
 ```scala
 addCommandAlias("mynewAddData", "MyNewBot/runMain com.benkio.MyNewBot.MyNewBotMainDataEntry")
 ```
-
-(Use a short alias name derived from your bot id, e.g. `mynewAddData` for id `mynew`.)
 
 ## Triggers
 
