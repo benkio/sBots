@@ -51,51 +51,12 @@ object Settings {
     }
   )
 
-  lazy val CalandroBotSettings = Seq(
-    name                     := "CalandroBot",
-    libraryDependencies      := CalandroBotDependencies,
-    dependencyOverrides      := CalandroBotDependencies,
-    mainClass                := Some("com.benkio.CalandroBot.CalandroBotMainPolling"),
-    Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
-
-  lazy val ABarberoBotSettings = Seq(
-    name                     := "ABarberoBot",
-    libraryDependencies      := ABarberoBotDependencies,
-    dependencyOverrides      := ABarberoBotDependencies,
-    mainClass                := Some("com.benkio.ABarberoBot.ABarberoBotMainPolling"),
-    Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
-
-  lazy val RichardPHJBensonBotSettings = Seq(
-    name                     := "RichardPHJBensonBot",
-    libraryDependencies      := RichardPHJBensonBotDependencies,
-    dependencyOverrides      := RichardPHJBensonBotDependencies,
-    mainClass                := Some("com.benkio.RichardPHJBensonBot.RichardPHJBensonBotMainPolling"),
-    Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
-
-  lazy val XahLeeBotSettings = Seq(
-    name                     := "XahLeeBot",
-    libraryDependencies      := XahLeeBotDependencies,
-    dependencyOverrides      := XahLeeBotDependencies,
-    mainClass                := Some("com.benkio.XahLeeBot.XahLeeBotMainPolling"),
-    Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
-
-  lazy val YouTuboAncheI0BotSettings = Seq(
-    name                     := "YouTuboAncheI0Bot",
-    libraryDependencies      := YouTuboAncheI0BotDependencies,
-    dependencyOverrides      := YouTuboAncheI0BotDependencies,
-    mainClass                := Some("com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0BotMainPolling"),
-    Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
-
-  lazy val M0sconiBotSettings = Seq(
-    name                     := "M0sconiBot",
-    libraryDependencies      := M0sconiBotDependencies,
-    dependencyOverrides      := M0sconiBotDependencies,
-    mainClass                := Some("com.benkio.M0sconiBot.M0sconiBotMainPolling"),
+  /** Shared settings for all bot projects. Pass the project name (e.g. "CalandroBot"). */
+  def botProjectSettings(projectName: String): Seq[Def.SettingsDefinition] = Seq(
+    name                     := projectName,
+    libraryDependencies      := BotDependencies,
+    dependencyOverrides      := BotDependencies,
+    mainClass                := Some(s"com.benkio.$projectName.${projectName}MainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ assemblySettings
 

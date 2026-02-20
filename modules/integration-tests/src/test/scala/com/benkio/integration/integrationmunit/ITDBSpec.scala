@@ -83,7 +83,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         commandRepliesData,
         entry.commandEffectfulCallback
       )(using Parallel[IO], Async[IO], botSetup.api, log)
-      files  = sBot.messageRepliesData.flatMap(r => r.getMediaFiles)
+      files = sBot.messageRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
@@ -118,7 +118,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         commandRepliesData,
         entry.commandEffectfulCallback
       )(using Parallel[IO], Async[IO], botSetup.api, log)
-      files  = sBot.commandRepliesData.flatMap(r => r.getMediaFiles)
+      files = sBot.commandRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.eval(
         files
           .traverse((file: MediaFile) =>
@@ -138,8 +138,10 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       dbRes: com.benkio.integration.DBFixtureResources,
       entry: com.benkio.main.BotRegistryEntry[IO]
   ): Resource[IO, Boolean] = {
-    val sBotConfig  = entry.sBotConfig
-    val listPath    = new File(s"./../bots/${sBotConfig.sBotInfo.botName.value}").getCanonicalPath + s"/${sBotConfig.sBotInfo.botId.value}_list.json"
+    val sBotConfig = entry.sBotConfig
+    val listPath   = new File(
+      s"./../bots/${sBotConfig.sBotInfo.botName.value}"
+    ).getCanonicalPath + s"/${sBotConfig.sBotInfo.botId.value}_list.json"
     val jsonContent = Source.fromFile(listPath).getLines().mkString("\n")
     val json        = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
     for {
@@ -177,12 +179,14 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     } yield checks.foldLeft(true)(_ && _)
   }
 
-    private def runMessageRepliesJsonContainmentCheck(
+  private def runMessageRepliesJsonContainmentCheck(
       dbRes: com.benkio.integration.DBFixtureResources,
       entry: com.benkio.main.BotRegistryEntry[IO]
   ): Resource[IO, Boolean] = {
-    val sBotConfig  = entry.sBotConfig
-    val listPath    = new File(s"./../bots/${sBotConfig.sBotInfo.botName.value}").getCanonicalPath + s"/${sBotConfig.sBotInfo.botId.value}_list.json"
+    val sBotConfig = entry.sBotConfig
+    val listPath   = new File(
+      s"./../bots/${sBotConfig.sBotInfo.botName.value}"
+    ).getCanonicalPath + s"/${sBotConfig.sBotInfo.botId.value}_list.json"
     val jsonContent = Source.fromFile(listPath).getLines().mkString("\n")
     val json        = decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
     for {

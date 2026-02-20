@@ -144,17 +144,8 @@ object Dependencies {
       libs.vault
     )
 
-  val CalandroBotDependencies: Seq[ModuleID] = CommonDependencies
-
-  val ABarberoBotDependencies: Seq[ModuleID] = CommonDependencies
-
-  val XahLeeBotDependencies: Seq[ModuleID] = CommonDependencies
-
-  val YouTuboAncheI0BotDependencies: Seq[ModuleID] = CommonDependencies
-
-  val M0sconiBotDependencies: Seq[ModuleID] = CommonDependencies
-
-  val RichardPHJBensonBotDependencies: Seq[ModuleID] = CommonDependencies
+  /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */
+  val BotDependencies: Seq[ModuleID] = CommonDependencies
 
   val MainDependencies: Seq[ModuleID] =
     CommonDependencies ++

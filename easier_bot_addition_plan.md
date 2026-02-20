@@ -59,16 +59,6 @@ This way, adding a bot = add one string to `botProjectNames` + define the projec
 
 Result: adding a bot no longer requires a new Settings block or a new Dependencies val.
 
-### 3. Fix webhook callback bug (quick win)
-
-In [BotsRegistry.scala](modules/main/src/main/scala/com/benkio/main/BotsRegistry.scala), in the extension method `sBotWebhookResource`, change:
-
-- `commandEffectfulCallback = commandEffectfulCallback[IO]`  
-to  
-- `commandEffectfulCallback = botRegistryEntry.commandEffectfulCallback`
-
-so each webhook bot uses its own callbacks.
-
 ### 4. Optional: registry from a shared trait (medium impact, more refactor)
 
 To avoid editing [BotsRegistry.scala](modules/main/src/main/scala/com/benkio/main/BotsRegistry.scala) (and its imports) when adding a bot:
