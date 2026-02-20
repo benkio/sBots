@@ -119,7 +119,7 @@ function match(bot: Bot): Matches[] {
         return (
           stats.isFile() &&
           ['.token', '.jpg'].find((ext) => path.extname(f) === ext) ===
-          undefined &&
+            undefined &&
           !generalFilename.test(path.basename(f))
         );
       },
