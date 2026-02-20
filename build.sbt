@@ -73,8 +73,7 @@ lazy val botProjects: Seq[sbt.ProjectReference] = Seq(
   RichardPHJBensonBot,
   XahLeeBot,
   YouTuboAncheI0Bot,
-  M0sconiBot,
-  VSgarbiBot
+  M0sconiBot
 )
 
 lazy val sBots =
@@ -124,12 +123,6 @@ lazy val M0sconiBot =
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("M0sconiBot") *)
     .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
-
-lazy val VSgarbiBot =
-Project("VSgarbiBot", file("modules/bots/VSgarbiBot"))
-  .settings(Settings.settings *)
-  .settings(Settings.botProjectSettings("VSgarbiBot") *)
-  .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
 
 lazy val main = project
   .in(file("modules/main"))
