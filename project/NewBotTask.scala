@@ -20,6 +20,7 @@ object NewBotTask {
 
     copyAndSubstitute(templateDir, targetDir, templateDir, botName, id)
     addBotToBotDBApplicationConf(base, botName, id)
+    addBotToV1CreateBotTable(base, botName, id)
     addBotToDeployWorkflow(base, botName, id)
     println(s"Created bot module at $targetDir")
     println(
@@ -59,6 +60,22 @@ object NewBotTask {
     )
     IO.write(appConf, content)
     println(s"Updated botDB application.conf with $botName ($id)")
+  }
+
+  private def addBotToV1CreateBotTable(base: File, botName: String, id: String): Unit = {
+    val sqlFile =
+      base / "modules" / "botDB" / "src" / "main" / "resources" / "db" / "migrations" / "V1__CreateBotTable.sql"
+    if (!sqlFile.isFile) return
+    var content = IO.read(sqlFile)
+    if (content.contains(s"VALUES ('$id'")) return // already added
+    // Insert before the test bot line so new bot is with the others
+    val insertLine = s"INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('$id', '$botName', '$botName');"
+    content = content.replace(
+      "INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('ytai', 'YouTuboAncheI0Bot', 'Omar Palermo');",
+      s"INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('ytai', 'YouTuboAncheI0Bot', 'Omar Palermo');\n$insertLine"
+    )
+    IO.write(sqlFile, content)
+    println(s"Updated db/migrations/V1__CreateBotTable.sql with $botName ($id)")
   }
 
   private def addBotToDeployWorkflow(base: File, botName: String, id: String): Unit = {

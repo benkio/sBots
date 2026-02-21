@@ -126,4 +126,10 @@ if !buildContentNow.contains(aliasName) then {
   }
 }
 
-println("Done. Remember to update the README.md file if needed.")
+println(
+  """Done. Remember to:
+  | - Update the README.md file
+  | - Delete the DB at the root of the project
+  | - insert the Youtube Secret key in BotDB resources
+  | - Run the `botSetup` with `run-show-caption-fetching` and `run-show-caption-fetching` to true to align the db""".stripMargin
+)

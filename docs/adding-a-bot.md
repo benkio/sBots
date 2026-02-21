@@ -25,7 +25,12 @@ From the project root:
 sbt "newBot MyNewBot mynew"
 ```
 
-This copies the template to `modules/bots/MyNewBot` and substitutes the name and id.
+This:
+
+- Copies the template to `modules/bots/MyNewBot` and substitutes the name and id.
+- **Updates `modules/botDB/src/main/resources/application.conf`**: adds the new bot to `json-location` and to `show-config.show-sources` with **empty sources** (`youtube-sources = []`, `caption-language = "it"`, `output-file-path = "../bots/<BotName>/<id>_shows.json"`). You can edit the config later to add YouTube sources or change the caption language.
+- **Updates `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql`**: adds an `INSERT` for the new bot (`id`, `bot_name`, `bot_full_name`). The full name is set to the bot name by default; you can edit the SQL to set a human-readable name later.
+- Updates `.github/workflows/deploy.yml` so the deploy workflow injects the bot token (see Step 3 for adding the secret).
 
 ## Step 2: Register the bot in the build
 
@@ -80,15 +85,25 @@ This updates `build.sbt` and `modules/main/.../BotsRegistry.scala`: defines the 
 
 Aggregate and `main.dependsOn` will then include your bot automatically.
 
+## Manual steps after registration
+
+After Step 2 (and before or alongside the steps below), do the following as needed:
+
+- **Custom command callbacks**: If your bot needs `commandEffectfulCallback` (e.g. like RichardPHJBensonBot), edit `BotsRegistry.scala` and add it to the bot’s `BotRegistryEntry` (see Option B in Step 2).
+- **Bot full name**: To set a human-readable name in the DB, edit `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql` and change the `bot_full_name` value for your bot’s `INSERT`.
+- **CI token**: Add the bot token as a repository secret so deploy works (Step 3).
+- **Shows / YouTube sources**: To enable show fetching, edit `modules/botDB/src/main/resources/application.conf` and add YouTube sources (or other settings) to your bot’s entry in `show-config.show-sources`.
+
 ## Step 3: Add the bot token to GitHub Actions secrets (for deploy)
 
 The `newBot` task updates `.github/workflows/deploy.yml` so the deploy workflow injects your bot's token during assembly. You must add the token as a repository secret so the workflow can use it:
 
 1. Get the bot token from [@BotFather](https://t.me/BotFather) (create a bot or use /token for an existing one).
-2. In your GitHub repository: **Settings** → **Secrets and variables** → **Actions**.
-3. Click **New repository secret**.
-4. **Name:** `<ID>_TOKEN` in **UPPERCASE** (e.g. for id `mynew` use `MYNEW_TOKEN`).
-5. **Value:** paste the token from BotFather.
+2. Add the default commands to the new bot. from the `commands.txt` file in the root of the new bot folder.
+3. In your GitHub repository: **Settings** → **Secrets and variables** → **Actions**.
+4. Click **New repository secret**.
+5. **Name:** `<ID>_TOKEN` in **UPPERCASE** (e.g. for id `mynew` use `MYNEW_TOKEN`).
+6. **Value:** paste the token from BotFather.
 
 After that, the deploy workflow will be able to write the token into the bot's resources when running in CI.
 
@@ -117,10 +132,11 @@ addCommandAlias("mynewAddData", "MyNewBot/runMain com.benkio.MyNewBot.MyNewBotMa
 
 | Step | What to do |
 |------|------------|
-| 1. Create module | Copy `_template` to `modules/bots/YourBotName` and replace TemplateBot → YourBotName, tpl → yourid (or run `sbt newBot YourBotName yourid`) |
+| 1. Create module | Copy `_template` to `modules/bots/YourBotName` and replace TemplateBot → YourBotName, tpl → yourid (or run `sbt newBot YourBotName yourid`). The task also updates **botDB** `application.conf` (json-location + show-sources with empty sources), **V1__CreateBotTable.sql** (INSERT for the new bot), and **deploy.yml**. |
 | 2. Register in build & registry | Run `./scripts/CompleteBotRegistration.sc YourBotName yourid` **or** manually edit build.sbt and BotsRegistry.scala |
+| 2b. Manual steps after registration | As needed: add `commandEffectfulCallback` in BotsRegistry, set `bot_full_name` in V1__CreateBotTable.sql, add CI secret (Step 3), add YouTube sources in application.conf |
 | 3. CI secret | In the repo: **Settings** → **Secrets and variables** → **Actions** → New repository secret: name `YOURID_TOKEN` (uppercase), value = token from BotFather |
 | 4. Verify | `sbt compile` and optionally run the bot |
 | 5. Docs | Update the README with the new bot |
 
-No changes are needed in `project/Settings.scala` or `project/Dependencies.scala`; the shared `botProjectSettings` and `BotDependencies` apply to every bot.
+No changes are needed in `project/Settings.scala` or `project/Dependencies.scala`; the shared `botProjectSettings` and `BotDependencies` apply to every bot. If you add the bot manually (Option A in Step 1), remember to add it to `modules/botDB/src/main/resources/application.conf` (`json-location` and `show-config.show-sources` with empty `youtube-sources`) and to `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql` (e.g. `INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('yourid', 'YourBotName', 'Your Bot Full Name');`).

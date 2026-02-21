@@ -1,5 +1,12 @@
 package com.benkio.main
 
+/*
+ * Modifications to this file must be done carefully. The new-bot process
+ * (CompleteBotRegistration.sc) appends a BotRegistryEntry for each new bot.
+ * When editing, keep the same structure (imports and registry list) so adding
+ * future bots continues to work. See docs/adding-a-bot.md.
+ */
+
 import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.Resource
