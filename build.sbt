@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// Modifications to this file must be done carefully. The new-bot process
+// (CompleteBotRegistration.sc) adds a project def, appends to botProjects, and
+// adds data-entry aliases. When editing, keep the same structure so adding
+// future bots continues to work. See docs/adding-a-bot.md.
+// -----------------------------------------------------------------------------
+
 import Dependencies.*
 import Settings.*
 
@@ -36,7 +43,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 // SCoverage
 coverageEnabled          := true
 coverageFailOnMinimum    := true
-coverageMinimumStmtTotal := 60 // TODO: INCREASE THIS
+coverageMinimumStmtTotal := 65 // TODO: INCREASE THIS
 
 // COMMAND ALIASES
 

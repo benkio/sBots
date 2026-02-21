@@ -1,3 +1,10 @@
+# -----------------------------------------------------------------------------
+# Modifications to this file must be done carefully. The new-bot process
+# (sbt newBot) appends a printf line for each new bot's token. When editing
+# the "Set Secrets & Run Assembly" step, keep the same structure so adding
+# future bots continues to work. See docs/adding-a-bot.md.
+# -----------------------------------------------------------------------------
+
 name: Deploy
 
 on:

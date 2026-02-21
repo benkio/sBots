@@ -19,14 +19,16 @@ object NewBotTask {
       throw new MessageOnlyException(s"Target already exists: $targetDir")
 
     copyAndSubstitute(templateDir, targetDir, templateDir, botName, id)
-    addBotToApplicationConf(base, botName, id)
+    addBotToBotDBApplicationConf(base, botName, id)
+    addBotToV1CreateBotTable(base, botName, id)
+    addBotToDeployWorkflow(base, botName, id)
     println(s"Created bot module at $targetDir")
     println(
       s"Next: define the project in build.sbt, add to BotsRegistry (or run: ./scripts/CompleteBotRegistration.sc $botName $id). See docs/adding-a-bot.md"
     )
   }
 
-  private def addBotToApplicationConf(base: File, botName: String, id: String): Unit = {
+  private def addBotToBotDBApplicationConf(base: File, botName: String, id: String): Unit = {
     val appConf = base / "modules" / "botDB" / "src" / "main" / "resources" / "application.conf"
     if (!appConf.isFile) return
     var content = IO.read(appConf)
@@ -58,6 +60,40 @@ object NewBotTask {
     )
     IO.write(appConf, content)
     println(s"Updated botDB application.conf with $botName ($id)")
+  }
+
+  private def addBotToV1CreateBotTable(base: File, botName: String, id: String): Unit = {
+    val sqlFile =
+      base / "modules" / "botDB" / "src" / "main" / "resources" / "db" / "migrations" / "V1__CreateBotTable.sql"
+    if (!sqlFile.isFile) return
+    var content = IO.read(sqlFile)
+    if (content.contains(s"VALUES ('$id'")) return // already added
+    // Insert before the test bot line so new bot is with the others
+    val insertLine = s"INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('$id', '$botName', '$botName');"
+    content = content.replace(
+      "INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('ytai', 'YouTuboAncheI0Bot', 'Omar Palermo');",
+      s"INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('ytai', 'YouTuboAncheI0Bot', 'Omar Palermo');\n$insertLine"
+    )
+    IO.write(sqlFile, content)
+    println(s"Updated db/migrations/V1__CreateBotTable.sql with $botName ($id)")
+  }
+
+  private def addBotToDeployWorkflow(base: File, botName: String, id: String): Unit = {
+    val deployYml = base / ".github" / "workflows" / "deploy.yml"
+    if (!deployYml.isFile) return
+    val secretName = s"${id.toUpperCase}_TOKEN"
+    if (secretName == "TOKEN") return
+    var content = IO.read(deployYml)
+    if (content.contains(secretName)) return // already added
+    val tokenLine =
+      s"""          printf '$${{ secrets.$secretName }}' > /home/runner/work/sBots/sBots/modules/bots/$botName/src/main/resources/${id}_$botName.token"""
+    content = content.replace(
+      """          printf '$${{ secrets.YTAI_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/YouTuboAncheI0Bot/src/main/resources/ytai_YouTuboAncheI0Bot.token"""",
+      s"""          printf '$${{ secrets.YTAI_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/YouTuboAncheI0Bot/src/main/resources/ytai_YouTuboAncheI0Bot.token
+          $tokenLine""""
+    )
+    IO.write(deployYml, content)
+    println(s"Updated .github/workflows/deploy.yml with $secretName (add the secret in the repo)")
   }
 
   private def copyAndSubstitute(src: File, dest: File, templateRoot: File, botName: String, id: String): Unit = {

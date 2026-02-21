@@ -39,7 +39,6 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import scala.concurrent.duration.FiniteDuration
 import scala.io.Source
-import scala.jdk.CollectionConverters.*
 
 trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
 
@@ -89,7 +88,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         if !Files.exists(jsonPath) then {
           fail(s"JSON file not found: $jsonPath")
         } else {
-          val content = Files.readAllLines(jsonPath).asScala.foldLeft("")(_ + _)
+          val content = Files.readString(jsonPath)
           parse(content) match {
             case Right(_)    => assert(true, "✓ valid")
             case Left(error) => fail(s"❌ Invalid JSON in $jsonPath: ${error.getMessage}")

@@ -1,3 +1,10 @@
+-- -----------------------------------------------------------------------------
+-- Modifications to this file must be done carefully. The new-bot process
+-- (sbt newBot) appends an INSERT for each new bot after the ytai row. When
+-- editing, preserve that structure so adding future bots continues to work.
+-- See docs/adding-a-bot.md.
+-- -----------------------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS bot(
   id TEXT NOT NULL,
   bot_name TEXT NOT NULL,
