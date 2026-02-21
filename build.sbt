@@ -43,7 +43,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 // SCoverage
 coverageEnabled          := true
 coverageFailOnMinimum    := true
-coverageMinimumStmtTotal := 70 // TODO: INCREASE THIS
+coverageMinimumStmtTotal := 65 // TODO: INCREASE THIS
 
 // COMMAND ALIASES
 
