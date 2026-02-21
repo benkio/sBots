@@ -18,4 +18,5 @@ INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('mos', 'M0sconiBot', 'Germ
 INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('rphjb', 'RichardPHJBensonBot', 'Richard Philip Henry John Benson');
 INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('xah', 'XahLeeBot', 'Xah Lee');
 INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('ytai', 'YouTuboAncheI0Bot', 'Omar Palermo');
+INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('pino', 'PinoScottoBot', 'Pino Scotto');
 INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('test', 'testBot', 'Mario Rossi');

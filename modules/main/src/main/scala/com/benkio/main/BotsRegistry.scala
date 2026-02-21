@@ -20,6 +20,7 @@ import com.benkio.telegrambotinfrastructure.SBotWebhook
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
+import com.benkio.PinoScottoBot.PinoScottoBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
@@ -72,7 +73,8 @@ object BotRegistry {
       BotRegistryEntry[IO](
         sBotInfo = RichardPHJBensonBot.sBotInfo,
         commandEffectfulCallback = RichardPHJBensonBot.commandEffectfulCallback[IO]
-      )
+      ),
+      BotRegistryEntry[IO](sBotInfo = PinoScottoBot.sBotInfo)
     )
   )
 }
