@@ -80,14 +80,26 @@ This updates `build.sbt` and `modules/main/.../BotsRegistry.scala`: defines the 
 
 Aggregate and `main.dependsOn` will then include your bot automatically.
 
-## Step 3: Verify
+## Step 3: Add the bot token to GitHub Actions secrets (for deploy)
+
+The `newBot` task updates `.github/workflows/deploy.yml` so the deploy workflow injects your bot's token during assembly. You must add the token as a repository secret so the workflow can use it:
+
+1. Get the bot token from [@BotFather](https://t.me/BotFather) (create a bot or use /token for an existing one).
+2. In your GitHub repository: **Settings** → **Secrets and variables** → **Actions**.
+3. Click **New repository secret**.
+4. **Name:** `<ID>_TOKEN` in **UPPERCASE** (e.g. for id `mynew` use `MYNEW_TOKEN`).
+5. **Value:** paste the token from BotFather.
+
+After that, the deploy workflow will be able to write the token into the bot's resources when running in CI.
+
+## Step 4: Verify
 
 - From the project root: `sbt compile`
 - Run the bot (e.g. `sbt "MyNewBot/run"`) once you have added a token and any needed resources.
 
-## Step 4: Update README.md
+## Step 5: Update README
 
-Update the `README.md` file with the new bot entry in the table.
+Update the `README.org` file with the new bot entry in the table.
 
 ## Data entry alias
 
@@ -107,7 +119,8 @@ addCommandAlias("mynewAddData", "MyNewBot/runMain com.benkio.MyNewBot.MyNewBotMa
 |------|------------|
 | 1. Create module | Copy `_template` to `modules/bots/YourBotName` and replace TemplateBot → YourBotName, tpl → yourid (or run `sbt newBot YourBotName yourid`) |
 | 2. Register in build & registry | Run `./scripts/CompleteBotRegistration.sc YourBotName yourid` **or** manually edit build.sbt and BotsRegistry.scala |
-| 3. Verify | `sbt compile` and optionally run the bot |
-| 4. Docs | Update the README with the new bot |
+| 3. CI secret | In the repo: **Settings** → **Secrets and variables** → **Actions** → New repository secret: name `YOURID_TOKEN` (uppercase), value = token from BotFather |
+| 4. Verify | `sbt compile` and optionally run the bot |
+| 5. Docs | Update the README with the new bot |
 
 No changes are needed in `project/Settings.scala` or `project/Dependencies.scala`; the shared `botProjectSettings` and `BotDependencies` apply to every bot.
