@@ -34,8 +34,8 @@ object NewBotTask {
     var content = IO.read(appConf)
     if (content.contains(s"""bot-id = "$id"""")) return // already added
     content = content.replace(
-      """{ bot-id = "ytai", value = "../../../../bots/YouTuboAncheI0Bot"},""",
-      s"""{ bot-id = "ytai", value = "../../../../bots/YouTuboAncheI0Bot"},
+      """        { bot-id = "ytai", value = "../../../../bots/YouTuboAncheI0Bot"},""",
+      s"""        { bot-id = "ytai", value = "../../../../bots/YouTuboAncheI0Bot"},
          |        { bot-id = "$id", value = "../../../../bots/$botName"},""".stripMargin
     )
     content = content.replace(
@@ -43,13 +43,13 @@ object NewBotTask {
         |                bot-id        = "ytai",
         |                caption-language = "it",
         |                youtube-sources = ["@youtuboancheio1365"],
-        |                output-file-path = "../bots/youTuboAncheI0Bot/ytai_shows.json"
+        |                output-file-path = "../bots/YouTuboAncheI0Bot/ytai_shows.json"
         |            },""".stripMargin,
       s"""            {
          |                bot-id        = "ytai",
          |                caption-language = "it",
          |                youtube-sources = ["@youtuboancheio1365"],
-         |                output-file-path = "../bots/youTuboAncheI0Bot/ytai_shows.json"
+         |                output-file-path = "../bots/YouTuboAncheI0Bot/ytai_shows.json"
          |            },
          |            {
          |                bot-id        = "$id",
@@ -98,10 +98,11 @@ object NewBotTask {
 
   private def copyAndSubstitute(src: File, dest: File, templateRoot: File, botName: String, id: String): Unit = {
     if (src.isDirectory) {
-      val newName = src.name.replace("TemplateBot", botName).replace("tpl", id)
-      val newDir  = dest / newName
-      newDir.mkdirs()
-      src.listFiles().foreach(f => copyAndSubstitute(f, newDir, templateRoot, botName, id))
+      // When copying the template root (_template), put contents directly in dest instead of creating dest/_template
+      val targetDir = if (src.getCanonicalFile == templateRoot.getCanonicalFile) dest
+                      else dest / src.name.replace("TemplateBot", botName).replace("tpl", id)
+      targetDir.mkdirs()
+      src.listFiles().foreach(f => copyAndSubstitute(f, targetDir, templateRoot, botName, id))
     } else {
       val newName    = src.name.replace("TemplateBot", botName).replace("tpl", id)
       val newFile    = dest / newName

@@ -27,10 +27,12 @@ sbt "newBot MyNewBot mynew"
 
 This:
 
-- Copies the template to `modules/bots/MyNewBot` and substitutes the name and id.
+- Copies the template to `modules/bots/MyNewBot` (contents directly under `MyNewBot/`, not `MyNewBot/_template/...`) and substitutes the name and id in paths and file contents.
 - **Updates `modules/botDB/src/main/resources/application.conf`**: adds the new bot to `json-location` and to `show-config.show-sources` with **empty sources** (`youtube-sources = []`, `caption-language = "it"`, `output-file-path = "../bots/<BotName>/<id>_shows.json"`). You can edit the config later to add YouTube sources or change the caption language.
 - **Updates `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql`**: adds an `INSERT` for the new bot (`id`, `bot_name`, `bot_full_name`). The full name is set to the bot name by default; you can edit the SQL to set a human-readable name later.
-- Updates `.github/workflows/deploy.yml` so the deploy workflow injects the bot token (see Step 3 for adding the secret).
+- **Updates `.github/workflows/deploy.yml`** so the deploy workflow injects the bot token during assembly (see Step 3 for adding the secret).
+
+The registration script (Step 2) updates **main** `application.conf` and **healthcheck.yml**; `newBot` does not.
 
 ## Step 2: Register the bot in the build
 
@@ -42,7 +44,15 @@ From the project root, run the script (requires [scala-cli](https://scala-cli.vi
 ./scripts/CompleteBotRegistration.sc MyNewBot mynew
 ```
 
-This updates `build.sbt` and `modules/main/.../BotsRegistry.scala`: defines the project, adds it to `botProjects`, adds the data-entry alias (e.g. `mynewAddData`), and adds the registry entry (no custom callbacks). If your bot needs `commandEffectfulCallback` (like RichardPHJBensonBot), add it manually in BotsRegistry after running the script.
+This updates:
+
+- **build.sbt**: defines the project, adds it to `botProjects`, and adds the data-entry alias (e.g. `mynewAddData`).
+- **modules/main/.../BotsRegistry.scala**: adds the import and `BotRegistryEntry` (no custom callbacks).
+- **modules/main/src/main/resources/application.conf**: adds the new bot’s db block under `main.<id>.db`.
+- **.github/workflows/healthcheck.yml**: adds the new bot’s token to `BOT_TOKENS`.
+- **scripts/copyTokensFromDropbox.sh**: adds the new bot to the list.
+
+If your bot needs `commandEffectfulCallback` (like RichardPHJBensonBot), add it manually in BotsRegistry after running the script.
 
 **Option B – Manual**
 
@@ -94,9 +104,9 @@ After Step 2 (and before or alongside the steps below), do the following as need
 - **CI token**: Add the bot token as a repository secret so deploy works (Step 3).
 - **Shows / YouTube sources**: To enable show fetching, edit `modules/botDB/src/main/resources/application.conf` and add YouTube sources (or other settings) to your bot’s entry in `show-config.show-sources`.
 
-## Step 3: Add the bot token to GitHub Actions secrets (for deploy)
+## Step 3: Add the bot token to GitHub Actions secrets (deploy and healthcheck)
 
-The `newBot` task updates `.github/workflows/deploy.yml` so the deploy workflow injects your bot's token during assembly. You must add the token as a repository secret so the workflow can use it:
+The `newBot` task updates `.github/workflows/deploy.yml`; the registration script updates `.github/workflows/healthcheck.yml`. You must add the token as a repository secret so the workflows can use it:
 
 1. Get the bot token from [@BotFather](https://t.me/BotFather) (create a bot or use /token for an existing one).
 2. Add the default commands to the new bot. from the `commands.txt` file in the root of the new bot folder.
@@ -105,7 +115,7 @@ The `newBot` task updates `.github/workflows/deploy.yml` so the deploy workflow 
 5. **Name:** `<ID>_TOKEN` in **UPPERCASE** (e.g. for id `mynew` use `MYNEW_TOKEN`).
 6. **Value:** paste the token from BotFather.
 
-After that, the deploy workflow will be able to write the token into the bot's resources when running in CI.
+After that, the deploy workflow will write the token into the bot’s resources in CI, and the healthcheck workflow will include it when checking bot health.
 
 ## Step 4: Verify
 
@@ -132,11 +142,11 @@ addCommandAlias("mynewAddData", "MyNewBot/runMain com.benkio.MyNewBot.MyNewBotMa
 
 | Step | What to do |
 |------|------------|
-| 1. Create module | Copy `_template` to `modules/bots/YourBotName` and replace TemplateBot → YourBotName, tpl → yourid (or run `sbt newBot YourBotName yourid`). The task also updates **botDB** `application.conf` (json-location + show-sources with empty sources), **V1__CreateBotTable.sql** (INSERT for the new bot), and **deploy.yml**. |
-| 2. Register in build & registry | Run `./scripts/CompleteBotRegistration.sc YourBotName yourid` **or** manually edit build.sbt and BotsRegistry.scala |
+| 1. Create module | Copy `_template` to `modules/bots/YourBotName` (so you get `YourBotName/...`, not `YourBotName/_template/...`) and replace TemplateBot → YourBotName, tpl → yourid — or run `sbt newBot YourBotName yourid`. The task updates **botDB** `application.conf`, **V1__CreateBotTable.sql** (INSERT), and **deploy.yml** only. |
+| 2. Register in build & registry | Run `./scripts/CompleteBotRegistration.sc YourBotName yourid` **or** manually edit build.sbt and BotsRegistry.scala. The script updates **main** `application.conf`, **healthcheck.yml**, **scripts/copyTokensFromDropbox.sh**, plus build.sbt and BotsRegistry. |
 | 2b. Manual steps after registration | As needed: add `commandEffectfulCallback` in BotsRegistry, set `bot_full_name` in V1__CreateBotTable.sql, add CI secret (Step 3), add YouTube sources in application.conf |
-| 3. CI secret | In the repo: **Settings** → **Secrets and variables** → **Actions** → New repository secret: name `YOURID_TOKEN` (uppercase), value = token from BotFather |
+| 3. CI secret | In the repo: **Settings** → **Secrets and variables** → **Actions** → New repository secret: name `YOURID_TOKEN` (uppercase), value = token from BotFather (used by deploy and healthcheck) |
 | 4. Verify | `sbt compile` and optionally run the bot |
 | 5. Docs | Update the README with the new bot |
 
-No changes are needed in `project/Settings.scala` or `project/Dependencies.scala`; the shared `botProjectSettings` and `BotDependencies` apply to every bot. If you add the bot manually (Option A in Step 1), remember to add it to `modules/botDB/src/main/resources/application.conf` (`json-location` and `show-config.show-sources` with empty `youtube-sources`) and to `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql` (e.g. `INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('yourid', 'YourBotName', 'Your Bot Full Name');`).
+No changes are needed in `project/Settings.scala` or `project/Dependencies.scala`; the shared `botProjectSettings` and `BotDependencies` apply to every bot. If you add the bot manually (Option A in Step 1), remember to add it to: `modules/botDB/src/main/resources/application.conf` (`json-location` and `show-config.show-sources` with empty `youtube-sources`), `modules/main/src/main/resources/application.conf` (db block under `main.<id>.db`), `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql` (e.g. `INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('yourid', 'YourBotName', 'Your Bot Full Name');`), `.github/workflows/deploy.yml` (printf line for the token), and `.github/workflows/healthcheck.yml` (add `${{ secrets.YOURID_TOKEN }}` to `BOT_TOKENS`). Then run the registration script (Step 2) to update build.sbt, BotsRegistry, and `scripts/copyTokensFromDropbox.sh`; or edit those by hand.
