@@ -82,9 +82,10 @@ object Repository {
     (for {
       _ <- Resource.eval(
         LogWriter.info(
-          s"""[ResourcesAccess] getResourceByteArray Retrieve the file locally at ${getClass().getResource(
-              "/" + resourceName
-            )}"""
+          s"""[ResourcesAccess] getResourceByteArray Retrieve the file(${resourceName}) locally at ${getClass()
+              .getResource(
+                "/" + resourceName
+              )}"""
         )
       )
       fis <- Resource.make(Async[F].fromTry {
