@@ -51,6 +51,7 @@ jobs:
           printf '${{ secrets.RPHJB_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/RichardPHJBensonBot/src/main/resources/rphjb_RichardPHJBensonBot.token
           printf '${{ secrets.XAH_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/XahLeeBot/src/main/resources/xah_XahLeeBot.token
           printf '${{ secrets.YTAI_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/YouTuboAncheI0Bot/src/main/resources/ytai_YouTuboAncheI0Bot.token
+          printf '${{ secrets.PINO_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/PinoScottoBot/src/main/resources/pino_PinoScottoBot.token
           sbt "assembly"
       - name: Create SSH key
         run: |
