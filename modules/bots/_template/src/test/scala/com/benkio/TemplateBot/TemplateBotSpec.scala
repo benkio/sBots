@@ -85,7 +85,7 @@ class TemplateBotSpec extends BaseBotSpec {
   test("TemplateBot should contain the expected number of commands") {
     assertIO(
       commandRepliesData.map(_.length),
-      5,
+      10,
       "TemplateBot should have 5 commands"
     )
   }

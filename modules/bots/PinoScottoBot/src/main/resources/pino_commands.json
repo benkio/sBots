@@ -1,0 +1,95 @@
+[
+  {
+    "trigger": { "command": "searchshow" },
+    "reply": {
+      "EffectfulReply": {
+        "key": {
+          "SearchShow": {
+            "sBotInfo": { "botId": "pino", "botName": "PinoScottoBot" }
+          }
+        },
+        "replyToMessage": true
+      }
+    },
+    "instruction": {
+      "Instructions": {
+        "ita": "'/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.\nInput come query string:\n  - No input: restituisce uno show random\n  - 'title=keyword: restituisce uno show contenente la keyword nel titolo. Il campo può essere specificato più volte.\n  - 'description=keyword: restituisce uno show contenente la keyword nella descrizione.\n  - 'caption=keyword: restituisce uno show contenente la keyword nella caption automatica.\n  - 'minduration=X': durata minima in secondi. Esempio: 'minduration=300'\n  - 'maxduration=X': durata massima in secondi. Esempio: 'maxduration=1000'\n  - 'mindate=YYYYMMDD' / 'maxdate=YYYYMMDD': filtri per data.\n  I campi possono essere concatenati.",
+        "eng": "'/searchshow 《text》': Return a link of a show/video about the bot character containing the specified keyword.\nInput as query string:\n  - No input: returns a random show\n  - 'title=keyword', 'description=keyword', 'caption=keyword': search in title/description/caption.\n  - 'minduration=X' / 'maxduration=X': min/max duration in seconds.\n  - 'mindate=YYYYMMDD' / 'maxdate=YYYYMMDD': date filters.\n  Fields can be concatenated."
+      }
+    }
+  },
+  {
+    "trigger": { "command": "subscribe" },
+    "reply": {
+      "EffectfulReply": {
+        "key": {
+          "Subscribe": {
+            "sBotInfo": { "botId": "pino", "botName": "PinoScottoBot" }
+          }
+        },
+        "replyToMessage": false
+      }
+    },
+    "instruction": {
+      "Instructions": {
+        "ita": "'/subscribe 《cron time》': Iscrizione all'invio randomico di un contenuto alla frequenza specificata nella chat corrente. Formato cron con secondi: https://www.alonsodomin.me/cron4s/userguide/index.html",
+        "eng": "'/subscribe 《cron time》': Subscribe to random content at the specified frequency. Cron format with seconds: https://www.alonsodomin.me/cron4s/userguide/index.html"
+      }
+    }
+  },
+  {
+    "trigger": { "command": "unsubscribe" },
+    "reply": {
+      "EffectfulReply": {
+        "key": {
+          "Unsubscribe": {
+            "sBotInfo": { "botId": "pino", "botName": "PinoScottoBot" }
+          }
+        },
+        "replyToMessage": false
+      }
+    },
+    "instruction": {
+      "Instructions": {
+        "ita": "'/unsubscribe': Disiscrizione della chat corrente. Invia l'UUID per una singola iscrizione o nessun input per rimuovere tutte.",
+        "eng": "'/unsubscribe': Unsubscribe the current chat. Send UUID for one subscription or no input to remove all."
+      }
+    }
+  },
+  {
+    "trigger": { "command": "subscriptions" },
+    "reply": {
+      "EffectfulReply": {
+        "key": {
+          "Subscriptions": {
+            "sBotInfo": { "botId": "pino", "botName": "PinoScottoBot" }
+          }
+        },
+        "replyToMessage": true
+      }
+    },
+    "instruction": {
+      "Instructions": {
+        "ita": "'/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente",
+        "eng": "'/subscriptions': Return the list of subscriptions for the current chat"
+      }
+    }
+  },
+  {
+    "trigger": { "command": "random" },
+    "reply": {
+      "EffectfulReply": {
+        "key": {
+          "Random": { "sBotInfo": { "botId": "pino", "botName": "PinoScottoBot" } }
+        },
+        "replyToMessage": false
+      }
+    },
+    "instruction": {
+      "Instructions": {
+        "ita": "'/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot",
+        "eng": "'/random': Returns a random data (photo/video/audio/text) about the bot character"
+      }
+    }
+  }
+]

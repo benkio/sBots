@@ -45,18 +45,18 @@ object NewBotTask {
         |                youtube-sources = ["@youtuboancheio1365"],
         |                output-file-path = "../bots/youTuboAncheI0Bot/ytai_shows.json"
         |            },""".stripMargin,
-      """            {
-        |                bot-id        = "ytai",
-        |                caption-language = "it",
-        |                youtube-sources = ["@youtuboancheio1365"],
-        |                output-file-path = "../bots/youTuboAncheI0Bot/ytai_shows.json"
-        |            },
-        |            {
-        |                bot-id        = "$id",
-        |                caption-language = "it",
-        |                youtube-sources = [],
-        |                output-file-path = "../bots/$botName/${id}_shows.json"
-        |            },""".stripMargin
+      s"""            {
+         |                bot-id        = "ytai",
+         |                caption-language = "it",
+         |                youtube-sources = ["@youtuboancheio1365"],
+         |                output-file-path = "../bots/youTuboAncheI0Bot/ytai_shows.json"
+         |            },
+         |            {
+         |                bot-id        = "$id",
+         |                caption-language = "it",
+         |                youtube-sources = [],
+         |                output-file-path = "../bots/$botName/${id}_shows.json"
+         |            },""".stripMargin
     )
     IO.write(appConf, content)
     println(s"Updated botDB application.conf with $botName ($id)")
