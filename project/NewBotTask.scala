@@ -99,8 +99,9 @@ object NewBotTask {
   private def copyAndSubstitute(src: File, dest: File, templateRoot: File, botName: String, id: String): Unit = {
     if (src.isDirectory) {
       // When copying the template root (_template), put contents directly in dest instead of creating dest/_template
-      val targetDir = if (src.getCanonicalFile == templateRoot.getCanonicalFile) dest
-                      else dest / src.name.replace("TemplateBot", botName).replace("tpl", id)
+      val targetDir =
+        if (src.getCanonicalFile == templateRoot.getCanonicalFile) dest
+        else dest / src.name.replace("TemplateBot", botName).replace("tpl", id)
       targetDir.mkdirs()
       src.listFiles().foreach(f => copyAndSubstitute(f, targetDir, templateRoot, botName, id))
     } else {
