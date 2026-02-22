@@ -4,7 +4,10 @@
       "TextTrigger": {
         "triggers": [
           {
-            "StringTextTriggerValue": "stai messo male"
+            "RegexTextTriggerValue": {
+              "trigger": "(stai|sei) messo male",
+              "regexLength": 14
+            }
           },
           {
             "StringTextTriggerValue": "spacciatore"
