@@ -1,0 +1,51 @@
+[
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "StringTextTriggerValue": "stai messo male"
+          },
+          {
+            "StringTextTriggerValue": "spacciatore"
+          },
+          {
+            "StringTextTriggerValue": "merda"
+          },
+          {
+            "StringTextTriggerValue": "droga"
+          },
+          {
+            "StringTextTriggerValue": "ti vende"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "VideoFile": {
+              "filepath": "pino_CambiaSpacciatore.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "pino_CambiaSpacciatore.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "pino_CambiaSpacciatoreGif.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  }
+]
