@@ -4,6 +4,280 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "innervosire"
+          },
+          {
+            "StringTextTriggerValue" : "arrabbiare"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "che volete di pi[uù]",
+              "regexLength" : 17
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CheVoleteDiPiuInnervosireSanRemo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CheVoleteDiPiuInnervosireSanRemo.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "^un(?:\\s+\\w+)?\\s+fallito$",
+              "regexLength" : 10
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ChitarristaFallito.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ChitarristaFallito.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_ChitarristaFallitoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "melensa"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MelensaStareMale.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "io c'ho da sentire"
+          },
+          {
+            "StringTextTriggerValue" : "heavy metal"
+          },
+          {
+            "StringTextTriggerValue" : "rock tecnico"
+          },
+          {
+            "StringTextTriggerValue" : "country western"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "vi uccido"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_LasciamiInPaceStronzaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LasciamiInPaceStronza.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LasciamiInPaceStronza.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\btab(oo|u)\\b",
+              "regexLength" : 5
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bv(oo|u)d(oo|u)\\b",
+              "regexLength" : 6
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_TabooVoodooGrazieGianniCiao.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TabooVoodooGrazieGianniCiaoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_TabooVoodooGrazieGianniCiao.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "t[ie] giuro",
+              "regexLength" : 8
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MiStoSentendoMale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MiStoSentendoMaleGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MiStoSentendoMale.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "RegexTextTriggerValue" : {
               "trigger" : "(falla|fatela) finita",
               "regexLength" : 12
@@ -8512,6 +8786,18 @@
               "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBadGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -8538,6 +8824,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBadGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp3",
               "replyToMessage" : false
             }
           }
@@ -13646,6 +13944,36 @@
               "filepath" : "rphjb_DoveStannoGliAppassionatiTanteMusiche.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBadGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp3",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -13853,8 +14181,14 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "GifFile" : {
-              "filepath" : "rphjb_LasciamiInPaceGif.mp4",
+            "Sticker" : {
+              "filepath" : "rphjb_LasciamiInPaceBensoniani.sticker",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LasciamiInPaceStronza.mp3",
               "replyToMessage" : false
             }
           },
@@ -13865,8 +14199,8 @@
             }
           },
           {
-            "Sticker" : {
-              "filepath" : "rphjb_LasciamiInPaceBensoniani.sticker",
+            "GifFile" : {
+              "filepath" : "rphjb_LasciamiInPaceStronzaGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -13961,9 +14295,6 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "stare male"
-          },
-          {
-            "StringTextTriggerValue" : "melensa"
           }
         ]
       }
@@ -13992,6 +14323,36 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_RelIllusions.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_PeggioDelPeggio.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_PeggioDelPeggioGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MiStoSentendoMale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MiStoSentendoMale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MiStoSentendoMaleGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -14334,6 +14695,12 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_ChiamaLaPolizia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ChiamaLaPolizia.mp3",
               "replyToMessage" : false
             }
           }
@@ -15473,6 +15840,24 @@
               "filepath" : "rphjb_DiventoViolento.mp3",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremoGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -16145,6 +16530,24 @@
               "filepath" : "rphjb_IndicaAffanculoPazzescaBensoniani.sticker",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MortacciVostri.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MortacciVostri.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MortacciVostriGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -16643,26 +17046,26 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "Mp3File" : {
-              "filepath" : "rphjb_Grazie.mp3",
+            "Sticker" : {
+              "filepath" : "rphjb_GrazieGianniBensoniani.sticker",
               "replyToMessage" : false
             }
           },
           {
-            "GifFile" : {
-              "filepath" : "rphjb_GrazieGif.mp4",
+            "Mp3File" : {
+              "filepath" : "rphjb_TabooVoodooGrazieGianniCiao.mp3",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
-              "filepath" : "rphjb_Grazie.mp4",
+              "filepath" : "rphjb_TabooVoodooGrazieGianniCiao.mp4",
               "replyToMessage" : false
             }
           },
           {
-            "Sticker" : {
-              "filepath" : "rphjb_GrazieGianniBensoniani.sticker",
+            "GifFile" : {
+              "filepath" : "rphjb_TabooVoodooGrazieGianniCiaoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -16690,25 +17093,25 @@
         "mediaFiles" : [
           {
             "Mp3File" : {
-              "filepath" : "rphjb_Grazie.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_GrazieGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "rphjb_Grazie.mp4",
+              "filepath" : "rphjb_ViSaluto.mp3",
               "replyToMessage" : false
             }
           },
           {
             "Mp3File" : {
-              "filepath" : "rphjb_ViSaluto.mp3",
+              "filepath" : "rphjb_TabooVoodooGrazieGianniCiao.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_TabooVoodooGrazieGianniCiao.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TabooVoodooGrazieGianniCiaoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -17774,8 +18177,23 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "basta!"
+          },
+          {
             "RegexTextTriggerValue" : {
-              "trigger" : "\\bbasta[a]+!",
+              "trigger" : "\\bbasta{2,}\\b",
+              "regexLength" : 7
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bba{2,}sta\\b",
+              "regexLength" : 7
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bba{2,}sta{2,}\\b",
               "regexLength" : 7
             }
           }
@@ -18941,6 +19359,12 @@
               "filepath" : "rphjb_PiuIncazzatoPiuFeliciMortacciVostri.mp3",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MortacciVostri.mp3",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -19986,6 +20410,12 @@
               "filepath" : "rphjb_PeggioDelPeggio.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_PeggioDelPeggio.mp3",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -20010,14 +20440,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "GifFile" : {
-              "filepath" : "rphjb_BebopGif.mp4",
+            "VideoFile" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4",
               "replyToMessage" : false
             }
           },
           {
-            "VideoFile" : {
-              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4",
+            "GifFile" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBadGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp3",
               "replyToMessage" : false
             }
           }
@@ -20090,6 +20526,24 @@
               "filepath" : "rphjb_Vestiti.mp3",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_OcchiDonneAnniSettanta.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_OcchiDonneAnniSettantaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_OcchiDonneAnniSettanta.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -20160,12 +20614,6 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "GifFile" : {
-              "filepath" : "rphjb_BebopGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "VideoFile" : {
               "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp4",
               "replyToMessage" : false
@@ -20192,6 +20640,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_DoveStannoGliAppassionatiTanteMusiche.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBadGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -20699,6 +21159,12 @@
               "filepath" : "rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp3",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Venerdi.mp3",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -21193,6 +21659,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_CorteiFemministiAmplessiMacisti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CorteiFemministiAmplessiMacisti.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_CorteiFemministiAmplessiMacistiGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -22282,6 +22760,24 @@
               "filepath" : "rphjb_DoveStannoGliAppassionatiTanteMusiche.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -22338,6 +22834,24 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_DoveStannoGliAppassionatiTanteMusiche.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -22399,6 +22913,36 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBad.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_BluesEbbeBambinoRockNRollBeBopALulaStormyMondayButTuesdayIsJustAsBadGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -24787,6 +25331,18 @@
               "filepath" : "rphjb_Ester2Gif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_OcchiDonneAnniSettanta.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_OcchiDonneAnniSettanta.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -25827,14 +26383,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "GifFile" : {
-              "filepath" : "rphjb_QuanteOreGif.mp4",
+            "Mp3File" : {
+              "filepath" : "rphjb_QuanteOreQuantiAnni.mp3",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
               "filepath" : "rphjb_QuanteOreQuantiAnni.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_QuanteOreQuantiAnniGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -28277,18 +28839,6 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "GifFile" : {
-              "filepath" : "rphjb_ChitarristaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "rphjb_PeggioDelPeggio.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "VideoFile" : {
               "filepath" : "rphjb_GruppiNuoviSpaccanoCuloAbbellimentiRivoltiMordentiContrappunti.mp4",
               "replyToMessage" : false
@@ -28303,6 +28853,42 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_ChitarristiProsciuttoOrecchie.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_EraChitarristaPreferito.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_EraChitarristaPreferito.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_EraChitarristaPreferitoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ChitarristaFallito.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ChitarristaFallito.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_ChitarristaFallitoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -28334,6 +28920,30 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_PeggioDelPeggio.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MiStoSentendoMale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MiStoSentendoMale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_PeggioDelPeggio.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_PeggioDelPeggioGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -37831,18 +38441,6 @@
               "trigger" : "san[ ]?(remo|romolo)",
               "regexLength" : 8
             }
-          },
-          {
-            "RegexTextTriggerValue" : {
-              "trigger" : "che volete di pi[uù]",
-              "regexLength" : 17
-            }
-          },
-          {
-            "StringTextTriggerValue" : "innervosire"
-          },
-          {
-            "StringTextTriggerValue" : "arrabbiare"
           }
         ]
       }
@@ -37859,6 +38457,24 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_CheVoleteDiPiuInnervosireSanRemo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp3",
               "replyToMessage" : false
             }
           }
@@ -40784,6 +41400,24 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_DoveStannoGliAppassionatiTanteMusiche.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp4",
               "replyToMessage" : false
             }
           }
