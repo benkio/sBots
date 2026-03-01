@@ -4,6 +4,156 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "pezzo di merda"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PapaDiJim.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PapaDiJim.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PapaDiJimGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_35anniPezzoDiMerdaSputatiFacciaDattiFuoco.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_35anniPezzoDiMerdaSputatiFacciaDattiFuoco.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_35anniPezzoDiMerdaSputatiFacciaDattiFuoco.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "caga[ ]?sentenze",
+              "regexLength" : 12
+            }
+          },
+          {
+            "StringTextTriggerValue" : "in miniera"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "una decina (d'|di )anni",
+              "regexLength" : 17
+            }
+          },
+          {
+            "StringTextTriggerValue" : "a lavorare"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Cagasentenze.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Cagasentenze.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_CagasentenzeGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "pap[àa] di jim",
+              "regexLength" : 11
+            }
+          },
+          {
+            "StringTextTriggerValue" : "innanzitutto ti dico"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PapaDiJim.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PapaDiJimGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PapaDiJim.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "RegexTextTriggerValue" : {
               "trigger" : "vaffan(gul|culo)",
               "regexLength" : 9
@@ -130,9 +280,6 @@
           },
           {
             "StringTextTriggerValue" : "in fabbrica"
-          },
-          {
-            "StringTextTriggerValue" : "pezzo di merda"
           },
           {
             "StringTextTriggerValue" : "sputati in faccia"
@@ -280,9 +427,6 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "spacciatore"
-          },
-          {
-            "StringTextTriggerValue" : "merda"
           },
           {
             "StringTextTriggerValue" : "droga"
