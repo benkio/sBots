@@ -5,7 +5,59 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "pomodoro"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_PomodoroAzzeccato.mp3",
+              "replyToMessage" : false
+            }
           },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_PomodoroAzzeccato.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_PomodoroAzzeccatoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_PomodoroNanoStessaFormaSostegno.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_PomodoroNanoStessaFormaSostegno.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_PomodoroNanoStessaFormaSostegnoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
           {
             "StringTextTriggerValue" : "azzeccato"
           }
@@ -7575,9 +7627,6 @@
           },
           {
             "StringTextTriggerValue" : "stessa forma"
-          },
-          {
-            "StringTextTriggerValue" : "pomodoro"
           },
           {
             "StringTextTriggerValue" : "sta da solo"
