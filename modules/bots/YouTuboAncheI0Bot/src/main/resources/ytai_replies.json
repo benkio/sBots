@@ -4,6 +4,246 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "pomodoro"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_PomodoroAzzeccato.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_PomodoroAzzeccato.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_PomodoroAzzeccatoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_PomodoroNanoStessaFormaSostegno.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_PomodoroNanoStessaFormaSostegno.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_PomodoroNanoStessaFormaSostegnoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "azzeccato"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_PomodoroAzzeccato.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_PomodoroAzzeccato.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_PomodoroAzzeccatoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bluce\\b",
+              "regexLength" : 4
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_ManipolazioneDellaLuceGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "youtube"
+          },
+          {
+            "StringTextTriggerValue" : "antonio"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "PhotoFile" : {
+              "filepath" : "ytai_PadreYoutube.jpg",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(42|quarantadue) anni",
+              "regexLength" : 7
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "anni (42|quarantadue)",
+              "regexLength" : 7
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(20|venti) agosto",
+              "regexLength" : 9
+            }
+          },
+          {
+            "StringTextTriggerValue" : "rossano"
+          },
+          {
+            "StringTextTriggerValue" : "funerale"
+          },
+          {
+            "StringTextTriggerValue" : "necrologio"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bomar\\b",
+              "regexLength" : 4
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "PhotoFile" : {
+              "filepath" : "ytai_Necrologio.jpg",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "padre"
+          },
+          {
+            "StringTextTriggerValue" : "ristorante cinese"
+          },
+          {
+            "StringTextTriggerValue" : "vittoria"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "PhotoFile" : {
+              "filepath" : "ytai_RistoranteCineseVittoriaShangai.jpg",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "PhotoFile" : {
+              "filepath" : "ytai_PadreYoutube.jpg",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "non riprendermi"
           },
           {
@@ -7387,9 +7627,6 @@
           },
           {
             "StringTextTriggerValue" : "stessa forma"
-          },
-          {
-            "StringTextTriggerValue" : "pomodoro"
           },
           {
             "StringTextTriggerValue" : "sta da solo"
