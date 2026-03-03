@@ -4,6 +4,126 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "youtube"
+          },
+          {
+            "StringTextTriggerValue" : "antonio"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "PhotoFile" : {
+              "filepath" : "ytai_PadreYoutube.jpg",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(42|quarantadue) anni",
+              "regexLength" : 7
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "anni (42|quarantadue)",
+              "regexLength" : 7
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(20|venti) agosto",
+              "regexLength" : 9
+            }
+          },
+          {
+            "StringTextTriggerValue" : "rossano"
+          },
+          {
+            "StringTextTriggerValue" : "funerale"
+          },
+          {
+            "StringTextTriggerValue" : "necrologio"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bomar\\b",
+              "regexLength" : 4
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "PhotoFile" : {
+              "filepath" : "ytai_Necrologio.jpg",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "padre"
+          },
+          {
+            "StringTextTriggerValue" : "ristorante cinese"
+          },
+          {
+            "StringTextTriggerValue" : "vittoria"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "PhotoFile" : {
+              "filepath" : "ytai_RistoranteCineseVittoriaShangai.jpg",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "PhotoFile" : {
+              "filepath" : "ytai_PadreYoutube.jpg",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "non riprendermi"
           },
           {
