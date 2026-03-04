@@ -28,7 +28,7 @@ object Dependencies {
     val logbackLogstash       = "9.0"
     val mules                 = "0.7.0"
     val mulesHttp4s           = "0.4.0"
-    val munit                 = "1.2.0"
+    val munit                 = "1.2.4"
     val munitCatsEffect       = "2.1.0"
     val pureConfig            = "0.17.10"
     val scalajsDom            = "2.8.1"
