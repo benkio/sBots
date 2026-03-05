@@ -2290,10 +2290,13 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "RegexTextTriggerValue" : {
-              "trigger" : "sono (grosso|sono (quasi )?enorme|una palla di lardo)",
-              "regexLength" : 11
-            }
+            "StringTextTriggerValue" : "sono grosso"
+          },
+          {
+            "StringTextTriggerValue" : "quasi enorme"
+          },
+          {
+            "StringTextTriggerValue" : "palla di lardo"
           }
         ]
       }
