@@ -1,9 +1,8 @@
-package com.benkio.chatcore
+package com.benkio.chattelegramadapter
 
 import cats.*
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.chatcore.http.telegramreply.TextReply
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
@@ -12,6 +11,9 @@ import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.patterns.CommandPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.SubscriptionKey
+import com.benkio.chattelegramadapter.http.telegramreply.TextReply
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
 import fs2.Stream

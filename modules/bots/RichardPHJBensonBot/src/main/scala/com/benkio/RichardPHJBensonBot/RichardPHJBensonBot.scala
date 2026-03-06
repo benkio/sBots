@@ -9,7 +9,7 @@ import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.patterns.CommandPatterns
-import com.benkio.chatcore.SBot
+import com.benkio.chattelegramadapter.SBot
 
 object RichardPHJBensonBot {
 

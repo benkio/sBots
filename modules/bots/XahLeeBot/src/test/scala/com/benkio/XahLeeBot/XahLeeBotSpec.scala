@@ -13,8 +13,8 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BaseBotSpec
 import com.benkio.chatcore.Logger.given
-import com.benkio.chatcore.SBot
-import com.benkio.chatcore.SBotPolling
+import com.benkio.chattelegramadapter.SBot
+import com.benkio.chattelegramadapter.SBotPolling
 
 class XahLeeBotSpec extends BaseBotSpec {
 

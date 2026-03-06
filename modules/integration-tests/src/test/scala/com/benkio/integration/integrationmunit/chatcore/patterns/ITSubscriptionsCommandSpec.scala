@@ -9,8 +9,8 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.chatcore.repository.db.DBSubscriptionData
-import com.benkio.chatcore.SBot
-import com.benkio.chatcore.TelegramBackgroundJobManager
+import com.benkio.chattelegramadapter.SBot
+import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.DBFixture
 import com.benkio.integrationtest.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot

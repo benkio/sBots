@@ -1,4 +1,4 @@
-package com.benkio.chatcore.http
+package com.benkio.chattelegramadapter.http
 
 import cats.effect.*
 import cats.implicits.*

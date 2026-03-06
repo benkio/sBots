@@ -9,7 +9,7 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.repository.db.DBMedia
-import com.benkio.chatcore.SBotPolling
+import com.benkio.chattelegramadapter.SBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.integration.DBFixture
 import com.benkio.integrationtest.Logger.given

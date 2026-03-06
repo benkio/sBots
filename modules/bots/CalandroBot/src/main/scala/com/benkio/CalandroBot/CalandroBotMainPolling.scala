@@ -1,7 +1,7 @@
 package com.benkio.CalandroBot
 
 import cats.effect.*
-import com.benkio.chatcore.SBotMainPolling
+import com.benkio.chattelegramadapter.SBotMainPolling
 
 object CalandroBotMainPolling extends IOApp {
 

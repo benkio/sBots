@@ -1,15 +1,15 @@
-package com.benkio.chatcore
+package com.benkio.chattelegramadapter
 
 import cats.effect.Async
 import cats.effect.Resource
 import cats.Parallel
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.initialization.BotSetup
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chattelegramadapter.initialization.BotSetup
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.client.Client

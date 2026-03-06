@@ -4,7 +4,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.chatcore.repository.db.DBMedia
 import com.benkio.chatcore.repository.db.DBMediaData
-import com.benkio.chatcore.SBot
+import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import doobie.munit.analysisspec.IOChecker

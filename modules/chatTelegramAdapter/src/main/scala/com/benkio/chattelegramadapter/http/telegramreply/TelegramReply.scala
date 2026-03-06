@@ -1,11 +1,9 @@
-package com.benkio.chatcore.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.*
 import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.chatcore.adapters.telegram.MediaResourceConversions.*
-import com.benkio.chatcore.http.ErrorFallbackWorkaround
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.MediaFile
@@ -15,6 +13,8 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chattelegramadapter.adapters.telegram.MediaResourceConversions.*
+import com.benkio.chattelegramadapter.http.ErrorFallbackWorkaround
 import log.effect.LogWriter
 import telegramium.bots.client.Method
 import telegramium.bots.high.*

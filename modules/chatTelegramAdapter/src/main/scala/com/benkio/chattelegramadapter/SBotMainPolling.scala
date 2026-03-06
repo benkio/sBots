@@ -1,10 +1,8 @@
-package com.benkio.chatcore
+package com.benkio.chattelegramadapter
 
 import cats.effect.*
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Logger.given
-import com.benkio.chatcore.SBot
-import com.benkio.chatcore.SBotPolling
 
 object SBotMainPolling {
 

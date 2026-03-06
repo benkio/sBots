@@ -1,11 +1,11 @@
-package com.benkio.chatcore.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.chatcore.http.telegramreply.MediaFileReply
-import com.benkio.chatcore.http.telegramreply.TextReply
 import com.benkio.chatcore.messagefiltering.RandomSelection
-import com.benkio.chatcore.model.reply.*
+import com.benkio.chatcore.model.reply.EffectfulKey
+import com.benkio.chatcore.model.reply.MediaReply
+import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand

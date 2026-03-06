@@ -14,8 +14,8 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
-import com.benkio.chatcore.ComputeReply
 import com.benkio.chatcore.Logger.given
+import com.benkio.chattelegramadapter.ComputeReply
 import munit.CatsEffectSuite
 
 class ComputeReplySpec extends CatsEffectSuite {

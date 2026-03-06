@@ -4,10 +4,10 @@ import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.http.DropboxClient
-import com.benkio.chatcore.initialization.BotSetup
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
-import com.benkio.chatcore.TelegramBackgroundJobManager
+import com.benkio.chattelegramadapter.initialization.BotSetup
+import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integrationtest.Logger.given
 import munit.*
 import org.http4s.ember.client.*

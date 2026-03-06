@@ -1,8 +1,7 @@
-package com.benkio.chatcore.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.data.NonEmptyList
 import cats.effect.IO
-import com.benkio.chatcore.http.telegramreply.EffectfulKeyReply
 import com.benkio.chatcore.messagefiltering.getContent
 import com.benkio.chatcore.mocks.ApiMock.given
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock

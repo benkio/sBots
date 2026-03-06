@@ -1,4 +1,4 @@
-package com.benkio.chatcore.initialization
+package com.benkio.chattelegramadapter.initialization
 
 import cats.data.NonEmptyList
 import cats.effect.*

@@ -1,7 +1,7 @@
 package com.benkio.M0sconiBot
 
 import cats.effect.*
-import com.benkio.chatcore.SBotMainPolling
+import com.benkio.chattelegramadapter.SBotMainPolling
 
 object M0sconiBotMainPolling extends IOApp {
 

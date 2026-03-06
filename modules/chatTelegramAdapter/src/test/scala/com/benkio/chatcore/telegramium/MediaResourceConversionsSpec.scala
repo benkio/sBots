@@ -1,12 +1,12 @@
-package com.benkio.chatcore.adapters.telegram
+package com.benkio.chattelegramadapter.adapters.telegram
 
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.chatcore.adapters.telegram.MediaResourceConversions.*
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
+import com.benkio.chattelegramadapter.adapters.telegram.MediaResourceConversions.*
 import munit.*
 import telegramium.bots.InputLinkFile
 import telegramium.bots.InputPartFile

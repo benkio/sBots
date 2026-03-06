@@ -3,7 +3,6 @@ package com.benkio.chatcore.mocks
 import cats.effect.Async
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.initialization.BotSetup
 import com.benkio.chatcore.mocks.ApiMock.given
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
@@ -16,9 +15,10 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.JsonDataRepository
-import com.benkio.chatcore.ISBotWebhook
 import com.benkio.chatcore.Logger.given
-import com.benkio.chatcore.TelegramBackgroundJobManager
+import com.benkio.chattelegramadapter.initialization.BotSetup
+import com.benkio.chattelegramadapter.ISBotWebhook
+import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import org.http4s.client.Client
 import org.http4s.implicits.*
 import org.http4s.HttpApp

@@ -6,7 +6,7 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.patterns.CommandPatterns.TimeoutCommand
 import com.benkio.chatcore.repository.db.DBTimeoutData
-import com.benkio.chatcore.SBot
+import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
 import com.benkio.integrationtest.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot

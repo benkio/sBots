@@ -1,8 +1,8 @@
 package com.benkio.TemplateBot
 
 import cats.effect.*
-import com.benkio.chatcore.SBot
 import com.benkio.chatcore.SBotDataEntry
+import com.benkio.chattelegramadapter.SBot
 
 object TemplateBotMainDataEntry extends IOApp {
 

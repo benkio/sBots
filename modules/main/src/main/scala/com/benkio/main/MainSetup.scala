@@ -2,8 +2,8 @@ package com.benkio.main
 
 import cats.effect.Async
 import cats.effect.Resource
-import com.benkio.chatcore.initialization.BotSetup
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chattelegramadapter.initialization.BotSetup
 import cron4s.CronExpr
 import fs2.io.net.Network
 import log.effect.LogWriter

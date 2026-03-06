@@ -20,8 +20,8 @@ import com.benkio.chatcore.repository.Repository.RepositoryError
 import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.BaseBotSpec
 import com.benkio.chatcore.Logger.given
-import com.benkio.chatcore.SBot
-import com.benkio.chatcore.SBotPolling
+import com.benkio.chattelegramadapter.SBot
+import com.benkio.chattelegramadapter.SBotPolling
 import munit.CatsEffectSuite
 
 class ABarberoBotSpec extends BaseBotSpec {

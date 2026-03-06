@@ -1,7 +1,7 @@
 package com.benkio.ABarberoBot
 
 import cats.effect.*
-import com.benkio.chatcore.SBotMainPolling
+import com.benkio.chattelegramadapter.SBotMainPolling
 
 object ABarberoBotMainPolling extends IOApp {
 

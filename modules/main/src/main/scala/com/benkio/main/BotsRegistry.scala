@@ -15,9 +15,9 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chatcore.SBot
-import com.benkio.chatcore.SBotMainPolling
-import com.benkio.chatcore.SBotWebhook
+import com.benkio.chattelegramadapter.SBot
+import com.benkio.chattelegramadapter.SBotMainPolling
+import com.benkio.chattelegramadapter.SBotWebhook
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot

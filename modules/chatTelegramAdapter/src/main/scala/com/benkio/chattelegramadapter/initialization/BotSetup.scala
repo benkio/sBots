@@ -1,4 +1,4 @@
-package com.benkio.chatcore.initialization
+package com.benkio.chattelegramadapter.initialization
 
 import cats.effect.Async
 import cats.effect.Resource
@@ -6,6 +6,8 @@ import cats.implicits.*
 import cats.MonadThrow
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.http.DropboxClient
+import com.benkio.chatcore.initialization.Config
+import com.benkio.chatcore.initialization.DBConfig
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.repository.db.DBLayer
@@ -14,7 +16,7 @@ import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.BackgroundJobManager
-import com.benkio.chatcore.TelegramBackgroundJobManager
+import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.*

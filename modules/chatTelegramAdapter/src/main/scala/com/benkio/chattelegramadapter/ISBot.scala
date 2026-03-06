@@ -1,13 +1,10 @@
-package com.benkio.chatcore
+package com.benkio.chattelegramadapter
 
 import cats.*
 import cats.data.OptionT
 import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.chatcore.adapters.telegram.MessageConversions.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.http.telegramreply.MediaFileReply
-import com.benkio.chatcore.initialization.BotSetup
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
@@ -21,6 +18,10 @@ import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
+import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
+import com.benkio.chattelegramadapter.http.telegramreply.MediaFileReply
+import com.benkio.chattelegramadapter.initialization.BotSetup
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
@@ -93,7 +94,7 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  private[chatcore] def selectReplyBundle(
+  private[chattelegramadapter] def selectReplyBundle(
       msg: ModelMessage
   ): Option[ReplyBundleMessage] =
     if !FilteringForward.filter(msg, sBotConfig.disableForward) || !FilteringOlder.filter(msg)
@@ -108,7 +109,7 @@ trait ISBot[F[_]: Async: LogWriter] {
         .headOption
         .map(_._2)
 
-  private[chatcore] def selectCommandReplyBundle(
+  private[chattelegramadapter] def selectCommandReplyBundle(
       msg: ModelMessage
   ): Option[ReplyBundleCommand] =
     msg.text.flatMap(text =>

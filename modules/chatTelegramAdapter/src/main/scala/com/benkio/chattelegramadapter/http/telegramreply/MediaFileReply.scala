@@ -1,8 +1,7 @@
-package com.benkio.chatcore.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.chatcore.adapters.telegram.MessageConversions.*
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.GifFile
 import com.benkio.chatcore.model.reply.MediaFile
@@ -12,6 +11,7 @@ import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
+import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.Message as TMessage

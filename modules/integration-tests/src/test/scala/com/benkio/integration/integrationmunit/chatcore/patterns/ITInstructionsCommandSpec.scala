@@ -8,8 +8,8 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
-import com.benkio.chatcore.SBot
-import com.benkio.chatcore.SBotPolling
+import com.benkio.chattelegramadapter.SBot
+import com.benkio.chattelegramadapter.SBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite

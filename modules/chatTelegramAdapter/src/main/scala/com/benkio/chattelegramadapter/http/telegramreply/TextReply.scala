@@ -1,12 +1,12 @@
-package com.benkio.chatcore.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.*
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.chatcore.adapters.telegram.MessageConversions.*
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
+import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*

@@ -1,15 +1,16 @@
-package com.benkio.chatcore
+package com.benkio.chattelegramadapter
 
 import cats.*
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.chatcore.http.telegramreply.TelegramReply
 import com.benkio.chatcore.messagefiltering.RandomSelection
 import com.benkio.chatcore.model.reply.ReplyBundle
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
+import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chattelegramadapter.http.telegramreply.TelegramReply
 import log.effect.LogWriter
 import telegramium.bots.high.Api
 

@@ -6,13 +6,13 @@ import cats.effect.IOApp
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.initialization.BotSetup
-import com.benkio.chatcore.mocks.ApiMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.repository.ResourcesRepository
-import com.benkio.chatcore.TelegramBackgroundJobManager
+import com.benkio.chattelegramadapter.initialization.BotSetup
+import com.benkio.chattelegramadapter.mocks.ApiMock
+import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.main.Logger.given
 import log.effect.LogWriter
 import org.http4s.client.Client

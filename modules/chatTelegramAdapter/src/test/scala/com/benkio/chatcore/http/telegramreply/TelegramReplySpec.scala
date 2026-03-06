@@ -1,8 +1,7 @@
-package com.benkio.chatcore.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.data.NonEmptyList
 import cats.effect.IO
-import com.benkio.chatcore.adapters.telegram.MessageConversions.*
 import com.benkio.chatcore.mocks.ApiMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
@@ -15,6 +14,7 @@ import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.Logger.given
+import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
 import munit.*
 
 import scala.concurrent.duration.*

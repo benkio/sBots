@@ -9,7 +9,7 @@ import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.repository.db.DBMediaData
-import com.benkio.chatcore.SBot
+import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot

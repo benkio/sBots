@@ -371,7 +371,7 @@ ${ignoreMessagePrefix
       )
     }
 
-    private[chatcore] def instructionsReplyBundleCommand(
+    def instructionsReplyBundleCommand(
         sBotInfo: SBotInfo,
         commands: List[ReplyBundleCommand],
         ignoreMessagePrefix: Option[String]
