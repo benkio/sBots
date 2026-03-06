@@ -4,17 +4,17 @@ import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
 import cats.Parallel
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
-import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.BaseBotSpec
-import com.benkio.telegrambotinfrastructure.Logger.given
-import com.benkio.telegrambotinfrastructure.SBot
-import com.benkio.telegrambotinfrastructure.SBotPolling
+import com.benkio.chatcore.mocks.ApiMock.given
+import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.mocks.RepositoryMock
+import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
+import com.benkio.chatcore.model.reply.ReplyBundleCommand
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.BaseBotSpec
+import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.SBot
+import com.benkio.chatcore.SBotPolling
 
 class XahLeeBotSpec extends BaseBotSpec {
 
@@ -46,8 +46,8 @@ class XahLeeBotSpec extends BaseBotSpec {
     )
   } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
     Parallel[IO],
-    Async[IO],
     botSetup.api,
+    Async[IO],
     log
   )
 

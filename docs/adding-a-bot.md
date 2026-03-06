@@ -64,7 +64,7 @@ If your bot needs `commandEffectfulCallback` (like RichardPHJBensonBot), add it 
        Project("MyNewBot", file("modules/bots/MyNewBot"))
          .settings(Settings.settings *)
          .settings(Settings.botProjectSettings("MyNewBot")*)
-         .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+         .dependsOn(chatCore % "compile->compile;test->test")
      ```
    - Add it to the `botProjects` seq:
      ```scala

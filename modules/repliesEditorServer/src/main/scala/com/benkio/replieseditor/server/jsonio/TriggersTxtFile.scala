@@ -1,7 +1,7 @@
 package com.benkio.replieseditor.server.jsonio
 
 import cats.effect.IO
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files

@@ -1,7 +1,7 @@
 package com.benkio.main
 
 import cats.effect.Async
-import com.benkio.telegrambotinfrastructure.initialization.DBConfig
+import com.benkio.chatcore.initialization.DBConfig
 import cron4s.expr.CronExpr
 import org.http4s.Uri
 import pureconfig.*

@@ -1,7 +1,7 @@
 package com.benkio.PinoScottoBot
 
 import cats.effect.*
-import com.benkio.telegrambotinfrastructure.SBotMainPolling
+import com.benkio.chatcore.SBotMainPolling
 
 object PinoScottoBotMainPolling extends IOApp {
 

@@ -2,15 +2,14 @@ package com.benkio.RichardPHJBensonBot
 
 import cats.syntax.all.*
 import cats.ApplicativeThrow
-import com.benkio.telegrambotinfrastructure.model.reply.toText
-import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.Message
-import com.benkio.telegrambotinfrastructure.model.Message.toTelegramium
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
-import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.chatcore.model.reply.toText
+import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SBotInfo.SBotName
+import com.benkio.chatcore.patterns.CommandPatterns
+import com.benkio.chatcore.SBot
 
 object RichardPHJBensonBot {
 
@@ -23,7 +22,7 @@ object RichardPHJBensonBot {
         bensonifyKey,
         (msg: Message) =>
           CommandPatterns.handleCommandWithInput[F](
-            msg = msg.toTelegramium,
+            msg = msg,
             command = RichardPHJBensonBot.bensonifyKey,
             sBotInfo = sBotInfo,
             computation = t => List(Bensonify.compute(t)).toText.pure[F],

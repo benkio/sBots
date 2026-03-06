@@ -2,8 +2,8 @@ package com.benkio.replieseditor.server.server
 
 import cats.effect.IO
 import cats.effect.Resource
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.replieseditor.server.store.BotStore
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import io.circe.syntax.*
 import io.circe.Json
 import munit.CatsEffectSuite

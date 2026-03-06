@@ -35,9 +35,14 @@ object Settings {
     }
   )
 
-  lazy val TelegramBotInfrastructureSettings = Seq(
-    name                := "TelegramBotInfrastructure",
-    libraryDependencies := TelegramBotInfrastructureDependencies
+  lazy val ChatCoreSettings = Seq(
+    name                := "ChatCore",
+    libraryDependencies := ChatCoreDependencies
+  )
+
+  lazy val ChatTelegramAdapterSettings = Seq(
+    name                := "chatTelegramAdapter",
+    libraryDependencies := ChatTelegramAdapterDependencies
   )
 
   lazy val IntegrationSettings = Seq(

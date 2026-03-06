@@ -131,7 +131,7 @@ object Dependencies {
     libs.munitCatsEffect
   )
 
-  val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
+  val ChatCoreDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
       libs.caseInsensitive,
       libs.catsEffectTime,
@@ -157,9 +157,13 @@ object Dependencies {
       libs.scalacheckEffectMunit,
       libs.scalacheckGenRegexp,
       libs.sqlite,
-      libs.telegramiumCore,
-      libs.telegramiumHigh,
       libs.vault
+    )
+
+  val ChatTelegramAdapterDependencies: Seq[ModuleID] =
+    ChatCoreDependencies ++ Seq(
+      libs.telegramiumCore,
+      libs.telegramiumHigh
     )
 
   /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */

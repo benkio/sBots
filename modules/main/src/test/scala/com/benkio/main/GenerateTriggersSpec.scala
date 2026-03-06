@@ -1,7 +1,7 @@
 package com.benkio.main
 
 import cats.effect.ExitCode
-import com.benkio.telegrambotinfrastructure.SBot
+import com.benkio.chatcore.SBot
 import munit.CatsEffectSuite
 
 import java.nio.file.Files

@@ -3,11 +3,11 @@ package com.benkio.integration
 import annotation.unused
 import cats.effect.IO
 import cats.effect.Resource
+import com.benkio.chatcore.http.DropboxClient
+import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.db.DBRepository
+import com.benkio.chatcore.repository.Repository
 import com.benkio.integrationtest.Logger.given
-import com.benkio.telegrambotinfrastructure.http.DropboxClient
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
-import com.benkio.telegrambotinfrastructure.repository.Repository
 import doobie.Transactor
 import munit.*
 import org.flywaydb.core.api.configuration.FluentConfiguration

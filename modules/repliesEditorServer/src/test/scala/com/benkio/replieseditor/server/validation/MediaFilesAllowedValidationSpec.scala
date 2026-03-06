@@ -1,7 +1,7 @@
 package com.benkio.replieseditor.server.validation
 
-import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.reply.PhotoFile
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import munit.FunSuite
 
 class MediaFilesAllowedValidationSpec extends FunSuite {

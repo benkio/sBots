@@ -3,8 +3,8 @@ package com.benkio.integration.integrationmunit.botDB
 import cats.effect.IO
 import com.benkio.botDB.db.DBMigrator
 import com.benkio.botDB.TestData
+import com.benkio.chatcore.repository.db.DBMedia
 import com.benkio.integrationtest.Logger.given
-import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
 import doobie.Transactor
 import munit.CatsEffectSuite
 

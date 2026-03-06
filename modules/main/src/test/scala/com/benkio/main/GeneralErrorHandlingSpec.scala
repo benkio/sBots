@@ -1,9 +1,9 @@
 package com.benkio.main
 
 import cats.effect.*
+import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.main.Logger.given
-import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import munit.CatsEffectSuite
 
 import scala.concurrent.duration.*

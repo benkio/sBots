@@ -1,8 +1,8 @@
 package com.benkio.YouTuboAncheI0Bot
 
 import cats.effect.*
-import com.benkio.telegrambotinfrastructure.SBot
-import com.benkio.telegrambotinfrastructure.SBotDataEntry
+import com.benkio.chatcore.SBot
+import com.benkio.chatcore.SBotDataEntry
 
 object YouTuboAncheI0BotMainDataEntry extends IOApp {
 

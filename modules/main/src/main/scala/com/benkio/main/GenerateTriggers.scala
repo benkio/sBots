@@ -5,22 +5,21 @@ import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
 import cats.implicits.*
+import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.initialization.BotSetup
+import com.benkio.chatcore.mocks.ApiMock
+import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.repository.ResourcesRepository
+import com.benkio.chatcore.TelegramBackgroundJobManager
 import com.benkio.main.Logger.given
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
-import com.benkio.telegrambotinfrastructure.config.SBotConfig
-import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.mocks.ApiMock.given
-import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.repository.JsonDataRepository
-import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
 import log.effect.LogWriter
 import org.http4s.client.Client
 import org.http4s.implicits.*
 import org.http4s.HttpApp
 import org.http4s.Response
 import org.http4s.Status
-import telegramium.bots.high.Api
 
 import java.nio.file.Files
 import java.nio.file.Path
@@ -30,13 +29,14 @@ object GenerateTriggers extends IOApp {
 
   private def forTriggerGeneration(sBotConfig: SBotConfig)(using log: LogWriter[IO]): IO[BotSetup[IO]] = {
     val repository = ResourcesRepository.fromResources[IO]()
-    val stubClient  = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok))))
-    val dbLayer     = DBLayerMock.mock(sBotConfig.sBotInfo.botId)
-    BackgroundJobManager[IO](
+    val stubClient = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok))))
+    val dbLayer    = DBLayerMock.mock(sBotConfig.sBotInfo.botId)
+    val api        = new ApiMock
+    TelegramBackgroundJobManager[IO](
       dbLayer = dbLayer,
       sBotInfo = sBotConfig.sBotInfo,
       ttl = sBotConfig.messageTimeToLive
-    )(using IO.asyncForIO, summon[Api[IO]], log).map { bjm =>
+    )(using IO.asyncForIO, api, log).map { bjm =>
       BotSetup(
         token = "trigger-generation",
         httpClient = stubClient,
@@ -44,7 +44,7 @@ object GenerateTriggers extends IOApp {
         jsonDataRepository = JsonDataRepository[IO]()(using IO.asyncForIO, log),
         dbLayer = dbLayer,
         backgroundJobManager = bjm,
-        api = summon[Api[IO]],
+        api = api,
         webhookUri = uri"https://localhost",
         webhookPath = uri"/",
         sBotConfig = sBotConfig

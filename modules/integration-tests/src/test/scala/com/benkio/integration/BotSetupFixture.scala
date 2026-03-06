@@ -2,13 +2,13 @@ package com.benkio.integration
 
 import cats.effect.IO
 import cats.effect.Resource
+import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.http.DropboxClient
+import com.benkio.chatcore.initialization.BotSetup
+import com.benkio.chatcore.repository.db.DBRepository
+import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.TelegramBackgroundJobManager
 import com.benkio.integrationtest.Logger.given
-import com.benkio.telegrambotinfrastructure.config.SBotConfig
-import com.benkio.telegrambotinfrastructure.http.DropboxClient
-import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.repository.db.DBRepository
-import com.benkio.telegrambotinfrastructure.repository.JsonDataRepository
-import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import munit.*
 import org.http4s.ember.client.*
 import org.http4s.implicits.*
@@ -77,7 +77,7 @@ object BotSetupFixture {
       baseUrl = s"https://api.telegram.org/bot$token"
       api     = BotApi(httpClient, baseUrl)
       backgroundJobManager <- Resource.eval(
-        BackgroundJobManager[IO](
+        TelegramBackgroundJobManager[IO](
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive

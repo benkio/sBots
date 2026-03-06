@@ -1,7 +1,7 @@
 package com.benkio.replieseditor.server.validation
 
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.replieseditor.server.module.ApiError
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import io.circe.syntax.*
 import io.circe.Json
 

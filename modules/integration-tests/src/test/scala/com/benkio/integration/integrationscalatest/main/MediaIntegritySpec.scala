@@ -1,26 +1,24 @@
 package com.benkio.integration.integrationscalatest.main
 
 import cats.effect.unsafe.implicits.global
-import cats.effect.Async
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
-import cats.Parallel
+import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.initialization.BotSetup
+import com.benkio.chatcore.model.media.getMediaResourceFile
+import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.ReplyBundle
+import com.benkio.chatcore.model.reply.ReplyBundleCommand
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.ISBot
+import com.benkio.chatcore.SBot
+import com.benkio.chatcore.SBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.SlowTest
 import com.benkio.integrationtest.Logger.given
-import com.benkio.telegrambotinfrastructure.config.SBotConfig
-import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.model.media.getMediaResourceFile
-import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.ISBot
-import com.benkio.telegrambotinfrastructure.SBot
-import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
@@ -63,48 +61,60 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
       abarberoFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(ABarberoBot.sBotInfo),
-          (setup, msgData, cmdData) =>
-            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, cmdData) => {
+            given telegramium.bots.high.Api[IO] = setup.api
+            new SBotPolling[IO](setup, msgData, cmdData)
+          }
         )
       )
       calandroFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(CalandroBot.sBotInfo),
-          (setup, msgData, cmdData) =>
-            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, cmdData) => {
+            given telegramium.bots.high.Api[IO] = setup.api
+            new SBotPolling[IO](setup, msgData, cmdData)
+          }
         )
       )
       m0sconiFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(M0sconiBot.sBotInfo),
-          (setup, msgData, cmdData) =>
-            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, cmdData) => {
+            given telegramium.bots.high.Api[IO] = setup.api
+            new SBotPolling[IO](setup, msgData, cmdData)
+          }
         )
       )
       richardFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo),
-          (setup, msgData, cmdData) =>
+          (setup, msgData, cmdData) => {
+            given telegramium.bots.high.Api[IO] = setup.api
             new SBotPolling[IO](
               setup,
               msgData,
               cmdData,
               RichardPHJBensonBot.commandEffectfulCallback[IO]
-            )(using Parallel[IO], Async[IO], setup.api, log)
+            )
+          }
         )
       )
       youTuboFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo),
-          (setup, msgData, cmdData) =>
-            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, cmdData) => {
+            given telegramium.bots.high.Api[IO] = setup.api
+            new SBotPolling[IO](setup, msgData, cmdData)
+          }
         )
       )
       xahLeeFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(XahLeeBot.sBotInfo),
-          (setup, msgData, cmdData) =>
-            new SBotPolling[IO](setup, msgData, cmdData)(using Parallel[IO], Async[IO], setup.api, log)
+          (setup, msgData, cmdData) => {
+            given telegramium.bots.high.Api[IO] = setup.api
+            new SBotPolling[IO](setup, msgData, cmdData)
+          }
         )
       )
       allFiles = (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ xahLeeFiles)
