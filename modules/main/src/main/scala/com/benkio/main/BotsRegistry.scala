@@ -16,8 +16,8 @@ import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chattelegramadapter.polling.TelegramPollingRuntime
-import com.benkio.chattelegramadapter.webhook.TelegramWebhookBot
 import com.benkio.chattelegramadapter.webhook.TelegramWebhookRuntime
+import com.benkio.chattelegramadapter.SBotWebhook
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
@@ -33,7 +33,7 @@ final case class BotRegistryEntry[F[_]](
 )
 
 extension (botRegistryEntry: BotRegistryEntry[IO]) {
-  def sBotWebhookResource(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, TelegramWebhookBot[IO]] = {
+  def sBotWebhookResource(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, SBotWebhook[IO]] = {
     TelegramWebhookRuntime.buildWebhookBot[IO](
       httpClient = mainSetup.httpClient,
       sBotInfo = botRegistryEntry.sBotInfo,
@@ -52,7 +52,7 @@ extension (botRegistry: BotRegistry[IO]) {
     botRegistry
       .map(botRegistryEntry => TelegramPollingRuntime.run(sBotInfo = botRegistryEntry.sBotInfo))
       .reduce(op = (botA, botB) => botA &> botB)
-  def webhookBots(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, List[TelegramWebhookBot[IO]]] =
+  def webhookBots(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, List[SBotWebhook[IO]]] =
     botRegistry
       .traverse(_.sBotWebhookResource(mainSetup))
 }

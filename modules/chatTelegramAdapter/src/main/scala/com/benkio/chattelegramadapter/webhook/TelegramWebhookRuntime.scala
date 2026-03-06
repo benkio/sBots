@@ -39,7 +39,7 @@ object TelegramWebhookRuntime {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[Path] = None,
       commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
-  )(using log: LogWriter[F]): Resource[F, TelegramWebhookBot[F]] = {
+  )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] = {
     val sBotConfig = buildSBotConfig(sBotInfo)
     for {
       sBotSetup <- BotSetup(
@@ -55,14 +55,12 @@ object TelegramWebhookRuntime {
       )
     } yield {
       given Api[F] = sBotSetup.api
-      TelegramWebhookBot.wrap(
-        new SBotWebhook[F](
-          sBotSetup = sBotSetup,
-          messageRepliesData = messageRepliesData,
-          commandRepliesData = commandRepliesData,
-          webhookCertificate = webhookCertificate,
-          commandEffectfulCallback = commandEffectfulCallback
-        )
+      new SBotWebhook[F](
+        sBotSetup = sBotSetup,
+        messageRepliesData = messageRepliesData,
+        commandRepliesData = commandRepliesData,
+        webhookCertificate = webhookCertificate,
+        commandEffectfulCallback = commandEffectfulCallback
       )
     }
   }

@@ -10,7 +10,6 @@ import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chattelegramadapter.initialization.BotSetup
-import com.benkio.chattelegramadapter.webhook.TelegramWebhookBot
 import fs2.io.net.Network
 import log.effect.LogWriter
 import org.http4s.client.Client
@@ -89,7 +88,7 @@ object SBot {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[Path] = None,
       commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
-  )(using log: LogWriter[F]): Resource[F, TelegramWebhookBot[F]] = {
+  )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] = {
 
     val sBotConfig = buildSBotConfig(sBotInfo)
     for {
@@ -106,14 +105,12 @@ object SBot {
       )
     } yield {
       given Api[F] = sBotSetup.api
-      TelegramWebhookBot.wrap(
-        new SBotWebhook[F](
-          sBotSetup = sBotSetup,
-          messageRepliesData = messageRepliesData,
-          commandRepliesData = commandRepliesData,
-          webhookCertificate = webhookCertificate,
-          commandEffectfulCallback = commandEffectfulCallback
-        )
+      new SBotWebhook[F](
+        sBotSetup = sBotSetup,
+        messageRepliesData = messageRepliesData,
+        commandRepliesData = commandRepliesData,
+        webhookCertificate = webhookCertificate,
+        commandEffectfulCallback = commandEffectfulCallback
       )
     }
   }
