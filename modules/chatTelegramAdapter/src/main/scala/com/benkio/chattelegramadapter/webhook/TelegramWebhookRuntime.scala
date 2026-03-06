@@ -8,11 +8,11 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chattelegramadapter.SBotWebhook
 import com.benkio.chattelegramadapter.initialization.BotSetup
+import com.benkio.chattelegramadapter.SBotWebhook
 import log.effect.LogWriter
-import org.http4s.Uri
 import org.http4s.client.Client
+import org.http4s.Uri
 import telegramium.bots.high.Api
 
 import java.nio.file.Path
@@ -67,4 +67,3 @@ object TelegramWebhookRuntime {
     }
   }
 }
-

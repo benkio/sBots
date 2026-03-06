@@ -9,4 +9,3 @@ object TelegramPollingRuntime {
   def run(sBotInfo: SBotInfo): IO[ExitCode] =
     SBotMainPolling.run(sBotInfo)
 }
-
