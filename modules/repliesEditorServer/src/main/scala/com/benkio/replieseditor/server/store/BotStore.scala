@@ -3,6 +3,15 @@ package com.benkio.replieseditor.server.store
 import cats.effect.IO
 import cats.effect.Ref
 import cats.syntax.all.*
+import com.benkio.chatcore.messagefiltering.MessageMatches
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.LeftMemberTrigger
+import com.benkio.chatcore.model.MessageLengthTrigger
+import com.benkio.chatcore.model.NewMemberTrigger
+import com.benkio.chatcore.model.RegexTextTriggerValue
+import com.benkio.chatcore.model.StringTextTriggerValue
+import com.benkio.chatcore.model.TextTrigger
+import com.benkio.chatcore.model.TextTriggerValue
 import com.benkio.replieseditor.server.jsonio.ListJsonFile
 import com.benkio.replieseditor.server.jsonio.RepliesJsonFile
 import com.benkio.replieseditor.server.jsonio.TriggersTxtFile
@@ -13,15 +22,6 @@ import com.benkio.replieseditor.server.module.IndexedReply
 import com.benkio.replieseditor.server.module.RepliesChunk
 import com.benkio.replieseditor.server.module.SaveOk
 import com.benkio.replieseditor.server.validation.MediaFilesAllowedValidation
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
-import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
-import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
-import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
-import com.benkio.telegrambotinfrastructure.model.TextTriggerValue
 import io.circe.syntax.*
 import io.circe.Json
 

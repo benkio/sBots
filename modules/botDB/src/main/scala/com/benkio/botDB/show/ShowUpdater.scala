@@ -6,10 +6,10 @@ import cats.effect.Resource
 import cats.implicits.*
 import cats.Semigroup
 import com.benkio.botDB.config.Config
-import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
+import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.db.DBShowData
 import com.google.api.services.youtube.model.Video
 import io.circe.*
 import io.circe.parser.*

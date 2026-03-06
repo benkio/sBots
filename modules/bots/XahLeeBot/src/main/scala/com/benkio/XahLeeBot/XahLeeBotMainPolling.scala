@@ -1,7 +1,7 @@
 package com.benkio.XahLeeBot
 
 import cats.effect.*
-import com.benkio.telegrambotinfrastructure.SBotMainPolling
+import com.benkio.chattelegramadapter.SBotMainPolling
 
 object XahLeeBotMainPolling extends IOApp {
 

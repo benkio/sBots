@@ -1,21 +1,19 @@
 package com.benkio.integration.integrationmunit
 
-import cats.effect.Async
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
-import cats.Parallel
+import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.model.media.MediaFileSource
+import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.ReplyBundleCommand
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.repository.db.DBMedia
+import com.benkio.chattelegramadapter.SBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.integration.DBFixture
 import com.benkio.integrationtest.Logger.given
 import com.benkio.main.*
-import com.benkio.telegrambotinfrastructure.config.SBotConfig
-import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
-import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.repository.db.DBMedia
-import com.benkio.telegrambotinfrastructure.SBotPolling
 import doobie.implicits.*
 import io.circe.parser.decode
 import munit.CatsEffectSuite
@@ -79,12 +77,13 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      sBot = new SBotPolling[IO](
+      given telegramium.bots.high.Api[IO] = botSetup.api
+      sBot                                = new SBotPolling[IO](
         botSetup,
         messageRepliesData,
         commandRepliesData,
         entry.commandEffectfulCallback
-      )(using Parallel[IO], Async[IO], botSetup.api, log)
+      )
       files = sBot.messageRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.eval(
         files
@@ -114,12 +113,13 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      sBot = new SBotPolling[IO](
+      given telegramium.bots.high.Api[IO] = botSetup.api
+      sBot                                = new SBotPolling[IO](
         botSetup,
         messageRepliesData,
         commandRepliesData,
         entry.commandEffectfulCallback
-      )(using Parallel[IO], Async[IO], botSetup.api, log)
+      )
       files = sBot.commandRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.eval(
         files
@@ -160,12 +160,13 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      sBot = new SBotPolling[IO](
+      given telegramium.bots.high.Api[IO] = botSetup.api
+      sBot                                = new SBotPolling[IO](
         botSetup,
         messageRepliesData,
         commandRepliesData,
         entry.commandEffectfulCallback
-      )(using Parallel[IO], Async[IO], botSetup.api, log)
+      )
       mediaFiles = sBot.commandRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.pure(
         mediaFiles
@@ -194,12 +195,13 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      sBot = new SBotPolling[IO](
+      given telegramium.bots.high.Api[IO] = botSetup.api
+      sBot                                = new SBotPolling[IO](
         botSetup,
         messageRepliesData,
         commandRepliesData,
         entry.commandEffectfulCallback
-      )(using Parallel[IO], Async[IO], botSetup.api, log)
+      )
       mediaFiles = sBot.messageRepliesData.flatMap(r => r.getMediaFiles)
       checks <- Resource.pure(
         mediaFiles

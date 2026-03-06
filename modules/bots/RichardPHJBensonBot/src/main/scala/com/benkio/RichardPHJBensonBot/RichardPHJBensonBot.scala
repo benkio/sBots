@@ -2,14 +2,14 @@ package com.benkio.RichardPHJBensonBot
 
 import cats.syntax.all.*
 import cats.ApplicativeThrow
-import com.benkio.telegrambotinfrastructure.model.reply.toText
-import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
-import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns
-import com.benkio.telegrambotinfrastructure.SBot
-import telegramium.bots.Message
+import com.benkio.chatcore.model.reply.toText
+import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SBotInfo.SBotName
+import com.benkio.chatcore.patterns.CommandPatterns
+import com.benkio.chattelegramadapter.SBot
 
 object RichardPHJBensonBot {
 

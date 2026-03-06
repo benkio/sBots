@@ -11,12 +11,13 @@ import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
-import com.benkio.telegrambotinfrastructure.config.SBotConfig
-import com.benkio.telegrambotinfrastructure.model.reply.Text
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
-import com.benkio.telegrambotinfrastructure.SBot
-import com.benkio.telegrambotinfrastructure.SBotMainPolling
-import com.benkio.telegrambotinfrastructure.SBotWebhook
+import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chattelegramadapter.polling.TelegramPollingRuntime
+import com.benkio.chattelegramadapter.webhook.TelegramWebhookBot
+import com.benkio.chattelegramadapter.webhook.TelegramWebhookRuntime
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
@@ -25,8 +26,6 @@ import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import log.effect.LogWriter
-import telegramium.bots.high.WebhookBot
-import telegramium.bots.Message
 
 final case class BotRegistryEntry[F[_]](
     sBotInfo: SBotInfo,
@@ -34,8 +33,8 @@ final case class BotRegistryEntry[F[_]](
 )
 
 extension (botRegistryEntry: BotRegistryEntry[IO]) {
-  def sBotWebhookResource(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, SBotWebhook[IO]] = {
-    SBot.buildWebhookBot[IO](
+  def sBotWebhookResource(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, TelegramWebhookBot[IO]] = {
+    TelegramWebhookRuntime.buildWebhookBot[IO](
       httpClient = mainSetup.httpClient,
       sBotInfo = botRegistryEntry.sBotInfo,
       webhookBaseUrl = mainSetup.webhookBaseUrl,
@@ -43,7 +42,7 @@ extension (botRegistryEntry: BotRegistryEntry[IO]) {
       commandEffectfulCallback = botRegistryEntry.commandEffectfulCallback
     )
   }
-  def sBotConfig: SBotConfig = SBot.buildSBotConfig(botRegistryEntry.sBotInfo)
+  def sBotConfig: SBotConfig = TelegramWebhookRuntime.buildSBotConfig(botRegistryEntry.sBotInfo)
 }
 
 opaque type BotRegistry[F[_]] = List[BotRegistryEntry[F]]
@@ -51,9 +50,9 @@ opaque type BotRegistry[F[_]] = List[BotRegistryEntry[F]]
 extension (botRegistry: BotRegistry[IO]) {
   def runPolling(): IO[ExitCode] =
     botRegistry
-      .map(botRegistryEntry => SBotMainPolling.run(sBotInfo = botRegistryEntry.sBotInfo))
+      .map(botRegistryEntry => TelegramPollingRuntime.run(sBotInfo = botRegistryEntry.sBotInfo))
       .reduce(op = (botA, botB) => botA &> botB)
-  def webhookBots(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, List[WebhookBot[IO]]] =
+  def webhookBots(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, List[TelegramWebhookBot[IO]]] =
     botRegistry
       .traverse(_.sBotWebhookResource(mainSetup))
 }

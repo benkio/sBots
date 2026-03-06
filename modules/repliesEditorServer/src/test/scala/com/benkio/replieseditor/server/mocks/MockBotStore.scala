@@ -1,12 +1,12 @@
 package com.benkio.replieseditor.server.mocks
 
 import cats.effect.IO
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.replieseditor.server.module.ApiBot
 import com.benkio.replieseditor.server.module.ApiError
 import com.benkio.replieseditor.server.module.RepliesChunk
 import com.benkio.replieseditor.server.module.SaveOk
 import com.benkio.replieseditor.server.store.BotStoreApi
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import io.circe.Json
 
 final class MockBotStore(

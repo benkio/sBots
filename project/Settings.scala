@@ -35,9 +35,14 @@ object Settings {
     }
   )
 
-  lazy val TelegramBotInfrastructureSettings = Seq(
-    name                := "TelegramBotInfrastructure",
-    libraryDependencies := TelegramBotInfrastructureDependencies
+  lazy val ChatCoreSettings = Seq(
+    name                := "ChatCore",
+    libraryDependencies := ChatCoreDependencies
+  )
+
+  lazy val ChatTelegramAdapterSettings = Seq(
+    name                := "chatTelegramAdapter",
+    libraryDependencies := ChatTelegramAdapterDependencies
   )
 
   lazy val IntegrationSettings = Seq(
@@ -68,7 +73,6 @@ object Settings {
   lazy val BotDBSettings = Seq(
     name                := "botDB",
     libraryDependencies := BotDBDependencies,
-    mainClass           := Some("com.benkio.botDB.Main"),
     Test / javaOptions += s"-Dconfig.file=${sourceDirectory.value}/test/resources/application.test.conf",
     Test / fork       := true,
     runMigrate / fork := true

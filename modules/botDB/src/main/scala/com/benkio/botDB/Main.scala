@@ -7,9 +7,9 @@ import com.benkio.botDB.media.MediaUpdater
 import com.benkio.botDB.show.ShowUpdater
 import com.benkio.botDB.show.YouTubeService
 import com.benkio.botDB.Logger.given
-import com.benkio.telegrambotinfrastructure.initialization.BotSetup
-import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
-import com.benkio.telegrambotinfrastructure.repository.ResourcesRepository
+import com.benkio.chatcore.initialization.TokenReader
+import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.ResourcesRepository
 import log.effect.LogWriter
 
 object Main extends IOApp {
@@ -38,7 +38,7 @@ object Main extends IOApp {
       _ <- Resource.eval(LogWriter.info("[Main - Initialization] MediaUpdater"))
       mediaUpdater = MediaUpdater(config = config, dbLayer = dbLayer, repository = repository)
       _              <- Resource.eval(LogWriter.info("[Main - Initialization] Fetch YouTube api key from resources"))
-      youTubeApiKey  <- BotSetup.token(youtubeTokenFilename, repository)
+      youTubeApiKey  <- TokenReader.token(youtubeTokenFilename, repository)
       _              <- Resource.eval(LogWriter.info("[Main - Initialization] Creating YouTube Service"))
       youTubeService <- Resource.eval(YouTubeService(config = config, youTubeApiKey))
       _              <- Resource.eval(LogWriter.info("[Main - Initialization] ShowUpdater"))

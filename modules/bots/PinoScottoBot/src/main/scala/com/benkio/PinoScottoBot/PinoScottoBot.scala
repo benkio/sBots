@@ -1,8 +1,8 @@
 package com.benkio.PinoScottoBot
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
+import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SBotInfo.SBotName
 
 object PinoScottoBot {
 

@@ -13,8 +13,8 @@ import cats.implicits.*
 // botDB/console
 import com.benkio.botDB.show
 import com.benkio.botDB.show.ShowFetcher
-import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
-import com.benkio.telegrambotinfrastructure.repository.Repository
+import com.benkio.chatcore.repository.db.DBShowData
+import com.benkio.chatcore.repository.Repository
 import io.circe.parser.*
 import io.circe.syntax.*
 import log.effect.fs2.SyncLogWriter.consoleLogUpToLevel

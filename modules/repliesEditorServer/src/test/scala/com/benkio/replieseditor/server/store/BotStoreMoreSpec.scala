@@ -2,13 +2,13 @@ package com.benkio.replieseditor.server.store
 
 import cats.effect.IO
 import cats.effect.Resource
-import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
-import com.benkio.telegrambotinfrastructure.model.MessageLengthTrigger
-import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
-import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
-import com.benkio.telegrambotinfrastructure.model.TextTrigger
+import com.benkio.chatcore.messagefiltering.MessageMatches
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.MessageLengthTrigger
+import com.benkio.chatcore.model.NewMemberTrigger
+import com.benkio.chatcore.model.RegexTextTriggerValue
+import com.benkio.chatcore.model.StringTextTriggerValue
+import com.benkio.chatcore.model.TextTrigger
 import io.circe.parser.parse
 import io.circe.syntax.*
 import io.circe.Json

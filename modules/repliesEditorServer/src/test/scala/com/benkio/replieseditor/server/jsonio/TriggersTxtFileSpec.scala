@@ -1,8 +1,8 @@
 package com.benkio.replieseditor.server.jsonio
 
 import cats.effect.IO
-import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
-import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.reply.PhotoFile
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import munit.CatsEffectSuite
 
 import java.nio.charset.StandardCharsets

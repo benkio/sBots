@@ -1,8 +1,8 @@
 package com.benkio.YouTuboAncheI0Bot
 
-import com.benkio.telegrambotinfrastructure.model.SBotInfo
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
+import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SBotInfo.SBotName
 
 object YouTuboAncheI0Bot {
 

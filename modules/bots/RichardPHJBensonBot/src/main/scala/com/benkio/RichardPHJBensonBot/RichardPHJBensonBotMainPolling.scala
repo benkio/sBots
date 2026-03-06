@@ -1,7 +1,7 @@
 package com.benkio.RichardPHJBensonBot
 
 import cats.effect.*
-import com.benkio.telegrambotinfrastructure.SBotMainPolling
+import com.benkio.chattelegramadapter.SBotMainPolling
 
 object RichardPHJBensonBotMainPolling extends IOApp {
 

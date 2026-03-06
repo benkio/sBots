@@ -1,0 +1,85 @@
+package com.benkio.integration.integrationmunit.chatcore.patterns
+
+import cats.effect.IO
+import cats.effect.Resource
+import cats.syntax.all.*
+import com.benkio.chatcore.mocks.ApiMock.given
+import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Subscription
+import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.chattelegramadapter.SBot
+import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
+import com.benkio.integration.DBFixture
+import com.benkio.integrationtest.Logger.given
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import cron4s.Cron
+import munit.CatsEffectSuite
+
+import java.time.temporal.ChronoUnit
+import java.time.Instant
+import java.util.UUID
+
+class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
+
+  val sBotConfig                         = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
+  val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
+  val sBotInfo                           = sBotConfig.sBotInfo
+  val chatIdValue                        = 0L
+  val chatId                             = ChatId(chatIdValue)
+  val cronValue                          = "* * * ? * *"
+  val cron                               = Cron.unsafeParse(cronValue)
+
+  val testSubscription: Subscription = Subscription(
+    id = testSubscriptionId,
+    chatId = chatId,
+    botId = sBotInfo.botId,
+    cron = cron,
+    subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
+  )
+
+  val msg: Message = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
+
+  databaseFixture.test(
+    "Subscribe Command should add a new subscription"
+  ) { fixture =>
+    val result = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          dbLayer = dbLayer,
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      reply <- Resource.eval(
+        SubscribeUnsubscribeCommand
+          .subscribeCommandLogic(
+            backgroundJobManager = backgroundJobManager,
+            m = msg.copy(text = Some(s"/subscribe $cronValue")),
+            sBotInfo = sBotConfig.sBotInfo,
+            ttl = sBotConfig.messageTimeToLive
+          )
+      )
+      subscriptionDatas <- Resource.eval(
+        dbLayer.dbSubscription.getSubscriptions(sBotConfig.sBotInfo.botId)
+      )
+      subscriptions <- Resource.eval(
+        subscriptionDatas.traverse(subscriptionData => IO.fromEither(Subscription(subscriptionData)))
+      )
+    } yield {
+      assert(subscriptions.length == 1)
+      assert(reply.length == 1)
+      val testCheck = reply.zip(subscriptions).map { case (r, s) =>
+        val result = r.value.startsWith("Subscription successfully scheduled. Next occurrence of subscription is ") &&
+          r.value.endsWith(s"Refer to this subscription with the ID: ${s.id.value.toString}")
+        if !result then println(s"[ITUnsubscribeCommandSpec:78:57]] Failed test with $r and $s") else ()
+        result
+      }
+      assert(testCheck.forall(_ == true))
+    }
+    result.use_
+  }
+}

@@ -6,9 +6,9 @@ import com.benkio.botDB.config.Config
 import com.benkio.botDB.show.YouTubeBotDBShowDatas
 import com.benkio.botDB.show.YouTubeBotIds
 import com.benkio.botDB.show.YouTubeService
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.repository.db.DBShowData
 import com.benkio.integrationtest.Logger.given
-import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import com.benkio.telegrambotinfrastructure.repository.db.DBShowData
 import munit.CatsEffectSuite
 
 import java.nio.file.Files

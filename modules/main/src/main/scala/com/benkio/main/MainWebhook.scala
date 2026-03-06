@@ -4,9 +4,9 @@ import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
+import com.benkio.chattelegramadapter.webhook.TelegramWebhookServer
 import com.benkio.main.Logger.given
 import org.http4s.server.Server
-import telegramium.bots.high.WebhookBot
 
 object MainWebhook extends IOApp {
 
@@ -14,7 +14,7 @@ object MainWebhook extends IOApp {
 
     def server(mainSetup: MainSetup[IO]): Resource[IO, Server] = for {
       bots   <- BotRegistry.value.webhookBots(mainSetup)
-      server <- WebhookBot.compose[IO](
+      server <- TelegramWebhookServer.compose[IO](
         bots = bots,
         port = mainSetup.port,
         host = mainSetup.host,

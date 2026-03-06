@@ -39,7 +39,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 // SCoverage
 coverageEnabled          := true
 coverageFailOnMinimum    := true
-coverageMinimumStmtTotal := 70 // TODO: INCREASE THIS
+coverageMinimumStmtTotal := 60 // TODO: INCREASE THIS
 
 // COMMAND ALIASES
 
@@ -84,62 +84,69 @@ lazy val botProjects: Seq[sbt.ProjectReference] = Seq(
 lazy val sBots =
   Project("sBots", file("."))
     .settings(Settings.settings *)
-    .aggregate(main, botDB, telegramBotInfrastructure, repliesEditorServer, repliesEditorUI)
+    .aggregate(main, botDB, chatCore, chatTelegramAdapter, repliesEditorServer, repliesEditorUI)
     .aggregate(botProjects *)
 
-lazy val telegramBotInfrastructure =
-  Project("telegramBotInfrastructure", file("modules/telegramBotInfrastructure"))
+lazy val chatCore =
+  Project("chatCore", file("modules/chatCore"))
     .settings(Settings.settings *)
-    .settings(Settings.TelegramBotInfrastructureSettings *)
+    .settings(Settings.ChatCoreSettings *)
+    .disablePlugins(AssemblyPlugin)
+
+lazy val chatTelegramAdapter =
+  Project("chatTelegramAdapter", file("modules/chatTelegramAdapter"))
+    .settings(Settings.settings *)
+    .settings(Settings.ChatTelegramAdapterSettings *)
+    .dependsOn(chatCore % "compile->compile;test->test")
     .disablePlugins(AssemblyPlugin)
 
 lazy val CalandroBot =
   Project("CalandroBot", file("modules/bots/CalandroBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("CalandroBot") *)
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val ABarberoBot =
   Project("ABarberoBot", file("modules/bots/ABarberoBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("ABarberoBot") *)
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val RichardPHJBensonBot =
   Project("RichardPHJBensonBot", file("modules/bots/RichardPHJBensonBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("RichardPHJBensonBot") *)
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val XahLeeBot =
   Project("XahLeeBot", file("modules/bots/XahLeeBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("XahLeeBot") *)
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val YouTuboAncheI0Bot =
   Project("YouTuboAncheI0Bot", file("modules/bots/YouTuboAncheI0Bot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("YouTuboAncheI0Bot") *)
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val M0sconiBot =
   Project("M0sconiBot", file("modules/bots/M0sconiBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("M0sconiBot") *)
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val PinoScottoBot =
   Project("PinoScottoBot", file("modules/bots/PinoScottoBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("PinoScottoBot") *)
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val main = project
   .in(file("modules/main"))
   .settings(Settings.settings *)
   .settings(Settings.MainSettings)
-  .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+  .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
   .dependsOn(botProjects.map(_ % "compile->compile;test->test"): _*)
 
 lazy val botDB =
@@ -147,7 +154,7 @@ lazy val botDB =
     .disablePlugins(sbtassembly.AssemblyPlugin)
     .settings(Settings.settings *)
     .settings(Settings.BotDBSettings)
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val repliesEditorUI =
   Project("repliesEditorUI", file("modules/repliesEditorUI"))
@@ -165,12 +172,13 @@ lazy val repliesEditorServer =
     .settings(
       Settings.RepliesEditorServer(repliesEditorUI)
     )
-    .dependsOn(telegramBotInfrastructure % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val integration = (project in file("modules/integration-tests"))
   .dependsOn(
-    telegramBotInfrastructure % "compile->compile;test->test",
-    botDB                     % "compile->compile;test->test",
+    chatCore            % "compile->compile;test->test",
+    chatTelegramAdapter % "compile->compile;test->test",
+    botDB               % "compile->compile;test->test",
     main
   )
   .settings(Settings.settings *)

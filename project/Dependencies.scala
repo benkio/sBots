@@ -49,6 +49,7 @@ object Dependencies {
     val catsCore             = "org.typelevel"                 %% "cats-core"               % versions.cats
     val catsEffect           = "org.typelevel"                 %% "cats-effect"             % versions.catsEffectVersion
     val catsEffectKernel     = "org.typelevel"                 %% "cats-effect-kernel"      % versions.catsEffectVersion
+    val catsEffectStd        = "org.typelevel"                 %% "cats-effect-std"         % versions.catsEffectVersion
     val catsEffectTime       = "io.chrisdavenport"             %% "cats-effect-time"        % versions.catsEffectTime
     val catsFree             = "org.typelevel"                 %% "cats-free"               % versions.cats
     val catsKernel           = "org.typelevel"                 %% "cats-kernel"             % versions.cats
@@ -128,15 +129,14 @@ object Dependencies {
     libs.logbackClassic,
     libs.logbackLogstash,
     libs.munit,
-    libs.munitCatsEffect,
-    libs.telegramiumCore,
-    libs.telegramiumHigh
+    libs.munitCatsEffect
   )
 
-  val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
+  val ChatCoreDependencies: Seq[ModuleID] =
     CommonDependencies ++ Seq(
       libs.caseInsensitive,
       libs.catsEffectTime,
+      libs.catsEffectStd,
       libs.catsFree,
       libs.catsKernel,
       libs.circeGeneric,
@@ -162,6 +162,12 @@ object Dependencies {
       libs.vault
     )
 
+  val ChatTelegramAdapterDependencies: Seq[ModuleID] =
+    ChatCoreDependencies ++ Seq(
+      libs.telegramiumCore,
+      libs.telegramiumHigh
+    )
+
   /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */
   val BotDependencies: Seq[ModuleID] = CommonDependencies
 
@@ -169,6 +175,8 @@ object Dependencies {
     CommonDependencies ++
       Seq(
         libs.cron4s,
+        libs.doobieCore,
+        libs.doobieFree,
         libs.doobieMunit,
         libs.fs2Core,
         libs.fs2Cron,

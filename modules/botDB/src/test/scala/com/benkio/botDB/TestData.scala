@@ -4,7 +4,7 @@ import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.JsonLocation
 import com.benkio.botDB.config.ShowConfig
 import com.benkio.botDB.config.ShowSourceConfig
-import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
+import com.benkio.chatcore.repository.db.DBMediaData
 
 object TestData {
 
