@@ -15,9 +15,9 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chattelegramadapter.SBot
-import com.benkio.chattelegramadapter.SBotMainPolling
-import com.benkio.chattelegramadapter.SBotWebhook
+import com.benkio.chattelegramadapter.polling.TelegramPollingRuntime
+import com.benkio.chattelegramadapter.webhook.TelegramWebhookBot
+import com.benkio.chattelegramadapter.webhook.TelegramWebhookRuntime
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
@@ -33,8 +33,8 @@ final case class BotRegistryEntry[F[_]](
 )
 
 extension (botRegistryEntry: BotRegistryEntry[IO]) {
-  def sBotWebhookResource(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, SBotWebhook[IO]] = {
-    SBot.buildWebhookBot[IO](
+  def sBotWebhookResource(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, TelegramWebhookBot[IO]] = {
+    TelegramWebhookRuntime.buildWebhookBot[IO](
       httpClient = mainSetup.httpClient,
       sBotInfo = botRegistryEntry.sBotInfo,
       webhookBaseUrl = mainSetup.webhookBaseUrl,
@@ -42,7 +42,7 @@ extension (botRegistryEntry: BotRegistryEntry[IO]) {
       commandEffectfulCallback = botRegistryEntry.commandEffectfulCallback
     )
   }
-  def sBotConfig: SBotConfig = SBot.buildSBotConfig(botRegistryEntry.sBotInfo)
+  def sBotConfig: SBotConfig = TelegramWebhookRuntime.buildSBotConfig(botRegistryEntry.sBotInfo)
 }
 
 opaque type BotRegistry[F[_]] = List[BotRegistryEntry[F]]
@@ -50,9 +50,9 @@ opaque type BotRegistry[F[_]] = List[BotRegistryEntry[F]]
 extension (botRegistry: BotRegistry[IO]) {
   def runPolling(): IO[ExitCode] =
     botRegistry
-      .map(botRegistryEntry => SBotMainPolling.run(sBotInfo = botRegistryEntry.sBotInfo))
+      .map(botRegistryEntry => TelegramPollingRuntime.run(sBotInfo = botRegistryEntry.sBotInfo))
       .reduce(op = (botA, botB) => botA &> botB)
-  def webhookBots(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, List[SBotWebhook[IO]]] =
+  def webhookBots(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, List[TelegramWebhookBot[IO]]] =
     botRegistry
       .traverse(_.sBotWebhookResource(mainSetup))
 }

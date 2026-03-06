@@ -1,43 +1,23 @@
-package com.benkio.chattelegramadapter
+package com.benkio.chattelegramadapter.webhook
 
 import cats.effect.Async
 import cats.effect.Resource
-import cats.Parallel
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chattelegramadapter.SBotWebhook
 import com.benkio.chattelegramadapter.initialization.BotSetup
-import com.benkio.chattelegramadapter.webhook.TelegramWebhookBot
-import fs2.io.net.Network
 import log.effect.LogWriter
-import org.http4s.client.Client
-import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.Uri
+import org.http4s.client.Client
 import telegramium.bots.high.Api
 
 import java.nio.file.Path
 
-class SBotPolling[F[_]: Parallel: Api](
-    override val sBotSetup: BotSetup[F],
-    override val messageRepliesData: List[ReplyBundleMessage],
-    override val commandRepliesData: List[ReplyBundleCommand],
-    override val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
-)(using Async[F], LogWriter[F])
-    extends ISBotPolling[F](sBotSetup)
-
-class SBotWebhook[F[_]: Api](
-    override val sBotSetup: BotSetup[F],
-    override val messageRepliesData: List[ReplyBundleMessage],
-    override val commandRepliesData: List[ReplyBundleCommand],
-    webhookCertificate: Option[Path] = None,
-    override val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
-)(using Async[F], LogWriter[F])
-    extends ISBotWebhook[F](sBotSetup, webhookCertificate)
-
-object SBot {
+object TelegramWebhookRuntime {
 
   def buildSBotConfig(sBotInfo: SBotInfo): SBotConfig =
     SBotConfig(
@@ -53,36 +33,6 @@ object SBot {
       token = s"${sBotInfo.botId}_${sBotInfo.botName}.token"
     )
 
-  def buildPollingBot[F[_]: Parallel: Async: Network, A](
-      action: SBotPolling[F] => F[A],
-      sBotInfo: SBotInfo,
-      commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
-  )(using log: LogWriter[F]): F[A] = (for {
-    httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-    sBotConfig = buildSBotConfig(sBotInfo)
-    sBotSetup <- BotSetup(
-      httpClient = httpClient,
-      sBotConfig = sBotConfig
-    )
-    messageRepliesData <- Resource.eval(
-      sBotSetup.jsonDataRepository.loadData[ReplyBundleMessage](sBotConfig.repliesJsonFilename)
-    )
-    commandRepliesData <- Resource.eval(
-      sBotSetup.jsonDataRepository.loadData[ReplyBundleCommand](sBotConfig.commandsJsonFilename)
-    )
-  } yield (sBotSetup, messageRepliesData, commandRepliesData)).use {
-    case (sBotSetup, messageRepliesData, commandRepliesData) =>
-      given Api[F] = sBotSetup.api
-      action(
-        new SBotPolling[F](
-          sBotSetup = sBotSetup,
-          messageRepliesData = messageRepliesData,
-          commandRepliesData = commandRepliesData,
-          commandEffectfulCallback = commandEffectfulCallback
-        )
-      )
-  }
-
   def buildWebhookBot[F[_]: Async](
       httpClient: Client[F],
       sBotInfo: SBotInfo,
@@ -90,7 +40,6 @@ object SBot {
       webhookCertificate: Option[Path] = None,
       commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
   )(using log: LogWriter[F]): Resource[F, TelegramWebhookBot[F]] = {
-
     val sBotConfig = buildSBotConfig(sBotInfo)
     for {
       sBotSetup <- BotSetup(
@@ -118,3 +67,4 @@ object SBot {
     }
   }
 }
+

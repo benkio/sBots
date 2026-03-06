@@ -27,6 +27,8 @@ import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message as TMessage
 
+import java.nio.file.Path
+
 abstract class ISBotPolling[F[_]: Parallel: Api](
     override val sBotSetup: BotSetup[F]
 )(using Async[F], LogWriter[F])
@@ -37,13 +39,13 @@ abstract class ISBotPolling[F[_]: Parallel: Api](
 
 abstract class ISBotWebhook[F[_]: Api](
     override val sBotSetup: BotSetup[F],
-    webhookCertificate: Option[InputPartFile] = None
+    webhookCertificate: Option[Path] = None
 )(using Async[F], LogWriter[F])
     extends WebhookBot[F](
       summon[Api[F]],
       sBotSetup.webhookUri.renderString,
       sBotSetup.webhookPath.renderString,
-      certificate = webhookCertificate
+      certificate = webhookCertificate.map(p => InputPartFile(p.toFile))
     )
     with ISBot[F] {
   override def onMessage(msg: TMessage): F[Unit] = onMessageLogic(msg.toModel)

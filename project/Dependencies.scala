@@ -49,6 +49,7 @@ object Dependencies {
     val catsCore             = "org.typelevel"                 %% "cats-core"               % versions.cats
     val catsEffect           = "org.typelevel"                 %% "cats-effect"             % versions.catsEffectVersion
     val catsEffectKernel     = "org.typelevel"                 %% "cats-effect-kernel"      % versions.catsEffectVersion
+    val catsEffectStd        = "org.typelevel"                 %% "cats-effect-std"         % versions.catsEffectVersion
     val catsEffectTime       = "io.chrisdavenport"             %% "cats-effect-time"        % versions.catsEffectTime
     val catsFree             = "org.typelevel"                 %% "cats-free"               % versions.cats
     val catsKernel           = "org.typelevel"                 %% "cats-kernel"             % versions.cats
@@ -135,6 +136,7 @@ object Dependencies {
     CommonDependencies ++ Seq(
       libs.caseInsensitive,
       libs.catsEffectTime,
+      libs.catsEffectStd,
       libs.catsFree,
       libs.catsKernel,
       libs.circeGeneric,
@@ -173,6 +175,8 @@ object Dependencies {
     CommonDependencies ++
       Seq(
         libs.cron4s,
+        libs.doobieCore,
+        libs.doobieFree,
         libs.doobieMunit,
         libs.fs2Core,
         libs.fs2Cron,
