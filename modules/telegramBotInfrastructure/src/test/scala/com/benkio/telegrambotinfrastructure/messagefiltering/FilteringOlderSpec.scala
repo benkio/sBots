@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
+import com.benkio.telegrambotinfrastructure.model.ChatId
+import com.benkio.telegrambotinfrastructure.model.Message
 import munit.*
-import telegramium.bots.Chat
-import telegramium.bots.Message
 
 import java.time.Instant
 import scala.concurrent.duration.*
@@ -15,16 +15,28 @@ class FilteringOlderSpec extends FunSuite {
   test("FilteringOlder.filter should return true if the message date is within threshold") {
     val msg = Message(
       messageId = 0,
-      date = dateWithinThreshold.toInt,
-      chat = Chat(id = 0, `type` = "test")
+      date = dateWithinThreshold,
+      chatId = ChatId(0L),
+      chatType = "test",
+      text = None,
+      caption = None,
+      newChatMembers = List.empty,
+      leftChatMember = None,
+      forwardOrigin = None
     )
     assert(FilteringOlder.filter(msg))
   }
   test("FilteringOlder.filter should return false if the message date is outside the threshold") {
     val msg = Message(
       messageId = 0,
-      date = dateOutsideThreshold.toInt,
-      chat = Chat(id = 0, `type` = "test")
+      date = dateOutsideThreshold,
+      chatId = ChatId(0L),
+      chatType = "test",
+      text = None,
+      caption = None,
+      newChatMembers = List.empty,
+      leftChatMember = None,
+      forwardOrigin = None
     )
     assert(!FilteringOlder.filter(msg))
   }

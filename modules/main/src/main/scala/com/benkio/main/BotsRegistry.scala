@@ -13,6 +13,7 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.telegrambotinfrastructure.config.SBotConfig
 import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.SBot
 import com.benkio.telegrambotinfrastructure.SBotMainPolling
@@ -25,8 +26,6 @@ import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import log.effect.LogWriter
-import telegramium.bots.high.WebhookBot
-import telegramium.bots.Message
 
 final case class BotRegistryEntry[F[_]](
     sBotInfo: SBotInfo,
@@ -53,7 +52,7 @@ extension (botRegistry: BotRegistry[IO]) {
     botRegistry
       .map(botRegistryEntry => SBotMainPolling.run(sBotInfo = botRegistryEntry.sBotInfo))
       .reduce(op = (botA, botB) => botA &> botB)
-  def webhookBots(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, List[WebhookBot[IO]]] =
+  def webhookBots(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, List[SBotWebhook[IO]]] =
     botRegistry
       .traverse(_.sBotWebhookResource(mainSetup))
 }

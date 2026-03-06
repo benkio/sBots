@@ -7,6 +7,8 @@ import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.messagefiltering.MessageMatches
 import com.benkio.telegrambotinfrastructure.model.media.MediaFileSource
 import com.benkio.telegrambotinfrastructure.model.reply.*
+import com.benkio.telegrambotinfrastructure.model.ChatId
+import com.benkio.telegrambotinfrastructure.model.Message as ModelMessage
 import com.benkio.telegrambotinfrastructure.model.RegexTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
@@ -30,7 +32,7 @@ import org.http4s.Status
 import org.scalacheck.Prop.*
 import telegramium.bots.high.Api
 import telegramium.bots.Chat
-import telegramium.bots.Message
+import telegramium.bots.Message as TMessage
 import wolfendale.scalacheck.regexp.RegexpGen
 
 import java.nio.file.Files
@@ -180,11 +182,16 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         })
         .toList
       val matchingFilenames: List[List[MediaFile]] = inputTextTxtContent.map { case (input, expectedMatch) =>
-        val exactStringMessage = Message(
+        val exactStringMessage = ModelMessage(
           messageId = 0,
-          date = 0,
-          chat = Chat(id = 0, `type` = "test"),
-          text = Some(input)
+          date = 0L,
+          chatId = ChatId(0L),
+          chatType = "test",
+          text = Some(input),
+          caption = None,
+          newChatMembers = List.empty,
+          leftChatMember = None,
+          forwardOrigin = None
         )
         replyBundleMessages
           .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
@@ -211,7 +218,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       italianInstructions: String,
       englishInstructions: String
   ): Unit = {
-    def instructionMessage(value: String): Message = Message(
+    def instructionMessage(value: String): TMessage = TMessage(
       messageId = 0,
       date = 0,
       chat = Chat(id = 0, `type` = "test"),
@@ -302,11 +309,16 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       .foreach {
         case (stringTrigger: StringTextTriggerValue, replyBundle) =>
           test(s"""🔎 Only one reply bundle replies to: "${stringTrigger.show}"""") {
-            val exactStringMessage = Message(
+            val exactStringMessage = ModelMessage(
               messageId = 0,
-              date = 0,
-              chat = Chat(id = 0, `type` = "test"),
-              text = Some(stringTrigger.show)
+              date = 0L,
+              chatId = ChatId(0L),
+              chatType = "test",
+              text = Some(stringTrigger.show),
+              caption = None,
+              newChatMembers = List.empty,
+              leftChatMember = None,
+              forwardOrigin = None
             )
             replyBundleMessages
               .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
@@ -324,11 +336,16 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
           property(s"""🔎 Only one reply bundle replies to: "${regexTrigger.trigger.toString}"""") {
             forAll(RegexpGen.from(regexTrigger.trigger.toString)) {
               case regexMatchString: String if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
-                val exactStringMessage = Message(
+                val exactStringMessage = ModelMessage(
                   messageId = 0,
-                  date = 0,
-                  chat = Chat(id = 0, `type` = "test"),
-                  text = Some(regexMatchString)
+                  date = 0L,
+                  chatId = ChatId(0L),
+                  chatType = "test",
+                  text = Some(regexMatchString),
+                  caption = None,
+                  newChatMembers = List.empty,
+                  leftChatMember = None,
+                  forwardOrigin = None
                 )
                 replyBundleMessages
                   .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))

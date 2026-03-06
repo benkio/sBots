@@ -11,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.EffectfulKey
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyValue
 import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
@@ -21,7 +22,7 @@ import telegramium.bots.high.implicits.*
 import telegramium.bots.ChatId
 import telegramium.bots.ChatIntId
 import telegramium.bots.IFile
-import telegramium.bots.Message
+import telegramium.bots.Message as TMessage
 import telegramium.bots.ReplyParameters
 
 import scala.concurrent.duration.FiniteDuration
@@ -29,15 +30,15 @@ import scala.concurrent.duration.FiniteDuration
 object TelegramReply {
 
   def telegramFileReplyPattern[F[_]: Async: LogWriter: Api](
-      msg: Message,
+      msg: TMessage,
       repository: Repository[F],
       chatAction: String,
       mediaFile: MediaFile,
       replyToMessage: Boolean,
-      sendFileAPIMethod: (ChatId, IFile, Option[ReplyParameters]) => Method[Message]
-  ): F[List[Message]] = {
-    val chatId: ChatId                                                    = ChatIntId(msg.chat.id)
-    def computeMediaResource(mediaResource: MediaResource[F]): F[Message] =
+      sendFileAPIMethod: (ChatId, IFile, Option[ReplyParameters]) => Method[TMessage]
+  ): F[List[TMessage]] = {
+    val chatId: ChatId                                                     = ChatIntId(msg.chat.id)
+    def computeMediaResource(mediaResource: MediaResource[F]): F[TMessage] =
       mediaResource.toTelegramApi.use(iFile =>
         sendFileAPIMethod(
           chatId,
@@ -45,12 +46,12 @@ object TelegramReply {
           Option.when(replyToMessage)(ReplyParameters(msg.messageId))
         ).exec
       )
-    val result: EitherT[F, Throwable, List[Message]] = for {
+    val result: EitherT[F, Throwable, List[TMessage]] = for {
       _       <- Methods.sendChatAction(chatId, chatAction).exec.attemptT
       message <-
         repository
           .getResourceFile(mediaFile)
-          .use[List[Message]](mediaResources =>
+          .use[List[TMessage]](mediaResources =>
             Async[F]
               .fromEither(mediaResources)
               .flatMap(

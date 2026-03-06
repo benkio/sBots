@@ -12,6 +12,8 @@ import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.Message.toModel
+import com.benkio.telegrambotinfrastructure.model.Message as ModelMessage
 import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
@@ -22,13 +24,13 @@ import com.benkio.telegrambotinfrastructure.repository.Repository
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.InputPartFile
-import telegramium.bots.Message
+import telegramium.bots.Message as TMessage
 
 abstract class ISBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F]
 ) extends LongPollBot[F](summon[Api[F]])
     with ISBot[F] {
-  override def onMessage(msg: Message): F[Unit] = onMessageLogic(msg)
+  override def onMessage(msg: TMessage): F[Unit] = onMessageLogic(msg.toModel)
 }
 
 abstract class ISBotWebhook[F[_]: Async: Api: LogWriter](
@@ -41,7 +43,7 @@ abstract class ISBotWebhook[F[_]: Async: Api: LogWriter](
       certificate = webhookCertificate
     )
     with ISBot[F] {
-  override def onMessage(msg: Message): F[Unit] = onMessageLogic(msg)
+  override def onMessage(msg: TMessage): F[Unit] = onMessageLogic(msg.toModel)
 }
 
 trait ISBot[F[_]: Async: LogWriter] {
@@ -49,13 +51,13 @@ trait ISBot[F[_]: Async: LogWriter] {
   val sBotSetup: BotSetup[F]
 
   // Configuration values & functions (from BotSetup) ///////////////////////////////////
-  def repository: Repository[F]                                             = sBotSetup.repository
-  def sBotConfig: SBotConfig                                                = sBotSetup.sBotConfig
-  def dbLayer: DBLayer[F]                                                   = sBotSetup.dbLayer
-  def backgroundJobManager: BackgroundJobManager[F]                         = sBotSetup.backgroundJobManager
-  def filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean] =
+  def repository: Repository[F]                                                  = sBotSetup.repository
+  def sBotConfig: SBotConfig                                                     = sBotSetup.sBotConfig
+  def dbLayer: DBLayer[F]                                                        = sBotSetup.dbLayer
+  def backgroundJobManager: BackgroundJobManager[F]                              = sBotSetup.backgroundJobManager
+  def filteringMatchesMessages: (ReplyBundleMessage, ModelMessage) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
-  def postComputation: Message => F[Unit] =
+  def postComputation: ModelMessage => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
 
   // Reply to Messages ////////////////////////////////////////////////////////
@@ -67,7 +69,7 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   // Commands //////////////////////////////////////////////////////////////////////////////
 
-  val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
+  val commandEffectfulCallback: Map[String, ModelMessage => F[List[Text]]] = Map.empty
 
   lazy val fixedCommands: List[ReplyBundleCommand] = {
     val commandsPattersGroup =
@@ -90,7 +92,7 @@ trait ISBot[F[_]: Async: LogWriter] {
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
   private[telegrambotinfrastructure] def selectReplyBundle(
-      msg: Message
+      msg: ModelMessage
   ): Option[ReplyBundleMessage] =
     if !FilteringForward.filter(msg, sBotConfig.disableForward) || !FilteringOlder.filter(msg)
     then None
@@ -105,7 +107,7 @@ trait ISBot[F[_]: Async: LogWriter] {
         .map(_._2)
 
   private[telegrambotinfrastructure] def selectCommandReplyBundle(
-      msg: Message
+      msg: ModelMessage
   ): Option[ReplyBundleCommand] =
     msg.text.flatMap(text =>
       allCommandRepliesData.find(rbc =>
@@ -116,8 +118,8 @@ trait ISBot[F[_]: Async: LogWriter] {
     )
 
   def messageLogic(
-      msg: Message
-  )(using api: Api[F]): F[Option[List[Message]]] =
+      msg: ModelMessage
+  )(using api: Api[F]): F[Option[List[ModelMessage]]] =
     selectReplyBundle(msg)
       .traverse(replyBundle =>
         for {
@@ -140,8 +142,8 @@ trait ISBot[F[_]: Async: LogWriter] {
       )
 
   def commandLogic(
-      msg: Message
-  )(using api: Api[F]): F[Option[List[Message]]] =
+      msg: ModelMessage
+  )(using api: Api[F]): F[Option[List[ModelMessage]]] =
     selectCommandReplyBundle(msg)
       .traverse(commandReply =>
         LogWriter.info(
@@ -159,8 +161,8 @@ trait ISBot[F[_]: Async: LogWriter] {
       )
 
   private def fileRequestLogic(
-      msg: Message
-  )(using api: Api[F]): F[Option[List[Message]]] =
+      msg: ModelMessage
+  )(using api: Api[F]): F[Option[List[ModelMessage]]] =
     for result <- msg.getContent.fold(Async[F].pure(List.empty))(content =>
       MediaFileReply.sendMediaFile(
         reply = MediaFile.fromString(content),
@@ -172,15 +174,15 @@ trait ISBot[F[_]: Async: LogWriter] {
     yield result.some
 
   private def botLogic(
-      msg: Message
-  )(using api: Api[F]): F[Option[List[Message]]] =
+      msg: ModelMessage
+  )(using api: Api[F]): F[Option[List[ModelMessage]]] =
     msg.messageType(sBotConfig.sBotInfo.botId) match {
       case MessageType.Message     => messageLogic(msg)
       case MessageType.Command     => commandLogic(msg)
       case MessageType.FileRequest => fileRequestLogic(msg)
     }
 
-  def onMessageLogic(msg: Message)(using api: Api[F]): F[Unit] = {
+  def onMessageLogic(msg: ModelMessage)(using api: Api[F]): F[Unit] = {
     val x: OptionT[F, Unit] = for {
       _ <- OptionT.liftF(LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg"))
       _ <- OptionT.liftF(LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}"))

@@ -6,6 +6,8 @@ import com.benkio.telegrambotinfrastructure.http.telegramreply.MediaFileReply
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
 import com.benkio.telegrambotinfrastructure.messagefiltering.RandomSelection
 import com.benkio.telegrambotinfrastructure.model.reply.*
+import com.benkio.telegrambotinfrastructure.model.Message
+import com.benkio.telegrambotinfrastructure.model.Message.toTelegramium
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.telegrambotinfrastructure.patterns.CommandPatterns.MediaByKindCommand
@@ -20,7 +22,6 @@ import com.benkio.telegrambotinfrastructure.repository.Repository
 import com.benkio.telegrambotinfrastructure.BackgroundJobManager
 import log.effect.LogWriter
 import telegramium.bots.high.*
-import telegramium.bots.Message
 
 import scala.concurrent.duration.FiniteDuration
 
@@ -48,9 +49,9 @@ object EffectfulKeyReply {
     case EffectfulKey.SearchShow(sBotInfo) =>
       sendTextReplies(
         repliesF = SearchShowCommand.searchShowCommandLogic(
-          msg,
-          dbLayer,
-          sBotInfo,
+          msg = msg.toTelegramium,
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo,
           ttl = ttl
         ),
         msg = msg,
@@ -58,14 +59,20 @@ object EffectfulKeyReply {
       )
     case EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix) =>
       sendTextReplies(
-        repliesF = TriggerSearchCommand.searchTriggerLogic(replyBundleMessage, msg, ignoreMessagePrefix, sBotInfo, ttl),
+        repliesF = TriggerSearchCommand.searchTriggerLogic(
+          mdr = replyBundleMessage,
+          m = msg.toTelegramium,
+          ignoreMessagePrefix = ignoreMessagePrefix,
+          sBotInfo = sBotInfo,
+          ttl = ttl
+        ),
         msg = msg,
         replyToMessage = replyToMessage
       )
     case EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands) =>
       sendTextReplies(
         repliesF = InstructionsCommand.instructionCommandLogic(
-          msg = msg,
+          msg = msg.toTelegramium,
           sBotInfo = sBotInfo,
           ignoreMessagePrefix = ignoreMessagePrefix,
           commands = commands,
@@ -78,7 +85,7 @@ object EffectfulKeyReply {
       sendTextReplies(
         repliesF = SubscribeUnsubscribeCommand.subscribeCommandLogic(
           backgroundJobManager = backgroundJobManager,
-          m = msg,
+          m = msg.toTelegramium,
           sBotInfo = sBotInfo,
           ttl = ttl
         ),
@@ -90,7 +97,7 @@ object EffectfulKeyReply {
       sendTextReplies(
         repliesF = SubscribeUnsubscribeCommand.unsubcribeCommandLogic(
           backgroundJobManager = backgroundJobManager,
-          m = msg,
+          m = msg.toTelegramium,
           sBotInfo = sBotInfo,
           ttl = ttl
         ),
@@ -103,7 +110,7 @@ object EffectfulKeyReply {
           dbSubscription = dbLayer.dbSubscription,
           backgroundJobManager = backgroundJobManager,
           sBotInfo = sBotInfo,
-          m = msg
+          m = msg.toTelegramium
         ),
         msg = msg,
         replyToMessage = replyToMessage
@@ -120,7 +127,7 @@ object EffectfulKeyReply {
     case EffectfulKey.Timeout(sBotInfo) =>
       sendTextReplies(
         repliesF = TimeoutCommand.timeoutLogic(
-          msg = msg,
+          msg = msg.toTelegramium,
           dbTimeout = dbLayer.dbTimeout,
           sBotInfo = sBotInfo,
           ttl = ttl

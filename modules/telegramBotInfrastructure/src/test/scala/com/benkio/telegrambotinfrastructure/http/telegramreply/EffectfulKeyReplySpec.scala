@@ -17,20 +17,30 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBMediaData
 import com.benkio.telegrambotinfrastructure.Logger.given
 import munit.*
-import telegramium.bots.Chat
-import telegramium.bots.Message
 
 class EffectfulKeyReplySpec extends CatsEffectSuite {
 
-  val sBotInfo             = SampleWebhookBot.sBotInfo
-  val message              = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+  val sBotInfo         = SampleWebhookBot.sBotInfo
+  val message: Message = Message(
+    messageId = 0,
+    date = 0L,
+    chatId = ChatId(0L),
+    chatType = "private",
+    text = Some("test message"),
+    caption = None,
+    newChatMembers = List.empty,
+    leftChatMember = None,
+    forwardOrigin = None
+  )
   val dbLayer              = DBLayerMock.mock(sBotInfo.botId)
   val repositoryMock       = RepositoryMock()
   val backgroundJobManager = BackgroundJobManagerMock.mock()
@@ -293,10 +303,11 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   test("EffectfulKeyReply.sendEffectfulKey should work for Callback") {
     val callbackKey = "uppercase"
     // Setup a simple callback that takes the message text and makes it uppercase
-    val callback: Message => IO[List[Text]] = (msg: Message) =>
-      IO.pure(
-        List(Text(msg.getContent.map(_.toUpperCase).getOrElse("")))
-      )
+    val callback: Message => IO[List[Text]] =
+      (msg: Message) =>
+        IO.pure(
+          List(Text(msg.getContent.map(_.toUpperCase).getOrElse("")))
+        )
     val effectfulCallbacks = Map(callbackKey -> callback)
     val effectfulKey       = EffectfulKey.Callback(key = callbackKey, sBotInfo = sBotInfo)
     val testMessage        = message.copy(text = Some("hello world"))

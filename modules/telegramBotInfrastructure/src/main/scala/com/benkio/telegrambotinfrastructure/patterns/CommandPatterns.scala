@@ -25,6 +25,7 @@ import com.benkio.telegrambotinfrastructure.model.toIta
 import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.Message.toModel
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
@@ -255,7 +256,7 @@ Input as query string:
         ttl = ttl,
         computation = t => {
           val matches = mdr
-            .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
+            .mapFilter(MessageMatches.doesMatch(_, m.toModel, ignoreMessagePrefix))
             .sortBy(_._1)(using Trigger.orderingInstance.reverse)
           if matches.isEmpty
           then List(Text(value = s"No matching trigger for $t", timeToLive = ttl)).pure[F]

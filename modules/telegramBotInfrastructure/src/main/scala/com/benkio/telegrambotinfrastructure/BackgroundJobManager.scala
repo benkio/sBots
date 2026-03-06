@@ -6,6 +6,7 @@ import cats.effect.implicits.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.http.telegramreply.TextReply
 import com.benkio.telegrambotinfrastructure.model.ChatId
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.Subscription
 import com.benkio.telegrambotinfrastructure.model.SubscriptionId
@@ -17,8 +18,6 @@ import fs2.concurrent.SignallingRef
 import fs2.Stream
 import log.effect.LogWriter
 import telegramium.bots.high.Api
-import telegramium.bots.Chat
-import telegramium.bots.Message
 
 import java.time.Instant
 import scala.collection.mutable.Map as MMap
@@ -143,9 +142,15 @@ object BackgroundJobManager {
     ): F[(Stream[F, Instant], SignallingRef[F, Boolean])] = {
       val message = Message(
         messageId = 0,
-        date = 0,
-        chat = Chat(id = subscription.chatId.value, `type` = "private")
-      ) // Only the chat id matters here
+        date = 0L,
+        chatId = subscription.chatId,
+        chatType = "private",
+        text = None,
+        caption = None,
+        newChatMembers = List.empty,
+        leftChatMember = None,
+        forwardOrigin = None
+      ) // Only the chat id & message id matters here
       val cancelF = SignallingRef[F, Boolean](false)
 
       val action: F[Instant] = for {

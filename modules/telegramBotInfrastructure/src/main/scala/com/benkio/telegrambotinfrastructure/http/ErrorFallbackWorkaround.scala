@@ -2,7 +2,6 @@ package com.benkio.telegrambotinfrastructure.http
 
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.telegrambotinfrastructure.messagefiltering.*
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.repository.Repository.RepositoryError
 import telegramium.bots.high.*
@@ -33,7 +32,8 @@ object ErrorFallbackWorkaround {
         .sendMessage(
           chatId = chatSupportGroupId,
           text = s"""An Error Occurred for
-                    | - msg: ${msg.getContent}
+                    | - message Text: ${msg.text}
+                    | - message Caption: ${msg.caption}
                     | - mediaFile: $mediaFile
                     | - error: ${e.getMessage()}
                     |""".stripMargin

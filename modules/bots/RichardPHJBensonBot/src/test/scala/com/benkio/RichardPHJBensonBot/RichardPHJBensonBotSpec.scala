@@ -14,7 +14,9 @@ import com.benkio.telegrambotinfrastructure.model.reply.Document
 import com.benkio.telegrambotinfrastructure.model.reply.MediaFile
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
+import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.LeftMemberTrigger
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.model.NewMemberTrigger
 import com.benkio.telegrambotinfrastructure.model.Trigger
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
@@ -27,8 +29,6 @@ import com.benkio.telegrambotinfrastructure.SBotPolling
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 import org.scalacheck.effect.PropF
 import org.scalacheck.Gen
-import telegramium.bots.Chat
-import telegramium.bots.Message
 
 import scala.concurrent.duration.Duration
 
@@ -230,7 +230,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         testMessage = Message(
           messageId = 0,
           date = 0,
-          chat = Chat(id = 0, `type` = "private"),
+          chatId = ChatId(0),
+          chatType = "private",
           text = Some(s"/bensonify $input")
         )
         // Call the callback

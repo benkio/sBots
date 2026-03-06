@@ -1,8 +1,8 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.model.MessageType
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
-import telegramium.bots.Message
 
 extension (msg: Message) {
   def messageType(botId: SBotId): MessageType =
@@ -13,6 +13,7 @@ extension (msg: Message) {
         case _         => MessageType.Message
       }
     )
+
   def getContent: Option[String] =
     msg.text.orElse(msg.caption)
 }

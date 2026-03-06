@@ -8,6 +8,7 @@ import com.benkio.telegrambotinfrastructure.initialization.BotSetup
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import fs2.io.net.Network
 import log.effect.LogWriter
@@ -16,7 +17,6 @@ import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.Uri
 import telegramium.bots.high.Api
 import telegramium.bots.InputPartFile
-import telegramium.bots.Message
 
 class SBotPolling[F[_]: Parallel: Async: Api: LogWriter](
     override val sBotSetup: BotSetup[F],

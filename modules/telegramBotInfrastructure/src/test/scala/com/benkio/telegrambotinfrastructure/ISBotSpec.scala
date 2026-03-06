@@ -8,11 +8,11 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundle
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleCommand
 import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
+import com.benkio.telegrambotinfrastructure.model.ChatId
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.Message
 import munit.CatsEffectSuite
-import telegramium.bots.Chat
-import telegramium.bots.Message
 
 import java.time.Instant
 
@@ -21,9 +21,14 @@ class ISBotSpec extends CatsEffectSuite {
   test("selectReplyBundle should return all the expected `ReplyBundleMessage` respecting the trigger ordering") {
     val inputMessage: Message = Message(
       messageId = 0,
-      date = Instant.now.getEpochSecond().toInt,
-      chat = Chat(id = 0, `type` = "test"),
-      text = Some("test")
+      date = Instant.now.getEpochSecond(),
+      chatId = ChatId(0L),
+      chatType = "test",
+      text = Some("test"),
+      caption = None,
+      newChatMembers = List.empty,
+      leftChatMember = None,
+      forwardOrigin = None
     )
     val expected = ReplyBundleMessage.textToText(
       "test"
@@ -42,9 +47,14 @@ class ISBotSpec extends CatsEffectSuite {
   test("selectCommandReplyBundle should return all the expected `ReplyBundleCommand`") {
     val inputMessage: Message = Message(
       messageId = 0,
-      date = Instant.now.getEpochSecond().toInt,
-      chat = Chat(id = 0, `type` = "test"),
-      text = Some("/testcommand")
+      date = Instant.now.getEpochSecond(),
+      chatId = ChatId(0L),
+      chatType = "test",
+      text = Some("/testcommand"),
+      caption = None,
+      newChatMembers = List.empty,
+      leftChatMember = None,
+      forwardOrigin = None
     )
     val expected =
       ReplyBundleCommand(

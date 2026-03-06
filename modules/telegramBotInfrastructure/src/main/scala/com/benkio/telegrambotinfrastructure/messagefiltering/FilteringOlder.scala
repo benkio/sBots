@@ -1,6 +1,6 @@
 package com.benkio.telegrambotinfrastructure.messagefiltering
 
-import telegramium.bots.Message
+import com.benkio.telegrambotinfrastructure.model.Message
 
 import java.time.Instant
 import scala.concurrent.duration.*

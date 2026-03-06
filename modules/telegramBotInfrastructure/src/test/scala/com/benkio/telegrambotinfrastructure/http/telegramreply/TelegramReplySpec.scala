@@ -13,19 +13,29 @@ import com.benkio.telegrambotinfrastructure.model.reply.Mp3File
 import com.benkio.telegrambotinfrastructure.model.reply.PhotoFile
 import com.benkio.telegrambotinfrastructure.model.reply.Text
 import com.benkio.telegrambotinfrastructure.model.reply.VideoFile
+import com.benkio.telegrambotinfrastructure.model.ChatId
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.Logger.given
 import munit.*
-import telegramium.bots.Chat
-import telegramium.bots.Message
 
 import scala.concurrent.duration.*
 
 class TelegramReplySpec extends CatsEffectSuite {
 
   test("TextReply.sendText reply should work as expected") {
-    val message = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
-    val text    = Text("input Text")
-    val result  = TextReply
+    val message: Message = Message(
+      messageId = 0,
+      date = 0L,
+      chatId = ChatId(0L),
+      chatType = "private",
+      text = Some("test message"),
+      caption = None,
+      newChatMembers = List.empty,
+      leftChatMember = None,
+      forwardOrigin = None
+    )
+    val text   = Text("input Text")
+    val result = TextReply
       .sendText[IO](
         text,
         message,
@@ -36,7 +46,7 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("MediaFileReply.sendVideo reply should work as expected") {
-    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val message        = Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some("test message"))
     val video          = VideoFile("testVideo.mp4")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
@@ -47,7 +57,7 @@ class TelegramReplySpec extends CatsEffectSuite {
     val result = MediaFileReply
       .sendVideo[IO](
         video,
-        message,
+        message.toTelegramium,
         repositoryMock,
         false
       )
@@ -56,7 +66,7 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("MediaFileReply.sendPhoto reply should work as expected") {
-    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val message        = Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some("test message"))
     val photo          = PhotoFile("testPhoto.jpg")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
@@ -67,7 +77,7 @@ class TelegramReplySpec extends CatsEffectSuite {
     val result = MediaFileReply
       .sendPhoto[IO](
         photo,
-        message,
+        message.toTelegramium,
         repositoryMock,
         false
       )
@@ -76,7 +86,7 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("MediaFileReply.sendDocument reply should work as expected") {
-    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val message        = Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some("test message"))
     val document       = Document("testDocument.jpg")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
@@ -87,7 +97,7 @@ class TelegramReplySpec extends CatsEffectSuite {
     val result = MediaFileReply
       .sendDocument[IO](
         document,
-        message,
+        message.toTelegramium,
         repositoryMock,
         false
       )
@@ -96,7 +106,7 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("MediaFileReply.sendGif reply should work as expected") {
-    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val message        = Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some("test message"))
     val gif            = GifFile("testGif.mp4")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
@@ -107,7 +117,7 @@ class TelegramReplySpec extends CatsEffectSuite {
     val result = MediaFileReply
       .sendGif[IO](
         gif,
-        message,
+        message.toTelegramium,
         repositoryMock,
         false
       )
@@ -116,7 +126,7 @@ class TelegramReplySpec extends CatsEffectSuite {
   }
 
   test("MediaFileReply.sendMp3 reply should work as expected") {
-    val message        = Message(0, date = 0, chat = Chat(0, `type` = "private"), text = Some("test message"))
+    val message        = Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some("test message"))
     val mp3            = Mp3File("testMp3.mp3")
     val repositoryMock = RepositoryMock(
       getResourceFileHandler = mediaFile =>
@@ -127,7 +137,7 @@ class TelegramReplySpec extends CatsEffectSuite {
     val result = MediaFileReply
       .sendMp3[IO](
         mp3,
-        message,
+        message.toTelegramium,
         repositoryMock,
         false
       )

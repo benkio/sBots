@@ -11,6 +11,7 @@ import com.benkio.telegrambotinfrastructure.model.reply.ReplyBundleMessage
 import com.benkio.telegrambotinfrastructure.model.reply.TextReply
 import com.benkio.telegrambotinfrastructure.model.CommandInstructionData
 import com.benkio.telegrambotinfrastructure.model.CommandTrigger
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.model.SBotInfo
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotName
@@ -26,7 +27,6 @@ import org.http4s.Response
 import org.http4s.Status
 import org.http4s.Uri
 import telegramium.bots.high.Api
-import telegramium.bots.Message
 
 class SampleWebhookBot(
     override val sBotSetup: BotSetup[IO],

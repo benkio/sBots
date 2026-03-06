@@ -5,6 +5,8 @@ import cats.effect.*
 import cats.implicits.*
 import com.benkio.telegrambotinfrastructure.messagefiltering.*
 import com.benkio.telegrambotinfrastructure.model.reply.Text
+import com.benkio.telegrambotinfrastructure.model.Message
+import com.benkio.telegrambotinfrastructure.model.Message.toModel
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*
@@ -12,7 +14,7 @@ import telegramium.bots.ChatId
 import telegramium.bots.ChatIntId
 import telegramium.bots.Html
 import telegramium.bots.Markdown2
-import telegramium.bots.Message
+import telegramium.bots.Message as TMessage
 import telegramium.bots.ParseMode
 import telegramium.bots.ReplyParameters
 
@@ -24,13 +26,13 @@ object TextReply {
       msg: Message,
       replyToMessage: Boolean
   ): F[List[Message]] = {
-    val chatId: ChatId               = ChatIntId(msg.chat.id)
+    val chatId: ChatId               = ChatIntId(msg.chatId.value)
     val parseMode: Option[ParseMode] = reply.textType match {
       case Text.TextType.Plain    => None
       case Text.TextType.Markdown => Markdown2.some
       case Text.TextType.Html     => Html.some
     }
-    val result: F[List[Message]] =
+    val result: F[List[TMessage]] =
       for {
         _       <- LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}")
         _       <- Methods.sendChatAction(chatId, "typing").exec
@@ -56,9 +58,11 @@ object TextReply {
             .void
         })
       } yield List(message)
-    result.handleErrorWith(e =>
-      LogWriter.error(s"[TextReply] error occurred when sending `${reply.value}`. Error: $e") *> List.empty.pure[F]
-    )
+    result
+      .map(_.map(_.toModel))
+      .handleErrorWith(e =>
+        LogWriter.error(s"[TextReply] error occurred when sending `${reply.value}`. Error: $e") *> List.empty.pure[F]
+      )
   }
 
   def deleteMessage[F[_]: Async: LogWriter: Api](

@@ -2,12 +2,12 @@ package com.benkio.telegrambotinfrastructure.messagefiltering
 
 import cats.effect.IO
 import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
+import com.benkio.telegrambotinfrastructure.model.ChatId
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.model.SBotInfo.SBotId
 import com.benkio.telegrambotinfrastructure.repository.db.DBLayer
 import com.benkio.telegrambotinfrastructure.repository.db.DBTimeoutData
 import munit.*
-import telegramium.bots.Chat
-import telegramium.bots.Message
 
 import java.time.Instant
 import scala.concurrent.duration.*
@@ -32,8 +32,14 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
       )
     val msg: Message = Message(
       messageId = 0,
-      date = 0,
-      chat = Chat(id = chatId, `type` = "private")
+      date = 0L,
+      chatId = ChatId(chatId),
+      chatType = "private",
+      text = None,
+      caption = None,
+      newChatMembers = List.empty,
+      leftChatMember = None,
+      forwardOrigin = None
     )
     val filter = FilteringTimeout.filter[IO](dbLayer, botId)
 
@@ -61,8 +67,14 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
       )
     val msg: Message = Message(
       messageId = 0,
-      date = 0,
-      chat = Chat(id = chatId, `type` = "private")
+      date = 0L,
+      chatId = ChatId(chatId),
+      chatType = "private",
+      text = None,
+      caption = None,
+      newChatMembers = List.empty,
+      leftChatMember = None,
+      forwardOrigin = None
     )
     val filter = FilteringTimeout.filter[IO](dbLayer, botId)
 

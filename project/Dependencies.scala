@@ -128,9 +128,7 @@ object Dependencies {
     libs.logbackClassic,
     libs.logbackLogstash,
     libs.munit,
-    libs.munitCatsEffect,
-    libs.telegramiumCore,
-    libs.telegramiumHigh
+    libs.munitCatsEffect
   )
 
   val TelegramBotInfrastructureDependencies: Seq[ModuleID] =
@@ -159,6 +157,8 @@ object Dependencies {
       libs.scalacheckEffectMunit,
       libs.scalacheckGenRegexp,
       libs.sqlite,
+      libs.telegramiumCore,
+      libs.telegramiumHigh,
       libs.vault
     )
 

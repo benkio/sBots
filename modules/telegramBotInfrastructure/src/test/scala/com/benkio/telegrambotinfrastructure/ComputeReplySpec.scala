@@ -10,13 +10,13 @@ import com.benkio.telegrambotinfrastructure.mocks.DBLayerMock
 import com.benkio.telegrambotinfrastructure.mocks.RepositoryMock
 import com.benkio.telegrambotinfrastructure.mocks.SampleWebhookBot
 import com.benkio.telegrambotinfrastructure.model.media.MediaResource.MediaResourceIFile
+import com.benkio.telegrambotinfrastructure.model.ChatId
+import com.benkio.telegrambotinfrastructure.model.Message
 import com.benkio.telegrambotinfrastructure.model.StringTextTriggerValue
 import com.benkio.telegrambotinfrastructure.model.TextTrigger
 import com.benkio.telegrambotinfrastructure.ComputeReply
 import com.benkio.telegrambotinfrastructure.Logger.given
 import munit.CatsEffectSuite
-import telegramium.bots.Chat
-import telegramium.bots.Message
 
 class ComputeReplySpec extends CatsEffectSuite {
 
@@ -46,10 +46,16 @@ class ComputeReplySpec extends CatsEffectSuite {
       )(false)
     )
 
-    val message = Message(
+    val message: Message = Message(
       messageId = 0,
-      date = 0,
-      chat = Chat(id = 0, `type` = "test")
+      date = 0L,
+      chatId = ChatId(0L),
+      chatType = "test",
+      text = None,
+      caption = None,
+      newChatMembers = List.empty,
+      leftChatMember = None,
+      forwardOrigin = None
     )
 
     def computeResult(input: ReplyBundleMessage): IO[List[Message]] =
