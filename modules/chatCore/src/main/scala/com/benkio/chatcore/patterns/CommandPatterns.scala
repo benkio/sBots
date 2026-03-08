@@ -525,11 +525,11 @@ ${ignoreMessagePrefix
     private val topTwentyTriggersCommandDescriptionEng: String =
       "'/toptwenty': Return a list of files and theirs send frequency"
 
-    def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[List[Text]] =
+    def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[List[Media]] =
       for {
         dbMedias <- dbMedia.getMediaByMediaCount(botId = sBotInfo.botId.some)
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-      } yield List(Media.mediaListToHTML(medias)).toText
+      } yield medias
 
     private[patterns] def topTwentyReplyBundleCommand(
         sBotInfo: SBotInfo
