@@ -2,28 +2,27 @@ package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.effect.*
 import cats.syntax.all.*
+import com.benkio.chatcore.messagefiltering.getContent
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.Message
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.methodOps
-import com.benkio.chatcore.messagefiltering.getContent
-import telegramium.bots.ChatIntId
 import telegramium.bots.ChatId
-import telegramium.bots.Message as TMessage
-import com.benkio.chattelegramadapter.conversions.MessageConversions.*
+import telegramium.bots.ChatIntId
 import telegramium.bots.InlineKeyboardMarkup
+import telegramium.bots.Message as TMessage
 
 import scala.annotation.unused
 
 object KeyboardReply {
   def sendKeyboard[F[_]: Async: LogWriter: Api](
-    reply: List[Media],
-    keyboardTitle: String,
+      reply: List[Media],
+      keyboardTitle: String,
       msg: Message,
       @unused replyToMessage: Boolean
-   ): F[List[Message]] = {
-    val chatId: ChatId               = ChatIntId(msg.chatId.value)
+  ): F[List[TMessage]] = {
+    val chatId: ChatId            = ChatIntId(msg.chatId.value)
     val result: F[List[TMessage]] =
       for {
         _       <- LogWriter.info(s"[TelegramReply[Keyboard]] reply to message: ${msg.getContent}")
@@ -40,7 +39,6 @@ object KeyboardReply {
             .exec
       } yield List(message)
     result
-      .map(_.map(_.toModel))
       .handleErrorWith(e =>
         LogWriter.error(s"[KeyboardReply] error occurred when sending keyboard. Error: $e") *> List.empty.pure[F]
       )

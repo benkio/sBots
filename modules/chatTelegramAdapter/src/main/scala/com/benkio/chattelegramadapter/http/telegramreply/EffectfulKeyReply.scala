@@ -230,7 +230,7 @@ object EffectfulKeyReply {
       repliesF: F[List[Media]],
       msg: Message,
       replyToMessage: Boolean
-  ): F[List[Message]] =
+  ): F[List[TMessage]] =
     for {
       replies  <- repliesF
       messages <-
