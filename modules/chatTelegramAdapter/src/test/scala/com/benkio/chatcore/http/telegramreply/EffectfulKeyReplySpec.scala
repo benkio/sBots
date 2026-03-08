@@ -24,6 +24,7 @@ import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.Logger.given
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.EffectfulKeyReply
 import munit.*
 
 class EffectfulKeyReplySpec extends CatsEffectSuite {
@@ -34,7 +35,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
     date = 0L,
     chatId = ChatId(0L),
     chatType = "private",
-    text = Some("test message")
+    text = Some("test message"),
+    caption = None
   )
   val dbLayer              = DBLayerMock.mock(sBotInfo.botId)
   val repositoryMock       = RepositoryMock()

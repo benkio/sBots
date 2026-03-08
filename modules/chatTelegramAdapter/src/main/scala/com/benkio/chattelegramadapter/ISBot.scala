@@ -1,6 +1,7 @@
 package com.benkio.chattelegramadapter
 
 import cats.*
+import cats.data.OptionT
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
@@ -18,11 +19,15 @@ import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chattelegramadapter.callback.CallbackData
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
-import com.benkio.chattelegramadapter.http.telegramreply.MediaFileReply
+import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.MediaFileReply
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import log.effect.LogWriter
 import telegramium.bots.high.*
+import telegramium.bots.high.implicits.methodOps
+import telegramium.bots.CallbackQuery
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message as TMessage
 
@@ -33,7 +38,8 @@ abstract class ISBotPolling[F[_]: Parallel: Api](
 )(using Async[F], LogWriter[F])
     extends LongPollBot[F](summon[Api[F]])
     with ISBot[F] {
-  override def onMessage(msg: TMessage): F[Unit] = onMessageLogic(msg.toModel)
+  override def onMessage(msg: TMessage): F[Unit]              = onMessageLogic(msg.toModel)
+  override def onCallbackQuery(query: CallbackQuery): F[Unit] = onCallbackLogic(query)
 }
 
 abstract class ISBotWebhook[F[_]: Api](
@@ -47,7 +53,8 @@ abstract class ISBotWebhook[F[_]: Api](
       certificate = webhookCertificate.map(p => InputPartFile(p.toFile))
     )
     with ISBot[F] {
-  override def onMessage(msg: TMessage): F[Unit] = onMessageLogic(msg.toModel)
+  override def onMessage(msg: TMessage): F[Unit]              = onMessageLogic(msg.toModel)
+  override def onCallbackQuery(query: CallbackQuery): F[Unit] = onCallbackLogic(query)
 }
 
 trait ISBot[F[_]: Async: LogWriter] {
@@ -196,4 +203,12 @@ trait ISBot[F[_]: Async: LogWriter] {
     _ <- botLogic(msg)
     _ <- postComputation(msg)
   } yield ()
+
+  def onCallbackLogic(query: CallbackQuery)(using api: Api[F]): F[Unit] = (for {
+    callbackDataString <- OptionT.fromOption(query.data)
+    callbackData = CallbackData(callbackDataString)
+    msg <- OptionT.fromOption(query.message)
+    _   <- OptionT.liftF(Methods.answerCallbackQuery(callbackQueryId = query.id).exec)
+    _   <- OptionT.liftF(TelegramCallbackReply.reply(msg = msg, callbackData = callbackData))
+  } yield ()).value.void
 }

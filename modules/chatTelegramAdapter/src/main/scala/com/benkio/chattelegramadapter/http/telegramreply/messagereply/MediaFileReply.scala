@@ -1,4 +1,4 @@
-package com.benkio.chattelegramadapter.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.effect.*
 import com.benkio.chatcore.model.reply.Document
@@ -73,7 +73,7 @@ object MediaFileReply {
       repository: Repository[F],
       replyToMessage: Boolean
   ): F[List[TMessage]] = {
-    TelegramReply.telegramFileReplyPattern[F](
+    TelegramMessageReply.telegramFileReplyPattern[F](
       msg = msg,
       repository = repository,
       chatAction = "upload_voice",
@@ -94,7 +94,7 @@ object MediaFileReply {
       repository: Repository[F],
       replyToMessage: Boolean
   ): F[List[TMessage]] = {
-    TelegramReply.telegramFileReplyPattern[F](
+    TelegramMessageReply.telegramFileReplyPattern[F](
       msg = msg,
       repository = repository,
       chatAction = "upload_document",
@@ -115,7 +115,7 @@ object MediaFileReply {
       repository: Repository[F],
       replyToMessage: Boolean
   ): F[List[TMessage]] = {
-    TelegramReply.telegramFileReplyPattern[F](
+    TelegramMessageReply.telegramFileReplyPattern[F](
       msg = msg,
       repository = repository,
       chatAction = "upload_photo",
@@ -136,7 +136,7 @@ object MediaFileReply {
       repository: Repository[F],
       replyToMessage: Boolean
   ): F[List[TMessage]] = {
-    TelegramReply.telegramFileReplyPattern[F](
+    TelegramMessageReply.telegramFileReplyPattern[F](
       msg = msg,
       repository = repository,
       chatAction = "upload_video",
@@ -157,7 +157,7 @@ object MediaFileReply {
       repository: Repository[F],
       replyToMessage: Boolean
   ): F[List[TMessage]] = {
-    TelegramReply.telegramFileReplyPattern[F](
+    TelegramMessageReply.telegramFileReplyPattern[F](
       msg = msg,
       repository = repository,
       chatAction = "upload_video",
@@ -178,7 +178,7 @@ object MediaFileReply {
       repository: Repository[F],
       replyToMessage: Boolean
   ): F[List[TMessage]] = {
-    TelegramReply.telegramFileReplyPattern[F](
+    TelegramMessageReply.telegramFileReplyPattern[F](
       msg = msg,
       repository = repository,
       chatAction = "upload_video",

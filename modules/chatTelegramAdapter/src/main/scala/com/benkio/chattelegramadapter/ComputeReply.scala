@@ -10,7 +10,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
-import com.benkio.chattelegramadapter.http.telegramreply.TelegramReply
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import log.effect.LogWriter
 import telegramium.bots.high.Api
 import telegramium.bots.Message as TMessage
@@ -30,7 +30,7 @@ object ComputeReply {
   ): F[List[TMessage]] = for {
     reply  <- RandomSelection.select(replyBundle.reply)
     result <-
-      TelegramReply.sendReplyValue[F](
+      TelegramMessageReply.sendReplyValue[F](
         reply = reply,
         msg = message,
         repository = repository,

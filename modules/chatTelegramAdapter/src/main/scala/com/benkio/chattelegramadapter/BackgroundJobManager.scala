@@ -13,7 +13,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.SubscriptionKey
-import com.benkio.chattelegramadapter.http.telegramreply.TextReply
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TextReply
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
 import fs2.Stream

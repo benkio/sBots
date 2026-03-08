@@ -1,4 +1,4 @@
-package com.benkio.chattelegramadapter.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.*
 import cats.data.EitherT
@@ -27,7 +27,7 @@ import telegramium.bots.ReplyParameters
 
 import scala.concurrent.duration.FiniteDuration
 
-object TelegramReply {
+object TelegramMessageReply {
 
   def telegramFileReplyPattern[F[_]: Async: LogWriter: Api](
       msg: TMessage,
@@ -58,7 +58,7 @@ object TelegramReply {
                 _.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
                   prevExec.handleErrorWith(e =>
                     LogWriter.error(
-                      s"[TelegramReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
+                      s"[TelegramMessageReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
                     ) >>
                       computeMediaResource(nextRes)
                   )
@@ -68,7 +68,7 @@ object TelegramReply {
           )
           .onError(e =>
             LogWriter.error(
-              s"[TelegramReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"
+              s"[TelegramMessageReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"
             ) >> ErrorFallbackWorkaround.errorHandling[F](msg, mediaFile, e)
           )
           .attemptT

@@ -1,4 +1,4 @@
-package com.benkio.chattelegramadapter.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.*
 import cats.effect.*
@@ -33,7 +33,7 @@ object TextReply {
     }
     val result: F[List[TMessage]] =
       for {
-        _       <- LogWriter.info(s"[TelegramReply[Text]] reply to message: ${msg.getContent}")
+        _       <- LogWriter.info(s"[TelegramMessageReply[Text]] reply to message: ${msg.getContent}")
         _       <- Methods.sendChatAction(chatId, "typing").exec
         message <-
           Methods
@@ -70,7 +70,7 @@ object TextReply {
       reply: Text
   ): F[Boolean] = {
     Async[F].sleep(ttl) >>
-      LogWriter.info(s"[TelegramReply[Text]] deleting `${reply.value}` after $ttl") >>
+      LogWriter.info(s"[TelegramMessageReply[Text]] deleting `${reply.value}` after $ttl") >>
       Methods
         .deleteMessage(
           chatId = ChatIntId(chatId),
@@ -80,7 +80,7 @@ object TextReply {
         .handleErrorWith(e =>
           LogWriter
             .error(
-              s"[TelegramReply[Text]] error occurred when deleting `${reply.value}` after $ttl. Error: $e"
+              s"[TelegramMessageReply[Text]] error occurred when deleting `${reply.value}` after $ttl. Error: $e"
             )
             .as(false)
         )

@@ -1,4 +1,4 @@
-package com.benkio.chattelegramadapter.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.effect.*
 import cats.syntax.all.*
@@ -199,7 +199,7 @@ object EffectfulKeyReply {
       sBotInfo = sBotInfo
     )
     mediaFile <- RandomSelection.select(MediaReply(mediaFiles = mediaFiles))
-    messages  <- TelegramReply.sendReplyValue(
+    messages  <- TelegramMessageReply.sendReplyValue(
       reply = mediaFile,
       msg = msg,
       repository = repository,
