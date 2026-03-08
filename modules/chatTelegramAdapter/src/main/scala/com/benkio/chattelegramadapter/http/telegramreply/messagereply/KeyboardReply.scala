@@ -5,9 +5,9 @@ import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.getContent
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.Message
-import com.benkio.chattelegramadapter.callback.toCallbackKey
-import com.benkio.chattelegramadapter.callback.CallbackData
 import com.benkio.chattelegramadapter.conversions.ToInlineButton
+import com.benkio.chattelegramadapter.model.toCallbackKey
+import com.benkio.chattelegramadapter.model.CallbackData
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.methodOps
@@ -49,7 +49,7 @@ object KeyboardReply {
       )
   }
 
-  private def buildInlineKeyboard[A: ToInlineButton](data: List[A], page: Int): InlineKeyboardMarkup = {
+  def buildInlineKeyboard[A: ToInlineButton](data: List[A], page: Int): InlineKeyboardMarkup = {
     val perPage: Int = 5
     val selectedData = data.slice(page * perPage, perPage)
     InlineKeyboardMarkup(
@@ -61,7 +61,7 @@ object KeyboardReply {
     )
   }
 
-  private def paginationButtons(page: Int, perPage: Int, totalElems: Int): List[InlineKeyboardButton] = {
+  def paginationButtons(page: Int, perPage: Int, totalElems: Int): List[InlineKeyboardButton] = {
     val prev: Option[InlineKeyboardButton] = Option.unless(page == 0)(
       InlineKeyboardButton(
         text = "prev ⎗",

@@ -19,11 +19,11 @@ import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
-import com.benkio.chattelegramadapter.callback.CallbackData
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.MediaFileReply
 import com.benkio.chattelegramadapter.initialization.BotSetup
+import com.benkio.chattelegramadapter.model.CallbackData
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.methodOps
@@ -209,6 +209,14 @@ trait ISBot[F[_]: Async: LogWriter] {
     callbackData = CallbackData(callbackDataString)
     msg <- OptionT.fromOption(query.message)
     _   <- OptionT.liftF(Methods.answerCallbackQuery(callbackQueryId = query.id).exec)
-    _   <- OptionT.liftF(TelegramCallbackReply.reply(msg = msg, callbackData = callbackData, repository = repository))
+    _   <- OptionT.liftF(
+      TelegramCallbackReply.reply(
+        msg = msg,
+        callbackData = callbackData,
+        repository = repository,
+        dbMedia = dbLayer.dbMedia,
+        sBotInfo = sBotConfig.sBotInfo
+      )
+    )
   } yield ()).value.void
 }

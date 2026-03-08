@@ -1,4 +1,4 @@
-package com.benkio.chattelegramadapter.callback
+package com.benkio.chattelegramadapter.model
 
 enum CallbackData {
   case PreviousPage(currentPage: Int) extends CallbackData
