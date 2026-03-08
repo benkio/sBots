@@ -17,6 +17,7 @@ import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.ComputeReply
 import munit.CatsEffectSuite
+import telegramium.bots.Message as TMessage
 
 class ComputeReplySpec extends CatsEffectSuite {
 
@@ -53,7 +54,7 @@ class ComputeReplySpec extends CatsEffectSuite {
       chatType = "test"
     )
 
-    def computeResult(input: ReplyBundleMessage): IO[List[Message]] =
+    def computeResult(input: ReplyBundleMessage): IO[List[TMessage]] =
       ComputeReply.execute(
         replyBundle = input,
         message = message,
@@ -65,7 +66,7 @@ class ComputeReplySpec extends CatsEffectSuite {
         dbLayer = DBLayerMock.mock(SampleWebhookBot.sBotInfo.botId)
       )
 
-    val result: IO[List[Message]] =
+    val result: IO[List[TMessage]] =
       computeResult(replyBundleInput)
 
     result.map(r => {
