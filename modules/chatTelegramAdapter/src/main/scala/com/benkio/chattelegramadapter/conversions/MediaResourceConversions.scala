@@ -1,4 +1,4 @@
-package com.benkio.chattelegramadapter.adapters.telegram
+package com.benkio.chattelegramadapter.conversions
 
 import cats.effect.Resource
 import com.benkio.chatcore.model.media.MediaResource

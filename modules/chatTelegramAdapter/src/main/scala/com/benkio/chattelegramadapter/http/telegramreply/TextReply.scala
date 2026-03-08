@@ -6,7 +6,7 @@ import cats.implicits.*
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
-import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
+import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*

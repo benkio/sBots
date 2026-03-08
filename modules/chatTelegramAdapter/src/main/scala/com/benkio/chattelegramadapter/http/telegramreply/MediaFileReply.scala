@@ -11,7 +11,7 @@ import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
-import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
+import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.Message as TMessage

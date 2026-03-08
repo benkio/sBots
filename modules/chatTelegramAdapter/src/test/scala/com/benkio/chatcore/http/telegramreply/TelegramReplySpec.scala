@@ -14,7 +14,7 @@ import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.Logger.given
-import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
+import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import munit.*
 
 import scala.concurrent.duration.*

@@ -6,7 +6,7 @@ import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
-import com.benkio.chattelegramadapter.adapters.telegram.MediaResourceConversions.*
+import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
 import munit.*
 import telegramium.bots.InputLinkFile
 import telegramium.bots.InputPartFile
