@@ -1,4 +1,4 @@
-package com.benkio.chattelegramadapter.adapters.telegram
+package com.benkio.chattelegramadapter.conversions
 
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message

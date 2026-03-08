@@ -6,7 +6,6 @@ import cats.implicits.*
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
-import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*
@@ -25,7 +24,7 @@ object TextReply {
       reply: Text,
       msg: Message,
       replyToMessage: Boolean
-  ): F[List[Message]] = {
+  ): F[List[TMessage]] = {
     val chatId: ChatId               = ChatIntId(msg.chatId.value)
     val parseMode: Option[ParseMode] = reply.textType match {
       case Text.TextType.Plain    => None
@@ -59,7 +58,6 @@ object TextReply {
         })
       } yield List(message)
     result
-      .map(_.map(_.toModel))
       .handleErrorWith(e =>
         LogWriter.error(s"[TextReply] error occurred when sending `${reply.value}`. Error: $e") *> List.empty.pure[F]
       )

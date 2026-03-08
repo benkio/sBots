@@ -13,6 +13,7 @@ import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chattelegramadapter.http.telegramreply.TelegramReply
 import log.effect.LogWriter
 import telegramium.bots.high.Api
+import telegramium.bots.Message as TMessage
 
 import scala.concurrent.duration.FiniteDuration
 
@@ -26,7 +27,7 @@ object ComputeReply {
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
       dbLayer: DBLayer[F],
       ttl: Option[FiniteDuration]
-  ): F[List[Message]] = for {
+  ): F[List[TMessage]] = for {
     reply  <- RandomSelection.select(replyBundle.reply)
     result <-
       TelegramReply.sendReplyValue[F](

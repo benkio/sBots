@@ -13,7 +13,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
-import com.benkio.chattelegramadapter.adapters.telegram.MediaResourceConversions.*
+import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
 import com.benkio.chattelegramadapter.http.ErrorFallbackWorkaround
 import log.effect.LogWriter
 import telegramium.bots.client.Method
@@ -85,7 +85,7 @@ object TelegramReply {
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
       replyToMessage: Boolean,
       ttl: Option[FiniteDuration]
-  ): F[List[Message]] = reply match {
+  ): F[List[TMessage]] = reply match {
     case mediaFile: MediaFile =>
       MediaFileReply.sendMediaFile(
         reply = mediaFile,

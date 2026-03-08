@@ -1,7 +1,6 @@
 package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.effect.*
-import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.GifFile
 import com.benkio.chatcore.model.reply.MediaFile
@@ -11,7 +10,7 @@ import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
-import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
+import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.Message as TMessage
@@ -23,7 +22,7 @@ object MediaFileReply {
       msg: Message,
       repository: Repository[F],
       replyToMessage: Boolean
-  ): F[List[Message]] = (reply match {
+  ): F[List[TMessage]] = reply match {
     case mp3: Mp3File =>
       sendMp3(
         reply = mp3,
@@ -66,7 +65,7 @@ object MediaFileReply {
         repository = repository,
         replyToMessage = replyToMessage
       )
-  }).map(_.map(_.toModel))
+  }
 
   def sendMp3[F[_]: Async: LogWriter: Api](
       reply: Mp3File,

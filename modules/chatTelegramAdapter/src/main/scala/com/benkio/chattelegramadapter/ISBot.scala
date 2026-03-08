@@ -1,7 +1,6 @@
 package com.benkio.chattelegramadapter
 
 import cats.*
-import cats.data.OptionT
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
@@ -19,7 +18,7 @@ import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
-import com.benkio.chattelegramadapter.adapters.telegram.MessageConversions.*
+import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.MediaFileReply
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import log.effect.LogWriter
@@ -124,14 +123,14 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   def messageLogic(
       msg: ModelMessage
-  )(using api: Api[F]): F[Option[List[ModelMessage]]] =
+  )(using api: Api[F]): F[Unit] =
     selectReplyBundle(msg)
-      .traverse(replyBundle =>
+      .traverse_(replyBundle =>
         for {
           _ <- LogWriter
             .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
           filter <- filteringMatchesMessages(replyBundle, msg)
-          result <-
+          _      <-
             if filter then ComputeReply
               .execute[F](
                 replyBundle = replyBundle,
@@ -142,58 +141,59 @@ trait ISBot[F[_]: Async: LogWriter] {
                 dbLayer = dbLayer,
                 ttl = sBotConfig.messageTimeToLive
               )
-            else List.empty.pure[F]
-        } yield result
+              .void
+            else Async[F].unit
+        } yield ()
       )
 
   def commandLogic(
       msg: ModelMessage
-  )(using api: Api[F]): F[Option[List[ModelMessage]]] =
+  )(using api: Api[F]): F[Unit] =
     selectCommandReplyBundle(msg)
-      .traverse(commandReply =>
+      .traverse_(commandReply =>
         LogWriter.info(
           s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"
         ) *>
-          ComputeReply.execute[F](
-            replyBundle = commandReply,
-            message = msg,
-            repository = repository,
-            backgroundJobManager = backgroundJobManager,
-            effectfulCallbacks = commandEffectfulCallback,
-            dbLayer = dbLayer,
-            ttl = sBotConfig.messageTimeToLive
-          )
+          ComputeReply
+            .execute[F](
+              replyBundle = commandReply,
+              message = msg,
+              repository = repository,
+              backgroundJobManager = backgroundJobManager,
+              effectfulCallbacks = commandEffectfulCallback,
+              dbLayer = dbLayer,
+              ttl = sBotConfig.messageTimeToLive
+            )
+            .void
       )
 
   private def fileRequestLogic(
       msg: ModelMessage
-  )(using api: Api[F]): F[Option[List[ModelMessage]]] =
-    for result <- msg.getContent.fold(Async[F].pure(List.empty))(content =>
-      MediaFileReply.sendMediaFile(
-        reply = MediaFile.fromString(content),
-        msg = msg,
-        repository = repository,
-        replyToMessage = true
+  )(using api: Api[F]): F[Unit] =
+    msg.getContent
+      .fold(Async[F].pure(List.empty))(content =>
+        MediaFileReply.sendMediaFile(
+          reply = MediaFile.fromString(content),
+          msg = msg,
+          repository = repository,
+          replyToMessage = true
+        )
       )
-    )
-    yield result.some
+      .void
 
   private def botLogic(
       msg: ModelMessage
-  )(using api: Api[F]): F[Option[List[ModelMessage]]] =
+  )(using api: Api[F]): F[Unit] =
     msg.messageType(sBotConfig.sBotInfo.botId) match {
       case MessageType.Message     => messageLogic(msg)
       case MessageType.Command     => commandLogic(msg)
       case MessageType.FileRequest => fileRequestLogic(msg)
     }
 
-  def onMessageLogic(msg: ModelMessage)(using api: Api[F]): F[Unit] = {
-    val x: OptionT[F, Unit] = for {
-      _ <- OptionT.liftF(LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg"))
-      _ <- OptionT.liftF(LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}"))
-      _ <- OptionT(botLogic(msg))
-      _ <- OptionT.liftF(postComputation(msg))
-    } yield ()
-    x.getOrElseF(LogWriter.debug(s"${sBotConfig.sBotInfo.botName}: Input message produced no result: $msg"))
-  }
+  def onMessageLogic(msg: ModelMessage)(using api: Api[F]): F[Unit] = for {
+    _ <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
+    _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
+    _ <- botLogic(msg)
+    _ <- postComputation(msg)
+  } yield ()
 }
