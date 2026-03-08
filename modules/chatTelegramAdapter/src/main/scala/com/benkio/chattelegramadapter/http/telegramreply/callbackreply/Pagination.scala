@@ -29,6 +29,7 @@ object Pagination {
       _        <- LogWriter.info(s"[Pagination.reply] reply to callback for page $newPage")
       dbMedias <- dbMedia.getMediaByMediaCount(botId = sBotInfo.botId.some)
       medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
+      _        <- LogWriter.info(s"[Pagination.reply] retrieved top twenty medias: ${medias.length}")
       _        <- Methods
         .editMessageReplyMarkup(
           chatId = Some(ChatIntId(telegramMessageIds.chatId)),

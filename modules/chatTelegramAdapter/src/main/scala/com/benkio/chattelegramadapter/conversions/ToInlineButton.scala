@@ -4,16 +4,16 @@ import com.benkio.chatcore.model.media.Media
 import telegramium.bots.InlineKeyboardButton
 
 trait ToInlineButton[A] {
-  extension (a: A) def toInlineKeyboardButton: InlineKeyboardButton
+  extension (a: A) def toInlineKeyboardButton(textF: A => String): InlineKeyboardButton
 }
 
 object ToInlineButton {
 
   // TODO: Add tests
   given ToInlineButton[Media] with {
-    extension (media: Media) def toInlineKeyboardButton: InlineKeyboardButton =
+    extension (media: Media) def toInlineKeyboardButton(textF: Media => String): InlineKeyboardButton =
       InlineKeyboardButton(
-        text = media.mediaName,
+        text = textF(media),
         callbackData = Some(media.mediaName)
       )
   }

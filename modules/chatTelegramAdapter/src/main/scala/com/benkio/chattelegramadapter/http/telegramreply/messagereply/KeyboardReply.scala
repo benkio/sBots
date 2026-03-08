@@ -38,7 +38,7 @@ object KeyboardReply {
               text = keyboardTitle,
               replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId)),
               replyMarkup = Some(
-                buildInlineKeyboard(reply, page)
+                buildInlineKeyboard(reply, (media : Media) => s"${media.mediaName} - ${media.mediaCount}",   page)
               )
             )
             .exec
@@ -49,17 +49,16 @@ object KeyboardReply {
       )
   }
 
-  def buildInlineKeyboard[A: ToInlineButton](data: List[A], page: Int): InlineKeyboardMarkup = {
+  def buildInlineKeyboard[A: ToInlineButton](data: List[A], textF: A => String,page: Int): InlineKeyboardMarkup = {
     val perPage: Int = 5
-    val selectedData = data.slice(page * perPage, perPage)
+    val selectedData = data.slice(page * perPage, (page + 1) * perPage)
     InlineKeyboardMarkup(
-      selectedData.map(d => List(d.toInlineKeyboardButton)) :+ paginationButtons(
+      selectedData.map(d => List(d.toInlineKeyboardButton(textF))) :+ paginationButtons(
         page = page,
         perPage = perPage,
         totalElems = data.length
       )
-    )
-  }
+    )}
 
   def paginationButtons(page: Int, perPage: Int, totalElems: Int): List[InlineKeyboardButton] = {
     val prev: Option[InlineKeyboardButton] = Option.unless(page == 0)(

@@ -9,7 +9,7 @@ final case class TelegramMessageIds(chatId: Long, messageId: Int, chatType: Stri
 object TelegramMessageIds {
   def getIds(msg: MaybeInaccessibleMessage): TelegramMessageIds =
     msg match {
-      case m: Message            => TelegramMessageIds(m.chat.id, m.messageId, m.chat.`type`)
+      case m: Message             => TelegramMessageIds(m.chat.id, m.messageId, m.chat.`type`)
       case m: InaccessibleMessage => TelegramMessageIds(m.chat.id, m.messageId, m.chat.`type`)
     }
 }
