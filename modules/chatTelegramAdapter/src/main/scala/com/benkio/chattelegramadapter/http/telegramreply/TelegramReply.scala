@@ -85,7 +85,7 @@ object TelegramReply {
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
       replyToMessage: Boolean,
       ttl: Option[FiniteDuration]
-  ): F[List[Message]] = reply match {
+  ): F[List[TMessage]] = reply match {
     case mediaFile: MediaFile =>
       MediaFileReply.sendMediaFile(
         reply = mediaFile,

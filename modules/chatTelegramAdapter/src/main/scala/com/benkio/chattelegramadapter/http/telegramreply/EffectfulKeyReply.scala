@@ -22,6 +22,7 @@ import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import log.effect.LogWriter
 import telegramium.bots.high.*
+import telegramium.bots.Message as TMessage
 
 import scala.concurrent.duration.FiniteDuration
 
@@ -36,7 +37,7 @@ object EffectfulKeyReply {
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
       replyToMessage: Boolean,
       ttl: Option[FiniteDuration]
-  ): F[List[Message]] = reply match {
+  ): F[List[TMessage]] = reply match {
     case EffectfulKey.Random(sBotInfo) =>
       randomTelegraReply(
         msg = msg,
@@ -171,7 +172,7 @@ object EffectfulKeyReply {
       dbLayer: DBLayer[F],
       replyToMessage: Boolean,
       sBotInfo: SBotInfo
-  ): F[List[Message]] = for {
+  ): F[List[TMessage]] = for {
     mediaFile <- RandomDataCommand.randomCommandLogic[F](dbMedia = dbLayer.dbMedia, sBotInfo = sBotInfo)
     messages  <- MediaFileReply.sendMediaFile(
       reply = mediaFile,
@@ -191,7 +192,7 @@ object EffectfulKeyReply {
       commandKey: String,
       sBotInfo: SBotInfo,
       ttl: Option[FiniteDuration]
-  ): F[List[Message]] = for {
+  ): F[List[TMessage]] = for {
     mediaFiles <- MediaByKindCommand.mediaCommandByKindLogic[F](
       dbMedia = dbLayer.dbMedia,
       commandName = commandKey,
@@ -214,7 +215,7 @@ object EffectfulKeyReply {
       repliesF: F[List[Text]],
       msg: Message,
       replyToMessage: Boolean
-  ): F[List[Message]] =
+  ): F[List[TMessage]] =
     for replies <- repliesF
     messages    <- replies.flatTraverse(reply =>
       TextReply.sendText(
