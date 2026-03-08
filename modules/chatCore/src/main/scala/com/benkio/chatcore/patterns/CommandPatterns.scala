@@ -22,6 +22,7 @@ import com.benkio.chatcore.model.show.SimpleShowQuery
 import com.benkio.chatcore.model.toEng
 import com.benkio.chatcore.model.toIta
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
@@ -99,7 +100,7 @@ object CommandPatterns {
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("random"),
+        trigger = CommandKey.Random.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Random(sBotInfo)
         ),
@@ -147,7 +148,7 @@ Input as query string:
     ): F[List[Text]] =
       handleCommandWithInput[F](
         msg = msg,
-        command = "searchshow",
+        command = CommandKey.SearchShow.asString,
         sBotInfo = sBotInfo,
         ttl = ttl,
         computation = keywords =>
@@ -167,7 +168,7 @@ Input as query string:
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("searchshow"),
+        trigger = CommandKey.SearchShow.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.SearchShow(sBotInfo),
           replyToMessage = true
@@ -223,7 +224,7 @@ Input as query string:
         triggerFileUri: Uri
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("triggerlist"),
+        trigger = CommandKey.TriggerList.trigger,
         reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true),
         instruction = CommandInstructionData.Instructions(
           ita = triggerListCommandDescriptionIta,
@@ -249,7 +250,7 @@ Input as query string:
 
       handleCommandWithInput[F](
         msg = m,
-        command = "triggersearch",
+        command = CommandKey.TriggerSearch.asString,
         sBotInfo = sBotInfo,
         ttl = ttl,
         computation = t => {
@@ -271,7 +272,7 @@ Input as query string:
         ignoreMessagePrefix: Option[String]
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("triggersearch"),
+        trigger = CommandKey.TriggerSearch.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix)
         ),
@@ -362,7 +363,7 @@ ${ignoreMessagePrefix
       }
       handleCommandWithInput[F](
         msg = msg,
-        command = "instructions",
+        command = CommandKey.Instructions.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         defaultReply = "",
@@ -377,7 +378,7 @@ ${ignoreMessagePrefix
         ignoreMessagePrefix: Option[String]
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("instructions"),
+        trigger = CommandKey.Instructions.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands)
         ),
@@ -418,7 +419,7 @@ ${ignoreMessagePrefix
         ).toText
       handleCommandWithInput[F](
         msg = m,
-        command = "subscribe",
+        command = CommandKey.Subscribe.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         ttl = ttl,
@@ -430,7 +431,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("subscribe"),
+        trigger = CommandKey.Subscribe.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Subscribe(sBotInfo)
         ),
@@ -460,7 +461,7 @@ ${ignoreMessagePrefix
       }
       handleCommandWithInput[F](
         msg = m,
-        command = "unsubscribe",
+        command = CommandKey.Unsubscribe.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         ttl = ttl,
@@ -474,7 +475,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("unsubscribe"),
+        trigger = CommandKey.Unsubscribe.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Unsubscribe(sBotInfo)
         ),
@@ -506,7 +507,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("subscriptions"),
+        trigger = CommandKey.Subscriptions.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Subscriptions(sBotInfo),
           replyToMessage = true
@@ -535,7 +536,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("toptwenty"),
+        trigger = CommandKey.TopTwenty.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.TopTwenty(sBotInfo)
         ),
@@ -592,7 +593,7 @@ ${ignoreMessagePrefix
       }
       handleCommandWithInput[F](
         msg = msg,
-        command = "timeout",
+        command = CommandKey.Timeout.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         allowEmptyString = true,
@@ -605,7 +606,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("timeout"),
+        trigger = CommandKey.Timeout.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Timeout(sBotInfo),
           replyToMessage = true
