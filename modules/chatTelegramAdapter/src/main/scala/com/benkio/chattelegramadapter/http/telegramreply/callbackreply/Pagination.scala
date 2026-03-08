@@ -1,10 +1,12 @@
 package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 
+import cats.effect.Async
+import telegramium.bots.high.Api
 import telegramium.bots.MaybeInaccessibleMessage
 
 object Pagination {
 
-  def reply(msg: MaybeInaccessibleMessage): Unit = {
+  def reply[F[_]: Async: Api](msg: MaybeInaccessibleMessage, newPage: Int): F[Unit] = {
     ???
     // TODO:
     // re-query the db

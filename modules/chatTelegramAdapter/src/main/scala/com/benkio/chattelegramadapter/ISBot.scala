@@ -209,6 +209,6 @@ trait ISBot[F[_]: Async: LogWriter] {
     callbackData = CallbackData(callbackDataString)
     msg <- OptionT.fromOption(query.message)
     _   <- OptionT.liftF(Methods.answerCallbackQuery(callbackQueryId = query.id).exec)
-    _   <- OptionT.liftF(TelegramCallbackReply.reply(msg = msg, callbackData = callbackData))
+    _   <- OptionT.liftF(TelegramCallbackReply.reply(msg = msg, callbackData = callbackData, repository = repository))
   } yield ()).value.void
 }
