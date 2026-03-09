@@ -12,7 +12,6 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.MessageType
-import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
@@ -102,36 +101,15 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  private[chattelegramadapter] def selectReplyBundle(
-      msg: ModelMessage
-  ): Option[ReplyBundleMessage] =
-    if !FilteringForward.filter(msg, sBotConfig.disableForward) || !FilteringOlder.filter(msg)
-    then None
-    else
-      messageRepliesData
-        .mapFilter(messageReplyBundle =>
-          MessageMatches
-            .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
-        )
-        .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-        .headOption
-        .map(_._2)
-
-  private[chattelegramadapter] def selectCommandReplyBundle(
-      msg: ModelMessage
-  ): Option[ReplyBundleCommand] =
-    msg.text.flatMap(text =>
-      allCommandRepliesData.find(rbc =>
-        text.startsWith(s"/${rbc.trigger.command} ")
-          || text == s"/${rbc.trigger.command}"
-          || text.startsWith(s"/${rbc.trigger.command}@${sBotConfig.sBotInfo.botName}")
-      )
-    )
-
   def messageLogic(
       msg: ModelMessage
   )(using api: Api[F]): F[Unit] =
-    selectReplyBundle(msg)
+    ReplyBundleMessage.selectReplyBundle(
+      msg = msg,
+      messageRepliesData = messageRepliesData,
+      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix,
+      disableForward = sBotConfig.disableForward
+    )
       .traverse_(replyBundle =>
         for {
           _ <- LogWriter
@@ -156,7 +134,11 @@ trait ISBot[F[_]: Async: LogWriter] {
   def commandLogic(
       msg: ModelMessage
   )(using api: Api[F]): F[Unit] =
-    selectCommandReplyBundle(msg)
+    ReplyBundleCommand.selectCommandReplyBundle(
+      msg = msg,
+      allCommandRepliesData = allCommandRepliesData,
+      botName = sBotConfig.sBotInfo.botName
+    )
       .traverse_(commandReply =>
         LogWriter.info(
           s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"

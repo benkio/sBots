@@ -2,10 +2,14 @@ package com.benkio.chatcore.model.reply
 
 import cats.*
 import cats.syntax.all.*
+import com.benkio.chatcore.messagefiltering.FilteringForward
+import com.benkio.chatcore.messagefiltering.FilteringOlder
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandTrigger
+import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageTrigger
+import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.model.TextTriggerValue
@@ -31,6 +35,24 @@ object ReplyBundleMessage {
     deriveDecoder[ReplyBundleMessage]
   given replyBundleMessageEncoder: Encoder[ReplyBundleMessage] =
     deriveEncoder[ReplyBundleMessage]
+
+  def selectReplyBundle(
+      msg: Message,
+      messageRepliesData: List[ReplyBundleMessage],
+      ignoreMessagePrefix: Option[String],
+      disableForward: Boolean
+  ): Option[ReplyBundleMessage] =
+    if !FilteringForward.filter(msg, disableForward) || !FilteringOlder.filter(msg)
+    then None
+    else
+      messageRepliesData
+        .mapFilter(messageReplyBundle =>
+          MessageMatches
+            .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
+        )
+        .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+        .headOption
+        .map(_._2)
 
   def textToMedia(
       triggers: (String | RegexTextTriggerValue)*
@@ -88,6 +110,19 @@ object ReplyBundleCommand {
     deriveDecoder[ReplyBundleCommand]
   given replyBundleCommandEncoder: Encoder[ReplyBundleCommand] =
     deriveEncoder[ReplyBundleCommand]
+
+  def selectCommandReplyBundle(
+      msg: Message,
+      allCommandRepliesData: List[ReplyBundleCommand],
+      botName: SBotName
+  ): Option[ReplyBundleCommand] =
+    msg.text.flatMap(text =>
+      allCommandRepliesData.find(rbc =>
+        text.startsWith(s"/${rbc.trigger.command} ")
+          || text == s"/${rbc.trigger.command}"
+          || text.startsWith(s"/${rbc.trigger.command}@$botName")
+      )
+    )
 
   def textToMedia(trigger: String, instruction: CommandInstructionData)(
       mediaFiles: MediaFile*

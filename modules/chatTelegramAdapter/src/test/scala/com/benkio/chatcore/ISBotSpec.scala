@@ -30,7 +30,12 @@ class ISBotSpec extends CatsEffectSuite {
     )("testReply1")
 
     SampleWebhookBot().map(sampleWebhookBot => {
-      val resultOpt = sampleWebhookBot.selectReplyBundle(inputMessage)
+      val resultOpt = ReplyBundleMessage.selectReplyBundle(
+        msg = inputMessage,
+        messageRepliesData = sampleWebhookBot.messageRepliesData,
+        ignoreMessagePrefix = sampleWebhookBot.sBotConfig.ignoreMessagePrefix,
+        disableForward = sampleWebhookBot.sBotConfig.disableForward
+      )
       val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
@@ -56,7 +61,11 @@ class ISBotSpec extends CatsEffectSuite {
         instruction = CommandInstructionData.NoInstructions
       )
     SampleWebhookBot().map(sampleWebhookBot => {
-      val resultOpt = sampleWebhookBot.selectCommandReplyBundle(inputMessage)
+      val resultOpt = ReplyBundleCommand.selectCommandReplyBundle(
+        msg = inputMessage,
+        allCommandRepliesData = sampleWebhookBot.allCommandRepliesData,
+        botName = sampleWebhookBot.sBotConfig.sBotInfo.botName
+      )
       val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
