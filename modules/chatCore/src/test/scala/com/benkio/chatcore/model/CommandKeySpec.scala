@@ -39,4 +39,3 @@ class CommandKeySpec extends CatsEffectSuite {
     assertEquals(CommandKey.commandTriggers, expected)
   }
 }
-

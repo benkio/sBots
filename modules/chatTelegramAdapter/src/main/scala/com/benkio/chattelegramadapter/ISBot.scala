@@ -214,8 +214,11 @@ trait ISBot[F[_]: Async: LogWriter] {
         msg = msg,
         callbackData = callbackData,
         repository = repository,
-        dbMedia = dbLayer.dbMedia,
-        sBotInfo = sBotConfig.sBotInfo
+        sBotConfig = sBotConfig,
+        backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = commandEffectfulCallback,
+        dbLayer = dbLayer,
+        ttl = sBotConfig.messageTimeToLive
       )
     )
   } yield ()).value.void

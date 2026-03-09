@@ -3,9 +3,9 @@ package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.getContent
-import com.benkio.chatcore.model.media.Media
-import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.Message
 import com.benkio.chattelegramadapter.conversions.ToInlineButton
 import com.benkio.chattelegramadapter.model.toCallbackKey
 import com.benkio.chattelegramadapter.model.CallbackData
@@ -21,7 +21,7 @@ import telegramium.bots.ReplyParameters
 
 object KeyboardReply {
   def sendKeyboard[F[_]: Async: LogWriter: Api](
-      reply: List[Media],
+      reply: List[MediaFile],
       commandKey: CommandKey,
       keyboardTitle: String,
       msg: Message,
@@ -42,7 +42,6 @@ object KeyboardReply {
               replyMarkup = Some(
                 buildInlineKeyboard(
                   data = reply,
-                  textF = (media : Media) => s"${media.mediaName} - ${media.mediaCount}",
                   page = page,
                   commandKey = commandKey
                 )
@@ -57,27 +56,27 @@ object KeyboardReply {
   }
 
   def buildInlineKeyboard[A: ToInlineButton](
-    data: List[A],
-    textF: A => String,
-    page: Int,
-    commandKey: CommandKey
+      data: List[A],
+      page: Int,
+      commandKey: CommandKey
   ): InlineKeyboardMarkup = {
     val perPage: Int = 5
     val selectedData = data.slice(page * perPage, (page + 1) * perPage)
     InlineKeyboardMarkup(
-      selectedData.map(d => List(d.toInlineKeyboardButton(textF))) :+ paginationButtons(
+      selectedData.map(d => List(d.toInlineKeyboardButton)) :+ paginationButtons(
         page = page,
         perPage = perPage,
         totalElems = data.length,
         commandKey = commandKey
       )
-    )}
+    )
+  }
 
   def paginationButtons(
-    page: Int,
-    perPage: Int,
-    totalElems: Int,
-    commandKey: CommandKey
+      page: Int,
+      perPage: Int,
+      totalElems: Int,
+      commandKey: CommandKey
   ): List[InlineKeyboardButton] = {
     val prev: Option[InlineKeyboardButton] = Option.unless(page == 0)(
       InlineKeyboardButton(

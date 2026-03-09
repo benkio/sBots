@@ -22,8 +22,8 @@ import com.benkio.chatcore.model.show.SimpleShowQuery
 import com.benkio.chatcore.model.toEng
 import com.benkio.chatcore.model.toIta
 import com.benkio.chatcore.model.ChatId
-import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandInstructionData
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
@@ -217,15 +217,15 @@ Input as query string:
     private val triggerListCommandDescriptionEng: String =
       "'/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex"
 
-    def triggerListLogic(triggerFileUri: Uri): String =
-      s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri"
+    def triggerListLogic(triggerFileUri: Uri): Text =
+      Text(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")
 
     private[patterns] def triggerListReplyBundleCommand[F[_]](
         triggerFileUri: Uri
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandKey.TriggerList.trigger,
-        reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true),
+        reply = TextReply(List(triggerListLogic(triggerFileUri)), replyToMessage = true),
         instruction = CommandInstructionData.Instructions(
           ita = triggerListCommandDescriptionIta,
           eng = triggerListCommandDescriptionEng
@@ -526,11 +526,11 @@ ${ignoreMessagePrefix
     private val topTwentyTriggersCommandDescriptionEng: String =
       "'/toptwenty': Return a list of files and theirs send frequency"
 
-    def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[List[Media]] =
+    def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[List[MediaFile]] =
       for {
         dbMedias <- dbMedia.getMediaByMediaCount(botId = sBotInfo.botId.some)
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-      } yield medias
+      } yield medias.map(media => MediaFile.fromMimeType(media))
 
     private[patterns] def topTwentyReplyBundleCommand(
         sBotInfo: SBotInfo

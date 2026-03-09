@@ -2,11 +2,14 @@ package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 
 import cats.effect.Async
 import cats.syntax.all.*
-import cats.MonadThrow
-import com.benkio.chatcore.model.media.Media
+import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.ChatId as ModelChatId
 import com.benkio.chatcore.model.CommandKey
-import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chatcore.repository.db.DBMedia
+import com.benkio.chatcore.model.Message as ModelMessage
+import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.Repository
+import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chattelegramadapter.conversions.ToInlineButton
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.KeyboardReply
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
@@ -17,35 +20,52 @@ import telegramium.bots.high.Methods
 import telegramium.bots.ChatIntId
 import telegramium.bots.MaybeInaccessibleMessage
 
-import scala.annotation.unused
+import scala.concurrent.duration.FiniteDuration
 
 object Pagination {
 
   def reply[F[_]: Async: LogWriter: Api](
       msg: MaybeInaccessibleMessage,
       newPage: Int,
-      dbMedia: DBMedia[F],
-      sBotInfo: SBotInfo,
       commandKey: CommandKey,
-      textF: Media => String
+      sBotConfig: SBotConfig,
+      repository: Repository[F],
+      backgroundJobManager: BackgroundJobManager[F],
+      effectfulCallbacks: Map[String, ModelMessage => F[List[Text]]],
+      dbLayer: DBLayer[F],
+      ttl: Option[FiniteDuration]
   ): F[Unit] = {
     // TODO: use it to get the commandReplyData, then the reply, then the data
     val telegramMessageIds = TelegramMessageIds.getIds(msg)
+    val modelMsg           =
+      ModelMessage(
+        messageId = telegramMessageIds.messageId,
+        date = 0L,
+        chatId = ModelChatId(telegramMessageIds.chatId),
+        chatType = telegramMessageIds.chatType
+      )
     for {
-      _        <- LogWriter.info(s"[Pagination.reply] reply to callback for page $newPage")
-      dbMedias <- dbMedia.getMediaByMediaCount(botId = sBotInfo.botId.some)
-      medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-      _        <- LogWriter.info(s"[Pagination.reply] retrieved top twenty medias: ${medias.length}")
-      _        <- Methods
+      _     <- LogWriter.info(s"[Pagination.reply] reply to callback for page $newPage")
+      datas <- CommandKey.toCommandLogic[F](
+        commandKey = commandKey,
+        sBotConfig = sBotConfig,
+        message = modelMsg,
+        repository = repository,
+        backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = effectfulCallbacks,
+        dbLayer = dbLayer,
+        ttl = ttl
+      )
+      _ <- LogWriter.info(s"[Pagination.reply] retrieved top twenty medias: ${datas.length}")
+      _ <- Methods
         .editMessageReplyMarkup(
           chatId = Some(ChatIntId(telegramMessageIds.chatId)),
           messageId = Some(telegramMessageIds.messageId),
           replyMarkup = Some(
             KeyboardReply.buildInlineKeyboard(
-              data = medias,
+              data = datas,
               page = newPage,
-              commandKey = commandKey,
-              textF = textF
+              commandKey = commandKey
             )
           )
         )

@@ -11,6 +11,6 @@ class ITTriggerlistCommandSpec extends FunSuite {
   val testUri: Uri = Uri.unsafeFromString(testUriValue)
 
   test("Triggerlist command should return the input uri") {
-    assert(TriggerListCommand.triggerListLogic(testUri).contains(testUriValue))
+    assert(TriggerListCommand.triggerListLogic(testUri).value.contains(testUriValue))
   }
 }

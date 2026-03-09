@@ -3,8 +3,8 @@ package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.RandomSelection
-import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.reply.EffectfulKey
+import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.CommandKey
@@ -121,7 +121,7 @@ object EffectfulKeyReply {
       sendKeyboardReplies(
         repliesF = StatisticsCommands.topTwentyCommandLogic(
           dbMedia = dbLayer.dbMedia,
-          sBotInfo = sBotInfo,
+          sBotInfo = sBotInfo
         ),
         commandKey = CommandKey.TopTwenty,
         msg = msg,
@@ -229,7 +229,7 @@ object EffectfulKeyReply {
     yield messages
 
   private def sendKeyboardReplies[F[_]: Async: LogWriter: Api](
-      repliesF: F[List[Media]],
+      repliesF: F[List[MediaFile]],
       commandKey: CommandKey,
       msg: Message,
       replyToMessage: Boolean
