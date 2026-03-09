@@ -1,18 +1,19 @@
 package com.benkio.chatcore.model.reply
 
 import com.benkio.chatcore.messagefiltering.MessageMatches
-import com.benkio.chatcore.model.RegexTextTriggerValue
-import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.RegexTextTriggerValue
+import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
-import com.benkio.chatcore.model.TextReply
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.CatsEffectSuite
+
+import java.time.Instant
 
 class ReplyBundleSpec extends CatsEffectSuite {
 

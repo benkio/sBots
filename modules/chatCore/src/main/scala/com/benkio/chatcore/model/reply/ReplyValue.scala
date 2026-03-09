@@ -14,6 +14,14 @@ sealed trait ReplyValue
 object ReplyValue {
   given Decoder[ReplyValue] = deriveDecoder[ReplyValue]
   given Encoder[ReplyValue] = deriveEncoder[ReplyValue]
+
+  given Show[ReplyValue] with {
+    def show(value: ReplyValue): String = value match {
+      case text: Text           => text.value
+      case mediaFile: MediaFile => mediaFile.filename
+      case replyValue           => replyValue.toString
+    }
+  }
 }
 
 final case class Text(

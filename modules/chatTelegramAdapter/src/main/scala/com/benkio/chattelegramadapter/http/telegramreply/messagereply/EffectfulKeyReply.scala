@@ -2,10 +2,8 @@ package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.chatcore.messagefiltering.RandomSelection
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.MediaFile
-import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
@@ -195,13 +193,12 @@ object EffectfulKeyReply {
       sBotInfo: SBotInfo,
       ttl: Option[FiniteDuration]
   ): F[List[TMessage]] = for {
-    mediaFiles <- MediaByKindCommand.mediaCommandByKindLogic[F](
+    mediaFile <- MediaByKindCommand.mediaCommandByKindLogic[F](
       dbMedia = dbLayer.dbMedia,
       commandName = commandKey,
       sBotInfo = sBotInfo
     )
-    mediaFile <- RandomSelection.select(MediaReply(mediaFiles = mediaFiles))
-    messages  <- TelegramMessageReply.sendReplyValue(
+    messages <- TelegramMessageReply.sendReplyValue(
       reply = mediaFile,
       msg = msg,
       repository = repository,

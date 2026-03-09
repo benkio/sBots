@@ -9,8 +9,8 @@ import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageTrigger
-import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.model.RegexTextTriggerValue
+import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.model.TextTriggerValue
 import com.benkio.chatcore.model.Trigger

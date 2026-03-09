@@ -104,12 +104,13 @@ trait ISBot[F[_]: Async: LogWriter] {
   def messageLogic(
       msg: ModelMessage
   )(using api: Api[F]): F[Unit] =
-    ReplyBundleMessage.selectReplyBundle(
-      msg = msg,
-      messageRepliesData = messageRepliesData,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix,
-      disableForward = sBotConfig.disableForward
-    )
+    ReplyBundleMessage
+      .selectReplyBundle(
+        msg = msg,
+        messageRepliesData = messageRepliesData,
+        ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix,
+        disableForward = sBotConfig.disableForward
+      )
       .traverse_(replyBundle =>
         for {
           _ <- LogWriter
@@ -134,11 +135,12 @@ trait ISBot[F[_]: Async: LogWriter] {
   def commandLogic(
       msg: ModelMessage
   )(using api: Api[F]): F[Unit] =
-    ReplyBundleCommand.selectCommandReplyBundle(
-      msg = msg,
-      allCommandRepliesData = allCommandRepliesData,
-      botName = sBotConfig.sBotInfo.botName
-    )
+    ReplyBundleCommand
+      .selectCommandReplyBundle(
+        msg = msg,
+        allCommandRepliesData = allCommandRepliesData,
+        botName = sBotConfig.sBotInfo.botName
+      )
       .traverse_(commandReply =>
         LogWriter.info(
           s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"

@@ -5,13 +5,16 @@ import cats.implicits.*
 import cats.ApplicativeThrow
 import cats.MonadThrow
 import com.benkio.chatcore.messagefiltering.MessageMatches
+import com.benkio.chatcore.messagefiltering.RandomSelection
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.reply.toText
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.show.RandomQuery
@@ -52,13 +55,15 @@ object CommandPatterns {
         dbMedia: DBMedia[F],
         commandName: String,
         sBotInfo: SBotInfo
-    )(using log: LogWriter[F]): F[List[MediaFile]] =
+    )(using log: LogWriter[F]): F[ReplyValue] =
       for {
         _            <- log.debug(s"[MediaCommandByKind] Fetching DBMediaData for $commandName")
         dbMediaDatas <- dbMedia.getMediaByKind(kind = commandName, botId = sBotInfo.botId)
         _            <- log.debug("[MediaCommandByKind] Convert to Media")
         medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
-      } yield medias.map(media => MediaFile.fromMimeType(media))
+        mediaFiles = medias.map(media => MediaFile.fromMimeType(media))
+        mediaFile <- RandomSelection.select(MediaReply(mediaFiles = mediaFiles))
+      } yield mediaFile
 
     def mediaCommandByKind(
         commandName: String,

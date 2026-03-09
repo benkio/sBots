@@ -36,7 +36,7 @@ class ISBotSpec extends CatsEffectSuite {
         ignoreMessagePrefix = sampleWebhookBot.sBotConfig.ignoreMessagePrefix,
         disableForward = sampleWebhookBot.sBotConfig.disableForward
       )
-      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+      val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       val expectedPP = expected.prettyPrint()
@@ -66,7 +66,7 @@ class ISBotSpec extends CatsEffectSuite {
         allCommandRepliesData = sampleWebhookBot.allCommandRepliesData,
         botName = sampleWebhookBot.sBotConfig.sBotInfo.botName
       )
-      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+      val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       val expectedPP = expected.prettyPrint()
