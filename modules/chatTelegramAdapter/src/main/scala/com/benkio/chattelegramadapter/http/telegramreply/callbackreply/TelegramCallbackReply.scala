@@ -18,10 +18,10 @@ object TelegramCallbackReply {
       dbMedia: DBMedia[F],
       sBotInfo: SBotInfo
   ): F[Unit] = callbackData match {
-    case CallbackData.NextPage(currentPage) =>
-      Pagination.reply(msg = msg, newPage = currentPage + 1, dbMedia = dbMedia, sBotInfo = sBotInfo)
-    case CallbackData.PreviousPage(currentPage) =>
-      Pagination.reply(msg = msg, newPage = (currentPage - 1).max(0), dbMedia = dbMedia, sBotInfo = sBotInfo)
+    case CallbackData.NextPage(currentPage, commandKey) =>
+      Pagination.reply(msg = msg, newPage = currentPage + 1, dbMedia = dbMedia, sBotInfo = sBotInfo, commandKey = commandKey)
+    case CallbackData.PreviousPage(currentPage, commandKey) =>
+      Pagination.reply(msg = msg, newPage = (currentPage - 1).max(0), dbMedia = dbMedia, sBotInfo = sBotInfo, commandKey = commandKey)
     case CallbackData.Media(value) => Media.reply(msg = msg, mediaName = value, repository = repository)
   }
 }

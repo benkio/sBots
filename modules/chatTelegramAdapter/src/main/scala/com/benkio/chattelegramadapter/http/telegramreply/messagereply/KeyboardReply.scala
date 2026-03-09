@@ -5,6 +5,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.getContent
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chattelegramadapter.conversions.ToInlineButton
 import com.benkio.chattelegramadapter.model.toCallbackKey
 import com.benkio.chattelegramadapter.model.CallbackData
@@ -21,6 +22,7 @@ import telegramium.bots.ReplyParameters
 object KeyboardReply {
   def sendKeyboard[F[_]: Async: LogWriter: Api](
       reply: List[Media],
+      commandKey: CommandKey,
       keyboardTitle: String,
       msg: Message,
       replyToMessage: Boolean,
@@ -38,7 +40,12 @@ object KeyboardReply {
               text = keyboardTitle,
               replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId)),
               replyMarkup = Some(
-                buildInlineKeyboard(reply, (media : Media) => s"${media.mediaName} - ${media.mediaCount}",   page)
+                buildInlineKeyboard(
+                  data = reply,
+                  textF = (media : Media) => s"${media.mediaName} - ${media.mediaCount}",
+                  page = page,
+                  commandKey = commandKey
+                )
               )
             )
             .exec
@@ -49,28 +56,39 @@ object KeyboardReply {
       )
   }
 
-  def buildInlineKeyboard[A: ToInlineButton](data: List[A], textF: A => String,page: Int): InlineKeyboardMarkup = {
+  def buildInlineKeyboard[A: ToInlineButton](
+    data: List[A],
+    textF: A => String,
+    page: Int,
+    commandKey: CommandKey
+  ): InlineKeyboardMarkup = {
     val perPage: Int = 5
     val selectedData = data.slice(page * perPage, (page + 1) * perPage)
     InlineKeyboardMarkup(
       selectedData.map(d => List(d.toInlineKeyboardButton(textF))) :+ paginationButtons(
         page = page,
         perPage = perPage,
-        totalElems = data.length
+        totalElems = data.length,
+        commandKey = commandKey
       )
     )}
 
-  def paginationButtons(page: Int, perPage: Int, totalElems: Int): List[InlineKeyboardButton] = {
+  def paginationButtons(
+    page: Int,
+    perPage: Int,
+    totalElems: Int,
+    commandKey: CommandKey
+  ): List[InlineKeyboardButton] = {
     val prev: Option[InlineKeyboardButton] = Option.unless(page == 0)(
       InlineKeyboardButton(
         text = "prev ⎗",
-        callbackData = Some(CallbackData.PreviousPage(page).toCallbackKey)
+        callbackData = Some(CallbackData.PreviousPage(page, commandKey).toCallbackKey)
       )
     )
     val next: Option[InlineKeyboardButton] = Option.unless((page + 1) * perPage == totalElems)(
       InlineKeyboardButton(
         text = "next ⎘",
-        callbackData = Some(CallbackData.NextPage(page).toCallbackKey)
+        callbackData = Some(CallbackData.NextPage(page, commandKey).toCallbackKey)
       )
     )
     prev.toList ++ next.toList
