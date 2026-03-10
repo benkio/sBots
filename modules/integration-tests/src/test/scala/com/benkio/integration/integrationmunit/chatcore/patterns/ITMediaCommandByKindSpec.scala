@@ -30,7 +30,7 @@ class ITMediaCommandByKindSpec extends CatsEffectSuite with DBFixture {
       )
     } yield {
       assert(
-        dbDatas.contains((dbMedia: DBMediaData) => dbMedia.media_name == resultMediaFile.show),
+        dbDatas.exists((dbMedia: DBMediaData) => dbMedia.media_name == resultMediaFile.show),
         s"[ITMediaCommandByKindSpec] The randomly selected value ${resultMediaFile.show} is not contained in the dbMedia with kind `fak`"
       )
     }
