@@ -35,7 +35,6 @@ object Pagination {
       dbLayer: DBLayer[F],
       ttl: Option[FiniteDuration]
   ): F[Unit] = {
-    // TODO: use it to get the commandReplyData, then the reply, then the data
     val telegramMessageIds = TelegramMessageIds.getIds(msg)
     val modelMsg           =
       ModelMessage(
@@ -46,16 +45,11 @@ object Pagination {
       )
     for {
       _     <- LogWriter.info(s"[Pagination.reply] reply to callback for page $newPage")
-      datas <- CommandKey.toCommandLogic[F](
-        commandKey = commandKey,
-        sBotConfig = sBotConfig,
-        message = modelMsg,
-        repository = repository,
-        backgroundJobManager = backgroundJobManager,
-        effectfulCallbacks = effectfulCallbacks,
-        dbLayer = dbLayer,
-        ttl = ttl
-      )
+      // TODO: use commandkey to get the commandReplyData
+      // Add a function to filter
+      // then the reply
+      // then the data
+
       _ <- LogWriter.info(s"[Pagination.reply] retrieved top twenty medias: ${datas.length}")
       _ <- Methods
         .editMessageReplyMarkup(

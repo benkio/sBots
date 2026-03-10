@@ -62,7 +62,7 @@ object ComputeReply {
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
       ttl: Option[FiniteDuration]
   ): F[ReplyValue] = reply match {
-    case EffectfulReply(EffectfulKey.TopTwenty(sBotInfo), _) =>
+    case EffectfulReply(EffectfulKey.TopTwenty(sBotInfo, page), _) =>
       EffectfulKeyRunner
         .runEffectfulKey[F](
           effectfulKey = EffectfulKey.TopTwenty(sBotInfo),
@@ -77,7 +77,7 @@ object ComputeReply {
             keyboardTitle = "-----Top 20 Triggers-----",
             inlineKeyboard = KeyboardReply.buildInlineKeyboard(
               data = mediaValues,
-              page = 0,
+              page = page,
               commandKey = CommandKey.TopTwenty
             )
           )
