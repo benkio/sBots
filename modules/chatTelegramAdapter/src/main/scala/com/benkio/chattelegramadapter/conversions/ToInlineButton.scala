@@ -1,6 +1,5 @@
 package com.benkio.chattelegramadapter.conversions
 
-import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
@@ -16,9 +15,8 @@ object ToInlineButton {
   given ToInlineButton[ReplyValue] with {
     extension (replyValue: ReplyValue) def toInlineKeyboardButton: InlineKeyboardButton =
       replyValue match {
-        case text: Text                 => textToInlineButtonText.toInlineKeyboardButton(text)
-        case mediaFile: MediaFile       => mediaFileToInlineButton.toInlineKeyboardButton(mediaFile)
-        case effectfulKey: EffectfulKey => effectfulKeyToInlineButton.toInlineKeyboardButton(effectfulKey)
+        case text: Text           => textToInlineButtonText.toInlineKeyboardButton(text)
+        case mediaFile: MediaFile => mediaFileToInlineButton.toInlineKeyboardButton(mediaFile)
       }
   }
 
@@ -38,11 +36,4 @@ object ToInlineButton {
       )
   }
 
-  given effectfulKeyToInlineButton: ToInlineButton[EffectfulKey] with {
-    extension (effectfulKey: EffectfulKey) def toInlineKeyboardButton: InlineKeyboardButton =
-      InlineKeyboardButton(
-        text = effectfulKey.toString,
-        callbackData = None
-      )
-  }
 }

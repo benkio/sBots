@@ -11,7 +11,6 @@ import com.benkio.chatcore.model.reply.toText
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.MediaFile
-import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
@@ -62,7 +61,7 @@ object CommandPatterns {
         _            <- log.debug("[MediaCommandByKind] Convert to Media")
         medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
         mediaFiles = medias.map(media => MediaFile.fromMimeType(media))
-        mediaFile <- RandomSelection.select(MediaReply(mediaFiles = mediaFiles))
+        mediaFile <- RandomSelection.select(replies = mediaFiles)
       } yield mediaFile
 
     def mediaCommandByKind(

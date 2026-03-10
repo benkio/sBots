@@ -19,7 +19,6 @@ object ReplyValue {
     def show(value: ReplyValue): String = value match {
       case text: Text           => text.value
       case mediaFile: MediaFile => mediaFile.filename
-      case replyValue           => replyValue.toString
     }
   }
 }
@@ -42,7 +41,7 @@ object Text {
   given Encoder[Text] = Encoder[String].contramap(_.value)
 }
 
-enum EffectfulKey(val sBotInfo: SBotInfo) extends ReplyValue {
+enum EffectfulKey(val sBotInfo: SBotInfo) {
   case Random(override val sBotInfo: SBotInfo)     extends EffectfulKey(sBotInfo)
   case SearchShow(override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
   case TriggerSearch(

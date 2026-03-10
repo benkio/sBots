@@ -5,14 +5,11 @@ import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
-import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
-import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
 import com.benkio.chattelegramadapter.http.ErrorFallbackWorkaround
 import log.effect.LogWriter
@@ -24,8 +21,6 @@ import telegramium.bots.ChatIntId
 import telegramium.bots.IFile
 import telegramium.bots.Message as TMessage
 import telegramium.bots.ReplyParameters
-
-import scala.concurrent.duration.FiniteDuration
 
 object TelegramMessageReply {
 
@@ -77,15 +72,11 @@ object TelegramMessageReply {
   }
 
   def sendReplyValue[F[_]: Async: LogWriter: Api](
-      reply: ReplyValue,
+      replyValue: ReplyValue,
       msg: Message,
       repository: Repository[F],
-      dbLayer: DBLayer[F],
-      backgroundJobManager: BackgroundJobManager[F],
-      effectfulCallbacks: Map[String, Message => F[List[Text]]],
-      replyToMessage: Boolean,
-      ttl: Option[FiniteDuration]
-  ): F[List[TMessage]] = reply match {
+      replyToMessage: Boolean
+  ): F[List[TMessage]] = replyValue match {
     case mediaFile: MediaFile =>
       MediaFileReply.sendMediaFile(
         reply = mediaFile,
@@ -98,17 +89,6 @@ object TelegramMessageReply {
         reply = text,
         msg = msg,
         replyToMessage = replyToMessage
-      )
-    case key: EffectfulKey =>
-      EffectfulKeyReply.sendEffectfulKey(
-        reply = key,
-        msg = msg,
-        repository = repository,
-        dbLayer = dbLayer,
-        replyToMessage = replyToMessage,
-        effectfulCallbacks = effectfulCallbacks,
-        backgroundJobManager = backgroundJobManager,
-        ttl = ttl
       )
   }
 }

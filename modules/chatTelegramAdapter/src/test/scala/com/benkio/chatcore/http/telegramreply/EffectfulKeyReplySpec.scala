@@ -215,14 +215,31 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for TopTwenty") {
-    val effectfulKey = EffectfulKey.TopTwenty(sBotInfo)
+    val effectfulKey     = EffectfulKey.TopTwenty(sBotInfo)
+    val dbLayerWithMedia = DBLayerMock.mock(
+      sBotInfo.botId,
+      medias = List(
+        DBMediaData(
+          media_name = "sbot_test.mp3",
+          bot_id = sBotInfo.botId.value,
+          kinds = """["audio"]""",
+          mime_type = "audio/mpeg",
+          media_sources = """["http://test.com"]""",
+          media_count = 0,
+          created_at = "1662126018293"
+        )
+      )
+    )
+    val repositoryMockWithHandler = RepositoryMock(
+      getResourceFileHandler = _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
+    )
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
         msg = message,
-        repository = repositoryMock,
-        dbLayer = dbLayer,
+        repository = repositoryMockWithHandler,
+        dbLayer = dbLayerWithMedia,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = Map.empty,
         replyToMessage = false,
@@ -230,7 +247,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
       .map(messages => messages.map(_.text))
 
-    assertIO(result, List(Some("[apiMock] sendMessage reply")))
+    assertIO(result, List(Some("[apiMock] sendMp3 reply")))
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Timeout") {
