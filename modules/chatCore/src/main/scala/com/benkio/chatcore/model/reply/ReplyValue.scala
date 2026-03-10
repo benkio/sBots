@@ -6,14 +6,45 @@ import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.SBotInfo
 import io.circe.*
 import io.circe.generic.semiauto.*
+import io.circe.syntax.*
 
 import scala.concurrent.duration.FiniteDuration
 
-sealed trait ReplyValue
+trait ReplyValue
 
 object ReplyValue {
-  given Decoder[ReplyValue] = deriveDecoder[ReplyValue]
-  given Encoder[ReplyValue] = deriveEncoder[ReplyValue]
+  given Decoder[ReplyValue] = new Decoder[ReplyValue] {
+    def apply(c: HCursor): Decoder.Result[ReplyValue] =
+      c.downField("Text")
+        .as[Text]
+        .map(identity)
+        .orElse(
+          c.downField("Mp3File").as[Mp3File].map(mediaFile => mediaFile)
+        )
+        .orElse(
+          c.downField("GifFile").as[GifFile].map(mediaFile => mediaFile)
+        )
+        .orElse(
+          c.downField("PhotoFile").as[PhotoFile].map(mediaFile => mediaFile)
+        )
+        .orElse(
+          c.downField("VideoFile").as[VideoFile].map(mediaFile => mediaFile)
+        )
+        .orElse(c.downField("Document").as[Document].map(mediaFile => mediaFile))
+        .orElse(c.downField("Sticker").as[Sticker].map(mediaFile => mediaFile))
+  }
+
+  given Encoder[ReplyValue] = new Encoder[ReplyValue] {
+    def apply(value: ReplyValue): Json = value match {
+      case text: Text           => Json.obj("Text" -> text.asJson)
+      case mp3File: Mp3File     => Json.obj("Mp3File" -> mp3File.asJson)
+      case gifFile: GifFile     => Json.obj("GifFile" -> gifFile.asJson)
+      case photoFile: PhotoFile => Json.obj("PhotoFile" -> photoFile.asJson)
+      case videoFile: VideoFile => Json.obj("VideoFile" -> videoFile.asJson)
+      case document: Document   => Json.obj("Document" -> document.asJson)
+      case sticker: Sticker     => Json.obj("Sticker" -> sticker.asJson)
+    }
+  }
 
   given Show[ReplyValue] with {
     def show(value: ReplyValue): String = value match {
@@ -78,20 +109,51 @@ final case class Mp3File(filepath: String, replyToMessage: Boolean = false) exte
   require(filepath.endsWith(".mp3"))
 }
 
+object Mp3File {
+  given Decoder[Mp3File] = deriveDecoder[Mp3File]
+  given Encoder[Mp3File] = deriveEncoder[Mp3File]
+}
+
 final case class GifFile(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(filepath.endsWith(".mp4"))
+}
+
+object GifFile {
+  given Decoder[GifFile] = deriveDecoder[GifFile]
+  given Encoder[GifFile] = deriveEncoder[GifFile]
 }
 
 final case class PhotoFile(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(List(".jpg", ".png").exists(filepath.endsWith(_)))
 }
 
+object PhotoFile {
+  given Decoder[PhotoFile] = deriveDecoder[PhotoFile]
+  given Encoder[PhotoFile] = deriveEncoder[PhotoFile]
+}
+
 final case class VideoFile(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
   require(List(".mp4").exists(filepath.endsWith(_)))
 }
 
+object VideoFile {
+  given Decoder[VideoFile] = deriveDecoder[VideoFile]
+  given Encoder[VideoFile] = deriveEncoder[VideoFile]
+}
+
 final case class Document(filepath: String, replyToMessage: Boolean = false) extends MediaFile {}
+
+object Document {
+  given Decoder[Document] = deriveDecoder[Document]
+  given Encoder[Document] = deriveEncoder[Document]
+}
+
 final case class Sticker(filepath: String, replyToMessage: Boolean = false)  extends MediaFile {}
+
+object Sticker {
+  given Decoder[Sticker] = deriveDecoder[Sticker]
+  given Encoder[Sticker] = deriveEncoder[Sticker]
+}
 
 object MediaFile {
 
