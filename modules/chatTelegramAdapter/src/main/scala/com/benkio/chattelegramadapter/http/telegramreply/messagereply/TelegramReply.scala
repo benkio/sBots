@@ -12,6 +12,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
 import com.benkio.chattelegramadapter.http.ErrorFallbackWorkaround
+import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import log.effect.LogWriter
 import telegramium.bots.client.Method
 import telegramium.bots.high.*
@@ -87,6 +88,12 @@ object TelegramMessageReply {
     case text: Text =>
       TextReply.sendText(
         reply = text,
+        msg = msg,
+        replyToMessage = replyToMessage
+      )
+    case telegramInlineKeyboard: TelegramInlineKeyboard =>
+      KeyboardReply.sendKeyboard(
+        reply = telegramInlineKeyboard,
         msg = msg,
         replyToMessage = replyToMessage
       )

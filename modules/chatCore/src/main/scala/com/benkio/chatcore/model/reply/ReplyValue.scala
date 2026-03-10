@@ -148,7 +148,7 @@ object Document {
   given Encoder[Document] = deriveEncoder[Document]
 }
 
-final case class Sticker(filepath: String, replyToMessage: Boolean = false)  extends MediaFile {}
+final case class Sticker(filepath: String, replyToMessage: Boolean = false) extends MediaFile {}
 
 object Sticker {
   given Decoder[Sticker] = deriveDecoder[Sticker]
