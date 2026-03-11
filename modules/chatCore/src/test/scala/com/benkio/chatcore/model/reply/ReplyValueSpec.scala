@@ -66,4 +66,8 @@ class ReplyValueSpec extends FunSuite {
     val expected = VideoFile("botid_mediaName.mp4", false)
     assertEquals(MediaFile.fromMimeType(actual), expected)
   }
+
+  test("ReplyValue.from should downcast to the requested ReplyValue subtype") {
+    assert(false)
+  }
 }

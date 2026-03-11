@@ -12,10 +12,14 @@ import com.benkio.chatcore.model.TextTrigger
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.CatsEffectSuite
+import munit.ScalaCheckSuite
 
+import com.benkio.chatcore.Generators.commandKeyGen
+import com.benkio.chatcore.model.CommandKey
+import org.scalacheck.Prop.forAll
 import java.time.Instant
 
-class ReplyBundleSpec extends CatsEffectSuite {
+class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckSuite {
 
   val inputMediafile: List[MediaFile] = List(
     Mp3File("audio.mp3"),
@@ -219,5 +223,12 @@ class ReplyBundleSpec extends CatsEffectSuite {
 
     assertEquals(selected.map(_.trigger.command), Some("testcommand"))
     assertEquals(noneSelected, None)
+  }
+
+  test("ReplyBundleCommand.from should return command bundle from command key") {
+    forAll {  (commandKey : CommandKey) =>
+      val replyBundleCommand: ReplyBundleCommand = ReplyBundleCommand.from(commandKey, SampleWebhookBot().commandRepliesData)
+      assert(false)
+    }
   }
 }
