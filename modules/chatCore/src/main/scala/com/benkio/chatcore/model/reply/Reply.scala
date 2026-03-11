@@ -36,7 +36,7 @@ object MediaReply {
 }
 
 // Holds a key that will later be resolved to an effectful computation
-final case class EffectfulReply(keyb: EffectfulKey, replyToMessage: Boolean = false) extends Reply
+final case class EffectfulReply(key: EffectfulKey, replyToMessage: Boolean = false) extends Reply
 
 object Reply {
 

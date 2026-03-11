@@ -6,6 +6,7 @@ import com.benkio.chatcore.messagefiltering.FilteringForward
 import com.benkio.chatcore.messagefiltering.FilteringOlder
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.CommandInstructionData
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageTrigger
@@ -123,6 +124,18 @@ object ReplyBundleCommand {
           || text.startsWith(s"/${rbc.trigger.command}@$botName")
       )
     )
+
+  def selectCommandReplyBundle(
+      commandKey: CommandKey,
+      allCommandRepliesData: List[ReplyBundleCommand]
+  ): Option[ReplyBundleCommand] =
+    allCommandRepliesData.find(rbc => rbc.trigger.command == commandKey.asString)
+
+  def from(
+      commandKey: CommandKey,
+      allCommandRepliesData: List[ReplyBundleCommand]
+  ): Option[ReplyBundleCommand] =
+    selectCommandReplyBundle(commandKey = commandKey, allCommandRepliesData = allCommandRepliesData)
 
   def textToMedia(trigger: String, instruction: CommandInstructionData)(
       mediaFiles: MediaFile*

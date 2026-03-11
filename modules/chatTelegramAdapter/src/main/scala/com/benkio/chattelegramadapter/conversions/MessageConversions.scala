@@ -4,6 +4,8 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.User
 import telegramium.bots.Chat as TelegramChat
+import telegramium.bots.InaccessibleMessage
+import telegramium.bots.MaybeInaccessibleMessage
 import telegramium.bots.Message as TelegramMessage
 import telegramium.bots.User as TelegramUser
 
@@ -35,5 +37,20 @@ object MessageConversions {
           m.leftChatMember.map((u: TelegramUser) => User(id = u.id, isBot = u.isBot, firstName = u.firstName)),
         isForward = m.forwardOrigin.nonEmpty
       )
+  }
+
+  extension (msg: MaybeInaccessibleMessage) {
+    def toModelMessage: Option[Message] = msg match {
+      case m: TelegramMessage     => Some(m.toModel)
+      case i: InaccessibleMessage =>
+        Some(
+          Message(
+            messageId = i.messageId,
+            date = 0L,
+            chatId = ChatId(i.chat.id),
+            chatType = i.chat.`type`
+          )
+        )
+    }
   }
 }

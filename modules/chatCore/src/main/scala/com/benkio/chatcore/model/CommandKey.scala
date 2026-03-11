@@ -1,6 +1,5 @@
 package com.benkio.chatcore.model
 
-
 /** Known, first-class command identifiers supported by `chatCore`.
   *
   * The string value is the canonical command without the leading '/' and without '@botname'.

@@ -9,10 +9,17 @@ import io.circe.generic.semiauto.*
 import io.circe.syntax.*
 
 import scala.concurrent.duration.FiniteDuration
+import scala.reflect.ClassTag
 
 trait ReplyValue
 
 object ReplyValue {
+  def from[A <: ReplyValue: ClassTag](value: ReplyValue): Option[A] =
+    summon[ClassTag[A]].runtimeClass match {
+      case clazz if clazz.isInstance(value) => Some(value.asInstanceOf[A])
+      case _                                => None
+    }
+
   given Decoder[ReplyValue] = new Decoder[ReplyValue] {
     def apply(c: HCursor): Decoder.Result[ReplyValue] =
       c.downField("Text")

@@ -198,7 +198,7 @@ trait ISBot[F[_]: Async: LogWriter] {
         msg = msg,
         callbackData = callbackData,
         repository = repository,
-        sBotConfig = sBotConfig,
+        allCommandRepliesData = allCommandRepliesData,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = commandEffectfulCallback,
         dbLayer = dbLayer,

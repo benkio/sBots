@@ -100,7 +100,7 @@ object EffectfulKeyRunner {
           m = msg
         )
       )
-    case EffectfulKey.TopTwenty(sBotInfo) =>
+    case EffectfulKey.TopTwenty(sBotInfo, _) =>
       toReplyValues(
         StatisticsCommands.topTwentyCommandLogic(
           dbMedia = dbLayer.dbMedia,

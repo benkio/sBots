@@ -1,7 +1,7 @@
 package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 
 import cats.effect.Async
-import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.repository.db.DBLayer
@@ -20,7 +20,7 @@ object TelegramCallbackReply {
       msg: MaybeInaccessibleMessage,
       callbackData: CallbackData,
       repository: Repository[F],
-      sBotConfig: SBotConfig,
+      allCommandRepliesData: List[ReplyBundleCommand],
       backgroundJobManager: BackgroundJobManager[F],
       effectfulCallbacks: Map[String, ModelMessage => F[List[Text]]],
       dbLayer: DBLayer[F],
@@ -31,8 +31,7 @@ object TelegramCallbackReply {
         msg = msg,
         newPage = currentPage + 1,
         commandKey = commandKey,
-        sBotConfig = sBotConfig,
-        repository = repository,
+        allCommandRepliesData = allCommandRepliesData,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = effectfulCallbacks,
         dbLayer = dbLayer,
@@ -43,8 +42,7 @@ object TelegramCallbackReply {
         msg = msg,
         newPage = (currentPage - 1).max(0),
         commandKey = commandKey,
-        sBotConfig = sBotConfig,
-        repository = repository,
+        allCommandRepliesData = allCommandRepliesData,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = effectfulCallbacks,
         dbLayer = dbLayer,

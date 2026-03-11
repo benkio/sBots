@@ -54,13 +54,14 @@ object ComputeReply {
       )
   } yield result
 
-  private def runReply[F[_]: Async: LogWriter](
+  def runReply[F[_]: Async: LogWriter](
       reply: Reply,
       msg: Message,
       backgroundJobManager: BackgroundJobManager[F],
       dbLayer: DBLayer[F],
       effectfulCallbacks: Map[String, Message => F[List[Text]]],
-      ttl: Option[FiniteDuration]
+      ttl: Option[FiniteDuration],
+      overridePage: Option[Int] = None
   ): F[ReplyValue] = reply match {
     case EffectfulReply(EffectfulKey.TopTwenty(sBotInfo, page), _) =>
       EffectfulKeyRunner
@@ -77,7 +78,7 @@ object ComputeReply {
             keyboardTitle = "-----Top 20 Triggers-----",
             inlineKeyboard = KeyboardReply.buildInlineKeyboard(
               data = mediaValues,
-              page = page,
+              page = overridePage.getOrElse(page),
               commandKey = CommandKey.TopTwenty
             )
           )
