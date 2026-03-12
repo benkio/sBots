@@ -10,6 +10,9 @@ import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.User
 import org.scalacheck.Gen
 
 object Generators {
@@ -37,4 +40,32 @@ object Generators {
     documentGen
   )
   val replyValueGen: Gen[ReplyValue] = Gen.oneOf(textGen, mediaFileGen)
+
+  val userGen: Gen[User] = for {
+    id        <- Gen.long
+    isBot     <- Gen.boolean
+    firstName <- Gen.alphaStr
+  } yield User(id, isBot, firstName)
+
+  val messageGen: Gen[Message] = for {
+    messageId       <- Gen.int
+    date            <- Gen.long
+    chatId          <- Gen.long
+    chatType        <- Gen.alphaStr
+    text            <- Gen.option(Gen.alphaStr)
+    caption         <- Gen.option(Gen.alphaStr)
+    newChatMembers  <- Gen.listOf(userGen)
+    leftChatMember  <- Gen.option(userGen)
+    isForward       <- Gen.boolean
+  } yield Message(
+    messageId = messageId,
+    date = date,
+    chatId = ChatId(chatId),
+    chatType = chatType,
+    text = text,
+    caption = caption,
+    newChatMembers = newChatMembers,
+    leftChatMember = leftChatMember,
+    isForward = isForward
+  )
 }
