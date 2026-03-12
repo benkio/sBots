@@ -1,20 +1,29 @@
-package com.benkio.chatcore.model.reply
+package com.benkio.chattelegramadapter.model.reply
 
 import cats.data.NonEmptyList
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.MessageMatches
-import com.benkio.chatcore.mocks.ApiMock.given
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.mocks.SampleWebhookBot
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
+import com.benkio.chatcore.model.reply.Document
+import com.benkio.chatcore.model.reply.GifFile
+import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.Mp3File
+import com.benkio.chatcore.model.reply.PhotoFile
+import com.benkio.chatcore.model.reply.Reply
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.reply.TextReply
+import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.Logger.given
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import com.benkio.chattelegramadapter.ComputeReply
 import munit.CatsEffectSuite
 import telegramium.bots.Message as TMessage

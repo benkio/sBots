@@ -3,11 +3,9 @@ package com.benkio.chattelegramadapter.http.telegramreply
 import cats.data.NonEmptyList
 import cats.effect.IO
 import com.benkio.chatcore.messagefiltering.getContent
-import com.benkio.chatcore.mocks.ApiMock.given
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.mocks.SampleWebhookBot
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.MediaReply
@@ -25,6 +23,8 @@ import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.EffectfulKeyReply
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import munit.*
 
 class EffectfulKeyReplySpec extends CatsEffectSuite {

@@ -6,7 +6,7 @@ import cats.effect.IO
 import cats.syntax.all.*
 import cats.Parallel
 import cats.Show
-import com.benkio.chatcore.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
@@ -19,7 +19,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository.RepositoryError
 import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.BaseBotSpec
+import com.benkio.chattelegramadapter.BaseBotSpec
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.SBotPolling

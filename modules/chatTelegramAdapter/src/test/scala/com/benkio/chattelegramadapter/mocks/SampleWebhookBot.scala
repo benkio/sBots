@@ -1,19 +1,21 @@
-package com.benkio.chatcore.mocks
+package com.benkio.chattelegramadapter.mocks
 
 import cats.effect.Async
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.mocks.ApiMock.given
-import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.initialization.BotSetup
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.ISBotWebhook
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import org.http4s.client.Client

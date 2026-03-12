@@ -1,4 +1,4 @@
-package com.benkio.chatcore.mocks
+package com.benkio.chattelegramadapter.mocks
 
 import cats.effect.IO
 import io.circe.*

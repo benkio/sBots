@@ -1,25 +1,31 @@
 package com.benkio.chatcore.model.reply
 
+import cats.effect.IO
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
+import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.Arbitraries.given
+import com.benkio.chatcore.Logger.given
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.CatsEffectSuite
-import munit.ScalaCheckSuite
+import munit.ScalaCheckEffectSuite
+import org.scalacheck.effect.PropF
 
-import com.benkio.chatcore.Generators.commandKeyGen
-import com.benkio.chatcore.model.CommandKey
-import org.scalacheck.Prop.forAll
 import java.time.Instant
 
-class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckSuite {
+class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
+
+  private val commandsJsonFilename: String = "sbot_commands.json"
+  val repo                                 = JsonDataRepository[IO]()
 
   val inputMediafile: List[MediaFile] = List(
     Mp3File("audio.mp3"),
@@ -226,9 +232,18 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckSuite {
   }
 
   test("ReplyBundleCommand.from should return command bundle from command key") {
-    forAll {  (commandKey : CommandKey) =>
-      val replyBundleCommand: ReplyBundleCommand = ReplyBundleCommand.from(commandKey, SampleWebhookBot().commandRepliesData)
-      assert(false)
+    PropF.forAllF { (commandKey: CommandKey) =>
+      for {
+        replyBundleCommands <- repo.loadData[ReplyBundleCommand](commandsJsonFilename)
+      } yield {
+        val checkFunction: ReplyBundleCommand => Boolean =
+          replyBundleCommand => replyBundleCommand.trigger.command == commandKey.asString
+        val check                                             = replyBundleCommands.find(checkFunction(_))
+        val optReplyBundleCommand: Option[ReplyBundleCommand] = ReplyBundleCommand.from(commandKey, replyBundleCommands)
+        assert(
+          optReplyBundleCommand.fold(check.isEmpty)(checkFunction)
+        )
+      }
     }
   }
 }

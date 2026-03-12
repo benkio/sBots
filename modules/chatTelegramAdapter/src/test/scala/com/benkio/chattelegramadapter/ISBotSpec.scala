@@ -2,8 +2,6 @@ package com.benkio.chattelegramadapter
 
 import cats.effect.IO
 import cats.implicits.*
-import com.benkio.chatcore.mocks.ApiMock.given
-import com.benkio.chatcore.mocks.SampleWebhookBot
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.TextReply
@@ -11,6 +9,8 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import munit.CatsEffectSuite
 
 import java.time.Instant

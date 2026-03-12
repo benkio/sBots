@@ -1,7 +1,7 @@
 package com.benkio.chatcore
 
-import org.scalacheck.Gen
 import com.benkio.chatcore.model.CommandKey
+import org.scalacheck.Gen
 
 object Generators {
 

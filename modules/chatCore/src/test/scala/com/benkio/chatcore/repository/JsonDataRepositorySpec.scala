@@ -7,6 +7,7 @@ import com.benkio.chatcore.Logger.given
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.CatsEffectSuite
+
 class JsonDataRepositorySpec extends CatsEffectSuite {
 
   private val repliesJsonFilename: String = "sbot_replies.json"
