@@ -1,5 +1,6 @@
 package com.benkio.chatcore.model.reply
 
+import com.benkio.chatcore.Arbitraries.given
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.SBotInfo.SBotId
@@ -7,10 +8,12 @@ import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.FunSuite
 import org.http4s.syntax.all.uri
+import org.scalacheck.Prop.forAll
 
 import java.time.Instant
+import munit.ScalaCheckEffectSuite
 
-class ReplyValueSpec extends FunSuite {
+class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
 
   test("ReplyValue JSON decode/encode should work as expected") {
     val jsonInputs = List(
@@ -68,6 +71,16 @@ class ReplyValueSpec extends FunSuite {
   }
 
   test("ReplyValue.from should downcast to the requested ReplyValue subtype") {
-    assert(false)
+    forAll { (replyValue: ReplyValue) =>
+      replyValue match {
+        case text: Text           => assertEquals(ReplyValue.from[Text](replyValue), Some(text))
+        case mp3File: Mp3File     => assertEquals(ReplyValue.from[Mp3File](replyValue), Some(mp3File))
+        case gifFile: GifFile     => assertEquals(ReplyValue.from[GifFile](replyValue), Some(gifFile))
+        case photoFile: PhotoFile => assertEquals(ReplyValue.from[PhotoFile](replyValue), Some(photoFile))
+        case videoFile: VideoFile => assertEquals(ReplyValue.from[VideoFile](replyValue), Some(videoFile))
+        case document: Document   => assertEquals(ReplyValue.from[Document](replyValue), Some(document))
+        case sticker: Sticker     => assertEquals(ReplyValue.from[Sticker](replyValue), Some(sticker))
+      }
+    }
   }
 }

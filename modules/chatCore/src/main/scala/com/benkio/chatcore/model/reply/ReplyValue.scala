@@ -43,13 +43,13 @@ object ReplyValue {
 
   given Encoder[ReplyValue] = new Encoder[ReplyValue] {
     def apply(value: ReplyValue): Json = value match {
-      case text: Text           => Json.obj("Text" -> text.asJson)
-      case mp3File: Mp3File     => Json.obj("Mp3File" -> mp3File.asJson)
-      case gifFile: GifFile     => Json.obj("GifFile" -> gifFile.asJson)
-      case photoFile: PhotoFile => Json.obj("PhotoFile" -> photoFile.asJson)
-      case videoFile: VideoFile => Json.obj("VideoFile" -> videoFile.asJson)
-      case document: Document   => Json.obj("Document" -> document.asJson)
-      case sticker: Sticker     => Json.obj("Sticker" -> sticker.asJson)
+      case text      : Text      => Json.obj("Text" -> text.asJson)
+      case mp3File   : Mp3File   => Json.obj("Mp3File" -> mp3File.asJson)
+      case gifFile   : GifFile   => Json.obj("GifFile" -> gifFile.asJson)
+      case photoFile : PhotoFile => Json.obj("PhotoFile" -> photoFile.asJson)
+      case videoFile : VideoFile => Json.obj("VideoFile" -> videoFile.asJson)
+      case document  : Document  => Json.obj("Document" -> document.asJson)
+      case sticker   : Sticker   => Json.obj("Sticker" -> sticker.asJson)
     }
   }
 
