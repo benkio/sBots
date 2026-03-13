@@ -1513,7 +1513,41 @@
           },
           {
             "StringTextTriggerValue" : "storia del rock"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_AneddotoStoriaRockGif.mp4",
+              "replyToMessage" : false
+            }
           },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_AneddotoStoriaRock.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_AneddotoStoriaRock.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
           {
             "StringTextTriggerValue" : "ultimo"
           }
@@ -4268,8 +4302,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "Mp3File" : {
+              "filepath" : "rphjb_ChiCazzoSeiTe.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ChiCazzoSeiTe.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
-              "filepath" : "rphjb_ChiCazzoSeiGif.mp4",
+              "filepath" : "rphjb_ChiCazzoSeiTeGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -11825,7 +11871,19 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "le avete fatto (del )?male\\?",
+              "regexLength" : 20
+            }
+          },
+          {
             "StringTextTriggerValue" : "chiesa inferiore"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "siete( proprio)? degli animali",
+              "regexLength" : 19
+            }
           },
           {
             "StringTextTriggerValue" : "dio minore"
@@ -14206,7 +14264,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "la vostra mente (abbietta|calpestata)?",
+              "trigger" : "la vostra mente( abbietta| calpestata)?",
               "regexLength" : 24
             }
           },
@@ -14225,6 +14283,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrinaGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -15631,6 +15701,18 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_CiSaroSempreIoDentroDiVoiEVoiDentroDiMe.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -20926,8 +21008,8 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "(sono |so )?a[r]{1,2}iva[dt]o",
-              "regexLength" : 15
+              "trigger" : "so(no | )?a[r]{1,2}iva[dt]o",
+              "regexLength" : 17
             }
           },
           {
@@ -22051,13 +22133,19 @@
         "mediaFiles" : [
           {
             "Mp3File" : {
-              "filepath" : "rphjb_PoveriCretini.mp3",
+              "filepath" : "rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp3",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
               "filepath" : "rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -22879,6 +22967,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrinaGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -29756,6 +29856,18 @@
               "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrinaGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -36345,6 +36457,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_PoesiaAltroSenso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -45979,6 +46103,18 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_ScherziAllucinantiZizzaniaConfusione.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrina.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VostraMenteAbbiettaCalpestataNoDirettiveEstremismoMafiaPoliticaPartitiStessaManfrinaGif.mp4",
               "replyToMessage" : false
             }
           }

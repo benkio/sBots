@@ -124,7 +124,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "youtube"
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\byoutube\\b",
+              "regexLength" : 7
+            }
           },
           {
             "StringTextTriggerValue" : "antonio"
