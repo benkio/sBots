@@ -1,17 +1,17 @@
 package com.benkio.chatcore.model.reply
 
-import com.benkio.chatcore.Arbitraries.given
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.Arbitraries.given
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.FunSuite
+import munit.ScalaCheckEffectSuite
 import org.http4s.syntax.all.uri
 import org.scalacheck.Prop.forAll
 
 import java.time.Instant
-import munit.ScalaCheckEffectSuite
 
 class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
 

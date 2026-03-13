@@ -9,8 +9,8 @@ import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
-import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.User
 import org.scalacheck.Gen
@@ -39,24 +39,24 @@ object Generators {
     stickerGen,
     documentGen
   )
-  val replyValueGen: Gen[ReplyValue] = Gen.oneOf(textGen, mediaFileGen)
+  val coreReplyValueGen: Gen[ReplyValue] = Gen.oneOf(textGen, mediaFileGen)
 
   val userGen: Gen[User] = for {
     id        <- Gen.long
-    isBot     <- Gen.boolean
+    isBot     <- Gen.oneOf(false, true)
     firstName <- Gen.alphaStr
   } yield User(id, isBot, firstName)
 
   val messageGen: Gen[Message] = for {
-    messageId       <- Gen.int
-    date            <- Gen.long
-    chatId          <- Gen.long
-    chatType        <- Gen.alphaStr
-    text            <- Gen.option(Gen.alphaStr)
-    caption         <- Gen.option(Gen.alphaStr)
-    newChatMembers  <- Gen.listOf(userGen)
-    leftChatMember  <- Gen.option(userGen)
-    isForward       <- Gen.boolean
+    messageId      <- Gen.choose(Int.MinValue, Int.MaxValue)
+    date           <- Gen.long
+    chatId         <- Gen.long
+    chatType       <- Gen.alphaStr
+    text           <- Gen.option(Gen.alphaStr)
+    caption        <- Gen.option(Gen.alphaStr)
+    newChatMembers <- Gen.listOf(userGen)
+    leftChatMember <- Gen.option(userGen)
+    isForward      <- Gen.oneOf(false, true)
   } yield Message(
     messageId = messageId,
     date = date,
