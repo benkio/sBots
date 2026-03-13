@@ -2,8 +2,6 @@ package com.benkio.chattelegramadapter
 
 import cats.effect.IO
 import cats.implicits.*
-import com.benkio.chatcore.mocks.ApiMock.given
-import com.benkio.chatcore.mocks.SampleWebhookBot
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.TextReply
@@ -11,6 +9,8 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import munit.CatsEffectSuite
 
 import java.time.Instant
@@ -30,8 +30,13 @@ class ISBotSpec extends CatsEffectSuite {
     )("testReply1")
 
     SampleWebhookBot().map(sampleWebhookBot => {
-      val resultOpt = sampleWebhookBot.selectReplyBundle(inputMessage)
-      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+      val resultOpt = ReplyBundleMessage.selectReplyBundle(
+        msg = inputMessage,
+        messageRepliesData = sampleWebhookBot.messageRepliesData,
+        ignoreMessagePrefix = sampleWebhookBot.sBotConfig.ignoreMessagePrefix,
+        disableForward = sampleWebhookBot.sBotConfig.disableForward
+      )
+      val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       val expectedPP = expected.prettyPrint()
@@ -56,8 +61,12 @@ class ISBotSpec extends CatsEffectSuite {
         instruction = CommandInstructionData.NoInstructions
       )
     SampleWebhookBot().map(sampleWebhookBot => {
-      val resultOpt = sampleWebhookBot.selectCommandReplyBundle(inputMessage)
-      val result    = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
+      val resultOpt = ReplyBundleCommand.selectCommandReplyBundle(
+        msg = inputMessage,
+        allCommandRepliesData = sampleWebhookBot.allCommandRepliesData,
+        botName = sampleWebhookBot.sBotConfig.sBotInfo.botName
+      )
+      val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
         _.prettyPrint()
       }
       val expectedPP = expected.prettyPrint()

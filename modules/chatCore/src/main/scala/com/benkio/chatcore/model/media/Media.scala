@@ -46,17 +46,4 @@ object Media {
       s"""| ${media.mediaCount.toString
           .padTo(5, ' ')} | <a href="${media.getLink.map(_.toString).getOrElse("")}">${media.mediaName}</a> |"""
   }
-
-  def mediaListToHTML(medias: List[Media]): String =
-    if medias.length == 0 then {
-      ""
-    } else {
-      val content = medias.map(_.toHtmlRow)
-      s"""<pre>
-| Count | File                |
-|-------|---------------------|
-${content.mkString("\n")}
-</pre>"""
-    }
-
 }

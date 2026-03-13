@@ -4,15 +4,15 @@ import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.effect.IO
 import cats.Parallel
-import com.benkio.chatcore.mocks.ApiMock.given
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.repository.db.DBLayer
-import com.benkio.chatcore.BaseBotSpec
 import com.benkio.chatcore.Logger.given
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.BaseBotSpec
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.SBotPolling
 

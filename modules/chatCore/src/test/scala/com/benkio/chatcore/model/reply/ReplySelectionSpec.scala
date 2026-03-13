@@ -13,7 +13,7 @@ class ReplySelectionSpec extends CatsEffectSuite {
     "RandomSelection select should be a function returning a list of one element when a list of multiple element is provided"
   ) {
     val result: IO[ReplyValue] = RandomSelection.select[IO](
-      reply = MediaReply.fromList(input)
+      replies = input
     )
     assertIO(
       result.map(mediaFile =>

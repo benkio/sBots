@@ -5,6 +5,7 @@ import cats.implicits.*
 import cats.ApplicativeThrow
 import cats.MonadThrow
 import com.benkio.chatcore.messagefiltering.MessageMatches
+import com.benkio.chatcore.messagefiltering.RandomSelection
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.reply.toText
 import com.benkio.chatcore.model.reply.EffectfulKey
@@ -12,6 +13,7 @@ import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.show.RandomQuery
@@ -23,6 +25,7 @@ import com.benkio.chatcore.model.toEng
 import com.benkio.chatcore.model.toIta
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
@@ -51,13 +54,15 @@ object CommandPatterns {
         dbMedia: DBMedia[F],
         commandName: String,
         sBotInfo: SBotInfo
-    )(using log: LogWriter[F]): F[List[MediaFile]] =
+    )(using log: LogWriter[F]): F[ReplyValue] =
       for {
         _            <- log.debug(s"[MediaCommandByKind] Fetching DBMediaData for $commandName")
         dbMediaDatas <- dbMedia.getMediaByKind(kind = commandName, botId = sBotInfo.botId)
         _            <- log.debug("[MediaCommandByKind] Convert to Media")
         medias       <- dbMediaDatas.traverse(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
-      } yield medias.map(media => MediaFile.fromMimeType(media))
+        mediaFiles = medias.map(media => MediaFile.fromMimeType(media))
+        mediaFile <- RandomSelection.select(replies = mediaFiles)
+      } yield mediaFile
 
     def mediaCommandByKind(
         commandName: String,
@@ -99,7 +104,7 @@ object CommandPatterns {
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("random"),
+        trigger = CommandKey.Random.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Random(sBotInfo)
         ),
@@ -147,7 +152,7 @@ Input as query string:
     ): F[List[Text]] =
       handleCommandWithInput[F](
         msg = msg,
-        command = "searchshow",
+        command = CommandKey.SearchShow.asString,
         sBotInfo = sBotInfo,
         ttl = ttl,
         computation = keywords =>
@@ -167,7 +172,7 @@ Input as query string:
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("searchshow"),
+        trigger = CommandKey.SearchShow.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.SearchShow(sBotInfo),
           replyToMessage = true
@@ -216,15 +221,15 @@ Input as query string:
     private val triggerListCommandDescriptionEng: String =
       "'/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex"
 
-    def triggerListLogic(triggerFileUri: Uri): String =
-      s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri"
+    def triggerListLogic(triggerFileUri: Uri): Text =
+      Text(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")
 
     private[patterns] def triggerListReplyBundleCommand[F[_]](
         triggerFileUri: Uri
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("triggerlist"),
-        reply = TextReply.fromList(triggerListLogic(triggerFileUri))(true),
+        trigger = CommandKey.TriggerList.trigger,
+        reply = TextReply(List(triggerListLogic(triggerFileUri)), replyToMessage = true),
         instruction = CommandInstructionData.Instructions(
           ita = triggerListCommandDescriptionIta,
           eng = triggerListCommandDescriptionEng
@@ -249,7 +254,7 @@ Input as query string:
 
       handleCommandWithInput[F](
         msg = m,
-        command = "triggersearch",
+        command = CommandKey.TriggerSearch.asString,
         sBotInfo = sBotInfo,
         ttl = ttl,
         computation = t => {
@@ -271,7 +276,7 @@ Input as query string:
         ignoreMessagePrefix: Option[String]
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("triggersearch"),
+        trigger = CommandKey.TriggerSearch.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix)
         ),
@@ -362,7 +367,7 @@ ${ignoreMessagePrefix
       }
       handleCommandWithInput[F](
         msg = msg,
-        command = "instructions",
+        command = CommandKey.Instructions.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         defaultReply = "",
@@ -377,7 +382,7 @@ ${ignoreMessagePrefix
         ignoreMessagePrefix: Option[String]
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("instructions"),
+        trigger = CommandKey.Instructions.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands)
         ),
@@ -418,7 +423,7 @@ ${ignoreMessagePrefix
         ).toText
       handleCommandWithInput[F](
         msg = m,
-        command = "subscribe",
+        command = CommandKey.Subscribe.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         ttl = ttl,
@@ -430,7 +435,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("subscribe"),
+        trigger = CommandKey.Subscribe.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Subscribe(sBotInfo)
         ),
@@ -460,7 +465,7 @@ ${ignoreMessagePrefix
       }
       handleCommandWithInput[F](
         msg = m,
-        command = "unsubscribe",
+        command = CommandKey.Unsubscribe.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         ttl = ttl,
@@ -474,7 +479,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("unsubscribe"),
+        trigger = CommandKey.Unsubscribe.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Unsubscribe(sBotInfo)
         ),
@@ -506,7 +511,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("subscriptions"),
+        trigger = CommandKey.Subscriptions.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Subscriptions(sBotInfo),
           replyToMessage = true
@@ -525,17 +530,17 @@ ${ignoreMessagePrefix
     private val topTwentyTriggersCommandDescriptionEng: String =
       "'/toptwenty': Return a list of files and theirs send frequency"
 
-    def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[List[Text]] =
+    def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[List[MediaFile]] =
       for {
         dbMedias <- dbMedia.getMediaByMediaCount(botId = sBotInfo.botId.some)
         medias   <- MonadThrow[F].fromEither(dbMedias.traverse(Media.apply))
-      } yield List(Media.mediaListToHTML(medias)).toText
+      } yield medias.map(media => MediaFile.fromMimeType(media))
 
     private[patterns] def topTwentyReplyBundleCommand(
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("toptwenty"),
+        trigger = CommandKey.TopTwenty.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.TopTwenty(sBotInfo)
         ),
@@ -592,7 +597,7 @@ ${ignoreMessagePrefix
       }
       handleCommandWithInput[F](
         msg = msg,
-        command = "timeout",
+        command = CommandKey.Timeout.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         allowEmptyString = true,
@@ -605,7 +610,7 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandTrigger("timeout"),
+        trigger = CommandKey.Timeout.trigger,
         reply = EffectfulReply(
           key = EffectfulKey.Timeout(sBotInfo),
           replyToMessage = true

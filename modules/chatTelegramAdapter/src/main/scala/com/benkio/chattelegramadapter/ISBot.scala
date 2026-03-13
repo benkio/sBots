@@ -1,6 +1,7 @@
 package com.benkio.chattelegramadapter
 
 import cats.*
+import cats.data.OptionT
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
@@ -11,7 +12,6 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.MessageType
-import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
@@ -19,10 +19,14 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
-import com.benkio.chattelegramadapter.http.telegramreply.MediaFileReply
+import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.MediaFileReply
 import com.benkio.chattelegramadapter.initialization.BotSetup
+import com.benkio.chattelegramadapter.model.CallbackData
 import log.effect.LogWriter
 import telegramium.bots.high.*
+import telegramium.bots.high.implicits.methodOps
+import telegramium.bots.CallbackQuery
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message as TMessage
 
@@ -33,7 +37,8 @@ abstract class ISBotPolling[F[_]: Parallel: Api](
 )(using Async[F], LogWriter[F])
     extends LongPollBot[F](summon[Api[F]])
     with ISBot[F] {
-  override def onMessage(msg: TMessage): F[Unit] = onMessageLogic(msg.toModel)
+  override def onMessage(msg: TMessage): F[Unit]              = onMessageLogic(msg.toModel)
+  override def onCallbackQuery(query: CallbackQuery): F[Unit] = onCallbackLogic(query)
 }
 
 abstract class ISBotWebhook[F[_]: Api](
@@ -47,7 +52,8 @@ abstract class ISBotWebhook[F[_]: Api](
       certificate = webhookCertificate.map(p => InputPartFile(p.toFile))
     )
     with ISBot[F] {
-  override def onMessage(msg: TMessage): F[Unit] = onMessageLogic(msg.toModel)
+  override def onMessage(msg: TMessage): F[Unit]              = onMessageLogic(msg.toModel)
+  override def onCallbackQuery(query: CallbackQuery): F[Unit] = onCallbackLogic(query)
 }
 
 trait ISBot[F[_]: Async: LogWriter] {
@@ -95,36 +101,16 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   // Bot logic //////////////////////////////////////////////////////////////////////////////
 
-  private[chattelegramadapter] def selectReplyBundle(
-      msg: ModelMessage
-  ): Option[ReplyBundleMessage] =
-    if !FilteringForward.filter(msg, sBotConfig.disableForward) || !FilteringOlder.filter(msg)
-    then None
-    else
-      messageRepliesData
-        .mapFilter(messageReplyBundle =>
-          MessageMatches
-            .doesMatch(messageReplyBundle, msg, sBotConfig.ignoreMessagePrefix)
-        )
-        .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-        .headOption
-        .map(_._2)
-
-  private[chattelegramadapter] def selectCommandReplyBundle(
-      msg: ModelMessage
-  ): Option[ReplyBundleCommand] =
-    msg.text.flatMap(text =>
-      allCommandRepliesData.find(rbc =>
-        text.startsWith(s"/${rbc.trigger.command} ")
-          || text == s"/${rbc.trigger.command}"
-          || text.startsWith(s"/${rbc.trigger.command}@${sBotConfig.sBotInfo.botName}")
-      )
-    )
-
   def messageLogic(
       msg: ModelMessage
   )(using api: Api[F]): F[Unit] =
-    selectReplyBundle(msg)
+    ReplyBundleMessage
+      .selectReplyBundle(
+        msg = msg,
+        messageRepliesData = messageRepliesData,
+        ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix,
+        disableForward = sBotConfig.disableForward
+      )
       .traverse_(replyBundle =>
         for {
           _ <- LogWriter
@@ -149,7 +135,12 @@ trait ISBot[F[_]: Async: LogWriter] {
   def commandLogic(
       msg: ModelMessage
   )(using api: Api[F]): F[Unit] =
-    selectCommandReplyBundle(msg)
+    ReplyBundleCommand
+      .selectCommandReplyBundle(
+        msg = msg,
+        allCommandRepliesData = allCommandRepliesData,
+        botName = sBotConfig.sBotInfo.botName
+      )
       .traverse_(commandReply =>
         LogWriter.info(
           s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"
@@ -196,4 +187,23 @@ trait ISBot[F[_]: Async: LogWriter] {
     _ <- botLogic(msg)
     _ <- postComputation(msg)
   } yield ()
+
+  def onCallbackLogic(query: CallbackQuery)(using api: Api[F]): F[Unit] = (for {
+    callbackDataString <- OptionT.fromOption(query.data)
+    callbackData = CallbackData(callbackDataString)
+    msg <- OptionT.fromOption(query.message)
+    _   <- OptionT.liftF(Methods.answerCallbackQuery(callbackQueryId = query.id).exec)
+    _   <- OptionT.liftF(
+      TelegramCallbackReply.reply(
+        msg = msg,
+        callbackData = callbackData,
+        repository = repository,
+        allCommandRepliesData = allCommandRepliesData,
+        backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = commandEffectfulCallback,
+        dbLayer = dbLayer,
+        ttl = sBotConfig.messageTimeToLive
+      )
+    )
+  } yield ()).value.void
 }

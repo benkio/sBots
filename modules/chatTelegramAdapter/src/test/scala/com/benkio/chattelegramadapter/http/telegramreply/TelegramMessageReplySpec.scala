@@ -2,7 +2,6 @@ package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.data.NonEmptyList
 import cats.effect.IO
-import com.benkio.chatcore.mocks.ApiMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.Document
@@ -15,11 +14,14 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.MediaFileReply
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TextReply
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import munit.*
 
 import scala.concurrent.duration.*
 
-class TelegramReplySpec extends CatsEffectSuite {
+class TelegramMessageReplySpec extends CatsEffectSuite {
 
   test("TextReply.sendText reply should work as expected") {
     val message: Message = Message(
@@ -27,7 +29,8 @@ class TelegramReplySpec extends CatsEffectSuite {
       date = 0L,
       chatId = ChatId(0L),
       chatType = "private",
-      text = Some("test message")
+      text = Some("test message"),
+      caption = None
     )
     val text   = Text("input Text")
     val result = TextReply

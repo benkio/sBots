@@ -1,14 +1,31 @@
 package com.benkio.chatcore.model.reply
 
+import cats.effect.IO
 import com.benkio.chatcore.messagefiltering.MessageMatches
+import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandInstructionData
+import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.CommandTrigger
+import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.RegexTextTriggerValue
+import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
+import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.Arbitraries.given
+import com.benkio.chatcore.Logger.given
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.CatsEffectSuite
+import munit.ScalaCheckEffectSuite
+import org.scalacheck.effect.PropF
 
-class ReplyBundleSpec extends CatsEffectSuite {
+import java.time.Instant
+
+class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
+
+  private val commandsJsonFilename: String = "sbot_commands.json"
+  val repo                                 = JsonDataRepository[IO]()
 
   val inputMediafile: List[MediaFile] = List(
     Mp3File("audio.mp3"),
@@ -145,6 +162,88 @@ class ReplyBundleSpec extends CatsEffectSuite {
         e => fail("failed in parsing the input string as reply bundle message", e),
         ms => assertEquals(ms.asJson.toString, inputString)
       )
+    }
+  }
+
+  test("ReplyBundleMessage.selectReplyBundle should pick the highest priority message bundle") {
+    val message: Message = Message(
+      messageId = 1,
+      date = Instant.now.getEpochSecond(),
+      chatId = ChatId(1L),
+      chatType = "private",
+      text = Some("this is a long trigger"),
+      caption = None
+    )
+    val shortTrigger: ReplyBundleMessage = ReplyBundleMessage.textToText("trigger")("short")
+    val longTrigger: ReplyBundleMessage  = ReplyBundleMessage.textToText("this is a long trigger")("long")
+
+    val result = ReplyBundleMessage.selectReplyBundle(
+      msg = message,
+      messageRepliesData = List(shortTrigger, longTrigger),
+      ignoreMessagePrefix = None,
+      disableForward = false
+    )
+
+    assertEquals(result, Some(longTrigger))
+  }
+
+  test("ReplyBundleCommand.selectCommandReplyBundle should match command and username forms") {
+    val commandWithoutAt = ReplyBundleCommand(
+      trigger = CommandTrigger("testcommand"),
+      reply = TextReply.fromList("one")(false),
+      instruction = CommandInstructionData.NoInstructions
+    )
+    val commandWithArg = ReplyBundleCommand(
+      trigger = CommandTrigger("other"),
+      reply = TextReply.fromList("two")(false),
+      instruction = CommandInstructionData.NoInstructions
+    )
+
+    val matchingMessage: Message = Message(
+      messageId = 2,
+      date = Instant.now.getEpochSecond(),
+      chatId = ChatId(1L),
+      chatType = "private",
+      text = Some("/testcommand@SampleWebhookBot"),
+      caption = None
+    )
+    val nonMatchingMessage: Message = Message(
+      messageId = 3,
+      date = Instant.now.getEpochSecond(),
+      chatId = ChatId(1L),
+      chatType = "private",
+      text = Some("/othercommand"),
+      caption = None
+    )
+
+    val selected = ReplyBundleCommand.selectCommandReplyBundle(
+      msg = matchingMessage,
+      allCommandRepliesData = List(commandWithArg, commandWithoutAt),
+      botName = SBotName("SampleWebhookBot")
+    )
+    val noneSelected = ReplyBundleCommand.selectCommandReplyBundle(
+      msg = nonMatchingMessage,
+      allCommandRepliesData = List(commandWithArg, commandWithoutAt),
+      botName = SBotName("SampleWebhookBot")
+    )
+
+    assertEquals(selected.map(_.trigger.command), Some("testcommand"))
+    assertEquals(noneSelected, None)
+  }
+
+  test("ReplyBundleCommand.from should return command bundle from command key") {
+    PropF.forAllF { (commandKey: CommandKey) =>
+      for {
+        replyBundleCommands <- repo.loadData[ReplyBundleCommand](commandsJsonFilename)
+      } yield {
+        val checkFunction: ReplyBundleCommand => Boolean =
+          replyBundleCommand => replyBundleCommand.trigger.command == commandKey.asString
+        val check                                             = replyBundleCommands.find(checkFunction(_))
+        val optReplyBundleCommand: Option[ReplyBundleCommand] = ReplyBundleCommand.from(commandKey, replyBundleCommands)
+        assert(
+          optReplyBundleCommand.fold(check.isEmpty)(checkFunction)
+        )
+      }
     }
   }
 }

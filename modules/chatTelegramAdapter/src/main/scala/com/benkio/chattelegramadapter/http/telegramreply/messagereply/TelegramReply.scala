@@ -1,20 +1,18 @@
-package com.benkio.chattelegramadapter.http.telegramreply
+package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.*
 import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
-import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
-import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
 import com.benkio.chattelegramadapter.http.ErrorFallbackWorkaround
+import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import log.effect.LogWriter
 import telegramium.bots.client.Method
 import telegramium.bots.high.*
@@ -25,9 +23,7 @@ import telegramium.bots.IFile
 import telegramium.bots.Message as TMessage
 import telegramium.bots.ReplyParameters
 
-import scala.concurrent.duration.FiniteDuration
-
-object TelegramReply {
+object TelegramMessageReply {
 
   def telegramFileReplyPattern[F[_]: Async: LogWriter: Api](
       msg: TMessage,
@@ -58,7 +54,7 @@ object TelegramReply {
                 _.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
                   prevExec.handleErrorWith(e =>
                     LogWriter.error(
-                      s"[TelegramReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
+                      s"[TelegramMessageReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
                     ) >>
                       computeMediaResource(nextRes)
                   )
@@ -68,7 +64,7 @@ object TelegramReply {
           )
           .onError(e =>
             LogWriter.error(
-              s"[TelegramReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"
+              s"[TelegramMessageReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"
             ) >> ErrorFallbackWorkaround.errorHandling[F](msg, mediaFile, e)
           )
           .attemptT
@@ -77,15 +73,11 @@ object TelegramReply {
   }
 
   def sendReplyValue[F[_]: Async: LogWriter: Api](
-      reply: ReplyValue,
+      replyValue: ReplyValue,
       msg: Message,
       repository: Repository[F],
-      dbLayer: DBLayer[F],
-      backgroundJobManager: BackgroundJobManager[F],
-      effectfulCallbacks: Map[String, Message => F[List[Text]]],
-      replyToMessage: Boolean,
-      ttl: Option[FiniteDuration]
-  ): F[List[TMessage]] = reply match {
+      replyToMessage: Boolean
+  ): F[List[TMessage]] = replyValue match {
     case mediaFile: MediaFile =>
       MediaFileReply.sendMediaFile(
         reply = mediaFile,
@@ -99,16 +91,11 @@ object TelegramReply {
         msg = msg,
         replyToMessage = replyToMessage
       )
-    case key: EffectfulKey =>
-      EffectfulKeyReply.sendEffectfulKey(
-        reply = key,
+    case telegramInlineKeyboard: TelegramInlineKeyboard =>
+      KeyboardReply.sendKeyboard(
+        reply = telegramInlineKeyboard,
         msg = msg,
-        repository = repository,
-        dbLayer = dbLayer,
-        replyToMessage = replyToMessage,
-        effectfulCallbacks = effectfulCallbacks,
-        backgroundJobManager = backgroundJobManager,
-        ttl = ttl
+        replyToMessage = replyToMessage
       )
   }
 }

@@ -3,11 +3,9 @@ package com.benkio.chattelegramadapter.http.telegramreply
 import cats.data.NonEmptyList
 import cats.effect.IO
 import com.benkio.chatcore.messagefiltering.getContent
-import com.benkio.chatcore.mocks.ApiMock.given
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.mocks.SampleWebhookBot
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.MediaReply
@@ -24,6 +22,9 @@ import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.Logger.given
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.EffectfulKeyReply
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import munit.*
 
 class EffectfulKeyReplySpec extends CatsEffectSuite {
@@ -34,7 +35,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
     date = 0L,
     chatId = ChatId(0L),
     chatType = "private",
-    text = Some("test message")
+    text = Some("test message"),
+    caption = None
   )
   val dbLayer              = DBLayerMock.mock(sBotInfo.botId)
   val repositoryMock       = RepositoryMock()
@@ -213,14 +215,31 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for TopTwenty") {
-    val effectfulKey = EffectfulKey.TopTwenty(sBotInfo)
+    val effectfulKey     = EffectfulKey.TopTwenty(sBotInfo)
+    val dbLayerWithMedia = DBLayerMock.mock(
+      sBotInfo.botId,
+      medias = List(
+        DBMediaData(
+          media_name = "sbot_test.mp3",
+          bot_id = sBotInfo.botId.value,
+          kinds = """["audio"]""",
+          mime_type = "audio/mpeg",
+          media_sources = """["http://test.com"]""",
+          media_count = 0,
+          created_at = "1662126018293"
+        )
+      )
+    )
+    val repositoryMockWithHandler = RepositoryMock(
+      getResourceFileHandler = _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
+    )
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
         msg = message,
-        repository = repositoryMock,
-        dbLayer = dbLayer,
+        repository = repositoryMockWithHandler,
+        dbLayer = dbLayerWithMedia,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = Map.empty,
         replyToMessage = false,
@@ -228,7 +247,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
       .map(messages => messages.map(_.text))
 
-    assertIO(result, List(Some("[apiMock] sendMessage reply")))
+    assertIO(result, List(Some("[apiMock] sendMp3 reply")))
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Timeout") {

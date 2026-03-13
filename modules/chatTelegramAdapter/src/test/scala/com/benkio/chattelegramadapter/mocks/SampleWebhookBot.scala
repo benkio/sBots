@@ -1,14 +1,12 @@
-package com.benkio.chatcore.mocks
+package com.benkio.chattelegramadapter.mocks
 
 import cats.effect.Async
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.mocks.ApiMock.given
+import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.reply.TextReply
-import com.benkio.chatcore.model.CommandInstructionData
-import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SBotInfo.SBotId
@@ -17,6 +15,7 @@ import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.initialization.BotSetup
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.ISBotWebhook
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import org.http4s.client.Client
@@ -29,7 +28,8 @@ import telegramium.bots.high.Api
 
 class SampleWebhookBot(
     override val sBotSetup: BotSetup[IO],
-    override val messageRepliesData: List[ReplyBundleMessage]
+    override val messageRepliesData: List[ReplyBundleMessage],
+    override val commandRepliesData: List[ReplyBundleCommand]
 ) extends ISBotWebhook[IO](sBotSetup) {
   override def postComputation: Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
@@ -37,16 +37,6 @@ class SampleWebhookBot(
     // In adapter unit tests we want selection to be deterministic and not gated by timeouts.
     (_: ReplyBundleMessage, _: Message) => IO.pure(true)
 
-  override val commandRepliesData: List[ReplyBundleCommand] =
-    List(
-      ReplyBundleCommand(
-        trigger = CommandTrigger("testcommand"),
-        reply = TextReply.fromList(
-          "test command reply"
-        )(false),
-        instruction = CommandInstructionData.NoInstructions
-      )
-    )
 }
 
 object SampleWebhookBot {
@@ -102,6 +92,9 @@ object SampleWebhookBot {
       messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
         SampleWebhookBot.sBotConfig.repliesJsonFilename
       )
-    } yield new SampleWebhookBot(botSetup, messageRepliesData)
+      messageCommandData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
+        SampleWebhookBot.sBotConfig.commandsJsonFilename
+      )
+    } yield new SampleWebhookBot(botSetup, messageRepliesData, messageCommandData)
   }
 }

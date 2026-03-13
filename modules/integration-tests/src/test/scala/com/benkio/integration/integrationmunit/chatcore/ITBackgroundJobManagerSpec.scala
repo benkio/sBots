@@ -2,12 +2,12 @@ package com.benkio.integration.integrationmunit.chatcore
 
 import cats.effect.IO
 import cats.effect.Resource
-import com.benkio.chatcore.mocks.ApiMock.given
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chatcore.SubscriptionKey
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.DBFixture
