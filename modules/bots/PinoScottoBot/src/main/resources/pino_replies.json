@@ -4,6 +4,226 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "cazzate"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "pino_VafangulBastaCagate.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_VafangulBastaCagate.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_VafangulBastaCagateGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_FallitoSgueoAFareInCulo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_FallitoSgueoAFareInCulo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_FallitoSgueoAFareInCuloGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "a lavorare"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Cagasentenze.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Cagasentenze.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_CagasentenzeGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PulireICessiAccattoni.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PulireICessiAccattoni.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PulireICessiAccattoniGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "complimenti per"
+          },
+          {
+            "StringTextTriggerValue" : "programma di merda"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "rallegr[ai] la giornata",
+              "regexLength" : 20
+            }
+          },
+          {
+            "StringTextTriggerValue" : "un fallito"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bsgueo\\b",
+              "regexLength" : 5
+            }
+          },
+          {
+            "StringTextTriggerValue" : "pezzente"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_FallitoSgueoAFareInCuloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_FallitoSgueoAFareInCulo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_FallitoSgueoAFareInCulo.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "barboni"
+          },
+          {
+            "StringTextTriggerValue" : "se avete le palle"
+          },
+          {
+            "StringTextTriggerValue" : "pulire i cessi"
+          },
+          {
+            "StringTextTriggerValue" : "imprese di pulizie"
+          },
+          {
+            "StringTextTriggerValue" : "figure di merda"
+          },
+          {
+            "StringTextTriggerValue" : "accattoni"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_PulireICessiAccattoniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PulireICessiAccattoni.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PulireICessiAccattoni.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "barone"
           },
           {
@@ -124,9 +344,6 @@
               "trigger" : "una decina (d'|di )anni",
               "regexLength" : 17
             }
-          },
-          {
-            "StringTextTriggerValue" : "a lavorare"
           }
         ]
       }
@@ -271,6 +488,24 @@
           {
             "Mp3File" : {
               "filepath" : "pino_LavavetriSorellaTroiaBaroneVaffanculo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_FallitoSgueoAFareInCulo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_FallitoSgueoAFareInCulo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_FallitoSgueoAFareInCuloGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -437,9 +672,6 @@
     "trigger" : {
       "TextTrigger" : {
         "triggers" : [
-          {
-            "StringTextTriggerValue" : "cazzate"
-          },
           {
             "StringTextTriggerValue" : "cagate"
           },
