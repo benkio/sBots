@@ -4,7 +4,7 @@ import cats.*
 import cats.effect.Async
 import cats.implicits.*
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
-import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.repository.db.DBLayer
@@ -30,7 +30,7 @@ object Pagination {
       commandKey: CommandKey,
       allCommandRepliesData: List[ReplyBundleCommand],
       backgroundJobManager: BackgroundJobManager[F],
-      effectfulCallbacks: Map[String, ModelMessage => F[List[Text]]],
+      effectfulCallbacks: Map[String, ModelMessage => F[ReplyValue]],
       dbLayer: DBLayer[F],
       ttl: Option[FiniteDuration]
   ): F[Unit] = {

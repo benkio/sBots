@@ -71,6 +71,7 @@ object SampleWebhookBot {
     val stubClient     = Client.fromHttpApp(stubHttpApp)
     for {
       backgroundJobManager <- TelegramBackgroundJobManager[IO](
+        repository = repositoryMock,
         dbLayer = dbLayerMock,
         sBotInfo = sBotInfo,
         ttl = None

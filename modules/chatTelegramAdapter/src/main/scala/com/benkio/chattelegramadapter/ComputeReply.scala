@@ -10,7 +10,6 @@ import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.Reply
 import com.benkio.chatcore.model.reply.ReplyBundle
 import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
@@ -33,7 +32,7 @@ object ComputeReply {
       message: Message,
       repository: Repository[F],
       backgroundJobManager: BackgroundJobManager[F],
-      effectfulCallbacks: Map[String, Message => F[List[Text]]],
+      effectfulCallbacks: Map[String, Message => F[ReplyValue]],
       dbLayer: DBLayer[F],
       ttl: Option[FiniteDuration]
   ): F[List[TMessage]] = for {
@@ -59,7 +58,7 @@ object ComputeReply {
       msg: Message,
       backgroundJobManager: BackgroundJobManager[F],
       dbLayer: DBLayer[F],
-      effectfulCallbacks: Map[String, Message => F[List[Text]]],
+      effectfulCallbacks: Map[String, Message => F[ReplyValue]],
       ttl: Option[FiniteDuration],
       overridePage: Option[Int] = None
   ): F[ReplyValue] = reply match {

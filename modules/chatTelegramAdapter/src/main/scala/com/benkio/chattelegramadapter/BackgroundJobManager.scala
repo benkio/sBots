@@ -11,9 +11,10 @@ import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.patterns.CommandPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.SubscriptionKey
-import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TextReply
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
 import fs2.Stream
@@ -40,6 +41,7 @@ object TelegramBackgroundJobManager {
       )
 
   def apply[F[_]: Async: Api](
+      repository: Repository[F],
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo,
       ttl: Option[FiniteDuration]
@@ -47,6 +49,7 @@ object TelegramBackgroundJobManager {
     for {
       backgroundJobManager <- Async[F].pure(
         new BackgroundJobManagerImpl(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
           ttl = ttl
@@ -56,6 +59,7 @@ object TelegramBackgroundJobManager {
     } yield backgroundJobManager
 
   final class BackgroundJobManagerImpl[F[_]: Async: Api](
+      repository: Repository[F],
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo,
       ttl: Option[FiniteDuration]
@@ -141,9 +145,10 @@ object TelegramBackgroundJobManager {
         _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
         reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo, ttl)
         _     <- log.info(s"[BackgroundJobManager] reply: $reply")
-        _     <- TextReply.sendText[F](
-          reply = reply,
+        _     <- TelegramMessageReply.sendReplyValue[F](
+          replyValue = reply,
           msg = message,
+          repository = repository,
           replyToMessage = true
         )
       } yield now // For testing purposes

@@ -49,6 +49,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
           ttl = sBotConfig.messageTimeToLive
@@ -67,6 +68,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       _          <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(testSubscription)))
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
           ttl = sBotConfig.messageTimeToLive
@@ -102,6 +104,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
           ttl = sBotConfig.messageTimeToLive
@@ -139,6 +142,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
           ttl = sBotConfig.messageTimeToLive
@@ -170,6 +174,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
           ttl = sBotConfig.messageTimeToLive
@@ -200,6 +205,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
           ttl = sBotConfig.messageTimeToLive

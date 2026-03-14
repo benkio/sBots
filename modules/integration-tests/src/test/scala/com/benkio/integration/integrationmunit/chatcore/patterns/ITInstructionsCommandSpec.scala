@@ -55,14 +55,14 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               ttl = botSetup.sBotConfig.messageTimeToLive
             )
           )
-          .map(_.flatten.foreach { text =>
+          .map(_.foreach { text =>
             assert(
-              text.value.contains(botSetup.sBotConfig.sBotInfo.botName.value),
-              s"[ITInstructionsCommandSpec] description should contains the botname: ${text.value}"
+              text.show.contains(botSetup.sBotConfig.sBotInfo.botName.value),
+              s"[ITInstructionsCommandSpec] description should contains the botname: ${text.show}"
             )
             assert(
-              text.value.contains("'/random': Returns a random data"),
-              s"[ITInstructionsCommandSpec] RichardPHJBensonBot.instructionCommandLogic should return the eng description and contain the random command: ${text.value}"
+              text.show.contains("'/random': Returns a random data"),
+              s"[ITInstructionsCommandSpec] RichardPHJBensonBot.instructionCommandLogic should return the eng description and contain the random command: ${text.show}"
             )
           })
       )
@@ -83,14 +83,14 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               ttl = botSetup.sBotConfig.messageTimeToLive
             )
           )
-          .map(_.flatten.foreach { text =>
+          .map(_.foreach { text =>
             assert(
-              text.value.contains(botSetup.sBotConfig.sBotInfo.botName.value),
-              s"[ITInstructionsCommandSpec] description should contains the botname: ${text.value}"
+              text.show.contains(botSetup.sBotConfig.sBotInfo.botName.value),
+              s"[ITInstructionsCommandSpec] description should contains the botname: ${text.show}"
             )
             assert(
-              text.value.contains("'/random': Restituisce un dato"),
-              s"[ITInstructionsCommandSpec] RichardPHJBensonBot.instructionCommandLogic should return the ita description and contain the random command: ${text.value}"
+              text.show.contains("'/random': Restituisce un dato"),
+              s"[ITInstructionsCommandSpec] RichardPHJBensonBot.instructionCommandLogic should return the ita description and contain the random command: ${text.show}"
             )
           })
       )

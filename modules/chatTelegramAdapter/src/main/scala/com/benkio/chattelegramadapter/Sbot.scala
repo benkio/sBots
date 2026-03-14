@@ -6,7 +6,7 @@ import cats.Parallel
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chattelegramadapter.initialization.BotSetup
@@ -23,7 +23,7 @@ class SBotPolling[F[_]: Parallel: Api](
     override val sBotSetup: BotSetup[F],
     override val messageRepliesData: List[ReplyBundleMessage],
     override val commandRepliesData: List[ReplyBundleCommand],
-    override val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
+    override val commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
 )(using Async[F], LogWriter[F])
     extends ISBotPolling[F](sBotSetup)
 
@@ -32,7 +32,7 @@ class SBotWebhook[F[_]: Api](
     override val messageRepliesData: List[ReplyBundleMessage],
     override val commandRepliesData: List[ReplyBundleCommand],
     webhookCertificate: Option[Path] = None,
-    override val commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
+    override val commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
 )(using Async[F], LogWriter[F])
     extends ISBotWebhook[F](sBotSetup, webhookCertificate)
 
@@ -55,7 +55,7 @@ object SBot {
   def buildPollingBot[F[_]: Parallel: Async: Network, A](
       action: SBotPolling[F] => F[A],
       sBotInfo: SBotInfo,
-      commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
+      commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
   )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     sBotConfig = buildSBotConfig(sBotInfo)
@@ -87,7 +87,7 @@ object SBot {
       sBotInfo: SBotInfo,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[Path] = None,
-      commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
+      commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
   )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] = {
 
     val sBotConfig = buildSBotConfig(sBotInfo)

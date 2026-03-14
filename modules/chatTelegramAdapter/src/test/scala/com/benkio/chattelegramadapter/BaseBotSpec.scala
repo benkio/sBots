@@ -48,7 +48,12 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       sBotConfig: SBotConfig,
       ttl: Option[FiniteDuration]
   )(using Api[IO], LogWriter[IO]): IO[BotSetup[IO]] =
-    TelegramBackgroundJobManager[IO](dbLayer = dbLayer, sBotInfo = sBotConfig.sBotInfo, ttl = ttl).map { bjm =>
+    TelegramBackgroundJobManager[IO](
+      repository = repository,
+      dbLayer = dbLayer,
+      sBotInfo = sBotConfig.sBotInfo,
+      ttl = ttl
+    ).map { bjm =>
       val stubClient = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok))))
       BotSetup(
         token = "test",
@@ -261,12 +266,12 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         )
       } yield {
         assertEquals(
-          engInstructionCommandResult.flatten.map(_.value),
-          List.fill(engInstructionCommandResult.flatten.length)(englishInstructions)
+          engInstructionCommandResult.map(_.show),
+          List.fill(engInstructionCommandResult.length)(englishInstructions)
         )
         assertEquals(
-          itaInstructionCommandResult.flatten.map(_.value),
-          List.fill(itaInstructionCommandResult.flatten.length)(italianInstructions)
+          itaInstructionCommandResult.map(_.show),
+          List.fill(itaInstructionCommandResult.length)(italianInstructions)
         )
       }
     }

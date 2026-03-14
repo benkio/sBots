@@ -132,6 +132,7 @@ object BotSetup {
       )
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager[F](
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
