@@ -7,7 +7,7 @@ import org.http4s.syntax.all.uri
 
 class MediaFileSourceSpec extends CatsEffectSuite {
   test("MediaFileSource.fromUriString should parse a valid URI") {
-    val input = "https://example.com/test.bot_mediaFile.mp3"
+    val input    = "https://example.com/test.bot_mediaFile.mp3"
     val expected = MediaFileSource(
       filename = "test.bot_mediaFile.mp3",
       kinds = List.empty,

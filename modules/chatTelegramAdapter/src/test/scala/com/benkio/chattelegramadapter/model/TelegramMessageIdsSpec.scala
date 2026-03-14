@@ -2,9 +2,9 @@ package com.benkio.chattelegramadapter.model
 
 import munit.FunSuite
 import telegramium.bots.Chat
-import telegramium.bots.Message as TelegramMessage
 import telegramium.bots.InaccessibleMessage
 import telegramium.bots.MaybeInaccessibleMessage
+import telegramium.bots.Message as TelegramMessage
 
 class TelegramMessageIdsSpec extends FunSuite {
   val sharedChat: Chat = Chat(id = 123L, `type` = "private")

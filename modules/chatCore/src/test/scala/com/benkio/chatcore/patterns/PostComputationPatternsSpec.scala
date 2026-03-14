@@ -10,9 +10,9 @@ import munit.CatsEffectSuite
 
 class PostComputationPatternsSpec extends CatsEffectSuite {
 
-  val sBotId: SBotId = SBotId("testbot")
+  val sBotId: SBotId   = SBotId("testbot")
   val message: Message = Message(messageId = 0, date = 0L, chatId = ChatId(123L), chatType = "private")
-  val existingTimeout = DBTimeoutData(
+  val existingTimeout  = DBTimeoutData(
     chat_id = 123L,
     bot_id = sBotId.value,
     timeout_value = "0",
@@ -20,7 +20,7 @@ class PostComputationPatternsSpec extends CatsEffectSuite {
   )
 
   test("timeoutPostComputation should update last interaction for matching timeout row") {
-    val dbLayer = DBLayerMock.mock(botId = sBotId, timeouts = List(existingTimeout))
+    val dbLayer         = DBLayerMock.mock(botId = sBotId, timeouts = List(existingTimeout))
     val postComputation = PostComputationPatterns.timeoutPostComputation[IO](dbLayer.dbTimeout, sBotId)
 
     val check = for {
@@ -33,8 +33,8 @@ class PostComputationPatternsSpec extends CatsEffectSuite {
   }
 
   test("timeoutPostComputation should fail when bot id does not match the DB layer bot id") {
-    val dbLayer = DBLayerMock.mock(botId = sBotId, timeouts = List(existingTimeout))
-    val anotherBot = SBotId("anotherbot")
+    val dbLayer         = DBLayerMock.mock(botId = sBotId, timeouts = List(existingTimeout))
+    val anotherBot      = SBotId("anotherbot")
     val postComputation = PostComputationPatterns.timeoutPostComputation[IO](dbLayer.dbTimeout, anotherBot)
 
     val check: IO[Boolean] = postComputation(message).attempt.map(_.isLeft)
@@ -48,7 +48,7 @@ class PostComputationPatternsSpec extends CatsEffectSuite {
       timeout_value = "0",
       last_interaction = "7"
     )
-    val dbLayer = DBLayerMock.mock(botId = sBotId, timeouts = List(existingTimeout, unrelatedTimeout))
+    val dbLayer         = DBLayerMock.mock(botId = sBotId, timeouts = List(existingTimeout, unrelatedTimeout))
     val postComputation = PostComputationPatterns.timeoutPostComputation[IO](dbLayer.dbTimeout, sBotId)
 
     val check = for {

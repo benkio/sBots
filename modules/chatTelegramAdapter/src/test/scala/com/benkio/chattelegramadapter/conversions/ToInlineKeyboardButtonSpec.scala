@@ -1,15 +1,15 @@
 package com.benkio.chattelegramadapter.conversions
 
 import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
-import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.VideoFile
+import com.benkio.chattelegramadapter.conversions.ToInlineButton.given
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import munit.FunSuite
-import telegramium.bots.InlineKeyboardMarkup
 import telegramium.bots.InlineKeyboardButton
-import com.benkio.chattelegramadapter.conversions.ToInlineButton.given
+import telegramium.bots.InlineKeyboardMarkup
 
 class ToInlineKeyboardButtonSpec extends FunSuite {
   test("toInlineKeyboardButton[Text] should map to inline button without callback") {
@@ -74,8 +74,8 @@ class ToInlineKeyboardButtonSpec extends FunSuite {
       )
     )
     val cases: List[(ReplyValue, Option[InlineKeyboardButton])] = List(
-      Text("loop")                                  -> Some(InlineKeyboardButton(text = "loop", callbackData = None)),
-      VideoFile("media.mp4")                        -> Some(InlineKeyboardButton(text = "media.mp4", callbackData = Some("media.mp4"))),
+      Text("loop")           -> Some(InlineKeyboardButton(text = "loop", callbackData = None)),
+      VideoFile("media.mp4") -> Some(InlineKeyboardButton(text = "media.mp4", callbackData = Some("media.mp4"))),
       TelegramInlineKeyboard("loop kb", keyboard) -> None
     )
 

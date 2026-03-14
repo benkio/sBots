@@ -3,7 +3,8 @@ package com.benkio.chatcore.model.reply
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chatcore.model.SBotInfo.{SBotId, SBotName}
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.Arbitraries.given
 import io.circe.parser.decode
 import io.circe.syntax.*
@@ -72,22 +73,30 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
   }
 
   test("EffectfulKey.overridePage should update page on supported keys") {
-    val sBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
+    val sBotInfo      = SBotInfo(SBotId("botid"), SBotName("bot"))
     val triggerSearch = EffectfulKey.TriggerSearch(
       sBotInfo = sBotInfo,
       replyBundleMessage = List.empty,
       ignoreMessagePrefix = None,
       page = 1
     )
-    assertEquals(triggerSearch.overridePage(Some(3)), triggerSearch.copy(page = 3))
+    assertEquals(
+      triggerSearch.overridePage(Some(3)),
+      EffectfulKey.TriggerSearch(
+        sBotInfo = sBotInfo,
+        replyBundleMessage = List.empty,
+        ignoreMessagePrefix = None,
+        page = 3
+      )
+    )
 
     val topTwenty = EffectfulKey.TopTwenty(sBotInfo, page = 2)
-    assertEquals(topTwenty.overridePage(Some(6)), topTwenty.copy(page = 6))
+    assertEquals(topTwenty.overridePage(Some(6)), EffectfulKey.TopTwenty(sBotInfo, page = 6))
   }
 
   test("EffectfulKey.overridePage should keep page unchanged on unsupported keys") {
     val sBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
-    val random = EffectfulKey.Random(sBotInfo)
+    val random   = EffectfulKey.Random(sBotInfo)
     assertEquals(random.overridePage(Some(10)), random)
   }
 
@@ -112,13 +121,34 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
       createdAt = Instant.now()
     )
 
-    assertEquals(MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.mp3", mimeType = MimeType.MPEG), Mp3File("x.mp3", false))
-    assertEquals(MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.jpg", mimeType = MimeType.JPEG), PhotoFile("x.jpg", false))
-    assertEquals(MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.png", mimeType = MimeType.PNG), PhotoFile("x.png", false))
-    assertEquals(MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.gif.mp4", mimeType = MimeType.GIF), GifFile("x.gif.mp4", false))
-    assertEquals(MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.sticker", mimeType = MimeType.STICKER), Sticker("x.sticker", false))
-    assertEquals(MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.mp4", mimeType = MimeType.MP4), VideoFile("x.mp4", false))
-    assertEquals(MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.doc", mimeType = MimeType.DOC), Document("x.doc", false))
+    assertEquals(
+      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.mp3", mimeType = MimeType.MPEG)),
+      Mp3File("x.mp3", false)
+    )
+    assertEquals(
+      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.jpg", mimeType = MimeType.JPEG)),
+      PhotoFile("x.jpg", false)
+    )
+    assertEquals(
+      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.png", mimeType = MimeType.PNG)),
+      PhotoFile("x.png", false)
+    )
+    assertEquals(
+      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.gif.mp4", mimeType = MimeType.GIF)),
+      GifFile("x.gif.mp4", false)
+    )
+    assertEquals(
+      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.sticker", mimeType = MimeType.STICKER)),
+      Sticker("x.sticker", false)
+    )
+    assertEquals(
+      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.mp4", mimeType = MimeType.MP4)),
+      VideoFile("x.mp4", false)
+    )
+    assertEquals(
+      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.doc", mimeType = MimeType.DOC)),
+      Document("x.doc", false)
+    )
 
     assertEquals(
       MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.mp3", mimeType = MimeType.MPEG), true),
