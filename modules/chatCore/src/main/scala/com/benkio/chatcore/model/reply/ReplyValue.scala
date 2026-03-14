@@ -85,7 +85,8 @@ enum EffectfulKey(val sBotInfo: SBotInfo) {
   case TriggerSearch(
       override val sBotInfo: SBotInfo,
       replyBundleMessage: List[ReplyBundleMessage],
-      ignoreMessagePrefix: Option[String]
+      ignoreMessagePrefix: Option[String],
+      page: Int = 0
   ) extends EffectfulKey(sBotInfo)
   case Instructions(
       override val sBotInfo: SBotInfo,
@@ -104,6 +105,14 @@ enum EffectfulKey(val sBotInfo: SBotInfo) {
 object EffectfulKey {
   given replyDecoder: Decoder[EffectfulKey] = deriveDecoder[EffectfulKey]
   given replyEncoder: Encoder[EffectfulKey] = deriveEncoder[EffectfulKey]
+
+  extension (k: EffectfulKey) {
+    def overridePage(mayPage: Option[Int]): EffectfulKey = k match {
+      case v: EffectfulKey.TriggerSearch => v.copy(page = mayPage.getOrElse(v.page))
+      case v: EffectfulKey.TopTwenty     => v.copy(page = mayPage.getOrElse(v.page))
+      case _                             => k
+    }
+  }
 }
 
 sealed trait MediaFile extends ReplyValue {

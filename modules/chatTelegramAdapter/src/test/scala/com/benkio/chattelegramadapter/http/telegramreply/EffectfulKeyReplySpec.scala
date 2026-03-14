@@ -247,7 +247,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
       .map(messages => messages.map(_.text))
 
-    assertIO(result, List(Some("[apiMock] sendMp3 reply")))
+    assertIO(result, List(Some("[apiMock] sendMessage reply")))
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Timeout") {

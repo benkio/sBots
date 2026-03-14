@@ -49,5 +49,10 @@ object Reply {
       case EffectfulReply(key, _)    => List(s"Reply for `$key`")
       case MediaReply(mediaFiles, _) => mediaFiles.map(_.show)
     }
+    def replyValues: List[ReplyValue] = r match {
+      case TextReply(txt, _)         => txt
+      case EffectfulReply(_, _)      => List.empty
+      case MediaReply(mediaFiles, _) => mediaFiles
+    }
   }
 }
