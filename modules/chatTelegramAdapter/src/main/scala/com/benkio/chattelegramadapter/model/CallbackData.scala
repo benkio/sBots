@@ -25,8 +25,9 @@ object CallbackData {
       commandKey   <- callbackDataSplit.lift(1).flatMap(CommandKey.fromString)
       currentPage  <- callbackDataSplit.lift(2).flatMap(_.toIntOption)
     } yield {
-      if callbackType == "previous" then PreviousPage(currentPage = currentPage, commandKey = commandKey)
-      else NextPage(currentPage = currentPage, commandKey = commandKey)
+      if callbackType == "previousPage" then PreviousPage(currentPage = currentPage, commandKey = commandKey)
+      else if callbackType == "nextPage" then NextPage(currentPage = currentPage, commandKey = commandKey)
+      else Media(callbackData)
     }
     maybePagination.getOrElse(Media(callbackData))
   }

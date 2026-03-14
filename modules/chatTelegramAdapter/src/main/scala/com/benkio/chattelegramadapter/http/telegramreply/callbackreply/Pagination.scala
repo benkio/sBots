@@ -42,8 +42,10 @@ object Pagination {
         ReplyBundleCommand.from(commandKey, allCommandRepliesData),
         new Throwable(s"[Pagination.reply] Command reply not found for commandKey: $commandKey")
       )
+      optModelMessage = msg.toModelMessage.map(m => m.copy(text = m.text.map(v => s"/${commandKey.asString} $v")))
+      _               = println(s"[Pagination] optModelMessage text: ${optModelMessage.flatMap(_.text).getOrElse("")}")
       modelMessage <- MonadThrow[F].fromOption(
-        msg.toModelMessage,
+        optModelMessage,
         new Throwable("[Pagination.reply] Unknown message type for pagination callback")
       )
       _          <- LogWriter.info(s"[Pagination.reply] Run Reply: ${commandReplyData.reply}")
