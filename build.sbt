@@ -40,6 +40,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 coverageEnabled          := true
 coverageFailOnMinimum    := true
 coverageMinimumStmtTotal := 60 // TODO: INCREASE THIS
+coverageExcludedPackages := "com.benkio.chatcore.mocks.*"
 
 // COMMAND ALIASES
 
