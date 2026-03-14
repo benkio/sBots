@@ -78,6 +78,7 @@ object BotSetupFixture {
       api     = BotApi(httpClient, baseUrl)
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager[IO](
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive

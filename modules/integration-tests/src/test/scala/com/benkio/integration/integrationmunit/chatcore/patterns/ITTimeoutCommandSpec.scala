@@ -2,6 +2,7 @@ package com.benkio.integration.integrationmunit.chatcore.patterns
 
 import cats.effect.IO
 import cats.effect.Resource
+import cats.syntax.all.*
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.patterns.CommandPatterns.TimeoutCommand
@@ -43,7 +44,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
     } yield {
       assertEquals(beforeTimeout, afterTimeout)
       assertEquals(
-        reply.map(_.head.value),
+        reply.map(_.show),
         Right("Timeout set failed: wrong input format for 00:00:0F, the input must be in the form '/timeout 00:00:00'")
       )
     }
@@ -88,7 +89,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
         )
       )
       assertEquals(
-        reply.map(_.head.value),
+        reply.map(_.show),
         Right("Timeout set successfully to 00:00:10.000")
       )
     }
@@ -117,7 +118,7 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       assertEquals(beforeTimeout.bot_id, afterTimeout.bot_id)
       assertEquals(beforeTimeout.timeout_value, afterTimeout.timeout_value)
       assertEquals(
-        reply.map(_.head.value),
+        reply.map(_.show),
         Right("Timeout removed")
       )
     }

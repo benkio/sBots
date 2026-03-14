@@ -9,7 +9,7 @@ import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.MessageType
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
@@ -79,7 +79,7 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   // Commands //////////////////////////////////////////////////////////////////////////////
 
-  val commandEffectfulCallback: Map[String, ModelMessage => F[List[Text]]] = Map.empty
+  val commandEffectfulCallback: Map[String, ModelMessage => F[ReplyValue]] = Map.empty
 
   lazy val fixedCommands: List[ReplyBundleCommand] = {
     val commandsPattersGroup =

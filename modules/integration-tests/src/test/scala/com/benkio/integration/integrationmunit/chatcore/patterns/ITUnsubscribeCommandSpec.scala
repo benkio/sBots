@@ -2,7 +2,8 @@ package com.benkio.integration.integrationmunit.chatcore.patterns
 
 import cats.effect.IO
 import cats.effect.Resource
-import com.benkio.chatcore.model.reply.Text
+import cats.syntax.all.*
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Subscription
@@ -50,6 +51,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
@@ -70,17 +72,12 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     } yield {
       assert(subscription.isDefined)
       assertEquals(
-        reply,
+        reply.map(_.show),
         Right(
-          List(
-            Text(
-              value = """An error occurred processing the command: unsubscribe
-                        | message text: /unsubscribe 04F08147-DCD7-4F15-9CF8-D7950CB2AD90
-                        | bot: RichardPHJBensonBot
-                        | error: Subscription Id is not found: 04f08147-dcd7-4f15-9cf8-d7950cb2ad90""".stripMargin,
-              timeToLive = sBotConfig.messageTimeToLive
-            )
-          )
+          """An error occurred processing the command: unsubscribe
+            | message text: /unsubscribe 04F08147-DCD7-4F15-9CF8-D7950CB2AD90
+            | bot: RichardPHJBensonBot
+            | error: Subscription Id is not found: 04f08147-dcd7-4f15-9cf8-d7950cb2ad90""".stripMargin
         )
       )
     }
@@ -95,13 +92,14 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
         )
       )
       _                                    <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
-      reply: Either[Throwable, List[Text]] <- Resource.eval(
+      reply: Either[Throwable, ReplyValue] <- Resource.eval(
         SubscribeUnsubscribeCommand
           .unsubcribeCommandLogic(
             backgroundJobManager,
@@ -114,7 +112,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       subscription <- Resource.eval(dbLayer.dbSubscription.getSubscription(testSubscription.id.value.toString))
     } yield {
       assert(subscription.isEmpty)
-      assertEquals(reply.map(_.head.value), Right("Subscription successfully cancelled"))
+      assertEquals(reply.map(_.show), Right("Subscription successfully cancelled"))
     }
     result.use_
   }
@@ -127,13 +125,14 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
         )
       )
       _                                    <- Resource.eval(backgroundJobManager.scheduleSubscription(testSubscription))
-      reply: Either[Throwable, List[Text]] <- Resource.eval(
+      reply: Either[Throwable, ReplyValue] <- Resource.eval(
         SubscribeUnsubscribeCommand
           .unsubcribeCommandLogic(
             backgroundJobManager,
@@ -146,7 +145,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       subscription <- Resource.eval(dbLayer.dbSubscription.getSubscription(testSubscription.id.value.toString))
     } yield {
       assert(subscription.isEmpty)
-      assertEquals(reply.map(_.head.value), Right("All Subscriptions for current chat successfully cancelled"))
+      assertEquals(reply.map(_.show), Right("All Subscriptions for current chat successfully cancelled"))
     }
     result.use_
   }

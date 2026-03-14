@@ -64,7 +64,6 @@ object KeyboardReply {
       )
     )
   }
-
   def paginationButtons(
       page: Int,
       perPage: Int,

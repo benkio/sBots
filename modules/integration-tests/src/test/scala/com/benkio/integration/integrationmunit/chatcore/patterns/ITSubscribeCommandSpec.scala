@@ -49,6 +49,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       repository           <- fixture.repositoryResource
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
@@ -71,11 +72,11 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       )
     } yield {
       assert(subscriptions.length == 1)
-      assert(reply.length == 1)
-      val testCheck = reply.zip(subscriptions).map { case (r, s) =>
-        val result = r.value.startsWith("Subscription successfully scheduled. Next occurrence of subscription is ") &&
-          r.value.endsWith(s"Refer to this subscription with the ID: ${s.id.value.toString}")
-        if !result then println(s"[ITUnsubscribeCommandSpec:78:57]] Failed test with $r and $s") else ()
+      val testCheck = subscriptions.map { s =>
+        val result =
+          reply.show.startsWith("Subscription successfully scheduled. Next occurrence of subscription is ") &&
+            reply.show.endsWith(s"Refer to this subscription with the ID: ${s.id.value.toString}")
+        if !result then println(s"[ITSubscribeCommandSpec] Failed test with $reply and $s") else ()
         result
       }
       assert(testCheck.forall(_ == true))

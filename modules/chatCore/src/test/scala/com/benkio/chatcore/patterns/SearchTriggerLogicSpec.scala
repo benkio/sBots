@@ -159,8 +159,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
       TriggerSearchCommand
         .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo, ttl = None)
         .map(result => {
-          assertEquals(result.length, 1)
-          assertEquals(result.head.value, expectedResponse)
+          assertEquals(result, com.benkio.chatcore.model.reply.Text(value = expectedResponse))
         })
     }
   }

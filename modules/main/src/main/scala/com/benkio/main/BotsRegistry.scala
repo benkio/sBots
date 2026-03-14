@@ -12,7 +12,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chattelegramadapter.polling.TelegramPollingRuntime
@@ -29,7 +29,7 @@ import log.effect.LogWriter
 
 final case class BotRegistryEntry[F[_]](
     sBotInfo: SBotInfo,
-    commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
+    commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
 )
 
 extension (botRegistryEntry: BotRegistryEntry[IO]) {

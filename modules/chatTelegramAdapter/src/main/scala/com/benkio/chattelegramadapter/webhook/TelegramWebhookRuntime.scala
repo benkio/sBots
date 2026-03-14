@@ -5,7 +5,7 @@ import cats.effect.Resource
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chattelegramadapter.initialization.BotSetup
@@ -38,7 +38,7 @@ object TelegramWebhookRuntime {
       sBotInfo: SBotInfo,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[Path] = None,
-      commandEffectfulCallback: Map[String, Message => F[List[Text]]] = Map.empty
+      commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
   )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] = {
     val sBotConfig = buildSBotConfig(sBotInfo)
     for {

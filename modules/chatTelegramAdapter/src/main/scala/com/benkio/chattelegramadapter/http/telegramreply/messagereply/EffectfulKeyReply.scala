@@ -4,7 +4,7 @@ import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.RandomSelection
 import com.benkio.chatcore.model.reply.EffectfulKey
-import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
@@ -24,7 +24,7 @@ object EffectfulKeyReply {
       repository: Repository[F],
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
-      effectfulCallbacks: Map[String, Message => F[List[Text]]],
+      effectfulCallbacks: Map[String, Message => F[ReplyValue]],
       replyToMessage: Boolean,
       ttl: Option[FiniteDuration]
   ): F[List[TMessage]] = {

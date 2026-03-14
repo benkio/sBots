@@ -13,6 +13,7 @@ import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
@@ -240,8 +241,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         expectedResult = Bensonify.compute(input)
       } yield {
         // Verify the callback returns the expected result
-        assertEquals(callbackResult.length, 1)
-        assertEquals(callbackResult.head.value, expectedResult)
+        assertEquals(callbackResult, Text(expectedResult))
       }
     }
   }

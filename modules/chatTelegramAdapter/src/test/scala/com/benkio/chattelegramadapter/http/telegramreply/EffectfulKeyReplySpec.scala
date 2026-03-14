@@ -247,7 +247,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
       .map(messages => messages.map(_.text))
 
-    assertIO(result, List(Some("[apiMock] sendMp3 reply")))
+    assertIO(result, List(Some("[apiMock] sendMessage reply")))
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Timeout") {
@@ -317,11 +317,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   test("EffectfulKeyReply.sendEffectfulKey should work for Callback") {
     val callbackKey = "uppercase"
     // Setup a simple callback that takes the message text and makes it uppercase
-    val callback: Message => IO[List[Text]] =
-      (msg: Message) =>
-        IO.pure(
-          List(Text(msg.getContent.map(_.toUpperCase).getOrElse("")))
-        )
+    val callback: Message => IO[Text] =
+      (msg: Message) => IO.pure(Text(msg.getContent.map(_.toUpperCase).getOrElse("")))
     val effectfulCallbacks = Map(callbackKey -> callback)
     val effectfulKey       = EffectfulKey.Callback(key = callbackKey, sBotInfo = sBotInfo)
     val testMessage        = message.copy(text = Some("hello world"))

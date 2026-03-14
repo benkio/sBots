@@ -71,6 +71,7 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
       )
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager(
+          repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
@@ -90,13 +91,12 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
         )
       )
     } yield {
-      assertEquals(subscriptionsFromCommandResult.length, 1)
       assertEquals(
-        subscriptionsFromCommandResult.headOption.map(_.value),
+        subscriptionsFromCommandResult.show,
         """There are 1 stored subscriptions for this chat:
           |Subscription Id: b674cce0-9684-4d31-8cc7-9e2a41ea0878 - cron value: * * * ? * *
           |There are 1/2 scheduled subscriptions for this chat:
-          |Subscription Id: b674cce0-9684-4d31-8cc7-9e2a41ea0878 - chat id: 0""".stripMargin.some
+          |Subscription Id: b674cce0-9684-4d31-8cc7-9e2a41ea0878 - chat id: 0""".stripMargin
       )
     }
     resourceAssert.use_
