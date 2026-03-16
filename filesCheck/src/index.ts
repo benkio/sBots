@@ -62,6 +62,15 @@ function match(bot: Bot): Matches[] {
   return [
     {
       check: (f: string) => {
+        return path.basename(f).length > 64;
+      },
+      logic: (f: string) =>
+        logger.error(
+          `[filesCheck] 🚫 ${path.basename(f)} is too long (max 64): ${path.basename(f).length}`
+        ),
+    },
+    {
+      check: (f: string) => {
         const mp3Regex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp3$`);
         return mp3Regex.test(path.basename(f));
       },
@@ -140,7 +149,7 @@ function match(bot: Bot): Matches[] {
     },
   ];
 }
-const defaultLogic: (bot: Bot) => { logic: (file: string) => void } = (
+const unprocessedLogic: (bot: Bot) => { logic: (file: string) => void } = (
   bot: Bot
 ) => {
   return {
@@ -161,7 +170,7 @@ Promise.all(
         const { logic } =
           match(bot).find(({ check }) => {
             return check(f) ?? false;
-          }) ?? defaultLogic(bot);
+          }) ?? unprocessedLogic(bot);
         return logic(f);
       });
     });
