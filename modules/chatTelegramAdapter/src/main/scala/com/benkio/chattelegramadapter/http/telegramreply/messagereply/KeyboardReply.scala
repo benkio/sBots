@@ -44,7 +44,9 @@ object KeyboardReply {
       } yield List(message)
     result
       .handleErrorWith(e =>
-        LogWriter.error(s"[KeyboardReply] error occurred when sending keyboard. Error: $e - Keyboard: $reply") *> List.empty.pure[F]
+        LogWriter.error(
+          s"[KeyboardReply] error occurred when sending keyboard. Error: $e - Keyboard: $reply"
+        ) *> List.empty.pure[F]
       )
   }
 
