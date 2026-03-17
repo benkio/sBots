@@ -170,7 +170,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     }
 
   def inputFileShouldRespondAsExpected(replyBundleMessages: List[ReplyBundleMessage]): Unit =
-    test("The inputs in the `inputTest.txt` file returns the expected values") {
+    test("The inputs in the `inputTest.txt` file returns only the expected values") {
       val inputTextTxt = Paths.get("./src/test/resources/inputTest.txt").toAbsolutePath().normalize()
       val inputTextTxtContent: List[(String, List[String])] = Source
         .fromFile(inputTextTxt.toFile())
@@ -204,6 +204,11 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
           })
       }
       matchingFilenames.zip(inputTextTxtContent).foreach { case (mediaFiles, (input, expectedFilenames)) =>
+        assertEquals(
+          mediaFiles.length,
+          expectedFilenames.length,
+          s"Expected same length for `$input` of expectedFilenames(${expectedFilenames.length}) and retrieved mediafiles(${mediaFiles.length})"
+        )
         expectedFilenames.foreach { expectedFilename =>
           assert(
             mediaFiles.exists(_.filename == expectedFilename),
