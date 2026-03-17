@@ -4,6 +4,113 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "datti fuoco"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "pino_35anniPezzoDiMerdaSputatiFacciaDattiFuoco.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_35anniPezzoDiMerdaSputatiFacciaDattiFuoco.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_35anniPezzoDiMerdaSputatiFacciaDattiFuocoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ScoreggiaViaggianteDattiFuoco.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ScoreggiaViaggianteDattiFuoco.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ScoreggiaViaggianteDattiFuocoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "scoreggia"
+          },
+          {
+            "StringTextTriggerValue" : "ti permetti di"
+          },
+          {
+            "StringTextTriggerValue" : "criticare me"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(10|dieci) euro",
+              "regexLength" : 7
+            }
+          },
+          {
+            "StringTextTriggerValue" : "benzina"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ScoreggiaViaggianteDattiFuoco.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ScoreggiaViaggianteDattiFuocoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ScoreggiaViaggianteDattiFuoco.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "cazzate"
           }
         ]
@@ -588,9 +695,6 @@
           },
           {
             "StringTextTriggerValue" : "sputati in faccia"
-          },
-          {
-            "StringTextTriggerValue" : "datti fuoco"
           },
           {
             "RegexTextTriggerValue" : {
