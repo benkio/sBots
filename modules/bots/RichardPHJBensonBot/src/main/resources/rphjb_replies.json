@@ -4,6 +4,55 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "in vita mia"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Squallida.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Squallida.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_SquallidaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_UnoDeiPiuGrandiDischi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_UnoDeiPiuGrandiDischi.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "natale del male"
           },
           {
@@ -31738,6 +31787,18 @@
               "filepath" : "rphjb_IlPrimoInCantina.mp3",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Squallida.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Squallida.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -38616,9 +38677,6 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "che ho mai sentito"
-          },
-          {
-            "StringTextTriggerValue" : "in vita mia"
           }
         ]
       }
