@@ -4,6 +4,46 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "natale del male"
+          },
+          {
+            "StringTextTriggerValue" : "a satana"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Pollo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Pollo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_PolloGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "medioevo"
           }
         ]
@@ -15610,6 +15650,15 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "paradosso"
+          },
+          {
+            "StringTextTriggerValue" : "disco peggiore"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(mi|a me)? fa schifo",
+              "regexLength" : 10
+            }
           }
         ]
       }
@@ -15626,6 +15675,12 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_Paradosso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Paradosso.mp3",
               "replyToMessage" : false
             }
           }
