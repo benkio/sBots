@@ -81,7 +81,7 @@ object Repository {
   ): Resource[F, Either[Repository.RepositoryError, Array[Byte]]] =
     (for {
       _ <- Resource.eval(
-        LogWriter.info(
+        LogWriter.trace(
           s"""[ResourcesAccess] getResourceByteArray Retrieve the file(${resourceName}) locally at ${getClass()
               .getResource(
                 "/" + resourceName
@@ -102,7 +102,7 @@ object Repository {
             Async[F].delay(bais.write(tempArray, 0, chunk)) *> Async[F].delay(fis.read(tempArray, 0, tempArray.length))
           )(_ != -1)
           result = bais.toByteArray()
-          _ <- LogWriter.info(s"[ResourcesAccess:86:48] getResourceByteArray total bytes read: ${result.size}")
+          _ <- LogWriter.trace(s"[ResourcesAccess:86:48] getResourceByteArray total bytes read: ${result.size}")
         } yield result
       }
       .map(Right(_))

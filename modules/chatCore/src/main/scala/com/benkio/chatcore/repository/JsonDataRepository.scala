@@ -31,7 +31,7 @@ object JsonDataRepository {
 
     override def loadData[T: Decoder](jsonDataFilename: String): F[List[T]] = {
       val program = for {
-        _           <- Resource.eval(LogWriter.info(s"[JsonDataRepository] Load resouces from: $jsonDataFilename"))
+        _           <- Resource.eval(LogWriter.trace(s"[JsonDataRepository] Load resouces from: $jsonDataFilename"))
         eitherBytes <- Repository.getResourceByteArray(jsonDataFilename)
         jsonContent <- Resource.eval(
           eitherBytes.fold(
@@ -39,7 +39,7 @@ object JsonDataRepository {
             bytes => String(bytes, StandardCharsets.UTF_8).pure[F]
           )
         )
-        _       <- Resource.eval(LogWriter.info(s"[JsonDataRepository] jsonContent length: ${jsonContent.length()}"))
+        _       <- Resource.eval(LogWriter.trace(s"[JsonDataRepository] jsonContent length: ${jsonContent.length()}"))
         decoded <- Resource.eval(
           Async[F]
             .fromEither(decode[List[T]](jsonContent))
