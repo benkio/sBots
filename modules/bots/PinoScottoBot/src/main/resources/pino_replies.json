@@ -4,6 +4,61 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "testa di (cazzo|minchia)",
+              "regexLength" : 14
+            }
+          },
+          {
+            "StringTextTriggerValue" : "informati"
+          },
+          {
+            "StringTextTriggerValue" : "coglione"
+          },
+          {
+            "StringTextTriggerValue" : "stronzo"
+          },
+          {
+            "StringTextTriggerValue" : "ignorante"
+          },
+          {
+            "StringTextTriggerValue" : "vai jack"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_InsultiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Insulti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Insulti.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "datti fuoco"
           }
         ]
