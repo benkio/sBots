@@ -4,6 +4,93 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "non m('|i )interessano\\b",
+              "regexLength" : 17
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonMiInteressano.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LacciMaleficiSpaghiCorde.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "non m('|i )interessa\\b",
+              "regexLength" : 15
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_NonMiInteressa.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "il più grande di tutti"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_TelefonataPappalardoFanculo.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "la rabbia"
           }
         ]
@@ -13957,9 +14044,6 @@
             "StringTextTriggerValue" : "bilsamiche"
           },
           {
-            "StringTextTriggerValue" : "non mi interessano"
-          },
-          {
             "StringTextTriggerValue" : "circonciso"
           },
           {
@@ -18172,9 +18256,6 @@
           },
           {
             "StringTextTriggerValue" : "chissenefrega"
-          },
-          {
-            "StringTextTriggerValue" : "non mi interessa"
           },
           {
             "RegexTextTriggerValue" : {
@@ -43125,7 +43206,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "accetto (le|qualsiasi) critich[ea]",
+              "trigger" : "accett[oi] (le|qualsiasi) critich[ea]",
               "regexLength" : 19
             }
           }
