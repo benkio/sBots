@@ -4,6 +4,43 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "petto di pollo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_AmoIlPettoDiPolloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_AmoIlPettoDiPollo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_AmoIlPettoDiPollo.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "pomodoro"
           }
         ]
@@ -124,11 +161,11 @@
       "TextTrigger" : {
         "triggers" : [
           {
-              "StringTextTriggerValue" : " youtube"
+            "StringTextTriggerValue" : "youtube"
           },
-            {
-                "StringTextTriggerValue" : "youtube "
-            },
+          {
+            "StringTextTriggerValue" : "youtube"
+          },
           {
             "StringTextTriggerValue" : "antonio"
           }
@@ -8647,9 +8684,9 @@
           {
             "StringTextTriggerValue" : "scusate"
           },
-            {
-                "StringTextTriggerValue" : "un caro saluto da obesità"
-            }
+          {
+            "StringTextTriggerValue" : "un caro saluto da obesità"
+          }
         ]
       }
     },

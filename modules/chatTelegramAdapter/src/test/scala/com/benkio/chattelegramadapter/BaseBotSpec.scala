@@ -131,15 +131,13 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
           s"there's a duplicate filename into the json ${files.diff(Set(files*).toList)}"
         )
         assert(
-          urls.forall(url =>
-            url.query.exists {
-              case (key, optValue) => {
-                val check = key == "dl" && optValue.fold(false)(_ == "1")
-                if !check then println(s"[BaseBotSpec] url failed the test: ${url}")
-                check
-              }
+          urls.forall(url => {
+            val check = url.query.exists { case (key, optValue) =>
+              key == "dl" && optValue.fold(false)(_ == "1")
             }
-          )
+            if !check then println(s"[BaseBotSpec] url failed the test: ${url}")
+            check
+          })
         )
         mediaFileSources
           .foreach(mfs =>
