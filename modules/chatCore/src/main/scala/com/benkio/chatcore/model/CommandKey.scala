@@ -34,5 +34,4 @@ object CommandKey {
       .stripPrefix("/")
       .takeWhile(c => c != '@' && !c.isWhitespace)
       .toLowerCase(java.util.Locale.ROOT)
-
 }

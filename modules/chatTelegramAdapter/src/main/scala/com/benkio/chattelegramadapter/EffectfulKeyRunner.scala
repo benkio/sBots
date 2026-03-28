@@ -8,7 +8,6 @@ import com.benkio.chatcore.model.reply.Reply.replyValues
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.chatcore.patterns.CommandPatterns.RandomDataCommand
@@ -21,6 +20,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.KeyboardReply
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.KeyboardReply.buildInlineKeyboard
+import com.benkio.chattelegramadapter.model.SearchCommandTelegramKeyboardTitle
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import log.effect.LogWriter
 
@@ -65,7 +65,12 @@ object EffectfulKeyRunner {
           ttl = ttl,
           replyBundleTransformation = replyBundleMessage =>
             TelegramInlineKeyboard(
-              keyboardTitle = (replyBundleMessage.trigger: Trigger).show,
+              keyboardTitle = SearchCommandTelegramKeyboardTitle
+                .build(
+                  m = msg,
+                  trigger = replyBundleMessage.trigger
+                )
+                .value,
               inlineKeyboard = buildInlineKeyboard(
                 data = replyBundleMessage.reply.replyValues,
                 page = page,
