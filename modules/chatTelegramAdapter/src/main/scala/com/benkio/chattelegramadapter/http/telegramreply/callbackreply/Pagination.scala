@@ -10,7 +10,9 @@ import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
+import com.benkio.chattelegramadapter.model.extractInput
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
+import com.benkio.chattelegramadapter.model.TelegramKeyboardTitle
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
 import com.benkio.chattelegramadapter.ComputeReply
 import log.effect.LogWriter
@@ -42,8 +44,13 @@ object Pagination {
         ReplyBundleCommand.from(commandKey, allCommandRepliesData),
         new Throwable(s"[Pagination.reply] Command reply not found for commandKey: $commandKey")
       )
-      optModelMessage = msg.toModelMessage.map(m => m.copy(text = m.text.map(v => s"/${commandKey.asString} $v")))
-      _               = println(s"[Pagination] optModelMessage text: ${optModelMessage.flatMap(_.text).getOrElse("")}")
+      optModelMessage = msg.toModelMessage.map(m =>
+        m.copy(text = {
+          val input = TelegramKeyboardTitle.toTelegramKeyboardTitle(m, commandKey).extractInput
+          s"/${commandKey.asString} $input".some
+        })
+      )
+      _ = println(s"[Pagination] optModelMessage text: ${optModelMessage.flatMap(_.text).getOrElse("")}")
       modelMessage <- MonadThrow[F].fromOption(
         optModelMessage,
         new Throwable("[Pagination.reply] Unknown message type for pagination callback")
