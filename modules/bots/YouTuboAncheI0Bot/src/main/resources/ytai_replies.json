@@ -159,13 +159,11 @@
   {
     "trigger" : {
       "TextTrigger" : {
-        "triggers" : [
-          {
-            "StringTextTriggerValue" : "youtube"
-          },
-          {
-            "StringTextTriggerValue" : "youtube"
-          },
+          "triggers" : [
+              {"RegexTextTriggerValue" : {
+                  "trigger" : "( youtube|youtube )",
+                  "regexLength" : 8
+              }},
           {
             "StringTextTriggerValue" : "antonio"
           }

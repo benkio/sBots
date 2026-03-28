@@ -1330,12 +1330,6 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "RegexTextTriggerValue" : {
-              "trigger" : "\\b(quattro|4)\\b",
-              "regexLength" : 1
-            }
-          },
-          {
             "StringTextTriggerValue" : "danno i numeri"
           },
           {
@@ -43913,13 +43907,13 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "VideoFile" : {
+            "GifFile" : {
               "filepath" : "rphjb_ProntoDimmiGif.mp4",
               "replyToMessage" : false
             }
           },
           {
-            "GifFile" : {
+            "VideoFile" : {
               "filepath" : "rphjb_ProntoDimmi.mp4",
               "replyToMessage" : false
             }
@@ -51536,7 +51530,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
@@ -51587,7 +51581,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
