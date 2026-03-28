@@ -11,7 +11,15 @@ import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.CommandTrigger
+import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.MessageLengthTrigger
+import com.benkio.chatcore.model.NewMemberTrigger
+import com.benkio.chatcore.model.StringTextTriggerValue
+import com.benkio.chatcore.model.TextTrigger
+import com.benkio.chatcore.model.TextTriggerValue
+import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.model.User
 import org.scalacheck.Gen
 
@@ -46,6 +54,15 @@ object Generators {
     isBot     <- Gen.oneOf(false, true)
     firstName <- Gen.alphaStr
   } yield User(id, isBot, firstName)
+
+  val triggerValueGen: Gen[TextTriggerValue] = Gen.alphaStr.map(StringTextTriggerValue.apply)
+  val triggerGen: Gen[Trigger]               = Gen.oneOf(
+    triggerValueGen.map(tv => TextTrigger(tv)),
+    Gen.choose(0, 200).map(MessageLengthTrigger.apply),
+    Gen.asciiPrintableStr.map(CommandTrigger.apply),
+    Gen.const(NewMemberTrigger),
+    Gen.const(LeftMemberTrigger)
+  )
 
   val messageGen: Gen[Message] = for {
     messageId      <- Gen.choose(Int.MinValue, Int.MaxValue)

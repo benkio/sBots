@@ -4,6 +4,7 @@ import telegramium.bots.MaybeInaccessibleMessage
 
 object Generators {
   import com.benkio.chatcore.model.reply.ReplyValue
+  import com.benkio.chatcore.model.CommandKey
   import com.benkio.chatcore.Generators.mediaFileGen
   import com.benkio.chatcore.Generators.textGen
   import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
@@ -63,4 +64,6 @@ object Generators {
   )
 
   val telegramReplyValueGen: Gen[ReplyValue] = Gen.oneOf(textGen, mediaFileGen, telegramInlineKeyboardGen)
+
+  val commandKeyGen: Gen[CommandKey] = Gen.oneOf(CommandKey.values.toSeq)
 }
