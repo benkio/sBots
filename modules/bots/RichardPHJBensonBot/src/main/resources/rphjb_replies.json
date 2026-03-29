@@ -4,6 +4,83 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "non è un uomo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_NonEUnUomo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonEUnUomo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_NonEUnUomoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "devo sapere"
+          },
+          {
+            "StringTextTriggerValue" : "sapere tutto"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_IoDevoSapereTutto.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_IoDevoSapereTutto.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_IoDevoSapereTuttoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "stanco"
           }
         ]
@@ -4425,9 +4502,6 @@
             }
           },
           {
-            "StringTextTriggerValue" : "non è un uomo"
-          },
-          {
             "RegexTextTriggerValue" : {
               "trigger" : "(è|e') (veramente )?una donna",
               "regexLength" : 11
@@ -4440,8 +4514,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_FunzioniGeneggiative.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
-              "filepath" : "rphjb_VoceDaUomo.mp3",
+              "filepath" : "rphjb_FunzioniGeneggiative.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_FunzioniGeneggiativeGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -5374,12 +5460,24 @@
     "reply" : {
       "MediaReply" : {
         "mediaFiles" : [
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_SiamoQuaGif.mp4",
-              "replyToMessage" : false
+            {
+                "VideoFile" : {
+                    "filepath" : "rphjb_ESiamoQua.mp4",
+                    "replyToMessage" : false
+                }
+            },
+            {
+                "Mp3File" : {
+                    "filepath" : "rphjb_ESiamoQua.mp3",
+                    "replyToMessage" : false
+                }
+            },
+            {
+                "GifFile" : {
+                    "filepath" : "rphjb_ESiamoQuaGif.mp4",
+                    "replyToMessage" : false
+                }
             }
-          }
         ],
         "replyToMessage" : false
       }
@@ -6011,8 +6109,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonCapiscoIlSenso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_NonCapiscoIlSenso.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
-              "filepath" : "rphjb_IlSensoCapitoGif.mp4",
+              "filepath" : "rphjb_NonCapiscoIlSensoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -8162,9 +8272,6 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "sapere tutto"
-          },
-          {
             "StringTextTriggerValue" : "se non le sai le cose"
           },
           {
@@ -8175,12 +8282,6 @@
           },
           {
             "StringTextTriggerValue" : "errore tragico"
-          },
-          {
-            "RegexTextTriggerValue" : {
-              "trigger" : "(22|ventidue) maggio",
-              "regexLength" : 9
-            }
           }
         ]
       }
@@ -8190,7 +8291,19 @@
         "mediaFiles" : [
           {
             "VideoFile" : {
-              "filepath" : "rphjb_RadioRockErrori.mp4",
+              "filepath" : "rphjb_RadioRockErroreTragico.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_RadioRockErroreTragico.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_RadioRockErroreTragicoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -12865,6 +12978,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_SembriMicetto.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_SembriMicettoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_SembriMicetto.mp3",
               "replyToMessage" : false
             }
           }
@@ -20083,6 +20208,12 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_MaSgus.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
               "filepath" : "rphjb_MaSgusGif.mp4",
               "replyToMessage" : false
@@ -20705,20 +20836,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_AmmazzaCheSei.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
-              "filepath" : "rphjb_Frocio.mp3",
+              "filepath" : "rphjb_AmmazzaCheSei.mp3",
               "replyToMessage" : false
             }
           },
           {
             "GifFile" : {
-              "filepath" : "rphjb_FrocioGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "rphjb_EduFalasciQuasiFrocio.mp4",
+              "filepath" : "rphjb_AmmazzaCheSeiGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -20810,7 +20941,7 @@
           },
           {
             "GifFile" : {
-              "filepath" : "rphjb_LabbraGif.mp4",
+              "filepath" : "rphjb_RossettoGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -21314,12 +21445,6 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "Mp3File" : {
-              "filepath" : "rphjb_Basta.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
             "GifFile" : {
               "filepath" : "rphjb_BastaGif.mp4",
               "replyToMessage" : false
@@ -21374,8 +21499,20 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_CioeBasta.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CioeBasta.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
-              "filepath" : "rphjb_BastaSediaGif.mp4",
+              "filepath" : "rphjb_CioeBastaGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -21804,8 +21941,20 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonCapiscoIlSenso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_NonCapiscoIlSenso.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
-              "filepath" : "rphjb_IlSensoCapitoGif.mp4",
+              "filepath" : "rphjb_NonCapiscoIlSensoGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -23276,7 +23425,19 @@
           },
           {
             "VideoFile" : {
-              "filepath" : "rphjb_RadioRockErrori.mp4",
+              "filepath" : "rphjb_RadioRockErroreTragico.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_RadioRockErroreTragico.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_RadioRockErroreTragicoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -23311,6 +23472,12 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_MaiErrori.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MaiErrori.mp3",
               "replyToMessage" : false
             }
           }
@@ -23532,6 +23699,12 @@
     "reply" : {
       "MediaReply" : {
         "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_NonVoglioNessuno.mp3",
+              "replyToMessage" : false
+            }
+          },
           {
             "GifFile" : {
               "filepath" : "rphjb_NonVoglioNessunoGif.mp4",
@@ -28943,8 +29116,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_AmmazzaCheSei.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
-              "filepath" : "rphjb_EduFalasci.mp3",
+              "filepath" : "rphjb_AmmazzaCheSei.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_AmmazzaCheSeiGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -28963,12 +29148,6 @@
           {
             "GifFile" : {
               "filepath" : "rphjb_VergognatiMatosFalasciGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "rphjb_EduFalasciQuasiFrocio.mp4",
               "replyToMessage" : false
             }
           }
@@ -30339,12 +30518,6 @@
     "reply" : {
       "MediaReply" : {
         "mediaFiles" : [
-          {
-            "Mp3File" : {
-              "filepath" : "rphjb_VoceDaUomo.mp3",
-              "replyToMessage" : false
-            }
-          },
           {
             "VideoFile" : {
               "filepath" : "rphjb_CantanteDonnaVoceDaUomoInnamorato.mp4",
@@ -32667,8 +32840,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonCapiscoIlSenso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_NonCapiscoIlSenso.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
-              "filepath" : "rphjb_IlSensoCapitoGif.mp4",
+              "filepath" : "rphjb_NonCapiscoIlSensoGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -42457,7 +42642,19 @@
         "mediaFiles" : [
           {
             "VideoFile" : {
-              "filepath" : "rphjb_RadioRockErrori.mp4",
+              "filepath" : "rphjb_RadioRockErroreTragico.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_RadioRockErroreTragico.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_RadioRockErroreTragicoGif.mp4",
               "replyToMessage" : false
             }
           },
