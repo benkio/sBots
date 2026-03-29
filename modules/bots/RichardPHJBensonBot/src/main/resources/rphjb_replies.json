@@ -4,6 +4,83 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "non è un uomo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_NonEUnUomo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonEUnUomo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_NonEUnUomoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "devo sapere"
+          },
+          {
+            "StringTextTriggerValue" : "sapere tutto"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_IoDevoSapereTutto.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_IoDevoSapereTutto.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_IoDevoSapereTuttoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "stanco"
           }
         ]
@@ -4425,9 +4502,6 @@
             }
           },
           {
-            "StringTextTriggerValue" : "non è un uomo"
-          },
-          {
             "RegexTextTriggerValue" : {
               "trigger" : "(è|e') (veramente )?una donna",
               "regexLength" : 11
@@ -4440,8 +4514,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_FunzioniGeneggiative.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
-              "filepath" : "rphjb_VoceDaUomo.mp3",
+              "filepath" : "rphjb_FunzioniGeneggiative.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_FunzioniGeneggiativeGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -30420,12 +30506,6 @@
     "reply" : {
       "MediaReply" : {
         "mediaFiles" : [
-          {
-            "Mp3File" : {
-              "filepath" : "rphjb_VoceDaUomo.mp3",
-              "replyToMessage" : false
-            }
-          },
           {
             "VideoFile" : {
               "filepath" : "rphjb_CantanteDonnaVoceDaUomoInnamorato.mp4",
