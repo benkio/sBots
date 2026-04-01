@@ -5460,24 +5460,24 @@
     "reply" : {
       "MediaReply" : {
         "mediaFiles" : [
-            {
-                "VideoFile" : {
-                    "filepath" : "rphjb_ESiamoQua.mp4",
-                    "replyToMessage" : false
-                }
-            },
-            {
-                "Mp3File" : {
-                    "filepath" : "rphjb_ESiamoQua.mp3",
-                    "replyToMessage" : false
-                }
-            },
-            {
-                "GifFile" : {
-                    "filepath" : "rphjb_ESiamoQuaGif.mp4",
-                    "replyToMessage" : false
-                }
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ESiamoQua.mp4",
+              "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ESiamoQua.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_ESiamoQuaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
         ],
         "replyToMessage" : false
       }
@@ -35179,6 +35179,12 @@
           },
           {
             "StringTextTriggerValue" : "da quello che hai dentro"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "può essere (rosa|grigio)",
+              "regexLength" : 15
+            }
           }
         ]
       }
@@ -35187,20 +35193,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "Mp3File" : {
+              "filepath" : "rphjb_VitaStatoMentale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
-              "filepath" : "rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
+              "filepath" : "rphjb_VitaStatoMentaleGif.mp4",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
-              "filepath" : "rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "rphjb_InFondoInBrancoSulPalcoDaSoli.mp3",
+              "filepath" : "rphjb_VitaStatoMentale.mp4",
               "replyToMessage" : false
             }
           }
@@ -51727,7 +51733,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
@@ -51778,7 +51784,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
