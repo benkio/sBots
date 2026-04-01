@@ -275,7 +275,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       dbMedia        <- dbRes.resourceDBLayer.map(_.dbMedia)
       dbMediaEntries <- Resource.eval(
         dbMedia
-          .getMediaByMediaCount(botId = Some(sBotConfig.sBotInfo.botId))
+          .getAllMedia(botId = Some(sBotConfig.sBotInfo.botId))
           .map(
             _.map(mediaData => (mediaData.media_name, decode[List[String]](mediaData.kinds).getOrElse(List.empty)))
           )

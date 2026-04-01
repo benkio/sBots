@@ -48,6 +48,9 @@ trait DBMedia[F[_]] {
   def incrementMediaCount(filename: String): F[Unit]
   def decrementMediaCount(filename: String): F[Unit]
   def insertMedia(dbMediaData: DBMediaData): F[Unit]
+
+  // For test purposes only
+  def getAllMedia(botId: Option[SBotId] = None): F[List[DBMediaData]]
 }
 
 object DBMedia {
@@ -162,11 +165,18 @@ object DBMedia {
         botId: Option[SBotId] = None
     ): F[List[DBMediaData]] =
       log.debug(
-        s"[DBMedia] getMediaByMediaCount for prefix $botId. SQL: ${getMediaQueryByMediaCount(botId = botId).sql}"
+        s"[DBMedia] getMediaByMediaCount for prefix $botId. SQL: ${getMediaQueryByMediaCount(limit = limit, botId = botId).sql}"
       ) >>
-        getMediaQueryByMediaCount(botId = botId)
+        getMediaQueryByMediaCount(limit = limit, botId = botId)
           .to[List]
-          .map(_.take(limit))
+          .transact(transactor)
+
+    override def getAllMedia(botId: Option[SBotId] = None): F[List[DBMediaData]] =
+      log.debug(
+        s"[DBMedia] getAllMedia for prefix $botId. SQL: ${getAllMediaQuery(botId = botId).sql}"
+      ) >>
+        getAllMediaQuery(botId = botId)
+          .to[List]
           .transact(transactor)
 
     override def insertMedia(dbMediaData: DBMediaData): F[Unit] =
@@ -210,11 +220,20 @@ object DBMedia {
       )).query[DBMediaData]
   }
 
-  def getMediaQueryByMediaCount(botId: Option[SBotId]): Query0[DBMediaData] = {
+  def getMediaQueryByMediaCount(limit: Int, botId: Option[SBotId]): Query0[DBMediaData] = {
     val q: Fragment =
       fr"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
         Fragments.whereAndOpt(botId.map(s => fr"bot_id = ${s.value}")) ++
-        fr"ORDER BY media_count DESC"
+        fr"ORDER BY media_count DESC" ++
+        fr"LIMIT $limit"
+
+    q.query[DBMediaData]
+  }
+
+  def getAllMediaQuery(botId: Option[SBotId]): Query0[DBMediaData] = {
+    val q: Fragment =
+      fr"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
+        Fragments.whereAndOpt(botId.map(s => fr"bot_id = ${s.value}"))
 
     q.query[DBMediaData]
   }

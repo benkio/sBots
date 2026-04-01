@@ -62,7 +62,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     check(DBMedia.getMediaQueryByName(testMediaName))
     check(DBMedia.getMediaQueryByRandom(testMediaId))
     check(DBMedia.getMediaQueryByKind(kind = testMediaKind, botId = testMediaId))
-    check(DBMedia.getMediaQueryByMediaCount(botId = Some(testMediaId)))
+    check(DBMedia.getMediaQueryByMediaCount(limit = 20, botId = Some(testMediaId)))
   }
 
   databaseFixture.test(
