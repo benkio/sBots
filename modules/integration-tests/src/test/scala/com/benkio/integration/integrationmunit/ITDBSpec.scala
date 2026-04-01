@@ -64,10 +64,10 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       }
     }
 
-  // list file filenames should match DB content and list items should either be in bot data or explicitly typed with kinds
+  // list file filenames should match DB content and list items should either be in message replies or explicitly typed with kinds
   botEntries.foreach { entry =>
     databaseFixture.test(
-      s"${entry.sBotInfo.botName.value}: list filenames should match DB entries and list extras should have kinds"
+      s"${entry.sBotInfo.botName.value}: list filenames should match DB entries and DB media should be in message replies or by kind"
     ) { dbRes =>
       runListDbAndKindCheck(dbRes, entry).use(b => assert(b, true).pure[IO])
     }
@@ -256,16 +256,38 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         commandRepliesData,
         entry.commandEffectfulCallback
       )
-      replyMediaFiles = sBot.messageRepliesData.flatMap(_.getMediaFiles).map(_.filename).toSet
+      replyMediaFiles     = sBot.messageRepliesData.flatMap(_.getMediaFiles).map(_.filename).toSet
+      commandMediaFiles   = sBot.commandRepliesData.flatMap(_.getMediaFiles).map(_.filename).toSet
+      allReplyMediaFiles  = replyMediaFiles ++ commandMediaFiles
+      mediaByKindCommands = sBot.commandRepliesData.flatMap { commandReply =>
+        commandReply.reply match {
+          case com.benkio.chatcore.model.reply.EffectfulReply(
+                com.benkio.chatcore.model.reply.EffectfulKey.MediaByKind(key, _),
+                _
+              ) =>
+            List(key)
+          case _ => List.empty
+        }
+      }.toSet
       listEntriesValue <- Resource.eval(IO.fromEither(listEntries))
       filesSet      = listEntriesValue.map(_.filename).toSet
       mediaWithKind = listEntriesValue.filter(file => !replyMediaFiles.contains(file.filename))
-      dbMedia      <- dbRes.resourceDBLayer.map(_.dbMedia)
-      dbMediaNames <- Resource.eval(
-        dbMedia.getMediaByMediaCount(botId = Some(sBotConfig.sBotInfo.botId)).map(_.map(_.media_name).toSet)
+      dbMedia        <- dbRes.resourceDBLayer.map(_.dbMedia)
+      dbMediaEntries <- Resource.eval(
+        dbMedia
+          .getMediaByMediaCount(botId = Some(sBotConfig.sBotInfo.botId))
+          .map(
+            _.map(mediaData => (mediaData.media_name, decode[List[String]](mediaData.kinds).getOrElse(List.empty)))
+          )
       )
-      listMinusDb = filesSet.filterNot(dbMediaNames.contains)
-      dbMinusList = dbMediaNames.filterNot(filesSet.contains)
+      dbMediaNames     = dbMediaEntries.map(_._1).toSet
+      listMinusDb      = filesSet.filterNot(dbMediaNames.contains)
+      dbMinusList      = dbMediaNames.filterNot(filesSet.contains)
+      uncoveredDbMedia = dbMediaEntries
+        .filterNot { case (mediaName, mediaKinds) =>
+          allReplyMediaFiles.contains(mediaName) || mediaKinds.exists(mediaByKindCommands.contains)
+        }
+        .map(_._1)
       kindMissing = mediaWithKind.filter(_.kinds.isEmpty).map(_.filename)
     } yield {
       assert(
@@ -277,6 +299,12 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         s"[ITDBSpec] DB/list mismatch for ${sBotConfig.sBotInfo.botName.value}." +
           s"\nIn list and not in DB: ${listMinusDb.toList.sorted}" +
           s"\nIn DB and not in list: ${dbMinusList.toList.sorted}"
+      )
+      assert(
+        uncoveredDbMedia.isEmpty,
+        s"[ITDBSpec] Found DB media entries not covered by message replies or media-by-kind commands for ${sBotConfig.sBotInfo.botName.value}: ${uncoveredDbMedia.toList.sorted}" +
+          s"\nAvailable media-by-kind command names: ${mediaByKindCommands.toList.sorted}" +
+          "\nMedia-by-kind commands must exist in commands JSON using `EffectfulReply -> MediaByKind`"
       )
       true
     }
