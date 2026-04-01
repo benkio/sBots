@@ -64,6 +64,15 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       }
     }
 
+  // list file filenames should match DB content and list items should either be in bot data or explicitly typed with kinds
+  botEntries.foreach { entry =>
+    databaseFixture.test(
+      s"${entry.sBotInfo.botName.value}: list filenames should match DB entries and list extras should have kinds"
+    ) { dbRes =>
+      runListDbAndKindCheck(dbRes, entry).use(b => assert(b, true).pure[IO])
+    }
+  }
+
   private def runMessageRepliesFileCheck(
       dbRes: com.benkio.integration.DBFixtureResources,
       entry: com.benkio.main.BotRegistryEntry[IO]
@@ -146,6 +155,16 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     }
   }
 
+  private def getBotListEntries(sBotConfig: SBotConfig): Either[Throwable, List[MediaFileSource]] = {
+    val listPath = Paths
+      .get(s"../bots/${sBotConfig.sBotInfo.botName.value}/${sBotConfig.sBotInfo.botId.value}_list.json")
+      .toAbsolutePath()
+      .normalize()
+    scala.util.Try(Files.readString(listPath)).toEither.flatMap { jsonContent =>
+      decode[List[MediaFileSource]](jsonContent)
+    }
+  }
+
   private def runCommandRepliesJsonContainmentCheck(
       dbRes: com.benkio.integration.DBFixtureResources,
       entry: com.benkio.main.BotRegistryEntry[IO]
@@ -214,5 +233,52 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
           )
       )
     } yield checks.foldLeft(true)(_ && _)
+  }
+
+  private def runListDbAndKindCheck(
+      dbRes: com.benkio.integration.DBFixtureResources,
+      entry: com.benkio.main.BotRegistryEntry[IO]
+  ): Resource[IO, Boolean] = {
+    val sBotConfig  = entry.sBotConfig
+    val listEntries = getBotListEntries(sBotConfig)
+    for {
+      botSetup           <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
+      messageRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
+      )
+      commandRepliesData <- Resource.eval(
+        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
+      )
+      given telegramium.bots.high.Api[IO] = botSetup.api
+      sBot                                = new SBotPolling[IO](
+        botSetup,
+        messageRepliesData,
+        commandRepliesData,
+        entry.commandEffectfulCallback
+      )
+      replyMediaFiles = sBot.messageRepliesData.flatMap(_.getMediaFiles).map(_.filename).toSet
+      listEntriesValue <- Resource.eval(IO.fromEither(listEntries))
+      filesSet      = listEntriesValue.map(_.filename).toSet
+      mediaWithKind = listEntriesValue.filter(file => !replyMediaFiles.contains(file.filename))
+      dbMedia      <- dbRes.resourceDBLayer.map(_.dbMedia)
+      dbMediaNames <- Resource.eval(
+        dbMedia.getMediaByMediaCount(botId = Some(sBotConfig.sBotInfo.botId)).map(_.map(_.media_name).toSet)
+      )
+      listMinusDb = filesSet.filterNot(dbMediaNames.contains)
+      dbMinusList = dbMediaNames.filterNot(filesSet.contains)
+      kindMissing = mediaWithKind.filter(_.kinds.isEmpty).map(_.filename)
+    } yield {
+      assert(
+        kindMissing.isEmpty,
+        s"[ITDBSpec] Found files in list not referenced by replies and with no kinds for ${sBotConfig.sBotInfo.botName.value}: ${kindMissing.toList.sorted}"
+      )
+      assert(
+        listMinusDb.isEmpty && dbMinusList.isEmpty,
+        s"[ITDBSpec] DB/list mismatch for ${sBotConfig.sBotInfo.botName.value}." +
+          s"\nIn list and not in DB: ${listMinusDb.toList.sorted}" +
+          s"\nIn DB and not in list: ${dbMinusList.toList.sorted}"
+      )
+      true
+    }
   }
 }
