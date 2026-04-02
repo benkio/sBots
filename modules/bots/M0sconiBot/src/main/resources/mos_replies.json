@@ -4,6 +4,77 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "stronzi"
+          },
+          {
+            "StringTextTriggerValue" : "ma bisogna essere"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "mos_Stronzi.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "sorpresa"
+          },
+          {
+            "StringTextTriggerValue" : "squalifica"
+          },
+          {
+            "StringTextTriggerValue" : "quel che riguarda"
+          },
+          {
+            "StringTextTriggerValue" : "un turno"
+          },
+          {
+            "StringTextTriggerValue" : "stavo pensando"
+          },
+          {
+            "StringTextTriggerValue" : "stavo sentendo"
+          },
+          {
+            "StringTextTriggerValue" : "celeste pin"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "mos_SorpresaOrcoDio.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "RegexTextTriggerValue" : {
               "trigger" : "va l[aà]",
               "regexLength" : 5
@@ -739,7 +810,7 @@
         "mediaFiles" : [
           {
             "Mp3File" : {
-                "filepath" : "mos_TuttoDaCapo.mp3",
+              "filepath" : "mos_TuttoDaCapo.mp3",
               "replyToMessage" : false
             }
           },
@@ -1359,6 +1430,12 @@
           {
             "Mp3File" : {
               "filepath" : "mos_TuttoDaCapo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "mos_SorpresaOrcoDio.mp3",
               "replyToMessage" : false
             }
           }

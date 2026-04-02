@@ -1,8 +1,8 @@
 package com.benkio.chatcore.conversions
 
 import cats.syntax.all.*
-import io.circe.Decoder
 import io.circe.parser.decode
+import io.circe.Decoder
 
 object Json {
   def decodeStringToJson[A: Decoder](kinds: String): List[A] =
