@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.conversions.Json.decodeStringToJson
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
@@ -15,11 +16,11 @@ import com.benkio.integration.DBFixture
 import com.benkio.integrationtest.Logger.given
 import com.benkio.main.*
 import doobie.implicits.*
-import io.circe.parser.decode
 import munit.CatsEffectSuite
 
 import java.nio.file.Files
 import java.nio.file.Paths
+import scala.util.Try
 
 /** Unified IT DB spec: runs the same DB/media checks for every bot in the registry. */
 class ITDBSpec extends CatsEffectSuite with DBFixture {
@@ -145,23 +146,23 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     } yield checks.foldLeft(true)(_ && _)
   }
 
-  private def getBotListContent(sBotConfig: SBotConfig): Either[Throwable, List[String]] = {
+  private def getBotListContent(sBotConfig: SBotConfig): Try[List[String]] = {
     val listPath = Paths
       .get(s"../bots/${sBotConfig.sBotInfo.botName.value}/${sBotConfig.sBotInfo.botId.value}_list.json")
       .toAbsolutePath()
       .normalize()
-    scala.util.Try(Files.readString(listPath)).toEither.flatMap { jsonContent =>
-      decode[List[MediaFileSource]](jsonContent).map(_.map(_.filename))
+    Try(Files.readString(listPath)).map { jsonContent =>
+      decodeStringToJson[MediaFileSource](jsonContent).map(_.filename)
     }
   }
 
-  private def getBotListEntries(sBotConfig: SBotConfig): Either[Throwable, List[MediaFileSource]] = {
+  private def getBotListEntries(sBotConfig: SBotConfig): Try[List[MediaFileSource]] = {
     val listPath = Paths
       .get(s"../bots/${sBotConfig.sBotInfo.botName.value}/${sBotConfig.sBotInfo.botId.value}_list.json")
       .toAbsolutePath()
       .normalize()
-    scala.util.Try(Files.readString(listPath)).toEither.flatMap { jsonContent =>
-      decode[List[MediaFileSource]](jsonContent)
+    scala.util.Try(Files.readString(listPath)).map { jsonContent =>
+      decodeStringToJson[MediaFileSource](jsonContent)
     }
   }
 
@@ -269,7 +270,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
           case _ => List.empty
         }
       }.toSet
-      listEntriesValue <- Resource.eval(IO.fromEither(listEntries))
+      listEntriesValue <- Resource.eval(IO.fromTry(listEntries))
       filesSet      = listEntriesValue.map(_.filename).toSet
       mediaWithKind = listEntriesValue.filter(file => !allReplyMediaFiles.contains(file.filename))
       dbMedia        <- dbRes.resourceDBLayer.map(_.dbMedia)
@@ -277,22 +278,28 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         dbMedia
           .getAllMedia(botId = Some(sBotConfig.sBotInfo.botId))
           .map(
-            _.map(mediaData => (mediaData.media_name, decode[List[String]](mediaData.kinds).getOrElse(List.empty)))
+            _.map(mediaData =>
+              (
+                mediaData.media_name,
+                decodeStringToJson[String](mediaData.kinds)
+              )
+            )
           )
       )
       dbMediaNames     = dbMediaEntries.map(_._1)
       listMinusDb      = filesSet.filterNot(dbMediaNames.contains)
       dbMinusList      = dbMediaNames.filterNot(filesSet.contains)
-      _ = println(s"[ITDBSpec] mediaByKindCommands: ${mediaByKindCommands}")
+      _                = println(s"[ITDBSpec] mediaByKindCommands: ${mediaByKindCommands}")
       uncoveredDbMedia = dbMediaEntries
         .filterNot { case (mediaName, mediaKinds) =>
           allReplyMediaFiles.contains(mediaName) || mediaKinds.exists(mediaByKindCommands.contains)
         }
-      .map{ case (mediaName, mediaKinds) => {
-        println(s"[ITDBSpec] mediaName: ${mediaName} - mediaKinds: $mediaKinds")
-        mediaName
-      }
-      }
+        .map {
+          case (mediaName, mediaKinds) => {
+            println(s"[ITDBSpec] mediaName: ${mediaName} - mediaKinds: $mediaKinds")
+            mediaName
+          }
+        }
       kindMissing = mediaWithKind.filter(_.kinds.isEmpty).map(_.filename)
     } yield {
       assert(

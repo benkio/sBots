@@ -1,12 +1,12 @@
 package com.benkio.chatcore.model.media
 
 import cats.syntax.all.*
+import com.benkio.chatcore.conversions.Json.decodeStringToJson
 import com.benkio.chatcore.model.media.MediaFileSource.given
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.MimeTypeOps
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBMediaData
-import io.circe.parser.decode
 import org.http4s.Uri
 
 import java.time.Instant
@@ -29,13 +29,9 @@ object Media {
   } yield Media(
     mediaName = dbMediaData.media_name,
     botId = SBotId(dbMediaData.bot_id),
-    kinds = decode[List[String]](dbMediaData.kinds)
-      .handleErrorWith(_ => decode[String](dbMediaData.kinds).flatMap(decode[List[String]]))
-      .getOrElse(List.empty),
+    kinds = decodeStringToJson[String](dbMediaData.kinds),
     mimeType = MimeTypeOps.mimeTypeOrDefault(dbMediaData.media_name, dbMediaData.mime_type.some),
-    mediaSources = decode[List[Either[String, Uri]]](dbMediaData.media_sources)
-      .handleErrorWith(_ => decode[String](dbMediaData.media_sources).flatMap(decode[List[Either[String, Uri]]]))
-      .getOrElse(List.empty),
+    mediaSources = decodeStringToJson[Either[String, Uri]](dbMediaData.media_sources),
     mediaCount = dbMediaData.media_count,
     createdAt = createdAt
   )
