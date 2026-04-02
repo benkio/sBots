@@ -224,8 +224,8 @@ object DBMedia {
     val q: Fragment =
       fr"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media" ++
         Fragments.whereAndOpt(botId.map(s => fr"bot_id = ${s.value}")) ++
-        fr"ORDER BY media_count DESC" ++
-        fr"LIMIT $limit"
+        fr" ORDER BY media_count DESC" ++
+        fr" LIMIT ${limit.toString}"
 
     q.query[DBMediaData]
   }

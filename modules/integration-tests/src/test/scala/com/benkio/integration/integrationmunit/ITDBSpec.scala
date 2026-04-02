@@ -271,7 +271,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       }.toSet
       listEntriesValue <- Resource.eval(IO.fromEither(listEntries))
       filesSet      = listEntriesValue.map(_.filename).toSet
-      mediaWithKind = listEntriesValue.filter(file => !replyMediaFiles.contains(file.filename))
+      mediaWithKind = listEntriesValue.filter(file => !allReplyMediaFiles.contains(file.filename))
       dbMedia        <- dbRes.resourceDBLayer.map(_.dbMedia)
       dbMediaEntries <- Resource.eval(
         dbMedia
@@ -280,14 +280,19 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
             _.map(mediaData => (mediaData.media_name, decode[List[String]](mediaData.kinds).getOrElse(List.empty)))
           )
       )
-      dbMediaNames     = dbMediaEntries.map(_._1).toSet
+      dbMediaNames     = dbMediaEntries.map(_._1)
       listMinusDb      = filesSet.filterNot(dbMediaNames.contains)
       dbMinusList      = dbMediaNames.filterNot(filesSet.contains)
+      _ = println(s"[ITDBSpec] mediaByKindCommands: ${mediaByKindCommands}")
       uncoveredDbMedia = dbMediaEntries
         .filterNot { case (mediaName, mediaKinds) =>
           allReplyMediaFiles.contains(mediaName) || mediaKinds.exists(mediaByKindCommands.contains)
         }
-        .map(_._1)
+      .map{ case (mediaName, mediaKinds) => {
+        println(s"[ITDBSpec] mediaName: ${mediaName} - mediaKinds: $mediaKinds")
+        mediaName
+      }
+      }
       kindMissing = mediaWithKind.filter(_.kinds.isEmpty).map(_.filename)
     } yield {
       assert(
