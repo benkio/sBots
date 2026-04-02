@@ -4,6 +4,169 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "robert plant"
+          },
+          {
+            "StringTextTriggerValue" : "si sono riformati"
+          },
+          {
+            "StringTextTriggerValue" : "dita che non funzionano"
+          },
+          {
+            "StringTextTriggerValue" : "vecchio frocio"
+          },
+          {
+            "StringTextTriggerValue" : "non ha più voce"
+          },
+          {
+            "StringTextTriggerValue" : "scornacchiato"
+          },
+          {
+            "StringTextTriggerValue" : "john paul jones"
+          },
+          {
+            "StringTextTriggerValue" : "bonham"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LedZeppelin.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "jimmy page"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ChitarristiProsciuttoOrecchie.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ChitarristiProsciuttoOrecchie.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LedZeppelin.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(se|quando) va tutto bene",
+              "regexLength" : 16
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "mille (serate|donne)",
+              "regexLength" : 12
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "momenti più (brutti|malefici)",
+              "regexLength" : 18
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Amore.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "il medesimo"
+          },
+          {
+            "StringTextTriggerValue" : "una diversità"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_AltroLook.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_AltroLook.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_AltroLookGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "non è un uomo"
           }
         ]
@@ -2045,6 +2208,12 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_Uuu.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LedZeppelin.mp3",
               "replyToMessage" : false
             }
           }
@@ -5460,24 +5629,24 @@
     "reply" : {
       "MediaReply" : {
         "mediaFiles" : [
-            {
-                "VideoFile" : {
-                    "filepath" : "rphjb_ESiamoQua.mp4",
-                    "replyToMessage" : false
-                }
-            },
-            {
-                "Mp3File" : {
-                    "filepath" : "rphjb_ESiamoQua.mp3",
-                    "replyToMessage" : false
-                }
-            },
-            {
-                "GifFile" : {
-                    "filepath" : "rphjb_ESiamoQuaGif.mp4",
-                    "replyToMessage" : false
-                }
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ESiamoQua.mp4",
+              "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ESiamoQua.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_ESiamoQuaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
         ],
         "replyToMessage" : false
       }
@@ -14340,6 +14509,12 @@
               "filepath" : "rphjb_IlGrandeAmoreDalMaleAmoreVero.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Amore.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -17607,6 +17782,12 @@
               "filepath" : "rphjb_PoveriIgnorantiLatteDrogaSoloGreggeSputoGif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Basta2.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -19169,6 +19350,12 @@
               "filepath" : "rphjb_SchifosoUltimiGif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_SchifosiUltimi.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -19564,6 +19751,12 @@
           {
             "Sticker" : {
               "filepath" : "rphjb_WelaBensoniani.sticker",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_WelaLetsGoodMyFriends.mp3",
               "replyToMessage" : false
             }
           }
@@ -21515,6 +21708,18 @@
               "filepath" : "rphjb_CioeBastaGif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Basta.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Basta2.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -22455,6 +22660,18 @@
           {
             "GifFile" : {
               "filepath" : "rphjb_MaFatelaFinitaVoiUltimiSchifosiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Basta2.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_SchifosiUltimi.mp4",
               "replyToMessage" : false
             }
           }
@@ -24512,6 +24729,18 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_Venerdi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MercolediVenerdiLucaDiNoia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MercolediVenerdiLucaDiNoia.mp4",
               "replyToMessage" : false
             }
           }
@@ -26897,6 +27126,12 @@
               "filepath" : "rphjb_WelaCiaoSonoRichardBenson.mp3",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_WelaLetsGoodMyFriends.mp3",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -28444,6 +28679,18 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_LucaDiNoiaControDemonio.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MercolediVenerdiLucaDiNoia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MercolediVenerdiLucaDiNoia.mp4",
               "replyToMessage" : false
             }
           }
@@ -30137,6 +30384,18 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_Alle22MercolediTelevita.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MercolediVenerdiLucaDiNoia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MercolediVenerdiLucaDiNoia.mp4",
               "replyToMessage" : false
             }
           }
@@ -32222,7 +32481,7 @@
           },
           {
             "Sticker" : {
-              "filepath" : "rphjb_LavoraTuBensoniani.sticker",
+              "filepath" : "rphjb_DaHollywoodBensoniani.sticker",
               "replyToMessage" : false
             }
           }
@@ -35179,6 +35438,12 @@
           },
           {
             "StringTextTriggerValue" : "da quello che hai dentro"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "può essere (rosa|grigio)",
+              "regexLength" : 15
+            }
           }
         ]
       }
@@ -35187,20 +35452,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "Mp3File" : {
+              "filepath" : "rphjb_VitaStatoMentale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
-              "filepath" : "rphjb_InFondoInBrancoSulPalcoDaSoliGif.mp4",
+              "filepath" : "rphjb_VitaStatoMentaleGif.mp4",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
-              "filepath" : "rphjb_InFondoInBrancoSulPalcoDaSoli.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "rphjb_InFondoInBrancoSulPalcoDaSoli.mp3",
+              "filepath" : "rphjb_VitaStatoMentale.mp4",
               "replyToMessage" : false
             }
           }
@@ -36840,9 +37105,6 @@
           },
           {
             "StringTextTriggerValue" : "sono sempre quelli"
-          },
-          {
-            "StringTextTriggerValue" : "jimmy page"
           },
           {
             "StringTextTriggerValue" : "blackmore"
@@ -40429,6 +40691,24 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_MortoPippoBaudo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_AltroLook.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_AltroLook.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_AltroLookGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -44456,6 +44736,12 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_SareteVoiAGiudicare.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ComeFaiAGiudicare.mp4",
               "replyToMessage" : false
             }
           }
@@ -51187,6 +51473,12 @@
               "filepath" : "rphjb_GruppiNuoviSpaccanoCulo.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LedZeppelin.mp3",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -51243,6 +51535,12 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_FrocioCoglione.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Coglione.mp4",
               "replyToMessage" : false
             }
           }
@@ -51727,7 +52025,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
@@ -51778,7 +52076,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
