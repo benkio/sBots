@@ -1,16 +1,11 @@
-import { fixMp3ArtistId3Tag } from './Id3NodeService';
-import * as path from 'node:path';
 import * as fs from 'node:fs';
-import {
-  checkAudioTrackMissing,
-  checkAudioVideoTrackExists,
-  MediaInfoCheckReturn,
-} from './mediaInfoFunctions';
+import * as path from 'node:path';
 import { Effect } from 'effect';
 import { FileService, fileServiceLayer } from './FileService';
+import { Id3TagService, Id3TagServiceLayer } from './Id3NodeService';
+import { MediaInfoService, mediaInfoServiceLayer } from './MediaInfoService';
 import logger from './logger';
 
-// Types //////////////////////////////////////////////////////////////////////
 type Bot = {
   id: string;
   artist: string;
@@ -19,9 +14,20 @@ type Bot = {
 
 type Matches = {
   check: (f: string) => Boolean;
-  logic: (f: string) => void;
+  logic: (f: string) => Effect.Effect<void, unknown>;
 };
-// Inputs /////////////////////////////////////////////////////////////////////
+
+type Id3TagServiceLike = {
+  fixMp3ArtistId3Tag: (
+    file: string,
+    artist: string
+  ) => Effect.Effect<void, unknown>;
+};
+
+type MediaInfoServiceLike = {
+  checkAudioTrackMissing: (filePath: string) => Effect.Effect<boolean>;
+  checkAudioVideoTrackExists: (filePath: string) => Effect.Effect<boolean>;
+};
 
 const baseDir = '/Dropbox/sBots/';
 
@@ -54,116 +60,128 @@ const bots: Bot[] = [
   },
 ];
 
-// Logic //////////////////////////////////////////////////////////////////////
-
-function match(bot: Bot): Matches[] {
-  return [
-    {
-      check: (f: string) => {
-        return path.basename(f).length > 64;
-      },
-      logic: (f: string) =>
+const buildFileLogic = (
+  bot: Bot,
+  id3TagService: Id3TagServiceLike,
+  mediaInfoService: MediaInfoServiceLike
+): Matches[] => [
+  {
+    check: (f: string) => path.basename(f).length > 64,
+    logic: (f: string) =>
+      Effect.sync(() =>
         logger.error(
           `[filesCheck] 🚫 ${path.basename(f)} is too long (max 64): ${path.basename(f).length}`
-        ),
+        )
+      ),
+  },
+  {
+    check: (f: string) => {
+      const mp3Regex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp3$`);
+      return mp3Regex.test(path.basename(f));
     },
-    {
-      check: (f: string) => {
-        const mp3Regex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp3$`);
-        return mp3Regex.test(path.basename(f));
-      },
-      logic: (f: string) => fixMp3ArtistId3Tag(f, bot.artist),
+    logic: (f: string) => id3TagService.fixMp3ArtistId3Tag(f, bot.artist),
+  },
+  {
+    check: (f: string) => {
+      const gifRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+Gif.mp4$`);
+      return gifRegex.test(path.basename(f));
     },
-    {
-      check: (f: string) => {
-        const gifRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+Gif.mp4$`);
-        return gifRegex.test(path.basename(f));
-      },
-      logic: async (f: string) => {
-        const result: MediaInfoCheckReturn = await checkAudioTrackMissing(f);
-        if ('tracks' in result) {
-          logger.error(
-            `[filesCheck] 🚫  ${path.basename(f)} contains audio track ${result.tracks}`
+    logic: (f: string) =>
+      mediaInfoService.checkAudioTrackMissing(f).pipe(
+        Effect.flatMap((hasAudioTrack: boolean) => {
+          if (hasAudioTrack) {
+            return Effect.sync(() =>
+              logger.error(
+                `[filesCheck] 🚫  ${path.basename(f)} contains audio track`
+              )
+            );
+          }
+          return Effect.sync(() =>
+            logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`)
           );
-        } else {
-          logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`);
-        }
-      },
+        })
+      ),
+  },
+  {
+    check: (f: string) => {
+      const videoRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp4$`);
+      return videoRegex.test(path.basename(f));
     },
-    {
-      check: (f: string) => {
-        const videoRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp4$`);
-        return videoRegex.test(path.basename(f));
-      },
-      logic: async (f: string) => {
-        const result: MediaInfoCheckReturn =
-          await checkAudioVideoTrackExists(f);
-        if ('tracks' in result) {
-          logger.error(
-            `[filesCheck] 🚫  ${path.basename(f)} doesn't contain both audio and video tracks: ${result.tracks}`
+    logic: (f: string) =>
+      mediaInfoService.checkAudioVideoTrackExists(f).pipe(
+        Effect.flatMap((hasBothAudioAndVideo: boolean) => {
+          if (!hasBothAudioAndVideo) {
+            return Effect.sync(() =>
+              logger.error(
+                `[filesCheck] 🚫  ${path.basename(f)} doesn't contain both audio and video tracks`
+              )
+            );
+          }
+          return Effect.sync(() =>
+            logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`)
           );
-        } else {
-          logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`);
-        }
-      },
-    },
-    {
-      check: (f: string) => {
-        return path.extname(f) === '.gif';
-      },
-      logic: (f: string) => {
+        })
+      ),
+  },
+  {
+    check: (f: string) => path.extname(f) === '.gif',
+    logic: (f: string) =>
+      Effect.sync(() =>
         logger.error(
           `[filesCheck] 🚫  ${path.basename(f)} Gif is not supported`
-        );
-      },
-    },
-    {
-      check: (f: string) => {
-        const stats = fs.statSync(f);
-        const generalFilename = new RegExp(
-          `^${bot.id}_[A-Za-z0-9]+.[A-Za-z0-9]+$`
-        );
-        return (
-          stats.isFile() &&
-          ['.token', '.jpg'].find((ext) => path.extname(f) === ext) ===
-            undefined &&
-          !generalFilename.test(path.basename(f))
-        );
-      },
-      logic: (f: string) => {
-        logger.error(
-          `[filesCheck] 🚫 ${path.basename(f)} file doesn't comply to expected filename or not supported`
-        );
-      },
-    },
-    {
-      check: (f: string) => {
-        const stats = fs.statSync(f);
-        return stats.isDirectory() || path.basename(f) === 'application.conf';
-      },
-      logic: (f: string) => {
-        logger.warn(`[filesCheck] ⚠️ Ignore ${path.basename(f)}`);
-      },
-    },
-  ];
-}
-const unprocessedLogic: (bot: Bot) => { logic: (file: string) => void } = (
-  bot: Bot
-) => {
-  return {
-    logic: (file: string) => {
-      logger.warn(
-        `[filesCheck] ⚠️  Not Processed ${path.basename(file)} for ${bot.artist}`
+        )
+      ),
+  },
+  {
+    check: (f: string) => {
+      const stats = fs.statSync(f);
+      const generalFilename = new RegExp(
+        `^${bot.id}_[A-Za-z0-9]+.[A-Za-z0-9]+$`
+      );
+      return (
+        stats.isFile() &&
+        ['.token', '.jpg'].find((ext) => path.extname(f) === ext) ===
+          undefined &&
+        !generalFilename.test(path.basename(f))
       );
     },
-  };
-};
+    logic: (f: string) =>
+      Effect.sync(() =>
+        logger.error(
+          `[filesCheck] 🚫 ${path.basename(f)} file doesn't comply to expected filename or not supported`
+        )
+      ),
+  },
+  {
+    check: (f: string) => {
+      const stats = fs.statSync(f);
+      return stats.isDirectory() || path.basename(f) === 'application.conf';
+    },
+    logic: (f: string) =>
+      Effect.sync(() =>
+        logger.warn(`[filesCheck] ⚠️ Ignore ${path.basename(f)}`)
+      ),
+  },
+];
 
-// Entry Point ////////////////////////////////////////////////////////////////
+const unprocessedLogic = (
+  bot: Bot
+): {
+  logic: (file: string) => Effect.Effect<void, unknown>;
+} => ({
+  logic: (file: string) =>
+    Effect.sync(() =>
+      logger.warn(
+        `[filesCheck] ⚠️  Not Processed ${path.basename(file)} for ${bot.artist}`
+      )
+    ),
+});
 
 Effect.runPromise(
   Effect.gen(function* () {
     const fileService = yield* FileService;
+    const id3TagService = yield* Id3TagService;
+    const mediaInfoService = yield* MediaInfoService;
 
     yield* Effect.forEach(bots, (bot) =>
       Effect.gen(function* () {
@@ -172,20 +190,25 @@ Effect.runPromise(
           bot.path
         );
         const files = yield* fileService.getFiles(botDir);
-        yield* Effect.promise(() =>
-          Promise.all(
-            files.map((f: string) => {
-              const { logic } =
-                match(bot).find(({ check }) => {
-                  return check(f) ?? false;
-                }) ?? unprocessedLogic(bot);
-              return Promise.resolve(logic(f));
-            })
-          )
+        const checks = buildFileLogic(bot, id3TagService, mediaInfoService);
+
+        return yield* Effect.forEach(
+          files,
+          (f: string) => {
+            const { logic } =
+              checks.find(({ check }) => check(f) === true) ??
+              unprocessedLogic(bot);
+            return logic(f);
+          },
+          { concurrency: 'unbounded' }
         );
       })
     );
-  }).pipe(Effect.provide(fileServiceLayer))
+  }).pipe(
+    Effect.provide(fileServiceLayer),
+    Effect.provide(Id3TagServiceLayer),
+    Effect.provide(mediaInfoServiceLayer)
+  )
 )
   .then(() => {
     logger.info('[filesCheck] ✓ Tag sanification completed');
