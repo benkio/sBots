@@ -1,12 +1,13 @@
 import { fixMp3ArtistId3Tag } from './id3Functions';
 import * as path from 'node:path';
 import * as fs from 'node:fs';
-import { buildResourceDirectory, getFiles } from './fileFunctions';
 import {
   checkAudioTrackMissing,
   checkAudioVideoTrackExists,
   MediaInfoCheckReturn,
 } from './mediaInfoFunctions';
+import { Effect } from 'effect';
+import { FileService, fileServiceLayer } from './FileService';
 import logger from './logger';
 
 // Types //////////////////////////////////////////////////////////////////////
@@ -51,10 +52,7 @@ const bots: Bot[] = [
     artist: 'Francesco Calandra',
     path: 'CalandroBot/src/main/resources',
   },
-].map((i) => {
-  i.path = buildResourceDirectory(baseDir, i.path);
-  return i;
-});
+];
 
 // Logic //////////////////////////////////////////////////////////////////////
 
@@ -163,18 +161,31 @@ const unprocessedLogic: (bot: Bot) => { logic: (file: string) => void } = (
 
 // Entry Point ////////////////////////////////////////////////////////////////
 
-Promise.all(
-  bots.map((bot) => {
-    return getFiles(bot.path).then((fs) => {
-      fs.forEach((f) => {
-        const { logic } =
-          match(bot).find(({ check }) => {
-            return check(f) ?? false;
-          }) ?? unprocessedLogic(bot);
-        return logic(f);
-      });
-    });
-  })
+Effect.runPromise(
+  Effect.gen(function* () {
+    const fileService = yield* FileService;
+
+    yield* Effect.forEach(bots, (bot) =>
+      Effect.gen(function* () {
+        const botDir = yield* fileService.buildResourceDirectory(
+          baseDir,
+          bot.path
+        );
+        const files = yield* fileService.getFiles(botDir);
+        yield* Effect.promise(() =>
+          Promise.all(
+            files.map((f: string) => {
+              const { logic } =
+                match(bot).find(({ check }) => {
+                  return check(f) ?? false;
+                }) ?? unprocessedLogic(bot);
+              return Promise.resolve(logic(f));
+            })
+          )
+        );
+      })
+    );
+  }).pipe(Effect.provide(fileServiceLayer))
 )
   .then(() => {
     logger.info('[filesCheck] ✓ Tag sanification completed');
