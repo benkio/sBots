@@ -65,7 +65,7 @@ export class MediaInfoService extends Context.Tag('MediaInfoService')<
   }
 >() {}
 
-const mediaInfoService = Effect.gen(function* () {
+export const mediaInfoService = Effect.gen(function* () {
   const mediaInfoParserService = yield* MediaInfoParserService;
   return {
     checkAudioTrackMissing: (filePath: string) =>
