@@ -83,7 +83,7 @@ export const id3TagService = Effect.gen(function* () {
       Option.filter(artistTag, (artist) => artist === initialArtist),
       {
         onSome: (okArtist) =>
-          Effect.logInfo(
+          Effect.logTrace(
             `[id3TagService] ⚠️ ${path.basename(file)} not updated: ${okArtist}(file) === ${initialArtist}(wanted)`
           ),
         onNone: () =>

@@ -1,10 +1,9 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { Effect } from 'effect';
+import { Effect, Logger } from 'effect';
 import { FileService, fileServiceLayer } from './FileService';
 import { Id3TagService, Id3TagServiceLayer } from './Id3NodeService';
 import { MediaInfoService, mediaInfoServiceLayer } from './MediaInfoService';
-import logger from './logger';
 
 type Bot = {
   id: string;
@@ -68,10 +67,8 @@ const buildFileLogic = (
   {
     check: (f: string) => path.basename(f).length > 64,
     logic: (f: string) =>
-      Effect.sync(() =>
-        logger.error(
-          `[filesCheck] 🚫 ${path.basename(f)} is too long (max 64): ${path.basename(f).length}`
-        )
+      Effect.logWarning(
+        `[filesCheck] 🚫 ${path.basename(f)} is too long (max 64): ${path.basename(f).length}`
       ),
   },
   {
@@ -90,15 +87,11 @@ const buildFileLogic = (
       mediaInfoService.checkAudioTrackMissing(f).pipe(
         Effect.flatMap((hasAudioTrack: boolean) => {
           if (hasAudioTrack) {
-            return Effect.sync(() =>
-              logger.error(
-                `[filesCheck] 🚫  ${path.basename(f)} contains audio track`
-              )
+            return Effect.logError(
+              `[filesCheck] 🚫  ${path.basename(f)} contains audio track`
             );
           }
-          return Effect.sync(() =>
-            logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`)
-          );
+          return Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
         })
       ),
   },
@@ -111,25 +104,19 @@ const buildFileLogic = (
       mediaInfoService.checkAudioVideoTrackExists(f).pipe(
         Effect.flatMap((hasBothAudioAndVideo: boolean) => {
           if (!hasBothAudioAndVideo) {
-            return Effect.sync(() =>
-              logger.error(
-                `[filesCheck] 🚫  ${path.basename(f)} doesn't contain both audio and video tracks`
-              )
+            return Effect.logError(
+              `[filesCheck] 🚫  ${path.basename(f)} doesn't contain both audio and video tracks`
             );
           }
-          return Effect.sync(() =>
-            logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`)
-          );
+          return Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
         })
       ),
   },
   {
     check: (f: string) => path.extname(f) === '.gif',
     logic: (f: string) =>
-      Effect.sync(() =>
-        logger.error(
-          `[filesCheck] 🚫  ${path.basename(f)} Gif is not supported`
-        )
+      Effect.logError(
+        `[filesCheck] 🚫  ${path.basename(f)} Gif is not supported`
       ),
   },
   {
@@ -146,10 +133,8 @@ const buildFileLogic = (
       );
     },
     logic: (f: string) =>
-      Effect.sync(() =>
-        logger.error(
-          `[filesCheck] 🚫 ${path.basename(f)} file doesn't comply to expected filename or not supported`
-        )
+      Effect.logError(
+        `[filesCheck] 🚫 ${path.basename(f)} file doesn't comply to expected filename or not supported`
       ),
   },
   {
@@ -158,9 +143,7 @@ const buildFileLogic = (
       return stats.isDirectory() || path.basename(f) === 'application.conf';
     },
     logic: (f: string) =>
-      Effect.sync(() =>
-        logger.warn(`[filesCheck] ⚠️ Ignore ${path.basename(f)}`)
-      ),
+      Effect.logWarning(`[filesCheck] ⚠️ Ignore ${path.basename(f)}`),
   },
 ];
 
@@ -170,14 +153,12 @@ const unprocessedLogic = (
   logic: (file: string) => Effect.Effect<void, unknown>;
 } => ({
   logic: (file: string) =>
-    Effect.sync(() =>
-      logger.warn(
-        `[filesCheck] ⚠️  Not Processed ${path.basename(file)} for ${bot.artist}`
-      )
+    Effect.logWarning(
+      `[filesCheck] ⚠️  Not Processed ${path.basename(file)} for ${bot.artist}`
     ),
 });
 
-Effect.runPromise(
+void Effect.runPromise(
   Effect.gen(function* () {
     const fileService = yield* FileService;
     const id3TagService = yield* Id3TagService;
@@ -192,7 +173,7 @@ Effect.runPromise(
         const files = yield* fileService.getFiles(botDir);
         const checks = buildFileLogic(bot, id3TagService, mediaInfoService);
 
-        return yield* Effect.forEach(
+        yield* Effect.forEach(
           files,
           (f: string) => {
             const { logic } =
@@ -204,15 +185,14 @@ Effect.runPromise(
         );
       })
     );
+    yield* Effect.logInfo('[filesCheck] ✓ Tag sanification completed');
   }).pipe(
     Effect.provide(fileServiceLayer),
     Effect.provide(Id3TagServiceLayer),
-    Effect.provide(mediaInfoServiceLayer)
+    Effect.provide(mediaInfoServiceLayer),
+    Effect.provide(Logger.logFmt),
+    Effect.catchAll((err) =>
+      Effect.logError(`[filesCheck] 🚫 Error occurred: ${String(err)}`)
+    )
   )
-)
-  .then(() => {
-    logger.info('[filesCheck] ✓ Tag sanification completed');
-  })
-  .catch((err) => {
-    logger.error(`[filesCheck] 🚫 Error occurred: ${err}`);
-  });
+);
