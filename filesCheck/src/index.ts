@@ -1,4 +1,4 @@
-import { fixMp3ArtistId3Tag } from './id3Functions';
+import { fixMp3ArtistId3Tag } from './Id3NodeService';
 import * as path from 'node:path';
 import * as fs from 'node:fs';
 import {
