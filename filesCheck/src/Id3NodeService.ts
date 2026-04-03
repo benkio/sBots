@@ -71,7 +71,7 @@ export class Id3TagService extends Context.Tag('Id3TagService')<
   }
 >() {}
 
-const id3TagService = Effect.gen(function* () {
+export const id3TagService = Effect.gen(function* () {
   const id3NodeService = yield* Id3NodeService;
 
   const checkArtistFun = (

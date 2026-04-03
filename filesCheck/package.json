@@ -45,6 +45,7 @@
     "fix": "gts fix",
     "format": "prettier . --write",
     "prepare": "npm run compile",
+    "test": "node --test --import tsx \"test/**/*.ts\"",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
     "start": "tsx ./src/index.ts",

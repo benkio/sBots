@@ -15,7 +15,7 @@ export class FileService extends Context.Tag('FileService')<
   }
 >() {}
 
-const fileService = Effect.gen(function* () {
+export const fileService = Effect.gen(function* () {
   const fileSystem = yield* FileSystem.FileSystem;
   const path = yield* Path.Path;
 
