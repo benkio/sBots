@@ -2,7 +2,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { Effect } from 'effect';
 import type { Bot } from './Config';
-import type { MediaList } from './MediaListSchema';
+import type { MediaList, MediaListItem } from './MediaListSchema';
 
 type Id3TagServiceLike = {
   fixMp3ArtistId3Tag: (
@@ -21,38 +21,66 @@ type Matches = {
   logic: (f: string) => Effect.Effect<void, unknown>;
 };
 
-const mp3Logic = (bot: Bot, id3TagService: Id3TagServiceLike) => (f: string) =>
-  id3TagService.fixMp3ArtistId3Tag(f, bot.artist);
+const isMediaListItem = (mediaList: MediaList, filePath: string): boolean =>
+  mediaList.some(
+    (mediaListItem: MediaListItem) =>
+      path.basename(filePath) === mediaListItem.filename
+  );
+
+const containinedInMediaListLogic =
+  (_bot: Bot, mediaList: MediaList) =>
+  (f: string): Effect.Effect<void, never> =>
+    isMediaListItem(mediaList, f)
+      ? Effect.void
+      : Effect.logError(
+          `[filesCheck] 🚫 ${path.basename(f)} is not contained in the bot media list`
+        );
+
+const mp3Logic =
+  (bot: Bot, mediaList: MediaList, id3TagService: Id3TagServiceLike) =>
+  (f: string) =>
+    Effect.gen(function* () {
+      const guard = containinedInMediaListLogic(bot, mediaList);
+      yield* guard(f);
+      yield* id3TagService.fixMp3ArtistId3Tag(f, bot.artist);
+    });
+
 const gifLogic =
-  (bot: Bot, mediaInfoService: MediaInfoServiceLike) => (f: string) =>
-    mediaInfoService.checkAudioTrackMissing(f).pipe(
-      Effect.flatMap((hasAudioTrack: boolean) => {
-        if (hasAudioTrack) {
-          return Effect.logError(
+  (bot: Bot, mediaList: MediaList, mediaInfoService: MediaInfoServiceLike) =>
+  (f: string) =>
+    Effect.gen(function* () {
+      const guard = containinedInMediaListLogic(bot, mediaList);
+      yield* guard(f);
+      const hasAudioTrack = yield* mediaInfoService.checkAudioTrackMissing(f);
+
+      yield* hasAudioTrack
+        ? Effect.logError(
             `[filesCheck] 🚫  ${path.basename(f)} contains audio track`
-          );
-        }
-        return Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
-      })
-    );
+          )
+        : Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
+    });
+
 const videoLogic =
-  (bot: Bot, mediaInfoService: MediaInfoServiceLike) => (f: string) =>
-    mediaInfoService.checkAudioVideoTrackExists(f).pipe(
-      Effect.flatMap((hasBothAudioAndVideo: boolean) => {
-        if (!hasBothAudioAndVideo) {
-          return Effect.logError(
+  (bot: Bot, mediaList: MediaList, mediaInfoService: MediaInfoServiceLike) =>
+  (f: string) =>
+    Effect.gen(function* () {
+      const guard = containinedInMediaListLogic(bot, mediaList);
+      yield* guard(f);
+      const hasBothAudioAndVideo =
+        yield* mediaInfoService.checkAudioVideoTrackExists(f);
+
+      yield* !hasBothAudioAndVideo
+        ? Effect.logError(
             `[filesCheck] 🚫  ${path.basename(f)} doesn't contain both audio and video tracks`
-          );
-        }
-        return Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
-      })
-    );
+          )
+        : Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
+    });
 
 export const buildFileLogic = (
   bot: Bot,
   id3TagService: Id3TagServiceLike,
   mediaInfoService: MediaInfoServiceLike,
-  _mediaList: MediaList
+  mediaList: MediaList
 ): Matches[] => [
   {
     check: (f: string) => path.basename(f).length > 64,
@@ -66,21 +94,21 @@ export const buildFileLogic = (
       const mp3Regex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp3$`);
       return mp3Regex.test(path.basename(f));
     },
-    logic: mp3Logic(bot, id3TagService),
+    logic: mp3Logic(bot, mediaList, id3TagService),
   },
   {
     check: (f: string) => {
       const gifRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+Gif.mp4$`);
       return gifRegex.test(path.basename(f));
     },
-    logic: gifLogic(bot, mediaInfoService),
+    logic: gifLogic(bot, mediaList, mediaInfoService),
   },
   {
     check: (f: string) => {
       const videoRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp4$`);
       return videoRegex.test(path.basename(f));
     },
-    logic: videoLogic(bot, mediaInfoService),
+    logic: videoLogic(bot, mediaList, mediaInfoService),
   },
   {
     check: (f: string) => path.extname(f) === '.gif',

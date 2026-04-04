@@ -24,7 +24,7 @@ export const bots: Bot[] = [
     id: 'xah',
     artist: 'Xah Lee',
     filePath: 'XahLeeBot/src/main/resources',
-    jsonFilePath: 'modules/bots/XahLeeBot/xah_list.json',
+    jsonFilePath: '../modules/bots/XahLeeBot/xah_list.json',
   },
   {
     id: 'mos',
