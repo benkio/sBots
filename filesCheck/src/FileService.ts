@@ -1,4 +1,5 @@
 import * as os from 'node:os';
+import { Buffer } from 'node:buffer';
 import { Context, Effect, Layer, Data } from 'effect';
 import { FileSystem, Path } from '@effect/platform';
 import { PlatformError } from '@effect/platform/Error';
@@ -13,6 +14,7 @@ export class FileService extends Context.Tag('FileService')<
   FileService,
   {
     getFiles: (directoryPath: string) => Effect.Effect<string[], PlatformError>;
+    getFile: (filePath: string) => Effect.Effect<string, PlatformError>;
     buildFromHomeDirectory: (
       baseDir: string,
       botDir: string
@@ -36,6 +38,16 @@ export const fileService = Effect.gen(function* () {
             entries.map((entry) => path.join(directoryPath, entry))
           )
         ),
+    getFile: (filePath: string) =>
+      fileSystem.readFile(filePath).pipe(
+        Effect.map((contents) => {
+          if (typeof contents === 'string') {
+            return contents;
+          }
+
+          return Buffer.from(contents).toString('utf8');
+        })
+      ),
     buildFromHomeDirectory: (baseDir: string, botDir: string) =>
       Effect.succeed(path.join(os.homedir(), baseDir, botDir)),
     buildFromProjectDirectory: (relPath: string) =>

@@ -2,6 +2,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { Effect } from 'effect';
 import type { Bot } from './Config';
+import type { MediaList } from './MediaListSchema';
 
 type Id3TagServiceLike = {
   fixMp3ArtistId3Tag: (
@@ -50,7 +51,8 @@ const videoLogic =
 export const buildFileLogic = (
   bot: Bot,
   id3TagService: Id3TagServiceLike,
-  mediaInfoService: MediaInfoServiceLike
+  mediaInfoService: MediaInfoServiceLike,
+  _mediaList: MediaList
 ): Matches[] => [
   {
     check: (f: string) => path.basename(f).length > 64,

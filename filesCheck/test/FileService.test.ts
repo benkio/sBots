@@ -36,6 +36,26 @@ void test('getFiles joins directory path and entry names', async () => {
   ]);
 });
 
+void test('getFile reads and decodes file contents', async () => {
+  const mockFileSystemLayer = FileSystem.layerNoop({
+    readDirectory: () => Effect.succeed([]),
+    readFile: () => Effect.succeed(Buffer.from('hello-list')),
+  });
+
+  const mockedFileServiceLayer = Layer.effect(FileService, fileService).pipe(
+    Layer.provide(mockFileSystemLayer),
+    Layer.provide(NodePath.layer)
+  );
+
+  const getFile = Effect.gen(function* () {
+    const service = yield* FileService;
+    return yield* service.getFile('/tmp/bot/list.json');
+  }).pipe(Effect.provide(mockedFileServiceLayer));
+
+  const fileContent = await Effect.runPromise(getFile);
+  assert.strictEqual(fileContent, 'hello-list');
+});
+
 void test('buildFromHomeDirectory resolves using home directory', async () => {
   const mockFileSystemLayer = FileSystem.layerNoop({
     readDirectory: () => Effect.succeed([]),

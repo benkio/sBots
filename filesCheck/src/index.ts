@@ -4,6 +4,7 @@ import { FileService, fileServiceLayer } from './FileService';
 import { Id3TagService, Id3TagServiceLayer } from './Id3NodeService';
 import { MediaInfoService, mediaInfoServiceLayer } from './MediaInfoService';
 import { buildFileLogic, unprocessedLogic } from './Logic';
+import { decodeMediaListFromJson } from './MediaListSchema';
 
 const program = Effect.gen(function* () {
   const fileService = yield* FileService;
@@ -16,8 +17,18 @@ const program = Effect.gen(function* () {
         baseDir,
         bot.filePath
       );
+      const botListFilePath = yield* fileService.buildFromProjectDirectory(
+        bot.jsonFilePath
+      );
       const files = yield* fileService.getFiles(botDir);
-      const checks = buildFileLogic(bot, id3TagService, mediaInfoService);
+      const mediaListFileContent = yield* fileService.getFile(botListFilePath);
+      const mediaList = decodeMediaListFromJson(mediaListFileContent);
+      const checks = buildFileLogic(
+        bot,
+        id3TagService,
+        mediaInfoService,
+        mediaList
+      );
 
       yield* Effect.forEach(
         files,
