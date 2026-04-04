@@ -1,184 +1,58 @@
-import { fixMp3ArtistId3Tag } from './id3Functions';
-import * as path from 'node:path';
-import * as fs from 'node:fs';
-import { buildResourceDirectory, getFiles } from './fileFunctions';
-import {
-  checkAudioTrackMissing,
-  checkAudioVideoTrackExists,
-  MediaInfoCheckReturn,
-} from './mediaInfoFunctions';
-import logger from './logger';
+import { Effect, Logger } from 'effect';
+import { bots, baseDir } from './Config';
+import { FileService, fileServiceLayer } from './FileService';
+import { Id3TagService, Id3TagServiceLayer } from './Id3NodeService';
+import { MediaInfoService, mediaInfoServiceLayer } from './MediaInfoService';
+import { buildFileLogic, unprocessedLogic } from './Logic';
+import { decodeMediaListFromJson } from './MediaListSchema';
 
-// Types //////////////////////////////////////////////////////////////////////
-type Bot = {
-  id: string;
-  artist: string;
-  path: string;
-};
+const program = Effect.gen(function* () {
+  const fileService = yield* FileService;
+  const id3TagService = yield* Id3TagService;
+  const mediaInfoService = yield* MediaInfoService;
 
-type Matches = {
-  check: (f: string) => Boolean;
-  logic: (f: string) => void;
-};
-// Inputs /////////////////////////////////////////////////////////////////////
+  yield* Effect.forEach(bots, (bot) =>
+    Effect.gen(function* () {
+      const botDir = yield* fileService.buildFromHomeDirectory(
+        baseDir,
+        bot.filePath
+      );
+      const botListFilePath = yield* fileService.buildFromProjectDirectory(
+        bot.jsonFilePath
+      );
+      const files = yield* fileService.getFiles(botDir);
+      const mediaListFileContent = yield* fileService.getFile(botListFilePath);
+      const mediaList = decodeMediaListFromJson(mediaListFileContent);
+      const checks = buildFileLogic(
+        bot,
+        id3TagService,
+        mediaInfoService,
+        mediaList
+      );
 
-const baseDir = '/Dropbox/sBots/';
-
-const bots: Bot[] = [
-  {
-    id: 'rphjb',
-    artist: 'Richard Philip Henry John Benson',
-    path: 'RichardPHJBensonBot/src/main/resources',
-  },
-  {
-    id: 'abar',
-    artist: 'Alessandro Barbero',
-    path: 'ABarberoBot/src/main/resources',
-  },
-  { id: 'xah', artist: 'Xah Lee', path: 'XahLeeBot/src/main/resources' },
-  {
-    id: 'mos',
-    artist: 'Germano Mosconi',
-    path: 'M0sconiBot/src/main/resources',
-  },
-  {
-    id: 'ytai',
-    artist: 'Omar Palermo',
-    path: 'YouTuboAncheI0Bot/src/main/resources',
-  },
-  {
-    id: 'cala',
-    artist: 'Francesco Calandra',
-    path: 'CalandroBot/src/main/resources',
-  },
-].map((i) => {
-  i.path = buildResourceDirectory(baseDir, i.path);
-  return i;
+      yield* Effect.forEach(
+        files,
+        (f: string) => {
+          const { logic } =
+            checks.find(({ check }) => check(f) === true) ??
+            unprocessedLogic(bot);
+          return logic(f);
+        },
+        { concurrency: 'unbounded' }
+      );
+    })
+  );
+  yield* Effect.logInfo('[filesCheck] ✓ Tag sanification completed');
 });
 
-// Logic //////////////////////////////////////////////////////////////////////
-
-function match(bot: Bot): Matches[] {
-  return [
-    {
-      check: (f: string) => {
-        return path.basename(f).length > 64;
-      },
-      logic: (f: string) =>
-        logger.error(
-          `[filesCheck] 🚫 ${path.basename(f)} is too long (max 64): ${path.basename(f).length}`
-        ),
-    },
-    {
-      check: (f: string) => {
-        const mp3Regex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp3$`);
-        return mp3Regex.test(path.basename(f));
-      },
-      logic: (f: string) => fixMp3ArtistId3Tag(f, bot.artist),
-    },
-    {
-      check: (f: string) => {
-        const gifRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+Gif.mp4$`);
-        return gifRegex.test(path.basename(f));
-      },
-      logic: async (f: string) => {
-        const result: MediaInfoCheckReturn = await checkAudioTrackMissing(f);
-        if ('tracks' in result) {
-          logger.error(
-            `[filesCheck] 🚫  ${path.basename(f)} contains audio track ${result.tracks}`
-          );
-        } else {
-          logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`);
-        }
-      },
-    },
-    {
-      check: (f: string) => {
-        const videoRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp4$`);
-        return videoRegex.test(path.basename(f));
-      },
-      logic: async (f: string) => {
-        const result: MediaInfoCheckReturn =
-          await checkAudioVideoTrackExists(f);
-        if ('tracks' in result) {
-          logger.error(
-            `[filesCheck] 🚫  ${path.basename(f)} doesn't contain both audio and video tracks: ${result.tracks}`
-          );
-        } else {
-          logger.verbose(`[filesCheck] ✓ ${path.basename(f)}`);
-        }
-      },
-    },
-    {
-      check: (f: string) => {
-        return path.extname(f) === '.gif';
-      },
-      logic: (f: string) => {
-        logger.error(
-          `[filesCheck] 🚫  ${path.basename(f)} Gif is not supported`
-        );
-      },
-    },
-    {
-      check: (f: string) => {
-        const stats = fs.statSync(f);
-        const generalFilename = new RegExp(
-          `^${bot.id}_[A-Za-z0-9]+.[A-Za-z0-9]+$`
-        );
-        return (
-          stats.isFile() &&
-          ['.token', '.jpg'].find((ext) => path.extname(f) === ext) ===
-            undefined &&
-          !generalFilename.test(path.basename(f))
-        );
-      },
-      logic: (f: string) => {
-        logger.error(
-          `[filesCheck] 🚫 ${path.basename(f)} file doesn't comply to expected filename or not supported`
-        );
-      },
-    },
-    {
-      check: (f: string) => {
-        const stats = fs.statSync(f);
-        return stats.isDirectory() || path.basename(f) === 'application.conf';
-      },
-      logic: (f: string) => {
-        logger.warn(`[filesCheck] ⚠️ Ignore ${path.basename(f)}`);
-      },
-    },
-  ];
-}
-const unprocessedLogic: (bot: Bot) => { logic: (file: string) => void } = (
-  bot: Bot
-) => {
-  return {
-    logic: (file: string) => {
-      logger.warn(
-        `[filesCheck] ⚠️  Not Processed ${path.basename(file)} for ${bot.artist}`
-      );
-    },
-  };
-};
-
-// Entry Point ////////////////////////////////////////////////////////////////
-
-Promise.all(
-  bots.map((bot) => {
-    return getFiles(bot.path).then((fs) => {
-      fs.forEach((f) => {
-        const { logic } =
-          match(bot).find(({ check }) => {
-            return check(f) ?? false;
-          }) ?? unprocessedLogic(bot);
-        return logic(f);
-      });
-    });
-  })
-)
-  .then(() => {
-    logger.info('[filesCheck] ✓ Tag sanification completed');
-  })
-  .catch((err) => {
-    logger.error(`[filesCheck] 🚫 Error occurred: ${err}`);
-  });
+void Effect.runPromise(
+  program.pipe(
+    Effect.provide(fileServiceLayer),
+    Effect.provide(Id3TagServiceLayer),
+    Effect.provide(mediaInfoServiceLayer),
+    Effect.provide(Logger.logFmt),
+    Effect.catchAll((err) =>
+      Effect.logError(`[filesCheck] 🚫 Error occurred: ${String(err)}`)
+    )
+  )
+);

@@ -18,6 +18,10 @@ jobs:
         npm run clean
         npm run check
         npm run lint
+    - name: Run TypeScript tests
+      run: |
+        cd filesCheck/
+        npm run test
   scalaCode:
     runs-on: ubuntu-latest
     steps:

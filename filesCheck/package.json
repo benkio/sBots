@@ -21,14 +21,18 @@
   },
   "homepage": "https://github.com/benkio/sBots#readme",
   "dependencies": {
+    "@effect/platform": "^0.96.0",
+    "@effect/platform-node": "^0.106.0",
+    "effect": "^3.21.0",
     "gts": "^6.0.2",
     "mediainfo-parser": "^1.1.5",
     "node-id3": "^0.2.9",
-    "tsx": "^4.20.5",
-    "winston": "^3.18.1"
+    "read-package-up": "^11.0.0",
+    "tsx": "^4.20.5"
   },
   "devDependencies": {
     "@types/node": "^22.7.5",
+    "@types/ws": "^8.18.1",
     "gts": "^6.0.2",
     "prettier": "3.6.2",
     "typescript": "^5.6.3"
@@ -41,9 +45,11 @@
     "fix": "gts fix",
     "format": "prettier . --write",
     "prepare": "npm run compile",
+    "test": "node --test --import tsx test/*.ts",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
     "start": "tsx ./src/index.ts",
+    "validate": "npm run compile && npm run format && npm run fix && npm run lint",
     "watch": "tsc -w"
   }
 }
