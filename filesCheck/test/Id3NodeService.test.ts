@@ -35,7 +35,7 @@ void test('getFiles maps filesystem entries with mocked FileSystem', async () =>
   assert.deepStrictEqual(files, ['/resource/song.mp3', '/resource/meta.txt']);
 });
 
-void test('buildResourceDirectory uses mocked path operations', async () => {
+void test('buildFromHomeDirectory uses mocked path operations', async () => {
   const mockFileSystemLayer = FileSystem.layerNoop({
     readDirectory: () => Effect.succeed([]),
   });
@@ -44,12 +44,12 @@ void test('buildResourceDirectory uses mocked path operations', async () => {
     Layer.provide(NodePath.layer)
   );
 
-  const buildResourceDirectory = Effect.gen(function* () {
+  const buildFromHomeDirectory = Effect.gen(function* () {
     const fileService = yield* FileService;
-    return yield* fileService.buildResourceDirectory('/base', 'bot');
+    return yield* fileService.buildFromHomeDirectory('/base', 'bot');
   }).pipe(Effect.provide(mockedFileServiceLayer));
 
-  const directory = await Effect.runPromise(buildResourceDirectory);
+  const directory = await Effect.runPromise(buildFromHomeDirectory);
   assert.strictEqual(directory, path.join(os.homedir(), 'base', 'bot'));
 });
 

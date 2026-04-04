@@ -1,4 +1,5 @@
 import * as assert from 'node:assert';
+import * as fs from 'node:fs';
 import * as os from 'node:os';
 import * as path from 'node:path';
 import { test } from 'node:test';
@@ -35,7 +36,7 @@ void test('getFiles joins directory path and entry names', async () => {
   ]);
 });
 
-void test('buildResourceDirectory resolves using home directory', async () => {
+void test('buildFromHomeDirectory resolves using home directory', async () => {
   const mockFileSystemLayer = FileSystem.layerNoop({
     readDirectory: () => Effect.succeed([]),
   });
@@ -45,14 +46,86 @@ void test('buildResourceDirectory resolves using home directory', async () => {
     Layer.provide(NodePath.layer)
   );
 
-  const buildResourceDirectory = Effect.gen(function* () {
+  const buildFromHomeDirectory = Effect.gen(function* () {
     const service = yield* FileService;
-    return yield* service.buildResourceDirectory('Dropbox/sBots', 'Bot/src');
+    return yield* service.buildFromHomeDirectory('Dropbox/sBots', 'Bot/src');
   }).pipe(Effect.provide(mockedFileServiceLayer));
 
-  const directory = await Effect.runPromise(buildResourceDirectory);
+  const directory = await Effect.runPromise(buildFromHomeDirectory);
   assert.strictEqual(
     directory,
     path.join(os.homedir(), 'Dropbox', 'sBots', 'Bot', 'src')
   );
+});
+
+void test('buildFromProjectDirectory resolves path from nearest package.json', async () => {
+  const originalCwd = process.cwd();
+  const projectDir = fs.mkdtempSync(
+    path.join(os.tmpdir(), 'fileservice-test-')
+  );
+  const pkgDir = path.join(projectDir, 'repo');
+  fs.mkdirSync(pkgDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(projectDir, 'package.json'),
+    JSON.stringify({ name: 'test-project' })
+  );
+
+  process.chdir(pkgDir);
+
+  const mockFileSystemLayer = FileSystem.layerNoop({
+    readDirectory: () => Effect.succeed([]),
+  });
+
+  const mockedFileServiceLayer = Layer.effect(FileService, fileService).pipe(
+    Layer.provide(mockFileSystemLayer),
+    Layer.provide(NodePath.layer)
+  );
+
+  const buildFromProjectDirectory = Effect.gen(function* () {
+    const service = yield* FileService;
+    return yield* service.buildFromProjectDirectory('src/bot');
+  }).pipe(Effect.provide(mockedFileServiceLayer));
+
+  try {
+    const directory = await Effect.runPromise(buildFromProjectDirectory);
+    assert.strictEqual(
+      directory,
+      path.join(fs.realpathSync(projectDir), 'src', 'bot')
+    );
+  } finally {
+    process.chdir(originalCwd);
+  }
+});
+
+void test('buildFromProjectDirectory fails when no package.json is found', async () => {
+  const originalCwd = process.cwd();
+  const orphanDir = fs.mkdtempSync(
+    path.join(os.tmpdir(), 'fileservice-test-no-pkg-')
+  );
+  process.chdir(orphanDir);
+
+  const mockFileSystemLayer = FileSystem.layerNoop({
+    readDirectory: () => Effect.succeed([]),
+  });
+
+  const mockedFileServiceLayer = Layer.effect(FileService, fileService).pipe(
+    Layer.provide(mockFileSystemLayer),
+    Layer.provide(NodePath.layer)
+  );
+
+  const buildFromProjectDirectory = Effect.gen(function* () {
+    const service = yield* FileService;
+    return yield* service.buildFromProjectDirectory('src/bot');
+  }).pipe(Effect.provide(mockedFileServiceLayer));
+
+  try {
+    await assert.rejects(
+      () => Effect.runPromise(buildFromProjectDirectory),
+      (error: unknown) =>
+        error instanceof Error &&
+        error.message.includes('Error occurred when resolving the path')
+    );
+  } finally {
+    process.chdir(originalCwd);
+  }
 });

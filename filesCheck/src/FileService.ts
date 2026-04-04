@@ -1,17 +1,25 @@
 import * as os from 'node:os';
-import { Context, Effect, Layer } from 'effect';
+import { Context, Effect, Layer, Data } from 'effect';
 import { FileSystem, Path } from '@effect/platform';
 import { PlatformError } from '@effect/platform/Error';
 import { NodeFileSystem, NodePath } from '@effect/platform-node';
+import { readPackageUp } from 'read-package-up';
+
+export class FileServiceError extends Data.TaggedError('FileServiceError')<{
+  readonly message: string;
+}> {}
 
 export class FileService extends Context.Tag('FileService')<
   FileService,
   {
     getFiles: (directoryPath: string) => Effect.Effect<string[], PlatformError>;
-    buildResourceDirectory: (
+    buildFromHomeDirectory: (
       baseDir: string,
       botDir: string
     ) => Effect.Effect<string, never>;
+    buildFromProjectDirectory: (
+      relPath: string
+    ) => Effect.Effect<string, FileServiceError>;
   }
 >() {}
 
@@ -28,8 +36,24 @@ export const fileService = Effect.gen(function* () {
             entries.map((entry) => path.join(directoryPath, entry))
           )
         ),
-    buildResourceDirectory: (baseDir: string, botDir: string) =>
+    buildFromHomeDirectory: (baseDir: string, botDir: string) =>
       Effect.succeed(path.join(os.homedir(), baseDir, botDir)),
+    buildFromProjectDirectory: (relPath: string) =>
+      Effect.promise(() => readPackageUp()).pipe(
+        Effect.flatMap((packageUpResult) => {
+          if (packageUpResult) {
+            return Effect.succeed(
+              path.join(path.dirname(packageUpResult.path), relPath)
+            );
+          } else {
+            return Effect.fail(
+              new FileServiceError({
+                message: `[FileService] 🚫 Error occurred when resolving the path: ${relPath}`,
+              })
+            );
+          }
+        })
+      ),
   };
 });
 
