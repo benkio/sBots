@@ -4,6 +4,89 @@
       "TextTrigger": {
         "triggers": [
           {
+            "StringTextTriggerValue": "l'ho spaccato"
+          },
+          {
+            "StringTextTriggerValue": "lo spacco"
+          },
+          {
+            "StringTextTriggerValue": "a spaccarlo"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "Mp3File": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStorica.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStoricaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStorica.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
+            "RegexTextTriggerValue": {
+              "trigger": "più co(gl|j)ione",
+              "regexLength": 11
+            }
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "Mp3File": {
+              "filepath": "rphjb_PiuCoglione.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_PiuCoglione.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_PiuCoglioneGif.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
+          {
             "StringTextTriggerValue": "robert plant"
           },
           {
@@ -5997,12 +6080,6 @@
         "triggers": [
           {
             "RegexTextTriggerValue": {
-              "trigger": "più co(gl|j)ione",
-              "regexLength": 11
-            }
-          },
-          {
-            "RegexTextTriggerValue": {
               "trigger": "dice co(gl|j)ione",
               "regexLength": 12
             }
@@ -6016,12 +6093,6 @@
           {
             "GifFile": {
               "filepath": "rphjb_CoglioneGif.mp4",
-              "replyToMessage": false
-            }
-          },
-          {
-            "GifFile": {
-              "filepath": "rphjb_PiuCoglioneGif.mp4",
               "replyToMessage": false
             }
           },
@@ -8362,7 +8433,65 @@
         "triggers": [
           {
             "StringTextTriggerValue": "in ginocchio"
+          }
+        ]
+      }
+    },
+    "reply": {
+      "MediaReply": {
+        "mediaFiles": [
+          {
+            "VideoFile": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStorica.mp4",
+              "replyToMessage": false
+            }
           },
+          {
+            "GifFile": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStoricaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStorica.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_MetteteviInGinocchio.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_AndatiTuttiInGinocchioMessia.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_AndatiTuttiInGinocchioMessia.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_AndatiTuttiInGinocchioMessiaGif.mp4",
+              "replyToMessage": false
+            }
+          }
+        ],
+        "replyToMessage": false
+      }
+    },
+    "matcher": "ContainsOnce"
+  },
+  {
+    "trigger": {
+      "TextTrigger": {
+        "triggers": [
           {
             "StringTextTriggerValue": "inginocchiatevi"
           }
@@ -8655,6 +8784,18 @@
               "filepath": "rphjb_DubbioComeMiAiuta.mp4",
               "replyToMessage": false
             }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_DubbioComeMiAiuta.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_DubbioComeMiAiutaGif.mp4",
+              "replyToMessage": false
+            }
           }
         ],
         "replyToMessage": false
@@ -8689,6 +8830,30 @@
               "filepath": "rphjb_DubbioScantinatiGiocoRattoGatto.mp4",
               "replyToMessage": false
             }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_DubbioScantinatiGiocoRattoGatto.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_DubbioScantinatiGiocoRattoGattoGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_DubbioComeMiAiuta.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_DubbioComeMiAiutaGif.mp4",
+              "replyToMessage": false
+            }
           }
         ],
         "replyToMessage": false
@@ -8717,6 +8882,9 @@
               "trigger": "(voi )?del (ratto|topo)",
               "regexLength": 12
             }
+          },
+          {
+            "StringTextTriggerValue": "vi piace questo gioco"
           }
         ]
       }
@@ -8727,6 +8895,18 @@
           {
             "VideoFile": {
               "filepath": "rphjb_DubbioScantinatiGiocoRattoGatto.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_DubbioScantinatiGiocoRattoGatto.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_DubbioScantinatiGiocoRattoGattoGif.mp4",
               "replyToMessage": false
             }
           }
@@ -10006,6 +10186,18 @@
     "reply": {
       "MediaReply": {
         "mediaFiles": [
+          {
+            "Mp3File": {
+              "filepath": "rphjb_Rebus.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_RebusGif.mp4",
+              "replyToMessage": false
+            }
+          },
           {
             "VideoFile": {
               "filepath": "rphjb_Rebus.mp4",
@@ -12527,6 +12719,18 @@
           {
             "VideoFile": {
               "filepath": "rphjb_IlDemonioVenutoATrovarmi.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_IlDemonioVenutoATrovarmiGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_IlDemonioVenutoATrovarmi.mp3",
               "replyToMessage": false
             }
           }
@@ -21102,6 +21306,18 @@
             }
           },
           {
+            "GifFile": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStoricaGif.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStorica.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
             "VideoFile": {
               "filepath": "rphjb_NonMiStaBene.mp4",
               "replyToMessage": false
@@ -23428,6 +23644,24 @@
               "filepath": "rphjb_DeludendoBensoniani.sticker",
               "replyToMessage": false
             }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStorica.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "VideoFile": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStorica.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_NonMiStaBeneDelusioneStoricaGif.mp4",
+              "replyToMessage": false
+            }
           }
         ],
         "replyToMessage": false
@@ -24441,6 +24675,18 @@
           {
             "VideoFile": {
               "filepath": "rphjb_DubbioScantinatiGiocoRattoGatto.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_DubbioScantinatiGiocoRattoGatto.mp3",
+              "replyToMessage": false
+            }
+          },
+          {
+            "GifFile": {
+              "filepath": "rphjb_DubbioScantinatiGiocoRattoGattoGif.mp4",
               "replyToMessage": false
             }
           },
@@ -27749,7 +27995,7 @@
         "mediaFiles": [
           {
             "GifFile": {
-              "filepath": "rphjb_OlioDiCroceGif.mp4",
+              "filepath": "rphjb_OlioDiCroce2Gif.mp4",
               "replyToMessage": false
             }
           },
@@ -32349,6 +32595,12 @@
           {
             "VideoFile": {
               "filepath": "rphjb_PoveriIllusiChiesaPreghierina.mp4",
+              "replyToMessage": false
+            }
+          },
+          {
+            "Mp3File": {
+              "filepath": "rphjb_OlioDiCroce.mp3",
               "replyToMessage": false
             }
           }
@@ -51515,18 +51767,6 @@
       "MediaReply": {
         "mediaFiles": [
           {
-            "GifFile": {
-              "filepath": "rphjb_PiuCoglioneGif.mp4",
-              "replyToMessage": false
-            }
-          },
-          {
-            "GifFile": {
-              "filepath": "rphjb_CoglioneGif.mp4",
-              "replyToMessage": false
-            }
-          },
-          {
             "VideoFile": {
               "filepath": "rphjb_FrocioCoglione.mp4",
               "replyToMessage": false
@@ -51535,18 +51775,6 @@
           {
             "Mp3File": {
               "filepath": "rphjb_FrocioCoglione.mp3",
-              "replyToMessage": false
-            }
-          },
-          {
-            "VideoFile": {
-              "filepath": "rphjb_Coglione.mp4",
-              "replyToMessage": false
-            }
-          },
-          {
-            "Mp3File": {
-              "filepath": "rphjb_Coglione.mp3",
               "replyToMessage": false
             }
           }
