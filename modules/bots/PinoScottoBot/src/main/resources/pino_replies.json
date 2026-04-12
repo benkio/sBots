@@ -4,6 +4,49 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "non ti permettere"
+          },
+          {
+            "StringTextTriggerValue" : "nel peggiore degli incubi"
+          },
+          {
+            "StringTextTriggerValue" : "dire una cosa del genere"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_NonTiPermettereGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_NonTiPermettere.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_NonTiPermettere.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "in fabbrica"
           }
         ]
@@ -103,6 +146,24 @@
           {
             "GifFile" : {
               "filepath" : "pino_TestaDiCazzoInFabbricaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_NonTiPermettere.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_NonTiPermettere.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_NonTiPermettereGif.mp4",
               "replyToMessage" : false
             }
           }
