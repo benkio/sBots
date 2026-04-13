@@ -4,6 +4,104 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "la patata"
+          },
+          {
+            "StringTextTriggerValue" : "squisiti"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "si scio(glie|lgono) in bocca",
+              "regexLength" : 20
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_SiSenteLaPatataSquisitiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_SiSenteLaPatataSquisiti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_SiSenteLaPatataSquisiti.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "non approfondire"
+          },
+          {
+            "StringTextTriggerValue" : "una di quelle domande"
+          },
+          {
+            "StringTextTriggerValue" : "non entrare nei"
+          },
+          {
+            "StringTextTriggerValue" : "quando mi rivolgono"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "domand[ea] (scomod[ea]|imbarazzant[ie]|fastidios[ae]|sgradit[ae])",
+              "regexLength" : 15
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_DomandeNonApprofondireGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_DomandeNonApprofondire.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_DomandeNonApprofondire.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "petto di pollo"
           }
         ]
