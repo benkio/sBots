@@ -15,8 +15,8 @@
   * (newBot does not edit main application.conf or healthcheck; only this script does.)
   */
 
-import java.nio.file.Paths
 import java.nio.file.Path
+import java.nio.file.Paths
 
 if args.length < 2 then {
   println("Usage: ./scripts/CompleteBotRegistration.sc <BotName> <id> [projectRoot]")
@@ -32,7 +32,8 @@ val projectDir   = rootAbs.resolve("project")
 val buildSbt     = rootAbs.resolve("build.sbt")
 val botsRegistry = rootAbs.resolve("modules/main/src/main/scala/com/benkio/main/BotsRegistry.scala")
 
-if !java.nio.file.Files.isDirectory(projectDir) || !java.nio.file.Files.isRegularFile(buildSbt) || !java.nio.file.Files.isRegularFile(botsRegistry) then {
+if !java.nio.file.Files.isDirectory(projectDir) || !java.nio.file.Files.isRegularFile(buildSbt) || !java.nio.file.Files
+  .isRegularFile(botsRegistry) then {
   println(
     s"Error: run from sBots project root, or pass project root as third argument. Looked at: $rootAbs"
   )
@@ -122,28 +123,27 @@ if registryContent.contains(s"$pkg.$botName") then {
 val mainAppConf = rootAbs.resolve("modules/main/src/main/resources/application.conf")
 if java.nio.file.Files.isRegularFile(mainAppConf) then {
   var mainConfContent = read(mainAppConf)
-  if mainConfContent.contains(s"main.$id.") then
-    println(s"main application.conf already contains $id, skipping.")
+  if mainConfContent.contains(s"main.$id.") then println(s"main application.conf already contains $id, skipping.")
   else {
-    val idUpper     = id.toUpperCase
-    val dbNameLine  = "      db-name = " + "$" + "{?" + idUpper + "_DB_NAME}"
-    val urlLine     = s"""      url = "jdbc:sqlite:"$${main.$id.db.db-name}"""
-    val urlEnvLine  = "      url = " + "$" + "{?" + idUpper + "_DB_CONNECTION_URL}"
-    val newBlock =
+    val idUpper    = id.toUpperCase
+    val dbNameLine = "      db-name = " + "$" + "{?" + idUpper + "_DB_NAME}"
+    val urlLine    = s"""      url = "jdbc:sqlite:"$${main.$id.db.db-name}"""
+    val urlEnvLine = "      url = " + "$" + "{?" + idUpper + "_DB_CONNECTION_URL}"
+    val newBlock   =
       s"""  $id {
-        |    db = {
+         |    db = {
 
-        |      driver = "org.sqlite.JDBC"
+         |      driver = "org.sqlite.JDBC"
 
-        |      db-name = "../botDB.sqlite3"
-        |      $dbNameLine
+         |      db-name = "../botDB.sqlite3"
+         |      $dbNameLine
 
-        |      $urlLine
-        |      $urlEnvLine
-        |    }
-        |  }
+         |      $urlLine
+         |      $urlEnvLine
+         |    }
+         |  }
 
-        |""".stripMargin
+         |""".stripMargin
     val mosBlock =
       """  mos {
         |    db = {
@@ -216,8 +216,8 @@ if !buildContentNow.contains(aliasName) then {
 
 println(
   """Done. Remember to:
-  | - Update the README.md file
-  | - Delete the DB at the root of the project
-  | - insert the Youtube Secret key in BotDB resources
-  | - Run the `botSetup` with `run-show-caption-fetching` and `run-show-caption-fetching` to true to align the db""".stripMargin
+    | - Update the README.md file
+    | - Delete the DB at the root of the project
+    | - insert the Youtube Secret key in BotDB resources
+    | - Run the `botSetup` with `run-show-caption-fetching` and `run-show-caption-fetching` to true to align the db""".stripMargin
 )
