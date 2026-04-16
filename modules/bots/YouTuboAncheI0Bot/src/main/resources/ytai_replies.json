@@ -1997,12 +1997,15 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "si v[àa] finch[eé] si v[aà]",
+              "trigger" : "si v[àaá] finch[eéè] si v[aàá]",
               "regexLength" : 18
             }
           },
           {
-            "StringTextTriggerValue" : "quando non si potrà andare più"
+            "RegexTextTriggerValue" : {
+              "trigger" : "quando non si potr[aàá] andare pi[ùuú]",
+              "regexLength" : 30
+            }
           },
           {
             "StringTextTriggerValue" : "è tanto facile"
@@ -11482,12 +11485,15 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "ka[p]?fen",
+              "trigger" : "kra[p]?fen",
               "regexLength" : 6
             }
           },
           {
             "StringTextTriggerValue" : "bombolone"
+          },
+          {
+            "StringTextTriggerValue" : "berliner"
           }
         ]
       }

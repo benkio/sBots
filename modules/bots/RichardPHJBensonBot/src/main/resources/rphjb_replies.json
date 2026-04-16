@@ -477,12 +477,6 @@
               "filepath" : "rphjb_BruttiSchifosiFrociGif.mp4",
               "replyToMessage" : false
             }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "rphjb_FineDelMondoTuttiFroci.mp3",
-              "replyToMessage" : false
-            }
           }
         ],
         "replyToMessage" : false
@@ -729,6 +723,12 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "fine del mondo"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "diventati (tutti )?froci",
+              "regexLength" : 15
+            }
           }
         ]
       }
@@ -14573,7 +14573,18 @@
               "filepath" : "rphjb_MomentiGloria.mp4",
               "replyToMessage" : false
             }
-          }
+          },
+            {
+                "Mp3File" : {
+                    "filepath" : "rphjb_MomentiGloria.mp3",
+                    "replyToMessage" : false
+                }
+            },{
+                "GifFile" : {
+                    "filepath" : "rphjb_MomentiGloriaGif.mp4",
+                    "replyToMessage" : false
+                }
+            }
         ],
         "replyToMessage" : false
       }
@@ -16472,7 +16483,18 @@
               "filepath" : "rphjb_CheHoTrovatoIo.mp4",
               "replyToMessage" : false
             }
-          }
+          },
+            {
+                "GifFile" : {
+                    "filepath" : "rphjb_CheHoTrovatoIoGif.mp4",
+                    "replyToMessage" : false
+                }
+            },          {
+                "Mp3File" : {
+                    "filepath" : "rphjb_CheHoTrovatoIo.mp3",
+                    "replyToMessage" : false
+                }
+            }
         ],
         "replyToMessage" : false
       }
@@ -23162,6 +23184,17 @@
               "replyToMessage" : false
             }
           },
+            {
+                "Mp3File" : {
+                    "filepath" : "rphjb_MomentiGloria.mp3",
+                    "replyToMessage" : false
+                }
+            },{
+                "GifFile" : {
+                    "filepath" : "rphjb_MomentiGloriaGif.mp4",
+                    "replyToMessage" : false
+                }
+            }  ,
           {
             "VideoFile" : {
               "filepath" : "rphjb_GeneriMusicali2.mp4",
