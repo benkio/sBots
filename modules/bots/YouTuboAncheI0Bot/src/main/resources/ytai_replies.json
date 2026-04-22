@@ -4,6 +4,393 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "molto buono"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_MoltoBuonoDelizioso.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_MoltoBuonoDelizioso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_MoltoBuonoDeliziosoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_MoltoDolceMoltoBuonoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "l'hanno legato"
+          },
+          {
+            "StringTextTriggerValue" : "poveretto"
+          },
+          {
+            "StringTextTriggerValue" : "slegarlo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_LegatoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_Legato.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_Legato.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "bando alle ciance"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "una gran[e]? voglia",
+              "regexLength" : 15
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_BandoAlleCianceKinderFettaAlLatteGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_BandoAlleCianceKinderFettaAlLatte.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_BandoAlleCianceKinderFettaAlLatte.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "non (ti )?rispondo",
+              "regexLength" : 12
+            }
+          },
+          {
+            "StringTextTriggerValue" : "compendimi"
+          },
+          {
+            "StringTextTriggerValue" : "che mi scrivi"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_ScriviNonRispondoComprendimiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_ScriviNonRispondoComprendimi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_ScriviNonRispondoComprendimi.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "come va?"
+          },
+          {
+            "StringTextTriggerValue" : "tutto bene?"
+          },
+          {
+            "StringTextTriggerValue" : "sta andando meglio"
+          },
+          {
+            "StringTextTriggerValue" : "vi ringrazio"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_ComeVaTuttoBeneGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_ComeVaTuttoBene.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_ComeVaTuttoBene.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "frizzante"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\baiuta\\b",
+              "regexLength" : 5
+            }
+          },
+          {
+            "StringTextTriggerValue" : "l'organismo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_FrizzanteAiutaOrganismoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_FrizzanteAiutaOrganismo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_FrizzanteAiutaOrganismo.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "raffreddato"
+          },
+          {
+            "StringTextTriggerValue" : "influenza"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_RaffreddatoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_Raffreddato.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_Raffreddato.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "benvenuti"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenutiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenuti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenuti.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_BenvenutiGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "delizioso"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_MoltoBuonoDeliziosoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_MoltoBuonoDelizioso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_MoltoBuonoDelizioso.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "la patata"
           },
           {
@@ -2226,9 +2613,6 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "benvenuti"
-          },
-          {
             "StringTextTriggerValue" : "ora e sempre"
           }
         ]
@@ -3967,6 +4351,24 @@
               "filepath" : "ytai_KinderFettaAlLatteGif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_BandoAlleCianceKinderFettaAlLatte.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_BandoAlleCianceKinderFettaAlLatte.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_BandoAlleCianceKinderFettaAlLatteGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -4222,9 +4624,6 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "molto dolce"
-          },
-          {
-            "StringTextTriggerValue" : "molto buono"
           }
         ]
       }
@@ -6571,6 +6970,24 @@
               "filepath" : "ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenuti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenuti.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenutiGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -7651,6 +8068,24 @@
           {
             "Mp3File" : {
               "filepath" : "ytai_NelMioCuoreContinuazioneCariAmiciFollowers.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenuti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenuti.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenutiGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -9841,6 +10276,24 @@
           {
             "VideoFile" : {
               "filepath" : "ytai_SpuntinoColPaninoYoutuboAncheIo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenuti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenuti.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_CariAmiciFollwersBenvenutiGif.mp4",
               "replyToMessage" : false
             }
           }
