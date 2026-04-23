@@ -10553,7 +10553,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "wikipedia"
+            "RegexTextTriggerValue" : {
+              "trigger" : "( wikipedia|wikipedia )",
+              "regexLength" : 9
+            }
           },
           {
             "StringTextTriggerValue" : "apprendere"
