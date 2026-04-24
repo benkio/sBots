@@ -1,4 +1,4 @@
-name: Download Prod DB
+name: Download Prod DB and log file
 
 on:
   workflow_dispatch:
@@ -13,12 +13,21 @@ jobs:
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
 
-      - name: Download SQLite DB  Prod from VM
+      - name: Download SQLite DB Prod from VM
         run: |
           rsync -av -e 'ssh -o StrictHostKeyChecking=no' ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3 /home/runner/work/botDB.sqlite3
 
+      - name: Download log file from VM
+        run: |
+          rsync -av -e 'ssh -o StrictHostKeyChecking=no' ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/log.txt /home/runner/work/log.txt
       - name: Upload DB as artifact
         uses: actions/upload-artifact@v4
         with:
           name: prod sqlite-db
           path: /home/runner/work/botDB.sqlite3
+
+      - name: Upload log file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: prod sqlite-db
+          path: /home/runner/work/log.txt
