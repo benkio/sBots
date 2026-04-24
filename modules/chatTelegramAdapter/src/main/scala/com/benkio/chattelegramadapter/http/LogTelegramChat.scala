@@ -3,6 +3,7 @@ package com.benkio.chattelegramadapter.http
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.Repository.RepositoryError
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.methodOps
@@ -12,15 +13,14 @@ import telegramium.bots.Message
 
 /*
 
-Workaround in case of Error a message will be sent to me. At least being parametrized
-Ideally we should have a separate support chat for that and/or a dedicated Dashboard
+Sending messages to the predefined bot log chat to signal critical errors or important events
 
  */
-object ErrorFallbackWorkaround {
+object LogTelegramChat {
 
   val chatSupportGroupId: ChatIntId = ChatIntId(id = -4145546019L)
 
-  def errorHandling[F[_]: Async](
+  def sendError[F[_]: Async](
       msg: Message,
       mediaFile: MediaFile,
       error: Throwable
@@ -41,4 +41,16 @@ object ErrorFallbackWorkaround {
         .exec
         .void
   }
+
+  def sendText[F[_]: Async](
+      msg: String,
+      sBotInfo: SBotInfo
+  )(using api: Api[F]): F[Unit] =
+    Methods
+      .sendMessage(
+        chatId = chatSupportGroupId,
+        text = s"[$sBotInfo.botName] $msg"
+      )
+      .exec
+      .void
 }

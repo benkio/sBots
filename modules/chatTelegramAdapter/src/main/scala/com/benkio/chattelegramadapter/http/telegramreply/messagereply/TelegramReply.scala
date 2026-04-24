@@ -11,7 +11,7 @@ import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
-import com.benkio.chattelegramadapter.http.ErrorFallbackWorkaround
+import com.benkio.chattelegramadapter.http.LogTelegramChat
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import log.effect.LogWriter
 import telegramium.bots.client.Method
@@ -65,7 +65,7 @@ object TelegramMessageReply {
           .onError(e =>
             LogWriter.error(
               s"[TelegramMessageReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"
-            ) >> ErrorFallbackWorkaround.errorHandling[F](msg, mediaFile, e)
+            ) >> LogTelegramChat.sendError[F](msg, mediaFile, e)
           )
           .attemptT
     } yield message
