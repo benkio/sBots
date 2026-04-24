@@ -9,7 +9,7 @@ object MainPolling extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] =
     MainSetup[IO]().use { mainSetup =>
-      GeneralErrorHandling.dbLogAndRestart(
+      GeneralErrorHandling.dbLogAndDie(
         mainSetup.dbLayer.dbLog,
         BotRegistry.value.runPolling()
       )
