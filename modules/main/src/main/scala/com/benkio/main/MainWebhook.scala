@@ -4,11 +4,9 @@ import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
 import cats.effect.Resource
-import com.benkio.chattelegramadapter.http.LogTelegramChat
 import com.benkio.chattelegramadapter.webhook.TelegramWebhookServer
 import com.benkio.main.Logger.given
 import org.http4s.server.Server
-import telegramium.bots.high.Api
 
 object MainWebhook extends IOApp {
 
@@ -22,17 +20,6 @@ object MainWebhook extends IOApp {
         host = mainSetup.host,
         keystorePath = mainSetup.keystorePath,
         keystorePassword = mainSetup.keystorePassword
-      )
-      _ <- Resource.eval(
-        bots.foldLeft(IO.unit) { (acc, bot) =>
-          acc >> {
-            given Api[IO] = bot.sBotSetup.api
-            LogTelegramChat.sendText(
-              msg = "Start Webook Bot Successful ✅",
-              sBotInfo = bot.sBotSetup.sBotConfig.sBotInfo
-            )
-          }
-        }
       )
     } yield server
 
