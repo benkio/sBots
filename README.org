@@ -183,7 +183,7 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
     fiber pings the configured URL on a cron schedule.
   - **Config**: In ~modules/main/src/main/resources/application.conf~
     under ~main.healthcheck-ping~:
-    - ~endpoint~ :: URL to GET (e.g. ~https://hc-ping.com/<your-check-uuid>~).
+    - ~endpoint~ :: URL to POST (e.g. ~https://hc-ping.com/<your-check-uuid>~).
     - ~cron~ :: Cron4s expression for how often to ping (e.g. ~* */10 * ? * *~ for every 10 minutes).
   - **Overrides**: You can override with env vars if your config
     supports it; otherwise edit ~application.conf~ before assembly.

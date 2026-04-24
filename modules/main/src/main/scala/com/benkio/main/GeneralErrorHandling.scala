@@ -1,5 +1,6 @@
 package com.benkio.main
 
+import java.nio.file.{Files, Paths}
 import cats.effect.kernel.Resource.ExitCase
 import cats.effect.Async
 import cats.effect.ExitCode
@@ -19,7 +20,7 @@ object GeneralErrorHandling {
       case ExitCase.Errored(e) =>
         logMessage(dbLog = dbLog, error = s"Terminated with Error 🚫: ${e.getMessage}")
       case ExitCase.Canceled =>
-        logMessage(dbLog = dbLog, error = s"Cancelled}")
+        logMessage(dbLog = dbLog, error = "Cancelled}")
     }
 
   def dbLogAndDie[F[_]: Async](dbLog: DBLog[F], app: F[ExitCode])(using
@@ -35,6 +36,7 @@ object GeneralErrorHandling {
     for {
       _ <- log.error(s"[Main] Exit Log: $error")
       _ <- dbLogError[F](dbLog, error)
+      _ <- Async[F].delay(Files.writeString(Paths.get("log.txt"), error))
     } yield ()
 
   private def dbLogError[F[_]](dbLog: DBLog[F], error: String): F[Unit] =

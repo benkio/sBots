@@ -26,7 +26,12 @@ object MainWebhook extends IOApp {
     (for {
       mainSetup <- MainSetup[IO]()
       _         <- Resource.eval(
-        HealthcheckPing.healthcheckPing(mainSetup.httpClient, mainSetup.healthcheckEndpoint, mainSetup.healthcheckCron)
+        HealthcheckPing.healthcheckPing(
+          mainSetup.dbLayer.dbLog,
+          mainSetup.httpClient,
+          mainSetup.healthcheckEndpoint,
+          mainSetup.healthcheckCron
+        )
       )
       _ <- GeneralErrorHandling.dbLogAndDie[IO, Server](mainSetup.dbLayer.dbLog, server(mainSetup))
     } yield ExitCode.Success).useForever

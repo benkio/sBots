@@ -12,35 +12,35 @@ import scala.concurrent.duration.*
 class GeneralErrorHandlingSpec extends CatsEffectSuite {
 
   val sleepTime                    = 100.millis
-  val plainErrorMessage: String = "Test Throwable"
-  val expectedErrorMessage: String = s"Terminated with Error 🚫: Test Throwable"
+  val plainErrorMessage: String    = "Test Throwable"
+  val expectedErrorMessage: String = "Terminated with Error 🚫: Test Throwable"
   val failedIO: IO[ExitCode]       =
-    IO {throw new RuntimeException(plainErrorMessage)}
+    IO { throw new RuntimeException(plainErrorMessage) }
   val failedResource: Resource[IO, Unit] =
     Resource.eval(failedIO).void
 
   test("GeneralErrorHandling should write logs when an error occurred in the failed resource") {
-    val dbLayer = DBLayerMock.mock(SBotId("whateverBot"))
+    val dbLayer               = DBLayerMock.mock(SBotId("whateverBot"))
     val computation: IO[Unit] =
-        GeneralErrorHandling
-          .dbLogAndDie(dbLayer.dbLog, failedResource)
-          .race(Resource.eval(IO.sleep(sleepTime)))
-          .use_
+      GeneralErrorHandling
+        .dbLogAndDie(dbLayer.dbLog, failedResource)
+        .race(Resource.eval(IO.sleep(sleepTime)))
+        .use_
 
     val lastLogMessage: IO[Option[String]] = for {
-      result       <- computation.attempt
+      result  <- computation.attempt
       lastLog <- dbLayer.dbLog.getLastLog()
     } yield result.fold(_ => lastLog.map(_.message), _ => None)
     assertIO(lastLogMessage, Some(expectedErrorMessage))
   }
 
   test("GeneralErrorHandling should write logs when an error occurred in the failed IO") {
-    val dbLayer = DBLayerMock.mock(SBotId("whateverBot"))
+    val dbLayer               = DBLayerMock.mock(SBotId("whateverBot"))
     val computation: IO[Unit] =
-        GeneralErrorHandling
-          .dbLogAndDie(dbLayer.dbLog, failedIO)
-          .race(IO.sleep(sleepTime))
-          .void
+      GeneralErrorHandling
+        .dbLogAndDie(dbLayer.dbLog, failedIO)
+        .race(IO.sleep(sleepTime))
+        .void
 
     val lastLogMessage: IO[Option[String]] = for {
       _       <- computation
