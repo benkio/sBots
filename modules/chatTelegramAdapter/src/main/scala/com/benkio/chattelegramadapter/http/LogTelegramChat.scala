@@ -49,7 +49,7 @@ object LogTelegramChat {
     Methods
       .sendMessage(
         chatId = chatSupportGroupId,
-        text = s"[$sBotInfo.botName] $msg"
+        text = s"[${sBotInfo.botName}] $msg"
       )
       .exec
       .void
