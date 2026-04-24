@@ -1,0 +1,15 @@
+* Calls to telegram APIs
+
+Collection of Calls to Telegram API you can use using ~org-mode~ and ~verb~
+
+** Remove Webhooks :verb:
+POST https://api.telegram.org/bot<YOUR_BOT_TOKEN>/setWebhook?url=
+
+** Get Webhook Info :verb:
+GET https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getWebhookInfo
+
+** Send Message as Bot                                                :verb:
+POST https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage
+Content-Type: application/json
+
+{"chat_id": "-4145546019", "text": "Bot's message"}
