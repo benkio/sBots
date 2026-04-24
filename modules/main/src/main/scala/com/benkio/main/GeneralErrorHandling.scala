@@ -1,6 +1,5 @@
 package com.benkio.main
 
-import java.nio.file.{Files, Paths}
 import cats.effect.kernel.Resource.ExitCase
 import cats.effect.Async
 import cats.effect.ExitCode
@@ -8,6 +7,9 @@ import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chatcore.repository.db.DBLog
 import log.effect.LogWriter
+
+import java.nio.file.Files
+import java.nio.file.Paths
 
 object GeneralErrorHandling {
 
