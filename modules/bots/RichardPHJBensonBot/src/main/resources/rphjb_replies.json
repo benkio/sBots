@@ -8833,7 +8833,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "sempre davanti (a )?gente",
+                "trigger" : "sempre (davanti (a )?|circondato da |tra )gente",
               "regexLength" : 20
             }
           }
@@ -42332,7 +42332,7 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "non capisce un cazzo"
+              "RegexTextTriggerValue" : {"trigger": "non capisce (un|'nu|'n) cazzo", "regexLength": 20}
           }
         ]
       }
@@ -49497,10 +49497,7 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "RegexTextTriggerValue" : {
-              "trigger" : "accett[oi] (le|qualsiasi) critich[ea]",
-              "regexLength" : 19
-            }
+            "StringTextTriggerValue" : "accetto qualsiasi critica"
           }
         ]
       }
@@ -49508,24 +49505,6 @@
     "reply" : {
       "MediaReply" : {
         "mediaFiles" : [
-          {
-            "VideoFile" : {
-              "filepath" : "rphjb_AccettiLeCritiche.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "rphjb_AccettiLeCritiche.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_AccettiLeCriticheGif.mp4",
-              "replyToMessage" : false
-            }
-          },
           {
             "VideoFile" : {
               "filepath" : "rphjb_CriticaNoCazzate.mp4",
@@ -49753,7 +49732,13 @@
               "trigger" : "e[sc]+erto",
               "regexLength" : 6
             }
-          }
+          },
+            {
+                "StringTextTriggerValue": "accetti le critiche"
+            },
+            {
+                "StringTextTriggerValue": "critica da farti"
+            }
         ]
       }
     },
@@ -57325,7 +57310,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
@@ -57376,7 +57361,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
