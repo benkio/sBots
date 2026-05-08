@@ -4,6 +4,58 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "mi risulta"
+          },
+          {
+            "StringTextTriggerValue" : "delle divisioni"
+          },
+          {
+            "StringTextTriggerValue" : "va bene così"
+          },
+          {
+            "StringTextTriggerValue" : "è necessario che"
+          },
+          {
+            "StringTextTriggerValue" : "che sia chiaro"
+          },
+          {
+            "StringTextTriggerValue" : "hanno ragione"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "abar_DivisioniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "abar_Divisioni.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "abar_Divisioni.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "poca verità"
           },
           {
