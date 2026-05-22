@@ -22,7 +22,7 @@ object ToInlineButton {
             case text: Text           => textToInlineButtonText.toInlineKeyboardButton(text)
             case mediaFile: MediaFile => mediaFileToInlineButton.toInlineKeyboardButton(mediaFile)
           }
-        case _                         => None
+        case _ => None
       }
   }
 

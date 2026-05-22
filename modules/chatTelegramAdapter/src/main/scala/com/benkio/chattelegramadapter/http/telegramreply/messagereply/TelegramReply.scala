@@ -102,8 +102,10 @@ object TelegramMessageReply {
         replyToMessage = replyToMessage
       )
     case other =>
-      LogWriter.warn(
-        s"[TelegramMessageReply] Unsupported ReplyValue adapter type (${other.getClass.getSimpleName}); sending nothing"
-      ).as(List.empty[TMessage])
+      LogWriter
+        .warn(
+          s"[TelegramMessageReply] Unsupported ReplyValue adapter type (${other.getClass.getSimpleName}); sending nothing"
+        )
+        .as(List.empty[TMessage])
   }
 }

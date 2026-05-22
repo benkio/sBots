@@ -17,11 +17,11 @@ import com.benkio.chatcore.Generators.userGen
 import org.scalacheck.Arbitrary
 
 object Arbitraries {
-  given Arbitrary[CommandKey] = Arbitrary(commandKeyGen)
-  given Arbitrary[MediaFile]  = Arbitrary(mediaFileGen)
+  given Arbitrary[CommandKey]     = Arbitrary(commandKeyGen)
+  given Arbitrary[MediaFile]      = Arbitrary(mediaFileGen)
   given Arbitrary[ReplyValueCore] = Arbitrary(coreReplyValueCoreGen)
   given Arbitrary[ReplyValue]     = Arbitrary(coreReplyValueGen)
-  given Arbitrary[Message]    = Arbitrary(messageGen)
-  given Arbitrary[User]       = Arbitrary(userGen)
-  given Arbitrary[Trigger]    = Arbitrary(triggerGen)
+  given Arbitrary[Message]        = Arbitrary(messageGen)
+  given Arbitrary[User]           = Arbitrary(userGen)
+  given Arbitrary[Trigger]        = Arbitrary(triggerGen)
 }
