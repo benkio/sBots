@@ -13,15 +13,12 @@ import scala.reflect.ClassTag
 
 trait ReplyValue
 
-object ReplyValue {
-  def from[A <: ReplyValue: ClassTag](value: ReplyValue): Option[A] =
-    summon[ClassTag[A]].runtimeClass match {
-      case clazz if clazz.isInstance(value) => Some(value.asInstanceOf[A])
-      case _                                => None
-    }
+sealed trait ReplyValueCore extends ReplyValue
 
-  given Decoder[ReplyValue] = new Decoder[ReplyValue] {
-    def apply(c: HCursor): Decoder.Result[ReplyValue] =
+object ReplyValueCore {
+
+  given Decoder[ReplyValueCore] = new Decoder[ReplyValueCore] {
+    def apply(c: HCursor): Decoder.Result[ReplyValueCore] =
       c.downField("Text")
         .as[Text]
         .map(identity)
@@ -41,8 +38,8 @@ object ReplyValue {
         .orElse(c.downField("Sticker").as[Sticker].map(mediaFile => mediaFile))
   }
 
-  given Encoder[ReplyValue] = new Encoder[ReplyValue] {
-    def apply(value: ReplyValue): Json = value match {
+  given Encoder[ReplyValueCore] = new Encoder[ReplyValueCore] {
+    def apply(value: ReplyValueCore): Json = value match {
       case text: Text           => Json.obj("Text" -> text.asJson)
       case mp3File: Mp3File     => Json.obj("Mp3File" -> mp3File.asJson)
       case gifFile: GifFile     => Json.obj("GifFile" -> gifFile.asJson)
@@ -53,8 +50,8 @@ object ReplyValue {
     }
   }
 
-  given Show[ReplyValue] with {
-    def show(value: ReplyValue): String = value match {
+  given Show[ReplyValueCore] with {
+    def show(value: ReplyValueCore): String = value match {
       case text: Text           => text.value
       case mediaFile: MediaFile => mediaFile.filename
     }
@@ -65,7 +62,7 @@ final case class Text(
     value: String,
     textType: Text.TextType = TextType.Plain,
     timeToLive: Option[FiniteDuration] = None
-) extends ReplyValue
+) extends ReplyValueCore
 
 object Text {
   enum TextType {
@@ -115,7 +112,7 @@ object EffectfulKey {
   }
 }
 
-sealed trait MediaFile extends ReplyValue {
+sealed trait MediaFile extends ReplyValueCore {
   def filepath: String
   def filename: String  = filepath.split('/').last
   def extension: String = filename.takeRight(4)
@@ -209,3 +206,34 @@ extension (sc: StringContext) {
 }
 
 extension (values: List[String]) def toText: List[Text] = values.map(Text(_))
+
+object ReplyValue {
+  def from[A <: ReplyValue: ClassTag](value: ReplyValue): Option[A] =
+    summon[ClassTag[A]].runtimeClass match {
+      case clazz if clazz.isInstance(value) => Some(value.asInstanceOf[A])
+      case _                                => None
+    }
+
+  /** JSON payloads deserialize to [[ReplyValueCore]]; adapter-specific [[ReplyValue]] types are outside this schema. */
+  given Decoder[ReplyValue] =
+    summon[Decoder[ReplyValueCore]].map((rv: ReplyValueCore) => rv: ReplyValue)
+
+  /** Codec round-trips only [[ReplyValueCore]]; persist adapter payloads with explicit encoders where needed. */
+  given Encoder[ReplyValue] with {
+    def apply(value: ReplyValue): Json = value match {
+      case core: ReplyValueCore =>
+        summon[Encoder[ReplyValueCore]].apply(core)
+      case _: ReplyValue =>
+        throw new UnsupportedOperationException(
+          "Encoder[ReplyValue] supports only ReplyValueCore; persist adapter ReplyValue types with their own Codec"
+        )
+    }
+  }
+
+  given Show[ReplyValue] with {
+    def show(value: ReplyValue): String = value match {
+      case core: ReplyValueCore => summon[Show[ReplyValueCore]].show(core)
+      case adapter              => adapter.toString
+    }
+  }
+}

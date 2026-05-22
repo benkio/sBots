@@ -7,6 +7,7 @@ import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyValue
+import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
@@ -78,24 +79,33 @@ object TelegramMessageReply {
       repository: Repository[F],
       replyToMessage: Boolean
   ): F[List[TMessage]] = replyValue match {
-    case mediaFile: MediaFile =>
-      MediaFileReply.sendMediaFile(
-        reply = mediaFile,
-        msg = msg,
-        repository = repository,
-        replyToMessage = replyToMessage
-      )
-    case text: Text =>
-      TextReply.sendText(
-        reply = text,
-        msg = msg,
-        replyToMessage = replyToMessage
-      )
+    case core: ReplyValueCore =>
+      core match {
+        case mediaFile: MediaFile =>
+          MediaFileReply.sendMediaFile(
+            reply = mediaFile,
+            msg = msg,
+            repository = repository,
+            replyToMessage = replyToMessage
+          )
+        case text: Text =>
+          TextReply.sendText(
+            reply = text,
+            msg = msg,
+            replyToMessage = replyToMessage
+          )
+      }
     case telegramInlineKeyboard: TelegramInlineKeyboard =>
       KeyboardReply.sendKeyboard(
         reply = telegramInlineKeyboard,
         msg = msg,
         replyToMessage = replyToMessage
       )
+    case other =>
+      LogWriter
+        .warn(
+          s"[TelegramMessageReply] Unsupported ReplyValue adapter type (${other.getClass.getSimpleName}); sending nothing"
+        )
+        .as(List.empty[TMessage])
   }
 }

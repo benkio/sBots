@@ -4,6 +4,113 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "il cervello"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Ritocchini.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Ritocchini.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_RitocchiniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_TagliatiIlCervelloCoglione.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_TagliatiIlCervelloCoglione.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_TagliatiIlCervelloCoglioneGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "zoccola"
+          },
+          {
+            "StringTextTriggerValue" : "sputerei in faccia"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(77|settantasette) anni",
+              "regexLength" : 7
+            }
+          },
+          {
+            "StringTextTriggerValue" : "dignità"
+          },
+          {
+            "StringTextTriggerValue" : "ritocch"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_RitocchiniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Ritocchini.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Ritocchini.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "benzina"
           }
         ]
@@ -438,6 +545,24 @@
               "filepath" : "pino_NonTiPermettereGif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Ritocchini.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Ritocchini.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_RitocchiniGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -509,6 +634,24 @@
           {
             "GifFile" : {
               "filepath" : "pino_GiocatoreDiBowlingGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Ritocchini.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Ritocchini.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_RitocchiniGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -622,9 +765,6 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "tagliati"
-          },
-          {
-            "StringTextTriggerValue" : "il cervello"
           },
           {
             "StringTextTriggerValue" : "non ti dico nient'altro"

@@ -6,6 +6,7 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
 import com.benkio.chatcore.model.reply.ReplyValue
+import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
@@ -47,7 +48,9 @@ object Generators {
     stickerGen,
     documentGen
   )
-  val coreReplyValueGen: Gen[ReplyValue] = Gen.oneOf(textGen, mediaFileGen)
+  val coreReplyValueCoreGen: Gen[ReplyValueCore] =
+    Gen.oneOf(textGen, mediaFileGen)
+  val coreReplyValueGen: Gen[ReplyValue] = coreReplyValueCoreGen
 
   val userGen: Gen[User] = for {
     id        <- Gen.long

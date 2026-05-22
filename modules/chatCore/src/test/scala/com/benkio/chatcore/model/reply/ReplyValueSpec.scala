@@ -167,8 +167,9 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
   }
 
   test("ReplyValue.from should downcast to the requested ReplyValue subtype") {
-    forAll { (replyValue: ReplyValue) =>
-      replyValue match {
+    forAll { (replyValueCore: ReplyValueCore) =>
+      val replyValue: ReplyValue = replyValueCore
+      replyValueCore match {
         case text: Text           => assertEquals(ReplyValue.from[Text](replyValue), Some(text))
         case mp3File: Mp3File     => assertEquals(ReplyValue.from[Mp3File](replyValue), Some(mp3File))
         case gifFile: GifFile     => assertEquals(ReplyValue.from[GifFile](replyValue), Some(gifFile))
