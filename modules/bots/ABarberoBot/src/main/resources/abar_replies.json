@@ -4,6 +4,98 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "a (che )?cosa servono",
+              "regexLength" : 14
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "servono a (nulla|niente)",
+              "regexLength" : 16
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "abar_NonServonoANienteGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "abar_NonServonoANiente.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "abar_NonServonoANiente.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "risolto il problema"
+          },
+          {
+            "StringTextTriggerValue" : "abbiamo risolto"
+          },
+          {
+            "StringTextTriggerValue" : "ammazziamoli"
+          },
+          {
+            "StringTextTriggerValue" : "passo successivo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "abar_AmmazziamoliTuttiProblemaRisoltoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "abar_AmmazziamoliTuttiProblemaRisolto.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "abar_AmmazziamoliTuttiProblemaRisolto.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "mi risulta"
           },
           {
