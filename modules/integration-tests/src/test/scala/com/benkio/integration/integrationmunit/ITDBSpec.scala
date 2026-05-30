@@ -10,6 +10,7 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.repository.db.DBMedia
+import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.integration.DBFixture
@@ -87,8 +88,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      given telegramium.bots.high.Api[IO] = botSetup.api
-      sBot                                = new SBotPolling[IO](
+      sBot = new SBotPolling[IO](
         botSetup,
         messageRepliesData,
         commandRepliesData,
@@ -123,8 +123,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      given telegramium.bots.high.Api[IO] = botSetup.api
-      sBot                                = new SBotPolling[IO](
+      sBot = new SBotPolling[IO](
         botSetup,
         messageRepliesData,
         commandRepliesData,
@@ -180,8 +179,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      given telegramium.bots.high.Api[IO] = botSetup.api
-      sBot                                = new SBotPolling[IO](
+      sBot = new SBotPolling[IO](
         botSetup,
         messageRepliesData,
         commandRepliesData,
@@ -215,8 +213,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      given telegramium.bots.high.Api[IO] = botSetup.api
-      sBot                                = new SBotPolling[IO](
+      sBot = new SBotPolling[IO](
         botSetup,
         messageRepliesData,
         commandRepliesData,
@@ -250,8 +247,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
       commandRepliesData <- Resource.eval(
         botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
       )
-      given telegramium.bots.high.Api[IO] = botSetup.api
-      sBot                                = new SBotPolling[IO](
+      sBot = new SBotPolling[IO](
         botSetup,
         messageRepliesData,
         commandRepliesData,
@@ -293,7 +289,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         .filterNot { case (mediaName, mediaKinds) =>
           allReplyMediaFiles.contains(mediaName) || mediaKinds.exists(mediaByKindCommands.contains)
         }
-        .map { case (mediaName, _mediaKinds) => { mediaName } }
+        .map(_._1)
       kindMissing = mediaWithKind.filter(_.kinds.isEmpty).map(_.filename)
     } yield {
       assert(
