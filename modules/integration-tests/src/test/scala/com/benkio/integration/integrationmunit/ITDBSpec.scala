@@ -293,7 +293,7 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
         .filterNot { case (mediaName, mediaKinds) =>
           allReplyMediaFiles.contains(mediaName) || mediaKinds.exists(mediaByKindCommands.contains)
         }
-        .map { case (mediaName, mediaKinds) => { mediaName } }
+        .map { case (mediaName, _mediaKinds) => { mediaName } }
       kindMissing = mediaWithKind.filter(_.kinds.isEmpty).map(_.filename)
     } yield {
       assert(
