@@ -76,6 +76,7 @@ class PinoScottoBotSpec extends BaseBotSpec {
   messageRepliesData
     .map(mrd => {
       exactTriggerReturnExpectedReplyBundle(mrd)
+      inputFileShouldRespondAsExpected(mrd)
     })
     .unsafeRunSync()
 
