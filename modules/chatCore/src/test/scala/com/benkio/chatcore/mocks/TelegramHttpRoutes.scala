@@ -9,6 +9,7 @@ import org.http4s.dsl.io.*
 object TelegramHttpRoutes {
   def apply[F[_]: Async](@unused expectedToken: String): HttpRoutes[F] = HttpRoutes.of[F] {
     case POST -> Root / s"bot$expectedToken" / "setWebhook" =>
+      val _ = expectedToken // Unused warning
       Response(status = Status.Ok).pure[F]
   }
 }
