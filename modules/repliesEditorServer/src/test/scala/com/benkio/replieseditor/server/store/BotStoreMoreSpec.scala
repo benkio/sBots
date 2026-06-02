@@ -248,7 +248,7 @@ class BotStoreMoreSpec extends CatsEffectSuite {
       val botId       = "test"
       val listJson    = botDir.resolve(s"${botId}_list.json")
       val repliesJson = botDir.resolve("src").resolve("main").resolve("resources").resolve(s"${botId}_replies.json")
-      val triggersTxt = botDir.resolve(s"${botId}_triggers.txt")
+      val triggersTxt = botDir.resolve(s"${botId}_triggers.md")
 
       val listContent =
         """[

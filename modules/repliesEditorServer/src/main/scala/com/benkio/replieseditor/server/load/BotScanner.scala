@@ -38,7 +38,7 @@ final class BotScanner(repoRoot: Path) {
             val botId       = listJson.getFileName.toString.stripSuffix("_list.json")
             val repliesJson =
               botDir.resolve("src").resolve("main").resolve("resources").resolve(s"${botId}_replies.json")
-            val triggersTxt = botDir.resolve(s"${botId}_triggers.txt")
+            val triggersTxt = botDir.resolve(s"${botId}_triggers.md")
             if Files.isRegularFile(repliesJson) && Files.isRegularFile(listJson)
             then Some(BotFiles(botId, botName, repliesJson, listJson, triggersTxt))
             else None

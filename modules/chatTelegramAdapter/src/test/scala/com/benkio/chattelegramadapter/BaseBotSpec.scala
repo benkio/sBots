@@ -70,9 +70,13 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       )
     }
 
+  private def triggerFileContentForSearch(triggerContent: String): String =
+    triggerContent.replace("""\|""", "|")
+
   private def checkContains(triggerContent: String, values: List[String]): Unit =
     values.foreach { value =>
-      assert(triggerContent.contains(value), s"$value is not contained in trigger file")
+      val searchable = triggerFileContentForSearch(triggerContent)
+      assert(searchable.contains(value), s"$value is not contained in trigger file")
     }
 
   def botJsonsAreValid(

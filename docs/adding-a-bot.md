@@ -14,7 +14,7 @@ This guide walks you through adding a new bot to the sBots project. After the im
 2. Rename and replace:
    - Directory: `src/main/scala/com/benkio/TemplateBot/` → `src/main/scala/com/benkio/MyNewBot/`
    - Files: `TemplateBot.scala` → `MyNewBot.scala`, `TemplateBotMainPolling.scala` → `MyNewBotMainPolling.scala`
-   - Files: `tpl_replies.json` → `mynew_replies.json`, `tpl_commands.json` → `mynew_commands.json`, `tpl_list.json` → `mynew_list.json`, `tpl_shows.json` → `mynew_shows.json`, `tpl_triggers.txt` → `mynew_triggers.txt`
+   - Files: `tpl_replies.json` → `mynew_replies.json`, `tpl_commands.json` → `mynew_commands.json`, `tpl_list.json` → `mynew_list.json`, `tpl_shows.json` → `mynew_shows.json`, `tpl_triggers.md` → `mynew_triggers.md`
    - In **all** Scala and JSON/txt files: replace `TemplateBot` with `MyNewBot` and `tpl` with `mynew`.
 
 **Option B – Use the sbt task**
@@ -136,7 +136,7 @@ addCommandAlias("mynewAddData", "MyNewBot/runMain com.benkio.MyNewBot.MyNewBotMa
 
 ## Triggers
 
-- **Triggers file**: The template includes an empty `{id}_triggers.txt`. The task `generateTriggerTxt` (run via `sbt generateTriggerTxt`) regenerates trigger files from the JSON data for all bots in the registry.
+- **Triggers file**: The template includes an empty `{id}_triggers.md`. The task `GeneraterTriggerDocumentation` (run via `sbt GeneraterTriggerDocumentation`) regenerates trigger files from the JSON data for all bots in the registry.
 
 ## Summary
 

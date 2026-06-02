@@ -50,10 +50,10 @@ addCommandAlias(
   "check",
   "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
 )
-addCommandAlias("generateTriggerTxt", "main/runMain com.benkio.main.GenerateTriggers")
+addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
   "validate",
-  ";clean; compile; fix; generateTriggerTxt; coverage; test; integration/mUnitTests; coverageAggregate; assembly"
+  ";clean; compile; fix; generateTriggerDocumentation; coverage; test; integration/mUnitTests; coverageAggregate; assembly"
 )
 addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")
@@ -173,7 +173,7 @@ lazy val repliesEditorServer =
     .settings(
       Settings.RepliesEditorServer(repliesEditorUI)
     )
-    .dependsOn(chatCore % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test", main % "compile->compile")
 
 lazy val integration = (project in file("modules/integration-tests"))
   .dependsOn(

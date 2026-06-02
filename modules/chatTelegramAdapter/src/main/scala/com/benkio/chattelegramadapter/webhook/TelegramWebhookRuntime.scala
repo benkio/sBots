@@ -22,9 +22,9 @@ object TelegramWebhookRuntime {
   def buildSBotConfig(sBotInfo: SBotInfo): SBotConfig =
     SBotConfig(
       sBotInfo = sBotInfo,
-      triggerFilename = s"${sBotInfo.botId}_triggers.txt",
+      triggerFilename = s"${sBotInfo.botId}_triggers.md",
       triggerListUri = Uri.unsafeFromString(
-        s"https://github.com/benkio/sBots/blob/main/modules/bots/${sBotInfo.botName}/${sBotInfo.botId}_triggers.txt"
+        s"https://github.com/benkio/sBots/blob/main/modules/bots/${sBotInfo.botName}/${sBotInfo.botId}_triggers.md"
       ),
       listJsonFilename = s"${sBotInfo.botId}_list.json",
       showFilename = s"${sBotInfo.botId}_shows.json",

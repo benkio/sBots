@@ -10,13 +10,24 @@ import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.main.Logger.given
 import log.effect.LogWriter
 
+import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
 import scala.jdk.CollectionConverters.*
 
 object GenerateTriggers extends IOApp {
 
+  val triggerFileHeader: String = s"""| File Name ${" " * 54} | Trigger ${" " * 179}|
+| ${"-" * 64} | ${"-" * 186} |"""
+
   // Trigger file generation ////////////////////////////////////////////////////
+
+  def writeTriggerFile(path: Path, triggers: List[ReplyBundleMessage]): IO[Unit] =
+    IO.blocking {
+      val lines = (triggerFileHeader :: triggers.map(_.prettyPrint().stripLineEnd)).asJava
+      Files.write(path, lines, StandardCharsets.UTF_8)
+      ()
+    }
 
   def generateTriggerFile(
       botModuleRelativeFolderPath: String,
@@ -27,9 +38,8 @@ object GenerateTriggers extends IOApp {
 
     for {
       _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath Trigger file"))
-      triggersStringList = triggers.map(s => s.prettyPrint().stripLineEnd)
+      _ <- Resource.eval(writeTriggerFile(triggerFilesPath, triggers))
       _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
-      _ = Files.write(triggerFilesPath, triggersStringList.asJava)
     } yield ()
   }
 
