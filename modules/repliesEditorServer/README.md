@@ -5,7 +5,7 @@ This module provides a **local single-page web app** to view and edit bot `*_rep
 - A **GUI** (Scala.js + Laminar + Bootstrap)
 - A local **HTTP server** (http4s) that reads/writes the real files on disk
 - **Filename constraints** from each bot’s `*_list.json`
-- Automatic regeneration of `*_triggers.txt` after a successful save
+- Automatic regeneration of `*_triggers.md` after a successful save
 
 The UI sources live in `modules/repliesEditorUI/` and are linked by sbt and copied into this server’s resources at build time.
 
@@ -25,14 +25,14 @@ Then open:
 
 - **Replies**: `modules/bots/<BotName>/src/main/resources/<botId>_replies.json`
 - **Allowed filenames**: `modules/bots/<BotName>/<botId>_list.json`
-- **Triggers (generated)**: `modules/bots/<BotName>/<botId>_triggers.txt`
+- **Triggers (generated)**: `modules/bots/<BotName>/<botId>_triggers.md`
 
 On save, the server:
 
 1. Decodes the posted JSON as `List[ReplyBundleMessage]`
 2. Validates that every `mediaFile.filepath` exists in `<botId>_list.json`
 3. Writes `<botId>_replies.json` (pretty-printed JSON)
-4. Regenerates `<botId>_triggers.txt`
+4. Regenerates `<botId>_triggers.md`
 
 ## UI behavior
 

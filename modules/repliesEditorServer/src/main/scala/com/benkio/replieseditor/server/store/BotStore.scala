@@ -12,9 +12,9 @@ import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.model.TextTriggerValue
+import com.benkio.main.GenerateTriggers
 import com.benkio.replieseditor.server.jsonio.ListJsonFile
 import com.benkio.replieseditor.server.jsonio.RepliesJsonFile
-import com.benkio.replieseditor.server.jsonio.TriggersTxtFile
 import com.benkio.replieseditor.server.module.ApiBot
 import com.benkio.replieseditor.server.module.ApiError
 import com.benkio.replieseditor.server.module.BotFiles
@@ -269,7 +269,7 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
                       val trimmedJson = trimmedReplies.asJson
                       for {
                         _ <- RepliesJsonFile.writePretty(b.files.repliesJson, trimmedJson.spaces2)
-                        _ <- TriggersTxtFile.write(b.files.triggersTxt, trimmedReplies)
+                        _ <- GenerateTriggers.writeTriggerFile(b.files.triggersTxt, trimmedReplies)
                         _ <- ref.update(_.updateReplies(botId, Right(trimmedJson)))
                       } yield Right(SaveOk(botId = botId, repliesCount = trimmedReplies.length))
                   }
@@ -298,7 +298,7 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
                   val json = trimmedReplies.asJson
                   for {
                     _ <- RepliesJsonFile.writePretty(bot.files.repliesJson, json.spaces2)
-                    _ <- TriggersTxtFile.write(bot.files.triggersTxt, trimmedReplies)
+                    _ <- GenerateTriggers.writeTriggerFile(bot.files.triggersTxt, trimmedReplies)
                     _ <- ref.update(_.updateReplies(botId, Right(json)))
                   } yield Right(SaveOk(botId = botId, repliesCount = trimmedReplies.length))
               }
@@ -378,7 +378,7 @@ object BotStore {
               val botId       = listJson.getFileName.toString.stripSuffix("_list.json")
               val repliesJson =
                 botDir.resolve("src").resolve("main").resolve("resources").resolve(s"${botId}_replies.json")
-              val triggersTxt = botDir.resolve(s"${botId}_triggers.txt")
+              val triggersTxt = botDir.resolve(s"${botId}_triggers.md")
 
               if Files.isRegularFile(repliesJson) && Files.isRegularFile(listJson)
               then Some(BotFiles(botId, botName, repliesJson, listJson, triggersTxt))

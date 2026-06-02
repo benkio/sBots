@@ -152,17 +152,23 @@ object ReplyBundle {
   given orderingInstance: Ordering[ReplyBundle] =
     Trigger.orderingInstance.contramap(_.trigger)
 
+  private def mdTriggerCell(trigger: String): String =
+    trigger.replace("|", "\\|")
+
+  private def mdTableRow(left: String, trigger: String): String = {
+    val leftPadded = left.padTo(64, ' ')
+    s"| $leftPadded | ${mdTriggerCell(trigger)}".padTo(255, ' ') + " |"
+  }
+
   extension (rb: ReplyBundle) {
     def prettyPrint()(using triggerShow: Show[Trigger]): String = {
+      val emptyLine: String            = mdTableRow(" " * 64, "")
       val triggerStrings: List[String] = triggerShow.show(rb.trigger).split('\n').toList
       val result                       = rb.reply.prettyPrint
         .zipAll(that = triggerStrings, thisElem = "", thatElem = "")
-        .map { case (mfs, trs) =>
-          val left = mfs.padTo(25, ' ')
-          if trs.isEmpty then s"$left |" else s"$left | $trs"
-        }
+        .map { case (mfs, trs) => mdTableRow(mfs, trs) }
         .mkString("\n")
-      ("-" * 50) + s"\n$result\n" + ("-" * 50) + "\n"
+      s"$result\n" + emptyLine + "\n"
     }
 
     def containsMediaReply(r: ReplyBundle): Boolean =

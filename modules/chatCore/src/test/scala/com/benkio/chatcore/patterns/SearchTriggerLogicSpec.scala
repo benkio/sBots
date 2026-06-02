@@ -33,11 +33,10 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "frocio frocio"
-    ) -> """--------------------------------------------------
-           |rphjb_NudoFrocio.mp3      | fro(ci|sh)o([ -]fro(ci|sh)o)+
-           |rphjb_FrocioFrocio.mp4    |
-           |--------------------------------------------------
-           |""".stripMargin,
+    ) -> """#| rphjb_NudoFrocio.mp3                                             | fro(ci\|sh)o([ -]fro(ci\|sh)o)+                                                                                                                                                            |
+            #| rphjb_FrocioFrocio.mp4                                           |                                                                                                                                                                                            |
+            #|                                                                  |                                                                                                                                                                                            |
+            #""".stripMargin('#'),
     (
       List(
         ReplyBundleMessage.textToMedia(
@@ -50,13 +49,12 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "una vergogna!"
-    ) -> """--------------------------------------------------
-           |rphjb_Vergogna.mp3        | una vergogna
-           |rphjb_Vergogna.mp4        |
-           |rphjb_VergognaGif.mp4     |
-           |rphjb_Vergogna2Gif.mp4    |
-           |--------------------------------------------------
-           |""".stripMargin,
+    ) -> """#| rphjb_Vergogna.mp3                                               | una vergogna                                                                                                                                                                               |
+            #| rphjb_Vergogna.mp4                                               |                                                                                                                                                                                            |
+            #| rphjb_VergognaGif.mp4                                            |                                                                                                                                                                                            |
+            #| rphjb_Vergogna2Gif.mp4                                           |                                                                                                                                                                                            |
+            #|                                                                  |                                                                                                                                                                                            |
+            #""".stripMargin('#'),
     (
       List(
         ReplyBundleMessage.textToMedia(
@@ -67,11 +65,10 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "ostia!!!"
-    ) -> """--------------------------------------------------
-           |mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3 | ostia
-           |mos_AntonioFossoCarteColla.mp3 |
-           |--------------------------------------------------
-           |""".stripMargin,
+    ) -> """#| mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3 | ostia                                                                                                                                                                        |
+            #| mos_AntonioFossoCarteColla.mp3                                   |                                                                                                                                                                                            |
+            #|                                                                  |                                                                                                                                                                                            |
+            #""".stripMargin('#'),
     (
       List(
         ReplyBundleMessage.textToMedia(
@@ -82,11 +79,10 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "ciclismo"
-    ) -> """--------------------------------------------------
-           |mos_CiclismoAllieviDio.mp3 | ciclismo
-           |mos_CiclismoGianniBugnoRitardo.mp3 |
-           |--------------------------------------------------
-           |""".stripMargin,
+    ) -> """#| mos_CiclismoAllieviDio.mp3                                       | ciclismo                                                                                                                                                                                   |
+            #| mos_CiclismoGianniBugnoRitardo.mp3                               |                                                                                                                                                                                            |
+            #|                                                                  |                                                                                                                                                                                            |
+            #""".stripMargin('#'),
     (
       List(
         ReplyBundleMessage.textToMedia(
@@ -96,10 +92,9 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "un francesismo"
-    ) -> """--------------------------------------------------
-           |ytai_Francesismo.mp3      | francesismo
-           |--------------------------------------------------
-           |""".stripMargin,
+    ) -> """#| ytai_Francesismo.mp3                                             | francesismo                                                                                                                                                                                |
+            #|                                                                  |                                                                                                                                                                                            |
+            #""".stripMargin('#'),
     (
       List(
         ReplyBundleMessage.textToMedia(
@@ -110,11 +105,10 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "splendido miele"
-    ) -> """--------------------------------------------------
-           |ytai_ForteProfumoMieleGif.mp4 | miele
-           |ytai_AppiccicaticcioMieleGif.mp4 |
-           |--------------------------------------------------
-           |""".stripMargin,
+    ) -> """#| ytai_ForteProfumoMieleGif.mp4                                    | miele                                                                                                                                                                                      |
+            #| ytai_AppiccicaticcioMieleGif.mp4                                 |                                                                                                                                                                                            |
+            #|                                                                  |                                                                                                                                                                                            |
+            #""".stripMargin('#'),
     (
       List(
         ReplyBundleMessage.textToMedia(
@@ -125,11 +119,10 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "italiani!!!"
-    ) -> """--------------------------------------------------
-           |abar_Taliani.mp3          | italiani
-           |                          | arrendetevi
-           |--------------------------------------------------
-           |""".stripMargin,
+    ) -> """#| abar_Taliani.mp3                                                 | italiani                                                                                                                                                                                   |
+            #|                                                                  | arrendetevi                                                                                                                                                                                |
+            #|                                                                  |                                                                                                                                                                                            |
+            #""".stripMargin('#'),
     (
       List(
         ReplyBundleMessage.textToMedia(
@@ -140,11 +133,10 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "ti tiro una sprangata"
-    ) -> """--------------------------------------------------
-           |abar_SprangaGif.mp4       | spranga
-           |abar_ParoleLongobarde.mp4 |
-           |--------------------------------------------------
-           |""".stripMargin
+    ) -> """#| abar_SprangaGif.mp4                                              | spranga                                                                                                                                                                                    |
+            #| abar_ParoleLongobarde.mp4                                        |                                                                                                                                                                                            |
+            #|                                                                  |                                                                                                                                                                                            |
+            #""".stripMargin('#')
   )
 
   test("searchTriggerLogic should return the expected result when a trigger is found") {

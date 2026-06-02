@@ -29,7 +29,7 @@ class BotScannerSpec extends CatsEffectSuite {
       assertEquals(bots.head.botName, "CalandroBot")
       assert(bots.head.repliesJson.getFileName.toString.endsWith("cala_replies.json"))
       assert(bots.head.listJson.getFileName.toString.endsWith("cala_list.json"))
-      assert(bots.head.triggersTxt.getFileName.toString.endsWith("cala_triggers.txt"))
+      assert(bots.head.triggersTxt.getFileName.toString.endsWith("cala_triggers.md"))
     }
   }
 }

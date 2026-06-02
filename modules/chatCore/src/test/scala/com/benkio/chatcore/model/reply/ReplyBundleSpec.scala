@@ -47,18 +47,15 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     )
     val result: String = replyBundleInput.prettyPrint()
 
-    assertEquals(
-      result,
-      """--------------------------------------------------
-        |audio.mp3                 | stringTextTriggerValue
-        |picture.jpg               | regexTextTriggerValue
-        |picture.png               |
-        |aGif.mp4                  |
-        |video.mp4                 |
-        |document.pdf              |
-        |--------------------------------------------------
-        |""".stripMargin
-    )
+    val expected =
+      "| audio.mp3                                                        | stringTextTriggerValue                                                                                                                                                                     |\n" +
+        "| picture.jpg                                                      | regexTextTriggerValue                                                                                                                                                                      |\n" +
+        "| picture.png                                                      |                                                                                                                                                                                            |\n" +
+        "| aGif.mp4                                                         |                                                                                                                                                                                            |\n" +
+        "| video.mp4                                                        |                                                                                                                                                                                            |\n" +
+        "| document.pdf                                                     |                                                                                                                                                                                            |\n" +
+        "|                                                                  |                                                                                                                                                                                            |\n"
+    assertEquals(result, expected)
   }
 
   test("Reply Bundle Message JSON decode/encode should work as expected") {
