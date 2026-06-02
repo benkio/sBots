@@ -12,9 +12,9 @@ import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.model.TextTriggerValue
+import com.benkio.main.GenerateTriggers
 import com.benkio.replieseditor.server.jsonio.ListJsonFile
 import com.benkio.replieseditor.server.jsonio.RepliesJsonFile
-import com.benkio.main.GenerateTriggers
 import com.benkio.replieseditor.server.module.ApiBot
 import com.benkio.replieseditor.server.module.ApiError
 import com.benkio.replieseditor.server.module.BotFiles
