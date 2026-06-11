@@ -4,6 +4,58 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "fa (14|quattordici|11|undici)",
+              "regexLength" : 5
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(7|sette)[ ]?\\+[ ]?(7|sette)",
+              "regexLength" : 3
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(14|quattordici)[ ]?-[ ]?(3|tre)",
+              "regexLength" : 4
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MiPareLogicoMatematiciAnaliticiDiNoia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MiPareLogicoMatematiciAnaliticiDiNoiaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "partaloni"
           }
         ]
@@ -13815,7 +13867,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "c'è un testo"
+            "RegexTextTriggerValue" : {
+              "trigger" : "c'([èé]|e') un testo",
+              "regexLength" : 12
+            }
           },
           {
             "StringTextTriggerValue" : "niente da perdere"
@@ -13828,6 +13883,12 @@
           },
           {
             "StringTextTriggerValue" : "svastiche"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "che dice cos[ìi]",
+              "regexLength" : 13
+            }
           }
         ]
       }
@@ -24399,6 +24460,9 @@
           },
           {
             "StringTextTriggerValue" : "ossa dei morti"
+          },
+          {
+            "StringTextTriggerValue" : "contro il nemico"
           }
         ]
       }
@@ -61272,7 +61336,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
@@ -61323,7 +61387,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
