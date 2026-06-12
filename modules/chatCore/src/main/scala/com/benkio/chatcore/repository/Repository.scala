@@ -61,7 +61,7 @@ object Repository {
   def fileToString[F[_]: Async: LogWriter](path: Path): Resource[F, String] =
     Resource
       .make(Async[F].delay(Source.fromFile(path.toFile())))(bs => Async[F].delay(bs.close))
-      .map(_.getLines.mkString("\n"))
+      .map(_.getLines().mkString("\n"))
       .handleErrorWith((e: Throwable) =>
         Resource.eval(LogWriter.error(s"[Repository] `fileToString` failed with $e")) >>
           Resource.pure[F, String]("")
