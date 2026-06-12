@@ -4,6 +4,58 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "non stanno bene"
+          },
+          {
+            "StringTextTriggerValue" : "amici purtroppo che"
+          },
+          {
+            "StringTextTriggerValue" : "nella mia testa"
+          },
+          {
+            "StringTextTriggerValue" : "io li ricordo"
+          },
+          {
+            "StringTextTriggerValue" : "la tentano"
+          },
+          {
+            "StringTextTriggerValue" : "non ci riescono"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_LaTentanoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LaTentano.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LaTentano.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "liquirizia"
           }
         ]
