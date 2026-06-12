@@ -496,7 +496,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "\bfa (14|quattordici|11|undici|2|due)\b",
+              "trigger" : "\\bfa (14|quattordici|11|undici|2|due)\\b",
               "regexLength" : 4
             }
           },
@@ -508,8 +508,8 @@
           },
           {
             "RegexTextTriggerValue" : {
-                "trigger" : "(1|uno)[ ]?\\+[ ]?(1|uno)",
-                "regexLength" : 3
+              "trigger" : "(1|uno)[ ]?\\+[ ]?(1|uno)",
+              "regexLength" : 3
             }
           },
           {
@@ -62196,7 +62196,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
@@ -62247,7 +62247,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
