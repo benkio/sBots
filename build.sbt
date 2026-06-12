@@ -19,7 +19,7 @@ newBot := {
 
 name                     := "sBots"
 organization             := "com.benkio"
-ThisBuild / scalaVersion := "3.3.7"
+ThisBuild / scalaVersion := "3.3.8"
 ThisBuild / scalacOptions ++= Seq(
   "-java-output-version",
   "21",
