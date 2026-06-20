@@ -4,6 +4,605 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "verano"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_VecchiAmiciAnni70Verano.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CaniAlCimitero.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "sotto terra"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_VederviSottoTerra.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_VederviSottoTerra.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VederviSottoTerraGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MiRipetoFormuleMusicaliBieche.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MiRipetoFormuleMusicaliBieche.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "domande insulse"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimiGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "a me (mi )?piace",
+              "regexLength" : 10
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_AncoraUnAltraCassa.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_AncoraUnAltraCassa.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_DiscriminazioneSorca.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_DiscriminazioneSorca.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_DiscriminazioneSorcaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "non c'è dubbio"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_SuQuestoNonCEDubbioGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_SuQuestoNonCEDubbio.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_SuQuestoNonCEDubbio.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "non aspetto altro"
+          },
+          {
+            "StringTextTriggerValue" : "una bella pisciata"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "ricoperti (di|solo dalla|dalla) terra",
+              "regexLength" : 18
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VederviSottoTerraGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_VederviSottoTerra.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_VederviSottoTerra.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bschiava\\b",
+              "regexLength" : 7
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_QuelloCheDicoIoSchiavaDelSessoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_QuelloCheDicoIoSchiavaDelSesso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_QuelloCheDicoIoSchiavaDelSesso.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "impazzire"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_ImpazzireGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Impazzire.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Impazzire.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MiPiaccioGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MiPiaccio2.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "meno parole"
+          },
+          {
+            "StringTextTriggerValue" : "più musica"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MenoParolePiuMusicaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MenoParolePiuMusica.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MenoParolePiuMusica.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "welcome back"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_WelcomeBackMyFriendsGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_WelcomeBackMyFriends.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_WelcomeBackMyFriends.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "tombino"
+          },
+          {
+            "StringTextTriggerValue" : "vi chiamate?"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TombinoBatteristaIgnoranzaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_TombinoBatteristaIgnoranza.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_TombinoBatteristaIgnoranza.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "sarà rimasto"
+          },
+          {
+            "StringTextTriggerValue" : "uscito di recente"
+          },
+          {
+            "StringTextTriggerValue" : "non veramente nuovo"
+          },
+          {
+            "StringTextTriggerValue" : "dopo quello nuovo"
+          },
+          {
+            "StringTextTriggerValue" : "che è uscito"
+          },
+          {
+            "StringTextTriggerValue" : "se n'è andato"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_DiscoChitarristaRimastoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_DiscoChitarristaRimasto.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_DiscoChitarristaRimasto.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "discriminazione"
+          },
+          {
+            "StringTextTriggerValue" : "chi è diverso"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_DiscriminazioneSorcaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_DiscriminazioneSorca.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_DiscriminazioneSorca.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "fate incazzare"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_NonMiFateIncazzareGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonMiFateIncazzare.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_NonMiFateIncazzare.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "non stanno bene"
           },
           {
@@ -11714,7 +12313,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "solo l'inizio"
+            "RegexTextTriggerValue" : {
+              "trigger" : "solo (l'|all')inizio",
+              "regexLength" : 13
+            }
           }
         ]
       }
@@ -17257,7 +17859,7 @@
           },
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "che me lo (in)?presti",
+              "trigger" : "me lo (in)?presti",
               "regexLength" : 16
             }
           },
@@ -17279,6 +17881,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_CaniAlCimitero.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp3",
               "replyToMessage" : false
             }
           }
@@ -18918,6 +19532,24 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_RingrazioPersoneAttente.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_SuccedonoDiTuttiIColori.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_SuccedonoDiTuttiIColori.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_SuccedonoDiTuttiIColoriGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -22875,9 +23507,6 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "verano"
-          },
-          {
             "StringTextTriggerValue" : "si muore"
           },
           {
@@ -23548,6 +24177,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_MoltoColpito.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_MoltoColpitoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MoltoColpito.mp3",
               "replyToMessage" : false
             }
           }
@@ -24992,6 +25633,24 @@
               "filepath" : "rphjb_Basta2.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_VederviSottoTerra.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_VederviSottoTerra.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VederviSottoTerraGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -25463,6 +26122,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_CaniAlCimitero.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp3",
               "replyToMessage" : false
             }
           },
@@ -27004,6 +27675,24 @@
               "filepath" : "rphjb_UltimiGiuGiuGif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimiGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -27264,6 +27953,24 @@
               "filepath" : "rphjb_FannoQuelloCheDicoIo.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_QuelloCheDicoIoSchiavaDelSesso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_QuelloCheDicoIoSchiavaDelSesso.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_QuelloCheDicoIoSchiavaDelSessoGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -27341,16 +28048,168 @@
               "trigger" : "\\bgood\\b",
               "regexLength" : 4
             }
-          },
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
           {
-            "RegexTextTriggerValue" : {
-              "trigger" : "\\bshow\\b",
-              "regexLength" : 4
+            "GifFile" : {
+              "filepath" : "rphjb_OkGoodShowFriendsGif.mp4",
+              "replyToMessage" : false
             }
           },
           {
+            "GifFile" : {
+              "filepath" : "rphjb_OkGoodShowFriends2Gif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LetSGoodStateBene.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_WelaMyFriends.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LetsGoodMyFriends.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonPoteteGiudicarUrloThatsGood.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LetsGoodMyFriendsPassport.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LetsGoodMyFriendsForTheShowThatNeverEnds.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Sticker" : {
+              "filepath" : "rphjb_WelaBensoniani.sticker",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_WelaLetsGoodMyFriends.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "RegexTextTriggerValue" : {
-              "trigger" : "\\bfriends\\b",
+              "trigger" : "\\bthe show\\b",
+              "regexLength" : 4
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_OkGoodShowFriendsGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LetSGoodStateBene.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LetsGoodMyFriends.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonPoteteGiudicarUrloThatsGood.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LetsGoodMyFriendsPassport.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LetsGoodMyFriendsForTheShowThatNeverEnds.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Sticker" : {
+              "filepath" : "rphjb_WelaBensoniani.sticker",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_WelcomeBackMyFriends.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_WelcomeBackMyFriends.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_WelcomeBackMyFriendsGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bmy friends\\b",
               "regexLength" : 7
             }
           }
@@ -27417,6 +28276,106 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_WelaLetsGoodMyFriends.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_WelcomeBackMyFriends.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_WelcomeBackMyFriends.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_WelcomeBackMyFriendsGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "nev(er|a) ends\\b",
+              "regexLength" : 9
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_OkGoodShowFriendsGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_LetSGoodStateBene.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LetsGoodMyFriends.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_NonPoteteGiudicarUrloThatsGood.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LetsGoodMyFriendsPassport.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_LetsGoodMyFriendsForTheShowThatNeverEnds.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Sticker" : {
+              "filepath" : "rphjb_WelaBensoniani.sticker",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_WelcomeBackMyFriends.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_WelcomeBackMyFriendsGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_WelcomeBackMyFriends.mp3",
               "replyToMessage" : false
             }
           }
@@ -30853,6 +31812,24 @@
               "filepath" : "rphjb_StriscioneSangueUmanoPolliRosticeriaSchifosiGif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimiGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -32305,7 +33282,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "aluba"
+            "RegexTextTriggerValue" : {
+              "trigger" : "a[ -]lu[bl]a",
+              "regexLength" : 5
+            }
           },
           {
             "StringTextTriggerValue" : "my baby"
@@ -32479,10 +33459,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "bebop"
-          },
-          {
-            "StringTextTriggerValue" : "be bop"
+            "RegexTextTriggerValue" : {
+              "trigger" : "be[- ]?bop",
+              "regexLength" : 5
+            }
           }
         ]
       }
@@ -36542,6 +37522,24 @@
           {
             "GifFile" : {
               "filepath" : "rphjb_HoRottoIlCazzoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_AveteRottoIlCazzoUltimiDegliUltimiGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -41760,6 +42758,24 @@
               "filepath" : "rphjb_TecnicaChitarristicaSullaFregna.mp3",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_DiscoChitarristaRimasto.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_DiscoChitarristaRimasto.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_DiscoChitarristaRimastoGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -41966,6 +42982,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_Urlo5.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_Urlo5Gif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Urlo5.mp3",
               "replyToMessage" : false
             }
           },
@@ -42958,8 +43986,57 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "mike terrana"
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bterrana\\b",
+              "regexLength" : 7
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_StacchiDiBatteriaMikeTerranaInfernali.mp4",
+              "replyToMessage" : false
+            }
           },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Infernali.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_DiscoChitarristaRimasto.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_DiscoChitarristaRimasto.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_DiscoChitarristaRimastoGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
           {
             "StringTextTriggerValue" : "stacchi di batteria"
           }
@@ -44774,6 +45851,24 @@
               "filepath" : "rphjb_NonMeLaPrendo.mp3",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_TombinoBatteristaIgnoranza.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_TombinoBatteristaIgnoranza.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TombinoBatteristaIgnoranzaGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -46256,6 +47351,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_CaniAlCimitero.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp3",
               "replyToMessage" : false
             }
           }
@@ -53926,6 +55033,24 @@
               "filepath" : "rphjb_FigaTroppoLargafGif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_DiscriminazioneSorca.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_DiscriminazioneSorca.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_DiscriminazioneSorcaGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -54690,9 +55815,6 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "mi piaccio"
-          },
-          {
-            "StringTextTriggerValue" : "impazzire"
           }
         ]
       }
@@ -56077,9 +57199,6 @@
           },
           {
             "StringTextTriggerValue" : "formule musicali"
-          },
-          {
-            "StringTextTriggerValue" : "sotto terra"
           },
           {
             "RegexTextTriggerValue" : {
@@ -59225,12 +60344,6 @@
             }
           },
           {
-            "RegexTextTriggerValue" : {
-              "trigger" : "a me (mi )?piace",
-              "regexLength" : 10
-            }
-          },
-          {
             "StringTextTriggerValue" : "me la compro"
           }
         ]
@@ -59858,6 +60971,24 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_Batterista.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_TombinoBatteristaIgnoranza.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TombinoBatteristaIgnoranzaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_TombinoBatteristaIgnoranza.mp3",
               "replyToMessage" : false
             }
           }
@@ -61370,7 +62501,7 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "in fila"
+            "StringTextTriggerValue" : "mettiti in fila"
           },
           {
             "StringTextTriggerValue" : "e lui..."
@@ -61396,6 +62527,24 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_MettitiInFila.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CaniAlCimitero.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CaniAlCimitero2.mp3",
               "replyToMessage" : false
             }
           }
