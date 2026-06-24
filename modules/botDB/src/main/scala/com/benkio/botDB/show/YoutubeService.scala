@@ -62,7 +62,7 @@ trait YouTubeService[F[_]] {
   def getYouTubeVideos(
       videoIds: List[String]
   ): F[List[Video]]
-  def fetchCaption(videoId: String, tempDir: Path, captionLanguage: String): F[Option[String]]
+  def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit]
 }
 
 object YouTubeService {
@@ -171,36 +171,19 @@ object YouTubeService {
       } yield videos
     }
 
-    override def fetchCaption(videoId: String, tempDir: Path, captionLanguage: String): F[Option[String]] = {
+    override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit] = {
       val command =
-        s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format json3 -o "%(id)s" -P $tempDir https://www.youtube.com/watch?v=${videoId}"""
+        s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format srt -o "%(id)s" -P $captionFolderPath https://www.youtube.com/watch?v=${videoId}"""
       val captionDownloadLogic: F[Option[String]] = for {
         _           <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption")
         _           <- Async[F].delay(command.!)
-        captionFile <- Async[F].delay(tempDir.resolve(s"${videoId}.$captionLanguage.json3"))
-        _           <- LogWriter.info(
-          s"[ShowUpdater] ${videoId} - $captionLanguage: Parse result file: $captionFile"
-        )
-        captionFileContent <- Async[F].fromTry(
-          Try(
-            Files
-              .readAllLines(captionFile)
-              .asScala
-              .mkString("\n")
-          )
-        )
-        captionJson <- Async[F].fromEither(parse(captionFileContent))
-        caption = captionJson.findAllByKey("utf8").map(_.as[String]).collect { case Right(value) => value }.mkString
-        _ <- LogWriter.info(
-          s"[ShowUpdater] ${videoId} - $captionLanguage: caption length ${caption.length}"
-        )
-      } yield Some(caption.replace("\n", " "))
+      } yield ()
       captionDownloadLogic
         .handleErrorWith(e =>
           LogWriter.error(
             s"[ShowUpdater] ❌ ${videoId} - $captionLanguage Downloading Caption: $e"
           ) >> Async[F]
-            .pure(None)
+            .unit
         )
     }
   }
