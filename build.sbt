@@ -53,7 +53,7 @@ addCommandAlias(
 addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
   "validate",
-  ";clean; compile; fix; generateTriggerDocumentation; coverage; test; integration/mUnitTests; coverageAggregate; assembly"
+  ";clean; compile; fix; generateTriggerDocumentation; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; assembly"
 )
 addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")
