@@ -22,6 +22,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   // Input Data
   val botId: SBotId          = SBotId("testbot")
   val outputFilePath         = "./src/test/resources/testdata/test_shows.json"
+  val captionFolderPath      = "./src/test/resources/testdata/captions"
   val captionLanguage        = "it"
   val testCaption            = "Test Caption"
   val videoId                = "6Tw1z"
@@ -45,6 +46,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     YouTubeBotIds(
       botId = botId,
       outputFilePath = outputFilePath,
+      captionFolderPath = captionFolderPath,
       captionLanguage = captionLanguage,
       videoIds = videoIds
     )
@@ -136,12 +138,14 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       YouTubeBotIds(
         botId = SBotId("testBot2"),
         outputFilePath = "i8EWm",
+        captionFolderPath = "test/captions/2",
         captionLanguage = captionLanguage,
         videoIds = List(otherVideoId1)
       ),
       YouTubeBotIds(
         botId = SBotId("testBot3"),
         outputFilePath = "cYVdV",
+        captionFolderPath = "test/captions/3",
         captionLanguage = captionLanguage,
         videoIds = List(otherVideoId2)
       )
@@ -154,7 +158,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   test("ShowUpdater.youTubeBotIdsToVideos should convert the expected video ids to videos") {
     assertIO(
       showUpdater.youTubeBotIdsToVideos(youTubeBotIds),
-      List(YouTubeBotVideos(botId, outputFilePath, captionLanguage, videos))
+      List(YouTubeBotVideos(botId, outputFilePath, captionFolderPath, captionLanguage, videos))
     )
   }
   test("ShowUpdater.videoToDBShowData should convert the input video without data to None if missing data") {
@@ -174,7 +178,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   test("ShowUpdater.youTubeBotVideosToDbShowDatas should convert multiple youtube videos to expected DBShowData") {
     assertIO(
       showUpdater.youTubeBotVideosToDbShowDatas(
-        List(YouTubeBotVideos(botId, outputFilePath, captionLanguage, videos))
+        List(YouTubeBotVideos(botId, outputFilePath, captionFolderPath, captionLanguage, videos))
       ),
       expectedYouTubeBotDBShowDatas
     )

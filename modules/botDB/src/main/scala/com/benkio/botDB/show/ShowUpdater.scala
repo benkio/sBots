@@ -89,6 +89,7 @@ object ShowUpdater {
                 botId = youTubeBotIds.botId,
                 outputFilePath = youTubeBotIds.outputFilePath,
                 captionLanguage = youTubeBotIds.captionLanguage,
+                captionFolderPath = youTubeBotIds.captionFolderPath,
                 videos = youTubeBotVideos
               )
             )

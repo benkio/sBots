@@ -24,8 +24,20 @@ import scala.sys.process.*
 import scala.util.Try
 
 final case class YouTubeBotFile(botId: SBotId, captionLanguage: String, file: Path)
-final case class YouTubeBotIds(botId: SBotId, outputFilePath: String, captionLanguage: String, videoIds: List[String])
-final case class YouTubeBotVideos(botId: SBotId, outputFilePath: String, captionLanguage: String, videos: List[Video])
+final case class YouTubeBotIds(
+    botId: SBotId,
+    outputFilePath: String,
+    captionFolderPath: String,
+    captionLanguage: String,
+    videoIds: List[String]
+)
+final case class YouTubeBotVideos(
+    botId: SBotId,
+    outputFilePath: String,
+    captionFolderPath: String,
+    captionLanguage: String,
+    videos: List[Video]
+)
 final case class YouTubeBotDBShowDatas(
     botId: SBotId,
     outputFilePath: String,
@@ -94,7 +106,7 @@ object YouTubeService {
       for {
         _              <- LogWriter.info("[YouTubeService] Get Youtube playlist Ids from sources")
         botPlaylistIds <- source.traverse {
-          case ShowSourceConfig(youTubeSources, botId, captionLanguage, outputFilePath) =>
+          case ShowSourceConfig(youTubeSources, botId, captionLanguage, outputFilePath, captionFolderPath) =>
             youTubeSources
               .map(YouTubeSource(_))
               .traverse {
@@ -106,17 +118,30 @@ object YouTubeService {
                     youTubeApiKey = youTubeApiKey
                   )
               }
-              .map(YouTubeBotIds(SBotId(botId), outputFilePath, captionLanguage, _))
+              .map((videoIds: List[String]) =>
+                YouTubeBotIds(
+                  botId = SBotId(botId),
+                  outputFilePath = outputFilePath,
+                  captionFolderPath = captionFolderPath,
+                  captionLanguage = captionLanguage,
+                  videoIds = videoIds
+                )
+              )
         }
         _           <- LogWriter.info("[YouTubeService] Get Youtube videos Ids from sources")
         botVideoIds <- botPlaylistIds.traverse {
-          case YouTubeBotIds(botId, outputFilePath, captionLanguage, playlistIds) =>
+          case YouTubeBotIds(botId, outputFilePath, captionFolderPath, captionLanguage, playlistIds) =>
             getYouTubePlaylistsIds(
               youTubeService = youTubeService,
               playlistIds = playlistIds,
               youTubeApiKey = youTubeApiKey
             )
-              .map(videoIds => YouTubeBotIds(botId, outputFilePath, captionLanguage, videoIds))
+              .map(videoIds => YouTubeBotIds(
+                botId = botId,
+                outputFilePath = outputFilePath,
+                captionFolderPath = captionFolderPath,
+                captionLanguage = captionLanguage,
+                videoIds = videoIds))
         }
       } yield botVideoIds
     }

@@ -40,7 +40,8 @@ object TestData {
     youtubeSources = List("PLO1i4nEhzCLYvR6gBHuZJS4z28he2S8yh"),
     botId = "testbot",
     captionLanguage = "it",
-    outputFilePath = "./src/test/resources/testdata/test_shows.json"
+    outputFilePath = "./src/test/resources/testdata/test_shows.json",
+    captionFolderPath = "./src/test/resources/testdata/captions"
   )
 
   val config: Config = Config(
