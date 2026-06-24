@@ -122,7 +122,16 @@ object ShowUpdater {
     }
 
     override def updateShow: Resource[F, Unit] = {
-      val program = for {
+      val updateShowFromJsons: F[Unit] = for {
+        _ <- LogWriter.info(
+          s"[ShowUpdater] Option runShowFetching = ${config.showConfig.runShowFetching}. Update Shows from Jsons"
+        )
+        storedDbShowDatas <- getStoredDbShowDatas
+        _                 <- LogWriter.info(s"[ShowUpdater] Insert ${storedDbShowDatas.length} DBShowDatas to DB")
+        _                 <- insertDBShowDatas(storedDbShowDatas)
+      } yield ()
+
+      val updateShowFromYoutube: F[Unit] = for {
         _            <- LogWriter.info("[ShowUpdater] Fetching online show Ids")
         candidateIds <- youTubeService.getAllBotNameIds.handleErrorWith(e =>
           LogWriter.error(
@@ -168,11 +177,8 @@ object ShowUpdater {
         )
       } yield ()
       if config.showConfig.runShowFetching
-      then Resource.eval(program)
-      else
-        Resource.eval(
-          LogWriter.info(s"[ShowUpdater] Option runShowFetching = ${config.showConfig.runShowFetching}. No run")
-        )
+      then Resource.eval(updateShowFromYoutube)
+      else Resource.eval(updateShowFromJsons)
     }
 
     private[show] def getStoredDbShowDatas: F[List[YouTubeBotDBShowDatas]] = {
