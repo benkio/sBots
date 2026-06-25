@@ -42,6 +42,11 @@ final case class YouTubeBotDBShowDatas(
     dbShowDatas: List[DBShowData]
 )
 
+extension (youTubeBotDBShowDatas: YouTubeBotDBShowDatas) {
+  def captionFilePath(show: DBShowData): Path =
+    Path.of(youTubeBotDBShowDatas.captionFolderPath, s"${show.show_id}.${youTubeBotDBShowDatas.captionLanguage}.srt")
+}
+
 object YouTubeBotDBShowDatas {
   given Semigroup[YouTubeBotDBShowDatas] with {
     def combine(d1: YouTubeBotDBShowDatas, d2: YouTubeBotDBShowDatas): YouTubeBotDBShowDatas =
@@ -60,7 +65,7 @@ trait YouTubeService[F[_]] {
   def getYouTubeVideos(
       videoIds: List[String]
   ): F[List[Video]]
-  def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Option[Path]]
+  def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit]
 }
 
 object YouTubeService {
@@ -172,19 +177,21 @@ object YouTubeService {
       } yield videos
     }
 
-    override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Option[Path]] = {
+    override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit] = {
       val command =
         s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format srt -o "%(id)s" -P $captionFolderPath https://www.youtube.com/watch?v=${videoId}"""
-      val captionDownloadLogic: F[Option[Path]] = for {
-        _ <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption into ${captionFolderPath}")
+      val captionDownloadLogic: F[Unit] = for {
+        _ <- LogWriter.info(
+          s"[ShowUpdater - ${videoId} - $captionLanguage] Fetch caption into ${captionFolderPath.getName(captionFolderPath.getNameCount() - 1)}"
+        )
         output <- Async[F].delay(command.!!)
-        _      <- LogWriter.debug(s"[ShowUpdater] yt-dlp output: $output")
-      } yield Some(captionFolderPath.resolve(s"${videoId}.srt"))
+        _      <- LogWriter.debug(s"[ShowUpdater - ${videoId}] yt-dlp output: $output")
+      } yield ()
       captionDownloadLogic
         .handleErrorWith(e =>
           LogWriter.error(
-            s"[ShowUpdater] ❌ ${videoId} - $captionLanguage Downloading Caption: $e"
-          ) >> Async[F].pure(None)
+            s"[ShowUpdater - ${videoId} - $captionLanguage] ❌ Downloading Caption: $e"
+          ) >> Async[F].unit
         )
     }
   }

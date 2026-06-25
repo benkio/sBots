@@ -111,8 +111,10 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       then videos.pure[IO]
       else IO.raiseError(Throwable(s"[ShowUpdaterSpec] Unexpected input video ids: $inputVideoIds")),
     onSaveCaption = (inputVideoId, tempDir, inputCaptionLanguage) =>
-      if videoIds.exists(_ == inputVideoId) && captionLanguage == inputCaptionLanguage && tempDir.toString == captionFolderPath
-      then IO.pure(Some(tempDir))
+      if videoIds.exists(
+        _ == inputVideoId
+      ) && captionLanguage == inputCaptionLanguage && tempDir.toString == captionFolderPath
+      then IO.unit
       else
         IO.raiseError(
           Throwable(

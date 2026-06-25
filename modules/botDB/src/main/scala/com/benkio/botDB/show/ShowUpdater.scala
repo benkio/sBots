@@ -1,5 +1,6 @@
 package com.benkio.botDB.show
 
+import cats.effect.implicits.*
 import cats.effect.kernel.Async
 import cats.effect.Resource
 import cats.implicits.*
@@ -118,13 +119,11 @@ object ShowUpdater {
         youTubeBotdbShowDatas: List[YouTubeBotDBShowDatas]
     ): F[Unit] = {
       youTubeBotdbShowDatas
-        .traverse_ { case YouTubeBotDBShowDatas(_, _, captionFolderPath, _, dbShowDatas) =>
-          dbShowDatas.traverse_(show => {
-
-            val captionFilePath: Path = Path.of(captionFolderPath, s"${show.show_id}.srt")
+        .traverse_ { youTubeBotDbShowData =>
+          youTubeBotDbShowData.dbShowDatas.traverse_(show => {
             for {
               _            <- LogWriter.info(s"[ShowUpdater] Fetch Caption for ${show.show_title}")
-              maybeCaption <- captionParser.parsePlainCaptionSrt(captionFilePath)
+              maybeCaption <- captionParser.parsePlainCaptionSrt(youTubeBotDbShowData.captionFilePath(show))
               showWithCaption = show.copy(show_origin_automatic_caption = maybeCaption)
               _ <- LogWriter.info(s"[ShowUpdater] ✓💾 ${showWithCaption.show_title}")
               _ <- dbLayer.dbShow.insertShow(showWithCaption)
@@ -306,14 +305,11 @@ object ShowUpdater {
     private[show] def saveAndFetchCaption(
         youTubeBotDBShowDatas: YouTubeBotDBShowDatas
     ): F[Unit] = for {
-      _ <- LogWriter.info("[ShowUpdater] Getting Caption Folder")
-      captionFolderPath = Path.of(youTubeBotDBShowDatas.captionFolderPath)
       _ <- LogWriter.info("[ShowUpdater] 🚀 Start fetching and saving captions")
-      _ <- youTubeBotDBShowDatas.dbShowDatas.traverse(
+      _ <- youTubeBotDBShowDatas.dbShowDatas.parTraverse(
         saveAndFetchCaptionDbShowData(
           _,
-          captionFolderPath = captionFolderPath,
-          captionLanguage = youTubeBotDBShowDatas.captionLanguage
+          youTubeBotDBShowDatas = youTubeBotDBShowDatas
         )
       )
       _ <- LogWriter.info("[ShowUpdater] 🏁 Finish saving captions")
@@ -321,15 +317,19 @@ object ShowUpdater {
 
     private[show] def saveAndFetchCaptionDbShowData(
         dbShowData: DBShowData,
-        captionFolderPath: Path,
-        captionLanguage: String
+        youTubeBotDBShowDatas: YouTubeBotDBShowDatas
     ): F[Unit] = for {
-      _ <- LogWriter.info("[ShowUpdater] 💾 Saving caption for ${dbShowData.show_id}")
-      _ <- youTubeService.saveCaption(
-        videoId = dbShowData.show_id,
-        captionFolderPath = captionFolderPath,
-        captionLanguage = captionLanguage
-      )
+      _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Check caption file existance")
+      captionFolderPath = youTubeBotDBShowDatas.captionFilePath(dbShowData)
+      exists <- Async[F].delay(Files.exists(captionFolderPath))
+      _      <-
+        if !exists then LogWriter
+          .info(s"[ShowUpdater - ${dbShowData.show_id}] 💾 Saving caption") >> youTubeService.saveCaption(
+          videoId = dbShowData.show_id,
+          captionFolderPath = Path.of(youTubeBotDBShowDatas.captionFolderPath),
+          captionLanguage = youTubeBotDBShowDatas.captionLanguage
+        )
+        else LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Caption already exists")
     } yield ()
   }
 }
