@@ -115,7 +115,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
         "target",
         "ytdlpCaptions"
       ).forall(tempDir.toString.contains)
-      then IO.unit
+      then IO.pure(tempDir)
       else
         IO.raiseError(
           Throwable(

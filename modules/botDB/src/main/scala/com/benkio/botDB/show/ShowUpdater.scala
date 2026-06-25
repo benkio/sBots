@@ -285,12 +285,35 @@ object ShowUpdater {
     private[show] def saveAndFetchCaptions(
         youTubeBotDBShowDatass: List[YouTubeBotDBShowDatas],
         dependencies: List[String] = shellDependencies
-    ): F[List[YouTubeBotDBShowDatas]] = {
-      LogWriter.info(s"[ShowUpdater] Check Dependencies: ${shellDependencies.mkString}") >>
-        checkDependencies(dependencies) >>
-      LogWriter.info("[ShowUpdater] Start fetching captions") >>
+    ): F[List[YouTubeBotDBShowDatas]] = for {
+      _ <- LogWriter.info(s"[ShowUpdater] Check Dependencies: ${shellDependencies.mkString}")
+      _ <- checkDependencies(dependencies)
+      youtubeBotShowDatasWithCaptions <- youTubeBotDBShowDatass.traverse(saveAndFetchCaption)
+    } yield youtubeBotShowDatasWithCaptions
+
+    private[show] def saveAndFetchCaption(
+        youTubeBotDBShowDatas: YouTubeBotDBShowDatas
+    ): F[YouTubeBotDBShowDatas] = for {
+      _ <- LogWriter.info("[ShowUpdater] Getting Caption Folder")
+      captionFolder = Path.of(youTubeBotDBShowDatas.captionFolderPath)
+      _ <- LogWriter.info("[ShowUpdater] 🚀 Start fetching and saving captions")
+      dbShowDatas <- youTubeBotDBShowDatas.dbShowDatas.traverse(
+        saveAndFetchCaptionDbShowData(
+          _,
+          captionFolder = captionFolder,
+          captionLanguage = youTubeBotDBShowDatas.captionLanguage
+        )
+      )
+      _ <- LogWriter.info("[ShowUpdater] 🏁 Finish saving captions")
       // TODO: implement: save caption to folder. parse the result file. add it to the input youtubeBotDBShowData. return them
-      Async[F].pure(youTubeBotDBShowDatass)
-    }
+    } yield youTubeBotDBShowDatas.copy(dbShowDatas = dbShowDatas)
+
+    private[show] def saveAndFetchCaptionDbShowData(
+        dbShowData: DBShowData,
+        captionFolder: Path,
+        captionLanguage: String
+    ): F[DBShowData] =
+      // _ <- youTubeService.saveCaption(videoId = ???, captionFolderPath = captionFolder, captionLanguage = youTubeBotDBShowDatas.captionLanguage)
+      ???
   }
 }
