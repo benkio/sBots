@@ -210,7 +210,9 @@ object ShowUpdater {
         showFilesResource.use(showFiles =>
           for {
             _ <- LogWriter.info(s"[ShowUpdater] ✓ Dry Run. Delete show files: ${showFiles.map(_.file)}")
-            _ <- showFiles.traverse_(showFile => Async[F].delay(Files.delete(showFile.file))).handleErrorWith(e => LogWriter.error(s"[ShowUpdater] 🚫 Error in delete file: ${e.getMessage()}"))
+            _ <- showFiles
+              .traverse_(showFile => Async[F].delay(Files.delete(showFile.file)))
+              .handleErrorWith(e => LogWriter.error(s"[ShowUpdater] 🚫 Error in delete file: ${e.getMessage()}"))
           } yield List.empty
         )
       val getStoredDbShowDatas: F[List[YouTubeBotDBShowDatas]] =
