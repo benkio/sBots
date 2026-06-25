@@ -1,46 +1,44 @@
 package com.benkio.botDB.show
 
+import cats.effect.kernel.Async
+import cats.syntax.all.*
+import log.effect.LogWriter
+
+import java.nio.file.Files
 import java.nio.file.Path
+import scala.jdk.CollectionConverters.*
 
 trait CaptionParser[F[_]] {
   def parsePlainCaptionSrt(captionPath: Path): F[Option[String]]
 }
 
 object CaptionParser {
-  def apply[F[_]](): CaptionParser[F] = CaptionParserImpl[F]()
+  def apply[F[_]: Async: LogWriter](): CaptionParser[F] = CaptionParserImpl[F]()
 
-  class CaptionParserImpl[F[_]]() extends CaptionParser[F] {
-    def parsePlainCaptionSrt(captionPath: Path): F[Option[String]] = {
-      // TODO: Fetch the srt file. parse it. return the caption
+  class CaptionParserImpl[F[_]: Async: LogWriter]() extends CaptionParser[F] {
+    private val timestampPattern =
+      """^\d{2}:\d{2}:\d{2},\d{3}\s+-->\s+\d{2}:\d{2}:\d{2},\d{3}.*$""".r
 
-      /*
-        captionFile <- Async[F].delay(captionFolderPath.resolve(s"${videoId}.$captionLanguage.srt"))
-        _           <- LogWriter.info(
-          s"[ShowUpdater] ${videoId} - $captionLanguage: Parse result file: $captionFile"
-        )
-        captionFileContent <- Async[F].fromTry(
-          Try(
-            Files
-              .readAllLines(captionFile)
-              .asScala
-              .mkString("\n")
-          )
-        )
-        captionJson <- Async[F].fromEither(parse(captionFileContent))
-        caption = captionJson.findAllByKey("utf8").map(_.as[String]).collect { case Right(value) => value }.mkString
-        _ <- LogWriter.info(
-          s"[ShowUpdater] ${videoId} - $captionLanguage: caption length ${caption.length}"
-        )
-      } yield Some(caption.replace("\n", " "))
-      captionDownloadLogic
-        .handleErrorWith(e =>
-          LogWriter.error(
-            s"[ShowUpdater] ❌ ${videoId} - $captionLanguage Downloading Caption: $e"
-          ) >> Async[F]
-            .pure(None)
-        )
-       */
-      ???
-    }
+    def parsePlainCaptionSrt(captionPath: Path): F[Option[String]] =
+      (for {
+        _      <- LogWriter.info(s"[CaptionParser] Parse caption file $captionPath")
+        exists <- Async[F].delay(Files.exists(captionPath))
+        result <-
+          if !exists then Async[F].pure(None)
+          else
+            for {
+              lines <- Async[F].delay(Files.readAllLines(captionPath).asScala.toList)
+              _     <- LogWriter.info(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
+              content = lines
+                .map(_.trim)
+                .filter(_.nonEmpty)
+                .filterNot(line => line.forall(_.isDigit) || timestampPattern.matches(line))
+                .mkString(" ")
+              _ <- LogWriter.info(s"[CaptionParser] Parsed caption length ${content.length}")
+            } yield Some(content)
+      } yield result).handleErrorWith(e =>
+        LogWriter.error(s"[CaptionParser] ❌ Error parsing caption file $captionPath: $e") >>
+          Async[F].pure(None)
+      )
   }
 }
